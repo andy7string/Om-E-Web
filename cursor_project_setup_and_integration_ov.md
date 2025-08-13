@@ -270,7 +270,7 @@ Let me update the environment file to use OpenAI as the default and configure it
 
 **User**
 
-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
+sk-proj-***REDACTED***
 
 ---
 
