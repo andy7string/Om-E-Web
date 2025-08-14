@@ -89,6 +89,39 @@ class DefaultActionWatchdog(BaseWatchdog):
 			pass
 		return page.locator(selector)
 
+	async def _pw_element_is_occluded(self, loc) -> bool:
+		"""Return True if element is covered by another element at its center point."""
+		try:
+			return await loc.evaluate(
+				"el => {\n"
+				"  const r = el.getBoundingClientRect();\n"
+				"  const cx = r.left + r.width/2;\n"
+				"  const cy = r.top + r.height/2;\n"
+				"  const e = document.elementFromPoint(cx, cy);\n"
+				"  return !!(e && e !== el && !el.contains(e));\n"
+				"}"
+			)
+		except Exception:
+			return False
+
+	async def _pw_nudge_scroll_to_uncover(self, page, loc) -> None:
+		"""Small scroll nudges to try uncovering the element."""
+		try:
+			# Attempt small vertical then horizontal nudges
+			for dx, dy in [(0, -40), (0, 40), (-40, 0), (40, 0)]:
+				try:
+					await page.mouse.wheel(dx, dy)
+					await asyncio.sleep(0.05)
+				except Exception:
+					pass
+				try:
+					if not await self._pw_element_is_occluded(loc):
+						return
+				except Exception:
+					pass
+		except Exception:
+			return
+
 	async def on_ClickElementEvent(self, event: ClickElementEvent) -> None:
 		"""Handle click request with CDP."""
 		try:
@@ -111,14 +144,31 @@ class DefaultActionWatchdog(BaseWatchdog):
 						await loc.scroll_into_view_if_needed()
 					except Exception:
 						pass
-					await loc.click()
-					self.logger.info(f'🖱️ (PW) Clicked using selector {selector}')
-					# Clear caches after action
-					self.browser_session._cached_browser_state_summary = None
-					self.browser_session._cached_selector_map.clear()
-					if self.browser_session._dom_watchdog:
-						self.browser_session._dom_watchdog.clear_cache()
-					return None
+					# Occlusion-aware check and nudge
+					try:
+						if await self._pw_element_is_occluded(loc):
+							await self._pw_nudge_scroll_to_uncover(page, loc)
+						# Recheck after nudges
+						if await self._pw_element_is_occluded(loc):
+							# JS click fallback if still occluded
+							clicked = await loc.evaluate(
+								"el => { try { el.click(); return true; } catch(_) { return false; } }"
+							)
+							if clicked:
+								self.logger.info(f"🖱️ (PW-JS) Clicked occluded selector {selector}")
+								return None
+						# Not occluded, perform normal click
+						await loc.click()
+						self.logger.info(f'🖱️ (PW) Clicked using selector {selector}')
+						# Clear caches after action
+						self.browser_session._cached_browser_state_summary = None
+						self.browser_session._cached_selector_map.clear()
+						if self.browser_session._dom_watchdog:
+							self.browser_session._dom_watchdog.clear_cache()
+						return None
+					except Exception:
+						# Fall through to CDP path
+						pass
 			except Exception as exc:
 				# Fall back to CDP path below
 				self.logger.debug(f"PW click failed for derived selector; falling back to CDP. error={type(exc).__name__}: {exc}")
