@@ -40,8 +40,13 @@ class DefaultActionWatchdog(BaseWatchdog):
 				self.logger.error(f'⚠️ {error_msg}')
 				raise BrowserError(error_msg)
 
-			# Use the provided node
+			# Use the provided node; resolve if missing critical identifiers
 			element_node = event.node
+			if element_node is None or not getattr(element_node, 'backend_node_id', None):
+				resolved = await self._resolve_node_fallback(event.node)
+				if resolved is None:
+					raise BrowserError('Cannot resolve element to click: no usable node or selector available')
+				element_node = resolved
 			index_for_logging = element_node.element_index or 'unknown'
 
 			# Track initial number of tabs to detect new tab opening
@@ -103,26 +108,24 @@ class DefaultActionWatchdog(BaseWatchdog):
 	async def on_TypeTextEvent(self, event: TypeTextEvent) -> None:
 		"""Handle text input request with CDP."""
 		try:
-			# Use the provided node
+			# Use the provided node; resolve if missing critical identifiers
 			element_node = event.node
+			if element_node is None or not getattr(element_node, 'backend_node_id', None):
+				resolved = await self._resolve_node_fallback(event.node)
+				if resolved is None:
+					raise BrowserError('Cannot resolve element to type into: no usable node or selector available')
+				element_node = resolved
 			index_for_logging = element_node.element_index or 'unknown'
 
-			# Check if this is index 0 or a falsy index - type to the page (whatever has focus)
-			if not element_node.element_index or element_node.element_index == 0:
-				# Type to the page without focusing any specific element
+			# Always try element-targeted typing first; fall back to page typing on failure
+			try:
+				await self._input_text_element_node_impl(element_node, event.text, event.clear_existing)
+				self.logger.info(f'⌨️ Typed "{event.text}" into element with index {index_for_logging}')
+				self.logger.debug(f'Element xpath: {element_node.xpath}')
+			except Exception as e:
+				self.logger.warning(f'Failed to type to element {index_for_logging}: {e}. Falling back to page typing.')
 				await self._type_to_page(event.text)
-				self.logger.info(f'⌨️ Typed "{event.text}" to the page (current focus)')
-			else:
-				try:
-					# Try to type to the specific element
-					await self._input_text_element_node_impl(element_node, event.text, event.clear_existing)
-					self.logger.info(f'⌨️ Typed "{event.text}" into element with index {index_for_logging}')
-					self.logger.debug(f'Element xpath: {element_node.xpath}')
-				except Exception as e:
-					# Element not found or error - fall back to typing to the page
-					self.logger.warning(f'Failed to type to element {index_for_logging}: {e}. Falling back to page typing.')
-					await self._type_to_page(event.text)
-					self.logger.info(f'⌨️ Typed "{event.text}" to the page as fallback')
+				self.logger.info(f'⌨️ Typed "{event.text}" to the page as fallback')
 
 			# Clear cached state after type action since DOM might have changed
 			self.logger.debug('🔄 Type action completed, clearing cached browser state')
@@ -180,6 +183,50 @@ class DefaultActionWatchdog(BaseWatchdog):
 			raise
 
 	# ========== Implementation Methods ==========
+
+	async def _resolve_node_fallback(self, node) -> Any | None:
+		"""Resolve a usable node when the incoming node is missing identifiers.
+
+		Resolution order:
+		1) If node has element_index -> consult cached selector map
+		2) If node has id attribute -> CSS by #id
+		3) If node has name attribute -> [name="..."]
+		4) If node has tag and type -> tag[type="..."] (best-effort)
+
+		Returns a node compatible with downstream CDP operations or None.
+		"""
+		try:
+			# 1) Try selector map by element_index
+			idx = getattr(node, 'element_index', None) if node is not None else None
+			if idx is not None:
+				cached = await self.browser_session.get_dom_element_by_index(idx)
+				if cached and getattr(cached, 'backend_node_id', None):
+					return cached
+
+			# Prepare selector candidates from attributes
+			attrs = getattr(node, 'attributes', {}) if node is not None else {}
+			selector_candidates = []
+			el_id = attrs.get('id') if isinstance(attrs, dict) else None
+			if el_id:
+				selector_candidates.append(f"#{el_id}")
+			el_name = attrs.get('name') if isinstance(attrs, dict) else None
+			if el_name:
+				selector_candidates.append(f"[name='{el_name}']")
+			# tag + type
+			tag = getattr(node, 'tag_name', None) or getattr(node, 'node_name', None)
+			el_type = attrs.get('type') if isinstance(attrs, dict) else None
+			if tag and el_type:
+				selector_candidates.append(f"{str(tag).lower()}[type='{el_type}']")
+
+			for sel in selector_candidates:
+				resolved = await self.browser_session.build_node_from_selector(sel)
+				if resolved and getattr(resolved, 'backend_node_id', None):
+					return resolved
+		except Exception as e:
+			self.logger.debug(f'Fallback node resolution failed: {e}')
+			return None
+
+		return None
 
 	async def _click_element_node_impl(self, element_node, new_tab: bool = False) -> str | None:
 		"""
@@ -607,7 +654,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 
 	async def _input_text_element_node_impl(self, element_node, text: str, clear_existing: bool = True):
 		"""
-		Input text into an element using pure CDP with improved focus fallbacks.
+		Input text into an element using pure CDP with improved focus fallbacks and direct value set.
 		"""
 
 		try:
@@ -660,7 +707,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 			if clear_existing:
 				await cdp_session.cdp_client.send.Runtime.callFunctionOn(
 					params={
-						'functionDeclaration': 'function() { if (this.value !== undefined) this.value = ""; if (this.textContent !== undefined) this.textContent = ""; }',
+						'functionDeclaration': 'function() { if (this instanceof HTMLInputElement || this instanceof HTMLTextAreaElement) { this.focus(); this.select && this.select(); this.value = ""; } else if (this.textContent !== undefined) { this.textContent = ""; } }',
 						'objectId': object_id,
 					},
 					session_id=cdp_session.session_id,
@@ -747,35 +794,16 @@ class DefaultActionWatchdog(BaseWatchdog):
 			if not focused_successfully:
 				self.logger.warning('⚠️ All focus strategies failed, typing without explicit focus')
 
-			# Type the text character by character
-			for char in text:
-				# Send keydown (without text to avoid duplication)
-				await cdp_session.cdp_client.send.Input.dispatchKeyEvent(
-					params={
-						'type': 'keyDown',
-						'key': char,
-					},
-					session_id=cdp_session.session_id,
-				)
-				# Send char (for actual text input)
-				await cdp_session.cdp_client.send.Input.dispatchKeyEvent(
-					params={
-						'type': 'char',
-						'text': char,
-						'key': char,
-					},
-					session_id=cdp_session.session_id,
-				)
-				# Send keyup (without text to avoid duplication)
-				await cdp_session.cdp_client.send.Input.dispatchKeyEvent(
-					params={
-						'type': 'keyUp',
-						'key': char,
-					},
-					session_id=cdp_session.session_id,
-				)
-				# Small delay between characters
-				await asyncio.sleep(0.05)
+			# Prefer setting the value directly via JS for reliability, then dispatch input/change events
+			await cdp_session.cdp_client.send.Runtime.callFunctionOn(
+				params={
+					'functionDeclaration': 'function(v) { if (this instanceof HTMLInputElement || this instanceof HTMLTextAreaElement) { this.focus(); this.value = v; this.dispatchEvent(new Event("input", {bubbles:true})); this.dispatchEvent(new Event("change", {bubbles:true})); } else { this.textContent = v; } }',
+					'objectId': object_id,
+					'arguments': [{'value': text}],
+					'returnByValue': True,
+				},
+				session_id=cdp_session.session_id,
+			)
 
 		except Exception as e:
 			self.logger.error(f'Failed to input text via CDP: {type(e).__name__}: {e}')

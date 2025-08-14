@@ -1721,6 +1721,55 @@ class BrowserSession(BaseModel):
 		assert self.agent_focus is not None, 'No active CDP session'
 		return self.agent_focus
 
+	async def build_node_from_selector(self, selector: str) -> EnhancedDOMTreeNode | None:
+		"""Build an EnhancedDOMTreeNode from a CSS selector using live CDP.
+
+		Used as a fallback when a full node is not available from cached DOM.
+		Returns None if not found.
+		"""
+		try:
+			cdp = await self.get_or_create_cdp_session()
+			# Ensure DOM domain enabled
+			await cdp.cdp_client.send.DOM.enable(session_id=cdp.session_id)
+			# Query in the current document
+			doc = await cdp.cdp_client.send.DOM.getDocument(params={"depth": -1, "pierce": True}, session_id=cdp.session_id)
+			qs = await cdp.cdp_client.send.DOM.querySelector(
+				params={"nodeId": doc["root"]["nodeId"], "selector": selector}, session_id=cdp.session_id
+			)
+			node_id = qs.get("nodeId")
+			if not node_id:
+				return None
+			desc = await cdp.cdp_client.send.DOM.describeNode(params={"nodeId": node_id}, session_id=cdp.session_id)
+			n = desc.get("node", {})
+			backend_id = n.get("backendNodeId")
+			node_name = (n.get("nodeName") or "").lower() or "div"
+			node_value = (n.get("nodeValue") or "")
+			attrs_list = n.get("attributes") or []
+			attrs = {attrs_list[i]: attrs_list[i + 1] for i in range(0, len(attrs_list), 2)} if attrs_list else {}
+			return EnhancedDOMTreeNode(
+				node_id=node_id,
+				backend_node_id=backend_id,
+				node_type=1,  # NodeType.ELEMENT_NODE
+				node_name=node_name,
+				node_value=node_value,
+				attributes=attrs,
+				is_scrollable=None,
+				is_visible=None,
+				absolute_position=None,
+				session_id=cdp.session_id,
+				target_id=cdp.target_id,
+				frame_id=None,
+				content_document=None,
+				shadow_root_type=None,
+				shadow_roots=None,
+				parent_node=None,
+				children_nodes=None,
+				ax_node=None,
+				snapshot_node=None,
+			)
+		except Exception:
+			return None
+
 
 # Fix Pydantic circular dependency for all watchdogs
 # This must be called after BrowserSession class is fully defined

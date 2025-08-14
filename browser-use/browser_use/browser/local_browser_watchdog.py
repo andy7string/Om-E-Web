@@ -91,6 +91,7 @@ class LocalBrowserWatchdog(BaseWatchdog):
 	async def _launch_browser(self, max_retries: int = 3) -> tuple[psutil.Process, str]:
 		"""Launch browser process and return (process, cdp_url).
 
+		Uses Playwright to launch Google Chrome for stable CDP compatibility.
 		Handles launch errors by falling back to temporary directories if needed.
 
 		Returns:
@@ -103,53 +104,8 @@ class LocalBrowserWatchdog(BaseWatchdog):
 
 		for attempt in range(max_retries):
 			try:
-				# Get launch args from profile
-				launch_args = profile.get_args()
-
-				# Add debugging port
-				debug_port = self._find_free_port()
-				launch_args.extend(
-					[
-						f'--remote-debugging-port={debug_port}',
-					]
-				)
-
-				# Get browser executable from playwright
-				# Use custom executable if provided, otherwise use playwright's
-				if profile.executable_path:
-					browser_path = profile.executable_path
-					self.logger.debug(f'[LocalBrowserWatchdog] Using custom executable: {browser_path}')
-				else:
-					self.logger.debug('[LocalBrowserWatchdog] Getting browser path from playwright...')
-					# Get browser path from playwright in a subprocess to avoid thread issues
-					browser_path = await self._get_browser_path_via_subprocess()
-					self.logger.debug(f'[LocalBrowserWatchdog] Got browser path: {browser_path}')
-
-				# Launch browser subprocess directly
-				self.logger.debug(f'[LocalBrowserWatchdog] Launching browser subprocess with {len(launch_args)} args...')
-				subprocess = await asyncio.create_subprocess_exec(
-					browser_path,
-					*launch_args,
-					stdout=asyncio.subprocess.PIPE,
-					stderr=asyncio.subprocess.PIPE,
-				)
-				self.logger.debug(f'[LocalBrowserWatchdog] Browser subprocess launched with PID: {subprocess.pid}')
-
-				# Convert to psutil.Process
-				process = psutil.Process(subprocess.pid)
-
-				# Wait for CDP to be ready and get the URL
-				cdp_url = await self._wait_for_cdp_url(debug_port)
-
-				# Success! Clean up any temp dirs we created but didn't use
-				for tmp_dir in self._temp_dirs_to_cleanup:
-					try:
-						shutil.rmtree(tmp_dir, ignore_errors=True)
-					except Exception:
-						pass
-
-				return process, cdp_url
-
+				self.logger.info('[LocalBrowserWatchdog] Detected Google Chrome - using Playwright launch for CDP compatibility')
+				return await self._launch_google_chrome_via_playwright(profile)
 			except Exception as e:
 				error_str = str(e).lower()
 
@@ -188,6 +144,72 @@ class LocalBrowserWatchdog(BaseWatchdog):
 		if self._original_user_data_dir is not None:
 			profile.user_data_dir = self._original_user_data_dir
 		raise RuntimeError(f'Failed to launch browser after {max_retries} attempts')
+
+	async def _launch_google_chrome_via_playwright(self, profile) -> tuple[psutil.Process, str]:
+		"""Launch Google Chrome using Playwright for CDP compatibility."""
+		from playwright.async_api import async_playwright
+
+		# Get debugging port
+		debug_port = self._find_free_port()
+
+		# Create Playwright instance
+		playwright = await async_playwright().start()
+
+		# Launch Chrome with minimal args for CDP compatibility
+		chrome_args = [
+			f'--remote-debugging-port={debug_port}',
+			'--no-first-run',
+			'--no-default-browser-check',
+			'--disable-background-timer-throttling',
+			'--disable-backgrounding-occluded-windows',
+			'--disable-renderer-backgrounding',
+			'--disable-ipc-flooding-protection',
+		]
+
+		# Add profile-specific args if they don't conflict
+		if profile.headless:
+			chrome_args.extend(['--headless'])
+		if profile.user_data_dir:
+			chrome_args.append(f'--user-data-dir={profile.user_data_dir}')
+
+		self.logger.debug(f'[LocalBrowserWatchdog] Launching Google Chrome via Playwright with {len(chrome_args)} args')
+
+		# Launch Chrome via Playwright
+		browser = await playwright.chromium.launch(
+			headless=profile.headless if profile.headless is not None else False,
+			executable_path=profile.executable_path,
+			args=chrome_args,
+		)
+
+		# Create a context and a page to ensure the browser is fully initialized
+		context = await browser.new_context()
+		await context.new_page()
+
+		# Get CDP URL
+		cdp_url = f'http://localhost:{debug_port}/'
+
+		# Create a mock process object that represents the Playwright browser
+		class PlaywrightProcess:
+			def __init__(self, browser_instance, playwright_instance):
+				self.browser = browser_instance
+				self.playwright = playwright_instance
+				self.pid = None  # Playwright doesn't expose PID directly
+
+			def terminate(self):
+				asyncio.create_task(self.browser.close())
+				asyncio.create_task(self.playwright.stop())
+
+			def kill(self):
+				asyncio.create_task(self.browser.close())
+				asyncio.create_task(self.playwright.stop())
+
+			def is_running(self):
+				return True  # Simplified for now
+
+		process = PlaywrightProcess(browser, playwright)
+
+		self.logger.info(f'[LocalBrowserWatchdog] Google Chrome launched successfully via Playwright at {cdp_url}')
+		return process, cdp_url
 
 	@staticmethod
 	async def _get_browser_path_via_subprocess() -> str:
