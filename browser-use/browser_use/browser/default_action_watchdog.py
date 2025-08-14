@@ -349,7 +349,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 			if event.value is not None:
 				await cdp_session.cdp_client.send.Runtime.callFunctionOn(
 					params={
-						'functionDeclaration': "function(v){ const vs = Array.isArray(v)?v:[v]; const set=new Set(vs); for(const o of this.options){ o.selected = set.has(o.value);} this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
+						'functionDeclaration': "function(v){ const vs = Array.isArray(v)?v:[v]; const set=new Set(vs); if (!this.multiple){ const first = vs.length?vs[0]:null; for(const o of this.options){ o.selected = (first!==null && o.value===String(first)); } } else { for(const o of this.options){ o.selected = set.has(o.value); } } this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
 						'objectId': obj_id,
 						'arguments': [{'value': event.value}],
 					},
@@ -358,7 +358,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 			elif event.label is not None:
 				await cdp_session.cdp_client.send.Runtime.callFunctionOn(
 					params={
-						'functionDeclaration': "function(lbl){ const ls = Array.isArray(lbl)?lbl:[lbl]; for(const o of this.options){ o.selected = ls.includes(o.label);} this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
+						'functionDeclaration': "function(lbl){ const ls = Array.isArray(lbl)?lbl:[lbl]; if (!this.multiple){ const first = ls.length?ls[0]:null; for(const o of this.options){ o.selected = (first!==null && o.label===String(first)); } } else { for(const o of this.options){ o.selected = ls.includes(o.label); } } this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
 						'objectId': obj_id,
 						'arguments': [{'value': event.label}],
 					},
@@ -367,7 +367,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 			elif event.index is not None:
 				await cdp_session.cdp_client.send.Runtime.callFunctionOn(
 					params={
-						'functionDeclaration': "function(idx){ const is = Array.isArray(idx)?idx:[idx]; for(let i=0;i<this.options.length;i++){ this.options[i].selected = is.includes(i); } this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
+						'functionDeclaration': "function(idx){ const is = Array.isArray(idx)?idx:[idx]; if (!this.multiple){ const first = is.length?is[0]:null; for(let i=0;i<this.options.length;i++){ this.options[i].selected = (first!==null && i===Number(first)); } } else { for(let i=0;i<this.options.length;i++){ this.options[i].selected = is.includes(i); } } this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
 						'objectId': obj_id,
 						'arguments': [{'value': event.index}],
 					},

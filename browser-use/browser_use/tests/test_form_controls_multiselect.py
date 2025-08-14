@@ -29,7 +29,7 @@ TEST_HTML = """
 """
 
 
-@pytest.mark.parametrize("headless", [True])
+@pytest.mark.parametrize("headless", [True, False])
 async def test_multiselect_values(tmp_path, headless):
     chrome_path = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     assert os.path.exists(chrome_path), "Google Chrome not found at expected path"
@@ -56,6 +56,15 @@ async def test_multiselect_values(tmp_path, headless):
         )
         vals = (res.get("result") or {}).get("value") or []
         assert set(vals) == { 'a', 'c' }
+
+        # Deselect to single value
+        await session.event_bus.dispatch(SelectOptionEvent(node=node, value=['b']))
+        await asyncio.sleep(0.2)
+        res = await cdp.cdp_client.send.Runtime.evaluate(
+            params={"expression": "window.getSelected()", "returnByValue": True}, session_id=cdp.session_id
+        )
+        vals = (res.get("result") or {}).get("value") or []
+        assert vals == ['b']
     finally:
         await session.kill()
 
