@@ -245,6 +245,25 @@ class SetCheckedEvent(ElementSelectedEvent[None]):
     event_timeout: float | None = 15.0  # seconds
 
 
+class SetSelectionRangeEvent(ElementSelectedEvent[None]):
+    """Set selection start/end for input/textarea/contenteditable."""
+
+    node: 'EnhancedDOMTreeNode'
+    start: int
+    end: int
+
+    event_timeout: float | None = 15.0  # seconds
+
+
+class InsertTextAtCaretEvent(ElementSelectedEvent[None]):
+    """Insert text at caret for input/textarea/contenteditable (replaces selection)."""
+
+    node: 'EnhancedDOMTreeNode'
+    text: str
+
+    event_timeout: float | None = 15.0  # seconds
+
+
 # ============================================================================
 
 

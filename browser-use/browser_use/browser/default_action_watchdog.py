@@ -15,6 +15,8 @@ from browser_use.browser.events import (
 	SendKeysEvent,
 	TypeTextEvent,
 	SetCheckedEvent,
+	SetSelectionRangeEvent,
+	InsertTextAtCaretEvent,
 	UploadFileEvent,
 	WaitEvent,
 )
@@ -29,6 +31,8 @@ TypeTextEvent.model_rebuild()
 ScrollEvent.model_rebuild()
 SelectOptionEvent.model_rebuild()
 SetCheckedEvent.model_rebuild()
+SetSelectionRangeEvent.model_rebuild()
+InsertTextAtCaretEvent.model_rebuild()
 UploadFileEvent.model_rebuild()
 
 
@@ -267,7 +271,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 					await loc.scroll_into_view_if_needed()
 				except Exception:
 					pass
-				# Decide selection criteria
+				# Decide selection criteria (support multi-select by passing lists)
 				kwargs = {}
 				if event.value is not None:
 					kwargs['value'] = event.value
@@ -313,7 +317,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 			elif event.index is not None:
 				await cdp_session.cdp_client.send.Runtime.callFunctionOn(
 					params={
-						'functionDeclaration': "function(idx){ const is = Array.isArray(idx)?idx:[idx]; for(let i=0;i<this.options.length;i++){ this.options[i].selected = is.includes(i);} this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
+						'functionDeclaration': "function(idx){ const is = Array.isArray(idx)?idx:[idx]; for(let i=0;i<this.options.length;i++){ this.options[i].selected = is.includes(i); } this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
 						'objectId': obj_id,
 						'arguments': [{'value': event.index}],
 					},
@@ -323,6 +327,84 @@ class DefaultActionWatchdog(BaseWatchdog):
 			return None
 		except Exception as e:
 			raise
+
+	async def on_SetSelectionRangeEvent(self, event: SetSelectionRangeEvent) -> None:
+		"""Set selection range for inputs, textareas, or contenteditable elements."""
+		try:
+			selector = self._node_to_best_selector(event.node)
+			if selector:
+				page = await self.browser_session.get_or_create_playwright_page()
+				loc = await self._pw_locator_for_selector(page, selector)
+				try:
+					await loc.scroll_into_view_if_needed()
+				except Exception:
+					pass
+				# Playwright evaluate to set selection
+				await loc.evaluate(
+					"(el, s, e) => { if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) { el.focus(); try { el.setSelectionRange(s,e); } catch(_){} } else if (el.isContentEditable) { const r=document.createRange(); const sel=window.getSelection(); const walker=document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let pos=0, startNode=el, startOffset=0, endNode=el, endOffset=0; while(walker.nextNode()){ const t=walker.currentNode; const next=pos + t.textContent.length; if (startNode===el && s<=next){ startNode=t; startOffset=s-pos; } if (endNode===el && e<=next){ endNode=t; endOffset=e-pos; break; } pos = next; } sel.removeAllRanges(); r.setStart(startNode,startOffset); r.setEnd(endNode,endOffset); sel.addRange(r);} }",
+					event.start,
+					event.end,
+				)
+				self.logger.info(f"✏️ (PW) Set selection range on {selector} to [{event.start},{event.end}]")
+				return None
+		except Exception as exc:
+			self.logger.debug(f"PW set selection failed; falling back to CDP. error={type(exc).__name__}: {exc}")
+		# CDP fallback
+		cdp_session = await self.browser_session.cdp_client_for_node(event.node)
+		resolved = await cdp_session.cdp_client.send.DOM.resolveNode(
+			params={'backendNodeId': event.node.backend_node_id}, session_id=cdp_session.session_id
+		)
+		obj_id = (resolved.get('object') or {}).get('objectId')
+		assert obj_id, 'Failed to resolve node for selection'
+		await cdp_session.cdp_client.send.Runtime.callFunctionOn(
+			params={
+				'functionDeclaration': "function(s,e){ if (this instanceof HTMLInputElement || this instanceof HTMLTextAreaElement) { this.focus(); try { this.setSelectionRange(s,e); } catch(_){} } else if (this.isContentEditable) { const r=document.createRange(); const sel=window.getSelection(); const walker=document.createTreeWalker(this, NodeFilter.SHOW_TEXT); let pos=0, startNode=this, startOffset=0, endNode=this, endOffset=0; while(walker.nextNode()){ const t=walker.currentNode; const next=pos + t.textContent.length; if (startNode===this && s<=next){ startNode=t; startOffset=s-pos; } if (endNode===this && e<=next){ endNode=t; endOffset=e-pos; break; } pos = next; } sel.removeAllRanges(); r.setStart(startNode,startOffset); r.setEnd(endNode,endOffset); sel.addRange(r);} }",
+				'objectId': obj_id,
+				'arguments': [{'value': event.start}, {'value': event.end}],
+				'returnByValue': True,
+			},
+			session_id=cdp_session.session_id,
+		)
+		self.logger.info(f"✏️ (CDP) Set selection range via JS fallback to [{event.start},{event.end}]")
+		return None
+
+	async def on_InsertTextAtCaretEvent(self, event: InsertTextAtCaretEvent) -> None:
+		"""Insert text at the current caret or replace selection for inputs/textarea/contenteditable."""
+		try:
+			selector = self._node_to_best_selector(event.node)
+			if selector:
+				page = await self.browser_session.get_or_create_playwright_page()
+				loc = await self._pw_locator_for_selector(page, selector)
+				try:
+					await loc.scroll_into_view_if_needed()
+				except Exception:
+					pass
+				await loc.evaluate(
+					"(el, v) => { el.focus(); if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) { const {selectionStart:s, selectionEnd:e, value} = el; el.value = value.slice(0, s ?? value.length) + v + value.slice(e ?? value.length); el.dispatchEvent(new Event('input',{bubbles:true})); el.dispatchEvent(new Event('change',{bubbles:true})); } else if (el.isContentEditable) { const sel = window.getSelection(); if (sel.rangeCount>0){ const r = sel.getRangeAt(0); r.deleteContents(); r.insertNode(document.createTextNode(v)); } else { el.textContent += v; } } }",
+					event.text,
+				)
+				self.logger.info(f"📝 (PW) Inserted text at caret on {selector}")
+				return None
+		except Exception as exc:
+			self.logger.debug(f"PW insert text failed; falling back to CDP. error={type(exc).__name__}: {exc}")
+		# CDP fallback
+		cdp_session = await self.browser_session.cdp_client_for_node(event.node)
+		resolved = await cdp_session.cdp_client.send.DOM.resolveNode(
+			params={'backendNodeId': event.node.backend_node_id}, session_id=cdp_session.session_id
+		)
+		obj_id = (resolved.get('object') or {}).get('objectId')
+		assert obj_id, 'Failed to resolve node for insert'
+		await cdp_session.cdp_client.send.Runtime.callFunctionOn(
+			params={
+				'functionDeclaration': "function(v){ this.focus(); if (this instanceof HTMLInputElement || this instanceof HTMLTextAreaElement) { const s=this.selectionStart ?? this.value.length; const e=this.selectionEnd ?? this.value.length; this.value = this.value.slice(0,s)+v+this.value.slice(e); this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); } else if (this.isContentEditable) { const sel = window.getSelection(); if (sel.rangeCount>0){ const r = sel.getRangeAt(0); r.deleteContents(); r.insertNode(document.createTextNode(v)); } else { this.textContent += v; } } }",
+				'objectId': obj_id,
+				'arguments': [{'value': event.text}],
+				'returnByValue': True,
+			},
+			session_id=cdp_session.session_id,
+		)
+		self.logger.info("📝 (CDP) Inserted text at caret via JS fallback")
+		return None
 
 	async def on_SetCheckedEvent(self, event: SetCheckedEvent) -> None:
 		"""Handle setting checked state for checkbox/radio. PW-first with CDP fallback."""
@@ -346,7 +428,17 @@ class DefaultActionWatchdog(BaseWatchdog):
 					except Exception:
 						is_checked = False
 				if is_checked != event.checked:
-					await loc.set_checked(event.checked)
+					try:
+						await loc.set_checked(event.checked)
+					except Exception as _:
+						# Try label-based toggle if direct set_checked fails (hidden/overlayed inputs)
+						label_clicked = await self._pw_click_associated_label(page, event.node)
+						if not label_clicked:
+							# last resort: try clicking the element
+							try:
+								await loc.click()
+							except Exception:
+								pass
 				self.logger.info(f"✅ (PW) Set checked={event.checked} on {selector}")
 				return None
 		except Exception as exc:
@@ -370,6 +462,47 @@ class DefaultActionWatchdog(BaseWatchdog):
 		)
 		self.logger.info(f"✅ (CDP) Set checked={event.checked} via JS fallback")
 		return None
+
+	async def _pw_click_associated_label(self, page, element_node) -> bool:
+		"""Try to click an associated <label> for the given input element.
+
+		Association rules:
+		- label[for=ID] if element has id
+		- wrapping label: label:has(#ID) as a secondary attempt
+		- direct ancestor <label>
+		"""
+		try:
+			attrs = getattr(element_node, 'attributes', {}) or {}
+			el_id = attrs.get('id')
+			if el_id:
+				# 1) Explicit for attribute
+				lbl = page.locator(f"label[for='{el_id}']")
+				if await lbl.count() > 0:
+					try:
+						await lbl.first.scroll_into_view_if_needed()
+					except Exception:
+						pass
+					await lbl.first.click()
+					return True
+
+				# 2) Wrapping label via :has()
+				try:
+					wrp = page.locator(f"label:has(#{el_id})")
+					if await wrp.count() > 0:
+						await wrp.first.click()
+						return True
+				except Exception:
+					pass
+
+			# 3) Ancestor label via JS
+			try:
+				loc = await self._pw_locator_for_selector(page, f"#{el_id}" if el_id else self._node_to_best_selector(element_node) or "")
+				await loc.evaluate("el => { const lbl = el.closest('label'); if (lbl) lbl.click();}")
+				return True
+			except Exception:
+				return False
+		except Exception:
+			return False
 
 	async def on_ScrollEvent(self, event: ScrollEvent) -> None:
 		"""Handle scroll request with CDP."""
