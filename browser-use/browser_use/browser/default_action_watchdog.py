@@ -413,34 +413,64 @@ class DefaultActionWatchdog(BaseWatchdog):
 			if selector:
 				page = await self.browser_session.get_or_create_playwright_page()
 				loc = await self._pw_locator_for_selector(page, selector)
+				# Determine visibility without forcing scroll on hidden elements
+				is_visible = False
 				try:
-					await loc.scroll_into_view_if_needed()
+					is_visible = await loc.evaluate(
+						"el => { const cs=getComputedStyle(el); const r=el.getBoundingClientRect(); return cs.visibility!=='hidden' && cs.display!=='none' && r.width>0 && r.height>0; }"
+					)
+				except Exception:
+					is_visible = False
+
+				# Current state
+				try:
+					current = await loc.evaluate("el => !!el.checked")
+				except Exception:
+					current = False
+				if current == event.checked:
+					self.logger.info(f"✅ (PW) Already checked={event.checked} on {selector}")
+					return None
+
+				# If visible, try native set_checked path first
+				if is_visible:
+					try:
+						try:
+							await loc.scroll_into_view_if_needed()
+						except Exception:
+							pass
+						await loc.set_checked(event.checked)
+						self.logger.info(f"✅ (PW) Set checked={event.checked} on {selector}")
+						return None
+					except Exception:
+						# fall through to label/js
+						pass
+
+				# If hidden or native path failed, try label click first
+				label_clicked = await self._pw_click_associated_label(page, event.node)
+				if label_clicked:
+					# Verify state
+					try:
+						after = await loc.evaluate("el => !!el.checked")
+						if after == event.checked:
+							self.logger.info(f"✅ (PW) Toggled via label to checked={event.checked} for {selector}")
+							return None
+					except Exception:
+						pass
+
+				# Last resort: set via JS directly
+				try:
+					await loc.evaluate(
+						"(el, v) => { if (el instanceof HTMLInputElement && (el.type==='checkbox' || el.type==='radio')) { el.checked = !!v; el.dispatchEvent(new Event('input',{bubbles:true})); el.dispatchEvent(new Event('change',{bubbles:true})); } }",
+						event.checked,
+					)
+					self.logger.info(f"✅ (PW) Set checked via JS evaluate to {event.checked} on {selector}")
+					return None
 				except Exception:
 					pass
-				# If already in desired state, do nothing
-				is_checked = False
-				try:
-					is_checked = await loc.is_checked()
-				except Exception:
-					# not an input? try attribute
-					try:
-						is_checked = await loc.evaluate("el => !!el.checked")
-					except Exception:
-						is_checked = False
-				if is_checked != event.checked:
-					try:
-						await loc.set_checked(event.checked)
-					except Exception as _:
-						# Try label-based toggle if direct set_checked fails (hidden/overlayed inputs)
-						label_clicked = await self._pw_click_associated_label(page, event.node)
-						if not label_clicked:
-							# last resort: try clicking the element
-							try:
-								await loc.click()
-							except Exception:
-								pass
-				self.logger.info(f"✅ (PW) Set checked={event.checked} on {selector}")
-				return None
+
+				self.logger.info(f"⚠️ (PW) Unable to set checked={event.checked} on {selector}; will try CDP fallback")
+				# Fall through to CDP path
+				pass
 		except Exception as exc:
 			self.logger.debug(f"PW set_checked failed; falling back to CDP. error={type(exc).__name__}: {exc}")
 
@@ -466,41 +496,28 @@ class DefaultActionWatchdog(BaseWatchdog):
 	async def _pw_click_associated_label(self, page, element_node) -> bool:
 		"""Try to click an associated <label> for the given input element.
 
-		Association rules:
-		- label[for=ID] if element has id
-		- wrapping label: label:has(#ID) as a secondary attempt
-		- direct ancestor <label>
+		Scopes the search within the element's root (document or shadow root, or iframe document).
 		"""
 		try:
-			attrs = getattr(element_node, 'attributes', {}) or {}
-			el_id = attrs.get('id')
-			if el_id:
-				# 1) Explicit for attribute
-				lbl = page.locator(f"label[for='{el_id}']")
-				if await lbl.count() > 0:
-					try:
-						await lbl.first.scroll_into_view_if_needed()
-					except Exception:
-						pass
-					await lbl.first.click()
-					return True
-
-				# 2) Wrapping label via :has()
-				try:
-					wrp = page.locator(f"label:has(#{el_id})")
-					if await wrp.count() > 0:
-						await wrp.first.click()
-						return True
-				except Exception:
-					pass
-
-			# 3) Ancestor label via JS
-			try:
-				loc = await self._pw_locator_for_selector(page, f"#{el_id}" if el_id else self._node_to_best_selector(element_node) or "")
-				await loc.evaluate("el => { const lbl = el.closest('label'); if (lbl) lbl.click();}")
-				return True
-			except Exception:
+			selector = self._node_to_best_selector(element_node)
+			if not selector:
 				return False
+			loc = await self._pw_locator_for_selector(page, selector)
+			js = (
+				'el => {\n'
+				'  const root = el.getRootNode();\n'
+				'  const id = el.id;\n'
+				'  let lbl = null;\n'
+				'  if (id) lbl = root.querySelector(`label[for="${id}"]`);\n'
+				"  if (!lbl) lbl = el.closest('label');\n"
+				'  if (!lbl && id && root.querySelector) {\n'
+				'    try { lbl = root.querySelector(`label:has(#${id})`); } catch(_) {}\n'
+				'  }\n'
+				'  if (lbl) { lbl.click(); return true; }\n'
+				'  return false;\n'
+				'}'
+			)
+			return await loc.evaluate(js)
 		except Exception:
 			return False
 
