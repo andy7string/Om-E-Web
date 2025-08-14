@@ -223,6 +223,28 @@ class ScrollToTextEvent(BaseEvent[None]):
 	event_timeout: float | None = 15.0  # seconds
 
 
+# New interactions
+
+class SelectOptionEvent(ElementSelectedEvent[None]):
+    """Select option(s) in a <select> element by value, label or index."""
+
+    node: 'EnhancedDOMTreeNode'
+    value: str | list[str] | None = None
+    label: str | list[str] | None = None
+    index: int | list[int] | None = None
+
+    event_timeout: float | None = 15.0  # seconds
+
+
+class SetCheckedEvent(ElementSelectedEvent[None]):
+    """Set checked state for checkbox or radio inputs."""
+
+    node: 'EnhancedDOMTreeNode'
+    checked: bool = True
+
+    event_timeout: float | None = 15.0  # seconds
+
+
 # ============================================================================
 
 

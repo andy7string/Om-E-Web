@@ -6,6 +6,7 @@ from typing import Any
 
 from browser_use.browser.events import (
 	ClickElementEvent,
+	SelectOptionEvent,
 	GoBackEvent,
 	GoForwardEvent,
 	RefreshEvent,
@@ -13,6 +14,7 @@ from browser_use.browser.events import (
 	ScrollToTextEvent,
 	SendKeysEvent,
 	TypeTextEvent,
+	SetCheckedEvent,
 	UploadFileEvent,
 	WaitEvent,
 )
@@ -25,11 +27,63 @@ from browser_use.dom.service import EnhancedDOMTreeNode
 ClickElementEvent.model_rebuild()
 TypeTextEvent.model_rebuild()
 ScrollEvent.model_rebuild()
+SelectOptionEvent.model_rebuild()
+SetCheckedEvent.model_rebuild()
 UploadFileEvent.model_rebuild()
 
 
 class DefaultActionWatchdog(BaseWatchdog):
 	"""Handles default browser actions like click, type, and scroll using CDP."""
+
+	def _node_to_best_selector(self, element_node) -> str | None:
+		"""Derive a simple CSS selector from node attributes for PW-first interactions.
+
+		Preference order: #id, [name=...], tag[type=...], tag
+		"""
+		try:
+			attrs = element_node.attributes or {}
+			# If we carried a source selector, prefer it
+			source_selector = attrs.get('__selector__')
+			if source_selector:
+				return source_selector
+			el_id = attrs.get('id')
+			if el_id:
+				return f"#{el_id}"
+			el_name = attrs.get('name')
+			if el_name:
+				return f"[name='{el_name}']"
+			tag = (element_node.tag_name or element_node.node_name or '').lower()
+			if not tag:
+				return None
+			el_type = attrs.get('type')
+			if el_type:
+				return f"{tag}[type='{el_type}']"
+			return tag
+		except Exception:
+			return None
+
+	async def _pw_locator_for_selector(self, page, selector: str):
+		"""Build a Playwright locator for a selector that may include '>>>'.
+
+		- If selector contains an iframe segment before >>>, use frame_locator for that part
+		- Otherwise use page.locator(selector) directly (PW can pierce open shadow DOM)
+		"""
+		if '>>>' not in selector:
+			return page.locator(selector)
+		parts = [p.strip() for p in selector.split('>>>') if p.strip()]
+		# If the first part targets an iframe, scope to that frame
+		loc = None
+		try:
+			if parts and ('iframe' in parts[0] or parts[0].startswith('frame')):
+				frame_loc = page.frame_locator(parts[0])
+				loc = frame_loc.locator(parts[1]) if len(parts) > 1 else frame_loc.locator('*')
+				for seg in parts[2:]:
+					loc = loc.locator(seg)
+				return loc
+			# No iframe segment: let PW handle shadow piercing automatically
+		except Exception:
+			pass
+		return page.locator(selector)
 
 	async def on_ClickElementEvent(self, event: ClickElementEvent) -> None:
 		"""Handle click request with CDP."""
@@ -40,8 +94,32 @@ class DefaultActionWatchdog(BaseWatchdog):
 				self.logger.error(f'⚠️ {error_msg}')
 				raise BrowserError(error_msg)
 
-			# Use the provided node; resolve if missing critical identifiers
+			# Playwright-first click when a simple selector is derivable (try before CDP resolution)
 			element_node = event.node
+			index_for_logging = getattr(element_node, 'element_index', None) or 'unknown'
+			try:
+				selector = self._node_to_best_selector(element_node)
+				if selector:
+					page = await self.browser_session.get_or_create_playwright_page()
+					loc = await self._pw_locator_for_selector(page, selector)
+					# Ensure visible by scrolling into view first
+					try:
+						await loc.scroll_into_view_if_needed()
+					except Exception:
+						pass
+					await loc.click()
+					self.logger.info(f'🖱️ (PW) Clicked using selector {selector}')
+					# Clear caches after action
+					self.browser_session._cached_browser_state_summary = None
+					self.browser_session._cached_selector_map.clear()
+					if self.browser_session._dom_watchdog:
+						self.browser_session._dom_watchdog.clear_cache()
+					return None
+			except Exception as exc:
+				# Fall back to CDP path below
+				self.logger.debug(f"PW click failed for derived selector; falling back to CDP. error={type(exc).__name__}: {exc}")
+
+			# Use the provided node; resolve if missing critical identifiers (CDP fallback)
 			if element_node is None or not getattr(element_node, 'backend_node_id', None):
 				resolved = await self._resolve_node_fallback(event.node)
 				if resolved is None:
@@ -108,8 +186,47 @@ class DefaultActionWatchdog(BaseWatchdog):
 	async def on_TypeTextEvent(self, event: TypeTextEvent) -> None:
 		"""Handle text input request with CDP."""
 		try:
-			# Use the provided node; resolve if missing critical identifiers
+			# Playwright-first type when a simple selector is derivable (try before CDP resolution)
 			element_node = event.node
+			index_for_logging = getattr(element_node, 'element_index', None) or 'unknown'
+			try:
+				selector = self._node_to_best_selector(element_node)
+				if selector:
+					page = await self.browser_session.get_or_create_playwright_page()
+					# Prefer fill for input/textarea; handle contenteditable; otherwise type
+					loc = await self._pw_locator_for_selector(page, selector)
+					try:
+						await loc.scroll_into_view_if_needed()
+					except Exception:
+						pass
+					try:
+						is_ce = False
+						try:
+							is_ce = await loc.evaluate("el => el.isContentEditable === true")
+						except Exception:
+							is_ce = False
+						if is_ce:
+							await loc.evaluate(
+								"(el, v) => { el.focus(); el.textContent = v; el.dispatchEvent(new Event('input',{bubbles:true})); el.dispatchEvent(new Event('change',{bubbles:true})); }",
+								event.text,
+							)
+						else:
+							await loc.fill(event.text)
+					except Exception:
+						await loc.click()
+						await loc.type(event.text)
+					self.logger.info(f'⌨️ (PW) Typed into selector {selector}')
+					# Clear caches after action
+					self.browser_session._cached_browser_state_summary = None
+					self.browser_session._cached_selector_map.clear()
+					if self.browser_session._dom_watchdog:
+						self.browser_session._dom_watchdog.clear_cache()
+					return None
+			except Exception as exc:
+				# Fall back to CDP element-targeted typing
+				self.logger.debug(f"PW type failed for derived selector; falling back to CDP. error={type(exc).__name__}: {exc}")
+
+			# Use the provided node; resolve if missing critical identifiers (CDP fallback)
 			if element_node is None or not getattr(element_node, 'backend_node_id', None):
 				resolved = await self._resolve_node_fallback(event.node)
 				if resolved is None:
@@ -117,7 +234,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 				element_node = resolved
 			index_for_logging = element_node.element_index or 'unknown'
 
-			# Always try element-targeted typing first; fall back to page typing on failure
+			# Always try element-targeted typing first via CDP; fall back to page typing on failure
 			try:
 				await self._input_text_element_node_impl(element_node, event.text, event.clear_existing)
 				self.logger.info(f'⌨️ Typed "{event.text}" into element with index {index_for_logging}')
@@ -138,6 +255,122 @@ class DefaultActionWatchdog(BaseWatchdog):
 		except Exception as e:
 			raise
 
+	async def on_SelectOptionEvent(self, event: SelectOptionEvent) -> None:
+		"""Handle selecting options in <select> elements. PW-first with CDP fallback."""
+		# PW-first
+		try:
+			selector = self._node_to_best_selector(event.node)
+			if selector:
+				page = await self.browser_session.get_or_create_playwright_page()
+				loc = await self._pw_locator_for_selector(page, selector)
+				try:
+					await loc.scroll_into_view_if_needed()
+				except Exception:
+					pass
+				# Decide selection criteria
+				kwargs = {}
+				if event.value is not None:
+					kwargs['value'] = event.value
+				elif event.label is not None:
+					kwargs['label'] = event.label
+				elif event.index is not None:
+					kwargs['index'] = event.index
+				await loc.select_option(**kwargs)
+				self.logger.info(f"✅ (PW) Selected option on {selector} using {list(kwargs.keys())[0]}")
+				return None
+		except Exception as exc:
+			self.logger.debug(f"PW select failed; falling back to CDP. error={type(exc).__name__}: {exc}")
+
+		# CDP fallback via direct JS
+		try:
+			cdp_session = await self.browser_session.cdp_client_for_node(event.node)
+			desc = await cdp_session.cdp_client.send.DOM.describeNode(
+				params={'backendNodeId': event.node.backend_node_id}, session_id=cdp_session.session_id
+			)
+			resolved = await cdp_session.cdp_client.send.DOM.resolveNode(
+				params={'backendNodeId': event.node.backend_node_id}, session_id=cdp_session.session_id
+			)
+			obj_id = (resolved.get('object') or {}).get('objectId')
+			assert obj_id, 'Failed to resolve node for select'
+			if event.value is not None:
+				await cdp_session.cdp_client.send.Runtime.callFunctionOn(
+					params={
+						'functionDeclaration': "function(v){ const vs = Array.isArray(v)?v:[v]; const set=new Set(vs); for(const o of this.options){ o.selected = set.has(o.value);} this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
+						'objectId': obj_id,
+						'arguments': [{'value': event.value}],
+					},
+					session_id=cdp_session.session_id,
+				)
+			elif event.label is not None:
+				await cdp_session.cdp_client.send.Runtime.callFunctionOn(
+					params={
+						'functionDeclaration': "function(lbl){ const ls = Array.isArray(lbl)?lbl:[lbl]; for(const o of this.options){ o.selected = ls.includes(o.label);} this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
+						'objectId': obj_id,
+						'arguments': [{'value': event.label}],
+					},
+					session_id=cdp_session.session_id,
+				)
+			elif event.index is not None:
+				await cdp_session.cdp_client.send.Runtime.callFunctionOn(
+					params={
+						'functionDeclaration': "function(idx){ const is = Array.isArray(idx)?idx:[idx]; for(let i=0;i<this.options.length;i++){ this.options[i].selected = is.includes(i);} this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); }",
+						'objectId': obj_id,
+						'arguments': [{'value': event.index}],
+					},
+					session_id=cdp_session.session_id,
+				)
+			self.logger.info('✅ (CDP) Selected option via JS fallback')
+			return None
+		except Exception as e:
+			raise
+
+	async def on_SetCheckedEvent(self, event: SetCheckedEvent) -> None:
+		"""Handle setting checked state for checkbox/radio. PW-first with CDP fallback."""
+		try:
+			selector = self._node_to_best_selector(event.node)
+			if selector:
+				page = await self.browser_session.get_or_create_playwright_page()
+				loc = await self._pw_locator_for_selector(page, selector)
+				try:
+					await loc.scroll_into_view_if_needed()
+				except Exception:
+					pass
+				# If already in desired state, do nothing
+				is_checked = False
+				try:
+					is_checked = await loc.is_checked()
+				except Exception:
+					# not an input? try attribute
+					try:
+						is_checked = await loc.evaluate("el => !!el.checked")
+					except Exception:
+						is_checked = False
+				if is_checked != event.checked:
+					await loc.set_checked(event.checked)
+				self.logger.info(f"✅ (PW) Set checked={event.checked} on {selector}")
+				return None
+		except Exception as exc:
+			self.logger.debug(f"PW set_checked failed; falling back to CDP. error={type(exc).__name__}: {exc}")
+
+		# CDP fallback via direct JS
+		cdp_session = await self.browser_session.cdp_client_for_node(event.node)
+		resolved = await cdp_session.cdp_client.send.DOM.resolveNode(
+			params={'backendNodeId': event.node.backend_node_id}, session_id=cdp_session.session_id
+		)
+		obj_id = (resolved.get('object') or {}).get('objectId')
+		assert obj_id, 'Failed to resolve node for set_checked'
+		await cdp_session.cdp_client.send.Runtime.callFunctionOn(
+			params={
+				'functionDeclaration': "function(v){ if (this instanceof HTMLInputElement && (this.type==='checkbox' || this.type==='radio')) { this.checked = !!v; this.dispatchEvent(new Event('input',{bubbles:true})); this.dispatchEvent(new Event('change',{bubbles:true})); } }",
+				'objectId': obj_id,
+				'arguments': [{'value': event.checked}],
+				'returnByValue': True,
+			},
+			session_id=cdp_session.session_id,
+		)
+		self.logger.info(f"✅ (CDP) Set checked={event.checked} via JS fallback")
+		return None
+
 	async def on_ScrollEvent(self, event: ScrollEvent) -> None:
 		"""Handle scroll request with CDP."""
 		# Check if we have a current target for scrolling
@@ -145,10 +378,49 @@ class DefaultActionWatchdog(BaseWatchdog):
 			error_msg = 'No active target for scrolling'
 			raise BrowserError(error_msg)
 
+		# First try Playwright for robust, context-aware scrolling (supports shadow DOM and iframes via '>>>')
 		try:
-			# Convert direction and amount to pixels
-			# Positive pixels = scroll down, negative = scroll up
-			pixels = event.amount if event.direction == 'down' else -event.amount
+			page = await self.browser_session.get_or_create_playwright_page()
+			delta_x = 0
+			delta_y = 0
+			if event.direction in ('down', 'up'):
+				delta_y = event.amount if event.direction == 'down' else -event.amount
+			else:
+				delta_x = event.amount if event.direction == 'right' else -event.amount
+
+			if event.node is not None:
+				selector = self._node_to_best_selector(event.node)
+				if selector:
+					loc = await self._pw_locator_for_selector(page, selector)
+					# Scroll the specific element
+					await loc.evaluate(
+						"(el, dx, dy) => { try { el.scrollBy({left: dx, top: dy, behavior: 'instant'}); } catch(_) { el.scrollLeft += dx; el.scrollTop += dy; } }",
+						delta_x,
+						delta_y,
+					)
+					self.logger.info(f"📜 (PW) Scrolled element {getattr(event.node,'backend_node_id','?')} {event.direction} by {event.amount} pixels")
+					return None
+
+			# Page-level scroll
+			if delta_x or delta_y:
+				try:
+					await page.mouse.wheel(delta_x, delta_y)
+				except Exception:
+					await page.evaluate("(dx, dy) => window.scrollBy({left: dx, top: dy, behavior: 'instant'})", delta_x, delta_y)
+				self.logger.info(f"📜 (PW) Scrolled {event.direction} by {event.amount} pixels")
+				return None
+		except Exception as exc:
+			# Fall back to CDP path below
+			self.logger.debug(f"PW scroll failed; falling back to CDP. error={type(exc).__name__}: {exc}")
+
+		try:
+			# Convert direction to deltas
+			delta_x = 0
+			delta_y = 0
+			if event.direction in ('down', 'up'):
+				delta_y = event.amount if event.direction == 'down' else -event.amount
+			else:
+				delta_x = event.amount if event.direction == 'right' else -event.amount
 
 			# CRITICAL: CDP calls time out without this, even if the target is already active
 			await self.browser_session.agent_focus.cdp_client.send.Target.activateTarget(
@@ -159,9 +431,8 @@ class DefaultActionWatchdog(BaseWatchdog):
 			if event.node is not None:
 				element_node = event.node
 				index_for_logging = element_node.backend_node_id or 'unknown'
-
 				# Try to scroll the element's container
-				success = await self._scroll_element_container(element_node, pixels)
+				success = await self._scroll_element_container(element_node, delta_x, delta_y)
 				if success:
 					self.logger.info(
 						f'📜 Scrolled element {index_for_logging} container {event.direction} by {event.amount} pixels'
@@ -169,7 +440,7 @@ class DefaultActionWatchdog(BaseWatchdog):
 					return None
 
 			# Perform target-level scroll
-			await self._scroll_with_cdp_gesture(pixels)
+			await self._scroll_with_cdp_gesture(delta_x=delta_x, delta_y=delta_y)
 
 			# CRITICAL: CDP calls time out without this, even if the target is already active
 			await self.browser_session.agent_focus.cdp_client.send.Target.activateTarget(
@@ -809,12 +1080,13 @@ class DefaultActionWatchdog(BaseWatchdog):
 			self.logger.error(f'Failed to input text via CDP: {type(e).__name__}: {e}')
 			raise BrowserError(f'Failed to input text into element: {repr(element_node)}')
 
-	async def _scroll_with_cdp_gesture(self, pixels: int) -> bool:
+	async def _scroll_with_cdp_gesture(self, delta_x: int = 0, delta_y: int = 0) -> bool:
 		"""
 		Scroll using CDP Input.dispatchMouseEvent to simulate mouse wheel.
 
 		Args:
-			pixels: Number of pixels to scroll (positive = down, negative = up)
+			delta_x: Number of pixels to scroll horizontally (positive = right, negative = left)
+			delta_y: Number of pixels to scroll vertically (positive = down, negative = up)
 
 		Returns:
 			True if successful, False if failed
@@ -834,30 +1106,27 @@ class DefaultActionWatchdog(BaseWatchdog):
 			center_x = viewport_width / 2
 			center_y = viewport_height / 2
 
-			# For mouse wheel, positive deltaY scrolls down, negative scrolls up
-			delta_y = pixels
-
 			# Dispatch mouse wheel event
 			await cdp_client.send.Input.dispatchMouseEvent(
 				params={
 					'type': 'mouseWheel',
 					'x': center_x,
 					'y': center_y,
-					'deltaX': 0,
+					'deltaX': delta_x,
 					'deltaY': delta_y,
 				},
 				session_id=session_id,
 			)
 
-			self.logger.debug(f'📄 Scrolled via CDP mouse wheel: {pixels}px')
+			self.logger.debug(f'📄 Scrolled via CDP mouse wheel: dx={delta_x}px dy={delta_y}px')
 			return True
 
 		except Exception as e:
 			self.logger.warning(f'❌ Scrolling via CDP failed: {type(e).__name__}: {e}')
 			return False
 
-	async def _scroll_element_container(self, element_node, pixels: int) -> bool:
-		"""Try to scroll an element's container using CDP."""
+	async def _scroll_element_container(self, element_node, delta_x: int = 0, delta_y: int = 0) -> bool:
+		"""Try to scroll an element's container using CDP, including horizontal scrolling."""
 		try:
 			cdp_session = await self.browser_session.cdp_client_for_node(element_node)
 
@@ -878,8 +1147,8 @@ class DefaultActionWatchdog(BaseWatchdog):
 					'type': 'mouseWheel',
 					'x': center_x,
 					'y': center_y,
-					'deltaX': 0,
-					'deltaY': pixels,
+					'deltaX': delta_x,
+					'deltaY': delta_y,
 				},
 				session_id=cdp_session.session_id,
 			)
