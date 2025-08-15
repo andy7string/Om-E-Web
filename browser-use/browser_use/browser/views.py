@@ -12,6 +12,18 @@ PLACEHOLDER_4PX_SCREENSHOT = (
 )
 
 
+@dataclass
+class BrowserState:
+	"""Browser state for compatibility with web-ui"""
+	url: str
+	title: str
+	tabs: list['TabInfo']
+	screenshot: str | None = None
+	pixels_above: int = 0
+	pixels_below: int = 0
+	browser_errors: list[str] = field(default_factory=list)
+
+
 # Pydantic
 class TabInfo(BaseModel):
 	"""Represents information about a browser tab"""

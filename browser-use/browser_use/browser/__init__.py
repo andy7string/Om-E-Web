@@ -4,11 +4,17 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
 	from .profile import BrowserProfile
 	from .session import BrowserSession
+	from .browser import Browser, BrowserConfig
+	from .context import BrowserContext, BrowserContextConfig
 
 # Lazy imports mapping for heavy browser components
 _LAZY_IMPORTS = {
 	'BrowserProfile': ('.profile', 'BrowserProfile'),
 	'BrowserSession': ('.session', 'BrowserSession'),
+	'Browser': ('.browser', 'Browser'),
+	'BrowserConfig': ('.browser', 'BrowserConfig'),
+	'BrowserContext': ('.context', 'BrowserContext'),
+	'BrowserContextConfig': ('.context', 'BrowserContextConfig'),
 }
 
 
@@ -35,4 +41,8 @@ def __getattr__(name: str):
 __all__ = [
 	'BrowserSession',
 	'BrowserProfile',
+	'Browser',
+	'BrowserConfig',
+	'BrowserContext',
+	'BrowserContextConfig',
 ]
