@@ -1,278 +1,516 @@
+# Enhanced Browser-Use: Chrome-Only AI Browser Automation
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./static/browser-use-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="./static/browser-use.png">
   <img alt="Shows a black Browser Use Logo in light color mode and a white one in dark color mode." src="./static/browser-use.png"  width="full">
 </picture>
 
-<h1 align="center">Enable AI to control your browser 🤖</h1>
+<h1 align="center">Enhanced AI Browser Automation with Chrome-Only Architecture 🚀</h1>
 
 [![GitHub stars](https://img.shields.io/github/stars/gregpr07/browser-use?style=social)](https://github.com/gregpr07/browser-use/stargazers)
-[![Discord](https://img.shields.io/discord/1303749220842340412?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://link.browser-use.com/discord)
+[![Discord](https://img.shields.io/badge/Discord-1303749220842340412-blue?logo=discord)](https://link.browser-use.com/discord)
 [![Cloud](https://img.shields.io/badge/Cloud-☁️-blue)](https://cloud.browser-use.com)
 [![Documentation](https://img.shields.io/badge/Documentation-📕-blue)](https://docs.browser-use.com)
-[![Twitter Follow](https://img.shields.io/twitter/follow/Gregor?style=social)](https://x.com/intent/user?screen_name=gregpr07)
-[![Twitter Follow](https://img.shields.io/twitter/follow/Magnus?style=social)](https://x.com/intent/user?screen_name=mamagnus00)
-[![Weave Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fapp.workweave.ai%2Fapi%2Frepository%2Fbadge%2Forg_T5Pvn3UBswTHIsN1dWS3voPg%2F881458615&labelColor=#EC6341)](https://app.workweave.ai/reports/repository/org_T5Pvn3UBswTHIsN1dWS3voPg/881458615)
 
-🌐 Browser-use is the easiest way to connect your AI agents with the browser.
+## 🎯 **Project Overview**
 
-💡 See what others are building and share your projects in our [Discord](https://link.browser-use.com/discord)! Want Swag? Check out our [Merch store](https://browsermerch.com).
+This enhanced browser-use system represents a complete architectural overhaul designed for **Chrome-only AI browser automation**. Built on top of the original browser-use foundation, this system provides:
 
-🌤️ Skip the setup - try our <b>hosted version</b> for instant browser automation! <b>[Try the cloud ☁︎](https://cloud.browser-use.com)</b>.
+- **Chrome-Only Architecture**: Optimized specifically for Google Chrome with CDP (Chrome DevTools Protocol)
+- **Event-Driven Architecture**: Robust event bus system with watchdog components
+- **Enhanced BrowserSession**: Advanced session management with Playwright integration
+- **Web-UI Compatibility**: Full compatibility with browser-use web-ui interface
+- **Production-Ready**: Comprehensive error handling, logging, and monitoring
 
-# Quick start
+## 🏗️ **System Architecture**
 
-With pip (Python>=3.11):
+### **Core Components**
 
-```bash
-pip install browser-use
+```
+Enhanced Browser-Use System
+├── BrowserSession (Core)
+│   ├── Event Bus System
+│   ├── CDP Integration
+│   └── Playwright Bridge
+├── Watchdog System
+│   ├── Security Watchdog
+│   ├── Crash Watchdog
+│   ├── Downloads Watchdog
+│   ├── DOM Watchdog
+│   └── Permissions Watchdog
+├── DOM Processing
+│   ├── Enhanced DOM Tree
+│   ├── Serialization Engine
+│   └── Element Detection
+└── Web-UI Compatibility Layer
+    ├── Browser Class
+    ├── BrowserContext Class
+    └── Configuration Classes
 ```
 
-Install the browser:
+### **Event-Driven Architecture**
 
+The system uses a sophisticated event bus that coordinates between:
+- **Browser Operations**: Navigation, page creation, element interaction
+- **Watchdog Monitoring**: Security, crashes, downloads, DOM changes
+- **State Management**: Browser state, DOM state, session state
+- **External Integration**: Web-UI, MCP clients, custom actions
+
+## 📁 **Project Structure & Components**
+
+### **`browser_use/browser/` - Core Browser Management**
+
+#### **`session.py` - BrowserSession (Main Engine)**
+- **Purpose**: Central orchestrator for all browser operations
+- **Features**:
+  - Event-driven architecture with comprehensive event bus
+  - CDP (Chrome DevTools Protocol) integration
+  - Playwright bridge for robust page interactions
+  - Multi-tab management with focus tracking
+  - Automatic watchdog registration and management
+  - State caching and optimization
+
+#### **`profile.py` - BrowserProfile (Configuration)**
+- **Purpose**: Comprehensive browser configuration management
+- **Features**:
+  - Chrome-specific optimization flags
+  - Security and permission settings
+  - Viewport and window configuration
+  - Extension management (uBlock Origin, cookie handling)
+  - Download and recording path configuration
+  - Cross-origin iframe support options
+
+#### **`browser.py` - Browser Class (Web-UI Compatibility)**
+- **Purpose**: Compatibility wrapper for web-ui integration
+- **Features**:
+  - Delegates to enhanced BrowserSession
+  - Maintains original web-ui interface
+  - BrowserConfig with comprehensive options
+  - Chrome-only enforcement
+  - Proxy and security configuration
+
+#### **`context.py` - BrowserContext Class (Page Management)**
+- **Purpose**: Page-level operations and context management
+- **Features**:
+  - Page creation and navigation
+  - Tab management and switching
+  - Screenshot and DOM extraction
+  - JavaScript execution
+  - Viewport and scroll management
+  - BrowserContextConfig with validation
+
+### **`browser_use/browser/watchdog_*.py` - Monitoring System**
+
+#### **`watchdog_base.py` - BaseWatchdog**
+- **Purpose**: Foundation for all watchdog components
+- **Features**:
+  - Event listening and emission contracts
+  - Automatic event handler registration
+  - Session attachment and cleanup
+  - Error handling and logging
+
+#### **`security_watchdog.py` - SecurityWatchdog**
+- **Purpose**: URL access control and security enforcement
+- **Features**:
+  - Domain allowlist/blocklist management
+  - Navigation security validation
+  - Cross-origin iframe protection
+  - Security policy enforcement
+
+#### **`crash_watchdog.py` - CrashWatchdog**
+- **Purpose**: Browser health monitoring and crash detection
+- **Features**:
+  - Network timeout detection
+  - Target crash monitoring
+  - Browser responsiveness checks
+  - Automatic error reporting
+
+#### **`downloads_watchdog.py` - DownloadsWatchdog**
+- **Purpose**: File download management and monitoring
+- **Features**:
+  - Automatic PDF download handling
+  - Download progress tracking
+  - File type detection
+  - Download path management
+
+#### **`dom_watchdog.py` - DOMWatchdog**
+- **Purpose**: DOM tree management and state building
+- **Features**:
+  - Enhanced DOM tree construction
+  - Element caching and optimization
+  - State serialization
+  - Frame hierarchy management
+
+#### **`permissions_watchdog.py` - PermissionsWatchdog**
+- **Purpose**: Browser permission management
+- **Features**:
+  - CDP permission granting
+  - Clipboard access management
+  - Notification permissions
+  - Security policy compliance
+
+### **`browser_use/dom/` - DOM Processing Engine**
+
+#### **`service.py` - DomService**
+- **Purpose**: Core DOM tree building and management
+- **Features**:
+  - Accessibility tree integration
+  - Frame hierarchy processing
+  - Element coordinate calculation
+  - Viewport ratio detection
+
+#### **`serializer/serializer.py` - DOMTreeSerializer**
+- **Purpose**: DOM state serialization for LLM consumption
+- **Features**:
+  - Interactive element detection
+  - Bounding box filtering
+  - Tree optimization
+  - Markdown serialization
+
+#### **`enhanced_snapshot.py` - Enhanced DOM Snapshots**
+- **Purpose**: High-performance DOM state capture
+- **Features**:
+  - Fast element collection
+  - Style computation
+  - Layout information
+  - Performance optimization
+
+### **`browser_use/agent/` - AI Agent System**
+
+#### **`service.py` - Agent (Main Agent Class)**
+- **Purpose**: AI agent orchestration and task execution
+- **Features**:
+  - Multi-step task execution
+  - LLM integration
+  - Action execution and validation
+  - History management
+  - Error handling and retry logic
+
+#### **`message_manager/` - Message Management**
+- **Purpose**: LLM message construction and management
+- **Features**:
+  - System prompt management
+  - State message construction
+  - History integration
+  - Sensitive data filtering
+
+### **`browser_use/controller/` - Action System**
+
+#### **`service.py` - Controller**
+- **Purpose**: Action registry and execution
+- **Features**:
+  - Built-in browser actions
+  - Custom action registration
+  - Parameter validation
+  - Domain-specific action filtering
+
+#### **`registry/` - Action Registry**
+- **Purpose**: Dynamic action management
+- **Features**:
+  - Action discovery and registration
+  - Parameter model generation
+  - Domain filtering
+  - Action documentation
+
+### **`browser_use/llm/` - LLM Integration**
+
+#### **Multiple Provider Support**
+- **OpenAI**: GPT-4, GPT-4o, GPT-3.5
+- **Anthropic**: Claude-3, Claude-4
+- **Google**: Gemini Pro, Gemini Flash
+- **Azure OpenAI**: Enterprise OpenAI integration
+- **AWS Bedrock**: Claude via AWS
+- **Groq**: Ultra-fast inference
+- **DeepSeek**: Alternative models
+- **Ollama**: Local model support
+
+#### **Features**
+- **Unified Interface**: Consistent API across providers
+- **Cost Tracking**: Token usage and cost monitoring
+- **Caching**: Response caching for efficiency
+- **Error Handling**: Robust error handling and retry logic
+
+### **`browser_use/mcp/` - Model Context Protocol**
+
+#### **MCP Server & Client**
+- **Purpose**: Integration with external AI systems
+- **Features**:
+  - Claude Desktop integration
+  - External MCP server connection
+  - Tool registration and management
+  - Protocol compliance
+
+## 🚀 **Key Features & Capabilities**
+
+### **Chrome-Only Optimization**
+- **Native Chrome Integration**: Direct Chrome binary usage
+- **CDP Protocol**: Full Chrome DevTools Protocol support
+- **Extension Support**: uBlock Origin, cookie management, URL cleaning
+- **Performance**: Optimized for Chrome's rendering engine
+
+### **Advanced Browser Management**
+- **Multi-Tab Support**: Sophisticated tab management with focus tracking
+- **Session Persistence**: State preservation across operations
+- **Error Recovery**: Automatic crash detection and recovery
+- **Resource Management**: Efficient memory and process management
+
+### **AI-Powered Automation**
+- **Vision Integration**: Screenshot analysis and visual understanding
+- **DOM Intelligence**: Smart element detection and interaction
+- **Context Awareness**: Page state understanding and adaptation
+- **Learning Capabilities**: Action optimization based on results
+
+### **Production Features**
+- **Comprehensive Logging**: Detailed operation logging and debugging
+- **Telemetry**: Performance monitoring and metrics
+- **Error Handling**: Robust error handling with user feedback
+- **Security**: URL validation and security policy enforcement
+
+## 🔧 **Installation & Setup**
+
+### **Prerequisites**
+- Python 3.11+
+- Google Chrome browser
+- OpenAI API key (or other LLM provider)
+
+### **Installation**
 ```bash
-playwright install chromium --with-deps --no-shell
+# Clone the repository
+git clone https://github.com/andy7string/Om-E-Web.git
+cd Om-E-Web/browser-use
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install Playwright browsers
+playwright install chromium --with-deps
 ```
 
-Spin up your agent:
+### **Environment Configuration**
+```bash
+# Create .env file
+OPENAI_API_KEY=your_openai_api_key_here
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+GOOGLE_API_KEY=your_google_api_key_here
 
+# Optional: Custom paths
+BROWSER_USE_DOWNLOADS_PATH=~/Downloads/browser-use
+BROWSER_USE_SCREENSHOTS_PATH=~/Pictures/browser-use
+```
+
+## 📖 **Usage Examples**
+
+### **Basic Browser Automation**
 ```python
 import asyncio
-from dotenv import load_dotenv
-load_dotenv()
 from browser_use import Agent
 from browser_use.llm import ChatOpenAI
 
 async def main():
     agent = Agent(
-        task="Compare the price of gpt-4o and DeepSeek-V3",
-        llm=ChatOpenAI(model="o4-mini", temperature=1.0),
+        task="Search for 'AI automation' on Google and summarize the first 3 results",
+        llm=ChatOpenAI(model="gpt-4o", temperature=0.7),
     )
     await agent.run()
 
 asyncio.run(main())
 ```
 
-Add your API keys for the provider you want to use to your `.env` file.
-
-```bash
-OPENAI_API_KEY=
-ANTHROPIC_API_KEY=
-AZURE_OPENAI_ENDPOINT=
-AZURE_OPENAI_KEY=
-GOOGLE_API_KEY=
-DEEPSEEK_API_KEY=
-GROK_API_KEY=
-NOVITA_API_KEY=
-```
-
-For other settings, models, and more, check out the [documentation 📕](https://docs.browser-use.com).
-
-### Test with UI
-
-You can test browser-use using its [Web UI](https://github.com/browser-use/web-ui) or [Desktop App](https://github.com/browser-use/desktop).
-
-### Test with an interactive CLI
-
-You can also use our `browser-use` interactive CLI (similar to `claude` code):
-
-```bash
-pip install "browser-use[cli]"
-browser-use
-```
-
-## MCP Integration
-
-Browser-use supports the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/), enabling integration with Claude Desktop and other MCP-compatible clients.
-
-### Use as MCP Server with Claude Desktop
-
-Add browser-use to your Claude Desktop configuration:
-
-```json
-{
-  "mcpServers": {
-    "browser-use": {
-      "command": "uvx",
-      "args": ["browser-use[cli]", "--mcp"],
-      "env": {
-        "OPENAI_API_KEY": "sk-..."
-      }
-    }
-  }
-}
-```
-
-This gives Claude Desktop access to browser automation tools for web scraping, form filling, and more.
-
-### Connect External MCP Servers to Browser-Use Agent
-
-Browser-use agents can connect to multiple external MCP servers to extend their capabilities:
-
+### **Custom Browser Profile**
 ```python
-import asyncio
-from browser_use import Agent, Controller
-from browser_use.mcp.client import MCPClient
-from browser_use.llm import ChatOpenAI
+from browser_use.browser.profile import BrowserProfile
 
-async def main():
-    # Initialize controller
-    controller = Controller()
-    
-    # Connect to multiple MCP servers
-    filesystem_client = MCPClient(
-        server_name="filesystem",
-        command="npx",
-        args=["-y", "@modelcontextprotocol/server-filesystem", "/Users/me/documents"]
-    )
-    
-    github_client = MCPClient(
-        server_name="github", 
-        command="npx",
-        args=["-y", "@modelcontextprotocol/server-github"],
-        env={"GITHUB_TOKEN": "your-github-token"}
-    )
-    
-    # Connect and register tools from both servers
-    await filesystem_client.connect()
-    await filesystem_client.register_to_controller(controller)
-    
-    await github_client.connect()
-    await github_client.register_to_controller(controller)
-    
-    # Create agent with MCP-enabled controller
-    agent = Agent(
-        task="Find the latest report.pdf in my documents and create a GitHub issue about it",
-        llm=ChatOpenAI(model="gpt-4o"),
-        controller=controller  # Controller has tools from both MCP servers
-    )
-    
-    # Run the agent
-    await agent.run()
-    
-    # Cleanup
-    await filesystem_client.disconnect()
-    await github_client.disconnect()
-
-asyncio.run(main())
+profile = BrowserProfile(
+    headless=False,
+    window_size={'width': 1920, 'height': 1080},
+    downloads_path='~/Downloads/automation',
+    enable_default_extensions=True,
+    stealth=True
+)
 ```
 
-See the [MCP documentation](https://docs.browser-use.com/customize/mcp-server) for more details.
+### **Advanced Session Management**
+```python
+from browser_use.browser.session import BrowserSession
 
-# Demos
+session = BrowserSession(browser_profile=profile)
+await session.start()
 
-<br/><br/>
+# Navigate and interact
+await session.on_NavigateToUrlEvent(
+    NavigateToUrlEvent(url="https://example.com")
+)
 
-[Task](https://github.com/browser-use/browser-use/blob/main/examples/use-cases/shopping.py): Add grocery items to cart, and checkout.
+# Get browser state
+state = await session.get_browser_state_summary()
+```
 
-[![AI Did My Groceries](https://github.com/user-attachments/assets/a0ffd23d-9a11-4368-8893-b092703abc14)](https://www.youtube.com/watch?v=L2Ya9PYNns8)
+## 🧪 **Testing & Validation**
 
-<br/><br/>
+### **Test Suite**
+The project includes comprehensive test coverage:
+- **Unit Tests**: Individual component testing
+- **Integration Tests**: End-to-end workflow testing
+- **Browser Tests**: Real browser interaction testing
+- **Performance Tests**: Load and stress testing
 
-Prompt: Add my latest LinkedIn follower to my leads in Salesforce.
+### **Test Execution**
+```bash
+# Run all tests
+python -m pytest tests/
 
-![LinkedIn to Salesforce](https://github.com/user-attachments/assets/50d6e691-b66b-4077-a46c-49e9d4707e07)
+# Run specific test categories
+python -m pytest tests/browser/
+python -m pytest tests/agent/
+python -m pytest tests/dom/
+```
 
-<br/><br/>
+## 🔍 **Debugging & Monitoring**
 
-[Prompt](https://github.com/browser-use/browser-use/blob/main/examples/use-cases/find_and_apply_to_jobs.py): Read my CV & find ML jobs, save them to a file, and then start applying for them in new tabs, if you need help, ask me.'
+### **Logging System**
+- **Structured Logging**: JSON-formatted logs for analysis
+- **Performance Metrics**: Execution time tracking
+- **Error Tracking**: Detailed error context and stack traces
+- **Event Logging**: Complete event flow documentation
 
-https://github.com/user-attachments/assets/171fb4d6-0355-46f2-863e-edb04a828d04
+### **Debug Tools**
+- **CDP Inspector**: Direct Chrome DevTools access
+- **Event Monitor**: Real-time event bus monitoring
+- **State Inspector**: Browser state visualization
+- **Performance Profiler**: Operation timing analysis
 
-<br/><br/>
+## 🌐 **Web-UI Integration**
 
-[Prompt](https://github.com/browser-use/browser-use/blob/main/examples/browser/real_browser.py): Write a letter in Google Docs to my Papa, thanking him for everything, and save the document as a PDF.
+### **Compatibility Layer**
+The system maintains full compatibility with the original browser-use web-ui:
+- **Browser Class**: Wrapper around enhanced BrowserSession
+- **BrowserContext**: Page management interface
+- **Configuration**: Comprehensive browser and context configuration
+- **Actions**: All original web-ui actions supported
 
-![Letter to Papa](https://github.com/user-attachments/assets/242ade3e-15bc-41c2-988f-cbc5415a66aa)
+### **Enhanced Features**
+- **Chrome-Only**: Optimized for Google Chrome
+- **Advanced DOM**: Enhanced element detection and interaction
+- **Performance**: Improved page loading and interaction speed
+- **Reliability**: Better error handling and recovery
 
-<br/><br/>
+## 🚀 **Performance & Optimization**
 
-[Prompt](https://github.com/browser-use/browser-use/blob/main/examples/custom-functions/save_to_file_hugging_face.py): Look up models with a license of cc-by-sa-4.0 and sort by most likes on Hugging face, save top 5 to file.
+### **Optimization Features**
+- **DOM Caching**: Intelligent DOM state caching
+- **Element Filtering**: Bounding box and visibility filtering
+- **Lazy Loading**: On-demand resource loading
+- **Memory Management**: Efficient memory usage patterns
 
-https://github.com/user-attachments/assets/de73ee39-432c-4b97-b4e8-939fd7f323b3
+### **Performance Metrics**
+- **Page Load Time**: Optimized navigation and loading
+- **DOM Processing**: Fast element detection and serialization
+- **Action Execution**: Efficient interaction and validation
+- **Memory Usage**: Optimized resource consumption
 
-<br/><br/>
+## 🔒 **Security & Privacy**
 
-## More examples
+### **Security Features**
+- **URL Validation**: Domain allowlist/blocklist enforcement
+- **Permission Management**: Controlled browser permission access
+- **Cross-Origin Protection**: Secure iframe and popup handling
+- **Data Isolation**: Session-level data separation
 
-For more examples see the [examples](examples) folder or join the [Discord](https://link.browser-use.com/discord) and show off your project. You can also see our [`awesome-prompts`](https://github.com/browser-use/awesome-prompts) repo for prompting inspiration.
+### **Privacy Features**
+- **Stealth Mode**: Anti-detection capabilities
+- **Cookie Management**: Controlled cookie handling
+- **Extension Privacy**: Privacy-focused browser extensions
+- **Data Minimization**: Minimal data collection and storage
 
-# Vision
+## 🤝 **Contributing & Development**
 
-Tell your computer what to do, and it gets it done.
+### **Development Setup**
+```bash
+# Clone and setup
+git clone https://github.com/andy7string/Om-E-Web.git
+cd Om-E_Web/browser-use
 
-## Roadmap
+# Install development dependencies
+pip install -e ".[dev]"
 
-### Agent
+# Setup pre-commit hooks
+pre-commit install
+```
 
-- [ ] Improve agent memory to handle +100 steps
-- [ ] Enhance planning capabilities (load website specific context)
-- [ ] Reduce token consumption (system prompt, DOM state)
+### **Code Standards**
+- **Type Hints**: Full type annotation coverage
+- **Documentation**: Comprehensive docstrings and comments
+- **Testing**: High test coverage requirements
+- **Linting**: Strict code quality enforcement
 
-### DOM Extraction
+### **Architecture Principles**
+- **Event-Driven**: Asynchronous event-based architecture
+- **Modular Design**: Clear separation of concerns
+- **Extensibility**: Easy addition of new features
+- **Maintainability**: Clean, readable code structure
 
-- [ ] Enable detection for all possible UI elements
-- [ ] Improve state representation for UI elements so that all LLMs can understand what's on the page
+## 📊 **Project Status & Roadmap**
 
-### Workflows
+### **Current Status** ✅
+- **Core Architecture**: Complete and production-ready
+- **Chrome Integration**: Full Chrome-only optimization
+- **Web-UI Compatibility**: Complete compatibility layer
+- **Testing Suite**: Comprehensive test coverage
+- **Documentation**: Complete technical documentation
 
-- [ ] Let user record a workflow - which we can rerun with browser-use as a fallback
-- [ ] Make rerunning of workflows work, even if pages change
+### **Recent Achievements** 🎉
+- **Enhanced BrowserSession**: Advanced session management
+- **Watchdog System**: Comprehensive monitoring and automation
+- **DOM Processing**: High-performance DOM handling
+- **Event Architecture**: Robust event-driven system
+- **Chrome Optimization**: Native Chrome integration
 
-### User Experience
+### **Future Roadmap** 🚀
+- **Performance Optimization**: Further speed improvements
+- **Advanced AI Features**: Enhanced LLM integration
+- **Cloud Integration**: Scalable cloud deployment
+- **Mobile Support**: Mobile browser automation
+- **Enterprise Features**: Advanced security and compliance
 
-- [ ] Create various templates for tutorial execution, job application, QA testing, social media, etc. which users can just copy & paste.
-- [ ] Improve docs
-- [ ] Make it faster
+## 📚 **Documentation & Resources**
 
-### Parallelization
+### **Technical Documentation**
+- **API Reference**: Complete API documentation
+- **Architecture Guide**: System design and implementation
+- **Integration Guide**: Web-UI and external system integration
+- **Performance Guide**: Optimization and tuning
 
-- [ ] Human work is sequential. The real power of a browser agent comes into reality if we can parallelize similar tasks. For example, if you want to find contact information for 100 companies, this can all be done in parallel and reported back to a main agent, which processes the results and kicks off parallel subtasks again.
+### **Examples & Tutorials**
+- **Getting Started**: Quick start guide
+- **Use Cases**: Common automation scenarios
+- **Advanced Features**: Complex automation patterns
+- **Troubleshooting**: Common issues and solutions
 
-## Contributing
+## 🌟 **Community & Support**
 
-We love contributions! Feel free to open issues for bugs or feature requests. To contribute to the docs, check out the `/docs` folder.
+### **Community Channels**
+- **Discord**: Active community discussions
+- **GitHub Issues**: Bug reports and feature requests
+- **Discussions**: Community Q&A and sharing
+- **Contributions**: Open source collaboration
 
-## 🧪 How to make your agents robust?
-
-We offer to run your tasks in our CI—automatically, on every update!
-
-- **Add your task:** Add a YAML file in `tests/agent_tasks/` (see the [`README there`](tests/agent_tasks/README.md) for details).
-- **Automatic validation:** Every time we push updates, your task will be run by the agent and evaluated using your criteria.
-
-## Local Setup
-
-To learn more about the library, check out the [local setup 📕](https://docs.browser-use.com/development/local-setup).
-
-`main` is the primary development branch with frequent changes. For production use, install a stable [versioned release](https://github.com/browser-use/browser-use/releases) instead.
+### **Support Resources**
+- **Documentation**: Comprehensive guides and references
+- **Examples**: Working code examples and templates
+- **Troubleshooting**: Common issues and solutions
+- **Performance Tips**: Optimization and best practices
 
 ---
 
-## Swag
+## 🎯 **Mission Statement**
 
-Want to show off your Browser-use swag? Check out our [Merch store](https://browsermerch.com). Good contributors will receive swag for free 👀.
+**Enable AI to control browsers with enterprise-grade reliability, performance, and security.**
 
-## Citation
+This enhanced browser-use system represents the next generation of AI browser automation, combining the power of Chrome with sophisticated AI capabilities to create a robust, scalable, and user-friendly automation platform.
 
-If you use Browser Use in your research or project, please cite:
-
-```bibtex
-@software{browser_use2024,
-  author = {Müller, Magnus and Žunič, Gregor},
-  title = {Browser Use: Enable AI to control your browser},
-  year = {2024},
-  publisher = {GitHub},
-  url = {https://github.com/browser-use/browser-use}
-}
-```
-
- <div align="center"> <img src="https://github.com/user-attachments/assets/06fa3078-8461-4560-b434-445510c1766f" width="400"/> 
- 
-[![Twitter Follow](https://img.shields.io/twitter/follow/Gregor?style=social)](https://x.com/intent/user?screen_name=gregpr07)
-[![Twitter Follow](https://img.shields.io/twitter/follow/Magnus?style=social)](https://x.com/intent/user?screen_name=mamagnus00)
- 
- </div>
+---
 
 <div align="center">
-Made with ❤️ in Zurich and San Francisco
- </div>
+Made with ❤️ by the Enhanced Browser-Use Team
+</div>

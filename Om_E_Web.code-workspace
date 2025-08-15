@@ -1,0 +1,22 @@
+{
+    "folders": [
+        {
+            "name": "Om_E_Web",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "python.defaultInterpreterPath": "/Users/andy7string/Projects/Om_E_Web/.venv/bin/python",
+        "python.analysis.extraPaths": [
+            "/Users/andy7string/Projects/Om_E_Web/browser-use",
+            "/Users/andy7string/Projects/Om_E_Web/.venv/lib/python3.11/site-packages"
+        ],
+        "python.analysis.typeCheckingMode": "basic",
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.autoSearchPaths": true,
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.venvPath": "/Users/andy7string/Projects/Om_E_Web",
+        "python.analysis.venv": ".venv"
+    }
+}
+

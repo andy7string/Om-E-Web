@@ -1,0 +1,20 @@
+{
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/__pycache__"
+  ],
+  "pythonPath": "/Users/andy7string/Projects/Om_E_Web/.venv/bin/python",
+  "pythonVersion": "3.11",
+  "typeCheckingMode": "basic",
+  "extraPaths": [
+    "/Users/andy7string/Projects/Om_E_Web/browser-use",
+    "/Users/andy7string/Projects/Om_E_Web/.venv/lib/python3.11/site-packages"
+  ],
+  "venvPath": "/Users/andy7string/Projects/Om_E_Web",
+  "venv": ".venv"
+}
+
+
