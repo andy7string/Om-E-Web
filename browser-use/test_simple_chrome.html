@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chrome Test</title>
+</head>
+<body>
+    <h1>Chrome Test Page</h1>
+    <input id="test-input" type="text" placeholder="Type here...">
+    <button id="test-button">Click Me</button>
+    <div id="status">Ready</div>
+    
+    <script>
+        document.getElementById('test-button').addEventListener('click', function() {
+            const input = document.getElementById('test-input');
+            const status = document.getElementById('status');
+            status.textContent = 'Button clicked! Input value: ' + input.value;
+        });
+    </script>
+</body>
+</html>

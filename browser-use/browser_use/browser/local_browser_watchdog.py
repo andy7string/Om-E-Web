@@ -175,9 +175,10 @@ class LocalBrowserWatchdog(BaseWatchdog):
 		self.logger.debug(f'[LocalBrowserWatchdog] Launching Google Chrome via Playwright with {len(chrome_args)} args')
 
 		# Launch Chrome via Playwright
+		# Use channel="chrome" to ensure we get the real Chrome instead of Chromium
 		browser = await playwright.chromium.launch(
 			headless=profile.headless if profile.headless is not None else False,
-			executable_path=profile.executable_path,
+			channel="chrome",  # This forces Playwright to use the system Chrome
 			args=chrome_args,
 		)
 
