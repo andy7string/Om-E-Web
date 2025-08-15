@@ -1,11 +1,10 @@
-import os
 import asyncio
+import os
 
 import pytest
 
 from browser_use.browser import BrowserProfile, BrowserSession
 from browser_use.browser.events import NavigateToUrlEvent, SelectOptionEvent
-
 
 pytestmark = [pytest.mark.asyncio, pytest.mark.integration]
 
