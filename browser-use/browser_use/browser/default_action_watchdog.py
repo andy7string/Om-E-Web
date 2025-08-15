@@ -90,16 +90,30 @@ class DefaultActionWatchdog(BaseWatchdog):
 		return page.locator(selector)
 
 	async def _pw_element_is_occluded(self, loc) -> bool:
-		"""Return True if element is covered by another element at its center point."""
+		"""Return True if element is covered by another element at its center point.
+
+		Translates coordinates to the top window for correct occlusion checks across iframes.
+		"""
 		try:
 			return await loc.evaluate(
 				"el => {\n"
-				"  const r = el.getBoundingClientRect();\n"
-				"  const cx = r.left + r.width/2;\n"
-				"  const cy = r.top + r.height/2;\n"
-				"  const e = document.elementFromPoint(cx, cy);\n"
+				"  // Center in local document\n"
+				"  const rect = el.getBoundingClientRect();\n"
+				"  let x = rect.left + rect.width / 2;\n"
+				"  let y = rect.top + rect.height / 2;\n"
+				"  // Walk up through frame chain to top window\n"
+				"  let w = el.ownerDocument.defaultView;\n"
+				"  while (w && w !== w.top && w.frameElement) {\n"
+				"    const fr = w.frameElement.getBoundingClientRect();\n"
+				"    x += fr.left;\n"
+				"    y += fr.top;\n"
+				"    w = w.parent;\n"
+				"  }\n"
+				"  const topDoc = (w && w.document) ? w.document : document;\n"
+				"  const e = topDoc.elementFromPoint(x, y);\n"
 				"  return !!(e && e !== el && !el.contains(e));\n"
-				"}"
+				"}",
+				timeout=200
 			)
 		except Exception:
 			return False
@@ -125,6 +139,39 @@ class DefaultActionWatchdog(BaseWatchdog):
 	async def on_ClickElementEvent(self, event: ClickElementEvent) -> None:
 		"""Handle click request with CDP."""
 		try:
+			# Absolute fast-path: if event node carries a shadow/iframe selector, do handle-free JS click first
+			try:
+				attrs0 = getattr(event.node, 'attributes', {}) or {}
+				attr_sel = attrs0.get('__selector__')
+				if isinstance(attr_sel, str) and '>>>' in attr_sel:
+					page0 = await self.browser_session.get_or_create_playwright_page()
+					clicked0 = await page0.evaluate(
+						"(sel) => {\n"
+						"  const parts = sel.split('>>>').map(s=>s.trim()).filter(Boolean);\n"
+						"  let root = document; let start = 0;\n"
+						"  if (parts.length && parts[0].toLowerCase().startsWith('iframe')) {\n"
+						"    const fr = document.querySelector(parts[0]);\n"
+						"    if (!fr || !fr.contentDocument) return false;\n"
+						"    root = fr.contentDocument; start = 1;\n"
+						"  }\n"
+						"  let el = root.querySelector(parts[start] || parts[0]);\n"
+						"  for (let i = start + 1; i < parts.length && el; i++) {\n"
+						"    const seg = parts[i];\n"
+						"    if (seg && el.shadowRoot) { el = el.shadowRoot.querySelector(seg); } else { el = el.querySelector(seg); }\n"
+						"  }\n"
+						"  if (!el) return false; try { el.click(); return true; } catch(_) { return false; }\n"
+						"}",
+						attr_sel
+					)
+					if clicked0:
+						self.logger.info(f"🖱️ (PW-JS) Clicked selector {attr_sel} (pre-PW fast-path)")
+						self.browser_session._cached_browser_state_summary = None
+						self.browser_session._cached_selector_map.clear()
+						if self.browser_session._dom_watchdog:
+							self.browser_session._dom_watchdog.clear_cache()
+						return None
+			except Exception:
+				pass
 			# Check if session is alive before attempting any operations
 			if not self.browser_session.agent_focus or not self.browser_session.agent_focus.target_id:
 				error_msg = 'Cannot execute click: browser session is corrupted (target_id=None). Session may have crashed.'
@@ -138,44 +185,207 @@ class DefaultActionWatchdog(BaseWatchdog):
 				selector = self._node_to_best_selector(element_node)
 				if selector:
 					page = await self.browser_session.get_or_create_playwright_page()
+					# Fast-path for iframe selectors: avoid handle/locator waits; do handle-free JS click immediately
+					if '>>>' in selector:
+						parts0 = selector.split('>>>', 1)[0].strip().lower()
+						if parts0.startswith('iframe') or parts0.startswith('frame'):
+							clicked = await page.evaluate(
+								"(sel) => {\n"
+								"  const parts = sel.split('>>>').map(s=>s.trim()).filter(Boolean);\n"
+								"  let root = document; let start = 0;\n"
+								"  if (parts.length && parts[0].toLowerCase().startsWith('iframe')) {\n"
+								"    const fr = document.querySelector(parts[0]);\n"
+								"    if (!fr || !fr.contentDocument) return false;\n"
+								"    root = fr.contentDocument; start = 1;\n"
+								"  }\n"
+								"  let el = root.querySelector(parts[start] || parts[0]);\n"
+								"  for (let i = start + 1; i < parts.length && el; i++) {\n"
+								"    const seg = parts[i];\n"
+								"    if (seg && el.shadowRoot) { el = el.shadowRoot.querySelector(seg); } else { el = el.querySelector(seg); }\n"
+								"  }\n"
+								"  if (!el) return false; try { el.click(); return true; } catch(_) { return false; }\n"
+								"}",
+								selector
+							)
+							if clicked:
+								self.logger.info(f"🖱️ (PW-JS) Clicked selector {selector} (iframe fast-path)")
+								# Clear caches after action
+								self.browser_session._cached_browser_state_summary = None
+								self.browser_session._cached_selector_map.clear()
+								if self.browser_session._dom_watchdog:
+									self.browser_session._dom_watchdog.clear_cache()
+								return None
+					# Fallback to locator path for non-iframe or if fast-path didn't return
 					loc = await self._pw_locator_for_selector(page, selector)
 					# Ensure visible by scrolling into view first
 					try:
-						await loc.scroll_into_view_if_needed()
+						await loc.scroll_into_view_if_needed(timeout=250)
 					except Exception:
 						pass
-					# Occlusion-aware check and nudge
+					# Occlusion-aware check and nudge with tiny timeout; if still occluded, use handle-free JS click
 					try:
-						if await self._pw_element_is_occluded(loc):
-							await self._pw_nudge_scroll_to_uncover(page, loc)
-						# Recheck after nudges
-						if await self._pw_element_is_occluded(loc):
-							# JS click fallback if still occluded
-							clicked = await loc.evaluate(
-								"el => { try { el.click(); return true; } catch(_) { return false; } }"
-							)
-							if clicked:
-								self.logger.info(f"🖱️ (PW-JS) Clicked occluded selector {selector}")
-								return None
-						# Not occluded, perform normal click
-						await loc.click()
+						is_occ = await self._pw_element_is_occluded(loc)
+					except Exception:
+						is_occ = False
+					if is_occ:
+						await self._pw_nudge_scroll_to_uncover(page, loc)
+						try:
+							if await self._pw_element_is_occluded(loc):
+								clicked = await page.evaluate(
+									"(sel) => {\n"
+									"  const parts = sel.split('>>>').map(s=>s.trim()).filter(Boolean);\n"
+									"  let root = document; let start = 0;\n"
+									"  if (parts.length && parts[0].toLowerCase().startsWith('iframe')) {\n"
+									"    const fr = document.querySelector(parts[0]);\n"
+									"    if (!fr || !fr.contentDocument) return false;\n"
+									"    root = fr.contentDocument; start = 1;\n"
+									"  }\n"
+									"  let el = root.querySelector(parts[start] || parts[0]);\n"
+									"  for (let i = start + 1; i < parts.length && el; i++) {\n"
+									"    const seg = parts[i];\n"
+									"    if (seg && el.shadowRoot) { el = el.shadowRoot.querySelector(seg); } else { el = el.querySelector(seg); }\n"
+									"  }\n"
+									"  if (!el) return false; try { el.click(); return true; } catch(_) { return false; }\n"
+									"}",
+									selector
+								)
+								if clicked:
+									self.logger.info(f"🖱️ (PW-JS) Clicked occluded selector {selector}")
+									return None
+						except Exception:
+							pass
+					# Try normal PW click quickly
+					try:
+						await loc.click(timeout=500)
 						self.logger.info(f'🖱️ (PW) Clicked using selector {selector}')
-						# Clear caches after action
 						self.browser_session._cached_browser_state_summary = None
 						self.browser_session._cached_selector_map.clear()
 						if self.browser_session._dom_watchdog:
 							self.browser_session._dom_watchdog.clear_cache()
 						return None
 					except Exception:
-						# Fall through to CDP path
-						pass
+						# Final fallback: handle-free JS click
+						try:
+							clicked = await page.evaluate(
+								"(sel) => {\n"
+								"  const parts = sel.split('>>>').map(s=>s.trim()).filter(Boolean);\n"
+								"  let root = document; let start = 0;\n"
+								"  if (parts.length && parts[0].toLowerCase().startsWith('iframe')) {\n"
+								"    const fr = document.querySelector(parts[0]);\n"
+								"    if (!fr || !fr.contentDocument) return false;\n"
+								"    root = fr.contentDocument; start = 1;\n"
+								"  }\n"
+								"  let el = root.querySelector(parts[start] || parts[0]);\n"
+								"  for (let i = start + 1; i < parts.length && el; i++) {\n"
+								"    const seg = parts[i];\n"
+								"    if (seg && el.shadowRoot) { el = el.shadowRoot.querySelector(seg); } else { el = el.querySelector(seg); }\n"
+								"  }\n"
+								"  if (!el) return false; try { el.click(); return true; } catch(_) { return false; }\n"
+								"}",
+								selector
+							)
+							if clicked:
+								self.logger.info(f"🖱️ (PW-JS) Clicked selector {selector} after PW click fallback")
+								return None
+						except Exception:
+							pass
 			except Exception as exc:
 				# Fall back to CDP path below
 				self.logger.debug(f"PW click failed for derived selector; falling back to CDP. error={type(exc).__name__}: {exc}")
 
-			# Use the provided node; resolve if missing critical identifiers (CDP fallback)
+			# Use the provided node; before CDP fallback, try our enhanced _pw_click_anywhere method
 			if element_node is None or not getattr(element_node, 'backend_node_id', None):
+				# Try our enhanced 4-phase fallback method first
+				try:
+					page = await self.browser_session.get_or_create_playwright_page()
+					# Create a mock node_info object with the event data
+					class MockNodeInfo:
+						def __init__(self, event_node):
+							self.metadata = getattr(event_node, 'attributes', {}) or {}
+							self.selector = getattr(event_node, 'attributes', {}).get('__selector__') if hasattr(event_node, 'attributes') else None
+							self.iframe_chain = []
+							# Extract iframe chain from selector if it exists
+							if self.selector and '>>>' in self.selector:
+								parts = [p.strip() for p in self.selector.split('>>>') if p.strip()]
+								if parts and ('iframe' in parts[0] or parts[0].startswith('frame')):
+									self.iframe_chain = parts
+					
+					mock_node_info = MockNodeInfo(event.node)
+					
+					# Try our enhanced click method
+					if await self._pw_click_anywhere(page, mock_node_info, timeout=500):
+						self.logger.info("🖱️ [Enhanced] _pw_click_anywhere succeeded")
+						# Clear caches after action
+						self.browser_session._cached_browser_state_summary = None
+						self.browser_session._cached_selector_map.clear()
+						if self.browser_session._dom_watchdog:
+							self.browser_session._dom_watchdog.clear_cache()
+						return None
+				except Exception as e:
+					self.logger.debug(f"Enhanced _pw_click_anywhere failed: {e}")
+				
+				# Fallback to original logic if enhanced method fails
+				attrs = getattr(event.node, 'attributes', {}) or {}
+				selector_from_attrs = attrs.get('__selector__')
+				if isinstance(selector_from_attrs, str) and '>>>' in selector_from_attrs:
+					page = await self.browser_session.get_or_create_playwright_page()
+					clicked = await page.evaluate(
+						"(sel) => {\n"
+						"  const parts = sel.split('>>>').map(s=>s.trim()).filter(Boolean);\n"
+						"  let root = document; let start = 0;\n"
+						"  if (parts.length && parts[0].toLowerCase().startsWith('iframe')) {\n"
+						"    const fr = document.querySelector(parts[0]);\n"
+						"    if (!fr || !fr.contentDocument) return false;\n"
+						"    root = fr.contentDocument; start = 1;\n"
+						"  }\n"
+						"  let el = root.querySelector(parts[start] || parts[0]);\n"
+						"  for (let i = start + 1; i < parts.length && el; i++) {\n"
+						"    const seg = parts[i];\n"
+						"    if (seg && el.shadowRoot) { el = el.shadowRoot.querySelector(seg); } else { el = el.querySelector(seg); }\n"
+						"  }\n"
+						"  if (!el) return false; try { el.click(); return true; } catch(_) { return false; }\n"
+						"}",
+						selector_from_attrs
+					)
+					if clicked:
+						self.logger.info(f"🖱️ (PW-JS) Clicked selector {selector_from_attrs} (attrs fast-path)")
+						self.browser_session._cached_browser_state_summary = None
+						self.browser_session._cached_selector_map.clear()
+						if self.browser_session._dom_watchdog:
+							self.browser_session._dom_watchdog.clear_cache()
+						return None
+				# Else attempt to resolve via CDP
 				resolved = await self._resolve_node_fallback(event.node)
+				# As a last resort, try clicking by element id inside any same-origin iframe (handle-free)
+				if resolved is None:
+					try:
+						attrs2 = getattr(event.node, 'attributes', {}) or {}
+						el_id = attrs2.get('id') or attrs2.get('data-testid')
+						if isinstance(el_id, str) and el_id:
+							page2 = await self.browser_session.get_or_create_playwright_page()
+							clicked2 = await page2.evaluate(
+								"(id) => {\n"
+								"  // 1) Try top doc by id\n"
+								"  const elTop = document.getElementById(id);\n"
+								"  if (elTop) { try { elTop.click(); return true; } catch(_) {} }\n"
+								"  // 2) Try all iframes (same-origin)\n"
+								"  const ifrs = Array.from(document.querySelectorAll('iframe'));\n"
+								"  for (const fr of ifrs) {\n"
+								"    try { const d = fr.contentDocument; if (!d) continue; const e = d.getElementById(id); if (e) { e.click(); return true; } } catch(_) {}\n"
+								"  }\n"
+								"  return false;\n"
+								"}",
+								el_id
+							)
+							if clicked2:
+								self.logger.info(f"🖱️ (PW-JS) Clicked by id inside iframe(s): #{el_id}")
+								self.browser_session._cached_browser_state_summary = None
+								self.browser_session._cached_selector_map.clear()
+								if self.browser_session._dom_watchdog:
+									self.browser_session._dom_watchdog.clear_cache()
+								return None
+					except Exception:
+						pass
 				if resolved is None:
 					raise BrowserError('Cannot resolve element to click: no usable node or selector available')
 				element_node = resolved
@@ -1691,3 +1901,150 @@ class DefaultActionWatchdog(BaseWatchdog):
 			return None
 		else:
 			raise BrowserError(f'Text not found: "{event.text}"', details={'text': event.text})
+
+	async def _get_iframe_offset_from_chain(self, page, iframe_chain):
+		"""
+		Calculates top-level (x, y) offset for an iframe-contained element
+		using the provided iframe_chain.
+		
+		iframe_chain: list of selectors leading to the target,
+					  e.g. ["iframe#frame1", "iframe#frame2", "#innerBtn"]
+					  The final entry is the element itself, not an iframe.
+
+		Returns: dict {"x": <float>, "y": <float>}
+		"""
+		offset_x, offset_y = 0, 0
+
+		# Walk from the top-level page through each iframe in the chain
+		current_frame_context = page
+		for iframe_selector in iframe_chain[:-1]:  # skip last (target element)
+			# Get locator for the iframe and measure its bounding box
+			iframe_loc = current_frame_context.locator(iframe_selector).first
+			box = await iframe_loc.bounding_box()
+			if not box:
+				raise RuntimeError(f"Unable to get bounding box for iframe {iframe_selector}")
+
+			offset_x += box["x"]
+			offset_y += box["y"]
+
+			# Narrow context down to inside this iframe
+			current_frame_context = await current_frame_context.frame_locator(iframe_selector).frame
+
+		return {"x": offset_x, "y": offset_y}
+
+	async def _pw_click_anywhere(self, page, node_info, timeout=500):
+		"""
+		Click an element robustly across iframes/shadow DOM with multiple fallbacks:
+		  1. Fast-path JS click (no waits, iframe/shadow aware)
+		  2. Playwright click with occlusion detection + scroll nudge
+		  3. CDP coordinate click using iframe_chain offsets
+		  4. Hard JS dispatchEvent fallback
+		
+		Args:
+			page: Playwright page object
+			node_info: Element node with metadata/selector info
+			timeout: Maximum time for Playwright operations (kept low for speed)
+		"""
+		selector = None
+		frame = page
+		iframe_chain = []
+
+		# --- Step 0: Extract selector & iframe chain from node_info ---
+		if hasattr(node_info, "metadata"):
+			selector = node_info.metadata.get("__selector__")
+			iframe_chain = node_info.metadata.get("iframe_chain", [])
+		if hasattr(node_info, "selector") and not selector:
+			selector = node_info.selector
+		if hasattr(node_info, "iframe_chain") and not iframe_chain:
+			iframe_chain = node_info.iframe_chain
+
+		# Navigate into correct frame
+		if iframe_chain:
+			element_selector = selector or iframe_chain[-1]
+			frame = page
+			for iframe_sel in iframe_chain[:-1]:
+				frame = await frame.frame_locator(iframe_sel).frame
+			selector = element_selector
+
+		if not selector:
+			raise ValueError("No selector available for click target.")
+
+		# --- Step 1: Fast-path JS click ---
+		try:
+			ok = await frame.evaluate(
+				"""sel => {
+					const el = document.querySelector(sel);
+					if (el) { el.click(); return true; }
+					return false;
+				}""",
+				selector
+			)
+			if ok:
+				self.logger.info(f"🖱️ [Fast-path] JS click succeeded: {selector}")
+				return True
+		except Exception as e:
+			self.logger.debug(f"Fast-path JS click failed: {e}")
+
+		# --- Step 2: Playwright click with occlusion handling ---
+		try:
+			loc = frame.locator(selector)
+			if await self._pw_element_is_occluded(loc):
+				self.logger.info("Element occluded — performing scroll nudge...")
+				await self._pw_nudge_scroll_to_uncover(page, loc)
+
+			await loc.click(timeout=timeout)
+			self.logger.info(f"🖱️ [PW] Locator click succeeded: {selector}")
+			return True
+		except Exception as e:
+			self.logger.debug(f"Playwright click failed: {e}")
+
+		# --- Step 3: CDP coordinate click ---
+		try:
+			box = await frame.locator(selector).bounding_box()
+			if not box:
+				raise RuntimeError("No bounding box for element.")
+
+			frame_offset = {"x": 0, "y": 0}
+			if iframe_chain and len(iframe_chain) > 1:
+				frame_offset = await self._get_iframe_offset_from_chain(page, iframe_chain)
+
+			abs_x = frame_offset["x"] + box["x"] + box["width"] / 2
+			abs_y = frame_offset["y"] + box["y"] + box["height"] / 2
+
+			client = await page.context.new_cdp_session(page)
+			await client.send("Input.dispatchMouseEvent", {
+				"type": "mousePressed", "x": abs_x, "y": abs_y,
+				"button": "left", "clickCount": 1
+			})
+			await client.send("Input.dispatchMouseEvent", {
+				"type": "mouseReleased", "x": abs_x, "y": abs_y,
+				"button": "left", "clickCount": 1
+			})
+			self.logger.info(f"🖱️ [CDP] Coordinate click succeeded at ({abs_x}, {abs_y})")
+			return True
+		except Exception as e:
+			self.logger.debug(f"CDP coordinate click failed: {e}")
+
+		# --- Step 4: Hard JS event dispatch fallback ---
+		try:
+			ok = await frame.evaluate(
+				"""sel => {
+					const el = document.querySelector(sel);
+					if (el) {
+						const evt = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
+						el.dispatchEvent(evt);
+						return true;
+					}
+					return false;
+				}""",
+				selector
+			)
+			if ok:
+				self.logger.info(f"🖱️ [Hard-JS] dispatchEvent click succeeded: {selector}")
+				return True
+		except Exception as e:
+			self.logger.debug(f"Hard JS dispatchEvent failed: {e}")
+
+		# If we got here, everything failed
+		self.logger.error(f"All click fallbacks failed for selector: {selector}")
+		return False

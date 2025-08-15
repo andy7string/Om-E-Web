@@ -203,6 +203,11 @@ class BrowserSession(BaseModel):
 	_cached_selector_map: dict[int, EnhancedDOMTreeNode] = PrivateAttr(default_factory=dict)
 	_downloaded_files: list[str] = PrivateAttr(default_factory=list)  # Track files downloaded during this session
 
+	# Optional Playwright connection over CDP for robust waits/interactions
+	_pw_browser: Any | None = PrivateAttr(default=None)
+	_pw_context: Any | None = PrivateAttr(default=None)
+	_pw_page: Any | None = PrivateAttr(default=None)
+
 	# Watchdogs
 	_crash_watchdog: Any | None = PrivateAttr(default=None)
 	_downloads_watchdog: Any | None = PrivateAttr(default=None)
@@ -1017,6 +1022,65 @@ class BrowserSession(BaseModel):
 
 		return self
 
+	async def get_or_create_playwright_page(self):
+		"""
+		Connect to the running Chrome over CDP using Playwright and return a Page.
+		Keeps a cached connection; reconnects if URL/contexts changed.
+		"""
+		from playwright.async_api import async_playwright
+
+		assert self.cdp_url, 'CDP URL not set'
+		# Fast path: reuse existing page if still valid
+		if self._pw_page is not None:
+			try:
+				# Simple no-op to validate the page
+				_ = await self._pw_page.title()
+				return self._pw_page
+			except Exception:
+				self._pw_page = None
+				self._pw_context = None
+				self._pw_browser = None
+
+		# (Re)connect via Playwright over CDP
+		pw = await async_playwright().start()
+		self._pw_browser = await pw.chromium.connect_over_cdp(self.cdp_url)
+		contexts = self._pw_browser.contexts
+		if not contexts:
+			self._pw_context = await self._pw_browser.new_context()
+		else:
+			self._pw_context = contexts[0]
+		# Try to find a page that matches current URL; poll briefly
+		current_url = await self.get_current_page_url()
+		deadline = asyncio.get_event_loop().time() + 2.0
+		match = None
+		while asyncio.get_event_loop().time() < deadline and match is None:
+			pages = self._pw_context.pages
+			for p in pages:
+				try:
+					purl = getattr(p, 'url', None)
+					if purl == current_url:
+						match = p
+						break
+				except Exception:
+					continue
+			if match is None:
+				await asyncio.sleep(0.05)
+
+		if match is None:
+			pages = self._pw_context.pages
+			if not pages:
+				self._pw_page = await self._pw_context.new_page()
+			else:
+				# Prefer file:// if our current URL is a file URL
+				if current_url.startswith('file://'):
+					file_pages = [p for p in pages if getattr(p, 'url', '').startswith('file://')]
+					self._pw_page = file_pages[0] if file_pages else pages[0]
+				else:
+					self._pw_page = pages[0]
+		else:
+			self._pw_page = match
+		return self._pw_page
+
 	async def get_tabs(self) -> list[TabInfo]:
 		"""Get information about all open tabs using CDP Target.getTargetInfo for speed."""
 		tabs = []
@@ -1053,7 +1117,6 @@ class BrowserSession(BaseModel):
 					# PDF pages might not have a title, use URL filename
 					try:
 						from urllib.parse import urlparse
-
 						filename = urlparse(url).path.split('/')[-1]
 						if filename:
 							title = filename
@@ -1728,45 +1791,256 @@ class BrowserSession(BaseModel):
 		Returns None if not found.
 		"""
 		try:
+			# Helper to construct node structure from a session and nodeId
+			async def _build(session, node_id, target_id_hint=None):
+				desc = await session.cdp_client.send.DOM.describeNode(params={"nodeId": node_id}, session_id=session.session_id)
+				n = desc.get("node", {})
+				backend_id = n.get("backendNodeId")
+				node_name = (n.get("nodeName") or "").lower() or "div"
+				node_value = (n.get("nodeValue") or "")
+				attrs_list = n.get("attributes") or []
+				attrs = {attrs_list[i]: attrs_list[i + 1] for i in range(0, len(attrs_list), 2)} if attrs_list else {}
+				# Preserve the selector we used (for PW-first interactions)
+				try:
+					if selector:
+						attrs['__selector__'] = selector
+				except Exception:
+					pass
+				return EnhancedDOMTreeNode(
+					node_id=node_id,
+					backend_node_id=backend_id,
+					node_type=1,
+					node_name=node_name,
+					node_value=node_value,
+					attributes=attrs,
+					is_scrollable=None,
+					is_visible=None,
+					absolute_position=None,
+					session_id=session.session_id,
+					target_id=target_id_hint or session.target_id,
+					frame_id=None,
+					content_document=None,
+					shadow_root_type=None,
+					shadow_roots=None,
+					parent_node=None,
+					children_nodes=None,
+					ax_node=None,
+					snapshot_node=None,
+				)
+
+			# Strategy A: pierce selector with >>> via JS + DOM.requestNode
 			cdp = await self.get_or_create_cdp_session()
-			# Ensure DOM domain enabled
 			await cdp.cdp_client.send.DOM.enable(session_id=cdp.session_id)
-			# Query in the current document
-			doc = await cdp.cdp_client.send.DOM.getDocument(params={"depth": -1, "pierce": True}, session_id=cdp.session_id)
-			qs = await cdp.cdp_client.send.DOM.querySelector(
-				params={"nodeId": doc["root"]["nodeId"], "selector": selector}, session_id=cdp.session_id
-			)
-			node_id = qs.get("nodeId")
-			if not node_id:
-				return None
-			desc = await cdp.cdp_client.send.DOM.describeNode(params={"nodeId": node_id}, session_id=cdp.session_id)
-			n = desc.get("node", {})
-			backend_id = n.get("backendNodeId")
-			node_name = (n.get("nodeName") or "").lower() or "div"
-			node_value = (n.get("nodeValue") or "")
-			attrs_list = n.get("attributes") or []
-			attrs = {attrs_list[i]: attrs_list[i + 1] for i in range(0, len(attrs_list), 2)} if attrs_list else {}
-			return EnhancedDOMTreeNode(
-				node_id=node_id,
-				backend_node_id=backend_id,
-				node_type=1,  # NodeType.ELEMENT_NODE
-				node_name=node_name,
-				node_value=node_value,
-				attributes=attrs,
-				is_scrollable=None,
-				is_visible=None,
-				absolute_position=None,
-				session_id=cdp.session_id,
-				target_id=cdp.target_id,
-				frame_id=None,
-				content_document=None,
-				shadow_root_type=None,
-				shadow_roots=None,
-				parent_node=None,
-				children_nodes=None,
-				ax_node=None,
-				snapshot_node=None,
-			)
+			if '>>>' in selector:
+				try:
+						# Get document object to use as root for function call
+						doc_eval = await cdp.cdp_client.send.Runtime.evaluate(
+							params={"expression": "document", "returnByValue": False}, session_id=cdp.session_id
+						)
+						doc_obj_id = (doc_eval.get("result") or {}).get("objectId")
+						if not doc_obj_id:
+							raise Exception("Failed to resolve document object")
+
+						# Run a shadow/iframe piercing query from document
+						res = await cdp.cdp_client.send.Runtime.callFunctionOn(
+							params={
+								"functionDeclaration": """
+								function(sel){
+								  const parts = sel.split('>>>').map(s => s.trim()).filter(Boolean);
+								  let root = this;
+								  let el = null;
+								  for (const part of parts) {
+								    el = root.querySelector(part);
+								    if (!el) return null;
+								    if (el.shadowRoot) {
+								      root = el.shadowRoot;
+								    } else if (el.tagName && el.tagName.toLowerCase() === 'iframe' && el.contentDocument) {
+								      root = el.contentDocument;
+								    } else {
+								      root = el;
+								    }
+								  }
+								  return el;
+								}
+								""",
+								"objectId": doc_obj_id,
+								"arguments": [{"value": selector}],
+								"returnByValue": False
+							},
+							session_id=cdp.session_id,
+						)
+						obj = (res.get("result") or {})
+						object_id = obj.get("objectId")
+						if object_id:
+							# Try describeNode with objectId first
+							try:
+								desc_obj = await cdp.cdp_client.send.DOM.describeNode(
+									params={"objectId": object_id}, session_id=cdp.session_id
+								)
+								node = (desc_obj.get("node") or {})
+								node_id = node.get("nodeId")
+								if node_id:
+									return await _build(cdp, node_id)
+							except Exception:
+								pass
+
+							# Fallback: requestNode to map object to nodeId
+							try:
+								req = await cdp.cdp_client.send.DOM.requestNode(
+									params={"objectId": object_id}, session_id=cdp.session_id
+								)
+								node_id2 = req.get("nodeId")
+								if node_id2:
+									return await _build(cdp, node_id2)
+							except Exception:
+								pass
+						# If we reached here, we still have a valid JS handle but no CDP nodeId; synthesize a PW-first node
+						try:
+							attrs = {'__selector__': selector}
+							return EnhancedDOMTreeNode(
+								node_id=0,
+								backend_node_id=0,
+								node_type=1,
+								node_name='div',
+								node_value='',
+								attributes=attrs,
+								is_scrollable=None,
+								is_visible=None,
+								absolute_position=None,
+								session_id=cdp.session_id,
+								target_id=cdp.target_id,
+								frame_id=None,
+								content_document=None,
+								shadow_root_type=None,
+								shadow_roots=None,
+								parent_node=None,
+								children_nodes=None,
+								ax_node=None,
+								snapshot_node=None,
+							)
+						except Exception:
+							pass
+				except Exception:
+					# As a last resort for shadow selectors, synthesize a PW-first node
+					try:
+						attrs = {'__selector__': selector}
+						return EnhancedDOMTreeNode(
+							node_id=0,
+							backend_node_id=0,
+							node_type=1,
+							node_name='div',
+							node_value='',
+							attributes=attrs,
+							is_scrollable=None,
+							is_visible=None,
+							absolute_position=None,
+							session_id=cdp.session_id,
+							target_id=cdp.target_id,
+							frame_id=None,
+							content_document=None,
+							shadow_root_type=None,
+							shadow_roots=None,
+							parent_node=None,
+							children_nodes=None,
+							ax_node=None,
+							snapshot_node=None,
+						)
+					except Exception:
+						pass
+
+			# Strategy B: Try current document querySelector, then performSearch
+			try:
+				doc = await cdp.cdp_client.send.DOM.getDocument(params={"depth": -1, "pierce": True}, session_id=cdp.session_id)
+				qs = await cdp.cdp_client.send.DOM.querySelector(
+					params={"nodeId": doc["root"]["nodeId"], "selector": selector}, session_id=cdp.session_id
+				)
+				node_id = qs.get("nodeId")
+				if node_id:
+					return await _build(cdp, node_id)
+			except Exception:
+				pass
+
+			# performSearch (can find nodes not directly found by querySelector; includes UA shadow)
+			try:
+				search = await cdp.cdp_client.send.DOM.performSearch(
+					params={"query": selector, "includeUserAgentShadowDOM": True}, session_id=cdp.session_id
+				)
+				count = search.get("resultCount", 0)
+				if count and count > 0:
+					res_nodes = await cdp.cdp_client.send.DOM.getSearchResults(
+						params={"searchId": search["searchId"], "fromIndex": 0, "toIndex": 1}, session_id=cdp.session_id
+					)
+					nodes = res_nodes.get("nodeIds") or []
+					if nodes:
+						return await _build(cdp, nodes[0])
+			except Exception:
+				pass
+
+			# Strategy C: Search across iframe/page targets
+			try:
+				all_targets = await self._cdp_get_all_pages(include_http=True, include_about=True, include_pages=True, include_iframes=True)
+				for tgt in all_targets:
+					try:
+						sess = await self.get_or_create_cdp_session(tgt["targetId"], focus=False)
+						await sess.cdp_client.send.DOM.enable(session_id=sess.session_id)
+						# Try querySelector
+						doc2 = await sess.cdp_client.send.DOM.getDocument(params={"depth": -1, "pierce": True}, session_id=sess.session_id)
+						qs2 = await sess.cdp_client.send.DOM.querySelector(
+							params={"nodeId": doc2["root"]["nodeId"], "selector": selector}, session_id=sess.session_id
+						)
+						node_id2 = qs2.get("nodeId")
+						if node_id2:
+							return await _build(sess, node_id2, target_id_hint=tgt["targetId"])
+						# Try performSearch
+						search2 = await sess.cdp_client.send.DOM.performSearch(
+							params={"query": selector, "includeUserAgentShadowDOM": True}, session_id=sess.session_id
+						)
+						if search2.get("resultCount", 0) > 0:
+							res2 = await sess.cdp_client.send.DOM.getSearchResults(
+								params={"searchId": search2["searchId"], "fromIndex": 0, "toIndex": 1}, session_id=sess.session_id
+							)
+							nodes2 = res2.get("nodeIds") or []
+							if nodes2:
+								return await _build(sess, nodes2[0], target_id_hint=tgt["targetId"])
+					except Exception:
+						continue
+			except Exception:
+				pass
+
+				# Strategy D: Flattened document scan (pierces shadow DOM)
+				try:
+					cdp = await self.get_or_create_cdp_session()
+					await cdp.cdp_client.send.DOM.enable(session_id=cdp.session_id)
+					flat = await cdp.cdp_client.send.DOM.getFlattenedDocument(
+						params={"depth": -1, "pierce": True}, session_id=cdp.session_id
+					)
+					nodes = flat.get("nodes") or []
+					last = selector.split('>>>')[-1].strip()
+					candidate_node_id = None
+					# Prefer matching by id if last token is #id
+					if last.startswith('#') and len(last) > 1:
+						needle = last[1:]
+						for n in nodes:
+							attrs = n.get("attributes") or []
+							attr_map = {attrs[i]: attrs[i + 1] for i in range(0, len(attrs), 2)} if attrs else {}
+							if attr_map.get("id") == needle:
+								candidate_node_id = n.get("nodeId")
+								break
+					elif last.startswith('[name=') and last.endswith(']'):
+						needle = last[len('[name='):-1].strip().strip('"\'')
+						for n in nodes:
+							attrs = n.get("attributes") or []
+							attr_map = {attrs[i]: attrs[i + 1] for i in range(0, len(attrs), 2)} if attrs else {}
+							if attr_map.get("name") == needle:
+								candidate_node_id = n.get("nodeId")
+								break
+					# Build if found
+					if candidate_node_id:
+						return await _build(cdp, candidate_node_id)
+				except Exception:
+					pass
+
+			return None
 		except Exception:
 			return None
 
