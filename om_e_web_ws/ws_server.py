@@ -25,11 +25,52 @@ import asyncio
 import json
 import websockets
 import uuid
+import os
+from urllib.parse import urlparse
 
 # Global state for managing WebSocket connections and command routing
 CLIENTS = set()                    # All connected WebSocket clients
 PENDING = {}                       # Command ID → Future mapping for response routing
 EXTENSION_WS = None               # Reference to the Chrome extension client
+
+# 📁 Site map storage configuration
+SITE_STRUCTURES_DIR = "@site_structures"
+
+def save_site_map_to_jsonl(site_map_data):
+    """
+    💾 Save site map data to a JSONL file in the @site_structures folder
+    
+    This function takes the site map data that's already flowing through the server
+    and saves it to a JSONL file named after the website's hostname.
+    
+    @param site_map_data: Raw site map data from extension
+    @return: File path if successful, None if failed
+    """
+    try:
+        # Ensure the site structures directory exists
+        if not os.path.exists(SITE_STRUCTURES_DIR):
+            os.makedirs(SITE_STRUCTURES_DIR)
+            print(f"📁 Created directory: {SITE_STRUCTURES_DIR}")
+        
+        # Extract URL and generate filename
+        url = site_map_data.get('metadata', {}).get('url', 'unknown')
+        parsed_url = urlparse(url)
+        hostname = parsed_url.hostname or 'unknown'
+        filename = f"{hostname}.jsonl"
+        filepath = os.path.join(SITE_STRUCTURES_DIR, filename)
+        
+        # Write the entire site map data to JSONL file with proper formatting
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(json.dumps(site_map_data, ensure_ascii=False, indent=2) + '\n')
+        
+        print(f"💾 Site map saved to: {filepath}")
+        print(f"📊 Elements: {site_map_data.get('statistics', {}).get('totalElements', 0)}")
+        
+        return filepath
+        
+    except Exception as e:
+        print(f"❌ Error saving site map: {e}")
+        return None
 
 async def handler(ws):
     """
@@ -81,6 +122,13 @@ async def handler(ws):
             if "id" in msg and ("ok" in msg or "error" in msg):
                 print(f"📥 Response received for id: {msg['id']}")
                 
+                # 💾 AUTO-SAVE SITE MAP: If this is a successful generateSiteMap response, save to file
+                if msg.get("ok") and msg.get("result") and "statistics" in msg.get("result", {}):
+                    print("🔍 SITE MAP DETECTED - Auto-saving to JSONL file...")
+                    saved_file = save_site_map_to_jsonl(msg["result"])
+                    if saved_file:
+                        print(f"🎯 Site map automatically saved to: {saved_file}")
+                
                 # First, try to find the pending future in our PENDING dict
                 # This handles responses for commands sent via send_command() function
                 fut = PENDING.pop(msg["id"], None)
@@ -97,7 +145,7 @@ async def handler(ws):
                             print(f"📤 Forwarding response to test client: {msg['id']}")
                             try:
                                 await client.send(json.dumps(msg))
-                                print(f"✅ Response forwarded to test client")
+                                print("✅ Response forwarded to test client")
                                 break
                             except Exception as e:
                                 print(f"❌ Failed to forward response to test client: {e}")
