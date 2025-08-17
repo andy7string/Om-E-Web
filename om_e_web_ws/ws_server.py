@@ -100,6 +100,94 @@ def save_site_map_to_jsonl(site_map_data, suffix=""):
         print(f"❌ Error saving site map: {e}")
         return None
 
+def process_clean_site_map(raw_file_path):
+    """
+    🧠 Process raw site map data into LLM-friendly format
+    
+    This function takes the raw _clean.jsonl file and processes it to:
+    1. Extract the interactive elements
+    2. Add unique FindMe_id to each element
+    3. Create LLM-optimized structure
+    4. Generate mapping between processed and raw data
+    
+    @param raw_file_path: Path to the _clean.jsonl file
+    @return: Tuple of (processed_data, mapping_data, success_status)
+    """
+    try:
+        print(f"🧠 Processing raw site map: {raw_file_path}")
+        
+        # Read the raw JSONL file
+        with open(raw_file_path, 'r', encoding='utf-8') as f:
+            raw_data = json.loads(f.read())
+        
+        # Extract key components
+        metadata = raw_data.get('metadata', {})
+        interactive_elements = raw_data.get('interactiveElements', [])
+        page_structure = raw_data.get('pageStructure', {})
+        
+        print(f"📊 Raw data contains {len(interactive_elements)} interactive elements")
+        
+        # Create processed elements with FindMe_id
+        processed_elements = []
+        element_mapping = {}
+        
+        for index, element in enumerate(interactive_elements):
+            # Create unique FindMe_id
+            findme_id = f"FindMe_{index + 1:03d}"
+            
+            # Create processed element
+            processed_element = {
+                "FindMe_id": findme_id,
+                "type": element.get("type", "unknown"),
+                "text": element.get("text", "")[:100],  # Truncate long text
+                "href": element.get("href"),
+                "selector": element.get("selector"),
+                "coordinates": element.get("coordinates", {}),
+                "accessibility": element.get("accessibility", {}),
+                "position": element.get("position", {})
+            }
+            
+            processed_elements.append(processed_element)
+            
+            # Create mapping entry
+            element_mapping[findme_id] = {
+                "original_index": index,
+                "original_element": element,
+                "processed_element": processed_element
+            }
+        
+        # Create processed data structure
+        processed_data = {
+            "metadata": metadata,
+            "statistics": {
+                "totalElements": len(processed_elements),
+                "originalElements": len(interactive_elements),
+                "processingRatio": len(processed_elements) / len(interactive_elements) if interactive_elements else 0
+            },
+            "elements": processed_elements,
+            "pageStructure": page_structure
+        }
+        
+        # Create mapping data
+        mapping_data = {
+            "metadata": metadata,
+            "elementMapping": element_mapping,
+            "processingInfo": {
+                "timestamp": asyncio.get_event_loop().time(),
+                "totalMapped": len(element_mapping),
+                "processingStatus": "success"
+            }
+        }
+        
+        print(f"✅ Processing complete: {len(interactive_elements)} → {len(processed_elements)} elements")
+        print(f"🔗 Element mapping created for {len(element_mapping)} elements")
+        
+        return processed_data, mapping_data, True
+        
+    except Exception as e:
+        print(f"❌ Error processing site map: {e}")
+        return None, None, False
+
 async def handler(ws):
     """
     🔌 WebSocket connection handler for each client
@@ -190,6 +278,29 @@ async def handler(ws):
                     
                     if saved_file:
                         print(f"🎯 Site map automatically saved to: {saved_file}")
+                        
+                        # 🧠 AUTO-PROCESS: If this is a clean file, process it for LLM consumption
+                        if "_clean.jsonl" in saved_file:
+                            print("🧠 Auto-processing clean site map for LLM consumption...")
+                            try:
+                                processed_data, mapping_data, success = process_clean_site_map(saved_file)
+                                if success:
+                                    # Save processed data
+                                    processed_filename = saved_file.replace("_clean.jsonl", "_processed.jsonl")
+                                    with open(processed_filename, 'w', encoding='utf-8') as f:
+                                        json.dump(processed_data, f, ensure_ascii=False, indent=2)
+                                    
+                                    # Save mapping data
+                                    mapping_filename = saved_file.replace("_clean.jsonl", "_mapping.json")
+                                    with open(mapping_filename, 'w', encoding='utf-8') as f:
+                                        json.dump(mapping_data, f, ensure_ascii=False, indent=2)
+                                    
+                                    print(f"✅ Processed data saved to: {processed_filename}")
+                                    print(f"🔗 Element mapping saved to: {mapping_filename}")
+                                else:
+                                    print("❌ Failed to process site map for LLM consumption")
+                            except Exception as e:
+                                print(f"❌ Error during auto-processing: {e}")
                 
                 # First, try to find the pending future in our PENDING dict
                 # This handles responses for commands sent via send_command() function

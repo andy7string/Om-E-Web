@@ -114,7 +114,7 @@ async def test_site_mapping():
         # 🧪 STEP 4: Test basic connectivity with navigation
         print("\n1. Testing Basic Connectivity...")
         try:
-            result = await client.send_command("navigate", {"url": "https://example.com"})
+            await client.send_command("navigate", {"url": "https://example.com"})
             print("   ✅ Navigation command successful!")
             
             # Wait for page to load
@@ -131,11 +131,11 @@ async def test_site_mapping():
             if site_map.get('ok'):
                 data = site_map.get('result', {})
                 
-                print(f"   ✅ Site Map Generated Successfully!")
+                print("   ✅ Site Map Generated Successfully!")
                 
                 # 📊 Basic Statistics
                 stats = data.get('statistics', {})
-                print(f"\n   📊 BASIC STATISTICS:")
+                print("\n   📊 BASIC STATISTICS:")
                 print(f"      Total Elements: {stats.get('totalElements', 0)}")
                 print(f"      Clickable Elements: {stats.get('clickableElements', 0)}")
                 print(f"      Form Elements: {stats.get('formElements', 0)}")
@@ -145,7 +145,7 @@ async def test_site_mapping():
                 # 📍 Interactive Elements Analysis
                 interactive = data.get('interactiveElements', [])
                 if interactive:
-                    print(f"\n   📍 INTERACTIVE ELEMENTS ANALYSIS:")
+                    print("\n   📍 INTERACTIVE ELEMENTS ANALYSIS:")
                     print(f"      Total Interactive Elements: {len(interactive)}")
                     
                     # Group by type
@@ -154,12 +154,12 @@ async def test_site_mapping():
                         elem_type = elem.get('type', 'unknown')
                         type_counts[elem_type] = type_counts.get(elem_type, 0) + 1
                     
-                    print(f"      Element Types:")
+                    print("      Element Types:")
                     for elem_type, count in type_counts.items():
                         print(f"         {elem_type}: {count}")
                     
                     # Show sample elements with coordinates
-                    print(f"\n   🎯 SAMPLE INTERACTIVE ELEMENTS WITH COORDINATES:")
+                    print("\n   🎯 SAMPLE INTERACTIVE ELEMENTS WITH COORDINATES:")
                     for i, elem in enumerate(interactive[:5]):
                         coords = elem.get('coordinates', {})
                         print(f"      {i+1}. {elem.get('text', 'No text')[:30]}... ({elem.get('type')})")
@@ -181,7 +181,7 @@ async def test_site_mapping():
                 # 📚 Page Structure Analysis
                 page_structure = data.get('pageStructure', {})
                 if page_structure:
-                    print(f"\n   📚 PAGE STRUCTURE ANALYSIS:")
+                    print("\n   📚 PAGE STRUCTURE ANALYSIS:")
                     
                     # Headings
                     headings = page_structure.get('headings', [])
@@ -215,7 +215,7 @@ async def test_site_mapping():
                 # 🔗 Navigation Map Analysis
                 navigation_map = data.get('navigationMap', {})
                 if navigation_map:
-                    print(f"\n   🔗 NAVIGATION MAP ANALYSIS:")
+                    print("\n   🔗 NAVIGATION MAP ANALYSIS:")
                     
                     # Breadcrumbs
                     breadcrumbs = navigation_map.get('breadcrumbs', [])
@@ -236,12 +236,12 @@ async def test_site_mapping():
                 # 🤖 LLM Summary Analysis
                 llm_summary = data.get('llmSummary', {})
                 if llm_summary:
-                    print(f"\n   🤖 LLM SUMMARY ANALYSIS:")
+                    print("\n   🤖 LLM SUMMARY ANALYSIS:")
                     print(f"      Page Purpose: {llm_summary.get('pagePurpose')}")
                     
                     # Content Summary
                     content_summary = llm_summary.get('contentSummary', {})
-                    print(f"      Content Summary:")
+                    print("      Content Summary:")
                     print(f"         Headings: {content_summary.get('headings', 0)}")
                     print(f"         Sections: {content_summary.get('sections', 0)}")
                     print(f"         Forms: {content_summary.get('forms', 0)}")
@@ -265,7 +265,7 @@ async def test_site_mapping():
                 # 📊 Metadata Analysis
                 metadata = data.get('metadata', {})
                 if metadata:
-                    print(f"\n   📊 METADATA ANALYSIS:")
+                    print("\n   📊 METADATA ANALYSIS:")
                     print(f"      URL: {metadata.get('url')}")
                     print(f"      Title: {metadata.get('title')}")
                     print(f"      Timestamp: {metadata.get('timestamp')}")
