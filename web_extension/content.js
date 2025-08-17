@@ -568,8 +568,10 @@ function getNavigationContext() {
  * This function removes cookie banners, modals, popups, and other
  * intrusive elements that would add noise to our site mapping.
  * Inspired by crawl4ai's remove_overlay_elements.js
+ * 
+ * @param {Document} targetDocument - Document to clean (current frame or main frame)
  */
-function removeOverlays() {
+function removeOverlays(targetDocument = document) {
     console.log("[Content] removeOverlays: Starting DOM cleanup");
     
     // Common selectors for noise elements
@@ -604,7 +606,7 @@ function removeOverlays() {
     
     // Remove elements matching noise selectors
     noiseSelectors.forEach(selector => {
-        const elements = document.querySelectorAll(selector);
+        const elements = targetDocument.querySelectorAll(selector);
         elements.forEach(element => {
             if (element && element.parentNode) {
                 element.remove();
@@ -615,7 +617,7 @@ function removeOverlays() {
     
     // Remove high z-index elements that might be overlays
     let highZIndexRemoved = 0;
-    const allElements = document.querySelectorAll('*');
+    const allElements = targetDocument.querySelectorAll('*');
     allElements.forEach(element => {
         const style = getComputedStyle(element);
         const zIndex = parseInt(style.zIndex);
@@ -670,7 +672,21 @@ async function generateSiteMap() {
     try {
         // 🧹 PHASE 1: REMOVE SHIT FIRST - Clean DOM before scanning
         console.log("[Content] generateSiteMap: Phase 1 - Removing overlays and noise");
-        const overlayRemovalStats = removeOverlays();
+        
+        // 🎯 FRAME CONTEXT HANDLING: Use main frame if we're in an iframe
+        const isInIframe = window !== window.top;
+        const targetDocument = isInIframe ? window.top.document : document;
+        const targetWindow = isInIframe ? window.top : window;
+        
+        console.log("[Content] generateSiteMap: Frame context:", {
+            isInIframe: isInIframe,
+            usingMainFrame: isInIframe,
+            frameUrl: window.location.href,
+            mainFrameUrl: isInIframe ? window.top.location.href : window.location.href
+        });
+        
+        // 🧹 Remove overlays using the target document context
+        const overlayRemovalStats = removeOverlays(targetDocument);
         
         // 📊 Get basic page information
         const pageInfo = getCurrentTabInfo();
@@ -693,10 +709,10 @@ async function generateSiteMap() {
             '[onclick]', '[tabindex]', '[data-action]', '[data-toggle]'
         ];
         
-        // 🔍 Find all interactive elements
+        // 🔍 Find all interactive elements using target document
         const interactiveElements = [];
         interactiveSelectors.forEach(selector => {
-            const elements = document.querySelectorAll(selector);
+            const elements = targetDocument.querySelectorAll(selector);
             elements.forEach((element, index) => {
                 if (visible(element)) {
                     const rect = element.getBoundingClientRect();
@@ -737,17 +753,17 @@ async function generateSiteMap() {
                         },
                         position: {
                             index: index,
-                            inViewport: rect.top >= 0 && rect.bottom <= window.innerHeight,
-                            aboveFold: rect.top < window.innerHeight / 2
+                            inViewport: rect.top >= 0 && rect.bottom <= targetWindow.innerHeight,
+                            aboveFold: rect.top < targetWindow.innerHeight / 2
                         }
                     });
                 }
             });
         });
         
-        // 📚 Extract page structure and content hierarchy
+        // 📚 Extract page structure and content hierarchy using target document
         const pageStructure = {
-            headings: Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+            headings: Array.from(targetDocument.querySelectorAll('h1, h2, h3, h4, h5, h6'))
                 .map(h => ({
                     level: parseInt(h.tagName.charAt(1)),
                     text: h.textContent.trim(),
@@ -756,7 +772,7 @@ async function generateSiteMap() {
                 }))
                 .filter(h => h.text && h.text.length > 2),
             
-            sections: Array.from(document.querySelectorAll('section, article, main, aside, nav'))
+            sections: Array.from(targetDocument.querySelectorAll('section, article, main, aside, nav'))
                 .map(section => ({
                     tag: section.tagName.toLowerCase(),
                     text: section.textContent.trim().substring(0, 200) + '...',
@@ -766,7 +782,7 @@ async function generateSiteMap() {
                 }))
                 .filter(s => s.text.length > 10),
             
-            forms: Array.from(document.querySelectorAll('form'))
+            forms: Array.from(targetDocument.querySelectorAll('form'))
                 .map(form => ({
                     action: form.action || null,
                     method: form.method || 'get',
@@ -784,20 +800,20 @@ async function generateSiteMap() {
                 }))
         };
         
-        // 🔗 Extract navigation and content relationships
+        // 🔗 Extract navigation and content relationships using target document
         const navigationMap = {
-            breadcrumbs: extractBreadcrumbs(),
-            pagination: extractPagination(),
-            navigation: extractNavigation(),
-            relatedLinks: extractRelatedLinks()
+            breadcrumbs: extractBreadcrumbs(targetDocument),
+            pagination: extractPagination(targetDocument),
+            navigation: extractNavigation(targetDocument),
+            relatedLinks: extractRelatedLinks(targetDocument)
         };
         
-        // 📊 Generate semantic content map
+        // 📊 Generate semantic content map using target document
         const contentMap = {
-            mainContent: findMainContent(),
-            sidebar: findSidebar(),
-            footer: findFooter(),
-            advertisements: findAdvertisements()
+            mainContent: findMainContent(targetDocument),
+            sidebar: findSidebar(targetDocument),
+            footer: findFooter(targetDocument),
+            advertisements: findAdvertisements(targetDocument)
         };
         
         // 🎯 Create action map for LLM consumption
@@ -828,7 +844,7 @@ async function generateSiteMap() {
         
         // 📝 Generate LLM-friendly summary
         const llmSummary = {
-            pagePurpose: inferPagePurpose(),
+            pagePurpose: inferPagePurpose(targetDocument),
             primaryActions: actionMap.primaryActions.map(el => ({
                 action: el.text,
                 coordinates: el.coordinates,
@@ -911,7 +927,7 @@ function getElementCoordinates(element) {
  * 
  * @returns {Array} - Breadcrumb items
  */
-function extractBreadcrumbs() {
+function extractBreadcrumbs(document) {
     const breadcrumbs = [];
     
     // Look for common breadcrumb patterns
@@ -954,7 +970,7 @@ function extractBreadcrumbs() {
  * 
  * @returns {Object} - Pagination data
  */
-function extractPagination() {
+function extractPagination(document) {
     const pagination = {
         currentPage: 1,
         totalPages: 1,
@@ -1003,7 +1019,7 @@ function extractPagination() {
  * 
  * @returns {Array} - Navigation elements
  */
-function extractNavigation() {
+function extractNavigation(document) {
     const navigation = [];
     
     const navSelectors = [
@@ -1046,7 +1062,7 @@ function extractNavigation() {
  * 
  * @returns {Array} - Related link groups
  */
-function extractRelatedLinks() {
+function extractRelatedLinks(document) {
     const relatedLinks = [];
     
     // Look for related content sections
@@ -1087,7 +1103,7 @@ function extractRelatedLinks() {
  * 
  * @returns {Object} - Main content information
  */
-function findMainContent() {
+function findMainContent(document) {
     const mainSelectors = [
         'main',
         '[role="main"]',
@@ -1117,7 +1133,7 @@ function findMainContent() {
  * 
  * @returns {Object} - Sidebar information
  */
-function findSidebar() {
+function findSidebar(document) {
     const sidebarSelectors = [
         'aside',
         '.sidebar',
@@ -1145,7 +1161,7 @@ function findSidebar() {
  * 
  * @returns {Object} - Footer information
  */
-function findFooter() {
+function findFooter(document) {
     const footer = document.querySelector('footer');
     if (footer) {
         return {
@@ -1163,7 +1179,7 @@ function findFooter() {
  * 
  * @returns {Array} - Advertisement elements
  */
-function findAdvertisements() {
+function findAdvertisements(document) {
     const adSelectors = [
         '.ad',
         '.advertisement',
@@ -1195,7 +1211,7 @@ function findAdvertisements() {
  * 
  * @returns {string} - Inferred page purpose
  */
-function inferPagePurpose() {
+function inferPagePurpose(document) {
     const title = document.title.toLowerCase();
     const url = window.location.href.toLowerCase();
     const headings = Array.from(document.querySelectorAll('h1, h2'))
