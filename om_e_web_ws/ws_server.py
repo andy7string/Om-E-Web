@@ -33,8 +33,35 @@ CLIENTS = set()                    # All connected WebSocket clients
 PENDING = {}                       # Command ID → Future mapping for response routing
 EXTENSION_WS = None               # Reference to the Chrome extension client
 
+# 📊 Tab information storage for external access
+CURRENT_TABS_INFO = None           # Latest tabs_info from extension
+LAST_TABS_UPDATE = None            # Timestamp of last update
+
 # 📁 Site map storage configuration
 SITE_STRUCTURES_DIR = "@site_structures"
+
+def get_current_tabs_info():
+    """
+    📊 Get the latest tab information that was received from the extension
+    
+    This function provides external access to the tab information that's
+    being printed to the terminal, allowing clients to programmatically
+    retrieve current tab status.
+    
+    @returns {Object} - Current tabs information with metadata
+    """
+    if CURRENT_TABS_INFO is None:
+        return {
+            "error": "No tab information available yet",
+            "status": "waiting_for_extension"
+        }
+    
+    return {
+        "tabs": CURRENT_TABS_INFO,
+        "last_update": LAST_TABS_UPDATE,
+        "extension_connected": EXTENSION_WS is not None,
+        "total_clients": len(CLIENTS)
+    }
 
 def save_site_map_to_jsonl(site_map_data, suffix=""):
     """
@@ -114,9 +141,31 @@ async def handler(ws):
                 EXTENSION_WS = ws
                 print("🎯 Marked as extension client (bridge_status)")
             
+            # 📊 TAB INFORMATION STORAGE: Store latest tabs_info for external access
+            if msg.get("type") == "tabs_info":
+                global CURRENT_TABS_INFO, LAST_TABS_UPDATE
+                CURRENT_TABS_INFO = msg.get("tabs", [])
+                LAST_TABS_UPDATE = asyncio.get_event_loop().time()
+                print(f"📊 Tab info updated and stored - {len(CURRENT_TABS_INFO)} tabs available")
+            
             # 🔄 COMMAND FORWARDING: Route commands from test clients to extension
             if "command" in msg and "id" in msg:
-                print(f"🔄 Forwarding command to extension: {msg['command']}")
+                command = msg.get("command")
+                
+                # 🎯 INTERNAL SERVER COMMANDS: Handle commands that don't go to extension
+                if command == "getTabsInfo":
+                    print(f"📊 Internal command: {command} - returning stored tab info")
+                    response = {
+                        "id": msg["id"],
+                        "ok": True,
+                        "result": get_current_tabs_info(),
+                        "error": None
+                    }
+                    await ws.send(json.dumps(response))
+                    continue
+                
+                # 🔄 EXTENSION COMMANDS: Forward other commands to extension
+                print(f"🔄 Forwarding command to extension: {command}")
                 if EXTENSION_WS and EXTENSION_WS != ws:
                     await EXTENSION_WS.send(json.dumps(msg))
                     print("✅ Command forwarded to extension")
