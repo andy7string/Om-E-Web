@@ -543,6 +543,89 @@ function getNavigationContext() {
 }
 
 /**
+ * 🧹 Remove overlays, popups, and noise elements before scanning
+ * 
+ * This function removes cookie banners, modals, popups, and other
+ * intrusive elements that would add noise to our site mapping.
+ * Inspired by crawl4ai's remove_overlay_elements.js
+ */
+function removeOverlays() {
+    console.log("[Content] removeOverlays: Starting DOM cleanup");
+    
+    // Common selectors for noise elements
+    const noiseSelectors = [
+        // Cookie notices
+        '[class*="cookie-banner" i]',
+        '[id*="cookie-banner" i]',
+        '[class*="cookie-consent" i]',
+        '[id*="cookie-consent" i]',
+        
+        // Newsletter/subscription dialogs
+        '[class*="newsletter" i]',
+        '[class*="subscribe" i]',
+        '[class*="popup" i]',
+        
+        // Generic popups/modals
+        '[class*="modal" i]',
+        '[class*="overlay" i]',
+        '[class*="dialog" i]',
+        '[role="dialog"]',
+        '[role="alertdialog"]',
+        
+        // Close buttons (remove them too)
+        'button[class*="close" i]',
+        'button[class*="dismiss" i]',
+        'button[aria-label*="close" i]',
+        'a[class*="close" i]',
+        'span[class*="close" i]'
+    ];
+    
+    let removedCount = 0;
+    
+    // Remove elements matching noise selectors
+    noiseSelectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            if (element && element.parentNode) {
+                element.remove();
+                removedCount++;
+            }
+        });
+    });
+    
+    // Remove high z-index elements that might be overlays
+    let highZIndexRemoved = 0;
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(element => {
+        const style = getComputedStyle(element);
+        const zIndex = parseInt(style.zIndex);
+        const position = style.position;
+        
+        // Check if element looks like an overlay
+        if (zIndex > 999 && (position === 'fixed' || position === 'absolute')) {
+            const rect = element.getBoundingClientRect();
+            const isLargeOverlay = rect.width > window.innerWidth * 0.5 || 
+                                  rect.height > window.innerHeight * 0.5;
+            
+            if (isLargeOverlay && element.parentNode) {
+                element.remove();
+                removedCount++;
+                highZIndexRemoved++;
+            }
+        }
+    });
+    
+    console.log(`[Content] removeOverlays: Removed ${removedCount} noise elements`);
+    
+    return {
+        elementsRemoved: removedCount,
+        noiseSelectors: noiseSelectors.length,
+        highZIndexRemoved: highZIndexRemoved,
+        timestamp: Date.now()
+    };
+}
+
+/**
  * 🗺️ Generate comprehensive LLM-friendly site map with click coordinates
  * 
  * This function creates a structured representation of the current page
@@ -565,6 +648,10 @@ async function generateSiteMap() {
     const startTime = performance.now();
     
     try {
+        // 🧹 PHASE 1: REMOVE SHIT FIRST - Clean DOM before scanning
+        console.log("[Content] generateSiteMap: Phase 1 - Removing overlays and noise");
+        const overlayRemovalStats = removeOverlays();
+        
         // 📊 Get basic page information
         const pageInfo = getCurrentTabInfo();
         
@@ -735,6 +822,7 @@ async function generateSiteMap() {
                 processingTime: processingTime,
                 timestamp: Date.now()
             },
+            overlayRemoval: overlayRemovalStats,
             pageStructure: pageStructure,
             interactiveElements: interactiveElements,
             navigationMap: navigationMap,

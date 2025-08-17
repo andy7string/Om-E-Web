@@ -29,6 +29,9 @@ let ws = null;
 // Track connection status
 let isConnected = false;
 
+// Queue for messages when WebSocket isn't ready
+let pendingMessages = [];
+
 /**
  * 🔌 Initialize WebSocket connection to the server
  * 
@@ -48,14 +51,36 @@ function connectWebSocket() {
             console.log("[SW] WS open");
             isConnected = true;
             
-            // Send bridge status to identify this client as the extension
-            sendToServer({
-                type: "bridge_status",
-                status: "connected"
-            });
-            
-            // Send initial tabs information
-            sendTabsInfo();
+            // Wait for WebSocket to be fully ready before sending messages
+            setTimeout(() => {
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    console.log("[SW] WebSocket fully ready, sending initial messages");
+                    
+                    // Send bridge status to identify this client as the extension
+                    sendToServer({
+                        type: "bridge_status",
+                        status: "connected"
+                    });
+                    
+                    // Send initial tabs information
+                    sendTabsInfo();
+                    
+                    // Flush any pending messages that were queued
+                    flushPendingMessages();
+                } else {
+                    console.warn("[SW] WebSocket not ready after delay, retrying...");
+                    setTimeout(() => {
+                        if (ws && ws.readyState === WebSocket.OPEN) {
+                            sendToServer({
+                                type: "bridge_status",
+                                status: "connected"
+                            });
+                            sendTabsInfo();
+                            flushPendingMessages();
+                        }
+                    }, 500);
+                }
+            }, 100); // Small delay to ensure WebSocket is ready
         };
         
         ws.onmessage = (event) => {
@@ -89,9 +114,37 @@ function connectWebSocket() {
  */
 function sendToServer(data) {
     if (ws && ws.readyState === WebSocket.OPEN) {
-        ws.send(JSON.stringify(data));
+        try {
+            ws.send(JSON.stringify(data));
+            console.log("[SW] Message sent successfully:", data.type || 'data');
+        } catch (error) {
+            console.error("[SW] Failed to send message:", error);
+        }
     } else {
         console.warn("[SW] WebSocket not ready, cannot send:", data);
+        // Queue message for later if WebSocket isn't ready
+        if (!pendingMessages) pendingMessages = [];
+        pendingMessages.push(data);
+    }
+}
+
+/**
+ * 🚀 Flush pending messages when WebSocket becomes ready
+ */
+function flushPendingMessages() {
+    if (pendingMessages.length > 0 && ws && ws.readyState === WebSocket.OPEN) {
+        console.log(`[SW] Flushing ${pendingMessages.length} pending messages`);
+        const messagesToSend = [...pendingMessages];
+        pendingMessages = [];
+        
+        messagesToSend.forEach(message => {
+            try {
+                ws.send(JSON.stringify(message));
+                console.log("[SW] Pending message sent:", message.type || 'data');
+            } catch (error) {
+                console.error("[SW] Failed to send pending message:", error);
+            }
+        });
     }
 }
 
@@ -219,6 +272,20 @@ async function handleDOMCommand(message) {
             return;
         }
         
+        // Try to inject content script if it's not already there
+        try {
+            await chrome.scripting.executeScript({
+                target: { tabId: activeTab.id },
+                files: ['content.js']
+            });
+            console.log("[SW] Content script injected into tab:", activeTab.id);
+        } catch (injectError) {
+            console.log("[SW] Content script already exists or injection failed:", injectError.message);
+        }
+        
+        // Wait a moment for content script to initialize
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
         // Send message to content script in the active tab
         const response = await chrome.tabs.sendMessage(activeTab.id, {
             command: message.command,
@@ -270,10 +337,16 @@ async function findActiveTab() {
         }
         
         // Strategy 3: Find any non-chrome tab as fallback
-        tabs = await chrome.tabs.query({ url: "http*://*" });
-        if (tabs.length > 0) {
-            console.log("[SW] Using fallback tab:", tabs[0].id);
-            return tabs[0];
+        tabs = await chrome.tabs.query({});
+        const nonChromeTabs = tabs.filter(tab => 
+            tab.url && 
+            !tab.url.startsWith('chrome://') && 
+            !tab.url.startsWith('chrome-extension://') &&
+            !tab.url.startsWith('about:')
+        );
+        if (nonChromeTabs.length > 0) {
+            console.log("[SW] Using fallback tab:", nonChromeTabs[0].id);
+            return nonChromeTabs[0];
         }
         
         console.warn("[SW] No suitable tab found");

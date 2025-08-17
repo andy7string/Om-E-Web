@@ -36,7 +36,7 @@ EXTENSION_WS = None               # Reference to the Chrome extension client
 # 📁 Site map storage configuration
 SITE_STRUCTURES_DIR = "@site_structures"
 
-def save_site_map_to_jsonl(site_map_data):
+def save_site_map_to_jsonl(site_map_data, suffix=""):
     """
     💾 Save site map data to a JSONL file in the @site_structures folder
     
@@ -44,6 +44,7 @@ def save_site_map_to_jsonl(site_map_data):
     and saves it to a JSONL file named after the website's hostname.
     
     @param site_map_data: Raw site map data from extension
+    @param suffix: Optional suffix to add to filename (e.g., "_clean")
     @return: File path if successful, None if failed
     """
     try:
@@ -56,7 +57,7 @@ def save_site_map_to_jsonl(site_map_data):
         url = site_map_data.get('metadata', {}).get('url', 'unknown')
         parsed_url = urlparse(url)
         hostname = parsed_url.hostname or 'unknown'
-        filename = f"{hostname}.jsonl"
+        filename = f"{hostname}{suffix}.jsonl"
         filepath = os.path.join(SITE_STRUCTURES_DIR, filename)
         
         # Write the entire site map data to JSONL file with proper formatting
@@ -125,7 +126,15 @@ async def handler(ws):
                 # 💾 AUTO-SAVE SITE MAP: If this is a successful generateSiteMap response, save to file
                 if msg.get("ok") and msg.get("result") and "statistics" in msg.get("result", {}):
                     print("🔍 SITE MAP DETECTED - Auto-saving to JSONL file...")
-                    saved_file = save_site_map_to_jsonl(msg["result"])
+                    
+                    # Check if this has overlay removal (clean version)
+                    if "overlayRemoval" in msg.get("result", {}):
+                        print("🧹 CLEAN SITE MAP detected - saving as [hostname]_clean.jsonl")
+                        saved_file = save_site_map_to_jsonl(msg["result"], suffix="_clean")
+                    else:
+                        print("📊 ORIGINAL SITE MAP detected - saving as [hostname].jsonl")
+                        saved_file = save_site_map_to_jsonl(msg["result"])
+                    
                     if saved_file:
                         print(f"🎯 Site map automatically saved to: {saved_file}")
                 
