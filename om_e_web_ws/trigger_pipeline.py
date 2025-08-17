@@ -57,7 +57,7 @@ class PipelineTrigger:
         }
         
         if params:
-            message.update(params)
+            message["params"] = params
         
         # Create a future to wait for response
         future = asyncio.Future()
@@ -163,6 +163,8 @@ class PipelineTrigger:
             # Wait for page to load
             print("⏳ Waiting for page to load...")
             await asyncio.sleep(3)
+        else:
+            print("📱 Using current active tab for site map generation")
         
         # Generate site map
         sitemap_start = time.time()

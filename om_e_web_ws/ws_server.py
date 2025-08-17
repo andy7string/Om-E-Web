@@ -32,6 +32,7 @@ from urllib.parse import urlparse
 CLIENTS = set()                    # All connected WebSocket clients
 PENDING = {}                       # Command ID → Future mapping for response routing
 EXTENSION_WS = None               # Reference to the Chrome extension client
+COMMAND_CLIENTS = {}              # Command ID → Client mapping for response routing
 
 # 📊 Tab information storage for external access
 CURRENT_TABS_INFO = None           # Latest tabs_info from extension
@@ -255,6 +256,10 @@ async def handler(ws):
                 # 🔄 EXTENSION COMMANDS: Forward other commands to extension
                 print(f"🔄 Forwarding command to extension: {command}")
                 if EXTENSION_WS and EXTENSION_WS != ws:
+                    # Track which client sent this command for response routing
+                    COMMAND_CLIENTS[msg["id"]] = ws
+                    print(f"📋 Tracked command {msg['id']} from client {id(ws)}")
+                    
                     await EXTENSION_WS.send(json.dumps(msg))
                     print("✅ Command forwarded to extension")
                 else:
@@ -311,24 +316,43 @@ async def handler(ws):
                 else:
                     print(f"⚠️ No pending future found for {msg['id']}")
                     
-                    # 🎯 RESPONSE ROUTING: If no pending future, route response to test client
-                    # This handles responses for commands sent by external test clients
-                    for client in CLIENTS:
-                        if client != EXTENSION_WS and client != ws:
-                            print(f"📤 Forwarding response to test client: {msg['id']}")
-                            try:
-                                await client.send(json.dumps(msg))
-                                print("✅ Response forwarded to test client")
-                                break
-                            except Exception as e:
-                                print(f"❌ Failed to forward response to test client: {e}")
-                                continue
+                    # 🎯 RESPONSE ROUTING: Route response back to the client that sent the command
+                    if msg["id"] in COMMAND_CLIENTS:
+                        target_client = COMMAND_CLIENTS.pop(msg["id"])
+                        print(f"📤 Routing response {msg['id']} back to original client {id(target_client)}")
+                        try:
+                            await target_client.send(json.dumps(msg))
+                            print("✅ Response routed back to original client")
+                        except Exception as e:
+                            print(f"❌ Failed to route response to original client: {e}")
+                    else:
+                        print(f"⚠️ No client found for command {msg['id']}")
+                        
+                        # 🎯 FALLBACK ROUTING: If no tracked client, try to route to any test client
+                        # This handles responses for commands sent by external test clients
+                        for client in CLIENTS:
+                            if client != EXTENSION_WS and client != ws:
+                                print(f"📤 Fallback: Forwarding response to test client: {msg['id']}")
+                                try:
+                                    await client.send(json.dumps(msg))
+                                    print("✅ Response forwarded to test client")
+                                    break
+                                except Exception as e:
+                                    print(f"❌ Failed to forward response to test client: {e}")
+                                    continue
     finally:
         # Clean up when client disconnects
         CLIENTS.discard(ws)
         if ws == EXTENSION_WS:
             EXTENSION_WS = None
             print("🎯 Extension client disconnected")
+        
+        # Clean up any tracked commands from this client
+        commands_to_remove = [cmd_id for cmd_id, client in COMMAND_CLIENTS.items() if client == ws]
+        for cmd_id in commands_to_remove:
+            COMMAND_CLIENTS.pop(cmd_id, None)
+            print(f"🧹 Cleaned up tracked command {cmd_id} from disconnected client")
+        
         print(f"🔌 Client disconnected! Total clients: {len(CLIENTS)}")
 
 async def send_command(command, params=None, timeout=8.0):
