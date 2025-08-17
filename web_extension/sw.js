@@ -32,8 +32,7 @@ let isConnected = false;
 // Queue for messages when WebSocket isn't ready
 let pendingMessages = [];
 
-// Cache the most recently activated tab
-let lastActiveTab = null;
+// No caching - always get real-time tab state
 
 /**
  * 🔌 Initialize WebSocket connection to the server
@@ -333,15 +332,7 @@ async function handleDOMCommand(message) {
  */
 async function findActiveTab() {
     try {
-        // Strategy 0: Use cached active tab if available and recent
-        if (lastActiveTab && lastActiveTab.active) {
-            console.log("[SW] ✅ Using cached active tab:", {
-                id: lastActiveTab.id,
-                url: lastActiveTab.url,
-                title: lastActiveTab.title
-            });
-            return lastActiveTab;
-        }
+
         
         // Strategy 1: Find currently active tab
         let tabs = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -447,20 +438,6 @@ function sendErrorResponse(id, code, msg) {
  */
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
     console.log("[SW] Tab activated:", activeInfo.tabId);
-    
-    // Get the full tab info and cache it
-    try {
-        const tab = await chrome.tabs.get(activeInfo.tabId);
-        lastActiveTab = tab;
-        console.log("[SW] 📱 Cached active tab:", {
-            id: tab.id,
-            url: tab.url,
-            title: tab.title
-        });
-    } catch (error) {
-        console.error("[SW] Failed to get tab info:", error);
-    }
-    
     await sendTabsInfo();
 });
 
@@ -473,6 +450,9 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     if (changeInfo.url || changeInfo.title) {
         console.log("[SW] Tab updated:", tabId, "to:", changeInfo.url || tab.url);
+        
+
+        
         await sendTabsInfo();
     }
 });
