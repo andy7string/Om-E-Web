@@ -102,7 +102,11 @@ async def handler(ws):
     try:
         # Listen for incoming messages from this client
         async for raw in ws:
-            print(f"📨 Received: {raw[:100]}...")
+            # Show full message for tab info, truncated for others
+            if raw.startswith('{"type":"tabs_info"'):
+                print(f"📨 Received: {raw}")
+            else:
+                print(f"📨 Received: {raw[:100]}...")
             msg = json.loads(raw)
             
             # 🎯 EXTENSION IDENTIFICATION: Mark clients sending bridge_status as extensions

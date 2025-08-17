@@ -32,6 +32,9 @@ let isConnected = false;
 // Queue for messages when WebSocket isn't ready
 let pendingMessages = [];
 
+// Cache the most recently activated tab
+let lastActiveTab = null;
+
 /**
  * 🔌 Initialize WebSocket connection to the server
  * 
@@ -266,11 +269,19 @@ async function handleDOMCommand(message) {
         console.log("[SW] Sending DOM command to content script:", message.command);
         
         // Find the active tab to send the command to
+        console.log("[SW] 🔍 Finding active tab for command:", message.command);
         const activeTab = await findActiveTab();
         if (!activeTab) {
             sendErrorResponse(message.id, "NO_ACTIVE_TAB", "No active tab found");
             return;
         }
+        
+        console.log("[SW] 🎯 Command will be sent to tab:", {
+            id: activeTab.id,
+            url: activeTab.url,
+            title: activeTab.title,
+            active: activeTab.active
+        });
         
         // Try to inject content script if it's not already there
         try {
@@ -322,31 +333,67 @@ async function handleDOMCommand(message) {
  */
 async function findActiveTab() {
     try {
+        // Strategy 0: Use cached active tab if available and recent
+        if (lastActiveTab && lastActiveTab.active) {
+            console.log("[SW] ✅ Using cached active tab:", {
+                id: lastActiveTab.id,
+                url: lastActiveTab.url,
+                title: lastActiveTab.title
+            });
+            return lastActiveTab;
+        }
+        
         // Strategy 1: Find currently active tab
         let tabs = await chrome.tabs.query({ active: true, currentWindow: true });
         if (tabs.length > 0) {
-            console.log("[SW] Tab activated:", tabs[0].id);
+            console.log("[SW] ✅ Found active tab (current window):", {
+                id: tabs[0].id,
+                url: tabs[0].url,
+                title: tabs[0].title
+            });
             return tabs[0];
         }
         
         // Strategy 2: Find tab in last focused window
         tabs = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
         if (tabs.length > 0) {
-            console.log("[SW] Tab activated (last focused):", tabs[0].id);
+            console.log("[SW] ✅ Found active tab (last focused):", {
+                id: tabs[0].id,
+                url: tabs[0].url,
+                title: tabs[0].title
+            });
             return tabs[0];
         }
         
-        // Strategy 3: Find any non-chrome tab as fallback
+        // Strategy 3: Force refresh and find the currently active tab
+        console.log("[SW] Forcing active tab refresh...");
+        
+        // Get the current window to ensure we're looking at the right one
+        const currentWindow = await chrome.windows.getCurrent();
+        if (currentWindow) {
+            // Query for active tab in the current window specifically
+            const currentWindowTabs = await chrome.tabs.query({ 
+                windowId: currentWindow.id,
+                active: true 
+            });
+            if (currentWindowTabs.length > 0) {
+                console.log("[SW] Found active tab in current window:", currentWindowTabs[0].id);
+                return currentWindowTabs[0];
+            }
+        }
+        
+        // Last resort: find any visible non-chrome tab
         tabs = await chrome.tabs.query({});
-        const nonChromeTabs = tabs.filter(tab => 
+        const visibleNonChromeTabs = tabs.filter(tab => 
             tab.url && 
             !tab.url.startsWith('chrome://') && 
             !tab.url.startsWith('chrome-extension://') &&
-            !tab.url.startsWith('about:')
+            !tab.url.startsWith('about:') &&
+            tab.visible === true
         );
-        if (nonChromeTabs.length > 0) {
-            console.log("[SW] Using fallback tab:", nonChromeTabs[0].id);
-            return nonChromeTabs[0];
+        if (visibleNonChromeTabs.length > 0) {
+            console.log("[SW] Using visible non-chrome tab:", visibleNonChromeTabs[0].id);
+            return visibleNonChromeTabs[0];
         }
         
         console.warn("[SW] No suitable tab found");
@@ -400,6 +447,20 @@ function sendErrorResponse(id, code, msg) {
  */
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
     console.log("[SW] Tab activated:", activeInfo.tabId);
+    
+    // Get the full tab info and cache it
+    try {
+        const tab = await chrome.tabs.get(activeInfo.tabId);
+        lastActiveTab = tab;
+        console.log("[SW] 📱 Cached active tab:", {
+            id: tab.id,
+            url: tab.url,
+            title: tab.title
+        });
+    } catch (error) {
+        console.error("[SW] Failed to get tab info:", error);
+    }
+    
     await sendTabsInfo();
 });
 
