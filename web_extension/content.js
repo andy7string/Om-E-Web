@@ -506,20 +506,40 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
  * including URL, title, and navigation state. It's designed to be
  * consumed by external systems for monitoring and automation.
  * 
+ * 🎯 FRAME CONTEXT HANDLING:
+ * - Detects if we're running in an iframe
+ * - Uses main frame context for page metadata
+ * - Ensures we report the correct page URL and title
+ * 
  * @returns {Object} - Current tab information
  */
 function getCurrentTabInfo() {
+    // Check if we're in an iframe (crawl4ai-inspired approach)
+    const isInIframe = window !== window.top;
+    
+    // Use main frame context for page metadata if we're in an iframe
+    const location = isInIframe ? window.top.location : window.location;
+    const mainDocument = isInIframe ? window.top.document : document;
+    
     return {
-        url: window.location.href,
-        title: document.title,
-        hostname: window.location.hostname,
-        pathname: window.location.pathname,
-        search: window.location.search,
-        hash: window.location.hash,
-        protocol: window.location.protocol,
+        url: location.href,  // Main page URL, not iframe URL
+        title: mainDocument.title,  // Main page title
+        hostname: location.hostname,
+        pathname: location.pathname,
+        search: location.search,
+        hash: location.hash,
+        protocol: location.protocol,
         timestamp: Date.now(),
         readyState: document.readyState,
-        userAgent: navigator.userAgent
+        userAgent: navigator.userAgent,
+        isInIframe: isInIframe,  // Track if we're in iframe for debugging
+        frameContext: {
+            isMainFrame: !isInIframe,
+            frameUrl: window.location.href,  // Current frame URL
+            mainPageUrl: location.href,  // Main page URL
+            frameTitle: document.title,  // Current frame title
+            mainPageTitle: mainDocument.title  // Main page title
+        }
     };
 }
 
@@ -654,6 +674,17 @@ async function generateSiteMap() {
         
         // 📊 Get basic page information
         const pageInfo = getCurrentTabInfo();
+        
+        // 🐛 DEBUG: Log frame context information
+        console.log("[Content] generateSiteMap: Frame context debug:", {
+            isInIframe: pageInfo.isInIframe,
+            frameUrl: pageInfo.frameContext.frameUrl,
+            mainPageUrl: pageInfo.frameContext.mainPageUrl,
+            frameTitle: pageInfo.frameContext.frameTitle,
+            mainPageTitle: pageInfo.frameContext.mainPageTitle,
+            reportedUrl: pageInfo.url,
+            reportedTitle: pageInfo.title
+        });
         
         // 🎯 Define interactive element selectors
         const interactiveSelectors = [
