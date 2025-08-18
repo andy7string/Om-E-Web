@@ -27,6 +27,7 @@ import websockets
 import uuid
 import os
 from urllib.parse import urlparse
+import time
 
 # Global state for managing WebSocket connections and command routing
 CLIENTS = set()                    # All connected WebSocket clients
@@ -189,6 +190,89 @@ def process_clean_site_map(raw_file_path):
         print(f"❌ Error processing site map: {e}")
         return None, None, False
 
+def process_clean_site_map_data(raw_data):
+    """
+    🧠 Process raw site map data directly into LLM-friendly format
+    
+    This function takes the raw site map data and processes it to:
+    1. Extract the interactive elements
+    2. Add unique FindMe_id to each element
+    3. Create LLM-optimized structure
+    
+    @param raw_data: Raw site map data from extension
+    @return: Tuple of (processed_data, mapping_data, success_status)
+    """
+    try:
+        print("🧠 Processing raw site map data directly...")
+        
+        
+        # Extract key components
+        metadata = raw_data.get('metadata', {})
+        interactive_elements = raw_data.get('interactiveElements', [])
+        page_structure = raw_data.get('pageStructure', {})
+        
+        print(f"📊 Raw data contains {len(interactive_elements)} interactive elements")
+        
+        # Create processed elements with FindMe_id
+        processed_elements = []
+        element_mapping = {}
+        
+        for index, element in enumerate(interactive_elements):
+            # Create unique FindMe_id
+            findme_id = f"FindMe_{index + 1:03d}"
+            
+            # Create processed element
+            processed_element = {
+                "FindMe_id": findme_id,
+                "type": element.get("type", "unknown"),
+                "text": element.get("text", "")[:100],  # Truncate long text
+                "href": element.get("href"),
+                "selector": element.get("selector"),
+                "coordinates": element.get("coordinates", {}),
+                "accessibility": element.get("accessibility", {}),
+                "position": element.get("position", {})
+            }
+            
+            processed_elements.append(processed_element)
+            
+            # Create mapping entry
+            element_mapping[findme_id] = {
+                "original_index": index,
+                "original_element": element,
+                "processed_element": processed_element
+            }
+        
+        # Create processed data structure
+        processed_data = {
+            "metadata": metadata,
+            "statistics": {
+                "totalElements": len(processed_elements),
+                "originalElements": len(interactive_elements),
+                "processingRatio": len(processed_elements) / len(interactive_elements) if interactive_elements else 0
+            },
+            "elements": processed_elements,
+            "pageStructure": page_structure
+        }
+        
+        # Create mapping data (but we won't save it)
+        mapping_data = {
+            "metadata": metadata,
+            "elementMapping": element_mapping,
+            "processingInfo": {
+                "timestamp": int(time.time() * 1000),
+                "totalMapped": len(element_mapping),
+                "processingStatus": "success"
+            }
+        }
+        
+        print(f"✅ Processing complete: {len(interactive_elements)} → {len(processed_elements)} elements")
+        
+        return processed_data, mapping_data, True
+        
+    except Exception as e:
+        print(f"❌ Error processing site map data: {e}")
+        return None, None, False
+
 async def handler(ws):
     """
     🔌 WebSocket connection handler for each client
@@ -276,10 +360,12 @@ async def handler(ws):
                     # Check if this has overlay removal (clean version)
                     if "overlayRemoval" in msg.get("result", {}):
                         print("🧹 CLEAN SITE MAP detected - saving as [hostname]_clean.jsonl")
-                        saved_file = save_site_map_to_jsonl(msg["result"], suffix="_clean")
+                        # COMMENTED OUT: save_site_map_to_jsonl(msg["result"], suffix="_clean")
+                        saved_file = None  # Don't save clean file
                     else:
                         print("📊 ORIGINAL SITE MAP detected - saving as [hostname].jsonl")
-                        saved_file = save_site_map_to_jsonl(msg["result"])
+                        # COMMENTED OUT: save_site_map_to_jsonl(msg["result"])
+                        saved_file = None  # Don't save original file
                     
                     if saved_file:
                         print(f"🎯 Site map automatically saved to: {saved_file}")
@@ -295,17 +381,46 @@ async def handler(ws):
                                     with open(processed_filename, 'w', encoding='utf-8') as f:
                                         json.dump(processed_data, f, ensure_ascii=False, indent=2)
                                     
-                                    # Save mapping data
-                                    mapping_filename = saved_file.replace("_clean.jsonl", "_mapping.json")
-                                    with open(mapping_filename, 'w', encoding='utf-8') as f:
-                                        json.dump(mapping_data, f, ensure_ascii=False, indent=2)
+                                    # COMMENTED OUT: Save mapping data
+                                    # mapping_filename = saved_file.replace("_clean.jsonl", "_mapping.json")
+                                    # with open(mapping_filename, 'w', encoding='utf-8') as f:
+                                    #     json.dump(mapping_data, f, ensure_ascii=False, indent=2)
                                     
                                     print(f"✅ Processed data saved to: {processed_filename}")
-                                    print(f"🔗 Element mapping saved to: {mapping_filename}")
+                                    # print(f"🔗 Element mapping saved to: {mapping_filename}")
                                 else:
                                     print("❌ Failed to process site map for LLM consumption")
                             except Exception as e:
                                 print(f"❌ Error during auto-processing: {e}")
+                    else:
+                        # 🧠 DIRECT PROCESSING: Process the data directly without saving intermediate files
+                        print("🧠 Processing site map data directly for LLM consumption...")
+                        try:
+                            # Get the raw data directly from the message
+                            raw_data = msg["result"]
+                            
+                            # Process it using the existing function
+                            processed_data, mapping_data, success = process_clean_site_map_data(raw_data)
+                            
+                            if success:
+                                # Save only the processed data
+                                url = raw_data.get('metadata', {}).get('url', 'unknown')
+                                parsed_url = urlparse(url)
+                                hostname = parsed_url.hostname or 'unknown'
+                                processed_filename = f"{hostname}_processed.jsonl"
+                                filepath = os.path.join(SITE_STRUCTURES_DIR, processed_filename)
+                                
+                                with open(filepath, 'w', encoding='utf-8') as f:
+                                    json.dump(processed_data, f, ensure_ascii=False, indent=2)
+                                
+                                print(f"✅ Processed data saved to: {processed_filename}")
+                                print(f"📊 Elements: {len(processed_data.get('elements', []))}")
+                            else:
+                                print("❌ Failed to process site map for LLM consumption")
+                        except Exception as e:
+                            print(f"❌ Error during direct processing: {e}")
+                            import traceback
+                            traceback.print_exc()
                 
                 # First, try to find the pending future in our PENDING dict
                 # This handles responses for commands sent via send_command() function

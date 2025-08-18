@@ -2,13 +2,11 @@
 """
 🚀 Pipeline Trigger Script
 
-This script triggers your existing pipeline to scan and write out all files:
-1. _clean.jsonl (raw site map)
-2. _elements.jsonl (extracted elements) 
-3. _mappings.jsonl (element mappings)
-4. _processed.jsonl (LLM-optimized)
+This script triggers your existing pipeline to scan and write out a single processed file:
+1. [hostname]_processed.jsonl (LLM-optimized site map with FindMe IDs)
 
-Then applies Crawl4AI filtering to the final result.
+The server now processes the raw site map data directly in memory and outputs
+one clean, processed file ready for LLM consumption (without intermediate files).
 """
 
 import asyncio
@@ -180,7 +178,7 @@ class PipelineTrigger:
         # Step 2: Wait for pipeline files to be created
         step2_start = time.time()
         print("\n⏳ Step 2: Waiting for pipeline files to be created...")
-        print("   (The server should auto-process and create _clean, _elements, _mappings, _processed files)")
+        print("   (The server should auto-process and create [hostname]_processed.jsonl)")
         
         # Wait a bit for server processing
         await asyncio.sleep(5)
@@ -230,8 +228,8 @@ class PipelineTrigger:
                         # Try to parse as JSON to count elements
                         try:
                             data = json.loads(content)
-                            if 'interactiveElements' in data:
-                                elements = len(data['interactiveElements'])
+                            if 'elements' in data:
+                                elements = len(data['elements'])
                                 print(f"      🎯 Interactive Elements: {elements}")
                         except Exception:
                             pass
@@ -290,7 +288,7 @@ async def main():
     print("=" * 50)
     
     # Get target URL from user
-    target_url = input("🌐 Enter target URL (or press Enter to use current tab): ").strip()
+    target_url = input("�� Enter target URL (or press Enter to use current tab): ").strip()
     if not target_url:
         target_url = None
         print("📱 Will use current tab")
@@ -319,11 +317,8 @@ async def main():
         
         if success:
             print("\n🎉 Pipeline completed successfully!")
-            print("📁 Check the @site_structures folder for your files:")
-            print("   • _clean.jsonl - Raw site map data")
-            print("   • _elements.jsonl - Extracted elements")
-            print("   • _mappings.jsonl - Element mappings")
-            print("   • _processed.jsonl - LLM-optimized data")
+            print("📁 Check the @site_structures folder for your processed file:")
+            print("   • [hostname]_processed.jsonl - LLM-optimized site map with FindMe IDs")
         else:
             print("\n❌ Pipeline failed")
         

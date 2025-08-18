@@ -7,7 +7,7 @@
     "search": "",
     "hash": "",
     "protocol": "https:",
-    "timestamp": 1755474740279,
+    "timestamp": 1755476599779,
     "readyState": "complete",
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
     "isInIframe": false,
@@ -18,11 +18,11 @@
       "frameTitle": "(24) YouTube",
       "mainPageTitle": "(24) YouTube"
     },
-    "processingTime": 30.799999999813735
+    "processingTime": 45.40000000037253
   },
   "statistics": {
-    "totalElements": 204,
-    "originalElements": 204,
+    "totalElements": 196,
+    "originalElements": 196,
     "processingRatio": 1.0
   },
   "elements": [
@@ -30,7 +30,7 @@
       "FindMe_id": "FindMe_001",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=VbXYQmaMXBk&pp=ugUEEgJlbg%3D%3D",
+      "href": "https://www.youtube.com/watch?v=5RIOQuHOihY",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
@@ -57,8 +57,8 @@
     {
       "FindMe_id": "FindMe_002",
       "type": "a",
-      "text": "Top Drug Researcher Names the #1 Best Psychedelic for Mental Health | Matt Johnson",
-      "href": "https://www.youtube.com/watch?v=VbXYQmaMXBk&pp=ugUEEgJlbg%3D%3D",
+      "text": "What is Ollama? Running Local LLMs Made Simple",
+      "href": "https://www.youtube.com/watch?v=5RIOQuHOihY",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 282,
@@ -85,17 +85,17 @@
     {
       "FindMe_id": "FindMe_003",
       "type": "a",
-      "text": "Danny Jones Clips",
-      "href": "https://www.youtube.com/@DannyJonesClips",
+      "text": "IBM Technology",
+      "href": "https://www.youtube.com/@IBMTechnology",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 201,
+        "x": 203,
         "y": 386,
         "left": 144,
         "top": 378,
-        "right": 259,
+        "right": 262,
         "bottom": 395,
-        "width": 115,
+        "width": 118,
         "height": 16
       },
       "accessibility": {
@@ -114,7 +114,7 @@
       "FindMe_id": "FindMe_004",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=Ab1FyDL4HEY",
+      "href": "https://www.youtube.com/watch?v=e3lgE0TKW-w",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
@@ -141,8 +141,8 @@
     {
       "FindMe_id": "FindMe_005",
       "type": "a",
-      "text": "High-income AI business ideas for 2025 (no coding, no budget)",
-      "href": "https://www.youtube.com/watch?v=Ab1FyDL4HEY",
+      "text": "Proof of Ancient Nuclear Weapons: Mohenjo Daro & the Lost Indus Valley Civilization | Praveen Mohan",
+      "href": "https://www.youtube.com/watch?v=e3lgE0TKW-w",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 623,
@@ -169,17 +169,17 @@
     {
       "FindMe_id": "FindMe_006",
       "type": "a",
-      "text": "Silicon Valley Girl",
-      "href": "https://www.youtube.com/@SiliconValleyGirl",
+      "text": "Danny Jones Clips",
+      "href": "https://www.youtube.com/@DannyJonesClips",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 547,
+        "x": 542,
         "y": 386,
         "left": 485,
         "top": 378,
-        "right": 609,
+        "right": 600,
         "bottom": 395,
-        "width": 125,
+        "width": 115,
         "height": 16
       },
       "accessibility": {
@@ -198,17 +198,17 @@
       "FindMe_id": "FindMe_007",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=fgAwJmA8rH8&pp=ugUHEgVlbi1VUw%3D%3D",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
+      "href": "https://www.youtube.com/shorts/AAl_E-sVKp0",
+      "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
-        "x": 258,
-        "y": 548,
+        "x": 202,
+        "y": 665,
         "left": 96,
-        "top": 451,
-        "right": 421,
-        "bottom": 645,
-        "width": 325,
-        "height": 195
+        "top": 507,
+        "right": 307,
+        "bottom": 823,
+        "width": 211,
+        "height": 317
       },
       "accessibility": {
         "isVisible": true,
@@ -219,23 +219,23 @@
       "position": {
         "index": 6,
         "inViewport": true,
-        "aboveFold": true
+        "aboveFold": false
       }
     },
     {
       "FindMe_id": "FindMe_008",
       "type": "a",
-      "text": "The FREQUENCY is determined via the structure of your DNA",
-      "href": "https://www.youtube.com/watch?v=fgAwJmA8rH8&pp=ugUHEgVlbi1VUw%3D%3D",
-      "selector": ".yt-lockup-metadata-view-model-wiz__title",
+      "text": "He Picked the Wrong Opponent. 🤷‍♂️ #shorts",
+      "href": "https://www.youtube.com/shorts/AAl_E-sVKp0",
+      "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
-        "x": 282,
-        "y": 667,
-        "left": 144,
-        "top": 645,
-        "right": 421,
-        "bottom": 689,
-        "width": 277,
+        "x": 184,
+        "y": 853,
+        "left": 96,
+        "top": 831,
+        "right": 271,
+        "bottom": 875,
+        "width": 175,
         "height": 44
       },
       "accessibility": {
@@ -253,24 +253,24 @@
     {
       "FindMe_id": "FindMe_009",
       "type": "a",
-      "text": "daily MOTIVATION",
-      "href": "https://www.youtube.com/@dailyMOTIVATIONcontact",
-      "selector": ".yt-core-attributed-string__link",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/vaN4-kc5_p4",
+      "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
-        "x": 210,
-        "y": 701,
-        "left": 144,
-        "top": 693,
-        "right": 277,
-        "bottom": 709,
-        "width": 133,
-        "height": 16
+        "x": 429,
+        "y": 665,
+        "left": 323,
+        "top": 507,
+        "right": 534,
+        "bottom": 823,
+        "width": 211,
+        "height": 317
       },
       "accessibility": {
         "isVisible": true,
         "isClickable": true,
         "isFocusable": true,
-        "tabIndex": null
+        "tabIndex": -1
       },
       "position": {
         "index": 8,
@@ -281,45 +281,17 @@
     {
       "FindMe_id": "FindMe_010",
       "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=VaLdvX1HDeU&pp=ugUHEgVlbi1VUw%3D%3D",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
+      "text": "Entitled Streamers Get MAD After Hitting Woman With Paintball!",
+      "href": "https://www.youtube.com/shorts/vaN4-kc5_p4",
+      "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
-        "x": 599,
-        "y": 548,
-        "left": 437,
-        "top": 451,
-        "right": 762,
-        "bottom": 645,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 9,
-        "inViewport": true,
-        "aboveFold": true
-      }
-    },
-    {
-      "FindMe_id": "FindMe_011",
-      "type": "a",
-      "text": "The Carl Jung Theory That Explains DMT Entities By Terence McKenna",
-      "href": "https://www.youtube.com/watch?v=VaLdvX1HDeU&pp=ugUHEgVlbi1VUw%3D%3D",
-      "selector": ".yt-lockup-metadata-view-model-wiz__title",
-      "coordinates": {
-        "x": 623,
-        "y": 667,
-        "left": 485,
-        "top": 645,
-        "right": 762,
-        "bottom": 689,
-        "width": 277,
+        "x": 411,
+        "y": 853,
+        "left": 323,
+        "top": 831,
+        "right": 498,
+        "bottom": 875,
+        "width": 175,
         "height": 44
       },
       "accessibility": {
@@ -327,6 +299,34 @@
         "isClickable": true,
         "isFocusable": true,
         "tabIndex": null
+      },
+      "position": {
+        "index": 9,
+        "inViewport": true,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_011",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/B5LMxHsdAJA",
+      "selector": ".shortsLockupViewModelHostEndpoint",
+      "coordinates": {
+        "x": 656,
+        "y": 665,
+        "left": 550,
+        "top": 507,
+        "right": 762,
+        "bottom": 823,
+        "width": 211,
+        "height": 317
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
       },
       "position": {
         "index": 10,
@@ -337,18 +337,18 @@
     {
       "FindMe_id": "FindMe_012",
       "type": "a",
-      "text": "OurTimelessWisdom",
-      "href": "https://www.youtube.com/@OurTimelessWisdom",
-      "selector": ".yt-core-attributed-string__link",
+      "text": "Her Reaction is Priceless 😈🔥#freestyle #planche #motivation #respect #calisthenics #reaction",
+      "href": "https://www.youtube.com/shorts/B5LMxHsdAJA",
+      "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
-        "x": 550,
-        "y": 701,
-        "left": 485,
-        "top": 693,
-        "right": 615,
-        "bottom": 709,
-        "width": 130,
-        "height": 16
+        "x": 638,
+        "y": 853,
+        "left": 550,
+        "top": 831,
+        "right": 726,
+        "bottom": 875,
+        "width": 175,
+        "height": 44
       },
       "accessibility": {
         "isVisible": true,
@@ -366,15 +366,15 @@
       "FindMe_id": "FindMe_013",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
+      "href": "https://www.youtube.com/watch?v=L_FY6aW9cJ4&pp=ugUHEgVlbi1VUw%3D%3D",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
-        "y": 863,
+        "y": 1045,
         "left": 96,
-        "top": 765,
+        "top": 948,
         "right": 421,
-        "bottom": 960,
+        "bottom": 1143,
         "width": 325,
         "height": 195
       },
@@ -385,7 +385,7 @@
         "tabIndex": -1
       },
       "position": {
-        "index": 12,
+        "index": 24,
         "inViewport": false,
         "aboveFold": false
       }
@@ -393,16 +393,16 @@
     {
       "FindMe_id": "FindMe_014",
       "type": "a",
-      "text": "AI Agents Primer: The Next Big Shift of AI, From APIs to an Internet of Agents",
-      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
+      "text": "How to Use AI to Find a $1M Idea [Reddit, Claude]",
+      "href": "https://www.youtube.com/watch?v=L_FY6aW9cJ4&pp=ugUHEgVlbi1VUw%3D%3D",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 282,
-        "y": 982,
+        "y": 1165,
         "left": 144,
-        "top": 960,
+        "top": 1143,
         "right": 421,
-        "bottom": 1004,
+        "bottom": 1187,
         "width": 277,
         "height": 44
       },
@@ -413,7 +413,7 @@
         "tabIndex": null
       },
       "position": {
-        "index": 13,
+        "index": 25,
         "inViewport": false,
         "aboveFold": false
       }
@@ -421,17 +421,17 @@
     {
       "FindMe_id": "FindMe_015",
       "type": "a",
-      "text": "Deepak Panda",
-      "href": "https://www.youtube.com/@hideepakpanda",
+      "text": "Starter Story",
+      "href": "https://www.youtube.com/@starterstory",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 189,
-        "y": 1016,
+        "x": 192,
+        "y": 1198,
         "left": 144,
-        "top": 1008,
-        "right": 234,
-        "bottom": 1024,
-        "width": 90,
+        "top": 1190,
+        "right": 240,
+        "bottom": 1207,
+        "width": 96,
         "height": 16
       },
       "accessibility": {
@@ -441,7 +441,7 @@
         "tabIndex": null
       },
       "position": {
-        "index": 14,
+        "index": 26,
         "inViewport": false,
         "aboveFold": false
       }
@@ -450,15 +450,15 @@
       "FindMe_id": "FindMe_016",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=Myjo1amUZ08&pp=ugUEEgJlbg%3D%3D",
+      "href": "https://www.youtube.com/watch?v=BS0dh4AeQuI",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
-        "y": 863,
+        "y": 1045,
         "left": 437,
-        "top": 765,
+        "top": 948,
         "right": 762,
-        "bottom": 960,
+        "bottom": 1143,
         "width": 325,
         "height": 195
       },
@@ -469,7 +469,7 @@
         "tabIndex": -1
       },
       "position": {
-        "index": 15,
+        "index": 27,
         "inViewport": false,
         "aboveFold": false
       }
@@ -477,16 +477,16 @@
     {
       "FindMe_id": "FindMe_017",
       "type": "a",
-      "text": "Build Anything with OpenAI’s New OSS Models (n8n Agents)",
-      "href": "https://www.youtube.com/watch?v=Myjo1amUZ08&pp=ugUEEgJlbg%3D%3D",
+      "text": "Dr. Joe Dispenza Shares TOP SECRET to Manifest Anything Effortlessly",
+      "href": "https://www.youtube.com/watch?v=BS0dh4AeQuI",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 623,
-        "y": 982,
+        "y": 1165,
         "left": 485,
-        "top": 960,
+        "top": 1143,
         "right": 762,
-        "bottom": 1004,
+        "bottom": 1187,
         "width": 277,
         "height": 44
       },
@@ -497,7 +497,7 @@
         "tabIndex": null
       },
       "position": {
-        "index": 16,
+        "index": 28,
         "inViewport": false,
         "aboveFold": false
       }
@@ -505,17 +505,17 @@
     {
       "FindMe_id": "FindMe_018",
       "type": "a",
-      "text": "Kyle Friel | AI Software",
-      "href": "https://www.youtube.com/@KyleFrielTech",
+      "text": "Mind Insider",
+      "href": "https://www.youtube.com/@mindinsider.official",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 554,
-        "y": 1016,
+        "x": 523,
+        "y": 1198,
         "left": 485,
-        "top": 1008,
-        "right": 623,
-        "bottom": 1024,
-        "width": 139,
+        "top": 1190,
+        "right": 562,
+        "bottom": 1207,
+        "width": 77,
         "height": 16
       },
       "accessibility": {
@@ -525,7 +525,7 @@
         "tabIndex": null
       },
       "position": {
-        "index": 17,
+        "index": 29,
         "inViewport": false,
         "aboveFold": false
       }
@@ -534,15 +534,15 @@
       "FindMe_id": "FindMe_019",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/shorts/Y2jiiGAehb0",
+      "href": "https://www.youtube.com/shorts/cl5cyUG5utQ",
       "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
         "x": 202,
-        "y": 1294,
+        "y": 1477,
         "left": 96,
-        "top": 1136,
+        "top": 1319,
         "right": 307,
-        "bottom": 1453,
+        "bottom": 1635,
         "width": 211,
         "height": 317
       },
@@ -553,7 +553,7 @@
         "tabIndex": -1
       },
       "position": {
-        "index": 18,
+        "index": 30,
         "inViewport": false,
         "aboveFold": false
       }
@@ -561,16 +561,16 @@
     {
       "FindMe_id": "FindMe_020",
       "type": "a",
-      "text": "What Was He Expecting to Happen? 🤦‍♂️ #shorts",
-      "href": "https://www.youtube.com/shorts/Y2jiiGAehb0",
+      "text": "She Had No Words 😶🤣 #shorts #youtubeshorts",
+      "href": "https://www.youtube.com/shorts/cl5cyUG5utQ",
       "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
         "x": 184,
-        "y": 1483,
+        "y": 1665,
         "left": 96,
-        "top": 1461,
+        "top": 1643,
         "right": 271,
-        "bottom": 1505,
+        "bottom": 1687,
         "width": 175,
         "height": 44
       },
@@ -581,7 +581,7 @@
         "tabIndex": null
       },
       "position": {
-        "index": 19,
+        "index": 31,
         "inViewport": false,
         "aboveFold": false
       }
@@ -590,15 +590,15 @@
       "FindMe_id": "FindMe_021",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/shorts/eBmv9tK3j9U",
+      "href": "https://www.youtube.com/shorts/n_jJrJRoE7c",
       "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
         "x": 429,
-        "y": 1294,
+        "y": 1477,
         "left": 323,
-        "top": 1136,
+        "top": 1319,
         "right": 534,
-        "bottom": 1453,
+        "bottom": 1635,
         "width": 211,
         "height": 317
       },
@@ -609,7 +609,7 @@
         "tabIndex": -1
       },
       "position": {
-        "index": 20,
+        "index": 32,
         "inViewport": false,
         "aboveFold": false
       }
@@ -617,16 +617,16 @@
     {
       "FindMe_id": "FindMe_022",
       "type": "a",
-      "text": "Robot becomes self-aware… #creepy #scary #fyp #fypシ #shorts #elonmusk #artificialintelligence #japan",
-      "href": "https://www.youtube.com/shorts/eBmv9tK3j9U",
+      "text": "🚨Streamer's Security in Act👊",
+      "href": "https://www.youtube.com/shorts/n_jJrJRoE7c",
       "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
         "x": 411,
-        "y": 1483,
+        "y": 1665,
         "left": 323,
-        "top": 1461,
+        "top": 1643,
         "right": 498,
-        "bottom": 1505,
+        "bottom": 1687,
         "width": 175,
         "height": 44
       },
@@ -637,7 +637,7 @@
         "tabIndex": null
       },
       "position": {
-        "index": 21,
+        "index": 33,
         "inViewport": false,
         "aboveFold": false
       }
@@ -646,15 +646,15 @@
       "FindMe_id": "FindMe_023",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/shorts/KW2APhHsg80",
+      "href": "https://www.youtube.com/shorts/vQBis52XKi0",
       "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
         "x": 656,
-        "y": 1294,
+        "y": 1477,
         "left": 550,
-        "top": 1136,
+        "top": 1319,
         "right": 762,
-        "bottom": 1453,
+        "bottom": 1635,
         "width": 211,
         "height": 317
       },
@@ -665,7 +665,7 @@
         "tabIndex": -1
       },
       "position": {
-        "index": 22,
+        "index": 34,
         "inViewport": false,
         "aboveFold": false
       }
@@ -673,16 +673,16 @@
     {
       "FindMe_id": "FindMe_024",
       "type": "a",
-      "text": "Paul Rosolie: the danger of walking barefoot in the Amazon",
-      "href": "https://www.youtube.com/shorts/KW2APhHsg80",
+      "text": "Muslim Sheikh READS the QURAN in a CHURCH and THIS happens😨😭‼️ #Christian #Islam #shorts",
+      "href": "https://www.youtube.com/shorts/vQBis52XKi0",
       "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
         "x": 638,
-        "y": 1483,
+        "y": 1665,
         "left": 550,
-        "top": 1461,
+        "top": 1643,
         "right": 726,
-        "bottom": 1505,
+        "bottom": 1687,
         "width": 175,
         "height": 44
       },
@@ -693,7 +693,7 @@
         "tabIndex": null
       },
       "position": {
-        "index": 23,
+        "index": 35,
         "inViewport": false,
         "aboveFold": false
       }
@@ -702,351 +702,15 @@
       "FindMe_id": "FindMe_025",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=Sb6vqQdIt1k&pp=0gcJCa0JAYcqIYzv",
+      "href": "https://www.youtube.com/watch?v=CSA4oOpzLcE&pp=0gcJCa0JAYcqIYzv",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
-        "y": 1675,
+        "y": 1857,
         "left": 96,
-        "top": 1577,
+        "top": 1760,
         "right": 421,
-        "bottom": 1772,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 36,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_026",
-      "type": "a",
-      "text": "This is literally the worst timeline..",
-      "href": "https://www.youtube.com/watch?v=Sb6vqQdIt1k&pp=0gcJCa0JAYcqIYzv",
-      "selector": ".yt-lockup-metadata-view-model-wiz__title",
-      "coordinates": {
-        "x": 278,
-        "y": 1783,
-        "left": 144,
-        "top": 1772,
-        "right": 413,
-        "bottom": 1794,
-        "width": 269,
-        "height": 22
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 37,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_027",
-      "type": "a",
-      "text": "Asmongold Clips",
-      "href": "https://www.youtube.com/@AsmongoldClips",
-      "selector": ".yt-core-attributed-string__link",
-      "coordinates": {
-        "x": 206,
-        "y": 1806,
-        "left": 144,
-        "top": 1798,
-        "right": 268,
-        "bottom": 1814,
-        "width": 124,
-        "height": 16
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 38,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_028",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=vSfec19YOPg&pp=ugUHEgVlbi1BVdIHCQmtCQGHKiGM7w%3D%3D",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
-      "coordinates": {
-        "x": 599,
-        "y": 1675,
-        "left": 437,
-        "top": 1577,
-        "right": 762,
-        "bottom": 1772,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 39,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_029",
-      "type": "a",
-      "text": "Australian house prices are rigged to blow",
-      "href": "https://www.youtube.com/watch?v=vSfec19YOPg&pp=ugUHEgVlbi1BVdIHCQmtCQGHKiGM7w%3D%3D",
-      "selector": ".yt-lockup-metadata-view-model-wiz__title",
-      "coordinates": {
-        "x": 623,
-        "y": 1794,
-        "left": 485,
-        "top": 1772,
-        "right": 762,
-        "bottom": 1816,
-        "width": 277,
-        "height": 44
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 40,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_030",
-      "type": "a",
-      "text": "Leithvo",
-      "href": "https://www.youtube.com/@Leithvo",
-      "selector": ".yt-core-attributed-string__link",
-      "coordinates": {
-        "x": 507,
-        "y": 1828,
-        "left": 485,
-        "top": 1820,
-        "right": 530,
-        "bottom": 1836,
-        "width": 45,
-        "height": 16
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 41,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_031",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=eUUalcdNOho&pp=0gcJCa0JAYcqIYzv",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
-      "coordinates": {
-        "x": 258,
-        "y": 1989,
-        "left": 96,
-        "top": 1892,
-        "right": 421,
-        "bottom": 2087,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 42,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_032",
-      "type": "a",
-      "text": "Qwen 3 Coder explained in 5 minutes",
-      "href": "https://www.youtube.com/watch?v=eUUalcdNOho&pp=0gcJCa0JAYcqIYzv",
-      "selector": ".yt-lockup-metadata-view-model-wiz__title",
-      "coordinates": {
-        "x": 282,
-        "y": 2109,
-        "left": 144,
-        "top": 2087,
-        "right": 421,
-        "bottom": 2131,
-        "width": 277,
-        "height": 44
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 43,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_033",
-      "type": "a",
-      "text": "Caleb Writes Code",
-      "href": "https://www.youtube.com/@CalebWritesCode",
-      "selector": ".yt-core-attributed-string__link",
-      "coordinates": {
-        "x": 201,
-        "y": 2142,
-        "left": 144,
-        "top": 2134,
-        "right": 258,
-        "bottom": 2151,
-        "width": 114,
-        "height": 16
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 44,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_034",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=pAHmuMGWVtk",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
-      "coordinates": {
-        "x": 599,
-        "y": 1989,
-        "left": 437,
-        "top": 1892,
-        "right": 762,
-        "bottom": 2087,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 45,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_035",
-      "type": "a",
-      "text": "🎮 LIVE NOW: Epic No Man’s Sky | Exploring the Universe with Buzz 🔥",
-      "href": "https://www.youtube.com/watch?v=pAHmuMGWVtk",
-      "selector": ".yt-lockup-metadata-view-model-wiz__title",
-      "coordinates": {
-        "x": 623,
-        "y": 2109,
-        "left": 485,
-        "top": 2087,
-        "right": 762,
-        "bottom": 2131,
-        "width": 277,
-        "height": 44
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 46,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_036",
-      "type": "a",
-      "text": "BuzzWorthy",
-      "href": "https://www.youtube.com/@DiscoverBuzzworthy",
-      "selector": ".yt-core-attributed-string__link",
-      "coordinates": {
-        "x": 522,
-        "y": 2142,
-        "left": 485,
-        "top": 2134,
-        "right": 559,
-        "bottom": 2151,
-        "width": 75,
-        "height": 16
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 47,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_037",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=zomVPu6qWOY",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
-      "coordinates": {
-        "x": 258,
-        "y": 2304,
-        "left": 96,
-        "top": 2207,
-        "right": 421,
-        "bottom": 2401,
+        "bottom": 1954,
         "width": 325,
         "height": 195
       },
@@ -1063,18 +727,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_038",
+      "FindMe_id": "FindMe_026",
       "type": "a",
-      "text": "I Built the Next-Gen IONIC PLASMA THRUSTER Using NASA’s Secret Design!",
-      "href": "https://www.youtube.com/watch?v=zomVPu6qWOY",
+      "text": "How Is Processual Archaeology Applied? - Archaeology Quest",
+      "href": "https://www.youtube.com/watch?v=CSA4oOpzLcE&pp=0gcJCa0JAYcqIYzv",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 282,
-        "y": 2423,
+        "y": 1976,
         "left": 144,
-        "top": 2401,
+        "top": 1954,
         "right": 421,
-        "bottom": 2445,
+        "bottom": 1998,
         "width": 277,
         "height": 44
       },
@@ -1091,19 +755,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_039",
+      "FindMe_id": "FindMe_027",
       "type": "a",
-      "text": "Skill Make",
-      "href": "https://www.youtube.com/@skillmake",
+      "text": "Archaeology Quest",
+      "href": "https://www.youtube.com/@ArchaeologyQuest",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 185,
-        "y": 2457,
+        "x": 203,
+        "y": 2010,
         "left": 144,
-        "top": 2449,
-        "right": 225,
-        "bottom": 2465,
-        "width": 81,
+        "top": 2002,
+        "right": 262,
+        "bottom": 2018,
+        "width": 118,
         "height": 16
       },
       "accessibility": {
@@ -1119,18 +783,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_040",
+      "FindMe_id": "FindMe_028",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=1eFc2EQD5gg",
+      "href": "https://www.youtube.com/watch?v=A42XoqzXowM",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
-        "y": 2304,
+        "y": 1857,
         "left": 437,
-        "top": 2207,
+        "top": 1760,
         "right": 762,
-        "bottom": 2401,
+        "bottom": 1954,
         "width": 325,
         "height": 195
       },
@@ -1147,18 +811,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_041",
+      "FindMe_id": "FindMe_029",
       "type": "a",
-      "text": "Rand Paul Makes Russell Brand Go Quiet with This Chilling Warning",
-      "href": "https://www.youtube.com/watch?v=1eFc2EQD5gg",
+      "text": "BW Squats Are A POWERFUL Tool For Your Fitness Goals",
+      "href": "https://www.youtube.com/watch?v=A42XoqzXowM",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 623,
-        "y": 2423,
+        "y": 1976,
         "left": 485,
-        "top": 2401,
+        "top": 1954,
         "right": 762,
-        "bottom": 2445,
+        "bottom": 1998,
         "width": 277,
         "height": 44
       },
@@ -1175,19 +839,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_042",
+      "FindMe_id": "FindMe_030",
       "type": "a",
-      "text": "The Rubin Report",
-      "href": "https://www.youtube.com/@RubinReport",
+      "text": "K boges",
+      "href": "https://www.youtube.com/@Kboges",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 547,
-        "y": 2457,
+        "x": 510,
+        "y": 2010,
         "left": 485,
-        "top": 2449,
-        "right": 610,
-        "bottom": 2465,
-        "width": 125,
+        "top": 2002,
+        "right": 535,
+        "bottom": 2018,
+        "width": 51,
         "height": 16
       },
       "accessibility": {
@@ -1203,18 +867,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_043",
+      "FindMe_id": "FindMe_031",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=yQtqJ9qR-7I",
+      "href": "https://www.youtube.com/watch?v=X8aVvH-Bqeo",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
-        "y": 2619,
+        "y": 2172,
         "left": 96,
-        "top": 2521,
+        "top": 2074,
         "right": 421,
-        "bottom": 2716,
+        "bottom": 2269,
         "width": 325,
         "height": 195
       },
@@ -1231,20 +895,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_044",
+      "FindMe_id": "FindMe_032",
       "type": "a",
-      "text": "‘Deeply sinister’: Volkswagen to charge monthly fee to unlock full power of customers’ EVs",
-      "href": "https://www.youtube.com/watch?v=yQtqJ9qR-7I",
+      "text": "THIS IS F**KING INSANE..",
+      "href": "https://www.youtube.com/watch?v=X8aVvH-Bqeo",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
-        "x": 282,
-        "y": 2738,
+        "x": 249,
+        "y": 2280,
         "left": 144,
-        "top": 2716,
-        "right": 421,
-        "bottom": 2760,
-        "width": 277,
-        "height": 44
+        "top": 2269,
+        "right": 355,
+        "bottom": 2291,
+        "width": 211,
+        "height": 22
       },
       "accessibility": {
         "isVisible": true,
@@ -1259,19 +923,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_045",
+      "FindMe_id": "FindMe_033",
       "type": "a",
-      "text": "Sky News Australia",
-      "href": "https://www.youtube.com/@SkyNewsAustralia",
+      "text": "Asmongold Clips",
+      "href": "https://www.youtube.com/@AsmongoldClips",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 213,
-        "y": 2772,
+        "x": 206,
+        "y": 2303,
         "left": 144,
-        "top": 2764,
-        "right": 281,
-        "bottom": 2780,
-        "width": 137,
+        "top": 2295,
+        "right": 268,
+        "bottom": 2311,
+        "width": 124,
         "height": 16
       },
       "accessibility": {
@@ -1287,18 +951,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_046",
+      "FindMe_id": "FindMe_034",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=bPTgUZuL4Uk&pp=0gcJCa0JAYcqIYzv",
+      "href": "https://www.youtube.com/watch?v=Ar0Or9U0pCs&pp=ugUEEgJlbg%3D%3D",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
-        "y": 2619,
+        "y": 2172,
         "left": 437,
-        "top": 2521,
+        "top": 2074,
         "right": 762,
-        "bottom": 2716,
+        "bottom": 2269,
         "width": 325,
         "height": 195
       },
@@ -1315,18 +979,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_047",
+      "FindMe_id": "FindMe_035",
       "type": "a",
-      "text": "\"I Show You The Original World Map They Didn't Want You to See\" Graham Hancock",
-      "href": "https://www.youtube.com/watch?v=bPTgUZuL4Uk&pp=0gcJCa0JAYcqIYzv",
+      "text": "GPT-OSS + MCP: Running OpenAI's Open Weight Model Locally on Mac (LM Studio Tutorial)",
+      "href": "https://www.youtube.com/watch?v=Ar0Or9U0pCs&pp=ugUEEgJlbg%3D%3D",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 623,
-        "y": 2738,
+        "y": 2291,
         "left": 485,
-        "top": 2716,
+        "top": 2269,
         "right": 762,
-        "bottom": 2760,
+        "bottom": 2313,
         "width": 277,
         "height": 44
       },
@@ -1343,19 +1007,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_048",
+      "FindMe_id": "FindMe_036",
       "type": "a",
-      "text": "BrainStation",
-      "href": "https://www.youtube.com/@BrainStationChannel",
+      "text": "JeredBlu",
+      "href": "https://www.youtube.com/@JeredBlu",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 532,
-        "y": 2772,
+        "x": 512,
+        "y": 2325,
         "left": 485,
-        "top": 2764,
-        "right": 579,
-        "bottom": 2780,
-        "width": 94,
+        "top": 2317,
+        "right": 540,
+        "bottom": 2333,
+        "width": 55,
         "height": 16
       },
       "accessibility": {
@@ -1371,18 +1035,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_049",
+      "FindMe_id": "FindMe_037",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=LcXDhUn9nkg",
+      "href": "https://www.youtube.com/watch?v=J3j0j0hGlyk&pp=ugUEEgJlbg%3D%3D",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
-        "y": 2933,
+        "y": 2486,
         "left": 96,
-        "top": 2836,
+        "top": 2389,
         "right": 421,
-        "bottom": 3031,
+        "bottom": 2584,
         "width": 325,
         "height": 195
       },
@@ -1399,18 +1063,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_050",
+      "FindMe_id": "FindMe_038",
       "type": "a",
-      "text": "The Next Step After Learning Python Basics",
-      "href": "https://www.youtube.com/watch?v=LcXDhUn9nkg",
+      "text": "Science Is Pointing Back to God...Here’s Why",
+      "href": "https://www.youtube.com/watch?v=J3j0j0hGlyk&pp=ugUEEgJlbg%3D%3D",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 282,
-        "y": 3053,
+        "y": 2606,
         "left": 144,
-        "top": 3031,
+        "top": 2584,
         "right": 421,
-        "bottom": 3075,
+        "bottom": 2628,
         "width": 277,
         "height": 44
       },
@@ -1427,19 +1091,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_051",
+      "FindMe_id": "FindMe_039",
       "type": "a",
-      "text": "Tech With Tim",
-      "href": "https://www.youtube.com/@TechWithTim",
+      "text": "Stephen Meyer",
+      "href": "https://www.youtube.com/@DrStephenMeyer",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 197,
-        "y": 3086,
+        "x": 190,
+        "y": 2640,
         "left": 144,
-        "top": 3078,
-        "right": 251,
-        "bottom": 3095,
-        "width": 107,
+        "top": 2631,
+        "right": 237,
+        "bottom": 2648,
+        "width": 93,
         "height": 16
       },
       "accessibility": {
@@ -1455,18 +1119,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_052",
+      "FindMe_id": "FindMe_040",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=VSuX9a_tapA",
+      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
-        "y": 2933,
+        "y": 2486,
         "left": 437,
-        "top": 2836,
+        "top": 2389,
         "right": 762,
-        "bottom": 3031,
+        "bottom": 2584,
         "width": 325,
         "height": 195
       },
@@ -1483,18 +1147,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_053",
+      "FindMe_id": "FindMe_041",
       "type": "a",
-      "text": "Konstantin Kisin EXPOSES Woke Author's Insane New Theory",
-      "href": "https://www.youtube.com/watch?v=VSuX9a_tapA",
+      "text": "AI Agents Primer: The Next Big Shift of AI, From APIs to an Internet of Agents",
+      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 623,
-        "y": 3053,
+        "y": 2606,
         "left": 485,
-        "top": 3031,
+        "top": 2584,
         "right": 762,
-        "bottom": 3075,
+        "bottom": 2628,
         "width": 277,
         "height": 44
       },
@@ -1511,19 +1175,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_054",
+      "FindMe_id": "FindMe_042",
       "type": "a",
-      "text": "Warren Smith - Secret Scholar Society",
-      "href": "https://www.youtube.com/@SecretScholars",
+      "text": "Deepak Panda",
+      "href": "https://www.youtube.com/@hideepakpanda",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 602,
-        "y": 3086,
+        "x": 530,
+        "y": 2640,
         "left": 485,
-        "top": 3078,
-        "right": 719,
-        "bottom": 3095,
-        "width": 234,
+        "top": 2631,
+        "right": 574,
+        "bottom": 2648,
+        "width": 90,
         "height": 16
       },
       "accessibility": {
@@ -1539,18 +1203,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_055",
+      "FindMe_id": "FindMe_043",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=h-vg7atXCSE",
+      "href": "https://www.youtube.com/watch?v=3wKroLvM_z4",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
-        "y": 3248,
+        "y": 2801,
         "left": 96,
-        "top": 3151,
+        "top": 2704,
         "right": 421,
-        "bottom": 3345,
+        "bottom": 2898,
         "width": 325,
         "height": 195
       },
@@ -1567,18 +1231,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_056",
+      "FindMe_id": "FindMe_044",
       "type": "a",
-      "text": "Attempting To Learn Technical Death Metal Riffs...",
-      "href": "https://www.youtube.com/watch?v=h-vg7atXCSE",
+      "text": "SuperWhisper is my Scriptwriting Super Power",
+      "href": "https://www.youtube.com/watch?v=3wKroLvM_z4",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 282,
-        "y": 3367,
+        "y": 2920,
         "left": 144,
-        "top": 3345,
+        "top": 2898,
         "right": 421,
-        "bottom": 3389,
+        "bottom": 2942,
         "width": 277,
         "height": 44
       },
@@ -1595,19 +1259,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_057",
+      "FindMe_id": "FindMe_045",
       "type": "a",
-      "text": "Andrew Baena",
-      "href": "https://www.youtube.com/channel/UCa_BC8f_XoUTGujN8NjsMng",
+      "text": "Matt Williams",
+      "href": "https://www.youtube.com/@technovangelist",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 198,
-        "y": 3401,
+        "x": 187,
+        "y": 2954,
         "left": 144,
-        "top": 3393,
-        "right": 252,
-        "bottom": 3409,
-        "width": 108,
+        "top": 2946,
+        "right": 230,
+        "bottom": 2962,
+        "width": 86,
         "height": 16
       },
       "accessibility": {
@@ -1623,18 +1287,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_058",
+      "FindMe_id": "FindMe_046",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=tbzVKbFqSqs&pp=ugUEEgJlbg%3D%3D",
+      "href": "https://www.youtube.com/watch?v=9NTfKG4zihk",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
-        "y": 3248,
+        "y": 2801,
         "left": 437,
-        "top": 3151,
+        "top": 2704,
         "right": 762,
-        "bottom": 3345,
+        "bottom": 2898,
         "width": 325,
         "height": 195
       },
@@ -1651,18 +1315,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_059",
+      "FindMe_id": "FindMe_047",
       "type": "a",
-      "text": "3 n8n Google Automations You’ll Actually Use (Gmail, Sheets, Drive)",
-      "href": "https://www.youtube.com/watch?v=tbzVKbFqSqs&pp=ugUEEgJlbg%3D%3D",
+      "text": "HACK YOUR BRAIN WITH 40 Hz frequency",
+      "href": "https://www.youtube.com/watch?v=9NTfKG4zihk",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 623,
-        "y": 3367,
+        "y": 2920,
         "left": 485,
-        "top": 3345,
+        "top": 2898,
         "right": 762,
-        "bottom": 3389,
+        "bottom": 2942,
         "width": 277,
         "height": 44
       },
@@ -1679,19 +1343,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_060",
+      "FindMe_id": "FindMe_048",
       "type": "a",
-      "text": "Jono Catliff",
-      "href": "https://www.youtube.com/@jonocatliff",
+      "text": "daily MOTIVATION",
+      "href": "https://www.youtube.com/@dailyMOTIVATIONcontact",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 521,
-        "y": 3401,
+        "x": 551,
+        "y": 2954,
         "left": 485,
-        "top": 3393,
-        "right": 558,
-        "bottom": 3409,
-        "width": 73,
+        "top": 2946,
+        "right": 617,
+        "bottom": 2962,
+        "width": 133,
         "height": 16
       },
       "accessibility": {
@@ -1707,18 +1371,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_061",
+      "FindMe_id": "FindMe_049",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=RgAUIpaq1bI&pp=0gcJCa0JAYcqIYzv",
+      "href": "https://www.youtube.com/watch?v=GDDjmRAC5T4",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
-        "y": 3563,
+        "y": 3116,
         "left": 96,
-        "top": 3465,
+        "top": 3018,
         "right": 421,
-        "bottom": 3660,
+        "bottom": 3213,
         "width": 325,
         "height": 195
       },
@@ -1735,20 +1399,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_062",
+      "FindMe_id": "FindMe_050",
       "type": "a",
-      "text": "What Jobs Are Affected By AI?",
-      "href": "https://www.youtube.com/watch?v=RgAUIpaq1bI&pp=0gcJCa0JAYcqIYzv",
+      "text": "AI with Maribel Lopez: IBM Granite Models with Kate Soule",
+      "href": "https://www.youtube.com/watch?v=GDDjmRAC5T4",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
-        "x": 266,
-        "y": 3671,
+        "x": 282,
+        "y": 3235,
         "left": 144,
-        "top": 3660,
-        "right": 387,
-        "bottom": 3682,
-        "width": 243,
-        "height": 22
+        "top": 3213,
+        "right": 421,
+        "bottom": 3257,
+        "width": 277,
+        "height": 44
       },
       "accessibility": {
         "isVisible": true,
@@ -1763,19 +1427,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_063",
+      "FindMe_id": "FindMe_051",
       "type": "a",
-      "text": "Simon Sinek",
-      "href": "https://www.youtube.com/@SimonSinek",
+      "text": "Maribel Lopez",
+      "href": "https://www.youtube.com/@AIwithMaribelLopez",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 192,
-        "y": 3694,
+        "x": 188,
+        "y": 3269,
         "left": 144,
-        "top": 3686,
-        "right": 239,
-        "bottom": 3702,
-        "width": 95,
+        "top": 3261,
+        "right": 232,
+        "bottom": 3277,
+        "width": 88,
         "height": 16
       },
       "accessibility": {
@@ -1791,18 +1455,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_064",
+      "FindMe_id": "FindMe_052",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=l1fon954uuI&pp=0gcJCa0JAYcqIYzv",
+      "href": "https://www.youtube.com/watch?v=Ie6J7C7mmPI&pp=ugUHEgVlbi1HQg%3D%3D",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
-        "y": 3563,
+        "y": 3116,
         "left": 437,
-        "top": 3465,
+        "top": 3018,
         "right": 762,
-        "bottom": 3660,
+        "bottom": 3213,
         "width": 325,
         "height": 195
       },
@@ -1819,18 +1483,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_065",
+      "FindMe_id": "FindMe_053",
       "type": "a",
-      "text": "What If ChatGPT Became Self-Aware and Replaced Us?",
-      "href": "https://www.youtube.com/watch?v=l1fon954uuI&pp=0gcJCa0JAYcqIYzv",
+      "text": "You Need to Clean Your Past (Or You'll Never Move Forward) | Master Shi Heng Yi",
+      "href": "https://www.youtube.com/watch?v=Ie6J7C7mmPI&pp=ugUHEgVlbi1HQg%3D%3D",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 623,
-        "y": 3682,
+        "y": 3235,
         "left": 485,
-        "top": 3660,
+        "top": 3213,
         "right": 762,
-        "bottom": 3704,
+        "bottom": 3257,
         "width": 277,
         "height": 44
       },
@@ -1847,19 +1511,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_066",
+      "FindMe_id": "FindMe_054",
       "type": "a",
-      "text": "Hypothetiq",
-      "href": "https://www.youtube.com/@Hypothetiq-m3r",
+      "text": "Shi Heng Yi Teachings",
+      "href": "https://www.youtube.com/@shihengyifans",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 519,
-        "y": 3716,
+        "x": 554,
+        "y": 3269,
         "left": 485,
-        "top": 3708,
-        "right": 553,
-        "bottom": 3724,
-        "width": 68,
+        "top": 3261,
+        "right": 623,
+        "bottom": 3277,
+        "width": 138,
         "height": 16
       },
       "accessibility": {
@@ -1875,20 +1539,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_067",
+      "FindMe_id": "FindMe_055",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/playables",
-      "selector": ".yt-simple-endpoint",
+      "href": "https://www.youtube.com/watch?v=Dt6u-yFEpsk",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 126,
-        "y": 3803,
-        "left": 104,
-        "top": 3785,
-        "right": 148,
-        "bottom": 3821,
-        "width": 44,
-        "height": 36
+        "x": 258,
+        "y": 3431,
+        "left": 96,
+        "top": 3333,
+        "right": 421,
+        "bottom": 3528,
+        "width": 325,
+        "height": 195
       },
       "accessibility": {
         "isVisible": true,
@@ -1903,20 +1567,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_068",
+      "FindMe_id": "FindMe_056",
       "type": "a",
-      "text": "YouTube Playables",
-      "href": "https://www.youtube.com/playables",
-      "selector": ".yt-simple-endpoint",
+      "text": "10 Insane AI Agent Use Cases in n8n! (steal these)",
+      "href": "https://www.youtube.com/watch?v=Dt6u-yFEpsk",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
-        "x": 234,
-        "y": 3794,
-        "left": 148,
-        "top": 3780,
-        "right": 319,
-        "bottom": 3808,
-        "width": 171,
-        "height": 28
+        "x": 282,
+        "y": 3550,
+        "left": 144,
+        "top": 3528,
+        "right": 421,
+        "bottom": 3572,
+        "width": 277,
+        "height": 44
       },
       "accessibility": {
         "isVisible": true,
@@ -1931,20 +1595,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_069",
+      "FindMe_id": "FindMe_057",
       "type": "a",
-      "text": "View all",
-      "href": "https://www.youtube.com/playables?bp=EgZicm93c2U%3D",
-      "selector": ".yt-spec-button-shape-next",
+      "text": "Jono Catliff",
+      "href": "https://www.youtube.com/@jonocatliff",
+      "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 673,
-        "y": 3803,
-        "left": 633,
-        "top": 3785,
-        "right": 714,
-        "bottom": 3821,
-        "width": 81,
-        "height": 36
+        "x": 180,
+        "y": 3584,
+        "left": 144,
+        "top": 3575,
+        "right": 217,
+        "bottom": 3592,
+        "width": 73,
+        "height": 16
       },
       "accessibility": {
         "isVisible": true,
@@ -1959,26 +1623,26 @@
       }
     },
     {
-      "FindMe_id": "FindMe_070",
+      "FindMe_id": "FindMe_058",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/playables/UgkxySxYCWeSMlXxcw_rKRsSAd2YaUTvzWLB",
-      "selector": ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "href": "https://www.youtube.com/watch?v=1UufaK3pQMg",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 202,
-        "y": 3987,
-        "left": 104,
-        "top": 3850,
-        "right": 299,
-        "bottom": 4123,
-        "width": 195,
-        "height": 273
+        "x": 599,
+        "y": 3431,
+        "left": 437,
+        "top": 3333,
+        "right": 762,
+        "bottom": 3528,
+        "width": 325,
+        "height": 195
       },
       "accessibility": {
         "isVisible": true,
         "isClickable": true,
         "isFocusable": true,
-        "tabIndex": null
+        "tabIndex": -1
       },
       "position": {
         "index": 81,
@@ -1987,20 +1651,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_071",
+      "FindMe_id": "FindMe_059",
       "type": "a",
-      "text": "Play",
-      "href": "https://www.youtube.com/playables/UgkxySxYCWeSMlXxcw_rKRsSAd2YaUTvzWLB",
-      "selector": ".yt-spec-button-shape-next",
+      "text": "AI2027: Is this how AI might destroy humanity? - BBC World Service",
+      "href": "https://www.youtube.com/watch?v=1UufaK3pQMg",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
-        "x": 202,
-        "y": 4149,
-        "left": 104,
-        "top": 4131,
-        "right": 299,
-        "bottom": 4167,
-        "width": 195,
-        "height": 36
+        "x": 623,
+        "y": 3550,
+        "left": 485,
+        "top": 3528,
+        "right": 762,
+        "bottom": 3572,
+        "width": 277,
+        "height": 44
       },
       "accessibility": {
         "isVisible": true,
@@ -2015,20 +1679,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_072",
+      "FindMe_id": "FindMe_060",
       "type": "a",
-      "text": "Hill Climb Racing Lite10M plays",
-      "href": "https://www.youtube.com/playables/UgkxySxYCWeSMlXxcw_rKRsSAd2YaUTvzWLB",
-      "selector": ".yt-mini-game-card-view-model__metadata-details",
+      "text": "BBC World Service",
+      "href": "https://www.youtube.com/@BBCWorldService",
+      "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 186,
-        "y": 4204,
-        "left": 96,
-        "top": 4183,
-        "right": 275,
-        "bottom": 4225,
-        "width": 179,
-        "height": 42
+        "x": 551,
+        "y": 3584,
+        "left": 485,
+        "top": 3575,
+        "right": 618,
+        "bottom": 3592,
+        "width": 133,
+        "height": 16
       },
       "accessibility": {
         "isVisible": true,
@@ -2043,26 +1707,26 @@
       }
     },
     {
-      "FindMe_id": "FindMe_073",
+      "FindMe_id": "FindMe_061",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/playables/UgkxgpLJNCNUkCXRVD5HrDZfOHqxtJAX5zET",
-      "selector": ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "href": "https://www.youtube.com/watch?v=1HHMA1Dpo5M&list=RD1HHMA1Dpo5M&start_radio=1&pp=oAcB",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 429,
-        "y": 3987,
-        "left": 331,
-        "top": 3850,
-        "right": 526,
-        "bottom": 4123,
-        "width": 195,
-        "height": 273
+        "x": 258,
+        "y": 3745,
+        "left": 96,
+        "top": 3648,
+        "right": 421,
+        "bottom": 3843,
+        "width": 325,
+        "height": 195
       },
       "accessibility": {
         "isVisible": true,
         "isClickable": true,
         "isFocusable": true,
-        "tabIndex": null
+        "tabIndex": -1
       },
       "position": {
         "index": 84,
@@ -2071,20 +1735,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_074",
+      "FindMe_id": "FindMe_062",
       "type": "a",
-      "text": "Play",
-      "href": "https://www.youtube.com/playables/UgkxgpLJNCNUkCXRVD5HrDZfOHqxtJAX5zET",
-      "selector": ".yt-spec-button-shape-next",
+      "text": "Michael Winslow - Whole Lotta Love by Led Zeppelin Original HD (Senkveld med Thomas og Harald)",
+      "href": "https://www.youtube.com/watch?v=1HHMA1Dpo5M&list=RD1HHMA1Dpo5M&start_radio=1&pp=oAcB",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
-        "x": 429,
-        "y": 4149,
-        "left": 331,
-        "top": 4131,
-        "right": 526,
-        "bottom": 4167,
-        "width": 195,
-        "height": 36
+        "x": 282,
+        "y": 3865,
+        "left": 144,
+        "top": 3843,
+        "right": 421,
+        "bottom": 3887,
+        "width": 277,
+        "height": 44
       },
       "accessibility": {
         "isVisible": true,
@@ -2099,20 +1763,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_075",
+      "FindMe_id": "FindMe_063",
       "type": "a",
-      "text": "Hide N Seek27M plays",
-      "href": "https://www.youtube.com/playables/UgkxgpLJNCNUkCXRVD5HrDZfOHqxtJAX5zET",
-      "selector": ".yt-mini-game-card-view-model__metadata-details",
+      "text": "SenkveldTV2",
+      "href": "https://www.youtube.com/@SenkveldTV2",
+      "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 413,
-        "y": 4204,
-        "left": 323,
-        "top": 4183,
-        "right": 502,
-        "bottom": 4225,
-        "width": 179,
-        "height": 42
+        "x": 185,
+        "y": 3898,
+        "left": 144,
+        "top": 3890,
+        "right": 225,
+        "bottom": 3907,
+        "width": 81,
+        "height": 16
       },
       "accessibility": {
         "isVisible": true,
@@ -2127,26 +1791,26 @@
       }
     },
     {
-      "FindMe_id": "FindMe_076",
+      "FindMe_id": "FindMe_064",
       "type": "a",
-      "text": "New",
-      "href": "https://www.youtube.com/playables/Ugkxg96n-JiNmJPfquVuY_zjQIMTHmqs7qxu",
-      "selector": ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "text": "",
+      "href": "https://www.youtube.com/watch?v=ye13DYr4OaU&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 656,
-        "y": 3987,
-        "left": 558,
-        "top": 3850,
-        "right": 754,
-        "bottom": 4123,
-        "width": 195,
-        "height": 273
+        "x": 599,
+        "y": 3745,
+        "left": 437,
+        "top": 3648,
+        "right": 762,
+        "bottom": 3843,
+        "width": 325,
+        "height": 195
       },
       "accessibility": {
         "isVisible": true,
         "isClickable": true,
         "isFocusable": true,
-        "tabIndex": null
+        "tabIndex": -1
       },
       "position": {
         "index": 87,
@@ -2155,20 +1819,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_077",
+      "FindMe_id": "FindMe_065",
       "type": "a",
-      "text": "Play",
-      "href": "https://www.youtube.com/playables/Ugkxg96n-JiNmJPfquVuY_zjQIMTHmqs7qxu",
-      "selector": ".yt-spec-button-shape-next",
+      "text": "These Simple Mistakes Create Clingy Toddlers",
+      "href": "https://www.youtube.com/watch?v=ye13DYr4OaU&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
-        "x": 656,
-        "y": 4149,
-        "left": 558,
-        "top": 4131,
-        "right": 754,
-        "bottom": 4167,
-        "width": 195,
-        "height": 36
+        "x": 623,
+        "y": 3865,
+        "left": 485,
+        "top": 3843,
+        "right": 762,
+        "bottom": 3887,
+        "width": 277,
+        "height": 44
       },
       "accessibility": {
         "isVisible": true,
@@ -2183,20 +1847,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_078",
+      "FindMe_id": "FindMe_066",
       "type": "a",
-      "text": "Clean It: Restaurant Cleanup2.4M plays",
-      "href": "https://www.youtube.com/playables/Ugkxg96n-JiNmJPfquVuY_zjQIMTHmqs7qxu",
-      "selector": ".yt-mini-game-card-view-model__metadata-details",
+      "text": "Emma Hubbard",
+      "href": "https://www.youtube.com/@EmmaHubbard",
+      "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 640,
-        "y": 4204,
-        "left": 550,
-        "top": 4183,
-        "right": 730,
-        "bottom": 4225,
-        "width": 179,
-        "height": 42
+        "x": 542,
+        "y": 3898,
+        "left": 485,
+        "top": 3890,
+        "right": 600,
+        "bottom": 3907,
+        "width": 115,
+        "height": 16
       },
       "accessibility": {
         "isVisible": true,
@@ -2211,18 +1875,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_079",
+      "FindMe_id": "FindMe_067",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=uf5oth4-eF8",
+      "href": "https://www.youtube.com/watch?v=WzzNgCMQbwA&pp=0gcJCa0JAYcqIYzv",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
-        "y": 4405,
+        "y": 4060,
         "left": 96,
-        "top": 4308,
+        "top": 3963,
         "right": 421,
-        "bottom": 4503,
+        "bottom": 4157,
         "width": 325,
         "height": 195
       },
@@ -2233,24 +1897,24 @@
         "tabIndex": -1
       },
       "position": {
-        "index": 117,
+        "index": 90,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_080",
+      "FindMe_id": "FindMe_068",
       "type": "a",
-      "text": "Real-Time Speech-to-Text & Speaker Identification using Whisper, Vosk & Pyannote (Open-Source)",
-      "href": "https://www.youtube.com/watch?v=uf5oth4-eF8",
+      "text": "He died, and Jesus showed how long the soul remains on Earth according to the Bible - NDE",
+      "href": "https://www.youtube.com/watch?v=WzzNgCMQbwA&pp=0gcJCa0JAYcqIYzv",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 282,
-        "y": 4525,
+        "y": 4179,
         "left": 144,
-        "top": 4503,
+        "top": 4157,
         "right": 421,
-        "bottom": 4547,
+        "bottom": 4201,
         "width": 277,
         "height": 44
       },
@@ -2261,25 +1925,25 @@
         "tabIndex": null
       },
       "position": {
-        "index": 118,
+        "index": 91,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_081",
+      "FindMe_id": "FindMe_069",
       "type": "a",
-      "text": "Tech Giant",
-      "href": "https://www.youtube.com/@techgiantt",
+      "text": "Second Life",
+      "href": "https://www.youtube.com/@SecondLife03",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 177,
-        "y": 4559,
+        "x": 181,
+        "y": 4213,
         "left": 144,
-        "top": 4550,
-        "right": 210,
-        "bottom": 4567,
-        "width": 66,
+        "top": 4205,
+        "right": 217,
+        "bottom": 4221,
+        "width": 73,
         "height": 16
       },
       "accessibility": {
@@ -2289,24 +1953,24 @@
         "tabIndex": null
       },
       "position": {
-        "index": 119,
+        "index": 92,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_082",
+      "FindMe_id": "FindMe_070",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=BS0dh4AeQuI",
+      "href": "https://www.youtube.com/watch?v=BfnfOdQVHAQ",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
-        "y": 4405,
+        "y": 4060,
         "left": 437,
-        "top": 4308,
+        "top": 3963,
         "right": 762,
-        "bottom": 4503,
+        "bottom": 4157,
         "width": 325,
         "height": 195
       },
@@ -2317,24 +1981,24 @@
         "tabIndex": -1
       },
       "position": {
-        "index": 120,
+        "index": 93,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_083",
+      "FindMe_id": "FindMe_071",
       "type": "a",
-      "text": "Dr. Joe Dispenza Shares TOP SECRET to Manifest Anything Effortlessly",
-      "href": "https://www.youtube.com/watch?v=BS0dh4AeQuI",
+      "text": "The Late Show (Australia) - Interesting Shops",
+      "href": "https://www.youtube.com/watch?v=BfnfOdQVHAQ",
       "selector": ".yt-lockup-metadata-view-model-wiz__title",
       "coordinates": {
         "x": 623,
-        "y": 4525,
+        "y": 4179,
         "left": 485,
-        "top": 4503,
+        "top": 4157,
         "right": 762,
-        "bottom": 4547,
+        "bottom": 4201,
         "width": 277,
         "height": 44
       },
@@ -2345,25 +2009,25 @@
         "tabIndex": null
       },
       "position": {
-        "index": 121,
+        "index": 94,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_084",
+      "FindMe_id": "FindMe_072",
       "type": "a",
-      "text": "Mind Insider",
-      "href": "https://www.youtube.com/@mindinsider.official",
+      "text": "radix27",
+      "href": "https://www.youtube.com/@radix27",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 523,
-        "y": 4559,
+        "x": 508,
+        "y": 4213,
         "left": 485,
-        "top": 4550,
-        "right": 562,
-        "bottom": 4567,
-        "width": 77,
+        "top": 4205,
+        "right": 531,
+        "bottom": 4221,
+        "width": 46,
         "height": 16
       },
       "accessibility": {
@@ -2373,13 +2037,181 @@
         "tabIndex": null
       },
       "position": {
-        "index": 122,
+        "index": 95,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_085",
+      "FindMe_id": "FindMe_073",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/watch?v=6UmDgHDDR8U&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
+      "coordinates": {
+        "x": 258,
+        "y": 4375,
+        "left": 96,
+        "top": 4277,
+        "right": 421,
+        "bottom": 4472,
+        "width": 325,
+        "height": 195
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 96,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_074",
+      "type": "a",
+      "text": "Joe Rogan's Alien Conspiracy Squad and UNADULTERATED SCIENCE",
+      "href": "https://www.youtube.com/watch?v=6UmDgHDDR8U&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title",
+      "coordinates": {
+        "x": 282,
+        "y": 4494,
+        "left": 144,
+        "top": 4472,
+        "right": 421,
+        "bottom": 4516,
+        "width": 277,
+        "height": 44
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 97,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_075",
+      "type": "a",
+      "text": "Benny Winslow",
+      "href": "https://www.youtube.com/@BennyWinslow",
+      "selector": ".yt-core-attributed-string__link",
+      "coordinates": {
+        "x": 200,
+        "y": 4528,
+        "left": 144,
+        "top": 4520,
+        "right": 256,
+        "bottom": 4536,
+        "width": 112,
+        "height": 16
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 98,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_076",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/watch?v=F8UUX7tPdVc",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
+      "coordinates": {
+        "x": 599,
+        "y": 4375,
+        "left": 437,
+        "top": 4277,
+        "right": 762,
+        "bottom": 4472,
+        "width": 325,
+        "height": 195
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 99,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_077",
+      "type": "a",
+      "text": "The New TESLA TANK -- (Going Off Grid will never be the same)",
+      "href": "https://www.youtube.com/watch?v=F8UUX7tPdVc",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title",
+      "coordinates": {
+        "x": 623,
+        "y": 4494,
+        "left": 485,
+        "top": 4472,
+        "right": 762,
+        "bottom": 4516,
+        "width": 277,
+        "height": 44
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 100,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_078",
+      "type": "a",
+      "text": "JerryRigEverything",
+      "href": "https://www.youtube.com/@JerryRigEverything",
+      "selector": ".yt-core-attributed-string__link",
+      "coordinates": {
+        "x": 552,
+        "y": 4528,
+        "left": 485,
+        "top": 4520,
+        "right": 619,
+        "bottom": 4536,
+        "width": 134,
+        "height": 16
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 101,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_079",
       "type": "button",
       "text": "",
       "href": null,
@@ -2407,7 +2239,7 @@
       }
     },
     {
-      "FindMe_id": "FindMe_086",
+      "FindMe_id": "FindMe_080",
       "type": "button",
       "text": "",
       "href": null,
@@ -2435,20 +2267,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_087",
+      "FindMe_id": "FindMe_081",
       "type": "button",
       "text": "",
       "href": null,
-      "selector": ".yt-spec-button-shape-next",
+      "selector": "#button",
       "coordinates": {
-        "x": 413,
-        "y": 657,
-        "left": 395,
-        "top": 639,
-        "right": 431,
-        "bottom": 675,
-        "width": 36,
-        "height": 36
+        "x": 742,
+        "y": 471,
+        "left": 722,
+        "top": 451,
+        "right": 762,
+        "bottom": 491,
+        "width": 40,
+        "height": 40
       },
       "accessibility": {
         "isVisible": true,
@@ -2459,78 +2291,22 @@
       "position": {
         "index": 3,
         "inViewport": true,
-        "aboveFold": false
+        "aboveFold": true
       }
     },
     {
-      "FindMe_id": "FindMe_088",
-      "type": "button",
-      "text": "",
-      "href": null,
-      "selector": ".yt-spec-button-shape-next",
-      "coordinates": {
-        "x": 754,
-        "y": 657,
-        "left": 736,
-        "top": 639,
-        "right": 772,
-        "bottom": 675,
-        "width": 36,
-        "height": 36
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 4,
-        "inViewport": true,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_089",
+      "FindMe_id": "FindMe_082",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
         "x": 413,
-        "y": 972,
+        "y": 1155,
         "left": 395,
-        "top": 954,
+        "top": 1137,
         "right": 431,
-        "bottom": 990,
-        "width": 36,
-        "height": 36
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 5,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_090",
-      "type": "button",
-      "text": "",
-      "href": null,
-      "selector": ".yt-spec-button-shape-next",
-      "coordinates": {
-        "x": 754,
-        "y": 972,
-        "left": 736,
-        "top": 954,
-        "right": 772,
-        "bottom": 990,
+        "bottom": 1173,
         "width": 36,
         "height": 36
       },
@@ -2547,20 +2323,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_091",
+      "FindMe_id": "FindMe_083",
       "type": "button",
       "text": "",
       "href": null,
-      "selector": "#button",
+      "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 742,
-        "y": 1100,
-        "left": 722,
-        "top": 1080,
-        "right": 762,
-        "bottom": 1120,
-        "width": 40,
-        "height": 40
+        "x": 754,
+        "y": 1155,
+        "left": 736,
+        "top": 1137,
+        "right": 772,
+        "bottom": 1173,
+        "width": 36,
+        "height": 36
       },
       "accessibility": {
         "isVisible": true,
@@ -2575,20 +2351,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_092",
+      "FindMe_id": "FindMe_084",
       "type": "button",
       "text": "",
       "href": null,
-      "selector": ".yt-spec-button-shape-next",
+      "selector": "#button",
       "coordinates": {
-        "x": 413,
-        "y": 1784,
-        "left": 395,
-        "top": 1766,
-        "right": 431,
-        "bottom": 1802,
-        "width": 36,
-        "height": 36
+        "x": 742,
+        "y": 1283,
+        "left": 722,
+        "top": 1263,
+        "right": 762,
+        "bottom": 1303,
+        "width": 40,
+        "height": 40
       },
       "accessibility": {
         "isVisible": true,
@@ -2597,24 +2373,24 @@
         "tabIndex": null
       },
       "position": {
-        "index": 10,
+        "index": 8,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_093",
+      "FindMe_id": "FindMe_085",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 754,
-        "y": 1784,
-        "left": 736,
-        "top": 1766,
-        "right": 772,
-        "bottom": 1802,
+        "x": 413,
+        "y": 1966,
+        "left": 395,
+        "top": 1948,
+        "right": 431,
+        "bottom": 1984,
         "width": 36,
         "height": 36
       },
@@ -2631,18 +2407,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_094",
+      "FindMe_id": "FindMe_086",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 413,
-        "y": 2099,
-        "left": 395,
-        "top": 2081,
-        "right": 431,
-        "bottom": 2117,
+        "x": 754,
+        "y": 1966,
+        "left": 736,
+        "top": 1948,
+        "right": 772,
+        "bottom": 1984,
         "width": 36,
         "height": 36
       },
@@ -2659,18 +2435,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_095",
+      "FindMe_id": "FindMe_087",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 754,
-        "y": 2099,
-        "left": 736,
-        "top": 2081,
-        "right": 772,
-        "bottom": 2117,
+        "x": 413,
+        "y": 2281,
+        "left": 395,
+        "top": 2263,
+        "right": 431,
+        "bottom": 2299,
         "width": 36,
         "height": 36
       },
@@ -2687,18 +2463,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_096",
+      "FindMe_id": "FindMe_088",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 413,
-        "y": 2413,
-        "left": 395,
-        "top": 2395,
-        "right": 431,
-        "bottom": 2431,
+        "x": 754,
+        "y": 2281,
+        "left": 736,
+        "top": 2263,
+        "right": 772,
+        "bottom": 2299,
         "width": 36,
         "height": 36
       },
@@ -2715,18 +2491,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_097",
+      "FindMe_id": "FindMe_089",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 754,
-        "y": 2413,
-        "left": 736,
-        "top": 2395,
-        "right": 772,
-        "bottom": 2431,
+        "x": 413,
+        "y": 2596,
+        "left": 395,
+        "top": 2578,
+        "right": 431,
+        "bottom": 2614,
         "width": 36,
         "height": 36
       },
@@ -2743,18 +2519,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_098",
+      "FindMe_id": "FindMe_090",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 413,
-        "y": 2728,
-        "left": 395,
-        "top": 2710,
-        "right": 431,
-        "bottom": 2746,
+        "x": 754,
+        "y": 2596,
+        "left": 736,
+        "top": 2578,
+        "right": 772,
+        "bottom": 2614,
         "width": 36,
         "height": 36
       },
@@ -2771,18 +2547,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_099",
+      "FindMe_id": "FindMe_091",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 754,
-        "y": 2728,
-        "left": 736,
-        "top": 2710,
-        "right": 772,
-        "bottom": 2746,
+        "x": 413,
+        "y": 2910,
+        "left": 395,
+        "top": 2892,
+        "right": 431,
+        "bottom": 2928,
         "width": 36,
         "height": 36
       },
@@ -2799,18 +2575,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_100",
+      "FindMe_id": "FindMe_092",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 413,
-        "y": 3043,
-        "left": 395,
-        "top": 3025,
-        "right": 431,
-        "bottom": 3061,
+        "x": 754,
+        "y": 2910,
+        "left": 736,
+        "top": 2892,
+        "right": 772,
+        "bottom": 2928,
         "width": 36,
         "height": 36
       },
@@ -2827,18 +2603,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_101",
+      "FindMe_id": "FindMe_093",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 754,
-        "y": 3043,
-        "left": 736,
-        "top": 3025,
-        "right": 772,
-        "bottom": 3061,
+        "x": 413,
+        "y": 3225,
+        "left": 395,
+        "top": 3207,
+        "right": 431,
+        "bottom": 3243,
         "width": 36,
         "height": 36
       },
@@ -2855,18 +2631,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_102",
+      "FindMe_id": "FindMe_094",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 413,
-        "y": 3357,
-        "left": 395,
-        "top": 3339,
-        "right": 431,
-        "bottom": 3375,
+        "x": 754,
+        "y": 3225,
+        "left": 736,
+        "top": 3207,
+        "right": 772,
+        "bottom": 3243,
         "width": 36,
         "height": 36
       },
@@ -2883,18 +2659,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_103",
+      "FindMe_id": "FindMe_095",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 754,
-        "y": 3357,
-        "left": 736,
-        "top": 3339,
-        "right": 772,
-        "bottom": 3375,
+        "x": 413,
+        "y": 3540,
+        "left": 395,
+        "top": 3522,
+        "right": 431,
+        "bottom": 3558,
         "width": 36,
         "height": 36
       },
@@ -2911,18 +2687,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_104",
+      "FindMe_id": "FindMe_096",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 413,
-        "y": 3672,
-        "left": 395,
-        "top": 3654,
-        "right": 431,
-        "bottom": 3690,
+        "x": 754,
+        "y": 3540,
+        "left": 736,
+        "top": 3522,
+        "right": 772,
+        "bottom": 3558,
         "width": 36,
         "height": 36
       },
@@ -2939,18 +2715,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_105",
+      "FindMe_id": "FindMe_097",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 754,
-        "y": 3672,
-        "left": 736,
-        "top": 3654,
-        "right": 772,
-        "bottom": 3690,
+        "x": 413,
+        "y": 3855,
+        "left": 395,
+        "top": 3837,
+        "right": 431,
+        "bottom": 3873,
         "width": 36,
         "height": 36
       },
@@ -2967,20 +2743,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_106",
+      "FindMe_id": "FindMe_098",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 742,
-        "y": 3803,
-        "left": 722,
-        "top": 3783,
-        "right": 762,
-        "bottom": 3823,
-        "width": 40,
-        "height": 40
+        "x": 754,
+        "y": 3855,
+        "left": 736,
+        "top": 3837,
+        "right": 772,
+        "bottom": 3873,
+        "width": 36,
+        "height": 36
       },
       "accessibility": {
         "isVisible": true,
@@ -2995,20 +2771,48 @@
       }
     },
     {
-      "FindMe_id": "FindMe_107",
+      "FindMe_id": "FindMe_099",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 291,
-        "y": 4199,
-        "left": 275,
-        "top": 4183,
-        "right": 307,
-        "bottom": 4215,
-        "width": 32,
-        "height": 32
+        "x": 413,
+        "y": 4169,
+        "left": 395,
+        "top": 4151,
+        "right": 431,
+        "bottom": 4187,
+        "width": 36,
+        "height": 36
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 25,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_100",
+      "type": "button",
+      "text": "",
+      "href": null,
+      "selector": ".yt-spec-button-shape-next",
+      "coordinates": {
+        "x": 754,
+        "y": 4169,
+        "left": 736,
+        "top": 4151,
+        "right": 772,
+        "bottom": 4187,
+        "width": 36,
+        "height": 36
       },
       "accessibility": {
         "isVisible": true,
@@ -3023,20 +2827,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_108",
+      "FindMe_id": "FindMe_101",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 518,
-        "y": 4199,
-        "left": 502,
-        "top": 4183,
-        "right": 534,
-        "bottom": 4215,
-        "width": 32,
-        "height": 32
+        "x": 413,
+        "y": 4484,
+        "left": 395,
+        "top": 4466,
+        "right": 431,
+        "bottom": 4502,
+        "width": 36,
+        "height": 36
       },
       "accessibility": {
         "isVisible": true,
@@ -3051,20 +2855,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_109",
+      "FindMe_id": "FindMe_102",
       "type": "button",
       "text": "",
       "href": null,
       "selector": ".yt-spec-button-shape-next",
       "coordinates": {
-        "x": 746,
-        "y": 4199,
-        "left": 730,
-        "top": 4183,
-        "right": 762,
-        "bottom": 4215,
-        "width": 32,
-        "height": 32
+        "x": 754,
+        "y": 4484,
+        "left": 736,
+        "top": 4466,
+        "right": 772,
+        "bottom": 4502,
+        "width": 36,
+        "height": 36
       },
       "accessibility": {
         "isVisible": true,
@@ -3079,91 +2883,7 @@
       }
     },
     {
-      "FindMe_id": "FindMe_110",
-      "type": "button",
-      "text": "Show more",
-      "href": null,
-      "selector": ".yt-spec-button-shape-next",
-      "coordinates": {
-        "x": 429,
-        "y": 4258,
-        "left": 249,
-        "top": 4240,
-        "right": 609,
-        "bottom": 4276,
-        "width": 360,
-        "height": 36
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 38,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_111",
-      "type": "button",
-      "text": "",
-      "href": null,
-      "selector": ".yt-spec-button-shape-next",
-      "coordinates": {
-        "x": 413,
-        "y": 4515,
-        "left": 395,
-        "top": 4497,
-        "right": 431,
-        "bottom": 4533,
-        "width": 36,
-        "height": 36
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 40,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_112",
-      "type": "button",
-      "text": "",
-      "href": null,
-      "selector": ".yt-spec-button-shape-next",
-      "coordinates": {
-        "x": 754,
-        "y": 4515,
-        "left": 736,
-        "top": 4497,
-        "right": 772,
-        "bottom": 4533,
-        "width": 36,
-        "height": 36
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 41,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_113",
+      "FindMe_id": "FindMe_103",
       "type": "div",
       "text": "",
       "href": null,
@@ -3191,7 +2911,7 @@
       }
     },
     {
-      "FindMe_id": "FindMe_114",
+      "FindMe_id": "FindMe_104",
       "type": "div",
       "text": "",
       "href": null,
@@ -3219,18 +2939,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_115",
+      "FindMe_id": "FindMe_105",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 663,
+        "y": 1161,
         "left": 96,
-        "top": 645,
+        "top": 1143,
         "right": 132,
-        "bottom": 681,
+        "bottom": 1179,
         "width": 36,
         "height": 36
       },
@@ -3242,23 +2962,23 @@
       },
       "position": {
         "index": 2,
-        "inViewport": true,
+        "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_116",
+      "FindMe_id": "FindMe_106",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 663,
+        "y": 1161,
         "left": 437,
-        "top": 645,
+        "top": 1143,
         "right": 473,
-        "bottom": 681,
+        "bottom": 1179,
         "width": 36,
         "height": 36
       },
@@ -3270,23 +2990,23 @@
       },
       "position": {
         "index": 3,
-        "inViewport": true,
+        "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_117",
+      "FindMe_id": "FindMe_107",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 978,
+        "y": 1972,
         "left": 96,
-        "top": 960,
+        "top": 1954,
         "right": 132,
-        "bottom": 996,
+        "bottom": 1990,
         "width": 36,
         "height": 36
       },
@@ -3303,18 +3023,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_118",
+      "FindMe_id": "FindMe_108",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 978,
+        "y": 1972,
         "left": 437,
-        "top": 960,
+        "top": 1954,
         "right": 473,
-        "bottom": 996,
+        "bottom": 1990,
         "width": 36,
         "height": 36
       },
@@ -3331,18 +3051,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_119",
+      "FindMe_id": "FindMe_109",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 1790,
+        "y": 2287,
         "left": 96,
-        "top": 1772,
+        "top": 2269,
         "right": 132,
-        "bottom": 1808,
+        "bottom": 2305,
         "width": 36,
         "height": 36
       },
@@ -3359,18 +3079,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_120",
+      "FindMe_id": "FindMe_110",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 1790,
+        "y": 2287,
         "left": 437,
-        "top": 1772,
+        "top": 2269,
         "right": 473,
-        "bottom": 1808,
+        "bottom": 2305,
         "width": 36,
         "height": 36
       },
@@ -3387,18 +3107,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_121",
+      "FindMe_id": "FindMe_111",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 2105,
+        "y": 2602,
         "left": 96,
-        "top": 2087,
+        "top": 2584,
         "right": 132,
-        "bottom": 2123,
+        "bottom": 2620,
         "width": 36,
         "height": 36
       },
@@ -3415,18 +3135,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_122",
+      "FindMe_id": "FindMe_112",
       "type": "div",
-      "text": "LIVE",
+      "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 2105,
+        "y": 2602,
         "left": 437,
-        "top": 2087,
+        "top": 2584,
         "right": 473,
-        "bottom": 2123,
+        "bottom": 2620,
         "width": 36,
         "height": 36
       },
@@ -3443,18 +3163,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_123",
+      "FindMe_id": "FindMe_113",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 2419,
+        "y": 2916,
         "left": 96,
-        "top": 2401,
+        "top": 2898,
         "right": 132,
-        "bottom": 2437,
+        "bottom": 2934,
         "width": 36,
         "height": 36
       },
@@ -3471,18 +3191,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_124",
+      "FindMe_id": "FindMe_114",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 2419,
+        "y": 2916,
         "left": 437,
-        "top": 2401,
+        "top": 2898,
         "right": 473,
-        "bottom": 2437,
+        "bottom": 2934,
         "width": 36,
         "height": 36
       },
@@ -3499,18 +3219,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_125",
+      "FindMe_id": "FindMe_115",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 2734,
+        "y": 3231,
         "left": 96,
-        "top": 2716,
+        "top": 3213,
         "right": 132,
-        "bottom": 2752,
+        "bottom": 3249,
         "width": 36,
         "height": 36
       },
@@ -3527,18 +3247,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_126",
+      "FindMe_id": "FindMe_116",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 2734,
+        "y": 3231,
         "left": 437,
-        "top": 2716,
+        "top": 3213,
         "right": 473,
-        "bottom": 2752,
+        "bottom": 3249,
         "width": 36,
         "height": 36
       },
@@ -3555,18 +3275,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_127",
+      "FindMe_id": "FindMe_117",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 3049,
+        "y": 3546,
         "left": 96,
-        "top": 3031,
+        "top": 3528,
         "right": 132,
-        "bottom": 3067,
+        "bottom": 3564,
         "width": 36,
         "height": 36
       },
@@ -3583,18 +3303,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_128",
+      "FindMe_id": "FindMe_118",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 3049,
+        "y": 3546,
         "left": 437,
-        "top": 3031,
+        "top": 3528,
         "right": 473,
-        "bottom": 3067,
+        "bottom": 3564,
         "width": 36,
         "height": 36
       },
@@ -3611,18 +3331,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_129",
+      "FindMe_id": "FindMe_119",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 3363,
+        "y": 3861,
         "left": 96,
-        "top": 3345,
+        "top": 3843,
         "right": 132,
-        "bottom": 3381,
+        "bottom": 3879,
         "width": 36,
         "height": 36
       },
@@ -3639,18 +3359,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_130",
+      "FindMe_id": "FindMe_120",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 3363,
+        "y": 3861,
         "left": 437,
-        "top": 3345,
+        "top": 3843,
         "right": 473,
-        "bottom": 3381,
+        "bottom": 3879,
         "width": 36,
         "height": 36
       },
@@ -3667,18 +3387,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_131",
+      "FindMe_id": "FindMe_121",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 3678,
+        "y": 4175,
         "left": 96,
-        "top": 3660,
+        "top": 4157,
         "right": 132,
-        "bottom": 3696,
+        "bottom": 4193,
         "width": 36,
         "height": 36
       },
@@ -3695,18 +3415,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_132",
+      "FindMe_id": "FindMe_122",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 3678,
+        "y": 4175,
         "left": 437,
-        "top": 3660,
+        "top": 4157,
         "right": 473,
-        "bottom": 3696,
+        "bottom": 4193,
         "width": 36,
         "height": 36
       },
@@ -3723,18 +3443,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_133",
+      "FindMe_id": "FindMe_123",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 114,
-        "y": 4521,
+        "y": 4490,
         "left": 96,
-        "top": 4503,
+        "top": 4472,
         "right": 132,
-        "bottom": 4539,
+        "bottom": 4508,
         "width": 36,
         "height": 36
       },
@@ -3751,18 +3471,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_134",
+      "FindMe_id": "FindMe_124",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
         "x": 455,
-        "y": 4521,
+        "y": 4490,
         "left": 437,
-        "top": 4503,
+        "top": 4472,
         "right": 473,
-        "bottom": 4539,
+        "bottom": 4508,
         "width": 36,
         "height": 36
       },
@@ -3779,10 +3499,10 @@
       }
     },
     {
-      "FindMe_id": "FindMe_135",
+      "FindMe_id": "FindMe_125",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=VbXYQmaMXBk&pp=ugUEEgJlbg%3D%3D",
+      "href": "https://www.youtube.com/watch?v=5RIOQuHOihY",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
@@ -3807,7 +3527,7 @@
       }
     },
     {
-      "FindMe_id": "FindMe_136",
+      "FindMe_id": "FindMe_126",
       "type": "div",
       "text": "",
       "href": null,
@@ -3835,19 +3555,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_137",
+      "FindMe_id": "FindMe_127",
       "type": "a",
-      "text": "Danny Jones Clips",
-      "href": "https://www.youtube.com/@DannyJonesClips",
+      "text": "IBM Technology",
+      "href": "https://www.youtube.com/@IBMTechnology",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 201,
+        "x": 203,
         "y": 386,
         "left": 144,
         "top": 378,
-        "right": 259,
+        "right": 262,
         "bottom": 395,
-        "width": 115,
+        "width": 118,
         "height": 16
       },
       "accessibility": {
@@ -3863,10 +3583,10 @@
       }
     },
     {
-      "FindMe_id": "FindMe_138",
+      "FindMe_id": "FindMe_128",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=Ab1FyDL4HEY",
+      "href": "https://www.youtube.com/watch?v=e3lgE0TKW-w",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
@@ -3891,7 +3611,7 @@
       }
     },
     {
-      "FindMe_id": "FindMe_139",
+      "FindMe_id": "FindMe_129",
       "type": "div",
       "text": "",
       "href": null,
@@ -3919,19 +3639,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_140",
+      "FindMe_id": "FindMe_130",
       "type": "a",
-      "text": "Silicon Valley Girl",
-      "href": "https://www.youtube.com/@SiliconValleyGirl",
+      "text": "Danny Jones Clips",
+      "href": "https://www.youtube.com/@DannyJonesClips",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 547,
+        "x": 542,
         "y": 386,
         "left": 485,
         "top": 378,
-        "right": 609,
+        "right": 600,
         "bottom": 395,
-        "width": 125,
+        "width": 115,
         "height": 16
       },
       "accessibility": {
@@ -3947,20 +3667,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_141",
+      "FindMe_id": "FindMe_131",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=fgAwJmA8rH8&pp=ugUHEgVlbi1VUw%3D%3D",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
+      "href": "https://www.youtube.com/shorts/AAl_E-sVKp0",
+      "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
-        "x": 258,
-        "y": 548,
+        "x": 202,
+        "y": 665,
         "left": 96,
-        "top": 451,
-        "right": 421,
-        "bottom": 645,
-        "width": 325,
-        "height": 195
+        "top": 507,
+        "right": 307,
+        "bottom": 823,
+        "width": 211,
+        "height": 317
       },
       "accessibility": {
         "isVisible": true,
@@ -3971,30 +3691,30 @@
       "position": {
         "index": 6,
         "inViewport": true,
-        "aboveFold": true
+        "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_142",
-      "type": "div",
+      "FindMe_id": "FindMe_132",
+      "type": "a",
       "text": "",
-      "href": null,
-      "selector": ".yt-spec-avatar-shape",
+      "href": "https://www.youtube.com/shorts/vaN4-kc5_p4",
+      "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
-        "x": 114,
-        "y": 663,
-        "left": 96,
-        "top": 645,
-        "right": 132,
-        "bottom": 681,
-        "width": 36,
-        "height": 36
+        "x": 429,
+        "y": 665,
+        "left": 323,
+        "top": 507,
+        "right": 534,
+        "bottom": 823,
+        "width": 211,
+        "height": 317
       },
       "accessibility": {
         "isVisible": true,
         "isClickable": true,
         "isFocusable": true,
-        "tabIndex": null
+        "tabIndex": -1
       },
       "position": {
         "index": 7,
@@ -4003,26 +3723,26 @@
       }
     },
     {
-      "FindMe_id": "FindMe_143",
+      "FindMe_id": "FindMe_133",
       "type": "a",
-      "text": "daily MOTIVATION",
-      "href": "https://www.youtube.com/@dailyMOTIVATIONcontact",
-      "selector": ".yt-core-attributed-string__link",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/B5LMxHsdAJA",
+      "selector": ".shortsLockupViewModelHostEndpoint",
       "coordinates": {
-        "x": 210,
-        "y": 701,
-        "left": 144,
-        "top": 693,
-        "right": 277,
-        "bottom": 709,
-        "width": 133,
-        "height": 16
+        "x": 656,
+        "y": 665,
+        "left": 550,
+        "top": 507,
+        "right": 762,
+        "bottom": 823,
+        "width": 211,
+        "height": 317
       },
       "accessibility": {
         "isVisible": true,
         "isClickable": true,
         "isFocusable": true,
-        "tabIndex": null
+        "tabIndex": -1
       },
       "position": {
         "index": 8,
@@ -4031,186 +3751,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_144",
+      "FindMe_id": "FindMe_134",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=VaLdvX1HDeU&pp=ugUHEgVlbi1VUw%3D%3D",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
-      "coordinates": {
-        "x": 599,
-        "y": 548,
-        "left": 437,
-        "top": 451,
-        "right": 762,
-        "bottom": 645,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 9,
-        "inViewport": true,
-        "aboveFold": true
-      }
-    },
-    {
-      "FindMe_id": "FindMe_145",
-      "type": "div",
-      "text": "",
-      "href": null,
-      "selector": ".yt-spec-avatar-shape",
-      "coordinates": {
-        "x": 455,
-        "y": 663,
-        "left": 437,
-        "top": 645,
-        "right": 473,
-        "bottom": 681,
-        "width": 36,
-        "height": 36
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 10,
-        "inViewport": true,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_146",
-      "type": "a",
-      "text": "OurTimelessWisdom",
-      "href": "https://www.youtube.com/@OurTimelessWisdom",
-      "selector": ".yt-core-attributed-string__link",
-      "coordinates": {
-        "x": 550,
-        "y": 701,
-        "left": 485,
-        "top": 693,
-        "right": 615,
-        "bottom": 709,
-        "width": 130,
-        "height": 16
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 11,
-        "inViewport": true,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_147",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
+      "href": "https://www.youtube.com/watch?v=L_FY6aW9cJ4&pp=ugUHEgVlbi1VUw%3D%3D",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 258,
-        "y": 863,
+        "y": 1045,
         "left": 96,
-        "top": 765,
+        "top": 948,
         "right": 421,
-        "bottom": 960,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 12,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_148",
-      "type": "div",
-      "text": "",
-      "href": null,
-      "selector": ".yt-spec-avatar-shape",
-      "coordinates": {
-        "x": 114,
-        "y": 978,
-        "left": 96,
-        "top": 960,
-        "right": 132,
-        "bottom": 996,
-        "width": 36,
-        "height": 36
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 13,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_149",
-      "type": "a",
-      "text": "Deepak Panda",
-      "href": "https://www.youtube.com/@hideepakpanda",
-      "selector": ".yt-core-attributed-string__link",
-      "coordinates": {
-        "x": 189,
-        "y": 1016,
-        "left": 144,
-        "top": 1008,
-        "right": 234,
-        "bottom": 1024,
-        "width": 90,
-        "height": 16
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
-        "index": 14,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_150",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=Myjo1amUZ08&pp=ugUEEgJlbg%3D%3D",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
-      "coordinates": {
-        "x": 599,
-        "y": 863,
-        "left": 437,
-        "top": 765,
-        "right": 762,
-        "bottom": 960,
+        "bottom": 1143,
         "width": 325,
         "height": 195
       },
@@ -4227,18 +3779,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_151",
+      "FindMe_id": "FindMe_135",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 455,
-        "y": 978,
-        "left": 437,
-        "top": 960,
-        "right": 473,
-        "bottom": 996,
+        "x": 114,
+        "y": 1161,
+        "left": 96,
+        "top": 1143,
+        "right": 132,
+        "bottom": 1179,
         "width": 36,
         "height": 36
       },
@@ -4255,19 +3807,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_152",
+      "FindMe_id": "FindMe_136",
       "type": "a",
-      "text": "Kyle Friel | AI Software",
-      "href": "https://www.youtube.com/@KyleFrielTech",
+      "text": "Starter Story",
+      "href": "https://www.youtube.com/@starterstory",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 554,
-        "y": 1016,
-        "left": 485,
-        "top": 1008,
-        "right": 623,
-        "bottom": 1024,
-        "width": 139,
+        "x": 192,
+        "y": 1198,
+        "left": 144,
+        "top": 1190,
+        "right": 240,
+        "bottom": 1207,
+        "width": 96,
         "height": 16
       },
       "accessibility": {
@@ -4283,20 +3835,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_153",
+      "FindMe_id": "FindMe_137",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/shorts/Y2jiiGAehb0",
-      "selector": ".shortsLockupViewModelHostEndpoint",
+      "href": "https://www.youtube.com/watch?v=BS0dh4AeQuI",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 202,
-        "y": 1294,
-        "left": 96,
-        "top": 1136,
-        "right": 307,
-        "bottom": 1453,
-        "width": 211,
-        "height": 317
+        "x": 599,
+        "y": 1045,
+        "left": 437,
+        "top": 948,
+        "right": 762,
+        "bottom": 1143,
+        "width": 325,
+        "height": 195
       },
       "accessibility": {
         "isVisible": true,
@@ -4311,102 +3863,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_154",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/shorts/eBmv9tK3j9U",
-      "selector": ".shortsLockupViewModelHostEndpoint",
-      "coordinates": {
-        "x": 429,
-        "y": 1294,
-        "left": 323,
-        "top": 1136,
-        "right": 534,
-        "bottom": 1453,
-        "width": 211,
-        "height": 317
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 19,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_155",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/shorts/KW2APhHsg80",
-      "selector": ".shortsLockupViewModelHostEndpoint",
-      "coordinates": {
-        "x": 656,
-        "y": 1294,
-        "left": 550,
-        "top": 1136,
-        "right": 762,
-        "bottom": 1453,
-        "width": 211,
-        "height": 317
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 20,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_156",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=Sb6vqQdIt1k&pp=0gcJCa0JAYcqIYzv",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
-      "coordinates": {
-        "x": 258,
-        "y": 1675,
-        "left": 96,
-        "top": 1577,
-        "right": 421,
-        "bottom": 1772,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 27,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_157",
+      "FindMe_id": "FindMe_138",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 114,
-        "y": 1790,
-        "left": 96,
-        "top": 1772,
-        "right": 132,
-        "bottom": 1808,
+        "x": 455,
+        "y": 1161,
+        "left": 437,
+        "top": 1143,
+        "right": 473,
+        "bottom": 1179,
         "width": 36,
         "height": 36
       },
@@ -4417,25 +3885,25 @@
         "tabIndex": null
       },
       "position": {
-        "index": 28,
+        "index": 19,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_158",
+      "FindMe_id": "FindMe_139",
       "type": "a",
-      "text": "Asmongold Clips",
-      "href": "https://www.youtube.com/@AsmongoldClips",
+      "text": "Mind Insider",
+      "href": "https://www.youtube.com/@mindinsider.official",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 206,
-        "y": 1806,
-        "left": 144,
-        "top": 1798,
-        "right": 268,
-        "bottom": 1814,
-        "width": 124,
+        "x": 523,
+        "y": 1198,
+        "left": 485,
+        "top": 1190,
+        "right": 562,
+        "bottom": 1207,
+        "width": 77,
         "height": 16
       },
       "accessibility": {
@@ -4445,24 +3913,108 @@
         "tabIndex": null
       },
       "position": {
-        "index": 29,
+        "index": 20,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_159",
+      "FindMe_id": "FindMe_140",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=vSfec19YOPg&pp=ugUHEgVlbi1BVdIHCQmtCQGHKiGM7w%3D%3D",
+      "href": "https://www.youtube.com/shorts/cl5cyUG5utQ",
+      "selector": ".shortsLockupViewModelHostEndpoint",
+      "coordinates": {
+        "x": 202,
+        "y": 1477,
+        "left": 96,
+        "top": 1319,
+        "right": 307,
+        "bottom": 1635,
+        "width": 211,
+        "height": 317
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 21,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_141",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/n_jJrJRoE7c",
+      "selector": ".shortsLockupViewModelHostEndpoint",
+      "coordinates": {
+        "x": 429,
+        "y": 1477,
+        "left": 323,
+        "top": 1319,
+        "right": 534,
+        "bottom": 1635,
+        "width": 211,
+        "height": 317
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 22,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_142",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/vQBis52XKi0",
+      "selector": ".shortsLockupViewModelHostEndpoint",
+      "coordinates": {
+        "x": 656,
+        "y": 1477,
+        "left": 550,
+        "top": 1319,
+        "right": 762,
+        "bottom": 1635,
+        "width": 211,
+        "height": 317
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 23,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_143",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/watch?v=CSA4oOpzLcE&pp=0gcJCa0JAYcqIYzv",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 599,
-        "y": 1675,
-        "left": 437,
-        "top": 1577,
-        "right": 762,
-        "bottom": 1772,
+        "x": 258,
+        "y": 1857,
+        "left": 96,
+        "top": 1760,
+        "right": 421,
+        "bottom": 1954,
         "width": 325,
         "height": 195
       },
@@ -4479,18 +4031,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_160",
+      "FindMe_id": "FindMe_144",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 455,
-        "y": 1790,
-        "left": 437,
-        "top": 1772,
-        "right": 473,
-        "bottom": 1808,
+        "x": 114,
+        "y": 1972,
+        "left": 96,
+        "top": 1954,
+        "right": 132,
+        "bottom": 1990,
         "width": 36,
         "height": 36
       },
@@ -4507,19 +4059,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_161",
+      "FindMe_id": "FindMe_145",
       "type": "a",
-      "text": "Leithvo",
-      "href": "https://www.youtube.com/@Leithvo",
+      "text": "Archaeology Quest",
+      "href": "https://www.youtube.com/@ArchaeologyQuest",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 507,
-        "y": 1828,
-        "left": 485,
-        "top": 1820,
-        "right": 530,
-        "bottom": 1836,
-        "width": 45,
+        "x": 203,
+        "y": 2010,
+        "left": 144,
+        "top": 2002,
+        "right": 262,
+        "bottom": 2018,
+        "width": 118,
         "height": 16
       },
       "accessibility": {
@@ -4535,18 +4087,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_162",
+      "FindMe_id": "FindMe_146",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=eUUalcdNOho&pp=0gcJCa0JAYcqIYzv",
+      "href": "https://www.youtube.com/watch?v=A42XoqzXowM",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 258,
-        "y": 1989,
-        "left": 96,
-        "top": 1892,
-        "right": 421,
-        "bottom": 2087,
+        "x": 599,
+        "y": 1857,
+        "left": 437,
+        "top": 1760,
+        "right": 762,
+        "bottom": 1954,
         "width": 325,
         "height": 195
       },
@@ -4563,18 +4115,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_163",
+      "FindMe_id": "FindMe_147",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 114,
-        "y": 2105,
-        "left": 96,
-        "top": 2087,
-        "right": 132,
-        "bottom": 2123,
+        "x": 455,
+        "y": 1972,
+        "left": 437,
+        "top": 1954,
+        "right": 473,
+        "bottom": 1990,
         "width": 36,
         "height": 36
       },
@@ -4591,19 +4143,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_164",
+      "FindMe_id": "FindMe_148",
       "type": "a",
-      "text": "Caleb Writes Code",
-      "href": "https://www.youtube.com/@CalebWritesCode",
+      "text": "K boges",
+      "href": "https://www.youtube.com/@Kboges",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 201,
-        "y": 2142,
-        "left": 144,
-        "top": 2134,
-        "right": 258,
-        "bottom": 2151,
-        "width": 114,
+        "x": 510,
+        "y": 2010,
+        "left": 485,
+        "top": 2002,
+        "right": 535,
+        "bottom": 2018,
+        "width": 51,
         "height": 16
       },
       "accessibility": {
@@ -4619,18 +4171,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_165",
+      "FindMe_id": "FindMe_149",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=pAHmuMGWVtk",
+      "href": "https://www.youtube.com/watch?v=X8aVvH-Bqeo",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 599,
-        "y": 1989,
-        "left": 437,
-        "top": 1892,
-        "right": 762,
-        "bottom": 2087,
+        "x": 258,
+        "y": 2172,
+        "left": 96,
+        "top": 2074,
+        "right": 421,
+        "bottom": 2269,
         "width": 325,
         "height": 195
       },
@@ -4647,18 +4199,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_166",
+      "FindMe_id": "FindMe_150",
       "type": "div",
-      "text": "LIVE",
+      "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 455,
-        "y": 2105,
-        "left": 437,
-        "top": 2087,
-        "right": 473,
-        "bottom": 2123,
+        "x": 114,
+        "y": 2287,
+        "left": 96,
+        "top": 2269,
+        "right": 132,
+        "bottom": 2305,
         "width": 36,
         "height": 36
       },
@@ -4675,19 +4227,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_167",
+      "FindMe_id": "FindMe_151",
       "type": "a",
-      "text": "BuzzWorthy",
-      "href": "https://www.youtube.com/@DiscoverBuzzworthy",
+      "text": "Asmongold Clips",
+      "href": "https://www.youtube.com/@AsmongoldClips",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 522,
-        "y": 2142,
-        "left": 485,
-        "top": 2134,
-        "right": 559,
-        "bottom": 2151,
-        "width": 75,
+        "x": 206,
+        "y": 2303,
+        "left": 144,
+        "top": 2295,
+        "right": 268,
+        "bottom": 2311,
+        "width": 124,
         "height": 16
       },
       "accessibility": {
@@ -4703,18 +4255,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_168",
+      "FindMe_id": "FindMe_152",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=zomVPu6qWOY",
+      "href": "https://www.youtube.com/watch?v=Ar0Or9U0pCs&pp=ugUEEgJlbg%3D%3D",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 258,
-        "y": 2304,
-        "left": 96,
-        "top": 2207,
-        "right": 421,
-        "bottom": 2401,
+        "x": 599,
+        "y": 2172,
+        "left": 437,
+        "top": 2074,
+        "right": 762,
+        "bottom": 2269,
         "width": 325,
         "height": 195
       },
@@ -4731,18 +4283,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_169",
+      "FindMe_id": "FindMe_153",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 114,
-        "y": 2419,
-        "left": 96,
-        "top": 2401,
-        "right": 132,
-        "bottom": 2437,
+        "x": 455,
+        "y": 2287,
+        "left": 437,
+        "top": 2269,
+        "right": 473,
+        "bottom": 2305,
         "width": 36,
         "height": 36
       },
@@ -4759,19 +4311,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_170",
+      "FindMe_id": "FindMe_154",
       "type": "a",
-      "text": "Skill Make",
-      "href": "https://www.youtube.com/@skillmake",
+      "text": "JeredBlu",
+      "href": "https://www.youtube.com/@JeredBlu",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 185,
-        "y": 2457,
-        "left": 144,
-        "top": 2449,
-        "right": 225,
-        "bottom": 2465,
-        "width": 81,
+        "x": 512,
+        "y": 2325,
+        "left": 485,
+        "top": 2317,
+        "right": 540,
+        "bottom": 2333,
+        "width": 55,
         "height": 16
       },
       "accessibility": {
@@ -4787,18 +4339,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_171",
+      "FindMe_id": "FindMe_155",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=1eFc2EQD5gg",
+      "href": "https://www.youtube.com/watch?v=J3j0j0hGlyk&pp=ugUEEgJlbg%3D%3D",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 599,
-        "y": 2304,
-        "left": 437,
-        "top": 2207,
-        "right": 762,
-        "bottom": 2401,
+        "x": 258,
+        "y": 2486,
+        "left": 96,
+        "top": 2389,
+        "right": 421,
+        "bottom": 2584,
         "width": 325,
         "height": 195
       },
@@ -4815,18 +4367,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_172",
+      "FindMe_id": "FindMe_156",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 455,
-        "y": 2419,
-        "left": 437,
-        "top": 2401,
-        "right": 473,
-        "bottom": 2437,
+        "x": 114,
+        "y": 2602,
+        "left": 96,
+        "top": 2584,
+        "right": 132,
+        "bottom": 2620,
         "width": 36,
         "height": 36
       },
@@ -4843,19 +4395,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_173",
+      "FindMe_id": "FindMe_157",
       "type": "a",
-      "text": "The Rubin Report",
-      "href": "https://www.youtube.com/@RubinReport",
+      "text": "Stephen Meyer",
+      "href": "https://www.youtube.com/@DrStephenMeyer",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 547,
-        "y": 2457,
-        "left": 485,
-        "top": 2449,
-        "right": 610,
-        "bottom": 2465,
-        "width": 125,
+        "x": 190,
+        "y": 2640,
+        "left": 144,
+        "top": 2631,
+        "right": 237,
+        "bottom": 2648,
+        "width": 93,
         "height": 16
       },
       "accessibility": {
@@ -4871,18 +4423,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_174",
+      "FindMe_id": "FindMe_158",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=yQtqJ9qR-7I",
+      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 258,
-        "y": 2619,
-        "left": 96,
-        "top": 2521,
-        "right": 421,
-        "bottom": 2716,
+        "x": 599,
+        "y": 2486,
+        "left": 437,
+        "top": 2389,
+        "right": 762,
+        "bottom": 2584,
         "width": 325,
         "height": 195
       },
@@ -4899,18 +4451,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_175",
+      "FindMe_id": "FindMe_159",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 114,
-        "y": 2734,
-        "left": 96,
-        "top": 2716,
-        "right": 132,
-        "bottom": 2752,
+        "x": 455,
+        "y": 2602,
+        "left": 437,
+        "top": 2584,
+        "right": 473,
+        "bottom": 2620,
         "width": 36,
         "height": 36
       },
@@ -4927,19 +4479,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_176",
+      "FindMe_id": "FindMe_160",
       "type": "a",
-      "text": "Sky News Australia",
-      "href": "https://www.youtube.com/@SkyNewsAustralia",
+      "text": "Deepak Panda",
+      "href": "https://www.youtube.com/@hideepakpanda",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 213,
-        "y": 2772,
-        "left": 144,
-        "top": 2764,
-        "right": 281,
-        "bottom": 2780,
-        "width": 137,
+        "x": 530,
+        "y": 2640,
+        "left": 485,
+        "top": 2631,
+        "right": 574,
+        "bottom": 2648,
+        "width": 90,
         "height": 16
       },
       "accessibility": {
@@ -4955,18 +4507,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_177",
+      "FindMe_id": "FindMe_161",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=bPTgUZuL4Uk&pp=0gcJCa0JAYcqIYzv",
+      "href": "https://www.youtube.com/watch?v=3wKroLvM_z4",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 599,
-        "y": 2619,
-        "left": 437,
-        "top": 2521,
-        "right": 762,
-        "bottom": 2716,
+        "x": 258,
+        "y": 2801,
+        "left": 96,
+        "top": 2704,
+        "right": 421,
+        "bottom": 2898,
         "width": 325,
         "height": 195
       },
@@ -4983,18 +4535,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_178",
+      "FindMe_id": "FindMe_162",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 455,
-        "y": 2734,
-        "left": 437,
-        "top": 2716,
-        "right": 473,
-        "bottom": 2752,
+        "x": 114,
+        "y": 2916,
+        "left": 96,
+        "top": 2898,
+        "right": 132,
+        "bottom": 2934,
         "width": 36,
         "height": 36
       },
@@ -5011,19 +4563,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_179",
+      "FindMe_id": "FindMe_163",
       "type": "a",
-      "text": "BrainStation",
-      "href": "https://www.youtube.com/@BrainStationChannel",
+      "text": "Matt Williams",
+      "href": "https://www.youtube.com/@technovangelist",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 532,
-        "y": 2772,
-        "left": 485,
-        "top": 2764,
-        "right": 579,
-        "bottom": 2780,
-        "width": 94,
+        "x": 187,
+        "y": 2954,
+        "left": 144,
+        "top": 2946,
+        "right": 230,
+        "bottom": 2962,
+        "width": 86,
         "height": 16
       },
       "accessibility": {
@@ -5039,18 +4591,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_180",
+      "FindMe_id": "FindMe_164",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=LcXDhUn9nkg",
+      "href": "https://www.youtube.com/watch?v=9NTfKG4zihk",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 258,
-        "y": 2933,
-        "left": 96,
-        "top": 2836,
-        "right": 421,
-        "bottom": 3031,
+        "x": 599,
+        "y": 2801,
+        "left": 437,
+        "top": 2704,
+        "right": 762,
+        "bottom": 2898,
         "width": 325,
         "height": 195
       },
@@ -5067,18 +4619,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_181",
+      "FindMe_id": "FindMe_165",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 114,
-        "y": 3049,
-        "left": 96,
-        "top": 3031,
-        "right": 132,
-        "bottom": 3067,
+        "x": 455,
+        "y": 2916,
+        "left": 437,
+        "top": 2898,
+        "right": 473,
+        "bottom": 2934,
         "width": 36,
         "height": 36
       },
@@ -5095,19 +4647,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_182",
+      "FindMe_id": "FindMe_166",
       "type": "a",
-      "text": "Tech With Tim",
-      "href": "https://www.youtube.com/@TechWithTim",
+      "text": "daily MOTIVATION",
+      "href": "https://www.youtube.com/@dailyMOTIVATIONcontact",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 197,
-        "y": 3086,
-        "left": 144,
-        "top": 3078,
-        "right": 251,
-        "bottom": 3095,
-        "width": 107,
+        "x": 551,
+        "y": 2954,
+        "left": 485,
+        "top": 2946,
+        "right": 617,
+        "bottom": 2962,
+        "width": 133,
         "height": 16
       },
       "accessibility": {
@@ -5123,18 +4675,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_183",
+      "FindMe_id": "FindMe_167",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=VSuX9a_tapA",
+      "href": "https://www.youtube.com/watch?v=GDDjmRAC5T4",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 599,
-        "y": 2933,
-        "left": 437,
-        "top": 2836,
-        "right": 762,
-        "bottom": 3031,
+        "x": 258,
+        "y": 3116,
+        "left": 96,
+        "top": 3018,
+        "right": 421,
+        "bottom": 3213,
         "width": 325,
         "height": 195
       },
@@ -5151,18 +4703,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_184",
+      "FindMe_id": "FindMe_168",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 455,
-        "y": 3049,
-        "left": 437,
-        "top": 3031,
-        "right": 473,
-        "bottom": 3067,
+        "x": 114,
+        "y": 3231,
+        "left": 96,
+        "top": 3213,
+        "right": 132,
+        "bottom": 3249,
         "width": 36,
         "height": 36
       },
@@ -5179,19 +4731,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_185",
+      "FindMe_id": "FindMe_169",
       "type": "a",
-      "text": "Warren Smith - Secret Scholar Society",
-      "href": "https://www.youtube.com/@SecretScholars",
+      "text": "Maribel Lopez",
+      "href": "https://www.youtube.com/@AIwithMaribelLopez",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 602,
-        "y": 3086,
-        "left": 485,
-        "top": 3078,
-        "right": 719,
-        "bottom": 3095,
-        "width": 234,
+        "x": 188,
+        "y": 3269,
+        "left": 144,
+        "top": 3261,
+        "right": 232,
+        "bottom": 3277,
+        "width": 88,
         "height": 16
       },
       "accessibility": {
@@ -5207,18 +4759,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_186",
+      "FindMe_id": "FindMe_170",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=h-vg7atXCSE",
+      "href": "https://www.youtube.com/watch?v=Ie6J7C7mmPI&pp=ugUHEgVlbi1HQg%3D%3D",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 258,
-        "y": 3248,
-        "left": 96,
-        "top": 3151,
-        "right": 421,
-        "bottom": 3345,
+        "x": 599,
+        "y": 3116,
+        "left": 437,
+        "top": 3018,
+        "right": 762,
+        "bottom": 3213,
         "width": 325,
         "height": 195
       },
@@ -5235,18 +4787,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_187",
+      "FindMe_id": "FindMe_171",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 114,
-        "y": 3363,
-        "left": 96,
-        "top": 3345,
-        "right": 132,
-        "bottom": 3381,
+        "x": 455,
+        "y": 3231,
+        "left": 437,
+        "top": 3213,
+        "right": 473,
+        "bottom": 3249,
         "width": 36,
         "height": 36
       },
@@ -5263,19 +4815,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_188",
+      "FindMe_id": "FindMe_172",
       "type": "a",
-      "text": "Andrew Baena",
-      "href": "https://www.youtube.com/channel/UCa_BC8f_XoUTGujN8NjsMng",
+      "text": "Shi Heng Yi Teachings",
+      "href": "https://www.youtube.com/@shihengyifans",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 198,
-        "y": 3401,
-        "left": 144,
-        "top": 3393,
-        "right": 252,
-        "bottom": 3409,
-        "width": 108,
+        "x": 554,
+        "y": 3269,
+        "left": 485,
+        "top": 3261,
+        "right": 623,
+        "bottom": 3277,
+        "width": 138,
         "height": 16
       },
       "accessibility": {
@@ -5291,18 +4843,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_189",
+      "FindMe_id": "FindMe_173",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=tbzVKbFqSqs&pp=ugUEEgJlbg%3D%3D",
+      "href": "https://www.youtube.com/watch?v=Dt6u-yFEpsk",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 599,
-        "y": 3248,
-        "left": 437,
-        "top": 3151,
-        "right": 762,
-        "bottom": 3345,
+        "x": 258,
+        "y": 3431,
+        "left": 96,
+        "top": 3333,
+        "right": 421,
+        "bottom": 3528,
         "width": 325,
         "height": 195
       },
@@ -5319,18 +4871,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_190",
+      "FindMe_id": "FindMe_174",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 455,
-        "y": 3363,
-        "left": 437,
-        "top": 3345,
-        "right": 473,
-        "bottom": 3381,
+        "x": 114,
+        "y": 3546,
+        "left": 96,
+        "top": 3528,
+        "right": 132,
+        "bottom": 3564,
         "width": 36,
         "height": 36
       },
@@ -5347,18 +4899,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_191",
+      "FindMe_id": "FindMe_175",
       "type": "a",
       "text": "Jono Catliff",
       "href": "https://www.youtube.com/@jonocatliff",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 521,
-        "y": 3401,
-        "left": 485,
-        "top": 3393,
-        "right": 558,
-        "bottom": 3409,
+        "x": 180,
+        "y": 3584,
+        "left": 144,
+        "top": 3575,
+        "right": 217,
+        "bottom": 3592,
         "width": 73,
         "height": 16
       },
@@ -5375,18 +4927,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_192",
+      "FindMe_id": "FindMe_176",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=RgAUIpaq1bI&pp=0gcJCa0JAYcqIYzv",
+      "href": "https://www.youtube.com/watch?v=1UufaK3pQMg",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 258,
-        "y": 3563,
-        "left": 96,
-        "top": 3465,
-        "right": 421,
-        "bottom": 3660,
+        "x": 599,
+        "y": 3431,
+        "left": 437,
+        "top": 3333,
+        "right": 762,
+        "bottom": 3528,
         "width": 325,
         "height": 195
       },
@@ -5403,18 +4955,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_193",
+      "FindMe_id": "FindMe_177",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 114,
-        "y": 3678,
-        "left": 96,
-        "top": 3660,
-        "right": 132,
-        "bottom": 3696,
+        "x": 455,
+        "y": 3546,
+        "left": 437,
+        "top": 3528,
+        "right": 473,
+        "bottom": 3564,
         "width": 36,
         "height": 36
       },
@@ -5431,19 +4983,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_194",
+      "FindMe_id": "FindMe_178",
       "type": "a",
-      "text": "Simon Sinek",
-      "href": "https://www.youtube.com/@SimonSinek",
+      "text": "BBC World Service",
+      "href": "https://www.youtube.com/@BBCWorldService",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 192,
-        "y": 3694,
-        "left": 144,
-        "top": 3686,
-        "right": 239,
-        "bottom": 3702,
-        "width": 95,
+        "x": 551,
+        "y": 3584,
+        "left": 485,
+        "top": 3575,
+        "right": 618,
+        "bottom": 3592,
+        "width": 133,
         "height": 16
       },
       "accessibility": {
@@ -5459,18 +5011,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_195",
+      "FindMe_id": "FindMe_179",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=l1fon954uuI&pp=0gcJCa0JAYcqIYzv",
+      "href": "https://www.youtube.com/watch?v=1HHMA1Dpo5M&list=RD1HHMA1Dpo5M&start_radio=1&pp=oAcB",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 599,
-        "y": 3563,
-        "left": 437,
-        "top": 3465,
-        "right": 762,
-        "bottom": 3660,
+        "x": 258,
+        "y": 3745,
+        "left": 96,
+        "top": 3648,
+        "right": 421,
+        "bottom": 3843,
         "width": 325,
         "height": 195
       },
@@ -5487,18 +5039,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_196",
+      "FindMe_id": "FindMe_180",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 455,
-        "y": 3678,
-        "left": 437,
-        "top": 3660,
-        "right": 473,
-        "bottom": 3696,
+        "x": 114,
+        "y": 3861,
+        "left": 96,
+        "top": 3843,
+        "right": 132,
+        "bottom": 3879,
         "width": 36,
         "height": 36
       },
@@ -5515,19 +5067,19 @@
       }
     },
     {
-      "FindMe_id": "FindMe_197",
+      "FindMe_id": "FindMe_181",
       "type": "a",
-      "text": "Hypothetiq",
-      "href": "https://www.youtube.com/@Hypothetiq-m3r",
+      "text": "SenkveldTV2",
+      "href": "https://www.youtube.com/@SenkveldTV2",
       "selector": ".yt-core-attributed-string__link",
       "coordinates": {
-        "x": 519,
-        "y": 3716,
-        "left": 485,
-        "top": 3708,
-        "right": 553,
-        "bottom": 3724,
-        "width": 68,
+        "x": 185,
+        "y": 3898,
+        "left": 144,
+        "top": 3890,
+        "right": 225,
+        "bottom": 3907,
+        "width": 81,
         "height": 16
       },
       "accessibility": {
@@ -5543,20 +5095,20 @@
       }
     },
     {
-      "FindMe_id": "FindMe_198",
+      "FindMe_id": "FindMe_182",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/playables",
-      "selector": ".yt-simple-endpoint",
+      "href": "https://www.youtube.com/watch?v=ye13DYr4OaU&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
-        "x": 126,
-        "y": 3803,
-        "left": 104,
-        "top": 3785,
-        "right": 148,
-        "bottom": 3821,
-        "width": 44,
-        "height": 36
+        "x": 599,
+        "y": 3745,
+        "left": 437,
+        "top": 3648,
+        "right": 762,
+        "bottom": 3843,
+        "width": 325,
+        "height": 195
       },
       "accessibility": {
         "isVisible": true,
@@ -5571,46 +5123,18 @@
       }
     },
     {
-      "FindMe_id": "FindMe_199",
-      "type": "a",
-      "text": "",
-      "href": "https://www.youtube.com/watch?v=uf5oth4-eF8",
-      "selector": ".yt-lockup-view-model-wiz__content-image",
-      "coordinates": {
-        "x": 258,
-        "y": 4405,
-        "left": 96,
-        "top": 4308,
-        "right": 421,
-        "bottom": 4503,
-        "width": 325,
-        "height": 195
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": -1
-      },
-      "position": {
-        "index": 71,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_200",
+      "FindMe_id": "FindMe_183",
       "type": "div",
       "text": "",
       "href": null,
       "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 114,
-        "y": 4521,
-        "left": 96,
-        "top": 4503,
-        "right": 132,
-        "bottom": 4539,
+        "x": 455,
+        "y": 3861,
+        "left": 437,
+        "top": 3843,
+        "right": 473,
+        "bottom": 3879,
         "width": 36,
         "height": 36
       },
@@ -5621,26 +5145,82 @@
         "tabIndex": null
       },
       "position": {
+        "index": 70,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_184",
+      "type": "a",
+      "text": "Emma Hubbard",
+      "href": "https://www.youtube.com/@EmmaHubbard",
+      "selector": ".yt-core-attributed-string__link",
+      "coordinates": {
+        "x": 542,
+        "y": 3898,
+        "left": 485,
+        "top": 3890,
+        "right": 600,
+        "bottom": 3907,
+        "width": 115,
+        "height": 16
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 71,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_185",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/watch?v=WzzNgCMQbwA&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
+      "coordinates": {
+        "x": 258,
+        "y": 4060,
+        "left": 96,
+        "top": 3963,
+        "right": 421,
+        "bottom": 4157,
+        "width": 325,
+        "height": 195
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
         "index": 72,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_201",
-      "type": "a",
-      "text": "Tech Giant",
-      "href": "https://www.youtube.com/@techgiantt",
-      "selector": ".yt-core-attributed-string__link",
+      "FindMe_id": "FindMe_186",
+      "type": "div",
+      "text": "",
+      "href": null,
+      "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 177,
-        "y": 4559,
-        "left": 144,
-        "top": 4550,
-        "right": 210,
-        "bottom": 4567,
-        "width": 66,
-        "height": 16
+        "x": 114,
+        "y": 4175,
+        "left": 96,
+        "top": 4157,
+        "right": 132,
+        "bottom": 4193,
+        "width": 36,
+        "height": 36
       },
       "accessibility": {
         "isVisible": true,
@@ -5655,18 +5235,46 @@
       }
     },
     {
-      "FindMe_id": "FindMe_202",
+      "FindMe_id": "FindMe_187",
+      "type": "a",
+      "text": "Second Life",
+      "href": "https://www.youtube.com/@SecondLife03",
+      "selector": ".yt-core-attributed-string__link",
+      "coordinates": {
+        "x": 181,
+        "y": 4213,
+        "left": 144,
+        "top": 4205,
+        "right": 217,
+        "bottom": 4221,
+        "width": 73,
+        "height": 16
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 74,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_188",
       "type": "a",
       "text": "",
-      "href": "https://www.youtube.com/watch?v=BS0dh4AeQuI",
+      "href": "https://www.youtube.com/watch?v=BfnfOdQVHAQ",
       "selector": ".yt-lockup-view-model-wiz__content-image",
       "coordinates": {
         "x": 599,
-        "y": 4405,
+        "y": 4060,
         "left": 437,
-        "top": 4308,
+        "top": 3963,
         "right": 762,
-        "bottom": 4503,
+        "bottom": 4157,
         "width": 325,
         "height": 195
       },
@@ -5677,54 +5285,26 @@
         "tabIndex": -1
       },
       "position": {
-        "index": 74,
-        "inViewport": false,
-        "aboveFold": false
-      }
-    },
-    {
-      "FindMe_id": "FindMe_203",
-      "type": "div",
-      "text": "",
-      "href": null,
-      "selector": ".yt-spec-avatar-shape",
-      "coordinates": {
-        "x": 455,
-        "y": 4521,
-        "left": 437,
-        "top": 4503,
-        "right": 473,
-        "bottom": 4539,
-        "width": 36,
-        "height": 36
-      },
-      "accessibility": {
-        "isVisible": true,
-        "isClickable": true,
-        "isFocusable": true,
-        "tabIndex": null
-      },
-      "position": {
         "index": 75,
         "inViewport": false,
         "aboveFold": false
       }
     },
     {
-      "FindMe_id": "FindMe_204",
-      "type": "a",
-      "text": "Mind Insider",
-      "href": "https://www.youtube.com/@mindinsider.official",
-      "selector": ".yt-core-attributed-string__link",
+      "FindMe_id": "FindMe_189",
+      "type": "div",
+      "text": "",
+      "href": null,
+      "selector": ".yt-spec-avatar-shape",
       "coordinates": {
-        "x": 523,
-        "y": 4559,
-        "left": 485,
-        "top": 4550,
-        "right": 562,
-        "bottom": 4567,
-        "width": 77,
-        "height": 16
+        "x": 455,
+        "y": 4175,
+        "left": 437,
+        "top": 4157,
+        "right": 473,
+        "bottom": 4193,
+        "width": 36,
+        "height": 36
       },
       "accessibility": {
         "isVisible": true,
@@ -5737,13 +5317,209 @@
         "inViewport": false,
         "aboveFold": false
       }
+    },
+    {
+      "FindMe_id": "FindMe_190",
+      "type": "a",
+      "text": "radix27",
+      "href": "https://www.youtube.com/@radix27",
+      "selector": ".yt-core-attributed-string__link",
+      "coordinates": {
+        "x": 508,
+        "y": 4213,
+        "left": 485,
+        "top": 4205,
+        "right": 531,
+        "bottom": 4221,
+        "width": 46,
+        "height": 16
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 77,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_191",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/watch?v=6UmDgHDDR8U&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
+      "coordinates": {
+        "x": 258,
+        "y": 4375,
+        "left": 96,
+        "top": 4277,
+        "right": 421,
+        "bottom": 4472,
+        "width": 325,
+        "height": 195
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 78,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_192",
+      "type": "div",
+      "text": "",
+      "href": null,
+      "selector": ".yt-spec-avatar-shape",
+      "coordinates": {
+        "x": 114,
+        "y": 4490,
+        "left": 96,
+        "top": 4472,
+        "right": 132,
+        "bottom": 4508,
+        "width": 36,
+        "height": 36
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 79,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_193",
+      "type": "a",
+      "text": "Benny Winslow",
+      "href": "https://www.youtube.com/@BennyWinslow",
+      "selector": ".yt-core-attributed-string__link",
+      "coordinates": {
+        "x": 200,
+        "y": 4528,
+        "left": 144,
+        "top": 4520,
+        "right": 256,
+        "bottom": 4536,
+        "width": 112,
+        "height": 16
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 80,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_194",
+      "type": "a",
+      "text": "",
+      "href": "https://www.youtube.com/watch?v=F8UUX7tPdVc",
+      "selector": ".yt-lockup-view-model-wiz__content-image",
+      "coordinates": {
+        "x": 599,
+        "y": 4375,
+        "left": 437,
+        "top": 4277,
+        "right": 762,
+        "bottom": 4472,
+        "width": 325,
+        "height": 195
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 81,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_195",
+      "type": "div",
+      "text": "",
+      "href": null,
+      "selector": ".yt-spec-avatar-shape",
+      "coordinates": {
+        "x": 455,
+        "y": 4490,
+        "left": 437,
+        "top": 4472,
+        "right": 473,
+        "bottom": 4508,
+        "width": 36,
+        "height": 36
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 82,
+        "inViewport": false,
+        "aboveFold": false
+      }
+    },
+    {
+      "FindMe_id": "FindMe_196",
+      "type": "a",
+      "text": "JerryRigEverything",
+      "href": "https://www.youtube.com/@JerryRigEverything",
+      "selector": ".yt-core-attributed-string__link",
+      "coordinates": {
+        "x": 552,
+        "y": 4528,
+        "left": 485,
+        "top": 4520,
+        "right": 619,
+        "bottom": 4536,
+        "width": 134,
+        "height": 16
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 83,
+        "inViewport": false,
+        "aboveFold": false
+      }
     }
   ],
   "pageStructure": {
     "headings": [
       {
         "level": 3,
-        "text": "Top Drug Researcher Names the #1 Best Psychedelic for Mental Health | Matt Johnson",
+        "text": "What is Ollama? Running Local LLMs Made Simple",
         "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
         "coordinates": {
           "x": 282,
@@ -5758,7 +5534,7 @@
       },
       {
         "level": 3,
-        "text": "High-income AI business ideas for 2025 (no coding, no budget)",
+        "text": "Proof of Ancient Nuclear Weapons: Mohenjo Daro & the Lost Indus Valley Civilization | Praveen Mohan",
         "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
         "coordinates": {
           "x": 623,
@@ -5767,66 +5543,6 @@
           "top": 331,
           "right": 762,
           "bottom": 375,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "The FREQUENCY is determined via the structure of your DNA",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 282,
-          "y": 667,
-          "left": 144,
-          "top": 645,
-          "right": 421,
-          "bottom": 689,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "The Carl Jung Theory That Explains DMT Entities By Terence McKenna",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 667,
-          "left": 485,
-          "top": 645,
-          "right": 762,
-          "bottom": 689,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "AI Agents Primer: The Next Big Shift of AI, From APIs to an Internet of Agents",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 282,
-          "y": 982,
-          "left": 144,
-          "top": 960,
-          "right": 421,
-          "bottom": 1004,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "Build Anything with OpenAI’s New OSS Models (n8n Agents)",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 982,
-          "left": 485,
-          "top": 960,
-          "right": 762,
-          "bottom": 1004,
           "width": 277,
           "height": 44
         }
@@ -5837,63 +5553,63 @@
         "selector": ".style-scope",
         "coordinates": {
           "x": 152,
-          "y": 1100,
+          "y": 471,
           "left": 104,
-          "top": 1086,
+          "top": 457,
           "right": 200,
-          "bottom": 1114,
+          "bottom": 485,
           "width": 96,
           "height": 28
         }
       },
       {
         "level": 3,
-        "text": "What Was He Expecting to Happen? 🤦‍♂️ #shorts",
+        "text": "He Picked the Wrong Opponent. 🤷‍♂️ #shorts",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 184,
-          "y": 1483,
+          "y": 853,
           "left": 96,
-          "top": 1461,
+          "top": 831,
           "right": 271,
-          "bottom": 1505,
+          "bottom": 875,
           "width": 175,
           "height": 44
         }
       },
       {
         "level": 3,
-        "text": "Robot becomes self-aware… #creepy #scary #fyp #fypシ #shorts #elonmusk #artificialintelligence #japan",
+        "text": "Entitled Streamers Get MAD After Hitting Woman With Paintball!",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 411,
-          "y": 1483,
+          "y": 853,
           "left": 323,
-          "top": 1461,
+          "top": 831,
           "right": 498,
-          "bottom": 1505,
+          "bottom": 875,
           "width": 175,
           "height": 44
         }
       },
       {
         "level": 3,
-        "text": "Paul Rosolie: the danger of walking barefoot in the Amazon",
+        "text": "Her Reaction is Priceless 😈🔥#freestyle #planche #motivation #respect #calisthenics #reaction",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 638,
-          "y": 1483,
+          "y": 853,
           "left": 550,
-          "top": 1461,
+          "top": 831,
           "right": 726,
-          "bottom": 1505,
+          "bottom": 875,
           "width": 175,
           "height": 44
         }
       },
       {
         "level": 3,
-        "text": "Unreal dance at Hollywood boulevard by Robot Vall",
+        "text": "Pro Palestinian Can’t Answer This Simple Question…",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 0,
@@ -5908,7 +5624,7 @@
       },
       {
         "level": 3,
-        "text": "\"He SLAPPED the Wrong Guy! Then HUMILIATED Himself!\"#fight",
+        "text": "Emergency button activated 🆘man disrespect bodyguard🗿#shorts #kingguard#kingguardhorse#royalguard",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 0,
@@ -5923,7 +5639,7 @@
       },
       {
         "level": 3,
-        "text": "Elon Musk Drops This BOMBSHELL About His Pay Package Before Leaving With Some Choice Words For Him",
+        "text": "Joe Rogan Watches Katie Hopkins End Body Positivity Debate",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 0,
@@ -5938,7 +5654,7 @@
       },
       {
         "level": 3,
-        "text": "This game could genuinely be one of the craziest games ever made",
+        "text": "1 TRILLION messages #javascript #python #web #coding #programming",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 0,
@@ -5953,7 +5669,7 @@
       },
       {
         "level": 3,
-        "text": "The Reason Why Google Glasses Failed",
+        "text": "🔥NUNO takes us to SCHOOL!🙌🎸🔥 #nunobettencourt #masterofshred #cupidsdead #monstersofrockcruise",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 0,
@@ -5968,7 +5684,7 @@
       },
       {
         "level": 3,
-        "text": "Mikhaila Peterson On If She SLEPT With Andrew Tate",
+        "text": "\"Women Are Going To Take Over Gaming\"",
         "selector": ".shortsLockupViewModelHostMetadataTitle",
         "coordinates": {
           "x": 0,
@@ -5983,420 +5699,15 @@
       },
       {
         "level": 3,
-        "text": "This is literally the worst timeline..",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 278,
-          "y": 1783,
-          "left": 144,
-          "top": 1772,
-          "right": 413,
-          "bottom": 1794,
-          "width": 269,
-          "height": 22
-        }
-      },
-      {
-        "level": 3,
-        "text": "Australian house prices are rigged to blow",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 1794,
-          "left": 485,
-          "top": 1772,
-          "right": 762,
-          "bottom": 1816,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "Qwen 3 Coder explained in 5 minutes",
+        "text": "How to Use AI to Find a $1M Idea [Reddit, Claude]",
         "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
         "coordinates": {
           "x": 282,
-          "y": 2109,
+          "y": 1165,
           "left": 144,
-          "top": 2087,
+          "top": 1143,
           "right": 421,
-          "bottom": 2131,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "🎮 LIVE NOW: Epic No Man’s Sky | Exploring the Universe with Buzz 🔥",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 2109,
-          "left": 485,
-          "top": 2087,
-          "right": 762,
-          "bottom": 2131,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "I Built the Next-Gen IONIC PLASMA THRUSTER Using NASA’s Secret Design!",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 282,
-          "y": 2423,
-          "left": 144,
-          "top": 2401,
-          "right": 421,
-          "bottom": 2445,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "Rand Paul Makes Russell Brand Go Quiet with This Chilling Warning",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 2423,
-          "left": 485,
-          "top": 2401,
-          "right": 762,
-          "bottom": 2445,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "‘Deeply sinister’: Volkswagen to charge monthly fee to unlock full power of customers’ EVs",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 282,
-          "y": 2738,
-          "left": 144,
-          "top": 2716,
-          "right": 421,
-          "bottom": 2760,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "\"I Show You The Original World Map They Didn't Want You to See\" Graham Hancock",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 2738,
-          "left": 485,
-          "top": 2716,
-          "right": 762,
-          "bottom": 2760,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "The Next Step After Learning Python Basics",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 282,
-          "y": 3053,
-          "left": 144,
-          "top": 3031,
-          "right": 421,
-          "bottom": 3075,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "Konstantin Kisin EXPOSES Woke Author's Insane New Theory",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 3053,
-          "left": 485,
-          "top": 3031,
-          "right": 762,
-          "bottom": 3075,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "Attempting To Learn Technical Death Metal Riffs...",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 282,
-          "y": 3367,
-          "left": 144,
-          "top": 3345,
-          "right": 421,
-          "bottom": 3389,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "3 n8n Google Automations You’ll Actually Use (Gmail, Sheets, Drive)",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 3367,
-          "left": 485,
-          "top": 3345,
-          "right": 762,
-          "bottom": 3389,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 3,
-        "text": "What Jobs Are Affected By AI?",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 266,
-          "y": 3671,
-          "left": 144,
-          "top": 3660,
-          "right": 387,
-          "bottom": 3682,
-          "width": 243,
-          "height": 22
-        }
-      },
-      {
-        "level": 3,
-        "text": "What If ChatGPT Became Self-Aware and Replaced Us?",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 623,
-          "y": 3682,
-          "left": 485,
-          "top": 3660,
-          "right": 762,
-          "bottom": 3704,
-          "width": 277,
-          "height": 44
-        }
-      },
-      {
-        "level": 2,
-        "text": "YouTube Playables\n                \n                \n              \n              \n                \n                Instant games, no downloads",
-        "selector": ".style-scope",
-        "coordinates": {
-          "x": 212,
-          "y": 3803,
-          "left": 104,
-          "top": 3780,
-          "right": 319,
-          "bottom": 3826,
-          "width": 215,
-          "height": 46
-        }
-      },
-      {
-        "level": 3,
-        "text": "Hill Climb Racing Lite",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 186,
-          "y": 4194,
-          "left": 96,
-          "top": 4183,
-          "right": 275,
-          "bottom": 4205,
-          "width": 179,
-          "height": 22
-        }
-      },
-      {
-        "level": 3,
-        "text": "Hide N Seek",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 413,
-          "y": 4194,
-          "left": 323,
-          "top": 4183,
-          "right": 502,
-          "bottom": 4205,
-          "width": 179,
-          "height": 22
-        }
-      },
-      {
-        "level": 3,
-        "text": "Clean It: Restaurant Cleanup",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 640,
-          "y": 4194,
-          "left": 550,
-          "top": 4183,
-          "right": 730,
-          "bottom": 4205,
-          "width": 179,
-          "height": 22
-        }
-      },
-      {
-        "level": 3,
-        "text": "3D Bowling",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Find Out",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Aquapark.io",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Phone Case DIY",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Solar Smash",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Bridge Race",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Build a Queen",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Archery World Tour",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Color Page ASMR",
-        "selector": ".yt-mini-game-card-view-model__title",
-        "coordinates": {
-          "x": 0,
-          "y": 0,
-          "left": 0,
-          "top": 0,
-          "right": 0,
-          "bottom": 0,
-          "width": 0,
-          "height": 0
-        }
-      },
-      {
-        "level": 3,
-        "text": "Real-Time Speech-to-Text & Speaker Identification using Whisper, Vosk & Pyannote (Open-Source)",
-        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
-        "coordinates": {
-          "x": 282,
-          "y": 4525,
-          "left": 144,
-          "top": 4503,
-          "right": 421,
-          "bottom": 4547,
+          "bottom": 1187,
           "width": 277,
           "height": 44
         }
@@ -6407,11 +5718,431 @@
         "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
         "coordinates": {
           "x": 623,
-          "y": 4525,
+          "y": 1165,
           "left": 485,
-          "top": 4503,
+          "top": 1143,
           "right": 762,
-          "bottom": 4547,
+          "bottom": 1187,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 2,
+        "text": "Shorts",
+        "selector": ".style-scope",
+        "coordinates": {
+          "x": 152,
+          "y": 1283,
+          "left": 104,
+          "top": 1269,
+          "right": 200,
+          "bottom": 1297,
+          "width": 96,
+          "height": 28
+        }
+      },
+      {
+        "level": 3,
+        "text": "She Had No Words 😶🤣 #shorts #youtubeshorts",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 184,
+          "y": 1665,
+          "left": 96,
+          "top": 1643,
+          "right": 271,
+          "bottom": 1687,
+          "width": 175,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "🚨Streamer's Security in Act👊",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 411,
+          "y": 1665,
+          "left": 323,
+          "top": 1643,
+          "right": 498,
+          "bottom": 1687,
+          "width": 175,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "Muslim Sheikh READS the QURAN in a CHURCH and THIS happens😨😭‼️ #Christian #Islam #shorts",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 638,
+          "y": 1665,
+          "left": 550,
+          "top": 1643,
+          "right": 726,
+          "bottom": 1687,
+          "width": 175,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "The Whole Block Feared Him. #boxing #martialarts #fight #viralvideo #selfdefense #fypシ゚viral #mma",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "level": 3,
+        "text": "Why Is She So Nervous❗ #shorts",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "level": 3,
+        "text": "This is the MOST Jenna Ortega response ever 💀",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "level": 3,
+        "text": "Tried to Act Hard and Got Humbled Fast 🙃 #shorts",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "level": 3,
+        "text": "Neighbor’s Daughter comes running in?! #shorts #trending #viral #love #news #shocking #happy #sad",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "level": 3,
+        "text": "Cocky Karen Gets HUMBLED FAST! 😯",
+        "selector": ".shortsLockupViewModelHostMetadataTitle",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "level": 3,
+        "text": "How Is Processual Archaeology Applied? - Archaeology Quest",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 282,
+          "y": 1976,
+          "left": 144,
+          "top": 1954,
+          "right": 421,
+          "bottom": 1998,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "BW Squats Are A POWERFUL Tool For Your Fitness Goals",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 1976,
+          "left": 485,
+          "top": 1954,
+          "right": 762,
+          "bottom": 1998,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "THIS IS F**KING INSANE..",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 249,
+          "y": 2280,
+          "left": 144,
+          "top": 2269,
+          "right": 355,
+          "bottom": 2291,
+          "width": 211,
+          "height": 22
+        }
+      },
+      {
+        "level": 3,
+        "text": "GPT-OSS + MCP: Running OpenAI's Open Weight Model Locally on Mac (LM Studio Tutorial)",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 2291,
+          "left": 485,
+          "top": 2269,
+          "right": 762,
+          "bottom": 2313,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "Science Is Pointing Back to God...Here’s Why",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 282,
+          "y": 2606,
+          "left": 144,
+          "top": 2584,
+          "right": 421,
+          "bottom": 2628,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "AI Agents Primer: The Next Big Shift of AI, From APIs to an Internet of Agents",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 2606,
+          "left": 485,
+          "top": 2584,
+          "right": 762,
+          "bottom": 2628,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "SuperWhisper is my Scriptwriting Super Power",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 282,
+          "y": 2920,
+          "left": 144,
+          "top": 2898,
+          "right": 421,
+          "bottom": 2942,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "HACK YOUR BRAIN WITH 40 Hz frequency",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 2920,
+          "left": 485,
+          "top": 2898,
+          "right": 762,
+          "bottom": 2942,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "AI with Maribel Lopez: IBM Granite Models with Kate Soule",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 282,
+          "y": 3235,
+          "left": 144,
+          "top": 3213,
+          "right": 421,
+          "bottom": 3257,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "You Need to Clean Your Past (Or You'll Never Move Forward) | Master Shi Heng Yi",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 3235,
+          "left": 485,
+          "top": 3213,
+          "right": 762,
+          "bottom": 3257,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "10 Insane AI Agent Use Cases in n8n! (steal these)",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 282,
+          "y": 3550,
+          "left": 144,
+          "top": 3528,
+          "right": 421,
+          "bottom": 3572,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "AI2027: Is this how AI might destroy humanity? - BBC World Service",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 3550,
+          "left": 485,
+          "top": 3528,
+          "right": 762,
+          "bottom": 3572,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "Michael Winslow - Whole Lotta Love by Led Zeppelin Original HD (Senkveld med Thomas og Harald)",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 282,
+          "y": 3865,
+          "left": 144,
+          "top": 3843,
+          "right": 421,
+          "bottom": 3887,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "These Simple Mistakes Create Clingy Toddlers",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 3865,
+          "left": 485,
+          "top": 3843,
+          "right": 762,
+          "bottom": 3887,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "He died, and Jesus showed how long the soul remains on Earth according to the Bible - NDE",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 282,
+          "y": 4179,
+          "left": 144,
+          "top": 4157,
+          "right": 421,
+          "bottom": 4201,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "The Late Show (Australia) - Interesting Shops",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 4179,
+          "left": 485,
+          "top": 4157,
+          "right": 762,
+          "bottom": 4201,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "Joe Rogan's Alien Conspiracy Squad and UNADULTERATED SCIENCE",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 282,
+          "y": 4494,
+          "left": 144,
+          "top": 4472,
+          "right": 421,
+          "bottom": 4516,
+          "width": 277,
+          "height": 44
+        }
+      },
+      {
+        "level": 3,
+        "text": "The New TESLA TANK -- (Going Off Grid will never be the same)",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset",
+        "coordinates": {
+          "x": 623,
+          "y": 4494,
+          "left": 485,
+          "top": 4472,
+          "right": 762,
+          "bottom": 4516,
           "width": 277,
           "height": 44
         }
