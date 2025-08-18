@@ -213,30 +213,43 @@ async function cmd_getPageMarkdown() {
         };
         console.log("[Content] getPageMarkdown: Basic info:", basicInfo);
         
-        // 🎯 Define content filtering strategy (inspired by Crawl4AI)
-        const relevantTags = new Set([
-            'article', 'main', 'section', 'div', 'ul', 'ol', 'li', 'dl', 'dt', 'dd',
-            'p', 'span', 'blockquote', 'pre', 'code', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-            'table', 'thead', 'tbody', 'tr', 'td', 'th', 'figure', 'figcaption'
-        ]);
-        
-        // 🗑️ Define selectors for irrelevant content removal
-        const removeSelectors = [
-            'nav', 'header', 'footer', '.ad', '.advertisement', '.banner',
+        // 🗑️ Define selectors for irrelevant content removal (but preserve YouTube navigation)
+        // 🚫 NO DOM MODIFICATION: We'll only analyze, not remove
+        const analyzeSelectors = [
+            // Elements to analyze but NOT remove
+            '.ad', '.advertisement', '.banner',
             '.sidebar', '.navigation', '.menu', '.breadcrumb', '.pagination',
-            '[role="banner"]', '[role="navigation"]', '[role="complementary"]'
+            '[role="banner"]', '[role="navigation"]', '[role="complementary"]',
+            'nav', 'header', 'footer'
         ];
         
-        console.log("[Content] getPageMarkdown: Removing elements with selectors:", removeSelectors);
+        console.log("[Content] getPageMarkdown: Analyzing elements (NO REMOVAL):", analyzeSelectors);
         
         // 📋 Clone document to avoid modifying the original page
         const docClone = document.cloneNode(true);
         
-        // 🧹 Remove irrelevant elements from cloned document
-        removeSelectors.forEach(selector => {
+        // 🔍 ANALYZE elements but DON'T remove anything
+        let analyzedCount = 0;
+        let youtubeNavCount = 0;
+        
+        analyzeSelectors.forEach(selector => {
             const elements = docClone.querySelectorAll(selector);
-            elements.forEach(el => el.remove());
+            elements.forEach(el => {
+                // Check if this is a YouTube navigation element
+                const className = el.className || '';
+                const isYouTubeNav = className.includes('ytd') || className.includes('yt-') || className.includes('youtube');
+                
+                if (isYouTubeNav) {
+                    console.log(`[Content] getPageMarkdown: Found YouTube navigation: ${el.tagName}.${className}`);
+                    youtubeNavCount++;
+                } else {
+                    console.log(`[Content] getPageMarkdown: Found generic element: ${el.tagName}.${className}`);
+                }
+                analyzedCount++;
+            });
         });
+        
+        console.log(`[Content] getPageMarkdown: Analyzed ${analyzedCount} elements, found ${youtubeNavCount} YouTube navigation elements (NO REMOVAL)`);
         
         // 🎯 Extract main content area
         const mainContent = docClone.querySelector('main') || 
@@ -317,8 +330,8 @@ async function cmd_getPageMarkdown() {
             processingTime: processingTime,
             size: markdown.length,
             contentFiltering: {
-                removedElements: removeSelectors.length,
-                relevantTags: relevantTags.size,
+                removedElements: 0, // No elements removed
+                relevantTags: 0,
                 filteredParagraphs: paragraphs.length
             }
         };
@@ -615,7 +628,7 @@ function removeOverlays(targetDocument = document) {
         });
     });
     
-    // Remove high z-index elements that might be overlays
+    // Remove high z-index elements that might be overlays (but preserve navigation)
     let highZIndexRemoved = 0;
     const allElements = targetDocument.querySelectorAll('*');
     allElements.forEach(element => {
@@ -629,15 +642,43 @@ function removeOverlays(targetDocument = document) {
             const isLargeOverlay = rect.width > window.innerWidth * 0.5 || 
                                   rect.height > window.innerHeight * 0.5;
             
-            if (isLargeOverlay && element.parentNode) {
+            // 🚫 PRESERVE NAVIGATION: Don't remove header/nav elements
+            const tagName = element.tagName.toLowerCase();
+            const className = element.className || '';
+            const id = element.id || '';
+            
+            // Check if this is likely a navigation element
+            const isNavigation = 
+                tagName === 'header' || 
+                tagName === 'nav' ||
+                className.includes('header') ||
+                className.includes('navigation') ||
+                className.includes('navbar') ||
+                className.includes('nav') ||
+                id.includes('header') ||
+                id.includes('navigation') ||
+                id.includes('navbar') ||
+                id.includes('nav') ||
+                // YouTube-specific navigation classes
+                className.includes('ytd-masthead') ||
+                className.includes('ytd-guide') ||
+                className.includes('ytd-mini-guide') ||
+                className.includes('ytd-searchbox') ||
+                className.includes('ytd-topbar');
+            
+            // Only remove if it's a large overlay AND not navigation
+            if (isLargeOverlay && !isNavigation && element.parentNode) {
+                console.log(`[Content] removeOverlays: Removing overlay element: ${tagName}.${className}#${id}`);
                 element.remove();
                 removedCount++;
                 highZIndexRemoved++;
+            } else if (isNavigation) {
+                console.log(`[Content] removeOverlays: Preserving navigation element: ${tagName}.${className}#${id}`);
             }
         }
     });
     
-    console.log(`[Content] removeOverlays: Removed ${removedCount} noise elements`);
+    console.log(`[Content] removeOverlays: Removed ${removedCount} noise elements (preserved navigation)`);
     
     return {
         elementsRemoved: removedCount,
@@ -649,6 +690,9 @@ function removeOverlays(targetDocument = document) {
 
 /**
  * 🗺️ Generate comprehensive LLM-friendly site map with click coordinates
+ * 
+ * 🚫 IMPORTANT: This function is now COMPLETELY NON-DESTRUCTIVE
+ * It will NOT modify the actual page DOM, preserving all functionality
  * 
  * This function creates a structured representation of the current page
  * that's optimized for LLM consumption, including:
@@ -670,9 +714,6 @@ async function generateSiteMap() {
     const startTime = performance.now();
     
     try {
-        // 🧹 PHASE 1: REMOVE SHIT FIRST - Clean DOM before scanning
-        console.log("[Content] generateSiteMap: Phase 1 - Removing overlays and noise");
-        
         // 🎯 FRAME CONTEXT HANDLING: Use main frame if we're in an iframe
         const isInIframe = window !== window.top;
         const targetDocument = isInIframe ? window.top.document : document;
@@ -685,8 +726,9 @@ async function generateSiteMap() {
             mainFrameUrl: isInIframe ? window.top.location.href : window.location.href
         });
         
-        // 🧹 Remove overlays using the target document context
-        const overlayRemovalStats = removeOverlays(targetDocument);
+        // 🚫 NO DOM MODIFICATION: Don't call removeOverlays on the actual page
+        // Instead, we'll work with a cloned document for analysis
+        console.log("[Content] generateSiteMap: Skipping DOM modification to preserve page functionality");
         
         // 📊 Get basic page information
         const pageInfo = getCurrentTabInfo();
@@ -869,7 +911,12 @@ async function generateSiteMap() {
                 processingTime: processingTime,
                 timestamp: Date.now()
             },
-            overlayRemoval: overlayRemovalStats,
+            overlayRemoval: { // This will now be empty or a placeholder
+                elementsRemoved: 0,
+                noiseSelectors: 0,
+                highZIndexRemoved: 0,
+                timestamp: Date.now()
+            },
             pageStructure: pageStructure,
             interactiveElements: interactiveElements,
             navigationMap: navigationMap,
