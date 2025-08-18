@@ -26,8 +26,9 @@ import json
 import websockets
 import uuid
 import os
-from urllib.parse import urlparse
+import re
 import time
+from urllib.parse import urlparse
 
 # Global state for managing WebSocket connections and command routing
 CLIENTS = set()                    # All connected WebSocket clients
@@ -198,12 +199,14 @@ def process_clean_site_map_data(raw_data):
     1. Extract the interactive elements
     2. Add unique FindMe_id to each element
     3. Create LLM-optimized structure
+    4. 🆕 NEW: Apply enhanced element classification using browser-use techniques
+    5. 🆕 NEW: Apply deduplication and non-interactive filtering
     
     @param raw_data: Raw site map data from extension
     @return: Tuple of (processed_data, mapping_data, success_status)
     """
     try:
-        print("🧠 Processing raw site map data directly...")
+        print("🧠 Processing raw site map data with enhanced classification and filtering...")
         
         
         # Extract key components
@@ -213,15 +216,40 @@ def process_clean_site_map_data(raw_data):
         
         print(f"📊 Raw data contains {len(interactive_elements)} interactive elements")
         
-        # Create processed elements with FindMe_id
+        # 🆕 ENHANCED FILTERING: Apply deduplication and non-interactive filtering
+        print("🧹 Applying element filtering and deduplication...")
+        
+        # Step 1: Remove duplicates
+        deduplicated_elements = deduplicate_elements(interactive_elements)
+        
+        # Step 2: Filter out non-interactive elements
+        filtered_elements = filter_non_interactive_elements(deduplicated_elements)
+        
+        # 🆕 ENHANCED CLASSIFICATION: Apply browser-use-inspired classification
+        print("🎯 Applying enhanced element classification...")
+        
         processed_elements = []
         element_mapping = {}
+        classification_stats = {
+            'total_processed': 0,
+            'interactive_elements': 0,
+            'search_elements': 0,
+            'navigation_elements': 0,
+            'form_elements': 0,
+            'content_elements': 0,
+            'high_confidence': 0,
+            'medium_confidence': 0,
+            'low_confidence': 0
+        }
         
-        for index, element in enumerate(interactive_elements):
+        for index, element in enumerate(filtered_elements):
             # Create unique FindMe_id
             findme_id = f"FindMe_{index + 1:03d}"
             
-            # Create processed element
+            # 🆕 ENHANCED CLASSIFICATION: Apply sophisticated classification
+            classification = classify_element_enhanced(element)
+            
+            # Create processed element with enhanced classification data
             processed_element = {
                 "FindMe_id": findme_id,
                 "type": element.get("type", "unknown"),
@@ -230,7 +258,21 @@ def process_clean_site_map_data(raw_data):
                 "selector": element.get("selector"),
                 "coordinates": element.get("coordinates", {}),
                 "accessibility": element.get("accessibility", {}),
-                "position": element.get("position", {})
+                "position": element.get("position", {}),
+                
+                # 🆕 ENHANCED CLASSIFICATION DATA
+                "enhanced_classification": {
+                    "is_interactive": classification['is_interactive'],
+                    "element_category": classification['element_category'],
+                    "overall_confidence": classification['overall_confidence'],
+                    "interactivity_confidence": classification['interactivity_confidence'],
+                    "search_relevance": classification['search_relevance'],
+                    "content_quality": classification['content_quality'],
+                    "functional_importance": classification['functional_importance'],
+                    "visibility_score": classification['visibility_score'],
+                    "accessibility_score": classification['accessibility_score'],
+                    "classification_reasons": classification['classification_reasons'][:5]  # Limit to top 5 reasons
+                }
             }
             
             processed_elements.append(processed_element)
@@ -239,16 +281,64 @@ def process_clean_site_map_data(raw_data):
             element_mapping[findme_id] = {
                 "original_index": index,
                 "original_element": element,
-                "processed_element": processed_element
+                "processed_element": processed_element,
+                "classification": classification
             }
+            
+            # 🆕 UPDATE CLASSIFICATION STATISTICS
+            classification_stats['total_processed'] += 1
+            
+            if classification['is_interactive']:
+                classification_stats['interactive_elements'] += 1
+            
+            category = classification['element_category']
+            if category == 'search_element':
+                classification_stats['search_elements'] += 1
+            elif category == 'navigation_element':
+                classification_stats['navigation_elements'] += 1
+            elif category == 'form_element':
+                classification_stats['form_elements'] += 1
+            elif category == 'content_element':
+                classification_stats['content_elements'] += 1
+            
+            confidence = classification['overall_confidence']
+            if confidence >= 0.7:
+                classification_stats['high_confidence'] += 1
+            elif confidence >= 0.4:
+                classification_stats['medium_confidence'] += 1
+            else:
+                classification_stats['low_confidence'] += 1
         
-        # Create processed data structure
+        # Create processed data structure with enhanced statistics
         processed_data = {
             "metadata": metadata,
             "statistics": {
                 "totalElements": len(processed_elements),
                 "originalElements": len(interactive_elements),
-                "processingRatio": len(processed_elements) / len(interactive_elements) if interactive_elements else 0
+                "processingRatio": len(processed_elements) / len(interactive_elements) if interactive_elements else 0,
+                
+                # 🆕 FILTERING STATISTICS
+                "filteringStats": {
+                    "duplicatesRemoved": len(interactive_elements) - len(deduplicated_elements),
+                    "nonInteractiveRemoved": len(deduplicated_elements) - len(filtered_elements),
+                    "totalFiltered": len(interactive_elements) - len(filtered_elements),
+                    "filteringRatio": (len(interactive_elements) - len(filtered_elements)) / len(interactive_elements) if interactive_elements else 0
+                },
+                
+                # 🆕 ENHANCED CLASSIFICATION STATISTICS
+                "enhancedClassification": classification_stats,
+                "elementCategories": {
+                    "interactive": classification_stats['interactive_elements'],
+                    "search": classification_stats['search_elements'],
+                    "navigation": classification_stats['navigation_elements'],
+                    "form": classification_stats['form_elements'],
+                    "content": classification_stats['content_elements']
+                },
+                "confidenceDistribution": {
+                    "high": classification_stats['high_confidence'],
+                    "medium": classification_stats['medium_confidence'],
+                    "low": classification_stats['low_confidence']
+                }
             },
             "elements": processed_elements,
             "pageStructure": page_structure
@@ -261,16 +351,40 @@ def process_clean_site_map_data(raw_data):
             "processingInfo": {
                 "timestamp": int(time.time() * 1000),
                 "totalMapped": len(element_mapping),
-                "processingStatus": "success"
+                "processingStatus": "success",
+                "enhancedClassificationApplied": True
             }
         }
         
-        print(f"✅ Processing complete: {len(interactive_elements)} → {len(processed_elements)} elements")
+        # 🆕 ENHANCED LOGGING: Show classification results
+        print(f"✅ Enhanced processing complete: {len(interactive_elements)} → {len(processed_elements)} elements")
+        print("📊 Processing Breakdown:")
+        print(f"   📥 Original elements: {len(interactive_elements)}")
+        print(f"   🧹 After deduplication: {len(deduplicated_elements)} (removed {len(interactive_elements) - len(deduplicated_elements)} duplicates)")
+        print(f"   🚫 After filtering: {len(filtered_elements)} (removed {len(deduplicated_elements) - len(filtered_elements)} non-interactive)")
+        print(f"   🎯 Final processed: {len(processed_elements)} elements")
+        print()
+        print("📊 Enhanced Classification Results:")
+        print(f"   🎯 Interactive Elements: {classification_stats['interactive_elements']}")
+        print(f"   🔍 Search Elements: {classification_stats['search_elements']}")
+        print(f"   🧭 Navigation Elements: {classification_stats['navigation_elements']}")
+        print(f"   📝 Form Elements: {classification_stats['form_elements']}")
+        print(f"   📄 Content Elements: {classification_stats['content_elements']}")
+        print(f"   🏆 High Confidence: {classification_stats['high_confidence']}")
+        print(f"   ⚖️ Medium Confidence: {classification_stats['medium_confidence']}")
+        print(f"   ⚠️ Low Confidence: {classification_stats['low_confidence']}")
+        
+        # Calculate overall improvement
+        total_filtered = len(interactive_elements) - len(processed_elements)
+        improvement_ratio = total_filtered / len(interactive_elements) if interactive_elements else 0
+        print(f"📈 Overall improvement: {total_filtered} elements filtered ({improvement_ratio:.1%} reduction)")
         
         return processed_data, mapping_data, True
         
     except Exception as e:
         print(f"❌ Error processing site map data: {e}")
+        import traceback
+        traceback.print_exc()
         return None, None, False
 
 def siteStructuredLLMmethodinsidethefile(filepath):
@@ -428,17 +542,85 @@ def siteStructuredLLMmethodinsidethefile(filepath):
         
         scored_elements = []
         for element in consolidated_elements:
-            # Calculate importance score (0.0 to 1.0)
-            score = calculate_element_importance_score(element)
+            # 🆕 ENHANCED SCORING: Use enhanced classification data if available
+            enhanced_classification = element.get('enhanced_classification', {})
             
-            # Add score to element
-            element['importance_score'] = score
-            
-            # Only keep elements with score >= 0.6 (high importance)
-            if score >= 0.6:
-                scored_elements.append(element)
+            if enhanced_classification:
+                # Use enhanced classification for scoring
+                overall_confidence = enhanced_classification.get('overall_confidence', 0.0)
+                element_category = enhanced_classification.get('element_category', 'unknown')
+                is_interactive = enhanced_classification.get('is_interactive', False)
+                
+                # 🎯 ENHANCED FILTERING: More sophisticated filtering based on classification
+                should_keep = False
+                
+                # Keep high-confidence elements
+                if overall_confidence >= 0.7:
+                    should_keep = True
+                
+                # Keep search elements (high priority)
+                elif element_category == 'search_element':
+                    should_keep = True
+                
+                # Keep interactive elements with medium confidence
+                elif is_interactive and overall_confidence >= 0.5:
+                    should_keep = True
+                
+                # Keep navigation elements with medium confidence
+                elif element_category == 'navigation_element' and overall_confidence >= 0.5:
+                    should_keep = True
+                
+                # Keep form elements (important for interaction)
+                elif element_category == 'form_element':
+                    should_keep = True
+                
+                # Keep content elements with good quality
+                elif element_category == 'content_element' and enhanced_classification.get('content_quality', 0) >= 0.4:
+                    should_keep = True
+                
+                # Keep elements with high accessibility scores
+                elif enhanced_classification.get('accessibility_score', 0) >= 0.6:
+                    should_keep = True
+                
+                if should_keep:
+                    # Add enhanced scoring data to element
+                    element['enhanced_importance_score'] = overall_confidence
+                    element['element_category'] = element_category
+                    element['is_interactive'] = is_interactive
+                    element['classification_reasons'] = enhanced_classification.get('classification_reasons', [])
+                    scored_elements.append(element)
+                
+            else:
+                # 🆕 FALLBACK: Use original scoring method for backward compatibility
+                score = calculate_element_importance_score(element)
+                element['importance_score'] = score
+                
+                # Only keep elements with score >= 0.6 (high importance)
+                if score >= 0.6:
+                    scored_elements.append(element)
         
-        print(f"📊 Element scoring complete: {len(consolidated_elements)} → {len(scored_elements)} elements kept")
+        print(f"📊 Enhanced element scoring complete: {len(consolidated_elements)} → {len(scored_elements)} elements kept")
+        
+        # 🆕 ENHANCED STATISTICS: Show detailed breakdown
+        if scored_elements:
+            enhanced_count = sum(1 for el in scored_elements if 'enhanced_importance_score' in el)
+            fallback_count = sum(1 for el in scored_elements if 'importance_score' in el)
+            
+            print(f"📈 Scoring method breakdown:")
+            print(f"   🆕 Enhanced classification: {enhanced_count} elements")
+            print(f"   🔄 Fallback scoring: {fallback_count} elements")
+            
+            # Show category breakdown for enhanced elements
+            category_counts = {}
+            for element in scored_elements:
+                if 'element_category' in element:
+                    category = element['element_category']
+                    category_counts[category] = category_counts.get(category, 0) + 1
+            
+            if category_counts:
+                print("📊 Element category breakdown:")
+                for category, count in category_counts.items():
+                    print(f"   {category}: {count} elements")
         
         # Replace elements with scored and filtered version
         data['elements'] = scored_elements
@@ -493,6 +675,574 @@ def siteStructuredLLMmethodinsidethefile(filepath):
         import traceback
         traceback.print_exc()
         return False
+
+
+def classify_element_enhanced(element_data):
+    """
+    🧠 Enhanced element classification using browser-use techniques
+    
+    This function implements sophisticated element detection and classification
+    inspired by browser-use's advanced filtering techniques.
+    
+    🎯 CLASSIFICATION FACTORS:
+    1. Interactive Element Detection (strict selectors)
+    2. Accessibility Property Analysis
+    3. Search Element Detection
+    4. Visibility and Viewport Validation
+    5. Content Quality Assessment
+    6. Functional Importance Analysis
+    
+    @param element_data: Raw element data from extension
+    @return: Enhanced classification with confidence scores
+    """
+    try:
+        # Extract basic element information
+        element_type = element_data.get('type', '').lower()
+        text = element_data.get('text', '').strip()
+        href = element_data.get('href')
+        selector = element_data.get('selector', '')
+        attributes = element_data.get('attributes', {})
+        coordinates = element_data.get('coordinates', {})
+        
+        # Initialize classification result
+        classification = {
+            'is_interactive': False,
+            'interactivity_confidence': 0.0,
+            'element_category': 'unknown',
+            'accessibility_score': 0.0,
+            'search_relevance': 0.0,
+            'content_quality': 0.0,
+            'functional_importance': 0.0,
+            'visibility_score': 0.0,
+            'overall_confidence': 0.0,
+            'classification_reasons': []
+        }
+        
+        # 🎯 1. INTERACTIVE ELEMENT DETECTION (browser-use strict selectors)
+        interactive_score = 0.0
+        interactive_reasons = []
+        
+        # Check for strict interactive selectors
+        strict_interactive_patterns = [
+            # Buttons
+            {'tag': 'button', 'score': 0.9},
+            {'attr': 'type', 'value': 'button', 'score': 0.8},
+            {'attr': 'type', 'value': 'submit', 'score': 0.8},
+            {'attr': 'type', 'value': 'reset', 'score': 0.7},
+            
+            # Form inputs
+            {'tag': 'input', 'attr': 'type', 'value': 'text', 'score': 0.8},
+            {'tag': 'input', 'attr': 'type', 'value': 'email', 'score': 0.8},
+            {'tag': 'input', 'attr': 'type', 'value': 'password', 'score': 0.8},
+            {'tag': 'input', 'attr': 'type', 'value': 'search', 'score': 0.9},
+            {'tag': 'input', 'attr': 'type', 'value': 'checkbox', 'score': 0.7},
+            {'tag': 'input', 'attr': 'type', 'value': 'radio', 'score': 0.7},
+            
+            # Other form elements
+            {'tag': 'select', 'score': 0.8},
+            {'tag': 'textarea', 'score': 0.8},
+            
+            # Links (only real ones)
+            {'tag': 'a', 'has_href': True, 'not_placeholder': True, 'score': 0.8},
+        ]
+        
+        # Check each pattern
+        for pattern in strict_interactive_patterns:
+            if _matches_interactive_pattern(element_data, pattern):
+                interactive_score = max(interactive_score, pattern['score'])
+                interactive_reasons.append(f"Matches {pattern.get('tag', pattern.get('attr', 'pattern'))}")
+        
+        # Check for ARIA roles (accessibility-based interactivity)
+        aria_roles = {
+            'button': 0.9, 'link': 0.8, 'menuitem': 0.7,
+            'textbox': 0.8, 'combobox': 0.8, 'listbox': 0.7,
+            'checkbox': 0.7, 'radio': 0.7, 'tab': 0.7,
+            'menubar': 0.6, 'toolbar': 0.6, 'grid': 0.6
+        }
+        
+        role = attributes.get('role', '').lower()
+        if role in aria_roles:
+            interactive_score = max(interactive_score, aria_roles[role])
+            interactive_reasons.append(f"ARIA role: {role}")
+        
+        # Check for onclick handlers
+        if 'onclick' in attributes or any(attr.startswith('on') for attr in attributes.keys()):
+            interactive_score = max(interactive_score, 0.8)
+            interactive_reasons.append("Has event handlers")
+        
+        # 🎯 2. ACCESSIBILITY PROPERTY ANALYSIS
+        accessibility_score = 0.0
+        accessibility_reasons = []
+        
+        # Check for accessibility attributes
+        if attributes.get('aria-label'):
+            accessibility_score += 0.3
+            accessibility_reasons.append("Has aria-label")
+        
+        if attributes.get('aria-describedby'):
+            accessibility_score += 0.2
+            accessibility_reasons.append("Has aria-describedby")
+        
+        if attributes.get('title'):
+            accessibility_score += 0.2
+            accessibility_reasons.append("Has title attribute")
+        
+        if attributes.get('alt'):
+            accessibility_score += 0.2
+            accessibility_reasons.append("Has alt text")
+        
+        # Check for proper labeling
+        if attributes.get('for') or attributes.get('aria-labelledby'):
+            accessibility_score += 0.3
+            accessibility_reasons.append("Properly labeled")
+        
+        # 🎯 3. SEARCH ELEMENT DETECTION
+        search_relevance = 0.0
+        search_reasons = []
+        
+        search_indicators = {
+            'search', 'magnify', 'glass', 'lookup', 'find', 'query',
+            'search-icon', 'search-btn', 'search-button', 'searchbox',
+            'search-input', 'search-field', 'search-form'
+        }
+        
+        # Check class names
+        class_list = attributes.get('class', '').lower().split()
+        for indicator in search_indicators:
+            if any(indicator in cls for cls in class_list):
+                search_relevance = max(search_relevance, 0.8)
+                search_reasons.append(f"Search indicator in class: {indicator}")
+                break
+        
+        # Check ID
+        element_id = attributes.get('id', '').lower()
+        for indicator in search_indicators:
+            if indicator in element_id:
+                search_relevance = max(search_relevance, 0.9)
+                search_reasons.append(f"Search indicator in ID: {indicator}")
+                break
+        
+        # Check data attributes
+        for attr_name, attr_value in attributes.items():
+            if attr_name.startswith('data-') and any(indicator in attr_value.lower() for indicator in search_indicators):
+                search_relevance = max(search_relevance, 0.7)
+                search_reasons.append(f"Search indicator in data attribute: {indicator}")
+                break
+        
+        # Check text content for search-related terms
+        search_text_indicators = ['search', 'find', 'lookup', 'query', 'go']
+        if any(indicator in text.lower() for indicator in search_text_indicators):
+            search_relevance = max(search_relevance, 0.6)
+            search_reasons.append("Search-related text content")
+        
+        # 🎯 4. CONTENT QUALITY ASSESSMENT
+        content_quality = 0.0
+        content_reasons = []
+        
+        # Text length analysis
+        text_length = len(text)
+        if text_length > 100:
+            content_quality += 0.4
+            content_reasons.append("Long descriptive text")
+        elif text_length > 50:
+            content_quality += 0.3
+            content_reasons.append("Medium descriptive text")
+        elif text_length > 20:
+            content_quality += 0.2
+            content_reasons.append("Short meaningful text")
+        elif text_length > 5:
+            content_quality += 0.1
+            content_reasons.append("Minimal text")
+        
+        # Check for meaningful content patterns
+        meaningful_patterns = [
+            r'\b[a-z]{3,}\b',  # Words with 3+ characters
+            r'\d+',           # Numbers
+            r'[A-Z][a-z]+',   # Proper nouns
+        ]
+        
+        meaningful_count = 0
+        for pattern in meaningful_patterns:
+            if re.search(pattern, text):
+                meaningful_count += 1
+        
+        if meaningful_count >= 2:
+            content_quality += 0.2
+            content_reasons.append("Rich content patterns")
+        
+        # 🎯 5. FUNCTIONAL IMPORTANCE ANALYSIS
+        functional_importance = 0.0
+        functional_reasons = []
+        
+        # Navigation importance
+        nav_indicators = ['nav', 'menu', 'navigation', 'breadcrumb', 'pagination']
+        if any(indicator in selector.lower() for indicator in nav_indicators):
+            functional_importance += 0.4
+            functional_reasons.append("Navigation element")
+        
+        # Form importance
+        form_indicators = ['form', 'input', 'select', 'textarea', 'button']
+        if any(indicator in element_type for indicator in form_indicators):
+            functional_importance += 0.3
+            functional_reasons.append("Form element")
+        
+        # Link importance (real links vs placeholders)
+        if href and href != '#' and not href.startswith('javascript:'):
+            functional_importance += 0.3
+            functional_reasons.append("Real link")
+        elif href == '#':
+            functional_importance += 0.1
+            functional_reasons.append("Placeholder link")
+        
+        # 🎯 6. VISIBILITY SCORE
+        visibility_score = 0.0
+        visibility_reasons = []
+        
+        # Check if element has valid coordinates
+        if coordinates and coordinates.get('width', 0) > 0 and coordinates.get('height', 0) > 0:
+            visibility_score += 0.5
+            visibility_reasons.append("Has valid dimensions")
+            
+            # Check if element is reasonably sized
+            width = coordinates.get('width', 0)
+            height = coordinates.get('height', 0)
+            if width > 30 and height > 10:
+                visibility_score += 0.3
+                visibility_reasons.append("Adequate size")
+            elif width > 10 and height > 10:
+                visibility_score += 0.2
+                visibility_reasons.append("Minimum size")
+        
+        # Check for visibility-related attributes
+        if attributes.get('hidden') is None and attributes.get('aria-hidden') != 'true':
+            visibility_score += 0.2
+            visibility_reasons.append("Not hidden")
+        
+        # 🎯 7. DETERMINE ELEMENT CATEGORY
+        element_category = 'unknown'
+        
+        if interactive_score >= 0.7:
+            if search_relevance >= 0.6:
+                element_category = 'search_element'
+            elif functional_importance >= 0.4:
+                element_category = 'navigation_element'
+            elif 'form' in element_type or 'input' in element_type:
+                element_category = 'form_element'
+            else:
+                element_category = 'interactive_element'
+        elif 'heading' in element_type or element_type in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
+            element_category = 'heading_element'
+        elif content_quality >= 0.4:
+            element_category = 'content_element'
+        elif functional_importance >= 0.3:
+            element_category = 'functional_element'
+        
+        # 🎯 8. CALCULATE OVERALL CONFIDENCE
+        # Weighted combination of all scores
+        overall_confidence = (
+            interactive_score * 0.3 +
+            accessibility_score * 0.15 +
+            search_relevance * 0.2 +
+            content_quality * 0.15 +
+            functional_importance * 0.1 +
+            visibility_score * 0.1
+        )
+        
+        # 🎯 9. BUILD FINAL CLASSIFICATION
+        classification.update({
+            'is_interactive': interactive_score >= 0.6,
+            'interactivity_confidence': interactive_score,
+            'element_category': element_category,
+            'accessibility_score': accessibility_score,
+            'search_relevance': search_relevance,
+            'content_quality': content_quality,
+            'functional_importance': functional_importance,
+            'visibility_score': visibility_score,
+            'overall_confidence': overall_confidence,
+            'classification_reasons': (
+                interactive_reasons + accessibility_reasons + 
+                search_reasons + content_reasons + 
+                functional_reasons + visibility_reasons
+            )
+        })
+        
+        return classification
+        
+    except Exception as e:
+        print(f"❌ Error in enhanced element classification: {e}")
+        # Return safe fallback
+        return {
+            'is_interactive': False,
+            'interactivity_confidence': 0.0,
+            'element_category': 'unknown',
+            'accessibility_score': 0.0,
+            'search_relevance': 0.0,
+            'content_quality': 0.0,
+            'functional_importance': 0.0,
+            'visibility_score': 0.0,
+            'overall_confidence': 0.0,
+            'classification_reasons': [f"Classification error: {str(e)}"]
+        }
+
+
+def _matches_interactive_pattern(element_data, pattern):
+    """
+    🔍 Helper function to check if element matches interactive pattern
+    
+    @param element_data: Element data dictionary
+    @param pattern: Pattern dictionary with matching criteria
+    @return: Boolean indicating if element matches pattern
+    """
+    try:
+        element_type = element_data.get('type', '').lower()
+        attributes = element_data.get('attributes', {})
+        href = element_data.get('href')
+        
+        # Check tag match
+        if 'tag' in pattern and element_type != pattern['tag']:
+            return False
+        
+        # Check attribute match
+        if 'attr' in pattern:
+            attr_name = pattern['attr']
+            attr_value = pattern.get('value', '')
+            
+            if attr_name == 'type':
+                if attributes.get('type', '').lower() != attr_value:
+                    return False
+            elif attr_name == 'has_href':
+                if not href:
+                    return False
+            elif attr_name == 'not_placeholder':
+                if href == '#' or href.startswith('javascript:'):
+                    return False
+        
+        return True
+        
+    except Exception:
+        return False
+
+
+def deduplicate_elements(elements):
+    """
+    🧹 Remove duplicate elements based on content and position
+    
+    This function identifies and removes duplicate elements that have:
+    - Same text content
+    - Similar selectors
+    - Similar positions
+    - Same functionality
+    
+    @param elements: List of element dictionaries
+    @return: Deduplicated list of elements
+    """
+    print("🧹 Starting element deduplication...")
+    
+    # Track seen elements to avoid duplicates
+    seen_elements = {}
+    deduplicated = []
+    duplicates_removed = 0
+    
+    for element in elements:
+        # Create a unique key for deduplication
+        text = element.get('text', '').strip()
+        href = element.get('href')
+        selector = element.get('selector', '')
+        element_type = element.get('type', '').lower()
+        
+        # Skip elements with no meaningful content
+        if not text and not href:
+            continue
+        
+        # Create deduplication key based on content and functionality
+        if href and href != '#':
+            # For real links, use href as primary key
+            dedup_key = f"link:{href}"
+        elif text:
+            # For text elements, use text + selector pattern
+            # Normalize selector to handle similar patterns
+            normalized_selector = _normalize_selector(selector)
+            dedup_key = f"text:{text}:{normalized_selector}"
+        else:
+            # For other elements, use type + selector
+            dedup_key = f"type:{element_type}:{selector}"
+        
+        # Check if we've seen this element before
+        if dedup_key in seen_elements:
+            existing_element = seen_elements[dedup_key]
+            
+            # Compare elements to decide which to keep
+            keep_existing = _should_keep_existing_element(existing_element, element)
+            
+            if keep_existing:
+                # Keep existing, skip this one
+                duplicates_removed += 1
+                continue
+            else:
+                # Replace existing with this one
+                deduplicated.remove(existing_element)
+                duplicates_removed += 1
+        
+        # Add this element to our tracking
+        seen_elements[dedup_key] = element
+        deduplicated.append(element)
+    
+    print(f"✅ Deduplication complete: {len(elements)} → {len(deduplicated)} elements ({duplicates_removed} duplicates removed)")
+    
+    return deduplicated
+
+
+def _normalize_selector(selector):
+    """
+    🔧 Normalize CSS selector for better deduplication
+    
+    @param selector: CSS selector string
+    @return: Normalized selector string
+    """
+    if not selector:
+        return ""
+    
+    # Remove specific IDs and numbers that might differ between duplicates
+    # Remove nth-child selectors
+    normalized = re.sub(r':nth-child\(\d+\)', '', selector)
+    
+    # Remove specific IDs (keep class patterns)
+    normalized = re.sub(r'#[\w-]+', '', normalized)
+    
+    # Normalize common class patterns
+    normalized = normalized.replace('.uael-grid-img', '.grid-img')
+    normalized = normalized.replace('.uael-grid-item', '.grid-item')
+    
+    return normalized
+
+
+def _should_keep_existing_element(existing, new_element):
+    """
+    🎯 Determine which element to keep when duplicates are found
+    
+    Priority order:
+    1. Elements with real hrefs over placeholder hrefs
+    2. Elements with more specific selectors
+    3. Elements with better accessibility attributes
+    4. Elements with more content
+    
+    @param existing: Existing element
+    @param new_element: New element to compare
+    @return: True if existing should be kept, False if new should replace it
+    """
+    existing_href = existing.get('href')
+    new_href = new_element.get('href')
+    
+    # Priority 1: Real links over placeholders
+    if existing_href and existing_href != '#' and (not new_href or new_href == '#'):
+        return True
+    if new_href and new_href != '#' and (not existing_href or existing_href == '#'):
+        return False
+    
+    # Priority 2: More specific selectors (shorter = more specific)
+    existing_selector = existing.get('selector', '')
+    new_selector = new_element.get('selector', '')
+    
+    if len(existing_selector) < len(new_selector):
+        return True
+    if len(new_selector) < len(existing_selector):
+        return False
+    
+    # Priority 3: More content
+    existing_text = existing.get('text', '')
+    new_text = new_element.get('text', '')
+    
+    if len(existing_text) > len(new_text):
+        return True
+    if len(new_text) > len(existing_text):
+        return False
+    
+    # Default: keep existing
+    return True
+
+
+def filter_non_interactive_elements(elements):
+    """
+    🚫 Filter out elements that are not actually interactive
+    
+    This function removes elements that are marked as interactive but don't
+    actually have interactive properties or functionality.
+    
+    @param elements: List of element dictionaries
+    @return: Filtered list with only truly interactive elements
+    """
+    print("🚫 Filtering non-interactive elements...")
+    
+    filtered_elements = []
+    non_interactive_removed = 0
+    
+    for element in elements:
+        # Check if element is actually interactive
+        if _is_truly_interactive(element):
+            filtered_elements.append(element)
+        else:
+            non_interactive_removed += 1
+    
+    print(f"✅ Non-interactive filtering complete: {len(elements)} → {len(filtered_elements)} elements ({non_interactive_removed} non-interactive removed)")
+    
+    return filtered_elements
+
+
+def _is_truly_interactive(element):
+    """
+    🎯 Check if an element is truly interactive
+    
+    An element is considered truly interactive if it has:
+    1. Real href (not null, not '#', not javascript:)
+    2. Interactive tag (button, input, select, textarea)
+    3. Interactive ARIA role
+    4. Event handlers (onclick, etc.)
+    5. Interactive attributes (type="button", etc.)
+    
+    @param element: Element dictionary
+    @return: True if element is truly interactive
+    """
+    element_type = element.get('type', '').lower()
+    href = element.get('href')
+    attributes = element.get('attributes', {})
+    
+    # Check for real href
+    if href and href != '#' and not href.startswith('javascript:'):
+        return True
+    
+    # Check for interactive tags
+    interactive_tags = {'button', 'input', 'select', 'textarea', 'a'}
+    if element_type in interactive_tags:
+        # Additional check for input types
+        if element_type == 'input':
+            input_type = attributes.get('type', 'text').lower()
+            if input_type in {'button', 'submit', 'reset', 'text', 'email', 'password', 'search', 'checkbox', 'radio'}:
+                return True
+        else:
+            return True
+    
+    # Check for interactive ARIA roles
+    role = attributes.get('role', '').lower()
+    interactive_roles = {'button', 'link', 'menuitem', 'textbox', 'combobox', 'listbox', 'checkbox', 'radio', 'tab'}
+    if role in interactive_roles:
+        return True
+    
+    # Check for event handlers
+    for attr_name in attributes.keys():
+        if attr_name.startswith('on'):
+            return True
+    
+    # Check for interactive attributes
+    if attributes.get('type') in {'button', 'submit', 'reset'}:
+        return True
+    
+    # Check for clickable indicators in class names
+    class_name = attributes.get('class', '').lower()
+    clickable_indicators = {'button', 'click', 'clickable', 'btn', 'link', 'nav'}
+    if any(indicator in class_name for indicator in clickable_indicators):
+        return True
+    
+    return False
 
 
 def calculate_element_importance_score(element):
