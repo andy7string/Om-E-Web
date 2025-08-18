@@ -528,11 +528,28 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
  */
 function getCurrentTabInfo() {
     // Check if we're in an iframe (crawl4ai-inspired approach)
-    const isInIframe = window !== window.top;
+    let isInIframe = window !== window.top;
     
-    // Use main frame context for page metadata if we're in an iframe
-    const location = isInIframe ? window.top.location : window.location;
-    const mainDocument = isInIframe ? window.top.document : document;
+    // 🛡️ SAFE CROSS-ORIGIN ACCESS: Handle restricted iframe contexts
+    let location, mainDocument;
+    
+    try {
+        if (isInIframe) {
+            // Try to access main frame, but handle cross-origin restrictions
+            location = window.top.location;
+            mainDocument = window.top.document;
+        } else {
+            location = window.location;
+            mainDocument = document;
+        }
+    } catch (crossOriginError) {
+        console.warn("[Content] Cross-origin iframe detected, using current frame context:", crossOriginError.message);
+        // Fall back to current frame if we can't access main frame
+        location = window.location;
+        mainDocument = document;
+        // Mark that we're in a restricted iframe
+        isInIframe = true;
+    }
     
     return {
         url: location.href,  // Main page URL, not iframe URL
@@ -716,8 +733,27 @@ async function generateSiteMap() {
     try {
         // 🎯 FRAME CONTEXT HANDLING: Use main frame if we're in an iframe
         const isInIframe = window !== window.top;
-        const targetDocument = isInIframe ? window.top.document : document;
-        const targetWindow = isInIframe ? window.top : window;
+        
+        // 🛡️ SAFE CROSS-ORIGIN ACCESS: Handle restricted iframe contexts
+        let targetDocument, targetWindow;
+        
+        try {
+            if (isInIframe) {
+                // Try to access main frame, but handle cross-origin restrictions
+                targetDocument = window.top.document;
+                targetWindow = window.top;
+            } else {
+                targetDocument = document;
+                targetWindow = window;
+            }
+        } catch (crossOriginError) {
+            console.warn("[Content] Cross-origin iframe detected in generateSiteMap, using current frame context:", crossOriginError.message);
+            // Fall back to current frame if we can't access main frame
+            targetDocument = document;
+            targetWindow = window;
+            // Mark that we're in a restricted iframe
+            isInIframe = true;
+        }
         
         console.log("[Content] generateSiteMap: Frame context:", {
             isInIframe: isInIframe,

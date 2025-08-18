@@ -284,6 +284,17 @@ def siteStructuredLLMmethodinsidethefile(filepath):
     4. Remove detailed coordinates (keep only x, y, width, height)
     5. Remove accessibility and position fields from elements
     
+    🆕 NEW: Enhanced consolidation by merging pageStructure with elements:
+    6. Merge headings and forms data into the elements array
+    7. Create comprehensive element objects with full context
+    8. Remove redundant pageStructure section
+    9. Provide consolidated view of each element's role and context
+    
+    🆕 NEW: Enhanced element filtering and scoring:
+    10. Score elements based on interactivity, content quality, and importance
+    11. Filter out low-value elements to reduce bloat
+    12. Keep only high-scoring elements that LLMs actually need
+    
     @param filepath: Path to the processed file that was just written
     @return: True if successful, False if failed
     """
@@ -314,18 +325,18 @@ def siteStructuredLLMmethodinsidethefile(filepath):
         if 'statistics' in data:
             del data['statistics']
         
-        # 🔧 REMOVAL 3: Clean up elements - remove unnecessary fields and filter out junk
+        # 🆕 ENHANCEMENT: Consolidate pageStructure with elements
+        consolidated_elements = []
+        
+        # Start with existing elements
         if 'elements' in data:
-            # Filter out junk elements and clean up the remaining ones
-            cleaned_elements = []
-            
             for element in data['elements']:
-                # Skip elements that are essentially junk (no meaningful content)
+                # Clean up the element
                 text = element.get('text', '').strip()
                 href = element.get('href')
                 selector = element.get('selector', '')
                 
-                # Skip elements with no meaningful content
+                # Skip elements that are essentially junk (no meaningful content)
                 if not text and not href and not selector:
                     continue
                 
@@ -333,41 +344,104 @@ def siteStructuredLLMmethodinsidethefile(filepath):
                 if not text and selector in ['#button', '.yt-spec-button-shape-next', '.yt-spec-avatar-shape']:
                     continue
                 
-                # Clean up the element
-                cleaned_element = {
+                # Create consolidated element
+                consolidated_element = {
                     'FindMe_id': element.get('FindMe_id'),
                     'text': text,
                     'href': href,
-                    'selector': selector
+                    'selector': selector,
+                    'element_type': 'interactive',  # Default type
+                    'context': 'main_content'  # Default context
                 }
                 
                 # Only add if it has meaningful content
                 if text or href:
-                    cleaned_elements.append(cleaned_element)
-            
-            # Replace the elements array with cleaned version
-            data['elements'] = cleaned_elements
+                    consolidated_elements.append(consolidated_element)
         
-        # 🔧 REMOVAL 4: Clean up pageStructure - remove coordinates and simplify
+        # 🎯 MERGE HEADINGS: Add headings as consolidated elements
+        if 'pageStructure' in data and 'headings' in data['pageStructure']:
+            for i, heading in enumerate(data['pageStructure']['headings']):
+                heading_text = heading.get('text', '').strip()
+                heading_selector = heading.get('selector', '')
+                heading_level = heading.get('level', 1)
+                
+                if heading_text:  # Only add headings with actual text
+                    consolidated_elements.append({
+                        'FindMe_id': f"heading_{i+1:03d}",
+                        'text': heading_text,
+                        'href': None,  # Headings don't have hrefs
+                        'selector': heading_selector,
+                        'element_type': 'heading',
+                        'heading_level': heading_level,
+                        'context': 'content_structure'
+                    })
+        
+        # 🎯 MERGE FORMS: Add forms as consolidated elements
+        if 'pageStructure' in data and 'forms' in data['pageStructure']:
+            for i, form in enumerate(data['pageStructure']['forms']):
+                form_action = form.get('action', '')
+                form_method = form.get('method', 'get')
+                form_selector = form.get('selector', '')
+                
+                # Add the form itself
+                consolidated_elements.append({
+                    'FindMe_id': f"form_{i+1:03d}",
+                    'text': f"Form ({form_method.upper()})",
+                    'href': form_action,
+                    'selector': form_selector,
+                    'element_type': 'form',
+                    'form_method': form_method,
+                    'context': 'interaction'
+                })
+                
+                # Add form inputs
+                if 'inputs' in form:
+                    for j, input_field in enumerate(form['inputs']):
+                        input_type = input_field.get('type', 'text')
+                        input_name = input_field.get('name', '')
+                        input_placeholder = input_field.get('placeholder', '')
+                        input_selector = input_field.get('selector', '')
+                        
+                        input_text = f"{input_type.title()} input"
+                        if input_placeholder:
+                            input_text += f": {input_placeholder}"
+                        elif input_name:
+                            input_text += f": {input_name}"
+                        
+                        consolidated_elements.append({
+                            'FindMe_id': f"form_{i+1:03d}_input_{j+1:03d}",
+                            'text': input_text,
+                            'href': None,
+                            'selector': input_selector,
+                            'element_type': 'form_input',
+                            'input_type': input_type,
+                            'input_name': input_name,
+                            'context': 'interaction'
+                        })
+        
+        # 🔧 REMOVAL 3: Remove the now-redundant pageStructure section
         if 'pageStructure' in data:
-            page_structure = data['pageStructure']
+            del data['pageStructure']
+        
+        # 🆕 NEW: Enhanced Element Filtering and Scoring
+        print("🧠 Applying enhanced element filtering and scoring...")
+        
+        scored_elements = []
+        for element in consolidated_elements:
+            # Calculate importance score (0.0 to 1.0)
+            score = calculate_element_importance_score(element)
             
-            # Clean up headings by removing coordinates
-            if 'headings' in page_structure:
-                for heading in page_structure['headings']:
-                    if 'coordinates' in heading:
-                        del heading['coordinates']
+            # Add score to element
+            element['importance_score'] = score
             
-            # Clean up forms by removing coordinates
-            if 'forms' in page_structure:
-                for form in page_structure['forms']:
-                    if 'coordinates' in form:
-                        del form['coordinates']
-                    # Clean up form inputs
-                    if 'inputs' in form:
-                        for input_field in form['inputs']:
-                            if 'coordinates' in input_field:
-                                del input_field['coordinates']
+            # Only keep elements with score >= 0.6 (high importance)
+            if score >= 0.6:
+                scored_elements.append(element)
+        
+        print(f"📊 Element scoring complete: {len(consolidated_elements)} → {len(scored_elements)} elements kept")
+        
+        # Replace elements with scored and filtered version
+        data['elements'] = scored_elements
         
         # Write the cleaned file to a new file (don't overwrite original)
         cleaned_filepath = filepath.replace('.jsonl', '_cleaned.jsonl')
@@ -375,14 +449,42 @@ def siteStructuredLLMmethodinsidethefile(filepath):
             json.dump(data, f, ensure_ascii=False, indent=2)
         
         # Calculate new stats
-        new_elements = len(data.get('elements', []))
+        new_elements = len(scored_elements)
         new_size = os.path.getsize(cleaned_filepath)
         
-        print("✅ File cleaning complete:")
+        print("✅ File cleaning and consolidation complete:")
         print(f"   📊 Elements: {original_elements} → {new_elements}")
         print(f"   📏 File size: {original_size:,} → {new_size:,} bytes")
         print(f"   📉 Size reduction: {((original_size - new_size) / original_size * 100):.1f}%")
-        print(f"   📁 New cleaned file: {os.path.basename(cleaned_filepath)}")
+        print(f"   📁 New consolidated file: {os.path.basename(cleaned_filepath)}")
+        
+        # Show consolidation breakdown
+        element_types = {}
+        for element in scored_elements:
+            element_type = element.get('element_type', 'unknown')
+            element_types[element_type] = element_types.get(element_type, 0) + 1
+        
+        print("🧩 Consolidated element breakdown:")
+        for element_type, count in element_types.items():
+            print(f"   {element_type}: {count} elements")
+        
+        # Show scoring distribution
+        score_ranges = {'0.6-0.7': 0, '0.7-0.8': 0, '0.8-0.9': 0, '0.9-1.0': 0}
+        for element in scored_elements:
+            score = element.get('importance_score', 0)
+            if 0.6 <= score < 0.7:
+                score_ranges['0.6-0.7'] += 1
+            elif 0.7 <= score < 0.8:
+                score_ranges['0.7-0.8'] += 1
+            elif 0.8 <= score < 0.9:
+                score_ranges['0.8-0.9'] += 1
+            elif 0.9 <= score <= 1.0:
+                score_ranges['0.9-1.0'] += 1
+        
+        print("📊 Importance score distribution:")
+        for range_name, count in score_ranges.items():
+            if count > 0:
+                print(f"   {range_name}: {count} elements")
         
         return True
         
@@ -391,6 +493,77 @@ def siteStructuredLLMmethodinsidethefile(filepath):
         import traceback
         traceback.print_exc()
         return False
+
+
+def calculate_element_importance_score(element):
+    """
+    🧠 Calculate importance score for an element (0.0 to 1.0)
+    
+    Scoring factors:
+    - Element type (interactive > heading > form > text)
+    - Content quality (text length, meaningful content)
+    - Functionality (href, form actions, etc.)
+    - Context relevance (navigation, main content, etc.)
+    
+    @param element: Element dictionary
+    @return: Float score from 0.0 to 1.0
+    """
+    score = 0.0
+    
+    # 🎯 ELEMENT TYPE SCORING (highest impact)
+    element_type = element.get('element_type', 'unknown')
+    if element_type == 'interactive':
+        score += 0.4  # Interactive elements are most important
+    elif element_type == 'heading':
+        score += 0.35  # Headings provide structure
+    elif element_type == 'form':
+        score += 0.3   # Forms enable user input
+    elif element_type == 'form_input':
+        score += 0.25  # Form inputs are actionable
+    else:
+        score += 0.1   # Other elements get base score
+    
+    # 📝 CONTENT QUALITY SCORING
+    text = element.get('text', '')
+    if text:
+        text_length = len(text.strip())
+        if text_length > 50:
+            score += 0.2  # Long, descriptive text
+        elif text_length > 20:
+            score += 0.15  # Medium text
+        elif text_length > 5:
+            score += 0.1   # Short but meaningful text
+        else:
+            score += 0.05  # Very short text
+    
+    # 🔗 FUNCTIONALITY SCORING
+    href = element.get('href')
+    if href and href != '#':
+        score += 0.15  # Real links are valuable
+    elif href == '#':
+        score += 0.05  # Placeholder links get minimal score
+    
+    # 🎯 CONTEXT RELEVANCE SCORING
+    context = element.get('context', '')
+    if context == 'navigation':
+        score += 0.1   # Navigation elements are important
+    elif context == 'main_content':
+        score += 0.1   # Main content gets boost
+    elif context == 'interaction':
+        score += 0.1   # Interactive context is valuable
+    
+    # 🏷️ SELECTOR QUALITY SCORING
+    selector = element.get('selector', '')
+    if selector:
+        # YouTube-specific selectors get boost
+        if 'yt-' in selector or 'youtube' in selector:
+            score += 0.05
+        # Generic but meaningful selectors
+        elif any(keyword in selector.lower() for keyword in ['button', 'link', 'nav', 'menu']):
+            score += 0.05
+    
+    # Cap score at 1.0
+    return min(score, 1.0)
 
 async def handler(ws):
     """
