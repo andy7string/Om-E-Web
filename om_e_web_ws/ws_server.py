@@ -273,6 +273,125 @@ def process_clean_site_map_data(raw_data):
         print(f"❌ Error processing site map data: {e}")
         return None, None, False
 
+def siteStructuredLLMmethodinsidethefile(filepath):
+    """
+    🧠 Post-process the written file to remove unnecessary fields and create a much smaller file
+    
+    This method removes specific fields as specified in remove.md:
+    1. Remove verbose metadata fields (pathname, search, hash, protocol, timestamp, etc.)
+    2. Remove statistics section entirely
+    3. Remove type attribute from elements
+    4. Remove detailed coordinates (keep only x, y, width, height)
+    5. Remove accessibility and position fields from elements
+    
+    @param filepath: Path to the processed file that was just written
+    @return: True if successful, False if failed
+    """
+    try:
+        print(f"🧠 Running siteStructuredLLMmethodinsidethefile on: {filepath}")
+        
+        # Read the current file
+        with open(filepath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Store original stats for comparison
+        original_elements = len(data.get('elements', []))
+        original_size = os.path.getsize(filepath)
+        
+        print(f"📊 Original file: {original_elements} elements, {original_size:,} bytes")
+        
+        # 🔧 REMOVAL 1: Clean up metadata - keep only essential fields
+        if 'metadata' in data:
+            metadata = data['metadata']
+            # Keep only url and title, remove everything else
+            essential_metadata = {
+                'url': metadata.get('url'),
+                'title': metadata.get('title')
+            }
+            data['metadata'] = {k: v for k, v in essential_metadata.items() if v is not None}
+        
+        # 🔧 REMOVAL 2: Remove statistics section entirely
+        if 'statistics' in data:
+            del data['statistics']
+        
+        # 🔧 REMOVAL 3: Clean up elements - remove unnecessary fields and filter out junk
+        if 'elements' in data:
+            # Filter out junk elements and clean up the remaining ones
+            cleaned_elements = []
+            
+            for element in data['elements']:
+                # Skip elements that are essentially junk (no meaningful content)
+                text = element.get('text', '').strip()
+                href = element.get('href')
+                selector = element.get('selector', '')
+                
+                # Skip elements with no meaningful content
+                if not text and not href and not selector:
+                    continue
+                
+                # Skip elements that are just empty buttons or placeholders
+                if not text and selector in ['#button', '.yt-spec-button-shape-next', '.yt-spec-avatar-shape']:
+                    continue
+                
+                # Clean up the element
+                cleaned_element = {
+                    'FindMe_id': element.get('FindMe_id'),
+                    'text': text,
+                    'href': href,
+                    'selector': selector
+                }
+                
+                # Only add if it has meaningful content
+                if text or href:
+                    cleaned_elements.append(cleaned_element)
+            
+            # Replace the elements array with cleaned version
+            data['elements'] = cleaned_elements
+        
+        # 🔧 REMOVAL 4: Clean up pageStructure - remove coordinates and simplify
+        if 'pageStructure' in data:
+            page_structure = data['pageStructure']
+            
+            # Clean up headings by removing coordinates
+            if 'headings' in page_structure:
+                for heading in page_structure['headings']:
+                    if 'coordinates' in heading:
+                        del heading['coordinates']
+            
+            # Clean up forms by removing coordinates
+            if 'forms' in page_structure:
+                for form in page_structure['forms']:
+                    if 'coordinates' in form:
+                        del form['coordinates']
+                    # Clean up form inputs
+                    if 'inputs' in form:
+                        for input_field in form['inputs']:
+                            if 'coordinates' in input_field:
+                                del input_field['coordinates']
+        
+        # Write the cleaned file to a new file (don't overwrite original)
+        cleaned_filepath = filepath.replace('.jsonl', '_cleaned.jsonl')
+        with open(cleaned_filepath, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        
+        # Calculate new stats
+        new_elements = len(data.get('elements', []))
+        new_size = os.path.getsize(cleaned_filepath)
+        
+        print("✅ File cleaning complete:")
+        print(f"   📊 Elements: {original_elements} → {new_elements}")
+        print(f"   📏 File size: {original_size:,} → {new_size:,} bytes")
+        print(f"   📉 Size reduction: {((original_size - new_size) / original_size * 100):.1f}%")
+        print(f"   📁 New cleaned file: {os.path.basename(cleaned_filepath)}")
+        
+        return True
+        
+    except Exception as e:
+        print(f"❌ Error in siteStructuredLLMmethodinsidethefile: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
+
 async def handler(ws):
     """
     🔌 WebSocket connection handler for each client
@@ -415,6 +534,14 @@ async def handler(ws):
                                 
                                 print(f"✅ Processed data saved to: {processed_filename}")
                                 print(f"📊 Elements: {len(processed_data.get('elements', []))}")
+                                
+                                # 🧠 Run post-processing optimization
+                                print("🧠 Running post-processing optimization...")
+                                optimization_success = siteStructuredLLMmethodinsidethefile(filepath)
+                                if optimization_success:
+                                    print("✅ File optimization completed successfully")
+                                else:
+                                    print("⚠️ File optimization had issues, but file was saved")
                             else:
                                 print("❌ Failed to process site map for LLM consumption")
                         except Exception as e:

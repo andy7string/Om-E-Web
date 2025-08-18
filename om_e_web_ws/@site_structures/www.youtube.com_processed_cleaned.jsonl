@@ -1,0 +1,1331 @@
+{
+  "metadata": {
+    "url": "https://www.youtube.com/?bp=wgUCEAE%3D",
+    "title": "(24) YouTube"
+  },
+  "elements": [
+    {
+      "FindMe_id": "FindMe_001",
+      "text": "",
+      "href": "https://www.youtube.com/?bp=wgUCEAE%3D",
+      "selector": "#logo"
+    },
+    {
+      "FindMe_id": "FindMe_002",
+      "text": "Home\n  \n  \n    Home",
+      "href": "https://www.youtube.com/",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_003",
+      "text": "Subscriptions\n  \n  \n    Subscriptions",
+      "href": "https://www.youtube.com/feed/subscriptions",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_004",
+      "text": "YouTube Music\n  \n  \n    YouTube Music",
+      "href": "https://music.youtube.com/",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_005",
+      "text": "You\n  \n  \n    You",
+      "href": "https://www.youtube.com/feed/you",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_006",
+      "text": "Downloads\n  \n  \n    Downloads",
+      "href": "https://www.youtube.com/feed/downloads",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_007",
+      "text": "Jot it down",
+      "href": "https://www.youtube.com/playlist?list=PLhNeRwBqkeSW5oLltsM6JeEesSQMHFwnS&playnext=1&index=1",
+      "selector": ".yt-spec-button-shape-next"
+    },
+    {
+      "FindMe_id": "FindMe_008",
+      "text": "40:35",
+      "href": "https://www.youtube.com/watch?v=xgnjMpasEh0",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_009",
+      "text": "SPINOSAURUS Vs INDOMINUS REX Territorial Battle | Jurassic World | Movie for Families| TCF CREATOR",
+      "href": "https://www.youtube.com/watch?v=xgnjMpasEh0",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_010",
+      "text": "TCF CREATOR",
+      "href": "https://www.youtube.com/@tcfcreator",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_011",
+      "text": "9:13",
+      "href": "https://www.youtube.com/watch?v=S7tns7LPnA0",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_012",
+      "text": "I Turned A $1 Property In Italy Into My Dream Home — Here’s How Much It Cost",
+      "href": "https://www.youtube.com/watch?v=S7tns7LPnA0",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_013",
+      "text": "CNBC Make It",
+      "href": "https://www.youtube.com/@CNBCMakeIt",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_014",
+      "text": "1:00:14",
+      "href": "https://www.youtube.com/watch?v=NLCmIvkyvrU",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_015",
+      "text": "Farm Episode: Bluey’s Exciting Vegetable Patch Adventure",
+      "href": "https://www.youtube.com/watch?v=NLCmIvkyvrU",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_016",
+      "text": "Doodles Experiments",
+      "href": "https://www.youtube.com/@DoodlesExperiments",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_017",
+      "text": "7:39",
+      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_018",
+      "text": "AI Agents Primer: The Next Big Shift of AI, From APIs to an Internet of Agents",
+      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_019",
+      "text": "Deepak Panda",
+      "href": "https://www.youtube.com/@hideepakpanda",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_020",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/QIIn0saR3qU",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_021",
+      "text": "Amanda dancing both lyrics & beats seamlessly was so smooth 😮‍💨",
+      "href": "https://www.youtube.com/shorts/QIIn0saR3qU",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_022",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/ZdSMGFQCjpY",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_023",
+      "text": "Taking my husband to hooters😩😭",
+      "href": "https://www.youtube.com/shorts/ZdSMGFQCjpY",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_024",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/xBbtRyiCO3I",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_025",
+      "text": "How Does Fat Leave Your Body? (Not What You Think!) 💨",
+      "href": "https://www.youtube.com/shorts/xBbtRyiCO3I",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_026",
+      "text": "12:25",
+      "href": "https://www.youtube.com/watch?v=2bGh_DlkubM&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_027",
+      "text": "3 Tools That Unlock Claude Code's True Potential",
+      "href": "https://www.youtube.com/watch?v=2bGh_DlkubM&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_028",
+      "text": "Sean Matthew",
+      "href": "https://www.youtube.com/@SeanMatthewAI",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_029",
+      "text": "12:28",
+      "href": "https://www.youtube.com/watch?v=hk14hVV1L7I&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_030",
+      "text": "Why Your Life \"Flashes Before Your Eyes\" Before You Die | Rizwan Virk",
+      "href": "https://www.youtube.com/watch?v=hk14hVV1L7I&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_031",
+      "text": "Danny Jones Clips",
+      "href": "https://www.youtube.com/@DannyJonesClips",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_032",
+      "text": "2:34",
+      "href": "https://www.youtube.com/watch?v=X8aVvH-Bqeo&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_033",
+      "text": "THIS IS F**KING INSANE..",
+      "href": "https://www.youtube.com/watch?v=X8aVvH-Bqeo&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_034",
+      "text": "Asmongold Clips",
+      "href": "https://www.youtube.com/@AsmongoldClips",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_035",
+      "text": "7:28",
+      "href": "https://www.youtube.com/watch?v=HGLcU81H8o4&list=RDHGLcU81H8o4&start_radio=1&pp=oAcB",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_036",
+      "text": "Sammy Hagar “Right Now” Live on the Stern Show",
+      "href": "https://www.youtube.com/watch?v=HGLcU81H8o4&list=RDHGLcU81H8o4&start_radio=1&pp=oAcB",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_037",
+      "text": "The Howard Stern Show",
+      "href": "https://www.youtube.com/@howardstern",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_038",
+      "text": "13:02",
+      "href": "https://www.youtube.com/watch?v=IHkyFhU6JEY",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_039",
+      "text": "Designing AI-Intensive Applications - swyx",
+      "href": "https://www.youtube.com/watch?v=IHkyFhU6JEY",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_040",
+      "text": "AI Engineer",
+      "href": "https://www.youtube.com/@aiDotEngineer",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_041",
+      "text": "3:53",
+      "href": "https://www.youtube.com/watch?v=ceMwzOdQQBg&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_042",
+      "text": "Obama comes off looking ‘very bad’ following damning revelations about Russian hoax scandal",
+      "href": "https://www.youtube.com/watch?v=ceMwzOdQQBg&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_043",
+      "text": "Sky News Australia",
+      "href": "https://www.youtube.com/@SkyNewsAustralia",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_044",
+      "text": "2:34",
+      "href": "https://www.youtube.com/watch?v=oYWBk_VAA5c",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_045",
+      "text": "Brekka’s Karl Geis foot sweep drill",
+      "href": "https://www.youtube.com/watch?v=oYWBk_VAA5c",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_046",
+      "text": "Bret Parkhill",
+      "href": "https://www.youtube.com/@bretparkhill2415",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_047",
+      "text": "16:16",
+      "href": "https://www.youtube.com/watch?v=9NTfKG4zihk",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_048",
+      "text": "HACK YOUR BRAIN WITH 40 Hz frequency",
+      "href": "https://www.youtube.com/watch?v=9NTfKG4zihk",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_049",
+      "text": "daily MOTIVATION",
+      "href": "https://www.youtube.com/@dailyMOTIVATIONcontact",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_050",
+      "text": "2:37",
+      "href": "https://www.youtube.com/watch?v=AzWVERRMQ7E&list=RDAzWVERRMQ7E&start_radio=1&pp=oAcB",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_051",
+      "text": "To Remain When All Has Gone...",
+      "href": "https://www.youtube.com/watch?v=AzWVERRMQ7E&list=RDAzWVERRMQ7E&start_radio=1&pp=oAcB",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_052",
+      "text": "Mc.Baldiee",
+      "href": "https://www.youtube.com/@Mc.Baldiee",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_053",
+      "text": "2:07:42",
+      "href": "https://www.youtube.com/watch?v=TJ9HenF_9Sw",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_054",
+      "text": "120 Minutes Of Satisfaction With Unboxing Jurassic Park Dinosaur Toy Collection ASMR | Review Toys",
+      "href": "https://www.youtube.com/watch?v=TJ9HenF_9Sw",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_055",
+      "text": "Tun Revew",
+      "href": "https://www.youtube.com/@DAMickeyMouse-l3l",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_056",
+      "text": "",
+      "href": "https://www.youtube.com/playables",
+      "selector": ".yt-simple-endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_057",
+      "text": "YouTube Playables",
+      "href": "https://www.youtube.com/playables",
+      "selector": ".yt-simple-endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_058",
+      "text": "View all",
+      "href": "https://www.youtube.com/playables?bp=EgZicm93c2U%3D",
+      "selector": ".yt-spec-button-shape-next"
+    },
+    {
+      "FindMe_id": "FindMe_059",
+      "text": "",
+      "href": "https://www.youtube.com/playables/UgkxgpLJNCNUkCXRVD5HrDZfOHqxtJAX5zET",
+      "selector": ".yt-mini-game-card-view-model__thumbnail-wrapper"
+    },
+    {
+      "FindMe_id": "FindMe_060",
+      "text": "Play",
+      "href": "https://www.youtube.com/playables/UgkxgpLJNCNUkCXRVD5HrDZfOHqxtJAX5zET",
+      "selector": ".yt-spec-button-shape-next"
+    },
+    {
+      "FindMe_id": "FindMe_061",
+      "text": "Hide N Seek27M plays",
+      "href": "https://www.youtube.com/playables/UgkxgpLJNCNUkCXRVD5HrDZfOHqxtJAX5zET",
+      "selector": ".yt-mini-game-card-view-model__metadata-details"
+    },
+    {
+      "FindMe_id": "FindMe_062",
+      "text": "",
+      "href": "https://www.youtube.com/playables/UgkxhWL-8PcJnVcWWzTqGWR1UUSXLxoBf5l-",
+      "selector": ".yt-mini-game-card-view-model__thumbnail-wrapper"
+    },
+    {
+      "FindMe_id": "FindMe_063",
+      "text": "Play",
+      "href": "https://www.youtube.com/playables/UgkxhWL-8PcJnVcWWzTqGWR1UUSXLxoBf5l-",
+      "selector": ".yt-spec-button-shape-next"
+    },
+    {
+      "FindMe_id": "FindMe_064",
+      "text": "Archery World Tour4.5M plays",
+      "href": "https://www.youtube.com/playables/UgkxhWL-8PcJnVcWWzTqGWR1UUSXLxoBf5l-",
+      "selector": ".yt-mini-game-card-view-model__metadata-details"
+    },
+    {
+      "FindMe_id": "FindMe_065",
+      "text": "",
+      "href": "https://www.youtube.com/playables/UgkxyKs3Ve_RG1PMcTKDbdNtSTCmpKj2kDKj",
+      "selector": ".yt-mini-game-card-view-model__thumbnail-wrapper"
+    },
+    {
+      "FindMe_id": "FindMe_066",
+      "text": "Play",
+      "href": "https://www.youtube.com/playables/UgkxyKs3Ve_RG1PMcTKDbdNtSTCmpKj2kDKj",
+      "selector": ".yt-spec-button-shape-next"
+    },
+    {
+      "FindMe_id": "FindMe_067",
+      "text": "Build a Queen20M plays",
+      "href": "https://www.youtube.com/playables/UgkxyKs3Ve_RG1PMcTKDbdNtSTCmpKj2kDKj",
+      "selector": ".yt-mini-game-card-view-model__metadata-details"
+    },
+    {
+      "FindMe_id": "FindMe_068",
+      "text": "4:34",
+      "href": "https://www.youtube.com/watch?v=ZyYqyYAKGC0&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_069",
+      "text": "Time Is But a Stubborn Illusion - Sneak Peek | Genius",
+      "href": "https://www.youtube.com/watch?v=ZyYqyYAKGC0&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_070",
+      "text": "National Geographic",
+      "href": "https://www.youtube.com/@NatGeo",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_071",
+      "text": "10:58",
+      "href": "https://www.youtube.com/watch?v=emV9Wo_UuGQ&pp=ugUHEgVlbi1VUw%3D%3D",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_072",
+      "text": "5 simple (but weird) ChatGPT-5 tricks to get a 10x better response",
+      "href": "https://www.youtube.com/watch?v=emV9Wo_UuGQ&pp=ugUHEgVlbi1VUw%3D%3D",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_073",
+      "text": "D-Squared",
+      "href": "https://www.youtube.com/@d-squared70",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_074",
+      "text": "4:05",
+      "href": "https://www.youtube.com/watch?v=kZnMRNA6OsI",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_075",
+      "text": "Simple DIY Track Saw For Beginners",
+      "href": "https://www.youtube.com/watch?v=kZnMRNA6OsI",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_076",
+      "text": "Twin Summit Designs",
+      "href": "https://www.youtube.com/@TwinSummitDesigns",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_077",
+      "text": "1:06",
+      "href": "https://www.youtube.com/watch?v=kVaS1hnBOl4",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_078",
+      "text": "AI companies after realizing...",
+      "href": "https://www.youtube.com/watch?v=kVaS1hnBOl4",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_079",
+      "text": "Man Carrying Thing",
+      "href": "https://www.youtube.com/@ManCarryingThing",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_080",
+      "text": "9:57",
+      "href": "https://www.youtube.com/watch?v=iaZWLrjE3Tc",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_081",
+      "text": "Dem whistleblower makes bombshell allegations against Adam Schiff",
+      "href": "https://www.youtube.com/watch?v=iaZWLrjE3Tc",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_082",
+      "text": "Fox News",
+      "href": "https://www.youtube.com/@FoxNews",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_083",
+      "text": "40:03",
+      "href": "https://www.youtube.com/watch?v=GGh6ZE_yvUA",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_084",
+      "text": "Grounded By Design 2025 Documentary. Full Movie. A Youtube exclusive on building Earthship Willunga.",
+      "href": "https://www.youtube.com/watch?v=GGh6ZE_yvUA",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_085",
+      "text": "Graaly",
+      "href": "https://www.youtube.com/@graalytube",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_086",
+      "text": "10:04",
+      "href": "https://www.youtube.com/watch?v=-TrHHGKQxcI",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_087",
+      "text": "Learn About Dinosaurs Part 1 | T-Rex, Triceratops and More | Educational Video for Kids",
+      "href": "https://www.youtube.com/watch?v=-TrHHGKQxcI",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_088",
+      "text": "Brain Candy TV",
+      "href": "https://www.youtube.com/@braincandytv",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_089",
+      "text": "2:20",
+      "href": "https://www.youtube.com/watch?v=WqQUvfsavO4",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_090",
+      "text": "aka Charlie Sheen | Official Trailer | Netflix",
+      "href": "https://www.youtube.com/watch?v=WqQUvfsavO4",
+      "selector": ".yt-lockup-metadata-view-model-wiz__title"
+    },
+    {
+      "FindMe_id": "FindMe_091",
+      "text": "Netflix",
+      "href": "https://www.youtube.com/@Netflix",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_093",
+      "text": "Skip navigation",
+      "href": null,
+      "selector": ".yt-spec-button-shape-next"
+    },
+    {
+      "FindMe_id": "FindMe_096",
+      "text": "Create",
+      "href": null,
+      "selector": ".yt-spec-button-shape-next"
+    },
+    {
+      "FindMe_id": "FindMe_097",
+      "text": "9+",
+      "href": null,
+      "selector": "#button"
+    },
+    {
+      "FindMe_id": "FindMe_099",
+      "text": "All",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_100",
+      "text": "Podcasts",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_101",
+      "text": "Music",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_102",
+      "text": "Tyrannosaurus",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_103",
+      "text": "AI",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_104",
+      "text": "Shark Tank",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_105",
+      "text": "Gaming",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_106",
+      "text": "Mixes",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_107",
+      "text": "Live",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_108",
+      "text": "Pop Rock",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_109",
+      "text": "Dance-Pop",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_110",
+      "text": "Electric guitar",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_111",
+      "text": "Animated films",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_112",
+      "text": "Weight Training",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_113",
+      "text": "Wildlife",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_114",
+      "text": "Comedy",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_115",
+      "text": "Tourist destinations",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_116",
+      "text": "Recently uploaded",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_117",
+      "text": "Watched",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_118",
+      "text": "New to you",
+      "href": null,
+      "selector": ".ytChipShapeButtonReset"
+    },
+    {
+      "FindMe_id": "FindMe_143",
+      "text": "Show more",
+      "href": null,
+      "selector": ".yt-spec-button-shape-next"
+    },
+    {
+      "FindMe_id": "FindMe_167",
+      "text": "LIVE",
+      "href": null,
+      "selector": ".yt-spec-avatar-shape"
+    },
+    {
+      "FindMe_id": "FindMe_175",
+      "text": "Home\n  \n  \n    Home",
+      "href": null,
+      "selector": ".style-scope"
+    },
+    {
+      "FindMe_id": "FindMe_176",
+      "text": "Home\n  \n  \n    Home",
+      "href": "https://www.youtube.com/",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_177",
+      "text": "Shorts\n  \n  \n    Shorts",
+      "href": null,
+      "selector": ".style-scope"
+    },
+    {
+      "FindMe_id": "FindMe_178",
+      "text": "Shorts\n  \n  \n    Shorts",
+      "href": null,
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_179",
+      "text": "Subscriptions\n  \n  \n    Subscriptions",
+      "href": null,
+      "selector": ".style-scope"
+    },
+    {
+      "FindMe_id": "FindMe_180",
+      "text": "Subscriptions\n  \n  \n    Subscriptions",
+      "href": "https://www.youtube.com/feed/subscriptions",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_181",
+      "text": "YouTube Music\n  \n  \n    YouTube Music",
+      "href": null,
+      "selector": ".style-scope"
+    },
+    {
+      "FindMe_id": "FindMe_182",
+      "text": "YouTube Music\n  \n  \n    YouTube Music",
+      "href": "https://music.youtube.com/",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_183",
+      "text": "You\n  \n  \n    You",
+      "href": null,
+      "selector": ".style-scope"
+    },
+    {
+      "FindMe_id": "FindMe_184",
+      "text": "You\n  \n  \n    You",
+      "href": "https://www.youtube.com/feed/you",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_185",
+      "text": "Downloads\n  \n  \n    Downloads",
+      "href": null,
+      "selector": ".style-scope"
+    },
+    {
+      "FindMe_id": "FindMe_186",
+      "text": "Downloads\n  \n  \n    Downloads",
+      "href": "https://www.youtube.com/feed/downloads",
+      "selector": "#endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_187",
+      "text": "40:35",
+      "href": "https://www.youtube.com/watch?v=xgnjMpasEh0",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_189",
+      "text": "TCF CREATOR",
+      "href": "https://www.youtube.com/@tcfcreator",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_190",
+      "text": "9:13",
+      "href": "https://www.youtube.com/watch?v=S7tns7LPnA0",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_192",
+      "text": "CNBC Make It",
+      "href": "https://www.youtube.com/@CNBCMakeIt",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_193",
+      "text": "1:00:14",
+      "href": "https://www.youtube.com/watch?v=NLCmIvkyvrU",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_195",
+      "text": "Doodles Experiments",
+      "href": "https://www.youtube.com/@DoodlesExperiments",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_196",
+      "text": "7:39",
+      "href": "https://www.youtube.com/watch?v=Wp2DVPYWBEU",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_198",
+      "text": "Deepak Panda",
+      "href": "https://www.youtube.com/@hideepakpanda",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_199",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/QIIn0saR3qU",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_200",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/ZdSMGFQCjpY",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_201",
+      "text": "",
+      "href": "https://www.youtube.com/shorts/xBbtRyiCO3I",
+      "selector": ".shortsLockupViewModelHostEndpoint"
+    },
+    {
+      "FindMe_id": "FindMe_202",
+      "text": "12:25",
+      "href": "https://www.youtube.com/watch?v=2bGh_DlkubM&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_204",
+      "text": "Sean Matthew",
+      "href": "https://www.youtube.com/@SeanMatthewAI",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_205",
+      "text": "12:28",
+      "href": "https://www.youtube.com/watch?v=hk14hVV1L7I&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_207",
+      "text": "Danny Jones Clips",
+      "href": "https://www.youtube.com/@DannyJonesClips",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_208",
+      "text": "2:34",
+      "href": "https://www.youtube.com/watch?v=X8aVvH-Bqeo&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_210",
+      "text": "Asmongold Clips",
+      "href": "https://www.youtube.com/@AsmongoldClips",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_211",
+      "text": "7:28",
+      "href": "https://www.youtube.com/watch?v=HGLcU81H8o4&list=RDHGLcU81H8o4&start_radio=1&pp=oAcB",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_213",
+      "text": "The Howard Stern Show",
+      "href": "https://www.youtube.com/@howardstern",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_214",
+      "text": "13:02",
+      "href": "https://www.youtube.com/watch?v=IHkyFhU6JEY",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_216",
+      "text": "AI Engineer",
+      "href": "https://www.youtube.com/@aiDotEngineer",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_217",
+      "text": "3:53",
+      "href": "https://www.youtube.com/watch?v=ceMwzOdQQBg&pp=0gcJCa0JAYcqIYzv",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_219",
+      "text": "Sky News Australia",
+      "href": "https://www.youtube.com/@SkyNewsAustralia",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_220",
+      "text": "2:34",
+      "href": "https://www.youtube.com/watch?v=oYWBk_VAA5c",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_222",
+      "text": "Bret Parkhill",
+      "href": "https://www.youtube.com/@bretparkhill2415",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_223",
+      "text": "16:16",
+      "href": "https://www.youtube.com/watch?v=9NTfKG4zihk",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_225",
+      "text": "daily MOTIVATION",
+      "href": "https://www.youtube.com/@dailyMOTIVATIONcontact",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_226",
+      "text": "2:37",
+      "href": "https://www.youtube.com/watch?v=AzWVERRMQ7E&list=RDAzWVERRMQ7E&start_radio=1&pp=oAcB",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_228",
+      "text": "Mc.Baldiee",
+      "href": "https://www.youtube.com/@Mc.Baldiee",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_229",
+      "text": "2:07:42",
+      "href": "https://www.youtube.com/watch?v=TJ9HenF_9Sw",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_231",
+      "text": "Tun Revew",
+      "href": "https://www.youtube.com/@DAMickeyMouse-l3l",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_232",
+      "text": "",
+      "href": "https://www.youtube.com/playables",
+      "selector": ".yt-simple-endpoint"
+    },
+    {
+      "FindMe_id": "FindMe_233",
+      "text": "4:34",
+      "href": "https://www.youtube.com/watch?v=ZyYqyYAKGC0&pp=ugUEEgJlbg%3D%3D",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_234",
+      "text": "LIVE",
+      "href": null,
+      "selector": ".yt-spec-avatar-shape"
+    },
+    {
+      "FindMe_id": "FindMe_235",
+      "text": "National Geographic",
+      "href": "https://www.youtube.com/@NatGeo",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_236",
+      "text": "10:58",
+      "href": "https://www.youtube.com/watch?v=emV9Wo_UuGQ&pp=ugUHEgVlbi1VUw%3D%3D",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_238",
+      "text": "D-Squared",
+      "href": "https://www.youtube.com/@d-squared70",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_239",
+      "text": "4:05",
+      "href": "https://www.youtube.com/watch?v=kZnMRNA6OsI",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_241",
+      "text": "Twin Summit Designs",
+      "href": "https://www.youtube.com/@TwinSummitDesigns",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_242",
+      "text": "1:06",
+      "href": "https://www.youtube.com/watch?v=kVaS1hnBOl4",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_244",
+      "text": "Man Carrying Thing",
+      "href": "https://www.youtube.com/@ManCarryingThing",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_245",
+      "text": "9:57",
+      "href": "https://www.youtube.com/watch?v=iaZWLrjE3Tc",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_247",
+      "text": "Fox News",
+      "href": "https://www.youtube.com/@FoxNews",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_248",
+      "text": "40:03",
+      "href": "https://www.youtube.com/watch?v=GGh6ZE_yvUA",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_250",
+      "text": "Graaly",
+      "href": "https://www.youtube.com/@graalytube",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_251",
+      "text": "10:04",
+      "href": "https://www.youtube.com/watch?v=-TrHHGKQxcI",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_253",
+      "text": "Brain Candy TV",
+      "href": "https://www.youtube.com/@braincandytv",
+      "selector": ".yt-core-attributed-string__link"
+    },
+    {
+      "FindMe_id": "FindMe_254",
+      "text": "2:20",
+      "href": "https://www.youtube.com/watch?v=WqQUvfsavO4",
+      "selector": ".yt-lockup-view-model-wiz__content-image"
+    },
+    {
+      "FindMe_id": "FindMe_256",
+      "text": "Netflix",
+      "href": "https://www.youtube.com/@Netflix",
+      "selector": ".yt-core-attributed-string__link"
+    }
+  ],
+  "pageStructure": {
+    "headings": [
+      {
+        "level": 3,
+        "text": "Subscriptions",
+        "selector": ".style-scope"
+      },
+      {
+        "level": 3,
+        "text": "Explore",
+        "selector": ".style-scope"
+      },
+      {
+        "level": 3,
+        "text": "More from YouTube",
+        "selector": ".style-scope"
+      },
+      {
+        "level": 3,
+        "text": "SPINOSAURUS Vs INDOMINUS REX Territorial Battle | Jurassic World | Movie for Families| TCF CREATOR",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "I Turned A $1 Property In Italy Into My Dream Home — Here’s How Much It Cost",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Farm Episode: Bluey’s Exciting Vegetable Patch Adventure",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "AI Agents Primer: The Next Big Shift of AI, From APIs to an Internet of Agents",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 2,
+        "text": "Shorts",
+        "selector": ".style-scope"
+      },
+      {
+        "level": 3,
+        "text": "Amanda dancing both lyrics & beats seamlessly was so smooth 😮‍💨",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "Taking my husband to hooters😩😭",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "How Does Fat Leave Your Body? (Not What You Think!) 💨",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "That’s #cheating",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "Stretching VS Self-Myofascial Release - Try this for INSTANT Back Pain relief!",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "\"Women Are Going To Take Over Gaming\"",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "Their Chemistry is off The Freaking Charts",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "This Teen Just Got SIGNED to the UFC... Here’s What Shocked Everyone",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "Entitled Streamers Get MAD After Hitting Woman With Paintball!",
+        "selector": ".shortsLockupViewModelHostMetadataTitle"
+      },
+      {
+        "level": 3,
+        "text": "3 Tools That Unlock Claude Code's True Potential",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Why Your Life \"Flashes Before Your Eyes\" Before You Die | Rizwan Virk",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "THIS IS F**KING INSANE..",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Sammy Hagar “Right Now” Live on the Stern Show",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Designing AI-Intensive Applications - swyx",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Obama comes off looking ‘very bad’ following damning revelations about Russian hoax scandal",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Brekka’s Karl Geis foot sweep drill",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "HACK YOUR BRAIN WITH 40 Hz frequency",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "To Remain When All Has Gone...",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "120 Minutes Of Satisfaction With Unboxing Jurassic Park Dinosaur Toy Collection ASMR | Review Toys",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 2,
+        "text": "YouTube Playables\n                \n                \n              \n              \n                \n                Instant games, no downloads",
+        "selector": ".style-scope"
+      },
+      {
+        "level": 3,
+        "text": "Hide N Seek",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Archery World Tour",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Build a Queen",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Tall Man Run",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Find Out",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Sword Play",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Hill Climb Racing Lite",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Attack Hole",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Parking Rush",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Race Master 3D",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Parking Jam",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Mob Control HTML5",
+        "selector": ".yt-mini-game-card-view-model__title"
+      },
+      {
+        "level": 3,
+        "text": "Time Is But a Stubborn Illusion - Sneak Peek | Genius",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "5 simple (but weird) ChatGPT-5 tricks to get a 10x better response",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Simple DIY Track Saw For Beginners",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "AI companies after realizing...",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Dem whistleblower makes bombshell allegations against Adam Schiff",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Grounded By Design 2025 Documentary. Full Movie. A Youtube exclusive on building Earthship Willunga.",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "Learn About Dinosaurs Part 1 | T-Rex, Triceratops and More | Educational Video for Kids",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      },
+      {
+        "level": 3,
+        "text": "aka Charlie Sheen | Official Trailer | Netflix",
+        "selector": ".yt-lockup-metadata-view-model-wiz__heading-reset"
+      }
+    ],
+    "sections": [],
+    "forms": [
+      {
+        "action": "https://www.youtube.com/results",
+        "method": "get",
+        "selector": ".ytSearchboxComponentSearchForm",
+        "inputs": [
+          {
+            "type": "text",
+            "name": "search_query",
+            "placeholder": "Search",
+            "required": false,
+            "selector": ".ytSearchboxComponentInput"
+          }
+        ]
+      }
+    ]
+  }
+}

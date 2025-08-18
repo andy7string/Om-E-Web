@@ -178,7 +178,7 @@ class PipelineTrigger:
         # Step 2: Wait for pipeline files to be created
         step2_start = time.time()
         print("\n⏳ Step 2: Waiting for pipeline files to be created...")
-        print("   (The server should auto-process and create [hostname]_processed.jsonl)")
+        print("   (The server should auto-process, create [hostname]_processed.jsonl, and optimize it)")
         
         # Wait a bit for server processing
         await asyncio.sleep(5)
@@ -318,7 +318,7 @@ async def main():
         if success:
             print("\n🎉 Pipeline completed successfully!")
             print("📁 Check the @site_structures folder for your processed file:")
-            print("   • [hostname]_processed.jsonl - LLM-optimized site map with FindMe IDs")
+            print("   • [hostname]_processed.jsonl - LLM-optimized site map with FindMe IDs (post-processed)")
         else:
             print("\n❌ Pipeline failed")
         
