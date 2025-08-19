@@ -16,14 +16,117 @@
  * Test Client → WebSocket Server → Chrome Extension → DOM → Response → Server → Test Client
  */
 
-// Utility function for async delays
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+// 🆕 NEW: Content Script Intelligence System v2.0
+console.log("[Content] 🚀 Content script loaded with intelligence system v2.0");
 
-// 🆕 NEW: DOM Change Detection System
-let domChangeObserver = null;
-let changeDetectionEnabled = false;
-let changeCount = 0;
-let lastChangeTime = 0;
+// 🆕 NEW: Guard against multiple initializations
+if (window.intelligenceSystemInitialized && window.intelligenceComponents && window.intelligenceComponents.changeAggregator && window.intelligenceComponents.intelligenceEngine) {
+    console.log("[Content] ⚠️ Intelligence system already initialized, reusing existing components...");
+    // Reuse existing components
+    changeAggregator = window.intelligenceComponents.changeAggregator;
+    intelligenceEngine = window.intelligenceComponents.intelligenceEngine;
+    pageContext = window.intelligenceComponents.pageContext || pageContext;
+} else {
+    window.intelligenceSystemInitialized = true;
+    console.log("[Content] 🧪 First time initialization, setting up intelligence system...");
+}
+
+// 🆕 NEW: DOM Change Detection System - Use 'var' to prevent redeclaration errors
+var domChangeObserver = null;
+var changeDetectionEnabled = false;
+var changeCount = 0;
+var lastChangeTime = 0;
+
+// 🆕 NEW: Intelligent Change Aggregation System
+var changeAggregator = null;
+var intelligenceEngine = null;
+var pageContext = null;
+var changeHistory = [];
+var lastIntelligenceUpdate = 0;
+var INTELLIGENCE_UPDATE_INTERVAL = 2000; // 2 seconds between intelligence updates
+
+// 🆕 NEW: Simple test to verify code is running
+console.log("[Content] 🧪 Testing intelligence system components...");
+console.log("[Content] 🧪 DOM change detection system:", { domChangeObserver, changeDetectionEnabled, changeCount });
+console.log("[Content] 🧪 Intelligence system variables:", { changeAggregator, intelligenceEngine, pageContext });
+
+// 🆕 NEW: Test event listener for debugging from page context
+document.addEventListener('testIntelligence', (event) => {
+    console.log("[Content] 🧪 Test event received:", event.detail);
+    
+    const command = event.detail?.command;
+    if (!command) {
+        console.log("[Content] 🧪 No command specified, running basic test");
+        console.log("[Content] 🧪 Intelligence system status:", {
+            changeAggregator: !!changeAggregator,
+            intelligenceEngine: !!intelligenceEngine,
+            pageContext: !!pageContext,
+            actionableElementsCount: intelligenceEngine?.actionableElements?.size || 0,
+            eventHistoryCount: intelligenceEngine?.eventHistory?.length || 0
+        });
+        return;
+    }
+    
+    // Handle specific commands
+    switch (command) {
+        case 'testIntelligenceSystem':
+            console.log("[Content] 🧪 Running intelligence system test...");
+            if (intelligenceEngine) {
+                const result = {
+                    changeAggregator: !!changeAggregator,
+                    intelligenceEngine: !!intelligenceEngine,
+                    pageContext: !!pageContext,
+                    actionableElementsCount: intelligenceEngine.actionableElements.size,
+                    eventHistoryCount: intelligenceEngine.eventHistory.length,
+                    timestamp: Date.now()
+                };
+                console.log("[Content] 🧪 Test result:", result);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
+        case 'getActionableElements':
+            console.log("[Content] 🧪 Getting actionable elements...");
+            if (intelligenceEngine) {
+                const elements = intelligenceEngine.getActionableElementsSummary();
+                console.log("[Content] 🧪 Actionable elements:", elements);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
+        case 'scanElements':
+            console.log("[Content] 🧪 Scanning page elements...");
+            if (intelligenceEngine) {
+                const result = intelligenceEngine.scanAndRegisterPageElements();
+                console.log("[Content] 🧪 Scan result:", result);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
+        case 'getDOMStatus':
+            console.log("[Content] 🧪 Getting DOM change detection status...");
+            const domStatus = {
+                changeDetectionEnabled: changeDetectionEnabled,
+                changeCount: changeCount,
+                lastChangeTime: lastChangeTime,
+                domChangeObserver: !!domChangeObserver,
+                observerActive: domChangeObserver ? domChangeObserver.takeRecords().length >= 0 : false
+            };
+            console.log("[Content] 🧪 DOM status:", domStatus);
+            break;
+            
+        default:
+            console.log("[Content] 🧪 Unknown command:", command);
+    }
+});
+
+console.log("[Content] 🧪 Test event listener added - use document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testIntelligenceSystem'}}))");
+
+// Utility function for async delays
+var sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 /**
  * 🆕 NEW: Initialize DOM change detection
@@ -32,6 +135,12 @@ let lastChangeTime = 0;
  * including new elements, attribute changes, and content modifications.
  */
 function initializeDOMChangeDetection() {
+    // Guard against multiple initializations
+    if (window.domChangeDetectionInitialized && domChangeObserver) {
+        console.log("[Content] ⚠️ DOM change detection already initialized, skipping...");
+        return;
+    }
+    
     try {
         console.log("[Content] 🆕 Initializing DOM change detection...");
         
@@ -124,6 +233,33 @@ function initializeDOMChangeDetection() {
                     totalMutations: mutations.length
                 });
                 
+                // 🆕 ENHANCED: Route changes through intelligence system with debug logging
+                if (changeAggregator && intelligenceEngine) {
+                    console.log("[Content] 🧠 Routing changes through intelligence system...");
+                    
+                    mutations.forEach(mutation => {
+                        const changeInfo = {
+                            type: mutation.type,
+                            target: mutation.target?.tagName || 'unknown',
+                            mutations: 1,
+                            timestamp: lastChangeTime,
+                            addedNodes: mutation.addedNodes?.length || 0,
+                            removedNodes: mutation.removedNodes?.length || 0,
+                            attributeName: mutation.attributeName || null
+                        };
+                        
+                        console.log("[Content] 🧠 Processing change:", changeInfo);
+                        changeAggregator.addChange(changeInfo);
+                    });
+                    
+                    console.log("[Content] 🧠 Changes queued for intelligence processing");
+                } else {
+                    console.warn("[Content] ⚠️ Intelligence system not ready:", {
+                        changeAggregator: !!changeAggregator,
+                        intelligenceEngine: !!intelligenceEngine
+                    });
+                }
+                
                 // 🆕 NEW: Notify service worker about DOM changes
                 notifyServiceWorkerOfChanges({
                     changeNumber: changeCount,
@@ -135,31 +271,22 @@ function initializeDOMChangeDetection() {
             }
         });
         
-        // Start observing with comprehensive settings
         const observerConfig = {
-            childList: true,        // Watch for new/removed elements
-            subtree: true,          // Watch entire DOM tree
-            attributes: true,       // Watch attribute changes
-            attributeFilter: ['class', 'style', 'data-*', 'aria-*'], // Focus on important attributes
-            characterData: true,    // Watch text content changes
-            characterDataOldValue: false // Don't store old values for performance
+            childList: true, subtree: true, attributes: true,
+            attributeFilter: ['class', 'style', 'data-*', 'aria-*'],
+            characterData: true, characterDataOldValue: false
         };
         
         domChangeObserver.observe(document.body, observerConfig);
         changeDetectionEnabled = true;
         
-        console.log("[Content] ✅ DOM change detection active with config:", observerConfig);
+        // Mark as initialized
+        window.domChangeDetectionInitialized = true;
         
-        // Log initial state
-        console.log("[Content] 📊 DOM change detection initialized:", {
-            url: window.location.href,
-            timestamp: new Date().toISOString(),
-            observerActive: true
-        });
+        console.log("[Content] ✅ DOM change detection active with config:", observerConfig);
         
     } catch (error) {
         console.error("[Content] ❌ Failed to initialize DOM change detection:", error);
-        changeDetectionEnabled = false;
     }
 }
 
@@ -233,7 +360,7 @@ function enableDOMChangeDetection() {
  * @param {Element} element - DOM element to check
  * @returns {boolean} - True if element is visible
  */
-const visible = (element) => {
+var visible = (element) => {
     if (!element) return false;
     
     const rect = element.getBoundingClientRect();
@@ -730,6 +857,100 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 console.log("[Content] clearHistory command - params:", params);
                 const result = clearHistory(params);
                 console.log("[Content] clearHistory result:", result);
+                return sendResponse(result);
+            }
+            
+            // 🆕 NEW: Intelligence System Commands
+            if (command === "getIntelligenceStatus") {
+                console.log("[Content] getIntelligenceStatus command - no params needed");
+                const result = {
+                    pageContext: pageContext,
+                    pageState: intelligenceEngine?.pageState || null,
+                    recentInsights: intelligenceEngine?.llmInsights.slice(-10) || [], // Last 10 insights
+                    totalEvents: intelligenceEngine?.eventHistory.length || 0,
+                    recommendations: intelligenceEngine?.getCurrentRecommendations() || [],
+                    timestamp: Date.now()
+                };
+                console.log("[Content] getIntelligenceStatus result:", result);
+                return sendResponse(result);
+            }
+            
+            if (command === "getCurrentPageIntelligence") {
+                console.log("[Content] getCurrentPageIntelligence command - no params needed");
+                const result = {
+                    url: window.location.href,
+                    title: document.title,
+                    currentView: intelligenceEngine?.pageState.currentView || 'unknown',
+                    navigationState: intelligenceEngine?.pageState.navigationState || 'unknown',
+                    interactiveElementsCount: intelligenceEngine?.pageState.interactiveElements.length || 0,
+                    lastUpdate: intelligenceEngine?.pageState.lastUpdate || 0,
+                    recommendations: intelligenceEngine?.getCurrentRecommendations() || [],
+                    timestamp: Date.now()
+                };
+                console.log("[Content] getCurrentPageIntelligence result:", result);
+                return sendResponse(result);
+            }
+            
+            // 🆕 NEW: Get actionable elements for LLM instructions
+            if (command === "getActionableElements") {
+                console.log("[Content] getActionableElements command - no params needed");
+                const result = {
+                    actionableElements: intelligenceEngine?.getActionableElementsSummary() || [],
+                    actionMapping: intelligenceEngine?.generateActionMapping() || {},
+                    totalElements: intelligenceEngine?.actionableElements.size || 0,
+                    timestamp: Date.now()
+                };
+                console.log("[Content] getActionableElements result:", result);
+                return sendResponse(result);
+            }
+            
+            // 🆕 NEW: Execute action on element by ID
+            if (command === "executeAction") {
+                const { actionId, action, params = {} } = message;
+                console.log("[Content] executeAction command:", { actionId, action, params });
+                
+                if (!actionId || !action) {
+                    return sendResponse({ success: false, error: "Missing actionId or action" });
+                }
+                
+                try {
+                    const result = intelligenceEngine?.executeAction(actionId, action, params);
+                    console.log("[Content] executeAction result:", result);
+                    return sendResponse(result);
+                } catch (error) {
+                    console.error("[Content] executeAction error:", error);
+                    return sendResponse({ success: false, error: error.message });
+                }
+            }
+            
+            // 🆕 NEW: Scan page and register all interactive elements
+            if (command === "scanAndRegisterElements") {
+                console.log("[Content] scanAndRegisterElements command - no params needed");
+                
+                try {
+                    const result = intelligenceEngine?.scanAndRegisterPageElements();
+                    console.log("[Content] scanAndRegisterElements result:", result);
+                    return sendResponse(result);
+                } catch (error) {
+                    console.error("[Content] scanAndRegisterElements error:", error);
+                    return sendResponse({ success: false, error: error.message });
+                }
+            }
+            
+            // 🆕 NEW: Test intelligence system status
+            if (command === "testIntelligenceSystem") {
+                console.log("[Content] testIntelligenceSystem command - no params needed");
+                
+                const result = {
+                    changeAggregator: !!changeAggregator,
+                    intelligenceEngine: !!intelligenceEngine,
+                    pageContext: !!pageContext,
+                    actionableElementsCount: intelligenceEngine?.actionableElements.size || 0,
+                    eventHistoryCount: intelligenceEngine?.eventHistory.length || 0,
+                    timestamp: Date.now()
+                };
+                
+                console.log("[Content] testIntelligenceSystem result:", result);
                 return sendResponse(result);
             }
             
@@ -1775,9 +1996,9 @@ function generateRecommendedActions(actionMap) {
  */
 
 // Global history tracking
-let navigationHistory = [];
-let currentHistoryIndex = -1;
-let isHistoryTrackingEnabled = true;
+var navigationHistory = [];
+var currentHistoryIndex = -1;
+var isHistoryTrackingEnabled = true;
 
 /**
  * 🧭 Initialize history tracking
@@ -1786,6 +2007,12 @@ let isHistoryTrackingEnabled = true;
  * browser navigation changes.
  */
 function initializeHistoryTracking() {
+    // Guard against multiple initializations
+    if (window.historyTrackingInitialized) {
+        console.log("[Content] ⚠️ History tracking already initialized, skipping...");
+        return;
+    }
+    
     console.log("[Content] History tracking initialized");
     
     // Add current page to history if not already there
@@ -1810,6 +2037,9 @@ function initializeHistoryTracking() {
         originalReplaceState.apply(history, args);
         handleProgrammaticNavigation();
     };
+    
+    // Mark as initialized
+    window.historyTrackingInitialized = true;
     
     console.log("[Content] History tracking active for:", currentUrl);
 }
@@ -2148,15 +2378,924 @@ function clearHistory(options = {}) {
     };
 }
 
+/**
+ * 🆕 NEW: Intelligent Change Aggregation System
+ * 
+ * This system transforms raw DOM changes into meaningful intelligence events
+ * that are optimized for LLM consumption and provide actionable insights.
+ */
+
+/**
+ * 🧠 Change Aggregator - Groups related changes into meaningful events
+ */
+var ChangeAggregator = function() {
+    this.pendingChanges = [];
+    this.changeGroups = new Map();
+    this.lastProcessedTime = 0;
+    this.groupingTimeout = 500; // Group changes within 500ms
+};
+
+ChangeAggregator.prototype.addChange = function(change) {
+    console.log("[Content] 🧠 ChangeAggregator: Adding change:", change);
+    this.pendingChanges.push(change);
+    this.scheduleProcessing();
+};
+
+ChangeAggregator.prototype.scheduleProcessing = function() {
+    if (this.processingScheduled) return;
+    
+    console.log("[Content] 🧠 ChangeAggregator: Scheduling processing...");
+    this.processingScheduled = true;
+    var self = this;
+    setTimeout(function() {
+        self.processChanges();
+        self.processingScheduled = false;
+    }, this.groupingTimeout);
+};
+
+ChangeAggregator.prototype.processChanges = function() {
+    if (this.pendingChanges.length === 0) return;
+    
+    console.log("[Content] 🧠 ChangeAggregator: Processing", this.pendingChanges.length, "changes...");
+    
+    var changes = [...this.pendingChanges];
+    this.pendingChanges = [];
+    
+    // Group changes by type and target
+    var groups = this.groupChanges(changes);
+    console.log("[Content] 🧠 ChangeAggregator: Created", groups.length, "change groups");
+    
+    // Generate intelligence events for each group
+    var self = this;
+    groups.forEach(function(group, index) {
+        var event = self.generateIntelligenceEvent(group);
+        if (event) {
+            console.log("[Content] 🧠 ChangeAggregator: Generated intelligence event", index + 1, ":", event);
+            intelligenceEngine.processEvent(event);
+        }
+    });
+    
+    console.log("[Content] 🧠 ChangeAggregator: Processing complete");
+};
+
+ChangeAggregator.prototype.groupChanges = function(changes) {
+    var groups = new Map();
+    
+    var self = this;
+    changes.forEach(function(change) {
+        var key = self.getChangeGroupKey(change);
+        if (!groups.has(key)) {
+            groups.set(key, []);
+        }
+        groups.get(key).push(change);
+    });
+    
+    return Array.from(groups.values());
+};
+
+ChangeAggregator.prototype.getChangeGroupKey = function(change) {
+    var target = change.target || 'unknown';
+    var type = change.type || 'unknown';
+    var timestamp = Math.floor(change.timestamp / 1000); // Group by second
+    
+    return target + '_' + type + '_' + timestamp;
+};
+
+ChangeAggregator.prototype.generateIntelligenceEvent = function(changeGroup) {
+    if (changeGroup.length === 0) return null;
+    
+    var firstChange = changeGroup[0];
+    var changeTypes = [...new Set(changeGroup.map(function(c) { return c.type; }))];
+    var totalMutations = changeGroup.reduce(function(sum, c) { return sum + (c.mutations || 1); }, 0);
+    
+    // Determine event type based on change patterns
+    var eventType = this.determineEventType(changeGroup);
+    
+    return {
+        eventType: eventType,
+        timestamp: Date.now(),
+        changeCount: changeGroup.length,
+        changeTypes: changeTypes,
+        totalMutations: totalMutations,
+        target: firstChange.target,
+        changes: changeGroup,
+        semanticSummary: this.generateSemanticSummary(changeGroup, eventType)
+    };
+};
+
+ChangeAggregator.prototype.determineEventType = function(changeGroup) {
+    var types = changeGroup.map(function(c) { return c.type; });
+    var hasChildList = types.includes('childList');
+    var hasAttributes = types.includes('attributes');
+    var hasCharacterData = types.includes('characterData');
+    
+    if (hasChildList && hasAttributes) return 'element_transformation';
+    if (hasChildList) return 'structure_change';
+    if (hasAttributes) return 'state_change';
+    if (hasCharacterData) return 'content_update';
+    
+    return 'general_change';
+};
+
+ChangeAggregator.prototype.generateSemanticSummary = function(changeGroup, eventType) {
+    var firstChange = changeGroup[0];
+    
+    switch (eventType) {
+        case 'structure_change':
+            return 'Page structure modified: ' + changeGroup.length + ' new elements added/removed';
+        case 'state_change':
+            return 'Element state updated: ' + changeGroup.length + ' attribute changes detected';
+        case 'content_update':
+            return 'Content modified: ' + changeGroup.length + ' text/content changes';
+        case 'element_transformation':
+            return 'Element transformed: structure and state changes detected';
+        default:
+            return 'Multiple changes detected: ' + changeGroup.length + ' modifications';
+    }
+};
+
+/**
+ * 🧠 Intelligence Engine - Analyzes changes and generates LLM insights
+ */
+var IntelligenceEngine = function() {
+    this.pageState = {
+        currentView: 'unknown',
+        interactiveElements: [],
+        navigationState: 'unknown',
+        contentSections: [],
+        lastUpdate: Date.now()
+    };
+    this.eventHistory = [];
+    this.llmInsights = [];
+    this.actionableElements = new Map(); // 🆕 NEW: Map of actionable elements with IDs
+    this.elementCounter = 0; // 🆕 NEW: Counter for generating unique IDs
+};
+
+/**
+ * Process an intelligence event
+ */
+IntelligenceEngine.prototype.processEvent = function(event) {
+    console.log("[Content] 🧠 IntelligenceEngine: Processing event:", event);
+    
+    this.eventHistory.push(event);
+    this.updatePageState(event);
+    this.generateLLMInsights(event);
+    
+    console.log("[Content] 🧠 IntelligenceEngine: Event processed, sending update...");
+    
+    // Send intelligence update to service worker
+    this.sendIntelligenceUpdate();
+};
+
+/**
+ * Update page state based on event
+ */
+IntelligenceEngine.prototype.updatePageState = function(event) {
+    this.pageState.lastUpdate = Date.now();
+    
+    switch (event.eventType) {
+        case 'structure_change':
+            this.analyzeStructureChanges(event);
+            break;
+        case 'state_change':
+            this.analyzeStateChanges(event);
+            break;
+        case 'content_update':
+            this.analyzeContentChanges(event);
+            break;
+        case 'element_transformation':
+            this.analyzeElementTransformation(event);
+            break;
+    }
+};
+
+/**
+ * Analyze structure changes (new elements, navigation, etc.)
+ */
+IntelligenceEngine.prototype.analyzeStructureChanges = function(event) {
+    const newElements = event.changes
+        .filter(c => c.type === 'childList' && c.addedNodes)
+        .flatMap(c => Array.from(c.addedNodes))
+        .filter(node => node.nodeType === Node.ELEMENT_NODE);
+    
+    if (newElements.length > 0) {
+        // 🆕 ENHANCED: Register new interactive elements with actionable IDs
+        newElements.forEach(element => {
+            if (this.isInteractiveElement(element)) {
+                const actionType = this.determineActionType(element);
+                const actionId = this.registerActionableElement(element, actionType);
+                
+                console.log("[Content] 🆕 New actionable element registered:", {
+                    actionId: actionId,
+                    tagName: element.tagName,
+                    actionType: actionType,
+                    textContent: element.textContent?.trim().substring(0, 30) || '',
+                    selectors: this.actionableElements.get(actionId)?.selectors || []
+                });
+            }
+        });
+        
+        // Update interactive elements count
+        this.pageState.interactiveElements = this.getAllActionableElements();
+        
+        // Check for navigation changes
+        const navElements = newElements.filter(el => 
+            el.tagName === 'NAV' || el.getAttribute('role') === 'navigation'
+        );
+        
+        if (navElements.length > 0) {
+            this.pageState.navigationState = 'expanded';
+            
+            // Register navigation elements as actionable
+            navElements.forEach(nav => {
+                const actionId = this.registerActionableElement(nav, 'navigation');
+                console.log("[Content] 🧭 Navigation element registered:", actionId);
+            });
+        }
+    }
+};
+
+/**
+ * 🆕 NEW: Determine if an element is interactive
+ */
+IntelligenceEngine.prototype.isInteractiveElement = function(element) {
+    if (!element || !element.tagName) return false;
+    
+    const interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA'];
+    const interactiveRoles = ['button', 'link', 'menuitem', 'tab', 'checkbox', 'radio'];
+    
+    // Check tag name
+    if (interactiveTags.includes(element.tagName)) return true;
+    
+    // Check role attribute
+    const role = element.getAttribute('role');
+    if (role && interactiveRoles.includes(role)) return true;
+    
+    // Check for click handlers or interactive classes
+    const className = element.className || '';
+    const interactiveClasses = ['btn', 'button', 'clickable', 'interactive', 'link'];
+    if (interactiveClasses.some(cls => className.toLowerCase().includes(cls))) return true;
+    
+    // Check for event listeners (basic check)
+    if (element.onclick || element.onmousedown || element.onmouseup) return true;
+    
+    return false;
+};
+
+/**
+ * 🆕 NEW: Determine the action type for an element
+ */
+IntelligenceEngine.prototype.determineActionType = function(element) {
+    if (!element || !element.tagName) return 'general';
+    
+    const tagName = element.tagName.toLowerCase();
+    const role = element.getAttribute('role');
+    const type = element.getAttribute('type');
+    
+    // Button actions
+    if (tagName === 'button' || role === 'button') {
+        return 'click';
+    }
+    
+    // Link actions
+    if (tagName === 'a' || role === 'link') {
+        return 'navigate';
+    }
+    
+    // Input actions
+    if (tagName === 'input') {
+        if (type === 'submit') return 'submit';
+        if (type === 'button') return 'click';
+        return 'input';
+    }
+    
+    // Form actions
+    if (tagName === 'form') return 'submit';
+    
+    // Navigation actions
+    if (tagName === 'nav' || role === 'navigation') return 'navigation';
+    
+    // Menu actions
+    if (role === 'menuitem') return 'menu';
+    
+    // Tab actions
+    if (role === 'tab') return 'tab';
+    
+    return 'general';
+};
+
+/**
+ * Analyze state changes (attributes, classes, etc.)
+ */
+IntelligenceEngine.prototype.analyzeStateChanges = function(event) {
+    const stateChanges = event.changes.filter(c => c.type === 'attributes');
+    
+    stateChanges.forEach(change => {
+        if (change.attributeName === 'class') {
+            // Check for significant class changes
+            const element = change.target;
+            if (element) {
+                this.analyzeClassChanges(element, change);
+            }
+        }
+    });
+};
+
+/**
+ * Analyze class changes for semantic meaning
+ */
+IntelligenceEngine.prototype.analyzeClassChanges = function(element, change) {
+    const className = element.className || '';
+    
+    // Check for common UI state indicators
+    if (className.includes('expanded') || className.includes('open')) {
+        this.pageState.navigationState = 'expanded';
+    } else if (className.includes('collapsed') || className.includes('closed')) {
+        this.pageState.navigationState = 'collapsed';
+    }
+    
+    // Check for visibility changes
+    if (className.includes('hidden') || className.includes('invisible')) {
+        this.pageState.currentView = 'content_hidden';
+    } else if (className.includes('visible') || className.includes('active')) {
+        this.pageState.currentView = 'content_visible';
+    }
+};
+
+/**
+ * Analyze content changes
+ */
+IntelligenceEngine.prototype.analyzeContentChanges = function(event) {
+    const contentChanges = event.changes.filter(c => c.type === 'characterData');
+    
+    if (contentChanges.length > 0) {
+        this.pageState.currentView = 'content_updated';
+    }
+};
+
+/**
+ * Analyze element transformations
+ */
+IntelligenceEngine.prototype.analyzeElementTransformation = function(event) {
+    // Complex changes that affect both structure and state
+    this.pageState.currentView = 'transforming';
+};
+
+/**
+ * Generate LLM insights from event
+ */
+IntelligenceEngine.prototype.generateLLMInsights = function(event) {
+    const insight = {
+        timestamp: Date.now(),
+        eventType: event.eventType,
+        summary: event.semanticSummary,
+        actionableInsights: this.generateActionableInsights(event),
+        pageContext: this.getPageContext(),
+        recommendations: this.generateRecommendations(event)
+    };
+    
+    this.llmInsights.push(insight);
+};
+
+/**
+ * Generate actionable insights for the LLM
+ */
+IntelligenceEngine.prototype.generateActionableInsights = function(event) {
+    const insights = [];
+    
+    switch (event.eventType) {
+        case 'structure_change':
+            insights.push('New interactive elements may be available');
+            insights.push('Page structure has changed - consider rescanning');
+            break;
+        case 'state_change':
+            insights.push('Element states have changed');
+            insights.push('UI may be in different mode/state');
+            break;
+        case 'content_update':
+            insights.push('Page content has been modified');
+            insights.push('Consider extracting updated information');
+            break;
+        case 'element_transformation':
+            insights.push('Complex changes detected - page may be in transition');
+            insights.push('Wait for changes to complete before acting');
+            break;
+    }
+    
+    return insights;
+};
+
+/**
+ * Get current page context
+ */
+IntelligenceEngine.prototype.getPageContext = function() {
+    return {
+        url: window.location.href,
+        title: document.title,
+        currentView: this.pageState.currentView,
+        navigationState: this.pageState.navigationState,
+        interactiveElementsCount: this.pageState.interactiveElements.length,
+        lastUpdate: this.pageState.lastUpdate
+    };
+};
+
+/**
+ * Generate recommendations for the LLM
+ */
+IntelligenceEngine.prototype.generateRecommendations = function(event) {
+    const recommendations = [];
+    
+    if (event.eventType === 'structure_change') {
+        recommendations.push('immediate_rescan');
+    } else if (event.eventType === 'state_change') {
+        recommendations.push('check_element_states');
+    } else if (event.eventType === 'content_update') {
+        recommendations.push('extract_updated_content');
+    }
+    
+    return recommendations;
+};
+
+/**
+ * Send intelligence update to service worker
+ */
+IntelligenceEngine.prototype.sendIntelligenceUpdate = function() {
+    const update = {
+        type: "intelligence_update",
+        timestamp: Date.now(),
+        pageState: this.pageState,
+        recentInsights: this.llmInsights.slice(-5), // Last 5 insights
+        totalEvents: this.eventHistory.length,
+        recommendations: this.getCurrentRecommendations(),
+        // 🆕 NEW: Actionable elements for LLM instructions
+        actionableElements: this.getActionableElementsSummary(),
+        actionMapping: this.generateActionMapping()
+    };
+    
+    console.log("[Content] 🧠 IntelligenceEngine: Preparing update:", {
+        type: update.type,
+        totalEvents: update.totalEvents,
+        actionableElements: update.actionableElements.length,
+        recommendations: update.recommendations
+    });
+    
+    try {
+        chrome.runtime.sendMessage(update);
+        console.log("[Content] 🧠 Intelligence update sent to service worker");
+    } catch (error) {
+        console.warn("[Content] Failed to send intelligence update:", error.message);
+    }
+};
+
+/**
+ * 🆕 NEW: Get summary of actionable elements for LLM
+ */
+IntelligenceEngine.prototype.getActionableElementsSummary = function() {
+    const elements = this.getAllActionableElements();
+    
+    return elements.map(element => ({
+        actionId: element.id,
+        actionType: element.actionType,
+        tagName: element.tagName,
+        textContent: element.textContent,
+        selectors: element.selectors,
+        attributes: element.attributes,
+        timestamp: element.timestamp
+    }));
+};
+
+/**
+ * 🆕 NEW: Generate action mapping for LLM instructions
+ */
+IntelligenceEngine.prototype.generateActionMapping = function() {
+    const mapping = {};
+    const elements = this.getAllActionableElements();
+    
+    elements.forEach(element => {
+        mapping[element.id] = {
+            action: element.actionType,
+            selectors: element.selectors,
+            description: `${element.tagName} element: ${element.textContent}`,
+            availableActions: this.getAvailableActions(element.actionType)
+        };
+    });
+    
+    return mapping;
+};
+
+/**
+ * 🆕 NEW: Get available actions for an element type
+ */
+IntelligenceEngine.prototype.getAvailableActions = function(actionType) {
+    const actionMap = {
+        'click': ['click', 'hover', 'focus', 'doubleClick'],
+        'navigate': ['click', 'getHref', 'getText'],
+        'input': ['type', 'clear', 'getValue', 'setValue', 'focus'],
+        'submit': ['click', 'submit', 'validate'],
+        'navigation': ['expand', 'collapse', 'getItems'],
+        'menu': ['click', 'expand', 'getOptions'],
+        'tab': ['click', 'activate', 'getContent'],
+        'general': ['click', 'getText', 'getAttributes']
+    };
+    
+    return actionMap[actionType] || ['click', 'getText'];
+};
+
+/**
+ * Get current recommendations based on page state
+ */
+IntelligenceEngine.prototype.getCurrentRecommendations = function() {
+    const recommendations = [];
+    
+    if (this.pageState.navigationState === 'expanded') {
+        recommendations.push('navigation_expanded');
+    }
+    
+    if (this.pageState.currentView === 'content_updated') {
+        recommendations.push('content_updated');
+    }
+    
+    if (this.pageState.interactiveElements.length > 0) {
+        recommendations.push('new_interactive_elements');
+    }
+    
+    return recommendations;
+};
+
+/**
+ * 🆕 NEW: Generate unique actionable identifier for an element
+ */
+IntelligenceEngine.prototype.generateActionableId = function(element, actionType = 'general') {
+    const tagName = element.tagName?.toLowerCase() || 'unknown';
+    const className = element.className || '';
+    const textContent = element.textContent?.trim().substring(0, 20) || '';
+    
+    // Create a unique ID based on element properties
+    const uniqueId = `action_${actionType}_${tagName}_${this.elementCounter++}`;
+    
+    // Generate multiple selectors for reliability
+    const selectors = this.generateElementSelectors(element);
+    
+    return {
+        id: uniqueId,
+        tagName: tagName,
+        actionType: actionType,
+        selectors: selectors,
+        textContent: textContent,
+        className: className,
+        attributes: this.extractKeyAttributes(element),
+        timestamp: Date.now()
+    };
+};
+
+/**
+ * 🆕 NEW: Generate multiple selector strategies for an element
+ */
+IntelligenceEngine.prototype.generateElementSelectors = function(element) {
+    const selectors = [];
+    
+    try {
+        // Strategy 1: ID selector (most reliable)
+        if (element.id) {
+            selectors.push(`#${element.id}`);
+        }
+        
+        // Strategy 2: Data attributes
+        const dataAttrs = Array.from(element.attributes)
+            .filter(attr => attr.name.startsWith('data-'))
+            .map(attr => `[${attr.name}="${attr.value}"]`);
+        selectors.push(...dataAttrs);
+        
+        // Strategy 3: Class-based selector
+        if (element.className) {
+            const classes = element.className.split(' ').filter(c => c.trim());
+            if (classes.length > 0) {
+                selectors.push(`.${classes[0]}`);
+            }
+        }
+        
+        // Strategy 4: Tag + class combination
+        if (element.tagName && element.className) {
+            const firstClass = element.className.split(' ')[0];
+            if (firstClass) {
+                selectors.push(`${element.tagName.toLowerCase()}.${firstClass}`);
+            }
+        }
+        
+        // Strategy 5: Position-based selector (fallback)
+        const positionSelector = this.generatePositionSelector(element);
+        if (positionSelector) {
+            selectors.push(positionSelector);
+        }
+        
+    } catch (error) {
+        console.warn("[Content] Error generating selectors:", error.message);
+    }
+    
+    return selectors;
+};
+
+/**
+ * 🆕 NEW: Generate position-based selector as fallback
+ */
+IntelligenceEngine.prototype.generatePositionSelector = function(element) {
+    try {
+        const parent = element.parentElement;
+        if (!parent) return null;
+        
+        const siblings = Array.from(parent.children);
+        const index = siblings.indexOf(element);
+        
+        if (index >= 0) {
+            return `${parent.tagName.toLowerCase()}:nth-child(${index + 1})`;
+        }
+    } catch (error) {
+        console.warn("[Content] Error generating position selector:", error.message);
+    }
+    return null;
+};
+
+/**
+ * 🆕 NEW: Extract key attributes for action identification
+ */
+IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
+    const attributes = {};
+    const keyAttrs = ['id', 'name', 'type', 'role', 'aria-label', 'title', 'alt'];
+    
+    keyAttrs.forEach(attr => {
+        const value = element.getAttribute(attr);
+        if (value) {
+            attributes[attr] = value;
+        }
+    });
+    
+    return attributes;
+};
+
+/**
+ * 🆕 NEW: Register an element as actionable
+ */
+IntelligenceEngine.prototype.registerActionableElement = function(element, actionType = 'general') {
+    const actionableId = this.generateActionableId(element, actionType);
+    this.actionableElements.set(actionableId.id, actionableId);
+    
+    // Add to page state
+    this.pageState.interactiveElements.push({
+        ...actionableId,
+        element: element
+    });
+    
+    return actionableId.id;
+};
+
+/**
+ * 🆕 NEW: Get actionable element by ID
+ */
+IntelligenceEngine.prototype.getActionableElement = function(actionId) {
+    return this.actionableElements.get(actionId);
+};
+
+/**
+ * 🆕 NEW: Get all actionable elements
+ */
+IntelligenceEngine.prototype.getAllActionableElements = function() {
+    return Array.from(this.actionableElements.values());
+};
+
+/**
+ * 🆕 NEW: Execute action on element by ID
+ */
+IntelligenceEngine.prototype.executeAction = function(actionId, action, params = {}) {
+    const actionableElement = this.getActionableElement(actionId);
+    if (!actionableElement) {
+        return { success: false, error: "Element not found" };
+    }
+    
+    try {
+        // Use the first available selector
+        const selector = actionableElement.selectors[0];
+        if (!selector) {
+            return { success: false, error: "No valid selector found for element" };
+        }
+        
+        // Find the actual DOM element
+        const element = document.querySelector(selector);
+        if (!element) {
+            return { success: false, error: "Element not found in DOM with selector: " + selector };
+        }
+        
+        let result;
+        switch (action) {
+            case 'click':
+                element.click();
+                result = { success: true, action: 'click', elementId: actionId, message: 'Element clicked successfully' };
+                break;
+                
+            case 'getText':
+                result = { 
+                    success: true, 
+                    action: 'getText', 
+                    elementId: actionId, 
+                    text: element.textContent?.trim() || '',
+                    selector: selector
+                };
+                break;
+                
+            case 'getHref':
+                const href = element.href || element.getAttribute('href');
+                result = { 
+                    success: true, 
+                    action: 'getHref', 
+                    elementId: actionId, 
+                    href: href,
+                    selector: selector
+                };
+                break;
+                
+            case 'getValue':
+                const value = element.value || element.textContent?.trim() || '';
+                result = { 
+                    success: true, 
+                    action: 'getValue', 
+                    elementId: actionId, 
+                    value: value,
+                    selector: selector
+                };
+                break;
+                
+            case 'setValue':
+                if (element.value !== undefined) {
+                    element.value = params.value || '';
+                    result = { 
+                        success: true, 
+                        action: 'setValue', 
+                        elementId: actionId, 
+                        value: element.value,
+                        selector: selector
+                    };
+                } else {
+                    result = { success: false, error: "Element does not support setValue" };
+                }
+                break;
+                
+            case 'focus':
+                element.focus();
+                result = { success: true, action: 'focus', elementId: actionId, message: 'Element focused successfully' };
+                break;
+                
+            default:
+                result = { success: false, error: `Unsupported action: ${action}` };
+        }
+        
+        console.log("[Content] 🎯 Action executed:", { actionId, action, result });
+        return result;
+        
+    } catch (error) {
+        console.error("[Content] Error executing action:", error);
+        return { success: false, error: error.message, actionId, action };
+    }
+};
+
+/**
+ * 🆕 NEW: Scan page and register all existing interactive elements
+ */
+IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
+    try {
+        console.log("[Content] 🔍 Scanning page for interactive elements...");
+        
+        // Clear existing elements
+        this.actionableElements.clear();
+        this.elementCounter = 0;
+        
+        // Find all interactive elements
+        const interactiveSelectors = [
+            'a', 'button', 'input', 'select', 'textarea',
+            '[role="button"]', '[role="link"]', '[role="menuitem"]',
+            '[role="tab"]', '[role="checkbox"]', '[role="radio"]',
+            '.btn', '.button', '.clickable', '.interactive'
+        ];
+        
+        const elements = document.querySelectorAll(interactiveSelectors.join(','));
+        console.log("[Content] 🔍 Found", elements.length, "interactive elements");
+        
+        // Register each element
+        elements.forEach(element => {
+            if (this.isInteractiveElement(element)) {
+                const actionType = this.determineActionType(element);
+                const actionId = this.registerActionableElement(element, actionType);
+                
+                console.log("[Content] 📝 Registered element:", {
+                    actionId: actionId,
+                    tagName: element.tagName,
+                    actionType: actionType,
+                    textContent: element.textContent?.trim().substring(0, 30) || ''
+                });
+            }
+        });
+        
+        // Update page state
+        this.pageState.interactiveElements = this.getAllActionableElements();
+        
+        const result = {
+            success: true,
+            totalElements: this.actionableElements.size,
+            actionableElements: this.getActionableElementsSummary(),
+            actionMapping: this.generateActionMapping(),
+            message: `Successfully registered ${this.actionableElements.size} interactive elements`
+        };
+        
+        console.log("[Content] ✅ Page scan complete:", result);
+        return result;
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error scanning page:", error);
+        return { success: false, error: error.message };
+    }
+};
+
 // Initialize history tracking when content script loads
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
+        console.log("[Content] 🚀 DOMContentLoaded event fired, initializing systems...");
         initializeHistoryTracking();
         // 🆕 NEW: Initialize DOM change detection
         initializeDOMChangeDetection();
+        
+        // 🆕 NEW: Initialize intelligence system
+        initializeIntelligenceSystem();
     });
 } else {
+    console.log("[Content] 🚀 Document already loaded, initializing systems immediately...");
     initializeHistoryTracking();
     // 🆕 NEW: Initialize DOM change detection
     initializeDOMChangeDetection();
+    
+    // 🆕 NEW: Initialize intelligence system
+    initializeIntelligenceSystem();
+}
+
+/**
+ * 🆕 NEW: Initialize the intelligence system
+ */
+function initializeIntelligenceSystem() {
+    console.log("[Content] 🧠 initializeIntelligenceSystem() called");
+    
+    // Guard against multiple initializations
+    if (window.intelligenceComponents && window.intelligenceComponents.changeAggregator && window.intelligenceComponents.intelligenceEngine) {
+        console.log("[Content] ⚠️ Intelligence components already exist, reusing...");
+        changeAggregator = window.intelligenceComponents.changeAggregator;
+        intelligenceEngine = window.intelligenceComponents.intelligenceEngine;
+        pageContext = window.intelligenceComponents.pageContext || pageContext;
+        console.log("[Content] ✅ Components reused:", { changeAggregator: !!changeAggregator, intelligenceEngine: !!intelligenceEngine });
+        return;
+    }
+    
+    try {
+        console.log("[Content] 🧠 Initializing intelligence system...");
+        
+        // Initialize components
+        console.log("[Content] 🧠 Creating ChangeAggregator...");
+        changeAggregator = new ChangeAggregator();
+        console.log("[Content] 🧠 Creating IntelligenceEngine...");
+        intelligenceEngine = new IntelligenceEngine();
+        
+        console.log("[Content] 🧠 Components created:", {
+            changeAggregator: changeAggregator !== null,
+            intelligenceEngine: intelligenceEngine !== null
+        });
+        
+        // Initialize page context
+        pageContext = {
+            url: window.location.href,
+            title: document.title,
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent
+        };
+        
+        // Store components globally to prevent recreation
+        window.intelligenceComponents = {
+            changeAggregator: changeAggregator,
+            intelligenceEngine: intelligenceEngine,
+            pageContext: pageContext
+        };
+        
+        console.log("[Content] ✅ Intelligence system initialized:", {
+            changeAggregator: changeAggregator !== null,
+            intelligenceEngine: intelligenceEngine !== null,
+            pageContext: pageContext
+        });
+        
+        // 🆕 NEW: Scan existing elements on page load
+        setTimeout(() => {
+            if (intelligenceEngine) {
+                console.log("[Content] 🔍 Starting initial page element scan...");
+                intelligenceEngine.scanAndRegisterPageElements();
+            } else {
+                console.error("[Content] ❌ Intelligence engine not available for initial scan");
+            }
+        }, 1000); // Wait 1 second for page to fully load
+        
+    } catch (error) {
+        console.error("[Content] ❌ Failed to initialize intelligence system:", error);
+    }
 }
