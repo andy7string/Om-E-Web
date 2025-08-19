@@ -731,6 +731,9 @@ async function generateSiteMap() {
     const startTime = performance.now();
     
     try {
+        // 🆕 ENHANCED ERROR HANDLING: Wrap everything in try-catch
+        console.log("[Content] generateSiteMap: Initializing with error handling...");
+        
         // 🎯 FRAME CONTEXT HANDLING: Use main frame if we're in an iframe
         const isInIframe = window !== window.top;
         
@@ -789,154 +792,256 @@ async function generateSiteMap() {
         
         // 🔍 Find all interactive elements using target document
         const interactiveElements = [];
-        interactiveSelectors.forEach(selector => {
-            const elements = targetDocument.querySelectorAll(selector);
-            elements.forEach((element, index) => {
-                if (visible(element)) {
-                    const rect = element.getBoundingClientRect();
-                    const centerX = Math.round(rect.left + rect.width / 2);
-                    const centerY = Math.round(rect.top + rect.height / 2);
-                    
-                    interactiveElements.push({
-                        type: element.tagName.toLowerCase(),
-                        tag: element.tagName.toLowerCase(),
-                        text: element.textContent?.trim() || element.value || element.alt || '',
-                        href: element.href || null,
-                        selector: generateSelector(element),
-                        coordinates: {
-                            x: centerX,
-                            y: centerY,
-                            left: Math.round(rect.left),
-                            top: Math.round(rect.top),
-                            right: Math.round(rect.right),
-                            bottom: Math.round(rect.bottom),
-                            width: Math.round(rect.width),
-                            height: Math.round(rect.height)
-                        },
-                        attributes: {
-                            id: element.id || null,
-                            className: element.className || null,
-                            role: element.getAttribute('role') || null,
-                            ariaLabel: element.getAttribute('aria-label') || null,
-                            title: element.title || null,
-                            placeholder: element.placeholder || null,
-                            type: element.type || null,
-                            value: element.value || null
-                        },
-                        accessibility: {
-                            isVisible: visible(element),
-                            isClickable: element.click !== undefined,
-                            isFocusable: element.focus !== undefined,
-                            tabIndex: element.tabIndex || null
-                        },
-                        position: {
-                            index: index,
-                            inViewport: rect.top >= 0 && rect.bottom <= targetWindow.innerHeight,
-                            aboveFold: rect.top < targetWindow.innerHeight / 2
+        
+        try {
+            interactiveSelectors.forEach(selector => {
+                try {
+                    const elements = targetDocument.querySelectorAll(selector);
+                    elements.forEach((element, index) => {
+                        try {
+                            if (visible(element)) {
+                                const rect = element.getBoundingClientRect();
+                                const centerX = Math.round(rect.left + rect.width / 2);
+                                const centerY = Math.round(rect.top + rect.height / 2);
+                                
+                                interactiveElements.push({
+                                    type: element.tagName.toLowerCase(),
+                                    tag: element.tagName.toLowerCase(),
+                                    text: element.textContent?.trim() || element.value || element.alt || '',
+                                    href: element.href || null,
+                                    selector: generateSelector(element),
+                                    coordinates: {
+                                        x: centerX,
+                                        y: centerY,
+                                        left: Math.round(rect.left),
+                                        top: Math.round(rect.top),
+                                        right: Math.round(rect.right),
+                                        bottom: Math.round(rect.bottom),
+                                        width: Math.round(rect.width),
+                                        height: Math.round(rect.height)
+                                    },
+                                    attributes: {
+                                        id: element.id || null,
+                                        className: element.className || null,
+                                        role: element.getAttribute('role') || null,
+                                        ariaLabel: element.getAttribute('aria-label') || null,
+                                        title: element.title || null,
+                                        placeholder: element.placeholder || null,
+                                        type: element.type || null,
+                                        value: element.value || null
+                                    },
+                                    accessibility: {
+                                        isVisible: visible(element),
+                                        isClickable: element.click !== undefined,
+                                        isFocusable: element.focus !== undefined,
+                                        tabIndex: element.tabIndex || null
+                                    },
+                                    position: {
+                                        index: index,
+                                        inViewport: rect.top >= 0 && rect.bottom <= targetWindow.innerHeight,
+                                        aboveFold: rect.top < targetWindow.innerHeight / 2
+                                    }
+                                });
+                            }
+                        } catch (elementError) {
+                            console.warn("[Content] Error processing element:", elementError.message);
+                            // Continue with next element
                         }
                     });
+                } catch (selectorError) {
+                    console.warn("[Content] Error with selector:", selector, selectorError.message);
+                    // Continue with next selector
                 }
             });
-        });
+        } catch (elementsError) {
+            console.warn("[Content] Error finding interactive elements:", elementsError.message);
+            // Continue with basic functionality
+        }
         
         // 📚 Extract page structure and content hierarchy using target document
         const pageStructure = {
-            headings: Array.from(targetDocument.querySelectorAll('h1, h2, h3, h4, h5, h6'))
-                .map(h => ({
-                    level: parseInt(h.tagName.charAt(1)),
-                    text: h.textContent.trim(),
-                    selector: generateSelector(h),
-                    coordinates: getElementCoordinates(h)
-                }))
-                .filter(h => h.text && h.text.length > 2),
-            
-            sections: Array.from(targetDocument.querySelectorAll('section, article, main, aside, nav'))
-                .map(section => ({
-                    tag: section.tagName.toLowerCase(),
-                    text: section.textContent.trim().substring(0, 200) + '...',
-                    selector: generateSelector(section),
-                    coordinates: getElementCoordinates(section),
-                    children: section.children.length
-                }))
-                .filter(s => s.text.length > 10),
-            
-            forms: Array.from(targetDocument.querySelectorAll('form'))
-                .map(form => ({
-                    action: form.action || null,
-                    method: form.method || 'get',
-                    selector: generateSelector(form),
-                    coordinates: getElementCoordinates(form),
-                    inputs: Array.from(form.querySelectorAll('input, select, textarea'))
-                        .map(input => ({
-                            type: input.type || input.tagName.toLowerCase(),
-                            name: input.name || null,
-                            placeholder: input.placeholder || null,
-                            required: input.required || false,
-                            selector: generateSelector(input),
-                            coordinates: getElementCoordinates(input)
-                        }))
-                }))
+            headings: [],
+            sections: [],
+            forms: []
         };
+        
+        try {
+            // Extract headings
+            const headings = Array.from(targetDocument.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+            pageStructure.headings = headings
+                .map(h => {
+                    try {
+                        return {
+                            level: parseInt(h.tagName.charAt(1)),
+                            text: h.textContent.trim(),
+                            selector: generateSelector(h),
+                            coordinates: getElementCoordinates(h)
+                        };
+                    } catch (headingError) {
+                        console.warn("[Content] Error processing heading:", headingError.message);
+                        return null;
+                    }
+                })
+                .filter(h => h && h.text && h.text.length > 2);
+            
+            // Extract sections
+            const sections = Array.from(targetDocument.querySelectorAll('section, article, main, aside, nav'));
+            pageStructure.sections = sections
+                .map(section => {
+                    try {
+                        return {
+                            tag: section.tagName.toLowerCase(),
+                            text: section.textContent.trim().substring(0, 200) + '...',
+                            selector: generateSelector(section),
+                            coordinates: getElementCoordinates(section),
+                            children: section.children.length
+                        };
+                    } catch (sectionError) {
+                        console.warn("[Content] Error processing section:", sectionError.message);
+                        return null;
+                    }
+                })
+                .filter(s => s && s.text.length > 10);
+            
+            // Extract forms
+            const forms = Array.from(targetDocument.querySelectorAll('form'));
+            pageStructure.forms = forms
+                .map(form => {
+                    try {
+                        return {
+                            action: form.action || null,
+                            method: form.method || 'get',
+                            selector: generateSelector(form),
+                            coordinates: getElementCoordinates(form),
+                            inputs: Array.from(form.querySelectorAll('input, select, textarea'))
+                                .map(input => {
+                                    try {
+                                        return {
+                                            type: input.type || input.tagName.toLowerCase(),
+                                            name: input.name || null,
+                                            placeholder: input.placeholder || null,
+                                            required: input.required || false,
+                                            selector: generateSelector(input),
+                                            coordinates: getElementCoordinates(input)
+                                        };
+                                    } catch (inputError) {
+                                        console.warn("[Content] Error processing form input:", inputError.message);
+                                        return null;
+                                    }
+                                })
+                                .filter(input => input)
+                        };
+                    } catch (formError) {
+                        console.warn("[Content] Error processing form:", formError.message);
+                        return null;
+                    }
+                })
+                .filter(form => form);
+                
+        } catch (structureError) {
+            console.warn("[Content] Error extracting page structure:", structureError.message);
+            // Continue with basic functionality
+        }
         
         // 🔗 Extract navigation and content relationships using target document
         const navigationMap = {
-            breadcrumbs: extractBreadcrumbs(targetDocument),
-            pagination: extractPagination(targetDocument),
-            navigation: extractNavigation(targetDocument),
-            relatedLinks: extractRelatedLinks(targetDocument)
+            breadcrumbs: [],
+            pagination: [],
+            navigation: [],
+            relatedLinks: []
         };
+        
+        try {
+            navigationMap.breadcrumbs = extractBreadcrumbs(targetDocument);
+            navigationMap.pagination = extractPagination(targetDocument);
+            navigationMap.navigation = extractNavigation(targetDocument);
+            navigationMap.relatedLinks = extractRelatedLinks(targetDocument);
+        } catch (navigationError) {
+            console.warn("[Content] Error extracting navigation:", navigationError.message);
+            // Continue with basic functionality
+        }
         
         // 📊 Generate semantic content map using target document
         const contentMap = {
-            mainContent: findMainContent(targetDocument),
-            sidebar: findSidebar(targetDocument),
-            footer: findFooter(targetDocument),
-            advertisements: findAdvertisements(targetDocument)
+            mainContent: null,
+            sidebar: null,
+            footer: null,
+            advertisements: []
         };
+        
+        try {
+            contentMap.mainContent = findMainContent(targetDocument);
+            contentMap.sidebar = findSidebar(targetDocument);
+            contentMap.footer = findFooter(targetDocument);
+            contentMap.advertisements = findAdvertisements(targetDocument);
+        } catch (contentError) {
+            console.warn("[Content] Error extracting content map:", contentError.message);
+            // Continue with basic functionality
+        }
         
         // 🎯 Create action map for LLM consumption
         const actionMap = {
-            primaryActions: interactiveElements.filter(el => 
+            primaryActions: [],
+            navigationActions: [],
+            formActions: [],
+            quickActions: []
+        };
+        
+        try {
+            actionMap.primaryActions = interactiveElements.filter(el => 
                 el.position.aboveFold && 
                 (el.type === 'button' || el.type === 'a') &&
                 el.text.length > 0
-            ).slice(0, 5),
+            ).slice(0, 5);
             
-            navigationActions: interactiveElements.filter(el =>
+            actionMap.navigationActions = interactiveElements.filter(el =>
                 el.type === 'a' && 
                 el.href && 
                 !el.href.startsWith('javascript:') &&
                 el.text.length > 0
-            ).slice(0, 10),
+            ).slice(0, 10);
             
-            formActions: interactiveElements.filter(el =>
+            actionMap.formActions = interactiveElements.filter(el =>
                 el.type === 'input' || el.type === 'select' || el.type === 'textarea'
-            ).slice(0, 15),
+            ).slice(0, 15);
             
-            quickActions: interactiveElements.filter(el =>
+            actionMap.quickActions = interactiveElements.filter(el =>
                 el.position.inViewport && 
                 el.coordinates.width > 30 && 
                 el.coordinates.height > 30
-            ).slice(0, 8)
-        };
+            ).slice(0, 8);
+        } catch (actionError) {
+            console.warn("[Content] Error creating action map:", actionError.message);
+            // Continue with basic functionality
+        }
         
         // 📝 Generate LLM-friendly summary
         const llmSummary = {
-            pagePurpose: inferPagePurpose(targetDocument),
-            primaryActions: actionMap.primaryActions.map(el => ({
-                action: el.text,
-                coordinates: el.coordinates,
-                selector: el.selector
-            })),
+            pagePurpose: 'Unknown',
+            primaryActions: [],
             contentSummary: {
                 headings: pageStructure.headings.length,
                 sections: pageStructure.sections.length,
                 forms: pageStructure.forms.length,
                 interactiveElements: interactiveElements.length
             },
-            navigationPaths: generateNavigationPaths(navigationMap),
-            recommendedActions: generateRecommendedActions(actionMap)
+            navigationPaths: [],
+            recommendedActions: []
         };
+        
+        try {
+            llmSummary.pagePurpose = inferPagePurpose(targetDocument);
+            llmSummary.primaryActions = actionMap.primaryActions.map(el => ({
+                action: el.text,
+                coordinates: el.coordinates,
+                selector: el.selector
+            }));
+            llmSummary.navigationPaths = generateNavigationPaths(navigationMap);
+            llmSummary.recommendedActions = generateRecommendedActions(actionMap);
+        } catch (summaryError) {
+            console.warn("[Content] Error generating LLM summary:", summaryError.message);
+            // Continue with basic functionality
+        }
         
         const processingTime = performance.now() - startTime;
         
@@ -978,8 +1083,42 @@ async function generateSiteMap() {
         return result;
         
     } catch (error) {
-        console.error("[Content] generateSiteMap: Error during mapping:", error);
-        throw error;
+        console.error("[Content] generateSiteMap: Critical error during mapping:", error);
+        
+        // 🆕 ENHANCED ERROR RECOVERY: Return a minimal but valid result
+        const errorResult = {
+            metadata: {
+                url: window.location.href,
+                title: document.title || 'Unknown',
+                timestamp: Date.now(),
+                error: true,
+                errorMessage: error.message,
+                errorStack: error.stack
+            },
+            error: {
+                code: 'CRITICAL_ERROR',
+                message: error.message,
+                type: error.name,
+                timestamp: Date.now()
+            },
+            interactiveElements: [],
+            pageStructure: {
+                headings: [],
+                sections: [],
+                forms: []
+            },
+            statistics: {
+                totalElements: 0,
+                clickableElements: 0,
+                formElements: 0,
+                navigationElements: 0,
+                processingTime: 0,
+                error: true
+            }
+        };
+        
+        console.log("[Content] generateSiteMap: Returning error recovery result");
+        return errorResult;
     }
 }
 

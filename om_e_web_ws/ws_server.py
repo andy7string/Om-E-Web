@@ -606,7 +606,7 @@ def siteStructuredLLMmethodinsidethefile(filepath):
             enhanced_count = sum(1 for el in scored_elements if 'enhanced_importance_score' in el)
             fallback_count = sum(1 for el in scored_elements if 'importance_score' in el)
             
-            print(f"📈 Scoring method breakdown:")
+            print("📈 Scoring method breakdown:")
             print(f"   🆕 Enhanced classification: {enhanced_count} elements")
             print(f"   🔄 Fallback scoring: {fallback_count} elements")
             
@@ -1202,7 +1202,11 @@ def _is_truly_interactive(element):
     @param element: Element dictionary
     @return: True if element is truly interactive
     """
-    element_type = element.get('type', '').lower()
+    element_type = element.get('type', '')
+    if element_type and isinstance(element_type, str):
+        element_type = element_type.lower()
+    else:
+        element_type = ''
     href = element.get('href')
     attributes = element.get('attributes', {})
     
@@ -1215,17 +1219,21 @@ def _is_truly_interactive(element):
     if element_type in interactive_tags:
         # Additional check for input types
         if element_type == 'input':
-            input_type = attributes.get('type', 'text').lower()
-            if input_type in {'button', 'submit', 'reset', 'text', 'email', 'password', 'search', 'checkbox', 'radio'}:
-                return True
+            input_type = attributes.get('type', 'text')
+            if input_type and isinstance(input_type, str):
+                input_type = input_type.lower()
+                if input_type in {'button', 'submit', 'reset', 'text', 'email', 'password', 'search', 'checkbox', 'radio'}:
+                    return True
         else:
             return True
     
     # Check for interactive ARIA roles
-    role = attributes.get('role', '').lower()
-    interactive_roles = {'button', 'link', 'menuitem', 'textbox', 'combobox', 'listbox', 'checkbox', 'radio', 'tab'}
-    if role in interactive_roles:
-        return True
+    role = attributes.get('role')
+    if role and isinstance(role, str):
+        role = role.lower()
+        interactive_roles = {'button', 'link', 'menuitem', 'textbox', 'combobox', 'listbox', 'checkbox', 'radio', 'tab'}
+        if role in interactive_roles:
+            return True
     
     # Check for event handlers
     for attr_name in attributes.keys():
@@ -1237,10 +1245,12 @@ def _is_truly_interactive(element):
         return True
     
     # Check for clickable indicators in class names
-    class_name = attributes.get('class', '').lower()
-    clickable_indicators = {'button', 'click', 'clickable', 'btn', 'link', 'nav'}
-    if any(indicator in class_name for indicator in clickable_indicators):
-        return True
+    class_name = attributes.get('class')
+    if class_name and isinstance(class_name, str):
+        class_name = class_name.lower()
+        clickable_indicators = {'button', 'click', 'clickable', 'btn', 'link', 'nav'}
+        if any(indicator in class_name for indicator in clickable_indicators):
+            return True
     
     return False
 

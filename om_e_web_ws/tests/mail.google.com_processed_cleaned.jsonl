@@ -1,0 +1,2747 @@
+{
+  "metadata": {
+    "url": "https://mail.google.com/mail/u/0/#inbox",
+    "title": "Inbox (4,803) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "elements": [
+    {
+      "FindMe_id": "FindMe_001",
+      "text": "Skip to content",
+      "href": "https://mail.google.com/mail/u/0/",
+      "selector": "#:o",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_002",
+      "text": "Using Gmail with screen readers",
+      "href": "https://mail.google.com/mail/u/0/",
+      "selector": "#:p",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_003",
+      "text": "",
+      "href": "https://mail.google.com/mail/u/0/#inbox",
+      "selector": ".gb_6d",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_004",
+      "text": "",
+      "href": "https://www.google.com.au/intl/en-GB/about/products?tab=mh",
+      "selector": ".gb_B",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_005",
+      "text": "",
+      "href": "https://accounts.google.com/SignOutOptions?hl=en-GB&continue=https://mail.google.com/mail&service=mail&ec=GBRAFw",
+      "selector": ".gb_B",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_006",
+      "text": "Inbox",
+      "href": "https://mail.google.com/mail/u/0/#inbox",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_007",
+      "text": "Starred",
+      "href": "https://mail.google.com/mail/u/0/#starred",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_008",
+      "text": "Snoozed",
+      "href": "https://mail.google.com/mail/u/0/#snoozed",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_009",
+      "text": "Sent",
+      "href": "https://mail.google.com/mail/u/0/#sent",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_010",
+      "text": "Drafts",
+      "href": "https://mail.google.com/mail/u/0/#drafts",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_011",
+      "text": "[Gmail]Trash",
+      "href": "https://mail.google.com/mail/u/0/#label/%5BGmail%5DTrash",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_012",
+      "text": "George Bellas",
+      "href": "https://mail.google.com/mail/u/0/#label/George+Bellas",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_013",
+      "text": "Notes",
+      "href": "https://mail.google.com/mail/u/0/#label/Notes",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_014",
+      "text": "75% of 15 GB used",
+      "href": "https://drive.google.com/u/0/settings/storage?hl=en-GB&utm_medium=web&utm_source=gmail&utm_campaign=storage_meter&utm_content=storage_high",
+      "selector": ".bcB",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_015",
+      "text": "Terms",
+      "href": "https://www.google.com/intl/en-GB/policies/terms/",
+      "selector": ".l9",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_016",
+      "text": "Privacy",
+      "href": "https://www.google.com/intl/en-GB/policies/privacy/",
+      "selector": ".l9",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_017",
+      "text": "Programme Policies",
+      "href": "https://www.google.com/gmail/about/policy/",
+      "selector": ".l9",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_021",
+      "text": "Upgrade",
+      "href": null,
+      "selector": ".FOBRw-I",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_026",
+      "text": "Active",
+      "href": null,
+      "selector": ".lJradf",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_029",
+      "text": "",
+      "href": "https://www.google.com.au/intl/en-GB/about/products?tab=mh",
+      "selector": ".gb_B",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_030",
+      "text": "",
+      "href": "https://accounts.google.com/SignOutOptions?hl=en-GB&continue=https://mail.google.com/mail&service=mail&ec=GBRAFw",
+      "selector": ".gb_B",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_031",
+      "text": "Compose",
+      "href": null,
+      "selector": ".T-I",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_037",
+      "text": "1–50 of 15,734",
+      "href": null,
+      "selector": "#:kt",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_096",
+      "text": "Upgrade",
+      "href": null,
+      "selector": ".FOBRw-I",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_097",
+      "text": "SA Health - Application received - 910328 - Dear Andrew, Thank you for your application for the posi",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_098",
+      "text": "SA Health - Application received - 910336 - Dear Andrew, Thank you for your application for the posi",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_099",
+      "text": "Action Required: Please confirm your identity to finalise your application for Chief Enterprise Arch",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_100",
+      "text": "Your application was successfully submitted - Hi Andrew, your application for Technical Director | S",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_101",
+      "text": "Techforce Personnel - Job Application - Hi Andrew, Techforce Personnel would like to thank you for y",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_102",
+      "text": "Your application for the Enterprise Architect role with DWS - Dear Andrew, Thank you for your intere",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_103",
+      "text": "RE: Contractual Documents for Bank (B044 and SB006) - Mr Orsmond, please find attached the letter of",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_104",
+      "text": "Envelope completed: Your Statement of Credit Assistance is ready to be signed - Your envelope has be",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_105",
+      "text": "Re: Enquiry for Property ID: 148748204, 6 Cowell Crescent, Pasadena SA 5042, Listing Agent Michael B",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_106",
+      "text": "Your Statement of Credit Assistance is ready to be signed - Let's get your loan application started!",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_107",
+      "text": "Start saving on your utilities before you move in! - Hi Andrew and Olivia, As part of our service fo",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_108",
+      "text": "RE: Enquiry for Property ID: 148363192, 570 The Parade, Rosslyn Park SA 5072, Listing Agent Eric Jem",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_109",
+      "text": "New Message from Mel Angel - Seesaw \"Mel Angel: BOOK WEEK REMINDERS Dear Families, Tomorrow we are..",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_110",
+      "text": "Andrew, how does 40% off your gym membership sound? - Get rewarded for being healthy with AIA Vitali",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_111",
+      "text": "Re: Enquiry for Property ID: 148589712, 12 Hanny Crescent, Nairne SA 5252, Listing Agent Sam Oborn a",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_112",
+      "text": "purchase enquiry - Hi Jarryd, Hope you great! Sorry we have missed each other, my wife is only getti",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_113",
+      "text": "Your ENGIE Electricity Reminder - Dear Mr Orsmond, Please find attached your latest Reminder Notice.",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_114",
+      "text": "Sale Ends Tonight  - Don't miss these Maxxis, DHaRCO & Ergon deals. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_115",
+      "text": "Re: Enquiry for Property ID: 147842460, 4  Harold Street, Payneham SA 5070, Listing Agent Helen Gong",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_116",
+      "text": "Reminder: BHP's Talent Acquisition team wants to hear from you  |  Recordatorio: El equipo de Adquis",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_117",
+      "text": "New jobs for: Information Technology : International - Michael Page Latest Information Technology jo",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_118",
+      "text": "Lease for 1 Coach-House Dr - Dear Andrew, Please find attached your lease for 1 Coach-House Dr, Teri",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_119",
+      "text": "TA Extension 2025-26 Andrew 1 Coach-House Dr - Hi Andrew, Please find the fully executed tenancy ext",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_120",
+      "text": "Rent Payment 16 August 2025 1 Coach-House Dr, Teringie, SA 5072 - Dear Andrew, We have now commenced",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_121",
+      "text": "Completed: Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach-House Dr.pdf - Your document",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_122",
+      "text": "Rent debit 16 August 2025 - 1 Coach-House Dr, Teringie, SA 5072 - Hi Andrew, The rent for 1 Coach-Ho",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_123",
+      "text": "Action required: complete your application for Director of AI Product Management – $200,000 USD/yr -",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_124",
+      "text": "RE: Enquiry for Property ID: 148644868, 4 Rose Lane, Mitcham SA 5062, Listing Agent Alistair Loudon",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_125",
+      "text": "Did you just log in near Adelaide on a new device? - Let us know if it wasn't you, Andrew. Andrew Or",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_126",
+      "text": "Your Alinta Energy Gas bill for account 103906423 is enclosed - Your Gas Bill Hi Andrew, please find",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_127",
+      "text": "Expiration Pending: Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach-House Dr.pdf - Roshi",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_128",
+      "text": "Big wins for Family First this week - Headlines, rallies, and momentum building ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_129",
+      "text": "New Message from Mel Angel - Seesaw \"Mel Angel: KEEPING CHILDREN SAFE Dear Families, Please see t...",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_130",
+      "text": "Running Late - Hi Andrew, My meeting is currently running over. I will join ASAP! Bianca Holmes Lead",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_131",
+      "text": "Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach-House Dr.pdf - Roshiba Christina C de la",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_132",
+      "text": "New jobs for: Information Technology : International - Michael Page Latest Information Technology jo",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_133",
+      "text": "Belle Property Norwood Weekly Update - Dear Andrew, Whether you're buying, selling, or just staying",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_134",
+      "text": "Olivia Orsmond - ID Verification, Offer Letter & 186 Grant - Kind regards Olivia",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_135",
+      "text": "Andrew Orsmond - ID Verification & 186 Grant - Kind regards Olivia",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_136",
+      "text": "ID Verification - Xxxx",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_137",
+      "text": "Application - Deputy Director, Strategy and Architecture - Hi Bianca, See you at 12:30pm this Friday",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_138",
+      "text": "Belle Property Adelaide City Weekly Update - Dear Andrew, Whether you're buying, selling, or just st",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_139",
+      "text": "Signed Offer Letter - Hi bunny Please find my signed letter attached. Love you xxx",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_140",
+      "text": "Important updates in Gemini Apps - New features and settings to help you remain in control of your d",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_141",
+      "text": "Release code C4AE58EA is ready for printing at Officeworks - Thank you for your online submission to",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_142",
+      "text": "Your Adelaide Property Market Update | August 2025 - Header Banner August Property Market Update Hel",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_143",
+      "text": "Your Adelaide Property Market Update | August 2025 - Header Banner August Property Market Update Hel",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_144",
+      "text": "(no subject) - ---------- Forwarded message --------- From: Andrew Orsmond <andreworsmond21175@gmail",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_145",
+      "text": "Maxxis 25% Off + More Hot Offers  - 4 days only. Act now or miss out! ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_146",
+      "text": "Your application was successfully submitted - Hi Andrew, your application for Director, Information",
+      "href": null,
+      "selector": ".xS",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_147",
+      "text": "Details",
+      "href": null,
+      "selector": "#:mj",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_150",
+      "text": "Active",
+      "href": null,
+      "selector": ".lJradf",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_153",
+      "text": "",
+      "href": "https://www.google.com.au/intl/en-GB/about/products?tab=mh",
+      "selector": ".gb_B",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_154",
+      "text": "",
+      "href": "https://accounts.google.com/SignOutOptions?hl=en-GB&continue=https://mail.google.com/mail&service=mail&ec=GBRAFw",
+      "selector": ".gb_B",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_157",
+      "text": "Compose",
+      "href": null,
+      "selector": ".T-I",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_158",
+      "text": "Inbox",
+      "href": "https://mail.google.com/mail/u/0/#inbox",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_159",
+      "text": "Starred",
+      "href": "https://mail.google.com/mail/u/0/#starred",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_160",
+      "text": "Snoozed",
+      "href": "https://mail.google.com/mail/u/0/#snoozed",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_161",
+      "text": "Sent",
+      "href": "https://mail.google.com/mail/u/0/#sent",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_162",
+      "text": "Drafts",
+      "href": "https://mail.google.com/mail/u/0/#drafts",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_165",
+      "text": "[Gmail]Trash",
+      "href": "https://mail.google.com/mail/u/0/#label/%5BGmail%5DTrash",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_166",
+      "text": "George Bellas",
+      "href": "https://mail.google.com/mail/u/0/#label/George+Bellas",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_167",
+      "text": "Notes",
+      "href": "https://mail.google.com/mail/u/0/#label/Notes",
+      "selector": ".J-Ke",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_171",
+      "text": "1–50 of 15,734",
+      "href": null,
+      "selector": "#:kt",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_176",
+      "text": "Conversations",
+      "href": null,
+      "selector": "#:1 > div > div > div:nth-child(3) > h2",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_177",
+      "text": "6 newPrimary",
+      "href": null,
+      "selector": "#:24",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_178",
+      "text": "3 newPromotionsFocusrite – Free plugin: Download Klevgrand Degrader now",
+      "href": null,
+      "selector": "#:25",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_179",
+      "text": "Social",
+      "href": null,
+      "selector": "#:26",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_180",
+      "text": "Updates",
+      "href": null,
+      "selector": "#:27",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_181",
+      "text": "unread, heal...@...pageuppeople.com, SA Health - Application received - 910328, 21:48, Dear Andrew,",
+      "href": null,
+      "selector": "#:2d",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_183",
+      "text": "unread, heal...@...pageuppeople.com, SA Health - Application received - 910328, 21:48, Dear Andrew,",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_184",
+      "text": "SA Health - Application received - 910328 - Dear Andrew, Thank you for your application for the posi",
+      "href": null,
+      "selector": "#:2j",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_186",
+      "text": "unread, heal...@...pageuppeople.com, SA Health - Application received - 910336, 21:40, Dear Andrew,",
+      "href": null,
+      "selector": "#:2q",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_188",
+      "text": "unread, heal...@...pageuppeople.com, SA Health - Application received - 910336, 21:40, Dear Andrew,",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_189",
+      "text": "SA Health - Application received - 910336 - Dear Andrew, Thank you for your application for the posi",
+      "href": null,
+      "selector": "#:2w",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_191",
+      "text": "unread, no-reply, Action Required: Please confirm your identity to finalise your application for Chi",
+      "href": null,
+      "selector": "#:33",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_193",
+      "text": "unread, no-reply, Action Required: Please confirm your identity to finalise your application for Chi",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_194",
+      "text": "Action Required: Please confirm your identity to finalise your application for Chief Enterprise Arch",
+      "href": null,
+      "selector": "#:39",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_196",
+      "text": "unread, SEEK Applications, Your application was successfully submitted, 21:25, Hi Andrew, your appli",
+      "href": null,
+      "selector": "#:3g",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_198",
+      "text": "unread, SEEK Applications, Your application was successfully submitted, 21:25, Hi Andrew, your appli",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_199",
+      "text": "Your application was successfully submitted - Hi Andrew, your application for Technical Director | S",
+      "href": null,
+      "selector": "#:3m",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_201",
+      "text": "unread, Kieran Guy, Techforce Personnel - Job Application, 21:24, Hi Andrew, Techforce Personnel wou",
+      "href": null,
+      "selector": "#:3t",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_203",
+      "text": "unread, Kieran Guy, Techforce Personnel - Job Application, 21:24, Hi Andrew, Techforce Personnel wou",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_204",
+      "text": "Techforce Personnel - Job Application - Hi Andrew, Techforce Personnel would like to thank you for y",
+      "href": null,
+      "selector": "#:3z",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_206",
+      "text": "unread, applications@dws.co., Your application for the Enterprise Architect role with DWS, 21:22, De",
+      "href": null,
+      "selector": "#:46",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_208",
+      "text": "unread, applications@dws.co., Your application for the Enterprise Architect role with DWS, 21:22, De",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_209",
+      "text": "Your application for the Enterprise Architect role with DWS - Dear Andrew, Thank you for your intere",
+      "href": null,
+      "selector": "#:4c",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_211",
+      "text": "Johnny .. me, Steven 11, RE: Contractual Documents for Bank (B044 and SB006), has attachment, 20:28,",
+      "href": null,
+      "selector": "#:4j",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_213",
+      "text": "Johnny .. me, Steven 11, RE: Contractual Documents for Bank (B044 and SB006), has attachment, 20:28,",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_214",
+      "text": "RE: Contractual Documents for Bank (B044 and SB006) - Mr Orsmond, please find attached the letter of",
+      "href": null,
+      "selector": "#:4p",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_215",
+      "text": "Attachment:image001.png",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_216",
+      "text": "Attachment:image002.png",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_217",
+      "text": "Attachment:BC Funding Solutions - Confirmation of Lending Solutions - B044, SB006.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_220",
+      "text": "OAKWOOD FINANCE PTY., Envelope completed: Your Statement of Credit Assistance is ready to be signed,",
+      "href": null,
+      "selector": "#:4w",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_222",
+      "text": "OAKWOOD FINANCE PTY., Envelope completed: Your Statement of Credit Assistance is ready to be signed,",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_223",
+      "text": "Envelope completed: Your Statement of Credit Assistance is ready to be signed - Your envelope has be",
+      "href": null,
+      "selector": "#:52",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_224",
+      "text": "Attachment:Your Statement of Credit Assistance is ready to be signed.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_225",
+      "text": "Attachment:Certificate of completion.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_227",
+      "text": "Michael Balawejder, Re: Enquiry for Property ID: 148748204, 6 Cowell Crescent, Pasadena SA 5042, Lis",
+      "href": null,
+      "selector": "#:59",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_229",
+      "text": "Michael Balawejder, Re: Enquiry for Property ID: 148748204, 6 Cowell Crescent, Pasadena SA 5042, Lis",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_230",
+      "text": "Re: Enquiry for Property ID: 148748204, 6 Cowell Crescent, Pasadena SA 5042, Listing Agent Michael B",
+      "href": null,
+      "selector": "#:5f",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_232",
+      "text": "OAKWOOD FINANCE PTY., Your Statement of Credit Assistance is ready to be signed, 16:09, Let's get yo",
+      "href": null,
+      "selector": "#:5m",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_234",
+      "text": "OAKWOOD FINANCE PTY., Your Statement of Credit Assistance is ready to be signed, 16:09, Let's get yo",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_235",
+      "text": "Your Statement of Credit Assistance is ready to be signed - Let's get your loan application started!",
+      "href": null,
+      "selector": "#:5s",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_237",
+      "text": "unread, Hello, Start saving on your utilities before you move in!, 16:07, Hi Andrew and Olivia, As p",
+      "href": null,
+      "selector": "#:5z",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_239",
+      "text": "unread, Hello, Start saving on your utilities before you move in!, 16:07, Hi Andrew and Olivia, As p",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_240",
+      "text": "Start saving on your utilities before you move in! - Hi Andrew and Olivia, As part of our service fo",
+      "href": null,
+      "selector": "#:65",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_242",
+      "text": "Mark H Watkins, RE: Enquiry for Property ID: 148363192, 570 The Parade, Rosslyn Park SA 5072, Listin",
+      "href": null,
+      "selector": "#:6c",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_244",
+      "text": "Mark H Watkins, RE: Enquiry for Property ID: 148363192, 570 The Parade, Rosslyn Park SA 5072, Listin",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_245",
+      "text": "RE: Enquiry for Property ID: 148363192, 570 The Parade, Rosslyn Park SA 5072, Listing Agent Eric Jem",
+      "href": null,
+      "selector": "#:6i",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_246",
+      "text": "Attachment:image001.jpg",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_248",
+      "text": "unread, Seesaw 2, New Message from Mel Angel, 15:04, Seesaw \"Mel Angel: BOOK WEEK REMINDERS Dear Fam",
+      "href": null,
+      "selector": "#:6p",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_250",
+      "text": "unread, Seesaw 2, New Message from Mel Angel, 15:04, Seesaw \"Mel Angel: BOOK WEEK REMINDERS Dear Fam",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_251",
+      "text": "New Message from Mel Angel - Seesaw \"Mel Angel: BOOK WEEK REMINDERS Dear Families, Tomorrow we are..",
+      "href": null,
+      "selector": "#:6v",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_253",
+      "text": "unread, Commonwealth Bank o., Andrew, how does 40% off your gym membership sound?, 14:30, Get reward",
+      "href": null,
+      "selector": "#:72",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_255",
+      "text": "unread, Commonwealth Bank o., Andrew, how does 40% off your gym membership sound?, 14:30, Get reward",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_256",
+      "text": "Andrew, how does 40% off your gym membership sound? - Get rewarded for being healthy with AIA Vitali",
+      "href": null,
+      "selector": "#:78",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_258",
+      "text": "geor...@shorlandre.com.au, Re: Enquiry for Property ID: 148589712, 12 Hanny Crescent, Nairne SA 5252",
+      "href": null,
+      "selector": "#:7f",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_260",
+      "text": "geor...@shorlandre.com.au, Re: Enquiry for Property ID: 148589712, 12 Hanny Crescent, Nairne SA 5252",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_261",
+      "text": "Re: Enquiry for Property ID: 148589712, 12 Hanny Crescent, Nairne SA 5252, Listing Agent Sam Oborn a",
+      "href": null,
+      "selector": "#:7l",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_263",
+      "text": "Jarryd, Draft 2, purchase enquiry, 09:21, Hi Jarryd, Hope you great! Sorry we have missed each other",
+      "href": null,
+      "selector": "#:7s",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_265",
+      "text": "Jarryd, Draft 2, purchase enquiry, 09:21, Hi Jarryd, Hope you great! Sorry we have missed each other",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_266",
+      "text": "purchase enquiry - Hi Jarryd, Hope you great! Sorry we have missed each other, my wife is only getti",
+      "href": null,
+      "selector": "#:7y",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_268",
+      "text": "unread, ENGIE, Your ENGIE Electricity Reminder, has attachment, 05:45, Dear Mr Orsmond, Please find",
+      "href": null,
+      "selector": "#:85",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_270",
+      "text": "unread, ENGIE, Your ENGIE Electricity Reminder, has attachment, 05:45, Dear Mr Orsmond, Please find",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_271",
+      "text": "Your ENGIE Electricity Reminder - Dear Mr Orsmond, Please find attached your latest Reminder Notice.",
+      "href": null,
+      "selector": "#:8b",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_272",
+      "text": "Attachment:Notice details 51077431.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_274",
+      "text": "unread, MTB Direct, Sale Ends Tonight , 17 Aug, Don't miss these Maxxis, DHaRCO & Ergon deals. ͏ ͏ ͏",
+      "href": null,
+      "selector": "#:8i",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_276",
+      "text": "unread, MTB Direct, Sale Ends Tonight , 17 Aug, Don't miss these Maxxis, DHaRCO & Ergon deals. ͏ ͏ ͏",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_277",
+      "text": "Sale Ends Tonight  - Don't miss these Maxxis, DHaRCO & Ergon deals. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏",
+      "href": null,
+      "selector": "#:8o",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_278",
+      "text": "17 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_279",
+      "text": "Helen Gong, Re: Enquiry for Property ID: 147842460, 4  Harold Street, Payneham SA 5070, Listing Agen",
+      "href": null,
+      "selector": "#:8v",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_281",
+      "text": "Helen Gong, Re: Enquiry for Property ID: 147842460, 4  Harold Street, Payneham SA 5070, Listing Agen",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_282",
+      "text": "Re: Enquiry for Property ID: 147842460, 4  Harold Street, Payneham SA 5070, Listing Agent Helen Gong",
+      "href": null,
+      "selector": "#:91",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_283",
+      "text": "16 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_284",
+      "text": "BHP Talent Acquisit., Reminder: BHP's Talent Acquisition team wants to hear from you  |  Recordatori",
+      "href": null,
+      "selector": "#:98",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_286",
+      "text": "BHP Talent Acquisit., Reminder: BHP's Talent Acquisition team wants to hear from you  |  Recordatori",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_287",
+      "text": "Reminder: BHP's Talent Acquisition team wants to hear from you  |  Recordatorio: El equipo de Adquis",
+      "href": null,
+      "selector": "#:9e",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_288",
+      "text": "16 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_289",
+      "text": "Michael Page Austra., New jobs for: Information Technology : International, 16 Aug, Michael Page Lat",
+      "href": null,
+      "selector": "#:9l",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_291",
+      "text": "Michael Page Austra., New jobs for: Information Technology : International, 16 Aug, Michael Page Lat",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_292",
+      "text": "New jobs for: Information Technology : International - Michael Page Latest Information Technology jo",
+      "href": null,
+      "selector": "#:9r",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_293",
+      "text": "16 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_294",
+      "text": "Roshiba De La Ruwie., Lease for 1 Coach-House Dr, has attachment, 16 Aug, Dear Andrew, Please find a",
+      "href": null,
+      "selector": "#:9y",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_296",
+      "text": "Roshiba De La Ruwie., Lease for 1 Coach-House Dr, has attachment, 16 Aug, Dear Andrew, Please find a",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_297",
+      "text": "Lease for 1 Coach-House Dr - Dear Andrew, Please find attached your lease for 1 Coach-House Dr, Teri",
+      "href": null,
+      "selector": "#:a4",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_298",
+      "text": "Attachment:cdbf57ef028e241e3f0fe9a76d5f7538_Lease-document-rent_increase.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_299",
+      "text": "Attachment:Lease Document.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_300",
+      "text": "16 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_301",
+      "text": "Info Eden Estates, TA Extension 2025-26 Andrew 1 Coach-House Dr, has attachment, 16 Aug, Hi Andrew,",
+      "href": null,
+      "selector": "#:ab",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_303",
+      "text": "Info Eden Estates, TA Extension 2025-26 Andrew 1 Coach-House Dr, has attachment, 16 Aug, Hi Andrew,",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_304",
+      "text": "TA Extension 2025-26 Andrew 1 Coach-House Dr - Hi Andrew, Please find the fully executed tenancy ext",
+      "href": null,
+      "selector": "#:ah",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_305",
+      "text": "Attachment:TA Extension 2025-26 Andrew 1 Coach-House Dr.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_306",
+      "text": "16 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_307",
+      "text": "unread, Eden Property Sales., Rent Payment 16 August 2025 1 Coach-House Dr, Teringie, SA 5072, 16 Au",
+      "href": null,
+      "selector": "#:ao",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_309",
+      "text": "unread, Eden Property Sales., Rent Payment 16 August 2025 1 Coach-House Dr, Teringie, SA 5072, 16 Au",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_310",
+      "text": "Rent Payment 16 August 2025 1 Coach-House Dr, Teringie, SA 5072 - Dear Andrew, We have now commenced",
+      "href": null,
+      "selector": "#:au",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_311",
+      "text": "16 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_312",
+      "text": "unread, Roshiba Christina C., Completed: Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach",
+      "href": null,
+      "selector": "#:b1",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_314",
+      "text": "unread, Roshiba Christina C., Completed: Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_315",
+      "text": "Completed: Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach-House Dr.pdf - Your document",
+      "href": null,
+      "selector": "#:b7",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_316",
+      "text": "Attachment:TA Extension 2025-26 Andrew 1 Coach-House Dr.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_317",
+      "text": "16 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_318",
+      "text": "unread, Eden Property Sales., Rent debit 16 August 2025 - 1 Coach-House Dr, Teringie, SA 5072, 15 Au",
+      "href": null,
+      "selector": "#:be",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_320",
+      "text": "unread, Eden Property Sales., Rent debit 16 August 2025 - 1 Coach-House Dr, Teringie, SA 5072, 15 Au",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_321",
+      "text": "Rent debit 16 August 2025 - 1 Coach-House Dr, Teringie, SA 5072 - Hi Andrew, The rent for 1 Coach-Ho",
+      "href": null,
+      "selector": "#:bk",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_322",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_323",
+      "text": "unread, Crossover, Action required: complete your application for Director of AI Product Management",
+      "href": null,
+      "selector": "#:br",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_325",
+      "text": "unread, Crossover, Action required: complete your application for Director of AI Product Management",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_326",
+      "text": "Action required: complete your application for Director of AI Product Management – $200,000 USD/yr -",
+      "href": null,
+      "selector": "#:bx",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_327",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_328",
+      "text": "Alistair Loudon, RE: Enquiry for Property ID: 148644868, 4 Rose Lane, Mitcham SA 5062, Listing Agent",
+      "href": null,
+      "selector": "#:c4",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_330",
+      "text": "Alistair Loudon, RE: Enquiry for Property ID: 148644868, 4 Rose Lane, Mitcham SA 5062, Listing Agent",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_331",
+      "text": "RE: Enquiry for Property ID: 148644868, 4 Rose Lane, Mitcham SA 5062, Listing Agent Alistair Loudon",
+      "href": null,
+      "selector": "#:ca",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_332",
+      "text": "Attachment:image001.png",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_333",
+      "text": "Attachment:image003.png",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_334",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_335",
+      "text": "unread, Facebook, Did you just log in near Adelaide on a new device?, 15 Aug, Let us know if it wasn",
+      "href": null,
+      "selector": "#:ch",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_337",
+      "text": "unread, Facebook, Did you just log in near Adelaide on a new device?, 15 Aug, Let us know if it wasn",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_338",
+      "text": "Did you just log in near Adelaide on a new device? - Let us know if it wasn't you, Andrew. Andrew Or",
+      "href": null,
+      "selector": "#:cn",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_339",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_340",
+      "text": "unread, Alinta Energy, Your Alinta Energy Gas bill for account 103906423 is enclosed, has attachment",
+      "href": null,
+      "selector": "#:cu",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_342",
+      "text": "unread, Alinta Energy, Your Alinta Energy Gas bill for account 103906423 is enclosed, has attachment",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_343",
+      "text": "Your Alinta Energy Gas bill for account 103906423 is enclosed - Your Gas Bill Hi Andrew, please find",
+      "href": null,
+      "selector": "#:d0",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_344",
+      "text": "Attachment:AlintaEnergy-103906423-31639047.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_345",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_346",
+      "text": "Roshiba Christina C., Expiration Pending: Complete with Docusign: TA Extension 2025-26 Andrew 1 Coac",
+      "href": null,
+      "selector": "#:d7",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_348",
+      "text": "Roshiba Christina C., Expiration Pending: Complete with Docusign: TA Extension 2025-26 Andrew 1 Coac",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_349",
+      "text": "Expiration Pending: Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach-House Dr.pdf - Roshi",
+      "href": null,
+      "selector": "#:dd",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_350",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_351",
+      "text": "Lyle Shelton, Famil., Big wins for Family First this week, 15 Aug, Headlines, rallies, and momentum",
+      "href": null,
+      "selector": "#:dk",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_353",
+      "text": "Lyle Shelton, Famil., Big wins for Family First this week, 15 Aug, Headlines, rallies, and momentum",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_354",
+      "text": "Big wins for Family First this week - Headlines, rallies, and momentum building ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌",
+      "href": null,
+      "selector": "#:dq",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_355",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_356",
+      "text": "unread, Seesaw, New Message from Mel Angel, 15 Aug, Seesaw \"Mel Angel: KEEPING CHILDREN SAFE Dear Fa",
+      "href": null,
+      "selector": "#:dx",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_358",
+      "text": "unread, Seesaw, New Message from Mel Angel, 15 Aug, Seesaw \"Mel Angel: KEEPING CHILDREN SAFE Dear Fa",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_359",
+      "text": "New Message from Mel Angel - Seesaw \"Mel Angel: KEEPING CHILDREN SAFE Dear Families, Please see t...",
+      "href": null,
+      "selector": "#:e3",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_360",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_361",
+      "text": "Bianca Holmes, Running Late, has attachment, 15 Aug, Hi Andrew, My meeting is currently running over",
+      "href": null,
+      "selector": "#:ea",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_363",
+      "text": "Bianca Holmes, Running Late, has attachment, 15 Aug, Hi Andrew, My meeting is currently running over",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_364",
+      "text": "Running Late - Hi Andrew, My meeting is currently running over. I will join ASAP! Bianca Holmes Lead",
+      "href": null,
+      "selector": "#:eg",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_365",
+      "text": "Attachment:image001.png",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_366",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_367",
+      "text": "unread, Roshiba Christina C., Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach-House Dr.p",
+      "href": null,
+      "selector": "#:en",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_369",
+      "text": "unread, Roshiba Christina C., Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach-House Dr.p",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_370",
+      "text": "Complete with Docusign: TA Extension 2025-26 Andrew 1 Coach-House Dr.pdf - Roshiba Christina C de la",
+      "href": null,
+      "selector": "#:et",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_371",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_372",
+      "text": "Michael Page Austra., New jobs for: Information Technology : International, 15 Aug, Michael Page Lat",
+      "href": null,
+      "selector": "#:f0",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_374",
+      "text": "Michael Page Austra., New jobs for: Information Technology : International, 15 Aug, Michael Page Lat",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_375",
+      "text": "New jobs for: Information Technology : International - Michael Page Latest Information Technology jo",
+      "href": null,
+      "selector": "#:f6",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_376",
+      "text": "15 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_377",
+      "text": "Belle Property Norw., Belle Property Norwood Weekly Update, 14 Aug, Dear Andrew, Whether you're buyi",
+      "href": null,
+      "selector": "#:fd",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_379",
+      "text": "Belle Property Norw., Belle Property Norwood Weekly Update, 14 Aug, Dear Andrew, Whether you're buyi",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_380",
+      "text": "Belle Property Norwood Weekly Update - Dear Andrew, Whether you're buying, selling, or just staying",
+      "href": null,
+      "selector": "#:fj",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_381",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_382",
+      "text": "unread, Olivia, Olivia Orsmond - ID Verification, Offer Letter & 186 Grant, has attachment, 14 Aug,",
+      "href": null,
+      "selector": "#:fq",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_384",
+      "text": "unread, Olivia, Olivia Orsmond - ID Verification, Offer Letter & 186 Grant, has attachment, 14 Aug,",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_385",
+      "text": "Olivia Orsmond - ID Verification, Offer Letter & 186 Grant - Kind regards OliviaAttachment:Olivia Or",
+      "href": null,
+      "selector": "#:fw",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_386",
+      "text": "Attachment:Olivia Orsmond - ID Verification .pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_387",
+      "text": "Attachment:IMMI Grant Notification 186 - Olivia Orsmond.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_388",
+      "text": "Attachment:Olivia Orsmond - Signed Letter of Offer - Job Lookup.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_389",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_390",
+      "text": "Olivia, Andrew Orsmond - ID Verification & 186 Grant, has attachment, 14 Aug, Kind regards Olivia.Ol",
+      "href": null,
+      "selector": "#:g3",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_392",
+      "text": "Olivia, Andrew Orsmond - ID Verification & 186 Grant, has attachment, 14 Aug, Kind regards Olivia.Ol",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_393",
+      "text": "Andrew Orsmond - ID Verification & 186 Grant - Kind regards OliviaAttachment:Andrew Orsmond - ID Ver",
+      "href": null,
+      "selector": "#:g9",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_394",
+      "text": "Attachment:Andrew Orsmond - ID Verification .pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_395",
+      "text": "Attachment:IMMI Grant Notification 186 - Andrew Orsmond.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_396",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_397",
+      "text": "unread, Olivia, ID Verification, has attachment, 14 Aug, Xxxx.OliviaID Verification - XxxxAttachment",
+      "href": null,
+      "selector": "#:gg",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_399",
+      "text": "unread, Olivia, ID Verification, has attachment, 14 Aug, Xxxx.Olivia",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_400",
+      "text": "ID Verification - XxxxAttachment:Olivia Orsmond - ID Verification.pdf",
+      "href": null,
+      "selector": "#:gm",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_401",
+      "text": "Attachment:Olivia Orsmond - ID Verification.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_402",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_403",
+      "text": "Bianca, me 4, Application - Deputy Director, Strategy and Architecture, has attachment, 14 Aug, Hi B",
+      "href": null,
+      "selector": "#:gt",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_405",
+      "text": "Bianca, me 4, Application - Deputy Director, Strategy and Architecture, has attachment, 14 Aug, Hi B",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_406",
+      "text": "Application - Deputy Director, Strategy and Architecture - Hi Bianca, See you at 12:30pm this Friday",
+      "href": null,
+      "selector": "#:gz",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_407",
+      "text": "Attachment:image001.png",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_408",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_409",
+      "text": "unread, Belle Property Adel., Belle Property Adelaide City Weekly Update, 14 Aug, Dear Andrew, Wheth",
+      "href": null,
+      "selector": "#:h6",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_411",
+      "text": "unread, Belle Property Adel., Belle Property Adelaide City Weekly Update, 14 Aug, Dear Andrew, Wheth",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_412",
+      "text": "Belle Property Adelaide City Weekly Update - Dear Andrew, Whether you're buying, selling, or just st",
+      "href": null,
+      "selector": "#:hc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_413",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_414",
+      "text": "unread, Olivia, Signed Offer Letter, has attachment, 14 Aug, Hi bunny Please find my signed letter a",
+      "href": null,
+      "selector": "#:hj",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_416",
+      "text": "unread, Olivia, Signed Offer Letter, has attachment, 14 Aug, Hi bunny Please find my signed letter a",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_417",
+      "text": "Signed Offer Letter - Hi bunny Please find my signed letter attached. Love you xxxAttachment:Olivia",
+      "href": null,
+      "selector": "#:hp",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_418",
+      "text": "Attachment:Olivia Orsmond - Signed Letter of Offer - Job Lookup.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_419",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_420",
+      "text": "unread, Google Gemini, Important updates in Gemini Apps, 14 Aug, New features and settings to help y",
+      "href": null,
+      "selector": "#:hw",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_422",
+      "text": "unread, Google Gemini, Important updates in Gemini Apps, 14 Aug, New features and settings to help y",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_423",
+      "text": "Important updates in Gemini Apps - New features and settings to help you remain in control of your d",
+      "href": null,
+      "selector": "#:i2",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_424",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_425",
+      "text": "PrintMe, Release code C4AE58EA is ready for printing at Officeworks, 14 Aug, Thank you for your onli",
+      "href": null,
+      "selector": "#:i9",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_427",
+      "text": "PrintMe, Release code C4AE58EA is ready for printing at Officeworks, 14 Aug, Thank you for your onli",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_428",
+      "text": "Release code C4AE58EA is ready for printing at Officeworks - Thank you for your online submission to",
+      "href": null,
+      "selector": "#:if",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_429",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_430",
+      "text": "John Silvestri, Your Adelaide Property Market Update | August 2025, 14 Aug, Header Banner August Pro",
+      "href": null,
+      "selector": "#:im",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_432",
+      "text": "John Silvestri, Your Adelaide Property Market Update | August 2025, 14 Aug, Header Banner August Pro",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_433",
+      "text": "Your Adelaide Property Market Update | August 2025 - Header Banner August Property Market Update Hel",
+      "href": null,
+      "selector": "#:is",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_434",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_435",
+      "text": "Helen Gong, Your Adelaide Property Market Update | August 2025, 14 Aug, Header Banner August Propert",
+      "href": null,
+      "selector": "#:iz",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_437",
+      "text": "Helen Gong, Your Adelaide Property Market Update | August 2025, 14 Aug, Header Banner August Propert",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_438",
+      "text": "Your Adelaide Property Market Update | August 2025 - Header Banner August Property Market Update Hel",
+      "href": null,
+      "selector": "#:j5",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_439",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_440",
+      "text": "me 2, (no subject), has attachment, 14 Aug, ---------- Forwarded message --------- From: Andrew Orsm",
+      "href": null,
+      "selector": "#:jc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_442",
+      "text": "me 2, (no subject), has attachment, 14 Aug, ---------- Forwarded message --------- From: Andrew Orsm",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_443",
+      "text": "(no subject) - ---------- Forwarded message --------- From: Andrew Orsmond <andreworsmond21175@gmail",
+      "href": null,
+      "selector": "#:ji",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_444",
+      "text": "Attachment:Job Lookup Pty Ltd Olivia Orsmond_250814_110848.pdf",
+      "href": null,
+      "selector": ".brc",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_445",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_446",
+      "text": "unread, MTB Direct, Maxxis 25% Off + More Hot Offers , 14 Aug, 4 days only. Act now or miss out! ͏ ͏",
+      "href": null,
+      "selector": "#:jp",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_448",
+      "text": "unread, MTB Direct, Maxxis 25% Off + More Hot Offers , 14 Aug, 4 days only. Act now or miss out! ͏ ͏",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_449",
+      "text": "Maxxis 25% Off + More Hot Offers  - 4 days only. Act now or miss out! ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏",
+      "href": null,
+      "selector": "#:jv",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_450",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_451",
+      "text": "SEEK Applications, Your application was successfully submitted, 14 Aug, Hi Andrew, your application",
+      "href": null,
+      "selector": "#:k2",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_453",
+      "text": "SEEK Applications, Your application was successfully submitted, 14 Aug, Hi Andrew, your application",
+      "href": null,
+      "selector": ".yX",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_454",
+      "text": "Your application was successfully submitted - Hi Andrew, your application for Director, Information",
+      "href": null,
+      "selector": "#:k8",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_455",
+      "text": "14 Aug",
+      "href": null,
+      "selector": ".xW",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_456",
+      "text": "Details",
+      "href": null,
+      "selector": "#:mj",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "form_001",
+      "text": "Form (POST)",
+      "href": "https://support.google.com/mail?p=fix-gmail-loading&authuser=0",
+      "selector": "#bhlf",
+      "element_type": "form",
+      "form_method": "post",
+      "context": "interaction",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "form_002",
+      "text": "Form (POST)",
+      "href": "https://mail.google.com/mail/u/0/?ui=html&zy=d",
+      "selector": "#undefined",
+      "element_type": "form",
+      "form_method": "post",
+      "context": "interaction",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "form_003",
+      "text": "Form (GET)",
+      "href": "https://mail.google.com/mail/u/0/#inbox",
+      "selector": "#aso_search_form_anchor",
+      "element_type": "form",
+      "form_method": "get",
+      "context": "interaction",
+      "importance_score": 0.65
+    }
+  ]
+}

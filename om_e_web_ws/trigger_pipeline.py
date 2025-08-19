@@ -209,7 +209,10 @@ class PipelineTrigger:
         # Step 4: Check if we have the processed file
         step4_start = time.time()
         print("\n🔍 Step 4: Checking for processed file...")
-        processed_files = [f for f in files if "_processed.jsonl" in f] if 'files' in locals() else []
+        processed_files = []
+        if os.path.exists(SITE_STRUCTURES_DIR):
+            files = os.listdir(SITE_STRUCTURES_DIR)
+            processed_files = [f for f in files if "_processed.jsonl" in f]
         
         if processed_files:
             print("✅ Found processed file(s):")

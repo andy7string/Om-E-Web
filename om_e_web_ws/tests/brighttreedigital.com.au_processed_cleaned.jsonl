@@ -1,0 +1,1331 @@
+{
+  "metadata": {
+    "url": "https://brighttreedigital.com.au/",
+    "title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "elements": [
+    {
+      "FindMe_id": "FindMe_001",
+      "text": "Skip to content",
+      "href": "https://brighttreedigital.com.au/#content",
+      "selector": ".skip-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_002",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".custom-logo-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_003",
+      "text": "HOME",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".menu-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_004",
+      "text": "ABOUT",
+      "href": "https://brighttreedigital.com.au/about/",
+      "selector": ".menu-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_005",
+      "text": "PORTFOLIO",
+      "href": "https://brighttreedigital.com.au/#",
+      "selector": ".menu-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_006",
+      "text": "SERVICES",
+      "href": "https://brighttreedigital.com.au/services/",
+      "selector": ".menu-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_007",
+      "text": "CONTACT",
+      "href": "https://brighttreedigital.com.au/contact/",
+      "selector": ".menu-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_008",
+      "text": "",
+      "href": "https://www.facebook.com/brighttreedigital",
+      "selector": ".ast-builder-social-element",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_009",
+      "text": "",
+      "href": "https://www.instagram.com/bright_tree_digital/",
+      "selector": ".ast-builder-social-element",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_010",
+      "text": "Get Started",
+      "href": "https://brighttreedigital.com.au/services#logo-design",
+      "selector": ".bdt-slide-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_011",
+      "text": "Get Started",
+      "href": "https://brighttreedigital.com.au/services#Website-Design",
+      "selector": ".bdt-slide-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_012",
+      "text": "Get Started",
+      "href": "https://brighttreedigital.com.au/services#banner-ad-design",
+      "selector": ".bdt-slide-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_013",
+      "text": "Get Started",
+      "href": "https://brighttreedigital.com.au/services#logo-design",
+      "selector": ".bdt-slide-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_014",
+      "text": "Get Started",
+      "href": "https://brighttreedigital.com.au/services#Website-Design",
+      "selector": ".bdt-slide-link",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_015",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".bdt-navigation-prev",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_016",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".bdt-navigation-next",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_017",
+      "text": "Get in touch today!",
+      "href": "https://brighttreedigital.com.au/contact/",
+      "selector": ".elementor-button",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_018",
+      "text": "Straker Functional Fitness",
+      "href": "https://strakerfunctionalfitness.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_019",
+      "text": "The Syrene Hotel",
+      "href": "https://www.thesyrene.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_020",
+      "text": "African Safari Deals",
+      "href": "https://www.africansafarideals.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_021",
+      "text": "Mtambo Chartered Accountants",
+      "href": "https://www.filemca.com/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_022",
+      "text": "Joss Couture",
+      "href": "https://www.josscouture.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_023",
+      "text": "Flutterbys School",
+      "href": "https://flutterbys.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_024",
+      "text": "The Gourmet Cookie Co",
+      "href": "https://www.thegourmetcookieco.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_025",
+      "text": "Straker Functional Fitness",
+      "href": "https://strakerfunctionalfitness.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_026",
+      "text": "The Syrene Hotel",
+      "href": "https://www.thesyrene.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_027",
+      "text": "African Safari Deals",
+      "href": "https://www.africansafarideals.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_028",
+      "text": "Mtambo Chartered Accountants",
+      "href": "https://www.filemca.com/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_029",
+      "text": "Joss Couture",
+      "href": "https://www.josscouture.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_030",
+      "text": "Flutterbys School",
+      "href": "https://flutterbys.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_031",
+      "text": "The Gourmet Cookie Co",
+      "href": "https://www.thegourmetcookieco.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_032",
+      "text": "Straker Functional Fitness",
+      "href": "https://strakerfunctionalfitness.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_033",
+      "text": "The Syrene Hotel",
+      "href": "https://www.thesyrene.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_034",
+      "text": "African Safari Deals",
+      "href": "https://www.africansafarideals.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_035",
+      "text": "Mtambo Chartered Accountants",
+      "href": "https://www.filemca.com/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_036",
+      "text": "",
+      "href": "https://thegourmetkitchen.co.za/",
+      "selector": "#post-4609 > div > div > section > div > div > div > section > div > div > div > div:nth-child(2) > div > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_037",
+      "text": "",
+      "href": "https://www.thesyrene.co.za/",
+      "selector": "#post-4609 > div > div > section > div > div > div > section > div > div:nth-child(2) > div > div:nth-child(2) > div > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_038",
+      "text": "Read More Testimonials",
+      "href": "https://brighttreedigital.com.au/about#testimonials",
+      "selector": ".elementor-button",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8500000000000001
+    },
+    {
+      "FindMe_id": "FindMe_039",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Mad-Robor-Studios.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_040",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Joss-Couture.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_041",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Vegan-Links2.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_042",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Professor-Code.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_043",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Time-Pieces-of-Distinction-logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_044",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Software-Ninja.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_045",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Smart-Routing.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_046",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Andy7-String.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_047",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/i8i-Logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_048",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Gourmet-Cookie-Co-Logo-Pink-copy.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_049",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Mad-Robor-Studios.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_050",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Joss-Couture.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_051",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Vegan-Links2.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_052",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Professor-Code.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_053",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Time-Pieces-of-Distinction-logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_054",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Software-Ninja.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_055",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Smart-Routing.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_056",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Andy7-String.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_057",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/i8i-Logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_058",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Gourmet-Cookie-Co-Logo-Pink-copy.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_059",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Mad-Robor-Studios.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_060",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Joss-Couture.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_061",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Vegan-Links2.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_062",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Professor-Code.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_063",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Time-Pieces-of-Distinction-logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_064",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Software-Ninja.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_065",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Smart-Routing.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_066",
+      "text": "Reach Out Now!",
+      "href": "https://brighttreedigital.com.au/contact/",
+      "selector": ".elementor-button",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_067",
+      "text": "Banner Portfolio",
+      "href": "https://brighttreedigital.com.au/banner-design-portfolio/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div > ul > li > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_068",
+      "text": "Logo Portfolio",
+      "href": "https://brighttreedigital.com.au/logo-design-portfolio/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div > ul > li:nth-child(2) > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_069",
+      "text": "Web Design Portfolio",
+      "href": "https://brighttreedigital.com.au/web-design-portfolio/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div > ul > li:nth-child(3) > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_070",
+      "text": "Facebook",
+      "href": "https://www.facebook.com/brighttreedigital",
+      "selector": ".elementor-icon",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_071",
+      "text": "Instagram",
+      "href": "https://www.instagram.com/bright_tree_digital/",
+      "selector": ".elementor-icon",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_072",
+      "text": "Home",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_073",
+      "text": "About",
+      "href": "https://brighttreedigital.com.au/about/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(2) > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7
+    },
+    {
+      "FindMe_id": "FindMe_074",
+      "text": "Services",
+      "href": "https://brighttreedigital.com.au/services/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(3) > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_075",
+      "text": "Testimonials",
+      "href": "https://brighttreedigital.com.au/about/#testimonials",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(4) > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_076",
+      "text": "Contact",
+      "href": "https://brighttreedigital.com.au/contact/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(5) > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_077",
+      "text": "Privacy Policy",
+      "href": "https://brighttreedigital.com.au/privacy-policy/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(6) > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_078",
+      "text": "Website Designed by Bright Tree Digital",
+      "href": "http://www.brighttreedigital.com/",
+      "selector": "#colophon > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > h6 > a",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_087",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".bdt-navigation-prev",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_088",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".bdt-navigation-next",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_090",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".bdt-navigation-prev",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_091",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".bdt-navigation-next",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.7000000000000001
+    },
+    {
+      "FindMe_id": "FindMe_092",
+      "text": "Straker Functional Fitness",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_093",
+      "text": "Straker Functional Fitness",
+      "href": "https://strakerfunctionalfitness.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_094",
+      "text": "The Syrene Hotel",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_095",
+      "text": "The Syrene Hotel",
+      "href": "https://www.thesyrene.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_096",
+      "text": "African Safari Deals",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_097",
+      "text": "African Safari Deals",
+      "href": "https://www.africansafarideals.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_098",
+      "text": "Mtambo Chartered Accountants",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_099",
+      "text": "Mtambo Chartered Accountants",
+      "href": "https://www.filemca.com/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_100",
+      "text": "Joss Couture",
+      "href": null,
+      "selector": "#slick-slide30",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_101",
+      "text": "Joss Couture",
+      "href": "https://www.josscouture.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_102",
+      "text": "Flutterbys School",
+      "href": null,
+      "selector": "#slick-slide31",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_103",
+      "text": "Flutterbys School",
+      "href": "https://flutterbys.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_104",
+      "text": "The Gourmet Cookie Co",
+      "href": null,
+      "selector": "#slick-slide32",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_105",
+      "text": "The Gourmet Cookie Co",
+      "href": "https://www.thegourmetcookieco.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_106",
+      "text": "New Moon Digital",
+      "href": null,
+      "selector": "#slick-slide33",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_107",
+      "text": "Straker Functional Fitness",
+      "href": null,
+      "selector": "#slick-slide34",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_108",
+      "text": "Straker Functional Fitness",
+      "href": "https://strakerfunctionalfitness.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_109",
+      "text": "The Syrene Hotel",
+      "href": null,
+      "selector": "#slick-slide35",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_110",
+      "text": "The Syrene Hotel",
+      "href": "https://www.thesyrene.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_111",
+      "text": "African Safari Deals",
+      "href": null,
+      "selector": "#slick-slide36",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_112",
+      "text": "African Safari Deals",
+      "href": "https://www.africansafarideals.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_113",
+      "text": "Mtambo Chartered Accountants",
+      "href": null,
+      "selector": "#slick-slide37",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_114",
+      "text": "Mtambo Chartered Accountants",
+      "href": "https://www.filemca.com/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_115",
+      "text": "Joss Couture",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_116",
+      "text": "Joss Couture",
+      "href": "https://www.josscouture.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_117",
+      "text": "Flutterbys School",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_118",
+      "text": "Flutterbys School",
+      "href": "https://flutterbys.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_119",
+      "text": "The Gourmet Cookie Co",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_120",
+      "text": "The Gourmet Cookie Co",
+      "href": "https://www.thegourmetcookieco.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_121",
+      "text": "New Moon Digital",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_122",
+      "text": "Straker Functional Fitness",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_123",
+      "text": "Straker Functional Fitness",
+      "href": "https://strakerfunctionalfitness.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_124",
+      "text": "The Syrene Hotel",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_125",
+      "text": "The Syrene Hotel",
+      "href": "https://www.thesyrene.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_126",
+      "text": "African Safari Deals",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.6
+    },
+    {
+      "FindMe_id": "FindMe_127",
+      "text": "African Safari Deals",
+      "href": "https://www.africansafarideals.co.za/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.75
+    },
+    {
+      "FindMe_id": "FindMe_128",
+      "text": "Mtambo Chartered Accountants",
+      "href": null,
+      "selector": ".uael-grid-item",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_129",
+      "text": "Mtambo Chartered Accountants",
+      "href": "https://www.filemca.com/",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.8
+    },
+    {
+      "FindMe_id": "FindMe_139",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Mad-Robor-Studios.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_141",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Joss-Couture.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_143",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Vegan-Links2.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_145",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Professor-Code.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_147",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Time-Pieces-of-Distinction-logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_149",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Software-Ninja.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_151",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Smart-Routing.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_153",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Andy7-String.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_155",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/i8i-Logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_157",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Gourmet-Cookie-Co-Logo-Pink-copy.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_159",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Mad-Robor-Studios.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_161",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Joss-Couture.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_163",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Vegan-Links2.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_165",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Professor-Code.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_167",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Time-Pieces-of-Distinction-logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_169",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Software-Ninja.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_171",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Smart-Routing.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_173",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Andy7-String.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_175",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/i8i-Logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_177",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Gourmet-Cookie-Co-Logo-Pink-copy.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_179",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Mad-Robor-Studios.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_181",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Joss-Couture.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_183",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Vegan-Links2.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_185",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Professor-Code.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_187",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Time-Pieces-of-Distinction-logo.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_189",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Software-Ninja.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    },
+    {
+      "FindMe_id": "FindMe_191",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Smart-Routing.jpg",
+      "selector": ".uael-grid-img",
+      "element_type": "interactive",
+      "context": "main_content",
+      "importance_score": 0.65
+    }
+  ]
+}
