@@ -190,11 +190,14 @@ function initializeDOMChangeDetection() {
                                 attrName === 'aria-*') {
                                 
                                 hasSignificantChanges = true;
-                                console.log("[Content] 🆕 DOM change: Attribute change:", {
-                                    element: target.tagName,
-                                    attribute: attrName,
-                                    target: target.id || target.className || 'unknown'
-                                });
+                                // 🚫 REDUCED LOGGING: Only log significant attribute changes
+                                if (attrName === 'class' || attrName === 'data-*' || attrName.startsWith('aria-')) {
+                                    console.log("[Content] 🆕 DOM change: Attribute change:", {
+                                        element: target.tagName,
+                                        attribute: attrName,
+                                        target: target.id || target.className || 'unknown'
+                                    });
+                                }
                             }
                         }
                     } else if (mutation.type === 'characterData') {
@@ -226,16 +229,22 @@ function initializeDOMChangeDetection() {
                 changeCount++;
                 lastChangeTime = Date.now();
                 
-                console.log("[Content] 🆕 DOM changes detected:", {
-                    changeNumber: changeCount,
-                    types: Array.from(changeTypes),
-                    timestamp: new Date(lastChangeTime).toISOString(),
-                    totalMutations: mutations.length
-                });
+                // 🚫 REDUCED LOGGING: Only log every 10th change to reduce noise
+                if (changeCount % 10 === 0) {
+                    console.log("[Content] 🆕 DOM changes detected:", {
+                        changeNumber: changeCount,
+                        types: Array.from(changeTypes),
+                        timestamp: new Date(lastChangeTime).toISOString(),
+                        totalMutations: mutations.length
+                    });
+                }
                 
-                // 🆕 ENHANCED: Route changes through intelligence system with debug logging
+                // 🆕 ENHANCED: Route changes through intelligence system with reduced logging
                 if (changeAggregator && intelligenceEngine) {
-                    console.log("[Content] 🧠 Routing changes through intelligence system...");
+                    // 🚫 REDUCED LOGGING: Only log every 20th change
+                    if (changeCount % 20 === 0) {
+                        console.log("[Content] 🧠 Routing changes through intelligence system...");
+                    }
                     
                     mutations.forEach(mutation => {
                         const changeInfo = {
@@ -248,11 +257,17 @@ function initializeDOMChangeDetection() {
                             attributeName: mutation.attributeName || null
                         };
                         
-                        console.log("[Content] 🧠 Processing change:", changeInfo);
+                        // 🚫 REDUCED LOGGING: Only log significant changes
+                        if (mutation.type === 'childList' || mutation.addedNodes?.length > 0 || mutation.removedNodes?.length > 0) {
+                            console.log("[Content] 🧠 Processing significant change:", changeInfo);
+                        }
                         changeAggregator.addChange(changeInfo);
                     });
                     
-                    console.log("[Content] 🧠 Changes queued for intelligence processing");
+                    // 🚫 REDUCED LOGGING: Only log every 20th change
+                    if (changeCount % 20 === 0) {
+                        console.log("[Content] 🧠 Changes queued for intelligence processing");
+                    }
                 } else {
                     console.warn("[Content] ⚠️ Intelligence system not ready:", {
                         changeAggregator: !!changeAggregator,

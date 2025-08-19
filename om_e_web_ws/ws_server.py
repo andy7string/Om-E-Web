@@ -290,12 +290,14 @@ async def store_dom_change_context(dom_change_data):
             "change_summary": f"Tab {dom_change_data.get('tabId')}: {dom_change_data.get('totalMutations', 0)} mutations"
         }
         
-        # Append to change history file
-        filepath = os.path.join(SITE_STRUCTURES_DIR, "dom_change_history.jsonl")
-        with open(filepath, 'a', encoding='utf-8') as f:
-            f.write(json.dumps(change_context, ensure_ascii=False) + '\n')
+        # 🚫 DISABLED: DOM change history file writing (too noisy)
+        # filepath = os.path.join(SITE_STRUCTURES_DIR, "dom_change_history.jsonl")
+        # with open(filepath, 'a', encoding='utf-8') as f:
+        #     f.write(json.dumps(change_context, ensure_ascii=False) + '\n')
         
-        print(f"🔄 DOM change context stored: {change_context['change_summary']}")
+        # 🚫 REDUCED LOGGING: Only log significant changes
+        if dom_change_data.get("totalMutations", 0) > 5:
+            print(f"🔄 DOM change context stored: {change_context['change_summary']}")
         
         return filepath
         
