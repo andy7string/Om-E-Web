@@ -73,6 +73,9 @@ function connectWebSocket() {
                     // Send initial tabs information
                     sendTabsInfo();
                     
+                    // 🆕 NEW: Send active tab info immediately on connection
+                    sendActiveTabInfo();
+                    
                     // Flush any pending messages that were queued
                     flushPendingMessages();
                 } else {
@@ -84,6 +87,7 @@ function connectWebSocket() {
                                 status: "connected"
                             });
                             sendTabsInfo();
+                            sendActiveTabInfo();
                             flushPendingMessages();
                         }
                     }, 500);
@@ -251,8 +255,48 @@ async function sendTabsInfo(forceRefresh = false) {
         
         console.log("[SW] Tabs info updated and sent to server");
         
+        // 🆕 NEW: Also send active tab information immediately
+        await sendActiveTabInfo();
+        
     } catch (error) {
         console.error("[SW] Failed to get tabs info:", error);
+    }
+}
+
+/**
+ * 🎯 NEW: Send active tab information to server
+ * 
+ * This function sends just the current active tab information
+ * for immediate visibility in the terminal.
+ */
+async function sendActiveTabInfo() {
+    try {
+        const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+        if (tabs.length > 0) {
+            const activeTab = tabs[0];
+            const activeTabInfo = {
+                id: activeTab.id,
+                url: activeTab.url,
+                title: activeTab.title,
+                status: activeTab.status,
+                pendingUrl: activeTab.pendingUrl
+            };
+            
+            // Send active tab info to server
+            sendToServer({
+                type: "active_tab_info",
+                activeTab: activeTabInfo,
+                timestamp: Date.now()
+            });
+            
+            console.log("[SW] 🎯 Active tab info sent:", {
+                id: activeTabInfo.id,
+                url: activeTabInfo.url,
+                title: activeTabInfo.title.substring(0, 50) + "..."
+            });
+        }
+    } catch (error) {
+        console.error("[SW] Failed to send active tab info:", error);
     }
 }
 
@@ -1136,6 +1180,8 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
         console.log("[SW] Content script injection failed:", error.message);
     }
     
+    // 🆕 NEW: Send active tab info immediately when tab changes
+    await sendActiveTabInfo();
     await sendTabsInfo();
 });
 
@@ -1154,9 +1200,36 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
         // 🆕 ENHANCED: Force content script refresh for this tab
         await ensureContentScriptFresh(tabId);
         
+        // 🆕 NEW: Send active tab info if this is the active tab
+        if (tab.active) {
+            await sendActiveTabInfo();
+        }
+        
         // This will now update both internal state AND send to server
         await sendTabsInfo(false); // false = not a force refresh
     }
+});
+
+/**
+ * 🔄 Handle tab creation events
+ * 
+ * When a new tab is created, send updated tab info
+ */
+chrome.tabs.onCreated.addListener(async (tab) => {
+    console.log("[SW] Tab created:", tab.id);
+    await sendActiveTabInfo();
+    await sendTabsInfo();
+});
+
+/**
+ * 🔄 Handle tab removal events
+ * 
+ * When a tab is removed, send updated tab info
+ */
+chrome.tabs.onRemoved.addListener(async (tabId, removeInfo) => {
+    console.log("[SW] Tab removed:", tabId);
+    await sendActiveTabInfo();
+    await sendTabsInfo();
 });
 
 /**

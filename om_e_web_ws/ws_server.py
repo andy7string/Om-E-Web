@@ -39,6 +39,7 @@ COMMAND_CLIENTS = {}              # Command ID → Client mapping for response r
 # 📊 Tab information storage for external access
 CURRENT_TABS_INFO = None           # Latest tabs_info from extension
 LAST_TABS_UPDATE = None            # Timestamp of last update
+CURRENT_ACTIVE_TAB = None          # Current active tab information
 
 # 📁 Site map storage configuration
 SITE_STRUCTURES_DIR = "@site_structures"
@@ -65,11 +66,24 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
             os.makedirs(SITE_STRUCTURES_DIR)
             print(f"📁 Created directory: {SITE_STRUCTURES_DIR}")
         
-        # Prepare page data for JSONL format
+        # 🆕 NEW: Get current browser state information
+        browser_state = {
+            "total_tabs": len(CURRENT_TABS_INFO) if CURRENT_TABS_INFO else 0,
+            "active_tab": CURRENT_ACTIVE_TAB,
+            "all_tabs": CURRENT_TABS_INFO if CURRENT_TABS_INFO else [],
+            "last_tabs_update": LAST_TABS_UPDATE,
+            "extension_connected": EXTENSION_WS is not None
+        }
+        
+        # Prepare page data for JSONL format with browser state
         page_data = {
             "timestamp": time.time(),
-            "url": intelligence_data.get("pageState", {}).get("url", "unknown"),
-            "title": intelligence_data.get("pageState", {}).get("title", "unknown"),
+            "browser_state": browser_state,
+            "current_page": {
+                "url": intelligence_data.get("pageState", {}).get("url", "unknown"),
+                "title": intelligence_data.get("pageState", {}).get("title", "unknown"),
+                "is_active_tab": True if CURRENT_ACTIVE_TAB and CURRENT_ACTIVE_TAB.get("url") == intelligence_data.get("pageState", {}).get("url") else False
+            },
             "actionable_elements": intelligence_data.get("actionableElements", []),
             "page_state": intelligence_data.get("pageState", {}),
             "recent_insights": intelligence_data.get("recentInsights", []),
@@ -88,6 +102,7 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
         
         print(f"🧠 Intelligence saved to central file: {filepath}")
         print(f"📊 Elements: {page_data['total_elements']}, Insights: {len(page_data['recent_insights'])}")
+        print(f"🌐 Browser State: {browser_state['total_tabs']} tabs, Active: {browser_state['active_tab'].get('url', 'unknown') if browser_state['active_tab'] else 'none'}")
         
         return filepath
         
@@ -102,17 +117,39 @@ async def process_actionable_elements_for_llm(actionable_elements):
     This function transforms actionable elements into LLM-friendly format
     with clear action mappings and execution instructions.
     
+    🆕 NEW: Includes page context to ensure actions align with current page
+    
     @param actionable_elements: List of actionable elements from extension
     """
     try:
         if not actionable_elements:
             print("⚠️ No actionable elements to process")
+            # 🆕 NEW: Clear LLM actions when no elements are available
+            await clear_llm_actions()
             return
         
         print(f"🎯 Processing {len(actionable_elements)} actionable elements for LLM")
         
-        # Create LLM-friendly action mapping
-        llm_actions = {}
+        # 🆕 NEW: Get current page context
+        current_page_url = "unknown"
+        current_page_title = "unknown"
+        if CURRENT_ACTIVE_TAB:
+            current_page_url = CURRENT_ACTIVE_TAB.get("url", "unknown")
+            current_page_title = CURRENT_ACTIVE_TAB.get("title", "unknown")
+        
+        # Create LLM-friendly action mapping with page context
+        llm_actions = {
+            # 🆕 NEW: Page context metadata
+            "_page_context": {
+                "url": current_page_url,
+                "title": current_page_title,
+                "timestamp": time.time(),
+                "total_actions": len(actionable_elements),
+                "active_tab_id": CURRENT_ACTIVE_TAB.get("id") if CURRENT_ACTIVE_TAB else None
+            }
+        }
+        
+        # Process actionable elements
         for element in actionable_elements:
             action_id = element.get("actionId")
             if action_id:
@@ -122,7 +159,10 @@ async def process_actionable_elements_for_llm(actionable_elements):
                     "tag_name": element.get("tagName", "unknown"),
                     "selectors": element.get("selectors", []),
                     "coordinates": element.get("coordinates", {}),
-                    "llm_instruction": f"Use actionId '{action_id}' to {element.get('actionType', 'interact')} with this element"
+                    "llm_instruction": f"Use actionId '{action_id}' to {element.get('actionType', 'interact')} with this element",
+                    # 🆕 NEW: Page context for each action
+                    "page_url": current_page_url,
+                    "page_title": current_page_title
                 }
         
         # Save LLM action mapping
@@ -132,12 +172,55 @@ async def process_actionable_elements_for_llm(actionable_elements):
                 json.dump(llm_actions, f, ensure_ascii=False, indent=2)
             
             print(f"🎯 LLM action mapping saved: {filepath}")
-            print(f"📋 Available actions: {len(llm_actions)}")
+            print(f"📋 Available actions: {len(actionable_elements)}")
+            print(f"🌐 Page context: {current_page_url}")
+            print(f"📄 Page title: {current_page_title[:50]}...")
         
         return llm_actions
         
     except Exception as e:
         print(f"❌ Error processing actionable elements for LLM: {e}")
+        return None
+
+async def clear_llm_actions():
+    """
+    🗑️ Clear LLM actions when no actionable elements are available
+    
+    This function creates an empty llm_actions.json file with page context
+    to indicate that no actions are available on the current page.
+    """
+    try:
+        # Get current page context
+        current_page_url = "unknown"
+        current_page_title = "unknown"
+        if CURRENT_ACTIVE_TAB:
+            current_page_url = CURRENT_ACTIVE_TAB.get("url", "unknown")
+            current_page_title = CURRENT_ACTIVE_TAB.get("title", "unknown")
+        
+        # Create empty actions file with page context
+        empty_actions = {
+            "_page_context": {
+                "url": current_page_url,
+                "title": current_page_title,
+                "timestamp": time.time(),
+                "total_actions": 0,
+                "active_tab_id": CURRENT_ACTIVE_TAB.get("id") if CURRENT_ACTIVE_TAB else None,
+                "status": "no_actionable_elements"
+            }
+        }
+        
+        # Save empty actions file
+        filepath = os.path.join(SITE_STRUCTURES_DIR, "llm_actions.json")
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(empty_actions, f, ensure_ascii=False, indent=2)
+        
+        print(f"🗑️ LLM actions cleared for page: {current_page_url}")
+        print(f"📄 Page title: {current_page_title[:50]}...")
+        
+        return filepath
+        
+    except Exception as e:
+        print(f"❌ Error clearing LLM actions: {e}")
         return None
 
 async def store_dom_change_context(dom_change_data):
@@ -216,7 +299,8 @@ def get_current_page_data():
         "last_update": LAST_PAGE_UPDATE,
         "extension_connected": EXTENSION_WS is not None,
         "total_elements": CURRENT_PAGE_DATA.get("total_elements", 0),
-        "intelligence_version": CURRENT_PAGE_DATA.get("intelligence_version", "unknown")
+        "intelligence_version": CURRENT_PAGE_DATA.get("intelligence_version", "unknown"),
+        "browser_state": CURRENT_PAGE_DATA.get("browser_state", {}) if CURRENT_PAGE_DATA else {}
     }
 
 def get_current_active_tab():
@@ -228,6 +312,23 @@ def get_current_active_tab():
     
     @returns {Object} - Current active tab information with metadata
     """
+    # 🆕 NEW: Use stored active tab info if available (more accurate)
+    if CURRENT_ACTIVE_TAB is not None:
+        return {
+            "active_tab": {
+                "id": CURRENT_ACTIVE_TAB.get("id"),
+                "url": CURRENT_ACTIVE_TAB.get("url"),
+                "title": CURRENT_ACTIVE_TAB.get("title"),
+                "status": CURRENT_ACTIVE_TAB.get("status"),
+                "pending_url": CURRENT_ACTIVE_TAB.get("pendingUrl")
+            },
+            "last_update": LAST_TABS_UPDATE,
+            "extension_connected": EXTENSION_WS is not None,
+            "total_tabs": len(CURRENT_TABS_INFO) if CURRENT_TABS_INFO else 0,
+            "source": "active_tab_info_message"
+        }
+    
+    # Fallback to searching in tabs_info
     if CURRENT_TABS_INFO is None:
         return {
             "error": "No tab information available yet",
@@ -258,7 +359,8 @@ def get_current_active_tab():
         },
         "last_update": LAST_TABS_UPDATE,
         "extension_connected": EXTENSION_WS is not None,
-        "total_tabs": len(CURRENT_TABS_INFO)
+        "total_tabs": len(CURRENT_TABS_INFO),
+        "source": "tabs_info_fallback"
     }
 
 def save_site_map_to_jsonl(site_map_data, suffix=""):
@@ -1568,6 +1670,23 @@ async def handler(ws):
                 LAST_TABS_UPDATE = asyncio.get_event_loop().time()
                 print(f"📊 Tab info updated and stored - {len(CURRENT_TABS_INFO)} tabs available")
             
+            # 🎯 ACTIVE TAB INFORMATION: Display active tab info in terminal
+            if msg.get("type") == "active_tab_info":
+                active_tab = msg.get("activeTab", {})
+                tab_id = active_tab.get("id", "unknown")
+                url = active_tab.get("url", "unknown")
+                title = active_tab.get("title", "unknown")
+                status = active_tab.get("status", "unknown")
+                
+                # Truncate long titles for better terminal display
+                display_title = title[:80] + "..." if len(title) > 80 else title
+                
+                print(f"🎯 ACTIVE TAB: ID={tab_id} | URL={url} | Title={display_title} | Status={status}")
+                
+                # Also store this as the current active tab for getActiveTab command
+                global CURRENT_ACTIVE_TAB
+                CURRENT_ACTIVE_TAB = active_tab
+            
             # 🧠 INTELLIGENCE MESSAGE HANDLING: Process intelligence updates from extension
             if msg.get("type") == "intelligence_update":
                 print("🧠 Intelligence update received from extension")
@@ -1583,6 +1702,7 @@ async def handler(ws):
                     await save_intelligence_to_page_jsonl(intelligence_data)
                     
                     # 🆕 NEW: Process actionable elements for LLM consumption
+                    # This ensures llm_actions.json is always aligned with current page
                     await process_actionable_elements_for_llm(actionable_elements)
                     
                     print("✅ Intelligence update processed and saved")
