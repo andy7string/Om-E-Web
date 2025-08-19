@@ -1930,12 +1930,22 @@ async def handler(ws):
                 
                 # 🆕 NEW: Handle text extraction responses
                 print(f"🔍 Checking response: id='{msg.get('id')}', command='{msg.get('command')}', ok={msg.get('ok')}")
+                print(f"🔍 Response result keys: {list(msg.get('result', {}).keys()) if msg.get('result') else 'None'}")
                 
-                # Check if this is a text extraction response by looking for the result structure
+                # Check if this is a text extraction response by looking for the specific result structure
                 result = msg.get("result", {})
-                if (msg.get("id", "").startswith("text-") or 
+                is_text_extraction = (
+                    msg.get("id", "").startswith("text-") or 
                     msg.get("command") == "extractPageText" or
-                    (msg.get("ok") and result.get("statistics") and "totalHeadings" in result.get("statistics", {}))):
+                    (msg.get("ok") and 
+                     result.get("statistics") and 
+                     "totalHeadings" in result.get("statistics", {}) and
+                     "totalParagraphs" in result.get("statistics", {}) and
+                     "totalLists" in result.get("statistics", {}) and
+                     result.get("markdown"))  # Text extraction always has markdown field
+                )
+                
+                if is_text_extraction:
                     print("📄 Text extraction response received")
                     try:
                         if msg.get("ok") and msg.get("result"):

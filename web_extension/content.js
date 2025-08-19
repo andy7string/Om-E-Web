@@ -2804,41 +2804,38 @@ IntelligenceEngine.prototype.extractPageTextToMarkdown = function() {
     markdown.push(`**Extracted:** ${new Date().toISOString()}`);
     markdown.push('');
     
-    // Headings
-    const headings = this.extractHeadings();
-    if (headings.length > 0) {
-        markdown.push('## Page Structure (Headings)');
-        headings.forEach(heading => {
-            const prefix = '#'.repeat(heading.level + 2);
-            markdown.push(`${prefix} ${heading.text}`);
-        });
+    // 🆕 NEW: Clean text extraction with proper whitespace handling
+    const cleanText = this.extractCleanPageText();
+    if (cleanText) {
+        markdown.push('## Page Content');
+        markdown.push(cleanText);
         markdown.push('');
     }
     
-    // Main content paragraphs
-    const paragraphs = this.extractParagraphs();
-    if (paragraphs.length > 0) {
-        markdown.push('## Main Content');
-        paragraphs.forEach(p => {
-            markdown.push(p.text);
-            markdown.push('');
-        });
-    }
-    
-    // Lists
-    const lists = this.extractLists();
-    if (lists.length > 0) {
-        markdown.push('## Lists');
-        lists.forEach(list => {
-            markdown.push(`### ${list.type.toUpperCase()} List (${list.itemCount} items)`);
-            list.items.forEach(item => {
-                markdown.push(`- ${item}`);
-            });
-            markdown.push('');
-        });
-    }
-    
     return markdown.join('\n');
+};
+
+/**
+ * 🆕 NEW: Extract clean page text with proper whitespace handling
+ * Based on the efficient extractPageText() approach
+ */
+IntelligenceEngine.prototype.extractCleanPageText = function() {
+    let raw = document.body?.innerText || '';
+
+    // 1. Normalise Unicode
+    let txt = raw.normalize('NFKC');
+
+    // 2. Collapse runs of spaces/tabs into a single space
+    txt = txt.replace(/[ \t]+/g, ' ');
+
+    // 3. Trim each line
+    let lines = txt.split('\n').map(l => l.trim());
+
+    // 4. Drop empties & collapse multiple blank lines to one
+    lines = lines.filter((l, i, arr) => l || (arr[i - 1] && arr[i - 1] !== ''));
+
+    // 5. Rejoin with single newlines
+    return lines.join('\n');
 };
 
 /**
