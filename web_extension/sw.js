@@ -417,6 +417,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             case "dom_changed":
                 handleDOMChanged(message, sendResponse);
                 break;
+            case 'intelligence_update':
+                handleIntelligenceUpdate(message, sendResponse);
+                break;
+            case 'execute_llm_action':
+                handleExecuteLLMAction(message, sendResponse);
+                break;
             default:
                 console.warn("[SW] Unknown internal message type:", message.type);
                 sendResponse({ ok: false, error: "Unknown message type" });
@@ -784,6 +790,97 @@ async function handleDOMChanged(message, sendResponse) {
         
     } catch (error) {
         console.error("[SW] ❌ Failed to handle DOM changed message:", error);
+    }
+}
+
+/**
+ * 🧠 Handle intelligence updates from content script
+ * 
+ * This function processes intelligence updates and forwards them to the server
+ * for LLM consumption and storage.
+ * 
+ * @param {Object} message - Intelligence update message
+ * @param {Function} sendResponse - Response callback
+ */
+async function handleIntelligenceUpdate(message, sendResponse) {
+    try {
+        console.log("[SW] 🧠 Processing intelligence update from content script");
+        
+        const intelligenceData = message.data;
+        console.log("[SW] 🧠 Intelligence data:", {
+            actionableElements: intelligenceData.actionableElements?.length || 0,
+            insights: intelligenceData.recentInsights?.length || 0,
+            totalEvents: intelligenceData.totalEvents || 0
+        });
+        
+        // Forward intelligence update to server
+        if (ws && ws.readyState === WebSocket.OPEN) {
+            const serverMessage = {
+                type: "intelligence_update",
+                data: intelligenceData
+            };
+            
+            ws.send(JSON.stringify(serverMessage));
+            console.log("[SW] 📤 Intelligence update sent to server");
+            
+            sendResponse({ ok: true, message: "Intelligence update sent to server" });
+        } else {
+            console.warn("[SW] ⚠️ WebSocket not available for intelligence update");
+            sendResponse({ ok: false, error: "WebSocket not available" });
+        }
+        
+    } catch (error) {
+        console.error("[SW] ❌ Error handling intelligence update:", error);
+        sendResponse({ ok: false, error: error.message });
+    }
+}
+
+/**
+ * 🤖 Handle LLM action execution requests
+ * 
+ * This function receives LLM action requests from the server and executes
+ * them on the appropriate page elements.
+ * 
+ * @param {Object} message - LLM action execution message
+ * @param {Function} sendResponse - Response callback
+ */
+async function handleExecuteLLMAction(message, sendResponse) {
+    try {
+        console.log("[SW] 🤖 Executing LLM action:", message.data);
+        
+        const { actionId, actionType, params } = message.data;
+        
+        // Find the active tab to execute the action
+        const activeTab = await findActiveTab();
+        if (!activeTab) {
+            sendResponse({ ok: false, error: "No active tab found" });
+            return;
+        }
+        
+        // Send action execution command to content script
+        const actionMessage = {
+            type: "execute_action",
+            data: {
+                actionId: actionId,
+                actionType: actionType,
+                params: params
+            }
+        };
+        
+        // Execute the action in the content script
+        const response = await chrome.tabs.sendMessage(activeTab.id, actionMessage);
+        
+        if (response && response.ok) {
+            console.log("[SW] ✅ LLM action executed successfully:", actionId);
+            sendResponse({ ok: true, result: response.result });
+        } else {
+            console.error("[SW] ❌ LLM action execution failed:", response?.error);
+            sendResponse({ ok: false, error: response?.error || "Action execution failed" });
+        }
+        
+    } catch (error) {
+        console.error("[SW] ❌ Error executing LLM action:", error);
+        sendResponse({ ok: false, error: error.message });
     }
 }
 

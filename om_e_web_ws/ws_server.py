@@ -43,6 +43,136 @@ LAST_TABS_UPDATE = None            # Timestamp of last update
 # 📁 Site map storage configuration
 SITE_STRUCTURES_DIR = "@site_structures"
 
+# 🆕 NEW: Central page.jsonl file for current page state
+CURRENT_PAGE_JSONL = "page.jsonl"
+CURRENT_PAGE_DATA = None
+LAST_PAGE_UPDATE = None
+
+async def save_intelligence_to_page_jsonl(intelligence_data):
+    """
+    🧠 Save intelligence data to central page.jsonl file
+    
+    This function maintains a single, up-to-date file representing the current
+    page state and actionable elements for LLM consumption.
+    
+    @param intelligence_data: Intelligence update data from extension
+    """
+    global CURRENT_PAGE_DATA, LAST_PAGE_UPDATE
+    
+    try:
+        # Ensure the site structures directory exists
+        if not os.path.exists(SITE_STRUCTURES_DIR):
+            os.makedirs(SITE_STRUCTURES_DIR)
+            print(f"📁 Created directory: {SITE_STRUCTURES_DIR}")
+        
+        # Prepare page data for JSONL format
+        page_data = {
+            "timestamp": time.time(),
+            "url": intelligence_data.get("pageState", {}).get("url", "unknown"),
+            "title": intelligence_data.get("pageState", {}).get("title", "unknown"),
+            "actionable_elements": intelligence_data.get("actionableElements", []),
+            "page_state": intelligence_data.get("pageState", {}),
+            "recent_insights": intelligence_data.get("recentInsights", []),
+            "total_elements": len(intelligence_data.get("actionableElements", [])),
+            "intelligence_version": "2.0"
+        }
+        
+        # Update global state
+        CURRENT_PAGE_DATA = page_data
+        LAST_PAGE_UPDATE = time.time()
+        
+        # Save to central page.jsonl file
+        filepath = os.path.join(SITE_STRUCTURES_DIR, CURRENT_PAGE_JSONL)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(json.dumps(page_data, ensure_ascii=False, indent=2) + '\n')
+        
+        print(f"🧠 Intelligence saved to central file: {filepath}")
+        print(f"📊 Elements: {page_data['total_elements']}, Insights: {len(page_data['recent_insights'])}")
+        
+        return filepath
+        
+    except Exception as e:
+        print(f"❌ Error saving intelligence to page.jsonl: {e}")
+        return None
+
+async def process_actionable_elements_for_llm(actionable_elements):
+    """
+    🎯 Process actionable elements for LLM consumption
+    
+    This function transforms actionable elements into LLM-friendly format
+    with clear action mappings and execution instructions.
+    
+    @param actionable_elements: List of actionable elements from extension
+    """
+    try:
+        if not actionable_elements:
+            print("⚠️ No actionable elements to process")
+            return
+        
+        print(f"🎯 Processing {len(actionable_elements)} actionable elements for LLM")
+        
+        # Create LLM-friendly action mapping
+        llm_actions = {}
+        for element in actionable_elements:
+            action_id = element.get("actionId")
+            if action_id:
+                llm_actions[action_id] = {
+                    "action_type": element.get("actionType", "unknown"),
+                    "description": element.get("textContent", "")[:100],
+                    "tag_name": element.get("tagName", "unknown"),
+                    "selectors": element.get("selectors", []),
+                    "coordinates": element.get("coordinates", {}),
+                    "llm_instruction": f"Use actionId '{action_id}' to {element.get('actionType', 'interact')} with this element"
+                }
+        
+        # Save LLM action mapping
+        if llm_actions:
+            filepath = os.path.join(SITE_STRUCTURES_DIR, "llm_actions.json")
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(llm_actions, f, ensure_ascii=False, indent=2)
+            
+            print(f"🎯 LLM action mapping saved: {filepath}")
+            print(f"📋 Available actions: {len(llm_actions)}")
+        
+        return llm_actions
+        
+    except Exception as e:
+        print(f"❌ Error processing actionable elements for LLM: {e}")
+        return None
+
+async def store_dom_change_context(dom_change_data):
+    """
+    🔄 Store DOM change context for LLM consumption
+    
+    This function maintains a history of DOM changes to provide
+    context for LLM understanding of page evolution.
+    
+    @param dom_change_data: DOM change notification data
+    """
+    try:
+        # Create change context entry
+        change_context = {
+            "timestamp": time.time(),
+            "tab_id": dom_change_data.get("tabId"),
+            "total_mutations": dom_change_data.get("totalMutations", 0),
+            "change_types": dom_change_data.get("changeTypes", []),
+            "url": dom_change_data.get("url", "unknown"),
+            "change_summary": f"Tab {dom_change_data.get('tabId')}: {dom_change_data.get('totalMutations', 0)} mutations"
+        }
+        
+        # Append to change history file
+        filepath = os.path.join(SITE_STRUCTURES_DIR, "dom_change_history.jsonl")
+        with open(filepath, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(change_context, ensure_ascii=False) + '\n')
+        
+        print(f"🔄 DOM change context stored: {change_context['change_summary']}")
+        
+        return filepath
+        
+    except Exception as e:
+        print(f"❌ Error storing DOM change context: {e}")
+        return None
+
 def get_current_tabs_info():
     """
     📊 Get the latest tab information that was received from the extension
@@ -64,6 +194,29 @@ def get_current_tabs_info():
         "last_update": LAST_TABS_UPDATE,
         "extension_connected": EXTENSION_WS is not None,
         "total_clients": len(CLIENTS)
+    }
+
+def get_current_page_data():
+    """
+    🧠 Get the latest page intelligence data that was received from the extension
+    
+    This function provides external access to the current page intelligence
+    including actionable elements and page state for LLM consumption.
+    
+    @returns {Object} - Current page intelligence data with metadata
+    """
+    if CURRENT_PAGE_DATA is None:
+        return {
+            "error": "No page intelligence data available yet",
+            "status": "waiting_for_intelligence_update"
+        }
+    
+    return {
+        "page_data": CURRENT_PAGE_DATA,
+        "last_update": LAST_PAGE_UPDATE,
+        "extension_connected": EXTENSION_WS is not None,
+        "total_elements": CURRENT_PAGE_DATA.get("total_elements", 0),
+        "intelligence_version": CURRENT_PAGE_DATA.get("intelligence_version", "unknown")
     }
 
 def save_site_map_to_jsonl(site_map_data, suffix=""):
@@ -1373,6 +1526,102 @@ async def handler(ws):
                 LAST_TABS_UPDATE = asyncio.get_event_loop().time()
                 print(f"📊 Tab info updated and stored - {len(CURRENT_TABS_INFO)} tabs available")
             
+            # 🧠 INTELLIGENCE MESSAGE HANDLING: Process intelligence updates from extension
+            if msg.get("type") == "intelligence_update":
+                print("🧠 Intelligence update received from extension")
+                try:
+                    # Extract intelligence data
+                    intelligence_data = msg.get("data", {})
+                    page_state = intelligence_data.get("pageState", {})
+                    actionable_elements = intelligence_data.get("actionableElements", [])
+                    recent_insights = intelligence_data.get("recentInsights", [])
+                    
+                    print(f"🧠 Intelligence data: {len(actionable_elements)} actionable elements, {len(recent_insights)} insights")
+                    
+                    # 🆕 NEW: Save to central page.jsonl file
+                    await save_intelligence_to_page_jsonl(intelligence_data)
+                    
+                    # 🆕 NEW: Process actionable elements for LLM consumption
+                    await process_actionable_elements_for_llm(actionable_elements)
+                    
+                    print("✅ Intelligence update processed and saved")
+                    
+                except Exception as e:
+                    print(f"❌ Error processing intelligence update: {e}")
+                    import traceback
+                    traceback.print_exc()
+            
+            # 🆕 NEW: DOM CHANGE NOTIFICATIONS: Handle real-time DOM change updates
+            if msg.get("type") == "dom_content_changed":
+                print("🔄 DOM content changed notification received")
+                try:
+                    dom_change_data = msg.get("data", {})
+                    tab_id = dom_change_data.get("tabId")
+                    total_mutations = dom_change_data.get("totalMutations", 0)
+                    change_types = dom_change_data.get("changeTypes", [])
+                    
+                    print(f"🔄 Tab {tab_id}: {total_mutations} mutations, types: {change_types}")
+                    
+                    # Store DOM change data for LLM context
+                    await store_dom_change_context(dom_change_data)
+                    
+                except Exception as e:
+                    print(f"❌ Error processing DOM change notification: {e}")
+            
+            # 🆕 NEW: LLM INSTRUCTION HANDLING: Process LLM action requests
+            if msg.get("type") == "llm_instruction":
+                print("🤖 LLM instruction received")
+                try:
+                    instruction_data = msg.get("data", {})
+                    action_id = instruction_data.get("actionId")
+                    action_type = instruction_data.get("actionType")
+                    action_params = instruction_data.get("params", {})
+                    
+                    print(f"🤖 LLM Instruction: {action_type} on {action_id}")
+                    
+                    # Forward LLM instruction to extension for execution
+                    if EXTENSION_WS and EXTENSION_WS != ws:
+                        instruction_msg = {
+                            "id": f"llm-{uuid.uuid4().hex[:8]}",
+                            "type": "execute_llm_action",
+                            "data": {
+                                "actionId": action_id,
+                                "actionType": action_type,
+                                "params": action_params
+                            }
+                        }
+                        
+                        await EXTENSION_WS.send(json.dumps(instruction_msg))
+                        print("✅ LLM instruction forwarded to extension")
+                        
+                        # Send confirmation back to LLM client
+                        response = {
+                            "id": msg.get("id", "unknown"),
+                            "ok": True,
+                            "result": f"LLM instruction forwarded: {action_type} on {action_id}",
+                            "error": None
+                        }
+                        await ws.send(json.dumps(response))
+                    else:
+                        print("❌ No extension available for LLM instruction execution")
+                        response = {
+                            "id": msg.get("id", "unknown"),
+                            "ok": False,
+                            "result": None,
+                            "error": "No extension available for instruction execution"
+                        }
+                        await ws.send(json.dumps(response))
+                        
+                except Exception as e:
+                    print(f"❌ Error processing LLM instruction: {e}")
+                    response = {
+                        "id": msg.get("id", "unknown"),
+                        "ok": False,
+                        "result": None,
+                        "error": f"Error processing instruction: {str(e)}"
+                    }
+                    await ws.send(json.dumps(response))
+            
             # 🔄 COMMAND FORWARDING: Route commands from test clients to extension
             if "command" in msg and "id" in msg:
                 command = msg.get("command")
@@ -1389,8 +1638,20 @@ async def handler(ws):
                     await ws.send(json.dumps(response))
                     continue
                 
+                # 🆕 NEW: Get current page intelligence data
+                if command == "getPageData":
+                    print(f"🧠 Internal command: {command} - returning stored page intelligence data")
+                    response = {
+                        "id": msg["id"],
+                        "ok": True,
+                        "result": get_current_page_data(),
+                        "error": None
+                    }
+                    await ws.send(json.dumps(response))
+                    continue
+                
                 # 🔄 EXTENSION COMMANDS: Forward other commands to extension
-                print(f"🔄 Forwarding command to extension: {command}")
+                print(f"�� Forwarding command to extension: {command}")
                 if EXTENSION_WS and EXTENSION_WS != ws:
                     # Track which client sent this command for response routing
                     COMMAND_CLIENTS[msg["id"]] = ws

@@ -3290,6 +3290,14 @@ function initializeIntelligenceSystem() {
             if (intelligenceEngine) {
                 console.log("[Content] 🔍 Starting initial page element scan...");
                 intelligenceEngine.scanAndRegisterPageElements();
+                
+                // 🆕 NEW: Send initial intelligence update to server
+                setTimeout(() => {
+                    sendIntelligenceUpdateToServer();
+                }, 2000); // Wait 2 seconds for scan to complete
+                
+                // 🆕 NEW: Set up periodic intelligence updates
+                setupIntelligenceUpdates();
             } else {
                 console.error("[Content] ❌ Intelligence engine not available for initial scan");
             }
@@ -3299,3 +3307,88 @@ function initializeIntelligenceSystem() {
         console.error("[Content] ❌ Failed to initialize intelligence system:", error);
     }
 }
+
+/**
+ * 🆕 NEW: Send intelligence update to server via service worker
+ */
+function sendIntelligenceUpdateToServer() {
+    try {
+        if (!intelligenceEngine) {
+            console.log("[Content] ⚠️ Intelligence engine not available for server update");
+            return;
+        }
+        
+        console.log("[Content] 📤 Sending intelligence update to server...");
+        
+        // Get current intelligence data
+        const intelligenceData = {
+            pageState: intelligenceEngine.pageState,
+            actionableElements: intelligenceEngine.getActionableElementsSummary(),
+            recentInsights: intelligenceEngine.llmInsights.slice(-5), // Last 5 insights
+            totalEvents: intelligenceEngine.eventHistory.length,
+            recommendations: intelligenceEngine.generateRecommendations(),
+            actionMapping: intelligenceEngine.generateActionMapping(),
+            timestamp: Date.now()
+        };
+        
+        // Send to service worker
+        chrome.runtime.sendMessage({
+            type: "intelligence_update",
+            data: intelligenceData
+        }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.log("[Content] ⚠️ Service worker not available for intelligence update");
+            } else {
+                console.log("[Content] ✅ Intelligence update sent to service worker");
+            }
+        });
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error sending intelligence update to server:", error);
+    }
+}
+
+/**
+ * 🆕 NEW: Set up periodic intelligence updates
+ */
+function setupIntelligenceUpdates() {
+    // Send intelligence updates every 30 seconds
+    setInterval(() => {
+        if (intelligenceEngine && intelligenceEngine.actionableElements.size > 0) {
+            sendIntelligenceUpdateToServer();
+        }
+    }, 30000); // 30 seconds
+}
+
+// 🆕 NEW: Message listener for LLM action execution
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.type === "execute_action") {
+        console.log("[Content] 🤖 Executing LLM action:", message.data);
+        
+        try {
+            const { actionId, actionType, params } = message.data;
+            
+            if (!intelligenceEngine) {
+                sendResponse({ ok: false, error: "Intelligence engine not available" });
+                return;
+            }
+            
+            // Execute the action using the intelligence engine
+            const result = intelligenceEngine.executeAction(actionId, actionType, params);
+            
+            if (result.success) {
+                console.log("[Content] ✅ LLM action executed successfully:", actionId);
+                sendResponse({ ok: true, result: result });
+            } else {
+                console.error("[Content] ❌ LLM action execution failed:", result.error);
+                sendResponse({ ok: false, error: result.error });
+            }
+            
+        } catch (error) {
+            console.error("[Content] ❌ Error executing LLM action:", error);
+            sendResponse({ ok: false, error: error.message });
+        }
+        
+        return true; // Keep message channel open for async response
+    }
+});
