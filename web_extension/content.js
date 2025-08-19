@@ -19,6 +19,211 @@
 // Utility function for async delays
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+// 🆕 NEW: DOM Change Detection System
+let domChangeObserver = null;
+let changeDetectionEnabled = false;
+let changeCount = 0;
+let lastChangeTime = 0;
+
+/**
+ * 🆕 NEW: Initialize DOM change detection
+ * 
+ * Sets up a MutationObserver to watch for real-time DOM changes
+ * including new elements, attribute changes, and content modifications.
+ */
+function initializeDOMChangeDetection() {
+    try {
+        console.log("[Content] 🆕 Initializing DOM change detection...");
+        
+        // Create observer to watch for DOM changes
+        domChangeObserver = new MutationObserver((mutations) => {
+            if (!changeDetectionEnabled) return;
+            
+            let hasSignificantChanges = false;
+            let changeTypes = new Set();
+            
+            mutations.forEach((mutation) => {
+                try {
+                    // Track change types
+                    changeTypes.add(mutation.type);
+                    
+                    // Check if this is a significant change
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        // New elements added
+                        hasSignificantChanges = true;
+                        
+                        // Log significant additions
+                        const addedElements = Array.from(mutation.addedNodes)
+                            .filter(node => node.nodeType === Node.ELEMENT_NODE)
+                            .slice(0, 3); // Limit logging to first 3
+                        
+                        if (addedElements.length > 0) {
+                            console.log("[Content] 🆕 DOM change: Added elements:", {
+                                count: mutation.addedNodes.length,
+                                elements: addedElements.map(el => ({
+                                    tag: el.tagName,
+                                    id: el.id || 'no-id',
+                                    className: el.className || 'no-class'
+                                }))
+                            });
+                        }
+                        
+                    } else if (mutation.type === 'attributes') {
+                        // Attribute changes
+                        const target = mutation.target;
+                        if (target && target.nodeType === Node.ELEMENT_NODE) {
+                            const attrName = mutation.attributeName;
+                            
+                            // Only log significant attribute changes
+                            if (attrName === 'class' || 
+                                attrName === 'style' || 
+                                attrName === 'data-*' ||
+                                attrName === 'aria-*') {
+                                
+                                hasSignificantChanges = true;
+                                console.log("[Content] 🆕 DOM change: Attribute change:", {
+                                    element: target.tagName,
+                                    attribute: attrName,
+                                    target: target.id || target.className || 'unknown'
+                                });
+                            }
+                        }
+                    } else if (mutation.type === 'characterData') {
+                        // Text content changes
+                        const target = mutation.target;
+                        if (target && target.parentElement) {
+                            const parent = target.parentElement;
+                            const textLength = target.textContent?.length || 0;
+                            
+                            // Only log significant text changes
+                            if (textLength > 10) {
+                                hasSignificantChanges = true;
+                                console.log("[Content] 🆕 DOM change: Text content change:", {
+                                    element: parent.tagName,
+                                    textLength: textLength,
+                                    target: parent.id || parent.className || 'unknown'
+                                });
+                            }
+                        }
+                    }
+                    
+                } catch (mutationError) {
+                    console.warn("[Content] Error processing mutation:", mutationError.message);
+                }
+            });
+            
+            if (hasSignificantChanges) {
+                // Update change tracking
+                changeCount++;
+                lastChangeTime = Date.now();
+                
+                console.log("[Content] 🆕 DOM changes detected:", {
+                    changeNumber: changeCount,
+                    types: Array.from(changeTypes),
+                    timestamp: new Date(lastChangeTime).toISOString(),
+                    totalMutations: mutations.length
+                });
+                
+                // 🆕 NEW: Notify service worker about DOM changes
+                notifyServiceWorkerOfChanges({
+                    changeNumber: changeCount,
+                    types: Array.from(changeTypes),
+                    timestamp: lastChangeTime,
+                    totalMutations: mutations.length,
+                    url: window.location.href
+                });
+            }
+        });
+        
+        // Start observing with comprehensive settings
+        const observerConfig = {
+            childList: true,        // Watch for new/removed elements
+            subtree: true,          // Watch entire DOM tree
+            attributes: true,       // Watch attribute changes
+            attributeFilter: ['class', 'style', 'data-*', 'aria-*'], // Focus on important attributes
+            characterData: true,    // Watch text content changes
+            characterDataOldValue: false // Don't store old values for performance
+        };
+        
+        domChangeObserver.observe(document.body, observerConfig);
+        changeDetectionEnabled = true;
+        
+        console.log("[Content] ✅ DOM change detection active with config:", observerConfig);
+        
+        // Log initial state
+        console.log("[Content] 📊 DOM change detection initialized:", {
+            url: window.location.href,
+            timestamp: new Date().toISOString(),
+            observerActive: true
+        });
+        
+    } catch (error) {
+        console.error("[Content] ❌ Failed to initialize DOM change detection:", error);
+        changeDetectionEnabled = false;
+    }
+}
+
+/**
+ * 🆕 NEW: Notify service worker of DOM changes
+ * 
+ * @param {Object} changeInfo - Information about the detected changes
+ */
+function notifyServiceWorkerOfChanges(changeInfo) {
+    try {
+        if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+            chrome.runtime.sendMessage({
+                type: "dom_changed",
+                ...changeInfo
+            });
+            console.log("[Content] 📤 DOM change notification sent to service worker");
+        } else {
+            console.warn("[Content] Service worker communication not available");
+        }
+    } catch (error) {
+        console.warn("[Content] Failed to notify service worker:", error.message);
+    }
+}
+
+/**
+ * 🆕 NEW: Get current DOM change status
+ * 
+ * @returns {Object} - Current change detection status
+ */
+function getDOMChangeStatus() {
+    return {
+        enabled: changeDetectionEnabled,
+        changeCount: changeCount,
+        lastChangeTime: lastChangeTime,
+        observerActive: domChangeObserver !== null,
+        url: window.location.href,
+        timestamp: Date.now()
+    };
+}
+
+/**
+ * 🆕 NEW: Disable DOM change detection
+ */
+function disableDOMChangeDetection() {
+    if (domChangeObserver) {
+        domChangeObserver.disconnect();
+        domChangeObserver = null;
+        changeDetectionEnabled = false;
+        console.log("[Content] 🛑 DOM change detection disabled");
+    }
+}
+
+/**
+ * 🆕 NEW: Re-enable DOM change detection
+ */
+function enableDOMChangeDetection() {
+    if (!domChangeObserver) {
+        initializeDOMChangeDetection();
+    } else {
+        changeDetectionEnabled = true;
+        console.log("[Content] ✅ DOM change detection re-enabled");
+    }
+}
+
 /**
  * 👁️ Check if an element is visible on the page
  * 
@@ -434,6 +639,39 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     clickableElements: result.statistics.clickableElements,
                     forms: result.statistics.formElements
                 });
+                return sendResponse(result);
+            }
+            
+            // 🆕 NEW: DOM Change Detection Commands
+            if (command === "getDOMChangeStatus") {
+                console.log("[Content] getDOMChangeStatus command - no params needed");
+                const result = getDOMChangeStatus();
+                console.log("[Content] getDOMChangeStatus result:", result);
+                return sendResponse(result);
+            }
+            
+            if (command === "enableDOMChangeDetection") {
+                console.log("[Content] enableDOMChangeDetection command - no params needed");
+                enableDOMChangeDetection();
+                const result = { enabled: true, message: "DOM change detection enabled" };
+                console.log("[Content] enableDOMChangeDetection result:", result);
+                return sendResponse(result);
+            }
+            
+            if (command === "disableDOMChangeDetection") {
+                console.log("[Content] disableDOMChangeDetection command - no params needed");
+                disableDOMChangeDetection();
+                const result = { enabled: false, message: "DOM change detection disabled" };
+                console.log("[Content] disableDOMChangeDetection result:", result);
+                return sendResponse(result);
+            }
+            
+            if (command === "resetDOMChangeCount") {
+                console.log("[Content] resetDOMChangeCount command - no params needed");
+                changeCount = 0;
+                lastChangeTime = 0;
+                const result = { reset: true, message: "DOM change count reset", newCount: changeCount };
+                console.log("[Content] resetDOMChangeCount result:", result);
                 return sendResponse(result);
             }
             
@@ -1912,7 +2150,13 @@ function clearHistory(options = {}) {
 
 // Initialize history tracking when content script loads
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeHistoryTracking);
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeHistoryTracking();
+        // 🆕 NEW: Initialize DOM change detection
+        initializeDOMChangeDetection();
+    });
 } else {
     initializeHistoryTracking();
+    // 🆕 NEW: Initialize DOM change detection
+    initializeDOMChangeDetection();
 }

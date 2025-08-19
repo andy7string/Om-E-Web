@@ -302,7 +302,14 @@ function updateInternalTabState(tabsInfo, forceRefresh = false) {
                 lastUpdate: Date.now(),
                 needsFreshScan: true,
                 contentScriptFresh: false,
-                cacheCleared: true
+                cacheCleared: true,
+                // 🆕 NEW: DOM change tracking
+                domChanges: {
+                    totalChanges: 0,
+                    lastChangeTime: null,
+                    changeTypes: new Set(),
+                    lastMutationCount: 0
+                }
             });
             
             // If this is a new active tab, ensure content script is fresh
@@ -406,6 +413,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 break;
             case "getStatus":
                 handleGetStatus(message, sendResponse);
+                break;
+            case "dom_changed":
+                handleDOMChanged(message, sendResponse);
                 break;
             default:
                 console.warn("[SW] Unknown internal message type:", message.type);
@@ -663,12 +673,25 @@ async function handleGetStatus(message, sendResponse) {
         const tabsWithCacheIssues = Array.from(internalTabState.values())
             .filter(tab => tab.contentScriptRefreshFailed).length;
         
+        // 🆕 NEW: DOM change metrics
+        const tabsWithDOMChanges = Array.from(internalTabState.values())
+            .filter(tab => tab.domChanges && tab.domChanges.totalChanges > 0).length;
+        const totalDOMChanges = Array.from(internalTabState.values())
+            .reduce((total, tab) => total + (tab.domChanges?.totalChanges || 0), 0);
+        const recentDOMChanges = Array.from(internalTabState.values())
+            .filter(tab => tab.domChanges && tab.domChanges.lastChangeTime && 
+                    (Date.now() - tab.domChanges.lastChangeTime) < 30000).length; // Last 30 seconds
+        
         const status = {
             isConnected: isConnected,
             totalTabs: totalTabs,
             tabsWithFreshScripts: tabsWithFreshScripts,
             tabsNeedingFreshScan: tabsNeedingFreshScan,
             tabsWithCacheIssues: tabsWithCacheIssues,
+            // 🆕 NEW: DOM change status
+            tabsWithDOMChanges: tabsWithDOMChanges,
+            totalDOMChanges: totalDOMChanges,
+            recentDOMChanges: recentDOMChanges,
             lastActiveTabId: lastActiveTabId,
             websocketState: ws ? ws.readyState : 'CLOSED',
             timestamp: Date.now()
@@ -680,6 +703,87 @@ async function handleGetStatus(message, sendResponse) {
     } catch (error) {
         console.error("[SW] Get status failed:", error);
         sendResponse({ ok: false, error: error.message });
+    }
+}
+
+/**
+ * 🎯 Handle messages from content scripts indicating DOM changes
+ * 
+ * This function processes messages from content scripts that report
+ * changes in the DOM, such as new elements, removed elements, or
+ * attribute changes. It updates the internal state accordingly.
+ * 
+ * @param {Object} message - Message from content script with DOM changes
+ * @param {Function} sendResponse - Response callback (not used for this type of message)
+ */
+async function handleDOMChanged(message, sendResponse) {
+    try {
+        console.log("[SW] 🆕 DOM changed message received:", {
+            changeNumber: message.changeNumber,
+            types: message.types,
+            mutations: message.totalMutations,
+            url: message.url,
+            timestamp: new Date(message.timestamp).toISOString()
+        });
+        
+        // Find the tab that sent this message
+        let targetTabId = null;
+        for (const [tabId, tabState] of internalTabState.entries()) {
+            if (tabState.url === message.url) {
+                targetTabId = tabId;
+                break;
+            }
+        }
+        
+        if (targetTabId) {
+            // Update internal state with DOM changes
+            const tabState = internalTabState.get(targetTabId);
+            if (tabState && tabState.domChanges) {
+                // Update DOM change tracking
+                tabState.domChanges.totalChanges = message.changeNumber;
+                tabState.domChanges.lastChangeTime = message.timestamp;
+                tabState.domChanges.lastMutationCount = message.totalMutations;
+                
+                // Add change types to the set
+                message.types.forEach(type => {
+                    tabState.domChanges.changeTypes.add(type);
+                });
+                
+                // Mark tab as needing fresh scan
+                tabState.needsFreshScan = true;
+                tabState.lastDOMChange = message.timestamp;
+                
+                console.log("[SW] ✅ Tab DOM changes updated:", {
+                    tabId: targetTabId,
+                    url: tabState.url,
+                    totalChanges: tabState.domChanges.totalChanges,
+                    changeTypes: Array.from(tabState.domChanges.changeTypes),
+                    lastChange: new Date(tabState.domChanges.lastChangeTime).toISOString(),
+                    needsFreshScan: tabState.needsFreshScan
+                });
+            }
+        } else {
+            console.log("[SW] ⚠️ Could not find tab for DOM change message:", message.url);
+        }
+        
+        // 🆕 NEW: Optionally notify server about significant DOM changes
+        if (message.totalMutations > 10) { // Only notify for significant changes
+            console.log("[SW] 📤 Notifying server of significant DOM changes");
+            sendToServer({
+                type: "dom_content_changed",
+                tabId: targetTabId,
+                url: message.url,
+                timestamp: message.timestamp,
+                changes: {
+                    changeNumber: message.changeNumber,
+                    types: message.types,
+                    mutations: message.totalMutations
+                }
+            });
+        }
+        
+    } catch (error) {
+        console.error("[SW] ❌ Failed to handle DOM changed message:", error);
     }
 }
 

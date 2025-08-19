@@ -147,6 +147,15 @@
             <div class="label">Cache Status</div>
             <div id="cacheStatus" class="value">-</div>
         </div>
+        <!-- 🆕 NEW: DOM Change Status -->
+        <div class="status-item">
+            <div class="label">DOM Changes</div>
+            <div id="domChanges" class="value">-</div>
+        </div>
+        <div class="status-item">
+            <div class="label">Recent Changes</div>
+            <div id="recentChanges" class="value">-</div>
+        </div>
     </div>
     
     <div class="divider"></div>
@@ -154,6 +163,13 @@
     <h4>Actions</h4>
     <button id="refreshBtn" class="secondary">🔄 Refresh Extension State</button>
     <button id="clearCacheBtn" class="danger">🧹 Clear All Cache</button>
+    
+    <!-- 🆕 NEW: DOM Change Controls -->
+    <div class="divider"></div>
+    <h4>DOM Change Detection</h4>
+    <button id="enableDOMBtn" class="secondary">👁️ Enable Detection</button>
+    <button id="disableDOMBtn" class="secondary">🙈 Disable Detection</button>
+    <button id="resetDOMBtn" class="secondary">🔄 Reset Count</button>
     
     <div id="status"></div>
     

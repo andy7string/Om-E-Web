@@ -5,11 +5,18 @@ const statusDiv = document.getElementById("status");
 const refreshBtn = document.getElementById("refreshBtn");
 const clearCacheBtn = document.getElementById("clearCacheBtn");
 
+// 🆕 NEW: DOM Change Control Buttons
+const enableDOMBtn = document.getElementById("enableDOMBtn");
+const disableDOMBtn = document.getElementById("disableDOMBtn");
+const resetDOMBtn = document.getElementById("resetDOMBtn");
+
 // Status display elements
 const connectionStatus = document.getElementById("connectionStatus");
 const activeTabs = document.getElementById("activeTabs");
 const contentScripts = document.getElementById("contentScripts");
 const cacheStatus = document.getElementById("cacheStatus");
+const domChanges = document.getElementById("domChanges");
+const recentChanges = document.getElementById("recentChanges");
 
 // Load saved WebSocket URL from storage
 chrome.storage.local.get(["wsUrl"], (result) => {
@@ -87,6 +94,74 @@ clearCacheBtn.addEventListener("click", async () => {
     }
 });
 
+// 🆕 NEW: DOM Change Control Event Handlers
+
+// Handle enable DOM detection button click
+enableDOMBtn.addEventListener("click", async () => {
+    try {
+        showStatus("Enabling DOM change detection...", "info");
+        
+        // Send message to service worker to enable DOM detection
+        const response = await chrome.runtime.sendMessage({ 
+            type: "enableDOMChangeDetection" 
+        });
+        
+        if (response && response.ok) {
+            showStatus("DOM change detection enabled!", "success");
+            // Update status display
+            setTimeout(updateStatusDisplay, 1000);
+        } else {
+            showStatus("Failed to enable DOM detection", "error");
+        }
+    } catch (error) {
+        showStatus("Error enabling DOM detection: " + error.message, "error");
+    }
+});
+
+// Handle disable DOM detection button click
+disableDOMBtn.addEventListener("click", async () => {
+    try {
+        showStatus("Disabling DOM change detection...", "info");
+        
+        // Send message to service worker to disable DOM detection
+        const response = await chrome.runtime.sendMessage({ 
+            type: "disableDOMChangeDetection" 
+        });
+        
+        if (response && response.ok) {
+            showStatus("DOM change detection disabled!", "success");
+            // Update status display
+            setTimeout(updateStatusDisplay, 1000);
+        } else {
+            showStatus("Failed to disable DOM detection", "error");
+        }
+    } catch (error) {
+        showStatus("Error disabling DOM detection: " + error.message, "error");
+    }
+});
+
+// Handle reset DOM count button click
+resetDOMBtn.addEventListener("click", async () => {
+    try {
+        showStatus("Resetting DOM change count...", "info");
+        
+        // Send message to service worker to reset DOM count
+        const response = await chrome.runtime.sendMessage({ 
+            type: "resetDOMChangeCount" 
+        });
+        
+        if (response && response.ok) {
+            showStatus("DOM change count reset!", "success");
+            // Update status display
+            setTimeout(updateStatusDisplay, 1000);
+        } else {
+            showStatus("Failed to reset DOM count", "error");
+        }
+    } catch (error) {
+        showStatus("Error resetting DOM count: " + error.message, "error");
+    }
+});
+
 // Update status display
 async function updateStatusDisplay() {
     try {
@@ -119,11 +194,21 @@ async function updateStatusDisplay() {
             cacheStatus.textContent = tabsNeedingScan > 0 ? `${tabsNeedingScan} need scan` : "All fresh";
             cacheStatus.style.color = tabsNeedingScan > 0 ? "#ffc107" : "#28a745";
             
+            // Update DOM change status
+            const totalDomChanges = status.totalDomChanges || 0;
+            const recentDomChanges = status.recentDomChanges || 0;
+            domChanges.textContent = `${totalDomChanges} total, ${recentDomChanges} recent`;
+            domChanges.style.color = totalDomChanges > 0 ? "#ffc107" : "#28a745";
+
+            // Update recent changes
+            recentChanges.textContent = status.recentChanges || "No recent changes";
         } else {
             // Fallback status display
             connectionStatus.textContent = "Unknown";
             contentScripts.textContent = "-";
             cacheStatus.textContent = "-";
+            domChanges.textContent = "-";
+            recentChanges.textContent = "-";
         }
         
     } catch (error) {
@@ -133,6 +218,8 @@ async function updateStatusDisplay() {
         activeTabs.textContent = "-";
         contentScripts.textContent = "-";
         cacheStatus.textContent = "-";
+        domChanges.textContent = "-";
+        recentChanges.textContent = "-";
     }
 }
 

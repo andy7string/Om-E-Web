@@ -7,7 +7,7 @@
     "search": "?v=T9Knc3Mdcec&t=3s",
     "hash": "",
     "protocol": "https:",
-    "timestamp": 1755562054826,
+    "timestamp": 1755562255896,
     "readyState": "complete",
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
     "isInIframe": false,
@@ -18,7 +18,7 @@
       "frameTitle": "(25) Timeline for AGI: 2030 with 50% chance | Demis Hassabis and Lex Fridman - YouTube",
       "mainPageTitle": "(25) Timeline for AGI: 2030 with 50% chance | Demis Hassabis and Lex Fridman - YouTube"
     },
-    "processingTime": 40
+    "processingTime": 38.59999999962747
   },
   "statistics": {
     "totalElements": 213,
