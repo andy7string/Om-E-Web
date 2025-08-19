@@ -219,6 +219,48 @@ def get_current_page_data():
         "intelligence_version": CURRENT_PAGE_DATA.get("intelligence_version", "unknown")
     }
 
+def get_current_active_tab():
+    """
+    🎯 Get the current active tab information
+    
+    This function provides quick access to the currently active tab,
+    which is most useful for LLM interactions and automation.
+    
+    @returns {Object} - Current active tab information with metadata
+    """
+    if CURRENT_TABS_INFO is None:
+        return {
+            "error": "No tab information available yet",
+            "status": "waiting_for_extension"
+        }
+    
+    # Find the active tab
+    active_tab = None
+    for tab in CURRENT_TABS_INFO:
+        if tab.get("active", False):
+            active_tab = tab
+            break
+    
+    if not active_tab:
+        return {
+            "error": "No active tab found",
+            "status": "no_active_tab",
+            "available_tabs": len(CURRENT_TABS_INFO)
+        }
+    
+    return {
+        "active_tab": {
+            "id": active_tab.get("id"),
+            "url": active_tab.get("url"),
+            "title": active_tab.get("title"),
+            "status": active_tab.get("status"),
+            "pending_url": active_tab.get("pendingUrl")
+        },
+        "last_update": LAST_TABS_UPDATE,
+        "extension_connected": EXTENSION_WS is not None,
+        "total_tabs": len(CURRENT_TABS_INFO)
+    }
+
 def save_site_map_to_jsonl(site_map_data, suffix=""):
     """
     💾 Save site map data to a JSONL file in the @site_structures folder
@@ -1644,6 +1686,18 @@ async def handler(ws):
                         "id": msg["id"],
                         "ok": True,
                         "result": get_current_page_data(),
+                        "error": None
+                    }
+                    await ws.send(json.dumps(response))
+                    continue
+                
+                # 🎯 NEW: Get current active tab (most useful for LLM interactions)
+                if command == "getActiveTab":
+                    print(f"🎯 Internal command: {command} - returning current active tab")
+                    response = {
+                        "id": msg["id"],
+                        "ok": True,
+                        "result": get_current_active_tab(),
                         "error": None
                     }
                     await ws.send(json.dumps(response))

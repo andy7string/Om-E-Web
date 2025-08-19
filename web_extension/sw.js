@@ -1182,32 +1182,16 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 /**
- * 🔄 Periodic connection health check with state validation
+ * 🔄 Event-driven tab management (no polling needed)
  * 
- * Send periodic tabs information to maintain connection health and
- * provide real-time tab status to the server.
+ * Tab information is now sent only when:
+ * - Extension connects initially
+ * - Tab is activated (switched to)
+ * - Tab URL/title changes
+ * - Content script needs refresh
+ * 
+ * This eliminates unnecessary polling while maintaining real-time updates.
  */
-setInterval(() => {
-    if (isConnected) {
-        // 🆕 ENHANCED: Check for tabs that need attention
-        const tabsNeedingAttention = Array.from(internalTabState.values())
-            .filter(tab => tab.needsFreshScan || !tab.contentScriptFresh);
-        
-        if (tabsNeedingAttention.length > 0) {
-            console.log("[SW] Found tabs needing attention:", tabsNeedingAttention.length);
-            tabsNeedingAttention.forEach(tab => {
-                console.log("[SW] Tab needs attention:", {
-                    id: tab.id,
-                    url: tab.url,
-                    needsFreshScan: tab.needsFreshScan,
-                    contentScriptFresh: tab.contentScriptFresh
-                });
-            });
-        }
-        
-        sendTabsInfo();
-    }
-}, 30000); // Every 30 seconds
 
 // Initialize connection when service worker loads
 connectWebSocket();
