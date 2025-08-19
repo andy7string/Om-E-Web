@@ -1532,7 +1532,6 @@ async def handler(ws):
                 try:
                     # Extract intelligence data
                     intelligence_data = msg.get("data", {})
-                    page_state = intelligence_data.get("pageState", {})
                     actionable_elements = intelligence_data.get("actionableElements", [])
                     recent_insights = intelligence_data.get("recentInsights", [])
                     

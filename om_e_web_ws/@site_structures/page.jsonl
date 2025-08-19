@@ -1,0 +1,41 @@
+{
+  "timestamp": 1755570791.1949282,
+  "url": "unknown",
+  "title": "unknown",
+  "actionable_elements": [
+    {
+      "actionId": "action_navigate_a_0",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "More information...",
+      "selectors": [
+        "p:nth-child(1)"
+      ],
+      "attributes": {},
+      "timestamp": 1755570491185
+    }
+  ],
+  "page_state": {
+    "currentView": "unknown",
+    "interactiveElements": [
+      {
+        "id": "action_navigate_a_0",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "p:nth-child(1)"
+        ],
+        "textContent": "More information...",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755570491185
+      }
+    ],
+    "navigationState": "unknown",
+    "contentSections": [],
+    "lastUpdate": 1755570490091
+  },
+  "recent_insights": [],
+  "total_elements": 1,
+  "intelligence_version": "2.0"
+}

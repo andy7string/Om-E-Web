@@ -1,0 +1,12 @@
+{
+  "action_navigate_a_0": {
+    "action_type": "navigate",
+    "description": "More information...",
+    "tag_name": "a",
+    "selectors": [
+      "p:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_0' to navigate with this element"
+  }
+}

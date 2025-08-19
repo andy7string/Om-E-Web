@@ -3326,7 +3326,6 @@ function sendIntelligenceUpdateToServer() {
             actionableElements: intelligenceEngine.getActionableElementsSummary(),
             recentInsights: intelligenceEngine.llmInsights.slice(-5), // Last 5 insights
             totalEvents: intelligenceEngine.eventHistory.length,
-            recommendations: intelligenceEngine.generateRecommendations(),
             actionMapping: intelligenceEngine.generateActionMapping(),
             timestamp: Date.now()
         };
