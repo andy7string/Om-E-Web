@@ -357,6 +357,15 @@ function handleServerMessage(messageData) {
         const message = JSON.parse(messageData);
         console.log("[SW] Parsed message:", message);
         
+        // Handle LLM action messages
+        if (message.type === "execute_llm_action") {
+            console.log("[SW] 🤖 Processing LLM action:", message.data);
+            handleExecuteLLMAction(message, (response) => {
+                console.log("[SW] 🤖 LLM action response:", response);
+            });
+            return;
+        }
+        
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);
@@ -806,12 +815,27 @@ async function handleIntelligenceUpdate(message, sendResponse) {
     try {
         console.log("[SW] 🧠 Processing intelligence update from content script");
         
+        // 🆕 ENHANCED: Better data validation
+        if (!message || !message.data) {
+            console.error("[SW] ❌ Invalid intelligence update message:", message);
+            sendResponse({ ok: false, error: "Invalid message format" });
+            return;
+        }
+        
         const intelligenceData = message.data;
-        console.log("[SW] 🧠 Intelligence data:", {
-            actionableElements: intelligenceData.actionableElements?.length || 0,
-            insights: intelligenceData.recentInsights?.length || 0,
-            totalEvents: intelligenceData.totalEvents || 0
+        console.log("[SW] 🧠 Intelligence data received:", {
+            hasPageState: !!intelligenceData.pageState,
+            actionableElementsCount: intelligenceData.actionableElements?.length || 0,
+            insightsCount: intelligenceData.recentInsights?.length || 0,
+            totalEvents: intelligenceData.totalEvents || 0,
+            hasActionMapping: !!intelligenceData.actionMapping,
+            timestamp: intelligenceData.timestamp
         });
+        
+        // 🆕 ENHANCED: Validate required fields
+        if (!intelligenceData.actionableElements || !Array.isArray(intelligenceData.actionableElements)) {
+            console.warn("[SW] ⚠️ Missing or invalid actionableElements in intelligence data");
+        }
         
         // Forward intelligence update to server
         if (ws && ws.readyState === WebSocket.OPEN) {
@@ -831,6 +855,11 @@ async function handleIntelligenceUpdate(message, sendResponse) {
         
     } catch (error) {
         console.error("[SW] ❌ Error handling intelligence update:", error);
+        console.error("[SW] ❌ Error details:", {
+            message: message,
+            error: error.message,
+            stack: error.stack
+        });
         sendResponse({ ok: false, error: error.message });
     }
 }

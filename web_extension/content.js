@@ -307,7 +307,19 @@ function notifyServiceWorkerOfChanges(changeInfo) {
             console.warn("[Content] Service worker communication not available");
         }
     } catch (error) {
-        console.warn("[Content] Failed to notify service worker:", error.message);
+        if (error.message.includes("Extension context invalidated")) {
+            console.warn("[Content] Extension context invalidated - reloading may have occurred");
+            // Attempt to reconnect after a brief delay
+            setTimeout(() => {
+                console.log("[Content] Attempting to reconnect after context invalidation...");
+                // Try to reinitialize if needed
+                if (typeof initializeIntelligenceSystem === 'function') {
+                    initializeIntelligenceSystem();
+                }
+            }, 1000);
+        } else {
+            console.warn("[Content] Failed to notify service worker:", error.message);
+        }
     }
 }
 
@@ -705,6 +717,12 @@ async function cmd_getPageMarkdown() {
  */
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("[Content] Message received from service worker:", message);
+    
+    // 🆕 NEW: Check if this is a typed message (LLM action) first
+    if (message.type === "execute_action") {
+        // Let the second listener handle this
+        return false; // Don't handle this message
+    }
     
     // Execute command asynchronously and send response
     (async () => {
@@ -2544,7 +2562,8 @@ IntelligenceEngine.prototype.processEvent = function(event) {
     console.log("[Content] 🧠 IntelligenceEngine: Event processed, sending update...");
     
     // Send intelligence update to service worker
-    this.sendIntelligenceUpdate();
+    // NOTE: Disabled old intelligence system - using new sendIntelligenceUpdateToServer instead
+    // this.sendIntelligenceUpdate();
 };
 
 /**
@@ -3066,27 +3085,50 @@ IntelligenceEngine.prototype.getAllActionableElements = function() {
  * 🆕 NEW: Execute action on element by ID
  */
 IntelligenceEngine.prototype.executeAction = function(actionId, action, params = {}) {
+    console.log("[Content] 🎯 executeAction called:", { actionId, action, params });
+    
     const actionableElement = this.getActionableElement(actionId);
     if (!actionableElement) {
+        console.error("[Content] ❌ Element not found in actionableElements Map:", actionId);
+        console.log("[Content] 🔍 Available actionIds:", Array.from(this.actionableElements.keys()));
         return { success: false, error: "Element not found" };
     }
+    
+    console.log("[Content] ✅ Found actionable element:", actionableElement);
     
     try {
         // Use the first available selector
         const selector = actionableElement.selectors[0];
         if (!selector) {
+            console.error("[Content] ❌ No valid selector found for element:", actionId);
+            console.log("[Content] 🔍 Element selectors:", actionableElement.selectors);
             return { success: false, error: "No valid selector found for element" };
         }
+        
+        console.log("[Content] 🔍 Using selector:", selector);
         
         // Find the actual DOM element
         const element = document.querySelector(selector);
         if (!element) {
+            console.error("[Content] ❌ Element not found in DOM with selector:", selector);
+            console.log("[Content] 🔍 Document readyState:", document.readyState);
+            console.log("[Content] 🔍 Document body exists:", !!document.body);
             return { success: false, error: "Element not found in DOM with selector: " + selector };
         }
+        
+        console.log("[Content] ✅ Found DOM element:", element);
+        console.log("[Content] 🔍 Element properties:", {
+            tagName: element.tagName,
+            textContent: element.textContent?.trim(),
+            href: element.href,
+            className: element.className,
+            id: element.id
+        });
         
         let result;
         switch (action) {
             case 'click':
+                console.log("[Content] 🖱️ Executing click action on element");
                 element.click();
                 result = { success: true, action: 'click', elementId: actionId, message: 'Element clicked successfully' };
                 break;
@@ -3151,7 +3193,7 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action, params =
         return result;
         
     } catch (error) {
-        console.error("[Content] Error executing action:", error);
+        console.error("[Content] ❌ Error executing action:", error);
         return { success: false, error: error.message, actionId, action };
     }
 };
@@ -3362,21 +3404,44 @@ function setupIntelligenceUpdates() {
 // 🆕 NEW: Message listener for LLM action execution
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "execute_action") {
-        console.log("[Content] 🤖 Executing LLM action:", message.data);
+        console.log("[Content] 🤖 Executing LLM action:", message);
         
         try {
-            const { actionId, actionType, params } = message.data;
+            // Extract data from the message structure
+            const { actionId, actionType, params } = message.data || message;
+            
+            // 🆕 ENHANCED: Add debugging information
+            console.log("[Content] 🔍 Debug info:", {
+                actionId,
+                actionType,
+                params,
+                intelligenceEngineAvailable: !!intelligenceEngine,
+                actionableElementsCount: intelligenceEngine ? intelligenceEngine.actionableElements.size : 0,
+                allActionableElements: intelligenceEngine ? Array.from(intelligenceEngine.actionableElements.keys()) : []
+            });
             
             if (!intelligenceEngine) {
                 sendResponse({ ok: false, error: "Intelligence engine not available" });
                 return;
             }
             
+            // 🆕 ENHANCED: Check if the element exists
+            const actionableElement = intelligenceEngine.getActionableElement(actionId);
+            if (!actionableElement) {
+                console.error("[Content] ❌ Actionable element not found:", actionId);
+                console.log("[Content] 🔍 Available elements:", Array.from(intelligenceEngine.actionableElements.keys()));
+                sendResponse({ ok: false, error: `Actionable element not found: ${actionId}` });
+                return;
+            }
+            
+            console.log("[Content] ✅ Found actionable element:", actionableElement);
+            
             // Execute the action using the intelligence engine
             const result = intelligenceEngine.executeAction(actionId, actionType, params);
             
             if (result.success) {
                 console.log("[Content] ✅ LLM action executed successfully:", actionId);
+                console.log("[Content] 📊 Result details:", result);
                 sendResponse({ ok: true, result: result });
             } else {
                 console.error("[Content] ❌ LLM action execution failed:", result.error);

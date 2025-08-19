@@ -85,21 +85,21 @@ async def test_llm_instruction(websocket):
     """🤖 Test sending LLM instruction for action execution"""
     
     try:
-        # Send LLM instruction
+        # Send LLM instruction to click on Gmail
         message = {
             "id": f"llm-{uuid.uuid4().hex[:8]}",
             "type": "llm_instruction",
             "data": {
-                "actionId": "action_navigate_a_0",  # Example action ID
+                "actionId": "action_navigate_a_3",  # Gmail element from page.jsonl
                 "actionType": "click",
                 "params": {
-                    "description": "Click the first actionable link on the page"
+                    "description": "Click on the Gmail link to navigate to Gmail"
                 }
             }
         }
         
         await websocket.send(json.dumps(message))
-        print(f"📤 Sent LLM instruction: {message['data']['actionType']} on {message['data']['actionId']}")
+        print(f"📤 Sent LLM instruction: {message['data']['actionType']} on {message['data']['actionId']} (Gmail)")
         
         # Wait for response
         response = await websocket.recv()

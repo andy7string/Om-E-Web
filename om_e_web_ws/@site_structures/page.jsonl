@@ -1,5 +1,5 @@
 {
-  "timestamp": 1755570791.1949282,
+  "timestamp": 1755585469.178517,
   "url": "unknown",
   "title": "unknown",
   "actionable_elements": [
@@ -7,35 +7,1596 @@
       "actionId": "action_navigate_a_0",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "More information...",
+      "textContent": "Account",
       "selectors": [
-        "p:nth-child(1)"
+        "[data-pid=\"192\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
       ],
-      "attributes": {},
-      "timestamp": 1755570491185
+      "attributes": {
+        "aria-label": "Account, row 1 of 6 and column 1 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379166
+    },
+    {
+      "actionId": "action_navigate_a_1",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Drive",
+      "selectors": [
+        "[data-pid=\"49\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Drive, row 1 of 6 and column 2 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379166
+    },
+    {
+      "actionId": "action_navigate_a_2",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Business Profile Man",
+      "selectors": [
+        "[data-pid=\"260\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Business Profile Manager, row 1 of 6 and column 3 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_3",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Gmail",
+      "selectors": [
+        "[data-pid=\"23\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Gmail, row 2 of 6 and column 1 of three in the first section"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_4",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "YouTube",
+      "selectors": [
+        "[data-pid=\"36\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "YouTube, row 2 of 6 and column 2 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_5",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Gemini",
+      "selectors": [
+        "[data-pid=\"658\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Gemini, row 2 of 6 and column 3 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_6",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Maps",
+      "selectors": [
+        "[data-pid=\"8\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Maps, row 3 of 6 and column 1 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_7",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Search",
+      "selectors": [
+        "[data-pid=\"1\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Search, row 3 of 6 and column 2 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_8",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Calendar",
+      "selectors": [
+        "[data-pid=\"24\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Calendar, row 3 of 6 and column 3 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_9",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        ".ribaTb",
+        "a.ribaTb",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "role": "link",
+        "aria-label": " (opens a new tab)"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_click_button_10",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        ".ribaTb",
+        "button.ribaTb",
+        "div:nth-child(2)"
+      ],
+      "attributes": {
+        "role": "button"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_11",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "News",
+      "selectors": [
+        "[data-pid=\"426\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "News, row 4 of 6 and column 1 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379167
+    },
+    {
+      "actionId": "action_navigate_a_12",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Photos",
+      "selectors": [
+        "[data-pid=\"31\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Photos, row 4 of 6 and column 2 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_13",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Meet",
+      "selectors": [
+        "[data-pid=\"411\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Meet, row 4 of 6 and column 3 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_14",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Translate",
+      "selectors": [
+        "[data-pid=\"51\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Translate, row 5 of 6 and column 1 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_15",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Sheets",
+      "selectors": [
+        "[data-pid=\"283\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Sheets, row 5 of 6 and column 2 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_16",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Docs",
+      "selectors": [
+        "[data-pid=\"25\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Docs, row 5 of 6 and column 3 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_17",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Slides",
+      "selectors": [
+        "[data-pid=\"281\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Slides, row 6 of 6 and column 1 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_18",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Google One",
+      "selectors": [
+        "[data-pid=\"459\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Google One, row 6 of 6 and column 2 of three in the first section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_19",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Shopping",
+      "selectors": [
+        "[data-pid=\"6\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Shopping, row 1 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_20",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Store",
+      "selectors": [
+        "[data-pid=\"635\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Store, row 1 of 9 and column 2 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_21",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Play",
+      "selectors": [
+        "[data-pid=\"78\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Play, row 1 of 9 and column 3 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_22",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Finance",
+      "selectors": [
+        "[data-pid=\"27\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Finance, row 2 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_23",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Keep",
+      "selectors": [
+        "[data-pid=\"136\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Keep, row 2 of 9 and column 2 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_24",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "My Ad Centre",
+      "selectors": [
+        "[data-pid=\"644\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "My Ad Centre, row 2 of 9 and column 3 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_25",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Classroom",
+      "selectors": [
+        "[data-pid=\"265\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Classroom, row 3 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_26",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Chat",
+      "selectors": [
+        "[data-pid=\"385\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Chat, row 3 of 9 and column 2 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379168
+    },
+    {
+      "actionId": "action_navigate_a_27",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Earth",
+      "selectors": [
+        "[data-pid=\"429\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Earth, row 3 of 9 and column 3 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_28",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Saved",
+      "selectors": [
+        "[data-pid=\"338\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Saved, row 4 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_29",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Arts and Culture",
+      "selectors": [
+        "[data-pid=\"264\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Arts and Culture, row 4 of 9 and column 2 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_30",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Google Ads",
+      "selectors": [
+        "[data-pid=\"304\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Google Ads, row 4 of 9 and column 3 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_31",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Merchant Center",
+      "selectors": [
+        "[data-pid=\"711\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Merchant Center, row 5 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_32",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Contacts",
+      "selectors": [
+        "[data-pid=\"53\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Contacts, row 5 of 9 and column 2 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_33",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Travel",
+      "selectors": [
+        "[data-pid=\"405\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Travel, row 5 of 9 and column 3 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_34",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Forms",
+      "selectors": [
+        "[data-pid=\"330\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Forms, row 6 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_35",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Books",
+      "selectors": [
+        "[data-pid=\"10\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Books, row 6 of 9 and column 2 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_36",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Chrome Web Store",
+      "selectors": [
+        "[data-pid=\"421\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Chrome Web Store, row 6 of 9 and column 3 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_37",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Password Manager",
+      "selectors": [
+        "[data-pid=\"674\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Password Manager, row 7 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_38",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Google Analytics",
+      "selectors": [
+        "[data-pid=\"44\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Google Analytics, row 7 of 9 and column 2 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_39",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Blogger",
+      "selectors": [
+        "[data-pid=\"30\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Blogger, row 7 of 9 and column 3 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_40",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "YouTube Music",
+      "selectors": [
+        "[data-pid=\"723\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "YouTube Music, row 8 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_41",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Wallet App",
+      "selectors": [
+        "[data-pid=\"634\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Wallet App, row 8 of 9 and column 2 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379169
+    },
+    {
+      "actionId": "action_navigate_a_42",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "NotebookLM",
+      "selectors": [
+        "[data-pid=\"666\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "NotebookLM, row 8 of 9 and column 3 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379170
+    },
+    {
+      "actionId": "action_navigate_a_43",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Tasks",
+      "selectors": [
+        "[data-pid=\"39\"]",
+        ".tX9u1b",
+        "a.tX9u1b",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Tasks, row 9 of 9 and column 1 of three in the second section (opens a new tab)"
+      },
+      "timestamp": 1755585379170
+    },
+    {
+      "actionId": "action_navigate_a_44",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "More from Google",
+      "selectors": [
+        "[data-app-widget-link-name=\"jcJzye\"]",
+        ".NQV3m",
+        "a.NQV3m",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "More from Google (opens a new tab)"
+      },
+      "timestamp": 1755585379170
     }
   ],
   "page_state": {
-    "currentView": "unknown",
+    "currentView": "content_updated",
     "interactiveElements": [
       {
         "id": "action_navigate_a_0",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "p:nth-child(1)"
+          "[data-pid=\"192\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
         ],
-        "textContent": "More information...",
-        "className": "",
-        "attributes": {},
-        "timestamp": 1755570491185
+        "textContent": "Account",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Account, row 1 of 6 and column 1 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379166
+      },
+      {
+        "id": "action_navigate_a_1",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"49\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Drive",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Drive, row 1 of 6 and column 2 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379166
+      },
+      {
+        "id": "action_navigate_a_2",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"260\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Business Profile Man",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Business Profile Manager, row 1 of 6 and column 3 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_3",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"23\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Gmail",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Gmail, row 2 of 6 and column 1 of three in the first section"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_4",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"36\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "YouTube",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "YouTube, row 2 of 6 and column 2 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_5",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"658\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Gemini",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Gemini, row 2 of 6 and column 3 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_6",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"8\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Maps",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Maps, row 3 of 6 and column 1 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_7",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"1\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Search",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Search, row 3 of 6 and column 2 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_8",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"24\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Calendar",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Calendar, row 3 of 6 and column 3 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_9",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ribaTb",
+          "a.ribaTb",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "ribaTb YoItGe",
+        "attributes": {
+          "role": "link",
+          "aria-label": " (opens a new tab)"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_click_button_10",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          ".ribaTb",
+          "button.ribaTb",
+          "div:nth-child(2)"
+        ],
+        "textContent": "",
+        "className": "ribaTb BbIWDe",
+        "attributes": {
+          "role": "button"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_11",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"426\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "News",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "News, row 4 of 6 and column 1 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379167
+      },
+      {
+        "id": "action_navigate_a_12",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"31\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Photos",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Photos, row 4 of 6 and column 2 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_13",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"411\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Meet",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Meet, row 4 of 6 and column 3 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_14",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"51\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Translate",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Translate, row 5 of 6 and column 1 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_15",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"283\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Sheets",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Sheets, row 5 of 6 and column 2 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_16",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"25\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Docs",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Docs, row 5 of 6 and column 3 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_17",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"281\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Slides",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Slides, row 6 of 6 and column 1 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_18",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"459\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Google One",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Google One, row 6 of 6 and column 2 of three in the first section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_19",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"6\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Shopping",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Shopping, row 1 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_20",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"635\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Store",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Store, row 1 of 9 and column 2 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_21",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"78\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Play",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Play, row 1 of 9 and column 3 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_22",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"27\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Finance",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Finance, row 2 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_23",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"136\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Keep",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Keep, row 2 of 9 and column 2 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_24",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"644\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "My Ad Centre",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "My Ad Centre, row 2 of 9 and column 3 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_25",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"265\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Classroom",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Classroom, row 3 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_26",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"385\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Chat",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Chat, row 3 of 9 and column 2 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379168
+      },
+      {
+        "id": "action_navigate_a_27",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"429\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Earth",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Earth, row 3 of 9 and column 3 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_28",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"338\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Saved",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Saved, row 4 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_29",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"264\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Arts and Culture",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Arts and Culture, row 4 of 9 and column 2 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_30",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"304\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Google Ads",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Google Ads, row 4 of 9 and column 3 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_31",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"711\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Merchant Center",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Merchant Center, row 5 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_32",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"53\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Contacts",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Contacts, row 5 of 9 and column 2 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_33",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"405\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Travel",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Travel, row 5 of 9 and column 3 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_34",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"330\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Forms",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Forms, row 6 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_35",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"10\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Books",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Books, row 6 of 9 and column 2 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_36",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"421\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Chrome Web Store",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Chrome Web Store, row 6 of 9 and column 3 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_37",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"674\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Password Manager",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Password Manager, row 7 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_38",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"44\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Google Analytics",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Google Analytics, row 7 of 9 and column 2 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_39",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"30\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Blogger",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Blogger, row 7 of 9 and column 3 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_40",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"723\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "YouTube Music",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "YouTube Music, row 8 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_41",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"634\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Wallet App",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Wallet App, row 8 of 9 and column 2 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379169
+      },
+      {
+        "id": "action_navigate_a_42",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"666\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "NotebookLM",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "NotebookLM, row 8 of 9 and column 3 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379170
+      },
+      {
+        "id": "action_navigate_a_43",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-pid=\"39\"]",
+          ".tX9u1b",
+          "a.tX9u1b",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Tasks",
+        "className": "tX9u1b",
+        "attributes": {
+          "aria-label": "Tasks, row 9 of 9 and column 1 of three in the second section (opens a new tab)"
+        },
+        "timestamp": 1755585379170
+      },
+      {
+        "id": "action_navigate_a_44",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-app-widget-link-name=\"jcJzye\"]",
+          ".NQV3m",
+          "a.NQV3m",
+          "div:nth-child(1)"
+        ],
+        "textContent": "More from Google",
+        "className": "NQV3m",
+        "attributes": {
+          "aria-label": "More from Google (opens a new tab)"
+        },
+        "timestamp": 1755585379170
       }
     ],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1755570490091
+    "lastUpdate": 1755585378712
   },
-  "recent_insights": [],
-  "total_elements": 1,
+  "recent_insights": [
+    {
+      "timestamp": 1755585378711,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 6 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://ogs.google.com/u/0/widget/app?awwd=1&gpa=3&dpi=70251319&origin=https%3A%2F%2Fmail.google.com&cn=app&pid=23&spid=23&hl=en-GB&dm=",
+        "title": "",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 0,
+        "lastUpdate": 1755585378711
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755585378711,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 10 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://ogs.google.com/u/0/widget/app?awwd=1&gpa=3&dpi=70251319&origin=https%3A%2F%2Fmail.google.com&cn=app&pid=23&spid=23&hl=en-GB&dm=",
+        "title": "",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 0,
+        "lastUpdate": 1755585378711
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755585378712,
+      "eventType": "state_change",
+      "summary": "Element state updated: 1 attribute changes detected",
+      "actionableInsights": [
+        "Element states have changed",
+        "UI may be in different mode/state"
+      ],
+      "pageContext": {
+        "url": "https://ogs.google.com/u/0/widget/app?awwd=1&gpa=3&dpi=70251319&origin=https%3A%2F%2Fmail.google.com&cn=app&pid=23&spid=23&hl=en-GB&dm=",
+        "title": "",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 0,
+        "lastUpdate": 1755585378712
+      },
+      "recommendations": [
+        "check_element_states"
+      ]
+    },
+    {
+      "timestamp": 1755585378712,
+      "eventType": "state_change",
+      "summary": "Element state updated: 1 attribute changes detected",
+      "actionableInsights": [
+        "Element states have changed",
+        "UI may be in different mode/state"
+      ],
+      "pageContext": {
+        "url": "https://ogs.google.com/u/0/widget/app?awwd=1&gpa=3&dpi=70251319&origin=https%3A%2F%2Fmail.google.com&cn=app&pid=23&spid=23&hl=en-GB&dm=",
+        "title": "",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 0,
+        "lastUpdate": 1755585378712
+      },
+      "recommendations": [
+        "check_element_states"
+      ]
+    },
+    {
+      "timestamp": 1755585378712,
+      "eventType": "state_change",
+      "summary": "Element state updated: 1 attribute changes detected",
+      "actionableInsights": [
+        "Element states have changed",
+        "UI may be in different mode/state"
+      ],
+      "pageContext": {
+        "url": "https://ogs.google.com/u/0/widget/app?awwd=1&gpa=3&dpi=70251319&origin=https%3A%2F%2Fmail.google.com&cn=app&pid=23&spid=23&hl=en-GB&dm=",
+        "title": "",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 0,
+        "lastUpdate": 1755585378712
+      },
+      "recommendations": [
+        "check_element_states"
+      ]
+    }
+  ],
+  "total_elements": 45,
   "intelligence_version": "2.0"
 }

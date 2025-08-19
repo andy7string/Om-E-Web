@@ -1,12 +1,585 @@
 {
   "action_navigate_a_0": {
     "action_type": "navigate",
-    "description": "More information...",
+    "description": "Account",
     "tag_name": "a",
     "selectors": [
-      "p:nth-child(1)"
+      "[data-pid=\"192\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_0' to navigate with this element"
+  },
+  "action_navigate_a_1": {
+    "action_type": "navigate",
+    "description": "Drive",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"49\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_1' to navigate with this element"
+  },
+  "action_navigate_a_2": {
+    "action_type": "navigate",
+    "description": "Business Profile Man",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"260\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_2' to navigate with this element"
+  },
+  "action_navigate_a_3": {
+    "action_type": "navigate",
+    "description": "Gmail",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"23\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_3' to navigate with this element"
+  },
+  "action_navigate_a_4": {
+    "action_type": "navigate",
+    "description": "YouTube",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"36\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_4' to navigate with this element"
+  },
+  "action_navigate_a_5": {
+    "action_type": "navigate",
+    "description": "Gemini",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"658\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_5' to navigate with this element"
+  },
+  "action_navigate_a_6": {
+    "action_type": "navigate",
+    "description": "Maps",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"8\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_6' to navigate with this element"
+  },
+  "action_navigate_a_7": {
+    "action_type": "navigate",
+    "description": "Search",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"1\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_7' to navigate with this element"
+  },
+  "action_navigate_a_8": {
+    "action_type": "navigate",
+    "description": "Calendar",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"24\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_8' to navigate with this element"
+  },
+  "action_navigate_a_9": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".ribaTb",
+      "a.ribaTb",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_9' to navigate with this element"
+  },
+  "action_click_button_10": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ribaTb",
+      "button.ribaTb",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_10' to click with this element"
+  },
+  "action_navigate_a_11": {
+    "action_type": "navigate",
+    "description": "News",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"426\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_11' to navigate with this element"
+  },
+  "action_navigate_a_12": {
+    "action_type": "navigate",
+    "description": "Photos",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"31\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_12' to navigate with this element"
+  },
+  "action_navigate_a_13": {
+    "action_type": "navigate",
+    "description": "Meet",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"411\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_13' to navigate with this element"
+  },
+  "action_navigate_a_14": {
+    "action_type": "navigate",
+    "description": "Translate",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"51\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_14' to navigate with this element"
+  },
+  "action_navigate_a_15": {
+    "action_type": "navigate",
+    "description": "Sheets",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"283\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_15' to navigate with this element"
+  },
+  "action_navigate_a_16": {
+    "action_type": "navigate",
+    "description": "Docs",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"25\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_16' to navigate with this element"
+  },
+  "action_navigate_a_17": {
+    "action_type": "navigate",
+    "description": "Slides",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"281\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_17' to navigate with this element"
+  },
+  "action_navigate_a_18": {
+    "action_type": "navigate",
+    "description": "Google One",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"459\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_18' to navigate with this element"
+  },
+  "action_navigate_a_19": {
+    "action_type": "navigate",
+    "description": "Shopping",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"6\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_19' to navigate with this element"
+  },
+  "action_navigate_a_20": {
+    "action_type": "navigate",
+    "description": "Store",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"635\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_20' to navigate with this element"
+  },
+  "action_navigate_a_21": {
+    "action_type": "navigate",
+    "description": "Play",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"78\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_21' to navigate with this element"
+  },
+  "action_navigate_a_22": {
+    "action_type": "navigate",
+    "description": "Finance",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"27\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_22' to navigate with this element"
+  },
+  "action_navigate_a_23": {
+    "action_type": "navigate",
+    "description": "Keep",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"136\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_23' to navigate with this element"
+  },
+  "action_navigate_a_24": {
+    "action_type": "navigate",
+    "description": "My Ad Centre",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"644\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_24' to navigate with this element"
+  },
+  "action_navigate_a_25": {
+    "action_type": "navigate",
+    "description": "Classroom",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"265\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_25' to navigate with this element"
+  },
+  "action_navigate_a_26": {
+    "action_type": "navigate",
+    "description": "Chat",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"385\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_26' to navigate with this element"
+  },
+  "action_navigate_a_27": {
+    "action_type": "navigate",
+    "description": "Earth",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"429\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_27' to navigate with this element"
+  },
+  "action_navigate_a_28": {
+    "action_type": "navigate",
+    "description": "Saved",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"338\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_28' to navigate with this element"
+  },
+  "action_navigate_a_29": {
+    "action_type": "navigate",
+    "description": "Arts and Culture",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"264\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_29' to navigate with this element"
+  },
+  "action_navigate_a_30": {
+    "action_type": "navigate",
+    "description": "Google Ads",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"304\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_30' to navigate with this element"
+  },
+  "action_navigate_a_31": {
+    "action_type": "navigate",
+    "description": "Merchant Center",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"711\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_31' to navigate with this element"
+  },
+  "action_navigate_a_32": {
+    "action_type": "navigate",
+    "description": "Contacts",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"53\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_32' to navigate with this element"
+  },
+  "action_navigate_a_33": {
+    "action_type": "navigate",
+    "description": "Travel",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"405\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_33' to navigate with this element"
+  },
+  "action_navigate_a_34": {
+    "action_type": "navigate",
+    "description": "Forms",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"330\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_34' to navigate with this element"
+  },
+  "action_navigate_a_35": {
+    "action_type": "navigate",
+    "description": "Books",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"10\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_35' to navigate with this element"
+  },
+  "action_navigate_a_36": {
+    "action_type": "navigate",
+    "description": "Chrome Web Store",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"421\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_36' to navigate with this element"
+  },
+  "action_navigate_a_37": {
+    "action_type": "navigate",
+    "description": "Password Manager",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"674\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_37' to navigate with this element"
+  },
+  "action_navigate_a_38": {
+    "action_type": "navigate",
+    "description": "Google Analytics",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"44\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_38' to navigate with this element"
+  },
+  "action_navigate_a_39": {
+    "action_type": "navigate",
+    "description": "Blogger",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"30\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_39' to navigate with this element"
+  },
+  "action_navigate_a_40": {
+    "action_type": "navigate",
+    "description": "YouTube Music",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"723\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_40' to navigate with this element"
+  },
+  "action_navigate_a_41": {
+    "action_type": "navigate",
+    "description": "Wallet App",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"634\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_41' to navigate with this element"
+  },
+  "action_navigate_a_42": {
+    "action_type": "navigate",
+    "description": "NotebookLM",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"666\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_42' to navigate with this element"
+  },
+  "action_navigate_a_43": {
+    "action_type": "navigate",
+    "description": "Tasks",
+    "tag_name": "a",
+    "selectors": [
+      "[data-pid=\"39\"]",
+      ".tX9u1b",
+      "a.tX9u1b",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_43' to navigate with this element"
+  },
+  "action_navigate_a_44": {
+    "action_type": "navigate",
+    "description": "More from Google",
+    "tag_name": "a",
+    "selectors": [
+      "[data-app-widget-link-name=\"jcJzye\"]",
+      ".NQV3m",
+      "a.NQV3m",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_44' to navigate with this element"
   }
 }
