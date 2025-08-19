@@ -138,7 +138,7 @@ class PipelineTrigger:
         # let's just proceed and test the main pipeline
         return True
 
-    async def trigger_pipeline(self, target_url=None):
+    async def trigger_pipeline(self, target_url=None, include_text=False):
         """Trigger the complete pipeline"""
         pipeline_start = time.time()
         print("🚀 Starting pipeline trigger...")
@@ -165,13 +165,11 @@ class PipelineTrigger:
             print("📱 Using current active tab for site map generation")
         
         # Generate site map
-        sitemap_start = time.time()
         site_map_result = await self.send_command("generateSiteMap", {})
         if not site_map_result or not site_map_result.get("ok"):
             print("❌ Site map generation failed")
             return False
         
-        sitemap_time = time.time() - sitemap_start
         step1_time = time.time() - step1_start
         print(f"✅ Site map generated successfully! (Step 1: {step1_time:.2f}s)")
         
@@ -245,6 +243,36 @@ class PipelineTrigger:
         step4_time = time.time() - step4_start
         print(f"⏱️ Step 4 completed in {step4_time:.2f}s")
         
+        # Step 5: Extract page text (if requested)
+        if include_text:
+            step5_start = time.time()
+            print("\n📄 Step 5: Extracting page text...")
+            
+            text_result = await self.send_command("extractPageText", {})
+            if not text_result or not text_result.get("ok"):
+                print("❌ Text extraction failed")
+                return False
+            
+            step5_time = time.time() - step5_start
+            print(f"✅ Text extraction completed! (Step 5: {step5_time:.2f}s)")
+            
+            # Wait a moment for the server to save the markdown file
+            await asyncio.sleep(2)
+            
+            # Check if the markdown file was created
+            if os.path.exists(SITE_STRUCTURES_DIR):
+                files = os.listdir(SITE_STRUCTURES_DIR)
+                md_files = [f for f in files if f.endswith('_page_text.md')]
+                
+                if md_files:
+                    print("✅ Text extraction files found:")
+                    for file in md_files:
+                        file_path = os.path.join(SITE_STRUCTURES_DIR, file)
+                        file_size = os.path.getsize(file_path)
+                        print(f"   📄 {file} ({file_size:,} bytes)")
+                else:
+                    print("⚠️ No text extraction files found")
+        
         # Calculate total pipeline time
         total_pipeline_time = time.time() - pipeline_start
         
@@ -296,6 +324,14 @@ async def main():
         target_url = None
         print("📱 Will use current tab")
     
+    # Get text extraction preference
+    include_text = input("📄 Include text extraction? (y/n, default: n): ").strip().lower()
+    include_text = include_text in ['y', 'yes', 'true']
+    if include_text:
+        print("📄 Text extraction will be included")
+    else:
+        print("📄 Text extraction will be skipped")
+    
     # Create pipeline trigger
     pipeline = PipelineTrigger()
     
@@ -316,7 +352,7 @@ async def main():
             return
         
         # Trigger the pipeline
-        success = await pipeline.trigger_pipeline(target_url)
+        success = await pipeline.trigger_pipeline(target_url, include_text)
         
         if success:
             print("\n🎉 Pipeline completed successfully!")

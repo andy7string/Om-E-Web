@@ -697,6 +697,78 @@ async function cmd_getPageMarkdown() {
 }
 
 /**
+ * 📄 Extract page text to markdown format
+ * 
+ * This function extracts structured text content from the current page
+ * and formats it as markdown for easy consumption by LLMs.
+ * 
+ * @returns {Object} - Structured markdown content with metadata
+ */
+async function cmd_extractPageText() {
+    console.log("[Content] extractPageText: Starting text extraction");
+    const startTime = performance.now();
+    
+    try {
+        // 📊 Extract basic page information
+        const basicInfo = {
+            url: window.location.href,
+            title: document.title,
+            timestamp: Date.now()
+        };
+        console.log("[Content] extractPageText: Basic info:", basicInfo);
+        
+        // 🎯 Use the IntelligenceEngine's text extraction methods
+        const intelligenceEngine = window.intelligenceEngine;
+        if (!intelligenceEngine) {
+            throw new Error("IntelligenceEngine not available");
+        }
+        
+        // Extract markdown content
+        const markdown = intelligenceEngine.extractPageTextToMarkdown();
+        
+        // Extract structured data for statistics
+        const headings = intelligenceEngine.extractHeadings();
+        const paragraphs = intelligenceEngine.extractParagraphs();
+        const lists = intelligenceEngine.extractLists();
+        
+        // ⏱️ Calculate processing time
+        const processingTime = performance.now() - startTime;
+        
+        // 📊 Build comprehensive result object
+        const result = {
+            frontmatter: basicInfo,
+            markdown: markdown,
+            headings: headings,
+            paragraphs: paragraphs,
+            lists: lists,
+            processingTime: processingTime,
+            size: markdown.length,
+            statistics: {
+                totalHeadings: headings.length,
+                totalParagraphs: paragraphs.length,
+                totalLists: lists.length,
+                totalListItems: lists.reduce((sum, list) => sum + list.itemCount, 0)
+            }
+        };
+        
+        console.log("[Content] extractPageText: Extraction complete:", {
+            processingTime: processingTime.toFixed(2) + "ms",
+            size: result.size + " bytes",
+            headings: result.statistics.totalHeadings,
+            paragraphs: result.statistics.totalParagraphs,
+            lists: result.statistics.totalLists,
+            listItems: result.statistics.totalListItems
+        });
+        
+        return result;
+        
+    } catch (error) {
+        console.error("[Content] extractPageText: Error during extraction:", error);
+        throw error;
+    }
+}
+
+/**
  * 📨 Message handler for WebSocket communication
  * 
  * This listener handles all incoming messages from the service worker,
@@ -758,6 +830,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     headings: result.headings.length,
                     paragraphs: result.paragraphs.length,
                     links: result.links.length
+                });
+                return sendResponse(result);
+            }
+            
+            // 🆕 NEW: Text Extraction Command
+            if (command === "extractPageText") {
+                console.log("[Content] extractPageText command - no params needed");
+                const result = await cmd_extractPageText();
+                console.log("[Content] extractPageText result:", {
+                    processingTime: result.processingTime,
+                    size: result.size,
+                    headings: result.headings.length,
+                    paragraphs: result.paragraphs.length,
+                    lists: result.lists.length
                 });
                 return sendResponse(result);
             }
@@ -2662,6 +2748,197 @@ IntelligenceEngine.prototype.isInteractiveElement = function(element) {
 };
 
 /**
+ * 🆕 PHASE 1: Basic quality filter for interactive elements
+ * Filters out low-quality elements during scanning to reduce payload
+ */
+IntelligenceEngine.prototype.passesBasicQualityFilter = function(element) {
+    if (!element) return false;
+    
+    // 🚫 Filter out hidden elements
+    if (element.hidden) return false;
+    
+    // 🚫 Filter out elements with aria-hidden="true"
+    const ariaHidden = element.getAttribute('aria-hidden');
+    if (ariaHidden === 'true') return false;
+    
+    // 🚫 Filter out elements with no meaningful content
+    const text = element.textContent?.trim();
+    const ariaLabel = element.getAttribute('aria-label');
+    const title = element.title;
+    const placeholder = element.getAttribute('placeholder');
+    
+    // Check if element has any meaningful content
+    const hasContent = (text && text.length > 2) || 
+                      (ariaLabel && ariaLabel.length > 2) || 
+                      (title && title.length > 2) ||
+                      (placeholder && placeholder.length > 2);
+    
+    // Form inputs are always considered meaningful
+    const isFormInput = element.tagName === 'INPUT' || 
+                       element.tagName === 'SELECT' || 
+                       element.tagName === 'TEXTAREA';
+    
+    if (!hasContent && !isFormInput) return false;
+    
+    // 🚫 Filter out placeholder links
+    if (element.tagName === 'A') {
+        const href = element.getAttribute('href');
+        if (!href || href === '#' || href.startsWith('javascript:')) return false;
+    }
+    
+    // ✅ Element passes basic quality filter
+    return true;
+};
+
+/**
+ * 🆕 TEXT EXTRACTION: Extract page text to markdown format
+ * Called when text extraction is requested via command
+ */
+IntelligenceEngine.prototype.extractPageTextToMarkdown = function() {
+    const markdown = [];
+    
+    // Header with metadata
+    markdown.push(`# Page Text Extraction`);
+    markdown.push(`**URL:** ${window.location.href}`);
+    markdown.push(`**Title:** ${document.title}`);
+    markdown.push(`**Extracted:** ${new Date().toISOString()}`);
+    markdown.push('');
+    
+    // Headings
+    const headings = this.extractHeadings();
+    if (headings.length > 0) {
+        markdown.push('## Page Structure (Headings)');
+        headings.forEach(heading => {
+            const prefix = '#'.repeat(heading.level + 2);
+            markdown.push(`${prefix} ${heading.text}`);
+        });
+        markdown.push('');
+    }
+    
+    // Main content paragraphs
+    const paragraphs = this.extractParagraphs();
+    if (paragraphs.length > 0) {
+        markdown.push('## Main Content');
+        paragraphs.forEach(p => {
+            markdown.push(p.text);
+            markdown.push('');
+        });
+    }
+    
+    // Lists
+    const lists = this.extractLists();
+    if (lists.length > 0) {
+        markdown.push('## Lists');
+        lists.forEach(list => {
+            markdown.push(`### ${list.type.toUpperCase()} List (${list.itemCount} items)`);
+            list.items.forEach(item => {
+                markdown.push(`- ${item}`);
+            });
+            markdown.push('');
+        });
+    }
+    
+    return markdown.join('\n');
+};
+
+/**
+ * 🆕 Extract headings from the page
+ */
+IntelligenceEngine.prototype.extractHeadings = function() {
+    const headings = [];
+    const headingElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    
+    headingElements.forEach(heading => {
+        if (this.isElementVisible(heading)) {
+            headings.push({
+                level: parseInt(heading.tagName.charAt(1)),
+                text: heading.textContent.trim(),
+                id: heading.id || null,
+                selector: this.generateSelector(heading)
+            });
+        }
+    });
+    
+    return headings;
+};
+
+/**
+ * 🆕 Extract paragraphs from the page
+ */
+IntelligenceEngine.prototype.extractParagraphs = function() {
+    const paragraphs = [];
+    const paragraphElements = document.querySelectorAll('p, article, section');
+    
+    paragraphElements.forEach(p => {
+        if (this.isElementVisible(p) && p.textContent.trim().length > 50) {
+            paragraphs.push({
+                text: p.textContent.trim(),
+                length: p.textContent.trim().length,
+                selector: this.generateSelector(p)
+            });
+        }
+    });
+    
+    return paragraphs.slice(0, 20); // Limit to top 20 paragraphs
+};
+
+/**
+ * 🆕 Extract lists from the page
+ */
+IntelligenceEngine.prototype.extractLists = function() {
+    const lists = [];
+    const listElements = document.querySelectorAll('ul, ol');
+    
+    listElements.forEach(list => {
+        if (this.isElementVisible(list)) {
+            const items = Array.from(list.querySelectorAll('li')).map(li => li.textContent.trim());
+            lists.push({
+                type: list.tagName.toLowerCase(),
+                items: items,
+                itemCount: items.length,
+                selector: this.generateSelector(list)
+            });
+        }
+    });
+    
+    return lists;
+};
+
+/**
+ * 🆕 Check if element is visible
+ */
+IntelligenceEngine.prototype.isElementVisible = function(element) {
+    if (!element || element.hidden) return false;
+    
+    const style = window.getComputedStyle(element);
+    if (style.display === 'none' || style.visibility === 'hidden') return false;
+    
+    const rect = element.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return false;
+    
+    return true;
+};
+
+/**
+ * 🆕 Generate simple selector for element
+ */
+IntelligenceEngine.prototype.generateSelector = function(element) {
+    if (element.id) {
+        return `#${element.id}`;
+    }
+    
+    const tagName = element.tagName.toLowerCase();
+    const className = element.className;
+    
+    if (className) {
+        const firstClass = className.split(' ')[0];
+        return `${tagName}.${firstClass}`;
+    }
+    
+    return tagName;
+};
+
+/**
  * 🆕 NEW: Determine the action type for an element
  */
 IntelligenceEngine.prototype.determineActionType = function(element) {
@@ -3209,31 +3486,64 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         this.actionableElements.clear();
         this.elementCounter = 0;
         
-        // Find all interactive elements
+        // 🆕 PHASE 1: Smart, restrictive selectors for high-value interactive elements
         const interactiveSelectors = [
-            'a', 'button', 'input', 'select', 'textarea',
-            '[role="button"]', '[role="link"]', '[role="menuitem"]',
-            '[role="tab"]', '[role="checkbox"]', '[role="radio"]',
-            '.btn', '.button', '.clickable', '.interactive'
+            // Buttons - only enabled, visible, actionable buttons
+            'button:not([disabled]):not([aria-disabled="true"]):not([hidden])',
+            '[role="button"]:not([aria-disabled="true"]):not([hidden])',
+            
+            // Links - only real, functional links (no placeholders)
+            'a[href]:not([href=""]):not([href^="#"]):not([tabindex="-1"]):not([hidden])',
+            
+            // Form inputs - only visible, enabled form controls
+            'input:not([type="hidden"]):not([disabled]):not([hidden])',
+            'select:not([disabled]):not([hidden])',
+            'textarea:not([disabled]):not([hidden])',
+            '[role="combobox"]:not([aria-disabled="true"]):not([hidden])',
+            
+            // Key interactive roles - only enabled, visible ARIA elements
+            '[role="search"]:not([aria-disabled="true"]):not([hidden])',
+            '[role="switch"]:not([aria-disabled="true"]):not([hidden])',
+            '[role="checkbox"]:not([aria-disabled="true"]):not([hidden])',
+            '[role="radio"]:not([aria-disabled="true"]):not([hidden])',
+            '[role="menuitem"]:not([aria-disabled="true"]):not([hidden])',
+            '[role="tab"]:not([aria-disabled="true"]):not([hidden])',
+            '[role="option"]:not([aria-disabled="true"]):not([hidden])',
+            
+            // Media controls - common interactive media elements
+            '[aria-label~="play" i], [aria-label~="pause" i], [aria-label~="like" i], [aria-label~="share" i]'
         ];
         
         const elements = document.querySelectorAll(interactiveSelectors.join(','));
         console.log("[Content] 🔍 Found", elements.length, "interactive elements");
         
-        // Register each element
+        // 🆕 PHASE 1: Basic quality filtering during scan
+        let filteredCount = 0;
+        let registeredCount = 0;
+        
         elements.forEach(element => {
             if (this.isInteractiveElement(element)) {
-                const actionType = this.determineActionType(element);
-                const actionId = this.registerActionableElement(element, actionType);
-                
-                console.log("[Content] 📝 Registered element:", {
-                    actionId: actionId,
-                    tagName: element.tagName,
-                    actionType: actionType,
-                    textContent: element.textContent?.trim().substring(0, 30) || ''
-                });
+                filteredCount++;
+                if (this.passesBasicQualityFilter(element)) {
+                    const actionType = this.determineActionType(element);
+                    const actionId = this.registerActionableElement(element, actionType);
+                    registeredCount++;
+                    
+                    console.log("[Content] 📝 Registered element:", {
+                        actionId: actionId,
+                        tagName: element.tagName,
+                        actionType: actionType,
+                        textContent: element.textContent?.trim().substring(0, 30) || ''
+                    });
+                }
             }
         });
+        
+        console.log("[Content] 🎯 PHASE 1 FILTERING RESULTS:");
+        console.log(`   📊 Total elements found: ${elements.length}`);
+        console.log(`   🔍 Interactive elements: ${filteredCount}`);
+        console.log(`   ✅ Quality-filtered elements: ${registeredCount}`);
+        console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / elements.length) * 100)}%`);
         
         // Update page state
         this.pageState.interactiveElements = this.getAllActionableElements();

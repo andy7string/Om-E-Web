@@ -423,6 +423,7 @@ function handleServerMessage(messageData) {
                 case "getText":
                 case "click":
                 case "getPageMarkdown":
+                case "extractPageText":
                 case "getCurrentTabInfo":
                 case "getNavigationContext":
                 case "generateSiteMap":

@@ -182,6 +182,53 @@ async def process_actionable_elements_for_llm(actionable_elements):
         print(f"❌ Error processing actionable elements for LLM: {e}")
         return None
 
+async def save_page_text_to_markdown(text_data):
+    """
+    📄 Save page text to markdown file
+    
+    This function saves extracted page text to a markdown file named
+    after the website's hostname in the @site_structures folder.
+    
+    @param text_data: Text extraction data from extension
+    @return: File path if successful, None if failed
+    """
+    try:
+        # Ensure the site structures directory exists
+        if not os.path.exists(SITE_STRUCTURES_DIR):
+            os.makedirs(SITE_STRUCTURES_DIR)
+            print(f"📁 Created directory: {SITE_STRUCTURES_DIR}")
+        
+        # Extract URL and generate filename
+        url = text_data.get('frontmatter', {}).get('url', 'unknown')
+        parsed_url = urlparse(url)
+        hostname = parsed_url.hostname or 'unknown'
+        filename = f"{hostname}_page_text.md"
+        filepath = os.path.join(SITE_STRUCTURES_DIR, filename)
+        
+        # Get the markdown content
+        markdown_content = text_data.get('markdown', '')
+        
+        # Write the markdown content to file
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(markdown_content)
+        
+        # Get statistics
+        statistics = text_data.get('statistics', {})
+        total_headings = statistics.get('totalHeadings', 0)
+        total_paragraphs = statistics.get('totalParagraphs', 0)
+        total_lists = statistics.get('totalLists', 0)
+        total_list_items = statistics.get('totalListItems', 0)
+        
+        print(f"📄 Page text saved to: {filepath}")
+        print(f"📊 Content: {total_headings} headings, {total_paragraphs} paragraphs, {total_lists} lists ({total_list_items} items)")
+        print(f"📏 File size: {len(markdown_content):,} bytes")
+        
+        return filepath
+        
+    except Exception as e:
+        print(f"❌ Error saving page text to markdown: {e}")
+        return None
+
 async def clear_llm_actions():
     """
     🗑️ Clear LLM actions when no actionable elements are available
@@ -1729,6 +1776,49 @@ async def handler(ws):
                 except Exception as e:
                     print(f"❌ Error processing DOM change notification: {e}")
             
+            # 🆕 NEW: TEXT EXTRACTION HANDLING: Process text extraction requests
+            if msg.get("type") == "extractPageText":
+                print("📄 Text extraction request received")
+                try:
+                    # Forward text extraction request to extension
+                    if EXTENSION_WS and EXTENSION_WS != ws:
+                        extraction_msg = {
+                            "id": f"text-{uuid.uuid4().hex[:8]}",
+                            "type": "extractPageText",
+                            "data": {}
+                        }
+                        
+                        await EXTENSION_WS.send(json.dumps(extraction_msg))
+                        print("✅ Text extraction request forwarded to extension")
+                        
+                        # Send confirmation back to client
+                        response = {
+                            "id": msg.get("id", "unknown"),
+                            "ok": True,
+                            "result": "Text extraction request sent to extension",
+                            "error": None
+                        }
+                        await ws.send(json.dumps(response))
+                    else:
+                        print("❌ No extension available for text extraction")
+                        response = {
+                            "id": msg.get("id", "unknown"),
+                            "ok": False,
+                            "result": None,
+                            "error": "No extension available for text extraction"
+                        }
+                        await ws.send(json.dumps(response))
+                        
+                except Exception as e:
+                    print(f"❌ Error processing text extraction request: {e}")
+                    response = {
+                        "id": msg.get("id", "unknown"),
+                        "ok": False,
+                        "result": None,
+                        "error": f"Error processing text extraction: {str(e)}"
+                    }
+                    await ws.send(json.dumps(response))
+            
             # 🆕 NEW: LLM INSTRUCTION HANDLING: Process LLM action requests
             if msg.get("type") == "llm_instruction":
                 print("🤖 LLM instruction received")
@@ -1837,6 +1927,36 @@ async def handler(ws):
             
             # 📥 RESPONSE HANDLING: Process responses from extension and route to test clients
             if "id" in msg and ("ok" in msg or "error" in msg):
+                
+                # 🆕 NEW: Handle text extraction responses
+                print(f"🔍 Checking response: id='{msg.get('id')}', command='{msg.get('command')}', ok={msg.get('ok')}")
+                
+                # Check if this is a text extraction response by looking for the result structure
+                result = msg.get("result", {})
+                if (msg.get("id", "").startswith("text-") or 
+                    msg.get("command") == "extractPageText" or
+                    (msg.get("ok") and result.get("statistics") and "totalHeadings" in result.get("statistics", {}))):
+                    print("📄 Text extraction response received")
+                    try:
+                        if msg.get("ok") and msg.get("result"):
+                            # Save the extracted text to markdown file
+                            text_data = msg.get("result")
+                            saved_file = await save_page_text_to_markdown(text_data)
+                            
+                            if saved_file:
+                                print(f"✅ Text extraction completed and saved to: {saved_file}")
+                            else:
+                                print("❌ Failed to save text extraction to file")
+                        else:
+                            print(f"❌ Text extraction failed: {msg.get('error', 'Unknown error')}")
+                            
+                    except Exception as e:
+                        print(f"❌ Error processing text extraction response: {e}")
+                
+                # 🆕 NEW: Handle LLM instruction responses
+                elif msg.get("id", "").startswith("llm-"):
+                    print("🤖 LLM instruction response received")
+                    # LLM instruction responses are handled by the routing system below
                 print(f"📥 Response received for id: {msg['id']}")
                 
                 # 💾 AUTO-SAVE SITE MAP: If this is a successful generateSiteMap response, save to file
