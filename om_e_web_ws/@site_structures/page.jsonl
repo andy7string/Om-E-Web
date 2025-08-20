@@ -1,35 +1,35 @@
 {
-  "timestamp": 1755669130.676523,
+  "timestamp": 1755699873.521271,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1137968624,
-      "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-      "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
+      "id": 1137969531,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1137968624,
-        "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-        "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
+        "id": 1137969531,
+        "url": "https://chatgpt.com/",
+        "title": "ChatGPT",
         "active": true,
         "status": "complete"
       },
       {
-        "id": 1137968675,
-        "url": "https://mail.google.com/mail/u/0/#inbox",
-        "title": "Inbox (4,811) - andreworsmond21175@gmail.com - Gmail",
+        "id": 1137969595,
+        "url": "https://www.realestate.com.au/sold/",
+        "title": "Recently Sold Properties and Sold House Prices - realestate.com.au",
         "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 11107.897250541,
+    "last_tabs_update": 41850.828842541,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
     "is_active_tab": true
   },
   "actionable_elements": [
@@ -37,622 +37,473 @@
       "actionId": "action_click_button_0",
       "actionType": "click",
       "tagName": "button",
-      "textContent": "Menu",
-      "selectors": [
-        "[data-testid=\"burger-menu\"]",
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "button.ButtonBase-argonaut__sc-1lobkej-0",
-        "div:nth-child(1)"
-      ],
-      "attributes": {},
-      "timestamp": 1755668352248
-    },
-    {
-      "actionId": "action_navigate_a_1",
-      "actionType": "navigate",
-      "tagName": "a",
       "textContent": "",
       "selectors": [
-        ".Headerstyles__Logo-argonaut__sc-qtti7i-1",
-        "a.Headerstyles__Logo-argonaut__sc-qtti7i-1",
+        "[data-fill=\"\"]",
+        "[data-state=\"closed\"]",
+        ".group",
+        "button.group",
         "div:nth-child(1)"
       ],
       "attributes": {
-        "title": "realestate.com.au homepage",
-        "href": "/"
+        "aria-label": "Open sidebar"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641344
     },
     {
-      "actionId": "action_navigate_a_2",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Buy",
+      "actionId": "action_click_div_1",
+      "actionType": "click",
+      "tagName": "div",
+      "textContent": "",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(1)"
+        "#radix-«r7»",
+        "[data-fill=\"\"]",
+        "[data-size=\"large\"]",
+        "[data-testid=\"accounts-profile-button\"]",
+        "[data-state=\"closed\"]",
+        ".group",
+        "div.group",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "/buy/"
+        "id": "radix-«r7»",
+        "type": "button",
+        "role": "button",
+        "aria-label": "Open profile menu"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641344
     },
     {
-      "actionId": "action_navigate_a_3",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Rent",
+      "actionId": "action_click_button_2",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "Open sidebar",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(2)"
+        "[data-testid=\"open-sidebar-button\"]",
+        ".hover:text-token-text-primary",
+        "button.hover:text-token-text-primary",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "/rent/"
+        "type": "button"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641344
     },
     {
-      "actionId": "action_navigate_a_4",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Sold",
+      "actionId": "action_click_button_3",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "ChatGPT 5",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(3)"
+        "#radix-«r9»",
+        "[data-state=\"closed\"]",
+        "[data-testid=\"model-switcher-dropdown-button\"]",
+        ".group",
+        "button.group",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "/sold/"
+        "id": "radix-«r9»",
+        "type": "button",
+        "aria-label": "Model selector, current model is 5"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641344
     },
     {
-      "actionId": "action_navigate_a_5",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Share",
+      "actionId": "action_click_button_4",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(4)"
+        ".btn",
+        "button.btn",
+        "span:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.realestate.com.au/share"
+        "aria-label": "Turn on temporary chat"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641345
     },
     {
-      "actionId": "action_navigate_a_6",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "New homes",
+      "actionId": "action_click_button_5",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "ChatGPT 5",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(5)"
+        "#radix-«rc»",
+        "[data-state=\"closed\"]",
+        "[data-testid=\"model-switcher-dropdown-button\"]",
+        ".group",
+        "button.group",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.realestate.com.au/new-homes"
+        "id": "radix-«rc»",
+        "type": "button",
+        "aria-label": "Model selector, current model is 5"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641345
     },
     {
-      "actionId": "action_navigate_a_7",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Find agents",
+      "actionId": "action_click_button_6",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(6)"
+        ".text-token-text-primary",
+        "button.text-token-text-primary",
+        "span:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.realestate.com.au/find-agent"
+        "aria-label": "Turn on temporary chat"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641345
     },
     {
-      "actionId": "action_navigate_a_8",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Home loans",
+      "actionId": "action_input_input_7",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(7)"
+        "#temporary-chat-checkbox",
+        ".sr-only",
+        "input.sr-only",
+        "h1:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.realestate.com.au/home-loans/"
+        "id": "temporary-chat-checkbox",
+        "name": "temporary-chat-checkbox",
+        "type": "checkbox"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641345
     },
     {
-      "actionId": "action_navigate_a_9",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "News",
+      "actionId": "action_input_input_8",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(8)"
+        "#temporary-chat-checkbox",
+        ".sr-only",
+        "input.sr-only",
+        "h1:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.realestate.com.au/news/"
+        "id": "temporary-chat-checkbox",
+        "name": "temporary-chat-checkbox",
+        "type": "checkbox"
       },
-      "timestamp": 1755668352248
+      "timestamp": 1755699641345
     },
     {
-      "actionId": "action_navigate_a_10",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Commercial",
+      "actionId": "action_input_input_9",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
       "selectors": [
-        ".ButtonBase-argonaut__sc-1lobkej-0",
-        "a.ButtonBase-argonaut__sc-1lobkej-0",
-        "nav:nth-child(10)"
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.realcommercial.com.au"
+        "type": "file"
       },
-      "timestamp": 1755668352249
+      "timestamp": 1755699641345
+    },
+    {
+      "actionId": "action_general_textarea_10",
+      "actionType": "general",
+      "tagName": "textarea",
+      "textContent": "",
+      "selectors": [
+        "[data-virtualkeyboard=\"true\"]",
+        "._fallbackTextarea_ebv8s_2",
+        "textarea._fallbackTextarea_ebv8s_2",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "name": "prompt-textarea"
+      },
+      "timestamp": 1755699641345
     },
     {
       "actionId": "action_click_button_11",
       "actionType": "click",
       "tagName": "button",
-      "textContent": "Hahndorf, SA 5245",
+      "textContent": "",
       "selectors": [
-        "[data-testid=\"filters-link\"]",
-        ".LinkBase-sc-1ba0r3r-0",
-        "button.LinkBase-sc-1ba0r3r-0",
-        "div:nth-child(1)"
+        ".composer-btn",
+        "button.composer-btn",
+        "span:nth-child(1)"
       ],
-      "attributes": {},
-      "timestamp": 1755668352249
+      "attributes": {
+        "type": "button",
+        "aria-label": "Dictate button"
+      },
+      "timestamp": 1755699641345
     },
     {
       "actionId": "action_click_button_12",
       "actionType": "click",
       "tagName": "button",
-      "textContent": "Property type",
+      "textContent": "",
       "selectors": [
-        ".ButtonBase-sc-1lobkej-0",
-        "button.ButtonBase-sc-1lobkej-0",
-        "div:nth-child(2)"
-      ],
-      "attributes": {},
-      "timestamp": 1755668352249
-    },
-    {
-      "actionId": "action_click_button_13",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "Price",
-      "selectors": [
-        ".ButtonBase-sc-1lobkej-0",
-        "button.ButtonBase-sc-1lobkej-0",
-        "div:nth-child(3)"
-      ],
-      "attributes": {},
-      "timestamp": 1755668352249
-    },
-    {
-      "actionId": "action_click_button_14",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "Bed",
-      "selectors": [
-        ".ButtonBase-sc-1lobkej-0",
-        "button.ButtonBase-sc-1lobkej-0",
-        "div:nth-child(4)"
-      ],
-      "attributes": {},
-      "timestamp": 1755668352249
-    },
-    {
-      "actionId": "action_click_button_15",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "Filters",
-      "selectors": [
-        ".ButtonBase-sc-1lobkej-0",
-        "button.ButtonBase-sc-1lobkej-0",
+        "[data-testid=\"composer-speech-button\"]",
+        ".relative",
+        "button.relative",
         "span:nth-child(1)"
       ],
-      "attributes": {},
-      "timestamp": 1755668352249
-    },
-    {
-      "actionId": "action_navigate_a_16",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "List",
-      "selectors": [
-        ".ButtonBase-sc-1lobkej-0",
-        "a.ButtonBase-sc-1lobkej-0",
-        "div:nth-child(6)"
-      ],
       "attributes": {
-        "href": "/buy/in-hahndorf,+sa+5245/list-1?activeSort=relevance&sourcePage=rea:buy:srp-map&sourceElement=tab-headers"
+        "aria-label": "Start voice mode"
       },
-      "timestamp": 1755668352249
+      "timestamp": 1755699641345
     }
   ],
   "page_state": {
-    "currentView": "content_updated",
+    "currentView": "unknown",
     "interactiveElements": [
       {
         "id": "action_click_button_0",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
-          "[data-testid=\"burger-menu\"]",
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "button.ButtonBase-argonaut__sc-1lobkej-0",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Menu",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 jSqQoP Menu__MenuButton-argonaut__sc-1y8t0fp-0 bfEXeg",
-        "attributes": {},
-        "timestamp": 1755668352248
-      },
-      {
-        "id": "action_navigate_a_1",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".Headerstyles__Logo-argonaut__sc-qtti7i-1",
-          "a.Headerstyles__Logo-argonaut__sc-qtti7i-1",
+          "[data-fill=\"\"]",
+          "[data-state=\"closed\"]",
+          ".group",
+          "button.group",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "Headerstyles__Logo-argonaut__sc-qtti7i-1 styles__Logo-argonaut__sc-1l2lho8-4 htEpVg ldcIjX",
+        "className": "group __menu-item hoverable gap-1.5 cursor-e-resize rtl:cursor-w-resize",
         "attributes": {
-          "title": "realestate.com.au homepage",
-          "href": "/"
+          "aria-label": "Open sidebar"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641344
       },
       {
-        "id": "action_navigate_a_2",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_div_1",
+        "tagName": "div",
+        "actionType": "click",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(1)"
+          "#radix-«r7»",
+          "[data-fill=\"\"]",
+          "[data-size=\"large\"]",
+          "[data-testid=\"accounts-profile-button\"]",
+          "[data-state=\"closed\"]",
+          ".group",
+          "div.group",
+          "div:nth-child(1)"
         ],
-        "textContent": "Buy",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "",
+        "className": "group __menu-item hoverable gap-2 p-2",
         "attributes": {
-          "href": "/buy/"
+          "id": "radix-«r7»",
+          "type": "button",
+          "role": "button",
+          "aria-label": "Open profile menu"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641344
       },
       {
-        "id": "action_navigate_a_3",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_2",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(2)"
+          "[data-testid=\"open-sidebar-button\"]",
+          ".hover:text-token-text-primary",
+          "button.hover:text-token-text-primary",
+          "div:nth-child(1)"
         ],
-        "textContent": "Rent",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "Open sidebar",
+        "className": "hover:text-token-text-primary touch:h-10 touch:w-10 inline-flex h-9 w-9 items-center justify-center rounded-md focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset active:opacity-50",
         "attributes": {
-          "href": "/rent/"
+          "type": "button"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641344
       },
       {
-        "id": "action_navigate_a_4",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_3",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(3)"
+          "#radix-«r9»",
+          "[data-state=\"closed\"]",
+          "[data-testid=\"model-switcher-dropdown-button\"]",
+          ".group",
+          "button.group",
+          "div:nth-child(1)"
         ],
-        "textContent": "Sold",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "ChatGPT 5",
+        "className": "group flex cursor-pointer justify-center items-center gap-1 rounded-lg min-h-9 touch:min-h-10 px-2.5 text-lg hover:bg-token-surface-hover focus-visible:bg-token-surface-hover font-normal whitespace-nowrap focus-visible:outline-none",
         "attributes": {
-          "href": "/sold/"
+          "id": "radix-«r9»",
+          "type": "button",
+          "aria-label": "Model selector, current model is 5"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641344
       },
       {
-        "id": "action_navigate_a_5",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_4",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(4)"
+          ".btn",
+          "button.btn",
+          "span:nth-child(1)"
         ],
-        "textContent": "Share",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "",
+        "className": "btn relative btn-ghost text-token-text-secondary rounded-lg",
         "attributes": {
-          "href": "https://www.realestate.com.au/share"
+          "aria-label": "Turn on temporary chat"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641345
       },
       {
-        "id": "action_navigate_a_6",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_5",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(5)"
+          "#radix-«rc»",
+          "[data-state=\"closed\"]",
+          "[data-testid=\"model-switcher-dropdown-button\"]",
+          ".group",
+          "button.group",
+          "div:nth-child(1)"
         ],
-        "textContent": "New homes",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "ChatGPT 5",
+        "className": "group flex cursor-pointer justify-center items-center gap-1 rounded-lg min-h-9 touch:min-h-10 px-2.5 text-lg hover:bg-token-surface-hover focus-visible:bg-token-surface-hover font-normal whitespace-nowrap focus-visible:outline-none",
         "attributes": {
-          "href": "https://www.realestate.com.au/new-homes"
+          "id": "radix-«rc»",
+          "type": "button",
+          "aria-label": "Model selector, current model is 5"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641345
       },
       {
-        "id": "action_navigate_a_7",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_6",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(6)"
+          ".text-token-text-primary",
+          "button.text-token-text-primary",
+          "span:nth-child(1)"
         ],
-        "textContent": "Find agents",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "",
+        "className": "text-token-text-primary no-draggable hover:bg-token-surface-hover focus-visible:bg-token-surface-hover touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center rounded-lg focus-visible:outline-0 disabled:opacity-50 rounded-full!",
         "attributes": {
-          "href": "https://www.realestate.com.au/find-agent"
+          "aria-label": "Turn on temporary chat"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641345
       },
       {
-        "id": "action_navigate_a_8",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_input_input_7",
+        "tagName": "input",
+        "actionType": "input",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(7)"
+          "#temporary-chat-checkbox",
+          ".sr-only",
+          "input.sr-only",
+          "h1:nth-child(1)"
         ],
-        "textContent": "Home loans",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "",
+        "className": "sr-only",
         "attributes": {
-          "href": "https://www.realestate.com.au/home-loans/"
+          "id": "temporary-chat-checkbox",
+          "name": "temporary-chat-checkbox",
+          "type": "checkbox"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641345
       },
       {
-        "id": "action_navigate_a_9",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_input_input_8",
+        "tagName": "input",
+        "actionType": "input",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(8)"
+          "#temporary-chat-checkbox",
+          ".sr-only",
+          "input.sr-only",
+          "h1:nth-child(1)"
         ],
-        "textContent": "News",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "",
+        "className": "sr-only",
         "attributes": {
-          "href": "https://www.realestate.com.au/news/"
+          "id": "temporary-chat-checkbox",
+          "name": "temporary-chat-checkbox",
+          "type": "checkbox"
         },
-        "timestamp": 1755668352248
+        "timestamp": 1755699641345
       },
       {
-        "id": "action_navigate_a_10",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_input_input_9",
+        "tagName": "input",
+        "actionType": "input",
         "selectors": [
-          ".ButtonBase-argonaut__sc-1lobkej-0",
-          "a.ButtonBase-argonaut__sc-1lobkej-0",
-          "nav:nth-child(10)"
+          "div:nth-child(1)"
         ],
-        "textContent": "Commercial",
-        "className": "ButtonBase-argonaut__sc-1lobkej-0 Link__LinkWithButtonVariant-argonaut__sc-t5cqk8-0 jSqQoP jabPgx",
+        "textContent": "",
+        "className": "",
         "attributes": {
-          "href": "https://www.realcommercial.com.au"
+          "type": "file"
         },
-        "timestamp": 1755668352249
+        "timestamp": 1755699641345
+      },
+      {
+        "id": "action_general_textarea_10",
+        "tagName": "textarea",
+        "actionType": "general",
+        "selectors": [
+          "[data-virtualkeyboard=\"true\"]",
+          "._fallbackTextarea_ebv8s_2",
+          "textarea._fallbackTextarea_ebv8s_2",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "_fallbackTextarea_ebv8s_2",
+        "attributes": {
+          "name": "prompt-textarea"
+        },
+        "timestamp": 1755699641345
       },
       {
         "id": "action_click_button_11",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
-          "[data-testid=\"filters-link\"]",
-          ".LinkBase-sc-1ba0r3r-0",
-          "button.LinkBase-sc-1ba0r3r-0",
-          "div:nth-child(1)"
+          ".composer-btn",
+          "button.composer-btn",
+          "span:nth-child(1)"
         ],
-        "textContent": "Hahndorf, SA 5245",
-        "className": "LinkBase-sc-1ba0r3r-0 Button__ButtonWithLinkVariant-sc-etylg7-0 comat lmXSzs LocationSummary__Container-sc-31kjw6-0 Cofxu",
-        "attributes": {},
-        "timestamp": 1755668352249
+        "textContent": "",
+        "className": "composer-btn",
+        "attributes": {
+          "type": "button",
+          "aria-label": "Dictate button"
+        },
+        "timestamp": 1755699641345
       },
       {
         "id": "action_click_button_12",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
-          ".ButtonBase-sc-1lobkej-0",
-          "button.ButtonBase-sc-1lobkej-0",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Property type",
-        "className": "ButtonBase-sc-1lobkej-0 iloSHN Pill-sc-keyc1b-0 cBgCTP",
-        "attributes": {},
-        "timestamp": 1755668352249
-      },
-      {
-        "id": "action_click_button_13",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          ".ButtonBase-sc-1lobkej-0",
-          "button.ButtonBase-sc-1lobkej-0",
-          "div:nth-child(3)"
-        ],
-        "textContent": "Price",
-        "className": "ButtonBase-sc-1lobkej-0 iloSHN Pill-sc-keyc1b-0 dMkbSk",
-        "attributes": {},
-        "timestamp": 1755668352249
-      },
-      {
-        "id": "action_click_button_14",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          ".ButtonBase-sc-1lobkej-0",
-          "button.ButtonBase-sc-1lobkej-0",
-          "div:nth-child(4)"
-        ],
-        "textContent": "Bed",
-        "className": "ButtonBase-sc-1lobkej-0 iloSHN Pill-sc-keyc1b-0 iLgUJK",
-        "attributes": {},
-        "timestamp": 1755668352249
-      },
-      {
-        "id": "action_click_button_15",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          ".ButtonBase-sc-1lobkej-0",
-          "button.ButtonBase-sc-1lobkej-0",
+          "[data-testid=\"composer-speech-button\"]",
+          ".relative",
+          "button.relative",
           "span:nth-child(1)"
         ],
-        "textContent": "Filters",
-        "className": "ButtonBase-sc-1lobkej-0 iloSHN Pill-sc-keyc1b-0 ejmBGb",
-        "attributes": {},
-        "timestamp": 1755668352249
-      },
-      {
-        "id": "action_navigate_a_16",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".ButtonBase-sc-1lobkej-0",
-          "a.ButtonBase-sc-1lobkej-0",
-          "div:nth-child(6)"
-        ],
-        "textContent": "List",
-        "className": "ButtonBase-sc-1lobkej-0 Link__LinkWithButtonVariant-sc-t5cqk8-0 jVKkFh coEY",
+        "textContent": "",
+        "className": "relative flex h-9 items-center justify-center rounded-full disabled:text-gray-50 disabled:opacity-30 w-9 composer-secondary-button-color hover:opacity-80",
         "attributes": {
-          "href": "/buy/in-hahndorf,+sa+5245/list-1?activeSort=relevance&sourcePage=rea:buy:srp-map&sourceElement=tab-headers"
+          "aria-label": "Start voice mode"
         },
-        "timestamp": 1755668352249
+        "timestamp": 1755699641345
       }
     ],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1755669093476
+    "lastUpdate": 1755699641343,
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT"
   },
-  "recent_insights": [
-    {
-      "timestamp": 1755669054792,
-      "eventType": "content_update",
-      "summary": "Content modified: 1 text/content changes",
-      "actionableInsights": [
-        "Page content has been modified",
-        "Consider extracting updated information"
-      ],
-      "pageContext": {
-        "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.93742001808744%2C138.58623508034302%2C-34.99495602619659%2C138.73111728249145&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-        "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
-        "currentView": "content_updated",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 17,
-        "lastUpdate": 1755669054792
-      },
-      "recommendations": [
-        "extract_updated_content"
-      ]
-    },
-    {
-      "timestamp": 1755669087473,
-      "eventType": "structure_change",
-      "summary": "Page structure modified: 52 new elements added/removed",
-      "actionableInsights": [
-        "New interactive elements may be available",
-        "Page structure has changed - consider rescanning"
-      ],
-      "pageContext": {
-        "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.92621982322004%2C138.57611781567473%2C-34.98376369292602%2C138.72100001782317&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-        "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
-        "currentView": "content_updated",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 17,
-        "lastUpdate": 1755669087473
-      },
-      "recommendations": [
-        "immediate_rescan"
-      ]
-    },
-    {
-      "timestamp": 1755669087473,
-      "eventType": "content_update",
-      "summary": "Content modified: 1 text/content changes",
-      "actionableInsights": [
-        "Page content has been modified",
-        "Consider extracting updated information"
-      ],
-      "pageContext": {
-        "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.92621982322004%2C138.57611781567473%2C-34.98376369292602%2C138.72100001782317&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-        "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
-        "currentView": "content_updated",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 17,
-        "lastUpdate": 1755669087473
-      },
-      "recommendations": [
-        "extract_updated_content"
-      ]
-    },
-    {
-      "timestamp": 1755669093476,
-      "eventType": "structure_change",
-      "summary": "Page structure modified: 41 new elements added/removed",
-      "actionableInsights": [
-        "New interactive elements may be available",
-        "Page structure has changed - consider rescanning"
-      ],
-      "pageContext": {
-        "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.917422886714796%2C138.58075267285247%2C-34.97497292959178%2C138.7256348750009&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-        "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
-        "currentView": "content_updated",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 17,
-        "lastUpdate": 1755669093476
-      },
-      "recommendations": [
-        "immediate_rescan"
-      ]
-    },
-    {
-      "timestamp": 1755669093476,
-      "eventType": "content_update",
-      "summary": "Content modified: 2 text/content changes",
-      "actionableInsights": [
-        "Page content has been modified",
-        "Consider extracting updated information"
-      ],
-      "pageContext": {
-        "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.917422886714796%2C138.58075267285247%2C-34.97497292959178%2C138.7256348750009&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-        "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
-        "currentView": "content_updated",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 17,
-        "lastUpdate": 1755669093476
-      },
-      "recommendations": [
-        "extract_updated_content"
-      ]
-    }
-  ],
-  "total_elements": 17,
+  "recent_insights": [],
+  "total_elements": 13,
   "intelligence_version": "2.0"
 }

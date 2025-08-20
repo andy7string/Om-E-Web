@@ -139,12 +139,68 @@ document.addEventListener('testIntelligence', (event) => {
             }
             break;
             
+        case 'testQueue':
+            console.log("[Content] 🧪 Testing queue system...");
+            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                console.log("[Content] 🧪 Adding test updates to queue...");
+                intelligenceEngine.queueIntelligenceUpdate('high');
+                intelligenceEngine.queueIntelligenceUpdate('normal');
+                intelligenceEngine.queueIntelligenceUpdate('low');
+                console.log("[Content] 🧪 Test updates queued, check status with 'getStatus' command");
+            } else {
+                console.log("[Content] ❌ Queue system not available");
+            }
+            break;
+            
+        case 'checkEngine':
+            console.log("[Content] 🧪 Checking engine readiness...");
+            if (intelligenceEngine) {
+                const readiness = intelligenceEngine.isEngineReady();
+                console.log("[Content] 🧪 Engine readiness check:", {
+                    isReady: readiness,
+                    initialScanCompleted: intelligenceEngine.initialScanCompleted,
+                    pageState: intelligenceEngine.pageState,
+                    actionableElementsCount: intelligenceEngine.actionableElements.size,
+                    eventHistoryCount: intelligenceEngine.eventHistory.length
+                });
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
+        case 'getStatus':
+            console.log("[Content] 🧪 Getting system status...");
+            if (intelligenceEngine) {
+                const status = {
+                    intelligenceEngine: !!intelligenceEngine,
+                    actionableElementsCount: intelligenceEngine.actionableElements?.size || 0,
+                    eventHistoryCount: intelligenceEngine.eventHistory?.length || 0,
+                    updateQueueLength: intelligenceEngine.updateQueue?.length || 0,
+                    isProcessingQueue: intelligenceEngine.isProcessingQueue || false,
+                    engineReady: intelligenceEngine.isEngineReady ? intelligenceEngine.isEngineReady() : false,
+                    timestamp: Date.now()
+                };
+                console.log("[Content] 🧪 System status:", status);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
         default:
             console.log("[Content] 🧪 Unknown command:", command);
     }
 });
 
-console.log("[Content] 🧪 Test event listener added - use document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testIntelligenceSystem'}}))");
+console.log("[Content] 🧪 Test event listener added - available commands:");
+console.log("[Content] 🧪 - testIntelligenceSystem: Basic system test");
+console.log("[Content] 🧪 - getActionableElements: List actionable elements");
+console.log("[Content] 🧪 - scanElements: Scan page for elements");
+console.log("[Content] 🧪 - getDOMStatus: Check DOM change detection");
+console.log("[Content] 🧪 - executeAction: Execute an action");
+console.log("[Content] 🧪 - testQueue: Test the queue system");
+console.log("[Content] 🧪 - checkEngine: Check engine readiness");
+console.log("[Content] 🧪 - getStatus: Get system status including queue info");
+console.log("[Content] 🧪 Example: document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'checkEngine'}}))");
 
 // Utility function for async delays
 var sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -197,7 +253,10 @@ function initializeDOMChangeDetection() {
                     
                     // 🆕 NEW: Trigger intelligence update on significant changes
                     console.log("[Content] 🧠 Triggering intelligence update due to significant DOM change");
-                    sendIntelligenceUpdateToServer();
+                    // 🆕 NEW: Use queue system instead of immediate send
+                    if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                        intelligenceEngine.queueIntelligenceUpdate('high');
+                    }
                 }
             } else {
                 // 🚫 REDUCED LOGGING: Only log every 100th insignificant change
@@ -2579,12 +2638,22 @@ var IntelligenceEngine = function() {
         interactiveElements: [],
         navigationState: 'unknown',
         contentSections: [],
-        lastUpdate: Date.now()
+        lastUpdate: Date.now(),
+        // 🆕 NEW: Set page context immediately
+        url: window.location.href,
+        title: document.title || 'Unknown'
     };
     this.eventHistory = [];
     this.llmInsights = [];
     this.actionableElements = new Map(); // 🆕 NEW: Map of actionable elements with IDs
     this.elementCounter = 0; // 🆕 NEW: Counter for generating unique IDs
+    this.initialScanCompleted = false; // 🆕 NEW: Track if initial scan is complete
+    
+    console.log("[Content] 🧠 IntelligenceEngine initialized with page context:", {
+        url: this.pageState.url,
+        title: this.pageState.title,
+        timestamp: this.pageState.lastUpdate
+    });
 };
 
 /**
@@ -3062,34 +3131,202 @@ IntelligenceEngine.prototype.generateRecommendations = function(event) {
 };
 
 /**
- * Send intelligence update to service worker
+ * 🆕 NEW: Intelligence Update Queue System
+ * Queues updates and processes them sequentially to prevent extension context invalidation
  */
-IntelligenceEngine.prototype.sendIntelligenceUpdate = function() {
-    const update = {
+IntelligenceEngine.prototype.updateQueue = [];
+IntelligenceEngine.prototype.isProcessingQueue = false;
+IntelligenceEngine.prototype.lastUpdateTime = 0;
+
+/**
+ * 🆕 NEW: Queue intelligence update for processing
+ */
+IntelligenceEngine.prototype.queueIntelligenceUpdate = function(priority = 'normal') {
+    const updateItem = {
+        id: Date.now() + Math.random(),
+        priority: priority, // 'high', 'normal', 'low'
+        timestamp: Date.now(),
+        data: this.prepareIntelligenceData()
+    };
+    
+    // Add to queue based on priority
+    if (priority === 'high') {
+        this.updateQueue.unshift(updateItem); // Add to front
+    } else {
+        this.updateQueue.push(updateItem); // Add to back
+    }
+    
+    console.log("[Content] 📋 Intelligence update queued:", {
+        id: updateItem.id,
+        priority: priority,
+        queueLength: this.updateQueue.length
+    });
+    
+    // Process queue if not already processing
+    if (!this.isProcessingQueue) {
+        this.processUpdateQueue();
+    }
+};
+
+/**
+ * 🆕 NEW: Process the intelligence update queue sequentially
+ */
+IntelligenceEngine.prototype.processUpdateQueue = async function() {
+    if (this.isProcessingQueue || this.updateQueue.length === 0) {
+        return;
+    }
+    
+    this.isProcessingQueue = true;
+    console.log("[Content] 🔄 Processing intelligence update queue, length:", this.updateQueue.length);
+    
+    while (this.updateQueue.length > 0) {
+        const updateItem = this.updateQueue.shift();
+        
+        try {
+            console.log("[Content] 📤 Processing queued update:", updateItem.id);
+            
+            // 🆕 NEW: Check if intelligence engine is ready before sending
+            if (!this.isEngineReady()) {
+                console.log("[Content] ⏳ Intelligence engine not ready, re-queuing update:", updateItem.id);
+                // Re-queue with lower priority if engine not ready
+                if (updateItem.priority !== 'low') {
+                    updateItem.priority = 'low';
+                    this.updateQueue.push(updateItem);
+                }
+                // Wait a bit before processing next item to avoid infinite loop
+                await this.sleep(100);
+                continue;
+            }
+            
+            // Send update to service worker
+            await this.sendIntelligenceUpdateToServiceWorker(updateItem.data);
+            
+            this.lastUpdateTime = Date.now();
+            console.log("[Content] ✅ Queued update processed successfully:", updateItem.id);
+            
+        } catch (error) {
+            console.error("[Content] ❌ Error processing queued update:", updateItem.id, error);
+            
+            // Re-queue failed updates with lower priority (unless it's already low)
+            if (updateItem.priority !== 'low') {
+                updateItem.priority = 'low';
+                this.updateQueue.push(updateItem);
+                console.log("[Content] 🔄 Re-queued failed update with lower priority:", updateItem.id);
+            }
+        }
+    }
+    
+    this.isProcessingQueue = false;
+    console.log("[Content] ✅ Intelligence update queue processing complete");
+};
+
+/**
+ * 🆕 NEW: Prepare intelligence data for updates
+ */
+IntelligenceEngine.prototype.prepareIntelligenceData = function() {
+    return {
         type: "intelligence_update",
         timestamp: Date.now(),
         pageState: this.pageState,
-        recentInsights: this.llmInsights.slice(-5), // Last 5 insights
+        recentInsights: this.llmInsights.slice(-5),
         totalEvents: this.eventHistory.length,
         recommendations: this.getCurrentRecommendations(),
-        // 🆕 NEW: Actionable elements for LLM instructions
         actionableElements: this.getActionableElementsSummary(),
         actionMapping: this.generateActionMapping()
     };
-    
-    console.log("[Content] 🧠 IntelligenceEngine: Preparing update:", {
-        type: update.type,
-        totalEvents: update.totalEvents,
-        actionableElements: update.actionableElements.length,
-        recommendations: update.recommendations
+};
+
+/**
+ * 🆕 NEW: Send intelligence update to service worker with error handling
+ */
+IntelligenceEngine.prototype.sendIntelligenceUpdateToServiceWorker = async function(intelligenceData) {
+    return new Promise((resolve, reject) => {
+        try {
+            // 🆕 NEW: Wrap intelligence data in the format expected by service worker
+            const message = {
+                type: "intelligence_update",
+                data: intelligenceData
+            };
+            
+            chrome.runtime.sendMessage(message, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.log("[Content] ⚠️ Service worker not available for intelligence update");
+                    reject(new Error("Service worker not available"));
+                } else {
+                    console.log("[Content] ✅ Intelligence update sent to service worker");
+                    resolve(response);
+                }
+            });
+        } catch (error) {
+            console.error("[Content] ❌ Error sending intelligence update:", error);
+            reject(error);
+        }
     });
-    
-    try {
-        chrome.runtime.sendMessage(update);
-        console.log("[Content] 🧠 Intelligence update sent to service worker");
-    } catch (error) {
-        console.warn("[Content] Failed to send intelligence update:", error.message);
+};
+
+/**
+ * 🆕 NEW: Check if intelligence engine is ready to send updates
+ */
+IntelligenceEngine.prototype.isEngineReady = function() {
+    // Check if core components are initialized
+    if (!this.pageState || !this.actionableElements) {
+        console.log("[Content] ⚠️ Core components not initialized");
+        return false;
     }
+    
+    // 🆕 NEW: Always set page context if not present
+    if (!this.pageState.url || !this.pageState.lastUpdate) {
+        console.log("[Content] 🆕 Setting page context...");
+        this.pageState.url = window.location.href;
+        this.pageState.lastUpdate = Date.now();
+        console.log("[Content] ✅ Page context set:", {
+            url: this.pageState.url,
+            lastUpdate: this.pageState.lastUpdate
+        });
+    }
+    
+    // 🆕 NEW: Refresh page context if URL has changed
+    if (this.pageState.url !== window.location.href) {
+        console.log("[Content] 🆕 URL changed, updating page context...");
+        this.pageState.url = window.location.href;
+        this.pageState.title = document.title || 'Unknown';
+        this.pageState.lastUpdate = Date.now();
+        console.log("[Content] ✅ Page context refreshed:", {
+            url: this.pageState.url,
+            title: this.pageState.title,
+            timestamp: this.pageState.lastUpdate
+        });
+    }
+    
+    // 🆕 NEW: Check if initial scan has completed
+    if (!this.initialScanCompleted) {
+        console.log("[Content] ⚠️ Initial page scan not completed yet");
+        return false;
+    }
+    
+    // 🆕 NEW: Check if we have actionable elements
+    if (this.actionableElements.size === 0) {
+        console.log("[Content] ⚠️ No actionable elements found after scan");
+        return false;
+    }
+    
+    console.log("[Content] ✅ Engine ready - actionable elements available:", this.actionableElements.size);
+    return true;
+};
+
+/**
+ * 🆕 NEW: Utility function for delays
+ */
+IntelligenceEngine.prototype.sleep = function(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+
+/**
+ * Send intelligence update to service worker (now uses queue)
+ */
+IntelligenceEngine.prototype.sendIntelligenceUpdate = function() {
+    // 🆕 NEW: Use queue system instead of sending immediately
+    this.queueIntelligenceUpdate('normal');
 };
 
 /**
@@ -3531,18 +3768,22 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / elements.length) * 100)}%`);
         
         // Update page state
-        this.pageState.interactiveElements = this.getAllActionableElements();
-        
-        const result = {
-            success: true,
-            totalElements: this.actionableElements.size,
-            actionableElements: this.getActionableElementsSummary(),
-            actionMapping: this.generateActionMapping(),
-            message: `Successfully registered ${this.actionableElements.size} interactive elements`
-        };
-        
-        console.log("[Content] ✅ Page scan complete:", result);
-        return result;
+                    this.pageState.interactiveElements = this.getAllActionableElements();
+            
+            // 🆕 NEW: Mark initial scan as complete
+            this.initialScanCompleted = true;
+            console.log("[Content] ✅ Initial page scan marked as complete");
+            
+            const result = {
+                success: true,
+                totalElements: this.actionableElements.size,
+                actionableElements: this.getActionableElementsSummary(),
+                actionMapping: this.generateActionMapping(),
+                message: `Successfully registered ${this.actionableElements.size} interactive elements`
+            };
+            
+            console.log("[Content] ✅ Page scan complete:", result);
+            return result;
         
     } catch (error) {
         console.error("[Content] ❌ Error scanning page:", error);
@@ -3633,7 +3874,10 @@ function initializeIntelligenceSystem() {
             // ✅ SYNC: Send intelligence update immediately after scan
             if (scanResult && scanResult.success) {
                 console.log("[Content] 📤 Scan complete, sending intelligence update...");
-                sendIntelligenceUpdateToServer();
+                // 🆕 NEW: Use queue system instead of immediate send
+                if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                    intelligenceEngine.queueIntelligenceUpdate('high');
+                }
             }
             
             // ✅ SYNC: Set up periodic intelligence updates
@@ -3648,7 +3892,7 @@ function initializeIntelligenceSystem() {
 }
 
 /**
- * 🆕 NEW: Send intelligence update to server via service worker
+ * 🆕 NEW: Send intelligence update to server via service worker (now uses queue)
  */
 function sendIntelligenceUpdateToServer() {
     try {
@@ -3657,32 +3901,37 @@ function sendIntelligenceUpdateToServer() {
             return;
         }
         
-        console.log("[Content] 📤 Sending intelligence update to server...");
+        console.log("[Content] 📤 Queuing intelligence update for server...");
         
-        // Get current intelligence data
-        const intelligenceData = {
-            pageState: intelligenceEngine.pageState,
-            actionableElements: intelligenceEngine.getActionableElementsSummary(),
-            recentInsights: intelligenceEngine.llmInsights.slice(-5), // Last 5 insights
-            totalEvents: intelligenceEngine.eventHistory.length,
-            actionMapping: intelligenceEngine.generateActionMapping(),
-            timestamp: Date.now()
-        };
-        
-        // Send to service worker
-        chrome.runtime.sendMessage({
-            type: "intelligence_update",
-            data: intelligenceData
-        }, (response) => {
-            if (chrome.runtime.lastError) {
-                console.log("[Content] ⚠️ Service worker not available for intelligence update");
-            } else {
-                console.log("[Content] ✅ Intelligence update sent to service worker");
-            }
-        });
+        // 🆕 NEW: Use the queue system instead of sending immediately
+        if (intelligenceEngine.queueIntelligenceUpdate) {
+            intelligenceEngine.queueIntelligenceUpdate('normal');
+        } else {
+            console.log("[Content] ⚠️ Queue system not available, falling back to immediate send");
+            // Fallback to immediate send if queue system not available
+            const intelligenceData = {
+                pageState: intelligenceEngine.pageState,
+                actionableElements: intelligenceEngine.getActionableElementsSummary(),
+                recentInsights: intelligenceEngine.llmInsights.slice(-5),
+                totalEvents: intelligenceEngine.eventHistory.length,
+                actionMapping: intelligenceEngine.generateActionMapping(),
+                timestamp: Date.now()
+            };
+            
+            chrome.runtime.sendMessage({
+                type: "intelligence_update",
+                data: intelligenceData
+            }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.log("[Content] ⚠️ Service worker not available for intelligence update");
+                } else {
+                    console.log("[Content] ✅ Intelligence update sent to service worker");
+                }
+            });
+        }
         
     } catch (error) {
-        console.error("[Content] ❌ Error sending intelligence update to server:", error);
+        console.error("[Content] ❌ Error queuing intelligence update to server:", error);
     }
 }
 
@@ -3696,11 +3945,17 @@ function setupIntelligenceUpdates() {
     // 1. ✅ TRIGGER: On page load/ready
     if (document.readyState === 'complete') {
         console.log("[Content] 🧠 Page ready, sending initial intelligence update");
-        sendIntelligenceUpdateToServer();
+        // 🆕 NEW: Use queue system instead of immediate send
+        if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+            intelligenceEngine.queueIntelligenceUpdate('high');
+        }
     } else {
         document.addEventListener('DOMContentLoaded', () => {
             console.log("[Content] 🧠 DOM loaded, sending intelligence update");
-            sendIntelligenceUpdateToServer();
+            // 🆕 NEW: Use queue system instead of immediate send
+            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                intelligenceEngine.queueIntelligenceUpdate('high');
+            }
         });
     }
     
@@ -3715,9 +3970,11 @@ function setupIntelligenceUpdates() {
             });
             currentUrl = newUrl;
             
-            // Wait a moment for page to settle, then update
+            // 🆕 NEW: Use queue system instead of delayed send
             setTimeout(() => {
-                sendIntelligenceUpdateToServer();
+                if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                    intelligenceEngine.queueIntelligenceUpdate('normal');
+                }
             }, 1000);
         }
     });
@@ -3734,7 +3991,9 @@ function setupIntelligenceUpdates() {
     window.addEventListener('hashchange', () => {
         console.log("[Content] 🧠 Hash changed, triggering intelligence update");
         setTimeout(() => {
-            sendIntelligenceUpdateToServer();
+            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                intelligenceEngine.queueIntelligenceUpdate('normal');
+            }
         }, 500);
     });
     
@@ -3742,7 +4001,9 @@ function setupIntelligenceUpdates() {
     window.addEventListener('popstate', () => {
         console.log("[Content] 🧠 Popstate event, triggering intelligence update");
         setTimeout(() => {
-            sendIntelligenceUpdateToServer();
+            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                intelligenceEngine.queueIntelligenceUpdate('normal');
+            }
         }, 500);
     });
     
@@ -3751,7 +4012,9 @@ function setupIntelligenceUpdates() {
         if (document.visibilityState === 'visible') {
             console.log("[Content] 🧠 Tab became visible, triggering intelligence update");
             setTimeout(() => {
-                sendIntelligenceUpdateToServer();
+                if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                    intelligenceEngine.queueIntelligenceUpdate('normal');
+                }
             }, 500);
         }
     });
@@ -3760,7 +4023,9 @@ function setupIntelligenceUpdates() {
     window.addEventListener('focus', () => {
         console.log("[Content] 🧠 Window focused, triggering intelligence update");
         setTimeout(() => {
-            sendIntelligenceUpdateToServer();
+            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                intelligenceEngine.queueIntelligenceUpdate('normal');
+            }
         }, 500);
     });
     

@@ -1,249 +1,207 @@
 {
   "_page_context": {
-    "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
-    "timestamp": 1755669130.677579,
-    "total_actions": 17,
-    "active_tab_id": 1137968624
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
+    "timestamp": 1755699873.522439,
+    "total_actions": 13,
+    "active_tab_id": 1137969531
   },
   "action_click_button_0": {
     "action_type": "click",
-    "description": "Menu",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "[data-testid=\"burger-menu\"]",
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "button.ButtonBase-argonaut__sc-1lobkej-0",
+      "[data-fill=\"\"]",
+      "[data-state=\"closed\"]",
+      ".group",
+      "button.group",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_click_button_0' to click with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
   },
-  "action_navigate_a_1": {
-    "action_type": "navigate",
+  "action_click_div_1": {
+    "action_type": "click",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "div",
     "selectors": [
-      ".Headerstyles__Logo-argonaut__sc-qtti7i-1",
-      "a.Headerstyles__Logo-argonaut__sc-qtti7i-1",
+      "#radix-«r7»",
+      "[data-fill=\"\"]",
+      "[data-size=\"large\"]",
+      "[data-testid=\"accounts-profile-button\"]",
+      "[data-state=\"closed\"]",
+      ".group",
+      "div.group",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_1' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
+    "llm_instruction": "Use actionId 'action_click_div_1' to click with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
   },
-  "action_navigate_a_2": {
-    "action_type": "navigate",
-    "description": "Buy",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_2' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_navigate_a_3": {
-    "action_type": "navigate",
-    "description": "Rent",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_3' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_navigate_a_4": {
-    "action_type": "navigate",
-    "description": "Sold",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_4' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_navigate_a_5": {
-    "action_type": "navigate",
-    "description": "Share",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_5' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_navigate_a_6": {
-    "action_type": "navigate",
-    "description": "New homes",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_6' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_navigate_a_7": {
-    "action_type": "navigate",
-    "description": "Find agents",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(6)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_7' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_navigate_a_8": {
-    "action_type": "navigate",
-    "description": "Home loans",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(7)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_8' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_navigate_a_9": {
-    "action_type": "navigate",
-    "description": "News",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(8)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_9' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_navigate_a_10": {
-    "action_type": "navigate",
-    "description": "Commercial",
-    "tag_name": "a",
-    "selectors": [
-      ".ButtonBase-argonaut__sc-1lobkej-0",
-      "a.ButtonBase-argonaut__sc-1lobkej-0",
-      "nav:nth-child(10)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_10' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_click_button_11": {
+  "action_click_button_2": {
     "action_type": "click",
-    "description": "Hahndorf, SA 5245",
+    "description": "Open sidebar",
     "tag_name": "button",
     "selectors": [
-      "[data-testid=\"filters-link\"]",
-      ".LinkBase-sc-1ba0r3r-0",
-      "button.LinkBase-sc-1ba0r3r-0",
+      "[data-testid=\"open-sidebar-button\"]",
+      ".hover:text-token-text-primary",
+      "button.hover:text-token-text-primary",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_11' to click with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
+    "llm_instruction": "Use actionId 'action_click_button_2' to click with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
   },
-  "action_click_button_12": {
+  "action_click_button_3": {
     "action_type": "click",
-    "description": "Property type",
+    "description": "ChatGPT 5",
     "tag_name": "button",
     "selectors": [
-      ".ButtonBase-sc-1lobkej-0",
-      "button.ButtonBase-sc-1lobkej-0",
-      "div:nth-child(2)"
+      "#radix-«r9»",
+      "[data-state=\"closed\"]",
+      "[data-testid=\"model-switcher-dropdown-button\"]",
+      ".group",
+      "button.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_12' to click with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
+    "llm_instruction": "Use actionId 'action_click_button_3' to click with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
   },
-  "action_click_button_13": {
+  "action_click_button_4": {
     "action_type": "click",
-    "description": "Price",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      ".ButtonBase-sc-1lobkej-0",
-      "button.ButtonBase-sc-1lobkej-0",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_13' to click with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_click_button_14": {
-    "action_type": "click",
-    "description": "Bed",
-    "tag_name": "button",
-    "selectors": [
-      ".ButtonBase-sc-1lobkej-0",
-      "button.ButtonBase-sc-1lobkej-0",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_14' to click with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
-  },
-  "action_click_button_15": {
-    "action_type": "click",
-    "description": "Filters",
-    "tag_name": "button",
-    "selectors": [
-      ".ButtonBase-sc-1lobkej-0",
-      "button.ButtonBase-sc-1lobkej-0",
+      ".btn",
+      "button.btn",
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_15' to click with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
+    "llm_instruction": "Use actionId 'action_click_button_4' to click with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
   },
-  "action_navigate_a_16": {
-    "action_type": "navigate",
-    "description": "List",
-    "tag_name": "a",
+  "action_click_button_5": {
+    "action_type": "click",
+    "description": "ChatGPT 5",
+    "tag_name": "button",
     "selectors": [
-      ".ButtonBase-sc-1lobkej-0",
-      "a.ButtonBase-sc-1lobkej-0",
-      "div:nth-child(6)"
+      "#radix-«rc»",
+      "[data-state=\"closed\"]",
+      "[data-testid=\"model-switcher-dropdown-button\"]",
+      ".group",
+      "button.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_16' to navigate with this element",
-    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
-    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
+    "llm_instruction": "Use actionId 'action_click_button_5' to click with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "action_click_button_6": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".text-token-text-primary",
+      "button.text-token-text-primary",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_6' to click with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "action_input_input_7": {
+    "action_type": "input",
+    "description": "",
+    "tag_name": "input",
+    "selectors": [
+      "#temporary-chat-checkbox",
+      ".sr-only",
+      "input.sr-only",
+      "h1:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_input_input_7' to input with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "action_input_input_8": {
+    "action_type": "input",
+    "description": "",
+    "tag_name": "input",
+    "selectors": [
+      "#temporary-chat-checkbox",
+      ".sr-only",
+      "input.sr-only",
+      "h1:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_input_input_8' to input with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "action_input_input_9": {
+    "action_type": "input",
+    "description": "",
+    "tag_name": "input",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_input_input_9' to input with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "action_general_textarea_10": {
+    "action_type": "general",
+    "description": "",
+    "tag_name": "textarea",
+    "selectors": [
+      "[data-virtualkeyboard=\"true\"]",
+      "._fallbackTextarea_ebv8s_2",
+      "textarea._fallbackTextarea_ebv8s_2",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_general_textarea_10' to general with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "action_click_button_11": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".composer-btn",
+      "button.composer-btn",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_11' to click with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "action_click_button_12": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-testid=\"composer-speech-button\"]",
+      ".relative",
+      "button.relative",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_12' to click with this element",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
   }
 }
