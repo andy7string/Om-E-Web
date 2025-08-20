@@ -427,6 +427,7 @@ function handleServerMessage(messageData) {
                 case "getCurrentTabInfo":
                 case "getNavigationContext":
                 case "generateSiteMap":
+                case "scanAndRegisterElements":  // 🆕 NEW: Added missing command
                 case "navigateBack":
                 case "navigateForward":
                 case "jumpToHistoryEntry":

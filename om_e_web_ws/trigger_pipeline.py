@@ -173,6 +173,19 @@ class PipelineTrigger:
         step1_time = time.time() - step1_start
         print(f"✅ Site map generated successfully! (Step 1: {step1_time:.2f}s)")
         
+        # 🆕 NEW: Step 1.5: Trigger intelligence system for page.jsonl and llm_actions.json
+        step1_5_start = time.time()
+        print("\n🧠 Step 1.5: Triggering intelligence system...")
+        print("   (This creates page.jsonl and llm_actions.json files)")
+        
+        intelligence_result = await self.send_command("scanAndRegisterElements", {})
+        if not intelligence_result or not intelligence_result.get("ok"):
+            print("❌ Intelligence system scan failed")
+            return False
+        
+        step1_5_time = time.time() - step1_5_start
+        print(f"✅ Intelligence system triggered successfully! (Step 1.5: {step1_5_time:.2f}s)")
+        
         # Step 2: Wait for pipeline files to be created
         step2_start = time.time()
         print("\n⏳ Step 2: Waiting for pipeline files to be created...")
@@ -299,6 +312,11 @@ class PipelineTrigger:
         if 'generateSiteMap' in self.timings:
             sitemap_times = self.timings['generateSiteMap']
             print(f"📊 Site Map Generation: {sum(sitemap_times):.2f}s (avg: {sum(sitemap_times)/len(sitemap_times):.2f}s)")
+        
+        # 🆕 NEW: Add intelligence system timing
+        if 'scanAndRegisterElements' in self.timings:
+            intelligence_times = self.timings['scanAndRegisterElements']
+            print(f"🧠 Intelligence System: {sum(intelligence_times):.2f}s (avg: {sum(intelligence_times)/len(intelligence_times):.2f}s)")
         
         # Calculate file processing time (if we have timing data)
         if 'generateSiteMap' in self.timings:

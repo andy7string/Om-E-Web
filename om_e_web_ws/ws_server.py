@@ -299,7 +299,7 @@ async def store_dom_change_context(dom_change_data):
         if dom_change_data.get("totalMutations", 0) > 5:
             print(f"🔄 DOM change context stored: {change_context['change_summary']}")
         
-        return filepath
+        return None
         
     except Exception as e:
         print(f"❌ Error storing DOM change context: {e}")

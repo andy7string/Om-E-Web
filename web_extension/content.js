@@ -37,6 +37,12 @@ var changeDetectionEnabled = false;
 var changeCount = 0;
 var lastChangeTime = 0;
 
+// 🆕 NEW: Intelligent Change Filtering
+var lastSignificantChange = 0;
+var MIN_CHANGE_INTERVAL = 2000; // Minimum 2 seconds between significant changes
+var MIN_MUTATIONS_FOR_SIGNIFICANT = 3; // Need at least 3 mutations to be significant
+var IGNORED_CHANGE_TYPES = new Set(['mouseover', 'mouseout', 'focus', 'blur']); // Ignore these
+
 // 🆕 NEW: Intelligent Change Aggregation System
 var changeAggregator = null;
 var intelligenceEngine = null;
@@ -47,7 +53,11 @@ var INTELLIGENCE_UPDATE_INTERVAL = 2000; // 2 seconds between intelligence updat
 
 // 🆕 NEW: Simple test to verify code is running
 console.log("[Content] 🧪 Testing intelligence system components...");
-console.log("[Content] 🧪 DOM change detection system:", { domChangeObserver, changeDetectionEnabled, changeCount });
+console.log("[Content] 🧪 DOM change detection system:", {
+    changeDetectionEnabled: changeDetectionEnabled,
+    changeCount: changeCount,
+    lastChangeTime: lastChangeTime
+});
 console.log("[Content] 🧪 Intelligence system variables:", { changeAggregator, intelligenceEngine, pageContext });
 
 // 🆕 NEW: Test event listener for debugging from page context
@@ -147,105 +157,19 @@ function initializeDOMChangeDetection() {
         // Create observer to watch for DOM changes
         domChangeObserver = new MutationObserver((mutations) => {
             if (!changeDetectionEnabled) return;
+
+            changeCount++;
+            lastChangeTime = Date.now();
             
-            let hasSignificantChanges = false;
-            let changeTypes = new Set();
-            
-            mutations.forEach((mutation) => {
-                try {
-                    // Track change types
-                    changeTypes.add(mutation.type);
-                    
-                    // Check if this is a significant change
-                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                        // New elements added
-                        hasSignificantChanges = true;
-                        
-                        // Log significant additions
-                        const addedElements = Array.from(mutation.addedNodes)
-                            .filter(node => node.nodeType === Node.ELEMENT_NODE)
-                            .slice(0, 3); // Limit logging to first 3
-                        
-                        if (addedElements.length > 0) {
-                            console.log("[Content] 🆕 DOM change: Added elements:", {
-                                count: mutation.addedNodes.length,
-                                elements: addedElements.map(el => ({
-                                    tag: el.tagName,
-                                    id: el.id || 'no-id',
-                                    className: el.className || 'no-class'
-                                }))
-                            });
-                        }
-                        
-                    } else if (mutation.type === 'attributes') {
-                        // Attribute changes
-                        const target = mutation.target;
-                        if (target && target.nodeType === Node.ELEMENT_NODE) {
-                            const attrName = mutation.attributeName;
-                            
-                            // Only log significant attribute changes
-                            if (attrName === 'class' || 
-                                attrName === 'style' || 
-                                attrName === 'data-*' ||
-                                attrName === 'aria-*') {
-                                
-                                hasSignificantChanges = true;
-                                // 🚫 REDUCED LOGGING: Only log significant attribute changes
-                                if (attrName === 'class' || attrName === 'data-*' || attrName.startsWith('aria-')) {
-                                    console.log("[Content] 🆕 DOM change: Attribute change:", {
-                                        element: target.tagName,
-                                        attribute: attrName,
-                                        target: target.id || target.className || 'unknown'
-                                    });
-                                }
-                            }
-                        }
-                    } else if (mutation.type === 'characterData') {
-                        // Text content changes
-                        const target = mutation.target;
-                        if (target && target.parentElement) {
-                            const parent = target.parentElement;
-                            const textLength = target.textContent?.length || 0;
-                            
-                            // Only log significant text changes
-                            if (textLength > 10) {
-                                hasSignificantChanges = true;
-                                console.log("[Content] 🆕 DOM change: Text content change:", {
-                                    element: parent.tagName,
-                                    textLength: textLength,
-                                    target: parent.id || parent.className || 'unknown'
-                                });
-                            }
-                        }
-                    }
-                    
-                } catch (mutationError) {
-                    console.warn("[Content] Error processing mutation:", mutationError.message);
-                }
-            });
-            
-            if (hasSignificantChanges) {
-                // Update change tracking
-                changeCount++;
-                lastChangeTime = Date.now();
+            // 🆕 NEW: Use intelligent filtering to reduce noise
+            if (isSignificantChange(mutations)) {
+                console.log("[Content] 🧠 Significant DOM change detected:", {
+                    mutations: mutations.length,
+                    types: mutations.map(m => m.type),
+                    timestamp: new Date().toISOString()
+                });
                 
-                // 🚫 REDUCED LOGGING: Only log every 10th change to reduce noise
-                if (changeCount % 10 === 0) {
-                    console.log("[Content] 🆕 DOM changes detected:", {
-                        changeNumber: changeCount,
-                        types: Array.from(changeTypes),
-                        timestamp: new Date(lastChangeTime).toISOString(),
-                        totalMutations: mutations.length
-                    });
-                }
-                
-                // 🆕 ENHANCED: Route changes through intelligence system with reduced logging
                 if (changeAggregator && intelligenceEngine) {
-                    // 🚫 REDUCED LOGGING: Only log every 20th change
-                    if (changeCount % 20 === 0) {
-                        console.log("[Content] 🧠 Routing changes through intelligence system...");
-                    }
-                    
                     mutations.forEach(mutation => {
                         const changeInfo = {
                             type: mutation.type,
@@ -257,31 +181,33 @@ function initializeDOMChangeDetection() {
                             attributeName: mutation.attributeName || null
                         };
                         
-                        // 🚫 REDUCED LOGGING: Only log significant changes
-                        if (mutation.type === 'childList' || mutation.addedNodes?.length > 0 || mutation.removedNodes?.length > 0) {
-                            console.log("[Content] 🧠 Processing significant change:", changeInfo);
-                        }
                         changeAggregator.addChange(changeInfo);
                     });
                     
-                    // 🚫 REDUCED LOGGING: Only log every 20th change
-                    if (changeCount % 20 === 0) {
-                        console.log("[Content] 🧠 Changes queued for intelligence processing");
-                    }
-                } else {
-                    console.warn("[Content] ⚠️ Intelligence system not ready:", {
-                        changeAggregator: !!changeAggregator,
-                        intelligenceEngine: !!intelligenceEngine
+                    // 🆕 NEW: Trigger intelligence update on significant changes
+                    console.log("[Content] 🧠 Triggering intelligence update due to significant DOM change");
+                    sendIntelligenceUpdateToServer();
+                }
+            } else {
+                // 🚫 REDUCED LOGGING: Only log every 100th insignificant change
+                if (changeCount % 100 === 0) {
+                    console.log("[Content] 🚫 Filtered out insignificant DOM change:", {
+                        mutations: mutations.length,
+                        types: mutations.map(m => m.type),
+                        totalFiltered: changeCount
                     });
                 }
-                
-                // 🆕 NEW: Notify service worker about DOM changes
+            }
+            
+            // 🆕 NEW: Notify service worker about DOM changes (but only significant ones)
+            if (isSignificantChange(mutations)) {
                 notifyServiceWorkerOfChanges({
+                    url: window.location.href,
                     changeNumber: changeCount,
-                    types: Array.from(changeTypes),
-                    timestamp: lastChangeTime,
                     totalMutations: mutations.length,
-                    url: window.location.href
+                    types: mutations.map(m => m.type),
+                    timestamp: lastChangeTime,
+                    isSignificant: true
                 });
             }
         });
@@ -3650,22 +3576,24 @@ function initializeIntelligenceSystem() {
         });
         
         // 🆕 NEW: Scan existing elements on page load
-        setTimeout(() => {
-            if (intelligenceEngine) {
-                console.log("[Content] 🔍 Starting initial page element scan...");
-                intelligenceEngine.scanAndRegisterPageElements();
-                
-                // 🆕 NEW: Send initial intelligence update to server
-                setTimeout(() => {
-                    sendIntelligenceUpdateToServer();
-                }, 2000); // Wait 2 seconds for scan to complete
-                
-                // 🆕 NEW: Set up periodic intelligence updates
-                setupIntelligenceUpdates();
-            } else {
-                console.error("[Content] ❌ Intelligence engine not available for initial scan");
+        // ✅ OPTIMIZED: Run synchronously instead of waiting unnecessarily
+        if (intelligenceEngine) {
+            console.log("[Content] 🔍 Starting initial page element scan...");
+            
+            // ✅ SYNC: Scan elements (returns immediately)
+            const scanResult = intelligenceEngine.scanAndRegisterPageElements();
+            
+            // ✅ SYNC: Send intelligence update immediately after scan
+            if (scanResult && scanResult.success) {
+                console.log("[Content] 📤 Scan complete, sending intelligence update...");
+                sendIntelligenceUpdateToServer();
             }
-        }, 1000); // Wait 1 second for page to fully load
+            
+            // ✅ SYNC: Set up periodic intelligence updates
+            setupIntelligenceUpdates();
+        } else {
+            console.error("[Content] ❌ Intelligence engine not available for initial scan");
+        }
         
     } catch (error) {
         console.error("[Content] ❌ Failed to initialize intelligence system:", error);
@@ -3712,15 +3640,85 @@ function sendIntelligenceUpdateToServer() {
 }
 
 /**
- * 🆕 NEW: Set up periodic intelligence updates
+ * 🆕 NEW: Set up event-triggered intelligence updates (replaces timer-based)
+ * Now triggers immediately on significant events instead of waiting 30 seconds
  */
 function setupIntelligenceUpdates() {
-    // Send intelligence updates every 30 seconds
-    setInterval(() => {
-        if (intelligenceEngine && intelligenceEngine.actionableElements.size > 0) {
+    // 🆕 NEW: Event-triggered updates instead of timer-based
+    
+    // 1. ✅ TRIGGER: On page load/ready
+    if (document.readyState === 'complete') {
+        console.log("[Content] 🧠 Page ready, sending initial intelligence update");
+        sendIntelligenceUpdateToServer();
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("[Content] 🧠 DOM loaded, sending intelligence update");
             sendIntelligenceUpdateToServer();
+        });
+    }
+    
+    // 2. ✅ TRIGGER: On URL changes (navigation, redirects)
+    let currentUrl = window.location.href;
+    const urlObserver = new MutationObserver(() => {
+        const newUrl = window.location.href;
+        if (newUrl !== currentUrl) {
+            console.log("[Content] 🧠 URL changed, triggering intelligence update:", {
+                from: currentUrl,
+                to: newUrl
+            });
+            currentUrl = newUrl;
+            
+            // Wait a moment for page to settle, then update
+            setTimeout(() => {
+                sendIntelligenceUpdateToServer();
+            }, 1000);
         }
-    }, 30000); // 30 seconds
+    });
+    
+    // Observe changes to the URL in the address bar
+    urlObserver.observe(document, { 
+        subtree: true, 
+        childList: true,
+        attributes: true,
+        attributeFilter: ['href']
+    });
+    
+    // 3. ✅ TRIGGER: On hash changes (SPA navigation)
+    window.addEventListener('hashchange', () => {
+        console.log("[Content] 🧠 Hash changed, triggering intelligence update");
+        setTimeout(() => {
+            sendIntelligenceUpdateToServer();
+        }, 500);
+    });
+    
+    // 4. ✅ TRIGGER: On popstate (browser back/forward)
+    window.addEventListener('popstate', () => {
+        console.log("[Content] 🧠 Popstate event, triggering intelligence update");
+        setTimeout(() => {
+            sendIntelligenceUpdateToServer();
+        }, 500);
+    });
+    
+    // 5. ✅ TRIGGER: On visibility change (tab switching)
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            console.log("[Content] 🧠 Tab became visible, triggering intelligence update");
+            setTimeout(() => {
+                sendIntelligenceUpdateToServer();
+            }, 500);
+        }
+    });
+    
+    // 6. ✅ TRIGGER: On focus (tab activation)
+    window.addEventListener('focus', () => {
+        console.log("[Content] 🧠 Window focused, triggering intelligence update");
+        setTimeout(() => {
+            sendIntelligenceUpdateToServer();
+        }, 500);
+    });
+    
+    console.log("[Content] ✅ Event-triggered intelligence updates configured");
+    console.log("[Content] 📊 Triggers: page load, URL change, hash change, popstate, visibility, focus");
 }
 
 // 🆕 NEW: Message listener for LLM action execution
@@ -3778,3 +3776,84 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         return true; // Keep message channel open for async response
     }
 });
+
+/**
+ * 🆕 NEW: Intelligent change filtering to reduce noise
+ * Only triggers intelligence updates on significant changes
+ */
+function isSignificantChange(mutations) {
+    const now = Date.now();
+    
+    // 🚫 FILTER 1: Rate limiting - minimum 2 seconds between significant changes
+    if (now - lastSignificantChange < MIN_CHANGE_INTERVAL) {
+        return false;
+    }
+    
+    // 🚫 FILTER 2: Need minimum number of mutations to be significant
+    if (mutations.length < MIN_MUTATIONS_FOR_SIGNIFICANT) {
+        return false;
+    }
+    
+    // 🚫 FILTER 3: Ignore mouse events and focus changes
+    const hasIgnoredTypes = mutations.some(mutation => 
+        IGNORED_CHANGE_TYPES.has(mutation.type) ||
+        (mutation.type === 'attributes' && 
+         ['class', 'style', 'data-'].some(prefix => 
+             mutation.attributeName?.startsWith(prefix)
+         ))
+    );
+    
+    if (hasIgnoredTypes) {
+        return false;
+    }
+    
+    // 🚫 FILTER 4: Ignore changes to hidden/invisible elements
+    const hasVisibleChanges = mutations.some(mutation => {
+        if (mutation.type === 'childList') {
+            // Check if added/removed nodes are visible
+            const addedVisible = Array.from(mutation.addedNodes || []).some(node => 
+                node.nodeType === Node.ELEMENT_NODE && 
+                isElementVisible(node)
+            );
+            const removedVisible = Array.from(mutation.removedNodes || []).some(node => 
+                node.nodeType === Node.ELEMENT_NODE && 
+                isElementVisible(node)
+            );
+            return addedVisible || removedVisible;
+        }
+        return true; // Attribute changes are usually significant
+    });
+    
+    if (!hasVisibleChanges) {
+        return false;
+    }
+    
+    // ✅ PASSED ALL FILTERS: This is a significant change
+    lastSignificantChange = now;
+    return true;
+}
+
+/**
+ * 🆕 NEW: Check if element is visible to user
+ */
+function isElementVisible(element) {
+    if (!element || element.nodeType !== Node.ELEMENT_NODE) return false;
+    
+    const style = window.getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+    
+    // Check if element is hidden
+    if (style.display === 'none' || style.visibility === 'hidden') return false;
+    
+    // Check if element has size
+    if (rect.width === 0 || rect.height === 0) return false;
+    
+    // Check if element is in viewport
+    if (rect.bottom < 0 || rect.right < 0 || rect.top > window.innerHeight || rect.left > window.innerWidth) return false;
+    
+    return true;
+}
+
+/**
+ * 🆕 NEW: Initialize DOM change detection with intelligent filtering
+ */
