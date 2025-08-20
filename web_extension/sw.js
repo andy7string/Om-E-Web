@@ -33,6 +33,9 @@ let isConnected = false;
 // Queue for messages when WebSocket isn't ready
 let pendingMessages = [];
 
+// 🆕 NEW: Track action execution state to prevent content script refresh
+let actionInProgress = false;
+
 // 🆕 ENHANCED TAB STATE MANAGEMENT
 let internalTabState = new Map(); // tabId -> enhanced tab info
 let lastActiveTabId = null;
@@ -195,6 +198,12 @@ function clearTabCache(tabId) {
  */
 async function ensureContentScriptFresh(tabId) {
     try {
+        // 🆕 NEW: Prevent content script refresh during action execution
+        if (actionInProgress) {
+            console.log("[SW] ⏸️ Skipping content script refresh - action in progress for tab:", tabId);
+            return;
+        }
+        
         console.log("[SW] Ensuring content script is fresh for tab:", tabId);
         
         // Force re-injection of content script
@@ -925,9 +934,14 @@ async function handleExecuteLLMAction(message, sendResponse) {
         
         const { actionId, actionType, params } = message.data;
         
+        // 🆕 NEW: Set action in progress flag to prevent content script refresh
+        actionInProgress = true;
+        console.log("[SW] 🔒 Action execution started - preventing content script refresh");
+        
         // Find the active tab to execute the action
         const activeTab = await findActiveTab();
         if (!activeTab) {
+            actionInProgress = false; // Clear flag on error
             sendResponse({ ok: false, error: "No active tab found" });
             return;
         }
@@ -942,19 +956,49 @@ async function handleExecuteLLMAction(message, sendResponse) {
             }
         };
         
+        console.log("[SW] 📨 Sending execute_action message to content script:", actionMessage);
+        
         // Execute the action in the content script
         const response = await chrome.tabs.sendMessage(activeTab.id, actionMessage);
         
         if (response && response.ok) {
             console.log("[SW] ✅ LLM action executed successfully:", actionId);
+            
+            // 🆕 NEW: Clear action flag immediately after successful execution
+            actionInProgress = false;
+            console.log("[SW] 🔓 Action execution completed - allowing content script refresh");
+            
+            // 🆕 NEW: Add delay before refreshing content script to prevent interrupting action execution
+            console.log("[SW] ⏳ Waiting 2 seconds before refreshing content script to ensure action completes...");
+            setTimeout(() => {
+                // Only refresh if tab still exists and needs it
+                if (activeTab && internalTabState.has(activeTab.id)) {
+                    const tabState = internalTabState.get(activeTab.id);
+                    if (tabState && tabState.needsFreshScan) {
+                        console.log("[SW] 🔄 Now refreshing content script after action execution delay");
+                        ensureContentScriptFresh(activeTab.id);
+                    }
+                }
+            }, 2000); // 2 second delay
+            
             sendResponse({ ok: true, result: response.result });
         } else {
             console.error("[SW] ❌ LLM action execution failed:", response?.error);
+            
+            // 🆕 NEW: Clear action flag on failure
+            actionInProgress = false;
+            console.log("[SW] 🔓 Action execution failed - clearing action flag");
+            
             sendResponse({ ok: false, error: response?.error || "Action execution failed" });
         }
         
     } catch (error) {
         console.error("[SW] ❌ Error executing LLM action:", error);
+        
+        // 🆕 NEW: Clear action flag on exception
+        actionInProgress = false;
+        console.log("[SW] 🔓 Action execution exception - clearing action flag");
+        
         sendResponse({ ok: false, error: error.message });
     }
 }

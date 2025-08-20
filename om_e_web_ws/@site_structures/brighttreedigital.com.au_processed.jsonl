@@ -1,0 +1,2222 @@
+{
+  "metadata": {
+    "url": "https://brighttreedigital.com.au/",
+    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "hostname": "brighttreedigital.com.au",
+    "pathname": "/",
+    "search": "",
+    "hash": "",
+    "protocol": "https:",
+    "timestamp": 1755651910320,
+    "readyState": "complete",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+    "isInIframe": false,
+    "frameContext": {
+      "isMainFrame": true,
+      "frameUrl": "https://brighttreedigital.com.au/",
+      "mainPageUrl": "https://brighttreedigital.com.au/",
+      "frameTitle": "Local Web Design Adelaide | Bright Tree Digital",
+      "mainPageTitle": "Local Web Design Adelaide | Bright Tree Digital"
+    },
+    "processingTime": 3.7999999998137355
+  },
+  "statistics": {
+    "totalElements": 34,
+    "originalElements": 88,
+    "processingRatio": 0.38636363636363635,
+    "filteringStats": {
+      "duplicatesRemoved": 38,
+      "nonInteractiveRemoved": 16,
+      "totalFiltered": 54,
+      "filteringRatio": 0.6136363636363636
+    },
+    "enhancedClassification": {
+      "total_processed": 34,
+      "interactive_elements": 8,
+      "search_elements": 0,
+      "navigation_elements": 0,
+      "form_elements": 0,
+      "content_elements": 0,
+      "high_confidence": 0,
+      "medium_confidence": 0,
+      "low_confidence": 34
+    },
+    "elementCategories": {
+      "interactive": 8,
+      "search": 0,
+      "navigation": 0,
+      "form": 0,
+      "content": 0
+    },
+    "confidenceDistribution": {
+      "high": 0,
+      "medium": 0,
+      "low": 34
+    }
+  },
+  "elements": [
+    {
+      "FindMe_id": "FindMe_001",
+      "type": "a",
+      "text": "Skip to content",
+      "href": "https://brighttreedigital.com.au/#content",
+      "selector": ".skip-link",
+      "coordinates": {
+        "x": 0,
+        "y": 0,
+        "left": -1,
+        "top": -1,
+        "right": 0,
+        "bottom": 0,
+        "width": 1,
+        "height": 1
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 0,
+        "inViewport": false,
+        "aboveFold": true
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_002",
+      "type": "a",
+      "text": "",
+      "href": "https://brighttreedigital.com.au/",
+      "selector": ".custom-logo-link",
+      "coordinates": {
+        "x": 146,
+        "y": 62,
+        "left": 35,
+        "top": 32,
+        "right": 257,
+        "bottom": 92,
+        "width": 222,
+        "height": 60
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 12,
+        "inViewport": true,
+        "aboveFold": true
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_003",
+      "type": "a",
+      "text": "Get Started",
+      "href": "https://brighttreedigital.com.au/services#logo-design",
+      "selector": ".bdt-slide-link",
+      "coordinates": {
+        "x": -1041,
+        "y": 307,
+        "left": -1093,
+        "top": 287,
+        "right": -990,
+        "bottom": 328,
+        "width": 104,
+        "height": 41
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 23,
+        "inViewport": true,
+        "aboveFold": true
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_004",
+      "type": "a",
+      "text": "Get Started",
+      "href": "https://brighttreedigital.com.au/services#Website-Design",
+      "selector": ".bdt-slide-link",
+      "coordinates": {
+        "x": -305,
+        "y": 328,
+        "left": -357,
+        "top": 308,
+        "right": -254,
+        "bottom": 348,
+        "width": 104,
+        "height": 41
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 24,
+        "inViewport": true,
+        "aboveFold": true
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_005",
+      "type": "a",
+      "text": "Get Started",
+      "href": "https://brighttreedigital.com.au/services#banner-ad-design",
+      "selector": ".bdt-slide-link",
+      "coordinates": {
+        "x": 381,
+        "y": 293,
+        "left": 329,
+        "top": 273,
+        "right": 432,
+        "bottom": 313,
+        "width": 104,
+        "height": 41
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 25,
+        "inViewport": true,
+        "aboveFold": true
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_006",
+      "type": "a",
+      "text": "Get in touch today!",
+      "href": "https://brighttreedigital.com.au/contact/",
+      "selector": ".elementor-button",
+      "coordinates": {
+        "x": 368,
+        "y": 3878,
+        "left": 244,
+        "top": 3850,
+        "right": 492,
+        "bottom": 3907,
+        "width": 248,
+        "height": 57
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 42,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_007",
+      "type": "a",
+      "text": "Mtambo Chartered Accountants",
+      "href": "https://www.filemca.com/",
+      "selector": ".uael-grid-img",
+      "coordinates": {
+        "x": -5448,
+        "y": 4676,
+        "left": -5806,
+        "top": 4228,
+        "right": -5090,
+        "bottom": 5123,
+        "width": 716,
+        "height": 895
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 43,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_008",
+      "type": "a",
+      "text": "Joss Couture",
+      "href": "https://www.josscouture.co.za/",
+      "selector": ".uael-grid-img",
+      "coordinates": {
+        "x": -4721,
+        "y": 4676,
+        "left": -5079,
+        "top": 4228,
+        "right": -4363,
+        "bottom": 5123,
+        "width": 716,
+        "height": 895
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 44,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_009",
+      "type": "a",
+      "text": "Flutterbys School",
+      "href": "https://flutterbys.co.za/",
+      "selector": ".uael-grid-img",
+      "coordinates": {
+        "x": -3994,
+        "y": 4676,
+        "left": -4352,
+        "top": 4228,
+        "right": -3636,
+        "bottom": 5123,
+        "width": 716,
+        "height": 895
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 45,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_010",
+      "type": "a",
+      "text": "The Gourmet Cookie Co",
+      "href": "https://www.thegourmetcookieco.co.za/",
+      "selector": ".uael-grid-img",
+      "coordinates": {
+        "x": -3267,
+        "y": 4676,
+        "left": -3625,
+        "top": 4228,
+        "right": -2909,
+        "bottom": 5123,
+        "width": 716,
+        "height": 895
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 46,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_011",
+      "type": "a",
+      "text": "Straker Functional Fitness",
+      "href": "https://strakerfunctionalfitness.co.za/",
+      "selector": ".uael-grid-img",
+      "coordinates": {
+        "x": -1813,
+        "y": 4676,
+        "left": -2171,
+        "top": 4228,
+        "right": -1455,
+        "bottom": 5123,
+        "width": 716,
+        "height": 895
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 47,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_012",
+      "type": "a",
+      "text": "The Syrene Hotel",
+      "href": "https://www.thesyrene.co.za/",
+      "selector": ".uael-grid-img",
+      "coordinates": {
+        "x": -1086,
+        "y": 4676,
+        "left": -1444,
+        "top": 4228,
+        "right": -728,
+        "bottom": 5123,
+        "width": 716,
+        "height": 895
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 48,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_013",
+      "type": "a",
+      "text": "African Safari Deals",
+      "href": "https://www.africansafarideals.co.za/",
+      "selector": ".uael-grid-img",
+      "coordinates": {
+        "x": -359,
+        "y": 4674,
+        "left": -717,
+        "top": 4228,
+        "right": -1,
+        "bottom": 5120,
+        "width": 716,
+        "height": 891
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 49,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_014",
+      "type": "a",
+      "text": "",
+      "href": "https://thegourmetkitchen.co.za/",
+      "selector": "#post-4609 > div > div > section > div > div > div > section > div > div > div > div:nth-child(2) > div > a",
+      "coordinates": {
+        "x": 368,
+        "y": 5587,
+        "left": 328,
+        "top": 5547,
+        "right": 408,
+        "bottom": 5627,
+        "width": 80,
+        "height": 80
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 58,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_015",
+      "type": "a",
+      "text": "Read More Testimonials",
+      "href": "https://brighttreedigital.com.au/about#testimonials",
+      "selector": ".elementor-button",
+      "coordinates": {
+        "x": 368,
+        "y": 6533,
+        "left": 223,
+        "top": 6505,
+        "right": 513,
+        "bottom": 6562,
+        "width": 290,
+        "height": 57
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 60,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_016",
+      "type": "a",
+      "text": "Banner Portfolio",
+      "href": "https://brighttreedigital.com.au/banner-design-portfolio/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div > ul > li > a",
+      "coordinates": {
+        "x": 368,
+        "y": 7265,
+        "left": 10,
+        "top": 7250,
+        "right": 726,
+        "bottom": 7280,
+        "width": 716,
+        "height": 30
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 83,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_017",
+      "type": "a",
+      "text": "Logo Portfolio",
+      "href": "https://brighttreedigital.com.au/logo-design-portfolio/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div > ul > li:nth-child(2) > a",
+      "coordinates": {
+        "x": 368,
+        "y": 7295,
+        "left": 10,
+        "top": 7280,
+        "right": 726,
+        "bottom": 7310,
+        "width": 716,
+        "height": 30
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 84,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_018",
+      "type": "a",
+      "text": "Web Design Portfolio",
+      "href": "https://brighttreedigital.com.au/web-design-portfolio/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div > ul > li:nth-child(3) > a",
+      "coordinates": {
+        "x": 368,
+        "y": 7325,
+        "left": 10,
+        "top": 7310,
+        "right": 726,
+        "bottom": 7340,
+        "width": 716,
+        "height": 30
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 85,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_019",
+      "type": "a",
+      "text": "Facebook",
+      "href": "https://www.facebook.com/brighttreedigital",
+      "selector": ".elementor-icon",
+      "coordinates": {
+        "x": 34,
+        "y": 7384,
+        "left": 10,
+        "top": 7360,
+        "right": 58,
+        "bottom": 7408,
+        "width": 48,
+        "height": 48
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 86,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_020",
+      "type": "a",
+      "text": "Instagram",
+      "href": "https://www.instagram.com/bright_tree_digital/",
+      "selector": ".elementor-icon",
+      "coordinates": {
+        "x": 87,
+        "y": 7384,
+        "left": 63,
+        "top": 7360,
+        "right": 111,
+        "bottom": 7408,
+        "width": 48,
+        "height": 48
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 87,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_021",
+      "type": "a",
+      "text": "About",
+      "href": "https://brighttreedigital.com.au/about/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(2) > a",
+      "coordinates": {
+        "x": 368,
+        "y": 7559,
+        "left": 10,
+        "top": 7544,
+        "right": 726,
+        "bottom": 7574,
+        "width": 716,
+        "height": 30
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 89,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_022",
+      "type": "a",
+      "text": "Services",
+      "href": "https://brighttreedigital.com.au/services/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(3) > a",
+      "coordinates": {
+        "x": 368,
+        "y": 7589,
+        "left": 10,
+        "top": 7574,
+        "right": 726,
+        "bottom": 7604,
+        "width": 716,
+        "height": 30
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 90,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_023",
+      "type": "a",
+      "text": "Testimonials",
+      "href": "https://brighttreedigital.com.au/about/#testimonials",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(4) > a",
+      "coordinates": {
+        "x": 368,
+        "y": 7619,
+        "left": 10,
+        "top": 7604,
+        "right": 726,
+        "bottom": 7634,
+        "width": 716,
+        "height": 30
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 91,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_024",
+      "type": "a",
+      "text": "Privacy Policy",
+      "href": "https://brighttreedigital.com.au/privacy-policy/",
+      "selector": "#colophon > div > div > div > div > div:nth-child(3) > div:nth-child(2) > div > ul > li:nth-child(6) > a",
+      "coordinates": {
+        "x": 368,
+        "y": 7679,
+        "left": 10,
+        "top": 7664,
+        "right": 726,
+        "bottom": 7694,
+        "width": 716,
+        "height": 30
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 93,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_025",
+      "type": "a",
+      "text": "Website Designed by Bright Tree Digital",
+      "href": "http://www.brighttreedigital.com/",
+      "selector": "#colophon > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > h6 > a",
+      "coordinates": {
+        "x": 368,
+        "y": 7841,
+        "left": 220,
+        "top": 7830,
+        "right": 516,
+        "bottom": 7851,
+        "width": 297,
+        "height": 21
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 94,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_026",
+      "type": "button",
+      "text": "Main Menu",
+      "href": null,
+      "selector": ".menu-toggle",
+      "coordinates": {
+        "x": 678,
+        "y": 62,
+        "left": 656,
+        "top": 39,
+        "right": 701,
+        "bottom": 85,
+        "width": 46,
+        "height": 46
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 1,
+        "inViewport": true,
+        "aboveFold": true
+      },
+      "enhanced_classification": {
+        "is_interactive": false,
+        "element_category": "unknown",
+        "overall_confidence": 0.0,
+        "interactivity_confidence": 0.0,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.0,
+        "visibility_score": 0.0,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Classification error: 'NoneType' object has no attribute 'lower'"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_027",
+      "type": "button",
+      "text": "1",
+      "href": null,
+      "selector": "#slick-slide-control20",
+      "coordinates": {
+        "x": 298,
+        "y": 5158,
+        "left": 288,
+        "top": 5148,
+        "right": 308,
+        "bottom": 5168,
+        "width": 20,
+        "height": 20
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 3,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": true,
+        "element_category": "interactive_element",
+        "overall_confidence": 0.39,
+        "interactivity_confidence": 0.9,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.3,
+        "visibility_score": 0.8999999999999999,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Matches button",
+          "Matches type",
+          "ARIA role: tab",
+          "Form element",
+          "Has valid dimensions"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_028",
+      "type": "button",
+      "text": "2",
+      "href": null,
+      "selector": "#slick-slide-control21",
+      "coordinates": {
+        "x": 318,
+        "y": 5158,
+        "left": 308,
+        "top": 5148,
+        "right": 328,
+        "bottom": 5168,
+        "width": 20,
+        "height": 20
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 4,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": true,
+        "element_category": "interactive_element",
+        "overall_confidence": 0.39,
+        "interactivity_confidence": 0.9,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.3,
+        "visibility_score": 0.8999999999999999,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Matches button",
+          "Matches type",
+          "ARIA role: tab",
+          "Form element",
+          "Has valid dimensions"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_029",
+      "type": "button",
+      "text": "3",
+      "href": null,
+      "selector": "#slick-slide-control22",
+      "coordinates": {
+        "x": 338,
+        "y": 5158,
+        "left": 328,
+        "top": 5148,
+        "right": 348,
+        "bottom": 5168,
+        "width": 20,
+        "height": 20
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 5,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": true,
+        "element_category": "interactive_element",
+        "overall_confidence": 0.39,
+        "interactivity_confidence": 0.9,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.3,
+        "visibility_score": 0.8999999999999999,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Matches button",
+          "Matches type",
+          "ARIA role: tab",
+          "Form element",
+          "Has valid dimensions"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_030",
+      "type": "button",
+      "text": "4",
+      "href": null,
+      "selector": "#slick-slide-control23",
+      "coordinates": {
+        "x": 358,
+        "y": 5158,
+        "left": 348,
+        "top": 5148,
+        "right": 368,
+        "bottom": 5168,
+        "width": 20,
+        "height": 20
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 6,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": true,
+        "element_category": "interactive_element",
+        "overall_confidence": 0.39,
+        "interactivity_confidence": 0.9,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.3,
+        "visibility_score": 0.8999999999999999,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Matches button",
+          "Matches type",
+          "ARIA role: tab",
+          "Form element",
+          "Has valid dimensions"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_031",
+      "type": "button",
+      "text": "5",
+      "href": null,
+      "selector": "#slick-slide-control24",
+      "coordinates": {
+        "x": 378,
+        "y": 5158,
+        "left": 368,
+        "top": 5148,
+        "right": 388,
+        "bottom": 5168,
+        "width": 20,
+        "height": 20
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 7,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": true,
+        "element_category": "interactive_element",
+        "overall_confidence": 0.39,
+        "interactivity_confidence": 0.9,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.3,
+        "visibility_score": 0.8999999999999999,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Matches button",
+          "Matches type",
+          "ARIA role: tab",
+          "Form element",
+          "Has valid dimensions"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_032",
+      "type": "button",
+      "text": "6",
+      "href": null,
+      "selector": "#slick-slide-control25",
+      "coordinates": {
+        "x": 398,
+        "y": 5158,
+        "left": 388,
+        "top": 5148,
+        "right": 408,
+        "bottom": 5168,
+        "width": 20,
+        "height": 20
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 8,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": true,
+        "element_category": "interactive_element",
+        "overall_confidence": 0.39,
+        "interactivity_confidence": 0.9,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.3,
+        "visibility_score": 0.8999999999999999,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Matches button",
+          "Matches type",
+          "ARIA role: tab",
+          "Form element",
+          "Has valid dimensions"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_033",
+      "type": "button",
+      "text": "7",
+      "href": null,
+      "selector": "#slick-slide-control26",
+      "coordinates": {
+        "x": 418,
+        "y": 5158,
+        "left": 408,
+        "top": 5148,
+        "right": 428,
+        "bottom": 5168,
+        "width": 20,
+        "height": 20
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": -1
+      },
+      "position": {
+        "index": 9,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": true,
+        "element_category": "interactive_element",
+        "overall_confidence": 0.39,
+        "interactivity_confidence": 0.9,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.3,
+        "visibility_score": 0.8999999999999999,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Matches button",
+          "Matches type",
+          "ARIA role: tab",
+          "Form element",
+          "Has valid dimensions"
+        ]
+      }
+    },
+    {
+      "FindMe_id": "FindMe_034",
+      "type": "button",
+      "text": "8",
+      "href": null,
+      "selector": "#slick-slide-control27",
+      "coordinates": {
+        "x": 438,
+        "y": 5158,
+        "left": 428,
+        "top": 5148,
+        "right": 448,
+        "bottom": 5168,
+        "width": 20,
+        "height": 20
+      },
+      "accessibility": {
+        "isVisible": true,
+        "isClickable": true,
+        "isFocusable": true,
+        "tabIndex": null
+      },
+      "position": {
+        "index": 10,
+        "inViewport": false,
+        "aboveFold": false
+      },
+      "enhanced_classification": {
+        "is_interactive": true,
+        "element_category": "interactive_element",
+        "overall_confidence": 0.39,
+        "interactivity_confidence": 0.9,
+        "search_relevance": 0.0,
+        "content_quality": 0.0,
+        "functional_importance": 0.3,
+        "visibility_score": 0.8999999999999999,
+        "accessibility_score": 0.0,
+        "classification_reasons": [
+          "Matches button",
+          "Matches type",
+          "ARIA role: tab",
+          "Form element",
+          "Has valid dimensions"
+        ]
+      }
+    }
+  ],
+  "pageStructure": {
+    "headings": [
+      {
+        "level": 2,
+        "text": "Logo Design",
+        "selector": ".bdt-slide-title",
+        "coordinates": {
+          "x": -1041,
+          "y": 139,
+          "left": -1118,
+          "top": 121,
+          "right": -965,
+          "bottom": 157,
+          "width": 153,
+          "height": 35
+        }
+      },
+      {
+        "level": 2,
+        "text": "Dynamic Web Design Bringing Your Vision to Life",
+        "selector": ".bdt-slide-title",
+        "coordinates": {
+          "x": -305,
+          "y": 153,
+          "left": -430,
+          "top": 101,
+          "right": -180,
+          "bottom": 206,
+          "width": 250,
+          "height": 105
+        }
+      },
+      {
+        "level": 2,
+        "text": "Banner Ad Design",
+        "selector": ".bdt-slide-title",
+        "coordinates": {
+          "x": 381,
+          "y": 153,
+          "left": 269,
+          "top": 136,
+          "right": 492,
+          "bottom": 171,
+          "width": 223,
+          "height": 35
+        }
+      },
+      {
+        "level": 2,
+        "text": "Logo Design",
+        "selector": ".bdt-slide-title",
+        "coordinates": {
+          "x": 1167,
+          "y": 139,
+          "left": 1090,
+          "top": 121,
+          "right": 1243,
+          "bottom": 157,
+          "width": 153,
+          "height": 35
+        }
+      },
+      {
+        "level": 2,
+        "text": "Dynamic Web Design Bringing Your Vision to Life",
+        "selector": ".bdt-slide-title",
+        "coordinates": {
+          "x": 1903,
+          "y": 153,
+          "left": 1778,
+          "top": 101,
+          "right": 2028,
+          "bottom": 206,
+          "width": 250,
+          "height": 105
+        }
+      },
+      {
+        "level": 2,
+        "text": "Welcome to Bright Tree Digital...",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 519,
+          "left": 20,
+          "top": 499,
+          "right": 716,
+          "bottom": 538,
+          "width": 696,
+          "height": 39
+        }
+      },
+      {
+        "level": 2,
+        "text": "Our Services",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 1056,
+          "left": 0,
+          "top": 1037,
+          "right": 736,
+          "bottom": 1076,
+          "width": 736,
+          "height": 39
+        }
+      },
+      {
+        "level": 3,
+        "text": "Website Design",
+        "selector": ".elementor-image-box-title",
+        "coordinates": {
+          "x": 183,
+          "y": 1440,
+          "left": 25,
+          "top": 1423,
+          "right": 341,
+          "bottom": 1456,
+          "width": 316,
+          "height": 33
+        }
+      },
+      {
+        "level": 3,
+        "text": "Logo Design",
+        "selector": ".elementor-image-box-title",
+        "coordinates": {
+          "x": 368,
+          "y": 2414,
+          "left": 25,
+          "top": 2398,
+          "right": 711,
+          "bottom": 2430,
+          "width": 686,
+          "height": 33
+        }
+      },
+      {
+        "level": 3,
+        "text": "Banner Ad Design",
+        "selector": ".elementor-image-box-title",
+        "coordinates": {
+          "x": 368,
+          "y": 3278,
+          "left": 25,
+          "top": 3262,
+          "right": 711,
+          "bottom": 3294,
+          "width": 686,
+          "height": 33
+        }
+      },
+      {
+        "level": 1,
+        "text": "Start your journey here...",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 3786,
+          "left": 10,
+          "top": 3763,
+          "right": 726,
+          "bottom": 3809,
+          "width": 716,
+          "height": 46
+        }
+      },
+      {
+        "level": 2,
+        "text": "Our Work",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 4146,
+          "left": 10,
+          "top": 4127,
+          "right": 726,
+          "bottom": 4166,
+          "width": 716,
+          "height": 39
+        }
+      },
+      {
+        "level": 6,
+        "text": "Mtambo Chartered Accountants",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": -5448,
+          "y": 5103,
+          "left": -5796,
+          "top": 5092,
+          "right": -5100,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Joss Couture",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": -4721,
+          "y": 5103,
+          "left": -5069,
+          "top": 5092,
+          "right": -4373,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Flutterbys School",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": -3994,
+          "y": 5103,
+          "left": -4342,
+          "top": 5092,
+          "right": -3646,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "The Gourmet Cookie Co",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": -3267,
+          "y": 5103,
+          "left": -3615,
+          "top": 5092,
+          "right": -2919,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "New Moon Digital",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": -2540,
+          "y": 5103,
+          "left": -2888,
+          "top": 5092,
+          "right": -2192,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Straker Functional Fitness",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": -1813,
+          "y": 5103,
+          "left": -2161,
+          "top": 5092,
+          "right": -1465,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "The Syrene Hotel",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": -1086,
+          "y": 5103,
+          "left": -1434,
+          "top": 5092,
+          "right": -738,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "African Safari Deals",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": -359,
+          "y": 5099,
+          "left": -707,
+          "top": 5089,
+          "right": -11,
+          "bottom": 5110,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Mtambo Chartered Accountants",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 368,
+          "y": 5103,
+          "left": 20,
+          "top": 5092,
+          "right": 716,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Joss Couture",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 1095,
+          "y": 5103,
+          "left": 747,
+          "top": 5092,
+          "right": 1443,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Flutterbys School",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 1822,
+          "y": 5103,
+          "left": 1474,
+          "top": 5092,
+          "right": 2170,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "The Gourmet Cookie Co",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 2549,
+          "y": 5103,
+          "left": 2201,
+          "top": 5092,
+          "right": 2897,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "New Moon Digital",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 3276,
+          "y": 5103,
+          "left": 2928,
+          "top": 5092,
+          "right": 3624,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Straker Functional Fitness",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 4003,
+          "y": 5103,
+          "left": 3655,
+          "top": 5092,
+          "right": 4351,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "The Syrene Hotel",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 4730,
+          "y": 5103,
+          "left": 4382,
+          "top": 5092,
+          "right": 5078,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "African Safari Deals",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 5457,
+          "y": 5099,
+          "left": 5109,
+          "top": 5089,
+          "right": 5805,
+          "bottom": 5110,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Mtambo Chartered Accountants",
+        "selector": ".uael-grid-caption-text",
+        "coordinates": {
+          "x": 6184,
+          "y": 5103,
+          "left": 5836,
+          "top": 5092,
+          "right": 6532,
+          "bottom": 5113,
+          "width": 696,
+          "height": 21
+        }
+      },
+      {
+        "level": 2,
+        "text": "What Our Clients Say!",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 5253,
+          "left": 0,
+          "top": 5233,
+          "right": 736,
+          "bottom": 5272,
+          "width": 736,
+          "height": 39
+        }
+      },
+      {
+        "level": 4,
+        "text": "Michelene Rendell",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 5649,
+          "left": 30,
+          "top": 5637,
+          "right": 706,
+          "bottom": 5660,
+          "width": 676,
+          "height": 24
+        }
+      },
+      {
+        "level": 4,
+        "text": "Daniella Finney",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 6012,
+          "left": 30,
+          "top": 6000,
+          "right": 706,
+          "bottom": 6024,
+          "width": 676,
+          "height": 24
+        }
+      },
+      {
+        "level": 4,
+        "text": "Natalie  Cassar",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 6436,
+          "left": 30,
+          "top": 6424,
+          "right": 706,
+          "bottom": 6448,
+          "width": 676,
+          "height": 24
+        }
+      },
+      {
+        "level": 2,
+        "text": "Ready for a Website Makeover?",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 6768,
+          "left": 24,
+          "top": 6745,
+          "right": 712,
+          "bottom": 6790,
+          "width": 688,
+          "height": 45
+        }
+      },
+      {
+        "level": 5,
+        "text": "ABOUT US",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 7080,
+          "left": 10,
+          "top": 7070,
+          "right": 726,
+          "bottom": 7090,
+          "width": 716,
+          "height": 20
+        }
+      },
+      {
+        "level": 5,
+        "text": "OUR PORTFOLIO",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 7214,
+          "left": 10,
+          "top": 7204,
+          "right": 726,
+          "bottom": 7224,
+          "width": 716,
+          "height": 20
+        }
+      },
+      {
+        "level": 2,
+        "text": "ABN: 29 160 886 356",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 7438,
+          "left": 10,
+          "top": 7428,
+          "right": 726,
+          "bottom": 7448,
+          "width": 716,
+          "height": 20
+        }
+      },
+      {
+        "level": 5,
+        "text": "QUICK LINKS",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 7478,
+          "left": 10,
+          "top": 7468,
+          "right": 726,
+          "bottom": 7488,
+          "width": 716,
+          "height": 20
+        }
+      },
+      {
+        "level": 6,
+        "text": "Copyright © 2025 Bright Tree Digital",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 7780,
+          "left": 234,
+          "top": 7769,
+          "right": 502,
+          "bottom": 7790,
+          "width": 269,
+          "height": 21
+        }
+      },
+      {
+        "level": 6,
+        "text": "Website Designed by Bright Tree Digital",
+        "selector": ".elementor-heading-title",
+        "coordinates": {
+          "x": 368,
+          "y": 7841,
+          "left": 220,
+          "top": 7830,
+          "right": 516,
+          "bottom": 7851,
+          "width": 297,
+          "height": 21
+        }
+      }
+    ],
+    "sections": [
+      {
+        "tag": "nav",
+        "text": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n                \n                Menu Toggle\n                \n                \n\n\t\n                \n              ...",
+        "selector": "#primary-site-navigation-desktop",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "children": 1
+      },
+      {
+        "tag": "nav",
+        "text": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n                \n                Menu Toggle\n                \n                \n\n\t\n                \n              ...",
+        "selector": "#primary-site-navigation-mobile",
+        "coordinates": {
+          "x": 0,
+          "y": 0,
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "children": 1
+      },
+      {
+        "tag": "main",
+        "text": "Logo Design\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tDeveloping Timeless Logos That Define Your Brand Identity\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tGet Started\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t...",
+        "selector": "#main",
+        "coordinates": {
+          "x": 368,
+          "y": 3506,
+          "left": 0,
+          "top": 0,
+          "right": 736,
+          "bottom": 7012,
+          "width": 736,
+          "height": 7012
+        },
+        "children": 1
+      },
+      {
+        "tag": "article",
+        "text": "Logo Design\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tDeveloping Timeless Logos That Define Your Brand Identity\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\tGet Started\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t...",
+        "selector": "#post-4609",
+        "coordinates": {
+          "x": 368,
+          "y": 3506,
+          "left": 0,
+          "top": 0,
+          "right": 736,
+          "bottom": 7012,
+          "width": 736,
+          "height": 7012
+        },
+        "children": 1
+      },
+      {
+        "tag": "section",
+        "text": "What Our Clients Say!\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tWe are so happy that Bright Tree Digital designed our Logos and websites for our 2...",
+        "selector": ".elementor-section",
+        "coordinates": {
+          "x": 368,
+          "y": 5898,
+          "left": 0,
+          "top": 5183,
+          "right": 736,
+          "bottom": 6612,
+          "width": 736,
+          "height": 1428
+        },
+        "children": 1
+      },
+      {
+        "tag": "section",
+        "text": "We are so happy that Bright Tree Digital designed our Logos and websites for our 2 food businesses.Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having...",
+        "selector": ".elementor-section",
+        "coordinates": {
+          "x": 368,
+          "y": 5899,
+          "left": 0,
+          "top": 5293,
+          "right": 736,
+          "bottom": 6505,
+          "width": 736,
+          "height": 1212
+        },
+        "children": 1
+      }
+    ],
+    "forms": []
+  }
+}

@@ -1,0 +1,3636 @@
+{
+  "timestamp": 1755603441.529325,
+  "browser_state": {
+    "total_tabs": 5,
+    "active_tab": {
+      "id": 1137967089,
+      "url": "https://brighttreedigital.com.au/",
+      "title": "Local Web Design Adelaide | Bright Tree Digital",
+      "status": "complete"
+    },
+    "all_tabs": [
+      {
+        "id": 1137967022,
+        "url": "https://www.youtube.com/watch?v=XG04I_vtQFA&t=615s",
+        "title": "(28) NASA Physicist Comes Clean on UFOs & Why We Can't Go Back to The Moon | Kevin Knuth - YouTube",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137967068,
+        "url": "chrome://extensions/?id=gkajipkgablojmfifbekigkhfaaidjpo",
+        "title": "Extensions - OM_E_WEB Browser Arm",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137967075,
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68a446f6-5db0-832f-b1fd-12aaed131bbb",
+        "title": "ChatGPT - OM-E autonomy",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137967078,
+        "url": "https://www.perplexity.ai/search/web-extension-content-filterin-nELqEcHMR7yMFAfPcOCIZw",
+        "title": "Web Extension Content Filtering Optimization Project Project Overview We are...",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137967089,
+        "url": "https://brighttreedigital.com.au/",
+        "title": "Local Web Design Adelaide | Bright Tree Digital",
+        "active": true,
+        "status": "complete"
+      }
+    ],
+    "last_tabs_update": 46962.212884125,
+    "extension_connected": true
+  },
+  "current_page": {
+    "url": "unknown",
+    "title": "unknown",
+    "is_active_tab": false
+  },
+  "actionable_elements": [
+    {
+      "actionId": "action_navigate_a_0",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Skip to content",
+      "selectors": [
+        "[data-skip-to-content=\"\"]",
+        ".bg-token-main-surface-primary",
+        "a.bg-token-main-surface-primary",
+        "body:nth-child(3)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376843
+    },
+    {
+      "actionId": "action_click_button_1",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-state=\"closed\"]",
+        ".group",
+        "button.group",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Open sidebar"
+      },
+      "timestamp": 1755596376844
+    },
+    {
+      "actionId": "action_navigate_a_2",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-testid=\"create-new-chat-button\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "div:nth-child(1)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376844
+    },
+    {
+      "actionId": "action_navigate_a_3",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-testid=\"sidebar-item-library\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "div:nth-child(1)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376844
+    },
+    {
+      "actionId": "action_click_div_4",
+      "actionType": "click",
+      "tagName": "div",
+      "textContent": "",
+      "selectors": [
+        "#radix-«R5mqpqkl4mj5»",
+        "[data-fill=\"\"]",
+        "[data-size=\"large\"]",
+        "[data-testid=\"accounts-profile-button\"]",
+        "[data-state=\"closed\"]",
+        ".group",
+        "div.group",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«R5mqpqkl4mj5»",
+        "type": "button",
+        "role": "button",
+        "aria-label": "Open profile menu"
+      },
+      "timestamp": 1755596376844
+    },
+    {
+      "actionId": "action_navigate_a_5",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        "[data-discover=\"true\"]",
+        ".text-token-text-primary",
+        "a.text-token-text-primary",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Home"
+      },
+      "timestamp": 1755596376844
+    },
+    {
+      "actionId": "action_click_button_6",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "[data-testid=\"close-sidebar-button\"]",
+        "[data-state=\"closed\"]",
+        ".text-token-text-tertiary",
+        "button.text-token-text-tertiary",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Close sidebar"
+      },
+      "timestamp": 1755596376845
+    },
+    {
+      "actionId": "action_navigate_a_7",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "New chat⇧⌘O",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-testid=\"create-new-chat-button\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(1)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376845
+    },
+    {
+      "actionId": "action_navigate_a_8",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Library",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-testid=\"sidebar-item-library\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(3)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376845
+    },
+    {
+      "actionId": "action_navigate_a_9",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Codex",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(1)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376845
+    },
+    {
+      "actionId": "action_navigate_a_10",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Sora",
+      "selectors": [
+        "#sora",
+        "[data-fill=\"\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(2)"
+      ],
+      "attributes": {
+        "id": "sora"
+      },
+      "timestamp": 1755596376845
+    },
+    {
+      "actionId": "action_navigate_a_11",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "GPTs",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-testid=\"explore-gpts-button\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(3)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376845
+    },
+    {
+      "actionId": "action_navigate_a_12",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Web Browser",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(4)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376845
+    },
+    {
+      "actionId": "action_click_button_13",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r1k»",
+        "[data-trailing-button=\"\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r1k»",
+        "type": "button"
+      },
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_navigate_a_14",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "OM-E autonomy",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(2)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_click_button_15",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r1o»",
+        "[data-trailing-button=\"\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r1o»",
+        "type": "button"
+      },
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_navigate_a_16",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Architecture",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(3)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_click_button_17",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r1r»",
+        "[data-trailing-button=\"\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r1r»",
+        "type": "button"
+      },
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_navigate_a_18",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "BEAR",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(4)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_click_button_19",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r1u»",
+        "[data-trailing-button=\"\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r1u»",
+        "type": "button"
+      },
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_navigate_a_20",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "ebike requirements f",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(5)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_click_button_21",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r21»",
+        "[data-trailing-button=\"\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r21»",
+        "type": "button"
+      },
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_navigate_a_22",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "music",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(6)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_click_button_23",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r24»",
+        "[data-trailing-button=\"\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r24»",
+        "type": "button"
+      },
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_navigate_a_24",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Cursor Pylance confl",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(2)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376846
+    },
+    {
+      "actionId": "action_click_button_25",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r28»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-0-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r28»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_navigate_a_26",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Amber and Hush's Day",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(3)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_click_button_27",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2a»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-1-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2a»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_navigate_a_28",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "File recovery proces",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(4)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_click_button_29",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2c»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-2-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2c»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_navigate_a_30",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Message clarity chec",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(5)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_click_button_31",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2e»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-3-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2e»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_navigate_a_32",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "CV update for AI dir",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(6)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_click_button_33",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2g»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-4-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2g»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_navigate_a_34",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "GitHub push protecti",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(7)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_click_button_35",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2i»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-5-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2i»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_navigate_a_36",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Tony Stark's compute",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(8)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376847
+    },
+    {
+      "actionId": "action_click_button_37",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2k»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-6-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2k»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_navigate_a_38",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Employment contract ",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(9)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_click_button_39",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2m»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-7-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2m»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_navigate_a_40",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Pacifier holder desi",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(10)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_click_button_41",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2o»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-8-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2o»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_navigate_a_42",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Home buying process ",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(11)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_click_button_43",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2q»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-9-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2q»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_navigate_a_44",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Room renovation inst",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(12)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_click_button_45",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2s»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-10-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2s»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_navigate_a_46",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Olivia updates clari",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(13)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_click_button_47",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r2u»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-11-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r2u»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_navigate_a_48",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Download CV from Lin",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(14)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_click_button_49",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r30»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-12-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r30»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376848
+    },
+    {
+      "actionId": "action_navigate_a_50",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "New chat",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(15)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_click_button_51",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r32»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-13-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r32»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_navigate_a_52",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Olivia's Query Clari",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(16)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_click_button_53",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r34»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-14-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r34»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_navigate_a_54",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Classifying secondar",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(17)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_click_button_55",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r36»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-15-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r36»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_navigate_a_56",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Mac app guide prompt",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(18)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_click_button_57",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r38»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-16-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r38»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_navigate_a_58",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Atomac API Extractio",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(19)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_click_button_59",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3a»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-17-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3a»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_navigate_a_60",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Kokoro TTS usage",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(20)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_click_button_61",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3c»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-18-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3c»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_navigate_a_62",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "LangChain for MLX",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(21)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_click_button_63",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3e»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-19-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3e»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_navigate_a_64",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Whisper STT hallucin",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(22)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_click_button_65",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3g»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-20-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3g»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376849
+    },
+    {
+      "actionId": "action_navigate_a_66",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Ethical implications",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(23)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_button_67",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3i»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-21-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3i»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_navigate_a_68",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Delete Ollama Models",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(24)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_button_69",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3k»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-22-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3k»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_navigate_a_70",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Local LLM Model Stat",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(25)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_button_71",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3m»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-23-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3m»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_navigate_a_72",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Foreign income loans",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(26)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_button_73",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3o»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-24-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3o»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_navigate_a_74",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "User checks for resp",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(27)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_button_75",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3q»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-25-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3q»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_navigate_a_76",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Foreign income loans",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(28)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_button_77",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3s»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-26-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3s»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_navigate_a_78",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "OME Execution Tree G",
+      "selectors": [
+        "[data-fill=\"\"]",
+        "[data-discover=\"true\"]",
+        ".group",
+        "a.group",
+        "aside:nth-child(29)"
+      ],
+      "attributes": {},
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_button_79",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«r3u»",
+        "[data-trailing-button=\"\"]",
+        "[data-testid=\"history-item-27-options\"]",
+        "[data-state=\"closed\"]",
+        ".__menu-item-trailing-btn",
+        "button.__menu-item-trailing-btn",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r3u»",
+        "type": "button",
+        "aria-label": "Open conversation options"
+      },
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_div_80",
+      "actionType": "click",
+      "tagName": "div",
+      "textContent": "Andrew JuniorPlus",
+      "selectors": [
+        "#radix-«R2naqpqkl4mj5»",
+        "[data-fill=\"\"]",
+        "[data-size=\"large\"]",
+        "[data-testid=\"accounts-profile-button\"]",
+        "[data-state=\"closed\"]",
+        ".group",
+        "div.group",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«R2naqpqkl4mj5»",
+        "type": "button",
+        "role": "button",
+        "aria-label": "Open profile menu"
+      },
+      "timestamp": 1755596376850
+    },
+    {
+      "actionId": "action_click_button_81",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "Open sidebar",
+      "selectors": [
+        "[data-testid=\"open-sidebar-button\"]",
+        ".hover:text-token-text-primary",
+        "button.hover:text-token-text-primary",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "type": "button"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_click_button_82",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "ChatGPT",
+      "selectors": [
+        "#radix-«r1»",
+        "[data-state=\"closed\"]",
+        "[data-testid=\"model-switcher-dropdown-button\"]",
+        ".group",
+        "button.group",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r1»",
+        "type": "button"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_click_button_83",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        ".btn",
+        "button.btn",
+        "span:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Turn on temporary chat"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_click_button_84",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "ChatGPT",
+      "selectors": [
+        "#radix-«r4»",
+        "[data-state=\"closed\"]",
+        "[data-testid=\"model-switcher-dropdown-button\"]",
+        ".group",
+        "button.group",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«r4»",
+        "type": "button"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_click_button_85",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        ".text-token-text-primary",
+        "button.text-token-text-primary",
+        "span:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Turn on temporary chat"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_input_input_86",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
+      "selectors": [
+        "#temporary-chat-checkbox",
+        ".sr-only",
+        "input.sr-only",
+        "h1:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "temporary-chat-checkbox",
+        "name": "temporary-chat-checkbox",
+        "type": "checkbox"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_input_input_87",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
+      "selectors": [
+        "#temporary-chat-checkbox",
+        ".sr-only",
+        "input.sr-only",
+        "h1:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "temporary-chat-checkbox",
+        "name": "temporary-chat-checkbox",
+        "type": "checkbox"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_click_button_88",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "[data-state=\"closed\"]",
+        ".invisible",
+        "button.invisible",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "name": "context-connector-pasted-link-popover-trigger",
+        "type": "button"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_input_input_89",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
+      "selectors": [
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "type": "file"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_general_textarea_90",
+      "actionType": "general",
+      "tagName": "textarea",
+      "textContent": "",
+      "selectors": [
+        "[data-virtualkeyboard=\"true\"]",
+        "._fallbackTextarea_ebv8s_2",
+        "textarea._fallbackTextarea_ebv8s_2",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "name": "prompt-textarea"
+      },
+      "timestamp": 1755596376851
+    },
+    {
+      "actionId": "action_click_button_91",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "#radix-«R55695c9ikpqkl4mj5»",
+        "[data-state=\"closed\"]",
+        "[data-testid=\"composer-plus-btn\"]",
+        ".composer-btn",
+        "button.composer-btn",
+        "span:nth-child(1)"
+      ],
+      "attributes": {
+        "id": "radix-«R55695c9ikpqkl4mj5»",
+        "type": "button"
+      },
+      "timestamp": 1755596376852
+    },
+    {
+      "actionId": "action_click_button_92",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        ".composer-btn",
+        "button.composer-btn",
+        "span:nth-child(1)"
+      ],
+      "attributes": {
+        "type": "button",
+        "aria-label": "Dictate button"
+      },
+      "timestamp": 1755596376852
+    },
+    {
+      "actionId": "action_click_button_93",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
+      "selectors": [
+        "[data-testid=\"composer-speech-button\"]",
+        ".relative",
+        "button.relative",
+        "span:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Start voice mode"
+      },
+      "timestamp": 1755596376852
+    },
+    {
+      "actionId": "action_input_input_94",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
+      "selectors": [
+        "#upload-photos",
+        ".sr-only",
+        "input.sr-only",
+        "div:nth-child(3)"
+      ],
+      "attributes": {
+        "id": "upload-photos",
+        "type": "file"
+      },
+      "timestamp": 1755596376852
+    },
+    {
+      "actionId": "action_input_input_95",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
+      "selectors": [
+        "#upload-camera",
+        ".sr-only",
+        "input.sr-only",
+        "div:nth-child(4)"
+      ],
+      "attributes": {
+        "id": "upload-camera",
+        "type": "file"
+      },
+      "timestamp": 1755596376852
+    }
+  ],
+  "page_state": {
+    "currentView": "content_updated",
+    "interactiveElements": [
+      {
+        "id": "action_navigate_a_0",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-skip-to-content=\"\"]",
+          ".bg-token-main-surface-primary",
+          "a.bg-token-main-surface-primary",
+          "body:nth-child(3)"
+        ],
+        "textContent": "Skip to content",
+        "className": "bg-token-main-surface-primary fixed start-1/2 top-1 z-50 mx-auto w-fit -translate-x-1/2 translate-y-[-100lvh] rounded-full px-3 py-2 focus-visible:translate-y-0",
+        "attributes": {},
+        "timestamp": 1755596376843
+      },
+      {
+        "id": "action_click_button_1",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-state=\"closed\"]",
+          ".group",
+          "button.group",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "group __menu-item hoverable gap-1.5 cursor-e-resize rtl:cursor-w-resize",
+        "attributes": {
+          "aria-label": "Open sidebar"
+        },
+        "timestamp": 1755596376844
+      },
+      {
+        "id": "action_navigate_a_2",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-testid=\"create-new-chat-button\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376844
+      },
+      {
+        "id": "action_navigate_a_3",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-testid=\"sidebar-item-library\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "group __menu-item hoverable gap-1.5",
+        "attributes": {},
+        "timestamp": 1755596376844
+      },
+      {
+        "id": "action_click_div_4",
+        "tagName": "div",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«R5mqpqkl4mj5»",
+          "[data-fill=\"\"]",
+          "[data-size=\"large\"]",
+          "[data-testid=\"accounts-profile-button\"]",
+          "[data-state=\"closed\"]",
+          ".group",
+          "div.group",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "group __menu-item hoverable gap-2 p-2",
+        "attributes": {
+          "id": "radix-«R5mqpqkl4mj5»",
+          "type": "button",
+          "role": "button",
+          "aria-label": "Open profile menu"
+        },
+        "timestamp": 1755596376844
+      },
+      {
+        "id": "action_navigate_a_5",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-discover=\"true\"]",
+          ".text-token-text-primary",
+          "a.text-token-text-primary",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "text-token-text-primary no-draggable hover:bg-token-surface-hover focus-visible:bg-token-surface-hover touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center rounded-lg focus-visible:outline-0 disabled:opacity-50",
+        "attributes": {
+          "aria-label": "Home"
+        },
+        "timestamp": 1755596376844
+      },
+      {
+        "id": "action_click_button_6",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "[data-testid=\"close-sidebar-button\"]",
+          "[data-state=\"closed\"]",
+          ".text-token-text-tertiary",
+          "button.text-token-text-tertiary",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "text-token-text-tertiary no-draggable hover:bg-token-surface-hover focus-visible:bg-token-surface-hover touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center rounded-lg focus-visible:outline-0 disabled:opacity-50 no-draggable cursor-w-resize rtl:cursor-e-resize",
+        "attributes": {
+          "aria-label": "Close sidebar"
+        },
+        "timestamp": 1755596376845
+      },
+      {
+        "id": "action_navigate_a_7",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-testid=\"create-new-chat-button\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(1)"
+        ],
+        "textContent": "New chat⇧⌘O",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376845
+      },
+      {
+        "id": "action_navigate_a_8",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-testid=\"sidebar-item-library\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(3)"
+        ],
+        "textContent": "Library",
+        "className": "group __menu-item hoverable gap-1.5",
+        "attributes": {},
+        "timestamp": 1755596376845
+      },
+      {
+        "id": "action_navigate_a_9",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(1)"
+        ],
+        "textContent": "Codex",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376845
+      },
+      {
+        "id": "action_navigate_a_10",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "#sora",
+          "[data-fill=\"\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(2)"
+        ],
+        "textContent": "Sora",
+        "className": "group __menu-item hoverable",
+        "attributes": {
+          "id": "sora"
+        },
+        "timestamp": 1755596376845
+      },
+      {
+        "id": "action_navigate_a_11",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-testid=\"explore-gpts-button\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(3)"
+        ],
+        "textContent": "GPTs",
+        "className": "group __menu-item hoverable gap-1.5",
+        "attributes": {},
+        "timestamp": 1755596376845
+      },
+      {
+        "id": "action_navigate_a_12",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(4)"
+        ],
+        "textContent": "Web Browser",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376845
+      },
+      {
+        "id": "action_click_button_13",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r1k»",
+          "[data-trailing-button=\"\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r1k»",
+          "type": "button"
+        },
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_navigate_a_14",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(2)"
+        ],
+        "textContent": "OM-E autonomy",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_click_button_15",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r1o»",
+          "[data-trailing-button=\"\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r1o»",
+          "type": "button"
+        },
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_navigate_a_16",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(3)"
+        ],
+        "textContent": "Architecture",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_click_button_17",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r1r»",
+          "[data-trailing-button=\"\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r1r»",
+          "type": "button"
+        },
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_navigate_a_18",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(4)"
+        ],
+        "textContent": "BEAR",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_click_button_19",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r1u»",
+          "[data-trailing-button=\"\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r1u»",
+          "type": "button"
+        },
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_navigate_a_20",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(5)"
+        ],
+        "textContent": "ebike requirements f",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_click_button_21",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r21»",
+          "[data-trailing-button=\"\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r21»",
+          "type": "button"
+        },
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_navigate_a_22",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(6)"
+        ],
+        "textContent": "music",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_click_button_23",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r24»",
+          "[data-trailing-button=\"\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r24»",
+          "type": "button"
+        },
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_navigate_a_24",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(2)"
+        ],
+        "textContent": "Cursor Pylance confl",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376846
+      },
+      {
+        "id": "action_click_button_25",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r28»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-0-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r28»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_navigate_a_26",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(3)"
+        ],
+        "textContent": "Amber and Hush's Day",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_click_button_27",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2a»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-1-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2a»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_navigate_a_28",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(4)"
+        ],
+        "textContent": "File recovery proces",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_click_button_29",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2c»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-2-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2c»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_navigate_a_30",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(5)"
+        ],
+        "textContent": "Message clarity chec",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_click_button_31",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2e»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-3-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2e»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_navigate_a_32",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(6)"
+        ],
+        "textContent": "CV update for AI dir",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_click_button_33",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2g»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-4-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2g»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_navigate_a_34",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(7)"
+        ],
+        "textContent": "GitHub push protecti",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_click_button_35",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2i»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-5-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2i»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_navigate_a_36",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(8)"
+        ],
+        "textContent": "Tony Stark's compute",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376847
+      },
+      {
+        "id": "action_click_button_37",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2k»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-6-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2k»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_navigate_a_38",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(9)"
+        ],
+        "textContent": "Employment contract ",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_click_button_39",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2m»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-7-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2m»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_navigate_a_40",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(10)"
+        ],
+        "textContent": "Pacifier holder desi",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_click_button_41",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2o»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-8-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2o»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_navigate_a_42",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(11)"
+        ],
+        "textContent": "Home buying process ",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_click_button_43",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2q»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-9-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2q»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_navigate_a_44",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(12)"
+        ],
+        "textContent": "Room renovation inst",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_click_button_45",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2s»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-10-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2s»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_navigate_a_46",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(13)"
+        ],
+        "textContent": "Olivia updates clari",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_click_button_47",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r2u»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-11-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r2u»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_navigate_a_48",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(14)"
+        ],
+        "textContent": "Download CV from Lin",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_click_button_49",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r30»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-12-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r30»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376848
+      },
+      {
+        "id": "action_navigate_a_50",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(15)"
+        ],
+        "textContent": "New chat",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_click_button_51",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r32»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-13-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r32»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_navigate_a_52",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(16)"
+        ],
+        "textContent": "Olivia's Query Clari",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_click_button_53",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r34»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-14-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r34»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_navigate_a_54",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(17)"
+        ],
+        "textContent": "Classifying secondar",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_click_button_55",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r36»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-15-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r36»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_navigate_a_56",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(18)"
+        ],
+        "textContent": "Mac app guide prompt",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_click_button_57",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r38»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-16-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r38»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_navigate_a_58",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(19)"
+        ],
+        "textContent": "Atomac API Extractio",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_click_button_59",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3a»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-17-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3a»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_navigate_a_60",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(20)"
+        ],
+        "textContent": "Kokoro TTS usage",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_click_button_61",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3c»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-18-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3c»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_navigate_a_62",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(21)"
+        ],
+        "textContent": "LangChain for MLX",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_click_button_63",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3e»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-19-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3e»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_navigate_a_64",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(22)"
+        ],
+        "textContent": "Whisper STT hallucin",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_click_button_65",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3g»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-20-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3g»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376849
+      },
+      {
+        "id": "action_navigate_a_66",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(23)"
+        ],
+        "textContent": "Ethical implications",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_button_67",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3i»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-21-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3i»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_navigate_a_68",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(24)"
+        ],
+        "textContent": "Delete Ollama Models",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_button_69",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3k»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-22-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3k»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_navigate_a_70",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(25)"
+        ],
+        "textContent": "Local LLM Model Stat",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_button_71",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3m»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-23-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3m»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_navigate_a_72",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(26)"
+        ],
+        "textContent": "Foreign income loans",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_button_73",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3o»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-24-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3o»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_navigate_a_74",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(27)"
+        ],
+        "textContent": "User checks for resp",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_button_75",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3q»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-25-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3q»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_navigate_a_76",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(28)"
+        ],
+        "textContent": "Foreign income loans",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_button_77",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3s»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-26-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3s»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_navigate_a_78",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-fill=\"\"]",
+          "[data-discover=\"true\"]",
+          ".group",
+          "a.group",
+          "aside:nth-child(29)"
+        ],
+        "textContent": "OME Execution Tree G",
+        "className": "group __menu-item hoverable",
+        "attributes": {},
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_button_79",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r3u»",
+          "[data-trailing-button=\"\"]",
+          "[data-testid=\"history-item-27-options\"]",
+          "[data-state=\"closed\"]",
+          ".__menu-item-trailing-btn",
+          "button.__menu-item-trailing-btn",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "__menu-item-trailing-btn",
+        "attributes": {
+          "id": "radix-«r3u»",
+          "type": "button",
+          "aria-label": "Open conversation options"
+        },
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_div_80",
+        "tagName": "div",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«R2naqpqkl4mj5»",
+          "[data-fill=\"\"]",
+          "[data-size=\"large\"]",
+          "[data-testid=\"accounts-profile-button\"]",
+          "[data-state=\"closed\"]",
+          ".group",
+          "div.group",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Andrew JuniorPlus",
+        "className": "group __menu-item hoverable gap-2",
+        "attributes": {
+          "id": "radix-«R2naqpqkl4mj5»",
+          "type": "button",
+          "role": "button",
+          "aria-label": "Open profile menu"
+        },
+        "timestamp": 1755596376850
+      },
+      {
+        "id": "action_click_button_81",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "[data-testid=\"open-sidebar-button\"]",
+          ".hover:text-token-text-primary",
+          "button.hover:text-token-text-primary",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Open sidebar",
+        "className": "hover:text-token-text-primary touch:h-10 touch:w-10 inline-flex h-9 w-9 items-center justify-center rounded-md focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset active:opacity-50",
+        "attributes": {
+          "type": "button"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_click_button_82",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r1»",
+          "[data-state=\"closed\"]",
+          "[data-testid=\"model-switcher-dropdown-button\"]",
+          ".group",
+          "button.group",
+          "div:nth-child(1)"
+        ],
+        "textContent": "ChatGPT",
+        "className": "group flex cursor-pointer justify-center items-center gap-1 rounded-lg min-h-9 touch:min-h-10 px-2.5 text-lg hover:bg-token-surface-hover focus-visible:bg-token-surface-hover font-normal whitespace-nowrap focus-visible:outline-none",
+        "attributes": {
+          "id": "radix-«r1»",
+          "type": "button"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_click_button_83",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          ".btn",
+          "button.btn",
+          "span:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "btn relative btn-ghost text-token-text-secondary rounded-lg",
+        "attributes": {
+          "aria-label": "Turn on temporary chat"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_click_button_84",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«r4»",
+          "[data-state=\"closed\"]",
+          "[data-testid=\"model-switcher-dropdown-button\"]",
+          ".group",
+          "button.group",
+          "div:nth-child(1)"
+        ],
+        "textContent": "ChatGPT",
+        "className": "group flex cursor-pointer justify-center items-center gap-1 rounded-lg min-h-9 touch:min-h-10 px-2.5 text-lg hover:bg-token-surface-hover focus-visible:bg-token-surface-hover font-normal whitespace-nowrap focus-visible:outline-none",
+        "attributes": {
+          "id": "radix-«r4»",
+          "type": "button"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_click_button_85",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          ".text-token-text-primary",
+          "button.text-token-text-primary",
+          "span:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "text-token-text-primary no-draggable hover:bg-token-surface-hover focus-visible:bg-token-surface-hover touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center rounded-lg focus-visible:outline-0 disabled:opacity-50 rounded-full!",
+        "attributes": {
+          "aria-label": "Turn on temporary chat"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_input_input_86",
+        "tagName": "input",
+        "actionType": "input",
+        "selectors": [
+          "#temporary-chat-checkbox",
+          ".sr-only",
+          "input.sr-only",
+          "h1:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "sr-only",
+        "attributes": {
+          "id": "temporary-chat-checkbox",
+          "name": "temporary-chat-checkbox",
+          "type": "checkbox"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_input_input_87",
+        "tagName": "input",
+        "actionType": "input",
+        "selectors": [
+          "#temporary-chat-checkbox",
+          ".sr-only",
+          "input.sr-only",
+          "h1:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "sr-only",
+        "attributes": {
+          "id": "temporary-chat-checkbox",
+          "name": "temporary-chat-checkbox",
+          "type": "checkbox"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_click_button_88",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "[data-state=\"closed\"]",
+          ".invisible",
+          "button.invisible",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "invisible absolute self-center",
+        "attributes": {
+          "name": "context-connector-pasted-link-popover-trigger",
+          "type": "button"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_input_input_89",
+        "tagName": "input",
+        "actionType": "input",
+        "selectors": [
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "",
+        "attributes": {
+          "type": "file"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_general_textarea_90",
+        "tagName": "textarea",
+        "actionType": "general",
+        "selectors": [
+          "[data-virtualkeyboard=\"true\"]",
+          "._fallbackTextarea_ebv8s_2",
+          "textarea._fallbackTextarea_ebv8s_2",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "_fallbackTextarea_ebv8s_2",
+        "attributes": {
+          "name": "prompt-textarea"
+        },
+        "timestamp": 1755596376851
+      },
+      {
+        "id": "action_click_button_91",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "#radix-«R55695c9ikpqkl4mj5»",
+          "[data-state=\"closed\"]",
+          "[data-testid=\"composer-plus-btn\"]",
+          ".composer-btn",
+          "button.composer-btn",
+          "span:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "composer-btn",
+        "attributes": {
+          "id": "radix-«R55695c9ikpqkl4mj5»",
+          "type": "button"
+        },
+        "timestamp": 1755596376852
+      },
+      {
+        "id": "action_click_button_92",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          ".composer-btn",
+          "button.composer-btn",
+          "span:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "composer-btn",
+        "attributes": {
+          "type": "button",
+          "aria-label": "Dictate button"
+        },
+        "timestamp": 1755596376852
+      },
+      {
+        "id": "action_click_button_93",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "[data-testid=\"composer-speech-button\"]",
+          ".relative",
+          "button.relative",
+          "span:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "relative flex h-9 items-center justify-center rounded-full disabled:text-gray-50 disabled:opacity-30 w-9 composer-secondary-button-color hover:opacity-80",
+        "attributes": {
+          "aria-label": "Start voice mode"
+        },
+        "timestamp": 1755596376852
+      },
+      {
+        "id": "action_input_input_94",
+        "tagName": "input",
+        "actionType": "input",
+        "selectors": [
+          "#upload-photos",
+          ".sr-only",
+          "input.sr-only",
+          "div:nth-child(3)"
+        ],
+        "textContent": "",
+        "className": "sr-only",
+        "attributes": {
+          "id": "upload-photos",
+          "type": "file"
+        },
+        "timestamp": 1755596376852
+      },
+      {
+        "id": "action_input_input_95",
+        "tagName": "input",
+        "actionType": "input",
+        "selectors": [
+          "#upload-camera",
+          ".sr-only",
+          "input.sr-only",
+          "div:nth-child(4)"
+        ],
+        "textContent": "",
+        "className": "sr-only",
+        "attributes": {
+          "id": "upload-camera",
+          "type": "file"
+        },
+        "timestamp": 1755596376852
+      }
+    ],
+    "navigationState": "unknown",
+    "contentSections": [],
+    "lastUpdate": 1755603157552
+  },
+  "recent_insights": [
+    {
+      "timestamp": 1755603085481,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 80 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68a446f6-5db0-832f-b1fd-12aaed131bbb",
+        "title": "ChatGPT - OM-E autonomy",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 96,
+        "lastUpdate": 1755603085481
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755603085481,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 80 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68a446f6-5db0-832f-b1fd-12aaed131bbb",
+        "title": "ChatGPT - OM-E autonomy",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 96,
+        "lastUpdate": 1755603085481
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755603085481,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 40 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68a446f6-5db0-832f-b1fd-12aaed131bbb",
+        "title": "ChatGPT - OM-E autonomy",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 96,
+        "lastUpdate": 1755603085481
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755603155565,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 40 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68a446f6-5db0-832f-b1fd-12aaed131bbb",
+        "title": "ChatGPT - OM-E autonomy",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 96,
+        "lastUpdate": 1755603155565
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755603157552,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 40 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68a446f6-5db0-832f-b1fd-12aaed131bbb",
+        "title": "ChatGPT - OM-E autonomy",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 96,
+        "lastUpdate": 1755603157552
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    }
+  ],
+  "total_elements": 96,
+  "intelligence_version": "2.0"
+}

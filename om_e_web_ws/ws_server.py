@@ -80,9 +80,9 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
             "timestamp": time.time(),
             "browser_state": browser_state,
             "current_page": {
-                "url": intelligence_data.get("pageState", {}).get("url", "unknown"),
-                "title": intelligence_data.get("pageState", {}).get("title", "unknown"),
-                "is_active_tab": True if CURRENT_ACTIVE_TAB and CURRENT_ACTIVE_TAB.get("url") == intelligence_data.get("pageState", {}).get("url") else False
+                "url": browser_state.get("active_tab", {}).get("url", "unknown"),
+                "title": browser_state.get("active_tab", {}).get("title", "unknown"),
+                "is_active_tab": True
             },
             "actionable_elements": intelligence_data.get("actionableElements", []),
             "page_state": intelligence_data.get("pageState", {}),

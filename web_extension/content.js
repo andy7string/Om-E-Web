@@ -128,6 +128,17 @@ document.addEventListener('testIntelligence', (event) => {
             console.log("[Content] 🧪 DOM status:", domStatus);
             break;
             
+        case 'executeAction':
+            const { actionId, action, params } = event.detail;
+            console.log("[Content] 🧪 Executing action:", { actionId, action, params });
+            if (intelligenceEngine) {
+                const result = intelligenceEngine.executeAction(actionId, action, params);
+                console.log("[Content] 🧪 Action execution result:", result);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available for action execution");
+            }
+            break;
+            
         default:
             console.log("[Content] 🧪 Unknown command:", command);
     }
@@ -3092,7 +3103,7 @@ IntelligenceEngine.prototype.getActionableElementsSummary = function() {
         actionType: element.actionType,
         tagName: element.tagName,
         textContent: element.textContent,
-        // 🆕 OPTIMIZED: Removed selectors from server output (kept internally for execution)
+        selectors: element.selectors,
         attributes: element.attributes,
         timestamp: element.timestamp
     }));
@@ -3254,7 +3265,20 @@ IntelligenceEngine.prototype.generatePositionSelector = function(element) {
  */
 IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
     const attributes = {};
-    const keyAttrs = ['id', 'name', 'type', 'role', 'aria-label', 'title', 'alt'];
+    let keyAttrs = ['id', 'name', 'type', 'role', 'aria-label', 'title', 'alt'];
+    
+    // Add href for anchor tags
+    if (element.tagName === 'A') {
+        keyAttrs.push('href');
+    }
+    // Add src for images
+    if (element.tagName === 'IMG') {
+        keyAttrs.push('src');
+    }
+    // Add value for form elements
+    if (element.tagName === 'INPUT' || element.tagName === 'SELECT' || element.tagName === 'TEXTAREA') {
+        keyAttrs.push('value');
+    }
     
     keyAttrs.forEach(attr => {
         const value = element.getAttribute(attr);
@@ -3344,8 +3368,18 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action, params =
         switch (action) {
             case 'click':
                 console.log("[Content] 🖱️ Executing click action on element");
-                element.click();
-                result = { success: true, action: 'click', elementId: actionId, message: 'Element clicked successfully' };
+                
+                // Special handling for navigation elements
+                if (actionableElement.actionType === 'navigate' && actionableElement.attributes?.href) {
+                    console.log("[Content] 🧭 Navigation detected, using stored href:", actionableElement.attributes.href);
+                    // Navigate using the stored href
+                    window.location.href = actionableElement.attributes.href;
+                    result = { success: true, action: 'click', elementId: actionId, message: 'Navigation executed successfully', href: actionableElement.attributes.href };
+                } else {
+                    // Regular click action
+                    element.click();
+                    result = { success: true, action: 'click', elementId: actionId, message: 'Element clicked successfully' };
+                }
                 break;
                 
             case 'getText':
@@ -3467,11 +3501,15 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
                     const actionId = this.registerActionableElement(element, actionType);
                     registeredCount++;
                     
+                    // Get the full element data to show href attributes
+                    const elementData = this.getActionableElement(actionId);
                     console.log("[Content] 📝 Registered element:", {
                         actionId: actionId,
                         tagName: element.tagName,
                         actionType: actionType,
-                        textContent: element.textContent?.trim().substring(0, 30) || ''
+                        textContent: element.textContent?.trim().substring(0, 30) || '',
+                        href: element.tagName === 'A' ? element.href : undefined,
+                        attributes: elementData?.attributes || {}
                     });
                 }
             }
@@ -3614,6 +3652,7 @@ function sendIntelligenceUpdateToServer() {
         
         // Get current intelligence data
         const intelligenceData = {
+            pageState: intelligenceEngine.pageState,
             actionableElements: intelligenceEngine.getActionableElementsSummary(),
             recentInsights: intelligenceEngine.llmInsights.slice(-5), // Last 5 insights
             totalEvents: intelligenceEngine.eventHistory.length,
