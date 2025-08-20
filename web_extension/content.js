@@ -3092,7 +3092,7 @@ IntelligenceEngine.prototype.getActionableElementsSummary = function() {
         actionType: element.actionType,
         tagName: element.tagName,
         textContent: element.textContent,
-        selectors: element.selectors,
+        // 🆕 OPTIMIZED: Removed selectors from server output (kept internally for execution)
         attributes: element.attributes,
         timestamp: element.timestamp
     }));
@@ -3614,7 +3614,6 @@ function sendIntelligenceUpdateToServer() {
         
         // Get current intelligence data
         const intelligenceData = {
-            pageState: intelligenceEngine.pageState,
             actionableElements: intelligenceEngine.getActionableElementsSummary(),
             recentInsights: intelligenceEngine.llmInsights.slice(-5), // Last 5 insights
             totalEvents: intelligenceEngine.eventHistory.length,
