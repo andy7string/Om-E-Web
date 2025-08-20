@@ -1,788 +1,249 @@
 {
   "_page_context": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
-    "timestamp": 1755663805.3070478,
-    "total_actions": 57,
-    "active_tab_id": 1137968481
+    "url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au",
+    "timestamp": 1755669130.677579,
+    "total_actions": 17,
+    "active_tab_id": 1137968624
   },
-  "action_navigate_a_0": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
+  "action_click_button_0": {
+    "action_type": "click",
+    "description": "Menu",
+    "tag_name": "button",
     "selectors": [
-      ".custom-logo-link",
-      "a.custom-logo-link",
-      "span:nth-child(1)"
+      "[data-testid=\"burger-menu\"]",
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "button.ButtonBase-argonaut__sc-1lobkej-0",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_0' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_0' to click with this element",
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_1": {
     "action_type": "navigate",
-    "description": "HOME",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".Headerstyles__Logo-argonaut__sc-qtti7i-1",
+      "a.Headerstyles__Logo-argonaut__sc-qtti7i-1",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_1' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_2": {
     "action_type": "navigate",
-    "description": "ABOUT",
+    "description": "Buy",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_2' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
-  "action_click_button_3": {
-    "action_type": "click",
-    "description": "Menu Toggle",
-    "tag_name": "button",
+  "action_navigate_a_3": {
+    "action_type": "navigate",
+    "description": "Rent",
+    "tag_name": "a",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_3' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_3' to navigate with this element",
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_4": {
     "action_type": "navigate",
-    "description": "Banner Design",
+    "description": "Sold",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_4' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_5": {
     "action_type": "navigate",
-    "description": "Logo Design",
+    "description": "Share",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_5' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_6": {
     "action_type": "navigate",
-    "description": "Web Design",
+    "description": "New homes",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(5)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_6' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_7": {
     "action_type": "navigate",
-    "description": "SERVICES",
+    "description": "Find agents",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(6)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_7' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_8": {
     "action_type": "navigate",
-    "description": "CONTACT",
+    "description": "Home loans",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(7)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_8' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_9": {
     "action_type": "navigate",
-    "description": "",
+    "description": "News",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(1)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(8)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_9' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_navigate_a_10": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Commercial",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(2)"
+      ".ButtonBase-argonaut__sc-1lobkej-0",
+      "a.ButtonBase-argonaut__sc-1lobkej-0",
+      "nav:nth-child(10)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_10' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
-  "action_navigate_a_11": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
+  "action_click_button_11": {
+    "action_type": "click",
+    "description": "Hahndorf, SA 5245",
+    "tag_name": "button",
     "selectors": [
-      ".custom-logo-link",
-      "a.custom-logo-link",
-      "span:nth-child(1)"
+      "[data-testid=\"filters-link\"]",
+      ".LinkBase-sc-1ba0r3r-0",
+      "button.LinkBase-sc-1ba0r3r-0",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_11' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_11' to click with this element",
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
   "action_click_button_12": {
     "action_type": "click",
-    "description": "Main Menu",
+    "description": "Property type",
     "tag_name": "button",
     "selectors": [
-      ".menu-toggle",
-      "button.menu-toggle",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_12' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_13": {
-    "action_type": "navigate",
-    "description": "HOME",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_13' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_14": {
-    "action_type": "navigate",
-    "description": "ABOUT",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_14' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_click_button_15": {
-    "action_type": "click",
-    "description": "Menu Toggle",
-    "tag_name": "button",
-    "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_15' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_16": {
-    "action_type": "navigate",
-    "description": "Banner Design",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_16' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_17": {
-    "action_type": "navigate",
-    "description": "Logo Design",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_17' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_18": {
-    "action_type": "navigate",
-    "description": "Web Design",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_18' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_19": {
-    "action_type": "navigate",
-    "description": "SERVICES",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_19' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_20": {
-    "action_type": "navigate",
-    "description": "CONTACT",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_20' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_21": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_21' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_22": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
+      ".ButtonBase-sc-1lobkej-0",
+      "button.ButtonBase-sc-1lobkej-0",
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_22' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_12' to click with this element",
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
-  "action_navigate_a_23": {
-    "action_type": "navigate",
-    "description": "Get Started",
-    "tag_name": "a",
+  "action_click_button_13": {
+    "action_type": "click",
+    "description": "Price",
+    "tag_name": "button",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
+      ".ButtonBase-sc-1lobkej-0",
+      "button.ButtonBase-sc-1lobkej-0",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_23' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_13' to click with this element",
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
-  "action_navigate_a_24": {
-    "action_type": "navigate",
-    "description": "Get Started",
-    "tag_name": "a",
+  "action_click_button_14": {
+    "action_type": "click",
+    "description": "Bed",
+    "tag_name": "button",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
+      ".ButtonBase-sc-1lobkej-0",
+      "button.ButtonBase-sc-1lobkej-0",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_24' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_14' to click with this element",
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
-  "action_navigate_a_25": {
-    "action_type": "navigate",
-    "description": "Get Started",
-    "tag_name": "a",
+  "action_click_button_15": {
+    "action_type": "click",
+    "description": "Filters",
+    "tag_name": "button",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_25' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_26": {
-    "action_type": "navigate",
-    "description": "Website Design",
-    "tag_name": "a",
-    "selectors": [
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_26' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_27": {
-    "action_type": "navigate",
-    "description": "View Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_27' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_28": {
-    "action_type": "navigate",
-    "description": "More Info",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_28' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_29": {
-    "action_type": "navigate",
-    "description": "Logo Design",
-    "tag_name": "a",
-    "selectors": [
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_29' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_30": {
-    "action_type": "navigate",
-    "description": "View Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_30' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_31": {
-    "action_type": "navigate",
-    "description": "More Info",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_31' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_32": {
-    "action_type": "navigate",
-    "description": "Banner Ad Design",
-    "tag_name": "a",
-    "selectors": [
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_32' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_33": {
-    "action_type": "navigate",
-    "description": "View Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_33' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_34": {
-    "action_type": "navigate",
-    "description": "More Info",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_34' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_35": {
-    "action_type": "navigate",
-    "description": "Get in touch today!",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_35' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_36": {
-    "action_type": "navigate",
-    "description": "Joss Couture",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_36' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_37": {
-    "action_type": "navigate",
-    "description": "Flutterbys School",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_37' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_38": {
-    "action_type": "navigate",
-    "description": "The Gourmet Cookie C",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_38' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_39": {
-    "action_type": "navigate",
-    "description": "Straker Functional F",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_39' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_40": {
-    "action_type": "navigate",
-    "description": "The Syrene Hotel",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_40' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_41": {
-    "action_type": "navigate",
-    "description": "African Safari Deals",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_41' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_42": {
-    "action_type": "navigate",
-    "description": "Mtambo Chartered Acc",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_42' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_43": {
-    "action_type": "navigate",
-    "description": "Read More Testimonia",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_43' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_44": {
-    "action_type": "navigate",
-    "description": "Reach Out Now!",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_44' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_45": {
-    "action_type": "navigate",
-    "description": "Banner Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_45' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_46": {
-    "action_type": "navigate",
-    "description": "Logo Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_46' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_47": {
-    "action_type": "navigate",
-    "description": "Web Design Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_47' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_48": {
-    "action_type": "navigate",
-    "description": "Facebook",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-icon",
-      "a.elementor-icon",
+      ".ButtonBase-sc-1lobkej-0",
+      "button.ButtonBase-sc-1lobkej-0",
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_48' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_15' to click with this element",
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   },
-  "action_navigate_a_49": {
+  "action_navigate_a_16": {
     "action_type": "navigate",
-    "description": "Instagram",
+    "description": "List",
     "tag_name": "a",
     "selectors": [
-      ".elementor-icon",
-      "a.elementor-icon",
-      "span:nth-child(1)"
+      ".ButtonBase-sc-1lobkej-0",
+      "a.ButtonBase-sc-1lobkej-0",
+      "div:nth-child(6)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_49' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_50": {
-    "action_type": "navigate",
-    "description": "Home",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_50' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_51": {
-    "action_type": "navigate",
-    "description": "About",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_51' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_52": {
-    "action_type": "navigate",
-    "description": "Services",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_52' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_53": {
-    "action_type": "navigate",
-    "description": "Testimonials",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_53' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_54": {
-    "action_type": "navigate",
-    "description": "Contact",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_54' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_55": {
-    "action_type": "navigate",
-    "description": "Privacy Policy",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_55' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_56": {
-    "action_type": "navigate",
-    "description": "Website Designed by ",
-    "tag_name": "a",
-    "selectors": [
-      "h6:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_56' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_16' to navigate with this element",
+    "page_url": "https://www.realestate.com.au/buy/map-1?boundingBox=-34.98179191978821%2C138.65724792004954%2C-35.03929676096321%2C138.80213012219798&activeSort=relevance&sourcePage=map&sourceElement=location-tile-search",
+    "page_title": "Map view of Real Estate & Property for Sale in Australia - realestate.com.au"
   }
 }

@@ -3323,7 +3323,7 @@ IntelligenceEngine.prototype.getAllActionableElements = function() {
 /**
  * 🆕 NEW: Execute action on element by ID
  */
-IntelligenceEngine.prototype.executeAction = function(actionId, action, params = {}) {
+IntelligenceEngine.prototype.executeAction = function(actionId, action = null, params = {}) {
     console.log("[Content] 🎯 executeAction called:", { actionId, action, params });
     
     const actionableElement = this.getActionableElement(actionId);
@@ -3334,6 +3334,12 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action, params =
     }
     
     console.log("[Content] ✅ Found actionable element:", actionableElement);
+    
+    // 🆕 NEW: Auto-detect action if not specified
+    if (!action) {
+        action = actionableElement.actionType || 'click';
+        console.log("[Content] 🔍 Auto-detected action:", action, "from actionType:", actionableElement.actionType);
+    }
     
     try {
         // Use the first available selector
@@ -3368,17 +3374,20 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action, params =
         switch (action) {
             case 'click':
                 console.log("[Content] 🖱️ Executing click action on element");
+                element.click();
+                result = { success: true, action: 'click', elementId: actionId, message: 'Element clicked successfully' };
+                break;
                 
-                // Special handling for navigation elements
-                if (actionableElement.actionType === 'navigate' && actionableElement.attributes?.href) {
-                    console.log("[Content] 🧭 Navigation detected, using stored href:", actionableElement.attributes.href);
+            case 'navigate':
+                console.log("[Content] 🧭 Executing navigation action on element");
+                if (actionableElement.attributes?.href) {
+                    console.log("[Content] 🧭 Using stored href:", actionableElement.attributes.href);
                     // Navigate using the stored href
                     window.location.href = actionableElement.attributes.href;
-                    result = { success: true, action: 'click', elementId: actionId, message: 'Navigation executed successfully', href: actionableElement.attributes.href };
+                    result = { success: true, action: 'navigate', elementId: actionId, message: 'Navigation executed successfully', href: actionableElement.attributes.href };
                 } else {
-                    // Regular click action
-                    element.click();
-                    result = { success: true, action: 'click', elementId: actionId, message: 'Element clicked successfully' };
+                    console.error("[Content] ❌ No href attribute found for navigation element");
+                    result = { success: false, error: "No href attribute found for navigation" };
                 }
                 break;
                 
