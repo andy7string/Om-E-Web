@@ -168,6 +168,55 @@ document.addEventListener('testIntelligence', (event) => {
             }
             break;
             
+        case 'getElementCoordinates':
+            const coordActionId = event.detail?.actionId;
+            console.log("[Content] 🧪 Getting element coordinates for:", coordActionId);
+            if (!coordActionId) {
+                console.log("[Content] ❌ No actionId provided");
+                return;
+            }
+            if (intelligenceEngine) {
+                console.log("[Content] 🔍 Step 1: Getting actionable element data...");
+                const ae = intelligenceEngine.getActionableElement(coordActionId);
+                console.log("[Content] 🔍 Actionable element data:", ae);
+                
+                if (!ae) {
+                    console.log("[Content] ❌ No actionable element found for actionId:", coordActionId);
+                    return;
+                }
+                
+                console.log("[Content] 🔍 Step 2: Resolving DOM node from selectors...");
+                const node = resolveNodeFromActionId(coordActionId);
+                console.log("[Content] 🔍 DOM node found:", node);
+                console.log("[Content] 🔍 Node tagName:", node?.tagName);
+                console.log("[Content] 🔍 Node visible:", node && node.offsetWidth > 0 && node.offsetHeight > 0);
+                
+                if (!node) {
+                    console.log("[Content] ❌ No DOM node found for actionId:", coordActionId);
+                    return;
+                }
+                
+                console.log("[Content] 🔍 Step 3: Getting bounding rect...");
+                const rect = node.getBoundingClientRect();
+                console.log("[Content] 🔍 Raw bounding rect:", rect);
+                console.log("[Content] 🔍 Rect values:", {
+                    left: rect.left,
+                    top: rect.top,
+                    width: rect.width,
+                    height: rect.height
+                });
+                
+                console.log("[Content] 🔍 Step 4: Computing coordinates...");
+                const coords = coordsForNode(node);
+                console.log("[Content] 🔍 Computed coordinates:", coords);
+                
+                const result = { ok: true, actionId: coordActionId, coords };
+                console.log("[Content] 🧪 Final coordinate result:", result);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
         case 'getStatus':
             console.log("[Content] 🧪 Getting system status...");
             if (intelligenceEngine) {
@@ -186,6 +235,185 @@ document.addEventListener('testIntelligence', (event) => {
             }
             break;
             
+        case 'reveal':
+            const revealActionId = event.detail?.actionId;
+            console.log("[Content] 🧪 Revealing element details for:", revealActionId);
+            if (!revealActionId) {
+                console.log("[Content] ❌ No actionId provided");
+                return;
+            }
+            if (intelligenceEngine) {
+                const result = intelligenceEngine.executeAction(revealActionId, 'reveal');
+                console.log("[Content] 🧪 Reveal result:", result);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
+        case 'getCoordinates':
+            const getCoordActionId = event.detail?.actionId;
+            console.log("[Content] 🧪 Getting coordinates with smart resolution for:", getCoordActionId);
+            if (!getCoordActionId) {
+                console.log("[Content] ❌ No actionId provided");
+                return;
+            }
+            if (intelligenceEngine) {
+                const result = intelligenceEngine.executeAction(getCoordActionId, 'getCoordinates');
+                console.log("[Content] 🧪 Smart coordinates result:", result);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
+        case 'testSmartClick':
+            const smartClickActionId = event.detail?.actionId;
+            console.log("[Content] 🧪 Testing smart resolution click for:", smartClickActionId);
+            if (!smartClickActionId) {
+                console.log("[Content] ❌ No actionId provided");
+                return;
+            }
+            if (intelligenceEngine) {
+                console.log("[Content] 🧪 Testing enhanced smart resolution click...");
+                const result = intelligenceEngine.executeAction(smartClickActionId, 'click');
+                console.log("[Content] 🧪 Enhanced smart click result:", result);
+            } else {
+                console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
+        case 'testEnhancedDimensions':
+            const testElementSelector = event.detail?.selector || '.custom-logo-link';
+            console.log("[Content] 🧪 Testing enhanced dimension detection for:", testElementSelector);
+            
+            const testElement = document.querySelector(testElementSelector);
+            if (testElement) {
+                const dimensionResult = hasValidDimensions(testElement);
+                console.log("[Content] 🧪 Enhanced dimension test result:", dimensionResult);
+            } else {
+                console.log("[Content] ❌ Test element not found:", testElementSelector);
+            }
+            break;
+            
+        case 'testForceVisibility':
+            const forceElementSelector = event.detail?.selector || '.ast-menu-toggle';
+            console.log("[Content] 🧪 Testing force visibility for:", forceElementSelector);
+            
+            const forceElement = document.querySelector(forceElementSelector);
+            if (forceElement) {
+                const forceResult = forceElementVisibility(forceElement);
+                console.log("[Content] 🧪 Force visibility test result:", forceResult);
+            } else {
+                console.log("[Content] ❌ Force visibility test element not found:", forceElementSelector);
+            }
+            break;
+            
+        case 'testViewportAnalysis':
+            const viewportElementSelector = event.detail?.selector || '.ast-menu-toggle';
+            console.log("[Content] 🧪 Testing viewport analysis for:", viewportElementSelector);
+            
+            const viewportElement = document.querySelector(viewportElementSelector);
+            if (viewportElement) {
+                const viewportResult = analyzeViewportPosition(viewportElement);
+                console.log("[Content] 🧪 Viewport analysis test result:", viewportResult);
+            } else {
+                console.log("[Content] ❌ Viewport analysis test element not found:", viewportElementSelector);
+            }
+            break;
+            
+        case 'testViewportFix':
+            const fixElementSelector = event.detail?.selector || '.ast-menu-toggle';
+            console.log("[Content] 🧪 Testing viewport positioning fix for:", fixElementSelector);
+            
+            const fixElement = document.querySelector(fixElementSelector);
+            if (fixElement) {
+                const fixResult = fixViewportPositioning(fixElement);
+                console.log("[Content] 🧪 Viewport positioning fix test result:", fixResult);
+            } else {
+                console.log("[Content] ❌ Viewport positioning fix test element not found:", fixElementSelector);
+            }
+            break;
+            
+        case 'testUniversalClick':
+            const universalClickSelector = event.detail?.selector || '.ast-menu-toggle';
+            console.log("[Content] 🧪 Testing universal click for:", universalClickSelector);
+            
+            const universalClickElement = document.querySelector(universalClickSelector);
+            if (universalClickElement) {
+                const universalClickResult = universalClick(universalClickElement);
+                console.log("[Content] 🧪 Universal click test result:", universalClickResult);
+            } else {
+                console.log("[Content] ❌ Universal click test element not found:", universalClickSelector);
+            }
+            break;
+            
+        case 'testClickVerification':
+            const verifySelector = event.detail?.selector || '.ast-menu-toggle';
+            console.log("[Content] 🧪 Testing click verification for:", verifySelector);
+            
+            const verifyElement = document.querySelector(verifySelector);
+            if (verifyElement) {
+                verifyClickWorked(verifyElement).then(result => {
+                    console.log("[Content] 🧪 Click verification test result:", result);
+                });
+            } else {
+                console.log("[Content] ❌ Click verification test element not found:", verifySelector);
+            }
+            break;
+            
+        case 'testSubmenuInspection':
+            const submenuSelector = event.detail?.selector || '.ast-menu-toggle';
+            console.log("[Content] 🧪 Testing submenu inspection for:", submenuSelector);
+            
+            const submenuElement = document.querySelector(submenuSelector);
+            if (submenuElement) {
+                const submenuResult = inspectSubmenuContent(submenuElement);
+                console.log("[Content] 🧪 Submenu inspection test result:", submenuResult);
+            } else {
+                console.log("[Content] ❌ Submenu inspection test element not found:", submenuSelector);
+            }
+            break;
+            
+        case 'testDelayedSubmenuInspection':
+            const delayedSelector = event.detail?.selector || '.ast-menu-toggle';
+            console.log("[Content] 🧪 Testing delayed submenu inspection for:", delayedSelector);
+            
+            const delayedElement = document.querySelector(delayedSelector);
+            if (delayedElement) {
+                delayedSubmenuInspection(delayedElement, 1000).then(result => {
+                    console.log("[Content] 🧪 Delayed submenu inspection test result:", result);
+                });
+            } else {
+                console.log("[Content] ❌ Delayed submenu inspection test element not found:", delayedSelector);
+            }
+            break;
+            
+        case 'testDocumentSearch':
+            console.log("[Content] 🧪 Testing document-wide search for menu items...");
+            const searchResult = searchDocumentForMenuItems();
+            console.log("[Content] 🧪 Document search test result:", searchResult);
+            break;
+            
+        case 'testEnhancedMenuClick':
+            const enhancedSelector = event.detail?.selector || '[data-index="0"]';
+            console.log("[Content] 🧪 Testing enhanced menu click for:", enhancedSelector);
+            
+            const enhancedElement = document.querySelector(enhancedSelector);
+            if (enhancedElement) {
+                console.log("[Content] 🧪 Step 1: Universal clicking the menu button...");
+                const universalClickResult = universalClick(enhancedElement);
+                console.log("[Content] 🧪 Universal click result:", universalClickResult);
+                
+                // Wait a bit, then inspect
+                setTimeout(() => {
+                    console.log("[Content] 🧪 Step 2: Inspecting submenu content...");
+                    const submenuResult = inspectSubmenuContent(enhancedElement);
+                    console.log("[Content] 🧪 Enhanced menu click final result:", submenuResult);
+                }, 1500); // Wait 1.5 seconds for everything to load
+            } else {
+                console.log("[Content] ❌ Enhanced menu click test element not found:", enhancedSelector);
+            }
+            break;
+            
         default:
             console.log("[Content] 🧪 Unknown command:", command);
     }
@@ -200,7 +428,35 @@ console.log("[Content] 🧪 - executeAction: Execute an action");
 console.log("[Content] 🧪 - testQueue: Test the queue system");
 console.log("[Content] 🧪 - checkEngine: Check engine readiness");
 console.log("[Content] 🧪 - getStatus: Get system status including queue info");
-console.log("[Content] 🧪 Example: document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'checkEngine'}}))");
+console.log("[Content] 🧪 - getElementCoordinates: Get coordinates for an actionId");
+console.log("[Content] 🧪 - reveal: Reveal element details with smart resolution");
+console.log("[Content] 🧪 - getCoordinates: Get coordinates with smart resolution");
+console.log("[Content] 🧪 - testSmartClick: Test enhanced smart resolution clicking");
+console.log("[Content] 🧪 - testEnhancedDimensions: Test enhanced dimension detection");
+console.log("[Content] 🧪 - testForceVisibility: Test force visibility CSS override");
+console.log("[Content] 🧪 - testViewportAnalysis: Test viewport positioning analysis");
+console.log("[Content] 🧪 - testViewportFix: Test viewport positioning fixes");
+console.log("[Content] 🧪 - testUniversalClick: Test universal click for any element");
+console.log("[Content] 🧪 - testClickVerification: Test click verification system");
+console.log("[Content] 🧪 - testSubmenuInspection: Test submenu content inspection");
+console.log("[Content] 🧪 - testDelayedSubmenuInspection: Test delayed submenu inspection");
+console.log("[Content] 🧪 - testDocumentSearch: Test document-wide menu item search");
+console.log("[Content] 🧪 - testEnhancedMenuClick: Test complete enhanced menu click flow");
+console.log("[Content] 🧪 Examples:");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'getElementCoordinates', actionId: 'action_navigate_a_0'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'reveal', actionId: 'action_navigate_a_0'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'executeAction', actionId: 'action_navigate_a_0', action: 'click'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSmartClick', actionId: 'action_navigate_a_0'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedDimensions', selector: '.custom-logo-link'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testForceVisibility', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testViewportAnalysis', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testViewportFix', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testUniversalClick', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testClickVerification', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSubmenuInspection', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDelayedSubmenuInspection', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDocumentSearch'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedMenuClick', selector: '[data-index=\"0\"]'}}))");
 
 // Utility function for async delays
 var sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -898,6 +1154,26 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 const result = { enabled: true, message: "DOM change detection enabled" };
                 console.log("[Content] enableDOMChangeDetection result:", result);
                 return sendResponse(result);
+            }
+            
+            // 🆕 NEW: Get element coordinates by actionId
+            if (command === "getElementCoordinatesByActionId") {
+                const { actionId } = message.params || {};
+                if (!actionId) {
+                    sendResponse({ error: { code: "MISSING_PARAM", msg: "actionId is required" } });
+                    return;
+                }
+                console.log("[Content] getElementCoordinatesByActionId command - actionId:", actionId);
+                const node = resolveNodeFromActionId(actionId);
+                if (!node) {
+                    sendResponse({ error: { code: "NOT_FOUND", msg: `No element for ${actionId}` } });
+                    return;
+                }
+                const coords = coordsForNode(node);
+                const result = { ok: true, actionId, coords };
+                console.log("[Content] getElementCoordinatesByActionId result:", result);
+                sendResponse(result);
+                return;
             }
             
             if (command === "disableDOMChangeDetection") {
@@ -1716,6 +1992,1198 @@ function getElementCoordinates(element) {
         width: Math.round(rect.width),
         height: Math.round(rect.height)
     };
+}
+
+/**
+ * 🎯 Resolve a DOM node from an actionId by trying all stored selectors
+ * 
+ * @param {string} actionId - The action ID to look up
+ * @returns {Element|null} - DOM node or null if not found
+ */
+function resolveNodeFromActionId(actionId) {
+    const ae = window.intelligenceComponents?.intelligenceEngine?.getActionableElement?.(actionId);
+    if (!ae) return null;
+    
+    const sels = Array.isArray(ae.selectors) ? ae.selectors : [];
+    for (const sel of sels) {
+        try {
+            const n = document.querySelector(sel);
+            if (n) {
+                // Check if the element has dimensions
+                const rect = n.getBoundingClientRect();
+                if (rect.width > 0 && rect.height > 0) {
+                    return n; // Element is visible, return it
+                } else {
+                    // Element has no dimensions, look for visible children or siblings
+                    const visibleElement = findVisibleElement(n);
+                    if (visibleElement) {
+                        return visibleElement; // Return the visible element
+                    }
+                }
+            }
+        } catch (_) { /* ignore bad selector */ }
+    }
+    return null;
+}
+
+/**
+ * 🎯 Find a visible element when the target element has no dimensions
+ * 
+ * @param {Element} element - The element with no dimensions
+ * @returns {Element|null} - A visible element or null if none found
+ */
+function findVisibleElement(element) {
+    console.log(`[Smart Resolution] 🔍 Finding visible element for: ${element.tagName} (${element.className})`);
+    
+    // Strategy 1: Look for visible children (HIGHEST PRIORITY - most specific)
+    const children = element.querySelectorAll('*');
+    console.log(`[Smart Resolution] 🔍 Checking ${children.length} children...`);
+    
+    for (const child of children) {
+        // 🆕 ENHANCED: Use multi-property dimension detection
+        const dimensionCheck = hasValidDimensions(child);
+        if (dimensionCheck.hasDimensions) {
+            // Prioritize interactive elements
+            if (child.tagName === 'IMG' || child.tagName === 'BUTTON' || child.tagName === 'A') {
+                console.log(`[Smart Resolution] ✅ Found visible interactive child: ${child.tagName} (${dimensionCheck.bestDimensions.width}x${dimensionCheck.bestDimensions.height} via ${dimensionCheck.bestDimensions.method})`);
+                return child;
+            }
+        }
+    }
+    
+    // Strategy 2: Look for any visible children
+    for (const child of children) {
+        // 🆕 ENHANCED: Use multi-property dimension detection
+        const dimensionCheck = hasValidDimensions(child);
+        if (dimensionCheck.hasDimensions) {
+            console.log(`[Smart Resolution] ✅ Found visible child: ${child.tagName} (${dimensionCheck.bestDimensions.width}x${dimensionCheck.bestDimensions.height} via ${dimensionCheck.bestDimensions.method})`);
+            return child;
+        }
+    }
+    
+    // Strategy 3: Look for visible siblings (LIMITED SCOPE - similar elements only)
+    const siblings = element.parentElement?.children;
+    if (siblings) {
+        console.log(`[Smart Resolution] 🔍 Checking ${siblings.length} siblings...`);
+        for (const sibling of siblings) {
+            if (sibling.tagName === element.tagName) {
+                // 🆕 ENHANCED: Use multi-property dimension detection
+                const dimensionCheck = hasValidDimensions(sibling);
+                if (dimensionCheck.hasDimensions) {
+                    console.log(`[Smart Resolution] ✅ Found visible sibling: ${sibling.tagName} (${dimensionCheck.bestDimensions.width}x${dimensionCheck.bestDimensions.height} via ${dimensionCheck.bestDimensions.method})`);
+                    return sibling;
+                }
+            }
+        }
+    }
+    
+    // Strategy 4: Look for visible parent (LIMITED DEPTH - max 2 levels, size constraints)
+    let parent = element.parentElement;
+    let depth = 0;
+    console.log(`[Smart Resolution] 🔍 Checking parents (max depth: 2)...`);
+    
+    while (parent && parent !== document.body && depth < 2) {
+        // 🆕 ENHANCED: Use multi-property dimension detection
+        const dimensionCheck = hasValidDimensions(parent);
+        if (dimensionCheck.hasDimensions) {
+            // Only return parent if it's not too large (avoid header/body)
+            if (dimensionCheck.bestDimensions.width < 800 && dimensionCheck.bestDimensions.height < 200) {
+                console.log(`[Smart Resolution] ✅ Found suitable visible parent: ${parent.tagName} (${dimensionCheck.bestDimensions.width}x${dimensionCheck.bestDimensions.height} via ${dimensionCheck.bestDimensions.method})`);
+                return parent;
+            } else {
+                console.log(`[Smart Resolution] ⚠️ Parent too large, skipping: ${parent.tagName} (${dimensionCheck.bestDimensions.width}x${dimensionCheck.bestDimensions.height} via ${dimensionCheck.bestDimensions.method})`);
+            }
+        }
+        parent = parent.parentElement;
+        depth++;
+    }
+    
+    console.log(`[Smart Resolution] ❌ No suitable visible element found`);
+    return null;
+}
+
+/**
+ * 🆕 ENHANCED: Multi-property dimension detection based on Sentry.io guidance
+ * 
+ * Uses multiple element properties to detect if an element has valid dimensions:
+ * - getBoundingClientRect() - Visual positioning and size
+ * - offsetWidth/Height - Includes borders, padding, scrollbars
+ * - clientWidth/Height - Content + padding only
+ * - scrollWidth/Height - Total scrollable content
+ * 
+ * @param {Element} element - DOM element to check
+ * @returns {Object} - Dimension analysis with detailed breakdown
+ */
+function hasValidDimensions(element) {
+    if (!element) return { hasDimensions: false, reason: 'No element provided' };
+    
+    // Get all dimension properties
+    const rect = element.getBoundingClientRect();
+    const offsetWidth = element.offsetWidth;
+    const offsetHeight = element.offsetHeight;
+    const clientWidth = element.clientWidth;
+    const clientHeight = element.clientHeight;
+    const scrollWidth = element.scrollWidth;
+    const scrollHeight = element.scrollHeight;
+    
+    // 🆕 ENHANCED: Check CSS properties that affect visibility
+    const computedStyle = window.getComputedStyle(element);
+    const transform = computedStyle.getPropertyValue('transform');
+    const hasTransform = transform !== 'none';
+    
+    // 🆕 ENHANCED: Check critical CSS properties
+    const display = computedStyle.getPropertyValue('display');
+    const visibility = computedStyle.getPropertyValue('visibility');
+    const opacity = computedStyle.getPropertyValue('opacity');
+    const position = computedStyle.getPropertyValue('position');
+    const zIndex = computedStyle.getPropertyValue('z-index');
+    
+    // 🆕 ENHANCED: Check if element is hidden by CSS
+    const isHidden = (
+        display === 'none' ||
+        visibility === 'hidden' ||
+        opacity === '0' ||
+        position === 'absolute' && zIndex === '-1'
+    );
+    
+    // Analyze dimensions using multiple properties
+    const dimensionAnalysis = {
+        getBoundingClientRect: {
+            width: rect.width,
+            height: rect.height,
+            hasDimensions: rect.width > 0 && rect.height > 0
+        },
+        offsetDimensions: {
+            width: offsetWidth,
+            height: offsetHeight,
+            hasDimensions: offsetWidth > 0 && offsetHeight > 0
+        },
+        clientDimensions: {
+            width: clientWidth,
+            height: clientHeight,
+            hasDimensions: clientWidth > 0 && clientHeight > 0
+        },
+        scrollDimensions: {
+            width: scrollWidth,
+            height: scrollHeight,
+            hasDimensions: scrollWidth > 0 && scrollHeight > 0
+        },
+        cssProperties: {
+            display: display,
+            visibility: visibility,
+            opacity: opacity,
+            position: position,
+            zIndex: zIndex,
+            isHidden: isHidden
+        },
+        cssTransform: {
+            hasTransform: hasTransform,
+            transformValue: transform
+        }
+    };
+    
+    // Determine if element has valid dimensions using any method
+    const hasValidDimensions = (
+        dimensionAnalysis.getBoundingClientRect.hasDimensions ||
+        dimensionAnalysis.offsetDimensions.hasDimensions ||
+        dimensionAnalysis.clientDimensions.hasDimensions ||
+        dimensionAnalysis.scrollDimensions.hasDimensions
+    );
+    
+    // Find the best dimension values to use
+    let bestWidth = 0;
+    let bestHeight = 0;
+    let bestMethod = 'none';
+    
+    if (dimensionAnalysis.getBoundingClientRect.hasDimensions) {
+        bestWidth = rect.width;
+        bestHeight = rect.height;
+        bestMethod = 'getBoundingClientRect';
+    } else if (dimensionAnalysis.offsetDimensions.hasDimensions) {
+        bestWidth = offsetWidth;
+        bestHeight = offsetHeight;
+        bestMethod = 'offsetDimensions';
+    } else if (dimensionAnalysis.clientDimensions.hasDimensions) {
+        bestWidth = clientWidth;
+        bestHeight = clientHeight;
+        bestMethod = 'clientDimensions';
+    } else if (dimensionAnalysis.scrollDimensions.hasDimensions) {
+        bestWidth = scrollWidth;
+        bestHeight = scrollHeight;
+        bestMethod = 'scrollDimensions';
+    }
+    
+    const result = {
+        hasDimensions: hasValidDimensions,
+        bestDimensions: {
+            width: Math.round(bestWidth),
+            height: Math.round(bestHeight),
+            method: bestMethod
+        },
+        analysis: dimensionAnalysis,
+        reason: hasValidDimensions ? 
+            `Element has dimensions via ${bestMethod}: ${Math.round(bestWidth)}x${Math.round(bestHeight)}` :
+            `No valid dimensions found. CSS state: display=${display}, visibility=${visibility}, opacity=${opacity}, position=${position}, z-index=${zIndex}`
+    };
+    
+    console.log(`[Enhanced Dimensions] Analysis for ${element.tagName}:`, result);
+    return result;
+}
+
+/**
+ * 🆕 VIEWPORT ANALYSIS: Analyze element positioning and viewport visibility
+ * 
+ * This function checks if an element is positioned outside the viewport,
+ * has negative coordinates, or is affected by parent container issues.
+ * 
+ * @param {Element} element - DOM element to analyze
+ * @returns {Object} - Viewport analysis with positioning details
+ */
+function analyzeViewportPosition(element) {
+    if (!element) return { success: false, reason: 'No element provided' };
+    
+    console.log(`[Viewport Analysis] 🔍 Analyzing viewport position for ${element.tagName}...`);
+    
+    // Get all positioning information
+    const rect = element.getBoundingClientRect();
+    const computedStyle = window.getComputedStyle(element);
+    
+    // Get viewport dimensions
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    // Analyze positioning
+    const positioning = {
+        getBoundingClientRect: {
+            left: rect.left,
+            top: rect.top,
+            right: rect.right,
+            bottom: rect.bottom,
+            width: rect.width,
+            height: rect.height
+        },
+        cssPosition: {
+            position: computedStyle.getPropertyValue('position'),
+            left: computedStyle.getPropertyValue('left'),
+            top: computedStyle.getPropertyValue('top'),
+            right: computedStyle.getPropertyValue('right'),
+            bottom: computedStyle.getPropertyValue('bottom'),
+            margin: computedStyle.getPropertyValue('margin'),
+            padding: computedStyle.getPropertyValue('padding')
+        },
+        viewport: {
+            width: viewportWidth,
+            height: viewportHeight
+        }
+    };
+    
+    // Check if element is outside viewport
+    const isOutsideViewport = (
+        rect.right < 0 || 
+        rect.bottom < 0 || 
+        rect.left > viewportWidth || 
+        rect.top > viewportHeight
+    );
+    
+    // Check if element has negative coordinates
+    const hasNegativeCoords = rect.left < 0 || rect.top < 0;
+    
+    // Check if element is positioned but has no dimensions
+    const isPositionedButNoDimensions = (
+        computedStyle.getPropertyValue('position') !== 'static' &&
+        rect.width === 0 && rect.height === 0
+    );
+    
+    // Check parent container
+    const parent = element.parentElement;
+    let parentAnalysis = null;
+    if (parent) {
+        const parentRect = parent.getBoundingClientRect();
+        parentAnalysis = {
+            tagName: parent.tagName,
+            className: parent.className,
+            dimensions: `${Math.round(parentRect.width)}x${Math.round(parentRect.height)}`,
+            position: window.getComputedStyle(parent).getPropertyValue('position'),
+            overflow: window.getComputedStyle(parent).getPropertyValue('overflow')
+        };
+    }
+    
+    const result = {
+        isOutsideViewport: isOutsideViewport,
+        hasNegativeCoords: hasNegativeCoords,
+        isPositionedButNoDimensions: isPositionedButNoDimensions,
+        positioning: positioning,
+        parentAnalysis: parentAnalysis,
+        issues: []
+    };
+    
+    // Identify specific issues
+    if (isOutsideViewport) {
+        result.issues.push('Element is positioned outside viewport');
+    }
+    if (hasNegativeCoords) {
+        result.issues.push('Element has negative coordinates');
+    }
+    if (isPositionedButNoDimensions) {
+        result.issues.push('Element is positioned but has no dimensions');
+    }
+    if (rect.width === 0 && rect.height === 0) {
+        result.issues.push('Element has zero dimensions');
+    }
+    
+    console.log(`[Viewport Analysis] 📊 Analysis result:`, result);
+    return result;
+}
+
+/**
+ * 🆕 FIX VIEWPORT POSITIONING: Fix elements positioned outside viewport
+ * 
+ * This function attempts to fix elements that are positioned outside the viewport
+ * by adjusting their CSS positioning to bring them into view.
+ * 
+ * @param {Element} element - DOM element to fix
+ * @returns {Object} - Fix result with positioning details
+ */
+function fixViewportPositioning(element) {
+    if (!element) return { success: false, reason: 'No element provided' };
+    
+    console.log(`[Fix Viewport] 🔧 Attempting to fix viewport positioning for ${element.tagName}...`);
+    
+    // First analyze the current positioning
+    const analysis = analyzeViewportPosition(element);
+    
+    // Get current CSS state
+    const computedStyle = window.getComputedStyle(element);
+    const originalState = {
+        position: element.style.position,
+        left: element.style.left,
+        top: element.style.top,
+        right: element.style.right,
+        bottom: element.style.bottom,
+        margin: element.style.margin,
+        padding: element.style.padding
+    };
+    
+    try {
+        let fixesApplied = [];
+        
+        // Fix 1: If element is positioned absolute/fixed with no dimensions, try relative positioning
+        if (analysis.isPositionedButNoDimensions) {
+            element.style.position = 'relative';
+            element.style.left = '0px';
+            element.style.top = '0px';
+            fixesApplied.push('Changed position from absolute to relative');
+            console.log(`[Fix Viewport] ✅ Applied relative positioning fix`);
+        }
+        
+        // Fix 2: If element has negative coordinates, bring it into viewport
+        if (analysis.hasNegativeCoords) {
+            element.style.left = '10px';
+            element.style.top = '10px';
+            fixesApplied.push('Fixed negative coordinates');
+            console.log(`[Fix Viewport] ✅ Fixed negative coordinates`);
+        }
+        
+        // Fix 3: If element is outside viewport, center it
+        if (analysis.isOutsideViewport) {
+            element.style.position = 'fixed';
+            element.style.left = '50%';
+            element.style.top = '50%';
+            element.style.transform = 'translate(-50%, -50%)';
+            element.style.zIndex = '9999';
+            fixesApplied.push('Centered element in viewport');
+            console.log(`[Fix Viewport] ✅ Centered element in viewport`);
+        }
+        
+        // Fix 4: If element has no content, add minimal content for dimensions
+        if (analysis.positioning.getBoundingClientRect.width === 0 && analysis.positioning.getBoundingClientRect.height === 0) {
+            // Check if element has any content
+            if (!element.textContent.trim() && element.children.length === 0) {
+                // Add a minimal spacer div to give it dimensions
+                const spacer = document.createElement('div');
+                spacer.style.width = '20px';
+                spacer.style.height = '20px';
+                spacer.style.backgroundColor = 'transparent';
+                element.appendChild(spacer);
+                fixesApplied.push('Added minimal content for dimensions');
+                console.log(`[Fix Viewport] ✅ Added minimal content for dimensions`);
+            }
+        }
+        
+        // Check if fixes worked
+        const newAnalysis = analyzeViewportPosition(element);
+        const newDimensions = hasValidDimensions(element);
+        
+        const success = newDimensions.hasDimensions && !newAnalysis.isOutsideViewport;
+        
+        if (success) {
+            console.log(`[Fix Viewport] 🎯 SUCCESS: Element now has dimensions and is in viewport`);
+        } else {
+            console.log(`[Fix Viewport] ⚠️ Fixes applied but element still has issues`);
+        }
+        
+        return {
+            success: success,
+            fixesApplied: fixesApplied,
+            originalState: originalState,
+            newAnalysis: newAnalysis,
+            newDimensions: newDimensions,
+            reason: success ? 'Viewport positioning fixed successfully' : 'Viewport positioning fixes applied but issues remain'
+        };
+        
+    } catch (error) {
+        console.error(`[Fix Viewport] ❌ Error fixing viewport positioning:`, error);
+        return {
+            success: false,
+            originalState: originalState,
+            error: error.message,
+            reason: 'Error occurred while fixing viewport positioning'
+        };
+    }
+}
+
+/**
+ * 🆕 FORCE VISIBILITY: Temporarily make hidden elements visible for interaction
+ * 
+ * This function temporarily overrides CSS properties that hide elements,
+ * making them visible and clickable. It's used as a last resort when
+ * smart resolution fails due to CSS hiding.
+ * 
+ * @param {Element} element - DOM element to make visible
+ * @returns {Object} - Original CSS state and success status
+ */
+function forceElementVisibility(element) {
+    if (!element) return { success: false, reason: 'No element provided' };
+    
+    console.log(`[Force Visibility] 🔧 Attempting to make ${element.tagName} visible...`);
+    
+    // Get current CSS state
+    const computedStyle = window.getComputedStyle(element);
+    const originalState = {
+        display: element.style.display,
+        visibility: element.style.visibility,
+        opacity: element.style.opacity,
+        position: element.style.position,
+        zIndex: element.style.zIndex
+    };
+    
+    // Force visibility by overriding CSS
+    try {
+        // Force display block if hidden
+        if (computedStyle.display === 'none') {
+            element.style.display = 'block';
+            console.log(`[Force Visibility] ✅ Forced display: none → block`);
+        }
+        
+        // Force visibility visible if hidden
+        if (computedStyle.visibility === 'hidden') {
+            element.style.visibility = 'visible';
+            console.log(`[Force Visibility] ✅ Forced visibility: hidden → visible`);
+        }
+        
+        // Force opacity 1 if transparent
+        if (computedStyle.opacity === '0') {
+            element.style.opacity = '1';
+            console.log(`[Force Visibility] ✅ Forced opacity: 0 → 1`);
+        }
+        
+        // Force z-index if negative
+        if (computedStyle.position === 'absolute' && computedStyle.zIndex === '-1') {
+            element.style.zIndex = '9999';
+            console.log(`[Force Visibility] ✅ Forced z-index: -1 → 9999`);
+        }
+        
+        // Check if element now has dimensions
+        const newDimensionCheck = hasValidDimensions(element);
+        const success = newDimensionCheck.hasDimensions;
+        
+        if (success) {
+            console.log(`[Force Visibility] 🎯 SUCCESS: Element now has dimensions: ${newDimensionCheck.bestDimensions.width}x${newDimensionCheck.bestDimensions.height}`);
+        } else {
+            console.log(`[Force Visibility] ⚠️ Element still has no dimensions after CSS override`);
+        }
+        
+        return {
+            success: success,
+            originalState: originalState,
+            newDimensions: newDimensionCheck,
+            reason: success ? 'Element made visible via CSS override' : 'CSS override failed to give element dimensions'
+        };
+        
+    } catch (error) {
+        console.error(`[Force Visibility] ❌ Error forcing visibility:`, error);
+        return {
+            success: false,
+            originalState: originalState,
+            error: error.message,
+            reason: 'Error occurred while forcing visibility'
+        };
+    }
+}
+
+/**
+ * 🆕 UNIVERSAL CLICK: Click ANY element regardless of dimensions or state
+ * 
+ * This function provides a bulletproof way to click ANY element that exists
+ * in the DOM, regardless of dimensions, CSS state, or layout issues.
+ * It's the ultimate fallback for the intelligence system.
+ * 
+ * @param {Element} element - DOM element to click
+ * @returns {Object} - Click result and element details
+ */
+function universalClick(element) {
+    if (!element) return { success: false, reason: 'No element provided' };
+    
+    console.log(`[Universal Click] 🔥 UNIVERSAL CLICK on ${element.tagName} (${element.className})`);
+    
+    try {
+        // Get element details before clicking
+        const elementInfo = {
+            tagName: element.tagName,
+            className: element.className,
+            id: element.id,
+            textContent: element.textContent?.trim(),
+            ariaLabel: element.getAttribute('aria-label'),
+            ariaExpanded: element.getAttribute('aria-expanded'),
+            href: element.href || element.getAttribute('href'),
+            type: element.type || element.getAttribute('type')
+        };
+        
+        console.log(`[Universal Click] 📋 Element details:`, elementInfo);
+        
+        // 🆕 ENHANCED: Multiple click strategies for maximum compatibility
+        const clickStrategies = [
+            // Strategy 1: Native click() method
+            () => {
+                element.click();
+                return 'native click()';
+            },
+            
+            // Strategy 2: MouseEvent simulation
+            () => {
+                const clickEvent = new MouseEvent('click', {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window
+                });
+                element.dispatchEvent(clickEvent);
+                return 'MouseEvent simulation';
+            },
+            
+            // Strategy 3: Focus + Enter key
+            () => {
+                element.focus();
+                const enterEvent = new KeyboardEvent('keydown', {
+                    key: 'Enter',
+                    code: 'Enter',
+                    keyCode: 13,
+                    bubbles: true,
+                    cancelable: true
+                });
+                element.dispatchEvent(enterEvent);
+                return 'Focus + Enter key';
+            },
+            
+            // Strategy 4: mousedown + mouseup events
+            () => {
+                const mousedownEvent = new MouseEvent('mousedown', { bubbles: true, cancelable: true });
+                const mouseupEvent = new MouseEvent('mouseup', { bubbles: true, cancelable: true });
+                element.dispatchEvent(mousedownEvent);
+                element.dispatchEvent(mouseupEvent);
+                return 'mousedown + mouseup events';
+            },
+            
+            // Strategy 5: Touch events (for mobile compatibility)
+            () => {
+                const touchStartEvent = new TouchEvent('touchstart', { bubbles: true, cancelable: true });
+                const touchEndEvent = new TouchEvent('touchend', { bubbles: true, cancelable: true });
+                element.dispatchEvent(touchStartEvent);
+                element.dispatchEvent(touchEndEvent);
+                return 'touch events';
+            }
+        ];
+        
+        // Try each strategy until one works
+        let clickSuccess = false;
+        let clickMethod = 'none';
+        
+        for (const strategy of clickStrategies) {
+            try {
+                clickMethod = strategy();
+                clickSuccess = true;
+                console.log(`[Universal Click] ✅ Strategy succeeded: ${clickMethod}`);
+                break;
+            } catch (error) {
+                console.log(`[Universal Click] ⚠️ Strategy failed: ${clickMethod} - ${error.message}`);
+            }
+        }
+        
+        if (clickSuccess) {
+            console.log(`[Universal Click] 🎯 SUCCESS: Element clicked via ${clickMethod}!`);
+            
+            // 🆕 ENHANCED: Verify the click actually worked by checking for state changes
+            const clickVerification = verifyClickWorked(element);
+            if (clickVerification.worked) {
+                console.log(`[Universal Click] ✅ Click verification passed: ${clickVerification.reason}`);
+            } else {
+                console.log(`[Universal Click] ⚠️ Click verification failed: ${clickVerification.reason}`);
+            }
+            
+            return {
+                success: true,
+                clickMethod: clickMethod,
+                elementInfo: elementInfo,
+                clickVerification: clickVerification,
+                reason: `Element successfully clicked via ${clickMethod}`,
+                universal: true
+            };
+        } else {
+            console.log(`[Universal Click] ❌ All strategies failed`);
+            return {
+                success: false,
+                elementInfo: elementInfo,
+                reason: 'All click strategies failed',
+                universal: false
+            };
+        }
+        
+    } catch (error) {
+        console.error(`[Universal Click] ❌ Error in universal click:`, error);
+        return {
+            success: false,
+            error: error.message,
+            reason: 'Error occurred during universal click',
+            universal: false
+        };
+    }
+}
+
+/**
+ * 🆕 CLICK VERIFICATION: Verify if a click actually worked
+ * 
+ * This function checks if a click event actually triggered the expected behavior
+ * by monitoring state changes, attribute changes, and DOM modifications.
+ * 
+ * @param {Element} element - DOM element that was clicked
+ * @returns {Object} - Verification result with details
+ */
+function verifyClickWorked(element) {
+    if (!element) return { worked: false, reason: 'No element provided' };
+    
+    console.log(`[Click Verification] 🔍 Verifying click worked for ${element.tagName}...`);
+    
+    // Get initial state
+    const initialState = {
+        ariaExpanded: element.getAttribute('aria-expanded'),
+        className: element.className,
+        textContent: element.textContent?.trim(),
+        style: {
+            display: element.style.display,
+            visibility: element.style.visibility,
+            opacity: element.style.opacity
+        }
+    };
+    
+    console.log(`[Click Verification] 📋 Initial state:`, initialState);
+    
+    // Wait a bit for any state changes to occur
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            // Get final state
+            const finalState = {
+                ariaExpanded: element.getAttribute('aria-expanded'),
+                className: element.className,
+                textContent: element.textContent?.trim(),
+                style: {
+                    display: element.style.display,
+                    visibility: element.style.visibility,
+                    opacity: element.style.opacity
+                }
+            };
+            
+            console.log(`[Click Verification] 📋 Final state:`, finalState);
+            
+            // Check for state changes that indicate the click worked
+            let worked = false;
+            let reason = 'No state changes detected';
+            
+            // Check aria-expanded changes (common for toggle buttons)
+            if (initialState.ariaExpanded !== finalState.ariaExpanded) {
+                worked = true;
+                reason = `aria-expanded changed from "${initialState.ariaExpanded}" to "${finalState.ariaExpanded}"`;
+            }
+            
+            // Check class changes (common for state toggles)
+            if (initialState.className !== finalState.className) {
+                worked = true;
+                reason = `className changed from "${initialState.className}" to "${finalState.className}"`;
+            }
+            
+            // Check text content changes
+            if (initialState.textContent !== finalState.textContent) {
+                worked = true;
+                reason = `textContent changed from "${initialState.textContent}" to "${finalState.textContent}"`;
+            }
+            
+            // Check for DOM mutations (new elements, removed elements)
+            const mutations = checkForDOMChanges(element);
+            if (mutations.length > 0) {
+                worked = true;
+                reason = `DOM changes detected: ${mutations.join(', ')}`;
+            }
+            
+            // 🆕 ENHANCED: Inspect the actual submenu content
+            const submenuContent = inspectSubmenuContent(element);
+            if (submenuContent.hasSubmenu) {
+                reason += ` | Submenu content: ${submenuContent.summary}`;
+                
+                // 🆕 ENHANCED: Log the actual menu items found
+                if (submenuContent.items && submenuContent.items.length > 0) {
+                    console.log(`[Click Verification] 📋 Menu items found:`, submenuContent.items.map(item => item.text || item.textContent));
+                }
+                
+                // 🆕 ENHANCED: Log all containers if available
+                if (submenuContent.allContainers && submenuContent.allContainers.length > 0) {
+                    console.log(`[Click Verification] 📦 All containers found:`, submenuContent.allContainers.map(container => ({
+                        selector: container.selector,
+                        itemCount: container.items.length
+                    })));
+                }
+            }
+            
+            const result = {
+                worked: worked,
+                reason: reason,
+                initialState: initialState,
+                finalState: finalState,
+                mutations: mutations,
+                submenuContent: submenuContent
+            };
+            
+            console.log(`[Click Verification] 📊 Verification result:`, result);
+            resolve(result);
+        }, 100); // Wait 100ms for state changes
+    });
+}
+
+/**
+ * 🆕 DOM CHANGE DETECTION: Check for DOM mutations after click
+ * 
+ * @param {Element} element - Element to monitor for changes
+ * @returns {Array} - List of detected changes
+ */
+function checkForDOMChanges(element) {
+    const changes = [];
+    
+    // Check if element has new children
+    if (element.children.length > 0) {
+        changes.push(`Element now has ${element.children.length} children`);
+    }
+    
+    // Check if parent has new children
+    if (element.parentElement && element.parentElement.children.length > 0) {
+        changes.push(`Parent now has ${element.parentElement.children.length} children`);
+    }
+    
+    // Check for new elements in the document
+    const newElements = document.querySelectorAll('[data-clicked]');
+    if (newElements.length > 0) {
+        changes.push(`${newElements.length} new elements with data-clicked attribute`);
+    }
+    
+    return changes;
+}
+
+/**
+ * 🆕 SUBMENU INSPECTION: Inspect submenu content after click
+ * 
+ * This function examines the DOM after a click to see what submenu
+ * content was revealed, including navigation items, links, and structure.
+ * 
+ * @param {Element} element - Element that was clicked (usually button)
+ * @returns {Object} - Submenu content analysis
+ */
+function inspectSubmenuContent(element) {
+    if (!element) return { hasSubmenu: false, reason: 'No element provided' };
+    
+    console.log(`[Submenu Inspection] 🔍 Inspecting submenu content for ${element.tagName}...`);
+    
+    // Look for common submenu patterns
+    const submenuSelectors = [
+        // Navigation menus
+        'nav',
+        '.nav',
+        '.navigation',
+        '.menu',
+        '.submenu',
+        '.dropdown',
+        '.dropdown-menu',
+        '.mobile-menu',
+        '.mobile-nav',
+        // Astra theme specific
+        '.ast-mobile-popup-drawer',
+        '.ast-mobile-header-navigation',
+        '.ast-mobile-menu-buttons',
+        // Generic patterns
+        '[role="navigation"]',
+        '[aria-label*="menu"]',
+        '[aria-label*="navigation"]'
+    ];
+    
+    let submenuFound = null;
+    let submenuContent = [];
+    
+    // Search for submenu in the document
+    for (const selector of submenuSelectors) {
+        const submenu = document.querySelector(selector);
+        if (submenu && submenu !== element && isElementVisible(submenu)) {
+            submenuFound = submenu;
+            console.log(`[Submenu Inspection] ✅ Found submenu: ${selector}`);
+            break;
+        }
+    }
+    
+    if (submenuFound) {
+        // Extract submenu content
+        const menuItems = submenuFound.querySelectorAll('a, button, li, .menu-item, .nav-item');
+        console.log(`[Submenu Inspection] 📋 Found ${menuItems.length} menu items`);
+        
+        menuItems.forEach((item, index) => {
+            const itemInfo = {
+                index: index,
+                tagName: item.tagName,
+                text: item.textContent?.trim() || '',
+                href: item.href || item.getAttribute('href') || null,
+                className: item.className || '',
+                ariaLabel: item.getAttribute('aria-label') || null
+            };
+            
+            // Only include items with meaningful content
+            if (itemInfo.text.length > 0 || itemInfo.href) {
+                submenuContent.push(itemInfo);
+                console.log(`[Submenu Inspection] 📋 Menu item ${index}: ${itemInfo.text} (${itemInfo.tagName})`);
+            }
+        });
+        
+        // Get submenu dimensions and position
+        const rect = submenuFound.getBoundingClientRect();
+        const submenuInfo = {
+            selector: generateSelector(submenuFound),
+            dimensions: `${Math.round(rect.width)}x${Math.round(rect.height)}`,
+            position: `${Math.round(rect.left)},${Math.round(rect.top)}`,
+            visible: isElementVisible(submenuFound),
+            itemCount: submenuContent.length
+        };
+        
+        return {
+            hasSubmenu: true,
+            submenu: submenuInfo,
+            items: submenuContent,
+            summary: `${submenuContent.length} items in ${submenuInfo.dimensions} submenu`,
+            reason: `Submenu found with ${submenuContent.length} navigation items`
+        };
+    }
+    
+    // Check if the clicked element itself has new children
+    if (element.children.length > 0) {
+        const children = Array.from(element.children).map((child, index) => ({
+            index: index,
+            tagName: child.tagName,
+            text: child.textContent?.trim() || '',
+            className: child.className || ''
+        }));
+        
+        return {
+            hasSubmenu: true,
+            submenu: { type: 'inline', itemCount: children.length },
+            items: children,
+            summary: `${children.length} inline items`,
+            reason: `Element has ${children.length} new children after click`
+        };
+    }
+    
+    // 🆕 ENHANCED: Look for mobile menu containers that might be dynamically revealed
+    const mobileMenuSelectors = [
+        // Astra theme specific mobile menus
+        '.ast-mobile-popup-drawer',
+        '.ast-mobile-header-navigation',
+        '.ast-mobile-menu-buttons',
+        '.ast-mobile-menu',
+        '.ast-mobile-nav',
+        // Generic mobile menu patterns
+        '.mobile-menu',
+        '.mobile-nav',
+        '.mobile-popup',
+        '.mobile-drawer',
+        '.mobile-overlay',
+        // Navigation containers
+        '.navigation',
+        '.nav-menu',
+        '.menu-container',
+        // Look for elements with mobile-related classes
+        '[class*="mobile"]',
+        '[class*="popup"]',
+        '[class*="drawer"]',
+        // 🆕 ADDITIONAL: More specific selectors for this site
+        '.menu-link',
+        '.ast-mobile-header',
+        '.ast-header-navigation',
+        '.ast-navigation',
+        '.ast-menu',
+        '.ast-header-menu',
+        // 🆕 ADDITIONAL: Look for elements with the menu items we know exist
+        'a[href*="brighttreedigital.com.au"]',
+        'a[href*="about"]',
+        'a[href*="services"]',
+        'a[href*="contact"]'
+    ];
+    
+    for (const selector of mobileMenuSelectors) {
+        const mobileMenu = document.querySelector(selector);
+        if (mobileMenu && mobileMenu !== element && isElementVisible(mobileMenu)) {
+            console.log(`[Submenu Inspection] 🔍 Found mobile menu container: ${selector}`);
+            
+            // Look for actual menu items within the container
+            const menuItems = mobileMenu.querySelectorAll('a, button, li, .menu-item, .nav-item, .ast-menu-item');
+            console.log(`[Submenu Inspection] 📋 Found ${menuItems.length} menu items in mobile container`);
+            
+            if (menuItems.length > 0) {
+                const items = Array.from(menuItems).map((item, index) => ({
+                    index: index,
+                    tagName: item.tagName,
+                    text: item.textContent?.trim() || '',
+                    href: item.href || item.getAttribute('href') || null,
+                    className: item.className || '',
+                    ariaLabel: item.getAttribute('aria-label') || null
+                })).filter(item => item.text.length > 0 || item.href);
+                
+                const rect = mobileMenu.getBoundingClientRect();
+                return {
+                    hasSubmenu: true,
+                    submenu: {
+                        type: 'mobile-container',
+                        selector: selector,
+                        dimensions: `${Math.round(rect.width)}x${Math.round(rect.height)}`,
+                        position: `${Math.round(rect.left)},${Math.round(rect.top)}`,
+                        itemCount: items.length
+                    },
+                    items: items,
+                    summary: `${items.length} items in mobile menu container`,
+                    reason: `Mobile menu container found with ${items.length} navigation items`
+                };
+            }
+        }
+    }
+    
+    // 🆕 FINAL RESORT: Use document-wide search to find menu items
+    console.log(`[Submenu Inspection] 🔍 No submenu found via selectors, trying document-wide search...`);
+    const documentSearch = searchDocumentForMenuItems(element);
+    
+    if (documentSearch.totalItems > 0) {
+        console.log(`[Submenu Inspection] ✅ Document search found ${documentSearch.totalItems} menu items in ${documentSearch.containers.length} containers`);
+        
+        // Find the most likely container (the one with the most menu items)
+        const primaryContainer = documentSearch.containers.reduce((max, container) => 
+            container.items.length > max.items.length ? container : max
+        );
+        
+        if (primaryContainer && primaryContainer.items.length > 0) {
+            const rect = primaryContainer.container.getBoundingClientRect();
+            return {
+                hasSubmenu: true,
+                submenu: {
+                    type: 'document-search',
+                    selector: primaryContainer.selector,
+                    dimensions: `${Math.round(rect.width)}x${Math.round(rect.height)}`,
+                    position: `${Math.round(rect.left)},${Math.round(rect.top)}`,
+                    itemCount: primaryContainer.items.length,
+                    totalItemsFound: documentSearch.totalItems,
+                    containersFound: documentSearch.containers.length
+                },
+                items: primaryContainer.items,
+                allContainers: documentSearch.containers,
+                summary: `${primaryContainer.items.length} items in primary container (${documentSearch.totalItems} total found)`,
+                reason: `Document search found ${documentSearch.totalItems} menu items across ${documentSearch.containers.length} containers`
+            };
+        }
+    }
+    
+    return {
+        hasSubmenu: false,
+        reason: 'No submenu content found via any method'
+    };
+}
+
+/**
+ * 🆕 DOCUMENT-WIDE SEARCH: Search entire document for menu items
+ * 
+ * This function searches the entire document for elements that contain
+ * the menu items we know should exist, regardless of where they are.
+ * 
+ * @param {Element} element - Element that was clicked (for context)
+ * @returns {Object} - Document-wide search results
+ */
+function searchDocumentForMenuItems(element) {
+    console.log(`[Document Search] 🔍 Searching entire document for menu items...`);
+    
+    // Search for elements containing the menu items we know exist
+    const knownMenuItems = [
+        'HOME',
+        'ABOUT', 
+        'SERVICES',
+        'CONTACT',
+        'Banner Design',
+        'Logo Design',
+        'Web Design'
+    ];
+    
+    const foundItems = [];
+    const searchSelectors = [
+        'a', 'button', 'li', '.menu-item', '.nav-item', '.ast-menu-item'
+    ];
+    
+    // Search through all elements with these selectors
+    for (const selector of searchSelectors) {
+        const elements = document.querySelectorAll(selector);
+        console.log(`[Document Search] 🔍 Searching ${elements.length} ${selector} elements...`);
+        
+        elements.forEach((el, index) => {
+            const text = el.textContent?.trim() || '';
+            const href = el.href || el.getAttribute('href') || '';
+            
+            // Check if this element contains any of our known menu items
+            for (const menuItem of knownMenuItems) {
+                if (text.includes(menuItem) || href.includes(menuItem.toLowerCase().replace(' ', '-'))) {
+                    foundItems.push({
+                        element: el,
+                        text: text,
+                        href: href,
+                        selector: generateSelector(el),
+                        tagName: el.tagName,
+                        className: el.className || ''
+                    });
+                    console.log(`[Document Search] ✅ Found menu item: "${text}" (${el.tagName})`);
+                    break; // Found one match, move to next element
+                }
+            }
+        });
+    }
+    
+    // Group items by their parent container
+    const containers = new Map();
+    foundItems.forEach(item => {
+        const parent = item.element.parentElement;
+        if (parent) {
+            const parentSelector = generateSelector(parent);
+            if (!containers.has(parentSelector)) {
+                containers.set(parentSelector, {
+                    container: parent,
+                    selector: parentSelector,
+                    items: []
+                });
+            }
+            containers.get(parentSelector).items.push(item);
+        }
+    });
+    
+    console.log(`[Document Search] 📊 Found ${foundItems.length} menu items in ${containers.size} containers`);
+    
+    return {
+        totalItems: foundItems.length,
+        containers: Array.from(containers.values()),
+        allItems: foundItems,
+        summary: `${foundItems.length} menu items found in ${containers.size} containers`
+    };
+}
+
+/**
+ * 🆕 DELAYED SUBMENU INSPECTION: Wait for dynamic content to load
+ * 
+ * This function waits a bit after a click to allow dynamic content
+ * to fully load before inspecting the submenu.
+ * 
+ * @param {Element} element - Element that was clicked
+ * @param {number} delay - Delay in milliseconds (default: 500ms)
+ * @returns {Promise} - Promise that resolves with submenu content
+ */
+function delayedSubmenuInspection(element, delay = 500) {
+    return new Promise((resolve) => {
+        console.log(`[Delayed Inspection] ⏳ Waiting ${delay}ms for dynamic content to load...`);
+        
+        setTimeout(() => {
+            console.log(`[Delayed Inspection] 🔍 Now inspecting submenu content...`);
+            const result = inspectSubmenuContent(element);
+            console.log(`[Delayed Inspection] 📊 Delayed inspection result:`, result);
+            resolve(result);
+        }, delay);
+    });
+}
+
+/**
+ * 🆕 UTILITY: Check if element is visible
+ * 
+ * @param {Element} element - Element to check
+ * @returns {boolean} - Whether element is visible
+ */
+function isElementVisible(element) {
+    if (!element) return false;
+    
+    const style = window.getComputedStyle(element);
+    return style.display !== 'none' && 
+           style.visibility !== 'hidden' && 
+           style.opacity !== '0' &&
+           element.offsetWidth > 0 && 
+           element.offsetHeight > 0;
+}
+
+/**
+ * 🆕 UTILITY: Generate CSS selector for element
+ * 
+ * @param {Element} element - Element to generate selector for
+ * @returns {string} - CSS selector
+ */
+function generateSelector(element) {
+    if (!element) return '';
+    
+    if (element.id) {
+        return `#${element.id}`;
+    }
+    
+    if (element.className) {
+        const classes = element.className.split(' ').filter(c => c.length > 0);
+        if (classes.length > 0) {
+            return `.${classes[0]}`;
+        }
+    }
+    
+    return element.tagName.toLowerCase();
+}
+
+/**
+ * 🎯 Compute viewport + page coords for a node
+ * 
+ * @param {Element} node - DOM element
+ * @returns {Object} - Viewport and page coordinates
+ */
+function coordsForNode(node) {
+    const r = node.getBoundingClientRect();
+    const viewport = {
+        x: Math.round(r.left + r.width / 2),
+        y: Math.round(r.top + r.height / 2),
+        left: Math.round(r.left),
+        top: Math.round(r.top),
+        width: Math.round(r.width),
+        height: Math.round(r.height)
+    };
+    const page = {
+        x: viewport.x + window.scrollX,
+        y: viewport.y + window.scrollY,
+        left: viewport.left + window.scrollX,
+        top: viewport.top + window.scrollY,
+        width: viewport.width,
+        height: viewport.height
+    };
+    return { viewport, page };
 }
 
 /**
@@ -2759,8 +4227,10 @@ IntelligenceEngine.prototype.isInteractiveElement = function(element) {
     
     // Check for click handlers or interactive classes
     const className = element.className || '';
+    // 🆕 FIX: Handle both string and DOMTokenList for className
+    const classNameStr = typeof className === 'string' ? className : className.toString();
     const interactiveClasses = ['btn', 'button', 'clickable', 'interactive', 'link'];
-    if (interactiveClasses.some(cls => className.toLowerCase().includes(cls))) return true;
+    if (interactiveClasses.some(cls => classNameStr.toLowerCase().includes(cls))) return true;
     
     // Check for event listeners (basic check)
     if (element.onclick || element.onmousedown || element.onmouseup) return true;
@@ -2781,6 +4251,13 @@ IntelligenceEngine.prototype.passesBasicQualityFilter = function(element) {
     // 🚫 Filter out elements with aria-hidden="true"
     const ariaHidden = element.getAttribute('aria-hidden');
     if (ariaHidden === 'true') return false;
+    
+    // 🆕 ENHANCED: Always include interactive elements regardless of dimensions
+    const isInteractiveElement = this.isInteractiveElement(element);
+    if (isInteractiveElement) {
+        console.log(`[Quality Filter] ✅ Including interactive element: ${element.tagName} (${element.className})`);
+        return true; // Always include interactive elements
+    }
     
     // 🚫 Filter out elements with no meaningful content
     const text = element.textContent?.trim();
@@ -3664,17 +5141,135 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
         switch (action) {
             case 'click':
                 console.log("[Content] 🖱️ Executing click action on element");
-                element.click();
-                result = { success: true, action: 'click', elementId: actionId, message: 'Element clicked successfully' };
+                
+                // 🆕 ENHANCED SMART RESOLUTION: Find the best clickable target
+                let clickTarget = element;
+                let clickTargetInfo = "original element";
+                
+                // 🆕 ENHANCED: Use multi-property dimension detection
+                let dimensionCheck = hasValidDimensions(element);
+                if (!dimensionCheck.hasDimensions) {
+                    console.log("[Content] 🔍 Original element has no valid dimensions, using smart resolution...");
+                    console.log("[Content] 🔍 Dimension analysis:", dimensionCheck.reason);
+                    
+                    // Use our enhanced smart resolution to find a visible element
+                    let visibleElement = findVisibleElement(element);
+                    if (visibleElement) {
+                        clickTarget = visibleElement;
+                        // Get dimensions of the resolved element
+                        let resolvedDimensions = hasValidDimensions(visibleElement);
+                        clickTargetInfo = `visible ${visibleElement.tagName.toLowerCase()} (${resolvedDimensions.bestDimensions.width}x${resolvedDimensions.bestDimensions.height} via ${resolvedDimensions.bestDimensions.method})`;
+                        console.log("[Content] ✅ Enhanced smart resolution found click target:", clickTargetInfo);
+                    } else {
+                        console.log("[Content] ⚠️ Enhanced smart resolution failed, attempting force visibility...");
+                        
+                        // 🆕 LAST RESORT: Try to force the element visible via CSS override
+                        const forceResult = forceElementVisibility(element);
+                        if (forceResult.success) {
+                            clickTarget = element;
+                            clickTargetInfo = `force-visible ${element.tagName.toLowerCase()} (${forceResult.newDimensions.bestDimensions.width}x${forceResult.newDimensions.bestDimensions.height})`;
+                            console.log("[Content] 🎯 Force visibility succeeded:", clickTargetInfo);
+                        } else {
+                            console.log("[Content] ❌ Force visibility failed, attempting viewport positioning fix...");
+                            
+                            // 🆕 FINAL RESORT: Try to fix viewport positioning issues
+                            const viewportResult = fixViewportPositioning(element);
+                            if (viewportResult.success) {
+                                clickTarget = element;
+                                clickTargetInfo = `viewport-fixed ${element.tagName.toLowerCase()} (${viewportResult.newDimensions.bestDimensions.width}x${viewportResult.newDimensions.bestDimensions.height})`;
+                                console.log("[Content] 🎯 Viewport positioning fix succeeded:", clickTargetInfo);
+                            } else {
+                                console.log("[Content] ❌ Viewport positioning fix failed, attempting FORCE CLICK...");
+                                
+                                                            // 🆕 ULTIMATE RESORT: Universal click the element!
+                            const universalClickResult = universalClick(element);
+                            if (universalClickResult.success) {
+                                clickTarget = element;
+                                clickTargetInfo = `universal-clicked ${element.tagName.toLowerCase()} via ${universalClickResult.clickMethod}`;
+                                console.log("[Content] 🔥 UNIVERSAL CLICK succeeded:", clickTargetInfo);
+                            } else {
+                                console.log("[Content] ❌ Universal click failed:", universalClickResult.reason);
+                                console.log("[Content] ⚠️ Using original element despite no dimensions");
+                            }
+                            }
+                        }
+                    }
+                } else {
+                    console.log("[Content] ✅ Original element has valid dimensions:", `${dimensionCheck.bestDimensions.width}x${dimensionCheck.bestDimensions.height} via ${dimensionCheck.bestDimensions.method}`);
+                }
+                
+                // 🆕 ENHANCED: Always use the original element as click target if it's interactive
+                // This ensures we click the actual button, not a fallback element
+                if (element.tagName === 'BUTTON' || element.tagName === 'A' || element.tagName === 'INPUT') {
+                    clickTarget = element;
+                    clickTargetInfo = `original ${element.tagName.toLowerCase()} (force-clicked)`;
+                    console.log("[Content] 🎯 Using original interactive element for click");
+                }
+                
+                // Execute the click on the resolved target
+                console.log("[Content] 🖱️ Clicking target:", clickTargetInfo);
+                clickTarget.click();
+                
+                result = { 
+                    success: true, 
+                    action: 'click', 
+                    elementId: actionId, 
+                    message: 'Element clicked successfully',
+                    clickTarget: clickTargetInfo,
+                    originalElement: {
+                        tagName: element.tagName,
+                        selector: selector,
+                        dimensions: `${dimensionCheck.bestDimensions.width}x${dimensionCheck.bestDimensions.height}`,
+                        dimensionMethod: dimensionCheck.bestDimensions.method,
+                        dimensionAnalysis: dimensionCheck.analysis
+                    }
+                };
                 break;
                 
             case 'navigate':
                 console.log("[Content] 🧭 Executing navigation action on element");
                 if (actionableElement.attributes?.href) {
                     console.log("[Content] 🧭 Using stored href:", actionableElement.attributes.href);
-                    // Navigate using the stored href
+                    
+                    // 🆕 SMART RESOLUTION: Find the best clickable target for navigation
+                    let navTarget = element;
+                    let navTargetInfo = "original element";
+                    
+                    // Check if the original element has dimensions
+                    let navRect = element.getBoundingClientRect();
+                    if (navRect.width === 0 || navRect.height === 0) {
+                        console.log("[Content] 🔍 Navigation element has zero dimensions, using smart resolution...");
+                        
+                        // Use our smart resolution to find a visible element
+                        let visibleNavElement = findVisibleElement(element);
+                        if (visibleNavElement) {
+                            navTarget = visibleNavElement;
+                            navTargetInfo = `visible ${visibleNavElement.tagName.toLowerCase()} (${Math.round(visibleNavElement.getBoundingClientRect().width)}x${Math.round(visibleNavElement.getBoundingClientRect().height)})`;
+                            console.log("[Content] ✅ Smart resolution found navigation target:", navTargetInfo);
+                        } else {
+                            console.log("[Content] ⚠️ Smart resolution failed, using original element");
+                        }
+                    } else {
+                        console.log("[Content] ✅ Navigation element has dimensions:", `${Math.round(navRect.width)}x${Math.round(navRect.height)}`);
+                    }
+                    
+                    // Execute the navigation using the resolved target
+                    console.log("[Content] 🧭 Navigating using target:", navTargetInfo);
                     window.location.href = actionableElement.attributes.href;
-                    result = { success: true, action: 'navigate', elementId: actionId, message: 'Navigation executed successfully', href: actionableElement.attributes.href };
+                    
+                    result = { 
+                        success: true, 
+                        action: 'navigate', 
+                        elementId: actionId, 
+                        message: 'Navigation executed successfully', 
+                        href: actionableElement.attributes.href,
+                        navTarget: navTargetInfo,
+                        originalElement: {
+                            tagName: element.tagName,
+                            selector: selector,
+                            dimensions: `${Math.round(element.getBoundingClientRect().width)}x${Math.round(element.getBoundingClientRect().height)}`
+                        }
+                    };
                 } else {
                     console.error("[Content] ❌ No href attribute found for navigation element");
                     result = { success: false, error: "No href attribute found for navigation" };
@@ -3729,8 +5324,151 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                 break;
                 
             case 'focus':
-                element.focus();
-                result = { success: true, action: 'focus', elementId: actionId, message: 'Element focused successfully' };
+                console.log("[Content] 🎯 Executing focus action on element");
+                
+                // 🆕 SMART RESOLUTION: Find the best focusable target
+                let focusTarget = element;
+                let focusTargetInfo = "original element";
+                
+                // Check if the original element has dimensions
+                let focusRect = element.getBoundingClientRect();
+                if (focusRect.width === 0 || focusRect.height === 0) {
+                    console.log("[Content] 🔍 Focus element has zero dimensions, using smart resolution...");
+                    
+                    // Use our smart resolution to find a visible element
+                    let visibleFocusElement = findVisibleElement(element);
+                    if (visibleFocusElement) {
+                        focusTarget = visibleFocusElement;
+                        focusTargetInfo = `visible ${visibleFocusElement.tagName.toLowerCase()} (${Math.round(visibleFocusElement.getBoundingClientRect().width)}x${Math.round(visibleFocusElement.getBoundingClientRect().height)})`;
+                        console.log("[Content] ✅ Smart resolution found focus target:", focusTargetInfo);
+                    } else {
+                        console.log("[Content] ⚠️ Smart resolution failed, using original element");
+                    }
+                } else {
+                    console.log("[Content] ✅ Focus element has dimensions:", `${Math.round(focusRect.width)}x${Math.round(focusRect.height)}`);
+                }
+                
+                // Execute the focus on the resolved target
+                console.log("[Content] 🎯 Focusing target:", focusTargetInfo);
+                focusTarget.focus();
+                
+                result = { 
+                    success: true, 
+                    action: 'focus', 
+                    elementId: actionId, 
+                    message: 'Element focused successfully',
+                    focusTarget: focusTargetInfo,
+                    originalElement: {
+                        tagName: element.tagName,
+                        selector: selector,
+                        dimensions: `${Math.round(element.getBoundingClientRect().width)}x${Math.round(element.getBoundingClientRect().height)}`
+                    }
+                };
+                break;
+                
+            case 'getCoordinates':
+                console.log("[Content] 📍 Getting coordinates for element");
+                
+                // 🆕 SMART RESOLUTION: Find the best target for coordinate calculation
+                let coordTarget = element;
+                let coordTargetInfo = "original element";
+                
+                // Check if the original element has dimensions
+                let coordRect = element.getBoundingClientRect();
+                if (coordRect.width === 0 || coordRect.height === 0) {
+                    console.log("[Content] 🔍 Coordinate element has zero dimensions, using smart resolution...");
+                    
+                    // Use our smart resolution to find a visible element
+                    let visibleCoordElement = findVisibleElement(element);
+                    if (visibleCoordElement) {
+                        coordTarget = visibleCoordElement;
+                        coordTargetInfo = `visible ${visibleCoordElement.tagName.toLowerCase()} (${Math.round(visibleCoordElement.getBoundingClientRect().width)}x${Math.round(visibleCoordElement.getBoundingClientRect().height)})`;
+                        console.log("[Content] ✅ Smart resolution found coordinate target:", coordTargetInfo);
+                    } else {
+                        console.log("[Content] ⚠️ Smart resolution failed, using original element");
+                    }
+                } else {
+                    console.log("[Content] ✅ Coordinate element has dimensions:", `${Math.round(coordRect.width)}x${Math.round(coordRect.height)}`);
+                }
+                
+                // Calculate coordinates for the resolved target
+                let coordinates = coordsForNode(coordTarget);
+                console.log("[Content] 📍 Calculated coordinates for target:", coordTargetInfo);
+                
+                result = { 
+                    success: true, 
+                    action: 'getCoordinates', 
+                    elementId: actionId, 
+                    message: 'Element coordinates retrieved successfully',
+                    coordinates: coordinates,
+                    coordTarget: coordTargetInfo,
+                    originalElement: {
+                        tagName: element.tagName,
+                        selector: selector,
+                        dimensions: `${Math.round(element.getBoundingClientRect().width)}x${Math.round(element.getBoundingClientRect().height)}`
+                    }
+                };
+                break;
+                
+            case 'reveal':
+                console.log("[Content] 🔍 Revealing element details for debugging");
+                
+                // 🆕 SMART RESOLUTION: Find the best target for revelation
+                let revealTarget = element;
+                let revealTargetInfo = "original element";
+                
+                // Check if the original element has dimensions
+                let revealRect = element.getBoundingClientRect();
+                if (revealRect.width === 0 || revealRect.height === 0) {
+                    console.log("[Content] 🔍 Reveal element has zero dimensions, using smart resolution...");
+                    
+                    // Use our smart resolution to find a visible element
+                    let visibleRevealElement = findVisibleElement(element);
+                    if (visibleRevealElement) {
+                        revealTarget = visibleRevealElement;
+                        revealTargetInfo = `visible ${visibleRevealElement.tagName.toLowerCase()} (${Math.round(visibleRevealElement.getBoundingClientRect().width)}x${Math.round(visibleRevealElement.getBoundingClientRect().height)})`;
+                        console.log("[Content] ✅ Smart resolution found reveal target:", revealTargetInfo);
+                    } else {
+                        console.log("[Content] ⚠️ Smart resolution failed, using original element");
+                    }
+                } else {
+                    console.log("[Content] ✅ Reveal element has dimensions:", `${Math.round(revealRect.width)}x${Math.round(revealRect.height)}`);
+                }
+                
+                // Get comprehensive information about both elements
+                let originalInfo = {
+                    tagName: element.tagName,
+                    textContent: element.textContent?.trim().substring(0, 50) || '',
+                    className: element.className,
+                    id: element.id,
+                    href: element.href || element.getAttribute('href'),
+                    dimensions: `${Math.round(element.getBoundingClientRect().width)}x${Math.round(element.getBoundingClientRect().height)}`,
+                    selector: selector
+                };
+                
+                let targetInfo = {
+                    tagName: revealTarget.tagName,
+                    textContent: revealTarget.textContent?.trim().substring(0, 50) || '',
+                    className: revealTarget.className,
+                    id: revealTarget.id,
+                    href: revealTarget.href || revealTarget.getAttribute('href'),
+                    dimensions: `${Math.round(revealTarget.getBoundingClientRect().width)}x${Math.round(revealTarget.getBoundingClientRect().height)}`
+                };
+                
+                console.log("[Content] 🔍 Reveal complete - Element analysis:");
+                console.log("   📍 Original element:", originalInfo);
+                console.log("   🎯 Target element:", targetInfo);
+                
+                result = { 
+                    success: true, 
+                    action: 'reveal', 
+                    elementId: actionId, 
+                    message: 'Element details revealed successfully',
+                    originalElement: originalInfo,
+                    targetElement: targetInfo,
+                    targetInfo: revealTargetInfo,
+                    smartResolutionUsed: revealTarget !== element
+                };
                 break;
                 
             default:

@@ -2,8 +2,8 @@
   "_page_context": {
     "url": "https://brighttreedigital.com.au/",
     "title": "Local Web Design Adelaide | Bright Tree Digital",
-    "timestamp": 1755735309.25023,
-    "total_actions": 57,
+    "timestamp": 1755758900.6777442,
+    "total_actions": 69,
     "active_tab_id": 1137969790
   },
   "action_navigate_a_0": {
@@ -612,11 +612,9 @@
   },
   "action_navigate_a_43": {
     "action_type": "navigate",
-    "description": "Read More Testimonia",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
       "div:nth-child(1)"
     ],
     "coordinates": {},
@@ -626,11 +624,9 @@
   },
   "action_navigate_a_44": {
     "action_type": "navigate",
-    "description": "Reach Out Now!",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
       "div:nth-child(1)"
     ],
     "coordinates": {},
@@ -640,10 +636,12 @@
   },
   "action_navigate_a_45": {
     "action_type": "navigate",
-    "description": "Banner Portfolio",
+    "description": "Read More Testimonia",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_45' to navigate with this element",
@@ -652,10 +650,14 @@
   },
   "action_navigate_a_46": {
     "action_type": "navigate",
-    "description": "Logo Portfolio",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_46' to navigate with this element",
@@ -664,10 +666,14 @@
   },
   "action_navigate_a_47": {
     "action_type": "navigate",
-    "description": "Web Design Portfolio",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_47' to navigate with this element",
@@ -675,6 +681,184 @@
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
   "action_navigate_a_48": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_48' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_49": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_49' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_50": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_50' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_51": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_51' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_52": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_52' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_53": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_53' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_54": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_54' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_55": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_55' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_56": {
+    "action_type": "navigate",
+    "description": "Reach Out Now!",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_56' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_57": {
+    "action_type": "navigate",
+    "description": "Banner Portfolio",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_57' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_58": {
+    "action_type": "navigate",
+    "description": "Logo Portfolio",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_58' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_59": {
+    "action_type": "navigate",
+    "description": "Web Design Portfolio",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_59' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_60": {
     "action_type": "navigate",
     "description": "Facebook",
     "tag_name": "a",
@@ -684,11 +868,11 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_48' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_60' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_49": {
+  "action_navigate_a_61": {
     "action_type": "navigate",
     "description": "Instagram",
     "tag_name": "a",
@@ -698,11 +882,11 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_49' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_61' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_50": {
+  "action_navigate_a_62": {
     "action_type": "navigate",
     "description": "Home",
     "tag_name": "a",
@@ -710,11 +894,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_50' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_62' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_51": {
+  "action_navigate_a_63": {
     "action_type": "navigate",
     "description": "About",
     "tag_name": "a",
@@ -722,11 +906,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_51' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_63' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_52": {
+  "action_navigate_a_64": {
     "action_type": "navigate",
     "description": "Services",
     "tag_name": "a",
@@ -734,11 +918,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_52' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_64' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_53": {
+  "action_navigate_a_65": {
     "action_type": "navigate",
     "description": "Testimonials",
     "tag_name": "a",
@@ -746,11 +930,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_53' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_65' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_54": {
+  "action_navigate_a_66": {
     "action_type": "navigate",
     "description": "Contact",
     "tag_name": "a",
@@ -758,11 +942,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_54' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_66' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_55": {
+  "action_navigate_a_67": {
     "action_type": "navigate",
     "description": "Privacy Policy",
     "tag_name": "a",
@@ -770,11 +954,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_55' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_67' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_56": {
+  "action_navigate_a_68": {
     "action_type": "navigate",
     "description": "Website Designed by ",
     "tag_name": "a",
@@ -782,7 +966,7 @@
       "h6:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_56' to navigate with this element",
+    "llm_instruction": "Use actionId 'action_navigate_a_68' to navigate with this element",
     "page_url": "https://brighttreedigital.com.au/",
     "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   }
