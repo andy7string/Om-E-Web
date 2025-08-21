@@ -30,6 +30,9 @@ import re
 import time
 from urllib.parse import urlparse
 
+# 🆕 NEW: Import site config manager
+from site_config_manager import start_site_config_polling, stop_site_config_polling, get_site_config
+
 # Global state for managing WebSocket connections and command routing
 CLIENTS = set()                    # All connected WebSocket clients
 PENDING = {}                       # Command ID → Future mapping for response routing
@@ -48,6 +51,113 @@ SITE_STRUCTURES_DIR = "@site_structures"
 CURRENT_PAGE_JSONL = "page.jsonl"
 CURRENT_PAGE_DATA = None
 LAST_PAGE_UPDATE = None
+
+async def consolidate_actionable_elements_to_menus(actionable_elements):
+    """
+    🎯 Consolidate raw actionable elements into clean menu structure
+    
+    This function takes the raw elements from the extension and organizes them
+    into meaningful menu structures for LLM consumption.
+    
+    @param actionable_elements: List of raw actionable elements from extension
+    @return: Clean menu structure with consolidated menus
+    """
+    try:
+        if not actionable_elements:
+            print("⚠️ No actionable elements to consolidate")
+            return {
+                "menus": [],
+                "summary": {
+                    "total_menus": 0,
+                    "total_items": 0,
+                    "navigation_links": 0
+                }
+            }
+        
+        print(f"🎯 Consolidating {len(actionable_elements)} actionable elements into menus...")
+        
+        # 🎯 Step 1: Categorize elements by type and context
+        navigation_elements = []
+        toggle_elements = []
+        action_elements = []
+        content_elements = []
+        
+        for element in actionable_elements:
+            action_type = element.get("actionType", "unknown")
+            tag_name = element.get("tagName", "").lower()
+            text_content = element.get("textContent", "").strip()
+            selectors = element.get("selectors", [])
+            
+            # 🎯 Categorize by action type and selectors
+            if action_type == "navigate" and any("menu" in selector.lower() for selector in selectors):
+                navigation_elements.append(element)
+            elif action_type == "click" and any("toggle" in selector.lower() or "menu" in selector.lower() for selector in selectors):
+                toggle_elements.append(element)
+            elif action_type == "navigate" and text_content:
+                action_elements.append(element)
+            else:
+                content_elements.append(element)
+        
+        print(f"🎯 Categorized: {len(navigation_elements)} navigation, {len(toggle_elements)} toggles, {len(action_elements)} actions, {len(content_elements)} content")
+        
+        # 🎯 Step 2: Build main navigation menu
+        main_navigation = {
+            "id": "main_navigation",
+            "type": "main_navigation",
+            "name": "Main Navigation",
+            "items": [],
+            "toggles": []
+        }
+        
+        # Add navigation items
+        for element in navigation_elements:
+            if element.get("textContent", "").strip():
+                main_navigation["items"].append({
+                    "id": element.get("actionId"),
+                    "text": element.get("textContent", "").strip(),
+                    "href": element.get("attributes", {}).get("href", ""),
+                    "selectors": element.get("selectors", []),
+                    "action_type": element.get("actionType", "navigate")
+                })
+        
+        # Add toggle buttons
+        for element in toggle_elements:
+            if element.get("textContent", "").strip():
+                main_navigation["toggles"].append({
+                    "id": element.get("actionId"),
+                    "text": element.get("textContent", "").strip(),
+                    "aria_label": element.get("attributes", {}).get("aria-label", ""),
+                    "selectors": element.get("selectors", []),
+                    "action_type": element.get("actionType", "click")
+                })
+        
+        # 🎯 Step 3: Create consolidated structure
+        consolidated_structure = {
+            "menus": [main_navigation] if main_navigation["items"] or main_navigation["toggles"] else [],
+            "summary": {
+                "total_menus": 1 if main_navigation["items"] or main_navigation["toggles"] else 0,
+                "total_items": len(main_navigation["items"]),
+                "navigation_links": len(main_navigation["items"]),
+                "toggle_buttons": len(main_navigation["toggles"])
+            }
+        }
+        
+        print(f"✅ Menu consolidation complete: {consolidated_structure['summary']['total_menus']} menus, {consolidated_structure['summary']['total_items']} items, {consolidated_structure['summary']['toggle_buttons']} toggles")
+        
+        return consolidated_structure
+        
+    except Exception as e:
+        print(f"❌ Error consolidating actionable elements: {e}")
+        import traceback
+        traceback.print_exc()
+        return {
+            "menus": [],
+            "summary": {
+                "total_menus": 0,
+                "total_items": 0,
+                "navigation_links": 0
+            }
+        }
 
 async def save_intelligence_to_page_jsonl(intelligence_data):
     """
@@ -75,6 +185,10 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
             "extension_connected": EXTENSION_WS is not None
         }
         
+        # 🆕 NEW: Apply menu consolidation before saving
+        actionable_elements = intelligence_data.get("actionableElements", [])
+        consolidated_menus = await consolidate_actionable_elements_to_menus(actionable_elements)
+        
         # Prepare page data for JSONL format with browser state
         page_data = {
             "timestamp": time.time(),
@@ -84,10 +198,11 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
                 "title": browser_state.get("active_tab", {}).get("title", "unknown"),
                 "is_active_tab": True
             },
-            "actionable_elements": intelligence_data.get("actionableElements", []),
+            # 🆕 NEW: Clean menu structure instead of raw elements
+            "menu_structure": consolidated_menus,
             "page_state": intelligence_data.get("pageState", {}),
             "recent_insights": intelligence_data.get("recentInsights", []),
-            "total_elements": len(intelligence_data.get("actionableElements", [])),
+            "summary": consolidated_menus.get("summary", {}),
             "intelligence_version": "2.0"
         }
         
@@ -101,7 +216,7 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
             f.write(json.dumps(page_data, ensure_ascii=False, indent=2) + '\n')
         
         print(f"🧠 Intelligence saved to central file: {filepath}")
-        print(f"📊 Elements: {page_data['total_elements']}, Insights: {len(page_data['recent_insights'])}")
+        print(f"📊 Menus: {page_data['summary'].get('total_menus', 0)}, Items: {page_data['summary'].get('total_items', 0)}, Toggles: {page_data['summary'].get('toggle_buttons', 0)}")
         print(f"🌐 Browser State: {browser_state['total_tabs']} tabs, Active: {browser_state['active_tab'].get('url', 'unknown') if browser_state['active_tab'] else 'none'}")
         
         return filepath
@@ -1696,6 +1811,22 @@ async def handler(ws):
     if EXTENSION_WS is None:
         EXTENSION_WS = ws
         print("🎯 Marked as extension client")
+        
+        # 🆕 NEW: Send site configurations to extension
+        try:
+            from site_config_manager import get_all_site_configs
+            site_configs = get_all_site_configs()
+            if site_configs:
+                config_msg = {
+                    "type": "site_configs_update",
+                    "data": site_configs
+                }
+                await ws.send(json.dumps(config_msg))
+                print(f"🎯 Sent {len(site_configs)} site configs to extension")
+            else:
+                print("⚠️ No site configs available to send")
+        except Exception as e:
+            print(f"❌ Error sending site configs to extension: {e}")
     
     try:
         # Listen for incoming messages from this client
@@ -1711,6 +1842,22 @@ async def handler(ws):
             if msg.get("type") == "bridge_status":
                 EXTENSION_WS = ws
                 print("🎯 Marked as extension client (bridge_status)")
+                
+                # 🆕 NEW: Send site configurations to extension
+                try:
+                    from site_config_manager import get_all_site_configs
+                    site_configs = get_all_site_configs()
+                    if site_configs:
+                        config_msg = {
+                            "type": "site_configs_update",
+                            "data": site_configs
+                        }
+                        await ws.send(json.dumps(config_msg))
+                        print(f"🎯 Sent {len(site_configs)} site configs to extension")
+                    else:
+                        print("⚠️ No site configs available to send")
+                except Exception as e:
+                    print(f"❌ Error sending site configs to extension: {e}")
             
             # 📊 TAB INFORMATION STORAGE: Store latest tabs_info for external access
             if msg.get("type") == "tabs_info":
@@ -2161,8 +2308,13 @@ async def main():
     
     📡 SERVER ENDPOINT: ws://127.0.0.1:17892
     """
+    # 🆕 NEW: Start site config polling
+    print("🎯 Starting site configuration polling...")
+    await start_site_config_polling()
+    
     async with websockets.serve(handler, "127.0.0.1", 17892):
         print("WS listening on ws://127.0.0.1:17892")
+        print("🎯 Site config polling active (every 0.2s)")
         await asyncio.Future()  # Keep server running indefinitely
 
 if __name__ == "__main__":

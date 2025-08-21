@@ -60,6 +60,141 @@ console.log("[Content] 🧪 DOM change detection system:", {
 });
 console.log("[Content] 🧪 Intelligence system variables:", { changeAggregator, intelligenceEngine, pageContext });
 
+// 🆕 NEW: Site configuration and framework detection
+let siteConfigs = {};
+let currentSiteConfig = null;
+let currentFramework = 'generic';
+
+// 🆕 NEW: Load site configs from storage on startup
+chrome.storage.local.get(['siteConfigs'], (result) => {
+    if (result.siteConfigs) {
+        siteConfigs = result.siteConfigs;
+        console.log("[Content] 📋 Loaded site configs:", Object.keys(siteConfigs));
+        detectAndApplyFramework();
+    }
+});
+
+// 🆕 NEW: Framework detection function
+function detectAndApplyFramework() {
+    const currentUrl = window.location.href;
+    const hostname = new URL(currentUrl).hostname;
+    
+    // Check for exact matches first
+    if (siteConfigs[hostname]) {
+        currentSiteConfig = siteConfigs[hostname];
+        currentFramework = currentSiteConfig.framework;
+        console.log("[Content] 🎯 Detected framework:", currentFramework, "for site:", hostname);
+        return;
+    }
+    
+    // Check for partial matches (e.g., youtube.com matches youtube)
+    for (const [site, config] of Object.entries(siteConfigs)) {
+        if (hostname.includes(site) && site !== 'default') {
+            currentSiteConfig = config;
+            currentFramework = config.framework;
+            console.log("[Content] 🎯 Detected framework:", currentFramework, "for site:", hostname, "using config:", site);
+            return;
+        }
+    }
+    
+    // Fallback to default
+    currentSiteConfig = siteConfigs['default'] || null;
+    currentFramework = 'generic';
+    console.log("[Content] 🎯 Using default framework:", currentFramework, "for site:", hostname);
+}
+
+// 🆕 NEW: Framework-specific element scanning
+function scanWithFrameworkSelectors() {
+    if (!currentSiteConfig) {
+        console.log("[Content] ⚠️ No site config available, using generic scanning");
+        return [];
+    }
+    
+    console.log("[Content] 🎯 Scanning with framework:", currentFramework, "selectors");
+    
+    const frameworkElements = [];
+    const selectors = currentSiteConfig.selectors;
+    
+    // Scan navigation elements
+    if (selectors.navigation) {
+        selectors.navigation.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    frameworkElements.push({
+                        element: element,
+                        type: 'navigation',
+                        selector: selector,
+                        framework: currentFramework
+                    });
+                });
+            } catch (error) {
+                console.log("[Content] ⚠️ Error scanning selector:", selector, error);
+            }
+        });
+    }
+    
+    // Scan button elements
+    if (selectors.buttons) {
+        selectors.buttons.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    frameworkElements.push({
+                        element: element,
+                        type: 'button',
+                        selector: selector,
+                        framework: currentFramework
+                    });
+                });
+            } catch (error) {
+                console.log("[Content] ⚠️ Error scanning selector:", selector, error);
+            }
+        });
+    }
+    
+    // Scan menu elements
+    if (selectors.menus) {
+        selectors.menus.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    frameworkElements.push({
+                        element: element,
+                        type: 'menu',
+                        selector: selector,
+                        framework: currentFramework
+                    });
+                });
+            } catch (error) {
+                console.log("[Content] ⚠️ Error scanning selector:", selector, error);
+            }
+        });
+    }
+    
+    // Scan hidden content elements
+    if (selectors.hidden_content) {
+        selectors.hidden_content.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    frameworkElements.push({
+                        element: element,
+                        type: 'hidden_content',
+                        selector: selector,
+                        framework: currentFramework
+                    });
+                });
+            } catch (error) {
+                console.log("[Content] ⚠️ Error scanning selector:", selector, error);
+            }
+        });
+    }
+    
+    console.log("[Content] 🎯 Framework scanning found:", frameworkElements.length, "elements");
+    return frameworkElements;
+}
+
 // 🆕 NEW: Test event listener for debugging from page context
 document.addEventListener('testIntelligence', (event) => {
     console.log("[Content] 🧪 Test event received:", event.detail);
@@ -399,6 +534,14 @@ document.addEventListener('testIntelligence', (event) => {
             console.log("[Content] 🧪 Menu structure builder test result:", menuStructures);
             break;
             
+        case 'testFrameworkScanning':
+            console.log("[Content] 🧪 Testing framework-specific scanning...");
+            console.log("[Content] 🧪 Current framework:", currentFramework);
+            console.log("[Content] 🧪 Current site config:", currentSiteConfig);
+            const frameworkElements = scanWithFrameworkSelectors();
+            console.log("[Content] 🧪 Framework scanning result:", frameworkElements);
+            break;
+            
         case 'testEnhancedMenuClick':
             const enhancedSelector = event.detail?.selector || '[data-index="0"]';
             console.log("[Content] 🧪 Testing enhanced menu click for:", enhancedSelector);
@@ -448,6 +591,7 @@ console.log("[Content] 🧪 - testSubmenuInspection: Test submenu content inspec
 console.log("[Content] 🧪 - testDelayedSubmenuInspection: Test delayed submenu inspection");
 console.log("[Content] 🧪 - testDocumentSearch: Test document-wide menu item search");
 console.log("[Content] 🧪 - testMenuStructureBuilder: Test automatic menu structure detection");
+console.log("[Content] 🧪 - testFrameworkScanning: Test framework-specific element scanning");
 console.log("[Content] 🧪 - testEnhancedMenuClick: Test complete enhanced menu click flow");
 console.log("[Content] 🧪 Examples:");
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'getElementCoordinates', actionId: 'action_navigate_a_0'}}))");
@@ -464,6 +608,7 @@ console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntell
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDelayedSubmenuInspection', selector: '.ast-menu-toggle'}}))");
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDocumentSearch'}}))");
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testMenuStructureBuilder'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testFrameworkScanning'}}))");
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedMenuClick', selector: '[data-index=\"0\"]'}}))");
 
 // Utility function for async delays
@@ -1064,6 +1209,15 @@ async function cmd_extractPageText() {
  */
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("[Content] Message received from service worker:", message);
+    
+    // 🆕 NEW: Handle site config updates
+    if (message.type === "site_configs_update") {
+        console.log("[Content] 📋 Received site configs update:", message.data);
+        siteConfigs = message.data;
+        detectAndApplyFramework();
+        sendResponse({ ok: true, framework: currentFramework });
+        return true;
+    }
     
     // 🆕 NEW: Check if this is a typed message (LLM action) first
     if (message.type === "execute_action") {

@@ -1,0 +1,140 @@
+{
+  "youtube.com": {
+    "framework": "youtube",
+    "scan_strategy": "youtube_specific",
+    "selectors": {
+      "navigation": [
+        "ytd-masthead",
+        "#guide-button", 
+        "#searchbox",
+        "#logo",
+        "#back-button"
+      ],
+      "buttons": [
+        "yt-icon-button",
+        "ytd-button-renderer",
+        "button[aria-label]",
+        "#guide-button",
+        "#avatar-btn"
+      ],
+      "menus": [
+        "#guide-button",
+        "#avatar-btn", 
+        "#searchbox",
+        "#voice-search-button"
+      ],
+      "hidden_content": [
+        "#guide",
+        ".ytd-app-drawer",
+        "#searchbox-suggestions",
+        "#account-menu"
+      ]
+    },
+    "interaction_patterns": {
+      "expand_guide": {
+        "trigger": "#guide-button",
+        "wait_for": "#guide",
+        "timeout": 1000
+      },
+      "expand_account": {
+        "trigger": "#avatar-btn", 
+        "wait_for": "#account-menu",
+        "timeout": 1000
+      },
+      "expand_search": {
+        "trigger": "#searchbox",
+        "wait_for": "#searchbox-suggestions",
+        "timeout": 500
+      }
+    },
+    "scan_priority": [
+      "header_navigation",
+      "main_actions", 
+      "hidden_menus",
+      "dynamic_content"
+    ],
+    "custom_handlers": {
+      "shadow_dom": true,
+      "web_components": true,
+      "polymer_framework": true
+    }
+  },
+  "wordpress": {
+    "framework": "wordpress",
+    "scan_strategy": "wordpress_specific", 
+    "selectors": {
+      "navigation": [
+        ".menu-link",
+        "nav",
+        ".primary-menu",
+        ".main-navigation"
+      ],
+      "buttons": [
+        ".menu-toggle",
+        ".ast-menu-toggle",
+        "button[aria-label*='menu']"
+      ],
+      "menus": [
+        ".menu",
+        ".navigation", 
+        ".primary-menu",
+        ".main-menu"
+      ]
+    },
+    "interaction_patterns": {
+      "expand_menu": {
+        "trigger": ".menu-toggle",
+        "wait_for": ".menu",
+        "timeout": 1000
+      }
+    },
+    "scan_priority": [
+      "main_navigation",
+      "mobile_menu",
+      "footer_links"
+    ]
+  },
+  "default": {
+    "framework": "generic",
+    "scan_strategy": "universal",
+    "selectors": {
+      "navigation": [
+        "nav",
+        "[role='navigation']",
+        "header",
+        ".header",
+        ".main-nav"
+      ],
+      "buttons": [
+        "button",
+        "[role='button']",
+        "[onclick]",
+        "[data-action]"
+      ],
+      "menus": [
+        "[role='menu']",
+        ".menu",
+        ".dropdown",
+        ".navigation"
+      ],
+      "hidden_content": [
+        "[aria-hidden='true']",
+        ".hidden",
+        ".collapsed",
+        ".invisible"
+      ]
+    },
+    "interaction_patterns": {
+      "expand_menu": {
+        "trigger": "[aria-expanded='false']",
+        "wait_for": "[aria-expanded='true']",
+        "timeout": 1000
+      }
+    },
+    "scan_priority": [
+      "visible_elements",
+      "hidden_elements",
+      "dynamic_content"
+    ]
+  }
+}

@@ -410,6 +410,27 @@ function handleServerMessage(messageData) {
         const message = JSON.parse(messageData);
         console.log("[SW] Parsed message:", message);
         
+        // Handle site configs update
+        if (message.type === "site_configs_update") {
+            console.log("[SW] 📋 Received site configs update:", message.data);
+            // Store site configs and forward to content scripts
+            chrome.storage.local.set({ siteConfigs: message.data }, () => {
+                console.log("[SW] ✅ Site configs stored locally");
+                // Forward to all content scripts
+                chrome.tabs.query({}, (tabs) => {
+                    tabs.forEach(tab => {
+                        chrome.tabs.sendMessage(tab.id, {
+                            type: "site_configs_update",
+                            data: message.data
+                        }).catch(() => {
+                            // Tab might not have content script loaded
+                        });
+                    });
+                });
+            });
+            return;
+        }
+        
         // Handle LLM action messages
         if (message.type === "execute_llm_action") {
             console.log("[SW] 🤖 Processing LLM action:", message.data);
