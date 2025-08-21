@@ -35,6 +35,14 @@
         "#searchbox-results",
         "[aria-hidden='true']",
         ".gb_oa"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]"
       ]
     },
     "filters": {
@@ -72,6 +80,7 @@
       }
     },
     "scan_priority": [
+      "text_inputs",
       "search_interface",
       "header_navigation",
       "app_launcher",
@@ -113,6 +122,14 @@
         ".ytd-app-drawer",
         "#searchbox-suggestions",
         "#account-menu"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]"
       ]
     },
     "interaction_patterns": {
@@ -133,6 +150,7 @@
       }
     },
     "scan_priority": [
+      "text_inputs",
       "header_navigation",
       "main_actions", 
       "hidden_menus",
@@ -164,6 +182,14 @@
         ".navigation", 
         ".primary-menu",
         ".main-menu"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]"
       ]
     },
     "interaction_patterns": {
@@ -174,6 +200,7 @@
       }
     },
     "scan_priority": [
+      "text_inputs",
       "main_navigation",
       "mobile_menu",
       "footer_links"
@@ -207,6 +234,17 @@
         ".hidden",
         ".collapsed",
         ".invisible"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "input[type='email']",
+        "input[type='password']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]",
+        "[aria-placeholder]"
       ]
     },
     "interaction_patterns": {
@@ -217,6 +255,7 @@
       }
     },
     "scan_priority": [
+      "text_inputs",
       "visible_elements",
       "hidden_elements",
       "dynamic_content"

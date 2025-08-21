@@ -4378,7 +4378,7 @@ IntelligenceEngine.prototype.isInteractiveElement = function(element) {
     if (!element || !element.tagName) return false;
     
     const interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA'];
-    const interactiveRoles = ['button', 'link', 'menuitem', 'tab', 'checkbox', 'radio'];
+    const interactiveRoles = ['button', 'link', 'menuitem', 'tab', 'checkbox', 'radio', 'textbox'];
     
     // Check tag name
     if (interactiveTags.includes(element.tagName)) return true;
@@ -5657,7 +5657,14 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         this.actionableElements.clear();
         this.elementCounter = 0;
         
-        // 🆕 PHASE 1: Smart, restrictive selectors for high-value interactive elements
+        // 🆕 PHASE 1: Framework-specific scanning (highest priority)
+        let frameworkElements = [];
+        if (typeof scanWithFrameworkSelectors === 'function') {
+            frameworkElements = scanWithFrameworkSelectors();
+            console.log("[Content] 🎯 Framework scanning found:", frameworkElements.length, "framework-specific elements");
+        }
+        
+        // 🆕 PHASE 2: Smart, restrictive selectors for high-value interactive elements
         const interactiveSelectors = [
             // Buttons - only enabled, visible, actionable buttons
             'button:not([disabled]):not([aria-disabled="true"]):not([hidden])',
@@ -5686,13 +5693,17 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         ];
         
         const elements = document.querySelectorAll(interactiveSelectors.join(','));
-        console.log("[Content] 🔍 Found", elements.length, "interactive elements");
+        console.log("[Content] 🔍 Found", elements.length, "generic interactive elements");
         
-        // 🆕 PHASE 1: Basic quality filtering during scan
+        // 🆕 COMBINE: Framework elements + generic elements
+        const allElements = [...frameworkElements.map(fe => fe.element), ...Array.from(elements)];
+        console.log("[Content] 🔍 Total elements to process:", allElements.length, `(${frameworkElements.length} framework + ${elements.length} generic)`);
+        
+        // 🆕 PHASE 3: Process all elements (framework + generic)
         let filteredCount = 0;
         let registeredCount = 0;
         
-        elements.forEach(element => {
+        allElements.forEach(element => {
             if (this.isInteractiveElement(element)) {
                 filteredCount++;
                 if (this.passesBasicQualityFilter(element)) {
@@ -5714,11 +5725,11 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             }
         });
         
-        console.log("[Content] 🎯 PHASE 1 FILTERING RESULTS:");
-        console.log(`   📊 Total elements found: ${elements.length}`);
+        console.log("[Content] 🎯 PHASE 3 FILTERING RESULTS:");
+        console.log(`   📊 Total elements found: ${allElements.length} (${frameworkElements.length} framework + ${elements.length} generic)`);
         console.log(`   🔍 Interactive elements: ${filteredCount}`);
         console.log(`   ✅ Quality-filtered elements: ${registeredCount}`);
-        console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / elements.length) * 100)}%`);
+        console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / allElements.length) * 100)}%`);
         
         // Update page state
                     this.pageState.interactiveElements = this.getAllActionableElements();

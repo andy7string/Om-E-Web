@@ -1,973 +1,498 @@
 {
   "_page_context": {
-    "url": "https://brighttreedigital.com.au/#",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
-    "timestamp": 1755785925.16298,
-    "total_actions": 69,
-    "active_tab_id": 1137969790
+    "url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "title": "Perplexity",
+    "timestamp": 1755794358.934914,
+    "total_actions": 33,
+    "active_tab_id": 1137970079
   },
-  "action_navigate_a_0": {
-    "action_type": "navigate",
+  "action_click_button_0": {
+    "action_type": "click",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "button",
     "selectors": [
-      ".custom-logo-link",
-      "a.custom-logo-link",
-      "span:nth-child(1)"
+      "[data-testid=\"sidebar-pin-sidebar\"]",
+      "[data-state=\"closed\"]",
+      ".focus-visible:bg-offsetPlus",
+      "button.focus-visible:bg-offsetPlus",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_0' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_0' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_1": {
     "action_type": "navigate",
-    "description": "HOME",
+    "description": "Finance",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_1' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_2": {
     "action_type": "navigate",
-    "description": "ABOUT",
+    "description": "Travel",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".group",
+      "a.group",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_2' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_click_button_3": {
-    "action_type": "click",
-    "description": "Menu Toggle",
-    "tag_name": "button",
+  "action_navigate_a_3": {
+    "action_type": "navigate",
+    "description": "Academic",
+    "tag_name": "a",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
+      ".group",
+      "a.group",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_3' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_3' to navigate with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_4": {
     "action_type": "navigate",
-    "description": "Banner Design",
+    "description": "Library",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "[data-testid=\"library-button\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_4' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_5": {
     "action_type": "navigate",
-    "description": "Logo Design",
+    "description": "🎯 Comprehensive Ana",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "[data-testid=\"thread-title-🎯 Comprehensive Analysis: The Challenge of Universal Navigation Detection\nOur Current Extension Stat\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_5' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_6": {
     "action_type": "navigate",
-    "description": "Web Design",
+    "description": "What I'm Building:\nA",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "[data-testid=\"thread-title-What I'm Building:\nA Chrome browser extension that provides AI-powered web automation by intelligent\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_6' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_7": {
     "action_type": "navigate",
-    "description": "SERVICES",
+    "description": "what js extensions a",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "[data-testid=\"thread-title-what js extensions are available that allow me to find the x and y co-ordinates of all objects on a \"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_7' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_8": {
     "action_type": "navigate",
-    "description": "CONTACT",
+    "description": "are there any openso",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "[data-testid=\"thread-title-are there any opensource web extensions available that are able to read the entire contents of a web\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_8' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_9": {
     "action_type": "navigate",
-    "description": "",
+    "description": "[Content] Message re",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
+      "[data-testid=\"thread-title-[Content] Message received from service worker: {command: 'generateSiteMap', params: {…}}\ncontent.js\"]",
+      ".group",
+      "a.group",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_9' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_10": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Web Extension Conten",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(2)"
+      "[data-testid=\"thread-title-Web Extension Content Filtering Optimization Project Project Overview We are optimizing a Chrome ext\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_10' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_11": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Complete Flow Analys",
     "tag_name": "a",
     "selectors": [
-      ".custom-logo-link",
-      "a.custom-logo-link",
-      "span:nth-child(1)"
+      "[data-testid=\"thread-title-Complete Flow Analysis - What We're Doing:\n1. �� Starting Point:\nUser opens: [https://www.youtube.co\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_11' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_click_button_12": {
-    "action_type": "click",
-    "description": "Main Menu",
-    "tag_name": "button",
+  "action_navigate_a_12": {
+    "action_type": "navigate",
+    "description": "my cursor ai is in a",
+    "tag_name": "a",
     "selectors": [
-      "[data-index=\"0\"]",
-      ".menu-toggle",
-      "button.menu-toggle",
+      "[data-testid=\"thread-title-my cursor ai is in agent mode but it is not performing actions using tools and instead of doing it i\"]",
+      ".group",
+      "a.group",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_12' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_12' to navigate with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_13": {
     "action_type": "navigate",
-    "description": "HOME",
+    "description": "Current Challenge An",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "[data-testid=\"thread-title-Current Challenge Analysis\nThe Problem\nWe're dealing with a cross-context iframe clicking issue wher\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_13' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_14": {
     "action_type": "navigate",
-    "description": "ABOUT",
+    "description": "What I’m trying to a",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "[data-testid=\"thread-title-What I’m trying to achieve\nAdd occlusion-aware clicking that works consistently across DOM, shadow D\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_14' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_click_button_15": {
-    "action_type": "click",
-    "description": "Menu Toggle",
-    "tag_name": "button",
+  "action_navigate_a_15": {
+    "action_type": "navigate",
+    "description": "View All",
+    "tag_name": "a",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
+      ".block",
+      "a.block",
+      "div:nth-child(5)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_15' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_15' to navigate with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_16": {
     "action_type": "navigate",
-    "description": "Banner Design",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".mt-xs",
+      "a.mt-xs",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_16' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_navigate_a_17": {
-    "action_type": "navigate",
-    "description": "Logo Design",
-    "tag_name": "a",
+  "action_click_button_17": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "[data-testid=\"sidebar-new-thread\"]",
+      "[data-state=\"closed\"]",
+      ".bg-offsetPlus",
+      "button.bg-offsetPlus",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_17' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_17' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
   "action_navigate_a_18": {
-    "action_type": "navigate",
-    "description": "Web Design",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_18' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_19": {
-    "action_type": "navigate",
-    "description": "SERVICES",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_19' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_20": {
-    "action_type": "navigate",
-    "description": "CONTACT",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_20' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_21": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_21' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_22": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_22' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_23": {
-    "action_type": "navigate",
-    "description": "Get Started",
-    "tag_name": "a",
-    "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_23' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_24": {
-    "action_type": "navigate",
-    "description": "Get Started",
-    "tag_name": "a",
-    "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_24' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_25": {
-    "action_type": "navigate",
-    "description": "Get Started",
-    "tag_name": "a",
-    "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_25' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_26": {
-    "action_type": "navigate",
-    "description": "Website Design",
-    "tag_name": "a",
-    "selectors": [
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_26' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_27": {
-    "action_type": "navigate",
-    "description": "View Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_27' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_28": {
-    "action_type": "navigate",
-    "description": "More Info",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_28' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_29": {
-    "action_type": "navigate",
-    "description": "Logo Design",
-    "tag_name": "a",
-    "selectors": [
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_29' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_30": {
-    "action_type": "navigate",
-    "description": "View Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_30' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_31": {
-    "action_type": "navigate",
-    "description": "More Info",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_31' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_32": {
-    "action_type": "navigate",
-    "description": "Banner Ad Design",
-    "tag_name": "a",
-    "selectors": [
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_32' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_33": {
-    "action_type": "navigate",
-    "description": "View Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_33' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_34": {
-    "action_type": "navigate",
-    "description": "More Info",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_34' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_35": {
-    "action_type": "navigate",
-    "description": "Get in touch today!",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_35' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_36": {
-    "action_type": "navigate",
-    "description": "Joss Couture",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_36' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_37": {
-    "action_type": "navigate",
-    "description": "Flutterbys School",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_37' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_38": {
-    "action_type": "navigate",
-    "description": "The Gourmet Cookie C",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_38' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_39": {
-    "action_type": "navigate",
-    "description": "Straker Functional F",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_39' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_40": {
-    "action_type": "navigate",
-    "description": "The Syrene Hotel",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_40' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_41": {
-    "action_type": "navigate",
-    "description": "African Safari Deals",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_41' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_42": {
-    "action_type": "navigate",
-    "description": "Mtambo Chartered Acc",
-    "tag_name": "a",
-    "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_42' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_43": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_43' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_44": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_44' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_45": {
-    "action_type": "navigate",
-    "description": "Read More Testimonia",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_45' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_46": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_46' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_47": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_47' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_48": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_48' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_49": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_49' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_50": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_50' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_51": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_51' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_52": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_52' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_53": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_53' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_54": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_54' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_55": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_55' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_56": {
-    "action_type": "navigate",
-    "description": "Reach Out Now!",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_56' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_57": {
-    "action_type": "navigate",
-    "description": "Banner Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_57' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_58": {
-    "action_type": "navigate",
-    "description": "Logo Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_58' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_59": {
-    "action_type": "navigate",
-    "description": "Web Design Portfolio",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_59' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_60": {
-    "action_type": "navigate",
-    "description": "Facebook",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-icon",
-      "a.elementor-icon",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_60' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_61": {
-    "action_type": "navigate",
-    "description": "Instagram",
-    "tag_name": "a",
-    "selectors": [
-      ".elementor-icon",
-      "a.elementor-icon",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_61' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_62": {
     "action_type": "navigate",
     "description": "Home",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      "[data-testid=\"sidebar-home\"]",
+      ".p-sm",
+      "a.p-sm",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_62' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_18' to navigate with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_navigate_a_63": {
+  "action_navigate_a_19": {
     "action_type": "navigate",
-    "description": "About",
+    "description": "Discover",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      "[data-testid=\"sidebar-discover\"]",
+      ".p-sm",
+      "a.p-sm",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_63' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_19' to navigate with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_navigate_a_64": {
+  "action_navigate_a_20": {
     "action_type": "navigate",
-    "description": "Services",
+    "description": "Spaces",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      "[data-testid=\"sidebar-spaces\"]",
+      ".p-sm",
+      "a.p-sm",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_64' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_20' to navigate with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_navigate_a_65": {
-    "action_type": "navigate",
-    "description": "Testimonials",
-    "tag_name": "a",
+  "action_click_button_21": {
+    "action_type": "click",
+    "description": "Upgrade",
+    "tag_name": "button",
     "selectors": [
-      "li:nth-child(1)"
+      "[data-testid=\"sidebar-upgrade-button\"]",
+      ".gap-xs",
+      "button.gap-xs",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_65' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_21' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_navigate_a_66": {
-    "action_type": "navigate",
-    "description": "Contact",
-    "tag_name": "a",
+  "action_click_button_22": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
     "selectors": [
-      "li:nth-child(1)"
+      ".bg-offsetPlus",
+      "button.bg-offsetPlus",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_66' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_22' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_navigate_a_67": {
-    "action_type": "navigate",
-    "description": "Privacy Policy",
-    "tag_name": "a",
+  "action_click_button_23": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
     "selectors": [
-      "li:nth-child(1)"
+      ".focus-visible:bg-offsetPlus",
+      "button.focus-visible:bg-offsetPlus",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_67' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_23' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   },
-  "action_navigate_a_68": {
-    "action_type": "navigate",
-    "description": "Website Designed by ",
-    "tag_name": "a",
+  "action_click_button_24": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
     "selectors": [
-      "h6:nth-child(1)"
+      "[data-state=\"checked\"]",
+      "[data-radix-collection-item=\"\"]",
+      ".segmented-control",
+      "button.segmented-control",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_68' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/#",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_24' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "action_click_button_25": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-state=\"closed\"]",
+      ".focus-visible:bg-offsetPlus",
+      "button.focus-visible:bg-offsetPlus",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_25' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "action_click_button_26": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-testid=\"sources-switcher-button\"]",
+      "[data-state=\"closed\"]",
+      ".focus-visible:bg-offsetPlus",
+      "button.focus-visible:bg-offsetPlus",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_26' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "action_click_button_27": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-state=\"closed\"]",
+      ".focus-visible:bg-offsetPlus",
+      "button.focus-visible:bg-offsetPlus",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_27' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "action_input_input_28": {
+    "action_type": "input",
+    "description": "",
+    "tag_name": "input",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_input_input_28' to input with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "action_click_button_29": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-state=\"closed\"]",
+      ".focus-visible:bg-offsetPlus",
+      "button.focus-visible:bg-offsetPlus",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_29' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "action_click_button_30": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-state=\"closed\"]",
+      ".bg-super",
+      "button.bg-super",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_30' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "action_click_button_31": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-state=\"closed\"]",
+      ".border",
+      "button.border",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_31' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "action_click_button_32": {
+    "action_type": "click",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-state=\"closed\"]",
+      ".border",
+      "button.border",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_32' to click with this element",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
   }
 }
