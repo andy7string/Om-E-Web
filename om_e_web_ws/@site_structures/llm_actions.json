@@ -1,4274 +1,973 @@
 {
   "_page_context": {
-    "url": "https://www.youtube.com/",
-    "title": "(37) YouTube",
-    "timestamp": 1755784409.528987,
-    "total_actions": 300,
-    "active_tab_id": 1137969929
+    "url": "https://brighttreedigital.com.au/#",
+    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "timestamp": 1755785925.16298,
+    "total_actions": 69,
+    "active_tab_id": 1137969790
   },
-  "action_click_button_0": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-overlay-order=\"2\"]",
-      ".ytp-playlist-menu-button",
-      "button.ytp-playlist-menu-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_0' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_1": {
-    "action_type": "click",
-    "description": "Search",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Search\"]",
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_1' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_2": {
-    "action_type": "click",
-    "description": "InfoShopping",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_2' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_3": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"More\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_3' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_4": {
-    "action_type": "click",
-    "description": "Tap to unmute",
-    "tag_name": "button",
-    "selectors": [
-      "[data-layer=\"2\"]",
-      ".ytp-unmute",
-      "button.ytp-unmute",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_4' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_5": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "a:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_5' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_6": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-featured-product-overflow-icon",
-      "button.ytp-featured-product-overflow-icon",
-      "a:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_6' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_7": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-large-play-button",
-      "button.ytp-large-play-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_7' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_8": {
+  "action_navigate_a_0": {
     "action_type": "navigate",
-    "description": "Includes paid promot",
-    "tag_name": "a",
-    "selectors": [
-      ".ytp-paid-content-overlay-link",
-      "a.ytp-paid-content-overlay-link",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_8' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_9": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_9' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_10": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-featured-product-overflow-icon",
-      "button.ytp-featured-product-overflow-icon",
-      "a:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_10' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_11": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_11' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_12": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_12' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_13": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_13' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_14": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_14' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_15": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-miniplayer-close-button",
-      "button.ytp-miniplayer-close-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_15' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_16": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-target-id=\"ytp-miniplayer-expand-watch-page-button\"]",
-      "[data-title-no-tooltip=\"Expand\"]",
-      ".ytp-miniplayer-expand-watch-page-button",
-      "button.ytp-miniplayer-expand-watch-page-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_16' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_17": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-title-no-tooltip=\"Pause\"]",
-      "[data-tooltip-title=\"Pause (k)\"]",
-      ".ytp-play-button",
-      "button.ytp-play-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_17' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_a_18": {
-    "action_type": "click",
     "description": "",
     "tag_name": "a",
     "selectors": [
-      "[data-tooltip-title=\"Next (SHIFT+n)\"]",
-      "[data-title-no-tooltip=\"Next\"]",
-      "[data-duration=\"9:55\"]",
-      "[data-preview=\"https://i.ytimg.com/vi/qAF1NjEVHhY/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDGy21dCIRJ71rLGusg5xr1kn8ekQ\"]",
-      "[data-tooltip-text=\"LangChain vs LangGraph: A Tale of Two Frameworks\"]",
-      ".ytp-next-button",
-      "a.ytp-next-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_a_18' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_19": {
-    "action_type": "click",
-    "description": "Live",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-live-badge",
-      "button.ytp-live-badge",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_19' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_20": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-miniplayer-close-button",
-      "button.ytp-miniplayer-close-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_20' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_21": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-miniplayer-replay-button",
-      "button.ytp-miniplayer-replay-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_21' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_22": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-target-id=\"ytp-miniplayer-expand-watch-page-button\"]",
-      "[data-title-no-tooltip=\"Expand\"]",
-      ".ytp-miniplayer-expand-watch-page-button",
-      "button.ytp-miniplayer-expand-watch-page-button",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_22' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_23": {
-    "action_type": "click",
-    "description": "Cancel",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_23' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_24": {
-    "action_type": "click",
-    "description": "Confirm",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_24' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_25": {
-    "action_type": "click",
-    "description": "Cancel",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-autonav-endscreen-upnext-button",
-      "button.ytp-autonav-endscreen-upnext-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_25' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_a_26": {
-    "action_type": "click",
-    "description": "Play Now",
-    "tag_name": "a",
-    "selectors": [
-      ".ytp-autonav-endscreen-upnext-button",
-      "a.ytp-autonav-endscreen-upnext-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_a_26' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_27": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_27' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_28": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_28' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_29": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-playlist-menu-close",
-      "button.ytp-playlist-menu-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_29' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_input_input_30": {
-    "action_type": "input",
-    "description": "",
-    "tag_name": "input",
-    "selectors": [
-      ".ytp-share-panel-include-playlist-checkbox",
-      "input.ytp-share-panel-include-playlist-checkbox",
-      "label:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_input_input_30' to input with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_31": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-share-panel-close",
-      "button.ytp-share-panel-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_31' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_32": {
-    "action_type": "click",
-    "description": "Watch later",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      "[data-tooltip-title=\"Watch later\"]",
-      ".ytp-watch-later-button",
-      "button.ytp-watch-later-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_32' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_33": {
-    "action_type": "click",
-    "description": "Share",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Share\"]",
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_33' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_34": {
-    "action_type": "click",
-    "description": "Copy link",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      "[data-tooltip-title=\"Copy link\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_34' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_35": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Close\"]",
-      ".ytp-overflow-panel-close",
-      "button.ytp-overflow-panel-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_35' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_36": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".ytp-fine-scrubbing-play",
-      "div.ytp-fine-scrubbing-play",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_36' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_37": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".ytp-fine-scrubbing-dismiss",
-      "div.ytp-fine-scrubbing-dismiss",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_37' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_38": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-title-no-tooltip=\"Pause\"]",
-      "[data-tooltip-title=\"Pause (k)\"]",
-      ".ytp-play-button",
-      "button.ytp-play-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_38' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_a_39": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-tooltip-title=\"Next (SHIFT+n)\"]",
-      "[data-title-no-tooltip=\"Next\"]",
-      "[data-duration=\"9:55\"]",
-      "[data-preview=\"https://i.ytimg.com/vi/qAF1NjEVHhY/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDGy21dCIRJ71rLGusg5xr1kn8ekQ\"]",
-      "[data-tooltip-text=\"LangChain vs LangGraph: A Tale of Two Frameworks\"]",
-      ".ytp-next-button",
-      "a.ytp-next-button",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_a_39' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_40": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-offset-y=\"0\"]",
-      "[data-tooltip-title=\"Mute (m)\"]",
-      "[data-title-no-tooltip=\"Mute\"]",
-      ".ytp-mute-button",
-      "button.ytp-mute-button",
+      ".custom-logo-link",
+      "a.custom-logo-link",
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_40' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_0' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_41": {
-    "action_type": "click",
-    "description": "Live",
-    "tag_name": "button",
+  "action_navigate_a_1": {
+    "action_type": "navigate",
+    "description": "HOME",
+    "tag_name": "a",
     "selectors": [
-      ".ytp-live-badge",
-      "button.ytp-live-badge",
-      "div:nth-child(4)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_41' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_1' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_42": {
-    "action_type": "click",
-    "description": "•Mental Models for B",
-    "tag_name": "button",
+  "action_navigate_a_2": {
+    "action_type": "navigate",
+    "description": "ABOUT",
+    "tag_name": "a",
     "selectors": [
-      ".ytp-chapter-title",
-      "button.ytp-chapter-title",
-      "div:nth-child(1)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_42' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_2' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_43": {
+  "action_click_button_3": {
     "action_type": "click",
-    "description": "Scroll for details",
+    "description": "Menu Toggle",
     "tag_name": "button",
     "selectors": [
-      "[data-priority=\"2\"]",
-      ".ytp-fullerscreen-edu-button",
-      "button.ytp-fullerscreen-edu-button",
-      "div:nth-child(1)"
+      ".ast-menu-toggle",
+      "button.ast-menu-toggle",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_43' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_click_button_3' to click with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_44": {
-    "action_type": "click",
+  "action_navigate_a_4": {
+    "action_type": "navigate",
+    "description": "Banner Design",
+    "tag_name": "a",
+    "selectors": [
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_4' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_5": {
+    "action_type": "navigate",
+    "description": "Logo Design",
+    "tag_name": "a",
+    "selectors": [
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_5' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_6": {
+    "action_type": "navigate",
+    "description": "Web Design",
+    "tag_name": "a",
+    "selectors": [
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_6' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_7": {
+    "action_type": "navigate",
+    "description": "SERVICES",
+    "tag_name": "a",
+    "selectors": [
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_7' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_8": {
+    "action_type": "navigate",
+    "description": "CONTACT",
+    "tag_name": "a",
+    "selectors": [
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_8' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_9": {
+    "action_type": "navigate",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "a",
     "selectors": [
-      "[data-priority=\"3\"]",
-      "[data-tooltip-target-id=\"ytp-autonav-toggle-button\"]",
-      "[data-tooltip-title=\"Autoplay is on\"]",
-      ".ytp-button",
-      "button.ytp-button",
+      ".ast-builder-social-element",
+      "a.ast-builder-social-element",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_9' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_10": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".ast-builder-social-element",
+      "a.ast-builder-social-element",
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_44' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_10' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_45": {
-    "action_type": "click",
+  "action_navigate_a_11": {
+    "action_type": "navigate",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "a",
     "selectors": [
-      "[data-priority=\"5\"]",
-      "[data-tooltip-title=\"Subtitles/closed captions (c)\"]",
-      "[data-title-no-tooltip=\"Subtitles/closed captions\"]",
-      ".ytp-subtitles-button",
-      "button.ytp-subtitles-button",
-      "div:nth-child(3)"
+      ".custom-logo-link",
+      "a.custom-logo-link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_45' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_11' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_46": {
+  "action_click_button_12": {
     "action_type": "click",
-    "description": "",
+    "description": "Main Menu",
     "tag_name": "button",
     "selectors": [
-      "[data-tooltip-title=\"Settings\"]",
-      "[data-tooltip-target-id=\"ytp-settings-button\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(4)"
+      "[data-index=\"0\"]",
+      ".menu-toggle",
+      "button.menu-toggle",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_46' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_click_button_12' to click with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_47": {
+  "action_navigate_a_13": {
+    "action_type": "navigate",
+    "description": "HOME",
+    "tag_name": "a",
+    "selectors": [
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_13' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_14": {
+    "action_type": "navigate",
+    "description": "ABOUT",
+    "tag_name": "a",
+    "selectors": [
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_14' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_click_button_15": {
     "action_type": "click",
-    "description": "",
+    "description": "Menu Toggle",
     "tag_name": "button",
     "selectors": [
-      "[data-priority=\"7\"]",
-      "[data-tooltip-target-id=\"ytp-miniplayer-button\"]",
-      "[data-tooltip-title=\"Miniplayer (i)\"]",
-      "[data-title-no-tooltip=\"Miniplayer\"]",
-      ".ytp-miniplayer-button",
-      "button.ytp-miniplayer-button",
-      "div:nth-child(5)"
+      ".ast-menu-toggle",
+      "button.ast-menu-toggle",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_47' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_click_button_15' to click with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_48": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_navigate_a_16": {
+    "action_type": "navigate",
+    "description": "Banner Design",
+    "tag_name": "a",
     "selectors": [
-      "[data-priority=\"8\"]",
-      "[data-tooltip-target-id=\"ytp-pip-button\"]",
-      "[data-tooltip-title=\"Picture-in-picture\"]",
-      "[data-title-no-tooltip=\"Picture-in-picture\"]",
-      ".ytp-pip-button",
-      "button.ytp-pip-button",
-      "div:nth-child(6)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_48' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_16' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_49": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_navigate_a_17": {
+    "action_type": "navigate",
+    "description": "Logo Design",
+    "tag_name": "a",
     "selectors": [
-      "[data-priority=\"9\"]",
-      "[data-tooltip-title=\"Theater mode (t)\"]",
-      "[data-title-no-tooltip=\"Theater mode\"]",
-      ".ytp-size-button",
-      "button.ytp-size-button",
-      "div:nth-child(7)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_49' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_17' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_50": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_navigate_a_18": {
+    "action_type": "navigate",
+    "description": "Web Design",
+    "tag_name": "a",
     "selectors": [
-      "[data-tooltip-title=\"Play on TV\"]",
-      "[data-priority=\"10\"]",
-      ".ytp-remote-button",
-      "button.ytp-remote-button",
-      "div:nth-child(8)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_50' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_18' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_51": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_navigate_a_19": {
+    "action_type": "navigate",
+    "description": "SERVICES",
+    "tag_name": "a",
     "selectors": [
-      "[data-priority=\"12\"]",
-      "[data-title-no-tooltip=\"Full screen\"]",
-      "[data-tooltip-title=\"Full screen (f)\"]",
-      ".ytp-fullscreen-button",
-      "button.ytp-fullscreen-button",
-      "div:nth-child(9)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_51' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_19' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_52": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_navigate_a_20": {
+    "action_type": "navigate",
+    "description": "CONTACT",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_52' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_20' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_53": {
-    "action_type": "click",
+  "action_navigate_a_21": {
+    "action_type": "navigate",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      ".ast-builder-social-element",
+      "a.ast-builder-social-element",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_53' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_21' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_22": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".ast-builder-social-element",
+      "a.ast-builder-social-element",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_22' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_23": {
+    "action_type": "navigate",
+    "description": "Get Started",
+    "tag_name": "a",
+    "selectors": [
+      ".bdt-slide-link",
+      "a.bdt-slide-link",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_23' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_24": {
+    "action_type": "navigate",
+    "description": "Get Started",
+    "tag_name": "a",
+    "selectors": [
+      ".bdt-slide-link",
+      "a.bdt-slide-link",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_24' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_25": {
+    "action_type": "navigate",
+    "description": "Get Started",
+    "tag_name": "a",
+    "selectors": [
+      ".bdt-slide-link",
+      "a.bdt-slide-link",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_25' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_26": {
+    "action_type": "navigate",
+    "description": "Website Design",
+    "tag_name": "a",
+    "selectors": [
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_26' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_27": {
+    "action_type": "navigate",
+    "description": "View Portfolio",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_27' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_28": {
+    "action_type": "navigate",
+    "description": "More Info",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_28' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_29": {
+    "action_type": "navigate",
+    "description": "Logo Design",
+    "tag_name": "a",
+    "selectors": [
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_29' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_30": {
+    "action_type": "navigate",
+    "description": "View Portfolio",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_30' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_31": {
+    "action_type": "navigate",
+    "description": "More Info",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_31' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_32": {
+    "action_type": "navigate",
+    "description": "Banner Ad Design",
+    "tag_name": "a",
+    "selectors": [
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_32' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_33": {
+    "action_type": "navigate",
+    "description": "View Portfolio",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_33' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_34": {
+    "action_type": "navigate",
+    "description": "More Info",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_34' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_35": {
+    "action_type": "navigate",
+    "description": "Get in touch today!",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_35' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_36": {
+    "action_type": "navigate",
+    "description": "Joss Couture",
+    "tag_name": "a",
+    "selectors": [
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_36' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_37": {
+    "action_type": "navigate",
+    "description": "Flutterbys School",
+    "tag_name": "a",
+    "selectors": [
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_37' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_38": {
+    "action_type": "navigate",
+    "description": "The Gourmet Cookie C",
+    "tag_name": "a",
+    "selectors": [
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_38' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_39": {
+    "action_type": "navigate",
+    "description": "Straker Functional F",
+    "tag_name": "a",
+    "selectors": [
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_39' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_40": {
+    "action_type": "navigate",
+    "description": "The Syrene Hotel",
+    "tag_name": "a",
+    "selectors": [
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_40' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_41": {
+    "action_type": "navigate",
+    "description": "African Safari Deals",
+    "tag_name": "a",
+    "selectors": [
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_41' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_42": {
+    "action_type": "navigate",
+    "description": "Mtambo Chartered Acc",
+    "tag_name": "a",
+    "selectors": [
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_42' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_43": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_43' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_44": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_44' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_45": {
+    "action_type": "navigate",
+    "description": "Read More Testimonia",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_45' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_46": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_46' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_47": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_47' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_48": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_48' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_49": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_49' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_50": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_50' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_51": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_51' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_52": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_52' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_53": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_53' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
   "action_navigate_a_54": {
     "action_type": "navigate",
     "description": "",
     "tag_name": "a",
     "selectors": [
-      "#logo",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-topbar-logo-renderer:nth-child(1)"
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_54' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_button_55": {
-    "action_type": "click",
-    "description": "Skip navigation",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_55' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_input_input_56": {
-    "action_type": "input",
-    "description": "",
-    "tag_name": "input",
-    "selectors": [
-      ".ytSearchboxComponentInput",
-      "input.ytSearchboxComponentInput",
-      "form:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_input_input_56' to input with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_57": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytSearchboxComponentSearchButton",
-      "button.ytSearchboxComponentSearchButton",
-      "yt-searchbox:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_57' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_58": {
-    "action_type": "click",
-    "description": "Search",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_58' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_59": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_59' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_60": {
-    "action_type": "click",
-    "description": "Create",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_60' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_61": {
-    "action_type": "click",
-    "description": "9+",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_61' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_62": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#avatar-btn",
-      ".style-scope",
-      "button.style-scope",
-      "ytd-topbar-menu-button-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_62' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_63": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_63' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_64": {
+  "action_navigate_a_55": {
     "action_type": "navigate",
     "description": "",
     "tag_name": "a",
     "selectors": [
-      "#logo",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-topbar-logo-renderer:nth-child(1)"
+      "[data-fancybox=\"uael-gallery\"]",
+      "[data-elementor-open-lightbox=\"no\"]",
+      ".uael-grid-img",
+      "a.uael-grid-img",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_64' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_55' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_ytd-guide-entry-renderer_65": {
-    "action_type": "click",
-    "description": "Show more",
-    "tag_name": "ytd-guide-entry-renderer",
+  "action_navigate_a_56": {
+    "action_type": "navigate",
+    "description": "Reach Out Now!",
+    "tag_name": "a",
     "selectors": [
-      "#expander-item",
-      ".style-scope",
-      "ytd-guide-entry-renderer.style-scope",
-      "ytd-guide-collapsible-entry-renderer:nth-child(1)"
+      ".elementor-button",
+      "a.elementor-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_ytd-guide-entry-renderer_65' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_56' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_click_ytd-guide-entry-renderer_66": {
-    "action_type": "click",
-    "description": "Show less",
-    "tag_name": "ytd-guide-entry-renderer",
+  "action_navigate_a_57": {
+    "action_type": "navigate",
+    "description": "Banner Portfolio",
+    "tag_name": "a",
     "selectors": [
-      "#collapser-item",
-      ".style-scope",
-      "ytd-guide-entry-renderer.style-scope",
-      "div:nth-child(2)"
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_ytd-guide-entry-renderer_66' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "llm_instruction": "Use actionId 'action_navigate_a_57' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
-  "action_navigate_a_67": {
+  "action_navigate_a_58": {
+    "action_type": "navigate",
+    "description": "Logo Portfolio",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_58' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_59": {
+    "action_type": "navigate",
+    "description": "Web Design Portfolio",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_59' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_60": {
+    "action_type": "navigate",
+    "description": "Facebook",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-icon",
+      "a.elementor-icon",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_60' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_61": {
+    "action_type": "navigate",
+    "description": "Instagram",
+    "tag_name": "a",
+    "selectors": [
+      ".elementor-icon",
+      "a.elementor-icon",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_61' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_62": {
+    "action_type": "navigate",
+    "description": "Home",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_62' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_63": {
     "action_type": "navigate",
     "description": "About",
     "tag_name": "a",
     "selectors": [
-      "div:nth-child(1)"
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_63' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_64": {
+    "action_type": "navigate",
+    "description": "Services",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_64' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_65": {
+    "action_type": "navigate",
+    "description": "Testimonials",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_65' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_66": {
+    "action_type": "navigate",
+    "description": "Contact",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_66' to navigate with this element",
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "action_navigate_a_67": {
+    "action_type": "navigate",
+    "description": "Privacy Policy",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_67' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   },
   "action_navigate_a_68": {
     "action_type": "navigate",
-    "description": "Press",
+    "description": "Website Designed by ",
     "tag_name": "a",
     "selectors": [
-      "div:nth-child(2)"
+      "h6:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_68' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_69": {
-    "action_type": "navigate",
-    "description": "Copyright",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_69' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_70": {
-    "action_type": "navigate",
-    "description": "Contact us",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_70' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_71": {
-    "action_type": "navigate",
-    "description": "Creators",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_71' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_72": {
-    "action_type": "navigate",
-    "description": "Advertise",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(6)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_72' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_73": {
-    "action_type": "navigate",
-    "description": "Developers",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(7)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_73' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_74": {
-    "action_type": "navigate",
-    "description": "Terms",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_74' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_75": {
-    "action_type": "navigate",
-    "description": "Privacy",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_75' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_76": {
-    "action_type": "navigate",
-    "description": "Policy & Safety",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_76' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_77": {
-    "action_type": "navigate",
-    "description": "How YouTube works",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_77' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_78": {
-    "action_type": "navigate",
-    "description": "Test new features",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_78' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_tab_ytd-mini-guide-entry-renderer_79": {
-    "action_type": "tab",
-    "description": "Home\n  \n  \n    Home",
-    "tag_name": "ytd-mini-guide-entry-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-mini-guide-entry-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_tab_ytd-mini-guide-entry-renderer_79' to tab with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_tab_ytd-mini-guide-entry-renderer_80": {
-    "action_type": "tab",
-    "description": "Shorts\n  \n  \n    Sho",
-    "tag_name": "ytd-mini-guide-entry-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-mini-guide-entry-renderer.style-scope",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_tab_ytd-mini-guide-entry-renderer_80' to tab with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_tab_ytd-mini-guide-entry-renderer_81": {
-    "action_type": "tab",
-    "description": "Subscriptions\n  \n  \n",
-    "tag_name": "ytd-mini-guide-entry-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-mini-guide-entry-renderer.style-scope",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_tab_ytd-mini-guide-entry-renderer_81' to tab with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_tab_ytd-mini-guide-entry-renderer_82": {
-    "action_type": "tab",
-    "description": "YouTube Music\n  \n  \n",
-    "tag_name": "ytd-mini-guide-entry-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-mini-guide-entry-renderer.style-scope",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_tab_ytd-mini-guide-entry-renderer_82' to tab with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_tab_ytd-mini-guide-entry-renderer_83": {
-    "action_type": "tab",
-    "description": "You\n  \n  \n    You",
-    "tag_name": "ytd-mini-guide-entry-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-mini-guide-entry-renderer.style-scope",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_tab_ytd-mini-guide-entry-renderer_83' to tab with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_tab_ytd-mini-guide-entry-renderer_84": {
-    "action_type": "tab",
-    "description": "Downloads\n  \n  \n    ",
-    "tag_name": "ytd-mini-guide-entry-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-mini-guide-entry-renderer.style-scope",
-      "div:nth-child(6)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_tab_ytd-mini-guide-entry-renderer_84' to tab with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_85": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_85' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_86": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_86' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_87": {
-    "action_type": "click",
-    "description": "All",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_87' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_88": {
-    "action_type": "click",
-    "description": "Podcasts",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_88' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_89": {
-    "action_type": "click",
-    "description": "Music",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_89' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_90": {
-    "action_type": "click",
-    "description": "AI",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_90' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_91": {
-    "action_type": "click",
-    "description": "Shark Tank",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_91' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_92": {
-    "action_type": "click",
-    "description": "Mixes",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_92' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_93": {
-    "action_type": "click",
-    "description": "Dumbbells",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_93' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_94": {
-    "action_type": "click",
-    "description": "Live",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_94' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_95": {
-    "action_type": "click",
-    "description": "Guitar solos",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_95' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_96": {
-    "action_type": "click",
-    "description": "Musical ensembles",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_96' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_97": {
-    "action_type": "click",
-    "description": "Cars",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_97' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_98": {
-    "action_type": "click",
-    "description": "Recently uploaded",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_98' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_99": {
-    "action_type": "click",
-    "description": "Watched",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_99' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_100": {
-    "action_type": "click",
-    "description": "New to you",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_100' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_101": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_101' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_102": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_102' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_103": {
-    "action_type": "navigate",
-    "description": "Context Engineering ",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_103' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_104": {
-    "action_type": "navigate",
-    "description": "Tina Huang",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_104' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_105": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_105' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_106": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_106' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_107": {
-    "action_type": "navigate",
-    "description": "If You Eat THESE Foo",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_107' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_108": {
-    "action_type": "navigate",
-    "description": "The Diary Of A CEO C",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_108' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_109": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_109' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_110": {
-    "action_type": "click",
-    "description": "LIVE",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_110' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_111": {
-    "action_type": "navigate",
-    "description": "🔴Evolution Dinosaur",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_111' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_112": {
-    "action_type": "navigate",
-    "description": "Mini Indominus Rex",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_112' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_113": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_113' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_114": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_114' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_115": {
-    "action_type": "navigate",
-    "description": "DMT Psychonaut Revea",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_115' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_116": {
-    "action_type": "navigate",
-    "description": "Danny Jones Clips",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_116' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_117": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_117' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_118": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_118' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_119": {
-    "action_type": "navigate",
-    "description": "This has just become",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_119' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_120": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_120' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_121": {
-    "action_type": "navigate",
-    "description": "Feminism VANISHES Af",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_121' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_122": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_122' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_123": {
-    "action_type": "navigate",
-    "description": "Farmers are being pr",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_123' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_124": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_124' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_125": {
-    "action_type": "navigate",
-    "description": "The terrifying story",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_125' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_126": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_126' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_127": {
-    "action_type": "navigate",
-    "description": "GREEDY Ex-Wife Gets ",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_127' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_128": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_128' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_129": {
-    "action_type": "navigate",
-    "description": "Bob Dylan reveals ho",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_129' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_130": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_130' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_131": {
-    "action_type": "navigate",
-    "description": "The Most Heartbreaki",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_131' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_132": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_132' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_133": {
-    "action_type": "navigate",
-    "description": "Cancer is very Preve",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_133' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_134": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_134' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_135": {
-    "action_type": "navigate",
-    "description": "this was so funny I ",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_135' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_136": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_136' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_137": {
-    "action_type": "click",
-    "description": "Show more",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_137' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_138": {
-    "action_type": "click",
-    "description": "Show less",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_138' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_139": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_139' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_140": {
-    "action_type": "navigate",
-    "description": "What is Gnosticism? ",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_140' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_141": {
-    "action_type": "navigate",
-    "description": "More Alex O'Connor",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_141' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_142": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_142' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_143": {
-    "action_type": "navigate",
-    "description": "Mix - Chris Cornell ",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_143' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_144": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_144' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_145": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_145' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_146": {
-    "action_type": "navigate",
-    "description": "What Kids Really Wan",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_146' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_147": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_147' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_148": {
-    "action_type": "navigate",
-    "description": "Their faces changed ",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_148' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_149": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_149' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_150": {
-    "action_type": "navigate",
-    "description": "Driver Who Changed U",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_150' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_151": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_151' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_152": {
-    "action_type": "navigate",
-    "description": "Joe Rogan Reacts to ",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_152' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_153": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_153' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_154": {
-    "action_type": "navigate",
-    "description": "Easy Test to Prove E",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_154' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_155": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_155' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_156": {
-    "action_type": "navigate",
-    "description": "Lingering Trauma | L",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_156' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_157": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_157' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_158": {
-    "action_type": "navigate",
-    "description": "A quick flight home ",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_158' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_159": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_159' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_160": {
-    "action_type": "navigate",
-    "description": "A Love That Transcen",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_160' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_161": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_161' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_162": {
-    "action_type": "navigate",
-    "description": "Teaching Kids The Me",
-    "tag_name": "a",
-    "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_162' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_163": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_163' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_164": {
-    "action_type": "click",
-    "description": "Show more",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_164' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_165": {
-    "action_type": "click",
-    "description": "Show less",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_165' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_166": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_166' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_167": {
-    "action_type": "navigate",
-    "description": "Explainable AI: Demy",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_167' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_168": {
-    "action_type": "navigate",
-    "description": "IBM Technology",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_168' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_169": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_169' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_170": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_170' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_171": {
-    "action_type": "navigate",
-    "description": "The most fascinating",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_171' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_172": {
-    "action_type": "navigate",
-    "description": "Lex Clips",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_172' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_173": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_173' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_174": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_174' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_175": {
-    "action_type": "navigate",
-    "description": "FIRST DRIVE: New Lam",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_175' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_176": {
-    "action_type": "navigate",
-    "description": "Top Gear",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_176' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_177": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_177' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_178": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_178' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_179": {
-    "action_type": "navigate",
-    "description": "Training With The #1",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_179' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_180": {
-    "action_type": "navigate",
-    "description": "Renaissance Periodiz",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_180' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_181": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_181' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_182": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_182' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_183": {
-    "action_type": "navigate",
-    "description": "Encountering Nordic ",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_183' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_184": {
-    "action_type": "navigate",
-    "description": "Area52 Clips",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_184' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_185": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_185' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_186": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_186' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_187": {
-    "action_type": "navigate",
-    "description": "So You’re Building A",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_187' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_188": {
-    "action_type": "navigate",
-    "description": "Nate Herk | AI Autom",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_188' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_189": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_189' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_190": {
-    "action_type": "click",
-    "description": "LIVE",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_190' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_191": {
-    "action_type": "navigate",
-    "description": "Man Dies In Car Cras",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_191' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_192": {
-    "action_type": "navigate",
-    "description": "The Other Side NDE",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_192' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_193": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_193' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_194": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_194' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_195": {
-    "action_type": "navigate",
-    "description": "This Quantum Reality",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_195' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_196": {
-    "action_type": "navigate",
-    "description": "Fexl",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_196' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_197": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_197' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_198": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_198' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_199": {
-    "action_type": "navigate",
-    "description": "Are We Programmed to",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_199' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_200": {
-    "action_type": "navigate",
-    "description": "StarTalk Plus",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_200' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_201": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_201' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_202": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_202' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_203": {
-    "action_type": "navigate",
-    "description": "Catholic Priest Docu",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_203' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_204": {
-    "action_type": "navigate",
-    "description": "Michael Knowles",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_204' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_205": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_205' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_206": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_206' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_207": {
-    "action_type": "navigate",
-    "description": "The Ultimate AI SEO ",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_207' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_208": {
-    "action_type": "navigate",
-    "description": "Wes McDowell",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_208' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_209": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_209' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_210": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_210' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_211": {
-    "action_type": "navigate",
-    "description": "FREE Local Image Gen",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_211' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_212": {
-    "action_type": "navigate",
-    "description": "Alex Ziskind",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_212' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_213": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_213' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_214": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_214' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_215": {
-    "action_type": "navigate",
-    "description": "Ghosts, Angels & \"Hi",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_215' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_216": {
-    "action_type": "navigate",
-    "description": "TRS Clips",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_216' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_217": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_217' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_div_218": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".yt-spec-avatar-shape",
-      "div.yt-spec-avatar-shape",
-      "yt-avatar-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_div_218' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_219": {
-    "action_type": "navigate",
-    "description": "Learn The MODES With",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model-wiz__title",
-      "a.yt-lockup-metadata-view-model-wiz__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_219' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_220": {
-    "action_type": "navigate",
-    "description": "Bradley Hall's Guita",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_220' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_221": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_221' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_222": {
-    "action_type": "navigate",
-    "description": "YouTube Playables",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_222' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_223": {
-    "action_type": "navigate",
-    "description": "View all",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_223' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_224": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_224' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_225": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_225' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_226": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_226' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_227": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_227' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_228": {
-    "action_type": "navigate",
-    "description": "Phone Case DIY24M pl",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_228' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_229": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_229' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_230": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_230' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_231": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_231' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_232": {
-    "action_type": "navigate",
-    "description": "Clean It: Restaurant",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_232' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_233": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_233' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_234": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_234' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_235": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_235' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_236": {
-    "action_type": "navigate",
-    "description": "My Mini Mart18M play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_236' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_237": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_237' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_238": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_238' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_239": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_239' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_240": {
-    "action_type": "navigate",
-    "description": "Bridge Race22M plays",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_240' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_241": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_241' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_242": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_242' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_243": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_243' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_244": {
-    "action_type": "navigate",
-    "description": "City Smash2.8M plays",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_244' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_245": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_245' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_246": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_246' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_247": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_247' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_248": {
-    "action_type": "navigate",
-    "description": "Race Master 3D33M pl",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_248' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_249": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_249' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_250": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_250' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_251": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_251' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_252": {
-    "action_type": "navigate",
-    "description": "Mob Control HTML512M",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_252' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_253": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_253' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_254": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_254' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_255": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_255' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_256": {
-    "action_type": "navigate",
-    "description": "Build a Queen21M pla",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_256' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_257": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_257' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_258": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_258' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_259": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_259' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_260": {
-    "action_type": "navigate",
-    "description": "Drawing Carnival13M ",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_260' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_261": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_261' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_262": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_262' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_263": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_263' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_264": {
-    "action_type": "navigate",
-    "description": "8 Ball Billiards Cla",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_264' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_265": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_265' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_266": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_266' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_267": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_267' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_268": {
-    "action_type": "navigate",
-    "description": "Harvest.io7.3M plays",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_268' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_269": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_269' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_270": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_270' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_271": {
-    "action_type": "navigate",
-    "description": "Play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "a.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_271' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_navigate_a_272": {
-    "action_type": "navigate",
-    "description": "Aquapark.io6.5M play",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__metadata-details",
-      "a.yt-mini-game-card-view-model__metadata-details",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_272' to navigate with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_273": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_273' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_274": {
-    "action_type": "click",
-    "description": "Show more",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_274' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_275": {
-    "action_type": "click",
-    "description": "Show less",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_275' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_276": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_276' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_tp-yt-paper-button_277": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "tp-yt-paper-button",
-    "selectors": [
-      "#expand-sizer",
-      ".button",
-      "tp-yt-paper-button.button",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_tp-yt-paper-button_277' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_tp-yt-paper-button_278": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "tp-yt-paper-button",
-    "selectors": [
-      "#expand",
-      ".button",
-      "tp-yt-paper-button.button",
-      "ytd-text-inline-expander:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_tp-yt-paper-button_278' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_279": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-overlay-order=\"2\"]",
-      ".ytp-playlist-menu-button",
-      "button.ytp-playlist-menu-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_279' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_280": {
-    "action_type": "click",
-    "description": "Search",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Search\"]",
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_280' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_281": {
-    "action_type": "click",
-    "description": "InfoShopping",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_281' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_282": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"More\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_282' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_283": {
-    "action_type": "click",
-    "description": "Tap to unmute",
-    "tag_name": "button",
-    "selectors": [
-      "[data-layer=\"2\"]",
-      ".ytp-unmute",
-      "button.ytp-unmute",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_283' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_284": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "a:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_284' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_285": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-featured-product-overflow-icon",
-      "button.ytp-featured-product-overflow-icon",
-      "a:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_285' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_286": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-large-play-button",
-      "button.ytp-large-play-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_286' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_287": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_287' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_288": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-featured-product-overflow-icon",
-      "button.ytp-featured-product-overflow-icon",
-      "a:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_288' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_289": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_289' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_290": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_290' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_291": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_291' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_292": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_292' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_293": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-playlist-menu-close",
-      "button.ytp-playlist-menu-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_293' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_input_input_294": {
-    "action_type": "input",
-    "description": "",
-    "tag_name": "input",
-    "selectors": [
-      ".ytp-share-panel-include-playlist-checkbox",
-      "input.ytp-share-panel-include-playlist-checkbox",
-      "label:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_input_input_294' to input with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_295": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-share-panel-close",
-      "button.ytp-share-panel-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_295' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_296": {
-    "action_type": "click",
-    "description": "Watch later",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      "[data-tooltip-title=\"Watch later\"]",
-      ".ytp-watch-later-button",
-      "button.ytp-watch-later-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_296' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_297": {
-    "action_type": "click",
-    "description": "Share",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Share\"]",
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_297' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_298": {
-    "action_type": "click",
-    "description": "Copy link",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      "[data-tooltip-title=\"Copy link\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_298' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
-  },
-  "action_click_button_299": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Close\"]",
-      ".ytp-overflow-panel-close",
-      "button.ytp-overflow-panel-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_299' to click with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(37) YouTube"
+    "page_url": "https://brighttreedigital.com.au/#",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
   }
 }

@@ -1,4 +1,89 @@
 {
+  "google.com": {
+    "framework": "google",
+    "scan_strategy": "google_specific",
+    "url_patterns": ["google.com", "google.*", "*.google.com"],
+    "selectors": {
+      "navigation": [
+        "header",
+        "[role='banner']",
+        ".gb_ua",
+        ".gb_oa",
+        "nav",
+        "[role='navigation']"
+      ],
+      "buttons": [
+        "button[aria-label]",
+        "[role='button']",
+        ".gb_oa",
+        "#gb_70",
+        "#gb_119",
+        "[data-ved]"
+      ],
+      "menus": [
+        "#searchbox",
+        "#searchbox-input",
+        "#gb_70",
+        "#gb_119",
+        "[aria-label*='Google apps']",
+        "[aria-label*='Google Apps']"
+      ],
+      "hidden_content": [
+        "#gb",
+        ".gb_oa",
+        "#searchbox-suggestions",
+        "#searchbox-results",
+        "[aria-hidden='true']",
+        ".gb_oa"
+      ]
+    },
+    "filters": {
+      "include": [
+        "header",
+        "nav", 
+        "#searchbox",
+        "#gb_70",
+        "[aria-label*='Google apps']"
+      ],
+      "exclude": [
+        "[data-ved]",
+        ".gb_oa",
+        ".gb_ua",
+        "[aria-hidden='true']",
+        "[style*='display: none']"
+      ],
+      "max_elements": 25
+    },
+    "interaction_patterns": {
+      "expand_apps": {
+        "trigger": "[aria-label*='Google apps'], [aria-label*='Google Apps']",
+        "wait_for": "#gb",
+        "timeout": 1000
+      },
+      "expand_search": {
+        "trigger": "#searchbox, #searchbox-input",
+        "wait_for": "#searchbox-suggestions",
+        "timeout": 500
+      },
+      "expand_account": {
+        "trigger": "#gb_70, #gb_119",
+        "wait_for": "[role='menu']",
+        "timeout": 1000
+      }
+    },
+    "scan_priority": [
+      "search_interface",
+      "header_navigation",
+      "app_launcher",
+      "account_menu",
+      "hidden_content"
+    ],
+    "custom_handlers": {
+      "google_framework": true,
+      "search_suggestions": true,
+      "app_drawer": true
+    }
+  },
   "youtube.com": {
     "framework": "youtube",
     "scan_strategy": "youtube_specific",
