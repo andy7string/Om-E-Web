@@ -1,17 +1,17 @@
 {
-  "timestamp": 1755762451.711933,
+  "timestamp": 1755777303.143829,
   "browser_state": {
     "total_tabs": 4,
     "active_tab": {
-      "id": 1137969895,
-      "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
-      "title": "How do I get the (x,y) position of an HTML element? | Sentry",
+      "id": 1137969852,
+      "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+      "title": "What I'm Building: A Chrome browser extension that provides AI-powered web...",
       "status": "complete"
     },
     "all_tabs": [
       {
         "id": 1137969790,
-        "url": "https://brighttreedigital.com.au/",
+        "url": "https://brighttreedigital.com.au/#",
         "title": "Local Web Design Adelaide | Bright Tree Digital",
         "active": false,
         "status": "complete"
@@ -25,3328 +25,852 @@
       },
       {
         "id": 1137969852,
-        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68a66d36-76d8-832c-965d-9f5e31225529",
-        "title": "OM-E autonomy - Extension architecture roadmap",
-        "active": false,
+        "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+        "title": "What I'm Building: A Chrome browser extension that provides AI-powered web...",
+        "active": true,
         "status": "complete"
       },
       {
-        "id": 1137969895,
-        "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
-        "title": "How do I get the (x,y) position of an HTML element? | Sentry",
-        "active": true,
+        "id": 1137969926,
+        "url": "https://www.google.com/?zx=1755777065525&no_sw_cr=1",
+        "title": "Google",
+        "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 31198.819683,
+    "last_tabs_update": 46109.511572791,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
-    "title": "How do I get the (x,y) position of an HTML element? | Sentry",
+    "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+    "title": "What I'm Building: A Chrome browser extension that provides AI-powered web...",
     "is_active_tab": true
   },
   "actionable_elements": [
     {
-      "actionId": "action_navigate_a_0",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": ".css-4zleql{display:",
+      "actionId": "action_click_button_0",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-qcxixa",
-        "a.css-qcxixa",
-        "nav:nth-child(2)"
+        "[data-testid=\"sidebar-pin-sidebar\"]",
+        "[data-state=\"closed\"]",
+        ".focus-visible:bg-offsetPlus",
+        "button.focus-visible:bg-offsetPlus",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Welcome Page",
-        "href": "/welcome/"
+        "type": "button",
+        "aria-label": "Pin Sidebar"
       },
-      "timestamp": 1755762394185
+      "timestamp": 1755775792160
     },
     {
-      "actionId": "action_click_button_1",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": ".css-17qgsod{text-ov",
+      "actionId": "action_navigate_a_1",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Finance",
       "selectors": [
-        ".btn-new",
-        "button.btn-new",
-        "nav:nth-child(6)"
+        ".group",
+        "a.group",
+        "div:nth-child(1)"
       ],
-      "attributes": {},
-      "timestamp": 1755762394185
+      "attributes": {
+        "href": "/finance"
+      },
+      "timestamp": 1755775792160
     },
     {
-      "actionId": "action_click_button_2",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "Platform",
+      "actionId": "action_navigate_a_2",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Travel",
       "selectors": [
-        "[data-menu=\"platform\"]",
-        ".btn-new",
-        "button.btn-new",
-        "li:nth-child(4)"
+        ".group",
+        "a.group",
+        "div:nth-child(2)"
       ],
-      "attributes": {},
-      "timestamp": 1755762394185
+      "attributes": {
+        "href": "/travel"
+      },
+      "timestamp": 1755775792160
     },
     {
       "actionId": "action_navigate_a_3",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Error Monitoring",
+      "textContent": "Shopping",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(2)"
+        ".group",
+        "a.group",
+        "div:nth-child(3)"
       ],
       "attributes": {
-        "href": "https://sentry.io/product/error-monitoring/"
+        "href": "/shopping"
       },
-      "timestamp": 1755762394185
+      "timestamp": 1755775792160
     },
     {
       "actionId": "action_navigate_a_4",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Logs.css-4zmnew{back",
+      "textContent": "Academic",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        ".group",
+        "a.group",
+        "div:nth-child(4)"
       ],
       "attributes": {
-        "href": "https://sentry.io/product/logs/"
+        "href": "/academic"
       },
-      "timestamp": 1755762394185
+      "timestamp": 1755775792160
     },
     {
       "actionId": "action_navigate_a_5",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Session Replay",
+      "textContent": "Library",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-testid=\"library-button\"]",
+        ".group",
+        "a.group",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/product/session-replay/"
+        "href": "/library"
       },
-      "timestamp": 1755762394185
+      "timestamp": 1755775792160
     },
     {
       "actionId": "action_navigate_a_6",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Tracing",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        ".mt-xs",
+        "a.mt-xs",
+        "span:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/product/tracing/"
+        "href": "/"
       },
-      "timestamp": 1755762394185
+      "timestamp": 1755775792160
     },
     {
-      "actionId": "action_navigate_a_7",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "SeerNEW",
+      "actionId": "action_click_button_7",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-testid=\"sidebar-new-thread\"]",
+        "[data-state=\"closed\"]",
+        ".bg-offsetPlus",
+        "button.bg-offsetPlus",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/product/seer/"
+        "type": "button",
+        "aria-label": "New Thread"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792160
     },
     {
       "actionId": "action_navigate_a_8",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Uptime Monitoring",
+      "textContent": "Home",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-testid=\"sidebar-home\"]",
+        ".p-sm",
+        "a.p-sm",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/product/uptime-monitoring/"
+        "href": "/"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792160
     },
     {
       "actionId": "action_navigate_a_9",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Profiling",
+      "textContent": "Discover",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-testid=\"sidebar-discover\"]",
+        ".p-sm",
+        "a.p-sm",
+        "div:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://sentry.io/product/profiling/"
+        "href": "/discover"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792160
     },
     {
       "actionId": "action_navigate_a_10",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Cron Monitoring",
+      "textContent": "Spaces",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-testid=\"sidebar-spaces\"]",
+        ".p-sm",
+        "a.p-sm",
+        "div:nth-child(3)"
       ],
       "attributes": {
-        "href": "https://sentry.io/product/cron-monitoring/"
+        "href": "/spaces/templates/"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792160
     },
     {
-      "actionId": "action_navigate_a_11",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Github",
+      "actionId": "action_click_button_11",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        ".focus-visible:bg-offsetPlus",
+        "button.focus-visible:bg-offsetPlus",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/integrations/github/"
+        "type": "button"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792161
     },
     {
-      "actionId": "action_navigate_a_12",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Slack",
+      "actionId": "action_click_button_12",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-state=\"checked\"]",
+        "[data-radix-collection-item=\"\"]",
+        ".segmented-control",
+        "button.segmented-control",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/integrations/slack/"
+        "type": "button",
+        "role": "radio",
+        "aria-label": "Search"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792161
     },
     {
-      "actionId": "action_navigate_a_13",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "All Integrations",
+      "actionId": "action_click_button_13",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-state=\"unchecked\"]",
+        "[data-radix-collection-item=\"\"]",
+        ".segmented-control",
+        "button.segmented-control",
+        "div:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://sentry.io/integrations/"
+        "type": "button",
+        "role": "radio",
+        "aria-label": "Research"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792161
     },
     {
-      "actionId": "action_navigate_a_14",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Javascript",
+      "actionId": "action_click_button_14",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-state=\"unchecked\"]",
+        "[data-radix-collection-item=\"\"]",
+        ".segmented-control",
+        "button.segmented-control",
+        "div:nth-child(3)"
       ],
       "attributes": {
-        "href": "https://sentry.io/for/javascript/"
+        "type": "button",
+        "role": "radio",
+        "aria-label": "Labs"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792161
     },
     {
-      "actionId": "action_navigate_a_15",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Python",
+      "actionId": "action_click_button_15",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-state=\"closed\"]",
+        ".focus-visible:bg-offsetPlus",
+        "button.focus-visible:bg-offsetPlus",
+        "span:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/for/python/"
+        "type": "button",
+        "aria-label": "Choose a model"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792161
     },
     {
-      "actionId": "action_navigate_a_16",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "React",
+      "actionId": "action_click_button_16",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-testid=\"sources-switcher-button\"]",
+        "[data-state=\"closed\"]",
+        ".focus-visible:bg-offsetPlus",
+        "button.focus-visible:bg-offsetPlus",
+        "span:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/for/react/"
+        "type": "button"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792161
     },
     {
-      "actionId": "action_navigate_a_17",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Laravel",
+      "actionId": "action_click_button_17",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-state=\"closed\"]",
+        ".focus-visible:bg-offsetPlus",
+        "button.focus-visible:bg-offsetPlus",
+        "span:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/for/laravel/"
+        "type": "button",
+        "aria-label": "Attach files. 3 left today"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792161
     },
     {
-      "actionId": "action_navigate_a_18",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Next.js",
+      "actionId": "action_input_input_18",
+      "actionType": "input",
+      "tagName": "input",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "div:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://sentry.io/for/nextjs/"
+        "type": "file"
       },
-      "timestamp": 1755762394186
+      "timestamp": 1755775792161
     },
     {
-      "actionId": "action_navigate_a_19",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "All SDKs",
+      "actionId": "action_click_button_19",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "",
       "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
+        "[data-state=\"closed\"]",
+        ".focus-visible:bg-offsetPlus",
+        "button.focus-visible:bg-offsetPlus",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/platforms/"
+        "type": "button",
+        "aria-label": "Dictation"
       },
-      "timestamp": 1755762394187
+      "timestamp": 1755775792161
     },
     {
       "actionId": "action_click_button_20",
       "actionType": "click",
       "tagName": "button",
-      "textContent": "Solutions",
+      "textContent": "",
       "selectors": [
-        "[data-menu=\"solutions\"]",
-        ".btn-new",
-        "button.btn-new",
-        "li:nth-child(1)"
-      ],
-      "attributes": {},
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_21",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Web / Frontend Devel",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/for/full-stack/"
-      },
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_22",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Mobile Crash Reporti",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-mobile-developers/"
-      },
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_23",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Game Crash Reporting",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-game-developers/"
-      },
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_24",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "AI Observability",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-ai/"
-      },
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_25",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Application Performa",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-application-performance-monitoring/"
-      },
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_26",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Real User Monitoring",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-real-user-monitoring-rum/"
-      },
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_27",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Ecommerce",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-ecommerce"
-      },
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_28",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Enterprise",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/for/enterprise/"
-      },
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_click_button_29",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "Resources",
-      "selectors": [
-        "[data-menu=\"resources\"]",
-        ".btn-new",
-        "button.btn-new",
-        "li:nth-child(1)"
-      ],
-      "attributes": {},
-      "timestamp": 1755762394187
-    },
-    {
-      "actionId": "action_navigate_a_30",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Blog",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://blog.sentry.io/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_31",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Changelog",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/changelog/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_32",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Sandbox",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sandbox.sentry.io/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_33",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Resources",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/resources/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_34",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Sentry Answers",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/answers/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_35",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Syntax",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://syntax.fm/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_36",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Customers",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/customers/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_37",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Contact Us",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/contact/enterprise/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_38",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Help Center",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://help.sentry.io/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_39",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Status",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://status.sentry.io/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_40",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Sentry Build",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/resources/sentry-build/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_41",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Events",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://lu.ma/user/getsentry"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_42",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Merch",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.shop/"
-      },
-      "timestamp": 1755762394188
-    },
-    {
-      "actionId": "action_navigate_a_43",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Read More",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
-        "div:nth-child(7)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/resources/unsnag-your-mobile-monitoring/"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_navigate_a_44",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Docs",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://docs.sentry.io/"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_navigate_a_45",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Pricing",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/pricing/"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_navigate_a_46",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Sign Inlogin",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
+        "[data-state=\"closed\"]",
+        ".bg-super",
+        "button.bg-super",
         "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://sentry.io/auth/login/"
+        "type": "button",
+        "aria-label": "Voice mode"
       },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_navigate_a_47",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Get Demoget a demo",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
-        "div:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "/demo/"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_navigate_a_48",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Get Startedsign up",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
-        "div:nth-child(3)"
-      ],
-      "attributes": {
-        "href": "/signup/"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_navigate_a_49",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Sentry Answers.css-1",
-      "selectors": [
-        ".css-5glpgv",
-        "a.css-5glpgv",
-        "div:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "/answers/"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_navigate_a_50",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "JavaScript",
-      "selectors": [
-        ".css-5glpgv",
-        "a.css-5glpgv",
-        "div:nth-child(3)"
-      ],
-      "attributes": {
-        "href": "/answers/javascript/"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_click_div_51",
-      "actionType": "click",
-      "tagName": "div",
-      "textContent": ".css-1vpruv2{positio",
-      "selectors": [
-        "div:nth-child(14)"
-      ],
-      "attributes": {
-        "role": "button",
-        "title": "Click to Copy"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_click_div_52",
-      "actionType": "click",
-      "tagName": "div",
-      "textContent": "Click to CopyClick t",
-      "selectors": [
-        "div:nth-child(19)"
-      ],
-      "attributes": {
-        "role": "button",
-        "title": "Click to Copy"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_click_div_53",
-      "actionType": "click",
-      "tagName": "div",
-      "textContent": "Click to CopyClick t",
-      "selectors": [
-        "div:nth-child(22)"
-      ],
-      "attributes": {
-        "role": "button",
-        "title": "Click to Copy"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_click_div_54",
-      "actionType": "click",
-      "tagName": "div",
-      "textContent": "Click to CopyClick t",
-      "selectors": [
-        "div:nth-child(35)"
-      ],
-      "attributes": {
-        "role": "button",
-        "title": "Click to Copy"
-      },
-      "timestamp": 1755762394189
-    },
-    {
-      "actionId": "action_navigate_a_55",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "How Sentry.io saved ",
-      "selectors": [
-        ".plausible-event-name=Click+Answers+Related+Content",
-        "a.plausible-event-name=Click+Answers+Related+Content",
-        "li:nth-child(4)"
-      ],
-      "attributes": {
-        "href": "https://www.youtube.com/watch?v=8nZOsYm9Xzs"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_56",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Improve Web Browser ",
-      "selectors": [
-        ".plausible-event-name=Click+Answers+Related+Content",
-        "a.plausible-event-name=Click+Answers+Related+Content",
-        "li:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/resources/improve-web-browser-performance-find-the-javascript-code-causing-slowdowns/"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_57",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Javascript Error Mon",
-      "selectors": [
-        ".plausible-event-name=Click+Answers+Related+Content",
-        "a.plausible-event-name=Click+Answers+Related+Content",
-        "li:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/for/javascript/"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_58",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "JavaScript Frontend ",
-      "selectors": [
-        ".plausible-event-name=Click+Answers+Related+Content",
-        "a.plausible-event-name=Click+Answers+Related+Content",
-        "li:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/resources/javascript-frontend-error-monitoring-101/"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_59",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Listen to the Syntax",
-      "selectors": [
-        ".plausible-event-name=Click+Answers+Related+Content",
-        "a.plausible-event-name=Click+Answers+Related+Content",
-        "li:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_60",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Listen to the Syntax",
-      "selectors": [
-        ".plausible-event-name=Click+Answers+Syntax+Promo",
-        "a.plausible-event-name=Click+Answers+Syntax+Promo",
-        "li:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_61",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "SEE EPISODES",
-      "selectors": [
-        ".plausible-event-name=Click+Answers+Syntax+Promo",
-        "a.plausible-event-name=Click+Answers+Syntax+Promo",
-        "li:nth-child(5)"
-      ],
-      "attributes": {
-        "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_62",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "learn more about sen",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
-        "div:nth-child(1)"
-      ],
-      "attributes": {
-        "aria-label": "learn more about sentry",
-        "href": "https://sentry.io"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_63",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "join our discord",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
-        "div:nth-child(2)"
-      ],
-      "attributes": {
-        "aria-label": "join our discord",
-        "href": "https://discord.com/invite/sentry"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_64",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "About",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/about/"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_65",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Blog",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://blog.sentry.io/"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_66",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Careers",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/careers/"
-      },
-      "timestamp": 1755762394190
-    },
-    {
-      "actionId": "action_navigate_a_67",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Contact Us",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/contact/enterprise/"
-      },
-      "timestamp": 1755762394191
-    },
-    {
-      "actionId": "action_navigate_a_68",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Trust",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/trust/"
-      },
-      "timestamp": 1755762394191
-    },
-    {
-      "actionId": "action_navigate_a_69",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Error Monitoring",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/product/error-monitoring/"
-      },
-      "timestamp": 1755762394191
-    },
-    {
-      "actionId": "action_navigate_a_70",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Tracing",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/product/tracing/"
-      },
-      "timestamp": 1755762394191
-    },
-    {
-      "actionId": "action_navigate_a_71",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Session Replay",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/product/session-replay/"
-      },
-      "timestamp": 1755762394191
-    },
-    {
-      "actionId": "action_navigate_a_72",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Seer",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/product/seer/"
-      },
-      "timestamp": 1755762394192
-    },
-    {
-      "actionId": "action_navigate_a_73",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Logs",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/product/logs/"
-      },
-      "timestamp": 1755762394192
-    },
-    {
-      "actionId": "action_navigate_a_74",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Uptime Monitoring",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/product/uptime-monitoring/"
-      },
-      "timestamp": 1755762394192
-    },
-    {
-      "actionId": "action_navigate_a_75",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Profiling",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/product/profiling/"
-      },
-      "timestamp": 1755762394192
-    },
-    {
-      "actionId": "action_navigate_a_76",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Cron Monitoring",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/product/cron-monitoring/"
-      },
-      "timestamp": 1755762394192
-    },
-    {
-      "actionId": "action_navigate_a_77",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Integrations",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/integrations/"
-      },
-      "timestamp": 1755762394192
-    },
-    {
-      "actionId": "action_navigate_a_78",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Web / Frontend Devel",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/for/full-stack/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_79",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Mobile Crash Reporti",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-mobile-developers/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_80",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Game Crash Reporting",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-game-developers/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_81",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "AI Observability",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-ai/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_82",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Application Performa",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-application-performance-monitoring/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_83",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Real User Monitoring",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-real-user-monitoring-rum/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_84",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Ecommerce",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/solutions/sentry-for-ecommerce"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_85",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Enterprise",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "/for/enterprise/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_86",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Docs",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://docs.sentry.io/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_87",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Help Center",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://help.sentry.io/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_88",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Status",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://status.sentry.io/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_89",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Dev Resources",
-      "selectors": [
-        ".css-11p6kxc",
-        "a.css-11p6kxc",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://develop.sentry.dev/getting-started/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_90",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Terms",
-      "selectors": [
-        "div:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/terms/"
-      },
-      "timestamp": 1755762394193
-    },
-    {
-      "actionId": "action_navigate_a_91",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Security & Complianc",
-      "selectors": [
-        "div:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/security/"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_92",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Trust",
-      "selectors": [
-        "div:nth-child(3)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/trust/"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_93",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
-      "selectors": [
-        ".css-18bmpmw",
-        "a.css-18bmpmw",
-        "div:nth-child(2)"
-      ],
-      "attributes": {
-        "aria-label": "home",
-        "href": "/"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_94",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
-      "selectors": [
-        ".css-dx73s3",
-        "a.css-dx73s3",
-        "div:nth-child(4)"
-      ],
-      "attributes": {
-        "aria-label": "Open Source Pledge",
-        "href": "https://opensourcepledge.com/members/sentry/"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_95",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
-      "selectors": [
-        "div:nth-child(1)"
-      ],
-      "attributes": {
-        "aria-label": "Twitter Menu Button",
-        "href": "https://twitter.com/getsentry/"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_96",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
-      "selectors": [
-        "div:nth-child(2)"
-      ],
-      "attributes": {
-        "aria-label": "Github Social Menu Button",
-        "href": "https://github.com/getsentry/"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_97",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
-      "selectors": [
-        "div:nth-child(3)"
-      ],
-      "attributes": {
-        "aria-label": "LinkedIn Menu Button",
-        "href": "https://linkedin.com/company/getsentry/"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_98",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
-      "selectors": [
-        "div:nth-child(4)"
-      ],
-      "attributes": {
-        "aria-label": "Discord Menu Button",
-        "href": "https://discord.gg/sentry"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_99",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Am I included?",
-      "selectors": [
-        "div:nth-child(5)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/privacy/"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_100",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Tell me more",
-      "selectors": [
-        "div:nth-child(3)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/privacy/#what-personal-information-does-sentry-collect"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_101",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "How exactly?",
-      "selectors": [
-        "div:nth-child(3)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/privacy/#what-does-sentry-use-my-personal-information-for"
-      },
-      "timestamp": 1755762394194
-    },
-    {
-      "actionId": "action_navigate_a_102",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "What do they do?",
-      "selectors": [
-        "div:nth-child(4)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/privacy/#who-does-sentry-disclose-my-personal-information-to"
-      },
-      "timestamp": 1755762394195
-    },
-    {
-      "actionId": "action_navigate_a_103",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "How can I choose?",
-      "selectors": [
-        "div:nth-child(3)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/privacy/#cookies-and-similar-tracking-technology"
-      },
-      "timestamp": 1755762394195
-    },
-    {
-      "actionId": "action_navigate_a_104",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "What can I do?",
-      "selectors": [
-        "div:nth-child(4)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/privacy/#your-data-protection-rights"
-      },
-      "timestamp": 1755762394195
-    },
-    {
-      "actionId": "action_navigate_a_105",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "compliance@sentry.io",
-      "selectors": [
-        "p:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "mailto:compliance@sentry.io"
-      },
-      "timestamp": 1755762394195
-    },
-    {
-      "actionId": "action_navigate_a_106",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Supplemental notice",
-      "selectors": [
-        "p:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/trust/privacy/california/"
-      },
-      "timestamp": 1755762394195
-    },
-    {
-      "actionId": "action_navigate_a_107",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Read the full policy",
-      "selectors": [
-        ".btn-new",
-        "a.btn-new",
-        "div:nth-child(2)"
-      ],
-      "attributes": {
-        "href": "https://sentry.io/privacy/"
-      },
-      "timestamp": 1755762394195
+      "timestamp": 1755775792161
     }
   ],
   "page_state": {
-    "currentView": "unknown",
+    "currentView": "content_updated",
     "interactiveElements": [
       {
-        "id": "action_navigate_a_0",
+        "id": "action_click_button_0",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "[data-testid=\"sidebar-pin-sidebar\"]",
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-offsetPlus",
+          "button.focus-visible:bg-offsetPlus",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus !-me-sm font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-xs h-6 aspect-[9/8]",
+        "attributes": {
+          "type": "button",
+          "aria-label": "Pin Sidebar"
+        },
+        "timestamp": 1755775792160
+      },
+      {
+        "id": "action_navigate_a_1",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".css-qcxixa",
-          "a.css-qcxixa",
-          "nav:nth-child(2)"
+          ".group",
+          "a.group",
+          "div:nth-child(1)"
         ],
-        "textContent": ".css-4zleql{display:",
-        "className": "css-qcxixa et4v3sf3",
+        "textContent": "Finance",
+        "className": "group relative block",
         "attributes": {
-          "aria-label": "Welcome Page",
-          "href": "/welcome/"
+          "href": "/finance"
         },
-        "timestamp": 1755762394185
+        "timestamp": 1755775792160
       },
       {
-        "id": "action_click_button_1",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_navigate_a_2",
+        "tagName": "a",
+        "actionType": "navigate",
         "selectors": [
-          ".btn-new",
-          "button.btn-new",
-          "nav:nth-child(6)"
+          ".group",
+          "a.group",
+          "div:nth-child(2)"
         ],
-        "textContent": ".css-17qgsod{text-ov",
-        "className": "btn-new et4v3sf2 e1of9yu15 css-1d84q9o e1figufi0",
-        "attributes": {},
-        "timestamp": 1755762394185
-      },
-      {
-        "id": "action_click_button_2",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "[data-menu=\"platform\"]",
-          ".btn-new",
-          "button.btn-new",
-          "li:nth-child(4)"
-        ],
-        "textContent": "Platform",
-        "className": "btn-new silent plausible-event-name=Nav+Click+Product efdm4dw3 e1of9yu15 css-nsk9l1 e1figufi0",
-        "attributes": {},
-        "timestamp": 1755762394185
+        "textContent": "Travel",
+        "className": "group relative block",
+        "attributes": {
+          "href": "/travel"
+        },
+        "timestamp": 1755775792160
       },
       {
         "id": "action_navigate_a_3",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(2)"
+          ".group",
+          "a.group",
+          "div:nth-child(3)"
         ],
-        "textContent": "Error Monitoring",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "Shopping",
+        "className": "group relative block",
         "attributes": {
-          "href": "https://sentry.io/product/error-monitoring/"
+          "href": "/shopping"
         },
-        "timestamp": 1755762394185
+        "timestamp": 1755775792160
       },
       {
         "id": "action_navigate_a_4",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          ".group",
+          "a.group",
+          "div:nth-child(4)"
         ],
-        "textContent": "Logs.css-4zmnew{back",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "Academic",
+        "className": "group relative block",
         "attributes": {
-          "href": "https://sentry.io/product/logs/"
+          "href": "/academic"
         },
-        "timestamp": 1755762394185
+        "timestamp": 1755775792160
       },
       {
         "id": "action_navigate_a_5",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-testid=\"library-button\"]",
+          ".group",
+          "a.group",
+          "div:nth-child(1)"
         ],
-        "textContent": "Session Replay",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "Library",
+        "className": "group relative block",
         "attributes": {
-          "href": "https://sentry.io/product/session-replay/"
+          "href": "/library"
         },
-        "timestamp": 1755762394185
+        "timestamp": 1755775792160
       },
       {
         "id": "action_navigate_a_6",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          ".mt-xs",
+          "a.mt-xs",
+          "span:nth-child(1)"
         ],
-        "textContent": "Tracing",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "mt-xs active:ease-outExpo block duration-100 ease-out active:scale-[0.97]",
         "attributes": {
-          "href": "https://sentry.io/product/tracing/"
+          "href": "/"
         },
-        "timestamp": 1755762394185
+        "timestamp": 1755775792160
       },
       {
-        "id": "action_navigate_a_7",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_7",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-testid=\"sidebar-new-thread\"]",
+          "[data-state=\"closed\"]",
+          ".bg-offsetPlus",
+          "button.bg-offsetPlus",
+          "div:nth-child(1)"
         ],
-        "textContent": "SeerNEW",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "bg-offsetPlus text-foreground md:hover:text-quiet my-lg hover:scale-105 font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-base h-10 aspect-square",
         "attributes": {
-          "href": "https://sentry.io/product/seer/"
+          "type": "button",
+          "aria-label": "New Thread"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792160
       },
       {
         "id": "action_navigate_a_8",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-testid=\"sidebar-home\"]",
+          ".p-sm",
+          "a.p-sm",
+          "div:nth-child(1)"
         ],
-        "textContent": "Uptime Monitoring",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "Home",
+        "className": "p-sm group flex w-full flex-col items-center justify-center gap-0.5",
         "attributes": {
-          "href": "https://sentry.io/product/uptime-monitoring/"
+          "href": "/"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792160
       },
       {
         "id": "action_navigate_a_9",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-testid=\"sidebar-discover\"]",
+          ".p-sm",
+          "a.p-sm",
+          "div:nth-child(2)"
         ],
-        "textContent": "Profiling",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "Discover",
+        "className": "p-sm group flex w-full flex-col items-center justify-center gap-0.5",
         "attributes": {
-          "href": "https://sentry.io/product/profiling/"
+          "href": "/discover"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792160
       },
       {
         "id": "action_navigate_a_10",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-testid=\"sidebar-spaces\"]",
+          ".p-sm",
+          "a.p-sm",
+          "div:nth-child(3)"
         ],
-        "textContent": "Cron Monitoring",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "Spaces",
+        "className": "p-sm group flex w-full flex-col items-center justify-center gap-0.5",
         "attributes": {
-          "href": "https://sentry.io/product/cron-monitoring/"
+          "href": "/spaces/templates/"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792160
       },
       {
-        "id": "action_navigate_a_11",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_11",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          ".focus-visible:bg-offsetPlus",
+          "button.focus-visible:bg-offsetPlus",
+          "div:nth-child(1)"
         ],
-        "textContent": "Github",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-base h-10 aspect-square",
         "attributes": {
-          "href": "https://sentry.io/integrations/github/"
+          "type": "button"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792161
       },
       {
-        "id": "action_navigate_a_12",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_12",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-state=\"checked\"]",
+          "[data-radix-collection-item=\"\"]",
+          ".segmented-control",
+          "button.segmented-control",
+          "div:nth-child(1)"
         ],
-        "textContent": "Slack",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "segmented-control group/segmented-control relative focus:outline-none",
         "attributes": {
-          "href": "https://sentry.io/integrations/slack/"
+          "type": "button",
+          "role": "radio",
+          "aria-label": "Search"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792161
       },
       {
-        "id": "action_navigate_a_13",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_13",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-state=\"unchecked\"]",
+          "[data-radix-collection-item=\"\"]",
+          ".segmented-control",
+          "button.segmented-control",
+          "div:nth-child(2)"
         ],
-        "textContent": "All Integrations",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "segmented-control group/segmented-control relative focus:outline-none",
         "attributes": {
-          "href": "https://sentry.io/integrations/"
+          "type": "button",
+          "role": "radio",
+          "aria-label": "Research"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792161
       },
       {
-        "id": "action_navigate_a_14",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_14",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-state=\"unchecked\"]",
+          "[data-radix-collection-item=\"\"]",
+          ".segmented-control",
+          "button.segmented-control",
+          "div:nth-child(3)"
         ],
-        "textContent": "Javascript",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "segmented-control group/segmented-control relative focus:outline-none",
         "attributes": {
-          "href": "https://sentry.io/for/javascript/"
+          "type": "button",
+          "role": "radio",
+          "aria-label": "Labs"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792161
       },
       {
-        "id": "action_navigate_a_15",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_15",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-offsetPlus",
+          "button.focus-visible:bg-offsetPlus",
+          "span:nth-child(1)"
         ],
-        "textContent": "Python",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus max-w-24 sm:max-w-none font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
-          "href": "https://sentry.io/for/python/"
+          "type": "button",
+          "aria-label": "Choose a model"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792161
       },
       {
-        "id": "action_navigate_a_16",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_16",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-testid=\"sources-switcher-button\"]",
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-offsetPlus",
+          "button.focus-visible:bg-offsetPlus",
+          "span:nth-child(1)"
         ],
-        "textContent": "React",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus px-[4px]  font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
-          "href": "https://sentry.io/for/react/"
+          "type": "button"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792161
       },
       {
-        "id": "action_navigate_a_17",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_17",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-offsetPlus",
+          "button.focus-visible:bg-offsetPlus",
+          "span:nth-child(1)"
         ],
-        "textContent": "Laravel",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
-          "href": "https://sentry.io/for/laravel/"
+          "type": "button",
+          "aria-label": "Attach files. 3 left today"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792161
       },
       {
-        "id": "action_navigate_a_18",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_input_input_18",
+        "tagName": "input",
+        "actionType": "input",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "div:nth-child(2)"
         ],
-        "textContent": "Next.js",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "",
         "attributes": {
-          "href": "https://sentry.io/for/nextjs/"
+          "type": "file"
         },
-        "timestamp": 1755762394186
+        "timestamp": 1755775792161
       },
       {
-        "id": "action_navigate_a_19",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_19",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-offsetPlus",
+          "button.focus-visible:bg-offsetPlus",
+          "div:nth-child(1)"
         ],
-        "textContent": "All SDKs",
-        "className": "css-11p6kxc e13yldr41",
+        "textContent": "",
+        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
-          "href": "https://sentry.io/platforms/"
+          "type": "button",
+          "aria-label": "Dictation"
         },
-        "timestamp": 1755762394187
+        "timestamp": 1755775792161
       },
       {
         "id": "action_click_button_20",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
-          "[data-menu=\"solutions\"]",
-          ".btn-new",
-          "button.btn-new",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Solutions",
-        "className": "btn-new silent plausible-event-name=Nav+Click+Solutions efdm4dw3 e1of9yu15 css-nsk9l1 e1figufi0",
-        "attributes": {},
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_21",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Web / Frontend Devel",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/for/full-stack/"
-        },
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_22",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Mobile Crash Reporti",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-mobile-developers/"
-        },
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_23",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Game Crash Reporting",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-game-developers/"
-        },
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_24",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "AI Observability",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-ai/"
-        },
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_25",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Application Performa",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-application-performance-monitoring/"
-        },
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_26",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Real User Monitoring",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-real-user-monitoring-rum/"
-        },
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_27",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Ecommerce",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-ecommerce"
-        },
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_28",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Enterprise",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/for/enterprise/"
-        },
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_click_button_29",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "[data-menu=\"resources\"]",
-          ".btn-new",
-          "button.btn-new",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Resources",
-        "className": "btn-new silent plausible-event-name=Nav+Click+Resources efdm4dw3 e1of9yu15 css-nsk9l1 e1figufi0",
-        "attributes": {},
-        "timestamp": 1755762394187
-      },
-      {
-        "id": "action_navigate_a_30",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Blog",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://blog.sentry.io/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_31",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Changelog",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://sentry.io/changelog/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_32",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Sandbox",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://sandbox.sentry.io/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_33",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Resources",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://sentry.io/resources/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_34",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Sentry Answers",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://sentry.io/answers/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_35",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Syntax",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://syntax.fm/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_36",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Customers",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://sentry.io/customers/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_37",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Contact Us",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://sentry.io/contact/enterprise/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_38",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Help Center",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://help.sentry.io/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_39",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Status",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://status.sentry.io/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_40",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Sentry Build",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://sentry.io/resources/sentry-build/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_41",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Events",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://lu.ma/user/getsentry"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_42",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Merch",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://sentry.shop/"
-        },
-        "timestamp": 1755762394188
-      },
-      {
-        "id": "action_navigate_a_43",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "div:nth-child(7)"
-        ],
-        "textContent": "Read More",
-        "className": "btn-new secondary-light e1of9yu15 css-1csoxiy e1figufi0",
-        "attributes": {
-          "href": "https://sentry.io/resources/unsnag-your-mobile-monitoring/"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_navigate_a_44",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Docs",
-        "className": "btn-new silent plausible-event-name=Nav+Click+Docs et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
-        "attributes": {
-          "href": "https://docs.sentry.io/"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_navigate_a_45",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Pricing",
-        "className": "btn-new silent plausible-event-name=Nav+Click+Pricing et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
-        "attributes": {
-          "href": "https://sentry.io/pricing/"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_navigate_a_46",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Sign Inlogin",
-        "className": "btn-new silent plausible-event-name=Nav+Click+SignIn et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
-        "attributes": {
-          "href": "https://sentry.io/auth/login/"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_navigate_a_47",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Get Demoget a demo",
-        "className": "btn-new secondary-light plausible-event-name=Nav+Click+Demo et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
-        "attributes": {
-          "href": "/demo/"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_navigate_a_48",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "div:nth-child(3)"
-        ],
-        "textContent": "Get Startedsign up",
-        "className": "btn-new primary-light plausible-event-name=Nav+Click+SignUp et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
-        "attributes": {
-          "href": "/signup/"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_navigate_a_49",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-5glpgv",
-          "a.css-5glpgv",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Sentry Answers.css-1",
-        "className": "css-5glpgv e9zo9tj2",
-        "attributes": {
-          "href": "/answers/"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_navigate_a_50",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-5glpgv",
-          "a.css-5glpgv",
-          "div:nth-child(3)"
-        ],
-        "textContent": "JavaScript",
-        "className": "css-5glpgv e9zo9tj2",
-        "attributes": {
-          "href": "/answers/javascript/"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_click_div_51",
-        "tagName": "div",
-        "actionType": "click",
-        "selectors": [
-          "div:nth-child(14)"
-        ],
-        "textContent": ".css-1vpruv2{positio",
-        "className": "",
-        "attributes": {
-          "role": "button",
-          "title": "Click to Copy"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_click_div_52",
-        "tagName": "div",
-        "actionType": "click",
-        "selectors": [
-          "div:nth-child(19)"
-        ],
-        "textContent": "Click to CopyClick t",
-        "className": "",
-        "attributes": {
-          "role": "button",
-          "title": "Click to Copy"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_click_div_53",
-        "tagName": "div",
-        "actionType": "click",
-        "selectors": [
-          "div:nth-child(22)"
-        ],
-        "textContent": "Click to CopyClick t",
-        "className": "",
-        "attributes": {
-          "role": "button",
-          "title": "Click to Copy"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_click_div_54",
-        "tagName": "div",
-        "actionType": "click",
-        "selectors": [
-          "div:nth-child(35)"
-        ],
-        "textContent": "Click to CopyClick t",
-        "className": "",
-        "attributes": {
-          "role": "button",
-          "title": "Click to Copy"
-        },
-        "timestamp": 1755762394189
-      },
-      {
-        "id": "action_navigate_a_55",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".plausible-event-name=Click+Answers+Related+Content",
-          "a.plausible-event-name=Click+Answers+Related+Content",
-          "li:nth-child(4)"
-        ],
-        "textContent": "How Sentry.io saved ",
-        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
-        "attributes": {
-          "href": "https://www.youtube.com/watch?v=8nZOsYm9Xzs"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_56",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".plausible-event-name=Click+Answers+Related+Content",
-          "a.plausible-event-name=Click+Answers+Related+Content",
-          "li:nth-child(2)"
-        ],
-        "textContent": "Improve Web Browser ",
-        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
-        "attributes": {
-          "href": "https://sentry.io/resources/improve-web-browser-performance-find-the-javascript-code-causing-slowdowns/"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_57",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".plausible-event-name=Click+Answers+Related+Content",
-          "a.plausible-event-name=Click+Answers+Related+Content",
-          "li:nth-child(2)"
-        ],
-        "textContent": "Javascript Error Mon",
-        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
-        "attributes": {
-          "href": "https://sentry.io/for/javascript/"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_58",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".plausible-event-name=Click+Answers+Related+Content",
-          "a.plausible-event-name=Click+Answers+Related+Content",
-          "li:nth-child(2)"
-        ],
-        "textContent": "JavaScript Frontend ",
-        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
-        "attributes": {
-          "href": "https://sentry.io/resources/javascript-frontend-error-monitoring-101/"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_59",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".plausible-event-name=Click+Answers+Related+Content",
-          "a.plausible-event-name=Click+Answers+Related+Content",
-          "li:nth-child(2)"
-        ],
-        "textContent": "Listen to the Syntax",
-        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
-        "attributes": {
-          "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_60",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".plausible-event-name=Click+Answers+Syntax+Promo",
-          "a.plausible-event-name=Click+Answers+Syntax+Promo",
-          "li:nth-child(2)"
-        ],
-        "textContent": "Listen to the Syntax",
-        "className": "plausible-event-name=Click+Answers+Syntax+Promo css-19w5fgf et39s9p2",
-        "attributes": {
-          "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_61",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".plausible-event-name=Click+Answers+Syntax+Promo",
-          "a.plausible-event-name=Click+Answers+Syntax+Promo",
-          "li:nth-child(5)"
-        ],
-        "textContent": "SEE EPISODES",
-        "className": "plausible-event-name=Click+Answers+Syntax+Promo",
-        "attributes": {
-          "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_62",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "div:nth-child(1)"
-        ],
-        "textContent": "learn more about sen",
-        "className": "btn-new primary-light plausible-event-name=Click+Answer+Blurb+CTA e1of9yu15 css-1csoxiy e1figufi0",
-        "attributes": {
-          "aria-label": "learn more about sentry",
-          "href": "https://sentry.io"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_63",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "div:nth-child(2)"
-        ],
-        "textContent": "join our discord",
-        "className": "btn-new secondary-light plausible-event-name=Click+Answer+Blurb+CTA e1of9yu15 css-1csoxiy e1figufi0",
-        "attributes": {
-          "aria-label": "join our discord",
-          "href": "https://discord.com/invite/sentry"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_64",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "About",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/about/"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_65",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Blog",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://blog.sentry.io/"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_66",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Careers",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/careers/"
-        },
-        "timestamp": 1755762394190
-      },
-      {
-        "id": "action_navigate_a_67",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Contact Us",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/contact/enterprise/"
-        },
-        "timestamp": 1755762394191
-      },
-      {
-        "id": "action_navigate_a_68",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Trust",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/trust/"
-        },
-        "timestamp": 1755762394191
-      },
-      {
-        "id": "action_navigate_a_69",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Error Monitoring",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/product/error-monitoring/"
-        },
-        "timestamp": 1755762394191
-      },
-      {
-        "id": "action_navigate_a_70",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Tracing",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/product/tracing/"
-        },
-        "timestamp": 1755762394191
-      },
-      {
-        "id": "action_navigate_a_71",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Session Replay",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/product/session-replay/"
-        },
-        "timestamp": 1755762394191
-      },
-      {
-        "id": "action_navigate_a_72",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Seer",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/product/seer/"
-        },
-        "timestamp": 1755762394192
-      },
-      {
-        "id": "action_navigate_a_73",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Logs",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/product/logs/"
-        },
-        "timestamp": 1755762394192
-      },
-      {
-        "id": "action_navigate_a_74",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Uptime Monitoring",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/product/uptime-monitoring/"
-        },
-        "timestamp": 1755762394192
-      },
-      {
-        "id": "action_navigate_a_75",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Profiling",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/product/profiling/"
-        },
-        "timestamp": 1755762394192
-      },
-      {
-        "id": "action_navigate_a_76",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Cron Monitoring",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/product/cron-monitoring/"
-        },
-        "timestamp": 1755762394192
-      },
-      {
-        "id": "action_navigate_a_77",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Integrations",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/integrations/"
-        },
-        "timestamp": 1755762394192
-      },
-      {
-        "id": "action_navigate_a_78",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Web / Frontend Devel",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/for/full-stack/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_79",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Mobile Crash Reporti",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-mobile-developers/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_80",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Game Crash Reporting",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-game-developers/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_81",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "AI Observability",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-ai/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_82",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Application Performa",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-application-performance-monitoring/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_83",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Real User Monitoring",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-real-user-monitoring-rum/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_84",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Ecommerce",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/solutions/sentry-for-ecommerce"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_85",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Enterprise",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "/for/enterprise/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_86",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Docs",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://docs.sentry.io/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_87",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Help Center",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://help.sentry.io/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_88",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Status",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://status.sentry.io/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_89",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-11p6kxc",
-          "a.css-11p6kxc",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Dev Resources",
-        "className": "css-11p6kxc e13yldr41",
-        "attributes": {
-          "href": "https://develop.sentry.dev/getting-started/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_90",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(1)"
-        ],
-        "textContent": "Terms",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/terms/"
-        },
-        "timestamp": 1755762394193
-      },
-      {
-        "id": "action_navigate_a_91",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(2)"
-        ],
-        "textContent": "Security & Complianc",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/security/"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_92",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(3)"
-        ],
-        "textContent": "Trust",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/trust/"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_93",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-18bmpmw",
-          "a.css-18bmpmw",
-          "div:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "css-18bmpmw edbg3fs1",
-        "attributes": {
-          "aria-label": "home",
-          "href": "/"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_94",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".css-dx73s3",
-          "a.css-dx73s3",
-          "div:nth-child(4)"
-        ],
-        "textContent": "",
-        "className": "css-dx73s3 edbg3fs0",
-        "attributes": {
-          "aria-label": "Open Source Pledge",
-          "href": "https://opensourcepledge.com/members/sentry/"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_95",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
+          "[data-state=\"closed\"]",
+          ".bg-super",
+          "button.bg-super",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "",
+        "className": "bg-super text-inverse hover:opacity-80 font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
-          "aria-label": "Twitter Menu Button",
-          "href": "https://twitter.com/getsentry/"
+          "type": "button",
+          "aria-label": "Voice mode"
         },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_96",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "",
-        "attributes": {
-          "aria-label": "Github Social Menu Button",
-          "href": "https://github.com/getsentry/"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_97",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(3)"
-        ],
-        "textContent": "",
-        "className": "",
-        "attributes": {
-          "aria-label": "LinkedIn Menu Button",
-          "href": "https://linkedin.com/company/getsentry/"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_98",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(4)"
-        ],
-        "textContent": "",
-        "className": "",
-        "attributes": {
-          "aria-label": "Discord Menu Button",
-          "href": "https://discord.gg/sentry"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_99",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(5)"
-        ],
-        "textContent": "Am I included?",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/privacy/"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_100",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(3)"
-        ],
-        "textContent": "Tell me more",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/privacy/#what-personal-information-does-sentry-collect"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_101",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(3)"
-        ],
-        "textContent": "How exactly?",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/privacy/#what-does-sentry-use-my-personal-information-for"
-        },
-        "timestamp": 1755762394194
-      },
-      {
-        "id": "action_navigate_a_102",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(4)"
-        ],
-        "textContent": "What do they do?",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/privacy/#who-does-sentry-disclose-my-personal-information-to"
-        },
-        "timestamp": 1755762394195
-      },
-      {
-        "id": "action_navigate_a_103",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(3)"
-        ],
-        "textContent": "How can I choose?",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/privacy/#cookies-and-similar-tracking-technology"
-        },
-        "timestamp": 1755762394195
-      },
-      {
-        "id": "action_navigate_a_104",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "div:nth-child(4)"
-        ],
-        "textContent": "What can I do?",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/privacy/#your-data-protection-rights"
-        },
-        "timestamp": 1755762394195
-      },
-      {
-        "id": "action_navigate_a_105",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "p:nth-child(1)"
-        ],
-        "textContent": "compliance@sentry.io",
-        "className": "",
-        "attributes": {
-          "href": "mailto:compliance@sentry.io"
-        },
-        "timestamp": 1755762394195
-      },
-      {
-        "id": "action_navigate_a_106",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "p:nth-child(1)"
-        ],
-        "textContent": "Supplemental notice",
-        "className": "",
-        "attributes": {
-          "href": "https://sentry.io/trust/privacy/california/"
-        },
-        "timestamp": 1755762394195
-      },
-      {
-        "id": "action_navigate_a_107",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".btn-new",
-          "a.btn-new",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Read the full policy",
-        "className": "btn-new primary-light e1of9yu15 css-1csoxiy e1figufi0",
-        "attributes": {
-          "href": "https://sentry.io/privacy/"
-        },
-        "timestamp": 1755762394195
+        "timestamp": 1755775792161
       }
     ],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1755762394184,
-    "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
-    "title": "How do I get the (x,y) position of an HTML element? | Sentry"
+    "lastUpdate": 1755777061886,
+    "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+    "title": "What I'm Building: A Chrome browser extension that provides AI-powered web..."
   },
-  "recent_insights": [],
-  "total_elements": 108,
+  "recent_insights": [
+    {
+      "timestamp": 1755776782953,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 2 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+        "title": "What I'm Building: A Chrome browser extension that provides AI-powered web...",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 21,
+        "lastUpdate": 1755776782953
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755776785030,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 3 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+        "title": "What I'm Building: A Chrome browser extension that provides AI-powered web...",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 21,
+        "lastUpdate": 1755776785030
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755776785030,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 1 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+        "title": "What I'm Building: A Chrome browser extension that provides AI-powered web...",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 21,
+        "lastUpdate": 1755776785030
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755776950019,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 20 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+        "title": "What I'm Building: A Chrome browser extension that provides AI-powered web...",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 21,
+        "lastUpdate": 1755776950019
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    },
+    {
+      "timestamp": 1755777061886,
+      "eventType": "structure_change",
+      "summary": "Page structure modified: 20 new elements added/removed",
+      "actionableInsights": [
+        "New interactive elements may be available",
+        "Page structure has changed - consider rescanning"
+      ],
+      "pageContext": {
+        "url": "https://www.perplexity.ai/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA",
+        "title": "What I'm Building: A Chrome browser extension that provides AI-powered web...",
+        "currentView": "content_updated",
+        "navigationState": "unknown",
+        "interactiveElementsCount": 21,
+        "lastUpdate": 1755777061886
+      },
+      "recommendations": [
+        "immediate_rescan"
+      ]
+    }
+  ],
+  "total_elements": 21,
   "intelligence_version": "2.0"
 }

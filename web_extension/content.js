@@ -6148,45 +6148,65 @@ function buildMenuStructures() {
         
         // 🎯 Strategy 4: Find main navigation menus (the ones we're missing!)
         const mainNavigationMenus = findMainNavigationMenus();
-        mainNavigationMenus.forEach((menu, index) => {
-            const menuId = `main_nav_${index + 1}`;
-            menuStructures.structures[menuId] = menu;
-            menuStructures.summary.totalMenus++;
-            menuStructures.summary.totalItems += menu.items.length;
-            menuStructures.summary.navigationLinks += menu.items.length;
-        });
         
         // 🎯 Strategy 5: Find standalone navigation menus
         const standaloneMenus = findStandaloneNavigationMenus();
-        standaloneMenus.forEach((menu, index) => {
-            const menuId = `standalone_menu_${index + 1}`;
+        
+        // 🆕 AGGRESSIVE DEDUPLICATION: Consolidate ALL menus into clean structures
+        console.log('[Menu Builder] 🔍 Debug: About to call consolidateAllMenus...');
+        console.log('[Menu Builder] 🔍 Debug: toggleButtons length:', toggleButtons.length);
+        console.log('[Menu Builder] 🔍 Debug: mainNavigationMenus length:', mainNavigationMenus.length);
+        console.log('[Menu Builder] 🔍 Debug: standaloneMenus length:', standaloneMenus.length);
+        
+        const consolidatedMenus = consolidateAllMenus(toggleButtons, mainNavigationMenus, standaloneMenus);
+        
+        console.log('[Menu Builder] 🔍 Debug: consolidateAllMenus returned:', Object.keys(consolidatedMenus));
+        
+        // 🚫 CLEAR ALL OLD STRUCTURES and use ONLY consolidated ones
+        console.log('[Menu Builder] 🚫 Clearing old structures before consolidation...');
+        menuStructures.structures = {};
+        menuStructures.summary.totalMenus = 0;
+        menuStructures.summary.totalItems = 0;
+        menuStructures.summary.navigationLinks = 0;
+        
+        // Add consolidated menus to structures
+        Object.entries(consolidatedMenus).forEach(([menuId, menu]) => {
             menuStructures.structures[menuId] = menu;
             menuStructures.summary.totalMenus++;
             menuStructures.summary.totalItems += menu.items.length;
             menuStructures.summary.navigationLinks += menu.items.length;
         });
         
-        // 🔗 Strategy 5: Build clean actionId mappings
+        console.log('[Menu Builder] ✅ After consolidation, structures are:', Object.keys(menuStructures.structures));
+        
+        // 🔗 Strategy 5: Build clean actionId mappings ONLY from consolidated structures
+        console.log('[Menu Builder] 🔍 Debug: Building actionId mappings from structures:', Object.keys(menuStructures.structures));
         const actionIdMappings = buildCleanActionIdMappings(menuStructures);
         menuStructures.actionIdMappings = actionIdMappings;
         
-        // 🎯 Strategy 6: Generate intelligence-engine-friendly output
-        const intelligenceOutput = generateIntelligenceOutput(menuStructures);
-        menuStructures.intelligenceOutput = intelligenceOutput;
+        // 🚫 SKIP redundant structures - only keep essential data
+        // const hierarchicalStructures = createHierarchicalRelationships(menuStructures);
+        // menuStructures.hierarchicalStructures = hierarchicalStructures;
+        
+        // 🚫 SKIP redundant intelligence output - only keep actionIdMappings
+        // const intelligenceOutput = generateIntelligenceOutput(menuStructures);
+        // menuStructures.intelligenceOutput = intelligenceOutput;
         
         console.log(`[Menu Builder] ✅ Built ${menuStructures.summary.totalMenus} clean menu structures with ${menuStructures.summary.totalItems} total items`);
         
-        // 🆕 DEBUG: Show unique menu content
-        const uniqueActions = [...new Set(menuStructures.intelligenceOutput.actions.map(a => a.textContent))];
-        console.log('[Menu Builder] 🔍 Unique menu actions:', uniqueActions);
+        // 🚫 REMOVE all debug spam - only show essential info
+        console.log('[Menu Builder] 📊 Final clean output - NO DUPLICATES');
         
-        // 🆕 DEBUG: Show menu consolidation opportunities
-        const menuGroups = groupSimilarMenus(menuStructures);
-        console.log('[Menu Builder] 🔗 Menu consolidation groups:', menuGroups);
-        
-        console.log('[Menu Builder] 📊 Clean menu structures:', menuStructures);
-        
-        return menuStructures;
+        // 🚫 RETURN ONLY ESSENTIAL DATA - no duplicates
+        return {
+            timestamp: menuStructures.timestamp,
+            site: menuStructures.site,
+            url: menuStructures.url,
+            summary: menuStructures.summary,
+            structures: menuStructures.structures,
+            actionIdMappings: menuStructures.actionIdMappings
+            // 🚫 REMOVED: hierarchicalStructures, intelligenceOutput (duplicates)
+        };
         
     } catch (error) {
         console.error('[Menu Builder] ❌ Error building menu structures:', error);
@@ -6617,6 +6637,25 @@ function buildCleanActionIdMappings(menuStructures) {
                     actionType: 'click'
                 };
             }
+            
+            // 🚫 AGGRESSIVE: Handle toggles array for consolidated menus
+            if (menu.toggles && Array.isArray(menu.toggles)) {
+                menu.toggles.forEach((toggle, toggleIndex) => {
+                    const toggleActionId = `action_menu_${menuName}_toggle_${toggleIndex + 1}`;
+                    actionIdMappings[toggleActionId] = {
+                        actionId: toggleActionId,
+                        menuId: menu.id,
+                        menuType: 'toggle',
+                        menuName: menuName,
+                        element: toggle.toggle.element,
+                        selectors: generateElementSelectors(toggle.toggle.element),
+                        textContent: toggle.toggle.textContent,
+                        ariaLabel: toggle.toggle.ariaLabel,
+                        tagName: toggle.toggle.element.tagName,
+                        actionType: 'click'
+                    };
+                });
+            }
         });
         
     } catch (error) {
@@ -6688,7 +6727,7 @@ function generateIntelligenceOutput(menuStructures) {
     };
     
     try {
-        // 🎯 Convert menu structures to clean format
+        // 🎯 Convert menu structures to clean format using actionIdMappings
         Object.values(menuStructures.structures).forEach(menu => {
             const cleanMenu = {
                 id: menu.id,
@@ -6710,36 +6749,36 @@ function generateIntelligenceOutput(menuStructures) {
                 }))
             };
             
-            intelligenceOutput.menus.push(cleanMenu);
-            intelligenceOutput.summary.menuTypes.add(cleanMenu.type);
-            
-            // Add toggle action
-            if (cleanMenu.toggle) {
-                intelligenceOutput.actions.push({
-                    actionId: cleanMenu.toggle.actionId,
-                    actionType: 'click',
-                    tagName: 'BUTTON',
-                    textContent: cleanMenu.toggle.textContent,
-                    selectors: cleanMenu.toggle.selectors,
-                    menuId: cleanMenu.id,
-                    menuName: cleanMenu.name
-                });
+            // 🚫 AGGRESSIVE: Handle toggles array for consolidated menus
+            if (menu.toggles && Array.isArray(menu.toggles)) {
+                cleanMenu.toggles = menu.toggles.map((toggle, toggleIndex) => ({
+                    actionId: `action_menu_${getMenuName(menu)}_toggle_${toggleIndex + 1}`,
+                    textContent: toggle.toggle.textContent,
+                    ariaLabel: toggle.toggle.ariaLabel,
+                    selectors: generateElementSelectors(toggle.toggle.element)
+                }));
             }
             
-            // Add menu item actions
-            cleanMenu.items.forEach(item => {
+            intelligenceOutput.menus.push(cleanMenu);
+            intelligenceOutput.summary.menuTypes.add(cleanMenu.type);
+        });
+        
+        // 🚫 Use actionIdMappings instead of regenerating actions to prevent duplicates
+        if (menuStructures.actionIdMappings) {
+            Object.values(menuStructures.actionIdMappings).forEach(action => {
                 intelligenceOutput.actions.push({
-                    actionId: item.actionId,
-                    actionType: item.actionType,
-                    tagName: item.tagName,
-                    textContent: item.textContent,
-                    href: item.href,
-                    selectors: item.selectors,
-                    menuId: cleanMenu.id,
-                    menuName: cleanMenu.name
+                    actionId: action.actionId,
+                    actionType: action.actionType,
+                    tagName: action.tagName,
+                    textContent: action.textContent,
+                    href: action.href,
+                    selectors: action.selectors,
+                    menuId: action.menuId,
+                    menuName: action.menuName,
+                    ariaLabel: action.ariaLabel
                 });
             });
-        });
+        }
         
         intelligenceOutput.summary.totalActions = intelligenceOutput.actions.length;
         
@@ -6748,6 +6787,239 @@ function generateIntelligenceOutput(menuStructures) {
     }
     
     return intelligenceOutput;
+}
+
+/**
+ * 🚫 Deduplicate menus by content and structure
+ * 
+ * @param {Array} menus - Array of menu structures
+ * @returns {Array} - Array of unique menu structures
+ */
+function deduplicateMenus(menus) {
+    const uniqueMenus = [];
+    const seenSignatures = new Set();
+    
+    try {
+        menus.forEach(menu => {
+            // Create a unique signature for this menu
+            const signature = createMenuSignature(menu);
+            
+            // Skip if we've already seen this signature
+            if (seenSignatures.has(signature)) {
+                console.log(`[Menu Builder] 🚫 Skipping duplicate menu: ${signature}`);
+                return;
+            }
+            
+            seenSignatures.add(signature);
+            uniqueMenus.push(menu);
+            console.log(`[Menu Builder] ✅ Added unique menu: ${signature}`);
+        });
+        
+        console.log(`[Menu Builder] 🔍 Deduplication: ${menus.length} → ${uniqueMenus.length} unique menus`);
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error deduplicating menus:', error);
+    }
+    
+    return uniqueMenus;
+}
+
+/**
+ * 🚫 AGGRESSIVE DEDUPLICATION: Consolidate ALL menus into clean structures
+ * 
+ * @param {Array} toggleButtons - Array of toggle button menus
+ * @param {Array} mainNavigationMenus - Array of main navigation menus
+ * @param {Array} standaloneMenus - Array of standalone menus
+ * @returns {Object} - Consolidated menu structures
+ */
+function consolidateAllMenus(toggleButtons, mainNavigationMenus, standaloneMenus) {
+    const consolidatedMenus = {};
+    const seenElements = new Set(); // Track unique DOM elements
+    const seenContent = new Set(); // Track unique content signatures
+    
+    try {
+        console.log('[Menu Builder] 🚫 Starting aggressive deduplication...');
+        
+        // 🎯 Step 1: Find the ONE main navigation menu and merge everything into it
+        let mainNavMenu = null;
+        if (mainNavigationMenus.length > 0) {
+            mainNavMenu = mainNavigationMenus[0]; // Take the first one
+            const mainNavId = 'main_navigation';
+            
+            // 🚫 AGGRESSIVE: Merge ALL related content into ONE main navigation menu
+            const mergedMenu = {
+                ...mainNavMenu,
+                id: mainNavId,
+                type: 'main_navigation',
+                items: [...mainNavMenu.items], // Start with main nav items
+                toggles: [] // Add toggle buttons as separate toggles
+            };
+            
+            // 🚀 Step 2: Merge portfolio submenu items INTO main navigation
+            const portfolioMenus = toggleButtons.filter(menu => {
+                if (!menu.items || menu.items.length === 0) return false;
+                
+                // Check if this looks like a portfolio submenu
+                const itemTexts = menu.items.map(item => item.textContent?.toLowerCase()).filter(text => text);
+                const isPortfolio = itemTexts.some(text => 
+                    text.includes('banner') || text.includes('logo') || text.includes('web') || text.includes('design')
+                );
+                
+                return isPortfolio;
+            });
+            
+            if (portfolioMenus.length > 0) {
+                const portfolioSubmenu = portfolioMenus[0];
+                // 🚫 MERGE portfolio items into main navigation instead of keeping separate
+                portfolioSubmenu.items.forEach(item => {
+                    if (!mergedMenu.items.some(existing => existing.textContent === item.textContent)) {
+                        mergedMenu.items.push(item);
+                        seenElements.add(item.element);
+                    }
+                });
+                console.log(`[Menu Builder] ✅ Merged portfolio items into main navigation`);
+            }
+            
+            // 🎯 Step 3: Add toggle buttons as toggles (not separate menus)
+            console.log('[Menu Builder] 🔍 Debug: Available toggle buttons:', toggleButtons.map(t => ({text: t.toggle?.textContent, ariaLabel: t.toggle?.ariaLabel})));
+            console.log('[Menu Builder] 🔍 Debug: toggleButtons structure:', toggleButtons);
+            
+            // 🚫 AGGRESSIVE: Add ALL toggle buttons as toggles (don't filter by text)
+            let toggleCount = 0;
+            toggleButtons.forEach((toggleButton, index) => {
+                console.log(`[Menu Builder] 🔍 Debug: Processing toggle button ${index}:`, toggleButton);
+                
+                // ✅ FIXED: Toggle buttons ARE the toggle objects, not nested
+                if (toggleButton.element) {
+                    const toggleId = `toggle_${index + 1}`;
+                    mergedMenu.toggles.push({
+                        id: toggleId,
+                        type: 'toggle_button',
+                        toggle: {
+                            element: toggleButton.element,
+                            textContent: toggleButton.textContent,
+                            ariaLabel: toggleButton.ariaLabel,
+                            ariaExpanded: toggleButton.ariaExpanded,
+                            className: toggleButton.className,
+                            selector: toggleButton.selector
+                        },
+                        items: toggleButton.items || []
+                    });
+                    seenElements.add(toggleButton.element);
+                    toggleCount++;
+                    console.log(`[Menu Builder] ✅ Added toggle button ${index + 1}: "${toggleButton.textContent}"`);
+                } else {
+                    console.log(`[Menu Builder] ❌ Toggle button ${index} has no element:`, toggleButton);
+                }
+            });
+            
+            console.log(`[Menu Builder] 🔍 Debug: Total toggles added: ${toggleCount}`);
+            
+            // 🚫 AGGRESSIVE: Only ONE consolidated menu with everything merged
+            consolidatedMenus[mainNavId] = mergedMenu;
+            console.log(`[Menu Builder] ✅ Created ONE consolidated main navigation with ${mergedMenu.items.length} items and ${mergedMenu.toggles.length} toggles`);
+        }
+        
+        console.log(`[Menu Builder] 🚫 Aggressive deduplication complete: ${Object.keys(consolidatedMenus).length} clean menus`);
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error in aggressive deduplication:', error);
+    }
+    
+    return consolidatedMenus;
+}
+
+/**
+ * 🔗 Create proper parent-child relationships between menus
+ * 
+ * @param {Object} menuStructures - The complete menu structures object
+ * @returns {Object} - Hierarchical menu structures with parent-child relationships
+ */
+function createHierarchicalRelationships(menuStructures) {
+    const hierarchicalStructures = {
+        mainNavigation: null,
+        submenus: [],
+        standaloneMenus: []
+    };
+    
+    try {
+        // 🎯 Find the main navigation menu from CONSOLIDATED structures only
+        console.log('[Menu Builder] 🔍 Debug: Processing structures for hierarchical relationships:', Object.keys(menuStructures.structures));
+        Object.values(menuStructures.structures).forEach(menu => {
+            if (menu.type === 'main_navigation') {
+                hierarchicalStructures.mainNavigation = {
+                    ...menu,
+                    submenus: []
+                };
+                console.log(`[Menu Builder] 🎯 Found main navigation: ${menu.mainNavItems?.join(', ')}`);
+            }
+        });
+        
+        // 🚀 Find submenus and link them to main navigation from CONSOLIDATED structures only
+        Object.values(menuStructures.structures).forEach(menu => {
+            if (menu.type === 'toggle_menu' && menu.items.length > 0) {
+                // Check if this is a submenu of the main navigation
+                const isSubmenu = checkIfSubmenu(menu, hierarchicalStructures.mainNavigation);
+                
+                if (isSubmenu && hierarchicalStructures.mainNavigation) {
+                    // Link submenu to main navigation
+                    hierarchicalStructures.mainNavigation.submenus.push({
+                        ...menu,
+                        parentMenu: 'main_navigation'
+                    });
+                    console.log(`[Menu Builder] 🔗 Linked submenu to main navigation: ${menu.items.map(item => item.textContent).join(', ')}`);
+                } else {
+                    // Standalone menu
+                    hierarchicalStructures.standaloneMenus.push(menu);
+                }
+            }
+        });
+        
+        console.log(`[Menu Builder] 🔗 Created hierarchical structure with ${hierarchicalStructures.mainNavigation?.submenus?.length || 0} submenus`);
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error creating hierarchical relationships:', error);
+    }
+    
+    return hierarchicalStructures;
+}
+
+/**
+ * 🔍 Check if a menu is a submenu of the main navigation
+ * 
+ * @param {Object} menu - The potential submenu
+ * @param {Object} mainNav - The main navigation menu
+ * @returns {boolean} - True if this is a submenu
+ */
+function checkIfSubmenu(menu, mainNav) {
+    try {
+        if (!mainNav || !mainNav.items) return false;
+        
+        // Check if any of the submenu items are related to main navigation items
+        const submenuTexts = menu.items.map(item => item.textContent?.toLowerCase()).filter(text => text);
+        const mainNavTexts = mainNav.items.map(item => item.textContent?.toLowerCase()).filter(text => text);
+        
+        // Look for relationships (e.g., PORTFOLIO in main nav → Banner Design in submenu)
+        const hasRelationship = submenuTexts.some(subText => {
+            // Check if this submenu item is related to a main nav item
+            return mainNavTexts.some(mainText => {
+                // Simple relationship detection
+                if (mainText.includes('portfolio') && (subText.includes('design') || subText.includes('banner') || subText.includes('logo') || subText.includes('web'))) {
+                    return true;
+                }
+                if (mainText.includes('services') && subText.includes('service')) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        
+        return hasRelationship;
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error checking submenu relationship:', error);
+        return false;
+    }
 }
 
 /**
@@ -6802,7 +7074,11 @@ function createMenuSignature(menu) {
             .sort()
             .join('|');
         
-        return itemTexts || 'no_text_menu';
+        // Add menu type to signature for better uniqueness
+        const menuType = menu.type || 'unknown';
+        const signature = `${menuType}:${itemTexts}`;
+        
+        return signature || 'no_text_menu';
         
     } catch (error) {
         console.error('[Menu Builder] ❌ Error creating menu signature:', error);
