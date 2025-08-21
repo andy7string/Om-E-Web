@@ -1,973 +1,1486 @@
 {
   "_page_context": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
-    "timestamp": 1755758900.6777442,
-    "total_actions": 69,
-    "active_tab_id": 1137969790
+    "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "title": "How do I get the (x,y) position of an HTML element? | Sentry",
+    "timestamp": 1755762451.719638,
+    "total_actions": 108,
+    "active_tab_id": 1137969895
   },
   "action_navigate_a_0": {
     "action_type": "navigate",
-    "description": "",
+    "description": ".css-4zleql{display:",
     "tag_name": "a",
     "selectors": [
-      ".custom-logo-link",
-      "a.custom-logo-link",
-      "span:nth-child(1)"
+      ".css-qcxixa",
+      "a.css-qcxixa",
+      "nav:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_0' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_navigate_a_1": {
-    "action_type": "navigate",
-    "description": "HOME",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_1' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_2": {
-    "action_type": "navigate",
-    "description": "ABOUT",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_2' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_click_button_3": {
+  "action_click_button_1": {
     "action_type": "click",
-    "description": "Menu Toggle",
+    "description": ".css-17qgsod{text-ov",
     "tag_name": "button",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
+      ".btn-new",
+      "button.btn-new",
+      "nav:nth-child(6)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_1' to click with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_click_button_2": {
+    "action_type": "click",
+    "description": "Platform",
+    "tag_name": "button",
+    "selectors": [
+      "[data-menu=\"platform\"]",
+      ".btn-new",
+      "button.btn-new",
+      "li:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_click_button_2' to click with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_3": {
+    "action_type": "navigate",
+    "description": "Error Monitoring",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_3' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_3' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_4": {
     "action_type": "navigate",
-    "description": "Banner Design",
+    "description": "Logs.css-4zmnew{back",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_4' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_5": {
     "action_type": "navigate",
-    "description": "Logo Design",
+    "description": "Session Replay",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_5' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_6": {
     "action_type": "navigate",
-    "description": "Web Design",
+    "description": "Tracing",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_6' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_7": {
     "action_type": "navigate",
-    "description": "SERVICES",
+    "description": "SeerNEW",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_7' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_8": {
     "action_type": "navigate",
-    "description": "CONTACT",
+    "description": "Uptime Monitoring",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_8' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_9": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Profiling",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_9' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_10": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Cron Monitoring",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(2)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_10' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_11": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Github",
     "tag_name": "a",
     "selectors": [
-      ".custom-logo-link",
-      "a.custom-logo-link",
-      "span:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_11' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_click_button_12": {
-    "action_type": "click",
-    "description": "Main Menu",
-    "tag_name": "button",
+  "action_navigate_a_12": {
+    "action_type": "navigate",
+    "description": "Slack",
+    "tag_name": "a",
     "selectors": [
-      "[data-index=\"0\"]",
-      ".menu-toggle",
-      "button.menu-toggle",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_12' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_12' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_13": {
     "action_type": "navigate",
-    "description": "HOME",
+    "description": "All Integrations",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_13' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_14": {
     "action_type": "navigate",
-    "description": "ABOUT",
+    "description": "Javascript",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_14' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_click_button_15": {
-    "action_type": "click",
-    "description": "Menu Toggle",
-    "tag_name": "button",
+  "action_navigate_a_15": {
+    "action_type": "navigate",
+    "description": "Python",
+    "tag_name": "a",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_15' to click with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_navigate_a_15' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_16": {
     "action_type": "navigate",
-    "description": "Banner Design",
+    "description": "React",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_16' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_17": {
     "action_type": "navigate",
-    "description": "Logo Design",
+    "description": "Laravel",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_17' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_18": {
     "action_type": "navigate",
-    "description": "Web Design",
+    "description": "Next.js",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_18' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_19": {
     "action_type": "navigate",
-    "description": "SERVICES",
+    "description": "All SDKs",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_19' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_navigate_a_20": {
-    "action_type": "navigate",
-    "description": "CONTACT",
-    "tag_name": "a",
+  "action_click_button_20": {
+    "action_type": "click",
+    "description": "Solutions",
+    "tag_name": "button",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
+      "[data-menu=\"solutions\"]",
+      ".btn-new",
+      "button.btn-new",
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_20' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_20' to click with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_21": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Web / Frontend Devel",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_21' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_22": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Mobile Crash Reporti",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(2)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_22' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_23": {
     "action_type": "navigate",
-    "description": "Get Started",
+    "description": "Game Crash Reporting",
     "tag_name": "a",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_23' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_24": {
     "action_type": "navigate",
-    "description": "Get Started",
+    "description": "AI Observability",
     "tag_name": "a",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_24' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_25": {
     "action_type": "navigate",
-    "description": "Get Started",
+    "description": "Application Performa",
     "tag_name": "a",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_25' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_26": {
     "action_type": "navigate",
-    "description": "Website Design",
+    "description": "Real User Monitoring",
     "tag_name": "a",
     "selectors": [
-      "h3:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_26' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_27": {
     "action_type": "navigate",
-    "description": "View Portfolio",
+    "description": "Ecommerce",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_27' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_28": {
     "action_type": "navigate",
-    "description": "More Info",
+    "description": "Enterprise",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_28' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_navigate_a_29": {
-    "action_type": "navigate",
-    "description": "Logo Design",
-    "tag_name": "a",
+  "action_click_button_29": {
+    "action_type": "click",
+    "description": "Resources",
+    "tag_name": "button",
     "selectors": [
-      "h3:nth-child(1)"
+      "[data-menu=\"resources\"]",
+      ".btn-new",
+      "button.btn-new",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_29' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_button_29' to click with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_30": {
     "action_type": "navigate",
-    "description": "View Portfolio",
+    "description": "Blog",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_30' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_31": {
     "action_type": "navigate",
-    "description": "More Info",
+    "description": "Changelog",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_31' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_32": {
     "action_type": "navigate",
-    "description": "Banner Ad Design",
+    "description": "Sandbox",
     "tag_name": "a",
     "selectors": [
-      "h3:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_32' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_33": {
     "action_type": "navigate",
-    "description": "View Portfolio",
+    "description": "Resources",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_33' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_34": {
     "action_type": "navigate",
-    "description": "More Info",
+    "description": "Sentry Answers",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_34' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_35": {
     "action_type": "navigate",
-    "description": "Get in touch today!",
+    "description": "Syntax",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_35' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_36": {
     "action_type": "navigate",
-    "description": "Joss Couture",
+    "description": "Customers",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_36' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_37": {
     "action_type": "navigate",
-    "description": "Flutterbys School",
+    "description": "Contact Us",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_37' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_38": {
     "action_type": "navigate",
-    "description": "The Gourmet Cookie C",
+    "description": "Help Center",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_38' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_39": {
     "action_type": "navigate",
-    "description": "Straker Functional F",
+    "description": "Status",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_39' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_40": {
     "action_type": "navigate",
-    "description": "The Syrene Hotel",
+    "description": "Sentry Build",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_40' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_41": {
     "action_type": "navigate",
-    "description": "African Safari Deals",
+    "description": "Events",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_41' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_42": {
     "action_type": "navigate",
-    "description": "Mtambo Chartered Acc",
+    "description": "Merch",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_42' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_43": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Read More",
     "tag_name": "a",
     "selectors": [
-      "div:nth-child(1)"
+      ".btn-new",
+      "a.btn-new",
+      "div:nth-child(7)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_43' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_44": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Docs",
     "tag_name": "a",
     "selectors": [
-      "div:nth-child(1)"
+      ".btn-new",
+      "a.btn-new",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_44' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_45": {
     "action_type": "navigate",
-    "description": "Read More Testimonia",
+    "description": "Pricing",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".btn-new",
+      "a.btn-new",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_45' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_46": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Sign Inlogin",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
+      ".btn-new",
+      "a.btn-new",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_46' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_47": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Get Demoget a demo",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".btn-new",
+      "a.btn-new",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_47' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_48": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Get Startedsign up",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".btn-new",
+      "a.btn-new",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_48' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_49": {
     "action_type": "navigate",
-    "description": "",
+    "description": "Sentry Answers.css-1",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-5glpgv",
+      "a.css-5glpgv",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_49' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_50": {
     "action_type": "navigate",
-    "description": "",
+    "description": "JavaScript",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".css-5glpgv",
+      "a.css-5glpgv",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_50' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_navigate_a_51": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
+  "action_click_div_51": {
+    "action_type": "click",
+    "description": ".css-1vpruv2{positio",
+    "tag_name": "div",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "div:nth-child(14)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_51' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_div_51' to click with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_navigate_a_52": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
+  "action_click_div_52": {
+    "action_type": "click",
+    "description": "Click to CopyClick t",
+    "tag_name": "div",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "div:nth-child(19)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_52' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_div_52' to click with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_navigate_a_53": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
+  "action_click_div_53": {
+    "action_type": "click",
+    "description": "Click to CopyClick t",
+    "tag_name": "div",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "div:nth-child(22)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_53' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_div_53' to click with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
-  "action_navigate_a_54": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
+  "action_click_div_54": {
+    "action_type": "click",
+    "description": "Click to CopyClick t",
+    "tag_name": "div",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "div:nth-child(35)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_54' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_click_div_54' to click with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_55": {
     "action_type": "navigate",
-    "description": "",
+    "description": "How Sentry.io saved ",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      ".plausible-event-name=Click+Answers+Related+Content",
+      "a.plausible-event-name=Click+Answers+Related+Content",
+      "li:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_55' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_56": {
     "action_type": "navigate",
-    "description": "Reach Out Now!",
+    "description": "Improve Web Browser ",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      ".plausible-event-name=Click+Answers+Related+Content",
+      "a.plausible-event-name=Click+Answers+Related+Content",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_56' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_57": {
     "action_type": "navigate",
-    "description": "Banner Portfolio",
+    "description": "Javascript Error Mon",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      ".plausible-event-name=Click+Answers+Related+Content",
+      "a.plausible-event-name=Click+Answers+Related+Content",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_57' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_58": {
     "action_type": "navigate",
-    "description": "Logo Portfolio",
+    "description": "JavaScript Frontend ",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      ".plausible-event-name=Click+Answers+Related+Content",
+      "a.plausible-event-name=Click+Answers+Related+Content",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_58' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_59": {
     "action_type": "navigate",
-    "description": "Web Design Portfolio",
+    "description": "Listen to the Syntax",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      ".plausible-event-name=Click+Answers+Related+Content",
+      "a.plausible-event-name=Click+Answers+Related+Content",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_59' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_60": {
     "action_type": "navigate",
-    "description": "Facebook",
+    "description": "Listen to the Syntax",
     "tag_name": "a",
     "selectors": [
-      ".elementor-icon",
-      "a.elementor-icon",
-      "span:nth-child(1)"
+      ".plausible-event-name=Click+Answers+Syntax+Promo",
+      "a.plausible-event-name=Click+Answers+Syntax+Promo",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_60' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_61": {
     "action_type": "navigate",
-    "description": "Instagram",
+    "description": "SEE EPISODES",
     "tag_name": "a",
     "selectors": [
-      ".elementor-icon",
-      "a.elementor-icon",
-      "span:nth-child(1)"
+      ".plausible-event-name=Click+Answers+Syntax+Promo",
+      "a.plausible-event-name=Click+Answers+Syntax+Promo",
+      "li:nth-child(5)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_61' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_62": {
     "action_type": "navigate",
-    "description": "Home",
+    "description": "learn more about sen",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
+      ".btn-new",
+      "a.btn-new",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_62' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_63": {
+    "action_type": "navigate",
+    "description": "join our discord",
+    "tag_name": "a",
+    "selectors": [
+      ".btn-new",
+      "a.btn-new",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_63' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_64": {
     "action_type": "navigate",
     "description": "About",
     "tag_name": "a",
     "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_63' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_navigate_a_64": {
-    "action_type": "navigate",
-    "description": "Services",
-    "tag_name": "a",
-    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_64' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_65": {
     "action_type": "navigate",
-    "description": "Testimonials",
+    "description": "Blog",
     "tag_name": "a",
     "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_65' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_66": {
     "action_type": "navigate",
-    "description": "Contact",
+    "description": "Careers",
     "tag_name": "a",
     "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_66' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_67": {
     "action_type": "navigate",
-    "description": "Privacy Policy",
+    "description": "Contact Us",
     "tag_name": "a",
     "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
       "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_67' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "action_navigate_a_68": {
     "action_type": "navigate",
-    "description": "Website Designed by ",
+    "description": "Trust",
     "tag_name": "a",
     "selectors": [
-      "h6:nth-child(1)"
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_68' to navigate with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_69": {
+    "action_type": "navigate",
+    "description": "Error Monitoring",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_69' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_70": {
+    "action_type": "navigate",
+    "description": "Tracing",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_70' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_71": {
+    "action_type": "navigate",
+    "description": "Session Replay",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_71' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_72": {
+    "action_type": "navigate",
+    "description": "Seer",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_72' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_73": {
+    "action_type": "navigate",
+    "description": "Logs",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_73' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_74": {
+    "action_type": "navigate",
+    "description": "Uptime Monitoring",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_74' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_75": {
+    "action_type": "navigate",
+    "description": "Profiling",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_75' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_76": {
+    "action_type": "navigate",
+    "description": "Cron Monitoring",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_76' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_77": {
+    "action_type": "navigate",
+    "description": "Integrations",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_77' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_78": {
+    "action_type": "navigate",
+    "description": "Web / Frontend Devel",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_78' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_79": {
+    "action_type": "navigate",
+    "description": "Mobile Crash Reporti",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_79' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_80": {
+    "action_type": "navigate",
+    "description": "Game Crash Reporting",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_80' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_81": {
+    "action_type": "navigate",
+    "description": "AI Observability",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_81' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_82": {
+    "action_type": "navigate",
+    "description": "Application Performa",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_82' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_83": {
+    "action_type": "navigate",
+    "description": "Real User Monitoring",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_83' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_84": {
+    "action_type": "navigate",
+    "description": "Ecommerce",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_84' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_85": {
+    "action_type": "navigate",
+    "description": "Enterprise",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_85' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_86": {
+    "action_type": "navigate",
+    "description": "Docs",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_86' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_87": {
+    "action_type": "navigate",
+    "description": "Help Center",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_87' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_88": {
+    "action_type": "navigate",
+    "description": "Status",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_88' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_89": {
+    "action_type": "navigate",
+    "description": "Dev Resources",
+    "tag_name": "a",
+    "selectors": [
+      ".css-11p6kxc",
+      "a.css-11p6kxc",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_89' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_90": {
+    "action_type": "navigate",
+    "description": "Terms",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_90' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_91": {
+    "action_type": "navigate",
+    "description": "Security & Complianc",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_91' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_92": {
+    "action_type": "navigate",
+    "description": "Trust",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_92' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_93": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".css-18bmpmw",
+      "a.css-18bmpmw",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_93' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_94": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".css-dx73s3",
+      "a.css-dx73s3",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_94' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_95": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_95' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_96": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_96' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_97": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_97' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_98": {
+    "action_type": "navigate",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_98' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_99": {
+    "action_type": "navigate",
+    "description": "Am I included?",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_99' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_100": {
+    "action_type": "navigate",
+    "description": "Tell me more",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_100' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_101": {
+    "action_type": "navigate",
+    "description": "How exactly?",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_101' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_102": {
+    "action_type": "navigate",
+    "description": "What do they do?",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_102' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_103": {
+    "action_type": "navigate",
+    "description": "How can I choose?",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_103' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_104": {
+    "action_type": "navigate",
+    "description": "What can I do?",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_104' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_105": {
+    "action_type": "navigate",
+    "description": "compliance@sentry.io",
+    "tag_name": "a",
+    "selectors": [
+      "p:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_105' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_106": {
+    "action_type": "navigate",
+    "description": "Supplemental notice",
+    "tag_name": "a",
+    "selectors": [
+      "p:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_106' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
+  },
+  "action_navigate_a_107": {
+    "action_type": "navigate",
+    "description": "Read the full policy",
+    "tag_name": "a",
+    "selectors": [
+      ".btn-new",
+      "a.btn-new",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_navigate_a_107' to navigate with this element",
+    "page_url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "page_title": "How do I get the (x,y) position of an HTML element? | Sentry"
   }
 }

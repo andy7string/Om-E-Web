@@ -393,6 +393,12 @@ document.addEventListener('testIntelligence', (event) => {
             console.log("[Content] 🧪 Document search test result:", searchResult);
             break;
             
+        case 'testMenuStructureBuilder':
+            console.log("[Content] 🧪 Testing menu structure builder...");
+            const menuStructures = buildMenuStructures();
+            console.log("[Content] 🧪 Menu structure builder test result:", menuStructures);
+            break;
+            
         case 'testEnhancedMenuClick':
             const enhancedSelector = event.detail?.selector || '[data-index="0"]';
             console.log("[Content] 🧪 Testing enhanced menu click for:", enhancedSelector);
@@ -441,6 +447,7 @@ console.log("[Content] 🧪 - testClickVerification: Test click verification sys
 console.log("[Content] 🧪 - testSubmenuInspection: Test submenu content inspection");
 console.log("[Content] 🧪 - testDelayedSubmenuInspection: Test delayed submenu inspection");
 console.log("[Content] 🧪 - testDocumentSearch: Test document-wide menu item search");
+console.log("[Content] 🧪 - testMenuStructureBuilder: Test automatic menu structure detection");
 console.log("[Content] 🧪 - testEnhancedMenuClick: Test complete enhanced menu click flow");
 console.log("[Content] 🧪 Examples:");
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'getElementCoordinates', actionId: 'action_navigate_a_0'}}))");
@@ -456,6 +463,7 @@ console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntell
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSubmenuInspection', selector: '.ast-menu-toggle'}}))");
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDelayedSubmenuInspection', selector: '.ast-menu-toggle'}}))");
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDocumentSearch'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testMenuStructureBuilder'}}))");
 console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedMenuClick', selector: '[data-index=\"0\"]'}}))");
 
 // Utility function for async delays
@@ -6041,4 +6049,842 @@ if (document.readyState === 'loading') {
     });
 } else {
     setTimeout(setupEventDrivenUpdates, 1000); // Wait for intelligence components
+}
+
+/**
+ * 🆕 MENU STRUCTURE BUILDER: Automatically detect and map menu hierarchies
+ * 
+ * This function analyzes the DOM to build comprehensive menu structures,
+ * mapping actionIds to actual menu items and their relationships.
+ * It integrates with the intelligence engine to provide smart navigation.
+ * 
+ * @returns {Object} - Complete menu structure analysis
+ */
+function buildMenuStructures() {
+    console.log('[Menu Builder] 🏗️ Building menu structures...');
+    
+    try {
+        const menuStructures = {
+            timestamp: Date.now(),
+            site: window.location.hostname,
+            url: window.location.href,
+            structures: {},
+            summary: {
+                totalMenus: 0,
+                totalItems: 0,
+                toggleButtons: 0,
+                navigationLinks: 0
+            }
+        };
+        
+        // 🎯 Strategy 1: Find menu toggle buttons with deduplication
+        const toggleSelectors = [
+            '[data-index]',
+            '.menu-toggle',
+            '.ast-menu-toggle',
+            '.hamburger',
+            '.nav-toggle',
+            '[aria-label*="menu"]',
+            '[aria-label*="toggle"]',
+            'button[aria-expanded]'
+        ];
+        
+        const toggleButtons = [];
+        const seenElements = new Set(); // Track unique DOM elements
+        
+        toggleSelectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                // Skip if we've already seen this element
+                if (seenElements.has(element)) return;
+                
+                if (element.tagName === 'BUTTON' || element.getAttribute('aria-expanded') !== null) {
+                    seenElements.add(element);
+                    toggleButtons.push({
+                        element: element,
+                        selector: selector,
+                        ariaExpanded: element.getAttribute('aria-expanded'),
+                        className: element.className,
+                        textContent: element.textContent?.trim(),
+                        ariaLabel: element.getAttribute('aria-label')
+                    });
+                }
+            });
+        });
+        
+        console.log(`[Menu Builder] 🎯 Found ${toggleButtons.length} unique toggle buttons`);
+        
+        // 🚀 Strategy 2: Analyze each unique toggle button's menu
+        toggleButtons.forEach((toggle, index) => {
+            const menuId = `menu_${index + 1}`;
+            const menuStructure = {
+                id: menuId,
+                toggle: {
+                    element: toggle.element,
+                    selector: toggle.selector,
+                    ariaExpanded: toggle.ariaExpanded,
+                    className: toggle.className,
+                    textContent: toggle.textContent,
+                    ariaLabel: toggle.ariaLabel
+                },
+                items: [],
+                expanded: false,
+                itemCount: 0
+            };
+            
+            // 🔍 Strategy 3: Find menu items associated with this toggle
+            const menuItems = findMenuItemsForToggle(toggle.element);
+            menuStructure.items = menuItems;
+            menuStructure.itemCount = menuItems.length;
+            
+            // 📊 Update summary
+            menuStructures.summary.totalItems += menuItems.length;
+            menuStructures.structures[menuId] = menuStructure;
+        });
+        
+        menuStructures.summary.totalMenus = toggleButtons.length;
+        menuStructures.summary.toggleButtons = toggleButtons.length;
+        menuStructures.summary.navigationLinks = menuStructures.summary.totalItems;
+        
+        // 🎯 Strategy 4: Find main navigation menus (the ones we're missing!)
+        const mainNavigationMenus = findMainNavigationMenus();
+        mainNavigationMenus.forEach((menu, index) => {
+            const menuId = `main_nav_${index + 1}`;
+            menuStructures.structures[menuId] = menu;
+            menuStructures.summary.totalMenus++;
+            menuStructures.summary.totalItems += menu.items.length;
+            menuStructures.summary.navigationLinks += menu.items.length;
+        });
+        
+        // 🎯 Strategy 5: Find standalone navigation menus
+        const standaloneMenus = findStandaloneNavigationMenus();
+        standaloneMenus.forEach((menu, index) => {
+            const menuId = `standalone_menu_${index + 1}`;
+            menuStructures.structures[menuId] = menu;
+            menuStructures.summary.totalMenus++;
+            menuStructures.summary.totalItems += menu.items.length;
+            menuStructures.summary.navigationLinks += menu.items.length;
+        });
+        
+        // 🔗 Strategy 5: Build clean actionId mappings
+        const actionIdMappings = buildCleanActionIdMappings(menuStructures);
+        menuStructures.actionIdMappings = actionIdMappings;
+        
+        // 🎯 Strategy 6: Generate intelligence-engine-friendly output
+        const intelligenceOutput = generateIntelligenceOutput(menuStructures);
+        menuStructures.intelligenceOutput = intelligenceOutput;
+        
+        console.log(`[Menu Builder] ✅ Built ${menuStructures.summary.totalMenus} clean menu structures with ${menuStructures.summary.totalItems} total items`);
+        
+        // 🆕 DEBUG: Show unique menu content
+        const uniqueActions = [...new Set(menuStructures.intelligenceOutput.actions.map(a => a.textContent))];
+        console.log('[Menu Builder] 🔍 Unique menu actions:', uniqueActions);
+        
+        // 🆕 DEBUG: Show menu consolidation opportunities
+        const menuGroups = groupSimilarMenus(menuStructures);
+        console.log('[Menu Builder] 🔗 Menu consolidation groups:', menuGroups);
+        
+        console.log('[Menu Builder] 📊 Clean menu structures:', menuStructures);
+        
+        return menuStructures;
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error building menu structures:', error);
+        return {
+            error: error.message,
+            timestamp: Date.now(),
+            site: window.location.hostname
+        };
+    }
+}
+
+/**
+ * 🔍 Find menu items associated with a specific toggle button
+ * 
+ * @param {Element} toggleElement - The toggle button element
+ * @returns {Array} - Array of menu items with their details
+ */
+function findMenuItemsForToggle(toggleElement) {
+    const menuItems = [];
+    
+    try {
+        // 🎯 Strategy 1: Look for common menu container selectors
+        const menuContainerSelectors = [
+            '.menu',
+            '.nav-menu',
+            '.navigation',
+            '.main-menu',
+            '.primary-menu',
+            '.mobile-menu',
+            '.dropdown-menu',
+            '.submenu',
+            '[role="menu"]',
+            '[role="navigation"]'
+        ];
+        
+        // 🔍 Strategy 2: Search in parent containers
+        let currentElement = toggleElement;
+        let menuContainer = null;
+        let searchDepth = 0;
+        const maxSearchDepth = 5;
+        
+        while (currentElement && searchDepth < maxSearchDepth) {
+            // Check if current element or its children contain menu items
+            for (const selector of menuContainerSelectors) {
+                const found = currentElement.querySelector(selector) || 
+                             (currentElement.matches(selector) ? currentElement : null);
+                if (found) {
+                    menuContainer = found;
+                    break;
+                }
+            }
+            
+            if (menuContainer) break;
+            
+            currentElement = currentElement.parentElement;
+            searchDepth++;
+        }
+        
+        // 🚀 Strategy 3: If no specific container, look for menu links near the toggle
+        if (!menuContainer) {
+            const nearbyMenuLinks = findNearbyMenuLinks(toggleElement);
+            return nearbyMenuLinks;
+        }
+        
+        // 🔍 Strategy 4: Extract items from the menu container
+        const menuLinks = menuContainer.querySelectorAll('a[href], button[type], [role="menuitem"]');
+        
+        menuLinks.forEach((link, index) => {
+            const menuItem = {
+                index: index,
+                element: link,
+                tagName: link.tagName,
+                textContent: link.textContent?.trim(),
+                href: link.href || link.getAttribute('href'),
+                className: link.className,
+                ariaLabel: link.getAttribute('aria-label'),
+                role: link.getAttribute('role'),
+                selectors: generateElementSelectors(link)
+            };
+            
+            menuItems.push(menuItem);
+        });
+        
+        // 🎯 Strategy 5: If still no items, try broader search
+        if (menuItems.length === 0) {
+            const broaderMenuItems = findBroaderMenuItems(toggleElement);
+            return broaderMenuItems;
+        }
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error finding menu items for toggle:', error);
+    }
+    
+    return menuItems;
+}
+
+/**
+ * 🔍 Find menu links that are nearby a toggle button
+ * 
+ * @param {Element} toggleElement - The toggle button element
+ * @returns {Array} - Array of nearby menu items
+ */
+function findNearbyMenuLinks(toggleElement) {
+    const menuItems = [];
+    
+    try {
+        // 🎯 Look for menu links within a reasonable distance
+        const menuLinkSelectors = [
+            '.menu-link',
+            '.nav-link',
+            '.navigation-link',
+            'a[href]',
+            'button[type]',
+            '[role="menuitem"]'
+        ];
+        
+        // 🔍 Search in siblings and nearby containers
+        let searchElement = toggleElement;
+        let searchDepth = 0;
+        const maxSearchDepth = 3;
+        
+        while (searchElement && searchDepth < maxSearchDepth) {
+            // Check siblings
+            if (searchElement.nextElementSibling) {
+                const siblingLinks = searchElement.nextElementSibling.querySelectorAll(menuLinkSelectors.join(','));
+                if (siblingLinks.length > 0) {
+                    siblingLinks.forEach((link, index) => {
+                        menuItems.push(createMenuItemObject(link, index));
+                    });
+                    break;
+                }
+            }
+            
+            // Check parent's children
+            if (searchElement.parentElement) {
+                const parentLinks = searchElement.parentElement.querySelectorAll(menuLinkSelectors.join(','));
+                if (parentLinks.length > 0) {
+                    parentLinks.forEach((link, index) => {
+                        menuItems.push(createMenuItemObject(link, index));
+                    });
+                    break;
+                }
+            }
+            
+            searchElement = searchElement.parentElement;
+            searchDepth++;
+        }
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error finding nearby menu links:', error);
+    }
+    
+    return menuItems;
+}
+
+/**
+ * 🔍 Find broader menu items across the document
+ * 
+ * @param {Element} toggleElement - The toggle button element
+ * @returns {Array} - Array of broader menu items
+ */
+function findBroaderMenuItems(toggleElement) {
+    const menuItems = [];
+    
+    try {
+        // 🎯 Look for common menu patterns across the document
+        const commonMenuSelectors = [
+            '.menu-link',
+            '.nav-link',
+            '.navigation-link',
+            'a[href*="/"]',
+            'a[href*="http"]',
+            'button[type="button"]'
+        ];
+        
+        // 🔍 Search for elements that look like menu items
+        commonMenuSelectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((element, index) => {
+                // Filter out elements that are too far from the toggle
+                if (isElementNearToggle(element, toggleElement)) {
+                    menuItems.push(createMenuItemObject(element, index));
+                }
+            });
+        });
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error finding broader menu items:', error);
+    }
+    
+    return menuItems;
+}
+
+/**
+ * 🔍 Check if an element is reasonably close to a toggle button
+ * 
+ * @param {Element} element - The element to check
+ * @param {Element} toggleElement - The toggle button element
+ * @returns {boolean} - True if element is near the toggle
+ */
+function isElementNearToggle(element, toggleElement) {
+    try {
+        // 🎯 Simple proximity check - same parent or grandparent
+        let currentElement = element;
+        let toggleParent = toggleElement.parentElement;
+        let searchDepth = 0;
+        const maxSearchDepth = 3;
+        
+        while (currentElement && searchDepth < maxSearchDepth) {
+            if (currentElement === toggleParent || currentElement.contains(toggleElement)) {
+                return true;
+            }
+            currentElement = currentElement.parentElement;
+            searchDepth++;
+        }
+        
+        return false;
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error checking element proximity:', error);
+        return false;
+    }
+}
+
+/**
+ * 🎯 Find main navigation menus (the primary site navigation)
+ * 
+ * @returns {Array} - Array of main navigation menus
+ */
+function findMainNavigationMenus() {
+    const mainNavigationMenus = [];
+    
+    try {
+        // 🎯 Look for main navigation elements that contain the full site menu
+        const mainNavSelectors = [
+            'nav',
+            '.main-navigation',
+            '.primary-navigation',
+            '.site-navigation',
+            '.header-navigation',
+            '.primary-menu',
+            '.main-menu',
+            '[role="navigation"]',
+            '.ast-primary-header-menu',
+            '.ast-header-menu',
+            '.main-header-menu'
+        ];
+        
+        mainNavSelectors.forEach(selector => {
+            const navElements = document.querySelectorAll(selector);
+            navElements.forEach((nav, index) => {
+                // Look for navigation links (HOME, ABOUT, PORTFOLIO, SERVICES, CONTACT)
+                const navLinks = nav.querySelectorAll('a[href], .menu-link, .nav-link');
+                
+                if (navLinks.length > 0) {
+                    // Check if this looks like a main navigation menu
+                    const linkTexts = Array.from(navLinks).map(link => link.textContent?.trim()).filter(text => text);
+                    const hasMainNavItems = linkTexts.some(text => 
+                        ['home', 'about', 'portfolio', 'services', 'contact'].includes(text.toLowerCase())
+                    );
+                    
+                    if (hasMainNavItems) {
+                        const items = Array.from(navLinks).map((item, itemIndex) => 
+                            createMenuItemObject(item, itemIndex)
+                        );
+                        
+                        mainNavigationMenus.push({
+                            id: `main_nav_${index + 1}`,
+                            type: 'main_navigation',
+                            element: nav,
+                            selector: selector,
+                            items: items,
+                            itemCount: items.length,
+                            mainNavItems: linkTexts
+                        });
+                        
+                        console.log(`[Menu Builder] 🎯 Found main navigation: ${linkTexts.join(', ')}`);
+                    }
+                }
+            });
+        });
+        
+        // 🚀 Alternative: Look for menu containers with main navigation items
+        const menuContainerSelectors = [
+            '.menu',
+            '.nav-menu',
+            '.navigation',
+            '.ast-menu',
+            '.ast-header-menu'
+        ];
+        
+        menuContainerSelectors.forEach(selector => {
+            const containers = document.querySelectorAll(selector);
+            containers.forEach((container, index) => {
+                // Check if this container has main navigation items
+                const links = container.querySelectorAll('a[href], .menu-link');
+                const linkTexts = Array.from(links).map(link => link.textContent?.trim()).filter(text => text);
+                
+                const hasMainNavItems = linkTexts.some(text => 
+                    ['home', 'about', 'portfolio', 'services', 'contact'].includes(text.toLowerCase())
+                );
+                
+                if (hasMainNavItems && !mainNavigationMenus.some(menu => menu.element === container)) {
+                    const items = Array.from(links).map((item, itemIndex) => 
+                        createMenuItemObject(item, itemIndex)
+                    );
+                    
+                    mainNavigationMenus.push({
+                        id: `main_nav_${mainNavigationMenus.length + 1}`,
+                        type: 'main_navigation',
+                        element: container,
+                        selector: selector,
+                        items: items,
+                        itemCount: items.length,
+                        mainNavItems: linkTexts
+                    });
+                    
+                    console.log(`[Menu Builder] 🎯 Found main navigation container: ${linkTexts.join(', ')}`);
+                }
+            });
+        });
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error finding main navigation menus:', error);
+    }
+    
+    return mainNavigationMenus;
+}
+
+/**
+ * 🔍 Find standalone navigation menus (no toggle buttons)
+ * 
+ * @returns {Array} - Array of standalone navigation menus
+ */
+function findStandaloneNavigationMenus() {
+    const standaloneMenus = [];
+    
+    try {
+        // 🎯 Look for navigation elements that don't have toggle buttons
+        const navigationSelectors = [
+            'nav',
+            '[role="navigation"]',
+            '.main-navigation',
+            '.primary-navigation',
+            '.site-navigation'
+        ];
+        
+        navigationSelectors.forEach(selector => {
+            const navElements = document.querySelectorAll(selector);
+            navElements.forEach((nav, index) => {
+                // Check if this nav has a toggle button
+                const hasToggle = nav.querySelector('button[aria-expanded], .menu-toggle, .nav-toggle');
+                
+                if (!hasToggle) {
+                    const menuItems = nav.querySelectorAll('a[href], button[type]');
+                    const items = Array.from(menuItems).map((item, itemIndex) => 
+                        createMenuItemObject(item, itemIndex)
+                    );
+                    
+                    if (items.length > 0) {
+                        standaloneMenus.push({
+                            id: `standalone_nav_${index + 1}`,
+                            type: 'standalone_navigation',
+                            element: nav,
+                            selector: selector,
+                            items: items,
+                            itemCount: items.length
+                        });
+                    }
+                }
+            });
+        });
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error finding standalone navigation menus:', error);
+    }
+    
+    return standaloneMenus;
+}
+
+/**
+ * 🔗 Build clean actionId mappings for menu items
+ * 
+ * @param {Object} menuStructures - The complete menu structures object
+ * @returns {Object} - Clean actionId to menu item mappings
+ */
+function buildCleanActionIdMappings(menuStructures) {
+    const actionIdMappings = {};
+    
+    try {
+        // 🎯 Map each menu structure to clean actionIds
+        Object.values(menuStructures.structures).forEach(menu => {
+            const menuType = menu.type || 'toggle_menu';
+            const menuName = getMenuName(menu);
+            
+            menu.items.forEach((item, index) => {
+                // Generate a clean, descriptive actionId
+                const actionId = `action_menu_${menuName}_item_${index + 1}`;
+                
+                actionIdMappings[actionId] = {
+                    actionId: actionId,
+                    menuId: menu.id,
+                    menuType: menuType,
+                    menuName: menuName,
+                    itemIndex: index,
+                    element: item.element,
+                    selectors: item.selectors,
+                    textContent: item.textContent,
+                    href: item.href,
+                    tagName: item.tagName,
+                    actionType: item.tagName === 'A' ? 'navigate' : 'click'
+                };
+            });
+            
+            // Add toggle button actionId
+            if (menu.toggle) {
+                const toggleActionId = `action_menu_${menuName}_toggle`;
+                actionIdMappings[toggleActionId] = {
+                    actionId: toggleActionId,
+                    menuId: menu.id,
+                    menuType: 'toggle',
+                    menuName: menuName,
+                    element: menu.toggle.element,
+                    selectors: generateElementSelectors(menu.toggle.element),
+                    textContent: menu.toggle.textContent,
+                    ariaLabel: menu.toggle.ariaLabel,
+                    tagName: menu.toggle.element.tagName,
+                    actionType: 'click'
+                };
+            }
+        });
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error building clean actionId mappings:', error);
+    }
+    
+    return actionIdMappings;
+}
+
+/**
+ * 🏷️ Get a clean, descriptive name for a menu
+ * 
+ * @param {Object} menu - The menu structure object
+ * @returns {string} - Clean menu name
+ */
+function getMenuName(menu) {
+    try {
+        // Try to get name from toggle button text
+        if (menu.toggle && menu.toggle.textContent) {
+            const text = menu.toggle.textContent.toLowerCase().replace(/\s+/g, '_');
+            if (text && text !== 'menu' && text !== 'toggle') {
+                return text;
+            }
+        }
+        
+        // Try to get name from toggle button aria-label
+        if (menu.toggle && menu.toggle.ariaLabel) {
+            const label = menu.toggle.ariaLabel.toLowerCase().replace(/\s+/g, '_');
+            if (label && label !== 'menu' && label !== 'toggle') {
+                return label;
+            }
+        }
+        
+        // Try to get name from first menu item
+        if (menu.items && menu.items.length > 0) {
+            const firstItem = menu.items[0];
+            if (firstItem.textContent) {
+                const text = firstItem.textContent.toLowerCase().replace(/\s+/g, '_');
+                if (text && text !== 'menu' && text !== 'toggle') {
+                    return text;
+                }
+            }
+        }
+        
+        // Fallback to menu type
+        return menu.type || 'main';
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error getting menu name:', error);
+        return 'main';
+    }
+}
+
+/**
+ * 🧠 Generate intelligence-engine-friendly output
+ * 
+ * @param {Object} menuStructures - The complete menu structures object
+ * @returns {Object} - Clean output for intelligence engine
+ */
+function generateIntelligenceOutput(menuStructures) {
+    const intelligenceOutput = {
+        menus: [],
+        actions: [],
+        summary: {
+            totalMenus: menuStructures.summary.totalMenus,
+            totalActions: 0,
+            menuTypes: new Set()
+        }
+    };
+    
+    try {
+        // 🎯 Convert menu structures to clean format
+        Object.values(menuStructures.structures).forEach(menu => {
+            const cleanMenu = {
+                id: menu.id,
+                name: getMenuName(menu),
+                type: menu.type || 'toggle_menu',
+                toggle: menu.toggle ? {
+                    actionId: `action_menu_${getMenuName(menu)}_toggle`,
+                    textContent: menu.toggle.textContent,
+                    ariaLabel: menu.toggle.ariaLabel,
+                    selectors: generateElementSelectors(menu.toggle.element)
+                } : null,
+                items: menu.items.map((item, index) => ({
+                    actionId: `action_menu_${getMenuName(menu)}_item_${index + 1}`,
+                    textContent: item.textContent,
+                    href: item.href,
+                    tagName: item.tagName,
+                    actionType: item.tagName === 'A' ? 'navigate' : 'click',
+                    selectors: item.selectors
+                }))
+            };
+            
+            intelligenceOutput.menus.push(cleanMenu);
+            intelligenceOutput.summary.menuTypes.add(cleanMenu.type);
+            
+            // Add toggle action
+            if (cleanMenu.toggle) {
+                intelligenceOutput.actions.push({
+                    actionId: cleanMenu.toggle.actionId,
+                    actionType: 'click',
+                    tagName: 'BUTTON',
+                    textContent: cleanMenu.toggle.textContent,
+                    selectors: cleanMenu.toggle.selectors,
+                    menuId: cleanMenu.id,
+                    menuName: cleanMenu.name
+                });
+            }
+            
+            // Add menu item actions
+            cleanMenu.items.forEach(item => {
+                intelligenceOutput.actions.push({
+                    actionId: item.actionId,
+                    actionType: item.actionType,
+                    tagName: item.tagName,
+                    textContent: item.textContent,
+                    href: item.href,
+                    selectors: item.selectors,
+                    menuId: cleanMenu.id,
+                    menuName: cleanMenu.name
+                });
+            });
+        });
+        
+        intelligenceOutput.summary.totalActions = intelligenceOutput.actions.length;
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error generating intelligence output:', error);
+    }
+    
+    return intelligenceOutput;
+}
+
+/**
+ * 🔗 Group similar menus for consolidation
+ * 
+ * @param {Object} menuStructures - The complete menu structures object
+ * @returns {Object} - Groups of similar menus
+ */
+function groupSimilarMenus(menuStructures) {
+    const menuGroups = {};
+    
+    try {
+        Object.values(menuStructures.structures).forEach(menu => {
+            // Create a signature for this menu based on its content
+            const menuSignature = createMenuSignature(menu);
+            
+            if (!menuGroups[menuSignature]) {
+                menuGroups[menuSignature] = [];
+            }
+            
+            menuGroups[menuSignature].push({
+                menuId: menu.id,
+                menuName: getMenuName(menu),
+                itemCount: menu.itemCount,
+                items: menu.items.map(item => item.textContent)
+            });
+        });
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error grouping similar menus:', error);
+    }
+    
+    return menuGroups;
+}
+
+/**
+ * 🔑 Create a unique signature for a menu based on its content
+ * 
+ * @param {Object} menu - The menu structure object
+ * @returns {string} - Unique menu signature
+ */
+function createMenuSignature(menu) {
+    try {
+        if (!menu.items || menu.items.length === 0) {
+            return 'empty_menu';
+        }
+        
+        // Create signature from menu items text content
+        const itemTexts = menu.items
+            .map(item => item.textContent || '')
+            .filter(text => text.trim())
+            .sort()
+            .join('|');
+        
+        return itemTexts || 'no_text_menu';
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error creating menu signature:', error);
+        return 'error_menu';
+    }
+}
+
+/**
+ * 🏗️ Create a standardized menu item object
+ * 
+ * @param {Element} element - The DOM element
+ * @param {number} index - The index of the item
+ * @returns {Object} - Standardized menu item object
+ */
+function createMenuItemObject(element, index) {
+    return {
+        index: index,
+        element: element,
+        tagName: element.tagName,
+        textContent: element.textContent?.trim(),
+        href: element.href || element.getAttribute('href'),
+        className: element.className,
+        ariaLabel: element.getAttribute('aria-label'),
+        role: element.getAttribute('role'),
+        selectors: generateElementSelectors(element)
+    };
+}
+
+/**
+ * 🔍 Generate multiple selectors for an element
+ * 
+ * @param {Element} element - The DOM element
+ * @returns {Array} - Array of CSS selectors
+ */
+function generateElementSelectors(element) {
+    const selectors = [];
+    
+    try {
+        // 🎯 ID selector
+        if (element.id) {
+            selectors.push(`#${element.id}`);
+        }
+        
+        // 🎯 Class selector
+        if (element.className) {
+            const classes = element.className.split(' ').filter(c => c.trim());
+            classes.forEach(className => {
+                if (className) {
+                    selectors.push(`.${className}`);
+                }
+            });
+        }
+        
+        // 🎯 Tag + class selector
+        if (element.className) {
+            const classes = element.className.split(' ').filter(c => c.trim());
+            classes.forEach(className => {
+                if (className) {
+                    selectors.push(`${element.tagName.toLowerCase()}.${className}`);
+                }
+            });
+        }
+        
+        // 🎯 Attribute selectors
+        if (element.getAttribute('aria-label')) {
+            selectors.push(`${element.tagName.toLowerCase()}[aria-label="${element.getAttribute('aria-label')}"]`);
+        }
+        
+        if (element.href) {
+            selectors.push(`${element.tagName.toLowerCase()}[href="${element.href}"]`);
+        }
+        
+        // 🎯 Position-based selector (fallback)
+        if (element.parentElement) {
+            const siblings = Array.from(element.parentElement.children);
+            const position = siblings.indexOf(element) + 1;
+            selectors.push(`${element.tagName.toLowerCase()}:nth-child(${position})`);
+        }
+        
+    } catch (error) {
+        console.error('[Menu Builder] ❌ Error generating selectors:', error);
+    }
+    
+    return selectors;
 }

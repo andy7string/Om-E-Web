@@ -1,20 +1,20 @@
 {
-  "timestamp": 1755758900.675971,
+  "timestamp": 1755762451.711933,
   "browser_state": {
     "total_tabs": 4,
     "active_tab": {
-      "id": 1137969790,
-      "url": "https://brighttreedigital.com.au/",
-      "title": "Local Web Design Adelaide | Bright Tree Digital",
-      "status": "loading"
+      "id": 1137969895,
+      "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+      "title": "How do I get the (x,y) position of an HTML element? | Sentry",
+      "status": "complete"
     },
     "all_tabs": [
       {
         "id": 1137969790,
         "url": "https://brighttreedigital.com.au/",
         "title": "Local Web Design Adelaide | Bright Tree Digital",
-        "active": true,
-        "status": "loading"
+        "active": false,
+        "status": "complete"
       },
       {
         "id": 1137969833,
@@ -26,7 +26,7 @@
       {
         "id": 1137969852,
         "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68a66d36-76d8-832c-965d-9f5e31225529",
-        "title": "ChatGPT - OM-E autonomy",
+        "title": "OM-E autonomy - Extension architecture roadmap",
         "active": false,
         "status": "complete"
       },
@@ -34,16 +34,16 @@
         "id": 1137969895,
         "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
         "title": "How do I get the (x,y) position of an HTML element? | Sentry",
-        "active": false,
+        "active": true,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 27693.247121375,
+    "last_tabs_update": 31198.819683,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "title": "How do I get the (x,y) position of an HTML element? | Sentry",
     "is_active_tab": true
   },
   "actionable_elements": [
@@ -51,1041 +51,1591 @@
       "actionId": "action_navigate_a_0",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": ".css-4zleql{display:",
       "selectors": [
-        ".custom-logo-link",
-        "a.custom-logo-link",
-        "span:nth-child(1)"
+        ".css-qcxixa",
+        "a.css-qcxixa",
+        "nav:nth-child(2)"
       ],
       "attributes": {
-        "aria-label": "Bright Tree Digital",
-        "href": "https://brighttreedigital.com.au/"
+        "aria-label": "Welcome Page",
+        "href": "/welcome/"
       },
-      "timestamp": 1755758885975
+      "timestamp": 1755762394185
     },
     {
-      "actionId": "action_navigate_a_1",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "HOME",
-      "selectors": [
-        ".menu-link",
-        "a.menu-link",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://brighttreedigital.com.au/"
-      },
-      "timestamp": 1755758885975
-    },
-    {
-      "actionId": "action_navigate_a_2",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "ABOUT",
-      "selectors": [
-        ".menu-link",
-        "a.menu-link",
-        "li:nth-child(1)"
-      ],
-      "attributes": {
-        "href": "https://brighttreedigital.com.au/about/"
-      },
-      "timestamp": 1755758885975
-    },
-    {
-      "actionId": "action_click_button_3",
+      "actionId": "action_click_button_1",
       "actionType": "click",
       "tagName": "button",
-      "textContent": "Menu Toggle",
+      "textContent": ".css-17qgsod{text-ov",
       "selectors": [
-        ".ast-menu-toggle",
-        "button.ast-menu-toggle",
+        ".btn-new",
+        "button.btn-new",
+        "nav:nth-child(6)"
+      ],
+      "attributes": {},
+      "timestamp": 1755762394185
+    },
+    {
+      "actionId": "action_click_button_2",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "Platform",
+      "selectors": [
+        "[data-menu=\"platform\"]",
+        ".btn-new",
+        "button.btn-new",
+        "li:nth-child(4)"
+      ],
+      "attributes": {},
+      "timestamp": 1755762394185
+    },
+    {
+      "actionId": "action_navigate_a_3",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Error Monitoring",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(2)"
       ],
       "attributes": {
-        "aria-label": "Toggle menu"
+        "href": "https://sentry.io/product/error-monitoring/"
       },
-      "timestamp": 1755758885975
+      "timestamp": 1755762394185
     },
     {
       "actionId": "action_navigate_a_4",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Banner Design",
+      "textContent": "Logs.css-4zmnew{back",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        "href": "https://sentry.io/product/logs/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394185
     },
     {
       "actionId": "action_navigate_a_5",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Logo Design",
+      "textContent": "Session Replay",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        "href": "https://sentry.io/product/session-replay/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394185
     },
     {
       "actionId": "action_navigate_a_6",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Web Design",
+      "textContent": "Tracing",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        "href": "https://sentry.io/product/tracing/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394185
     },
     {
       "actionId": "action_navigate_a_7",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "SERVICES",
+      "textContent": "SeerNEW",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services/"
+        "href": "https://sentry.io/product/seer/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_8",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "CONTACT",
+      "textContent": "Uptime Monitoring",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/contact/"
+        "href": "https://sentry.io/product/uptime-monitoring/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_9",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Profiling",
       "selectors": [
-        ".ast-builder-social-element",
-        "a.ast-builder-social-element",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Facebook",
-        "href": "https://www.facebook.com/brighttreedigital"
+        "href": "https://sentry.io/product/profiling/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_10",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Cron Monitoring",
       "selectors": [
-        ".ast-builder-social-element",
-        "a.ast-builder-social-element",
-        "div:nth-child(2)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Instagram",
-        "href": "https://www.instagram.com/bright_tree_digital/"
+        "href": "https://sentry.io/product/cron-monitoring/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_11",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Github",
       "selectors": [
-        ".custom-logo-link",
-        "a.custom-logo-link",
-        "span:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Bright Tree Digital",
-        "href": "https://brighttreedigital.com.au/"
+        "href": "https://sentry.io/integrations/github/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
-      "actionId": "action_click_button_12",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "Main Menu",
+      "actionId": "action_navigate_a_12",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Slack",
       "selectors": [
-        "[data-index=\"0\"]",
-        ".menu-toggle",
-        "button.menu-toggle",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "type": "button",
-        "aria-label": "Main menu toggle"
+        "href": "https://sentry.io/integrations/slack/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_13",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "HOME",
+      "textContent": "All Integrations",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/"
+        "href": "https://sentry.io/integrations/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_14",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "ABOUT",
+      "textContent": "Javascript",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/about/"
+        "href": "https://sentry.io/for/javascript/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
-      "actionId": "action_click_button_15",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "Menu Toggle",
+      "actionId": "action_navigate_a_15",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Python",
       "selectors": [
-        ".ast-menu-toggle",
-        "button.ast-menu-toggle",
-        "li:nth-child(2)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Toggle menu"
+        "href": "https://sentry.io/for/python/"
       },
-      "timestamp": 1755758885976
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_16",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Banner Design",
+      "textContent": "React",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        "href": "https://sentry.io/for/react/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_17",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Logo Design",
+      "textContent": "Laravel",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        "href": "https://sentry.io/for/laravel/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_18",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Web Design",
+      "textContent": "Next.js",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        "href": "https://sentry.io/for/nextjs/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394186
     },
     {
       "actionId": "action_navigate_a_19",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "SERVICES",
+      "textContent": "All SDKs",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services/"
+        "href": "https://sentry.io/platforms/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394187
     },
     {
-      "actionId": "action_navigate_a_20",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "CONTACT",
+      "actionId": "action_click_button_20",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "Solutions",
       "selectors": [
-        ".menu-link",
-        "a.menu-link",
+        "[data-menu=\"solutions\"]",
+        ".btn-new",
+        "button.btn-new",
         "li:nth-child(1)"
       ],
-      "attributes": {
-        "href": "https://brighttreedigital.com.au/contact/"
-      },
-      "timestamp": 1755758885977
+      "attributes": {},
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_21",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Web / Frontend Devel",
       "selectors": [
-        ".ast-builder-social-element",
-        "a.ast-builder-social-element",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Facebook",
-        "href": "https://www.facebook.com/brighttreedigital"
+        "href": "/for/full-stack/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_22",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Mobile Crash Reporti",
       "selectors": [
-        ".ast-builder-social-element",
-        "a.ast-builder-social-element",
-        "div:nth-child(2)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Instagram",
-        "href": "https://www.instagram.com/bright_tree_digital/"
+        "href": "/solutions/sentry-for-mobile-developers/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_23",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Get Started",
+      "textContent": "Game Crash Reporting",
       "selectors": [
-        ".bdt-slide-link",
-        "a.bdt-slide-link",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services#Website-Design"
+        "href": "/solutions/sentry-for-game-developers/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_24",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Get Started",
+      "textContent": "AI Observability",
       "selectors": [
-        ".bdt-slide-link",
-        "a.bdt-slide-link",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+        "href": "/solutions/sentry-for-ai/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_25",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Get Started",
+      "textContent": "Application Performa",
       "selectors": [
-        ".bdt-slide-link",
-        "a.bdt-slide-link",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services#logo-design"
+        "href": "/solutions/sentry-for-application-performance-monitoring/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_26",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Website Design",
+      "textContent": "Real User Monitoring",
       "selectors": [
-        "h3:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/?page_id=4627"
+        "href": "/solutions/sentry-for-real-user-monitoring-rum/"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_27",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "View Portfolio",
+      "textContent": "Ecommerce",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        "href": "/solutions/sentry-for-ecommerce"
       },
-      "timestamp": 1755758885977
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_28",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "More Info",
+      "textContent": "Enterprise",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services#websiteDesign"
+        "href": "/for/enterprise/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394187
     },
     {
-      "actionId": "action_navigate_a_29",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "Logo Design",
+      "actionId": "action_click_button_29",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "Resources",
       "selectors": [
-        "h3:nth-child(1)"
+        "[data-menu=\"resources\"]",
+        ".btn-new",
+        "button.btn-new",
+        "li:nth-child(1)"
       ],
-      "attributes": {
-        "href": "https://brighttreedigital.com.au/?page_id=4734"
-      },
-      "timestamp": 1755758885978
+      "attributes": {},
+      "timestamp": 1755762394187
     },
     {
       "actionId": "action_navigate_a_30",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "View Portfolio",
+      "textContent": "Blog",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        "href": "https://blog.sentry.io/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_31",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "More Info",
+      "textContent": "Changelog",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services#logo-design"
+        "href": "https://sentry.io/changelog/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_32",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Banner Ad Design",
+      "textContent": "Sandbox",
       "selectors": [
-        "h3:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/?page_id=4784"
+        "href": "https://sandbox.sentry.io/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_33",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "View Portfolio",
+      "textContent": "Resources",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        "href": "https://sentry.io/resources/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_34",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "More Info",
+      "textContent": "Sentry Answers",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+        "href": "https://sentry.io/answers/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_35",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Get in touch today!",
+      "textContent": "Syntax",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/contact/"
+        "href": "https://syntax.fm/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_36",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Joss Couture",
+      "textContent": "Customers",
       "selectors": [
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.josscouture.co.za/"
+        "href": "https://sentry.io/customers/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_37",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Flutterbys School",
+      "textContent": "Contact Us",
       "selectors": [
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://flutterbys.co.za/"
+        "href": "https://sentry.io/contact/enterprise/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_38",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "The Gourmet Cookie C",
+      "textContent": "Help Center",
       "selectors": [
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.thegourmetcookieco.co.za/"
+        "href": "https://help.sentry.io/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_39",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Straker Functional F",
+      "textContent": "Status",
       "selectors": [
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://strakerfunctionalfitness.co.za/"
+        "href": "https://status.sentry.io/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_40",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "The Syrene Hotel",
+      "textContent": "Sentry Build",
       "selectors": [
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.thesyrene.co.za/"
+        "href": "https://sentry.io/resources/sentry-build/"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_41",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "African Safari Deals",
+      "textContent": "Events",
       "selectors": [
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.africansafarideals.co.za/"
+        "href": "https://lu.ma/user/getsentry"
       },
-      "timestamp": 1755758885978
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_42",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Mtambo Chartered Acc",
+      "textContent": "Merch",
       "selectors": [
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.filemca.com/"
+        "href": "https://sentry.shop/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394188
     },
     {
       "actionId": "action_navigate_a_43",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Read More",
       "selectors": [
-        "div:nth-child(1)"
+        ".btn-new",
+        "a.btn-new",
+        "div:nth-child(7)"
       ],
       "attributes": {
-        "href": "https://thegourmetkitchen.co.za/"
+        "href": "https://sentry.io/resources/unsnag-your-mobile-monitoring/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
       "actionId": "action_navigate_a_44",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Docs",
       "selectors": [
-        "div:nth-child(1)"
+        ".btn-new",
+        "a.btn-new",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://www.thesyrene.co.za/"
+        "href": "https://docs.sentry.io/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
       "actionId": "action_navigate_a_45",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Read More Testimonia",
+      "textContent": "Pricing",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".btn-new",
+        "a.btn-new",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/about#testimonials"
+        "href": "https://sentry.io/pricing/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
       "actionId": "action_navigate_a_46",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Sign Inlogin",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
+        ".btn-new",
+        "a.btn-new",
         "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Andy7-String.jpg"
+        "href": "https://sentry.io/auth/login/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
       "actionId": "action_navigate_a_47",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Get Demoget a demo",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".btn-new",
+        "a.btn-new",
+        "div:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/i8i-Logo.jpg"
+        "href": "/demo/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
       "actionId": "action_navigate_a_48",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Get Startedsign up",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".btn-new",
+        "a.btn-new",
+        "div:nth-child(3)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Gourmet-Cookie-Co-Logo-Pink-copy.jpg"
+        "href": "/signup/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
       "actionId": "action_navigate_a_49",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "Sentry Answers.css-1",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-5glpgv",
+        "a.css-5glpgv",
+        "div:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Mad-Robor-Studios.jpg"
+        "href": "/answers/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
       "actionId": "action_navigate_a_50",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "JavaScript",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".css-5glpgv",
+        "a.css-5glpgv",
+        "div:nth-child(3)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Joss-Couture.jpg"
+        "href": "/answers/javascript/"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
-      "actionId": "action_navigate_a_51",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
+      "actionId": "action_click_div_51",
+      "actionType": "click",
+      "tagName": "div",
+      "textContent": ".css-1vpruv2{positio",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        "div:nth-child(14)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Vegan-Links2.jpg"
+        "role": "button",
+        "title": "Click to Copy"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
-      "actionId": "action_navigate_a_52",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
+      "actionId": "action_click_div_52",
+      "actionType": "click",
+      "tagName": "div",
+      "textContent": "Click to CopyClick t",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        "div:nth-child(19)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Professor-Code.jpg"
+        "role": "button",
+        "title": "Click to Copy"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
-      "actionId": "action_navigate_a_53",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
+      "actionId": "action_click_div_53",
+      "actionType": "click",
+      "tagName": "div",
+      "textContent": "Click to CopyClick t",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        "div:nth-child(22)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Time-Pieces-of-Distinction-logo.jpg"
+        "role": "button",
+        "title": "Click to Copy"
       },
-      "timestamp": 1755758885979
+      "timestamp": 1755762394189
     },
     {
-      "actionId": "action_navigate_a_54",
-      "actionType": "navigate",
-      "tagName": "a",
-      "textContent": "",
+      "actionId": "action_click_div_54",
+      "actionType": "click",
+      "tagName": "div",
+      "textContent": "Click to CopyClick t",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        "div:nth-child(35)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Software-Ninja.jpg"
+        "role": "button",
+        "title": "Click to Copy"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394189
     },
     {
       "actionId": "action_navigate_a_55",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "",
+      "textContent": "How Sentry.io saved ",
       "selectors": [
-        "[data-fancybox=\"uael-gallery\"]",
-        "[data-elementor-open-lightbox=\"no\"]",
-        ".uael-grid-img",
-        "a.uael-grid-img",
-        "div:nth-child(1)"
+        ".plausible-event-name=Click+Answers+Related+Content",
+        "a.plausible-event-name=Click+Answers+Related+Content",
+        "li:nth-child(4)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Smart-Routing.jpg"
+        "href": "https://www.youtube.com/watch?v=8nZOsYm9Xzs"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_56",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Reach Out Now!",
+      "textContent": "Improve Web Browser ",
       "selectors": [
-        ".elementor-button",
-        "a.elementor-button",
-        "div:nth-child(1)"
+        ".plausible-event-name=Click+Answers+Related+Content",
+        "a.plausible-event-name=Click+Answers+Related+Content",
+        "li:nth-child(2)"
       ],
       "attributes": {
-        "href": "/contact/"
+        "href": "https://sentry.io/resources/improve-web-browser-performance-find-the-javascript-code-causing-slowdowns/"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_57",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Banner Portfolio",
+      "textContent": "Javascript Error Mon",
       "selectors": [
-        "li:nth-child(1)"
+        ".plausible-event-name=Click+Answers+Related+Content",
+        "a.plausible-event-name=Click+Answers+Related+Content",
+        "li:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        "href": "https://sentry.io/for/javascript/"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_58",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Logo Portfolio",
+      "textContent": "JavaScript Frontend ",
       "selectors": [
-        "li:nth-child(1)"
+        ".plausible-event-name=Click+Answers+Related+Content",
+        "a.plausible-event-name=Click+Answers+Related+Content",
+        "li:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        "href": "https://sentry.io/resources/javascript-frontend-error-monitoring-101/"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_59",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Web Design Portfolio",
+      "textContent": "Listen to the Syntax",
       "selectors": [
-        "li:nth-child(1)"
+        ".plausible-event-name=Click+Answers+Related+Content",
+        "a.plausible-event-name=Click+Answers+Related+Content",
+        "li:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_60",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Facebook",
+      "textContent": "Listen to the Syntax",
       "selectors": [
-        ".elementor-icon",
-        "a.elementor-icon",
-        "span:nth-child(1)"
+        ".plausible-event-name=Click+Answers+Syntax+Promo",
+        "a.plausible-event-name=Click+Answers+Syntax+Promo",
+        "li:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://www.facebook.com/brighttreedigital"
+        "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_61",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Instagram",
+      "textContent": "SEE EPISODES",
       "selectors": [
-        ".elementor-icon",
-        "a.elementor-icon",
-        "span:nth-child(1)"
+        ".plausible-event-name=Click+Answers+Syntax+Promo",
+        "a.plausible-event-name=Click+Answers+Syntax+Promo",
+        "li:nth-child(5)"
       ],
       "attributes": {
-        "href": "https://www.instagram.com/bright_tree_digital/"
+        "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_62",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Home",
+      "textContent": "learn more about sen",
       "selectors": [
-        "li:nth-child(1)"
+        ".btn-new",
+        "a.btn-new",
+        "div:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/"
+        "aria-label": "learn more about sentry",
+        "href": "https://sentry.io"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_63",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "About",
+      "textContent": "join our discord",
       "selectors": [
-        "li:nth-child(1)"
+        ".btn-new",
+        "a.btn-new",
+        "div:nth-child(2)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/about/"
+        "aria-label": "join our discord",
+        "href": "https://discord.com/invite/sentry"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_64",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Services",
+      "textContent": "About",
       "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/services/"
+        "href": "/about/"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_65",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Testimonials",
+      "textContent": "Blog",
       "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/about/#testimonials"
+        "href": "https://blog.sentry.io/"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_66",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Contact",
+      "textContent": "Careers",
       "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/contact/"
+        "href": "/careers/"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394190
     },
     {
       "actionId": "action_navigate_a_67",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Privacy Policy",
+      "textContent": "Contact Us",
       "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
         "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "https://brighttreedigital.com.au/privacy-policy/"
+        "href": "/contact/enterprise/"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394191
     },
     {
       "actionId": "action_navigate_a_68",
       "actionType": "navigate",
       "tagName": "a",
-      "textContent": "Website Designed by ",
+      "textContent": "Trust",
       "selectors": [
-        "h6:nth-child(1)"
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "href": "http://www.brighttreedigital.com"
+        "href": "/trust/"
       },
-      "timestamp": 1755758885980
+      "timestamp": 1755762394191
+    },
+    {
+      "actionId": "action_navigate_a_69",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Error Monitoring",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/product/error-monitoring/"
+      },
+      "timestamp": 1755762394191
+    },
+    {
+      "actionId": "action_navigate_a_70",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Tracing",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/product/tracing/"
+      },
+      "timestamp": 1755762394191
+    },
+    {
+      "actionId": "action_navigate_a_71",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Session Replay",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/product/session-replay/"
+      },
+      "timestamp": 1755762394191
+    },
+    {
+      "actionId": "action_navigate_a_72",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Seer",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/product/seer/"
+      },
+      "timestamp": 1755762394192
+    },
+    {
+      "actionId": "action_navigate_a_73",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Logs",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/product/logs/"
+      },
+      "timestamp": 1755762394192
+    },
+    {
+      "actionId": "action_navigate_a_74",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Uptime Monitoring",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/product/uptime-monitoring/"
+      },
+      "timestamp": 1755762394192
+    },
+    {
+      "actionId": "action_navigate_a_75",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Profiling",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/product/profiling/"
+      },
+      "timestamp": 1755762394192
+    },
+    {
+      "actionId": "action_navigate_a_76",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Cron Monitoring",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/product/cron-monitoring/"
+      },
+      "timestamp": 1755762394192
+    },
+    {
+      "actionId": "action_navigate_a_77",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Integrations",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/integrations/"
+      },
+      "timestamp": 1755762394192
+    },
+    {
+      "actionId": "action_navigate_a_78",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Web / Frontend Devel",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/for/full-stack/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_79",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Mobile Crash Reporti",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/solutions/sentry-for-mobile-developers/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_80",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Game Crash Reporting",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/solutions/sentry-for-game-developers/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_81",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "AI Observability",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/solutions/sentry-for-ai/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_82",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Application Performa",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/solutions/sentry-for-application-performance-monitoring/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_83",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Real User Monitoring",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/solutions/sentry-for-real-user-monitoring-rum/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_84",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Ecommerce",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/solutions/sentry-for-ecommerce"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_85",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Enterprise",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/for/enterprise/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_86",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Docs",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://docs.sentry.io/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_87",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Help Center",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://help.sentry.io/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_88",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Status",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://status.sentry.io/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_89",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Dev Resources",
+      "selectors": [
+        ".css-11p6kxc",
+        "a.css-11p6kxc",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://develop.sentry.dev/getting-started/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_90",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Terms",
+      "selectors": [
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/terms/"
+      },
+      "timestamp": 1755762394193
+    },
+    {
+      "actionId": "action_navigate_a_91",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Security & Complianc",
+      "selectors": [
+        "div:nth-child(2)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/security/"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_92",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Trust",
+      "selectors": [
+        "div:nth-child(3)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/trust/"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_93",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        ".css-18bmpmw",
+        "a.css-18bmpmw",
+        "div:nth-child(2)"
+      ],
+      "attributes": {
+        "aria-label": "home",
+        "href": "/"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_94",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        ".css-dx73s3",
+        "a.css-dx73s3",
+        "div:nth-child(4)"
+      ],
+      "attributes": {
+        "aria-label": "Open Source Pledge",
+        "href": "https://opensourcepledge.com/members/sentry/"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_95",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Twitter Menu Button",
+        "href": "https://twitter.com/getsentry/"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_96",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        "div:nth-child(2)"
+      ],
+      "attributes": {
+        "aria-label": "Github Social Menu Button",
+        "href": "https://github.com/getsentry/"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_97",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        "div:nth-child(3)"
+      ],
+      "attributes": {
+        "aria-label": "LinkedIn Menu Button",
+        "href": "https://linkedin.com/company/getsentry/"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_98",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        "div:nth-child(4)"
+      ],
+      "attributes": {
+        "aria-label": "Discord Menu Button",
+        "href": "https://discord.gg/sentry"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_99",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Am I included?",
+      "selectors": [
+        "div:nth-child(5)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/privacy/"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_100",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Tell me more",
+      "selectors": [
+        "div:nth-child(3)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/privacy/#what-personal-information-does-sentry-collect"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_101",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "How exactly?",
+      "selectors": [
+        "div:nth-child(3)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/privacy/#what-does-sentry-use-my-personal-information-for"
+      },
+      "timestamp": 1755762394194
+    },
+    {
+      "actionId": "action_navigate_a_102",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "What do they do?",
+      "selectors": [
+        "div:nth-child(4)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/privacy/#who-does-sentry-disclose-my-personal-information-to"
+      },
+      "timestamp": 1755762394195
+    },
+    {
+      "actionId": "action_navigate_a_103",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "How can I choose?",
+      "selectors": [
+        "div:nth-child(3)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/privacy/#cookies-and-similar-tracking-technology"
+      },
+      "timestamp": 1755762394195
+    },
+    {
+      "actionId": "action_navigate_a_104",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "What can I do?",
+      "selectors": [
+        "div:nth-child(4)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/privacy/#your-data-protection-rights"
+      },
+      "timestamp": 1755762394195
+    },
+    {
+      "actionId": "action_navigate_a_105",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "compliance@sentry.io",
+      "selectors": [
+        "p:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "mailto:compliance@sentry.io"
+      },
+      "timestamp": 1755762394195
+    },
+    {
+      "actionId": "action_navigate_a_106",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Supplemental notice",
+      "selectors": [
+        "p:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/trust/privacy/california/"
+      },
+      "timestamp": 1755762394195
+    },
+    {
+      "actionId": "action_navigate_a_107",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Read the full policy",
+      "selectors": [
+        ".btn-new",
+        "a.btn-new",
+        "div:nth-child(2)"
+      ],
+      "attributes": {
+        "href": "https://sentry.io/privacy/"
+      },
+      "timestamp": 1755762394195
     }
   ],
   "page_state": {
@@ -1096,1118 +1646,1707 @@
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".custom-logo-link",
-          "a.custom-logo-link",
-          "span:nth-child(1)"
+          ".css-qcxixa",
+          "a.css-qcxixa",
+          "nav:nth-child(2)"
         ],
-        "textContent": "",
-        "className": "custom-logo-link transparent-custom-logo",
+        "textContent": ".css-4zleql{display:",
+        "className": "css-qcxixa et4v3sf3",
         "attributes": {
-          "aria-label": "Bright Tree Digital",
-          "href": "https://brighttreedigital.com.au/"
+          "aria-label": "Welcome Page",
+          "href": "/welcome/"
         },
-        "timestamp": 1755758885975
+        "timestamp": 1755762394185
       },
       {
-        "id": "action_navigate_a_1",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "HOME",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/"
-        },
-        "timestamp": 1755758885975
-      },
-      {
-        "id": "action_navigate_a_2",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "ABOUT",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/about/"
-        },
-        "timestamp": 1755758885975
-      },
-      {
-        "id": "action_click_button_3",
+        "id": "action_click_button_1",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
-          ".ast-menu-toggle",
-          "button.ast-menu-toggle",
+          ".btn-new",
+          "button.btn-new",
+          "nav:nth-child(6)"
+        ],
+        "textContent": ".css-17qgsod{text-ov",
+        "className": "btn-new et4v3sf2 e1of9yu15 css-1d84q9o e1figufi0",
+        "attributes": {},
+        "timestamp": 1755762394185
+      },
+      {
+        "id": "action_click_button_2",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "[data-menu=\"platform\"]",
+          ".btn-new",
+          "button.btn-new",
+          "li:nth-child(4)"
+        ],
+        "textContent": "Platform",
+        "className": "btn-new silent plausible-event-name=Nav+Click+Product efdm4dw3 e1of9yu15 css-nsk9l1 e1figufi0",
+        "attributes": {},
+        "timestamp": 1755762394185
+      },
+      {
+        "id": "action_navigate_a_3",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(2)"
         ],
-        "textContent": "Menu Toggle",
-        "className": "ast-menu-toggle",
+        "textContent": "Error Monitoring",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "aria-label": "Toggle menu"
+          "href": "https://sentry.io/product/error-monitoring/"
         },
-        "timestamp": 1755758885975
+        "timestamp": 1755762394185
       },
       {
         "id": "action_navigate_a_4",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Banner Design",
-        "className": "menu-link",
+        "textContent": "Logs.css-4zmnew{back",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+          "href": "https://sentry.io/product/logs/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394185
       },
       {
         "id": "action_navigate_a_5",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Logo Design",
-        "className": "menu-link",
+        "textContent": "Session Replay",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+          "href": "https://sentry.io/product/session-replay/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394185
       },
       {
         "id": "action_navigate_a_6",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Web Design",
-        "className": "menu-link",
+        "textContent": "Tracing",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+          "href": "https://sentry.io/product/tracing/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394185
       },
       {
         "id": "action_navigate_a_7",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "SERVICES",
-        "className": "menu-link",
+        "textContent": "SeerNEW",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services/"
+          "href": "https://sentry.io/product/seer/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_8",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "CONTACT",
-        "className": "menu-link",
+        "textContent": "Uptime Monitoring",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/contact/"
+          "href": "https://sentry.io/product/uptime-monitoring/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_9",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".ast-builder-social-element",
-          "a.ast-builder-social-element",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "ast-builder-social-element ast-inline-flex ast-facebook header-social-item",
+        "textContent": "Profiling",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "aria-label": "Facebook",
-          "href": "https://www.facebook.com/brighttreedigital"
+          "href": "https://sentry.io/product/profiling/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_10",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".ast-builder-social-element",
-          "a.ast-builder-social-element",
-          "div:nth-child(2)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "ast-builder-social-element ast-inline-flex ast-instagram header-social-item",
+        "textContent": "Cron Monitoring",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "aria-label": "Instagram",
-          "href": "https://www.instagram.com/bright_tree_digital/"
+          "href": "https://sentry.io/product/cron-monitoring/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_11",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".custom-logo-link",
-          "a.custom-logo-link",
-          "span:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "custom-logo-link transparent-custom-logo",
+        "textContent": "Github",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "aria-label": "Bright Tree Digital",
-          "href": "https://brighttreedigital.com.au/"
+          "href": "https://sentry.io/integrations/github/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
-        "id": "action_click_button_12",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_navigate_a_12",
+        "tagName": "a",
+        "actionType": "navigate",
         "selectors": [
-          "[data-index=\"0\"]",
-          ".menu-toggle",
-          "button.menu-toggle",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Main Menu",
-        "className": "menu-toggle main-header-menu-toggle ast-mobile-menu-trigger-fill",
+        "textContent": "Slack",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "type": "button",
-          "aria-label": "Main menu toggle"
+          "href": "https://sentry.io/integrations/slack/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_13",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "HOME",
-        "className": "menu-link",
+        "textContent": "All Integrations",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/"
+          "href": "https://sentry.io/integrations/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_14",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "ABOUT",
-        "className": "menu-link",
+        "textContent": "Javascript",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/about/"
+          "href": "https://sentry.io/for/javascript/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
-        "id": "action_click_button_15",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_navigate_a_15",
+        "tagName": "a",
+        "actionType": "navigate",
         "selectors": [
-          ".ast-menu-toggle",
-          "button.ast-menu-toggle",
-          "li:nth-child(2)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Menu Toggle",
-        "className": "ast-menu-toggle",
+        "textContent": "Python",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "aria-label": "Toggle menu"
+          "href": "https://sentry.io/for/python/"
         },
-        "timestamp": 1755758885976
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_16",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Banner Design",
-        "className": "menu-link",
+        "textContent": "React",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+          "href": "https://sentry.io/for/react/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_17",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Logo Design",
-        "className": "menu-link",
+        "textContent": "Laravel",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+          "href": "https://sentry.io/for/laravel/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_18",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Web Design",
-        "className": "menu-link",
+        "textContent": "Next.js",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+          "href": "https://sentry.io/for/nextjs/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394186
       },
       {
         "id": "action_navigate_a_19",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "SERVICES",
-        "className": "menu-link",
+        "textContent": "All SDKs",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services/"
+          "href": "https://sentry.io/platforms/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394187
       },
       {
-        "id": "action_navigate_a_20",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_20",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          "[data-menu=\"solutions\"]",
+          ".btn-new",
+          "button.btn-new",
           "li:nth-child(1)"
         ],
-        "textContent": "CONTACT",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/contact/"
-        },
-        "timestamp": 1755758885977
+        "textContent": "Solutions",
+        "className": "btn-new silent plausible-event-name=Nav+Click+Solutions efdm4dw3 e1of9yu15 css-nsk9l1 e1figufi0",
+        "attributes": {},
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_21",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".ast-builder-social-element",
-          "a.ast-builder-social-element",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "ast-builder-social-element ast-inline-flex ast-facebook header-social-item",
+        "textContent": "Web / Frontend Devel",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "aria-label": "Facebook",
-          "href": "https://www.facebook.com/brighttreedigital"
+          "href": "/for/full-stack/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_22",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".ast-builder-social-element",
-          "a.ast-builder-social-element",
-          "div:nth-child(2)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "ast-builder-social-element ast-inline-flex ast-instagram header-social-item",
+        "textContent": "Mobile Crash Reporti",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "aria-label": "Instagram",
-          "href": "https://www.instagram.com/bright_tree_digital/"
+          "href": "/solutions/sentry-for-mobile-developers/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_23",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".bdt-slide-link",
-          "a.bdt-slide-link",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Get Started",
-        "className": "bdt-slide-link elementor-animation-grow",
+        "textContent": "Game Crash Reporting",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services#Website-Design"
+          "href": "/solutions/sentry-for-game-developers/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_24",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".bdt-slide-link",
-          "a.bdt-slide-link",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Get Started",
-        "className": "bdt-slide-link elementor-animation-grow",
+        "textContent": "AI Observability",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+          "href": "/solutions/sentry-for-ai/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_25",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".bdt-slide-link",
-          "a.bdt-slide-link",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Get Started",
-        "className": "bdt-slide-link elementor-animation-grow",
+        "textContent": "Application Performa",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services#logo-design"
+          "href": "/solutions/sentry-for-application-performance-monitoring/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_26",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "h3:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Website Design",
-        "className": "",
+        "textContent": "Real User Monitoring",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/?page_id=4627"
+          "href": "/solutions/sentry-for-real-user-monitoring-rum/"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_27",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "View Portfolio",
-        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "textContent": "Ecommerce",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+          "href": "/solutions/sentry-for-ecommerce"
         },
-        "timestamp": 1755758885977
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_28",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "More Info",
-        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "textContent": "Enterprise",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services#websiteDesign"
+          "href": "/for/enterprise/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394187
       },
       {
-        "id": "action_navigate_a_29",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_29",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          "h3:nth-child(1)"
+          "[data-menu=\"resources\"]",
+          ".btn-new",
+          "button.btn-new",
+          "li:nth-child(1)"
         ],
-        "textContent": "Logo Design",
-        "className": "",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/?page_id=4734"
-        },
-        "timestamp": 1755758885978
+        "textContent": "Resources",
+        "className": "btn-new silent plausible-event-name=Nav+Click+Resources efdm4dw3 e1of9yu15 css-nsk9l1 e1figufi0",
+        "attributes": {},
+        "timestamp": 1755762394187
       },
       {
         "id": "action_navigate_a_30",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "View Portfolio",
-        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "textContent": "Blog",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+          "href": "https://blog.sentry.io/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_31",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "More Info",
-        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "textContent": "Changelog",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services#logo-design"
+          "href": "https://sentry.io/changelog/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_32",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "h3:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Banner Ad Design",
-        "className": "",
+        "textContent": "Sandbox",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/?page_id=4784"
+          "href": "https://sandbox.sentry.io/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_33",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "View Portfolio",
-        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "textContent": "Resources",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+          "href": "https://sentry.io/resources/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_34",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "More Info",
-        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "textContent": "Sentry Answers",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+          "href": "https://sentry.io/answers/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_35",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Get in touch today!",
-        "className": "elementor-button elementor-button-link elementor-size-sm",
+        "textContent": "Syntax",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/contact/"
+          "href": "https://syntax.fm/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_36",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Joss Couture",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Customers",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://www.josscouture.co.za/"
+          "href": "https://sentry.io/customers/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_37",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Flutterbys School",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Contact Us",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://flutterbys.co.za/"
+          "href": "https://sentry.io/contact/enterprise/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_38",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Help Center",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://www.thegourmetcookieco.co.za/"
+          "href": "https://help.sentry.io/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_39",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Status",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://strakerfunctionalfitness.co.za/"
+          "href": "https://status.sentry.io/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_40",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "The Syrene Hotel",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Sentry Build",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://www.thesyrene.co.za/"
+          "href": "https://sentry.io/resources/sentry-build/"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_41",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "African Safari Deals",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Events",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://www.africansafarideals.co.za/"
+          "href": "https://lu.ma/user/getsentry"
         },
-        "timestamp": 1755758885978
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_42",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Merch",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://www.filemca.com/"
+          "href": "https://sentry.shop/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394188
       },
       {
         "id": "action_navigate_a_43",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "div:nth-child(1)"
+          ".btn-new",
+          "a.btn-new",
+          "div:nth-child(7)"
         ],
-        "textContent": "",
-        "className": "",
+        "textContent": "Read More",
+        "className": "btn-new secondary-light e1of9yu15 css-1csoxiy e1figufi0",
         "attributes": {
-          "href": "https://thegourmetkitchen.co.za/"
+          "href": "https://sentry.io/resources/unsnag-your-mobile-monitoring/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
         "id": "action_navigate_a_44",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "div:nth-child(1)"
+          ".btn-new",
+          "a.btn-new",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "",
+        "textContent": "Docs",
+        "className": "btn-new silent plausible-event-name=Nav+Click+Docs et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
         "attributes": {
-          "href": "https://www.thesyrene.co.za/"
+          "href": "https://docs.sentry.io/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
         "id": "action_navigate_a_45",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".btn-new",
+          "a.btn-new",
+          "li:nth-child(1)"
         ],
-        "textContent": "Read More Testimonia",
-        "className": "elementor-button elementor-button-link elementor-size-sm",
+        "textContent": "Pricing",
+        "className": "btn-new silent plausible-event-name=Nav+Click+Pricing et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/about#testimonials"
+          "href": "https://sentry.io/pricing/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
         "id": "action_navigate_a_46",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
+          ".btn-new",
+          "a.btn-new",
           "div:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Sign Inlogin",
+        "className": "btn-new silent plausible-event-name=Nav+Click+SignIn et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Andy7-String.jpg"
+          "href": "https://sentry.io/auth/login/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
         "id": "action_navigate_a_47",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".btn-new",
+          "a.btn-new",
+          "div:nth-child(2)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Get Demoget a demo",
+        "className": "btn-new secondary-light plausible-event-name=Nav+Click+Demo et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/i8i-Logo.jpg"
+          "href": "/demo/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
         "id": "action_navigate_a_48",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".btn-new",
+          "a.btn-new",
+          "div:nth-child(3)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Get Startedsign up",
+        "className": "btn-new primary-light plausible-event-name=Nav+Click+SignUp et4v3sf6 e1of9yu15 css-nsk9l1 e1figufi0",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Gourmet-Cookie-Co-Logo-Pink-copy.jpg"
+          "href": "/signup/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
         "id": "action_navigate_a_49",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-5glpgv",
+          "a.css-5glpgv",
+          "div:nth-child(2)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Sentry Answers.css-1",
+        "className": "css-5glpgv e9zo9tj2",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Mad-Robor-Studios.jpg"
+          "href": "/answers/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
         "id": "action_navigate_a_50",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".css-5glpgv",
+          "a.css-5glpgv",
+          "div:nth-child(3)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "JavaScript",
+        "className": "css-5glpgv e9zo9tj2",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Joss-Couture.jpg"
+          "href": "/answers/javascript/"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
-        "id": "action_navigate_a_51",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_div_51",
+        "tagName": "div",
+        "actionType": "click",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          "div:nth-child(14)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": ".css-1vpruv2{positio",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Vegan-Links2.jpg"
+          "role": "button",
+          "title": "Click to Copy"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
-        "id": "action_navigate_a_52",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_div_52",
+        "tagName": "div",
+        "actionType": "click",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          "div:nth-child(19)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Click to CopyClick t",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Professor-Code.jpg"
+          "role": "button",
+          "title": "Click to Copy"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
-        "id": "action_navigate_a_53",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_div_53",
+        "tagName": "div",
+        "actionType": "click",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          "div:nth-child(22)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Click to CopyClick t",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Time-Pieces-of-Distinction-logo.jpg"
+          "role": "button",
+          "title": "Click to Copy"
         },
-        "timestamp": 1755758885979
+        "timestamp": 1755762394189
       },
       {
-        "id": "action_navigate_a_54",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_div_54",
+        "tagName": "div",
+        "actionType": "click",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          "div:nth-child(35)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "Click to CopyClick t",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Software-Ninja.jpg"
+          "role": "button",
+          "title": "Click to Copy"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394189
       },
       {
         "id": "action_navigate_a_55",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
+          ".plausible-event-name=Click+Answers+Related+Content",
+          "a.plausible-event-name=Click+Answers+Related+Content",
+          "li:nth-child(4)"
         ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "textContent": "How Sentry.io saved ",
+        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Smart-Routing.jpg"
+          "href": "https://www.youtube.com/watch?v=8nZOsYm9Xzs"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_56",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-button",
-          "a.elementor-button",
-          "div:nth-child(1)"
+          ".plausible-event-name=Click+Answers+Related+Content",
+          "a.plausible-event-name=Click+Answers+Related+Content",
+          "li:nth-child(2)"
         ],
-        "textContent": "Reach Out Now!",
-        "className": "elementor-button elementor-button-link elementor-size-sm",
+        "textContent": "Improve Web Browser ",
+        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
         "attributes": {
-          "href": "/contact/"
+          "href": "https://sentry.io/resources/improve-web-browser-performance-find-the-javascript-code-causing-slowdowns/"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_57",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "li:nth-child(1)"
+          ".plausible-event-name=Click+Answers+Related+Content",
+          "a.plausible-event-name=Click+Answers+Related+Content",
+          "li:nth-child(2)"
         ],
-        "textContent": "Banner Portfolio",
-        "className": "",
+        "textContent": "Javascript Error Mon",
+        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+          "href": "https://sentry.io/for/javascript/"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_58",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "li:nth-child(1)"
+          ".plausible-event-name=Click+Answers+Related+Content",
+          "a.plausible-event-name=Click+Answers+Related+Content",
+          "li:nth-child(2)"
         ],
-        "textContent": "Logo Portfolio",
-        "className": "",
+        "textContent": "JavaScript Frontend ",
+        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+          "href": "https://sentry.io/resources/javascript-frontend-error-monitoring-101/"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_59",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "li:nth-child(1)"
+          ".plausible-event-name=Click+Answers+Related+Content",
+          "a.plausible-event-name=Click+Answers+Related+Content",
+          "li:nth-child(2)"
         ],
-        "textContent": "Web Design Portfolio",
-        "className": "",
+        "textContent": "Listen to the Syntax",
+        "className": "plausible-event-name=Click+Answers+Related+Content css-19w5fgf et39s9p2",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+          "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_60",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-icon",
-          "a.elementor-icon",
-          "span:nth-child(1)"
+          ".plausible-event-name=Click+Answers+Syntax+Promo",
+          "a.plausible-event-name=Click+Answers+Syntax+Promo",
+          "li:nth-child(2)"
         ],
-        "textContent": "Facebook",
-        "className": "elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-a41d840",
+        "textContent": "Listen to the Syntax",
+        "className": "plausible-event-name=Click+Answers+Syntax+Promo css-19w5fgf et39s9p2",
         "attributes": {
-          "href": "https://www.facebook.com/brighttreedigital"
+          "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_61",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".elementor-icon",
-          "a.elementor-icon",
-          "span:nth-child(1)"
+          ".plausible-event-name=Click+Answers+Syntax+Promo",
+          "a.plausible-event-name=Click+Answers+Syntax+Promo",
+          "li:nth-child(5)"
         ],
-        "textContent": "Instagram",
-        "className": "elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-342f8cd",
+        "textContent": "SEE EPISODES",
+        "className": "plausible-event-name=Click+Answers+Syntax+Promo",
         "attributes": {
-          "href": "https://www.instagram.com/bright_tree_digital/"
+          "href": "https://syntax.fm/?utm_source=sentry&utm_medium=display&utm_campaign=syntax-na-podcastpromo&utm_content=logo-answers-rail-banner-listen"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_62",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "li:nth-child(1)"
+          ".btn-new",
+          "a.btn-new",
+          "div:nth-child(1)"
         ],
-        "textContent": "Home",
-        "className": "",
+        "textContent": "learn more about sen",
+        "className": "btn-new primary-light plausible-event-name=Click+Answer+Blurb+CTA e1of9yu15 css-1csoxiy e1figufi0",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/"
+          "aria-label": "learn more about sentry",
+          "href": "https://sentry.io"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_63",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "li:nth-child(1)"
+          ".btn-new",
+          "a.btn-new",
+          "div:nth-child(2)"
         ],
-        "textContent": "About",
-        "className": "",
+        "textContent": "join our discord",
+        "className": "btn-new secondary-light plausible-event-name=Click+Answer+Blurb+CTA e1of9yu15 css-1csoxiy e1figufi0",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/about/"
+          "aria-label": "join our discord",
+          "href": "https://discord.com/invite/sentry"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_64",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Services",
-        "className": "",
+        "textContent": "About",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services/"
+          "href": "/about/"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_65",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Testimonials",
-        "className": "",
+        "textContent": "Blog",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/about/#testimonials"
+          "href": "https://blog.sentry.io/"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_66",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Contact",
-        "className": "",
+        "textContent": "Careers",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/contact/"
+          "href": "/careers/"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394190
       },
       {
         "id": "action_navigate_a_67",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
           "li:nth-child(1)"
         ],
-        "textContent": "Privacy Policy",
-        "className": "",
+        "textContent": "Contact Us",
+        "className": "css-11p6kxc e13yldr41",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/privacy-policy/"
+          "href": "/contact/enterprise/"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394191
       },
       {
         "id": "action_navigate_a_68",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          "h6:nth-child(1)"
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
         ],
-        "textContent": "Website Designed by ",
+        "textContent": "Trust",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/trust/"
+        },
+        "timestamp": 1755762394191
+      },
+      {
+        "id": "action_navigate_a_69",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Error Monitoring",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/product/error-monitoring/"
+        },
+        "timestamp": 1755762394191
+      },
+      {
+        "id": "action_navigate_a_70",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Tracing",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/product/tracing/"
+        },
+        "timestamp": 1755762394191
+      },
+      {
+        "id": "action_navigate_a_71",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Session Replay",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/product/session-replay/"
+        },
+        "timestamp": 1755762394191
+      },
+      {
+        "id": "action_navigate_a_72",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Seer",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/product/seer/"
+        },
+        "timestamp": 1755762394192
+      },
+      {
+        "id": "action_navigate_a_73",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Logs",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/product/logs/"
+        },
+        "timestamp": 1755762394192
+      },
+      {
+        "id": "action_navigate_a_74",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Uptime Monitoring",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/product/uptime-monitoring/"
+        },
+        "timestamp": 1755762394192
+      },
+      {
+        "id": "action_navigate_a_75",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Profiling",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/product/profiling/"
+        },
+        "timestamp": 1755762394192
+      },
+      {
+        "id": "action_navigate_a_76",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Cron Monitoring",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/product/cron-monitoring/"
+        },
+        "timestamp": 1755762394192
+      },
+      {
+        "id": "action_navigate_a_77",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Integrations",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/integrations/"
+        },
+        "timestamp": 1755762394192
+      },
+      {
+        "id": "action_navigate_a_78",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Web / Frontend Devel",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/for/full-stack/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_79",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Mobile Crash Reporti",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/solutions/sentry-for-mobile-developers/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_80",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Game Crash Reporting",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/solutions/sentry-for-game-developers/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_81",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "AI Observability",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/solutions/sentry-for-ai/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_82",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Application Performa",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/solutions/sentry-for-application-performance-monitoring/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_83",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Real User Monitoring",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/solutions/sentry-for-real-user-monitoring-rum/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_84",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Ecommerce",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/solutions/sentry-for-ecommerce"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_85",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Enterprise",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "/for/enterprise/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_86",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Docs",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "https://docs.sentry.io/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_87",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Help Center",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "https://help.sentry.io/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_88",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Status",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "https://status.sentry.io/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_89",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-11p6kxc",
+          "a.css-11p6kxc",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Dev Resources",
+        "className": "css-11p6kxc e13yldr41",
+        "attributes": {
+          "href": "https://develop.sentry.dev/getting-started/"
+        },
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_90",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(1)"
+        ],
+        "textContent": "Terms",
         "className": "",
         "attributes": {
-          "href": "http://www.brighttreedigital.com"
+          "href": "https://sentry.io/terms/"
         },
-        "timestamp": 1755758885980
+        "timestamp": 1755762394193
+      },
+      {
+        "id": "action_navigate_a_91",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(2)"
+        ],
+        "textContent": "Security & Complianc",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/security/"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_92",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(3)"
+        ],
+        "textContent": "Trust",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/trust/"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_93",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-18bmpmw",
+          "a.css-18bmpmw",
+          "div:nth-child(2)"
+        ],
+        "textContent": "",
+        "className": "css-18bmpmw edbg3fs1",
+        "attributes": {
+          "aria-label": "home",
+          "href": "/"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_94",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".css-dx73s3",
+          "a.css-dx73s3",
+          "div:nth-child(4)"
+        ],
+        "textContent": "",
+        "className": "css-dx73s3 edbg3fs0",
+        "attributes": {
+          "aria-label": "Open Source Pledge",
+          "href": "https://opensourcepledge.com/members/sentry/"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_95",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "",
+        "attributes": {
+          "aria-label": "Twitter Menu Button",
+          "href": "https://twitter.com/getsentry/"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_96",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(2)"
+        ],
+        "textContent": "",
+        "className": "",
+        "attributes": {
+          "aria-label": "Github Social Menu Button",
+          "href": "https://github.com/getsentry/"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_97",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(3)"
+        ],
+        "textContent": "",
+        "className": "",
+        "attributes": {
+          "aria-label": "LinkedIn Menu Button",
+          "href": "https://linkedin.com/company/getsentry/"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_98",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(4)"
+        ],
+        "textContent": "",
+        "className": "",
+        "attributes": {
+          "aria-label": "Discord Menu Button",
+          "href": "https://discord.gg/sentry"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_99",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(5)"
+        ],
+        "textContent": "Am I included?",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/privacy/"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_100",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(3)"
+        ],
+        "textContent": "Tell me more",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/privacy/#what-personal-information-does-sentry-collect"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_101",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(3)"
+        ],
+        "textContent": "How exactly?",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/privacy/#what-does-sentry-use-my-personal-information-for"
+        },
+        "timestamp": 1755762394194
+      },
+      {
+        "id": "action_navigate_a_102",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(4)"
+        ],
+        "textContent": "What do they do?",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/privacy/#who-does-sentry-disclose-my-personal-information-to"
+        },
+        "timestamp": 1755762394195
+      },
+      {
+        "id": "action_navigate_a_103",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(3)"
+        ],
+        "textContent": "How can I choose?",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/privacy/#cookies-and-similar-tracking-technology"
+        },
+        "timestamp": 1755762394195
+      },
+      {
+        "id": "action_navigate_a_104",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "div:nth-child(4)"
+        ],
+        "textContent": "What can I do?",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/privacy/#your-data-protection-rights"
+        },
+        "timestamp": 1755762394195
+      },
+      {
+        "id": "action_navigate_a_105",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "p:nth-child(1)"
+        ],
+        "textContent": "compliance@sentry.io",
+        "className": "",
+        "attributes": {
+          "href": "mailto:compliance@sentry.io"
+        },
+        "timestamp": 1755762394195
+      },
+      {
+        "id": "action_navigate_a_106",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "p:nth-child(1)"
+        ],
+        "textContent": "Supplemental notice",
+        "className": "",
+        "attributes": {
+          "href": "https://sentry.io/trust/privacy/california/"
+        },
+        "timestamp": 1755762394195
+      },
+      {
+        "id": "action_navigate_a_107",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".btn-new",
+          "a.btn-new",
+          "div:nth-child(2)"
+        ],
+        "textContent": "Read the full policy",
+        "className": "btn-new primary-light e1of9yu15 css-1csoxiy e1figufi0",
+        "attributes": {
+          "href": "https://sentry.io/privacy/"
+        },
+        "timestamp": 1755762394195
       }
     ],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1755758885974,
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital"
+    "lastUpdate": 1755762394184,
+    "url": "https://sentry.io/answers/how-do-i-get-the-position-x-y-of-an-html-element/#",
+    "title": "How do I get the (x,y) position of an HTML element? | Sentry"
   },
   "recent_insights": [],
-  "total_elements": 69,
+  "total_elements": 108,
   "intelligence_version": "2.0"
 }
