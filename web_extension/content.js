@@ -3405,6 +3405,59 @@ IntelligenceEngine.prototype.getCurrentRecommendations = function() {
 };
 
 /**
+ * 🆕 NEW: Refresh page intelligence with retry mechanism
+ * This is the main method called by event-driven updates
+ */
+IntelligenceEngine.prototype.refreshPageIntelligenceWithRetry = function(trigger = 'manual', maxRetries = 3) {
+    console.log("[Content] 🔄 refreshPageIntelligenceWithRetry called:", { trigger, maxRetries });
+    
+    // Check if engine is ready
+    if (!this.isEngineReady()) {
+        console.log("[Content] ⚠️ Engine not ready, will retry...");
+        if (maxRetries > 0) {
+            setTimeout(() => {
+                this.refreshPageIntelligenceWithRetry(trigger, maxRetries - 1);
+            }, 1000);
+        }
+        return;
+    }
+    
+    // Check if extension context is still valid
+    if (!this.isExtensionContextValid()) {
+        console.log("[Content] ⚠️ Extension context invalid, dropping update");
+        return;
+    }
+    
+    // Queue the intelligence update
+    this.queueIntelligenceUpdate('high', trigger);
+    
+    console.log("[Content] ✅ Intelligence update queued for trigger:", trigger);
+};
+
+/**
+ * 🆕 NEW: Check if extension context is still valid
+ * Prevents sending messages to invalidated extension context
+ */
+IntelligenceEngine.prototype.isExtensionContextValid = function() {
+    try {
+        // Try to access chrome.runtime to check if context is valid
+        if (typeof chrome === 'undefined' || !chrome.runtime) {
+            return false;
+        }
+        
+        // Check if we can send a test message
+        chrome.runtime.sendMessage({ type: 'ping' }, (response) => {
+            // This is just a test, we don't need to handle the response
+        });
+        
+        return true;
+    } catch (error) {
+        console.warn("[Content] ⚠️ Extension context validation failed:", error.message);
+        return false;
+    }
+};
+
+/**
  * 🆕 NEW: Generate unique actionable identifier for an element
  */
 IntelligenceEngine.prototype.generateActionableId = function(element, actionType = 'general') {
@@ -4169,3 +4222,85 @@ function isElementVisible(element) {
 /**
  * 🆕 NEW: Initialize DOM change detection with intelligent filtering
  */
+
+/**
+ * 🆕 NEW: Setup event-driven intelligence updates
+ * Replaces noisy MutationObserver with specific, meaningful events
+ */
+function setupEventDrivenUpdates() {
+    console.log("[Content] 🎯 Setting up event-driven intelligence updates...");
+    
+    // 🆕 NEW: Check if intelligence components exist (using the correct global variable)
+    if (!window.intelligenceComponents || !window.intelligenceComponents.intelligenceEngine) {
+        console.warn("[Content] ⚠️ Intelligence components not ready, retrying in 1 second...");
+        setTimeout(setupEventDrivenUpdates, 1000);
+        return;
+    }
+    
+    const self = window.intelligenceComponents.intelligenceEngine;
+    
+    // 🚫 REMOVE: Noisy MutationObserver - replaced with specific events
+    
+    // ✅ ADD: Specific, meaningful events that trigger intelligence updates
+    
+    // 1. Tab visibility changes (user switches tabs)
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            console.log("[Content] 📱 Tab became visible, queuing intelligence update...");
+            self.queueIntelligenceUpdate('normal', 'tab_change');
+        }
+    });
+    
+    // 2. Page focus (user returns to tab)
+    window.addEventListener('focus', () => {
+        console.log("[Content] 🎯 Page focused, queuing intelligence update...");
+        self.queueIntelligenceUpdate('normal', 'page_focus');
+    });
+    
+    // 3. Browser navigation (back/forward buttons)
+    window.addEventListener('popstate', () => {
+        console.log("[Content] 🔄 Browser navigation detected, queuing intelligence update...");
+        self.queueIntelligenceUpdate('high', 'url_change');
+    });
+    
+    // 4. Programmatic navigation (SPA routing)
+    const originalPushState = history.pushState;
+    const originalReplaceState = history.replaceState;
+    
+    history.pushState = function(...args) {
+        originalPushState.apply(history, args);
+        console.log("[Content] 🔄 pushState detected, queuing intelligence update...");
+        self.queueIntelligenceUpdate('high', 'url_change');
+    };
+    
+    history.replaceState = function(...args) {
+        originalReplaceState.apply(history, args);
+        console.log("[Content] 🔄 replaceState detected, queuing intelligence update...");
+        self.queueIntelligenceUpdate('high', 'url_change');
+    };
+    
+    // 5. User interactions (clicks on interactive elements)
+    document.addEventListener('click', (event) => {
+        if (self.isInteractiveElement(event.target)) {
+            console.log("[Content] 🖱️ Interactive element clicked, queuing intelligence update...");
+            self.queueIntelligenceUpdate('normal', 'user_action');
+        }
+    }, { passive: true });
+    
+    // 6. Form submissions
+    document.addEventListener('submit', () => {
+        console.log("[Content] 📝 Form submitted, queuing intelligence update...");
+        self.queueIntelligenceUpdate('high', 'form_submission');
+    });
+    
+    console.log("[Content] ✅ Event-driven intelligence updates configured");
+}
+
+// 🆕 NEW: Initialize event-driven updates when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(setupEventDrivenUpdates, 1000); // Wait for intelligence components
+    });
+} else {
+    setTimeout(setupEventDrivenUpdates, 1000); // Wait for intelligence components
+}

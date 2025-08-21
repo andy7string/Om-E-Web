@@ -487,6 +487,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             case 'execute_llm_action':
                 handleExecuteLLMAction(message, sendResponse);
                 break;
+            case 'ping':
+                // Simple ping response for context validation
+                sendResponse({ ok: true, pong: true });
+                break;
             default:
                 console.warn("[SW] Unknown internal message type:", message.type);
                 sendResponse({ ok: false, error: "Unknown message type" });

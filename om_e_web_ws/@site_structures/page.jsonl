@@ -1,509 +1,1816 @@
 {
-  "timestamp": 1755699873.521271,
+  "timestamp": 1755735309.239361,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 5,
     "active_tab": {
-      "id": 1137969531,
-      "url": "https://chatgpt.com/",
-      "title": "ChatGPT",
+      "id": 1137969790,
+      "url": "https://brighttreedigital.com.au/",
+      "title": "Local Web Design Adelaide | Bright Tree Digital",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1137969531,
-        "url": "https://chatgpt.com/",
-        "title": "ChatGPT",
+        "id": 1137969790,
+        "url": "https://brighttreedigital.com.au/",
+        "title": "Local Web Design Adelaide | Bright Tree Digital",
         "active": true,
         "status": "complete"
       },
       {
-        "id": 1137969595,
-        "url": "https://www.realestate.com.au/sold/",
-        "title": "Recently Sold Properties and Sold House Prices - realestate.com.au",
+        "id": 1137969833,
+        "url": "chrome://extensions/?id=gkajipkgablojmfifbekigkhfaaidjpo",
+        "title": "Extensions - OM_E_WEB Browser Arm",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137969834,
+        "url": "https://www.youtube.com/watch?v=NZY5WiqeyQQ",
+        "title": "(34) Fallout Season 2 - Official Teaser Trailer | gamescom 2025 - YouTube",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137969849,
+        "url": "https://mail.google.com/mail/u/0/#inbox",
+        "title": "Inbox (4,815) - andreworsmond21175@gmail.com - Gmail",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137969852,
+        "url": "chrome://newtab/",
+        "title": "New tab",
         "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 41850.828842541,
+    "last_tabs_update": 4068.70676425,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/",
-    "title": "ChatGPT",
+    "url": "https://brighttreedigital.com.au/",
+    "title": "Local Web Design Adelaide | Bright Tree Digital",
     "is_active_tab": true
   },
   "actionable_elements": [
     {
-      "actionId": "action_click_button_0",
-      "actionType": "click",
-      "tagName": "button",
+      "actionId": "action_navigate_a_0",
+      "actionType": "navigate",
+      "tagName": "a",
       "textContent": "",
       "selectors": [
-        "[data-fill=\"\"]",
-        "[data-state=\"closed\"]",
-        ".group",
-        "button.group",
-        "div:nth-child(1)"
+        ".custom-logo-link",
+        "a.custom-logo-link",
+        "span:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Open sidebar"
+        "aria-label": "Bright Tree Digital",
+        "href": "https://brighttreedigital.com.au/"
       },
-      "timestamp": 1755699641344
+      "timestamp": 1755734118306
     },
     {
-      "actionId": "action_click_div_1",
-      "actionType": "click",
-      "tagName": "div",
-      "textContent": "",
+      "actionId": "action_navigate_a_1",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "HOME",
       "selectors": [
-        "#radix-«r7»",
-        "[data-fill=\"\"]",
-        "[data-size=\"large\"]",
-        "[data-testid=\"accounts-profile-button\"]",
-        "[data-state=\"closed\"]",
-        ".group",
-        "div.group",
-        "div:nth-child(1)"
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "id": "radix-«r7»",
-        "type": "button",
-        "role": "button",
-        "aria-label": "Open profile menu"
+        "href": "https://brighttreedigital.com.au/"
       },
-      "timestamp": 1755699641344
+      "timestamp": 1755734118306
     },
     {
-      "actionId": "action_click_button_2",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "Open sidebar",
+      "actionId": "action_navigate_a_2",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "ABOUT",
       "selectors": [
-        "[data-testid=\"open-sidebar-button\"]",
-        ".hover:text-token-text-primary",
-        "button.hover:text-token-text-primary",
-        "div:nth-child(1)"
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
       ],
       "attributes": {
-        "type": "button"
+        "href": "https://brighttreedigital.com.au/about/"
       },
-      "timestamp": 1755699641344
+      "timestamp": 1755734118306
     },
     {
       "actionId": "action_click_button_3",
       "actionType": "click",
       "tagName": "button",
-      "textContent": "ChatGPT 5",
+      "textContent": "Menu Toggle",
       "selectors": [
-        "#radix-«r9»",
-        "[data-state=\"closed\"]",
-        "[data-testid=\"model-switcher-dropdown-button\"]",
-        ".group",
-        "button.group",
+        ".ast-menu-toggle",
+        "button.ast-menu-toggle",
+        "li:nth-child(2)"
+      ],
+      "attributes": {
+        "aria-label": "Toggle menu"
+      },
+      "timestamp": 1755734118306
+    },
+    {
+      "actionId": "action_navigate_a_4",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Banner Design",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+      },
+      "timestamp": 1755734118306
+    },
+    {
+      "actionId": "action_navigate_a_5",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Logo Design",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+      },
+      "timestamp": 1755734118306
+    },
+    {
+      "actionId": "action_navigate_a_6",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Web Design",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+      },
+      "timestamp": 1755734118306
+    },
+    {
+      "actionId": "action_navigate_a_7",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "SERVICES",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services/"
+      },
+      "timestamp": 1755734118306
+    },
+    {
+      "actionId": "action_navigate_a_8",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "CONTACT",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/contact/"
+      },
+      "timestamp": 1755734118306
+    },
+    {
+      "actionId": "action_navigate_a_9",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        ".ast-builder-social-element",
+        "a.ast-builder-social-element",
         "div:nth-child(1)"
       ],
       "attributes": {
-        "id": "radix-«r9»",
-        "type": "button",
-        "aria-label": "Model selector, current model is 5"
+        "aria-label": "Facebook",
+        "href": "https://www.facebook.com/brighttreedigital"
       },
-      "timestamp": 1755699641344
+      "timestamp": 1755734118306
     },
     {
-      "actionId": "action_click_button_4",
-      "actionType": "click",
-      "tagName": "button",
+      "actionId": "action_navigate_a_10",
+      "actionType": "navigate",
+      "tagName": "a",
       "textContent": "",
       "selectors": [
-        ".btn",
-        "button.btn",
+        ".ast-builder-social-element",
+        "a.ast-builder-social-element",
+        "div:nth-child(2)"
+      ],
+      "attributes": {
+        "aria-label": "Instagram",
+        "href": "https://www.instagram.com/bright_tree_digital/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_11",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        ".custom-logo-link",
+        "a.custom-logo-link",
         "span:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Turn on temporary chat"
+        "aria-label": "Bright Tree Digital",
+        "href": "https://brighttreedigital.com.au/"
       },
-      "timestamp": 1755699641345
-    },
-    {
-      "actionId": "action_click_button_5",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "ChatGPT 5",
-      "selectors": [
-        "#radix-«rc»",
-        "[data-state=\"closed\"]",
-        "[data-testid=\"model-switcher-dropdown-button\"]",
-        ".group",
-        "button.group",
-        "div:nth-child(1)"
-      ],
-      "attributes": {
-        "id": "radix-«rc»",
-        "type": "button",
-        "aria-label": "Model selector, current model is 5"
-      },
-      "timestamp": 1755699641345
-    },
-    {
-      "actionId": "action_click_button_6",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "",
-      "selectors": [
-        ".text-token-text-primary",
-        "button.text-token-text-primary",
-        "span:nth-child(1)"
-      ],
-      "attributes": {
-        "aria-label": "Turn on temporary chat"
-      },
-      "timestamp": 1755699641345
-    },
-    {
-      "actionId": "action_input_input_7",
-      "actionType": "input",
-      "tagName": "input",
-      "textContent": "",
-      "selectors": [
-        "#temporary-chat-checkbox",
-        ".sr-only",
-        "input.sr-only",
-        "h1:nth-child(1)"
-      ],
-      "attributes": {
-        "id": "temporary-chat-checkbox",
-        "name": "temporary-chat-checkbox",
-        "type": "checkbox"
-      },
-      "timestamp": 1755699641345
-    },
-    {
-      "actionId": "action_input_input_8",
-      "actionType": "input",
-      "tagName": "input",
-      "textContent": "",
-      "selectors": [
-        "#temporary-chat-checkbox",
-        ".sr-only",
-        "input.sr-only",
-        "h1:nth-child(1)"
-      ],
-      "attributes": {
-        "id": "temporary-chat-checkbox",
-        "name": "temporary-chat-checkbox",
-        "type": "checkbox"
-      },
-      "timestamp": 1755699641345
-    },
-    {
-      "actionId": "action_input_input_9",
-      "actionType": "input",
-      "tagName": "input",
-      "textContent": "",
-      "selectors": [
-        "div:nth-child(1)"
-      ],
-      "attributes": {
-        "type": "file"
-      },
-      "timestamp": 1755699641345
-    },
-    {
-      "actionId": "action_general_textarea_10",
-      "actionType": "general",
-      "tagName": "textarea",
-      "textContent": "",
-      "selectors": [
-        "[data-virtualkeyboard=\"true\"]",
-        "._fallbackTextarea_ebv8s_2",
-        "textarea._fallbackTextarea_ebv8s_2",
-        "div:nth-child(1)"
-      ],
-      "attributes": {
-        "name": "prompt-textarea"
-      },
-      "timestamp": 1755699641345
-    },
-    {
-      "actionId": "action_click_button_11",
-      "actionType": "click",
-      "tagName": "button",
-      "textContent": "",
-      "selectors": [
-        ".composer-btn",
-        "button.composer-btn",
-        "span:nth-child(1)"
-      ],
-      "attributes": {
-        "type": "button",
-        "aria-label": "Dictate button"
-      },
-      "timestamp": 1755699641345
+      "timestamp": 1755734118307
     },
     {
       "actionId": "action_click_button_12",
       "actionType": "click",
       "tagName": "button",
+      "textContent": "Main Menu",
+      "selectors": [
+        "[data-index=\"0\"]",
+        ".menu-toggle",
+        "button.menu-toggle",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "type": "button",
+        "aria-label": "Main menu toggle"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_13",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "HOME",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_14",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "ABOUT",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/about/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_click_button_15",
+      "actionType": "click",
+      "tagName": "button",
+      "textContent": "Menu Toggle",
+      "selectors": [
+        ".ast-menu-toggle",
+        "button.ast-menu-toggle",
+        "li:nth-child(2)"
+      ],
+      "attributes": {
+        "aria-label": "Toggle menu"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_16",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Banner Design",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_17",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Logo Design",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_18",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Web Design",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_19",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "SERVICES",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_20",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "CONTACT",
+      "selectors": [
+        ".menu-link",
+        "a.menu-link",
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/contact/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_21",
+      "actionType": "navigate",
+      "tagName": "a",
       "textContent": "",
       "selectors": [
-        "[data-testid=\"composer-speech-button\"]",
-        ".relative",
-        "button.relative",
+        ".ast-builder-social-element",
+        "a.ast-builder-social-element",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "aria-label": "Facebook",
+        "href": "https://www.facebook.com/brighttreedigital"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_22",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "",
+      "selectors": [
+        ".ast-builder-social-element",
+        "a.ast-builder-social-element",
+        "div:nth-child(2)"
+      ],
+      "attributes": {
+        "aria-label": "Instagram",
+        "href": "https://www.instagram.com/bright_tree_digital/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_23",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Get Started",
+      "selectors": [
+        ".bdt-slide-link",
+        "a.bdt-slide-link",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services#Website-Design"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_24",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Get Started",
+      "selectors": [
+        ".bdt-slide-link",
+        "a.bdt-slide-link",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_25",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Get Started",
+      "selectors": [
+        ".bdt-slide-link",
+        "a.bdt-slide-link",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services#logo-design"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_26",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Website Design",
+      "selectors": [
+        "h3:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/?page_id=4627"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_27",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "View Portfolio",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_28",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "More Info",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services#websiteDesign"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_29",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Logo Design",
+      "selectors": [
+        "h3:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/?page_id=4734"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_30",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "View Portfolio",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_31",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "More Info",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services#logo-design"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_32",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Banner Ad Design",
+      "selectors": [
+        "h3:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/?page_id=4784"
+      },
+      "timestamp": 1755734118307
+    },
+    {
+      "actionId": "action_navigate_a_33",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "View Portfolio",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_34",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "More Info",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_35",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Get in touch today!",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/contact/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_36",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Joss Couture",
+      "selectors": [
+        "[data-elementor-open-lightbox=\"no\"]",
+        ".uael-grid-img",
+        "a.uael-grid-img",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://www.josscouture.co.za/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_37",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Flutterbys School",
+      "selectors": [
+        "[data-elementor-open-lightbox=\"no\"]",
+        ".uael-grid-img",
+        "a.uael-grid-img",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://flutterbys.co.za/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_38",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "The Gourmet Cookie C",
+      "selectors": [
+        "[data-elementor-open-lightbox=\"no\"]",
+        ".uael-grid-img",
+        "a.uael-grid-img",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://www.thegourmetcookieco.co.za/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_39",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Straker Functional F",
+      "selectors": [
+        "[data-elementor-open-lightbox=\"no\"]",
+        ".uael-grid-img",
+        "a.uael-grid-img",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://strakerfunctionalfitness.co.za/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_40",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "The Syrene Hotel",
+      "selectors": [
+        "[data-elementor-open-lightbox=\"no\"]",
+        ".uael-grid-img",
+        "a.uael-grid-img",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://www.thesyrene.co.za/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_41",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "African Safari Deals",
+      "selectors": [
+        "[data-elementor-open-lightbox=\"no\"]",
+        ".uael-grid-img",
+        "a.uael-grid-img",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://www.africansafarideals.co.za/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_42",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Mtambo Chartered Acc",
+      "selectors": [
+        "[data-elementor-open-lightbox=\"no\"]",
+        ".uael-grid-img",
+        "a.uael-grid-img",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://www.filemca.com/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_43",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Read More Testimonia",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/about#testimonials"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_44",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Reach Out Now!",
+      "selectors": [
+        ".elementor-button",
+        "a.elementor-button",
+        "div:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "/contact/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_45",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Banner Portfolio",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_46",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Logo Portfolio",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_47",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Web Design Portfolio",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_48",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Facebook",
+      "selectors": [
+        ".elementor-icon",
+        "a.elementor-icon",
         "span:nth-child(1)"
       ],
       "attributes": {
-        "aria-label": "Start voice mode"
+        "href": "https://www.facebook.com/brighttreedigital"
       },
-      "timestamp": 1755699641345
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_49",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Instagram",
+      "selectors": [
+        ".elementor-icon",
+        "a.elementor-icon",
+        "span:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://www.instagram.com/bright_tree_digital/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_50",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Home",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_51",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "About",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/about/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_52",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Services",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/services/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_53",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Testimonials",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/about/#testimonials"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_54",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Contact",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/contact/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_55",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Privacy Policy",
+      "selectors": [
+        "li:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "https://brighttreedigital.com.au/privacy-policy/"
+      },
+      "timestamp": 1755734118308
+    },
+    {
+      "actionId": "action_navigate_a_56",
+      "actionType": "navigate",
+      "tagName": "a",
+      "textContent": "Website Designed by ",
+      "selectors": [
+        "h6:nth-child(1)"
+      ],
+      "attributes": {
+        "href": "http://www.brighttreedigital.com"
+      },
+      "timestamp": 1755734118308
     }
   ],
   "page_state": {
     "currentView": "unknown",
     "interactiveElements": [
       {
-        "id": "action_click_button_0",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_navigate_a_0",
+        "tagName": "a",
+        "actionType": "navigate",
         "selectors": [
-          "[data-fill=\"\"]",
-          "[data-state=\"closed\"]",
-          ".group",
-          "button.group",
-          "div:nth-child(1)"
+          ".custom-logo-link",
+          "a.custom-logo-link",
+          "span:nth-child(1)"
         ],
         "textContent": "",
-        "className": "group __menu-item hoverable gap-1.5 cursor-e-resize rtl:cursor-w-resize",
+        "className": "custom-logo-link transparent-custom-logo",
         "attributes": {
-          "aria-label": "Open sidebar"
+          "aria-label": "Bright Tree Digital",
+          "href": "https://brighttreedigital.com.au/"
         },
-        "timestamp": 1755699641344
+        "timestamp": 1755734118306
       },
       {
-        "id": "action_click_div_1",
-        "tagName": "div",
-        "actionType": "click",
+        "id": "action_navigate_a_1",
+        "tagName": "a",
+        "actionType": "navigate",
         "selectors": [
-          "#radix-«r7»",
-          "[data-fill=\"\"]",
-          "[data-size=\"large\"]",
-          "[data-testid=\"accounts-profile-button\"]",
-          "[data-state=\"closed\"]",
-          ".group",
-          "div.group",
-          "div:nth-child(1)"
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "group __menu-item hoverable gap-2 p-2",
+        "textContent": "HOME",
+        "className": "menu-link",
         "attributes": {
-          "id": "radix-«r7»",
-          "type": "button",
-          "role": "button",
-          "aria-label": "Open profile menu"
+          "href": "https://brighttreedigital.com.au/"
         },
-        "timestamp": 1755699641344
+        "timestamp": 1755734118306
       },
       {
-        "id": "action_click_button_2",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_navigate_a_2",
+        "tagName": "a",
+        "actionType": "navigate",
         "selectors": [
-          "[data-testid=\"open-sidebar-button\"]",
-          ".hover:text-token-text-primary",
-          "button.hover:text-token-text-primary",
-          "div:nth-child(1)"
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
         ],
-        "textContent": "Open sidebar",
-        "className": "hover:text-token-text-primary touch:h-10 touch:w-10 inline-flex h-9 w-9 items-center justify-center rounded-md focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset active:opacity-50",
+        "textContent": "ABOUT",
+        "className": "menu-link",
         "attributes": {
-          "type": "button"
+          "href": "https://brighttreedigital.com.au/about/"
         },
-        "timestamp": 1755699641344
+        "timestamp": 1755734118306
       },
       {
         "id": "action_click_button_3",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
-          "#radix-«r9»",
-          "[data-state=\"closed\"]",
-          "[data-testid=\"model-switcher-dropdown-button\"]",
-          ".group",
-          "button.group",
-          "div:nth-child(1)"
+          ".ast-menu-toggle",
+          "button.ast-menu-toggle",
+          "li:nth-child(2)"
         ],
-        "textContent": "ChatGPT 5",
-        "className": "group flex cursor-pointer justify-center items-center gap-1 rounded-lg min-h-9 touch:min-h-10 px-2.5 text-lg hover:bg-token-surface-hover focus-visible:bg-token-surface-hover font-normal whitespace-nowrap focus-visible:outline-none",
+        "textContent": "Menu Toggle",
+        "className": "ast-menu-toggle",
         "attributes": {
-          "id": "radix-«r9»",
-          "type": "button",
-          "aria-label": "Model selector, current model is 5"
+          "aria-label": "Toggle menu"
         },
-        "timestamp": 1755699641344
+        "timestamp": 1755734118306
       },
       {
-        "id": "action_click_button_4",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_navigate_a_4",
+        "tagName": "a",
+        "actionType": "navigate",
         "selectors": [
-          ".btn",
-          "button.btn",
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Banner Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        },
+        "timestamp": 1755734118306
+      },
+      {
+        "id": "action_navigate_a_5",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Logo Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        },
+        "timestamp": 1755734118306
+      },
+      {
+        "id": "action_navigate_a_6",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Web Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        },
+        "timestamp": 1755734118306
+      },
+      {
+        "id": "action_navigate_a_7",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "SERVICES",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services/"
+        },
+        "timestamp": 1755734118306
+      },
+      {
+        "id": "action_navigate_a_8",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "CONTACT",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/contact/"
+        },
+        "timestamp": 1755734118306
+      },
+      {
+        "id": "action_navigate_a_9",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ast-builder-social-element",
+          "a.ast-builder-social-element",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "ast-builder-social-element ast-inline-flex ast-facebook header-social-item",
+        "attributes": {
+          "aria-label": "Facebook",
+          "href": "https://www.facebook.com/brighttreedigital"
+        },
+        "timestamp": 1755734118306
+      },
+      {
+        "id": "action_navigate_a_10",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ast-builder-social-element",
+          "a.ast-builder-social-element",
+          "div:nth-child(2)"
+        ],
+        "textContent": "",
+        "className": "ast-builder-social-element ast-inline-flex ast-instagram header-social-item",
+        "attributes": {
+          "aria-label": "Instagram",
+          "href": "https://www.instagram.com/bright_tree_digital/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_11",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".custom-logo-link",
+          "a.custom-logo-link",
           "span:nth-child(1)"
         ],
         "textContent": "",
-        "className": "btn relative btn-ghost text-token-text-secondary rounded-lg",
+        "className": "custom-logo-link transparent-custom-logo",
         "attributes": {
-          "aria-label": "Turn on temporary chat"
+          "aria-label": "Bright Tree Digital",
+          "href": "https://brighttreedigital.com.au/"
         },
-        "timestamp": 1755699641345
-      },
-      {
-        "id": "action_click_button_5",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "#radix-«rc»",
-          "[data-state=\"closed\"]",
-          "[data-testid=\"model-switcher-dropdown-button\"]",
-          ".group",
-          "button.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "ChatGPT 5",
-        "className": "group flex cursor-pointer justify-center items-center gap-1 rounded-lg min-h-9 touch:min-h-10 px-2.5 text-lg hover:bg-token-surface-hover focus-visible:bg-token-surface-hover font-normal whitespace-nowrap focus-visible:outline-none",
-        "attributes": {
-          "id": "radix-«rc»",
-          "type": "button",
-          "aria-label": "Model selector, current model is 5"
-        },
-        "timestamp": 1755699641345
-      },
-      {
-        "id": "action_click_button_6",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          ".text-token-text-primary",
-          "button.text-token-text-primary",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "text-token-text-primary no-draggable hover:bg-token-surface-hover focus-visible:bg-token-surface-hover touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center rounded-lg focus-visible:outline-0 disabled:opacity-50 rounded-full!",
-        "attributes": {
-          "aria-label": "Turn on temporary chat"
-        },
-        "timestamp": 1755699641345
-      },
-      {
-        "id": "action_input_input_7",
-        "tagName": "input",
-        "actionType": "input",
-        "selectors": [
-          "#temporary-chat-checkbox",
-          ".sr-only",
-          "input.sr-only",
-          "h1:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "sr-only",
-        "attributes": {
-          "id": "temporary-chat-checkbox",
-          "name": "temporary-chat-checkbox",
-          "type": "checkbox"
-        },
-        "timestamp": 1755699641345
-      },
-      {
-        "id": "action_input_input_8",
-        "tagName": "input",
-        "actionType": "input",
-        "selectors": [
-          "#temporary-chat-checkbox",
-          ".sr-only",
-          "input.sr-only",
-          "h1:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "sr-only",
-        "attributes": {
-          "id": "temporary-chat-checkbox",
-          "name": "temporary-chat-checkbox",
-          "type": "checkbox"
-        },
-        "timestamp": 1755699641345
-      },
-      {
-        "id": "action_input_input_9",
-        "tagName": "input",
-        "actionType": "input",
-        "selectors": [
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "",
-        "attributes": {
-          "type": "file"
-        },
-        "timestamp": 1755699641345
-      },
-      {
-        "id": "action_general_textarea_10",
-        "tagName": "textarea",
-        "actionType": "general",
-        "selectors": [
-          "[data-virtualkeyboard=\"true\"]",
-          "._fallbackTextarea_ebv8s_2",
-          "textarea._fallbackTextarea_ebv8s_2",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "_fallbackTextarea_ebv8s_2",
-        "attributes": {
-          "name": "prompt-textarea"
-        },
-        "timestamp": 1755699641345
-      },
-      {
-        "id": "action_click_button_11",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          ".composer-btn",
-          "button.composer-btn",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "composer-btn",
-        "attributes": {
-          "type": "button",
-          "aria-label": "Dictate button"
-        },
-        "timestamp": 1755699641345
+        "timestamp": 1755734118307
       },
       {
         "id": "action_click_button_12",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
-          "[data-testid=\"composer-speech-button\"]",
-          ".relative",
-          "button.relative",
-          "span:nth-child(1)"
+          "[data-index=\"0\"]",
+          ".menu-toggle",
+          "button.menu-toggle",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Main Menu",
+        "className": "menu-toggle main-header-menu-toggle ast-mobile-menu-trigger-fill",
+        "attributes": {
+          "type": "button",
+          "aria-label": "Main menu toggle"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_13",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "HOME",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_14",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "ABOUT",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/about/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_click_button_15",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          ".ast-menu-toggle",
+          "button.ast-menu-toggle",
+          "li:nth-child(2)"
+        ],
+        "textContent": "Menu Toggle",
+        "className": "ast-menu-toggle",
+        "attributes": {
+          "aria-label": "Toggle menu"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_16",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Banner Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_17",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Logo Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_18",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Web Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_19",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "SERVICES",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_20",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "CONTACT",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/contact/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_21",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ast-builder-social-element",
+          "a.ast-builder-social-element",
+          "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "relative flex h-9 items-center justify-center rounded-full disabled:text-gray-50 disabled:opacity-30 w-9 composer-secondary-button-color hover:opacity-80",
+        "className": "ast-builder-social-element ast-inline-flex ast-facebook header-social-item",
         "attributes": {
-          "aria-label": "Start voice mode"
+          "aria-label": "Facebook",
+          "href": "https://www.facebook.com/brighttreedigital"
         },
-        "timestamp": 1755699641345
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_22",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ast-builder-social-element",
+          "a.ast-builder-social-element",
+          "div:nth-child(2)"
+        ],
+        "textContent": "",
+        "className": "ast-builder-social-element ast-inline-flex ast-instagram header-social-item",
+        "attributes": {
+          "aria-label": "Instagram",
+          "href": "https://www.instagram.com/bright_tree_digital/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_23",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".bdt-slide-link",
+          "a.bdt-slide-link",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get Started",
+        "className": "bdt-slide-link elementor-animation-grow",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#Website-Design"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_24",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".bdt-slide-link",
+          "a.bdt-slide-link",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get Started",
+        "className": "bdt-slide-link elementor-animation-grow",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_25",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".bdt-slide-link",
+          "a.bdt-slide-link",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get Started",
+        "className": "bdt-slide-link elementor-animation-grow",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#logo-design"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_26",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "h3:nth-child(1)"
+        ],
+        "textContent": "Website Design",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/?page_id=4627"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_27",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "View Portfolio",
+        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_28",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "More Info",
+        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#websiteDesign"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_29",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "h3:nth-child(1)"
+        ],
+        "textContent": "Logo Design",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/?page_id=4734"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_30",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "View Portfolio",
+        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_31",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "More Info",
+        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#logo-design"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_32",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "h3:nth-child(1)"
+        ],
+        "textContent": "Banner Ad Design",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/?page_id=4784"
+        },
+        "timestamp": 1755734118307
+      },
+      {
+        "id": "action_navigate_a_33",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "View Portfolio",
+        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_34",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "More Info",
+        "className": "elementor-button elementor-button-link elementor-size-xs",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_35",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get in touch today!",
+        "className": "elementor-button elementor-button-link elementor-size-sm",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/contact/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_36",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Joss Couture",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://www.josscouture.co.za/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_37",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Flutterbys School",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://flutterbys.co.za/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_38",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "The Gourmet Cookie C",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://www.thegourmetcookieco.co.za/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_39",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Straker Functional F",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://strakerfunctionalfitness.co.za/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_40",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "The Syrene Hotel",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://www.thesyrene.co.za/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_41",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "African Safari Deals",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://www.africansafarideals.co.za/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_42",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Mtambo Chartered Acc",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://www.filemca.com/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_43",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Read More Testimonia",
+        "className": "elementor-button elementor-button-link elementor-size-sm",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/about#testimonials"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_44",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-button",
+          "a.elementor-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Reach Out Now!",
+        "className": "elementor-button elementor-button-link elementor-size-sm",
+        "attributes": {
+          "href": "/contact/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_45",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "Banner Portfolio",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_46",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "Logo Portfolio",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_47",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "Web Design Portfolio",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_48",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-icon",
+          "a.elementor-icon",
+          "span:nth-child(1)"
+        ],
+        "textContent": "Facebook",
+        "className": "elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-a41d840",
+        "attributes": {
+          "href": "https://www.facebook.com/brighttreedigital"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_49",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".elementor-icon",
+          "a.elementor-icon",
+          "span:nth-child(1)"
+        ],
+        "textContent": "Instagram",
+        "className": "elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-342f8cd",
+        "attributes": {
+          "href": "https://www.instagram.com/bright_tree_digital/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_50",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "Home",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_51",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "About",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/about/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_52",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "Services",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_53",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "Testimonials",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/about/#testimonials"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_54",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "Contact",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/contact/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_55",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "li:nth-child(1)"
+        ],
+        "textContent": "Privacy Policy",
+        "className": "",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/privacy-policy/"
+        },
+        "timestamp": 1755734118308
+      },
+      {
+        "id": "action_navigate_a_56",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          "h6:nth-child(1)"
+        ],
+        "textContent": "Website Designed by ",
+        "className": "",
+        "attributes": {
+          "href": "http://www.brighttreedigital.com"
+        },
+        "timestamp": 1755734118308
       }
     ],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1755699641343,
-    "url": "https://chatgpt.com/",
-    "title": "ChatGPT"
+    "lastUpdate": 1755734118305,
+    "url": "https://brighttreedigital.com.au/",
+    "title": "Local Web Design Adelaide | Bright Tree Digital"
   },
   "recent_insights": [],
-  "total_elements": 13,
+  "total_elements": 57,
   "intelligence_version": "2.0"
 }
