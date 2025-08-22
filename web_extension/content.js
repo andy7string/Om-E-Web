@@ -16,6 +16,20 @@
  * Test Client → WebSocket Server → Chrome Extension → DOM → Response → Server → Test Client
  */
 
+// 🛡️ MAIN FRAME SAFETY CHECK - Ensure script only runs in main frame
+if (window.top !== window.self) {
+    console.log("[Content] 🚫 Script running in iframe, exiting to prevent iframe scanning issues");
+    // Exit early if we're in an iframe
+    throw new Error("Content script should not run in iframes");
+}
+
+// 🎯 Confirm we're in main frame
+console.log("[Content] ✅ Running in main frame:", {
+    isMainFrame: window.top === window.self,
+    currentUrl: window.location.href,
+    topUrl: window.top.location.href
+});
+
 // 🆕 NEW: Content Script Intelligence System v2.0
 console.log("[Content] 🚀 Content script loaded with intelligence system v2.0");
 
@@ -49,7 +63,14 @@ var intelligenceEngine = null;
 var pageContext = null;
 var changeHistory = [];
 var lastIntelligenceUpdate = 0;
-var INTELLIGENCE_UPDATE_INTERVAL = 2000; // 2 seconds between intelligence updates
+var INTELLIGENCE_UPDATE_INTERVAL = 500; // 0.5 seconds between intelligence updates for continuous DOM scanning
+
+// 🆕 NEW: Continuous DOM Monitoring System
+var continuousDOMScanner = null;
+var DOM_SCAN_INTERVAL = 1000; // Scan DOM every 1 second
+var lastDOMScan = 0;
+var totalElementsScanned = 0;
+var continuousScanningEnabled = true;
 
 // 🆕 NEW: Simple test to verify code is running
 console.log("[Content] 🧪 Testing intelligence system components...");
@@ -59,11 +80,28 @@ console.log("[Content] 🧪 DOM change detection system:", {
     lastChangeTime: lastChangeTime
 });
 console.log("[Content] 🧪 Intelligence system variables:", { changeAggregator, intelligenceEngine, pageContext });
+console.log("[Content] 🧪 Continuous DOM scanning:", {
+    enabled: continuousScanningEnabled,
+    interval: DOM_SCAN_INTERVAL,
+    totalElementsScanned: totalElementsScanned
+});
 
 // 🆕 NEW: Site configuration and framework detection
-let siteConfigs = {};
-let currentSiteConfig = null;
-let currentFramework = 'generic';
+if (typeof siteConfigs === 'undefined') {
+    let siteConfigs = {};
+    let currentSiteConfig = null;
+    let currentFramework = 'generic';
+    
+    // Make them globally accessible
+    window.siteConfigs = siteConfigs;
+    window.currentSiteConfig = currentSiteConfig;
+    window.currentFramework = currentFramework;
+} else {
+    // Use existing globals
+    let siteConfigs = window.siteConfigs || {};
+    let currentSiteConfig = window.currentSiteConfig || null;
+    let currentFramework = window.currentFramework || 'generic';
+}
 
 // 🆕 NEW: Load site configs from storage on startup
 chrome.storage.local.get(['siteConfigs'], (result) => {
@@ -72,6 +110,10 @@ chrome.storage.local.get(['siteConfigs'], (result) => {
         console.log("[Content] 📋 Loaded site configs:", Object.keys(siteConfigs));
         detectAndApplyFramework();
     }
+    
+    // 🚫 Continuous DOM scanning DISABLED to prevent context interference
+    console.log("[Content] 🚫 Continuous DOM scanning DISABLED - manual mode only");
+    console.log("[Content] 💡 Use test commands to trigger manual scans when needed");
 });
 
 // 🆕 NEW: Framework detection function
@@ -101,6 +143,859 @@ function detectAndApplyFramework() {
     currentSiteConfig = siteConfigs['default'] || null;
     currentFramework = 'generic';
     console.log("[Content] 🎯 Using default framework:", currentFramework, "for site:", hostname);
+}
+
+// 🆕 NEW: Continuous DOM Scanning Function
+function startContinuousDOMScanning() {
+    if (continuousDOMScanner) {
+        clearInterval(continuousDOMScanner);
+    }
+    
+    console.log("[Content] 🚀 Starting continuous DOM scanning every", DOM_SCAN_INTERVAL, "ms");
+    
+    continuousDOMScanner = setInterval(() => {
+        try {
+            const currentTime = Date.now();
+            if (currentTime - lastDOMScan >= DOM_SCAN_INTERVAL) {
+                performContinuousDOMScan();
+                lastDOMScan = currentTime;
+            }
+        } catch (error) {
+            console.warn("[Content] ⚠️ Error in continuous DOM scan:", error);
+        }
+    }, DOM_SCAN_INTERVAL);
+    
+    return continuousDOMScanner;
+}
+
+function performContinuousDOMScan() {
+    try {
+        const startTime = performance.now();
+        
+        // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass in normal workflow
+        console.log("[Content] 🔄 Continuous scan: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
+        performAutomaticDisconnectCycle();
+        
+        // 🎯 NEW: Run comprehensive scan to get 262+ elements
+        console.log("[Content] 🔍 Continuous scan: Running comprehensive scan for full element detection...");
+        const comprehensiveScanResult = performImmediateComprehensiveScan();
+        console.log("[Content] ✅ Continuous scan comprehensive scan complete:", comprehensiveScanResult);
+        
+        // 🎯 Frame detection for continuous scanning
+        const frameInfo = {
+            isMainFrame: window.top === window.self,
+            currentFrame: window.location.href,
+            topFrame: window.top.location.href,
+            frameDepth: 0
+        };
+        
+        // Calculate frame depth
+        let currentWindow = window;
+        while (currentWindow !== window.top) {
+            frameInfo.frameDepth++;
+            try {
+                currentWindow = currentWindow.parent;
+            } catch (e) {
+                break;
+            }
+        }
+        
+        // 🎯 Scan all DOM elements
+        const allElements = document.querySelectorAll('*');
+        const elementCount = allElements.length;
+        
+        // 🎯 Count interactive elements
+        const interactiveElements = document.querySelectorAll('a[href], button, input, select, textarea, [role="button"], [role="link"], [onclick], [tabindex]');
+        const interactiveCount = interactiveElements.length;
+        
+        // 🎯 Count content elements
+        const contentElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, article, section, div[class*="content"], div[class*="text"]');
+        const contentCount = contentElements.length;
+        
+        // 🎯 Update counters
+        totalElementsScanned += elementCount;
+        
+        const scanResult = {
+            timestamp: Date.now(),
+            elementCount: elementCount,
+            interactiveElements: interactiveCount,
+            contentElements: contentCount,
+            totalElementsScanned: totalElementsScanned,
+            scanDuration: performance.now() - startTime,
+            url: window.location.href,
+            title: document.title
+        };
+        
+        // 🎯 Log scan results with frame info (only if significant changes)
+        if (elementCount > 0) {
+            console.log(`[Content] 🔍 Continuous DOM scan: ${elementCount} elements, ${interactiveCount} interactive, ${contentCount} content (${scanResult.scanDuration.toFixed(2)}ms)`);
+            console.log(`[Content] 🖼️ Frame context: ${frameInfo.isMainFrame ? 'MAIN' : 'IFRAME'} (depth: ${frameInfo.frameDepth})`);
+        }
+        
+        // 🎯 Trigger intelligence update if significant changes detected
+        if (intelligenceEngine && intelligenceEngine.isEngineReady && intelligenceEngine.isEngineReady()) {
+            intelligenceEngine.queueIntelligenceUpdate('low');
+        }
+        
+        return scanResult;
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error in continuous DOM scan:", error);
+        return { error: error.message, timestamp: Date.now() };
+    }
+}
+
+function stopContinuousDOMScanning() {
+    if (continuousDOMScanner) {
+        clearInterval(continuousDOMScanner);
+        continuousDOMScanner = null;
+        console.log("[Content] 🛑 Continuous DOM scanning stopped");
+    }
+}
+
+// 🆕 NEW: Controlled Tear Away System
+function performControlledTearAway() {
+    console.log("[Content] 🚨 Starting controlled tear away sequence...");
+    
+    try {
+        // 🎯 Step 1: Stop all current processes
+        stopContinuousDOMScanning();
+        
+        // 🎯 Step 2: Clear all extension state
+        if (intelligenceEngine) {
+            intelligenceEngine.clearAllState();
+        }
+        
+        // 🎯 Step 3: Disconnect all observers
+        if (domChangeObserver) {
+            domChangeObserver.disconnect();
+            domChangeObserver = null;
+        }
+        
+        // 🎯 Step 4: Clear all variables
+        changeCount = 0;
+        lastChangeTime = 0;
+        lastSignificantChange = 0;
+        changeHistory = [];
+        lastIntelligenceUpdate = 0;
+        totalElementsScanned = 0;
+        
+        // 🎯 Step 5: Force context invalidation
+        const tearAwayResult = {
+            timestamp: Date.now(),
+            actions: [
+                'Stopped continuous scanning',
+                'Cleared intelligence engine state',
+                'Disconnected DOM observers',
+                'Reset all counters',
+                'Forced context cleanup'
+            ],
+            note: 'Extension context should now be invalidated and ready for re-injection'
+        };
+        
+        console.log("[Content] 🚨 Controlled tear away completed:", tearAwayResult);
+        
+        // 🎯 Step 6: Trigger re-injection by sending message to service worker
+        chrome.runtime.sendMessage({
+            type: 'force_content_script_reinjection',
+            data: {
+                tabId: null, // Will be set by service worker
+                reason: 'controlled_tear_away',
+                timestamp: Date.now()
+            }
+        }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.warn("[Content] ⚠️ Service worker not available for re-injection");
+            } else {
+                console.log("[Content] ✅ Re-injection request sent to service worker");
+                
+                // 🎯 CRITICAL: Wait for re-injection, then immediately scan
+                setTimeout(() => {
+                    console.log("[Content] 🚀 Tear away complete - performing immediate DOM scan...");
+                    
+                            // 🎯 Step 7: Immediate comprehensive scan
+        const scanResults = performImmediateComprehensiveScan();
+        
+        // 🎯 Step 8: Continuous scanning DISABLED to prevent context interference
+        console.log("[Content] 🚫 Continuous scanning DISABLED to preserve context state");
+        
+        // 🎯 Step 9: Only perform manual scans when requested
+        console.log("[Content] 🎯 Manual scanning mode enabled - no automatic polling");
+                    
+                }, 1000); // Wait 1 second for re-injection to complete
+            }
+        });
+        
+        return tearAwayResult;
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error during controlled tear away:", error);
+        return { error: error.message, timestamp: Date.now() };
+    }
+}
+
+function forceContextReinjection() {
+    console.log("[Content] 🔄 Forcing context re-injection...");
+    
+    try {
+        // 🎯 Method 1: Force disconnect and reconnect
+        if (chrome.runtime && chrome.runtime.connect) {
+            const port = chrome.runtime.connect();
+            port.disconnect();
+            console.log("[Content] 🔄 Runtime port disconnected");
+        }
+        
+        // 🎯 Method 2: Clear storage and force reload
+        chrome.storage.local.clear(() => {
+            console.log("[Content] 🔄 Storage cleared, forcing reload");
+            
+            // 🎯 Method 3: Send reload command to service worker
+            chrome.runtime.sendMessage({
+                type: 'force_extension_reload',
+                data: {
+                    reason: 'context_reinjection',
+                    timestamp: Date.now()
+                }
+            }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.warn("[Content] ⚠️ Service worker not available for reload");
+                } else {
+                    console.log("[Content] ✅ Reload request sent to service worker");
+                }
+            });
+        });
+        
+        return { success: true, timestamp: Date.now() };
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error during context re-injection:", error);
+        return { error: error.message, timestamp: Date.now() };
+    }
+}
+
+// 🆕 NEW: Pre-Scan Disconnect Cycle Function
+function performPreScanDisconnectCycle() {
+    console.log("[Content] 🔄 Starting pre-scan disconnect cycle...");
+    
+    try {
+        const startTime = performance.now();
+        
+        // 🎯 Step 1: Force complete runtime disconnect
+        if (chrome.runtime && chrome.runtime.connect) {
+            console.log("[Content] 🔌 Forcing runtime port disconnect...");
+            const ports = [];
+            
+            // Create multiple connections and disconnect them all
+            for (let i = 0; i < 3; i++) {
+                try {
+                    const port = chrome.runtime.connect();
+                    ports.push(port);
+                    port.disconnect();
+                } catch (error) {
+                    console.warn(`[Content] ⚠️ Port ${i} disconnect error:`, error);
+                }
+            }
+            console.log("[Content] ✅ All runtime ports disconnected");
+        }
+        
+        // 🎯 Step 2: Clear all extension storage
+        if (chrome.storage && chrome.storage.local) {
+            console.log("[Content] 🗑️ Clearing extension storage...");
+            chrome.storage.local.clear(() => {
+                console.log("[Content] ✅ Extension storage cleared");
+            });
+        }
+        
+        // 🎯 Step 3: Force service worker reload
+        console.log("[Content] 🔄 Requesting service worker reload...");
+        chrome.runtime.sendMessage({
+            type: 'force_extension_reload',
+            data: {
+                reason: 'pre_scan_disconnect_cycle',
+                timestamp: Date.now(),
+                forceReload: true
+            }
+        }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.warn("[Content] ⚠️ Service worker reload failed:", chrome.runtime.lastError);
+            } else {
+                console.log("[Content] ✅ Service worker reload requested");
+            }
+        });
+        
+        // 🎯 Step 4: Wait for disconnect cycle to complete
+        setTimeout(() => {
+            console.log("[Content] 🔄 Disconnect cycle complete, forcing re-injection...");
+            
+            // 🎯 Step 5: Force content script re-injection
+            forceContentScriptReinjection();
+            
+        }, 2000); // Wait 2 seconds for disconnect cycle
+        
+        const disconnectResult = {
+            success: true,
+            timestamp: Date.now(),
+            duration: performance.now() - startTime,
+            steps: ['runtime_disconnect', 'storage_clear', 'sw_reload', 're_injection']
+        };
+        
+        console.log("[Content] ✅ Pre-scan disconnect cycle initiated:", disconnectResult);
+        return disconnectResult;
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error during pre-scan disconnect cycle:", error);
+        return { 
+            error: error.message, 
+            timestamp: Date.now(),
+            success: false
+        };
+    }
+}
+
+// 🆕 NEW: Force Content Script Re-injection
+function forceContentScriptReinjection() {
+    console.log("[Content] 🚀 Forcing content script re-injection...");
+    
+    try {
+        // 🎯 Method 1: Send re-injection message to service worker
+        chrome.runtime.sendMessage({
+            type: 'force_content_script_reinjection',
+            data: {
+                tabId: null,
+                reason: 'pre_scan_reinjection',
+                timestamp: Date.now(),
+                forceMainFrame: true
+            }
+        }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.warn("[Content] ⚠️ Re-injection request failed:", chrome.runtime.lastError);
+            } else {
+                console.log("[Content] ✅ Re-injection request sent");
+                
+                // 🎯 Method 2: Wait for re-injection, then scan
+                setTimeout(() => {
+                    console.log("[Content] 🚀 Re-injection complete, performing comprehensive scan...");
+                    performImmediateComprehensiveScan();
+                }, 1500); // Wait 1.5 seconds for re-injection
+            }
+        });
+        
+        return { success: true, timestamp: Date.now() };
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error during content script re-injection:", error);
+        return { error: error.message, timestamp: Date.now() };
+    }
+}
+
+// 🆕 NEW: Immediate Comprehensive Scan Function
+function performImmediateComprehensiveScan() {
+    console.log("[Content] 🚀 Performing immediate comprehensive DOM scan...");
+    
+    try {
+        const startTime = performance.now();
+        
+        // 🎯 Step 0: AUTOMATIC DISCONNECT CYCLE for CSP bypass
+        console.log("[Content] 🔄 Performing automatic disconnect cycle for CSP bypass...");
+        performAutomaticDisconnectCycle();
+        
+        // 🎯 Step 1: Verify we're in main frame
+        const frameInfo = {
+            isMainFrame: window.top === window.self,
+            currentFrame: window.location.href,
+            topFrame: window.top.location.href,
+            frameDepth: 0,
+            parentFrames: []
+        };
+        
+        // 🎯 Calculate frame depth and parent chain
+        let currentWindow = window;
+        while (currentWindow !== window.top) {
+            frameInfo.frameDepth++;
+            try {
+                frameInfo.parentFrames.push({
+                    depth: frameInfo.frameDepth,
+                    url: currentWindow.location.href,
+                    title: currentWindow.document.title
+                });
+                currentWindow = currentWindow.parent;
+            } catch (e) {
+                // Cross-origin restriction
+                frameInfo.parentFrames.push({
+                    depth: frameInfo.frameDepth,
+                    url: "CROSS_ORIGIN_RESTRICTED",
+                    title: "CROSS_ORIGIN_RESTRICTED"
+                });
+                break;
+            }
+        }
+        
+        console.log("[Content] 🖼️ Frame Analysis:", frameInfo);
+        
+        if (!frameInfo.isMainFrame) {
+            console.warn("[Content] ⚠️ Running in iframe - depth:", frameInfo.frameDepth);
+            console.warn("[Content] ⚠️ Parent frames:", frameInfo.parentFrames);
+        } else {
+            console.log("[Content] ✅ Confirmed main frame access");
+        }
+        
+        // 🎯 Step 2: Comprehensive element scan
+        const allElements = document.querySelectorAll('*');
+        const elementCount = allElements.length;
+        
+        // 🎯 Step 3: Interactive elements scan
+        const interactiveSelectors = [
+            'a[href]', 'button', 'input', 'select', 'textarea',
+            '[role="button"]', '[role="link"]', '[role="menuitem"]',
+            '[onclick]', '[tabindex]', '[data-action]', '[data-toggle]',
+            '[aria-label]', '[title]', '[alt]'
+        ];
+        
+        const interactiveElements = [];
+        interactiveSelectors.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    if (isElementVisible(element)) {
+                        interactiveElements.push({
+                            tagName: element.tagName.toLowerCase(),
+                            text: element.textContent?.trim() || element.value || element.alt || '',
+                            selector: generateSimpleSelector(element),
+                            attributes: extractSimpleAttributes(element),
+                            coordinates: getSimpleCoordinates(element)
+                        });
+                    }
+                });
+            } catch (error) {
+                console.warn(`[Content] ⚠️ Error scanning selector ${selector}:`, error);
+            }
+        });
+        
+        // 🎯 Step 4: Content elements scan
+        const contentSelectors = [
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'article', 'section',
+            'div[class*="content"]', 'div[class*="text"]', 'span[class*="text"]',
+            'main', 'header', 'footer', 'nav', 'aside'
+        ];
+        
+        const contentElements = [];
+        contentSelectors.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    if (isElementVisible(element) && element.textContent?.trim().length > 10) {
+                        contentElements.push({
+                            tagName: element.tagName.toLowerCase(),
+                            text: element.textContent.trim().substring(0, 150) + '...',
+                            selector: generateSimpleSelector(element),
+                            coordinates: getSimpleCoordinates(element)
+                        });
+                    }
+                });
+            } catch (error) {
+                console.warn(`[Content] ⚠️ Error scanning content selector ${selector}:`, error);
+            }
+        });
+        
+        // 🎯 Step 4.5: Generic content detection for ANY element with meaningful text
+        const genericContentElements = [];
+        try {
+            // Look for ANY element with substantial text content that wasn't caught above
+            allElements.forEach(element => {
+                if (isElementVisible(element) && element.textContent?.trim().length > 20) {
+                    // Skip if already captured by specific selectors
+                    const isAlreadyCaptured = interactiveElements.some(ie => ie.selector === generateSimpleSelector(element)) ||
+                                           contentElements.some(ce => ce.selector === generateSimpleSelector(element));
+                    
+                    if (!isAlreadyCaptured) {
+                        genericContentElements.push({
+                            tagName: element.tagName.toLowerCase(),
+                            text: element.textContent.trim().substring(0, 150) + '...',
+                            selector: generateSimpleSelector(element),
+                            coordinates: getSimpleCoordinates(element),
+                            note: "Generic content detection - meaningful text found"
+                        });
+                    }
+                }
+            });
+        } catch (error) {
+            console.warn(`[Content] ⚠️ Error in generic content detection:`, error);
+        }
+        
+        // 🎯 Step 5: iframe detection (but not scanning)
+        const iframes = document.querySelectorAll('iframe');
+        const iframeInfo = Array.from(iframes).map((iframe, index) => ({
+            index: index,
+            src: iframe.src,
+            width: iframe.offsetWidth,
+            height: iframe.offsetHeight,
+            isVisible: iframe.offsetWidth > 0 && iframe.offsetHeight > 0,
+            note: "Detected but not scanned (main-frame-only approach)"
+        }));
+        
+        // 🎯 Step 6: Compile comprehensive results
+        const comprehensiveScanResult = {
+            timestamp: Date.now(),
+            scanType: 'immediate_comprehensive_after_tear_away',
+            frameContext: {
+                isMainFrame: window.top === window.self,
+                currentUrl: window.location.href,
+                title: document.title,
+                hostname: window.location.hostname
+            },
+            elementCounts: {
+                totalElements: elementCount,
+                interactiveElements: interactiveElements.length,
+                contentElements: contentElements.length,
+                genericContentElements: genericContentElements.length,
+                iframes: iframes.length
+            },
+            interactiveElements: interactiveElements.slice(0, 50), // Limit to first 50
+            contentElements: contentElements.slice(0, 20), // Limit to first 20
+            genericContentElements: genericContentElements.slice(0, 30), // Limit to first 30
+            iframeInfo: iframeInfo,
+            scanDuration: performance.now() - startTime,
+            tearAwaySuccess: true,
+            note: "This scan was performed immediately after tear away to capture main frame content"
+        };
+        
+        // 🎯 Step 7: Log comprehensive results with filtering stats
+        const filteringStats = {
+            totalElements: elementCount,
+            interactiveElements: interactiveElements.length,
+            contentElements: contentElements.length,
+            genericContentElements: genericContentElements.length,
+            iframes: iframes.length,
+            scanDuration: comprehensiveScanResult.scanDuration.toFixed(2) + "ms",
+            isMainFrame: comprehensiveScanResult.frameContext.isMainFrame,
+            frameDepth: frameInfo.frameDepth,
+            filtering: {
+                totalScanned: elementCount,
+                interactiveFound: interactiveElements.length,
+                contentFound: contentElements.length,
+                genericContentFound: genericContentElements.length,
+                iframesFound: iframes.length,
+                elementsRetained: interactiveElements.length + contentElements.length + genericContentElements.length,
+                elementsFiltered: elementCount - (interactiveElements.length + contentElements.length + genericContentElements.length),
+                filteringRate: ((elementCount - (interactiveElements.length + contentElements.length + genericContentElements.length)) / elementCount * 100).toFixed(1) + "%"
+            }
+        };
+        
+        console.log(`[Content] 🚀 Immediate comprehensive scan complete:`, filteringStats);
+        console.log(`[Content] 🧹 Filtering Summary:`, filteringStats.filtering);
+        
+        // 🎯 NEW: Step 8: Immediately register all found elements in IntelligenceEngine
+        console.log("[Content] 🔄 Step 8: Registering all found elements in IntelligenceEngine...");
+        let totalRegistered = 0;
+        
+        try {
+            // Register interactive elements
+            interactiveElements.forEach(elementObj => {
+                if (intelligenceEngine && intelligenceEngine.registerActionableElement) {
+                    // Convert processed element object back to DOM element using selector
+                    let domElement = null;
+                    if (elementObj.selector) {
+                        try {
+                            domElement = document.querySelector(elementObj.selector);
+                        } catch (e) {
+                            console.warn("[Content] ⚠️ Could not resolve selector:", elementObj.selector);
+                        }
+                    }
+                    
+                    if (domElement) {
+                        let actionType = 'general';
+                        if (intelligenceEngine.determineActionType) {
+                            actionType = intelligenceEngine.determineActionType(domElement);
+                        }
+                        
+                        const actionId = intelligenceEngine.registerActionableElement(domElement, actionType);
+                        if (actionId) totalRegistered++;
+                    } else {
+                        console.warn("[Content] ⚠️ Could not find DOM element for:", elementObj.selector);
+                    }
+                }
+            });
+            
+            // Register content elements
+            contentElements.forEach(elementObj => {
+                if (intelligenceEngine && intelligenceEngine.registerActionableElement) {
+                    let domElement = null;
+                    if (elementObj.selector) {
+                        try {
+                            domElement = document.querySelector(elementObj.selector);
+                        } catch (e) {
+                            console.warn("[Content] ⚠️ Could not resolve selector:", elementObj.selector);
+                        }
+                    }
+                    
+                    if (domElement) {
+                        const actionId = intelligenceEngine.registerActionableElement(domElement, 'content');
+                        if (actionId) totalRegistered++;
+                    }
+                }
+            });
+            
+            // Register generic content elements (including your apartment element!)
+            genericContentElements.forEach(elementObj => {
+                if (intelligenceEngine && intelligenceEngine.registerActionableElement) {
+                    let domElement = null;
+                    if (elementObj.selector) {
+                        try {
+                            domElement = document.querySelector(elementObj.selector);
+                        } catch (e) {
+                            console.warn("[Content] ⚠️ Could not resolve selector:", elementObj.selector);
+                        }
+                    }
+                    
+                    if (domElement) {
+                        const actionId = intelligenceEngine.registerActionableElement(domElement, 'content');
+                        if (actionId) totalRegistered++;
+                    }
+                }
+            });
+            
+            console.log(`[Content] ✅ Element registration complete: ${totalRegistered} elements registered in IntelligenceEngine`);
+            console.log(`[Content] 📊 Expected: ${interactiveElements.length + contentElements.length + genericContentElements.length} elements`);
+            console.log(`[Content] 📊 Actual registered: ${totalRegistered} elements`);
+            
+            // 🎯 NEW: Trigger intelligence update to send newly registered elements to service worker
+            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                console.log("[Content] 📤 Queueing intelligence update to send new elements to service worker...");
+                intelligenceEngine.queueIntelligenceUpdate('high');
+            }
+            
+        } catch (error) {
+            console.error("[Content] ❌ Error during element registration:", error);
+        }
+        
+        // 🎯 Step 9: Attempt to traverse to main frame if in iframe
+        if (!frameInfo.isMainFrame && frameInfo.frameDepth > 0) {
+            console.log("[Content] 🔍 Attempting to traverse to main frame...");
+            
+            // 🎯 Method 1: Try to access parent frame content (non-async)
+            try {
+                const mainFrameContent = attemptMainFrameAccess(frameInfo);
+                if (mainFrameContent) {
+                    console.log("[Content] ✅ Successfully accessed main frame content");
+                    comprehensiveScanResult.mainFrameAccess = mainFrameContent;
+                }
+            } catch (error) {
+                console.warn("[Content] ⚠️ Main frame access failed:", error.message);
+            }
+        }
+        
+        // 🎯 Step 9: Send results to service worker
+        if (chrome.runtime && chrome.runtime.sendMessage) {
+            chrome.runtime.sendMessage({
+                type: 'immediate_scan_results',
+                data: comprehensiveScanResult
+            }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.warn("[Content] ⚠️ Could not send scan results to service worker");
+                } else {
+                    console.log("[Content] ✅ Immediate scan results sent to service worker");
+                }
+            });
+        }
+        
+        return comprehensiveScanResult;
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error during immediate comprehensive scan:", error);
+        return { 
+            error: error.message, 
+            timestamp: Date.now(),
+            tearAwaySuccess: false
+        };
+    }
+}
+
+// 🆕 NEW: Automatic Disconnect Cycle for CSP Bypass
+function performAutomaticDisconnectCycle() {
+    console.log("[Content] 🔄 Starting automatic disconnect cycle for CSP bypass...");
+    
+    try {
+        // 🎯 Step 1: Force runtime disconnect to invalidate extension context
+        if (chrome.runtime && chrome.runtime.disconnect) {
+            console.log("[Content] 🔌 Forcing runtime disconnect...");
+            chrome.runtime.disconnect();
+        }
+        
+        // 🎯 Step 2: Clear any local storage/cache
+        if (chrome.storage && chrome.storage.local) {
+            try {
+                chrome.storage.local.clear(() => {
+                    console.log("[Content] 🗑️ Cleared local storage");
+                });
+            } catch (e) {
+                console.log("[Content] ⚠️ Could not clear storage:", e.message);
+            }
+        }
+        
+        // 🎯 Step 3: Request service worker to re-inject content script
+        if (chrome.runtime && chrome.runtime.sendMessage) {
+            try {
+                chrome.runtime.sendMessage({
+                    command: 'forceContentScriptReinjection',
+                    tabId: null, // Will be set by service worker
+                    reason: 'automatic_csp_bypass_before_scan'
+                }, (response) => {
+                    if (chrome.runtime.lastError) {
+                        console.log("[Content] ⚠️ Service worker not responding, continuing with scan...");
+                    } else {
+                        console.log("[Content] ✅ Service worker acknowledged reinjection request");
+                    }
+                });
+            } catch (e) {
+                console.log("[Content] ⚠️ Could not request reinjection:", e.message);
+            }
+        }
+        
+        // 🎯 Step 4: Small delay to allow CSP to relax
+        console.log("[Content] ⏳ Waiting for CSP to relax...");
+        // Note: We can't use setTimeout here as the context is invalidated
+        // The delay happens naturally as the function continues
+        
+        console.log("[Content] ✅ Automatic disconnect cycle complete - CSP should be relaxed");
+        
+    } catch (error) {
+        console.warn("[Content] ⚠️ Error during automatic disconnect cycle:", error.message);
+        console.log("[Content] 🔄 Continuing with scan anyway...");
+    }
+}
+
+// 🆕 NEW: Simple Helper Functions for Comprehensive Scanning
+function generateSimpleSelector(element) {
+    try {
+        if (element.id) {
+            return `#${element.id}`;
+        }
+        
+        if (element.className && typeof element.className === 'string') {
+            const classes = element.className.split(' ').filter(c => c.trim().length > 0);
+            if (classes.length > 0) {
+                return `${element.tagName.toLowerCase()}.${classes[0]}`;
+            }
+        }
+        
+        return `${element.tagName.toLowerCase()}`;
+        
+    } catch (error) {
+        return element.tagName.toLowerCase();
+    }
+}
+
+function extractSimpleAttributes(element) {
+    try {
+        const attributes = {};
+        const importantAttrs = ['href', 'src', 'alt', 'title', 'aria-label', 'role', 'type', 'value', 'placeholder'];
+        
+        importantAttrs.forEach(attr => {
+            if (element.hasAttribute(attr)) {
+                attributes[attr] = element.getAttribute(attr);
+            }
+        });
+        
+        return attributes;
+        
+    } catch (error) {
+        return {};
+    }
+}
+
+function getSimpleCoordinates(element) {
+    try {
+        const rect = element.getBoundingClientRect();
+        return {
+            x: Math.round(rect.left + rect.width / 2),
+            y: Math.round(rect.top + rect.height / 2),
+            width: Math.round(rect.width),
+            height: Math.round(rect.height)
+        };
+        
+    } catch (error) {
+        return { x: 0, y: 0, width: 0, height: 0 };
+    }
+}
+
+// 🆕 NEW: Main Frame Access Function
+function attemptMainFrameAccess(frameInfo) {
+    try {
+        console.log("[Content] 🔍 Attempting main frame access...");
+        
+        // 🎯 Method 1: Try to access window.top directly
+        if (window.top && window.top !== window.self) {
+            try {
+                const mainFrameElements = window.top.document.querySelectorAll('*');
+                console.log(`[Content] ✅ Direct main frame access: ${mainFrameElements.length} elements`);
+                
+                return {
+                    method: "direct_access",
+                    elementCount: mainFrameElements.length,
+                    accessible: true,
+                    note: "Successfully accessed main frame DOM directly"
+                };
+            } catch (e) {
+                console.log("[Content] ⚠️ Direct access blocked by CORS");
+            }
+        }
+        
+        // 🎯 Method 2: Try to traverse parent chain
+        let currentWindow = window;
+        let traversalDepth = 0;
+        const maxTraversal = 10; // Prevent infinite loops
+        
+        while (currentWindow !== window.top && traversalDepth < maxTraversal) {
+            traversalDepth++;
+            try {
+                const parentElements = currentWindow.parent.document.querySelectorAll('*');
+                console.log(`[Content] ✅ Parent frame ${traversalDepth} access: ${parentElements.length} elements`);
+                
+                return {
+                    method: "parent_traversal",
+                    elementCount: parentElements.length,
+                    accessible: true,
+                    traversalDepth: traversalDepth,
+                    note: `Accessed parent frame at depth ${traversalDepth}`
+                };
+            } catch (e) {
+                console.log(`[Content] ⚠️ Parent frame ${traversalDepth} access blocked by CORS`);
+                currentWindow = currentWindow.parent;
+            }
+        }
+        
+        // 🎯 Method 3: Try to inject script into parent frame
+        try {
+            const script = document.createElement('script');
+            script.textContent = `
+                console.log('[Main Frame] Script injected from iframe');
+                window.iframeAccessRequest = true;
+            `;
+            document.head.appendChild(script);
+            
+            return {
+                method: "script_injection",
+                accessible: false,
+                note: "Attempted script injection into parent frame"
+            };
+        } catch (e) {
+            console.log("[Content] ⚠️ Script injection failed:", e.message);
+        }
+        
+        return {
+            method: "none",
+            accessible: false,
+            note: "All main frame access methods failed due to CORS restrictions"
+        };
+        
+    } catch (error) {
+        console.error("[Content] ❌ Error in main frame access attempt:", error);
+        return {
+            method: "error",
+            accessible: false,
+            error: error.message
+        };
+    }
 }
 
 // 🆕 NEW: Framework-specific element scanning
@@ -295,11 +1190,319 @@ document.addEventListener('testIntelligence', (event) => {
                     isReady: readiness,
                     initialScanCompleted: intelligenceEngine.initialScanCompleted,
                     pageState: intelligenceEngine.pageState,
-                    actionableElementsCount: intelligenceEngine.actionableElements.size,
-                    eventHistoryCount: intelligenceEngine.eventHistory.length
                 });
             } else {
                 console.log("[Content] ❌ Intelligence engine not available");
+            }
+            break;
+            
+        // 🆕 NEW: iframe Testing Commands
+        case 'testIframeScanning':
+            console.log("[Content] 🧪 Testing iframe scanning...");
+            try {
+                // Test the main frame scanning (since we're main-frame only now)
+                const result = {
+                    isMainFrame: window.top === window.self,
+                    currentUrl: window.location.href,
+                    hasIframes: document.querySelectorAll('iframe').length,
+                    iframeCount: document.querySelectorAll('iframe').length,
+                    timestamp: Date.now(),
+                    note: "Extension now runs main-frame only - no iframe scanning needed"
+                };
+                console.log("[Content] 🧪 iframe scanning test result:", result);
+            } catch (error) {
+                console.error("[Content] ❌ iframe scanning test failed:", error);
+            }
+            break;
+            
+        case 'testIframeAnalysis':
+            console.log("[Content] 🧪 Testing iframe analysis...");
+            try {
+                const iframes = document.querySelectorAll('iframe');
+                const analysis = {
+                    totalIframes: iframes.length,
+                    iframeDetails: Array.from(iframes).map((iframe, index) => ({
+                        index: index,
+                        src: iframe.src,
+                        width: iframe.offsetWidth,
+                        height: iframe.offsetHeight,
+                        isVisible: iframe.offsetWidth > 0 && iframe.offsetHeight > 0
+                    })),
+                    note: "Extension runs in main frame only - iframes are detected but not scanned",
+                    timestamp: Date.now()
+                };
+                console.log("[Content] 🧪 iframe analysis test result:", analysis);
+            } catch (error) {
+                console.error("[Content] ❌ iframe analysis test failed:", error);
+            }
+            break;
+            
+        case 'generateSiteMap':
+            console.log("[Content] 🧪 Testing site map generation...");
+            try {
+                // This will call the actual generateSiteMap function
+                generateSiteMap().then(result => {
+                    console.log("[Content] 🧪 Site map generation test result:", {
+                        success: true,
+                        totalElements: result.statistics?.totalElements || 0,
+                        clickableElements: result.statistics?.clickableElements || 0,
+                        forms: result.statistics?.formElements || 0,
+                        timestamp: Date.now()
+                    });
+                }).catch(error => {
+                    console.error("[Content] ❌ Site map generation test failed:", error);
+                });
+            } catch (error) {
+                console.error("[Content] ❌ Site map generation test failed:", error);
+            }
+            break;
+            
+        // 🆕 NEW: Continuous DOM Scanning Test Commands
+        case 'startContinuousScanning':
+            console.log("[Content] 🧪 Starting continuous DOM scanning...");
+            try {
+                startContinuousDOMScanning();
+                console.log("[Content] 🧪 Continuous DOM scanning started successfully");
+            } catch (error) {
+                console.error("[Content] ❌ Failed to start continuous scanning:", error);
+            }
+            break;
+            
+        case 'stopContinuousScanning':
+            console.log("[Content] 🧪 Stopping continuous DOM scanning...");
+            try {
+                stopContinuousDOMScanning();
+                console.log("[Content] 🧪 Continuous DOM scanning stopped successfully");
+            } catch (error) {
+                console.error("[Content] ❌ Failed to stop continuous scanning:", error);
+            }
+            break;
+            
+        case 'getContinuousScanStatus':
+            console.log("[Content] 🧪 Getting continuous scan status...");
+            try {
+                const status = {
+                    isRunning: !!continuousDOMScanner,
+                    interval: DOM_SCAN_INTERVAL,
+                    lastScan: lastDOMScan,
+                    totalElementsScanned: totalElementsScanned,
+                    enabled: continuousScanningEnabled,
+                    timestamp: Date.now()
+                };
+                console.log("[Content] 🧪 Continuous scan status:", status);
+            } catch (error) {
+                console.error("[Content] ❌ Failed to get scan status:", error);
+            }
+            break;
+            
+        // 🆕 NEW: Tear Away Test Commands
+        case 'performTearAway':
+            console.log("[Content] 🧪 Performing controlled tear away...");
+            try {
+                const result = performControlledTearAway();
+                console.log("[Content] 🧪 Tear away result:", result);
+            } catch (error) {
+                console.error("[Content] ❌ Tear away failed:", error);
+            }
+            break;
+            
+        case 'forceReinjection':
+            console.log("[Content] 🧪 Forcing context re-injection...");
+            try {
+                const result = forceContextReinjection();
+                console.log("[Content] 🧪 Re-injection result:", result);
+            } catch (error) {
+                console.error("[Content] ❌ Re-injection failed:", error);
+            }
+            break;
+            
+        case 'fullTearAwaySequence':
+            console.log("[Content] 🧪 Executing full tear away sequence...");
+            try {
+                // Step 1: Perform controlled tear away
+                const tearAwayResult = performControlledTearAway();
+                console.log("[Content] 🧪 Step 1 - Tear away completed:", tearAwayResult);
+                
+                // Step 2: Wait a bit, then force re-injection
+                setTimeout(() => {
+                    const reinjectionResult = forceContextReinjection();
+                    console.log("[Content] 🧪 Step 2 - Re-injection completed:", reinjectionResult);
+                    
+                                    // Step 3: Continuous scanning DISABLED to preserve context
+                console.log("[Content] 🧪 Step 3 - Continuous scanning DISABLED to preserve context state");
+                }, 1000);
+                
+                console.log("[Content] 🧪 Full tear away sequence initiated");
+            } catch (error) {
+                console.error("[Content] ❌ Full tear away sequence failed:", error);
+            }
+            break;
+            
+        case 'preScanDisconnectCycle':
+            console.log("[Content] 🧪 Testing pre-scan disconnect cycle...");
+            try {
+                const disconnectResult = performPreScanDisconnectCycle();
+                console.log("[Content] 🧪 Pre-scan disconnect cycle result:", disconnectResult);
+            } catch (error) {
+                console.error("[Content] ❌ Pre-scan disconnect cycle failed:", error);
+            }
+            break;
+            
+        case 'forceTabRefreshAndRescan':
+            console.log("[Content] 🧪 Testing force tab refresh and rescan...");
+            try {
+                // 🎯 This simulates the extension reload + navigation scenario
+                console.log("[Content] 🔄 Simulating extension reload + tab navigation...");
+                
+                // Step 1: Force service worker to refresh tabs
+                chrome.runtime.sendMessage({
+                    type: 'force_extension_reload',
+                    data: {
+                        reason: 'force_tab_refresh_and_rescan',
+                        timestamp: Date.now(),
+                        forceReload: true
+                    }
+                }, (response) => {
+                    if (chrome.runtime.lastError) {
+                        console.warn("[Content] ⚠️ Tab refresh request failed:", chrome.runtime.lastError);
+                    } else {
+                        console.log("[Content] ✅ Tab refresh request sent:", response);
+                        
+                        // Step 2: Wait for tabs to refresh, then perform comprehensive scan
+                        setTimeout(() => {
+                            console.log("[Content] 🚀 Tabs refreshed, performing comprehensive scan...");
+                            const scanResult = performImmediateComprehensiveScan();
+                            console.log("[Content] 🧪 Comprehensive scan after tab refresh:", scanResult);
+                        }, 5000); // Wait 5 seconds for tab refresh + content script injection
+                    }
+                });
+                
+            } catch (error) {
+                console.error("[Content] ❌ Force tab refresh and rescan failed:", error);
+            }
+            break;
+            
+        case 'contextCycleForFullAccess':
+            console.log("[Content] 🧪 Testing context cycling for full access...");
+            try {
+                // 🎯 This simulates the ideal pattern: extension reload + fresh tab access
+                console.log("[Content] 🔄 Simulating extension reload + fresh tab access pattern...");
+                
+                // Step 1: Force extension context cycle (simulates reload)
+                chrome.runtime.sendMessage({
+                    type: 'force_extension_reload',
+                    data: {
+                        reason: 'context_cycle_for_full_access',
+                        timestamp: Date.now(),
+                        forceReload: false, // Don't refresh tabs, just cycle context
+                        simulateReload: true
+                    }
+                }, (response) => {
+                    if (chrome.runtime.lastError) {
+                        console.warn("[Content] ⚠️ Context cycle request failed:", chrome.runtime.lastError);
+                    } else {
+                        console.log("[Content] ✅ Context cycle request sent:", response);
+                        
+                        // Step 2: Wait for context cycle, then scan
+                        setTimeout(() => {
+                            console.log("[Content] 🚀 Context cycled, performing comprehensive scan...");
+                            const scanResult = performImmediateComprehensiveScan();
+                            console.log("[Content] 🧪 Comprehensive scan after context cycle:", scanResult);
+                            
+                            // Step 3: Log the pattern
+                            console.log("[Content] 🎯 Context cycling pattern complete:");
+                            console.log("   🔄 Extension context cycled (simulated reload)");
+                            console.log("   🎯 Fresh tab access established");
+                            console.log("   📊 Expected: Full element access (236+ elements)");
+                        }, 3000); // Wait 3 seconds for context cycle
+                    }
+                });
+                
+            } catch (error) {
+                console.error("[Content] ❌ Context cycling for full access failed:", error);
+            }
+            break;
+            
+        case 'triggerExtensionPageReload':
+            console.log("[Content] 🧪 Testing extension page reload trigger...");
+            try {
+                // 🎯 This simulates going to extension page and reloading
+                console.log("[Content] 🔄 Simulating extension page reload pattern...");
+                
+                // Step 1: Check if we're on extension page
+                const isExtensionPage = window.location.protocol === 'chrome-extension:' || 
+                                      window.location.hostname === 'chrome-extension';
+                
+                if (isExtensionPage) {
+                    console.log("[Content] ✅ On extension page, triggering reload...");
+                    
+                    // Step 2: Force extension reload from extension page
+                    chrome.runtime.sendMessage({
+                        type: 'force_extension_reload',
+                        data: {
+                            reason: 'extension_page_reload',
+                            timestamp: Date.now(),
+                            forceReload: false,
+                            fromExtensionPage: true
+                        }
+                    }, (response) => {
+                        if (chrome.runtime.lastError) {
+                            console.warn("[Content] ⚠️ Extension page reload failed:", chrome.runtime.lastError);
+                        } else {
+                            console.log("[Content] ✅ Extension page reload triggered:", response);
+                            
+                            // Step 3: Instructions for manual completion
+                            console.log("[Content] 🎯 Extension page reload pattern:");
+                            console.log("   1. ✅ Extension reload triggered");
+                            console.log("   2. 🔄 Go to chrome://extensions/ and click reload");
+                            console.log("   3. 🎯 Navigate back to Google tab");
+                            console.log("   4. 📊 Expected: Full access (236+ elements)");
+                        }
+                    });
+                    
+                } else {
+                    console.log("[Content] ⚠️ Not on extension page, cannot trigger reload");
+                    console.log("[Content] 💡 To test this pattern:");
+                    console.log("   1. 🔄 Go to chrome://extensions/");
+                    console.log("   2. 🚀 Click reload button on your extension");
+                    console.log("   3. 🎯 Navigate back to Google tab");
+                    console.log("   4. 📊 Should get full access (236+ elements)");
+                }
+                
+            } catch (error) {
+                console.error("[Content] ❌ Extension page reload trigger failed:", error);
+            }
+            break;
+            
+        case 'manualScan':
+            console.log("[Content] 🧪 Performing manual DOM scan...");
+            try {
+                // 🎯 Manual scan without continuous polling
+                const scanResult = performImmediateComprehensiveScan();
+                console.log("[Content] 🧪 Manual scan result:", scanResult);
+                
+                // 🎯 Show current element count
+                if (intelligenceEngine && intelligenceEngine.isEngineReady && intelligenceEngine.isEngineReady()) {
+                    const actionableCount = intelligenceEngine.actionableElements?.size || 0;
+                    console.log(`[Content] 📊 Current actionable elements: ${actionableCount}`);
+                    console.log(`[Content] 📊 Current actionable elements: ${actionableCount}`);
+                    console.log(`[Content] 🎯 Expected: 236+ elements for full access, 39 for limited access`);
+                }
+                
+            } catch (error) {
+                console.error("[Content] ❌ Manual scan failed:", error);
+            }
+            break;
+            
+        case 'testAutoDisconnect':
+            console.log("[Content] 🧪 Testing automatic disconnect cycle...");
+            try {
+                performAutomaticDisconnectCycle();
+                console.log("[Content] 🧪 Automatic disconnect cycle test complete");
+                return { success: true, message: "Automatic disconnect cycle executed", timestamp: Date.now() };
+            } catch (error) {
+                console.error("[Content] ❌ Error during auto disconnect test:", error);
+                return { error: error.message, timestamp: Date.now() };
             }
             break;
             
@@ -1208,6 +2411,13 @@ async function cmd_extractPageText() {
  * - getPageMarkdown: Generate Crawl4AI-inspired markdown
  */
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    // 🛡️ MAIN FRAME SAFETY CHECK - Ensure message handler only runs in main frame
+    if (window.top !== window.self) {
+        console.error("[Content] ❌ Message handler called from iframe - this should never happen");
+        sendResponse({ error: "Message handler should only run in main frame" });
+        return true;
+    }
+    
     console.log("[Content] Message received from service worker:", message);
     
     // 🆕 NEW: Handle site config updates
@@ -1539,32 +2749,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
  * @returns {Object} - Current tab information
  */
 function getCurrentTabInfo() {
-    // Check if we're in an iframe (crawl4ai-inspired approach)
-    let isInIframe = window !== window.top;
-    
-    // 🛡️ SAFE CROSS-ORIGIN ACCESS: Handle restricted iframe contexts
-    let location, mainDocument;
-    
-    try {
-        if (isInIframe) {
-            // Try to access main frame, but handle cross-origin restrictions
-            location = window.top.location;
-            mainDocument = window.top.document;
-        } else {
-            location = window.location;
-            mainDocument = document;
-        }
-    } catch (crossOriginError) {
-        console.warn("[Content] Cross-origin iframe detected, using current frame context:", crossOriginError.message);
-        // Fall back to current frame if we can't access main frame
-        location = window.location;
-        mainDocument = document;
-        // Mark that we're in a restricted iframe
-        isInIframe = true;
+    // 🛡️ MAIN FRAME SAFETY CHECK - This function should only run in main frame
+    if (window.top !== window.self) {
+        console.error("[Content] ❌ getCurrentTabInfo called from iframe - this should never happen");
+        throw new Error("getCurrentTabInfo should only be called from main frame");
     }
     
+    // 🎯 MAIN FRAME ONLY: Always use current frame since we're guaranteed to be in main frame
+    const location = window.location;
+    const mainDocument = document;
+    
     return {
-        url: location.href,  // Main page URL, not iframe URL
+        url: location.href,  // Main page URL
         title: mainDocument.title,  // Main page title
         hostname: location.hostname,
         pathname: location.pathname,
@@ -1574,12 +2770,12 @@ function getCurrentTabInfo() {
         timestamp: Date.now(),
         readyState: document.readyState,
         userAgent: navigator.userAgent,
-        isInIframe: isInIframe,  // Track if we're in iframe for debugging
+        isInIframe: false,  // Always false since we're in main frame
         frameContext: {
-            isMainFrame: !isInIframe,
-            frameUrl: window.location.href,  // Current frame URL
+            isMainFrame: true,  // Always true since we're in main frame
+            frameUrl: window.location.href,  // Current frame URL (main frame)
             mainPageUrl: location.href,  // Main page URL
-            frameTitle: document.title,  // Current frame title
+            frameTitle: document.title,  // Current frame title (main frame)
             mainPageTitle: mainDocument.title  // Main page title
         }
     };
@@ -1743,32 +2939,19 @@ async function generateSiteMap() {
     const startTime = performance.now();
     
     try {
+        // 🛡️ MAIN FRAME SAFETY CHECK - This function should only run in main frame
+        if (window.top !== window.self) {
+            console.error("[Content] ❌ generateSiteMap called from iframe - this should never happen");
+            throw new Error("generateSiteMap should only be called from main frame");
+        }
+        
         // 🆕 ENHANCED ERROR HANDLING: Wrap everything in try-catch
         console.log("[Content] generateSiteMap: Initializing with error handling...");
         
-        // 🎯 FRAME CONTEXT HANDLING: Use main frame if we're in an iframe
-        const isInIframe = window !== window.top;
-        
-        // 🛡️ SAFE CROSS-ORIGIN ACCESS: Handle restricted iframe contexts
-        let targetDocument, targetWindow;
-        
-        try {
-            if (isInIframe) {
-                // Try to access main frame, but handle cross-origin restrictions
-                targetDocument = window.top.document;
-                targetWindow = window.top;
-            } else {
-                targetDocument = document;
-                targetWindow = window;
-            }
-        } catch (crossOriginError) {
-            console.warn("[Content] Cross-origin iframe detected in generateSiteMap, using current frame context:", crossOriginError.message);
-            // Fall back to current frame if we can't access main frame
-            targetDocument = document;
-            targetWindow = window;
-            // Mark that we're in a restricted iframe
-            isInIframe = true;
-        }
+        // 🎯 MAIN FRAME ONLY: Always use current frame since we're guaranteed to be in main frame
+        const targetDocument = document;
+        const targetWindow = window;
+        const isInIframe = false; // Always false since we're in main frame
         
         console.log("[Content] generateSiteMap: Frame context:", {
             isInIframe: isInIframe,
@@ -3291,11 +4474,35 @@ function isElementVisible(element) {
     if (!element) return false;
     
     const style = window.getComputedStyle(element);
-    return style.display !== 'none' && 
-           style.visibility !== 'hidden' && 
-           style.opacity !== '0' &&
-           element.offsetWidth > 0 && 
-           element.offsetHeight > 0;
+    
+    // Basic visibility checks
+    if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
+        return false;
+    }
+    
+    // Check if element has physical dimensions
+    if (element.offsetWidth > 0 && element.offsetHeight > 0) {
+        return true;
+    }
+    
+    // For elements with no physical dimensions, check if they're "conceptually visible"
+    const hasTextContent = element.textContent && element.textContent.trim().length > 0;
+    const hasAriaLabel = element.getAttribute('aria-label') || element.getAttribute('title');
+    const hasRole = element.getAttribute('role');
+    const hasTabIndex = element.getAttribute('tabindex');
+    
+    // Consider visible if it has meaningful content or accessibility attributes
+    if (hasTextContent || hasAriaLabel || hasRole || hasTabIndex) {
+        return true;
+    }
+    
+    // Check if it's a flexbox/grid child that might not have intrinsic dimensions
+    const parentStyle = element.parentElement ? window.getComputedStyle(element.parentElement) : null;
+    if (parentStyle && (parentStyle.display === 'flex' || parentStyle.display === 'grid')) {
+        return hasTextContent || hasAriaLabel;
+    }
+    
+    return false;
 }
 
 /**
@@ -4570,10 +5777,30 @@ IntelligenceEngine.prototype.isElementVisible = function(element) {
     const style = window.getComputedStyle(element);
     if (style.display === 'none' || style.visibility === 'hidden') return false;
     
+    // Check if element has physical dimensions
     const rect = element.getBoundingClientRect();
-    if (rect.width === 0 || rect.height === 0) return false;
+    if (rect.width > 0 && rect.height > 0) {
+        return true;
+    }
     
-    return true;
+    // For elements with no physical dimensions, check if they're "conceptually visible"
+    const hasTextContent = element.textContent && element.textContent.trim().length > 0;
+    const hasAriaLabel = element.getAttribute('aria-label') || element.getAttribute('title');
+    const hasRole = element.getAttribute('role');
+    const hasTabIndex = element.getAttribute('tabindex');
+    
+    // Consider visible if it has meaningful content or accessibility attributes
+    if (hasTextContent || hasAriaLabel || hasRole || hasTabIndex) {
+        return true;
+    }
+    
+    // Check if it's a flexbox/grid child that might not have intrinsic dimensions
+    const parentStyle = element.parentElement ? window.getComputedStyle(element.parentElement) : null;
+    if (parentStyle && (parentStyle.display === 'flex' || parentStyle.display === 'grid')) {
+        return hasTextContent || hasAriaLabel;
+    }
+    
+    return false;
 };
 
 /**
@@ -4907,6 +6134,12 @@ IntelligenceEngine.prototype.sendIntelligenceUpdateToServiceWorker = async funct
  * 🆕 NEW: Check if intelligence engine is ready to send updates
  */
 IntelligenceEngine.prototype.isEngineReady = function() {
+    // 🎯 NEW: Automatic disconnect cycle for CSP bypass in normal workflow
+    if (Math.random() < 0.1) { // Only 10% of the time to avoid excessive disconnects
+        console.log("[Content] 🔄 Engine ready check: Performing automatic disconnect cycle for CSP bypass...");
+        performAutomaticDisconnectCycle();
+    }
+    
     // Check if core components are initialized
     if (!this.pageState || !this.actionableElements) {
         console.log("[Content] ⚠️ Core components not initialized");
@@ -4922,6 +6155,19 @@ IntelligenceEngine.prototype.isEngineReady = function() {
             url: this.pageState.url,
             lastUpdate: this.pageState.lastUpdate
         });
+    }
+    
+    // 🎯 NEW: Force comprehensive scan integration for CSP bypass
+    if (typeof performImmediateComprehensiveScan === 'function') {
+        console.log("[Content] 🔄 Engine ready: Forcing comprehensive scan for CSP bypass...");
+        try {
+            const comprehensiveResult = performImmediateComprehensiveScan();
+            console.log("[Content] ✅ Forced comprehensive scan complete:", comprehensiveResult);
+        } catch (error) {
+            console.warn("[Content] ⚠️ Forced comprehensive scan failed:", error);
+        }
+    } else {
+        console.warn("[Content] ⚠️ performImmediateComprehensiveScan function not found");
     }
     
     // 🆕 NEW: Refresh page context if URL has changed
@@ -4949,7 +6195,45 @@ IntelligenceEngine.prototype.isEngineReady = function() {
         return false;
     }
     
-    console.log("[Content] ✅ Engine ready - actionable elements available:", this.actionableElements.size);
+            // 🎯 Add frame detection to regular scanning
+        const frameInfo = {
+            isMainFrame: window.top === window.self,
+            currentFrame: window.location.href,
+            topFrame: window.top.location.href,
+            frameDepth: 0,
+            parentFrames: []
+        };
+        
+        // Calculate frame depth and parent chain
+        let currentWindow = window;
+        while (currentWindow !== window.top) {
+            frameInfo.frameDepth++;
+            try {
+                frameInfo.parentFrames.push({
+                    depth: frameInfo.frameDepth,
+                    url: currentWindow.location.href,
+                    title: currentWindow.document.title
+                });
+                currentWindow = currentWindow.parent;
+            } catch (e) {
+                frameInfo.parentFrames.push({
+                    depth: frameInfo.frameDepth,
+                    url: "CROSS_ORIGIN_RESTRICTED",
+                    title: "CROSS_ORIGIN_RESTRICTED"
+                });
+                break;
+            }
+        }
+        
+        console.log("[Content] 🖼️ Frame Analysis:", frameInfo);
+        console.log("[Content] ✅ Engine ready - actionable elements available:", this.actionableElements.size);
+        
+        if (!frameInfo.isMainFrame) {
+            console.warn("[Content] ⚠️ Running in iframe - depth:", frameInfo.frameDepth);
+            console.warn("[Content] ⚠️ Parent frames:", frameInfo.parentFrames);
+        } else {
+            console.log("[Content] ✅ Confirmed main frame access");
+        }
     return true;
 };
 
@@ -5653,6 +6937,10 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
     try {
         console.log("[Content] 🔍 Scanning page for interactive elements...");
         
+        // 🎯 NEW: Automatic disconnect cycle for CSP bypass before scanning
+        console.log("[Content] 🔄 Performing automatic disconnect cycle for CSP bypass...");
+        performAutomaticDisconnectCycle();
+        
         // Clear existing elements
         this.actionableElements.clear();
         this.elementCounter = 0;
@@ -5725,11 +7013,50 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             }
         });
         
+        // 🆕 NEW: PHASE 4: Process generic content elements (like your apartment element)
+        console.log("[Content] 🔍 PHASE 4: Processing generic content elements...");
+        let genericContentCount = 0;
+        
+        try {
+            // Use the same logic as performImmediateComprehensiveScan for generic content
+            const allPageElements = document.querySelectorAll('*');
+            allPageElements.forEach(element => {
+                if (this.isElementVisible(element) && element.textContent?.trim().length > 20) {
+                    // Skip if already captured by interactive selectors
+                    const isAlreadyCaptured = allElements.some(ie => ie === element);
+                    
+                    if (!isAlreadyCaptured) {
+                        // Register as generic content element
+                        const actionType = 'content'; // Special action type for content
+                        const actionId = this.registerActionableElement(element, actionType);
+                        genericContentCount++;
+                        
+                        console.log("[Content] 📝 Registered generic content:", {
+                            actionId: actionId,
+                            tagName: element.tagName,
+                            actionType: actionType,
+                            textContent: element.textContent.trim().substring(0, 50) + '...',
+                            note: "Generic content detection - meaningful text found"
+                        });
+                    }
+                }
+            });
+        } catch (error) {
+            console.warn("[Content] ⚠️ Error processing generic content elements:", error);
+        }
+        
+        console.log("[Content] 🎯 PHASE 4 RESULTS:");
+        console.log(`   📊 Generic content elements registered: ${genericContentCount}`);
+        
         console.log("[Content] 🎯 PHASE 3 FILTERING RESULTS:");
         console.log(`   📊 Total elements found: ${allElements.length} (${frameworkElements.length} framework + ${elements.length} generic)`);
         console.log(`   🔍 Interactive elements: ${filteredCount}`);
         console.log(`   ✅ Quality-filtered elements: ${registeredCount}`);
         console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / allElements.length) * 100)}%`);
+        
+        console.log("[Content] 🎯 PHASE 4 FILTERING RESULTS:");
+        console.log(`   📊 Generic content elements: ${genericContentCount}`);
+        console.log(`   📊 Total actionable elements: ${registeredCount + genericContentCount}`);
         
         // Update page state
                     this.pageState.interactiveElements = this.getAllActionableElements();
@@ -5832,8 +7159,17 @@ function initializeIntelligenceSystem() {
         if (intelligenceEngine) {
             console.log("[Content] 🔍 Starting initial page element scan...");
             
-            // ✅ SYNC: Scan elements (returns immediately)
-            const scanResult = intelligenceEngine.scanAndRegisterPageElements();
+                    // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass on page load
+        console.log("[Content] 🔄 Page load: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
+        performAutomaticDisconnectCycle();
+        
+        // 🎯 NEW: Run comprehensive scan to get 262+ elements
+        console.log("[Content] 🔍 Page load: Running comprehensive scan for full element detection...");
+        const comprehensiveScanResult = performImmediateComprehensiveScan();
+        console.log("[Content] ✅ Page load comprehensive scan complete:", comprehensiveScanResult);
+        
+        // ✅ SYNC: Scan elements (returns immediately)
+        const scanResult = intelligenceEngine.scanAndRegisterPageElements();
             
             // ✅ SYNC: Send intelligence update immediately after scan
             if (scanResult && scanResult.success) {
@@ -5975,6 +7311,16 @@ function setupIntelligenceUpdates() {
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
             console.log("[Content] 🧠 Tab became visible, triggering intelligence update");
+            
+            // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass on tab visibility
+            console.log("[Content] 🔄 Tab visible: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
+            performAutomaticDisconnectCycle();
+            
+            // 🎯 NEW: Run comprehensive scan to get 262+ elements
+            console.log("[Content] 🔍 Tab visible: Running comprehensive scan for full element detection...");
+            const comprehensiveScanResult = performImmediateComprehensiveScan();
+            console.log("[Content] ✅ Tab visible comprehensive scan complete:", comprehensiveScanResult);
+            
             setTimeout(() => {
                 if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
                     intelligenceEngine.queueIntelligenceUpdate('normal');

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Frame Test</title>
+</head>
+<body>
+    <h1>Main Frame Test Page</h1>
+    <p>This page tests that the extension only runs in the main frame.</p>
+    
+    <h2>Test iframe (should NOT run extension)</h2>
+    <iframe src="about:blank" width="300" height="200" title="Test iframe"></iframe>
+    
+    <h2>Test Google iframe (should NOT run extension)</h2>
+    <iframe src="https://www.google.com" width="300" height="200" title="Google iframe"></iframe>
+    
+    <h2>Test YouTube iframe (should NOT run extension)</h2>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="300" height="200" title="YouTube iframe"></iframe>
+    
+    <script>
+        console.log("Main frame test page loaded");
+        console.log("Main frame check:", window.top === window.self);
+        
+        // Test iframe content
+        const iframes = document.querySelectorAll('iframe');
+        iframes.forEach((iframe, index) => {
+            iframe.onload = () => {
+                try {
+                    const iframeWindow = iframe.contentWindow;
+                    const iframeDocument = iframe.contentDocument;
+                    console.log(`Iframe ${index} loaded:`, {
+                        src: iframe.src,
+                        isAccessible: !!(iframeWindow && iframeDocument),
+                        isMainFrame: iframeWindow ? iframeWindow.top === iframeWindow.self : false
+                    });
+                } catch (error) {
+                    console.log(`Iframe ${index} cross-origin (not accessible):`, error.message);
+                }
+            };
+        });
+    </script>
+</body>
+</html>

@@ -512,6 +512,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 // Simple ping response for context validation
                 sendResponse({ ok: true, pong: true });
                 break;
+            case 'force_content_script_reinjection':
+                handleForceContentScriptReinjection(message, sendResponse);
+                break;
+            case 'force_extension_reload':
+                handleForceExtensionReload(message, sendResponse);
+                break;
+            case 'immediate_scan_results':
+                handleImmediateScanResults(message, sendResponse);
+                break;
             default:
                 console.warn("[SW] Unknown internal message type:", message.type);
                 sendResponse({ ok: false, error: "Unknown message type" });
@@ -1339,3 +1348,194 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // Initialize connection when service worker loads
 connectWebSocket();
+
+/**
+ * 🚨 Tear Away System Handlers
+ * 
+ * These functions handle controlled tear away and context re-injection
+ * to bypass CSP restrictions on protected sites like Google.
+ */
+
+/**
+ * 🔄 Handle force content script re-injection
+ * 
+ * @param {Object} message - Message containing re-injection request
+ * @param {Function} sendResponse - Response function
+ */
+async function handleForceContentScriptReinjection(message, sendResponse) {
+    try {
+        console.log("[SW] 🚨 Handling force content script re-injection...");
+        
+        const { tabId, reason, timestamp } = message.data;
+        
+        // 🎯 Get the current active tab if not provided
+        const targetTabId = tabId || await getCurrentActiveTabId();
+        if (!targetTabId) {
+            throw new Error("No active tab found for re-injection");
+        }
+        
+        console.log(`[SW] 🚨 Force re-injecting content script in tab ${targetTabId} for reason: ${reason}`);
+        
+        // 🎯 Force content script refresh
+        await ensureContentScriptFresh(targetTabId);
+        
+        // 🎯 Clear tab cache to force fresh scan
+        clearTabCache(targetTabId);
+        
+        // 🎯 Mark tab as needing fresh scan
+        const tabState = internalTabState.get(targetTabId);
+        if (tabState) {
+            tabState.needsFreshScan = true;
+            tabState.contentScriptFresh = false;
+            tabState.lastContentScriptRefresh = Date.now();
+        }
+        
+        sendResponse({ 
+            success: true, 
+            tabId: targetTabId,
+            reason: reason,
+            message: `Content script re-injected in tab ${targetTabId}`,
+            timestamp: timestamp
+        });
+        
+    } catch (error) {
+        console.error("[SW] ❌ Error during force content script re-injection:", error);
+        sendResponse({ success: false, error: error.message });
+    }
+}
+
+/**
+ * 🔄 Handle force extension reload
+ * 
+ * @param {Object} message - Message containing reload request
+ * @param {Function} sendResponse - Response function
+ */
+async function handleForceExtensionReload(message, sendResponse) {
+    try {
+        console.log("[SW] 🚨 Handling force extension reload...");
+        
+        const { reason, timestamp } = message.data;
+        
+        console.log(`[SW] 🚨 Force reloading extension for reason: ${reason}`);
+        
+        // 🎯 Clear all internal state
+        internalTabState.clear();
+        
+        // 🎯 Disconnect WebSocket
+        if (ws) {
+            ws.close();
+            ws = null;
+        }
+        
+        // 🎯 Force extension reload by updating manifest
+        // Note: This is a workaround - actual reload requires user action
+        console.log("[SW] 🚨 Extension reload requested - user must manually reload from chrome://extensions/");
+        
+        // 🎯 CRITICAL: Force refresh all active tabs to ensure fresh content script injection
+        if (message.data.forceReload) {
+            console.log("[SW] 🔄 Force reload requested, refreshing active tabs...");
+            
+            try {
+                // Get all active tabs
+                const tabs = await chrome.tabs.query({ active: true });
+                console.log(`[SW] 🔄 Found ${tabs.length} active tabs to refresh`);
+                
+                for (const tab of tabs) {
+                    try {
+                        // 🎯 CRITICAL: Force hard refresh (bypass cache)
+                        await chrome.tabs.reload(tab.id, { bypassCache: true });
+                        console.log(`[SW] ✅ Tab ${tab.id} hard refreshed: ${tab.url}`);
+                        
+                        // 🎯 Wait a moment for page to load, then inject content script
+                        setTimeout(async () => {
+                            try {
+                                await chrome.scripting.executeScript({
+                                    target: { tabId: tab.id },
+                                    files: ['content.js']
+                                });
+                                console.log(`[SW] ✅ Content script re-injected into tab ${tab.id}`);
+                            } catch (error) {
+                                console.warn(`[SW] ⚠️ Failed to re-inject content script into tab ${tab.id}:`, error);
+                            }
+                        }, 2000); // Wait 2 seconds for page load
+                        
+                    } catch (error) {
+                        console.warn(`[SW] ⚠️ Failed to refresh tab ${tab.id}:`, error);
+                    }
+                }
+                
+                console.log("[SW] ✅ All active tabs refreshed and content scripts queued for re-injection");
+                
+            } catch (error) {
+                console.error("[SW] ❌ Error refreshing tabs:", error);
+            }
+        }
+        
+        sendResponse({ 
+            success: true, 
+            reason: reason,
+            message: "Extension reload requested - manual reload required",
+            timestamp: timestamp,
+            note: "Go to chrome://extensions/ and click reload button",
+            tabsRefreshed: message.data.forceReload || false
+        });
+        
+    } catch (error) {
+        console.error("[SW] ❌ Error during force extension reload:", error);
+        sendResponse({ success: false, error: error.message });
+    }
+}
+
+/**
+ * 📊 Handle immediate scan results after tear away
+ * 
+ * @param {Object} message - Message containing immediate scan results
+ * @param {Function} sendResponse - Response function
+ */
+async function handleImmediateScanResults(message, sendResponse) {
+    try {
+        console.log("[SW] 📊 Handling immediate scan results after tear away...");
+        
+        const scanData = message.data;
+        
+        console.log(`[SW] 📊 Immediate scan results received:`, {
+            scanType: scanData.scanType,
+            totalElements: scanData.elementCounts?.totalElements || 0,
+            interactiveElements: scanData.elementCounts?.interactiveElements || 0,
+            contentElements: scanData.elementCounts?.contentElements || 0,
+            iframes: scanData.elementCounts?.iframes || 0,
+            isMainFrame: scanData.frameContext?.isMainFrame || false,
+            scanDuration: scanData.scanDuration || 0,
+            tearAwaySuccess: scanData.tearAwaySuccess || false
+        });
+        
+        // 🎯 Send results to server via WebSocket
+        if (isConnected && ws) {
+            const serverMessage = {
+                type: "immediate_scan_results_after_tear_away",
+                timestamp: Date.now(),
+                data: scanData
+            };
+            
+            ws.send(JSON.stringify(serverMessage));
+            console.log("[SW] 📊 Immediate scan results sent to server");
+        } else {
+            console.log("[SW] 📊 WebSocket not available, queuing results");
+            pendingMessages.push({
+                type: "immediate_scan_results_after_tear_away",
+                timestamp: Date.now(),
+                data: scanData
+            });
+        }
+        
+        sendResponse({ 
+            success: true, 
+            message: "Immediate scan results processed successfully",
+            timestamp: Date.now()
+        });
+        
+    } catch (error) {
+        console.error("[SW] ❌ Error handling immediate scan results:", error);
+        sendResponse({ success: false, error: error.message });
+    }
+}
