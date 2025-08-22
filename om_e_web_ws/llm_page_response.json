@@ -1,0 +1,113 @@
+{
+  "page_heading": {
+    "tabs": [
+      {
+        "id": 1,
+        "url": "https://www.google.com/",
+        "title": "Google"
+      },
+      {
+        "id": 2,
+        "url": "chrome://extensions/?id=gkajipkgablojmfifbekigkhfaaidjpo",
+        "title": "Extensions - OM_E_WEB Browser Arm"
+      },
+      {
+        "id": 3,
+        "url": "https://www.youtube.com/",
+        "title": "(4) YouTube"
+      },
+      {
+        "id": 4,
+        "url": "https://brighttreedigital.com.au/",
+        "title": "Local Web Design Adelaide | Bright Tree Digital"
+      }
+    ],
+    "current_tab": 4,
+    "total_tabs": 4
+  },
+  "current_page": {
+    "url": "https://brighttreedigital.com.au/",
+    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "timestamp": "2025-01-22T...",
+    "is_active_tab": true
+  },
+  "navigation_elements": {
+    "main_navigation": {
+      "name": "Main Navigation",
+      "total_items": 14,
+      "total_toggles": 3,
+      "items": [
+        {
+          "actionId": "action_navigate_a_1",
+          "text": "Home",
+          "href": "/",
+          "action_type": "navigate"
+        },
+        {
+          "actionId": "action_navigate_a_2", 
+          "text": "Services",
+          "href": "/services/",
+          "action_type": "navigate"
+        },
+        {
+          "actionId": "action_navigate_a_3",
+          "text": "Portfolio",
+          "href": "/portfolio/",
+          "action_type": "navigate"
+        },
+        {
+          "actionId": "action_navigate_a_4",
+          "text": "About",
+          "href": "/about/",
+          "action_type": "navigate"
+        },
+        {
+          "actionId": "action_navigate_a_5",
+          "text": "Contact",
+          "href": "/contact/",
+          "action_type": "navigate"
+        }
+      ],
+      "toggles": [
+        {
+          "actionId": "action_click_button_1",
+          "text": "Menu Toggle",
+          "action_type": "click"
+        },
+        {
+          "actionId": "action_click_button_2",
+          "text": "Search Toggle", 
+          "action_type": "click"
+        },
+        {
+          "actionId": "action_click_button_3",
+          "text": "Mobile Menu",
+          "action_type": "click"
+        }
+      ]
+    }
+  },
+  "actionable_elements_summary": {
+    "total": 17,
+    "by_type": {
+      "navigate": 14,
+      "click": 3
+    },
+    "by_category": {
+      "navigation": 14,
+      "interaction": 3
+    }
+  },
+  "page_context": {
+    "site_type": "business_website",
+    "framework": "wordpress",
+    "primary_purpose": "web_design_services",
+    "location": "Adelaide, Australia",
+    "services": ["web_design", "web_development", "digital_marketing"]
+  },
+  "llm_instructions": {
+    "available_actions": "Use actionId values to interact with elements",
+    "navigation_help": "action_navigate_a_* for page navigation, action_click_button_* for interactions",
+    "context": "This is a web design company website with navigation menu and service information"
+  }
+}

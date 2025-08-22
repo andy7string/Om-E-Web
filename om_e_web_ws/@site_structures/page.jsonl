@@ -1,56 +1,49 @@
 {
-  "timestamp": 1755794358.9340212,
+  "timestamp": 1755876607.6554198,
   "browser_state": {
-    "total_tabs": 5,
+    "total_tabs": 4,
     "active_tab": {
-      "id": 1137970079,
-      "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-      "title": "Perplexity",
+      "id": 1137972786,
+      "url": "https://mail.google.com/mail/u/0/#inbox",
+      "title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1137970079,
-        "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-        "title": "Perplexity",
+        "id": 1137972786,
+        "url": "https://mail.google.com/mail/u/0/#inbox",
+        "title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail",
         "active": true,
         "status": "complete"
       },
       {
-        "id": 1137970154,
-        "url": "https://www.google.com/",
-        "title": "Google",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1137970157,
-        "url": "https://www.youtube.com/watch?v=L0AFgRUvNis",
-        "title": "Shark Tank US | Blackdot's Entrepreneur Asks For 1.5 Million Dollars! - YouTube",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1137970160,
+        "id": 1137972839,
         "url": "chrome://extensions/?id=gkajipkgablojmfifbekigkhfaaidjpo",
         "title": "Extensions - OM_E_WEB Browser Arm",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1137970161,
+        "id": 1137972845,
+        "url": "https://www.youtube.com/",
+        "title": "(4) YouTube",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137972848,
         "url": "https://brighttreedigital.com.au/",
         "title": "Local Web Design Adelaide | Bright Tree Digital",
         "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 63165.255574041,
+    "last_tabs_update": 56443.130826041,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "title": "Perplexity",
+    "url": "https://mail.google.com/mail/u/0/#inbox",
+    "title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail",
     "is_active_tab": true
   },
   "menu_structure": {
@@ -66,677 +59,259 @@
     "currentView": "unknown",
     "interactiveElements": [
       {
-        "id": "action_click_button_0",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_navigate_a_0",
+        "tagName": "a",
+        "actionType": "navigate",
         "selectors": [
-          "[data-testid=\"sidebar-pin-sidebar\"]",
-          "[data-state=\"closed\"]",
-          ".focus-visible:bg-offsetPlus",
-          "button.focus-visible:bg-offsetPlus",
-          "div:nth-child(1)"
+          "form:nth-child(2)"
         ],
-        "textContent": "",
-        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus !-me-sm font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-xs h-6 aspect-[9/8]",
+        "textContent": "Gmail Help Centre",
+        "className": "",
         "attributes": {
-          "type": "button",
-          "aria-label": "Pin Sidebar"
+          "href": "https://support.google.com/mail?p=fix-gmail-loading&authuser=0"
         },
-        "timestamp": 1755794177682
+        "timestamp": 1755876570050
       },
       {
         "id": "action_navigate_a_1",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
+          "#reloadurl",
+          "p:nth-child(1)"
         ],
-        "textContent": "Finance",
-        "className": "group relative block",
+        "textContent": "Try reloading the pa",
+        "className": "",
         "attributes": {
-          "href": "/finance"
+          "id": "reloadurl",
+          "href": "https://mail.google.com/mail/u/0/?sw=2"
         },
-        "timestamp": 1755794177682
+        "timestamp": 1755876570050
       },
       {
-        "id": "action_navigate_a_2",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_submit_input_2",
+        "tagName": "input",
+        "actionType": "submit",
         "selectors": [
-          ".group",
-          "a.group",
-          "div:nth-child(2)"
+          ".submit_as_link",
+          "input.submit_as_link",
+          "form:nth-child(2)"
         ],
-        "textContent": "Travel",
-        "className": "group relative block",
+        "textContent": "",
+        "className": "submit_as_link",
         "attributes": {
-          "href": "/travel"
+          "type": "submit",
+          "value": "basic HTML view"
         },
-        "timestamp": 1755794177682
+        "timestamp": 1755876570050
       },
       {
         "id": "action_navigate_a_3",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
-          ".group",
-          "a.group",
-          "div:nth-child(3)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Academic",
-        "className": "group relative block",
+        "textContent": "Help Centre",
+        "className": "",
         "attributes": {
-          "href": "/academic"
+          "href": "https://support.google.com/mail/answer/8767?src=sl&hl=en-GB"
         },
-        "timestamp": 1755794177682
+        "timestamp": 1755876570050
       },
       {
-        "id": "action_navigate_a_4",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"library-button\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Library",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/library"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_5",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-🎯 Comprehensive Analysis: The Challenge of Universal Navigation Detection\nOur Current Extension Stat\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "🎯 Comprehensive Ana",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/comprehensive-analysis-the-cha-9iZe.7V0TM.4vpc7rOR3HQ"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_6",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-What I'm Building:\nA Chrome browser extension that provides AI-powered web automation by intelligent\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "What I'm Building:\nA",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/what-i-m-building-a-chrome-bro-7xM_pqkXRZChFNwJWWesKA"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_7",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-what js extensions are available that allow me to find the x and y co-ordinates of all objects on a \"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "what js extensions a",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/what-js-extensions-are-availab-C.wmctlXR72hZeDC8UaV6Q"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_8",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-are there any opensource web extensions available that are able to read the entire contents of a web\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "are there any openso",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/are-there-any-opensource-web-e-oxn3d3GdTa.9G.lDfQjsQw"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_9",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-[Content] Message received from service worker: {command: 'generateSiteMap', params: {…}}\ncontent.js\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "[Content] Message re",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/content-message-received-from-2_zc.G4pS0ayjFm1H7SeAw"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_10",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-Web Extension Content Filtering Optimization Project Project Overview We are optimizing a Chrome ext\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Web Extension Conten",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/web-extension-content-filterin-nELqEcHMR7yMFAfPcOCIZw"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_11",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-Complete Flow Analysis - What We're Doing:\n1. �� Starting Point:\nUser opens: [https://www.youtube.co\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Complete Flow Analys",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/complete-flow-analysis-what-we-.NVVOeBzQPGl.hiys1gJWQ"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_12",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-my cursor ai is in agent mode but it is not performing actions using tools and instead of doing it i\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "my cursor ai is in a",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/my-cursor-ai-is-in-agent-mode-oHAaUMfAT7uPknP_o8L4Sg"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_13",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-Current Challenge Analysis\nThe Problem\nWe're dealing with a cross-context iframe clicking issue wher\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Current Challenge An",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/current-challenge-analysis-the-D3J5.IMmSg65y2s.9gq0LQ"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_14",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"thread-title-What I’m trying to achieve\nAdd occlusion-aware clicking that works consistently across DOM, shadow D\"]",
-          ".group",
-          "a.group",
-          "div:nth-child(1)"
-        ],
-        "textContent": "What I’m trying to a",
-        "className": "group relative block",
-        "attributes": {
-          "href": "/search/what-im-trying-to-achieve-add-H9etV3S.TOuTjExX0MOV0A"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_15",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".block",
-          "a.block",
-          "div:nth-child(5)"
-        ],
-        "textContent": "View All",
-        "className": "block",
-        "attributes": {
-          "href": "/library"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_navigate_a_16",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".mt-xs",
-          "a.mt-xs",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "mt-xs active:ease-outExpo block duration-100 ease-out active:scale-[0.97]",
-        "attributes": {
-          "href": "/"
-        },
-        "timestamp": 1755794177683
-      },
-      {
-        "id": "action_click_button_17",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "[data-testid=\"sidebar-new-thread\"]",
-          "[data-state=\"closed\"]",
-          ".bg-offsetPlus",
-          "button.bg-offsetPlus",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "bg-offsetPlus text-foreground md:hover:text-quiet my-lg hover:scale-105 font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-base h-10 aspect-square",
-        "attributes": {
-          "type": "button",
-          "aria-label": "New Thread"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_navigate_a_18",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"sidebar-home\"]",
-          ".p-sm",
-          "a.p-sm",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Home",
-        "className": "p-sm group flex w-full flex-col items-center justify-center gap-0.5",
-        "attributes": {
-          "href": "/"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_navigate_a_19",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"sidebar-discover\"]",
-          ".p-sm",
-          "a.p-sm",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Discover",
-        "className": "p-sm group flex w-full flex-col items-center justify-center gap-0.5",
-        "attributes": {
-          "href": "/discover"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_navigate_a_20",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-testid=\"sidebar-spaces\"]",
-          ".p-sm",
-          "a.p-sm",
-          "div:nth-child(3)"
-        ],
-        "textContent": "Spaces",
-        "className": "p-sm group flex w-full flex-col items-center justify-center gap-0.5",
-        "attributes": {
-          "href": "/spaces/templates/"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_click_button_21",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "[data-testid=\"sidebar-upgrade-button\"]",
-          ".gap-xs",
-          "button.gap-xs",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Upgrade",
-        "className": "gap-xs group inline-flex appearance-none flex-col items-center",
-        "attributes": {},
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_click_button_22",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          ".bg-offsetPlus",
-          "button.bg-offsetPlus",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "bg-offsetPlus text-foreground md:hover:text-quiet font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-square",
-        "attributes": {
-          "type": "button"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_click_button_23",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          ".focus-visible:bg-offsetPlus",
-          "button.focus-visible:bg-offsetPlus",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-base h-10 aspect-square",
-        "attributes": {
-          "type": "button"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_click_button_24",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "[data-state=\"checked\"]",
-          "[data-radix-collection-item=\"\"]",
-          ".segmented-control",
-          "button.segmented-control",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "segmented-control group/segmented-control relative focus:outline-none",
-        "attributes": {
-          "type": "button",
-          "role": "radio",
-          "aria-label": "Search"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_click_button_25",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "[data-state=\"closed\"]",
-          ".focus-visible:bg-offsetPlus",
-          "button.focus-visible:bg-offsetPlus",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus max-w-24 sm:max-w-none font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
-        "attributes": {
-          "type": "button",
-          "aria-label": "Choose a model"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_click_button_26",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "[data-testid=\"sources-switcher-button\"]",
-          "[data-state=\"closed\"]",
-          ".focus-visible:bg-offsetPlus",
-          "button.focus-visible:bg-offsetPlus",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus px-[4px]  font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
-        "attributes": {
-          "type": "button"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_click_button_27",
-        "tagName": "button",
-        "actionType": "click",
-        "selectors": [
-          "[data-state=\"closed\"]",
-          ".focus-visible:bg-offsetPlus",
-          "button.focus-visible:bg-offsetPlus",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
-        "attributes": {
-          "type": "button",
-          "aria-label": "Attach files. 3 left today"
-        },
-        "timestamp": 1755794177684
-      },
-      {
-        "id": "action_input_input_28",
+        "id": "action_input_input_4",
         "tagName": "input",
         "actionType": "input",
         "selectors": [
-          "div:nth-child(2)"
+          "#hist_state",
+          "body:nth-child(8)"
         ],
         "textContent": "",
         "className": "",
         "attributes": {
-          "type": "file"
+          "id": "hist_state",
+          "name": "hist_state",
+          "type": "text"
         },
-        "timestamp": 1755794177684
+        "timestamp": 1755876570050
       },
       {
-        "id": "action_click_button_29",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_content_html_5",
+        "tagName": "html",
+        "actionType": "content",
+        "selectors": [],
+        "textContent": "window['ppConfig'] =",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570051
+      },
+      {
+        "id": "action_content_body_6",
+        "tagName": "body",
+        "actionType": "content",
         "selectors": [
-          "[data-state=\"closed\"]",
-          ".focus-visible:bg-offsetPlus",
-          "button.focus-visible:bg-offsetPlus",
+          "html:nth-child(2)"
+        ],
+        "textContent": "(function(){try{\nvar",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570052
+      },
+      {
+        "id": "action_content_noscript_7",
+        "tagName": "noscript",
+        "actionType": "content",
+        "selectors": [
+          "body:nth-child(5)"
+        ],
+        "textContent": "<style nonce=\"_1f28K",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570052
+      },
+      {
+        "id": "action_content_div_8",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          "#loading",
+          "body:nth-child(6)"
+        ],
+        "textContent": "If you're having tro",
+        "className": "",
+        "attributes": {
+          "id": "loading"
+        },
+        "timestamp": 1755876570052
+      },
+      {
+        "id": "action_content_div_9",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          "#stb",
+          ".msgb",
+          "div.msgb",
+          "div:nth-child(3)"
+        ],
+        "textContent": "If you're having tro",
+        "className": "msgb",
+        "attributes": {
+          "id": "stb"
+        },
+        "timestamp": 1755876570052
+      },
+      {
+        "id": "action_content_form_10",
+        "tagName": "form",
+        "actionType": "content",
+        "selectors": [
+          "#bhlf",
           "div:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "focus-visible:bg-offsetPlus hover:bg-offsetPlus text-quiet  hover:text-foreground dark:hover:bg-offsetPlus font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
+        "textContent": "If you're having tro",
+        "className": "",
         "attributes": {
-          "type": "button",
-          "aria-label": "Dictation"
+          "id": "bhlf"
         },
-        "timestamp": 1755794177684
+        "timestamp": 1755876570052
       },
       {
-        "id": "action_click_button_30",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_content_p_11",
+        "tagName": "p",
+        "actionType": "content",
         "selectors": [
-          "[data-state=\"closed\"]",
-          ".bg-super",
-          "button.bg-super",
           "div:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "bg-super text-inverse hover:opacity-80 font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
-        "attributes": {
-          "type": "button",
-          "aria-label": "Voice mode"
-        },
-        "timestamp": 1755794177684
+        "textContent": "This is taking longe",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570052
       },
       {
-        "id": "action_click_button_31",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_content_b_12",
+        "tagName": "b",
+        "actionType": "content",
         "selectors": [
-          "[data-state=\"closed\"]",
-          ".border",
-          "button.border",
-          "span:nth-child(1)"
+          "a:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "border border-subtler text-quiet md:hover:border-subtle md:hover:text-quiet hover:bg-subtler bg-base shadow-subtle font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-square",
-        "attributes": {
-          "type": "button",
-          "aria-label": "Language"
-        },
-        "timestamp": 1755794177685
+        "textContent": "Try reloading the pa",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570052
       },
       {
-        "id": "action_click_button_32",
-        "tagName": "button",
-        "actionType": "click",
+        "id": "action_content_div_13",
+        "tagName": "div",
+        "actionType": "content",
         "selectors": [
-          "[data-state=\"closed\"]",
-          ".border",
-          "button.border",
-          "span:nth-child(1)"
+          "div:nth-child(2)"
         ],
-        "textContent": "",
-        "className": "border border-subtler text-quiet md:hover:border-subtle md:hover:text-quiet hover:bg-subtler bg-base shadow-subtle  font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-square",
+        "textContent": "If that doesn't work",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570052
+      },
+      {
+        "id": "action_content_ol_14",
+        "tagName": "ol",
+        "actionType": "content",
+        "selectors": [
+          "div:nth-child(1)"
+        ],
+        "textContent": "If you're on a slow ",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570052
+      },
+      {
+        "id": "action_content_li_15",
+        "tagName": "li",
+        "actionType": "content",
+        "selectors": [
+          "ol:nth-child(1)"
+        ],
+        "textContent": "If you're on a slow ",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570053
+      },
+      {
+        "id": "action_content_form_16",
+        "tagName": "form",
+        "actionType": "content",
+        "selectors": [
+          "#undefined",
+          "li:nth-child(1)"
+        ],
+        "textContent": "If you're on a slow ",
+        "className": "",
         "attributes": {
-          "type": "button",
-          "aria-label": "Help menu"
+          "id": "undefined"
         },
-        "timestamp": 1755794177685
+        "timestamp": 1755876570053
+      },
+      {
+        "id": "action_content_li_17",
+        "tagName": "li",
+        "actionType": "content",
+        "selectors": [
+          "ol:nth-child(2)"
+        ],
+        "textContent": "For more troubleshoo",
+        "className": "",
+        "attributes": {},
+        "timestamp": 1755876570053
       }
     ],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1755794332261,
-    "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "title": "Perplexity"
+    "lastUpdate": 1755876571553,
+    "url": "https://mail.google.com/mail/u/0/#inbox",
+    "title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
-  "recent_insights": [
-    {
-      "timestamp": 1755794178794,
-      "eventType": "structure_change",
-      "summary": "Page structure modified: 20 new elements added/removed",
-      "actionableInsights": [
-        "New interactive elements may be available",
-        "Page structure has changed - consider rescanning"
-      ],
-      "pageContext": {
-        "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-        "title": "Perplexity",
-        "currentView": "unknown",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 33,
-        "lastUpdate": 1755794178794
-      },
-      "recommendations": [
-        "immediate_rescan"
-      ]
-    },
-    {
-      "timestamp": 1755794181110,
-      "eventType": "structure_change",
-      "summary": "Page structure modified: 20 new elements added/removed",
-      "actionableInsights": [
-        "New interactive elements may be available",
-        "Page structure has changed - consider rescanning"
-      ],
-      "pageContext": {
-        "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-        "title": "Perplexity",
-        "currentView": "unknown",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 33,
-        "lastUpdate": 1755794181110
-      },
-      "recommendations": [
-        "immediate_rescan"
-      ]
-    },
-    {
-      "timestamp": 1755794299470,
-      "eventType": "structure_change",
-      "summary": "Page structure modified: 20 new elements added/removed",
-      "actionableInsights": [
-        "New interactive elements may be available",
-        "Page structure has changed - consider rescanning"
-      ],
-      "pageContext": {
-        "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-        "title": "Perplexity",
-        "currentView": "unknown",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 33,
-        "lastUpdate": 1755794299470
-      },
-      "recommendations": [
-        "immediate_rescan"
-      ]
-    },
-    {
-      "timestamp": 1755794322504,
-      "eventType": "structure_change",
-      "summary": "Page structure modified: 20 new elements added/removed",
-      "actionableInsights": [
-        "New interactive elements may be available",
-        "Page structure has changed - consider rescanning"
-      ],
-      "pageContext": {
-        "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-        "title": "Perplexity",
-        "currentView": "unknown",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 33,
-        "lastUpdate": 1755794322504
-      },
-      "recommendations": [
-        "immediate_rescan"
-      ]
-    },
-    {
-      "timestamp": 1755794332261,
-      "eventType": "structure_change",
-      "summary": "Page structure modified: 20 new elements added/removed",
-      "actionableInsights": [
-        "New interactive elements may be available",
-        "Page structure has changed - consider rescanning"
-      ],
-      "pageContext": {
-        "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-        "title": "Perplexity",
-        "currentView": "unknown",
-        "navigationState": "unknown",
-        "interactiveElementsCount": 33,
-        "lastUpdate": 1755794332261
-      },
-      "recommendations": [
-        "immediate_rescan"
-      ]
-    }
-  ],
+  "recent_insights": [],
   "summary": {
     "total_menus": 0,
     "total_items": 0,

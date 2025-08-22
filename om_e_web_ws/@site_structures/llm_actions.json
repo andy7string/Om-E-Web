@@ -1,498 +1,233 @@
 {
   "_page_context": {
-    "url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "title": "Perplexity",
-    "timestamp": 1755794358.934914,
-    "total_actions": 33,
-    "active_tab_id": 1137970079
+    "url": "https://mail.google.com/mail/u/0/#inbox",
+    "title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail",
+    "timestamp": 1755876607.656087,
+    "total_actions": 18,
+    "active_tab_id": 1137972786
   },
-  "action_click_button_0": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_navigate_a_0": {
+    "action_type": "navigate",
+    "description": "Gmail Help Centre",
+    "tag_name": "a",
     "selectors": [
-      "[data-testid=\"sidebar-pin-sidebar\"]",
-      "[data-state=\"closed\"]",
-      ".focus-visible:bg-offsetPlus",
-      "button.focus-visible:bg-offsetPlus",
-      "div:nth-child(1)"
+      "form:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_0' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "llm_instruction": "Use actionId 'action_navigate_a_0' to navigate with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
   "action_navigate_a_1": {
     "action_type": "navigate",
-    "description": "Finance",
+    "description": "Try reloading the pa",
     "tag_name": "a",
     "selectors": [
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
+      "#reloadurl",
+      "p:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_1' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
-  "action_navigate_a_2": {
-    "action_type": "navigate",
-    "description": "Travel",
-    "tag_name": "a",
+  "action_submit_input_2": {
+    "action_type": "submit",
+    "description": "",
+    "tag_name": "input",
     "selectors": [
-      ".group",
-      "a.group",
-      "div:nth-child(2)"
+      ".submit_as_link",
+      "input.submit_as_link",
+      "form:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_2' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "llm_instruction": "Use actionId 'action_submit_input_2' to submit with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
   "action_navigate_a_3": {
     "action_type": "navigate",
-    "description": "Academic",
+    "description": "Help Centre",
     "tag_name": "a",
     "selectors": [
-      ".group",
-      "a.group",
-      "div:nth-child(3)"
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_navigate_a_3' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
-  "action_navigate_a_4": {
-    "action_type": "navigate",
-    "description": "Library",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"library-button\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_4' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_5": {
-    "action_type": "navigate",
-    "description": "🎯 Comprehensive Ana",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-🎯 Comprehensive Analysis: The Challenge of Universal Navigation Detection\nOur Current Extension Stat\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_5' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_6": {
-    "action_type": "navigate",
-    "description": "What I'm Building:\nA",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-What I'm Building:\nA Chrome browser extension that provides AI-powered web automation by intelligent\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_6' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_7": {
-    "action_type": "navigate",
-    "description": "what js extensions a",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-what js extensions are available that allow me to find the x and y co-ordinates of all objects on a \"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_7' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_8": {
-    "action_type": "navigate",
-    "description": "are there any openso",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-are there any opensource web extensions available that are able to read the entire contents of a web\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_8' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_9": {
-    "action_type": "navigate",
-    "description": "[Content] Message re",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-[Content] Message received from service worker: {command: 'generateSiteMap', params: {…}}\ncontent.js\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_9' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_10": {
-    "action_type": "navigate",
-    "description": "Web Extension Conten",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-Web Extension Content Filtering Optimization Project Project Overview We are optimizing a Chrome ext\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_10' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_11": {
-    "action_type": "navigate",
-    "description": "Complete Flow Analys",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-Complete Flow Analysis - What We're Doing:\n1. �� Starting Point:\nUser opens: [https://www.youtube.co\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_11' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_12": {
-    "action_type": "navigate",
-    "description": "my cursor ai is in a",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-my cursor ai is in agent mode but it is not performing actions using tools and instead of doing it i\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_12' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_13": {
-    "action_type": "navigate",
-    "description": "Current Challenge An",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-Current Challenge Analysis\nThe Problem\nWe're dealing with a cross-context iframe clicking issue wher\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_13' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_14": {
-    "action_type": "navigate",
-    "description": "What I’m trying to a",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"thread-title-What I’m trying to achieve\nAdd occlusion-aware clicking that works consistently across DOM, shadow D\"]",
-      ".group",
-      "a.group",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_14' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_15": {
-    "action_type": "navigate",
-    "description": "View All",
-    "tag_name": "a",
-    "selectors": [
-      ".block",
-      "a.block",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_15' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_16": {
-    "action_type": "navigate",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".mt-xs",
-      "a.mt-xs",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_16' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_click_button_17": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-testid=\"sidebar-new-thread\"]",
-      "[data-state=\"closed\"]",
-      ".bg-offsetPlus",
-      "button.bg-offsetPlus",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_17' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_18": {
-    "action_type": "navigate",
-    "description": "Home",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"sidebar-home\"]",
-      ".p-sm",
-      "a.p-sm",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_18' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_19": {
-    "action_type": "navigate",
-    "description": "Discover",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"sidebar-discover\"]",
-      ".p-sm",
-      "a.p-sm",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_19' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_navigate_a_20": {
-    "action_type": "navigate",
-    "description": "Spaces",
-    "tag_name": "a",
-    "selectors": [
-      "[data-testid=\"sidebar-spaces\"]",
-      ".p-sm",
-      "a.p-sm",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_navigate_a_20' to navigate with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_click_button_21": {
-    "action_type": "click",
-    "description": "Upgrade",
-    "tag_name": "button",
-    "selectors": [
-      "[data-testid=\"sidebar-upgrade-button\"]",
-      ".gap-xs",
-      "button.gap-xs",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_21' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_click_button_22": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".bg-offsetPlus",
-      "button.bg-offsetPlus",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_22' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_click_button_23": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".focus-visible:bg-offsetPlus",
-      "button.focus-visible:bg-offsetPlus",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_23' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_click_button_24": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-state=\"checked\"]",
-      "[data-radix-collection-item=\"\"]",
-      ".segmented-control",
-      "button.segmented-control",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_24' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_click_button_25": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-state=\"closed\"]",
-      ".focus-visible:bg-offsetPlus",
-      "button.focus-visible:bg-offsetPlus",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_25' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_click_button_26": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-testid=\"sources-switcher-button\"]",
-      "[data-state=\"closed\"]",
-      ".focus-visible:bg-offsetPlus",
-      "button.focus-visible:bg-offsetPlus",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_26' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_click_button_27": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-state=\"closed\"]",
-      ".focus-visible:bg-offsetPlus",
-      "button.focus-visible:bg-offsetPlus",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_27' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
-  },
-  "action_input_input_28": {
+  "action_input_input_4": {
     "action_type": "input",
     "description": "",
     "tag_name": "input",
     "selectors": [
+      "#hist_state",
+      "body:nth-child(8)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_input_input_4' to input with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_html_5": {
+    "action_type": "content",
+    "description": "window['ppConfig'] =",
+    "tag_name": "html",
+    "selectors": [],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_content_html_5' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_body_6": {
+    "action_type": "content",
+    "description": "(function(){try{\nvar",
+    "tag_name": "body",
+    "selectors": [
+      "html:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_content_body_6' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_noscript_7": {
+    "action_type": "content",
+    "description": "<style nonce=\"_1f28K",
+    "tag_name": "noscript",
+    "selectors": [
+      "body:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_content_noscript_7' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_div_8": {
+    "action_type": "content",
+    "description": "If you're having tro",
+    "tag_name": "div",
+    "selectors": [
+      "#loading",
+      "body:nth-child(6)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_content_div_8' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_div_9": {
+    "action_type": "content",
+    "description": "If you're having tro",
+    "tag_name": "div",
+    "selectors": [
+      "#stb",
+      ".msgb",
+      "div.msgb",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_content_div_9' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_form_10": {
+    "action_type": "content",
+    "description": "If you're having tro",
+    "tag_name": "form",
+    "selectors": [
+      "#bhlf",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_content_form_10' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_p_11": {
+    "action_type": "content",
+    "description": "This is taking longe",
+    "tag_name": "p",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_content_p_11' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_b_12": {
+    "action_type": "content",
+    "description": "Try reloading the pa",
+    "tag_name": "b",
+    "selectors": [
+      "a:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_content_b_12' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
+  },
+  "action_content_div_13": {
+    "action_type": "content",
+    "description": "If that doesn't work",
+    "tag_name": "div",
+    "selectors": [
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_input_input_28' to input with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "llm_instruction": "Use actionId 'action_content_div_13' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
-  "action_click_button_29": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_content_ol_14": {
+    "action_type": "content",
+    "description": "If you're on a slow ",
+    "tag_name": "ol",
     "selectors": [
-      "[data-state=\"closed\"]",
-      ".focus-visible:bg-offsetPlus",
-      "button.focus-visible:bg-offsetPlus",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_29' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "llm_instruction": "Use actionId 'action_content_ol_14' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
-  "action_click_button_30": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_content_li_15": {
+    "action_type": "content",
+    "description": "If you're on a slow ",
+    "tag_name": "li",
     "selectors": [
-      "[data-state=\"closed\"]",
-      ".bg-super",
-      "button.bg-super",
-      "div:nth-child(1)"
+      "ol:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_30' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "llm_instruction": "Use actionId 'action_content_li_15' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
-  "action_click_button_31": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_content_form_16": {
+    "action_type": "content",
+    "description": "If you're on a slow ",
+    "tag_name": "form",
     "selectors": [
-      "[data-state=\"closed\"]",
-      ".border",
-      "button.border",
-      "span:nth-child(1)"
+      "#undefined",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_31' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "llm_instruction": "Use actionId 'action_content_form_16' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   },
-  "action_click_button_32": {
-    "action_type": "click",
-    "description": "",
-    "tag_name": "button",
+  "action_content_li_17": {
+    "action_type": "content",
+    "description": "For more troubleshoo",
+    "tag_name": "li",
     "selectors": [
-      "[data-state=\"closed\"]",
-      ".border",
-      "button.border",
-      "span:nth-child(1)"
+      "ol:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_click_button_32' to click with this element",
-    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
-    "page_title": "Perplexity"
+    "llm_instruction": "Use actionId 'action_content_li_17' to content with this element",
+    "page_url": "https://mail.google.com/mail/u/0/#inbox",
+    "page_title": "Inbox (4,820) - andreworsmond21175@gmail.com - Gmail"
   }
 }
