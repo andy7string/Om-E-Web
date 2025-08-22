@@ -1751,28 +1751,35 @@ async function generateSiteMap() {
         
         // 🛡️ SAFE CROSS-ORIGIN ACCESS: Handle restricted iframe contexts
         let targetDocument, targetWindow;
+        let scanContext = "current_frame";
         
         try {
             if (isInIframe) {
+                console.log("[Content] generateSiteMap: Detected iframe, attempting main frame access...");
                 // Try to access main frame, but handle cross-origin restrictions
                 targetDocument = window.top.document;
                 targetWindow = window.top;
+                scanContext = "main_frame";
+                console.log("[Content] generateSiteMap: ✅ Successfully accessing main frame for site mapping");
             } else {
                 targetDocument = document;
                 targetWindow = window;
+                scanContext = "main_frame";
+                console.log("[Content] generateSiteMap: ✅ Already in main frame context");
             }
         } catch (crossOriginError) {
             console.warn("[Content] Cross-origin iframe detected in generateSiteMap, using current frame context:", crossOriginError.message);
             // Fall back to current frame if we can't access main frame
             targetDocument = document;
             targetWindow = window;
+            scanContext = "restricted_iframe";
             // Mark that we're in a restricted iframe
             isInIframe = true;
         }
         
         console.log("[Content] generateSiteMap: Frame context:", {
             isInIframe: isInIframe,
-            usingMainFrame: isInIframe,
+            scanContext: scanContext,
             frameUrl: window.location.href,
             mainFrameUrl: isInIframe ? window.top.location.href : window.location.href
         });
@@ -2087,6 +2094,7 @@ async function generateSiteMap() {
         
         console.log("[Content] generateSiteMap: Mapping complete:", {
             processingTime: processingTime.toFixed(2) + "ms",
+            scanContext: scanContext,
             totalElements: result.statistics.totalElements,
             clickableElements: result.statistics.clickableElements,
             forms: result.statistics.formElements
@@ -5653,6 +5661,30 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
     try {
         console.log("[Content] 🔍 Scanning page for interactive elements...");
         
+        // 🎯 FRAME CONTEXT FIX: Ensure we're scanning the main page, not iframes
+        let targetDocument = document;
+        let scanContext = "current_frame";
+        
+        // Check if we're in an iframe
+        if (window !== window.top) {
+            console.log("[Content] 🔍 Detected iframe context, attempting to access main frame...");
+            try {
+                // Try to access main frame document
+                targetDocument = window.top.document;
+                scanContext = "main_frame";
+                console.log("[Content] ✅ Successfully accessing main frame document for scanning");
+            } catch (crossOriginError) {
+                console.log("[Content] ⚠️ Cross-origin iframe restriction, using current frame:", crossOriginError.message);
+                targetDocument = document;
+                scanContext = "restricted_iframe";
+            }
+        } else {
+            console.log("[Content] ✅ Already in main frame context");
+            scanContext = "main_frame";
+        }
+        
+        console.log("[Content] 🎯 Scanning context:", scanContext);
+        
         // Clear existing elements
         this.actionableElements.clear();
         this.elementCounter = 0;
@@ -5692,43 +5724,60 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             '[aria-label~="play" i], [aria-label~="pause" i], [aria-label~="like" i], [aria-label~="share" i]'
         ];
         
-        const elements = document.querySelectorAll(interactiveSelectors.join(','));
-        console.log("[Content] 🔍 Found", elements.length, "generic interactive elements");
+        // 🎯 FRAME CONTEXT FIX: Use targetDocument instead of document
+        const elements = targetDocument.querySelectorAll(interactiveSelectors.join(','));
+        console.log("[Content] 🔍 Found", elements.length, "generic interactive elements from", scanContext);
         
         // 🆕 COMBINE: Framework elements + generic elements
         const allElements = [...frameworkElements.map(fe => fe.element), ...Array.from(elements)];
         console.log("[Content] 🔍 Total elements to process:", allElements.length, `(${frameworkElements.length} framework + ${elements.length} generic)`);
         
-        // 🆕 PHASE 3: Process all elements (framework + generic)
+        // 🆕 PHASE 3: Process all elements (framework + generic) with frame context awareness
         let filteredCount = 0;
         let registeredCount = 0;
+        let frameContextIssues = 0;
         
         allElements.forEach(element => {
-            if (this.isInteractiveElement(element)) {
-                filteredCount++;
-                if (this.passesBasicQualityFilter(element)) {
-                    const actionType = this.determineActionType(element);
-                    const actionId = this.registerActionableElement(element, actionType);
-                    registeredCount++;
-                    
-                    // Get the full element data to show href attributes
-                    const elementData = this.getActionableElement(actionId);
-                    console.log("[Content] 📝 Registered element:", {
-                        actionId: actionId,
-                        tagName: element.tagName,
-                        actionType: actionType,
-                        textContent: element.textContent?.trim().substring(0, 30) || '',
-                        href: element.tagName === 'A' ? element.href : undefined,
-                        attributes: elementData?.attributes || {}
-                    });
+            // 🎯 FRAME CONTEXT FIX: Check if element belongs to the right document context
+            try {
+                // Verify element is from the target document we're scanning
+                if (element.ownerDocument !== targetDocument) {
+                    frameContextIssues++;
+                    return; // Skip elements from wrong document context
                 }
+                
+                if (this.isInteractiveElement(element)) {
+                    filteredCount++;
+                    if (this.passesBasicQualityFilter(element)) {
+                        const actionType = this.determineActionType(element);
+                        const actionId = this.registerActionableElement(element, actionType);
+                        registeredCount++;
+                        
+                        // Get the full element data to show href attributes
+                        const elementData = this.getActionableElement(actionId);
+                        console.log("[Content] 📝 Registered element:", {
+                            actionId: actionId,
+                            tagName: element.tagName,
+                            actionType: actionType,
+                            textContent: element.textContent?.trim().substring(0, 30) || '',
+                            href: element.tagName === 'A' ? element.href : undefined,
+                            attributes: elementData?.attributes || {},
+                            scanContext: scanContext
+                        });
+                    }
+                }
+            } catch (contextError) {
+                frameContextIssues++;
+                console.warn("[Content] ⚠️ Frame context issue with element:", contextError.message);
             }
         });
         
         console.log("[Content] 🎯 PHASE 3 FILTERING RESULTS:");
         console.log(`   📊 Total elements found: ${allElements.length} (${frameworkElements.length} framework + ${elements.length} generic)`);
+        console.log(`   🎯 Scan context: ${scanContext}`);
         console.log(`   🔍 Interactive elements: ${filteredCount}`);
         console.log(`   ✅ Quality-filtered elements: ${registeredCount}`);
+        console.log(`   ⚠️ Frame context issues: ${frameContextIssues}`);
         console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / allElements.length) * 100)}%`);
         
         // Update page state
