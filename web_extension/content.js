@@ -5781,23 +5781,25 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / allElements.length) * 100)}%`);
         
         // Update page state
-                    this.pageState.interactiveElements = this.getAllActionableElements();
-            
-            // 🆕 NEW: Mark initial scan as complete
-            this.initialScanCompleted = true;
-            console.log("[Content] ✅ Initial page scan marked as complete");
-            
-            const result = {
-                success: true,
-                totalElements: this.actionableElements.size,
-                actionableElements: this.getActionableElementsSummary(),
-                actionMapping: this.generateActionMapping(),
-                message: `Successfully registered ${this.actionableElements.size} interactive elements`
-            };
-            
-            console.log("[Content] ✅ Page scan complete:", result);
-            return result;
+        this.pageState.interactiveElements = this.getAllActionableElements();
         
+        // 🆕 NEW: Mark initial scan as complete
+        this.initialScanCompleted = true;
+        console.log("[Content] ✅ Initial page scan marked as complete");
+        
+        const result = {
+            success: true,
+            totalElements: this.actionableElements.size,
+            actionableElements: this.getActionableElementsSummary(),
+            actionMapping: this.generateActionMapping(),
+            message: `Successfully registered ${this.actionableElements.size} interactive elements`,
+            scanContext: scanContext,
+            frameContextIssues: frameContextIssues
+        };
+        
+        console.log("[Content] ✅ Page scan complete:", result);
+        return result;
+    
     } catch (error) {
         console.error("[Content] ❌ Error scanning page:", error);
         return { success: false, error: error.message };
