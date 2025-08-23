@@ -684,7 +684,90 @@ function performImmediateComprehensiveScan() {
         console.log(`[Content] 🚀 Immediate comprehensive scan complete:`, filteringStats);
         console.log(`[Content] 🧹 Filtering Summary:`, filteringStats.filtering);
         
-        // 🎯 Step 8: Attempt to traverse to main frame if in iframe
+        // 🆕 NEW: Step 8: Queue-based registration of all found elements
+        console.log(`[Content] 🔄 Step 8: Queue-based registration of ${interactiveElements.length} interactive elements...`);
+        
+        try {
+            // Create registration queue for all interactive elements
+            const registrationQueue = [...interactiveElements];
+            let registeredCount = 0;
+            let failedCount = 0;
+            
+            // Process queue one element at a time to avoid overwhelming the engine
+            const processRegistrationQueue = () => {
+                if (registrationQueue.length === 0) {
+                    console.log(`[Content] ✅ Registration queue complete: ${registeredCount} registered, ${failedCount} failed`);
+                    return;
+                }
+                
+                const elementObj = registrationQueue.shift();
+                
+                // Check if IntelligenceEngine is available
+                if (window.intelligenceEngine && window.intelligenceEngine.registerActionableElement) {
+                    try {
+                        // Reconstruct DOM element from selector
+                        let domElement = null;
+                        try {
+                            domElement = document.querySelector(elementObj.selector);
+                        } catch (e) {
+                            console.warn(`[Content] ⚠️ Could not resolve selector: ${elementObj.selector}`);
+                            failedCount++;
+                            // Continue with next element instead of returning
+                            setTimeout(processRegistrationQueue, 10);
+                            return;
+                        }
+                        
+                        if (!domElement) {
+                            console.warn(`[Content] ⚠️ Element not found for selector: ${elementObj.selector}`);
+                            failedCount++;
+                            // Continue with next element instead of returning
+                            setTimeout(processRegistrationQueue, 10);
+                            return;
+                        }
+                        
+                        // Debug: Check what we're passing
+                        console.log(`[Content] 🔍 Debug - domElement:`, domElement);
+                        console.log(`[Content] 🔍 Debug - domElement type:`, typeof domElement);
+                        console.log(`[Content] 🔍 Debug - domElement.tagName:`, domElement?.tagName);
+                        console.log(`[Content] 🔍 Debug - domElement.getAttribute:`, typeof domElement?.getAttribute);
+                        
+                        // Register the element directly with the DOM element
+                        const actionId = window.intelligenceEngine.registerActionableElement(domElement, elementObj.actionType || 'click');
+                        if (actionId) {
+                            registeredCount++;
+                            console.log(`[Content] ✅ Registered element ${registeredCount}/${interactiveElements.length}: ${actionId}`);
+                        } else {
+                            failedCount++;
+                            console.log(`[Content] ⚠️ Failed to register element: ${elementObj.selector}`);
+                        }
+                    } catch (error) {
+                        failedCount++;
+                        console.warn(`[Content] ⚠️ Error registering element:`, error.message);
+                        console.log(`[Content] 🔍 Failed element details:`, elementObj);
+                    }
+                } else {
+                    // IntelligenceEngine not available, retry after delay
+                    console.log(`[Content] ⏳ IntelligenceEngine not available, retrying in 100ms...`);
+                    registrationQueue.unshift(elementObj); // Put element back in queue
+                    setTimeout(processRegistrationQueue, 100);
+                    return;
+                }
+                
+                // Process next element with small delay to avoid overwhelming
+                // Always continue to next element, even if current one failed
+                setTimeout(processRegistrationQueue, 10);
+            };
+            
+            // Start processing the queue
+            if (registrationQueue.length > 0) {
+                processRegistrationQueue();
+            }
+            
+        } catch (error) {
+            console.warn(`[Content] ⚠️ Error in queue-based registration:`, error.message);
+        }
+        
+        // 🎯 Step 9: Attempt to traverse to main frame if in iframe
         if (!frameInfo.isMainFrame && frameInfo.frameDepth > 0) {
             console.log("[Content] 🔍 Attempting to traverse to main frame...");
             
@@ -700,7 +783,7 @@ function performImmediateComprehensiveScan() {
             }
         }
         
-        // 🎯 Step 9: Send results to service worker
+        // 🎯 Step 10: Send results to service worker
         if (chrome.runtime && chrome.runtime.sendMessage) {
             chrome.runtime.sendMessage({
                 type: 'immediate_scan_results',
@@ -6423,13 +6506,38 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
  * 🆕 NEW: Register an element as actionable
  */
 IntelligenceEngine.prototype.registerActionableElement = function(element, actionType = 'general') {
-    const actionableId = this.generateActionableId(element, actionType);
+    console.log(`[Content] 🔍 registerActionableElement called with:`, { element, actionType });
+    console.log(`[Content] 🔍 element type:`, typeof element);
+    console.log(`[Content] 🔍 element.tagName:`, element?.tagName);
+    console.log(`[Content] 🔍 element.getAttribute:`, typeof element?.getAttribute);
+    
+    // Ensure we have a real DOM element for attribute extraction
+    let domElement = element;
+    
+    // If element is an object with a selector, try to resolve it to a DOM element
+    if (element && typeof element === 'object' && element.selector && !element.tagName) {
+        try {
+            domElement = document.querySelector(element.selector);
+            if (!domElement) {
+                console.warn(`[Content] ⚠️ Could not resolve selector to DOM element: ${element.selector}`);
+                return null;
+            }
+        } catch (e) {
+            console.warn(`[Content] ⚠️ Error resolving selector: ${element.selector}`, e.message);
+            return null;
+        }
+    }
+    
+    console.log(`[Content] 🔍 Final domElement:`, domElement);
+    console.log(`[Content] 🔍 Final domElement.getAttribute:`, typeof domElement?.getAttribute);
+    
+    const actionableId = this.generateActionableId(domElement, actionType);
     this.actionableElements.set(actionableId.id, actionableId);
     
     // Add to page state
     this.pageState.interactiveElements.push({
         ...actionableId,
-        element: element
+        element: domElement
     });
     
     return actionableId.id;
