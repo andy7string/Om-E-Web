@@ -96,6 +96,7 @@
   "youtube.com": {
     "framework": "youtube",
     "scan_strategy": "youtube_specific",
+    "url_patterns": ["youtube.com", "*.youtube.com", "youtu.be"],
     "selectors": {
       "navigation": [
         "ytd-masthead",

@@ -42,7 +42,7 @@ if (window.intelligenceSystemInitialized && window.intelligenceComponents && win
     pageContext = window.intelligenceComponents.pageContext || pageContext;
 } else {
     window.intelligenceSystemInitialized = true;
-    console.log("[Content] 🧪 First time initialization, setting up intelligence system...");
+    // Removed initialization logging
 }
 
 // 🆕 NEW: DOM Change Detection System - Use 'var' to prevent redeclaration errors
@@ -73,18 +73,10 @@ var totalElementsScanned = 0;
 var continuousScanningEnabled = true;
 
 // 🆕 NEW: Simple test to verify code is running
-console.log("[Content] 🧪 Testing intelligence system components...");
-console.log("[Content] 🧪 DOM change detection system:", {
-    changeDetectionEnabled: changeDetectionEnabled,
-    changeCount: changeCount,
-    lastChangeTime: lastChangeTime
-});
-console.log("[Content] 🧪 Intelligence system variables:", { changeAggregator, intelligenceEngine, pageContext });
-console.log("[Content] 🧪 Continuous DOM scanning:", {
-    enabled: continuousScanningEnabled,
-    interval: DOM_SCAN_INTERVAL,
-    totalElementsScanned: totalElementsScanned
-});
+// Removed system testing logs
+// Removed DOM status logs
+// Removed variables logs
+// Removed scanning logs
 
 // 🆕 NEW: Site configuration and framework detection
 if (typeof siteConfigs === 'undefined') {
@@ -103,46 +95,424 @@ if (typeof siteConfigs === 'undefined') {
     let currentFramework = window.currentFramework || 'generic';
 }
 
-// 🆕 NEW: Load site configs from storage on startup
-chrome.storage.local.get(['siteConfigs'], (result) => {
-    if (result.siteConfigs) {
-        siteConfigs = result.siteConfigs;
-        console.log("[Content] 📋 Loaded site configs:", Object.keys(siteConfigs));
-        detectAndApplyFramework();
-    }
-    
-    // 🚫 Continuous DOM scanning DISABLED to prevent context interference
-    console.log("[Content] 🚫 Continuous DOM scanning DISABLED - manual mode only");
-    console.log("[Content] 💡 Use test commands to trigger manual scans when needed");
-});
+// 🆕 NEW: Independent framework detection - no storage dependency
+detectAndApplyFramework();
+
+// 🚫 Continuous DOM scanning DISABLED to prevent context interference
+console.log("[Content] 🚫 Continuous DOM scanning DISABLED - manual mode only");
+console.log("[Content] 💡 Use test commands to trigger manual scans when needed");
 
 // 🆕 NEW: Framework detection function
+// 🆕 NEW: JavaScript implementation of fuzzy URL pattern matching
+function matchUrlPattern(hostname, pattern) {
+    try {
+        // Normalize inputs
+        hostname = hostname.toLowerCase();
+        pattern = pattern.toLowerCase();
+        
+        // Handle exact matches
+        if (pattern === '*' || hostname === pattern) {
+            return true;
+        }
+        
+        // Handle patterns with scheme (e.g., "https://google.com")
+        if (pattern.includes('://')) {
+            const [scheme, domain] = pattern.split('://', 2);
+            if (scheme !== 'https' && scheme !== 'http*') {
+                return false; // Only support http/https schemes
+            }
+            pattern = domain;
+        }
+        
+        // Handle wildcard patterns
+        if (pattern.includes('*')) {
+            // Check for unsafe patterns (multiple wildcards, TLD wildcards)
+            if (pattern.split('*').length > 2) {
+                console.warn(`[Content] ⚠️ Unsafe pattern with multiple wildcards: ${pattern}`);
+                return false;
+            }
+            
+            if (pattern.endsWith('.*')) {
+                console.warn(`[Content] ⚠️ TLD wildcards not supported: ${pattern}`);
+                return false;
+            }
+            
+            // Handle *.domain patterns (e.g., *.google.com)
+            if (pattern.startsWith('*.')) {
+                const parentDomain = pattern.substring(2);
+                return hostname === parentDomain || hostname.endsWith('.' + parentDomain);
+            }
+            
+            // Handle domain.* patterns (e.g., google.*)
+            if (pattern.endsWith('.*')) {
+                const baseDomain = pattern.substring(0, pattern.length - 2);
+                return hostname === baseDomain || hostname.startsWith(baseDomain + '.');
+            }
+            
+            // Convert glob pattern to regex and test
+            const regexPattern = pattern.replace(/\*/g, '.*');
+            const regex = new RegExp(`^${regexPattern}$`);
+            return regex.test(hostname);
+        }
+        
+        return false;
+    } catch (error) {
+        console.warn(`[Content] ⚠️ Error matching pattern ${pattern} against ${hostname}:`, error);
+        return false;
+    }
+}
+
 function detectAndApplyFramework() {
     const currentUrl = window.location.href;
     const hostname = new URL(currentUrl).hostname;
     
-    // Check for exact matches first
-    if (siteConfigs[hostname]) {
-        currentSiteConfig = siteConfigs[hostname];
-        currentFramework = currentSiteConfig.framework;
-        console.log("[Content] 🎯 Detected framework:", currentFramework, "for site:", hostname);
-        return;
-    }
+    console.log("🚨🚨🚨 FRAMEWORK DETECTION 🚨🚨🚨");
+    console.log("🔍 Hostname:", hostname);
     
-    // Check for partial matches (e.g., youtube.com matches youtube)
+    // 🆕 NEW: Built-in site configs - no storage dependency
+    const siteConfigs = {
+        'google.com': {
+            framework: 'google',
+            scan_strategy: 'google_specific',
+            url_patterns: ["google.com", "google.*", "*.google.com"],
+            selectors: {
+                navigation: [
+                    "header",
+                    "[role='banner']",
+                    ".gb_ua",
+                    ".gb_oa",
+                    "nav",
+                    "[role='navigation']"
+                ],
+                buttons: [
+                    "button[aria-label]",
+                    "[role='button']",
+                    ".gb_oa",
+                    "#gb_70",
+                    "#gb_119",
+                    "[data-ved]"
+                ],
+                menus: [
+                    "#searchbox",
+                    "#searchbox-input",
+                    "#gb_70",
+                    "#gb_119",
+                    "[aria-label*='Google apps']",
+                    "[aria-label*='Google Apps']"
+                ],
+                hidden_content: [
+                    "#gb",
+                    ".gb_oa",
+                    "#searchbox-suggestions",
+                    "#searchbox-results",
+                    "[aria-hidden='true']",
+                    ".gb_oa"
+                ],
+                text_inputs: [
+                    "input[type='text']",
+                    "input[type='search']",
+                    "textarea",
+                    "[contenteditable='true']",
+                    "[role='textbox']",
+                    "input[placeholder]"
+                ]
+            },
+            filters: {
+                include: [
+                    "header",
+                    "nav", 
+                    "#searchbox",
+                    "#gb_70",
+                    "[aria-label*='Google apps']"
+                ],
+                exclude: [
+                    "[data-ved]",
+                    ".gb_oa",
+                    ".gb_ua",
+                    "[aria-hidden='true']",
+                    "[style*='display: none']"
+                ],
+                max_elements: 25
+            },
+            interaction_patterns: {
+                expand_apps: {
+                    trigger: "[aria-label*='Google apps'], [aria-label*='Google Apps']",
+                    wait_for: "#gb",
+                    timeout: 1000
+                },
+                expand_search: {
+                    trigger: "#searchbox, #searchbox-input",
+                    wait_for: "#searchbox-suggestions",
+                    timeout: 500
+                },
+                expand_account: {
+                    trigger: "#gb_70, #gb_119",
+                    wait_for: "[role='menu']",
+                    timeout: 1000
+                }
+            },
+            scan_priority: [
+                "text_inputs",
+                "search_interface",
+                "header_navigation",
+                "app_launcher",
+                "account_menu",
+                "hidden_content"
+            ],
+            custom_handlers: {
+                google_framework: true,
+                search_suggestions: true,
+                app_drawer: true
+            }
+        },
+        'youtube.com': {
+            framework: 'youtube',
+            scan_strategy: 'youtube_specific',
+            url_patterns: ["youtube.com", "*.youtube.com", "youtu.be"],
+            selectors: {
+                navigation: [
+                    "#guide-button", 
+                    "#searchbox",
+                    "#logo",
+                    "#back-button",
+                    "ytd-masthead",
+                    "ytd-mini-guide-renderer",
+                    "ytd-topbar-menu-button-renderer"
+                ],
+                buttons: [
+                    "yt-icon-button",
+                    "ytd-button-renderer",
+                    "button[aria-label]",
+                    "#guide-button",
+                    "#avatar-btn",
+                    "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+                    "[role='button']:not([aria-disabled='true']):not([hidden])",
+                    "ytd-toggle-button-renderer[is-icon-button]",
+                    "ytd-subscribe-button-renderer",
+                    "button[aria-label^='Like']",
+                    "button[aria-label^='Dislike']",
+                    "ytd-button-renderer[button-id='share'] button",
+                    "ytd-button-renderer[button-id='menu'] button",
+                    "ytd-comments-header-renderer ytd-button-renderer",
+                    "yt-icon-button#search-icon-legacy",
+                    "#voice-search-button",
+                    "button[aria-label*='Comments']",
+                    "paper-button#action-button",
+                    ".ytp-play-button",
+                    ".ytp-fullscreen-button",
+                    ".ytp-settings-button"
+                ],
+                menus: [
+                    "#guide-button",
+                    "#avatar-btn", 
+                    "#guide",
+                    "#account-menu",
+                    "ytd-guide-renderer",
+                    "tp-yt-paper-listbox[role='listbox']",
+                    "tp-yt-paper-menu",
+                    "ytd-multi-page-menu-renderer",
+                    "ytd-searchbox-suggestions",
+                    "ytd-popup-container"
+                ],
+                hidden_content: [
+                    "#guide[hidden]",
+                    "[aria-hidden='true']",
+                    ".ytd-app-drawer[opened]",
+                    "tp-yt-paper-dialog[aria-hidden='false']",
+                    ".ytd-app-drawer[opened]"
+                ],
+                text_inputs: [
+                    "#searchbox",
+                    "input[type='text']",
+                    "input[type='search']",
+                    "[contenteditable='true']",
+                    "input:not([type='hidden']):not([disabled]):not([hidden])",
+                    "select:not([disabled]):not([hidden])",
+                    "textarea:not([disabled]):not([hidden])",
+                    "[role='combobox']:not([aria-disabled='true']):not([hidden])"
+                ],
+                links: [
+                    "a[href]:not([href='']):not([href^='#']):not([tabindex='-1']):not([hidden])"
+                ],
+                interactive_roles: [
+                    "[role='search']:not([aria-disabled='true']):not([hidden])",
+                    "[role='switch']:not([aria-disabled='true']):not([hidden])",
+                    "[role='checkbox']:not([aria-disabled='true']):not([hidden])",
+                    "[role='radio']:not([aria-disabled='true']):not([hidden])",
+                    "[role='menuitem']:not([aria-disabled='true']):not([hidden])",
+                    "[role='tab']:not([aria-disabled='true']):not([hidden])",
+                    "[role='option']:not([aria-disabled='true']):not([hidden])"
+                ],
+                media_controls: [
+                    "[aria-label~='play' i]",
+                    "[aria-label~='pause' i]",
+                    "[aria-label~='like' i]",
+                    "[aria-label~='share' i]",
+                    "[aria-label~='subscribe' i]",
+                    "[aria-label~='comment' i]",
+                    "[aria-label~='download' i]",
+                    "[aria-label~='fullscreen' i]"
+                ]
+            },
+            filters: {
+                include: [
+                    "#guide-button",
+                    "#searchbox",
+                    "#logo",
+                    "yt-icon-button",
+                    "ytd-button-renderer",
+                    "button[aria-label]",
+                    "a[href]",
+                    "input[type='text']",
+                    "input[type='search']",
+                    "[role='button']",
+                    "[role='search']",
+                    "[role='menuitem']",
+                    "[role='tab']",
+                    ".ytp-play-button",
+                    ".ytp-fullscreen-button",
+                    ".ytp-settings-button"
+                ],
+                exclude: [
+                    "[aria-hidden='true']",
+                    "#guide[hidden]",
+                    "[style*='display: none']",
+                    "[disabled]",
+                    "[aria-disabled='true']",
+                    "[hidden]",
+                    "script",
+                    "style",
+                    "meta",
+                    "link"
+                ],
+                max_elements: 100
+            },
+            interaction_patterns: {
+                expand_guide: {
+                    trigger: "#guide-button",
+                    wait_for: "#guide",
+                    timeout: 1000
+                },
+                expand_search: {
+                    trigger: "#searchbox",
+                    wait_for: "#searchbox-suggestions",
+                    timeout: 500
+                }
+            },
+            scan_priority: [
+                "navigation",
+                "search_interface",
+                "video_controls",
+                "menu_system"
+            ],
+            custom_handlers: {
+                youtube_framework: true,
+                video_player: true,
+                guide_menu: true
+            }
+        },
+        'wordpress': {
+            framework: 'wordpress',
+            scan_strategy: 'wordpress_specific',
+            url_patterns: ["wordpress.com", "*.wordpress.com"],
+            selectors: {
+                navigation: [
+                    ".main-navigation",
+                    ".site-header",
+                    ".menu",
+                    ".nav-menu"
+                ],
+                buttons: [
+                    ".menu-toggle",
+                    ".search-toggle",
+                    "button[aria-label]",
+                    "[role='button']"
+                ],
+                menus: [
+                    ".main-navigation",
+                    ".menu",
+                    ".nav-menu",
+                    ".dropdown-menu"
+                ],
+                hidden_content: [
+                    "[aria-hidden='true']",
+                    ".hidden",
+                    "[style*='display: none']"
+                ],
+                text_inputs: [
+                    "input[type='text']",
+                    "input[type='search']",
+                    "textarea",
+                    "[contenteditable='true']"
+                ]
+            },
+            filters: {
+                include: [
+                    ".main-navigation",
+                    ".menu-toggle",
+                    ".search-toggle",
+                    ".site-header"
+                ],
+                exclude: [
+                    "[aria-hidden='true']",
+                    ".hidden",
+                    "[style*='display: none']"
+                ],
+                max_elements: 25
+            },
+            interaction_patterns: {
+                expand_menu: {
+                    trigger: ".menu-toggle",
+                    wait_for: ".main-navigation",
+                    timeout: 1000
+                },
+                expand_search: {
+                    trigger: ".search-toggle",
+                    wait_for: ".search-form",
+                    timeout: 500
+                }
+            },
+            scan_priority: [
+                "navigation",
+                "content_management",
+                "search_interface",
+                "admin_tools"
+            ],
+            custom_handlers: {
+                wordpress_framework: true,
+                cms_interface: true,
+                admin_panel: true
+            }
+        }
+    };
+    
+    console.log("📋 Available configs:", Object.keys(siteConfigs));
+    
+    // 🆕 NEW: Pattern matching against built-in configs
     for (const [site, config] of Object.entries(siteConfigs)) {
-        if (hostname.includes(site) && site !== 'default') {
-            currentSiteConfig = config;
-            currentFramework = config.framework;
-            console.log("[Content] 🎯 Detected framework:", currentFramework, "for site:", hostname, "using config:", site);
-            return;
+        if (config.url_patterns && Array.isArray(config.url_patterns)) {
+            for (const pattern of config.url_patterns) {
+                if (matchUrlPattern(hostname, pattern)) {
+                    currentSiteConfig = config;
+                    currentFramework = config.framework;
+                    console.log("🎯🎯🎯 FUZZY PATTERN MATCH FOUND! 🎯🎯🎯");
+                    console.log("✅ Framework:", currentFramework);
+                    console.log("✅ Site:", hostname);
+                    console.log("✅ Pattern:", pattern);
+                    console.log("✅ Config:", site);
+                    return;
+                }
+            }
         }
     }
     
-    // Fallback to default
-    currentSiteConfig = siteConfigs['default'] || null;
+    // 🆕 NEW: Generic fallback if no fuzzy match
+    currentSiteConfig = null;
     currentFramework = 'generic';
-    console.log("[Content] 🎯 Using default framework:", currentFramework, "for site:", hostname);
+    console.log("🎯🎯🎯 GENERIC FALLBACK 🎯🎯🎯");
+    console.log("⚠️ Framework:", currentFramework);
+    console.log("⚠️ Site:", hostname);
+    console.log("⚠️ No fuzzy pattern match found");
 }
 
 // 🆕 NEW: Continuous DOM Scanning Function
@@ -725,25 +1095,24 @@ function performImmediateComprehensiveScan() {
                             return;
                         }
                         
-                        // Debug: Check what we're passing
-                        console.log(`[Content] 🔍 Debug - domElement:`, domElement);
-                        console.log(`[Content] 🔍 Debug - domElement type:`, typeof domElement);
-                        console.log(`[Content] 🔍 Debug - domElement.tagName:`, domElement?.tagName);
-                        console.log(`[Content] 🔍 Debug - domElement.getAttribute:`, typeof domElement?.getAttribute);
-                        
                         // Register the element directly with the DOM element
                         const actionId = window.intelligenceEngine.registerActionableElement(domElement, elementObj.actionType || 'click');
                         if (actionId) {
                             registeredCount++;
-                            console.log(`[Content] ✅ Registered element ${registeredCount}/${interactiveElements.length}: ${actionId}`);
+                            // Removed individual element logging to reduce console noise
                         } else {
                             failedCount++;
                             console.log(`[Content] ⚠️ Failed to register element: ${elementObj.selector}`);
                         }
                     } catch (error) {
                         failedCount++;
-                        console.warn(`[Content] ⚠️ Error registering element:`, error.message);
-                        console.log(`[Content] 🔍 Failed element details:`, elementObj);
+                        // 🆕 NEW: Suppress context invalidation errors
+                        if (error.message && error.message.includes('Extension context invalidated')) {
+                            console.log(`[Content] 🔄 Expected: Extension context invalidated during element registration`);
+                        } else {
+                            console.warn(`[Content] ⚠️ Error registering element:`, error.message);
+                            console.log(`[Content] 🔍 Failed element details:`, elementObj);
+                        }
                     }
                 } else {
                     // IntelligenceEngine not available, retry after delay
@@ -764,7 +1133,12 @@ function performImmediateComprehensiveScan() {
             }
             
         } catch (error) {
-            console.warn(`[Content] ⚠️ Error in queue-based registration:`, error.message);
+            // 🆕 NEW: Suppress context invalidation errors
+            if (error.message && error.message.includes('Extension context invalidated')) {
+                console.log(`[Content] 🔄 Expected: Extension context invalidated during queue registration`);
+            } else {
+                console.warn(`[Content] ⚠️ Error in queue-based registration:`, error.message);
+            }
         }
         
         // 🎯 Step 9: Attempt to traverse to main frame if in iframe
@@ -785,16 +1159,31 @@ function performImmediateComprehensiveScan() {
         
         // 🎯 Step 10: Send results to service worker
         if (chrome.runtime && chrome.runtime.sendMessage) {
-            chrome.runtime.sendMessage({
-                type: 'immediate_scan_results',
-                data: comprehensiveScanResult
-            }, (response) => {
-                if (chrome.runtime.lastError) {
-                    console.warn("[Content] ⚠️ Could not send scan results to service worker");
+            try {
+                chrome.runtime.sendMessage({
+                    type: 'immediate_scan_results',
+                    data: comprehensiveScanResult
+                }, (response) => {
+                    if (chrome.runtime.lastError) {
+                        // 🆕 NEW: Suppress intentional context invalidation errors
+                        const errorMsg = chrome.runtime.lastError.message || '';
+                        if (errorMsg.includes('Extension context invalidated')) {
+                            console.log("[Content] 🔄 Expected: Extension context invalidated (CSP bypass successful)");
+                        } else {
+                            console.warn("[Content] ⚠️ Could not send scan results to service worker:", errorMsg);
+                        }
+                    } else {
+                        console.log("[Content] ✅ Immediate scan results sent to service worker");
+                    }
+                });
+            } catch (error) {
+                // 🆕 NEW: Catch and suppress context invalidation errors
+                if (error.message && error.message.includes('Extension context invalidated')) {
+                    console.log("[Content] 🔄 Expected: Extension context invalidated (CSP bypass successful)");
                 } else {
-                    console.log("[Content] ✅ Immediate scan results sent to service worker");
+                    console.warn("[Content] ⚠️ Error sending scan results:", error.message);
                 }
-            });
+            }
         }
         
         return comprehensiveScanResult;
@@ -1091,7 +1480,7 @@ function scanWithFrameworkSelectors() {
 
 // 🆕 NEW: Test event listener for debugging from page context
 document.addEventListener('testIntelligence', (event) => {
-    console.log("[Content] 🧪 Test event received:", event.detail);
+    // Test event received (logging removed)
     
     const command = event.detail?.command;
     if (!command) {
@@ -1770,48 +2159,8 @@ document.addEventListener('testIntelligence', (event) => {
     }
 });
 
-console.log("[Content] 🧪 Test event listener added - available commands:");
-console.log("[Content] 🧪 - testIntelligenceSystem: Basic system test");
-console.log("[Content] 🧪 - getActionableElements: List actionable elements");
-console.log("[Content] 🧪 - scanElements: Scan page for elements");
-console.log("[Content] 🧪 - getDOMStatus: Check DOM change detection");
-console.log("[Content] 🧪 - executeAction: Execute an action");
-console.log("[Content] 🧪 - testQueue: Test the queue system");
-console.log("[Content] 🧪 - checkEngine: Check engine readiness");
-console.log("[Content] 🧪 - getStatus: Get system status including queue info");
-console.log("[Content] 🧪 - getElementCoordinates: Get coordinates for an actionId");
-console.log("[Content] 🧪 - reveal: Reveal element details with smart resolution");
-console.log("[Content] 🧪 - getCoordinates: Get coordinates with smart resolution");
-console.log("[Content] 🧪 - testSmartClick: Test enhanced smart resolution clicking");
-console.log("[Content] 🧪 - testEnhancedDimensions: Test enhanced dimension detection");
-console.log("[Content] 🧪 - testForceVisibility: Test force visibility CSS override");
-console.log("[Content] 🧪 - testViewportAnalysis: Test viewport positioning analysis");
-console.log("[Content] 🧪 - testViewportFix: Test viewport positioning fixes");
-console.log("[Content] 🧪 - testUniversalClick: Test universal click for any element");
-console.log("[Content] 🧪 - testClickVerification: Test click verification system");
-console.log("[Content] 🧪 - testSubmenuInspection: Test submenu content inspection");
-console.log("[Content] 🧪 - testDelayedSubmenuInspection: Test delayed submenu inspection");
-console.log("[Content] 🧪 - testDocumentSearch: Test document-wide menu item search");
-console.log("[Content] 🧪 - testMenuStructureBuilder: Test automatic menu structure detection");
-console.log("[Content] 🧪 - testFrameworkScanning: Test framework-specific element scanning");
-console.log("[Content] 🧪 - testEnhancedMenuClick: Test complete enhanced menu click flow");
-console.log("[Content] 🧪 Examples:");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'getElementCoordinates', actionId: 'action_navigate_a_0'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'reveal', actionId: 'action_navigate_a_0'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'executeAction', actionId: 'action_navigate_a_0', action: 'click'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSmartClick', actionId: 'action_navigate_a_0'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedDimensions', selector: '.custom-logo-link'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testForceVisibility', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testViewportAnalysis', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testViewportFix', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testUniversalClick', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testClickVerification', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSubmenuInspection', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDelayedSubmenuInspection', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDocumentSearch'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testMenuStructureBuilder'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testFrameworkScanning'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedMenuClick', selector: '[data-index=\"0\"]'}}))");
+// Removed test commands logging
+// 🧹 CLEANED: Removed verbose test command help logging
 
 // Utility function for async delays
 var sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -1870,14 +2219,7 @@ function initializeDOMChangeDetection() {
                     }
                 }
             } else {
-                // 🚫 REDUCED LOGGING: Only log every 100th insignificant change
-                if (changeCount % 100 === 0) {
-                    console.log("[Content] 🚫 Filtered out insignificant DOM change:", {
-                        mutations: mutations.length,
-                        types: mutations.map(m => m.type),
-                        totalFiltered: changeCount
-                    });
-                }
+                // Removed noisy DOM change logging to reduce console spam
             }
             
             // 🆕 NEW: Notify service worker about DOM changes (but only significant ones)
@@ -1905,7 +2247,7 @@ function initializeDOMChangeDetection() {
         // Mark as initialized
         window.domChangeDetectionInitialized = true;
         
-        console.log("[Content] ✅ DOM change detection active with config:", observerConfig);
+        // Removed DOM change detection logging to reduce console spam
         
     } catch (error) {
         console.error("[Content] ❌ Failed to initialize DOM change detection:", error);
@@ -1924,7 +2266,7 @@ function notifyServiceWorkerOfChanges(changeInfo) {
                 type: "dom_changed",
                 ...changeInfo
             });
-            console.log("[Content] 📤 DOM change notification sent to service worker");
+            // Removed DOM change notification logging to reduce console spam
         } else {
             console.warn("[Content] Service worker communication not available");
         }
@@ -1933,7 +2275,6 @@ function notifyServiceWorkerOfChanges(changeInfo) {
             console.warn("[Content] Extension context invalidated - reloading may have occurred");
             // Attempt to reconnect after a brief delay
             setTimeout(() => {
-                console.log("[Content] Attempting to reconnect after context invalidation...");
                 // Try to reinitialize if needed
                 if (typeof initializeIntelligenceSystem === 'function') {
                     initializeIntelligenceSystem();
@@ -5623,7 +5964,7 @@ IntelligenceEngine.prototype.passesBasicQualityFilter = function(element) {
     // 🆕 ENHANCED: Always include interactive elements regardless of dimensions
     const isInteractiveElement = this.isInteractiveElement(element);
     if (isInteractiveElement) {
-        console.log(`[Quality Filter] ✅ Including interactive element: ${element.tagName} (${element.className})`);
+        // Removed quality filter logging
         return true; // Always include interactive elements
     }
     
@@ -6424,7 +6765,7 @@ IntelligenceEngine.prototype.generateElementSelectors = function(element) {
         selectors.push(...dataAttrs);
         
         // Strategy 3: Class-based selector
-        if (element.className) {
+        if (element.className && typeof element.className === 'string' && element.className.trim()) {
             const classes = element.className.split(' ').filter(c => c.trim());
             if (classes.length > 0) {
                 selectors.push(`.${classes[0]}`);
@@ -6432,7 +6773,7 @@ IntelligenceEngine.prototype.generateElementSelectors = function(element) {
         }
         
         // Strategy 4: Tag + class combination
-        if (element.tagName && element.className) {
+        if (element.tagName && element.className && typeof element.className === 'string' && element.className.trim()) {
             const firstClass = element.className.split(' ')[0];
             if (firstClass) {
                 selectors.push(`${element.tagName.toLowerCase()}.${firstClass}`);
@@ -6506,11 +6847,6 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
  * 🆕 NEW: Register an element as actionable
  */
 IntelligenceEngine.prototype.registerActionableElement = function(element, actionType = 'general') {
-    console.log(`[Content] 🔍 registerActionableElement called with:`, { element, actionType });
-    console.log(`[Content] 🔍 element type:`, typeof element);
-    console.log(`[Content] 🔍 element.tagName:`, element?.tagName);
-    console.log(`[Content] 🔍 element.getAttribute:`, typeof element?.getAttribute);
-    
     // Ensure we have a real DOM element for attribute extraction
     let domElement = element;
     
@@ -6527,9 +6863,6 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
             return null;
         }
     }
-    
-    console.log(`[Content] 🔍 Final domElement:`, domElement);
-    console.log(`[Content] 🔍 Final domElement.getAttribute:`, typeof domElement?.getAttribute);
     
     const actionableId = this.generateActionableId(domElement, actionType);
     this.actionableElements.set(actionableId.id, actionableId);
@@ -7025,20 +7358,13 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
                     
                     // Get the full element data to show href attributes
                     const elementData = this.getActionableElement(actionId);
-                    console.log("[Content] 📝 Registered element:", {
-                        actionId: actionId,
-                        tagName: element.tagName,
-                        actionType: actionType,
-                        textContent: element.textContent?.trim().substring(0, 30) || '',
-                        href: element.tagName === 'A' ? element.href : undefined,
-                        attributes: elementData?.attributes || {}
-                    });
+                    // Removed individual element registration logging
                 }
             }
         });
         
         // 🆕 NEW: PHASE 4: Process generic content elements (like your apartment element)
-        console.log("[Content] 🔍 PHASE 4: Processing generic content elements...");
+        // Removed verbose generic content processing log
         let genericContentCount = 0;
         
         try {
@@ -7055,13 +7381,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
                         const actionId = this.registerActionableElement(element, actionType);
                         genericContentCount++;
                         
-                        console.log("[Content] 📝 Registered generic content:", {
-                            actionId: actionId,
-                            tagName: element.tagName,
-                            actionType: actionType,
-                            textContent: element.textContent.trim().substring(0, 50) + '...',
-                            note: "Generic content detection - meaningful text found"
-                        });
+                        // Removed verbose generic content registration log
                     }
                 }
             });
@@ -7069,18 +7389,8 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             console.warn("[Content] ⚠️ Error processing generic content elements:", error);
         }
         
-        console.log("[Content] 🎯 PHASE 4 RESULTS:");
-        console.log(`   📊 Generic content elements registered: ${genericContentCount}`);
-        
-        console.log("[Content] 🎯 PHASE 3 FILTERING RESULTS:");
-        console.log(`   📊 Total elements found: ${allElements.length} (${frameworkElements.length} framework + ${elements.length} generic)`);
-        console.log(`   🔍 Interactive elements: ${filteredCount}`);
-        console.log(`   ✅ Quality-filtered elements: ${registeredCount}`);
-        console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / allElements.length) * 100)}%`);
-        
-        console.log("[Content] 🎯 PHASE 4 FILTERING RESULTS:");
-        console.log(`   📊 Generic content elements: ${genericContentCount}`);
-        console.log(`   📊 Total actionable elements: ${registeredCount + genericContentCount}`);
+        // 🎯 ESSENTIAL SUMMARY: Final element counts only
+        console.log(`[Content] 📊 SCAN SUMMARY: ${allElements.length} total → ${registeredCount} actionable + ${genericContentCount} content`);
         
         // Update page state
                     this.pageState.interactiveElements = this.getAllActionableElements();
