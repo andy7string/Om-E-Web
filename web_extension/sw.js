@@ -505,6 +505,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             case 'intelligence_update':
                 handleIntelligenceUpdate(message, sendResponse);
                 break;
+            case 'get_site_config_for_domain':
+                handleGetSiteConfigForDomain(message, sendResponse);
+                break;
             case 'execute_llm_action':
                 handleExecuteLLMAction(message, sendResponse);
                 break;
@@ -1537,5 +1540,55 @@ async function handleImmediateScanResults(message, sendResponse) {
     } catch (error) {
         console.error("[SW] ❌ Error handling immediate scan results:", error);
         sendResponse({ success: false, error: error.message });
+    }
+}
+
+/**
+ * 🎯 Handle site config lookup for domain
+ * 
+ * @param {Object} message - Message containing domain to look up
+ * @param {Function} sendResponse - Response function
+ */
+async function handleGetSiteConfigForDomain(message, sendResponse) {
+    try {
+        const domain = message.domain;
+        console.log(`[SW] 🎯 Looking up site config for domain: ${domain}`);
+        
+        // Get site configs from storage
+        const result = await chrome.storage.local.get(['siteConfigs']);
+        const siteConfigs = result.siteConfigs || {};
+        
+        // Look up site config for this domain
+        let siteConfig = null;
+        
+        // Check for exact domain match
+        if (siteConfigs[domain]) {
+            siteConfig = siteConfigs[domain];
+        } else {
+            // Check for partial domain match
+            for (const [configDomain, config] of Object.entries(siteConfigs)) {
+                if (domain.includes(configDomain) && configDomain !== 'default') {
+                    siteConfig = config;
+                    break;
+                }
+            }
+            
+            // Fallback to default config
+            if (!siteConfig && siteConfigs['default']) {
+                siteConfig = siteConfigs['default'];
+            }
+        }
+        
+        if (siteConfig) {
+            console.log(`[SW] ✅ Found site config for ${domain}:`, siteConfig.framework);
+            sendResponse({ config: siteConfig });
+        } else {
+            console.log(`[SW] ⚠️ No site config found for ${domain}`);
+            sendResponse({ config: null });
+        }
+        
+    } catch (error) {
+        console.error('[SW] ❌ Error getting site config:', error);
+        sendResponse({ config: null, error: error.message });
     }
 }

@@ -42,7 +42,7 @@ if (window.intelligenceSystemInitialized && window.intelligenceComponents && win
     pageContext = window.intelligenceComponents.pageContext || pageContext;
 } else {
     window.intelligenceSystemInitialized = true;
-    // Removed initialization logging
+    console.log("[Content] 🧪 First time initialization, setting up intelligence system...");
 }
 
 // 🆕 NEW: DOM Change Detection System - Use 'var' to prevent redeclaration errors
@@ -73,10 +73,18 @@ var totalElementsScanned = 0;
 var continuousScanningEnabled = true;
 
 // 🆕 NEW: Simple test to verify code is running
-// Removed system testing logs
-// Removed DOM status logs
-// Removed variables logs
-// Removed scanning logs
+console.log("[Content] 🧪 Testing intelligence system components...");
+console.log("[Content] 🧪 DOM change detection system:", {
+    changeDetectionEnabled: changeDetectionEnabled,
+    changeCount: changeCount,
+    lastChangeTime: lastChangeTime
+});
+console.log("[Content] 🧪 Intelligence system variables:", { changeAggregator, intelligenceEngine, pageContext });
+console.log("[Content] 🧪 Continuous DOM scanning:", {
+    enabled: continuousScanningEnabled,
+    interval: DOM_SCAN_INTERVAL,
+    totalElementsScanned: totalElementsScanned
+});
 
 // 🆕 NEW: Site configuration and framework detection
 if (typeof siteConfigs === 'undefined') {
@@ -95,424 +103,86 @@ if (typeof siteConfigs === 'undefined') {
     let currentFramework = window.currentFramework || 'generic';
 }
 
-// 🆕 NEW: Independent framework detection - no storage dependency
-detectAndApplyFramework();
-
-// 🚫 Continuous DOM scanning DISABLED to prevent context interference
-console.log("[Content] 🚫 Continuous DOM scanning DISABLED - manual mode only");
-console.log("[Content] 💡 Use test commands to trigger manual scans when needed");
+// 🆕 NEW: Load site configs from storage on startup
+chrome.storage.local.get(['siteConfigs'], (result) => {
+    if (result.siteConfigs) {
+        siteConfigs = result.siteConfigs;
+        console.log("[Content] 📋 Loaded site configs:", Object.keys(siteConfigs));
+        detectAndApplyFramework();
+    }
+    
+    // 🚫 Continuous DOM scanning DISABLED to prevent context interference
+    console.log("[Content] 🚫 Continuous DOM scanning DISABLED - manual mode only");
+    console.log("[Content] 💡 Use test commands to trigger manual scans when needed");
+});
 
 // 🆕 NEW: Framework detection function
-// 🆕 NEW: JavaScript implementation of fuzzy URL pattern matching
-function matchUrlPattern(hostname, pattern) {
+async function detectAndApplyFramework() {
+    const url = window.location.href;
+    const domain = extractDomain(url);
+    
+    console.log(`🎯 Detecting framework for domain: ${domain}`);
+    
     try {
-        // Normalize inputs
-        hostname = hostname.toLowerCase();
-        pattern = pattern.toLowerCase();
+        // Get site config from service worker
+        const siteConfig = await getSiteConfigForDomain(domain);
         
-        // Handle exact matches
-        if (pattern === '*' || hostname === pattern) {
-            return true;
+        if (siteConfig) {
+            console.log(`✅ Framework detected: ${siteConfig.framework}`);
+            console.log(`📋 Using scan strategy: ${siteConfig.scan_strategy}`);
+            console.log(`🎯 Scan priority: ${siteConfig.scan_priority?.join(', ')}`);
+            
+            // Store config for use in scanning
+            window.currentSiteConfig = siteConfig;
+            
+            // Apply framework-specific settings
+            applyFrameworkSettings(siteConfig);
+            
+            return siteConfig;
+        } else {
+            console.log(`⚠️ No site config found, using default strategy`);
+            window.currentSiteConfig = null;
+            return null;
         }
-        
-        // Handle patterns with scheme (e.g., "https://google.com")
-        if (pattern.includes('://')) {
-            const [scheme, domain] = pattern.split('://', 2);
-            if (scheme !== 'https' && scheme !== 'http*') {
-                return false; // Only support http/https schemes
-            }
-            pattern = domain;
-        }
-        
-        // Handle wildcard patterns
-        if (pattern.includes('*')) {
-            // Check for unsafe patterns (multiple wildcards, TLD wildcards)
-            if (pattern.split('*').length > 2) {
-                console.warn(`[Content] ⚠️ Unsafe pattern with multiple wildcards: ${pattern}`);
-                return false;
-            }
-            
-            if (pattern.endsWith('.*')) {
-                console.warn(`[Content] ⚠️ TLD wildcards not supported: ${pattern}`);
-                return false;
-            }
-            
-            // Handle *.domain patterns (e.g., *.google.com)
-            if (pattern.startsWith('*.')) {
-                const parentDomain = pattern.substring(2);
-                return hostname === parentDomain || hostname.endsWith('.' + parentDomain);
-            }
-            
-            // Handle domain.* patterns (e.g., google.*)
-            if (pattern.endsWith('.*')) {
-                const baseDomain = pattern.substring(0, pattern.length - 2);
-                return hostname === baseDomain || hostname.startsWith(baseDomain + '.');
-            }
-            
-            // Convert glob pattern to regex and test
-            const regexPattern = pattern.replace(/\*/g, '.*');
-            const regex = new RegExp(`^${regexPattern}$`);
-            return regex.test(hostname);
-        }
-        
-        return false;
     } catch (error) {
-        console.warn(`[Content] ⚠️ Error matching pattern ${pattern} against ${hostname}:`, error);
-        return false;
+        console.error('❌ Error in framework detection:', error);
+        window.currentSiteConfig = null;
+        return null;
     }
 }
 
-function detectAndApplyFramework() {
-    const currentUrl = window.location.href;
-    const hostname = new URL(currentUrl).hostname;
-    
-    console.log("🚨🚨🚨 FRAMEWORK DETECTION 🚨🚨🚨");
-    console.log("🔍 Hostname:", hostname);
-    
-    // 🆕 NEW: Built-in site configs - no storage dependency
-    const siteConfigs = {
-        'google.com': {
-            framework: 'google',
-            scan_strategy: 'google_specific',
-            url_patterns: ["google.com", "google.*", "*.google.com"],
-            selectors: {
-                navigation: [
-                    "header",
-                    "[role='banner']",
-                    ".gb_ua",
-                    ".gb_oa",
-                    "nav",
-                    "[role='navigation']"
-                ],
-                buttons: [
-                    "button[aria-label]",
-                    "[role='button']",
-                    ".gb_oa",
-                    "#gb_70",
-                    "#gb_119",
-                    "[data-ved]"
-                ],
-                menus: [
-                    "#searchbox",
-                    "#searchbox-input",
-                    "#gb_70",
-                    "#gb_119",
-                    "[aria-label*='Google apps']",
-                    "[aria-label*='Google Apps']"
-                ],
-                hidden_content: [
-                    "#gb",
-                    ".gb_oa",
-                    "#searchbox-suggestions",
-                    "#searchbox-results",
-                    "[aria-hidden='true']",
-                    ".gb_oa"
-                ],
-                text_inputs: [
-                    "input[type='text']",
-                    "input[type='search']",
-                    "textarea",
-                    "[contenteditable='true']",
-                    "[role='textbox']",
-                    "input[placeholder]"
-                ]
-            },
-            filters: {
-                include: [
-                    "header",
-                    "nav", 
-                    "#searchbox",
-                    "#gb_70",
-                    "[aria-label*='Google apps']"
-                ],
-                exclude: [
-                    "[data-ved]",
-                    ".gb_oa",
-                    ".gb_ua",
-                    "[aria-hidden='true']",
-                    "[style*='display: none']"
-                ],
-                max_elements: 25
-            },
-            interaction_patterns: {
-                expand_apps: {
-                    trigger: "[aria-label*='Google apps'], [aria-label*='Google Apps']",
-                    wait_for: "#gb",
-                    timeout: 1000
-                },
-                expand_search: {
-                    trigger: "#searchbox, #searchbox-input",
-                    wait_for: "#searchbox-suggestions",
-                    timeout: 500
-                },
-                expand_account: {
-                    trigger: "#gb_70, #gb_119",
-                    wait_for: "[role='menu']",
-                    timeout: 1000
-                }
-            },
-            scan_priority: [
-                "text_inputs",
-                "search_interface",
-                "header_navigation",
-                "app_launcher",
-                "account_menu",
-                "hidden_content"
-            ],
-            custom_handlers: {
-                google_framework: true,
-                search_suggestions: true,
-                app_drawer: true
-            }
-        },
-        'youtube.com': {
-            framework: 'youtube',
-            scan_strategy: 'youtube_specific',
-            url_patterns: ["youtube.com", "*.youtube.com", "youtu.be"],
-            selectors: {
-                navigation: [
-                    "#guide-button", 
-                    "#searchbox",
-                    "#logo",
-                    "#back-button",
-                    "ytd-masthead",
-                    "ytd-mini-guide-renderer",
-                    "ytd-topbar-menu-button-renderer"
-                ],
-                buttons: [
-                    "yt-icon-button",
-                    "ytd-button-renderer",
-                    "button[aria-label]",
-                    "#guide-button",
-                    "#avatar-btn",
-                    "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
-                    "[role='button']:not([aria-disabled='true']):not([hidden])",
-                    "ytd-toggle-button-renderer[is-icon-button]",
-                    "ytd-subscribe-button-renderer",
-                    "button[aria-label^='Like']",
-                    "button[aria-label^='Dislike']",
-                    "ytd-button-renderer[button-id='share'] button",
-                    "ytd-button-renderer[button-id='menu'] button",
-                    "ytd-comments-header-renderer ytd-button-renderer",
-                    "yt-icon-button#search-icon-legacy",
-                    "#voice-search-button",
-                    "button[aria-label*='Comments']",
-                    "paper-button#action-button",
-                    ".ytp-play-button",
-                    ".ytp-fullscreen-button",
-                    ".ytp-settings-button"
-                ],
-                menus: [
-                    "#guide-button",
-                    "#avatar-btn", 
-                    "#guide",
-                    "#account-menu",
-                    "ytd-guide-renderer",
-                    "tp-yt-paper-listbox[role='listbox']",
-                    "tp-yt-paper-menu",
-                    "ytd-multi-page-menu-renderer",
-                    "ytd-searchbox-suggestions",
-                    "ytd-popup-container"
-                ],
-                hidden_content: [
-                    "#guide[hidden]",
-                    "[aria-hidden='true']",
-                    ".ytd-app-drawer[opened]",
-                    "tp-yt-paper-dialog[aria-hidden='false']",
-                    ".ytd-app-drawer[opened]"
-                ],
-                text_inputs: [
-                    "#searchbox",
-                    "input[type='text']",
-                    "input[type='search']",
-                    "[contenteditable='true']",
-                    "input:not([type='hidden']):not([disabled]):not([hidden])",
-                    "select:not([disabled]):not([hidden])",
-                    "textarea:not([disabled]):not([hidden])",
-                    "[role='combobox']:not([aria-disabled='true']):not([hidden])"
-                ],
-                links: [
-                    "a[href]:not([href='']):not([href^='#']):not([tabindex='-1']):not([hidden])"
-                ],
-                interactive_roles: [
-                    "[role='search']:not([aria-disabled='true']):not([hidden])",
-                    "[role='switch']:not([aria-disabled='true']):not([hidden])",
-                    "[role='checkbox']:not([aria-disabled='true']):not([hidden])",
-                    "[role='radio']:not([aria-disabled='true']):not([hidden])",
-                    "[role='menuitem']:not([aria-disabled='true']):not([hidden])",
-                    "[role='tab']:not([aria-disabled='true']):not([hidden])",
-                    "[role='option']:not([aria-disabled='true']):not([hidden])"
-                ],
-                media_controls: [
-                    "[aria-label~='play' i]",
-                    "[aria-label~='pause' i]",
-                    "[aria-label~='like' i]",
-                    "[aria-label~='share' i]",
-                    "[aria-label~='subscribe' i]",
-                    "[aria-label~='comment' i]",
-                    "[aria-label~='download' i]",
-                    "[aria-label~='fullscreen' i]"
-                ]
-            },
-            filters: {
-                include: [
-                    "#guide-button",
-                    "#searchbox",
-                    "#logo",
-                    "yt-icon-button",
-                    "ytd-button-renderer",
-                    "button[aria-label]",
-                    "a[href]",
-                    "input[type='text']",
-                    "input[type='search']",
-                    "[role='button']",
-                    "[role='search']",
-                    "[role='menuitem']",
-                    "[role='tab']",
-                    ".ytp-play-button",
-                    ".ytp-fullscreen-button",
-                    ".ytp-settings-button"
-                ],
-                exclude: [
-                    "[aria-hidden='true']",
-                    "#guide[hidden]",
-                    "[style*='display: none']",
-                    "[disabled]",
-                    "[aria-disabled='true']",
-                    "[hidden]",
-                    "script",
-                    "style",
-                    "meta",
-                    "link"
-                ],
-                max_elements: 100
-            },
-            interaction_patterns: {
-                expand_guide: {
-                    trigger: "#guide-button",
-                    wait_for: "#guide",
-                    timeout: 1000
-                },
-                expand_search: {
-                    trigger: "#searchbox",
-                    wait_for: "#searchbox-suggestions",
-                    timeout: 500
-                }
-            },
-            scan_priority: [
-                "navigation",
-                "search_interface",
-                "video_controls",
-                "menu_system"
-            ],
-            custom_handlers: {
-                youtube_framework: true,
-                video_player: true,
-                guide_menu: true
-            }
-        },
-        'wordpress': {
-            framework: 'wordpress',
-            scan_strategy: 'wordpress_specific',
-            url_patterns: ["wordpress.com", "*.wordpress.com"],
-            selectors: {
-                navigation: [
-                    ".main-navigation",
-                    ".site-header",
-                    ".menu",
-                    ".nav-menu"
-                ],
-                buttons: [
-                    ".menu-toggle",
-                    ".search-toggle",
-                    "button[aria-label]",
-                    "[role='button']"
-                ],
-                menus: [
-                    ".main-navigation",
-                    ".menu",
-                    ".nav-menu",
-                    ".dropdown-menu"
-                ],
-                hidden_content: [
-                    "[aria-hidden='true']",
-                    ".hidden",
-                    "[style*='display: none']"
-                ],
-                text_inputs: [
-                    "input[type='text']",
-                    "input[type='search']",
-                    "textarea",
-                    "[contenteditable='true']"
-                ]
-            },
-            filters: {
-                include: [
-                    ".main-navigation",
-                    ".menu-toggle",
-                    ".search-toggle",
-                    ".site-header"
-                ],
-                exclude: [
-                    "[aria-hidden='true']",
-                    ".hidden",
-                    "[style*='display: none']"
-                ],
-                max_elements: 25
-            },
-            interaction_patterns: {
-                expand_menu: {
-                    trigger: ".menu-toggle",
-                    wait_for: ".main-navigation",
-                    timeout: 1000
-                },
-                expand_search: {
-                    trigger: ".search-toggle",
-                    wait_for: ".search-form",
-                    timeout: 500
-                }
-            },
-            scan_priority: [
-                "navigation",
-                "content_management",
-                "search_interface",
-                "admin_tools"
-            ],
-            custom_handlers: {
-                wordpress_framework: true,
-                cms_interface: true,
-                admin_panel: true
-            }
-        }
+function extractDomain(url) {
+    try {
+        const urlObj = new URL(url);
+        return urlObj.hostname.toLowerCase();
+    } catch {
+        return window.location.hostname.toLowerCase();
+    }
+}
+
+async function getSiteConfigForDomain(domain) {
+    try {
+        const response = await chrome.runtime.sendMessage({
+            type: 'get_site_config_for_domain',
+            domain: domain
+        });
+        return response.config;
+    } catch (error) {
+        console.error('Error getting site config:', error);
+        return null;
+    }
+}
+
+function applyFrameworkSettings(siteConfig) {
+    // Store framework-specific settings for use in scanning
+    window.frameworkSettings = {
+        selectors: siteConfig.selectors,
+        filters: siteConfig.filters,
+        scanPriority: siteConfig.scan_priority,
+        customHandlers: siteConfig.custom_handlers
     };
     
-    console.log("📋 Available configs:", Object.keys(siteConfigs));
-    
-    // 🆕 NEW: Pattern matching against built-in configs
-    for (const [site, config] of Object.entries(siteConfigs)) {
-        if (config.url_patterns && Array.isArray(config.url_patterns)) {
-            for (const pattern of config.url_patterns) {
-                if (matchUrlPattern(hostname, pattern)) {
-                    currentSiteConfig = config;
-                    currentFramework = config.framework;
-                    console.log("🎯🎯🎯 FUZZY PATTERN MATCH FOUND! 🎯🎯🎯");
-                    console.log("✅ Framework:", currentFramework);
-                    console.log("✅ Site:", hostname);
-                    console.log("✅ Pattern:", pattern);
-                    console.log("✅ Config:", site);
-                    return;
-                }
-            }
-        }
-    }
-    
-    // 🆕 NEW: Generic fallback if no fuzzy match
-    currentSiteConfig = null;
-    currentFramework = 'generic';
-    console.log("🎯🎯🎯 GENERIC FALLBACK 🎯🎯🎯");
-    console.log("⚠️ Framework:", currentFramework);
-    console.log("⚠️ Site:", hostname);
-    console.log("⚠️ No fuzzy pattern match found");
+    console.log(`🎯 Framework settings applied:`, window.frameworkSettings);
 }
 
 // 🆕 NEW: Continuous DOM Scanning Function
@@ -574,13 +244,17 @@ function performContinuousDOMScan() {
         const allElements = document.querySelectorAll('*');
         const elementCount = allElements.length;
         
-        // 🎯 Count interactive elements
+        // 🎯 Count interactive elements (REAL actionable elements)
         const interactiveElements = document.querySelectorAll('a[href], button, input, select, textarea, [role="button"], [role="link"], [onclick], [tabindex]');
         const interactiveCount = interactiveElements.length;
         
-        // 🎯 Count content elements
+        // 🎯 Count content elements (non-actionable)
         const contentElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, article, section, div[class*="content"], div[class*="text"]');
         const contentCount = contentElements.length;
+        
+        // 🎯 Count URL elements specifically (always actionable)
+        const urlElements = document.querySelectorAll('a[href], [data-url], [data-href], [data-link], form[action]');
+        const urlCount = urlElements.length;
         
         // 🎯 Update counters
         totalElementsScanned += elementCount;
@@ -590,16 +264,20 @@ function performContinuousDOMScan() {
             elementCount: elementCount,
             interactiveElements: interactiveCount,
             contentElements: contentCount,
+            urlElements: urlCount,
             totalElementsScanned: totalElementsScanned,
             scanDuration: performance.now() - startTime,
             url: window.location.href,
             title: document.title
         };
         
-        // 🎯 Log scan results with frame info (only if significant changes)
+        // 🎯 Log scan results with ACCURATE numbers (only if significant changes)
         if (elementCount > 0) {
-            console.log(`[Content] 🔍 Continuous DOM scan: ${elementCount} elements, ${interactiveCount} interactive, ${contentCount} content (${scanResult.scanDuration.toFixed(2)}ms)`);
+            console.log(`[Content] 🔍 Continuous DOM scan: ${elementCount} total elements`);
+            console.log(`[Content] 🎯 REAL actionable elements: ${interactiveCount} interactive, ${urlCount} with URLs`);
+            console.log(`[Content] 📄 Content elements (non-actionable): ${contentCount}`);
             console.log(`[Content] 🖼️ Frame context: ${frameInfo.isMainFrame ? 'MAIN' : 'IFRAME'} (depth: ${frameInfo.frameDepth})`);
+            console.log(`[Content] ⏱️ Scan duration: ${scanResult.scanDuration.toFixed(2)}ms`);
         }
         
         // 🎯 Trigger intelligence update if significant changes detected
@@ -858,9 +536,20 @@ function forceContentScriptReinjection() {
     }
 }
 
-// 🆕 NEW: Immediate Comprehensive Scan Function
-function performImmediateComprehensiveScan() {
-    console.log("[Content] 🚀 Performing immediate comprehensive DOM scan...");
+// 🆕 NEW: Immediate Comprehensive Scan Function with Configurable Options
+async function performImmediateComprehensiveScan(options = {}) {
+    // 🆕 NEW: Configurable scan options with smart defaults
+    const scanOptions = {
+        maxElements: options.maxElements || 50,           // Max elements to send (default: 50)
+        includeContent: options.includeContent || false,  // Include content elements (default: false)
+        priorityFilter: options.priorityFilter || 'high',  // 'high', 'medium', 'low' priority
+        urlOnly: options.urlOnly || false,               // Only elements with URLs (default: false)
+        visibleOnly: options.visibleOnly || false,       // Only visible elements (default: false)
+        payloadSizeLimit: options.payloadSizeLimit || 10000, // Max payload size in bytes (default: 10KB)
+        ...options
+    };
+    
+    console.log("[Content] 🚀 Performing immediate comprehensive DOM scan with options:", scanOptions);
     
     try {
         const startTime = performance.now();
@@ -869,51 +558,243 @@ function performImmediateComprehensiveScan() {
         console.log("[Content] 🔄 Performing automatic disconnect cycle for CSP bypass...");
         performAutomaticDisconnectCycle();
         
-        // 🎯 Step 1: Verify we're in main frame
-        const frameInfo = {
-            isMainFrame: window.top === window.self,
-            currentFrame: window.location.href,
-            topFrame: window.top.location.href,
-            frameDepth: 0,
-            parentFrames: []
-        };
+        // 🎯 Step 1: Check if we have site config and use framework-specific scanning
+        const siteConfig = window.currentSiteConfig;
         
-        // 🎯 Calculate frame depth and parent chain
-        let currentWindow = window;
-        while (currentWindow !== window.top) {
-            frameInfo.frameDepth++;
-            try {
-                frameInfo.parentFrames.push({
-                    depth: frameInfo.frameDepth,
-                    url: currentWindow.location.href,
-                    title: currentWindow.document.title
-                });
-                currentWindow = currentWindow.parent;
-            } catch (e) {
-                // Cross-origin restriction
-                frameInfo.parentFrames.push({
-                    depth: frameInfo.frameDepth,
-                    url: "CROSS_ORIGIN_RESTRICTED",
-                    title: "CROSS_ORIGIN_RESTRICTED"
-                });
-                break;
+        if (siteConfig) {
+            console.log(`🎯 Using site-specific scanning for ${siteConfig.framework}`);
+            return await performFrameworkSpecificScan(siteConfig, startTime, scanOptions);
+        } else {
+            console.log(`⚠️ No site config, using generic scanning`);
+            return await performGenericScan(startTime, scanOptions);
+        }
+        
+    } catch (error) {
+        console.error('❌ Error in comprehensive scan:', error);
+        // Fallback to generic scan
+        return await performGenericScan(performance.now(), scanOptions);
+    }
+}
+
+async function performFrameworkSpecificScan(siteConfig, startTime) {
+    const results = {
+        timestamp: Date.now(),
+        scanType: 'framework_specific_scan',
+        framework: siteConfig.framework,
+        scanStrategy: siteConfig.scan_strategy,
+        frameContext: {
+            isMainFrame: window.top === window.self,
+            currentUrl: window.location.href,
+            title: document.title,
+            hostname: window.location.hostname
+        },
+        elementCounts: {
+            totalElements: 0,
+            interactiveElements: 0,
+            contentElements: 0,
+            iframes: 0
+        },
+        interactiveElements: [],
+        contentElements: [],
+        iframeInfo: [],
+        scanDuration: 0,
+        tearAwaySuccess: true,
+        configApplied: true,
+        note: `Framework-specific scan using ${siteConfig.framework} strategy`
+    };
+    
+    try {
+        const selectors = siteConfig.selectors;
+        const filters = siteConfig.filters;
+        
+        console.log(`🎯 Applying framework selectors:`, selectors);
+        console.log(`🎯 Applying framework filters:`, filters);
+        
+        // Collect elements using framework-specific selectors
+        const frameworkElements = await collectFrameworkElements(selectors);
+        console.log(`🎯 Framework elements collected: ${frameworkElements.length}`);
+        
+        // Apply framework-specific filters
+        const filteredElements = applyFrameworkFilters(frameworkElements, filters);
+        console.log(`🎯 Elements after filtering: ${filteredElements.length}`);
+        
+        // Count elements by type using framework-specific classification
+        const interactiveElements = filteredElements.filter(el => isInteractiveElement(el, siteConfig));
+        const urlElements = filteredElements.filter(el => hasUrl(el));
+        
+        results.elementCounts.totalElements = filteredElements.length;
+        results.elementCounts.interactiveElements = interactiveElements.length;
+        results.elementCounts.urlElements = urlElements.length;
+        results.elementCounts.contentElements = 0; // 🆕 NEW: Set to 0 since we're not sending content
+        results.elementCounts.iframes = document.querySelectorAll('iframe').length;
+        
+        console.log(`🎯 Framework classification results (ACCURATE):`);
+        console.log(`  📊 Total elements scanned: ${results.elementCounts.totalElements}`);
+        console.log(`  🎯 REAL actionable elements: ${results.elementCounts.interactiveElements}`);
+        console.log(`  🔗 Elements with URLs: ${results.elementCounts.urlElements}`);
+        console.log(`  📄 Content elements: ${results.elementCounts.contentElements} (skipped for performance)`);
+        console.log(`  🖼️ Iframes: ${results.elementCounts.iframes}`);
+        
+        // Apply max_elements limit if specified
+        if (filters.max_elements && results.elementCounts.totalElements > filters.max_elements) {
+            console.log(`🎯 Limiting elements to ${filters.max_elements} (was ${results.elementCounts.totalElements})`);
+            results.elementCounts.totalElements = filters.max_elements;
+            results.elementCounts.interactiveElements = Math.min(results.elementCounts.interactiveElements, filters.max_elements);
+            // results.elementCounts.contentElements = Math.min(results.elementCounts.contentElements, filters.max_elements); // 🆕 NEW: Commented out
+        }
+        
+        // 🆕 NEW: Smart filtering and payload size control
+        results.interactiveElements = smartFilterElements(interactiveElements, scanOptions);
+        results.contentElements = []; // 🆕 NEW: Empty array - no content unless requested
+        
+        // 🆕 NEW: Log payload size for monitoring
+        const payloadSize = JSON.stringify(results).length;
+        console.log(`📦 Payload size: ${payloadSize} bytes (limit: ${scanOptions.payloadSizeLimit} bytes)`);
+        
+        if (payloadSize > scanOptions.payloadSizeLimit) {
+            console.warn(`⚠️ Payload size ${payloadSize} exceeds limit ${scanOptions.payloadSizeLimit}. Consider reducing maxElements or enabling stricter filtering.`);
+        }
+        
+        // 🆕 NEW: Generate accurate summary
+        generateAccurateSummary(results);
+        
+        console.log(`✅ Framework scan complete: ${results.elementCounts.interactiveElements} actionable elements (${results.elementCounts.urlElements} with URLs)`);
+        
+    } catch (error) {
+        console.error('❌ Error in framework-specific scan:', error);
+        // Fallback to generic scan
+        return await performGenericScan(startTime);
+    }
+    
+    results.scanDuration = performance.now() - startTime;
+    return results;
+}
+
+async function collectFrameworkElements(selectors) {
+    const allElements = new Set();
+    
+    // 🚨 PRIORITY 1: ALWAYS collect ALL URL elements first (visibility doesn't matter)
+    const urlElements = collectAllUrlElements();
+    urlElements.forEach(el => allElements.add(el));
+    console.log(`🔗 Collected ${urlElements.length} URL elements (including hidden ones)`);
+    
+    // Collect elements using framework-specific selectors
+    for (const [category, selectorList] of Object.entries(selectors)) {
+        if (Array.isArray(selectorList)) {
+            console.log(`🎯 Collecting ${category} elements with ${selectorList.length} selectors`);
+            
+            for (const selector of selectorList) {
+                try {
+                    const elements = document.querySelectorAll(selector);
+                    console.log(`  📍 Selector "${selector}": ${elements.length} elements`);
+                    elements.forEach(el => allElements.add(el));
+                } catch (error) {
+                    console.warn(`⚠️ Invalid selector: ${selector}`, error);
+                }
             }
         }
-        
-        console.log("[Content] 🖼️ Frame Analysis:", frameInfo);
-        
-        if (!frameInfo.isMainFrame) {
-            console.warn("[Content] ⚠️ Running in iframe - depth:", frameInfo.frameDepth);
-            console.warn("[Content] ⚠️ Parent frames:", frameInfo.parentFrames);
-        } else {
-            console.log("[Content] ✅ Confirmed main frame access");
+    }
+    
+    return Array.from(allElements);
+}
+
+// 🆕 NEW: Collect ALL elements with URLs, regardless of visibility
+function collectAllUrlElements() {
+    const urlElements = [];
+    
+    // Standard links - ALL of them, visible or not
+    const allLinks = document.querySelectorAll('a[href]');
+    urlElements.push(...Array.from(allLinks));
+    
+    // Elements with custom URL attributes - ALL of them
+    const customUrlElements = document.querySelectorAll('[data-url], [data-href], [data-link]');
+    urlElements.push(...Array.from(customUrlElements));
+    
+    // Form elements that submit to URLs
+    const formElements = document.querySelectorAll('form[action]');
+    urlElements.push(...Array.from(formElements));
+    
+    // Elements with onclick navigation
+    const onclickElements = document.querySelectorAll('[onclick*="window.location"], [onclick*="href"], [onclick*="navigate"]');
+    urlElements.push(...Array.from(onclickElements));
+    
+    // Remove duplicates (same element might match multiple selectors)
+    const uniqueElements = [...new Set(urlElements)];
+    
+    return uniqueElements;
+}
+
+function applyFrameworkFilters(elements, filters) {
+    let filteredElements = elements;
+    
+    // Apply include filters
+    if (filters.include && filters.include.length > 0) {
+        console.log(`🎯 Applying include filters: ${filters.include.join(', ')}`);
+        const includeSelectors = filters.include.join(',');
+        try {
+            const includeElements = document.querySelectorAll(includeSelectors);
+            const includeSet = new Set(includeElements);
+            filteredElements = filteredElements.filter(el => includeSet.has(el));
+            console.log(`  ✅ After include filter: ${filteredElements.length} elements`);
+        } catch (error) {
+            console.warn('⚠️ Error applying include filters:', error);
         }
-        
-        // 🎯 Step 2: Comprehensive element scan
+    }
+    
+    // Apply exclude filters
+    if (filters.exclude && filters.exclude.length > 0) {
+        console.log(`🎯 Applying exclude filters: ${filters.exclude.join(', ')}`);
+        const excludeSelectors = filters.exclude.join(',');
+        try {
+            const excludeElements = document.querySelectorAll(excludeSelectors);
+            const excludeSet = new Set(excludeElements);
+            filteredElements = filteredElements.filter(el => !excludeSet.has(el));
+            console.log(`  ✅ After exclude filter: ${filteredElements.length} elements`);
+        } catch (error) {
+            console.warn('⚠️ Error applying exclude filters:', error);
+        }
+    }
+    
+    return filteredElements;
+}
+
+async function performGenericScan(startTime) {
+    const results = {
+        timestamp: Date.now(),
+        scanType: 'generic_scan',
+        framework: 'generic',
+        scanStrategy: 'universal',
+        frameContext: {
+            isMainFrame: window.top === window.self,
+            currentUrl: window.location.href,
+            title: document.title,
+            hostname: window.location.hostname
+        },
+        elementCounts: {
+            totalElements: 0,
+            interactiveElements: 0,
+            contentElements: 0,
+            iframes: 0
+        },
+        interactiveElements: [],
+        contentElements: [],
+        iframeInfo: [],
+        scanDuration: 0,
+        tearAwaySuccess: true,
+        configApplied: false,
+        note: "Generic scan (no site config available)"
+    };
+    
+    try {
+        // Original scanning logic
         const allElements = document.querySelectorAll('*');
-        const elementCount = allElements.length;
+        results.elementCounts.totalElements = allElements.length;
         
-        // 🎯 Step 3: Interactive elements scan
+        // 🚨 PRIORITY 1: ALWAYS collect ALL URL elements first (visibility doesn't matter)
+        const urlElements = collectAllUrlElements();
+        console.log(`🔗 Generic scan: Collected ${urlElements.length} URL elements (including hidden ones)`);
+        
+        // Interactive elements scan
         const interactiveSelectors = [
             'a[href]', 'button', 'input', 'select', 'textarea',
             '[role="button"]', '[role="link"]', '[role="menuitem"]',
@@ -922,17 +803,36 @@ function performImmediateComprehensiveScan() {
         ];
         
         const interactiveElements = [];
+        
+        // 🚨 PRIORITY 1: Add ALL URL elements first (they're always interactive)
+        urlElements.forEach(element => {
+            interactiveElements.push({
+                tagName: element.tagName.toLowerCase(),
+                text: element.textContent?.trim() || element.value || element.alt || '',
+                selector: generateSimpleSelector(element),
+                attributes: extractSimpleAttributes(element),
+                coordinates: getSimpleCoordinates(element),
+                hasUrl: true,  // Mark as URL element
+                url: element.href || element.getAttribute('data-url') || element.getAttribute('data-href') || 'onclick-navigation',
+                actionType: determineActionType(element)  // 🆕 NEW: Determine what type of action this is
+            });
+        });
+        
+        // Add other interactive elements (with visibility check)
         interactiveSelectors.forEach(selector => {
             try {
                 const elements = document.querySelectorAll(selector);
                 elements.forEach(element => {
-                    if (isElementVisible(element)) {
+                    // Skip if already added as URL element
+                    if (!urlElements.includes(element) && isElementVisible(element)) {
                         interactiveElements.push({
                             tagName: element.tagName.toLowerCase(),
                             text: element.textContent?.trim() || element.value || element.alt || '',
                             selector: generateSimpleSelector(element),
                             attributes: extractSimpleAttributes(element),
-                            coordinates: getSimpleCoordinates(element)
+                            coordinates: getSimpleCoordinates(element),
+                            hasUrl: false,
+                            actionType: determineActionType(element)  // 🆕 NEW: Determine what type of action this is
                         });
                     }
                 });
@@ -941,262 +841,37 @@ function performImmediateComprehensiveScan() {
             }
         });
         
-        // 🎯 Step 4: Content elements scan
-        const contentSelectors = [
-            'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'article', 'section',
-            'div[class*="content"]', 'div[class*="text"]', 'span[class*="text"]',
-            'main', 'header', 'footer', 'nav', 'aside'
-        ];
+        // 🚫 SKIP content elements scan - only send actionable elements unless specifically requested
+        // const contentSelectors = [...]; // Commented out for performance
         
-        const contentElements = [];
-        contentSelectors.forEach(selector => {
-            try {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    if (isElementVisible(element) && element.textContent?.trim().length > 10) {
-                        contentElements.push({
-                            tagName: element.tagName.toLowerCase(),
-                            text: element.textContent.trim().substring(0, 150) + '...',
-                            selector: generateSimpleSelector(element),
-                            coordinates: getSimpleCoordinates(element)
-                        });
-                    }
-                });
-            } catch (error) {
-                console.warn(`[Content] ⚠️ Error scanning content selector ${selector}:`, error);
-            }
-        });
+        // Count elements
+        const urlCount = urlElements.length;
+        results.elementCounts.interactiveElements = interactiveElements.length;
+        results.elementCounts.urlElements = urlCount;
+        results.elementCounts.contentElements = 0; // 🆕 NEW: Set to 0 since we're not scanning content
+        results.elementCounts.iframes = document.querySelectorAll('iframe').length;
         
-        // 🎯 Step 4.5: Generic content detection for ANY element with meaningful text
-        const genericContentElements = [];
-        try {
-            // Look for ANY element with substantial text content that wasn't caught above
-            allElements.forEach(element => {
-                if (isElementVisible(element) && element.textContent?.trim().length > 20) {
-                    // Skip if already captured by specific selectors
-                    const isAlreadyCaptured = interactiveElements.some(ie => ie.selector === generateSimpleSelector(element)) ||
-                                           contentElements.some(ce => ce.selector === generateSimpleSelector(element));
-                    
-                    if (!isAlreadyCaptured) {
-                        genericContentElements.push({
-                            tagName: element.tagName.toLowerCase(),
-                            text: element.textContent.trim().substring(0, 150) + '...',
-                            selector: generateSimpleSelector(element),
-                            coordinates: getSimpleCoordinates(element),
-                            note: "Generic content detection - meaningful text found"
-                        });
-                    }
-                }
-            });
-        } catch (error) {
-            console.warn(`[Content] ⚠️ Error in generic content detection:`, error);
-        }
+        // Store elements (limited for performance)
+        results.interactiveElements = interactiveElements.slice(0, 100); // 🆕 NEW: Increased limit since we're only sending actions
+        results.contentElements = []; // 🆕 NEW: Empty array - no content unless requested
         
-        // 🎯 Step 5: iframe detection (but not scanning)
-        const iframes = document.querySelectorAll('iframe');
-        const iframeInfo = Array.from(iframes).map((iframe, index) => ({
-            index: index,
-            src: iframe.src,
-            width: iframe.offsetWidth,
-            height: iframe.offsetHeight,
-            isVisible: iframe.offsetWidth > 0 && iframe.offsetHeight > 0,
-            note: "Detected but not scanned (main-frame-only approach)"
-        }));
+        console.log(`🎯 Generic classification results (ACCURATE):`);
+        console.log(`  📊 Total elements scanned: ${results.elementCounts.totalElements}`);
+        console.log(`  🎯 REAL actionable elements: ${results.elementCounts.interactiveElements}`);
+        console.log(`  🔗 Elements with URLs: ${urlCount}`);
+        console.log(`  📄 Content elements: ${results.elementCounts.contentElements} (skipped for performance)`);
+        console.log(`  🖼️ Iframes: ${results.elementCounts.iframes}`);
         
-        // 🎯 Step 6: Compile comprehensive results
-        const comprehensiveScanResult = {
-            timestamp: Date.now(),
-            scanType: 'immediate_comprehensive_after_tear_away',
-            frameContext: {
-                isMainFrame: window.top === window.self,
-                currentUrl: window.location.href,
-                title: document.title,
-                hostname: window.location.hostname
-            },
-            elementCounts: {
-                totalElements: elementCount,
-                interactiveElements: interactiveElements.length,
-                contentElements: contentElements.length,
-                genericContentElements: genericContentElements.length,
-                iframes: iframes.length
-            },
-            interactiveElements: interactiveElements.slice(0, 50), // Limit to first 50
-            contentElements: contentElements.slice(0, 20), // Limit to first 20
-            genericContentElements: genericContentElements.slice(0, 30), // Limit to first 30
-            iframeInfo: iframeInfo,
-            scanDuration: performance.now() - startTime,
-            tearAwaySuccess: true,
-            note: "This scan was performed immediately after tear away to capture main frame content"
-        };
-        
-        // 🎯 Step 7: Log comprehensive results with filtering stats
-        const filteringStats = {
-            totalElements: elementCount,
-            interactiveElements: interactiveElements.length,
-            contentElements: contentElements.length,
-            genericContentElements: genericContentElements.length,
-            iframes: iframes.length,
-            scanDuration: comprehensiveScanResult.scanDuration.toFixed(2) + "ms",
-            isMainFrame: comprehensiveScanResult.frameContext.isMainFrame,
-            frameDepth: frameInfo.frameDepth,
-            filtering: {
-                totalScanned: elementCount,
-                interactiveFound: interactiveElements.length,
-                contentFound: contentElements.length,
-                genericContentFound: genericContentElements.length,
-                iframesFound: iframes.length,
-                elementsRetained: interactiveElements.length + contentElements.length + genericContentElements.length,
-                elementsFiltered: elementCount - (interactiveElements.length + contentElements.length + genericContentElements.length),
-                filteringRate: ((elementCount - (interactiveElements.length + contentElements.length + genericContentElements.length)) / elementCount * 100).toFixed(1) + "%"
-            }
-        };
-        
-        console.log(`[Content] 🚀 Immediate comprehensive scan complete:`, filteringStats);
-        console.log(`[Content] 🧹 Filtering Summary:`, filteringStats.filtering);
-        
-        // 🆕 NEW: Step 8: Queue-based registration of all found elements
-        console.log(`[Content] 🔄 Step 8: Queue-based registration of ${interactiveElements.length} interactive elements...`);
-        
-        try {
-            // Create registration queue for all interactive elements
-            const registrationQueue = [...interactiveElements];
-            let registeredCount = 0;
-            let failedCount = 0;
-            
-            // Process queue one element at a time to avoid overwhelming the engine
-            const processRegistrationQueue = () => {
-                if (registrationQueue.length === 0) {
-                    console.log(`[Content] ✅ Registration queue complete: ${registeredCount} registered, ${failedCount} failed`);
-                    return;
-                }
-                
-                const elementObj = registrationQueue.shift();
-                
-                // Check if IntelligenceEngine is available
-                if (window.intelligenceEngine && window.intelligenceEngine.registerActionableElement) {
-                    try {
-                        // Reconstruct DOM element from selector
-                        let domElement = null;
-                        try {
-                            domElement = document.querySelector(elementObj.selector);
-                        } catch (e) {
-                            console.warn(`[Content] ⚠️ Could not resolve selector: ${elementObj.selector}`);
-                            failedCount++;
-                            // Continue with next element instead of returning
-                            setTimeout(processRegistrationQueue, 10);
-                            return;
-                        }
-                        
-                        if (!domElement) {
-                            console.warn(`[Content] ⚠️ Element not found for selector: ${elementObj.selector}`);
-                            failedCount++;
-                            // Continue with next element instead of returning
-                            setTimeout(processRegistrationQueue, 10);
-                            return;
-                        }
-                        
-                        // Register the element directly with the DOM element
-                        const actionId = window.intelligenceEngine.registerActionableElement(domElement, elementObj.actionType || 'click');
-                        if (actionId) {
-                            registeredCount++;
-                            // Removed individual element logging to reduce console noise
-                        } else {
-                            failedCount++;
-                            console.log(`[Content] ⚠️ Failed to register element: ${elementObj.selector}`);
-                        }
-                    } catch (error) {
-                        failedCount++;
-                        // 🆕 NEW: Suppress context invalidation errors
-                        if (error.message && error.message.includes('Extension context invalidated')) {
-                            console.log(`[Content] 🔄 Expected: Extension context invalidated during element registration`);
-                        } else {
-                            console.warn(`[Content] ⚠️ Error registering element:`, error.message);
-                            console.log(`[Content] 🔍 Failed element details:`, elementObj);
-                        }
-                    }
-                } else {
-                    // IntelligenceEngine not available, retry after delay
-                    console.log(`[Content] ⏳ IntelligenceEngine not available, retrying in 100ms...`);
-                    registrationQueue.unshift(elementObj); // Put element back in queue
-                    setTimeout(processRegistrationQueue, 100);
-                    return;
-                }
-                
-                // Process next element with small delay to avoid overwhelming
-                // Always continue to next element, even if current one failed
-                setTimeout(processRegistrationQueue, 10);
-            };
-            
-            // Start processing the queue
-            if (registrationQueue.length > 0) {
-                processRegistrationQueue();
-            }
-            
-        } catch (error) {
-            // 🆕 NEW: Suppress context invalidation errors
-            if (error.message && error.message.includes('Extension context invalidated')) {
-                console.log(`[Content] 🔄 Expected: Extension context invalidated during queue registration`);
-            } else {
-                console.warn(`[Content] ⚠️ Error in queue-based registration:`, error.message);
-            }
-        }
-        
-        // 🎯 Step 9: Attempt to traverse to main frame if in iframe
-        if (!frameInfo.isMainFrame && frameInfo.frameDepth > 0) {
-            console.log("[Content] 🔍 Attempting to traverse to main frame...");
-            
-            // 🎯 Method 1: Try to access parent frame content (non-async)
-            try {
-                const mainFrameContent = attemptMainFrameAccess(frameInfo);
-                if (mainFrameContent) {
-                    console.log("[Content] ✅ Successfully accessed main frame content");
-                    comprehensiveScanResult.mainFrameAccess = mainFrameContent;
-                }
-            } catch (error) {
-                console.warn("[Content] ⚠️ Main frame access failed:", error.message);
-            }
-        }
-        
-        // 🎯 Step 10: Send results to service worker
-        if (chrome.runtime && chrome.runtime.sendMessage) {
-            try {
-                chrome.runtime.sendMessage({
-                    type: 'immediate_scan_results',
-                    data: comprehensiveScanResult
-                }, (response) => {
-                    if (chrome.runtime.lastError) {
-                        // 🆕 NEW: Suppress intentional context invalidation errors
-                        const errorMsg = chrome.runtime.lastError.message || '';
-                        if (errorMsg.includes('Extension context invalidated')) {
-                            console.log("[Content] 🔄 Expected: Extension context invalidated (CSP bypass successful)");
-                        } else {
-                            console.warn("[Content] ⚠️ Could not send scan results to service worker:", errorMsg);
-                        }
-                    } else {
-                        console.log("[Content] ✅ Immediate scan results sent to service worker");
-                    }
-                });
-            } catch (error) {
-                // 🆕 NEW: Catch and suppress context invalidation errors
-                if (error.message && error.message.includes('Extension context invalidated')) {
-                    console.log("[Content] 🔄 Expected: Extension context invalidated (CSP bypass successful)");
-                } else {
-                    console.warn("[Content] ⚠️ Error sending scan results:", error.message);
-                }
-            }
-        }
-        
-        return comprehensiveScanResult;
+        console.log(`✅ Generic scan complete: ${results.elementCounts.interactiveElements} actionable elements (${urlCount} with URLs)`);
         
     } catch (error) {
-        console.error("[Content] ❌ Error during immediate comprehensive scan:", error);
-        return { 
-            error: error.message, 
-            timestamp: Date.now(),
-            tearAwaySuccess: false
-        };
+        console.error('❌ Error in generic scan:', error);
     }
+    
+    results.scanDuration = performance.now() - startTime;
+    return results;
 }
+
 
 // 🆕 NEW: Automatic Disconnect Cycle for CSP Bypass
 function performAutomaticDisconnectCycle() {
@@ -1249,6 +924,365 @@ function performAutomaticDisconnectCycle() {
     } catch (error) {
         console.warn("[Content] ⚠️ Error during automatic disconnect cycle:", error.message);
         console.log("[Content] 🔄 Continuing with scan anyway...");
+    }
+}
+
+// 🆕 NEW: Helper Functions for Framework Scanning
+function isInteractiveElement(element, siteConfig = null) {
+    // If we have site config, use framework-specific logic
+    if (siteConfig) {
+        return isInteractiveForFramework(element, siteConfig);
+    }
+    
+    // Fallback to generic logic
+    return isInteractiveGeneric(element);
+}
+
+function isInteractiveForFramework(element, siteConfig) {
+    try {
+        const selectors = siteConfig.selectors;
+        const filters = siteConfig.filters;
+        
+        // 🚨 PRIORITY 1: Always return true for elements with URLs
+        if (hasUrl(element)) {
+            console.log(`🔗 Element has URL - always interactive:`, element.href || element.getAttribute('data-url') || element.getAttribute('data-href'));
+            return true;
+        }
+        
+        // Check if element matches framework-specific interactive selectors
+        for (const [category, selectorList] of Object.entries(selectors)) {
+            if (['buttons', 'menus', 'text_inputs', 'navigation'].includes(category)) {
+                for (const selector of selectorList) {
+                    try {
+                        if (element.matches(selector)) {
+                            console.log(`🎯 Element matches ${category} selector: ${selector}`);
+                            return true; // Element matches framework pattern
+                        }
+                    } catch (error) {
+                        // Invalid selector, skip
+                    }
+                }
+            }
+        }
+        
+        // Apply framework-specific exclude filters
+        if (filters && filters.exclude) {
+            for (const excludeSelector of filters.exclude) {
+                try {
+                    if (element.matches(excludeSelector)) {
+                        console.log(`🚫 Element excluded by framework filter: ${excludeSelector}`);
+                        return false; // Explicitly excluded by framework
+                    }
+                } catch (error) {
+                    // Invalid selector, skip
+                }
+            }
+        }
+        
+        return false; // Not interactive for this framework
+    } catch (error) {
+        console.warn('⚠️ Error in framework-specific interactive check:', error);
+        return false;
+    }
+}
+
+// 🆕 NEW: Check if element has any form of URL
+function hasUrl(element) {
+    try {
+        // Check for href attribute (links)
+        if (element.href) return true;
+        
+        // Check for data attributes that might contain URLs
+        if (element.getAttribute('data-url')) return true;
+        if (element.getAttribute('data-href')) return true;
+        if (element.getAttribute('data-link')) return true;
+        
+        // Check for onclick handlers that might navigate
+        if (element.onclick || element.getAttribute('onclick')) {
+            const onclickValue = element.getAttribute('onclick') || '';
+            if (onclickValue.includes('window.location') || onclickValue.includes('href') || onclickValue.includes('navigate')) {
+                return true;
+            }
+        }
+        
+        return false;
+    } catch (error) {
+        return false;
+    }
+}
+
+// 🆕 NEW: Determine what type of action an element represents
+function determineActionType(element) {
+    try {
+        const tagName = element.tagName.toLowerCase();
+        const hasUrl = hasUrl(element);
+        const role = element.getAttribute('role');
+        const type = element.getAttribute('type');
+        
+        // 🎯 Navigation Actions
+        if (hasUrl) {
+            if (tagName === 'a') return 'navigate';
+            if (tagName === 'form') return 'submit';
+            if (element.getAttribute('onclick')) return 'navigate';
+            return 'navigate';
+        }
+        
+        // 🎯 Button Actions
+        if (tagName === 'button') {
+            if (type === 'submit') return 'submit';
+            if (type === 'reset') return 'reset';
+            if (role === 'menuitem') return 'menu_select';
+            return 'click';
+        }
+        
+        // 🎯 Form Input Actions
+        if (tagName === 'input') {
+            if (type === 'submit') return 'submit';
+            if (type === 'button') return 'click';
+            if (type === 'reset') return 'reset';
+            if (type === 'checkbox') return 'toggle';
+            if (type === 'radio') return 'select';
+            return 'input';
+        }
+        
+        // 🎯 Select Actions
+        if (tagName === 'select') return 'select';
+        
+        // 🎯 Textarea Actions
+        if (tagName === 'textarea') return 'input';
+        
+        // 🎯 Role-based Actions
+        if (role === 'button') return 'click';
+        if (role === 'link') return 'navigate';
+        if (role === 'menuitem') return 'menu_select';
+        if (role === 'tab') return 'tab_select';
+        if (role === 'checkbox') return 'toggle';
+        if (role === 'radio') return 'select';
+        
+        // 🎯 Event-based Actions
+        if (element.onclick || element.getAttribute('onclick')) return 'click';
+        if (element.getAttribute('tabindex')) return 'focus';
+        
+        // 🎯 Default
+        return 'interact';
+        
+    } catch (error) {
+        return 'unknown';
+    }
+}
+
+// 🆕 NEW: Smart element filtering with priority and payload size control
+function smartFilterElements(elements, options) {
+    try {
+        let filteredElements = [...elements];
+        
+        // 🎯 Step 1: Priority-based filtering
+        if (options.priorityFilter === 'high') {
+            // High priority: Only URLs and critical actions
+            filteredElements = filteredElements.filter(el => {
+                const hasUrl = hasUrl(el);
+                const actionType = determineActionType(el);
+                const isCritical = ['navigate', 'submit', 'menu_select'].includes(actionType);
+                return hasUrl || isCritical;
+            });
+            console.log(`🎯 High priority filter: ${elements.length} → ${filteredElements.length} elements`);
+        } else if (options.priorityFilter === 'medium') {
+            // Medium priority: URLs, critical actions, and common interactions
+            filteredElements = filteredElements.filter(el => {
+                const hasUrl = hasUrl(el);
+                const actionType = determineActionType(el);
+                const isCommon = ['navigate', 'submit', 'menu_select', 'click', 'toggle'].includes(actionType);
+                return hasUrl || isCommon;
+            });
+            console.log(`🎯 Medium priority filter: ${elements.length} → ${filteredElements.length} elements`);
+        }
+        // Low priority: Keep all elements (no filtering)
+        
+        // 🎯 Step 2: URL-only filtering
+        if (options.urlOnly) {
+            filteredElements = filteredElements.filter(el => hasUrl(el));
+            console.log(`🔗 URL-only filter: ${elements.length} → ${filteredElements.length} elements`);
+        }
+        
+        // 🎯 Step 3: Visibility filtering
+        if (options.visibleOnly) {
+            filteredElements = filteredElements.filter(el => isElementVisible(el));
+            console.log(`👁️ Visible-only filter: ${elements.length} → ${filteredElements.length} elements`);
+        }
+        
+        // 🎯 Step 4: Element count limiting
+        if (options.maxElements && filteredElements.length > options.maxElements) {
+            // Sort by importance before limiting
+            filteredElements.sort((a, b) => {
+                const aHasUrl = hasUrl(a);
+                const bHasUrl = hasUrl(b);
+                const aAction = determineActionType(a);
+                const bAction = determineActionType(b);
+                
+                // Priority: URLs first, then critical actions, then others
+                if (aHasUrl && !bHasUrl) return -1;
+                if (!aHasUrl && bHasUrl) return 1;
+                if (aAction === 'navigate' && bAction !== 'navigate') return -1;
+                if (aAction !== 'navigate' && bAction === 'navigate') return 1;
+                
+                return 0;
+            });
+            
+            filteredElements = filteredElements.slice(0, options.maxElements);
+            console.log(`📊 Element limit applied: ${elements.length} → ${filteredElements.length} elements`);
+        }
+        
+        // 🎯 Step 5: Payload size control
+        let currentSize = 0;
+        const sizeLimitedElements = [];
+        
+        for (const element of filteredElements) {
+            const elementSize = JSON.stringify(element).length;
+            if (currentSize + elementSize <= options.payloadSizeLimit) {
+                sizeLimitedElements.push(element);
+                currentSize += elementSize;
+            } else {
+                console.log(`📦 Payload size limit reached at ${currentSize} bytes, stopping at ${sizeLimitedElements.length} elements`);
+                break;
+            }
+        }
+        
+        console.log(`📦 Final payload: ${sizeLimitedElements.length} elements, ${currentSize} bytes`);
+        return sizeLimitedElements;
+        
+    } catch (error) {
+        console.warn('⚠️ Error in smart filtering:', error);
+        // Fallback to simple limiting
+        return elements.slice(0, options.maxElements || 50);
+    }
+}
+
+// 🆕 NEW: Generate accurate summary statistics
+function generateAccurateSummary(results) {
+    const summary = {
+        totalScanned: results.elementCounts.totalElements || 0,
+        actionableElements: results.elementCounts.interactiveElements || 0,
+        urlElements: results.elementCounts.urlElements || 0,
+        contentElements: results.elementCounts.contentElements || 0,
+        iframes: results.elementCounts.iframes || 0,
+        payloadSize: JSON.stringify(results).length,
+        scanType: results.scanType || 'unknown',
+        framework: results.framework || 'generic'
+    };
+    
+    console.log(`📊 ACCURATE SCAN SUMMARY:`);
+    console.log(`  🎯 Total elements scanned: ${summary.totalScanned}`);
+    console.log(`  🎯 REAL actionable elements: ${summary.actionableElements}`);
+    console.log(`  🔗 Elements with URLs: ${summary.urlElements}`);
+    console.log(`  📄 Content elements: ${summary.contentElements} (skipped for performance)`);
+    console.log(`  🖼️ Iframes: ${summary.iframes}`);
+    console.log(`  📦 Payload size: ${summary.payloadSize} bytes`);
+    console.log(`  🔧 Scan type: ${summary.scanType}`);
+    console.log(`  🏗️ Framework: ${summary.framework}`);
+    
+    return summary;
+}
+
+function isInteractiveGeneric(element) {
+    try {
+        // 🚨 PRIORITY 1: Always return true for elements with URLs
+        if (hasUrl(element)) {
+            console.log(`🔗 Element has URL - always interactive:`, element.href || element.getAttribute('data-url') || element.getAttribute('data-href'));
+            return true;
+        }
+        
+        const tagName = element.tagName.toLowerCase();
+        const hasClickHandler = element.onclick || element.getAttribute('onclick');
+        const hasHref = element.href;
+        const isFormElement = ['input', 'select', 'textarea', 'button'].includes(tagName);
+        const isLink = tagName === 'a' && hasHref;
+        const role = element.getAttribute('role');
+        const interactiveRoles = ['button', 'link', 'menuitem', 'tab'];
+        
+        if (isFormElement || isLink || hasClickHandler) {
+            return true;
+        }
+        
+        if (role && interactiveRoles.includes(role)) {
+            return true;
+        }
+        
+        // Check for event handlers
+        for (const attr of element.attributes) {
+            if (attr.name.startsWith('on')) {
+                return true;
+            }
+        }
+        
+        return false;
+    } catch (error) {
+        return false;
+    }
+}
+
+function isContentElement(element, siteConfig = null) {
+    // If we have site config, use framework-specific logic
+    if (siteConfig) {
+        return isContentForFramework(element, siteConfig);
+    }
+    
+    // Fallback to generic logic
+    return isContentGeneric(element);
+}
+
+function isContentForFramework(element, siteConfig) {
+    try {
+        const selectors = siteConfig.selectors;
+        
+        // Check if element matches framework-specific content selectors
+        if (selectors.text_inputs) {
+            for (const selector of selectors.text_inputs) {
+                try {
+                    if (element.matches(selector)) {
+                        return false; // This is an input, not content
+                    }
+                } catch (error) {
+                    // Invalid selector, skip
+                }
+            }
+        }
+        
+        // Check if element is explicitly marked as content in framework
+        if (selectors.content_elements) {
+            for (const selector of selectors.content_elements) {
+                try {
+                    if (element.matches(selector)) {
+                        return true; // Explicitly marked as content
+                    }
+                } catch (error) {
+                    // Invalid selector, skip
+                }
+            }
+        }
+        
+        // Fallback to generic content detection
+        return isContentGeneric(element);
+    } catch (error) {
+        console.warn('⚠️ Error in framework-specific content check:', error);
+        return isContentGeneric(element);
+    }
+}
+
+function isContentGeneric(element) {
+    try {
+        const tagName = element.tagName.toLowerCase();
+        const text = element.textContent?.trim() || '';
+        
+        // Text content elements
+        const contentTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span'];
+        if (contentTags.includes(tagName)) {
+            // Must have meaningful text content
+            return text.length > 10;
+        }
+        
+        return false;
+    } catch (error) {
+        return false;
     }
 }
 
@@ -1480,7 +1514,7 @@ function scanWithFrameworkSelectors() {
 
 // 🆕 NEW: Test event listener for debugging from page context
 document.addEventListener('testIntelligence', (event) => {
-    // Test event received (logging removed)
+    console.log("[Content] 🧪 Test event received:", event.detail);
     
     const command = event.detail?.command;
     if (!command) {
@@ -2159,8 +2193,48 @@ document.addEventListener('testIntelligence', (event) => {
     }
 });
 
-// Removed test commands logging
-// 🧹 CLEANED: Removed verbose test command help logging
+console.log("[Content] 🧪 Test event listener added - available commands:");
+console.log("[Content] 🧪 - testIntelligenceSystem: Basic system test");
+console.log("[Content] 🧪 - getActionableElements: List actionable elements");
+console.log("[Content] 🧪 - scanElements: Scan page for elements");
+console.log("[Content] 🧪 - getDOMStatus: Check DOM change detection");
+console.log("[Content] 🧪 - executeAction: Execute an action");
+console.log("[Content] 🧪 - testQueue: Test the queue system");
+console.log("[Content] 🧪 - checkEngine: Check engine readiness");
+console.log("[Content] 🧪 - getStatus: Get system status including queue info");
+console.log("[Content] 🧪 - getElementCoordinates: Get coordinates for an actionId");
+console.log("[Content] 🧪 - reveal: Reveal element details with smart resolution");
+console.log("[Content] 🧪 - getCoordinates: Get coordinates with smart resolution");
+console.log("[Content] 🧪 - testSmartClick: Test enhanced smart resolution clicking");
+console.log("[Content] 🧪 - testEnhancedDimensions: Test enhanced dimension detection");
+console.log("[Content] 🧪 - testForceVisibility: Test force visibility CSS override");
+console.log("[Content] 🧪 - testViewportAnalysis: Test viewport positioning analysis");
+console.log("[Content] 🧪 - testViewportFix: Test viewport positioning fixes");
+console.log("[Content] 🧪 - testUniversalClick: Test universal click for any element");
+console.log("[Content] 🧪 - testClickVerification: Test click verification system");
+console.log("[Content] 🧪 - testSubmenuInspection: Test submenu content inspection");
+console.log("[Content] 🧪 - testDelayedSubmenuInspection: Test delayed submenu inspection");
+console.log("[Content] 🧪 - testDocumentSearch: Test document-wide menu item search");
+console.log("[Content] 🧪 - testMenuStructureBuilder: Test automatic menu structure detection");
+console.log("[Content] 🧪 - testFrameworkScanning: Test framework-specific element scanning");
+console.log("[Content] 🧪 - testEnhancedMenuClick: Test complete enhanced menu click flow");
+console.log("[Content] 🧪 Examples:");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'getElementCoordinates', actionId: 'action_navigate_a_0'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'reveal', actionId: 'action_navigate_a_0'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'executeAction', actionId: 'action_navigate_a_0', action: 'click'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSmartClick', actionId: 'action_navigate_a_0'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedDimensions', selector: '.custom-logo-link'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testForceVisibility', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testViewportAnalysis', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testViewportFix', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testUniversalClick', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testClickVerification', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSubmenuInspection', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDelayedSubmenuInspection', selector: '.ast-menu-toggle'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDocumentSearch'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testMenuStructureBuilder'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testFrameworkScanning'}}))");
+console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedMenuClick', selector: '[data-index=\"0\"]'}}))");
 
 // Utility function for async delays
 var sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -2219,7 +2293,14 @@ function initializeDOMChangeDetection() {
                     }
                 }
             } else {
-                // Removed noisy DOM change logging to reduce console spam
+                // 🚫 REDUCED LOGGING: Only log every 100th insignificant change
+                if (changeCount % 100 === 0) {
+                    console.log("[Content] 🚫 Filtered out insignificant DOM change:", {
+                        mutations: mutations.length,
+                        types: mutations.map(m => m.type),
+                        totalFiltered: changeCount
+                    });
+                }
             }
             
             // 🆕 NEW: Notify service worker about DOM changes (but only significant ones)
@@ -2247,7 +2328,7 @@ function initializeDOMChangeDetection() {
         // Mark as initialized
         window.domChangeDetectionInitialized = true;
         
-        // Removed DOM change detection logging to reduce console spam
+        console.log("[Content] ✅ DOM change detection active with config:", observerConfig);
         
     } catch (error) {
         console.error("[Content] ❌ Failed to initialize DOM change detection:", error);
@@ -2266,7 +2347,7 @@ function notifyServiceWorkerOfChanges(changeInfo) {
                 type: "dom_changed",
                 ...changeInfo
             });
-            // Removed DOM change notification logging to reduce console spam
+            console.log("[Content] 📤 DOM change notification sent to service worker");
         } else {
             console.warn("[Content] Service worker communication not available");
         }
@@ -2275,6 +2356,7 @@ function notifyServiceWorkerOfChanges(changeInfo) {
             console.warn("[Content] Extension context invalidated - reloading may have occurred");
             // Attempt to reconnect after a brief delay
             setTimeout(() => {
+                console.log("[Content] Attempting to reconnect after context invalidation...");
                 // Try to reinitialize if needed
                 if (typeof initializeIntelligenceSystem === 'function') {
                     initializeIntelligenceSystem();
@@ -5964,7 +6046,7 @@ IntelligenceEngine.prototype.passesBasicQualityFilter = function(element) {
     // 🆕 ENHANCED: Always include interactive elements regardless of dimensions
     const isInteractiveElement = this.isInteractiveElement(element);
     if (isInteractiveElement) {
-        // Removed quality filter logging
+        console.log(`[Quality Filter] ✅ Including interactive element: ${element.tagName} (${element.className})`);
         return true; // Always include interactive elements
     }
     
@@ -6765,7 +6847,7 @@ IntelligenceEngine.prototype.generateElementSelectors = function(element) {
         selectors.push(...dataAttrs);
         
         // Strategy 3: Class-based selector
-        if (element.className && typeof element.className === 'string' && element.className.trim()) {
+        if (element.className) {
             const classes = element.className.split(' ').filter(c => c.trim());
             if (classes.length > 0) {
                 selectors.push(`.${classes[0]}`);
@@ -6773,7 +6855,7 @@ IntelligenceEngine.prototype.generateElementSelectors = function(element) {
         }
         
         // Strategy 4: Tag + class combination
-        if (element.tagName && element.className && typeof element.className === 'string' && element.className.trim()) {
+        if (element.tagName && element.className) {
             const firstClass = element.className.split(' ')[0];
             if (firstClass) {
                 selectors.push(`${element.tagName.toLowerCase()}.${firstClass}`);
@@ -6847,6 +6929,11 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
  * 🆕 NEW: Register an element as actionable
  */
 IntelligenceEngine.prototype.registerActionableElement = function(element, actionType = 'general') {
+    console.log(`[Content] 🔍 registerActionableElement called with:`, { element, actionType });
+    console.log(`[Content] 🔍 element type:`, typeof element);
+    console.log(`[Content] 🔍 element.tagName:`, element?.tagName);
+    console.log(`[Content] 🔍 element.getAttribute:`, typeof element?.getAttribute);
+    
     // Ensure we have a real DOM element for attribute extraction
     let domElement = element;
     
@@ -6863,6 +6950,9 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
             return null;
         }
     }
+    
+    console.log(`[Content] 🔍 Final domElement:`, domElement);
+    console.log(`[Content] 🔍 Final domElement.getAttribute:`, typeof domElement?.getAttribute);
     
     const actionableId = this.generateActionableId(domElement, actionType);
     this.actionableElements.set(actionableId.id, actionableId);
@@ -7358,13 +7448,20 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
                     
                     // Get the full element data to show href attributes
                     const elementData = this.getActionableElement(actionId);
-                    // Removed individual element registration logging
+                    console.log("[Content] 📝 Registered element:", {
+                        actionId: actionId,
+                        tagName: element.tagName,
+                        actionType: actionType,
+                        textContent: element.textContent?.trim().substring(0, 30) || '',
+                        href: element.tagName === 'A' ? element.href : undefined,
+                        attributes: elementData?.attributes || {}
+                    });
                 }
             }
         });
         
         // 🆕 NEW: PHASE 4: Process generic content elements (like your apartment element)
-        // Removed verbose generic content processing log
+        console.log("[Content] 🔍 PHASE 4: Processing generic content elements...");
         let genericContentCount = 0;
         
         try {
@@ -7381,7 +7478,13 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
                         const actionId = this.registerActionableElement(element, actionType);
                         genericContentCount++;
                         
-                        // Removed verbose generic content registration log
+                        console.log("[Content] 📝 Registered generic content:", {
+                            actionId: actionId,
+                            tagName: element.tagName,
+                            actionType: actionType,
+                            textContent: element.textContent.trim().substring(0, 50) + '...',
+                            note: "Generic content detection - meaningful text found"
+                        });
                     }
                 }
             });
@@ -7389,8 +7492,18 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             console.warn("[Content] ⚠️ Error processing generic content elements:", error);
         }
         
-        // 🎯 ESSENTIAL SUMMARY: Final element counts only
-        console.log(`[Content] 📊 SCAN SUMMARY: ${allElements.length} total → ${registeredCount} actionable + ${genericContentCount} content`);
+        console.log("[Content] 🎯 PHASE 4 RESULTS:");
+        console.log(`   📊 Generic content elements registered: ${genericContentCount}`);
+        
+        console.log("[Content] 🎯 PHASE 3 FILTERING RESULTS:");
+        console.log(`   📊 Total elements found: ${allElements.length} (${frameworkElements.length} framework + ${elements.length} generic)`);
+        console.log(`   🔍 Interactive elements: ${filteredCount}`);
+        console.log(`   ✅ Quality-filtered elements: ${registeredCount}`);
+        console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / allElements.length) * 100)}%`);
+        
+        console.log("[Content] 🎯 PHASE 4 FILTERING RESULTS:");
+        console.log(`   📊 Generic content elements: ${genericContentCount}`);
+        console.log(`   📊 Total actionable elements: ${registeredCount + genericContentCount}`);
         
         // Update page state
                     this.pageState.interactiveElements = this.getAllActionableElements();

@@ -43,6 +43,20 @@
         "[contenteditable='true']",
         "[role='textbox']",
         "input[placeholder]"
+      ],
+      "content_elements": [
+        "h1", "h2", "h3", "h4", "h5", "h6",
+        "p", "article", "section", "main",
+        "div[class*='content']", "div[class*='text']",
+        "span[class*='text']", "span[class*='content']"
+      ],
+      "url_elements": [
+        "a[href]",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
       ]
     },
     "filters": {
@@ -51,14 +65,33 @@
         "nav", 
         "#searchbox",
         "#gb_70",
-        "[aria-label*='Google apps']"
+        "[aria-label*='Google apps']",
+        "a[href]",  // Always include elements with URLs
+        "[data-url]",
+        "[data-href]"
       ],
       "exclude": [
         "[data-ved]",
         ".gb_oa",
         ".gb_ua",
         "[aria-hidden='true']",
-        "[style*='display: none']"
+        "[style*='display: none']",
+        // Exclude non-actionable structural elements
+        "div:not([href]):not([data-url]):not([data-href]):not([onclick]):not([role='button']):not([role='link'])",
+        "section:not([href]):not([data-url]):not([data-href])",
+        "main:not([href]):not([data-url]):not([data-href])",
+        "article:not([href]):not([data-url]):not([data-href])",
+        "header:not([href]):not([data-url]):not([data-href])",
+        "footer:not([href]):not([data-url]):not([data-href])",
+        "h1:not([href]):not([data-url]):not([data-href])",
+        "h2:not([href]):not([data-url]):not([data-href])",
+        "h3:not([href]):not([data-url]):not([data-href])",
+        "h4:not([href]):not([data-url]):not([data-href])",
+        "h5:not([href]):not([data-url]):not([data-href])",
+        "h6:not([href]):not([data-url]):not([data-href])",
+        "p:not([href]):not([data-url]):not([data-href])",
+        "span:not([href]):not([data-url]):not([data-href])",
+        "figcaption:not([href]):not([data-url]):not([data-href])"
       ],
       "max_elements": 25
     },
@@ -246,7 +279,47 @@
         "[role='textbox']",
         "input[placeholder]",
         "[aria-placeholder]"
+      ],
+      "content_elements": [
+        "h1", "h2", "h3", "h4", "h5", "h6",
+        "p", "article", "section", "main",
+        "div[class*='content']", "div[class*='text']",
+        "span[class*='text']", "span[class*='content']"
+      ],
+      "url_elements": [
+        "a[href]",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
       ]
+    },
+    "filters": {
+      "include": [
+        "a[href]",  // Always include elements with URLs
+        "[data-url]",
+        "[data-href]"
+      ],
+      "exclude": [
+        // Exclude non-actionable structural elements (but preserve URL elements)
+        "div:not([href]):not([data-url]):not([data-href]):not([onclick]):not([role='button']):not([role='link'])",
+        "section:not([href]):not([data-url]):not([data-href])",
+        "main:not([href]):not([data-url]):not([data-href])",
+        "article:not([href]):not([data-url]):not([data-href])",
+        "header:not([href]):not([data-url]):not([data-href])",
+        "footer:not([href]):not([data-url]):not([data-href])",
+        "h1:not([href]):not([data-url]):not([data-href])",
+        "h2:not([href]):not([data-url]):not([data-href])",
+        "h3:not([href]):not([data-url]):not([data-href])",
+        "h4:not([href]):not([data-url]):not([data-href])",
+        "h5:not([href]):not([data-url]):not([data-href])",
+        "h6:not([href]):not([data-url]):not([data-href])",
+        "p:not([href]):not([data-url]):not([data-href])",
+        "span:not([href]):not([data-url]):not([data-href])",
+        "figcaption:not([href]):not([data-url]):not([data-href])"
+      ],
+      "max_elements": 100
     },
     "interaction_patterns": {
       "expand_menu": {
