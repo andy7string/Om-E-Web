@@ -72,20 +72,6 @@ var lastDOMScan = 0;
 var totalElementsScanned = 0;
 var continuousScanningEnabled = true;
 
-// 🆕 NEW: Simple test to verify code is running
-console.log("[Content] 🧪 Testing intelligence system components...");
-console.log("[Content] 🧪 DOM change detection system:", {
-    changeDetectionEnabled: changeDetectionEnabled,
-    changeCount: changeCount,
-    lastChangeTime: lastChangeTime
-});
-console.log("[Content] 🧪 Intelligence system variables:", { changeAggregator, intelligenceEngine, pageContext });
-console.log("[Content] 🧪 Continuous DOM scanning:", {
-    enabled: continuousScanningEnabled,
-    interval: DOM_SCAN_INTERVAL,
-    totalElementsScanned: totalElementsScanned
-});
-
 // 🆕 NEW: Site configuration and framework detection
 if (typeof siteConfigs === 'undefined') {
     let siteConfigs = {};
