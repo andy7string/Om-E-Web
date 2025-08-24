@@ -72,35 +72,10 @@ var lastDOMScan = 0;
 var totalElementsScanned = 0;
 var continuousScanningEnabled = true;
 
-// 🆕 NEW: Site configuration and framework detection
-if (typeof siteConfigs === 'undefined') {
-    let siteConfigs = {};
-    let currentSiteConfig = null;
-    let currentFramework = 'generic';
-    
-    // Make them globally accessible
-    window.siteConfigs = siteConfigs;
-    window.currentSiteConfig = currentSiteConfig;
-    window.currentFramework = currentFramework;
-} else {
-    // Use existing globals
-    let siteConfigs = window.siteConfigs || {};
-    let currentSiteConfig = window.currentSiteConfig || null;
-    let currentFramework = window.currentFramework || 'generic';
-}
-
-// 🆕 NEW: Load site configs from storage on startup
-chrome.storage.local.get(['siteConfigs'], (result) => {
-    if (result.siteConfigs) {
-        siteConfigs = result.siteConfigs;
-        console.log("[Content] 📋 Loaded site configs:", Object.keys(siteConfigs));
-        detectAndApplyFramework();
-    }
-    
-    // 🚫 Continuous DOM scanning DISABLED to prevent context interference
-    console.log("[Content] 🚫 Continuous DOM scanning DISABLED - manual mode only");
-    console.log("[Content] 💡 Use test commands to trigger manual scans when needed");
-});
+// Set default framework configuration
+window.siteConfigs = {};
+window.currentSiteConfig = null;
+window.currentFramework = 'generic';
 
 // 🆕 NEW: Framework detection function
 async function detectAndApplyFramework() {
@@ -1736,8 +1711,8 @@ document.addEventListener('testIntelligence', (event) => {
                     const reinjectionResult = forceContextReinjection();
                     console.log("[Content] 🧪 Step 2 - Re-injection completed:", reinjectionResult);
                     
-                                    // Step 3: Continuous scanning DISABLED to preserve context
-                console.log("[Content] 🧪 Step 3 - Continuous scanning DISABLED to preserve context state");
+                    // Step 3: Continuous scanning DISABLED to preserve context
+                    console.log("[Content] 🧪 Step 3 - Continuous scanning DISABLED to preserve context state");
                 }, 1000);
                 
                 console.log("[Content] 🧪 Full tear away sequence initiated");
