@@ -63,14 +63,9 @@ var intelligenceEngine = null;                   // Main intelligence processing
 var pageContext = null;                          // Current page context and metadata
 var changeHistory = [];                          // History of DOM changes for analysis
 var lastIntelligenceUpdate = 0;                  // Timestamp of last intelligence update
-const INTELLIGENCE_UPDATE_INTERVAL = 500;        // 0.5 seconds between intelligence updates for continuous DOM scanning
+const INTELLIGENCE_UPDATE_INTERVAL = 500;        // 0.5 seconds between intelligence updates
 
-// 🆕 NEW: Continuous DOM Monitoring System
-var continuousDOMScanner = null;                 // Interval timer for continuous DOM scanning
-const DOM_SCAN_INTERVAL = 1000;                  // Scan DOM every 1 second
-var lastDOMScan = 0;                             // Timestamp of last DOM scan
-var totalElementsScanned = 0;                    // Total count of elements scanned across all scans
-var continuousScanningEnabled = true;            // Flag to enable/disable continuous scanning
+// 🆕 REMOVED: Continuous DOM Monitoring System - Unnecessary performance overhead
 
 // Set default framework configuration
 window.siteConfigs = {};
@@ -84,8 +79,6 @@ console.log(`🎯 Framework setup ready for domain: ${currentDomain}`);
 
 // 🆕 NEW: Read site config directly from extension file
 function getSiteConfigDirect() {
-    console.log("🔍 Reading site config directly from extension file...");
-    
     // Read the config file synchronously
     const xhr = new XMLHttpRequest();
     xhr.open('GET', chrome.runtime.getURL('site_configs.json'), false); // Synchronous
@@ -152,400 +145,18 @@ if (configFound) {
     console.log("⚠️ No site config available - using generic scanning");
 }
 
+// 🆕 REMOVED: performControlledTearAway function - Not needed
 
+// 🆕 REMOVED: Global test functions - performControlledTearAway function deleted
 
-
-
-// 🆕 NEW: Continuous DOM Scanning Function
-function startContinuousDOMScanning() {
-    if (continuousDOMScanner) {
-        clearInterval(continuousDOMScanner);
-    }
-    
-    console.log("[Content] 🚀 Starting continuous DOM scanning every", DOM_SCAN_INTERVAL, "ms");
-    
-    continuousDOMScanner = setInterval(() => {
-        try {
-            const currentTime = Date.now();
-            if (currentTime - lastDOMScan >= DOM_SCAN_INTERVAL) {
-                performContinuousDOMScan();
-                lastDOMScan = currentTime;
-            }
-        } catch (error) {
-            console.warn("[Content] ⚠️ Error in continuous DOM scan:", error);
-        }
-    }, DOM_SCAN_INTERVAL);
-    
-    return continuousDOMScanner;
-}
-
-function performContinuousDOMScan() {
-    try {
-        const startTime = performance.now();
-        
-        // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass in normal workflow
-        console.log("[Content] 🔄 Continuous scan: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
-        performAutomaticDisconnectCycle();
-        
-        // 🎯 NEW: Run comprehensive scan to get 262+ elements
-        console.log("[Content] 🔍 Continuous scan: Running comprehensive scan for full element detection...");
-        const comprehensiveScanResult = performImmediateComprehensiveScan();
-        console.log("[Content] ✅ Continuous scan comprehensive scan complete:", comprehensiveScanResult);
-        
-        // 🎯 Frame detection for continuous scanning
-        const frameInfo = {
-            isMainFrame: window.top === window.self,
-            currentFrame: window.location.href,
-            topFrame: window.top.location.href,
-            frameDepth: 0
-        };
-        
-        // Calculate frame depth
-        let currentWindow = window;
-        while (currentWindow !== window.top) {
-            frameInfo.frameDepth++;
-            try {
-                currentWindow = currentWindow.parent;
-            } catch (e) {
-                break;
-            }
-        }
-        
-        // 🎯 Scan all DOM elements
-        const allElements = document.querySelectorAll('*');
-        const elementCount = allElements.length;
-        
-        // 🎯 Count interactive elements (REAL actionable elements)
-        const interactiveElements = document.querySelectorAll('a[href], button, input, select, textarea, [role="button"], [role="link"], [onclick], [tabindex]');
-        const interactiveCount = interactiveElements.length;
-        
-        // 🎯 Count content elements (non-actionable)
-        const contentElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, article, section, div[class*="content"], div[class*="text"]');
-        const contentCount = contentElements.length;
-        
-        // 🎯 Count URL elements specifically (always actionable)
-        const urlElements = document.querySelectorAll('a[href], [data-url], [data-href], [data-link], form[action]');
-        const urlCount = urlElements.length;
-        
-        // 🎯 Update counters
-        totalElementsScanned += elementCount;
-        
-        const scanResult = {
-            timestamp: Date.now(),
-            elementCount: elementCount,
-            interactiveElements: interactiveCount,
-            contentElements: contentCount,
-            urlElements: urlCount,
-            totalElementsScanned: totalElementsScanned,
-            scanDuration: performance.now() - startTime,
-            url: window.location.href,
-            title: document.title
-        };
-        
-        // 🎯 Log scan results with ACCURATE numbers (only if significant changes)
-        if (elementCount > 0) {
-            console.log(`[Content] 🔍 Continuous DOM scan: ${elementCount} total elements`);
-            console.log(`[Content] 🎯 REAL actionable elements: ${interactiveCount} interactive, ${urlCount} with URLs`);
-            console.log(`[Content] 📄 Content elements (non-actionable): ${contentCount}`);
-            console.log(`[Content] 🖼️ Frame context: ${frameInfo.isMainFrame ? 'MAIN' : 'IFRAME'} (depth: ${frameInfo.frameDepth})`);
-            console.log(`[Content] ⏱️ Scan duration: ${scanResult.scanDuration.toFixed(2)}ms`);
-        }
-        
-        // 🎯 Trigger intelligence update if significant changes detected
-        if (intelligenceEngine && intelligenceEngine.isEngineReady && intelligenceEngine.isEngineReady()) {
-            intelligenceEngine.queueIntelligenceUpdate('low');
-        }
-        
-        return scanResult;
-        
-    } catch (error) {
-        console.error("[Content] ❌ Error in continuous DOM scan:", error);
-        return { error: error.message, timestamp: Date.now() };
-    }
-}
-
-function stopContinuousDOMScanning() {
-    if (continuousDOMScanner) {
-        clearInterval(continuousDOMScanner);
-        continuousDOMScanner = null;
-        console.log("[Content] 🛑 Continuous DOM scanning stopped");
-    }
-}
-
-// 🆕 NEW: Controlled Tear Away System
-function performControlledTearAway() {
-    console.log("[Content] 🚨 Starting controlled tear away sequence...");
-    
-    try {
-        // 🎯 Step 1: Stop all current processes
-        stopContinuousDOMScanning();
-        
-        // 🎯 Step 2: Clear all extension state
-        if (intelligenceEngine) {
-            intelligenceEngine.clearAllState();
-        }
-        
-        // 🎯 Step 3: Disconnect all observers
-        if (domChangeObserver) {
-            domChangeObserver.disconnect();
-            domChangeObserver = null;
-        }
-        
-        // 🎯 Step 4: Clear all variables
-        changeCount = 0;
-        lastChangeTime = 0;
-        lastSignificantChange = 0;
-        changeHistory = [];
-        lastIntelligenceUpdate = 0;
-        totalElementsScanned = 0;
-        
-        // 🎯 Step 5: Force context invalidation
-        const tearAwayResult = {
-            timestamp: Date.now(),
-            actions: [
-                'Stopped continuous scanning',
-                'Cleared intelligence engine state',
-                'Disconnected DOM observers',
-                'Reset all counters',
-                'Forced context cleanup'
-            ],
-            note: 'Extension context should now be invalidated and ready for re-injection'
-        };
-        
-        console.log("[Content] 🚨 Controlled tear away completed:", tearAwayResult);
-        
-        // 🎯 Step 6: Trigger re-injection by sending message to service worker
-        chrome.runtime.sendMessage({
-            type: 'force_content_script_reinjection',
-            data: {
-                tabId: null, // Will be set by service worker
-                reason: 'controlled_tear_away',
-                timestamp: Date.now()
-            }
-        }, (response) => {
-            if (chrome.runtime.lastError) {
-                console.warn("[Content] ⚠️ Service worker not available for re-injection");
-            } else {
-                console.log("[Content] ✅ Re-injection request sent to service worker");
-                
-                // 🎯 CRITICAL: Wait for re-injection, then immediately scan
-                setTimeout(() => {
-                    console.log("[Content] 🚀 Tear away complete - performing immediate DOM scan...");
-                    
-                            // 🎯 Step 7: Immediate comprehensive scan
-        const scanResults = performImmediateComprehensiveScan();
-        
-        // 🎯 Step 8: Continuous scanning DISABLED to prevent context interference
-        console.log("[Content] 🚫 Continuous scanning DISABLED to preserve context state");
-        
-        // 🎯 Step 9: Only perform manual scans when requested
-        console.log("[Content] 🎯 Manual scanning mode enabled - no automatic polling");
-                    
-                }, 1000); // Wait 1 second for re-injection to complete
-            }
-        });
-        
-        return tearAwayResult;
-        
-    } catch (error) {
-        console.error("[Content] ❌ Error during controlled tear away:", error);
-        return { error: error.message, timestamp: Date.now() };
-    }
-}
-
-function forceContextReinjection() {
-    console.log("[Content] 🔄 Forcing context re-injection...");
-    
-    try {
-        // 🎯 Method 1: Force disconnect and reconnect
-        if (chrome.runtime && chrome.runtime.connect) {
-            const port = chrome.runtime.connect();
-            port.disconnect();
-            console.log("[Content] 🔄 Runtime port disconnected");
-        }
-        
-        // 🎯 Method 2: Clear storage and force reload
-        chrome.storage.local.clear(() => {
-            console.log("[Content] 🔄 Storage cleared, forcing reload");
-            
-            // 🎯 Method 3: Send reload command to service worker
-            chrome.runtime.sendMessage({
-                type: 'force_extension_reload',
-                data: {
-                    reason: 'context_reinjection',
-                    timestamp: Date.now()
-                }
-            }, (response) => {
-                if (chrome.runtime.lastError) {
-                    console.warn("[Content] ⚠️ Service worker not available for reload");
-                } else {
-                    console.log("[Content] ✅ Reload request sent to service worker");
-                }
-            });
-        });
-        
-        return { success: true, timestamp: Date.now() };
-        
-    } catch (error) {
-        console.error("[Content] ❌ Error during context re-injection:", error);
-        return { error: error.message, timestamp: Date.now() };
-    }
-}
+// 🆕 REMOVED: forceContextReinjection function - Not used anywhere
 
 // 🆕 NEW: Pre-Scan Disconnect Cycle Function
-function performPreScanDisconnectCycle() {
-    console.log("[Content] 🔄 Starting pre-scan disconnect cycle...");
-    
-    try {
-        const startTime = performance.now();
-        
-        // 🎯 Step 1: Force complete runtime disconnect
-        if (chrome.runtime && chrome.runtime.connect) {
-            console.log("[Content] 🔌 Forcing runtime port disconnect...");
-            const ports = [];
-            
-            // Create multiple connections and disconnect them all
-            for (let i = 0; i < 3; i++) {
-                try {
-                    const port = chrome.runtime.connect();
-                    ports.push(port);
-                    port.disconnect();
-                } catch (error) {
-                    console.warn(`[Content] ⚠️ Port ${i} disconnect error:`, error);
-                }
-            }
-            console.log("[Content] ✅ All runtime ports disconnected");
-        }
-        
-        // 🎯 Step 2: Clear all extension storage
-        if (chrome.storage && chrome.storage.local) {
-            console.log("[Content] 🗑️ Clearing extension storage...");
-            chrome.storage.local.clear(() => {
-                console.log("[Content] ✅ Extension storage cleared");
-            });
-        }
-        
-        // 🎯 Step 3: Force service worker reload
-        console.log("[Content] 🔄 Requesting service worker reload...");
-        chrome.runtime.sendMessage({
-            type: 'force_extension_reload',
-            data: {
-                reason: 'pre_scan_disconnect_cycle',
-                timestamp: Date.now(),
-                forceReload: true
-            }
-        }, (response) => {
-            if (chrome.runtime.lastError) {
-                console.warn("[Content] ⚠️ Service worker reload failed:", chrome.runtime.lastError);
-            } else {
-                console.log("[Content] ✅ Service worker reload requested");
-            }
-        });
-        
-        // 🎯 Step 4: Wait for disconnect cycle to complete
-        setTimeout(() => {
-            console.log("[Content] 🔄 Disconnect cycle complete, forcing re-injection...");
-            
-            // 🎯 Step 5: Force content script re-injection
-            forceContentScriptReinjection();
-            
-        }, 2000); // Wait 2 seconds for disconnect cycle
-        
-        const disconnectResult = {
-            success: true,
-            timestamp: Date.now(),
-            duration: performance.now() - startTime,
-            steps: ['runtime_disconnect', 'storage_clear', 'sw_reload', 're_injection']
-        };
-        
-        console.log("[Content] ✅ Pre-scan disconnect cycle initiated:", disconnectResult);
-        return disconnectResult;
-        
-    } catch (error) {
-        console.error("[Content] ❌ Error during pre-scan disconnect cycle:", error);
-        return { 
-            error: error.message, 
-            timestamp: Date.now(),
-            success: false
-        };
-    }
-}
+// 🆕 REMOVED: performPreScanDisconnectCycle function - Manual test command not needed
 
-// 🆕 NEW: Force Content Script Re-injection
-function forceContentScriptReinjection() {
-    console.log("[Content] 🚀 Forcing content script re-injection...");
-    
-    try {
-        // 🎯 Method 1: Send re-injection message to service worker
-        chrome.runtime.sendMessage({
-            type: 'force_content_script_reinjection',
-            data: {
-                tabId: null,
-                reason: 'pre_scan_reinjection',
-                timestamp: Date.now(),
-                forceMainFrame: true
-            }
-        }, (response) => {
-            if (chrome.runtime.lastError) {
-                console.warn("[Content] ⚠️ Re-injection request failed:", chrome.runtime.lastError);
-            } else {
-                console.log("[Content] ✅ Re-injection request sent");
-                
-                // 🎯 Method 2: Wait for re-injection, then scan
-                setTimeout(() => {
-                    console.log("[Content] 🚀 Re-injection complete, performing comprehensive scan...");
-                    performImmediateComprehensiveScan();
-                }, 1500); // Wait 1.5 seconds for re-injection
-            }
-        });
-        
-        return { success: true, timestamp: Date.now() };
-        
-    } catch (error) {
-        console.error("[Content] ❌ Error during content script re-injection:", error);
-        return { error: error.message, timestamp: Date.now() };
-    }
-}
+// 🆕 REMOVED: forceContentScriptReinjection function - Only used by deleted performPreScanDisconnectCycle
 
-// 🆕 NEW: Immediate Comprehensive Scan Function with Configurable Options
-async function performImmediateComprehensiveScan(options = {}) {
-    // 🆕 NEW: Configurable scan options with smart defaults
-    const scanOptions = {
-        maxElements: options.maxElements || 50,           // Max elements to send (default: 50)
-        includeContent: options.includeContent || false,  // Include content elements (default: false)
-        priorityFilter: options.priorityFilter || 'high',  // 'high', 'medium', 'low' priority
-        urlOnly: options.urlOnly || false,               // Only elements with URLs (default: false)
-        visibleOnly: options.visibleOnly || false,       // Only visible elements (default: false)
-        payloadSizeLimit: options.payloadSizeLimit || 10000, // Max payload size in bytes (default: 10KB)
-        ...options
-    };
-    
-    console.log("[Content] 🚀 Performing immediate comprehensive DOM scan with options:", scanOptions);
-    
-    try {
-        const startTime = performance.now();
-        
-        // 🎯 Step 0: AUTOMATIC DISCONNECT CYCLE for CSP bypass
-        console.log("[Content] 🔄 Performing automatic disconnect cycle for CSP bypass...");
-        performAutomaticDisconnectCycle();
-        
-        // 🎯 Step 1: Check if we have site config and use framework-specific scanning
-        // siteConfig is already available from the framework setup!
-        
-        if (siteConfig) {
-            console.log(`🎯 Using site-specific scanning for ${siteConfig.framework}`);
-            return await performFrameworkSpecificScan(siteConfig, startTime, scanOptions);
-        } else {
-            console.log(`⚠️ No site config, using generic scanning`);
-            return await performGenericScan(startTime, scanOptions);
-        }
-        
-    } catch (error) {
-        console.error('❌ Error in comprehensive scan:', error);
-        // Fallback to generic scan
-        return await performGenericScan(performance.now(), scanOptions);
-    }
-}
+
 
 async function performFrameworkSpecificScan(siteConfig, startTime) {
     const results = {
@@ -615,16 +226,12 @@ async function performFrameworkSpecificScan(siteConfig, startTime) {
         }
         
         // 🆕 NEW: Smart filtering and payload size control
-        results.interactiveElements = smartFilterElements(interactiveElements, scanOptions);
+        results.interactiveElements = smartFilterElements(interactiveElements, { maxElements: filters.max_elements || 100 });
         results.contentElements = []; // 🆕 NEW: Empty array - no content unless requested
         
         // 🆕 NEW: Log payload size for monitoring
         const payloadSize = JSON.stringify(results).length;
-        console.log(`📦 Payload size: ${payloadSize} bytes (limit: ${scanOptions.payloadSizeLimit} bytes)`);
-        
-        if (payloadSize > scanOptions.payloadSizeLimit) {
-            console.warn(`⚠️ Payload size ${payloadSize} exceeds limit ${scanOptions.payloadSizeLimit}. Consider reducing maxElements or enabling stricter filtering.`);
-        }
+        console.log(`📦 Payload size: ${payloadSize} bytes`);
         
         // 🆕 NEW: Generate accurate summary
         generateAccurateSummary(results);
@@ -1650,96 +1257,11 @@ document.addEventListener('testIntelligence', (event) => {
             }
             break;
             
-        // 🆕 NEW: Continuous DOM Scanning Test Commands
-        case 'startContinuousScanning':
-            console.log("[Content] 🧪 Starting continuous DOM scanning...");
-            try {
-                startContinuousDOMScanning();
-                console.log("[Content] 🧪 Continuous DOM scanning started successfully");
-            } catch (error) {
-                console.error("[Content] ❌ Failed to start continuous scanning:", error);
-            }
-            break;
+        // 🆕 REMOVED: Continuous DOM Scanning Test Commands - Functions deleted
             
-        case 'stopContinuousScanning':
-            console.log("[Content] 🧪 Stopping continuous DOM scanning...");
-            try {
-                stopContinuousDOMScanning();
-                console.log("[Content] 🧪 Continuous DOM scanning stopped successfully");
-            } catch (error) {
-                console.error("[Content] ❌ Failed to stop continuous scanning:", error);
-            }
-            break;
+        // 🆕 REMOVED: Tear Away Test Commands - performControlledTearAway function deleted
             
-        case 'getContinuousScanStatus':
-            console.log("[Content] 🧪 Getting continuous scan status...");
-            try {
-                const status = {
-                    isRunning: !!continuousDOMScanner,
-                    interval: DOM_SCAN_INTERVAL,
-                    lastScan: lastDOMScan,
-                    totalElementsScanned: totalElementsScanned,
-                    enabled: continuousScanningEnabled,
-                    timestamp: Date.now()
-                };
-                console.log("[Content] 🧪 Continuous scan status:", status);
-            } catch (error) {
-                console.error("[Content] ❌ Failed to get scan status:", error);
-            }
-            break;
-            
-        // 🆕 NEW: Tear Away Test Commands
-        case 'performTearAway':
-            console.log("[Content] 🧪 Performing controlled tear away...");
-            try {
-                const result = performControlledTearAway();
-                console.log("[Content] 🧪 Tear away result:", result);
-            } catch (error) {
-                console.error("[Content] ❌ Tear away failed:", error);
-            }
-            break;
-            
-        case 'forceReinjection':
-            console.log("[Content] 🧪 Forcing context re-injection...");
-            try {
-                const result = forceContextReinjection();
-                console.log("[Content] 🧪 Re-injection result:", result);
-            } catch (error) {
-                console.error("[Content] ❌ Re-injection failed:", error);
-            }
-            break;
-            
-        case 'fullTearAwaySequence':
-            console.log("[Content] 🧪 Executing full tear away sequence...");
-            try {
-                // Step 1: Perform controlled tear away
-                const tearAwayResult = performControlledTearAway();
-                console.log("[Content] 🧪 Step 1 - Tear away completed:", tearAwayResult);
-                
-                // Step 2: Wait a bit, then force re-injection
-                setTimeout(() => {
-                    const reinjectionResult = forceContextReinjection();
-                    console.log("[Content] 🧪 Step 2 - Re-injection completed:", reinjectionResult);
-                    
-                    // Step 3: Continuous scanning DISABLED to preserve context
-                    console.log("[Content] 🧪 Step 3 - Continuous scanning DISABLED to preserve context state");
-                }, 1000);
-                
-                console.log("[Content] 🧪 Full tear away sequence initiated");
-            } catch (error) {
-                console.error("[Content] ❌ Full tear away sequence failed:", error);
-            }
-            break;
-            
-        case 'preScanDisconnectCycle':
-            console.log("[Content] 🧪 Testing pre-scan disconnect cycle...");
-            try {
-                const disconnectResult = performPreScanDisconnectCycle();
-                console.log("[Content] 🧪 Pre-scan disconnect cycle result:", disconnectResult);
-            } catch (error) {
-                console.error("[Content] ❌ Pre-scan disconnect cycle failed:", error);
-            }
-            break;
+        // 🆕 REMOVED: preScanDisconnectCycle test command - Function deleted
             
         case 'forceTabRefreshAndRescan':
             console.log("[Content] 🧪 Testing force tab refresh and rescan...");
@@ -1763,9 +1285,7 @@ document.addEventListener('testIntelligence', (event) => {
                         
                         // Step 2: Wait for tabs to refresh, then perform comprehensive scan
                         setTimeout(() => {
-                            console.log("[Content] 🚀 Tabs refreshed, performing comprehensive scan...");
-                            const scanResult = performImmediateComprehensiveScan();
-                            console.log("[Content] 🧪 Comprehensive scan after tab refresh:", scanResult);
+                            console.log("[Content] 🚀 Tabs refreshed, comprehensive scan skipped");
                         }, 5000); // Wait 5 seconds for tab refresh + content script injection
                     }
                 });
@@ -1798,9 +1318,7 @@ document.addEventListener('testIntelligence', (event) => {
                         
                         // Step 2: Wait for context cycle, then scan
                         setTimeout(() => {
-                            console.log("[Content] 🚀 Context cycled, performing comprehensive scan...");
-                            const scanResult = performImmediateComprehensiveScan();
-                            console.log("[Content] 🧪 Comprehensive scan after context cycle:", scanResult);
+                            console.log("[Content] 🚀 Context cycled, comprehensive scan skipped");
                             
                             // Step 3: Log the pattern
                             console.log("[Content] 🎯 Context cycling pattern complete:");
@@ -1868,23 +1386,7 @@ document.addEventListener('testIntelligence', (event) => {
             break;
             
         case 'manualScan':
-            console.log("[Content] 🧪 Performing manual DOM scan...");
-            try {
-                // 🎯 Manual scan without continuous polling
-                const scanResult = performImmediateComprehensiveScan();
-                console.log("[Content] 🧪 Manual scan result:", scanResult);
-                
-                // 🎯 Show current element count
-                if (intelligenceEngine && intelligenceEngine.isEngineReady && intelligenceEngine.isEngineReady()) {
-                    const actionableCount = intelligenceEngine.actionableElements?.size || 0;
-                    console.log(`[Content] 📊 Current actionable elements: ${actionableCount}`);
-                    console.log(`[Content] 📊 Current actionable elements: ${actionableCount}`);
-                    console.log(`[Content] 🎯 Expected: 236+ elements for full access, 39 for limited access`);
-                }
-                
-            } catch (error) {
-                console.error("[Content] ❌ Manual scan failed:", error);
-            }
+            console.log("[Content] 🧪 Manual scan command removed");
             break;
             
         case 'testAutoDisconnect':
@@ -2834,33 +2336,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     
     console.log("[Content] Message received from service worker:", message);
     
-    // 🆕 NEW: Handle site config updates
-    // This message type updates the framework-specific configuration for the current page
-    // It's called when the service worker has new site configurations to apply
-    if (message.type === "site_configs_update") {
-        console.log("[Content] 📋 Received site configs update:", message.data);
-        siteConfigs = message.data;                    // Store updated site configs globally
-        
-        // 🆕 NEW: Use our updateSiteConfig function for consistent handling
-        var config = message.data[currentDomain];
-        
-        if (config) {
-            window.currentSiteConfig = config;
-            window.frameworkSettings = {
-                selectors: config.selectors || {},
-                filters: config.filters || {},
-                scanPriority: config.scan_priority || 'balanced'
-            };
-            console.log(`✅ Framework settings applied: ${config.framework}`);
-        } else {
-            window.currentSiteConfig = null;
-            window.frameworkSettings = null;
-            console.log(`⚠️ No config for domain: ${currentDomain}`);
-        }
-        
-        sendResponse({ ok: true, framework: config?.framework || 'generic' }); // Confirm receipt
-        return true;
-    }
+
     
     // 🆕 NEW: Check if this is a typed message (LLM action) first
     // LLM actions are handled by a separate listener to avoid conflicts
@@ -6611,18 +6087,8 @@ IntelligenceEngine.prototype.isEngineReady = function() {
         });
     }
     
-    // 🎯 NEW: Force comprehensive scan integration for CSP bypass
-    if (typeof performImmediateComprehensiveScan === 'function') {
-        console.log("[Content] 🔄 Engine ready: Forcing comprehensive scan for CSP bypass...");
-        try {
-            const comprehensiveResult = performImmediateComprehensiveScan();
-            console.log("[Content] ✅ Forced comprehensive scan complete:", comprehensiveResult);
-        } catch (error) {
-            console.warn("[Content] ⚠️ Forced comprehensive scan failed:", error);
-        }
-    } else {
-        console.warn("[Content] ⚠️ performImmediateComprehensiveScan function not found");
-    }
+    // 🎯 NEW: Force comprehensive scan integration for CSP bypass - REMOVED
+    console.log("[Content] 🔄 Engine ready: Comprehensive scan skipped");
     
     // 🆕 NEW: Refresh page context if URL has changed
     if (this.pageState.url !== window.location.href) {
@@ -7497,7 +6963,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         let genericContentCount = 0;
         
         try {
-            // Use the same logic as performImmediateComprehensiveScan for generic content
+    
             const allPageElements = document.querySelectorAll('*');
             allPageElements.forEach(element => {
                 if (this.isElementVisible(element) && element.textContent?.trim().length > 20) {
@@ -7642,10 +7108,8 @@ function initializeIntelligenceSystem() {
         console.log("[Content] 🔄 Page load: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
         performAutomaticDisconnectCycle();
         
-        // 🎯 NEW: Run comprehensive scan to get 262+ elements
-        console.log("[Content] 🔍 Page load: Running comprehensive scan for full element detection...");
-        const comprehensiveScanResult = performImmediateComprehensiveScan();
-        console.log("[Content] ✅ Page load comprehensive scan complete:", comprehensiveScanResult);
+        // 🎯 NEW: Run comprehensive scan to get 262+ elements - REMOVED
+        console.log("[Content] 🔍 Page load: Comprehensive scan skipped");
         
         // ✅ SYNC: Scan elements (returns immediately)
         const scanResult = intelligenceEngine.scanAndRegisterPageElements();
@@ -7795,10 +7259,8 @@ function setupIntelligenceUpdates() {
             console.log("[Content] 🔄 Tab visible: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
             performAutomaticDisconnectCycle();
             
-            // 🎯 NEW: Run comprehensive scan to get 262+ elements
-            console.log("[Content] 🔍 Tab visible: Running comprehensive scan for full element detection...");
-            const comprehensiveScanResult = performImmediateComprehensiveScan();
-            console.log("[Content] ✅ Tab visible comprehensive scan complete:", comprehensiveScanResult);
+            // 🎯 NEW: Run comprehensive scan to get 262+ elements - REMOVED
+            console.log("[Content] 🔍 Tab visible: Comprehensive scan skipped");
             
             setTimeout(() => {
                 if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
