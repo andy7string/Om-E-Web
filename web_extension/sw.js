@@ -22,6 +22,7 @@
  * - Forward responses back to server
  * - Handle tab lifecycle and navigation
  * - 🆕 NEW: Enhanced tab state management and cache clearing
+ * - 🆕 NEW: Proactive site config detection and sending
  */
 
 // WebSocket connection to the server
@@ -41,6 +42,9 @@ let internalTabState = new Map(); // tabId -> enhanced tab info
 let lastActiveTabId = null;
 let tabCache = new Map(); // tabId -> cached data
 
+// 🆕 NEW: Proactive site config management
+let siteConfigs = {}; // Store site configs locally for immediate access
+
 // No caching - always get real-time tab state
 
 /**
@@ -50,10 +54,13 @@ let tabCache = new Map(); // tabId -> cached data
  * This connection is used for all communication between the extension
  * and external test clients.
  */
-function connectWebSocket() {
+async function connectWebSocket() {
     console.log("[SW] Extension startup, connecting...");
     
     try {
+        // 🆕 NEW: Site configs will come from WebSocket server, not local storage
+        console.log("[SW] Connecting to WebSocket server for site configs...");
+        
         // Connect to WebSocket server
         ws = new WebSocket("ws://127.0.0.1:17892");
         
@@ -119,6 +126,30 @@ function connectWebSocket() {
         console.error("[SW] Failed to connect:", error);
         // Retry connection after delay
         setTimeout(connectWebSocket, 1000);
+    }
+}
+
+/**
+ * 🆕 NEW: Load site configs from storage on service worker startup
+ * 
+ * This ensures site configs are available immediately for proactive sending
+ * without waiting for the WebSocket connection to be established.
+ */
+async function loadSiteConfigsFromStorage() {
+    try {
+        const result = await chrome.storage.local.get(['siteConfigs']);
+        siteConfigs = result.siteConfigs || {};
+        console.log(`[SW] 📋 Loaded ${Object.keys(siteConfigs).length} site configs from storage on startup`);
+        
+        // Log available domains for debugging
+        if (Object.keys(siteConfigs).length > 0) {
+            const domains = Object.keys(siteConfigs).filter(domain => domain !== 'default');
+            console.log(`[SW] 🎯 Available site configs for domains:`, domains);
+        }
+        
+    } catch (error) {
+        console.error("[SW] ❌ Failed to load site configs from storage on startup:", error);
+        siteConfigs = {};
     }
 }
 
@@ -213,6 +244,17 @@ async function ensureContentScriptFresh(tabId) {
         });
         
         console.log("[SW] Content script refreshed for tab:", tabId);
+        
+        // 🆕 NEW: Proactively send site config immediately after content script injection
+        try {
+            const tab = await chrome.tabs.get(tabId);
+            if (tab && tab.url) {
+                console.log(`[SW] 🚀 Proactively sending site config after content script refresh for tab ${tabId}`);
+                await proactivelySendSiteConfig(tabId, tab.url);
+            }
+        } catch (error) {
+            console.warn(`[SW] ⚠️ Could not proactively send site config after refresh for tab ${tabId}:`, error.message);
+        }
         
         // Mark tab as having fresh content script
         const tabState = internalTabState.get(tabId);
@@ -362,7 +404,14 @@ function updateInternalTabState(tabsInfo, forceRefresh = false) {
                     lastChangeTime: null,
                     changeTypes: new Set(),
                     lastMutationCount: 0
-                }
+                },
+                // 🆕 NEW: Site config tracking
+                siteConfigSent: false,
+                lastConfigSent: null,
+                currentDomain: null,
+                currentFramework: 'generic',
+                siteConfigError: null,
+                lastConfigError: null
             });
             
             // If this is a new active tab, ensure content script is fresh
@@ -413,18 +462,26 @@ function handleServerMessage(messageData) {
         // Handle site configs update
         if (message.type === "site_configs_update") {
             console.log("[SW] 📋 Received site configs update:", message.data);
-            // Store site configs and forward to content scripts
+            
+            // 🆕 NEW: Store site configs locally for immediate access
+            siteConfigs = message.data;
+            console.log(`[SW] ✅ Site configs stored locally: ${Object.keys(siteConfigs).length} configs available`);
+            
+            // Store in chrome.storage for persistence
             chrome.storage.local.set({ siteConfigs: message.data }, () => {
-                console.log("[SW] ✅ Site configs stored locally");
-                // Forward to all content scripts
-                chrome.tabs.query({}, (tabs) => {
-                    tabs.forEach(tab => {
-                        chrome.tabs.sendMessage(tab.id, {
-                            type: "site_configs_update",
-                            data: message.data
-                        }).catch(() => {
-                            // Tab might not have content script loaded
-                        });
+                console.log("[SW] ✅ Site configs stored in chrome.storage");
+            });
+            
+
+            
+            // Forward to all content scripts
+            chrome.tabs.query({}, (tabs) => {
+                tabs.forEach(tab => {
+                    chrome.tabs.sendMessage(tab.id, {
+                        type: "site_configs_update",
+                        data: message.data
+                    }).catch(() => {
+                        // Tab might not have content script loaded
                     });
                 });
             });
@@ -506,8 +563,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 handleIntelligenceUpdate(message, sendResponse);
                 break;
             case 'get_site_config_for_domain':
-                handleGetSiteConfigForDomain(message, sendResponse);
+                // Handle async response properly
+                handleGetSiteConfigForDomain(message, sendResponse).catch(error => {
+                    console.error('[SW] Error in handleGetSiteConfigForDomain:', error);
+                    sendResponse({ config: null, error: error.message });
+                });
                 break;
+
             case 'execute_llm_action':
                 handleExecuteLLMAction(message, sendResponse);
                 break;
@@ -614,6 +676,11 @@ async function handleDOMCommand(message) {
                 files: ['content.js']
             });
             console.log("[SW] Content script injected into tab:", activeTab.id);
+            
+            // 🆕 NEW: Proactively send site config immediately after content script injection
+            console.log(`[SW] 🚀 Proactively sending site config after content script injection for tab ${activeTab.id}`);
+            await proactivelySendSiteConfig(activeTab.id, activeTab.url);
+            
         } catch (injectError) {
             console.log("[SW] Content script already exists or injection failed:", injectError.message);
         }
@@ -789,6 +856,11 @@ async function handleGetStatus(message, sendResponse) {
             .filter(tab => tab.domChanges && tab.domChanges.lastChangeTime && 
                     (Date.now() - tab.domChanges.lastChangeTime) < 30000).length; // Last 30 seconds
         
+        // 🆕 NEW: Site config status
+        const tabsWithSiteConfigs = Array.from(internalTabState.values())
+            .filter(tab => tab.siteConfigSent).length;
+        const totalSiteConfigs = Object.keys(siteConfigs).length;
+        
         const status = {
             isConnected: isConnected,
             totalTabs: totalTabs,
@@ -799,6 +871,9 @@ async function handleGetStatus(message, sendResponse) {
             tabsWithDOMChanges: tabsWithDOMChanges,
             totalDOMChanges: totalDOMChanges,
             recentDOMChanges: recentDOMChanges,
+            // 🆕 NEW: Site config status
+            tabsWithSiteConfigs: tabsWithSiteConfigs,
+            totalSiteConfigs: totalSiteConfigs,
             lastActiveTabId: lastActiveTabId,
             websocketState: ws ? ws.readyState : 'CLOSED',
             timestamp: Date.now()
@@ -1252,6 +1327,10 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
         });
         console.log("[SW] Content script injected into newly active tab");
         
+
+        
+
+        
         // Mark tab as having fresh content script
         const tabState = internalTabState.get(activeInfo.tabId);
         if (tabState) {
@@ -1554,9 +1633,12 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
         const domain = message.domain;
         console.log(`[SW] 🎯 Looking up site config for domain: ${domain}`);
         
-        // Get site configs from storage
-        const result = await chrome.storage.local.get(['siteConfigs']);
-        const siteConfigs = result.siteConfigs || {};
+        // Use local site configs if available, otherwise get from storage
+        if (Object.keys(siteConfigs).length === 0) {
+            const result = await chrome.storage.local.get(['siteConfigs']);
+            siteConfigs = result.siteConfigs || {};
+            console.log(`[SW] 📋 Loaded ${Object.keys(siteConfigs).length} site configs from storage for lookup`);
+        }
         
         // Look up site config for this domain
         let siteConfig = null;
@@ -1592,3 +1674,7 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
         sendResponse({ config: null, error: error.message });
     }
 }
+
+
+
+

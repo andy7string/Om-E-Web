@@ -46,105 +46,115 @@ if (window.intelligenceSystemInitialized && window.intelligenceComponents && win
 }
 
 // 🆕 NEW: DOM Change Detection System - Use 'var' to prevent redeclaration errors
-var domChangeObserver = null;
-var changeDetectionEnabled = false;
-var changeCount = 0;
-var lastChangeTime = 0;
+var domChangeObserver = null;                    // Observer for monitoring DOM changes
+var changeDetectionEnabled = false;              // Flag to enable/disable change detection
+var changeCount = 0;                             // Counter for total DOM changes detected
+var lastChangeTime = 0;                          // Timestamp of last DOM change
 
 // 🆕 NEW: Intelligent Change Filtering
-var lastSignificantChange = 0;
-var MIN_CHANGE_INTERVAL = 2000; // Minimum 2 seconds between significant changes
-var MIN_MUTATIONS_FOR_SIGNIFICANT = 3; // Need at least 3 mutations to be significant
-var IGNORED_CHANGE_TYPES = new Set(['mouseover', 'mouseout', 'focus', 'blur']); // Ignore these
+var lastSignificantChange = 0;                   // Timestamp of last significant change
+const MIN_CHANGE_INTERVAL = 2000;                // Minimum 2 seconds between significant changes
+const MIN_MUTATIONS_FOR_SIGNIFICANT = 3;         // Need at least 3 mutations to be significant
+const IGNORED_CHANGE_TYPES = new Set(['mouseover', 'mouseout', 'focus', 'blur']); // Ignore these
 
 // 🆕 NEW: Intelligent Change Aggregation System
-var changeAggregator = null;
-var intelligenceEngine = null;
-var pageContext = null;
-var changeHistory = [];
-var lastIntelligenceUpdate = 0;
-var INTELLIGENCE_UPDATE_INTERVAL = 500; // 0.5 seconds between intelligence updates for continuous DOM scanning
+var changeAggregator = null;                     // Aggregates DOM changes for intelligence system
+var intelligenceEngine = null;                   // Main intelligence processing engine
+var pageContext = null;                          // Current page context and metadata
+var changeHistory = [];                          // History of DOM changes for analysis
+var lastIntelligenceUpdate = 0;                  // Timestamp of last intelligence update
+const INTELLIGENCE_UPDATE_INTERVAL = 500;        // 0.5 seconds between intelligence updates for continuous DOM scanning
 
 // 🆕 NEW: Continuous DOM Monitoring System
-var continuousDOMScanner = null;
-var DOM_SCAN_INTERVAL = 1000; // Scan DOM every 1 second
-var lastDOMScan = 0;
-var totalElementsScanned = 0;
-var continuousScanningEnabled = true;
+var continuousDOMScanner = null;                 // Interval timer for continuous DOM scanning
+const DOM_SCAN_INTERVAL = 1000;                  // Scan DOM every 1 second
+var lastDOMScan = 0;                             // Timestamp of last DOM scan
+var totalElementsScanned = 0;                    // Total count of elements scanned across all scans
+var continuousScanningEnabled = true;            // Flag to enable/disable continuous scanning
 
 // Set default framework configuration
 window.siteConfigs = {};
 window.currentSiteConfig = null;
 window.currentFramework = 'generic';
 
-// 🆕 NEW: Framework detection function
-async function detectAndApplyFramework() {
-    const url = window.location.href;
-    const domain = extractDomain(url);
+// 🆕 NEW: IMMEDIATE FRAMEWORK SETUP - Use injected config first, fallback to message
+var currentDomain = new URL(window.location.href).hostname.toLowerCase();
+var siteConfig = null; // Will be populated immediately from injected config or message
+console.log(`🎯 Framework setup ready for domain: ${currentDomain}`);
+
+// 🆕 NEW: Read site config directly from extension file
+function getSiteConfigDirect() {
+    console.log("🔍 Reading site config directly from extension file...");
     
-    console.log(`🎯 Detecting framework for domain: ${domain}`);
+    // Read the config file synchronously
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', chrome.runtime.getURL('site_configs.json'), false); // Synchronous
+    xhr.send();
     
-    try {
-        // Get site config from service worker
-        const siteConfig = await getSiteConfigForDomain(domain);
-        
-        if (siteConfig) {
-            console.log(`✅ Framework detected: ${siteConfig.framework}`);
-            console.log(`📋 Using scan strategy: ${siteConfig.scan_strategy}`);
-            console.log(`🎯 Scan priority: ${siteConfig.scan_priority?.join(', ')}`);
+    if (xhr.status === 200) {
+        try {
+            const allConfigs = JSON.parse(xhr.responseText);
+            console.log("✅ Site configs loaded from file:", Object.keys(allConfigs));
             
-            // Store config for use in scanning
-            window.currentSiteConfig = siteConfig;
+            // Find config for current domain
+            let foundConfig = null;
             
-            // Apply framework-specific settings
-            applyFrameworkSettings(siteConfig);
+            // Check for exact domain match
+            if (allConfigs[currentDomain]) {
+                foundConfig = allConfigs[currentDomain];
+                console.log(`✅ Exact domain match found for ${currentDomain}: ${foundConfig.framework}`);
+            } else {
+                // Check for partial domain match
+                for (const [configDomain, config] of Object.entries(allConfigs)) {
+                    if (currentDomain.includes(configDomain) && configDomain !== 'default') {
+                        foundConfig = config;
+                        console.log(`✅ Partial domain match found: ${configDomain} matches ${currentDomain}: ${config.framework}`);
+                        break;
+                    }
+                }
+                
+                // Fallback to default config
+                if (!foundConfig && allConfigs['default']) {
+                    foundConfig = allConfigs['default'];
+                    console.log(`✅ Using default config for ${currentDomain}: ${foundConfig.framework}`);
+                }
+            }
             
-            return siteConfig;
-        } else {
-            console.log(`⚠️ No site config found, using default strategy`);
-            window.currentSiteConfig = null;
-            return null;
+            if (foundConfig) {
+                siteConfig = foundConfig;
+                window.currentSiteConfig = foundConfig;
+                console.log("✅ Site config set from file:", foundConfig);
+                return true;
+            } else {
+                console.log("⚠️ No site config found for domain:", currentDomain);
+                return false;
+            }
+            
+        } catch (error) {
+            console.error("❌ Error parsing site config file:", error);
+            return false;
         }
-    } catch (error) {
-        console.error('❌ Error in framework detection:', error);
-        window.currentSiteConfig = null;
-        return null;
+    } else {
+        console.error("❌ Error loading site config file:", xhr.status);
+        return false;
     }
 }
 
-function extractDomain(url) {
-    try {
-        const urlObj = new URL(url);
-        return urlObj.hostname.toLowerCase();
-    } catch {
-        return window.location.hostname.toLowerCase();
-    }
+// 🆕 NEW: Read site config directly from extension file - SYNCHRONOUS
+console.log("🔍 Reading site config directly from extension file...");
+
+// This reads the config file synchronously - no waiting, no async, no bullshit
+const configFound = getSiteConfigDirect();
+
+if (configFound) {
+    console.log("✅ Site config ready - continuing with framework setup");
+} else {
+    console.log("⚠️ No site config available - using generic scanning");
 }
 
-async function getSiteConfigForDomain(domain) {
-    try {
-        const response = await chrome.runtime.sendMessage({
-            type: 'get_site_config_for_domain',
-            domain: domain
-        });
-        return response.config;
-    } catch (error) {
-        console.error('Error getting site config:', error);
-        return null;
-    }
-}
 
-function applyFrameworkSettings(siteConfig) {
-    // Store framework-specific settings for use in scanning
-    window.frameworkSettings = {
-        selectors: siteConfig.selectors,
-        filters: siteConfig.filters,
-        scanPriority: siteConfig.scan_priority,
-        customHandlers: siteConfig.custom_handlers
-    };
-    
-    console.log(`🎯 Framework settings applied:`, window.frameworkSettings);
-}
+
+
 
 // 🆕 NEW: Continuous DOM Scanning Function
 function startContinuousDOMScanning() {
@@ -520,7 +530,7 @@ async function performImmediateComprehensiveScan(options = {}) {
         performAutomaticDisconnectCycle();
         
         // 🎯 Step 1: Check if we have site config and use framework-specific scanning
-        const siteConfig = window.currentSiteConfig;
+        // siteConfig is already available from the framework setup!
         
         if (siteConfig) {
             console.log(`🎯 Using site-specific scanning for ${siteConfig.framework}`);
@@ -2793,8 +2803,29 @@ async function cmd_extractPageText() {
  * - click: Click element
  * - getPageMarkdown: Generate Crawl4AI-inspired markdown
  */
+/**
+ * 🚀 MAIN MESSAGE HANDLER - Central Communication Hub
+ * 
+ * This function handles ALL incoming messages from the service worker and routes them
+ * to appropriate command handlers. It's the single entry point for all extension
+ * communication and command execution.
+ * 
+ * MESSAGE FLOW:
+ * Service Worker → Content Script → Command Execution → Response → Service Worker
+ * 
+ * SUPPORTED MESSAGE TYPES:
+ * 1. site_configs_update - Framework configuration updates
+ * 2. execute_action - LLM action execution (delegated to second listener)
+ * 3. Command messages - Various automation commands (waitFor, click, etc.)
+ * 
+ * @param {Object} message - Message object from service worker
+ * @param {Object} sender - Information about the sender
+ * @param {Function} sendResponse - Function to send response back to service worker
+ * @returns {boolean} true to indicate async response handling
+ */
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // 🛡️ MAIN FRAME SAFETY CHECK - Ensure message handler only runs in main frame
+    // This prevents iframe-related issues and ensures commands only run in the primary page context
     if (window.top !== window.self) {
         console.error("[Content] ❌ Message handler called from iframe - this should never happen");
         sendResponse({ error: "Message handler should only run in main frame" });
@@ -2804,27 +2835,52 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("[Content] Message received from service worker:", message);
     
     // 🆕 NEW: Handle site config updates
+    // This message type updates the framework-specific configuration for the current page
+    // It's called when the service worker has new site configurations to apply
     if (message.type === "site_configs_update") {
         console.log("[Content] 📋 Received site configs update:", message.data);
-        siteConfigs = message.data;
-        detectAndApplyFramework();
-        sendResponse({ ok: true, framework: currentFramework });
+        siteConfigs = message.data;                    // Store updated site configs globally
+        
+        // 🆕 NEW: Use our updateSiteConfig function for consistent handling
+        var config = message.data[currentDomain];
+        
+        if (config) {
+            window.currentSiteConfig = config;
+            window.frameworkSettings = {
+                selectors: config.selectors || {},
+                filters: config.filters || {},
+                scanPriority: config.scan_priority || 'balanced'
+            };
+            console.log(`✅ Framework settings applied: ${config.framework}`);
+        } else {
+            window.currentSiteConfig = null;
+            window.frameworkSettings = null;
+            console.log(`⚠️ No config for domain: ${currentDomain}`);
+        }
+        
+        sendResponse({ ok: true, framework: config?.framework || 'generic' }); // Confirm receipt
         return true;
     }
     
     // 🆕 NEW: Check if this is a typed message (LLM action) first
+    // LLM actions are handled by a separate listener to avoid conflicts
+    // This ensures clean separation between automation commands and AI actions
     if (message.type === "execute_action") {
         // Let the second listener handle this
-        return false; // Don't handle this message
+        return false; // Don't handle this message in this listener
     }
     
+    // 🎯 COMMAND EXECUTION SECTION - Handle all automation commands
     // Execute command asynchronously and send response
+    // This allows for long-running operations without blocking the message handler
     (async () => {
         try {
             const { command, params } = message;
             console.log("[Content] Executing command:", command, "with params:", params);
             
-            // 🎯 Route to appropriate command handler
+            // 🎯 ELEMENT INTERACTION COMMANDS - Basic DOM manipulation
+            // Route to appropriate command handler based on command type
+            
             if (command === "waitFor") {
                 console.log("[Content] waitFor command - selector:", params.selector, "timeout:", params.timeoutMs);
                 const result = await cmd_waitFor(params);
@@ -2843,7 +2899,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 console.log("[Content] click result:", result);
                 return sendResponse(result);
             }
+            // 🎯 CONTENT EXTRACTION COMMANDS - Get page content in various formats
             if (command === "getPageMarkdown") {
+                // Convert the entire page to markdown format for analysis
                 console.log("[Content] getPageMarkdown command - no params needed");
                 const result = await cmd_getPageMarkdown();
                 console.log("[Content] getPageMarkdown result:", {
@@ -2870,7 +2928,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return sendResponse(result);
             }
             
+            // 🎯 PAGE INFORMATION COMMANDS - Get metadata about the current page
             if (command === "getCurrentTabInfo") {
+                // Get basic information about the current tab/page
                 console.log("[Content] getCurrentTabInfo command - no params needed");
                 const result = getCurrentTabInfo();
                 console.log("[Content] getCurrentTabInfo result:", result);
@@ -2895,7 +2955,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return sendResponse(result);
             }
             
-            // 🆕 NEW: DOM Change Detection Commands
+            // 🆕 NEW: DOM Change Detection Commands - Monitor page changes
+            // These commands control the DOM change monitoring system
             if (command === "getDOMChangeStatus") {
                 console.log("[Content] getDOMChangeStatus command - no params needed");
                 const result = getDOMChangeStatus();
@@ -2911,7 +2972,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return sendResponse(result);
             }
             
-            // 🆕 NEW: Get element coordinates by actionId
+            // 🆕 NEW: Element Coordinate Commands - Get element positions
             if (command === "getElementCoordinatesByActionId") {
                 const { actionId } = message.params || {};
                 if (!actionId) {
@@ -2948,7 +3009,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return sendResponse(result);
             }
             
+            // 🎯 NAVIGATION COMMANDS - Control browser navigation
             if (command === "navigateBack") {
+                // Navigate back in browser history
                 console.log("[Content] navigateBack command - params:", params);
                 const steps = params.steps || 1;
                 const result = navigateBack(steps);
@@ -3006,7 +3069,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return sendResponse(result);
             }
             
-            // 🆕 NEW: Intelligence System Commands
+            // 🆕 NEW: Intelligence System Commands - AI-powered page analysis
+            // These commands interact with the intelligence engine for advanced page understanding
             if (command === "getIntelligenceStatus") {
                 console.log("[Content] getIntelligenceStatus command - no params needed");
                 const result = {
@@ -3037,7 +3101,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return sendResponse(result);
             }
             
-            // 🆕 NEW: Get actionable elements for LLM instructions
+            // 🆕 NEW: Actionable Elements Commands - Get elements for LLM instructions
+            // These commands provide information about elements that can be interacted with
             if (command === "getActionableElements") {
                 console.log("[Content] getActionableElements command - no params needed");
                 const result = {
@@ -3051,6 +3116,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             }
             
             // 🆕 NEW: Execute action on element by ID
+            // Execute a specific action on an element identified by actionId
             if (command === "executeAction") {
                 const { actionId, action, params = {} } = message;
                 console.log("[Content] executeAction command:", { actionId, action, params });
@@ -3070,6 +3136,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             }
             
             // 🆕 NEW: Scan page and register all interactive elements
+            // Perform a comprehensive scan of the page to find and register all interactive elements
             if (command === "scanAndRegisterElements") {
                 console.log("[Content] scanAndRegisterElements command - no params needed");
                 
@@ -3084,6 +3151,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             }
             
             // 🆕 NEW: Test intelligence system status
+            // Test the health and status of the intelligence system components
             if (command === "testIntelligenceSystem") {
                 console.log("[Content] testIntelligenceSystem command - no params needed");
                 
@@ -3100,12 +3168,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return sendResponse(result);
             }
             
-            // Unknown command handling
+            // 🚫 Unknown command handling
+            // If we receive a command we don't recognize, return an error
             console.log("[Content] Unknown command:", command);
             return sendResponse({ 
                 error: { code: "UNKNOWN_COMMAND", msg: command } 
             });
         } catch (error) {
+            // 🚨 Error handling for any command execution failures
             console.error("[Content] Error executing command:", error);
             return sendResponse({ 
                 error: { code: "DOM_ERROR", msg: error.message } 
@@ -3114,6 +3184,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     })();
     
     // Return true to indicate async response handling
+    // This tells Chrome that we'll send the response asynchronously
     return true;
 });
 

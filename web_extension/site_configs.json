@@ -1,0 +1,336 @@
+{
+  "google.com": {
+    "framework": "google",
+    "scan_strategy": "google_specific",
+    "url_patterns": ["google.com", "google.*", "*.google.com"],
+    "selectors": {
+      "navigation": [
+        "header",
+        "[role='banner']",
+        ".gb_ua",
+        ".gb_oa",
+        "nav",
+        "[role='navigation']"
+      ],
+      "buttons": [
+        "button[aria-label]",
+        "[role='button']",
+        ".gb_oa",
+        "#gb_70",
+        "#gb_119",
+        "[data-ved]"
+      ],
+      "menus": [
+        "#searchbox",
+        "#searchbox-input",
+        "#gb_70",
+        "#gb_119",
+        "[aria-label*='Google apps']",
+        "[aria-label*='Google Apps']"
+      ],
+      "hidden_content": [
+        "#gb",
+        ".gb_oa",
+        "#searchbox-suggestions",
+        "#searchbox-results",
+        "[aria-hidden='true']",
+        ".gb_oa"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]"
+      ],
+      "content_elements": [
+        "h1", "h2", "h3", "h4", "h5", "h6",
+        "p", "article", "section", "main",
+        "div[class*='content']", "div[class*='text']",
+        "span[class*='text']", "span[class*='content']"
+      ],
+      "url_elements": [
+        "a[href]",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
+      ]
+    },
+    "filters": {
+      "include": [
+        "header",
+        "nav", 
+        "#searchbox",
+        "#gb_70",
+        "[aria-label*='Google apps']",
+        "a[href]",
+        "[data-url]",
+        "[data-href]"
+      ],
+      "exclude": [
+        "[data-ved]",
+        ".gb_oa",
+        ".gb_ua",
+        "[aria-hidden='true']",
+        "[style*='display: none']",
+        "div:not([href]):not([data-url]):not([data-href]):not([onclick]):not([role='button']):not([role='link'])",
+        "section:not([href]):not([data-url]):not([data-href])",
+        "main:not([href]):not([data-url]):not([data-href])",
+        "article:not([href]):not([data-url]):not([data-href])",
+        "header:not([href]):not([data-url]):not([data-href])",
+        "footer:not([href]):not([data-url]):not([data-href])",
+        "h1:not([href]):not([data-url]):not([data-href])",
+        "h2:not([href]):not([data-url]):not([data-href])",
+        "h3:not([href]):not([data-url]):not([data-href])",
+        "h4:not([href]):not([data-url]):not([data-href])",
+        "h5:not([href]):not([data-url]):not([data-href])",
+        "h6:not([href]):not([data-url]):not([data-href])",
+        "p:not([href]):not([data-url]):not([data-href])",
+        "span:not([href]):not([data-url]):not([data-href])",
+        "figcaption:not([href]):not([data-url]):not([data-href])"
+      ],
+      "max_elements": 25
+    },
+    "interaction_patterns": {
+      "expand_apps": {
+        "trigger": "[aria-label*='Google apps'], [aria-label*='Google Apps']",
+        "wait_for": "#gb",
+        "timeout": 1000
+      },
+      "expand_search": {
+        "trigger": "#searchbox, #searchbox-input",
+        "wait_for": "#searchbox-suggestions",
+        "timeout": 500
+      },
+      "expand_account": {
+        "trigger": "#gb_70, #gb_119",
+        "wait_for": "[role='menu']",
+        "timeout": 1000
+      }
+    },
+    "scan_priority": [
+      "text_inputs",
+      "search_interface",
+      "header_navigation",
+      "app_launcher",
+      "account_menu",
+      "hidden_content"
+    ],
+    "custom_handlers": {
+      "google_framework": true,
+      "search_suggestions": true,
+      "app_drawer": true
+    }
+  },
+  "youtube.com": {
+    "framework": "youtube",
+    "scan_strategy": "youtube_specific",
+    "url_patterns": ["youtube.com", "*.youtube.com", "youtu.be"],
+    "selectors": {
+      "navigation": [
+        "ytd-masthead",
+        "#guide-button", 
+        "#searchbox",
+        "#logo",
+        "#back-button"
+      ],
+      "buttons": [
+        "yt-icon-button",
+        "ytd-button-renderer",
+        "button[aria-label]",
+        "#guide-button",
+        "#avatar-btn"
+      ],
+      "menus": [
+        "#guide-button",
+        "#avatar-btn", 
+        "#searchbox",
+        "#voice-search-button"
+      ],
+      "hidden_content": [
+        "#guide",
+        ".ytd-app-drawer",
+        "#searchbox-suggestions",
+        "#account-menu"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]"
+      ]
+    },
+    "interaction_patterns": {
+      "expand_guide": {
+        "trigger": "#guide-button",
+        "wait_for": "#guide",
+        "timeout": 1000
+      },
+      "expand_account": {
+        "trigger": "#avatar-btn", 
+        "wait_for": "#account-menu",
+        "timeout": 1000
+      },
+      "expand_search": {
+        "trigger": "#searchbox",
+        "wait_for": "#searchbox-suggestions",
+        "timeout": 500
+      }
+    },
+    "scan_priority": [
+      "text_inputs",
+      "header_navigation",
+      "main_actions", 
+      "hidden_menus",
+      "dynamic_content"
+    ],
+    "custom_handlers": {
+      "shadow_dom": true,
+      "web_components": true,
+      "polymer_framework": true
+    }
+  },
+  "wordpress": {
+    "framework": "wordpress",
+    "scan_strategy": "wordpress_specific", 
+    "selectors": {
+      "navigation": [
+        ".menu-link",
+        "nav",
+        ".primary-menu",
+        ".main-navigation"
+      ],
+      "buttons": [
+        ".menu-toggle",
+        ".ast-menu-toggle",
+        "button[aria-label*='menu']"
+      ],
+      "menus": [
+        ".menu",
+        ".navigation", 
+        ".primary-menu",
+        ".main-menu"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]"
+      ]
+    },
+    "interaction_patterns": {
+      "expand_menu": {
+        "trigger": ".menu-toggle",
+        "wait_for": ".menu",
+        "timeout": 1000
+      }
+    },
+    "scan_priority": [
+      "text_inputs",
+      "main_navigation",
+      "mobile_menu",
+      "footer_links"
+    ]
+  },
+  "default": {
+    "framework": "generic",
+    "scan_strategy": "universal",
+    "selectors": {
+      "navigation": [
+        "nav",
+        "[role='navigation']",
+        "header",
+        ".header",
+        ".main-nav"
+      ],
+      "buttons": [
+        "button",
+        "[role='button']",
+        "[onclick]",
+        "[data-action]"
+      ],
+      "menus": [
+        "[role='menu']",
+        ".menu",
+        ".dropdown",
+        ".navigation"
+      ],
+      "hidden_content": [
+        "[aria-hidden='true']",
+        ".hidden",
+        ".collapsed",
+        ".invisible"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "input[type='email']",
+        "input[type='password']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]",
+        "[aria-placeholder]"
+      ],
+      "content_elements": [
+        "h1", "h2", "h3", "h4", "h5", "h6",
+        "p", "article", "section", "main",
+        "div[class*='content']", "div[class*='text']",
+        "span[class*='text']", "span[class*='content']"
+      ],
+      "url_elements": [
+        "a[href]",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
+      ]
+    },
+    "filters": {
+      "include": [
+        "a[href]",
+        "[data-url]",
+        "[data-href]"
+      ],
+      "exclude": [
+        "div:not([href]):not([data-url]):not([data-href]):not([onclick]):not([role='button']):not([role='link'])",
+        "section:not([href]):not([data-url]):not([data-href])",
+        "main:not([href]):not([data-url]):not([data-href])",
+        "article:not([href]):not([data-url]):not([data-href])",
+        "header:not([href]):not([data-url]):not([data-href])",
+        "footer:not([href]):not([data-url]):not([data-href])",
+        "h1:not([href]):not([data-url]):not([data-href])",
+        "h2:not([href]):not([data-url]):not([data-href])",
+        "h3:not([href]):not([data-url]):not([data-href])",
+        "h4:not([href]):not([data-url]):not([data-href])",
+        "h5:not([href]):not([data-url]):not([data-href])",
+        "h6:not([href]):not([data-url]):not([data-href])",
+        "p:not([href]):not([data-url]):not([data-href])",
+        "span:not([href]):not([data-url]):not([data-href])",
+        "figcaption:not([href]):not([data-url]):not([data-href])"
+      ],
+      "max_elements": 100
+    },
+    "interaction_patterns": {
+      "expand_menu": {
+        "trigger": "[aria-expanded='false']",
+        "wait_for": "[aria-expanded='true']",
+        "timeout": 1000
+      }
+    },
+    "scan_priority": [
+      "text_inputs",
+      "visible_elements",
+      "hidden_elements",
+      "dynamic_content"
+    ]
+  }
+}
