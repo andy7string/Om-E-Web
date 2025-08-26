@@ -1,37 +1,37 @@
 {
-  "timestamp": 1755960756.1871932,
+  "timestamp": 1756192397.790401,
   "browser_state": {
     "total_tabs": 3,
     "active_tab": {
-      "id": 1137974104,
+      "id": 1137978225,
       "url": "https://brighttreedigital.com.au/",
       "title": "Local Web Design Adelaide | Bright Tree Digital",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1137974104,
+        "id": 1137978186,
+        "url": "chrome://extensions/?id=gkajipkgablojmfifbekigkhfaaidjpo",
+        "title": "Extensions - OM_E_WEB Browser Arm",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137978213,
+        "url": "https://mail.google.com/mail/u/0/#inbox",
+        "title": "Inbox (4,832) - andreworsmond21175@gmail.com - Gmail",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1137978225,
         "url": "https://brighttreedigital.com.au/",
         "title": "Local Web Design Adelaide | Bright Tree Digital",
         "active": true,
         "status": "complete"
-      },
-      {
-        "id": 1137974183,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1137974203,
-        "url": "https://www.google.com/",
-        "title": "Google",
-        "active": false,
-        "status": "complete"
       }
     ],
-    "last_tabs_update": 48313.903198041,
+    "last_tabs_update": 31498.573537416,
     "extension_connected": true
   },
   "current_page": {
@@ -47,7 +47,7 @@
         "name": "Main Navigation",
         "items": [
           {
-            "id": "action_navigate_a_1",
+            "id": "action_navigate_a_14",
             "text": "HOME",
             "href": "https://brighttreedigital.com.au/",
             "selectors": [
@@ -58,7 +58,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_2",
+            "id": "action_navigate_a_15",
             "text": "ABOUT",
             "href": "https://brighttreedigital.com.au/about/",
             "selectors": [
@@ -69,7 +69,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_4",
+            "id": "action_navigate_a_17",
             "text": "Banner Design",
             "href": "https://brighttreedigital.com.au/banner-design-portfolio/",
             "selectors": [
@@ -80,7 +80,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_5",
+            "id": "action_navigate_a_18",
             "text": "Logo Design",
             "href": "https://brighttreedigital.com.au/logo-design-portfolio/",
             "selectors": [
@@ -91,7 +91,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_6",
+            "id": "action_navigate_a_19",
             "text": "Web Design",
             "href": "https://brighttreedigital.com.au/web-design-portfolio/",
             "selectors": [
@@ -102,7 +102,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_7",
+            "id": "action_navigate_a_20",
             "text": "SERVICES",
             "href": "https://brighttreedigital.com.au/services/",
             "selectors": [
@@ -113,7 +113,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_8",
+            "id": "action_navigate_a_21",
             "text": "CONTACT",
             "href": "https://brighttreedigital.com.au/contact/",
             "selectors": [
@@ -124,7 +124,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_13",
+            "id": "action_navigate_a_26",
             "text": "HOME",
             "href": "https://brighttreedigital.com.au/",
             "selectors": [
@@ -135,7 +135,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_14",
+            "id": "action_navigate_a_27",
             "text": "ABOUT",
             "href": "https://brighttreedigital.com.au/about/",
             "selectors": [
@@ -146,7 +146,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_16",
+            "id": "action_navigate_a_29",
             "text": "Banner Design",
             "href": "https://brighttreedigital.com.au/banner-design-portfolio/",
             "selectors": [
@@ -157,7 +157,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_17",
+            "id": "action_navigate_a_30",
             "text": "Logo Design",
             "href": "https://brighttreedigital.com.au/logo-design-portfolio/",
             "selectors": [
@@ -168,7 +168,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_18",
+            "id": "action_navigate_a_31",
             "text": "Web Design",
             "href": "https://brighttreedigital.com.au/web-design-portfolio/",
             "selectors": [
@@ -179,7 +179,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_19",
+            "id": "action_navigate_a_32",
             "text": "SERVICES",
             "href": "https://brighttreedigital.com.au/services/",
             "selectors": [
@@ -190,7 +190,7 @@
             "action_type": "navigate"
           },
           {
-            "id": "action_navigate_a_20",
+            "id": "action_navigate_a_33",
             "text": "CONTACT",
             "href": "https://brighttreedigital.com.au/contact/",
             "selectors": [
@@ -203,7 +203,7 @@
         ],
         "toggles": [
           {
-            "id": "action_click_button_3",
+            "id": "action_click_button_0",
             "text": "Menu Toggle",
             "aria_label": "Toggle menu",
             "selectors": [
@@ -214,7 +214,7 @@
             "action_type": "click"
           },
           {
-            "id": "action_click_button_12",
+            "id": "action_click_button_1",
             "text": "Main Menu",
             "aria_label": "Main menu toggle",
             "selectors": [
@@ -226,7 +226,41 @@
             "action_type": "click"
           },
           {
-            "id": "action_click_button_15",
+            "id": "action_click_button_2",
+            "text": "Menu Toggle",
+            "aria_label": "Toggle menu",
+            "selectors": [
+              ".ast-menu-toggle",
+              "button.ast-menu-toggle",
+              "li:nth-child(2)"
+            ],
+            "action_type": "click"
+          },
+          {
+            "id": "action_click_button_16",
+            "text": "Menu Toggle",
+            "aria_label": "Toggle menu",
+            "selectors": [
+              ".ast-menu-toggle",
+              "button.ast-menu-toggle",
+              "li:nth-child(2)"
+            ],
+            "action_type": "click"
+          },
+          {
+            "id": "action_click_button_25",
+            "text": "Main Menu",
+            "aria_label": "Main menu toggle",
+            "selectors": [
+              "[data-index=\"0\"]",
+              ".menu-toggle",
+              "button.menu-toggle",
+              "div:nth-child(1)"
+            ],
+            "action_type": "click"
+          },
+          {
+            "id": "action_click_button_28",
             "text": "Menu Toggle",
             "aria_label": "Toggle menu",
             "selectors": [
@@ -243,63 +277,14 @@
       "total_menus": 1,
       "total_items": 14,
       "navigation_links": 14,
-      "toggle_buttons": 3
+      "toggle_buttons": 6
     }
   },
   "page_state": {
     "currentView": "unknown",
     "interactiveElements": [
       {
-        "id": "action_navigate_a_0",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".custom-logo-link",
-          "a.custom-logo-link",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "custom-logo-link transparent-custom-logo",
-        "attributes": {
-          "aria-label": "Bright Tree Digital",
-          "href": "https://brighttreedigital.com.au/"
-        },
-        "timestamp": 1755960699586
-      },
-      {
-        "id": "action_navigate_a_1",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "HOME",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/"
-        },
-        "timestamp": 1755960699587
-      },
-      {
-        "id": "action_navigate_a_2",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "ABOUT",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/about/"
-        },
-        "timestamp": 1755960699587
-      },
-      {
-        "id": "action_click_button_3",
+        "id": "action_click_button_0",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -312,141 +297,10 @@
         "attributes": {
           "aria-label": "Toggle menu"
         },
-        "timestamp": 1755960699587
+        "timestamp": 1756192397670
       },
       {
-        "id": "action_navigate_a_4",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Banner Design",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
-        },
-        "timestamp": 1755960699588
-      },
-      {
-        "id": "action_navigate_a_5",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Logo Design",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
-        },
-        "timestamp": 1755960699588
-      },
-      {
-        "id": "action_navigate_a_6",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Web Design",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
-        },
-        "timestamp": 1755960699588
-      },
-      {
-        "id": "action_navigate_a_7",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "SERVICES",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/services/"
-        },
-        "timestamp": 1755960699589
-      },
-      {
-        "id": "action_navigate_a_8",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "CONTACT",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/contact/"
-        },
-        "timestamp": 1755960699589
-      },
-      {
-        "id": "action_navigate_a_9",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".ast-builder-social-element",
-          "a.ast-builder-social-element",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "ast-builder-social-element ast-inline-flex ast-facebook header-social-item",
-        "attributes": {
-          "aria-label": "Facebook",
-          "href": "https://www.facebook.com/brighttreedigital"
-        },
-        "timestamp": 1755960699589
-      },
-      {
-        "id": "action_navigate_a_10",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".ast-builder-social-element",
-          "a.ast-builder-social-element",
-          "div:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "ast-builder-social-element ast-inline-flex ast-instagram header-social-item",
-        "attributes": {
-          "aria-label": "Instagram",
-          "href": "https://www.instagram.com/bright_tree_digital/"
-        },
-        "timestamp": 1755960699589
-      },
-      {
-        "id": "action_navigate_a_11",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".custom-logo-link",
-          "a.custom-logo-link",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "custom-logo-link transparent-custom-logo",
-        "attributes": {
-          "aria-label": "Bright Tree Digital",
-          "href": "https://brighttreedigital.com.au/"
-        },
-        "timestamp": 1755960699590
-      },
-      {
-        "id": "action_click_button_12",
+        "id": "action_click_button_1",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -461,42 +315,10 @@
           "type": "button",
           "aria-label": "Main menu toggle"
         },
-        "timestamp": 1755960699590
+        "timestamp": 1756192397670
       },
       {
-        "id": "action_navigate_a_13",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "HOME",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/"
-        },
-        "timestamp": 1755960699590
-      },
-      {
-        "id": "action_navigate_a_14",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".menu-link",
-          "a.menu-link",
-          "li:nth-child(1)"
-        ],
-        "textContent": "ABOUT",
-        "className": "menu-link",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/about/"
-        },
-        "timestamp": 1755960699591
-      },
-      {
-        "id": "action_click_button_15",
+        "id": "action_click_button_2",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -509,204 +331,154 @@
         "attributes": {
           "aria-label": "Toggle menu"
         },
-        "timestamp": 1755960699591
+        "timestamp": 1756192397671
       },
       {
-        "id": "action_navigate_a_16",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_3",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          "#slick-slide-control30",
           "li:nth-child(1)"
         ],
-        "textContent": "Banner Design",
-        "className": "menu-link",
+        "textContent": "1",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+          "id": "slick-slide-control30",
+          "type": "button",
+          "role": "tab",
+          "aria-label": "1 of 8"
         },
-        "timestamp": 1755960699591
+        "timestamp": 1756192397671
       },
       {
-        "id": "action_navigate_a_17",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_4",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          "#slick-slide-control31",
           "li:nth-child(1)"
         ],
-        "textContent": "Logo Design",
-        "className": "menu-link",
+        "textContent": "2",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+          "id": "slick-slide-control31",
+          "type": "button",
+          "role": "tab",
+          "aria-label": "2 of 8"
         },
-        "timestamp": 1755960699591
+        "timestamp": 1756192397671
       },
       {
-        "id": "action_navigate_a_18",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_5",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          "#slick-slide-control32",
           "li:nth-child(1)"
         ],
-        "textContent": "Web Design",
-        "className": "menu-link",
+        "textContent": "3",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+          "id": "slick-slide-control32",
+          "type": "button",
+          "role": "tab",
+          "aria-label": "3 of 8"
         },
-        "timestamp": 1755960699592
+        "timestamp": 1756192397672
       },
       {
-        "id": "action_navigate_a_19",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_6",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          "#slick-slide-control33",
           "li:nth-child(1)"
         ],
-        "textContent": "SERVICES",
-        "className": "menu-link",
+        "textContent": "4",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services/"
+          "id": "slick-slide-control33",
+          "type": "button",
+          "role": "tab",
+          "aria-label": "4 of 8"
         },
-        "timestamp": 1755960699592
+        "timestamp": 1756192397672
       },
       {
-        "id": "action_navigate_a_20",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_7",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".menu-link",
-          "a.menu-link",
+          "#slick-slide-control34",
           "li:nth-child(1)"
         ],
-        "textContent": "CONTACT",
-        "className": "menu-link",
+        "textContent": "5",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/contact/"
+          "id": "slick-slide-control34",
+          "type": "button",
+          "role": "tab",
+          "aria-label": "5 of 8"
         },
-        "timestamp": 1755960699592
+        "timestamp": 1756192397673
       },
       {
-        "id": "action_navigate_a_21",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_8",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".ast-builder-social-element",
-          "a.ast-builder-social-element",
-          "div:nth-child(1)"
+          "#slick-slide-control35",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "ast-builder-social-element ast-inline-flex ast-facebook header-social-item",
+        "textContent": "6",
+        "className": "",
         "attributes": {
-          "aria-label": "Facebook",
-          "href": "https://www.facebook.com/brighttreedigital"
+          "id": "slick-slide-control35",
+          "type": "button",
+          "role": "tab",
+          "aria-label": "6 of 8"
         },
-        "timestamp": 1755960699592
+        "timestamp": 1756192397673
       },
       {
-        "id": "action_navigate_a_22",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_9",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".ast-builder-social-element",
-          "a.ast-builder-social-element",
-          "div:nth-child(2)"
+          "#slick-slide-control36",
+          "li:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "ast-builder-social-element ast-inline-flex ast-instagram header-social-item",
+        "textContent": "7",
+        "className": "",
         "attributes": {
-          "aria-label": "Instagram",
-          "href": "https://www.instagram.com/bright_tree_digital/"
+          "id": "slick-slide-control36",
+          "type": "button",
+          "role": "tab",
+          "aria-label": "7 of 8"
         },
-        "timestamp": 1755960699593
+        "timestamp": 1756192397673
       },
       {
-        "id": "action_navigate_a_23",
-        "tagName": "a",
-        "actionType": "navigate",
+        "id": "action_click_button_10",
+        "tagName": "button",
+        "actionType": "click",
         "selectors": [
-          ".bdt-slide-link",
-          "a.bdt-slide-link",
-          "div:nth-child(1)"
+          "#slick-slide-control37",
+          "li:nth-child(1)"
         ],
-        "textContent": "Get Started",
-        "className": "bdt-slide-link elementor-animation-grow",
+        "textContent": "8",
+        "className": "",
         "attributes": {
-          "href": "https://brighttreedigital.com.au/services#logo-design"
+          "id": "slick-slide-control37",
+          "type": "button",
+          "role": "tab",
+          "aria-label": "8 of 8"
         },
-        "timestamp": 1755960699593
+        "timestamp": 1756192397674
       },
       {
-        "id": "action_navigate_a_24",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".bdt-slide-link",
-          "a.bdt-slide-link",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Get Started",
-        "className": "bdt-slide-link elementor-animation-grow",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/services#Website-Design"
-        },
-        "timestamp": 1755960699593
-      },
-      {
-        "id": "action_navigate_a_25",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".bdt-slide-link",
-          "a.bdt-slide-link",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Get Started",
-        "className": "bdt-slide-link elementor-animation-grow",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/services#banner-ad-design"
-        },
-        "timestamp": 1755960699594
-      },
-      {
-        "id": "action_navigate_a_26",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".bdt-slide-link",
-          "a.bdt-slide-link",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Get Started",
-        "className": "bdt-slide-link elementor-animation-grow",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/services#logo-design"
-        },
-        "timestamp": 1755960699594
-      },
-      {
-        "id": "action_navigate_a_27",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          ".bdt-slide-link",
-          "a.bdt-slide-link",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Get Started",
-        "className": "bdt-slide-link elementor-animation-grow",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/services#Website-Design"
-        },
-        "timestamp": 1755960699594
-      },
-      {
-        "id": "action_click_a_28",
+        "id": "action_click_a_11",
         "tagName": "a",
         "actionType": "click",
         "selectors": [
@@ -720,10 +492,10 @@
           "role": "button",
           "aria-label": "Previous slide"
         },
-        "timestamp": 1755960699594
+        "timestamp": 1756192397674
       },
       {
-        "id": "action_click_a_29",
+        "id": "action_click_a_12",
         "tagName": "a",
         "actionType": "click",
         "selectors": [
@@ -737,10 +509,500 @@
           "role": "button",
           "aria-label": "Next slide"
         },
-        "timestamp": 1755960699595
+        "timestamp": 1756192397675
+      },
+      {
+        "id": "action_navigate_a_13",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".custom-logo-link",
+          "a.custom-logo-link",
+          "span:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "custom-logo-link transparent-custom-logo",
+        "attributes": {
+          "aria-label": "Bright Tree Digital",
+          "href": "https://brighttreedigital.com.au/"
+        },
+        "timestamp": 1756192397675
+      },
+      {
+        "id": "action_navigate_a_14",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "HOME",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/"
+        },
+        "timestamp": 1756192397675
+      },
+      {
+        "id": "action_navigate_a_15",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "ABOUT",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/about/"
+        },
+        "timestamp": 1756192397676
+      },
+      {
+        "id": "action_click_button_16",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          ".ast-menu-toggle",
+          "button.ast-menu-toggle",
+          "li:nth-child(2)"
+        ],
+        "textContent": "Menu Toggle",
+        "className": "ast-menu-toggle",
+        "attributes": {
+          "aria-label": "Toggle menu"
+        },
+        "timestamp": 1756192397676
+      },
+      {
+        "id": "action_navigate_a_17",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Banner Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        },
+        "timestamp": 1756192397676
+      },
+      {
+        "id": "action_navigate_a_18",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Logo Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        },
+        "timestamp": 1756192397677
+      },
+      {
+        "id": "action_navigate_a_19",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Web Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        },
+        "timestamp": 1756192397677
+      },
+      {
+        "id": "action_navigate_a_20",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "SERVICES",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services/"
+        },
+        "timestamp": 1756192397677
+      },
+      {
+        "id": "action_navigate_a_21",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "CONTACT",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/contact/"
+        },
+        "timestamp": 1756192397678
+      },
+      {
+        "id": "action_navigate_a_22",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ast-builder-social-element",
+          "a.ast-builder-social-element",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "ast-builder-social-element ast-inline-flex ast-facebook header-social-item",
+        "attributes": {
+          "aria-label": "Facebook",
+          "href": "https://www.facebook.com/brighttreedigital"
+        },
+        "timestamp": 1756192397678
+      },
+      {
+        "id": "action_navigate_a_23",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ast-builder-social-element",
+          "a.ast-builder-social-element",
+          "div:nth-child(2)"
+        ],
+        "textContent": "",
+        "className": "ast-builder-social-element ast-inline-flex ast-instagram header-social-item",
+        "attributes": {
+          "aria-label": "Instagram",
+          "href": "https://www.instagram.com/bright_tree_digital/"
+        },
+        "timestamp": 1756192397678
+      },
+      {
+        "id": "action_navigate_a_24",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".custom-logo-link",
+          "a.custom-logo-link",
+          "span:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "custom-logo-link transparent-custom-logo",
+        "attributes": {
+          "aria-label": "Bright Tree Digital",
+          "href": "https://brighttreedigital.com.au/"
+        },
+        "timestamp": 1756192397679
+      },
+      {
+        "id": "action_click_button_25",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          "[data-index=\"0\"]",
+          ".menu-toggle",
+          "button.menu-toggle",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Main Menu",
+        "className": "menu-toggle main-header-menu-toggle ast-mobile-menu-trigger-fill",
+        "attributes": {
+          "type": "button",
+          "aria-label": "Main menu toggle"
+        },
+        "timestamp": 1756192397679
+      },
+      {
+        "id": "action_navigate_a_26",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "HOME",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/"
+        },
+        "timestamp": 1756192397679
+      },
+      {
+        "id": "action_navigate_a_27",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "ABOUT",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/about/"
+        },
+        "timestamp": 1756192397680
+      },
+      {
+        "id": "action_click_button_28",
+        "tagName": "button",
+        "actionType": "click",
+        "selectors": [
+          ".ast-menu-toggle",
+          "button.ast-menu-toggle",
+          "li:nth-child(2)"
+        ],
+        "textContent": "Menu Toggle",
+        "className": "ast-menu-toggle",
+        "attributes": {
+          "aria-label": "Toggle menu"
+        },
+        "timestamp": 1756192397680
+      },
+      {
+        "id": "action_navigate_a_29",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Banner Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
+        },
+        "timestamp": 1756192397680
       },
       {
         "id": "action_navigate_a_30",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Logo Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
+        },
+        "timestamp": 1756192397681
+      },
+      {
+        "id": "action_navigate_a_31",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Web Design",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/web-design-portfolio/"
+        },
+        "timestamp": 1756192397681
+      },
+      {
+        "id": "action_navigate_a_32",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "SERVICES",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services/"
+        },
+        "timestamp": 1756192397682
+      },
+      {
+        "id": "action_navigate_a_33",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".menu-link",
+          "a.menu-link",
+          "li:nth-child(1)"
+        ],
+        "textContent": "CONTACT",
+        "className": "menu-link",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/contact/"
+        },
+        "timestamp": 1756192397682
+      },
+      {
+        "id": "action_navigate_a_34",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ast-builder-social-element",
+          "a.ast-builder-social-element",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "ast-builder-social-element ast-inline-flex ast-facebook header-social-item",
+        "attributes": {
+          "aria-label": "Facebook",
+          "href": "https://www.facebook.com/brighttreedigital"
+        },
+        "timestamp": 1756192397682
+      },
+      {
+        "id": "action_navigate_a_35",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".ast-builder-social-element",
+          "a.ast-builder-social-element",
+          "div:nth-child(2)"
+        ],
+        "textContent": "",
+        "className": "ast-builder-social-element ast-inline-flex ast-instagram header-social-item",
+        "attributes": {
+          "aria-label": "Instagram",
+          "href": "https://www.instagram.com/bright_tree_digital/"
+        },
+        "timestamp": 1756192397683
+      },
+      {
+        "id": "action_navigate_a_36",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".bdt-slide-link",
+          "a.bdt-slide-link",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get Started",
+        "className": "bdt-slide-link elementor-animation-grow",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#logo-design"
+        },
+        "timestamp": 1756192397683
+      },
+      {
+        "id": "action_navigate_a_37",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".bdt-slide-link",
+          "a.bdt-slide-link",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get Started",
+        "className": "bdt-slide-link elementor-animation-grow",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#Website-Design"
+        },
+        "timestamp": 1756192397684
+      },
+      {
+        "id": "action_navigate_a_38",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".bdt-slide-link",
+          "a.bdt-slide-link",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get Started",
+        "className": "bdt-slide-link elementor-animation-grow",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#banner-ad-design"
+        },
+        "timestamp": 1756192397684
+      },
+      {
+        "id": "action_navigate_a_39",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".bdt-slide-link",
+          "a.bdt-slide-link",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get Started",
+        "className": "bdt-slide-link elementor-animation-grow",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#logo-design"
+        },
+        "timestamp": 1756192397684
+      },
+      {
+        "id": "action_navigate_a_40",
+        "tagName": "a",
+        "actionType": "navigate",
+        "selectors": [
+          ".bdt-slide-link",
+          "a.bdt-slide-link",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Get Started",
+        "className": "bdt-slide-link elementor-animation-grow",
+        "attributes": {
+          "href": "https://brighttreedigital.com.au/services#Website-Design"
+        },
+        "timestamp": 1756192397685
+      },
+      {
+        "id": "action_click_a_41",
+        "tagName": "a",
+        "actionType": "click",
+        "selectors": [
+          ".bdt-navigation-prev",
+          "a.bdt-navigation-prev",
+          "div:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "bdt-navigation-prev bdt-slidenav-previous bdt-icon bdt-slidenav",
+        "attributes": {
+          "role": "button",
+          "aria-label": "Previous slide"
+        },
+        "timestamp": 1756192397685
+      },
+      {
+        "id": "action_click_a_42",
+        "tagName": "a",
+        "actionType": "click",
+        "selectors": [
+          ".bdt-navigation-next",
+          "a.bdt-navigation-next",
+          "div:nth-child(2)"
+        ],
+        "textContent": "",
+        "className": "bdt-navigation-next bdt-slidenav-next bdt-icon bdt-slidenav",
+        "attributes": {
+          "role": "button",
+          "aria-label": "Next slide"
+        },
+        "timestamp": 1756192397685
+      },
+      {
+        "id": "action_navigate_a_43",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -751,10 +1013,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/?page_id=4627"
         },
-        "timestamp": 1755960699595
+        "timestamp": 1756192397686
       },
       {
-        "id": "action_navigate_a_31",
+        "id": "action_navigate_a_44",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -767,10 +1029,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/web-design-portfolio/"
         },
-        "timestamp": 1755960699595
+        "timestamp": 1756192397686
       },
       {
-        "id": "action_navigate_a_32",
+        "id": "action_navigate_a_45",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -783,10 +1045,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/services#websiteDesign"
         },
-        "timestamp": 1755960699596
+        "timestamp": 1756192397686
       },
       {
-        "id": "action_navigate_a_33",
+        "id": "action_navigate_a_46",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -797,10 +1059,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/?page_id=4734"
         },
-        "timestamp": 1755960699596
+        "timestamp": 1756192397687
       },
       {
-        "id": "action_navigate_a_34",
+        "id": "action_navigate_a_47",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -813,10 +1075,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
         },
-        "timestamp": 1755960699596
+        "timestamp": 1756192397687
       },
       {
-        "id": "action_navigate_a_35",
+        "id": "action_navigate_a_48",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -829,10 +1091,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/services#logo-design"
         },
-        "timestamp": 1755960699596
+        "timestamp": 1756192397687
       },
       {
-        "id": "action_navigate_a_36",
+        "id": "action_navigate_a_49",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -843,10 +1105,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/?page_id=4784"
         },
-        "timestamp": 1755960699597
+        "timestamp": 1756192397687
       },
       {
-        "id": "action_navigate_a_37",
+        "id": "action_navigate_a_50",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -859,10 +1121,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
         },
-        "timestamp": 1755960699597
+        "timestamp": 1756192397688
       },
       {
-        "id": "action_navigate_a_38",
+        "id": "action_navigate_a_51",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -875,10 +1137,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/services#banner-ad-design"
         },
-        "timestamp": 1755960699597
+        "timestamp": 1756192397688
       },
       {
-        "id": "action_navigate_a_39",
+        "id": "action_navigate_a_52",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -891,10 +1153,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/contact/"
         },
-        "timestamp": 1755960699597
+        "timestamp": 1756192397689
       },
       {
-        "id": "action_navigate_a_40",
+        "id": "action_navigate_a_53",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -908,44 +1170,10 @@
         "attributes": {
           "href": "https://www.josscouture.co.za/"
         },
-        "timestamp": 1755960699598
+        "timestamp": 1756192397689
       },
       {
-        "id": "action_navigate_a_41",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Flutterbys School",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
-        "attributes": {
-          "href": "https://flutterbys.co.za/"
-        },
-        "timestamp": 1755960699598
-      },
-      {
-        "id": "action_navigate_a_42",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
-        ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
-        "attributes": {
-          "href": "https://www.thegourmetcookieco.co.za/"
-        },
-        "timestamp": 1755960699598
-      },
-      {
-        "id": "action_click_button_43",
+        "id": "action_click_button_54",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -958,12 +1186,12 @@
           "id": "slick-slide-control30",
           "type": "button",
           "role": "tab",
-          "aria-label": "1 of 3"
+          "aria-label": "1 of 8"
         },
-        "timestamp": 1755960699599
+        "timestamp": 1756192397689
       },
       {
-        "id": "action_click_button_44",
+        "id": "action_click_button_55",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -976,12 +1204,12 @@
           "id": "slick-slide-control31",
           "type": "button",
           "role": "tab",
-          "aria-label": "2 of 3"
+          "aria-label": "2 of 8"
         },
-        "timestamp": 1755960699599
+        "timestamp": 1756192397690
       },
       {
-        "id": "action_click_button_45",
+        "id": "action_click_button_56",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -994,12 +1222,12 @@
           "id": "slick-slide-control32",
           "type": "button",
           "role": "tab",
-          "aria-label": "3 of 3"
+          "aria-label": "3 of 8"
         },
-        "timestamp": 1755960699599
+        "timestamp": 1756192397690
       },
       {
-        "id": "action_click_button_46",
+        "id": "action_click_button_57",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -1012,12 +1240,12 @@
           "id": "slick-slide-control33",
           "type": "button",
           "role": "tab",
-          "aria-label": "4 of 3"
+          "aria-label": "4 of 8"
         },
-        "timestamp": 1755960699599
+        "timestamp": 1756192397690
       },
       {
-        "id": "action_click_button_47",
+        "id": "action_click_button_58",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -1030,12 +1258,12 @@
           "id": "slick-slide-control34",
           "type": "button",
           "role": "tab",
-          "aria-label": "5 of 3"
+          "aria-label": "5 of 8"
         },
-        "timestamp": 1755960699600
+        "timestamp": 1756192397691
       },
       {
-        "id": "action_click_button_48",
+        "id": "action_click_button_59",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -1048,12 +1276,12 @@
           "id": "slick-slide-control35",
           "type": "button",
           "role": "tab",
-          "aria-label": "6 of 3"
+          "aria-label": "6 of 8"
         },
-        "timestamp": 1755960699600
+        "timestamp": 1756192397691
       },
       {
-        "id": "action_click_button_49",
+        "id": "action_click_button_60",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -1066,12 +1294,12 @@
           "id": "slick-slide-control36",
           "type": "button",
           "role": "tab",
-          "aria-label": "7 of 3"
+          "aria-label": "7 of 8"
         },
-        "timestamp": 1755960699600
+        "timestamp": 1756192397691
       },
       {
-        "id": "action_click_button_50",
+        "id": "action_click_button_61",
         "tagName": "button",
         "actionType": "click",
         "selectors": [
@@ -1084,12 +1312,12 @@
           "id": "slick-slide-control37",
           "type": "button",
           "role": "tab",
-          "aria-label": "8 of 3"
+          "aria-label": "8 of 8"
         },
-        "timestamp": 1755960699600
+        "timestamp": 1756192397691
       },
       {
-        "id": "action_navigate_a_51",
+        "id": "action_navigate_a_62",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1100,10 +1328,10 @@
         "attributes": {
           "href": "https://thegourmetkitchen.co.za/"
         },
-        "timestamp": 1755960699601
+        "timestamp": 1756192397692
       },
       {
-        "id": "action_navigate_a_52",
+        "id": "action_navigate_a_63",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1114,10 +1342,10 @@
         "attributes": {
           "href": "https://www.thesyrene.co.za/"
         },
-        "timestamp": 1755960699601
+        "timestamp": 1756192397692
       },
       {
-        "id": "action_navigate_a_53",
+        "id": "action_navigate_a_64",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1130,10 +1358,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/about#testimonials"
         },
-        "timestamp": 1755960699601
+        "timestamp": 1756192397693
       },
       {
-        "id": "action_navigate_a_54",
+        "id": "action_navigate_a_65",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1148,46 +1376,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/Andy7-String.jpg"
         },
-        "timestamp": 1755960699601
+        "timestamp": 1756192397693
       },
       {
-        "id": "action_navigate_a_55",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/i8i-Logo.jpg"
-        },
-        "timestamp": 1755960699602
-      },
-      {
-        "id": "action_navigate_a_56",
-        "tagName": "a",
-        "actionType": "navigate",
-        "selectors": [
-          "[data-fancybox=\"uael-gallery\"]",
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
-        "attributes": {
-          "href": "https://brighttreedigital.com.au/wp-content/uploads/2024/01/The-Gourmet-Cookie-Co-Logo-Pink-copy.jpg"
-        },
-        "timestamp": 1755960699602
-      },
-      {
-        "id": "action_navigate_a_57",
+        "id": "action_navigate_a_66",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1200,10 +1392,10 @@
         "attributes": {
           "href": "/contact/"
         },
-        "timestamp": 1755960699602
+        "timestamp": 1756192397693
       },
       {
-        "id": "action_navigate_a_58",
+        "id": "action_navigate_a_67",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1214,10 +1406,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/banner-design-portfolio/"
         },
-        "timestamp": 1755960699602
+        "timestamp": 1756192397694
       },
       {
-        "id": "action_navigate_a_59",
+        "id": "action_navigate_a_68",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1228,10 +1420,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/logo-design-portfolio/"
         },
-        "timestamp": 1755960699603
+        "timestamp": 1756192397694
       },
       {
-        "id": "action_navigate_a_60",
+        "id": "action_navigate_a_69",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1242,10 +1434,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/web-design-portfolio/"
         },
-        "timestamp": 1755960699603
+        "timestamp": 1756192397694
       },
       {
-        "id": "action_navigate_a_61",
+        "id": "action_navigate_a_70",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1258,10 +1450,10 @@
         "attributes": {
           "href": "https://www.facebook.com/brighttreedigital"
         },
-        "timestamp": 1755960699603
+        "timestamp": 1756192397694
       },
       {
-        "id": "action_navigate_a_62",
+        "id": "action_navigate_a_71",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1274,10 +1466,10 @@
         "attributes": {
           "href": "https://www.instagram.com/bright_tree_digital/"
         },
-        "timestamp": 1755960699604
+        "timestamp": 1756192397695
       },
       {
-        "id": "action_navigate_a_63",
+        "id": "action_navigate_a_72",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1288,10 +1480,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/"
         },
-        "timestamp": 1755960699604
+        "timestamp": 1756192397695
       },
       {
-        "id": "action_navigate_a_64",
+        "id": "action_navigate_a_73",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1302,10 +1494,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/about/"
         },
-        "timestamp": 1755960699604
+        "timestamp": 1756192397695
       },
       {
-        "id": "action_navigate_a_65",
+        "id": "action_navigate_a_74",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1316,10 +1508,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/services/"
         },
-        "timestamp": 1755960699604
+        "timestamp": 1756192397696
       },
       {
-        "id": "action_navigate_a_66",
+        "id": "action_navigate_a_75",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1330,10 +1522,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/about/#testimonials"
         },
-        "timestamp": 1755960699605
+        "timestamp": 1756192397696
       },
       {
-        "id": "action_navigate_a_67",
+        "id": "action_navigate_a_76",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1344,10 +1536,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/contact/"
         },
-        "timestamp": 1755960699605
+        "timestamp": 1756192397696
       },
       {
-        "id": "action_navigate_a_68",
+        "id": "action_navigate_a_77",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1358,10 +1550,10 @@
         "attributes": {
           "href": "https://brighttreedigital.com.au/privacy-policy/"
         },
-        "timestamp": 1755960699605
+        "timestamp": 1756192397697
       },
       {
-        "id": "action_navigate_a_69",
+        "id": "action_navigate_a_78",
         "tagName": "a",
         "actionType": "navigate",
         "selectors": [
@@ -1372,20 +1564,20 @@
         "attributes": {
           "href": "http://www.brighttreedigital.com"
         },
-        "timestamp": 1755960699605
+        "timestamp": 1756192397697
       },
       {
-        "id": "action_content_html_70",
+        "id": "action_content_html_79",
         "tagName": "html",
         "actionType": "content",
         "selectors": [],
         "textContent": "img:is([sizes=\"auto\"",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699606
+        "timestamp": 1756192397698
       },
       {
-        "id": "action_content_noscript_71",
+        "id": "action_content_noscript_80",
         "tagName": "noscript",
         "actionType": "content",
         "selectors": [
@@ -1394,14 +1586,14 @@
         "textContent": "<img height=\"1\" widt",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699607
+        "timestamp": 1756192397699
       },
       {
-        "id": "action_content_body_72",
+        "id": "action_content_body_81",
         "tagName": "body",
         "actionType": "content",
         "selectors": [
-          "[data-elementor-device-mode=\"tablet\"]",
+          "[data-elementor-device-mode=\"mobile\"]",
           ".home",
           "body.home",
           "html:nth-child(2)"
@@ -1409,10 +1601,10 @@
         "textContent": "Skip to content\n\n\n\t\t",
         "className": "home wp-singular page-template-default page page-id-4609 wp-custom-logo wp-theme-astra eio-default ehf-footer ehf-template-astra ehf-stylesheet-astra qodef-qi--no-touch qi-addons-for-elementor-1.9.3 ast-page-builder-template ast-no-sidebar astra-4.11.9 ast-single-post ast-mobile-inherit-site-logo ast-replace-site-logo-transparent ast-inherit-site-logo-transparent ast-theme-transparent-header ast-hfb-header ast-full-width-layout uae-sticky-header-enabled elementor-default elementor-kit-3614 elementor-page elementor-page-4609 astra-addon-4.11.7 ast-header-break-point e--ua-blink e--ua-chrome e--ua-mac e--ua-webkit",
         "attributes": {},
-        "timestamp": 1755960699607
+        "timestamp": 1756192397699
       },
       {
-        "id": "action_content_div_73",
+        "id": "action_content_div_82",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1426,27 +1618,10 @@
         "attributes": {
           "id": "page"
         },
-        "timestamp": 1755960699607
+        "timestamp": 1756192397700
       },
       {
-        "id": "action_content_header_74",
-        "tagName": "header",
-        "actionType": "content",
-        "selectors": [
-          "#masthead",
-          ".site-header",
-          "header.site-header",
-          "div:nth-child(1)"
-        ],
-        "textContent": "HOME\n               ",
-        "className": "site-header header-main-layout-1 ast-primary-menu-enabled ast-logo-title-inline ast-hide-custom-menu-mobile ast-builder-menu-toggle-icon ast-mobile-header-inline",
-        "attributes": {
-          "id": "masthead"
-        },
-        "timestamp": 1755960699608
-      },
-      {
-        "id": "action_content_div_75",
+        "id": "action_content_div_83",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1457,10 +1632,10 @@
         "textContent": "HOME\n               ",
         "className": "ast-main-header-wrap main-header-bar-wrap ",
         "attributes": {},
-        "timestamp": 1755960699608
+        "timestamp": 1756192397700
       },
       {
-        "id": "action_content_div_76",
+        "id": "action_content_div_84",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1472,10 +1647,10 @@
         "textContent": "HOME\n               ",
         "className": "ast-primary-header-bar ast-primary-header main-header-bar site-header-focus-item",
         "attributes": {},
-        "timestamp": 1755960699608
+        "timestamp": 1756192397700
       },
       {
-        "id": "action_content_div_77",
+        "id": "action_content_div_85",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1487,10 +1662,10 @@
         "textContent": "HOME\n               ",
         "className": "site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container",
         "attributes": {},
-        "timestamp": 1755960699608
+        "timestamp": 1756192397700
       },
       {
-        "id": "action_content_div_78",
+        "id": "action_content_div_86",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1501,10 +1676,10 @@
         "textContent": "HOME\n               ",
         "className": "ast-builder-grid-row ast-builder-grid-row-has-sides ast-builder-grid-row-no-center",
         "attributes": {},
-        "timestamp": 1755960699609
+        "timestamp": 1756192397701
       },
       {
-        "id": "action_content_div_79",
+        "id": "action_content_div_87",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1515,134 +1690,7 @@
         "textContent": "HOME\n               ",
         "className": "site-header-primary-section-right site-header-section ast-flex ast-grid-right-section",
         "attributes": {},
-        "timestamp": 1755960699609
-      },
-      {
-        "id": "action_content_div_80",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          "[data-section=\"section-hb-menu-1\"]",
-          ".ast-builder-menu-1",
-          "div.ast-builder-menu-1",
-          "div:nth-child(1)"
-        ],
-        "textContent": "HOME\n               ",
-        "className": "ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item",
-        "attributes": {},
-        "timestamp": 1755960699609
-      },
-      {
-        "id": "action_content_div_81",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".ast-main-header-bar-alignment",
-          "div.ast-main-header-bar-alignment",
-          "div:nth-child(1)"
-        ],
-        "textContent": "HOME\n               ",
-        "className": "ast-main-header-bar-alignment",
-        "attributes": {},
-        "timestamp": 1755960699609
-      },
-      {
-        "id": "action_content_div_82",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".main-header-bar-navigation",
-          "div.main-header-bar-navigation",
-          "div:nth-child(1)"
-        ],
-        "textContent": "HOME\n               ",
-        "className": "main-header-bar-navigation",
-        "attributes": {},
-        "timestamp": 1755960699610
-      },
-      {
-        "id": "action_content_nav_83",
-        "tagName": "nav",
-        "actionType": "content",
-        "selectors": [
-          "#primary-site-navigation-desktop",
-          ".site-navigation",
-          "nav.site-navigation",
-          "div:nth-child(1)"
-        ],
-        "textContent": "HOME\n               ",
-        "className": "site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item",
-        "attributes": {
-          "id": "primary-site-navigation-desktop",
-          "aria-label": "Primary Site Navigation"
-        },
-        "timestamp": 1755960699610
-      },
-      {
-        "id": "action_content_div_84",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".main-navigation",
-          "div.main-navigation",
-          "nav:nth-child(1)"
-        ],
-        "textContent": "HOME\n               ",
-        "className": "main-navigation ast-inline-flex",
-        "attributes": {},
-        "timestamp": 1755960699610
-      },
-      {
-        "id": "action_content_ul_85",
-        "tagName": "ul",
-        "actionType": "content",
-        "selectors": [
-          "#ast-hf-menu-1",
-          ".main-header-menu",
-          "ul.main-header-menu",
-          "div:nth-child(1)"
-        ],
-        "textContent": "HOME\n               ",
-        "className": "main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border stack-on-mobile ast-mega-menu-enabled",
-        "attributes": {
-          "id": "ast-hf-menu-1"
-        },
-        "timestamp": 1755960699610
-      },
-      {
-        "id": "action_content_li_86",
-        "tagName": "li",
-        "actionType": "content",
-        "selectors": [
-          "#menu-item-4738",
-          ".menu-item",
-          "li.menu-item",
-          "ul:nth-child(3)"
-        ],
-        "textContent": "PORTFOLIO\n          ",
-        "className": "menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4738",
-        "attributes": {
-          "id": "menu-item-4738"
-        },
-        "timestamp": 1755960699611
-      },
-      {
-        "id": "action_content_div_87",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          "#ast-mobile-header",
-          "[data-type=\"dropdown\"]",
-          ".ast-mobile-header-wrap",
-          "div.ast-mobile-header-wrap",
-          "header:nth-child(2)"
-        ],
-        "textContent": "Main Menu\n\t\t\t\t\t\n\t\t\t\t",
-        "className": "ast-mobile-header-wrap ",
-        "attributes": {
-          "id": "ast-mobile-header"
-        },
-        "timestamp": 1755960699611
+        "timestamp": 1756192397701
       },
       {
         "id": "action_content_div_88",
@@ -1657,7 +1705,7 @@
         "textContent": "HOME\n               ",
         "className": "ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item",
         "attributes": {},
-        "timestamp": 1755960699612
+        "timestamp": 1756192397701
       },
       {
         "id": "action_content_div_89",
@@ -1671,7 +1719,7 @@
         "textContent": "HOME\n               ",
         "className": "ast-main-header-bar-alignment",
         "attributes": {},
-        "timestamp": 1755960699612
+        "timestamp": 1756192397702
       },
       {
         "id": "action_content_div_90",
@@ -1685,28 +1733,10 @@
         "textContent": "HOME\n               ",
         "className": "main-header-bar-navigation",
         "attributes": {},
-        "timestamp": 1755960699612
+        "timestamp": 1756192397702
       },
       {
-        "id": "action_content_nav_91",
-        "tagName": "nav",
-        "actionType": "content",
-        "selectors": [
-          "#primary-site-navigation-mobile",
-          ".site-navigation",
-          "nav.site-navigation",
-          "div:nth-child(1)"
-        ],
-        "textContent": "HOME\n               ",
-        "className": "site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item",
-        "attributes": {
-          "id": "primary-site-navigation-mobile",
-          "aria-label": "Primary Site Navigation"
-        },
-        "timestamp": 1755960699612
-      },
-      {
-        "id": "action_content_div_92",
+        "id": "action_content_div_91",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1717,10 +1747,10 @@
         "textContent": "HOME\n               ",
         "className": "main-navigation ast-inline-flex",
         "attributes": {},
-        "timestamp": 1755960699613
+        "timestamp": 1756192397702
       },
       {
-        "id": "action_content_ul_93",
+        "id": "action_content_ul_92",
         "tagName": "ul",
         "actionType": "content",
         "selectors": [
@@ -1734,10 +1764,119 @@
         "attributes": {
           "id": "ast-hf-menu-1"
         },
-        "timestamp": 1755960699613
+        "timestamp": 1756192397703
       },
       {
-        "id": "action_content_li_94",
+        "id": "action_content_li_93",
+        "tagName": "li",
+        "actionType": "content",
+        "selectors": [
+          "#menu-item-4738",
+          ".menu-item",
+          "li.menu-item",
+          "ul:nth-child(3)"
+        ],
+        "textContent": "PORTFOLIO\n          ",
+        "className": "menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4738",
+        "attributes": {
+          "id": "menu-item-4738"
+        },
+        "timestamp": 1756192397703
+      },
+      {
+        "id": "action_content_div_94",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          "#ast-mobile-header",
+          "[data-type=\"dropdown\"]",
+          ".ast-mobile-header-wrap",
+          "div.ast-mobile-header-wrap",
+          "header:nth-child(2)"
+        ],
+        "textContent": "Main Menu\n\t\t\t\t\t\n\t\t\t\t",
+        "className": "ast-mobile-header-wrap ",
+        "attributes": {
+          "id": "ast-mobile-header"
+        },
+        "timestamp": 1756192397704
+      },
+      {
+        "id": "action_content_div_95",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          "[data-section=\"section-hb-menu-1\"]",
+          ".ast-builder-menu-1",
+          "div.ast-builder-menu-1",
+          "div:nth-child(1)"
+        ],
+        "textContent": "HOME\n               ",
+        "className": "ast-builder-menu-1 ast-builder-menu ast-flex ast-builder-menu-1-focus-item ast-builder-layout-element site-header-focus-item",
+        "attributes": {},
+        "timestamp": 1756192397704
+      },
+      {
+        "id": "action_content_div_96",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".ast-main-header-bar-alignment",
+          "div.ast-main-header-bar-alignment",
+          "div:nth-child(1)"
+        ],
+        "textContent": "HOME\n               ",
+        "className": "ast-main-header-bar-alignment",
+        "attributes": {},
+        "timestamp": 1756192397704
+      },
+      {
+        "id": "action_content_div_97",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".main-header-bar-navigation",
+          "div.main-header-bar-navigation",
+          "div:nth-child(1)"
+        ],
+        "textContent": "HOME\n               ",
+        "className": "main-header-bar-navigation",
+        "attributes": {},
+        "timestamp": 1756192397705
+      },
+      {
+        "id": "action_content_div_98",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".main-navigation",
+          "div.main-navigation",
+          "nav:nth-child(1)"
+        ],
+        "textContent": "HOME\n               ",
+        "className": "main-navigation ast-inline-flex",
+        "attributes": {},
+        "timestamp": 1756192397705
+      },
+      {
+        "id": "action_content_ul_99",
+        "tagName": "ul",
+        "actionType": "content",
+        "selectors": [
+          "#ast-hf-menu-1",
+          ".main-header-menu",
+          "ul.main-header-menu",
+          "div:nth-child(1)"
+        ],
+        "textContent": "HOME\n               ",
+        "className": "main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border stack-on-mobile ast-mega-menu-enabled",
+        "attributes": {
+          "id": "ast-hf-menu-1"
+        },
+        "timestamp": 1756192397705
+      },
+      {
+        "id": "action_content_li_100",
         "tagName": "li",
         "actionType": "content",
         "selectors": [
@@ -1748,10 +1887,10 @@
         "textContent": "PORTFOLIO\n          ",
         "className": "menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4738",
         "attributes": {},
-        "timestamp": 1755960699613
+        "timestamp": 1756192397706
       },
       {
-        "id": "action_content_div_95",
+        "id": "action_content_div_101",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1765,10 +1904,10 @@
         "attributes": {
           "id": "content"
         },
-        "timestamp": 1755960699613
+        "timestamp": 1756192397706
       },
       {
-        "id": "action_content_div_96",
+        "id": "action_content_div_102",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1779,10 +1918,10 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "ast-container",
         "attributes": {},
-        "timestamp": 1755960699614
+        "timestamp": 1756192397706
       },
       {
-        "id": "action_content_div_97",
+        "id": "action_content_div_103",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1796,10 +1935,10 @@
         "attributes": {
           "id": "primary"
         },
-        "timestamp": 1755960699614
+        "timestamp": 1756192397707
       },
       {
-        "id": "action_content_main_98",
+        "id": "action_content_main_104",
         "tagName": "main",
         "actionType": "content",
         "selectors": [
@@ -1813,10 +1952,10 @@
         "attributes": {
           "id": "main"
         },
-        "timestamp": 1755960699614
+        "timestamp": 1756192397707
       },
       {
-        "id": "action_content_article_99",
+        "id": "action_content_article_105",
         "tagName": "article",
         "actionType": "content",
         "selectors": [
@@ -1830,10 +1969,10 @@
         "attributes": {
           "id": "post-4609"
         },
-        "timestamp": 1755960699614
+        "timestamp": 1756192397707
       },
       {
-        "id": "action_content_div_100",
+        "id": "action_content_div_106",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1844,10 +1983,10 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "entry-content clear",
         "attributes": {},
-        "timestamp": 1755960699615
+        "timestamp": 1756192397708
       },
       {
-        "id": "action_content_div_101",
+        "id": "action_content_div_107",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1860,10 +1999,10 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "elementor elementor-4609",
         "attributes": {},
-        "timestamp": 1755960699615
+        "timestamp": 1756192397708
       },
       {
-        "id": "action_content_div_102",
+        "id": "action_content_div_108",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1877,10 +2016,10 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "elementor-element elementor-element-f3bd9e4 e-con-full e-flex e-con e-parent e-lazyloaded",
         "attributes": {},
-        "timestamp": 1755960699615
+        "timestamp": 1756192397708
       },
       {
-        "id": "action_content_div_103",
+        "id": "action_content_div_109",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1894,10 +2033,10 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "elementor-element elementor-element-b2fa459 elementor-mobile-align-center elementor-align-center bdt-navigation-type-arrows elementor-widget elementor-widget-bdt-slider e-widget-swiper",
         "attributes": {},
-        "timestamp": 1755960699616
+        "timestamp": 1756192397709
       },
       {
-        "id": "action_content_div_104",
+        "id": "action_content_div_110",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1908,10 +2047,10 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699616
+        "timestamp": 1756192397709
       },
       {
-        "id": "action_content_div_105",
+        "id": "action_content_div_111",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1926,10 +2065,10 @@
         "attributes": {
           "id": "bdt-slider-b2fa459"
         },
-        "timestamp": 1755960699616
+        "timestamp": 1756192397709
       },
       {
-        "id": "action_content_div_106",
+        "id": "action_content_div_112",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1943,14 +2082,14 @@
           "role": "region",
           "aria-label": "Slider"
         },
-        "timestamp": 1755960699616
+        "timestamp": 1756192397710
       },
       {
-        "id": "action_content_div_107",
+        "id": "action_content_div_113",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
-          "#swiper-wrapper-651ed34ff93bdf3e",
+          "#swiper-wrapper-63ec33d244fca1085",
           ".swiper-wrapper",
           "div.swiper-wrapper",
           "div:nth-child(1)"
@@ -1958,12 +2097,12 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "swiper-wrapper",
         "attributes": {
-          "id": "swiper-wrapper-651ed34ff93bdf3e"
+          "id": "swiper-wrapper-63ec33d244fca1085"
         },
-        "timestamp": 1755960699617
+        "timestamp": 1756192397710
       },
       {
-        "id": "action_content_div_108",
+        "id": "action_content_div_114",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1978,10 +2117,10 @@
           "role": "group",
           "aria-label": "3 / 3"
         },
-        "timestamp": 1755960699617
+        "timestamp": 1756192397710
       },
       {
-        "id": "action_content_div_109",
+        "id": "action_content_div_115",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -1992,10 +2131,10 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "bdt-slide-desc bdt-position-large bdt-position-center bdt-position-z-index",
         "attributes": {},
-        "timestamp": 1755960699617
+        "timestamp": 1756192397710
       },
       {
-        "id": "action_content_div_110",
+        "id": "action_content_div_116",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2006,10 +2145,10 @@
         "textContent": "Developing Timeless ",
         "className": "bdt-slide-text",
         "attributes": {},
-        "timestamp": 1755960699617
+        "timestamp": 1756192397711
       },
       {
-        "id": "action_content_p_111",
+        "id": "action_content_p_117",
         "tagName": "p",
         "actionType": "content",
         "selectors": [
@@ -2018,10 +2157,10 @@
         "textContent": "Developing Timeless ",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699618
+        "timestamp": 1756192397711
       },
       {
-        "id": "action_content_div_112",
+        "id": "action_content_div_118",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2036,10 +2175,10 @@
           "role": "group",
           "aria-label": "1 / 3"
         },
-        "timestamp": 1755960699618
+        "timestamp": 1756192397711
       },
       {
-        "id": "action_content_div_113",
+        "id": "action_content_div_119",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2050,10 +2189,10 @@
         "textContent": "Dynamic Web Design B",
         "className": "bdt-slide-desc bdt-position-large bdt-position-center bdt-position-z-index",
         "attributes": {},
-        "timestamp": 1755960699618
+        "timestamp": 1756192397712
       },
       {
-        "id": "action_content_div_114",
+        "id": "action_content_div_120",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2068,10 +2207,10 @@
           "role": "group",
           "aria-label": "2 / 3"
         },
-        "timestamp": 1755960699618
+        "timestamp": 1756192397712
       },
       {
-        "id": "action_content_div_115",
+        "id": "action_content_div_121",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2082,10 +2221,10 @@
         "textContent": "Banner Ad Design\t\t\t\t",
         "className": "bdt-slide-desc bdt-position-large bdt-position-center bdt-position-z-index",
         "attributes": {},
-        "timestamp": 1755960699619
+        "timestamp": 1756192397712
       },
       {
-        "id": "action_content_div_116",
+        "id": "action_content_div_122",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2100,10 +2239,10 @@
           "role": "group",
           "aria-label": "3 / 3"
         },
-        "timestamp": 1755960699619
+        "timestamp": 1756192397713
       },
       {
-        "id": "action_content_div_117",
+        "id": "action_content_div_123",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2114,10 +2253,10 @@
         "textContent": "Logo Design\t\t\t\t\t\t\t\n\t",
         "className": "bdt-slide-desc bdt-position-large bdt-position-center bdt-position-z-index",
         "attributes": {},
-        "timestamp": 1755960699619
+        "timestamp": 1756192397713
       },
       {
-        "id": "action_content_div_118",
+        "id": "action_content_div_124",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2132,10 +2271,10 @@
           "role": "group",
           "aria-label": "1 / 3"
         },
-        "timestamp": 1755960699619
+        "timestamp": 1756192397713
       },
       {
-        "id": "action_content_div_119",
+        "id": "action_content_div_125",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2146,10 +2285,10 @@
         "textContent": "Dynamic Web Design B",
         "className": "bdt-slide-desc bdt-position-large bdt-position-center bdt-position-z-index",
         "attributes": {},
-        "timestamp": 1755960699620
+        "timestamp": 1756192397714
       },
       {
-        "id": "action_content_h2_120",
+        "id": "action_content_h2_126",
         "tagName": "h2",
         "actionType": "content",
         "selectors": [
@@ -2160,10 +2299,10 @@
         "textContent": "Dynamic Web Design B",
         "className": "bdt-slide-title bdt-clearfix",
         "attributes": {},
-        "timestamp": 1755960699620
+        "timestamp": 1756192397714
       },
       {
-        "id": "action_content_div_121",
+        "id": "action_content_div_127",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2174,10 +2313,10 @@
         "textContent": "Grow Your Brand Onli",
         "className": "bdt-slide-text",
         "attributes": {},
-        "timestamp": 1755960699620
+        "timestamp": 1756192397714
       },
       {
-        "id": "action_content_p_122",
+        "id": "action_content_p_128",
         "tagName": "p",
         "actionType": "content",
         "selectors": [
@@ -2186,10 +2325,10 @@
         "textContent": "Grow Your Brand Onli",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699620
+        "timestamp": 1756192397714
       },
       {
-        "id": "action_content_div_123",
+        "id": "action_content_div_129",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2203,10 +2342,10 @@
         "textContent": "Welcome to Bright Tr",
         "className": "elementor-element elementor-element-0da2dc6 e-flex e-con-boxed e-con e-parent e-lazyloaded",
         "attributes": {},
-        "timestamp": 1755960699621
+        "timestamp": 1756192397715
       },
       {
-        "id": "action_content_div_124",
+        "id": "action_content_div_130",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2217,10 +2356,10 @@
         "textContent": "Welcome to Bright Tr",
         "className": "e-con-inner",
         "attributes": {},
-        "timestamp": 1755960699621
+        "timestamp": 1756192397715
       },
       {
-        "id": "action_content_div_125",
+        "id": "action_content_div_131",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2234,10 +2373,10 @@
         "textContent": "Welcome to Bright Tr",
         "className": "elementor-element elementor-element-cb5e07e elementor-widget elementor-widget-heading",
         "attributes": {},
-        "timestamp": 1755960699621
+        "timestamp": 1756192397715
       },
       {
-        "id": "action_content_div_126",
+        "id": "action_content_div_132",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2248,10 +2387,10 @@
         "textContent": "Welcome to Bright Tr",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699621
+        "timestamp": 1756192397716
       },
       {
-        "id": "action_content_h2_127",
+        "id": "action_content_h2_133",
         "tagName": "h2",
         "actionType": "content",
         "selectors": [
@@ -2262,10 +2401,10 @@
         "textContent": "Welcome to Bright Tr",
         "className": "elementor-heading-title elementor-size-default",
         "attributes": {},
-        "timestamp": 1755960699622
+        "timestamp": 1756192397716
       },
       {
-        "id": "action_content_div_128",
+        "id": "action_content_div_134",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2279,10 +2418,10 @@
         "textContent": "…where your vision t",
         "className": "elementor-element elementor-element-9e0fb05 elementor-widget elementor-widget-text-editor",
         "attributes": {},
-        "timestamp": 1755960699622
+        "timestamp": 1756192397716
       },
       {
-        "id": "action_content_div_129",
+        "id": "action_content_div_135",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2293,10 +2432,10 @@
         "textContent": "…where your vision t",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699622
+        "timestamp": 1756192397717
       },
       {
-        "id": "action_content_p_130",
+        "id": "action_content_p_136",
         "tagName": "p",
         "actionType": "content",
         "selectors": [
@@ -2305,10 +2444,10 @@
         "textContent": "…where your vision t",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699623
+        "timestamp": 1756192397717
       },
       {
-        "id": "action_content_p_131",
+        "id": "action_content_p_137",
         "tagName": "p",
         "actionType": "content",
         "selectors": [
@@ -2317,10 +2456,10 @@
         "textContent": "At the heart of our ",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699624
+        "timestamp": 1756192397717
       },
       {
-        "id": "action_content_div_132",
+        "id": "action_content_div_138",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2334,10 +2473,10 @@
         "textContent": "Start your journey h",
         "className": "elementor-element elementor-element-b1d3666 e-con-full e-flex e-con e-parent",
         "attributes": {},
-        "timestamp": 1755960699624
+        "timestamp": 1756192397718
       },
       {
-        "id": "action_content_div_133",
+        "id": "action_content_div_139",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2350,10 +2489,10 @@
         "textContent": "Start your journey h",
         "className": "elementor-element elementor-element-1550d60 e-flex e-con-boxed e-con e-child",
         "attributes": {},
-        "timestamp": 1755960699624
+        "timestamp": 1756192397718
       },
       {
-        "id": "action_content_div_134",
+        "id": "action_content_div_140",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2364,10 +2503,10 @@
         "textContent": "Start your journey h",
         "className": "e-con-inner",
         "attributes": {},
-        "timestamp": 1755960699624
+        "timestamp": 1756192397718
       },
       {
-        "id": "action_content_div_135",
+        "id": "action_content_div_141",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2381,10 +2520,10 @@
         "textContent": "Start your journey h",
         "className": "elementor-element elementor-element-04c5abd elementor-widget elementor-widget-heading",
         "attributes": {},
-        "timestamp": 1755960699625
+        "timestamp": 1756192397719
       },
       {
-        "id": "action_content_div_136",
+        "id": "action_content_div_142",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2395,10 +2534,10 @@
         "textContent": "Start your journey h",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699625
+        "timestamp": 1756192397719
       },
       {
-        "id": "action_content_h1_137",
+        "id": "action_content_h1_143",
         "tagName": "h1",
         "actionType": "content",
         "selectors": [
@@ -2409,10 +2548,10 @@
         "textContent": "Start your journey h",
         "className": "elementor-heading-title elementor-size-default",
         "attributes": {},
-        "timestamp": 1755960699625
+        "timestamp": 1756192397719
       },
       {
-        "id": "action_content_div_138",
+        "id": "action_content_div_144",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2425,10 +2564,10 @@
         "textContent": "Our Work\t\t\t\t\n\t\t\t\t\n\t\t",
         "className": "elementor-element elementor-element-776387e e-con-full e-flex e-con e-parent",
         "attributes": {},
-        "timestamp": 1755960699625
+        "timestamp": 1756192397720
       },
       {
-        "id": "action_content_div_139",
+        "id": "action_content_div_145",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2440,13 +2579,13 @@
           "div.elementor-element",
           "div:nth-child(3)"
         ],
-        "textContent": "The Syrene HotelAfri",
+        "textContent": "Mtambo Chartered Acc",
         "className": "elementor-element elementor-element-4a43092 elementor-widget__width-inherit uael-ins-normal uael-img-caption-valign-bottom elementor-widget elementor-widget-uael-image-gallery",
         "attributes": {},
-        "timestamp": 1755960699626
+        "timestamp": 1756192397720
       },
       {
-        "id": "action_content_div_140",
+        "id": "action_content_div_146",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2454,13 +2593,13 @@
           "div.elementor-widget-container",
           "div:nth-child(1)"
         ],
-        "textContent": "The Syrene HotelAfri",
+        "textContent": "Mtambo Chartered Acc",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699626
+        "timestamp": 1756192397720
       },
       {
-        "id": "action_content_div_141",
+        "id": "action_content_div_147",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2468,13 +2607,13 @@
           "div.uael-gallery-parent",
           "div:nth-child(1)"
         ],
-        "textContent": "The Syrene HotelAfri",
+        "textContent": "Mtambo Chartered Acc",
         "className": "uael-gallery-parent uael-caption-on-image uael-gallery-unjustified",
         "attributes": {},
-        "timestamp": 1755960699626
+        "timestamp": 1756192397720
       },
       {
-        "id": "action_content_div_142",
+        "id": "action_content_div_148",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2484,13 +2623,13 @@
           "div.uael-img-gallery-wrap",
           "div:nth-child(1)"
         ],
-        "textContent": "The Syrene HotelAfri",
+        "textContent": "Mtambo Chartered Acc",
         "className": "uael-img-gallery-wrap uael-img-carousel-wrap uael-nav-dots slick-initialized slick-slider slick-dotted",
         "attributes": {},
-        "timestamp": 1755960699627
+        "timestamp": 1756192397721
       },
       {
-        "id": "action_content_div_143",
+        "id": "action_content_div_149",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2498,13 +2637,13 @@
           "div.slick-list",
           "div:nth-child(1)"
         ],
-        "textContent": "The Syrene HotelAfri",
+        "textContent": "Mtambo Chartered Acc",
         "className": "slick-list draggable",
         "attributes": {},
-        "timestamp": 1755960699627
+        "timestamp": 1756192397721
       },
       {
-        "id": "action_content_div_144",
+        "id": "action_content_div_150",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2512,30 +2651,13 @@
           "div.slick-track",
           "div:nth-child(1)"
         ],
-        "textContent": "The Syrene HotelAfri",
+        "textContent": "Mtambo Chartered Acc",
         "className": "slick-track",
         "attributes": {},
-        "timestamp": 1755960699627
+        "timestamp": 1756192397721
       },
       {
-        "id": "action_content_div_145",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          "[data-slick-index=\"-1\"]",
-          ".uael-grid-item",
-          "div.uael-grid-item",
-          "div:nth-child(3)"
-        ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-item uael-img-gallery-item-8 slick-slide slick-cloned",
-        "attributes": {
-          "role": "tabpanel"
-        },
-        "timestamp": 1755960699627
-      },
-      {
-        "id": "action_content_div_146",
+        "id": "action_content_div_151",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2546,10 +2668,10 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-item-content",
         "attributes": {},
-        "timestamp": 1755960699628
+        "timestamp": 1756192397722
       },
       {
-        "id": "action_content_a_147",
+        "id": "action_content_a_152",
         "tagName": "a",
         "actionType": "content",
         "selectors": [
@@ -2563,314 +2685,13 @@
         "attributes": {
           "href": "https://www.filemca.com/"
         },
-        "timestamp": 1755960699628
-      },
-      {
-        "id": "action_content_div_148",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-thumbnail",
-          "div.uael-grid-img-thumbnail",
-          "a:nth-child(1)"
-        ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-img-thumbnail uael-ins-target",
-        "attributes": {},
-        "timestamp": 1755960699628
-      },
-      {
-        "id": "action_content_figcaption_149",
-        "tagName": "figcaption",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-content",
-          "figcaption.uael-grid-img-content",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-img-content",
-        "attributes": {},
-        "timestamp": 1755960699628
-      },
-      {
-        "id": "action_content_div_150",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-caption",
-          "div.uael-grid-img-caption",
-          "figcaption:nth-child(1)"
-        ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-img-caption",
-        "attributes": {},
-        "timestamp": 1755960699628
-      },
-      {
-        "id": "action_content_h6_151",
-        "tagName": "h6",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-caption-text",
-          "h6.uael-grid-caption-text",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-caption-text",
-        "attributes": {},
-        "timestamp": 1755960699629
-      },
-      {
-        "id": "action_content_div_152",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          "#slick-slide32",
-          "[data-slick-index=\"2\"]",
-          ".uael-grid-item",
-          "div.uael-grid-item",
-          "div:nth-child(6)"
-        ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-item uael-img-gallery-item-3 slick-slide slick-active",
-        "attributes": {
-          "id": "slick-slide32",
-          "role": "tabpanel"
-        },
-        "timestamp": 1755960699629
+        "timestamp": 1756192397722
       },
       {
         "id": "action_content_div_153",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
-          ".uael-grid-item-content",
-          "div.uael-grid-item-content",
-          "div:nth-child(1)"
-        ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-item-content",
-        "attributes": {},
-        "timestamp": 1755960699629
-      },
-      {
-        "id": "action_content_div_154",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-thumbnail",
-          "div.uael-grid-img-thumbnail",
-          "a:nth-child(1)"
-        ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-img-thumbnail uael-ins-target",
-        "attributes": {},
-        "timestamp": 1755960699629
-      },
-      {
-        "id": "action_content_figcaption_155",
-        "tagName": "figcaption",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-content",
-          "figcaption.uael-grid-img-content",
-          "div:nth-child(2)"
-        ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-img-content",
-        "attributes": {},
-        "timestamp": 1755960699630
-      },
-      {
-        "id": "action_content_div_156",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-caption",
-          "div.uael-grid-img-caption",
-          "figcaption:nth-child(1)"
-        ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-img-caption",
-        "attributes": {},
-        "timestamp": 1755960699630
-      },
-      {
-        "id": "action_content_h6_157",
-        "tagName": "h6",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-caption-text",
-          "h6.uael-grid-caption-text",
-          "div:nth-child(1)"
-        ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-caption-text",
-        "attributes": {},
-        "timestamp": 1755960699630
-      },
-      {
-        "id": "action_content_div_158",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          "#slick-slide34",
-          "[data-slick-index=\"4\"]",
-          ".uael-grid-item",
-          "div.uael-grid-item",
-          "div:nth-child(8)"
-        ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-item uael-img-gallery-item-5 slick-slide",
-        "attributes": {
-          "id": "slick-slide34",
-          "role": "tabpanel"
-        },
-        "timestamp": 1755960699631
-      },
-      {
-        "id": "action_content_div_159",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-item-content",
-          "div.uael-grid-item-content",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-item-content",
-        "attributes": {},
-        "timestamp": 1755960699631
-      },
-      {
-        "id": "action_content_a_160",
-        "tagName": "a",
-        "actionType": "content",
-        "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
-        "attributes": {
-          "href": "https://strakerfunctionalfitness.co.za/"
-        },
-        "timestamp": 1755960699631
-      },
-      {
-        "id": "action_content_div_161",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-thumbnail",
-          "div.uael-grid-img-thumbnail",
-          "a:nth-child(1)"
-        ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-img-thumbnail uael-ins-target",
-        "attributes": {},
-        "timestamp": 1755960699631
-      },
-      {
-        "id": "action_content_figcaption_162",
-        "tagName": "figcaption",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-content",
-          "figcaption.uael-grid-img-content",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-img-content",
-        "attributes": {},
-        "timestamp": 1755960699632
-      },
-      {
-        "id": "action_content_div_163",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-img-caption",
-          "div.uael-grid-img-caption",
-          "figcaption:nth-child(1)"
-        ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-img-caption",
-        "attributes": {},
-        "timestamp": 1755960699632
-      },
-      {
-        "id": "action_content_h6_164",
-        "tagName": "h6",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-caption-text",
-          "h6.uael-grid-caption-text",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-caption-text",
-        "attributes": {},
-        "timestamp": 1755960699632
-      },
-      {
-        "id": "action_content_div_165",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          "#slick-slide37",
-          "[data-slick-index=\"7\"]",
-          ".uael-grid-item",
-          "div.uael-grid-item",
-          "div:nth-child(11)"
-        ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-item uael-img-gallery-item-8 slick-slide",
-        "attributes": {
-          "id": "slick-slide37",
-          "role": "tabpanel"
-        },
-        "timestamp": 1755960699632
-      },
-      {
-        "id": "action_content_div_166",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          ".uael-grid-item-content",
-          "div.uael-grid-item-content",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-item-content",
-        "attributes": {},
-        "timestamp": 1755960699633
-      },
-      {
-        "id": "action_content_a_167",
-        "tagName": "a",
-        "actionType": "content",
-        "selectors": [
-          "[data-elementor-open-lightbox=\"no\"]",
-          ".uael-grid-img",
-          "a.uael-grid-img",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
-        "attributes": {
-          "href": "https://www.filemca.com/"
-        },
-        "timestamp": 1755960699633
-      },
-      {
-        "id": "action_content_div_168",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
           ".uael-grid-img-thumbnail",
           "div.uael-grid-img-thumbnail",
           "a:nth-child(1)"
@@ -2878,10 +2699,10 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-img-thumbnail uael-ins-target",
         "attributes": {},
-        "timestamp": 1755960699633
+        "timestamp": 1756192397722
       },
       {
-        "id": "action_content_figcaption_169",
+        "id": "action_content_figcaption_154",
         "tagName": "figcaption",
         "actionType": "content",
         "selectors": [
@@ -2892,10 +2713,10 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-img-content",
         "attributes": {},
-        "timestamp": 1755960699633
+        "timestamp": 1756192397723
       },
       {
-        "id": "action_content_div_170",
+        "id": "action_content_div_155",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2906,10 +2727,10 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-img-caption",
         "attributes": {},
-        "timestamp": 1755960699633
+        "timestamp": 1756192397723
       },
       {
-        "id": "action_content_h6_171",
+        "id": "action_content_h6_156",
         "tagName": "h6",
         "actionType": "content",
         "selectors": [
@@ -2920,27 +2741,10 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-caption-text",
         "attributes": {},
-        "timestamp": 1755960699634
+        "timestamp": 1756192397723
       },
       {
-        "id": "action_content_div_172",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          "[data-slick-index=\"10\"]",
-          ".uael-grid-item",
-          "div.uael-grid-item",
-          "div:nth-child(14)"
-        ],
-        "textContent": "The Gourmet Cookie C",
-        "className": "uael-grid-item uael-img-gallery-item-3 slick-slide slick-cloned",
-        "attributes": {
-          "role": "tabpanel"
-        },
-        "timestamp": 1755960699634
-      },
-      {
-        "id": "action_content_div_173",
+        "id": "action_content_div_157",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2951,10 +2755,10 @@
         "textContent": "The Gourmet Cookie C",
         "className": "uael-grid-item-content",
         "attributes": {},
-        "timestamp": 1755960699634
+        "timestamp": 1756192397723
       },
       {
-        "id": "action_content_a_174",
+        "id": "action_content_a_158",
         "tagName": "a",
         "actionType": "content",
         "selectors": [
@@ -2968,10 +2772,10 @@
         "attributes": {
           "href": "https://www.thegourmetcookieco.co.za/"
         },
-        "timestamp": 1755960699634
+        "timestamp": 1756192397724
       },
       {
-        "id": "action_content_div_175",
+        "id": "action_content_div_159",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -2982,10 +2786,10 @@
         "textContent": "The Gourmet Cookie C",
         "className": "uael-grid-img-thumbnail uael-ins-target",
         "attributes": {},
-        "timestamp": 1755960699635
+        "timestamp": 1756192397724
       },
       {
-        "id": "action_content_figcaption_176",
+        "id": "action_content_figcaption_160",
         "tagName": "figcaption",
         "actionType": "content",
         "selectors": [
@@ -2996,10 +2800,10 @@
         "textContent": "The Gourmet Cookie C",
         "className": "uael-grid-img-content",
         "attributes": {},
-        "timestamp": 1755960699635
+        "timestamp": 1756192397724
       },
       {
-        "id": "action_content_div_177",
+        "id": "action_content_div_161",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -3010,10 +2814,10 @@
         "textContent": "The Gourmet Cookie C",
         "className": "uael-grid-img-caption",
         "attributes": {},
-        "timestamp": 1755960699635
+        "timestamp": 1756192397725
       },
       {
-        "id": "action_content_h6_178",
+        "id": "action_content_h6_162",
         "tagName": "h6",
         "actionType": "content",
         "selectors": [
@@ -3024,27 +2828,10 @@
         "textContent": "The Gourmet Cookie C",
         "className": "uael-grid-caption-text",
         "attributes": {},
-        "timestamp": 1755960699635
+        "timestamp": 1756192397725
       },
       {
-        "id": "action_content_div_179",
-        "tagName": "div",
-        "actionType": "content",
-        "selectors": [
-          "[data-slick-index=\"12\"]",
-          ".uael-grid-item",
-          "div.uael-grid-item",
-          "div:nth-child(16)"
-        ],
-        "textContent": "Straker Functional F",
-        "className": "uael-grid-item uael-img-gallery-item-5 slick-slide slick-cloned",
-        "attributes": {
-          "role": "tabpanel"
-        },
-        "timestamp": 1755960699636
-      },
-      {
-        "id": "action_content_div_180",
+        "id": "action_content_div_163",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -3055,10 +2842,10 @@
         "textContent": "Straker Functional F",
         "className": "uael-grid-item-content",
         "attributes": {},
-        "timestamp": 1755960699636
+        "timestamp": 1756192397725
       },
       {
-        "id": "action_content_a_181",
+        "id": "action_content_a_164",
         "tagName": "a",
         "actionType": "content",
         "selectors": [
@@ -3072,10 +2859,10 @@
         "attributes": {
           "href": "https://strakerfunctionalfitness.co.za/"
         },
-        "timestamp": 1755960699636
+        "timestamp": 1756192397725
       },
       {
-        "id": "action_content_div_182",
+        "id": "action_content_div_165",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -3086,10 +2873,10 @@
         "textContent": "Straker Functional F",
         "className": "uael-grid-img-thumbnail uael-ins-target",
         "attributes": {},
-        "timestamp": 1755960699636
+        "timestamp": 1756192397726
       },
       {
-        "id": "action_content_figcaption_183",
+        "id": "action_content_figcaption_166",
         "tagName": "figcaption",
         "actionType": "content",
         "selectors": [
@@ -3100,10 +2887,10 @@
         "textContent": "Straker Functional F",
         "className": "uael-grid-img-content",
         "attributes": {},
-        "timestamp": 1755960699637
+        "timestamp": 1756192397726
       },
       {
-        "id": "action_content_div_184",
+        "id": "action_content_div_167",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
@@ -3114,10 +2901,10 @@
         "textContent": "Straker Functional F",
         "className": "uael-grid-img-caption",
         "attributes": {},
-        "timestamp": 1755960699637
+        "timestamp": 1756192397726
       },
       {
-        "id": "action_content_h6_185",
+        "id": "action_content_h6_168",
         "tagName": "h6",
         "actionType": "content",
         "selectors": [
@@ -3128,24 +2915,268 @@
         "textContent": "Straker Functional F",
         "className": "uael-grid-caption-text",
         "attributes": {},
-        "timestamp": 1755960699637
+        "timestamp": 1756192397727
       },
       {
-        "id": "action_content_div_186",
+        "id": "action_content_div_169",
         "tagName": "div",
         "actionType": "content",
         "selectors": [
-          "[data-slick-index=\"15\"]",
-          ".uael-grid-item",
-          "div.uael-grid-item",
-          "div:nth-child(19)"
+          ".uael-grid-item-content",
+          "div.uael-grid-item-content",
+          "div:nth-child(1)"
         ],
         "textContent": "Mtambo Chartered Acc",
-        "className": "uael-grid-item uael-img-gallery-item-8 slick-slide slick-cloned",
+        "className": "uael-grid-item-content",
+        "attributes": {},
+        "timestamp": 1756192397727
+      },
+      {
+        "id": "action_content_a_170",
+        "tagName": "a",
+        "actionType": "content",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Mtambo Chartered Acc",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
         "attributes": {
-          "role": "tabpanel"
+          "href": "https://www.filemca.com/"
         },
-        "timestamp": 1755960699637
+        "timestamp": 1756192397727
+      },
+      {
+        "id": "action_content_div_171",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-thumbnail",
+          "div.uael-grid-img-thumbnail",
+          "a:nth-child(1)"
+        ],
+        "textContent": "Mtambo Chartered Acc",
+        "className": "uael-grid-img-thumbnail uael-ins-target",
+        "attributes": {},
+        "timestamp": 1756192397728
+      },
+      {
+        "id": "action_content_figcaption_172",
+        "tagName": "figcaption",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-content",
+          "figcaption.uael-grid-img-content",
+          "div:nth-child(2)"
+        ],
+        "textContent": "Mtambo Chartered Acc",
+        "className": "uael-grid-img-content",
+        "attributes": {},
+        "timestamp": 1756192397728
+      },
+      {
+        "id": "action_content_div_173",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-caption",
+          "div.uael-grid-img-caption",
+          "figcaption:nth-child(1)"
+        ],
+        "textContent": "Mtambo Chartered Acc",
+        "className": "uael-grid-img-caption",
+        "attributes": {},
+        "timestamp": 1756192397728
+      },
+      {
+        "id": "action_content_h6_174",
+        "tagName": "h6",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-caption-text",
+          "h6.uael-grid-caption-text",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Mtambo Chartered Acc",
+        "className": "uael-grid-caption-text",
+        "attributes": {},
+        "timestamp": 1756192397728
+      },
+      {
+        "id": "action_content_div_175",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-item-content",
+          "div.uael-grid-item-content",
+          "div:nth-child(1)"
+        ],
+        "textContent": "The Gourmet Cookie C",
+        "className": "uael-grid-item-content",
+        "attributes": {},
+        "timestamp": 1756192397729
+      },
+      {
+        "id": "action_content_a_176",
+        "tagName": "a",
+        "actionType": "content",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "The Gourmet Cookie C",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://www.thegourmetcookieco.co.za/"
+        },
+        "timestamp": 1756192397729
+      },
+      {
+        "id": "action_content_div_177",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-thumbnail",
+          "div.uael-grid-img-thumbnail",
+          "a:nth-child(1)"
+        ],
+        "textContent": "The Gourmet Cookie C",
+        "className": "uael-grid-img-thumbnail uael-ins-target",
+        "attributes": {},
+        "timestamp": 1756192397729
+      },
+      {
+        "id": "action_content_figcaption_178",
+        "tagName": "figcaption",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-content",
+          "figcaption.uael-grid-img-content",
+          "div:nth-child(2)"
+        ],
+        "textContent": "The Gourmet Cookie C",
+        "className": "uael-grid-img-content",
+        "attributes": {},
+        "timestamp": 1756192397730
+      },
+      {
+        "id": "action_content_div_179",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-caption",
+          "div.uael-grid-img-caption",
+          "figcaption:nth-child(1)"
+        ],
+        "textContent": "The Gourmet Cookie C",
+        "className": "uael-grid-img-caption",
+        "attributes": {},
+        "timestamp": 1756192397730
+      },
+      {
+        "id": "action_content_h6_180",
+        "tagName": "h6",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-caption-text",
+          "h6.uael-grid-caption-text",
+          "div:nth-child(1)"
+        ],
+        "textContent": "The Gourmet Cookie C",
+        "className": "uael-grid-caption-text",
+        "attributes": {},
+        "timestamp": 1756192397730
+      },
+      {
+        "id": "action_content_div_181",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-item-content",
+          "div.uael-grid-item-content",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Straker Functional F",
+        "className": "uael-grid-item-content",
+        "attributes": {},
+        "timestamp": 1756192397731
+      },
+      {
+        "id": "action_content_a_182",
+        "tagName": "a",
+        "actionType": "content",
+        "selectors": [
+          "[data-elementor-open-lightbox=\"no\"]",
+          ".uael-grid-img",
+          "a.uael-grid-img",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Straker Functional F",
+        "className": "uael-grid-img uael-grid-gallery-img uael-ins-hover elementor-clickable",
+        "attributes": {
+          "href": "https://strakerfunctionalfitness.co.za/"
+        },
+        "timestamp": 1756192397731
+      },
+      {
+        "id": "action_content_div_183",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-thumbnail",
+          "div.uael-grid-img-thumbnail",
+          "a:nth-child(1)"
+        ],
+        "textContent": "Straker Functional F",
+        "className": "uael-grid-img-thumbnail uael-ins-target",
+        "attributes": {},
+        "timestamp": 1756192397731
+      },
+      {
+        "id": "action_content_figcaption_184",
+        "tagName": "figcaption",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-content",
+          "figcaption.uael-grid-img-content",
+          "div:nth-child(2)"
+        ],
+        "textContent": "Straker Functional F",
+        "className": "uael-grid-img-content",
+        "attributes": {},
+        "timestamp": 1756192397731
+      },
+      {
+        "id": "action_content_div_185",
+        "tagName": "div",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-img-caption",
+          "div.uael-grid-img-caption",
+          "figcaption:nth-child(1)"
+        ],
+        "textContent": "Straker Functional F",
+        "className": "uael-grid-img-caption",
+        "attributes": {},
+        "timestamp": 1756192397732
+      },
+      {
+        "id": "action_content_h6_186",
+        "tagName": "h6",
+        "actionType": "content",
+        "selectors": [
+          ".uael-grid-caption-text",
+          "h6.uael-grid-caption-text",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Straker Functional F",
+        "className": "uael-grid-caption-text",
+        "attributes": {},
+        "timestamp": 1756192397732
       },
       {
         "id": "action_content_div_187",
@@ -3159,7 +3190,7 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-item-content",
         "attributes": {},
-        "timestamp": 1755960699638
+        "timestamp": 1756192397732
       },
       {
         "id": "action_content_a_188",
@@ -3176,7 +3207,7 @@
         "attributes": {
           "href": "https://www.filemca.com/"
         },
-        "timestamp": 1755960699638
+        "timestamp": 1756192397733
       },
       {
         "id": "action_content_div_189",
@@ -3190,7 +3221,7 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-img-thumbnail uael-ins-target",
         "attributes": {},
-        "timestamp": 1755960699638
+        "timestamp": 1756192397733
       },
       {
         "id": "action_content_figcaption_190",
@@ -3204,7 +3235,7 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-img-content",
         "attributes": {},
-        "timestamp": 1755960699638
+        "timestamp": 1756192397733
       },
       {
         "id": "action_content_div_191",
@@ -3218,7 +3249,7 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-img-caption",
         "attributes": {},
-        "timestamp": 1755960699639
+        "timestamp": 1756192397733
       },
       {
         "id": "action_content_h6_192",
@@ -3232,7 +3263,7 @@
         "textContent": "Mtambo Chartered Acc",
         "className": "uael-grid-caption-text",
         "attributes": {},
-        "timestamp": 1755960699639
+        "timestamp": 1756192397734
       },
       {
         "id": "action_content_section_193",
@@ -3249,7 +3280,7 @@
         "textContent": "What Our Clients Say",
         "className": "elementor-section elementor-top-section elementor-element elementor-element-s4xrmv3 elementor-section-boxed elementor-section-height-default elementor-section-height-default",
         "attributes": {},
-        "timestamp": 1755960699639
+        "timestamp": 1756192397734
       },
       {
         "id": "action_content_div_194",
@@ -3263,7 +3294,7 @@
         "textContent": "What Our Clients Say",
         "className": "elementor-container elementor-column-gap-no",
         "attributes": {},
-        "timestamp": 1755960699639
+        "timestamp": 1756192397734
       },
       {
         "id": "action_content_div_195",
@@ -3279,7 +3310,7 @@
         "textContent": "What Our Clients Say",
         "className": "elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-14cc307",
         "attributes": {},
-        "timestamp": 1755960699640
+        "timestamp": 1756192397735
       },
       {
         "id": "action_content_div_196",
@@ -3293,7 +3324,7 @@
         "textContent": "What Our Clients Say",
         "className": "elementor-widget-wrap elementor-element-populated",
         "attributes": {},
-        "timestamp": 1755960699640
+        "timestamp": 1756192397735
       },
       {
         "id": "action_content_div_197",
@@ -3310,7 +3341,7 @@
         "textContent": "What Our Clients Say",
         "className": "elementor-element elementor-element-f79c273 elementor-widget elementor-widget-heading",
         "attributes": {},
-        "timestamp": 1755960699640
+        "timestamp": 1756192397735
       },
       {
         "id": "action_content_div_198",
@@ -3324,7 +3355,7 @@
         "textContent": "What Our Clients Say",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699641
+        "timestamp": 1756192397736
       },
       {
         "id": "action_content_h2_199",
@@ -3338,7 +3369,7 @@
         "textContent": "What Our Clients Say",
         "className": "elementor-heading-title elementor-size-default",
         "attributes": {},
-        "timestamp": 1755960699641
+        "timestamp": 1756192397736
       },
       {
         "id": "action_content_section_200",
@@ -3354,7 +3385,7 @@
         "textContent": "We are so happy that",
         "className": "elementor-section elementor-inner-section elementor-element elementor-element-6dd7047 elementor-section-boxed elementor-section-height-default elementor-section-height-default",
         "attributes": {},
-        "timestamp": 1755960699641
+        "timestamp": 1756192397736
       },
       {
         "id": "action_content_div_201",
@@ -3368,7 +3399,7 @@
         "textContent": "We are so happy that",
         "className": "elementor-container elementor-column-gap-wider",
         "attributes": {},
-        "timestamp": 1755960699641
+        "timestamp": 1756192397737
       },
       {
         "id": "action_content_div_202",
@@ -3384,7 +3415,7 @@
         "textContent": "We are so happy that",
         "className": "elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-0e4a6c8",
         "attributes": {},
-        "timestamp": 1755960699641
+        "timestamp": 1756192397737
       },
       {
         "id": "action_content_div_203",
@@ -3398,7 +3429,7 @@
         "textContent": "We are so happy that",
         "className": "elementor-widget-wrap elementor-element-populated",
         "attributes": {},
-        "timestamp": 1755960699642
+        "timestamp": 1756192397737
       },
       {
         "id": "action_content_div_204",
@@ -3416,7 +3447,7 @@
         "textContent": "We are so happy that",
         "className": "bdt-element-link elementor-element elementor-element-2141557 elementor-widget elementor-widget-text-editor",
         "attributes": {},
-        "timestamp": 1755960699642
+        "timestamp": 1756192397738
       },
       {
         "id": "action_content_div_205",
@@ -3430,7 +3461,7 @@
         "textContent": "We are so happy that",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699642
+        "timestamp": 1756192397738
       },
       {
         "id": "action_content_p_206",
@@ -3442,7 +3473,7 @@
         "textContent": "We are so happy that",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699643
+        "timestamp": 1756192397738
       },
       {
         "id": "action_content_p_207",
@@ -3454,7 +3485,7 @@
         "textContent": "Olivia understood ou",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699643
+        "timestamp": 1756192397738
       },
       {
         "id": "action_content_div_208",
@@ -3471,7 +3502,7 @@
         "textContent": "Highly recommended. ",
         "className": "bdt-element-link elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5b12fda",
         "attributes": {},
-        "timestamp": 1755960699643
+        "timestamp": 1756192397739
       },
       {
         "id": "action_content_div_209",
@@ -3485,7 +3516,7 @@
         "textContent": "Highly recommended. ",
         "className": "elementor-widget-wrap elementor-element-populated",
         "attributes": {},
-        "timestamp": 1755960699643
+        "timestamp": 1756192397739
       },
       {
         "id": "action_content_div_210",
@@ -3502,7 +3533,7 @@
         "textContent": "Highly recommended. ",
         "className": "elementor-element elementor-element-255d9a5 elementor-widget elementor-widget-text-editor",
         "attributes": {},
-        "timestamp": 1755960699644
+        "timestamp": 1756192397739
       },
       {
         "id": "action_content_div_211",
@@ -3516,7 +3547,7 @@
         "textContent": "Highly recommended. ",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699644
+        "timestamp": 1756192397740
       },
       {
         "id": "action_content_p_212",
@@ -3528,7 +3559,7 @@
         "textContent": "Highly recommended. ",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699644
+        "timestamp": 1756192397740
       },
       {
         "id": "action_content_div_213",
@@ -3545,7 +3576,7 @@
         "textContent": "Owner, The Syrene Bo",
         "className": "elementor-element elementor-element-6d9ef9f elementor-widget elementor-widget-heading",
         "attributes": {},
-        "timestamp": 1755960699644
+        "timestamp": 1756192397740
       },
       {
         "id": "action_content_div_214",
@@ -3559,7 +3590,7 @@
         "textContent": "Owner, The Syrene Bo",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699645
+        "timestamp": 1756192397741
       },
       {
         "id": "action_content_div_215",
@@ -3573,7 +3604,7 @@
         "textContent": "Owner, The Syrene Bo",
         "className": "elementor-heading-title elementor-size-default",
         "attributes": {},
-        "timestamp": 1755960699645
+        "timestamp": 1756192397741
       },
       {
         "id": "action_content_div_216",
@@ -3589,7 +3620,7 @@
         "textContent": "Big shoutout to Oliv",
         "className": "elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ce5765f",
         "attributes": {},
-        "timestamp": 1755960699645
+        "timestamp": 1756192397741
       },
       {
         "id": "action_content_div_217",
@@ -3603,7 +3634,7 @@
         "textContent": "Big shoutout to Oliv",
         "className": "elementor-widget-wrap elementor-element-populated",
         "attributes": {},
-        "timestamp": 1755960699645
+        "timestamp": 1756192397742
       },
       {
         "id": "action_content_div_218",
@@ -3620,7 +3651,7 @@
         "textContent": "Big shoutout to Oliv",
         "className": "elementor-element elementor-element-1e10ff1 elementor-widget elementor-widget-text-editor",
         "attributes": {},
-        "timestamp": 1755960699646
+        "timestamp": 1756192397742
       },
       {
         "id": "action_content_div_219",
@@ -3634,7 +3665,7 @@
         "textContent": "Big shoutout to Oliv",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699646
+        "timestamp": 1756192397742
       },
       {
         "id": "action_content_p_220",
@@ -3646,7 +3677,7 @@
         "textContent": "Big shoutout to Oliv",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699646
+        "timestamp": 1756192397743
       },
       {
         "id": "action_content_div_221",
@@ -3663,7 +3694,7 @@
         "textContent": "Owner, New Moon Digi",
         "className": "elementor-element elementor-element-d97393f elementor-widget elementor-widget-heading",
         "attributes": {},
-        "timestamp": 1755960699646
+        "timestamp": 1756192397743
       },
       {
         "id": "action_content_div_222",
@@ -3677,7 +3708,7 @@
         "textContent": "Owner, New Moon Digi",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699647
+        "timestamp": 1756192397743
       },
       {
         "id": "action_content_div_223",
@@ -3691,7 +3722,7 @@
         "textContent": "Owner, New Moon Digi",
         "className": "elementor-heading-title elementor-size-default",
         "attributes": {},
-        "timestamp": 1755960699647
+        "timestamp": 1756192397744
       },
       {
         "id": "action_content_div_224",
@@ -3708,7 +3739,7 @@
         "textContent": "Read More Testimonia",
         "className": "elementor-element elementor-element-85f2c76 elementor-align-center elementor-widget elementor-widget-button",
         "attributes": {},
-        "timestamp": 1755960699647
+        "timestamp": 1756192397744
       },
       {
         "id": "action_content_div_225",
@@ -3722,7 +3753,7 @@
         "textContent": "Read More Testimonia",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699647
+        "timestamp": 1756192397744
       },
       {
         "id": "action_content_div_226",
@@ -3736,7 +3767,7 @@
         "textContent": "Read More Testimonia",
         "className": "elementor-button-wrapper",
         "attributes": {},
-        "timestamp": 1755960699647
+        "timestamp": 1756192397744
       },
       {
         "id": "action_content_span_227",
@@ -3750,7 +3781,7 @@
         "textContent": "Read More Testimonia",
         "className": "elementor-button-content-wrapper",
         "attributes": {},
-        "timestamp": 1755960699648
+        "timestamp": 1756192397745
       },
       {
         "id": "action_content_span_228",
@@ -3764,7 +3795,7 @@
         "textContent": "Read More Testimonia",
         "className": "elementor-button-text",
         "attributes": {},
-        "timestamp": 1755960699648
+        "timestamp": 1756192397745
       },
       {
         "id": "action_content_div_229",
@@ -3781,7 +3812,7 @@
         "textContent": "Ready for a Website ",
         "className": "elementor-element elementor-element-57d9a0a e-flex e-con-boxed e-con e-parent",
         "attributes": {},
-        "timestamp": 1755960699649
+        "timestamp": 1756192397747
       },
       {
         "id": "action_content_div_230",
@@ -3795,7 +3826,7 @@
         "textContent": "Ready for a Website ",
         "className": "e-con-inner",
         "attributes": {},
-        "timestamp": 1755960699649
+        "timestamp": 1756192397748
       },
       {
         "id": "action_content_div_231",
@@ -3812,7 +3843,7 @@
         "textContent": "Ready for a Website ",
         "className": "elementor-element elementor-element-2beaf0f elementor-widget elementor-widget-heading",
         "attributes": {},
-        "timestamp": 1755960699649
+        "timestamp": 1756192397748
       },
       {
         "id": "action_content_div_232",
@@ -3826,7 +3857,7 @@
         "textContent": "Ready for a Website ",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699649
+        "timestamp": 1756192397748
       },
       {
         "id": "action_content_h2_233",
@@ -3840,7 +3871,7 @@
         "textContent": "Ready for a Website ",
         "className": "elementor-heading-title elementor-size-default",
         "attributes": {},
-        "timestamp": 1755960699649
+        "timestamp": 1756192397749
       },
       {
         "id": "action_content_footer_234",
@@ -3856,7 +3887,7 @@
           "id": "colophon",
           "role": "contentinfo"
         },
-        "timestamp": 1755960699650
+        "timestamp": 1756192397749
       },
       {
         "id": "action_content_div_235",
@@ -3870,7 +3901,7 @@
         "textContent": "ABOUT US\t\t\t\t\n\t\t\t\t\n\t\t",
         "className": "footer-width-fixer",
         "attributes": {},
-        "timestamp": 1755960699650
+        "timestamp": 1756192397750
       },
       {
         "id": "action_content_div_236",
@@ -3886,7 +3917,7 @@
         "textContent": "ABOUT US\t\t\t\t\n\t\t\t\t\n\t\t",
         "className": "elementor elementor-5533",
         "attributes": {},
-        "timestamp": 1755960699650
+        "timestamp": 1756192397750
       },
       {
         "id": "action_content_div_237",
@@ -3903,7 +3934,7 @@
         "textContent": "ABOUT US\t\t\t\t\n\t\t\t\t\n\t\t",
         "className": "elementor-element elementor-element-a0fd807 bdt-backdrop-filter-yes e-flex e-con-boxed e-con e-parent",
         "attributes": {},
-        "timestamp": 1755960699650
+        "timestamp": 1756192397750
       },
       {
         "id": "action_content_div_238",
@@ -3917,7 +3948,7 @@
         "textContent": "ABOUT US\t\t\t\t\n\t\t\t\t\n\t\t",
         "className": "e-con-inner",
         "attributes": {},
-        "timestamp": 1755960699651
+        "timestamp": 1756192397750
       },
       {
         "id": "action_content_div_239",
@@ -3933,7 +3964,7 @@
         "textContent": "ABOUT US\t\t\t\t\n\t\t\t\t\n\t\t",
         "className": "elementor-element elementor-element-9168fa0 e-con-full e-flex e-con e-child",
         "attributes": {},
-        "timestamp": 1755960699651
+        "timestamp": 1756192397751
       },
       {
         "id": "action_content_div_240",
@@ -3950,7 +3981,7 @@
         "textContent": "We specialise in Wor",
         "className": "elementor-element elementor-element-4fe9e84 elementor-widget elementor-widget-text-editor",
         "attributes": {},
-        "timestamp": 1755960699651
+        "timestamp": 1756192397751
       },
       {
         "id": "action_content_div_241",
@@ -3964,7 +3995,7 @@
         "textContent": "We specialise in Wor",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699652
+        "timestamp": 1756192397751
       },
       {
         "id": "action_content_p_242",
@@ -3976,7 +4007,7 @@
         "textContent": "We specialise in Wor",
         "className": "",
         "attributes": {},
-        "timestamp": 1755960699652
+        "timestamp": 1756192397752
       },
       {
         "id": "action_content_div_243",
@@ -3993,7 +4024,7 @@
         "textContent": "OUR PORTFOLIO\t\t\t\t\n\t\t",
         "className": "elementor-element elementor-element-f6a07f4 e-con-full e-flex e-con e-child",
         "attributes": {},
-        "timestamp": 1755960699652
+        "timestamp": 1756192397752
       },
       {
         "id": "action_content_div_244",
@@ -4010,7 +4041,7 @@
         "textContent": "Banner Portfolio\n\t\t\t",
         "className": "elementor-element elementor-element-dc814ad elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list",
         "attributes": {},
-        "timestamp": 1755960699652
+        "timestamp": 1756192397752
       },
       {
         "id": "action_content_div_245",
@@ -4024,7 +4055,7 @@
         "textContent": "Banner Portfolio\n\t\t\t",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699653
+        "timestamp": 1756192397753
       },
       {
         "id": "action_content_ul_246",
@@ -4038,7 +4069,7 @@
         "textContent": "Banner Portfolio\n\t\t\t",
         "className": "elementor-icon-list-items",
         "attributes": {},
-        "timestamp": 1755960699653
+        "timestamp": 1756192397753
       },
       {
         "id": "action_content_div_247",
@@ -4055,7 +4086,7 @@
         "textContent": "Facebook\n\t\t\t\t\t\t\t\t\t\t\t",
         "className": "elementor-element elementor-element-6f5fa11 elementor-shape-circle e-grid-align-left elementor-grid-0 elementor-widget elementor-widget-social-icons",
         "attributes": {},
-        "timestamp": 1755960699653
+        "timestamp": 1756192397753
       },
       {
         "id": "action_content_div_248",
@@ -4069,7 +4100,7 @@
         "textContent": "Facebook\n\t\t\t\t\t\t\t\t\t\t\t",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699653
+        "timestamp": 1756192397754
       },
       {
         "id": "action_content_div_249",
@@ -4085,7 +4116,7 @@
         "attributes": {
           "role": "list"
         },
-        "timestamp": 1755960699654
+        "timestamp": 1756192397754
       },
       {
         "id": "action_content_div_250",
@@ -4101,7 +4132,7 @@
         "textContent": "QUICK LINKS\t\t\t\t\n\t\t\t\t",
         "className": "elementor-element elementor-element-2098cd7 e-con-full e-flex e-con e-child",
         "attributes": {},
-        "timestamp": 1755960699654
+        "timestamp": 1756192397754
       },
       {
         "id": "action_content_div_251",
@@ -4118,7 +4149,7 @@
         "textContent": "Home\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t",
         "className": "elementor-element elementor-element-d856953 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list",
         "attributes": {},
-        "timestamp": 1755960699654
+        "timestamp": 1756192397755
       },
       {
         "id": "action_content_div_252",
@@ -4132,7 +4163,7 @@
         "textContent": "Home\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699654
+        "timestamp": 1756192397755
       },
       {
         "id": "action_content_ul_253",
@@ -4146,7 +4177,7 @@
         "textContent": "Home\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t",
         "className": "elementor-icon-list-items",
         "attributes": {},
-        "timestamp": 1755960699655
+        "timestamp": 1756192397755
       },
       {
         "id": "action_content_div_254",
@@ -4163,7 +4194,7 @@
         "textContent": "Copyright © 2025 Bri",
         "className": "elementor-element elementor-element-6e6b9de e-flex e-con-boxed e-con e-parent",
         "attributes": {},
-        "timestamp": 1755960699655
+        "timestamp": 1756192397756
       },
       {
         "id": "action_content_div_255",
@@ -4177,7 +4208,7 @@
         "textContent": "Copyright © 2025 Bri",
         "className": "e-con-inner",
         "attributes": {},
-        "timestamp": 1755960699655
+        "timestamp": 1756192397756
       },
       {
         "id": "action_content_div_256",
@@ -4193,7 +4224,7 @@
         "textContent": "Copyright © 2025 Bri",
         "className": "elementor-element elementor-element-ebefbde e-con-full e-flex e-con e-child",
         "attributes": {},
-        "timestamp": 1755960699655
+        "timestamp": 1756192397756
       },
       {
         "id": "action_content_div_257",
@@ -4210,7 +4241,7 @@
         "textContent": "Copyright © 2025 Bri",
         "className": "elementor-element elementor-element-c3f66e3 elementor-widget elementor-widget-heading",
         "attributes": {},
-        "timestamp": 1755960699656
+        "timestamp": 1756192397757
       },
       {
         "id": "action_content_div_258",
@@ -4224,7 +4255,7 @@
         "textContent": "Copyright © 2025 Bri",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699656
+        "timestamp": 1756192397757
       },
       {
         "id": "action_content_h6_259",
@@ -4238,7 +4269,7 @@
         "textContent": "Copyright © 2025 Bri",
         "className": "elementor-heading-title elementor-size-default",
         "attributes": {},
-        "timestamp": 1755960699656
+        "timestamp": 1756192397757
       },
       {
         "id": "action_content_div_260",
@@ -4254,7 +4285,7 @@
         "textContent": "Website Designed by ",
         "className": "elementor-element elementor-element-e14b95c e-con-full e-flex e-con e-child",
         "attributes": {},
-        "timestamp": 1755960699656
+        "timestamp": 1756192397758
       },
       {
         "id": "action_content_div_261",
@@ -4271,7 +4302,7 @@
         "textContent": "Website Designed by ",
         "className": "elementor-element elementor-element-9db63a7 elementor-widget elementor-widget-heading",
         "attributes": {},
-        "timestamp": 1755960699657
+        "timestamp": 1756192397758
       },
       {
         "id": "action_content_div_262",
@@ -4285,7 +4316,7 @@
         "textContent": "Website Designed by ",
         "className": "elementor-widget-container",
         "attributes": {},
-        "timestamp": 1755960699657
+        "timestamp": 1756192397758
       },
       {
         "id": "action_content_h6_263",
@@ -4299,12 +4330,12 @@
         "textContent": "Website Designed by ",
         "className": "elementor-heading-title elementor-size-default",
         "attributes": {},
-        "timestamp": 1755960699657
+        "timestamp": 1756192397759
       }
     ],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1755960699581,
+    "lastUpdate": 1756192397668,
     "url": "https://brighttreedigital.com.au/",
     "title": "Local Web Design Adelaide | Bright Tree Digital"
   },
@@ -4313,7 +4344,7 @@
     "total_menus": 1,
     "total_items": 14,
     "navigation_links": 14,
-    "toggle_buttons": 3
+    "toggle_buttons": 6
   },
   "intelligence_version": "2.0"
 }
