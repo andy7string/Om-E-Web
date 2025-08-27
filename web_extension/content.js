@@ -354,12 +354,7 @@ function scanWithFrameworkSelectors() {
         }
     }
     
-    console.log("[Content] 🎯 Framework scanning complete:", {
-        totalElements: frameworkElements.length,
-        categoriesScanned: categoriesToScan.length,
-        framework: window.currentFramework,
-        maxElements: window.currentSiteConfig.filters?.max_elements || 'unlimited'
-    });
+    // Framework scanning complete
     
     return frameworkElements;
 }
@@ -4455,7 +4450,7 @@ IntelligenceEngine.prototype.generateSelector = function(element) {
  * 🆕 NEW: Determine the action type for an element
  */
 IntelligenceEngine.prototype.determineActionType = function(element) {
-    if (!element || !element.tagName) return 'general';
+    if (!element || !element.tagName) return 'unknown';
     
     const tagName = element.tagName.toLowerCase();
     const role = element.getAttribute('role');
@@ -4463,26 +4458,26 @@ IntelligenceEngine.prototype.determineActionType = function(element) {
     
     // Button actions
     if (tagName === 'button' || role === 'button') {
-        return 'click';
+        return 'button';
     }
     
     // Link actions
     if (tagName === 'a' || role === 'link') {
-        return 'navigate';
+        return 'link';
     }
     
     // Input actions
     if (tagName === 'input') {
         if (type === 'submit') return 'submit';
-        if (type === 'button') return 'click';
+        if (type === 'button') return 'button';
         return 'input';
     }
     
     // Form actions
-    if (tagName === 'form') return 'submit';
+    if (tagName === 'form') return 'form';
     
     // Navigation actions
-    if (tagName === 'nav' || role === 'navigation') return 'navigation';
+    if (tagName === 'nav' || role === 'navigation') return 'nav';
     
     // Menu actions
     if (role === 'menuitem') return 'menu';
@@ -4490,7 +4485,11 @@ IntelligenceEngine.prototype.determineActionType = function(element) {
     // Tab actions
     if (role === 'tab') return 'tab';
     
-    return 'general';
+    // Select and textarea
+    if (tagName === 'select') return 'select';
+    if (tagName === 'textarea') return 'textarea';
+    
+    return 'unknown';
 };
 
 /**
@@ -5569,125 +5568,52 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         this.actionableElements.clear();
         this.elementCounter = 0;
         
-        // 🆕 PHASE 1: Framework-specific scanning (highest priority)
+        // 🎯 Framework-specific scanning (site configs only)
         let frameworkElements = [];
         if (typeof scanWithFrameworkSelectors === 'function') {
             frameworkElements = scanWithFrameworkSelectors();
-            console.log("[Content] 🎯 Framework scanning found:", frameworkElements.length, "framework-specific elements");
         }
         
-        // 🆕 PHASE 2: Smart, restrictive selectors for high-value interactive elements
-        const interactiveSelectors = [
-            // Buttons - only enabled, visible, actionable buttons
-            'button:not([disabled]):not([aria-disabled="true"]):not([hidden])',
-            '[role="button"]:not([aria-disabled="true"]):not([hidden])',
-            
-            // Links - only real, functional links (no placeholders)
-            'a[href]:not([href=""]):not([href^="#"]):not([tabindex="-1"]):not([hidden])',
-            
-            // Form inputs - only visible, enabled form controls
-            'input:not([type="hidden"]):not([disabled]):not([hidden])',
-            'select:not([disabled]):not([hidden])',
-            'textarea:not([disabled]):not([hidden])',
-            '[role="combobox"]:not([aria-disabled="true"]):not([hidden])',
-            
-            // Key interactive roles - only enabled, visible ARIA elements
-            '[role="search"]:not([aria-disabled="true"]):not([hidden])',
-            '[role="switch"]:not([aria-disabled="true"]):not([hidden])',
-            '[role="checkbox"]:not([aria-disabled="true"]):not([hidden])',
-            '[role="radio"]:not([aria-disabled="true"]):not([hidden])',
-            '[role="menuitem"]:not([aria-disabled="true"]):not([hidden])',
-            '[role="tab"]:not([aria-disabled="true"]):not([hidden])',
-            '[role="option"]:not([aria-disabled="true"]):not([hidden])',
-            
-            // Media controls - common interactive media elements
-            '[aria-label~="play" i], [aria-label~="pause" i], [aria-label~="like" i], [aria-label~="share" i]'
-        ];
+        // Process framework elements only
+        const allElements = frameworkElements.map(fe => fe.element);
         
-        const elements = document.querySelectorAll(interactiveSelectors.join(','));
-        console.log("[Content] 🔍 Found", elements.length, "generic interactive elements");
-        
-        // 🆕 COMBINE: Framework elements + generic elements
-        const allElements = [...frameworkElements.map(fe => fe.element), ...Array.from(elements)];
-        console.log("[Content] 🔍 Total elements to process:", allElements.length, `(${frameworkElements.length} framework + ${elements.length} generic)`);
-        
-        // 🆕 PHASE 3: Process all elements (framework + generic)
-        let filteredCount = 0;
+        // 🎯 Process framework elements only
         let registeredCount = 0;
-        
-        // 🆕 NEW: Track URL elements separately
         let urlElementCount = 0;
-        let qualityFilteredCount = 0;
         
         allElements.forEach(element => {
-            if (this.isInteractiveElement(element)) {
-                filteredCount++;
+            if (this.isInteractiveElement(element) && this.passesBasicQualityFilter(element)) {
+                const actionType = this.determineActionType(element);
+                const actionId = this.registerActionableElement(element, actionType);
+                registeredCount++;
                 
-                // 🆕 NEW: Count URL elements
+                // Count URL elements
                 if (hasUrl(element)) {
                     urlElementCount++;
-                }
-                
-                if (this.passesBasicQualityFilter(element)) {
-                    qualityFilteredCount++;
-                    const actionType = this.determineActionType(element);
-                    const actionId = this.registerActionableElement(element, actionType);
-                    registeredCount++;
-                    
-                    // Get the full element data to show href attributes
-                    const elementData = this.getActionableElement(actionId);
-                    // console.log("[Content] 📝 Registered element:", {
-                    //     actionId: actionId,
-                    //     tagName: element.tagName,
-                    //     actionType: actionType,
-                    //     textContent: element.textContent?.trim().substring(0, 30) || '',
-                    //     href: element.tagName === 'A' ? element.href : undefined,
-                    //     attributes: elementData?.attributes || {}
-                    // });
                 }
             }
         });
         
-        // 🆕 NEW: PHASE 4: Process generic content elements (like your apartment element)
-        console.log("[Content] 🔍 PHASE 4: Processing generic content elements...");
-        let genericContentCount = 0;
+        // 🎯 CLEAN BREAKDOWN: Show site config categories and URL elements
+        const categoryBreakdown = {};
+        allElements.forEach(element => {
+            // Get the category from the framework element data
+            const frameworkElement = frameworkElements.find(fe => fe.element === element);
+            if (frameworkElement && frameworkElement.type) {
+                const category = frameworkElement.type;
+                categoryBreakdown[category] = (categoryBreakdown[category] || 0) + 1;
+            }
+        });
         
-        try {
-    
-            const allPageElements = document.querySelectorAll('*');
-            allPageElements.forEach(element => {
-                if (this.isElementVisible(element) && element.textContent?.trim().length > 20) {
-                    // Skip if already captured by interactive selectors
-                    const isAlreadyCaptured = allElements.some(ie => ie === element);
-                    
-                    if (!isAlreadyCaptured) {
-                        // Register as generic content element
-                        const actionType = 'content'; // Special action type for content
-                        const actionId = this.registerActionableElement(element, actionType);
-                        genericContentCount++;
-                        
-
-                    }
-                }
-            });
-        } catch (error) {
-            console.warn("[Content] ⚠️ Error processing generic content elements:", error);
-        }
-        
-        console.log("[Content] 🎯 PHASE 4 RESULTS:");
-        console.log(`   📊 Generic content elements registered: ${genericContentCount}`);
-        
-        console.log("[Content] 🎯 PHASE 3 FILTERING RESULTS:");
-        console.log(`   📊 Total elements found: ${allElements.length} (${frameworkElements.length} framework + ${elements.length} generic)`);
-        console.log(`   🔍 Interactive elements: ${filteredCount}`);
+        console.log("[Content] 🎯 SCAN RESULTS:");
+        console.log(`   📊 Total elements: ${allElements.length}`);
+        console.log(`   📝 Registered: ${registeredCount}`);
         console.log(`   🔗 URL elements: ${urlElementCount}`);
-        console.log(`   ✅ Quality-filtered elements: ${qualityFilteredCount}`);
-        console.log(`   📝 Registered elements: ${registeredCount}`);
-        console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / allElements.length) * 100)}%`);
         
-        console.log("[Content] 🎯 PHASE 4 FILTERING RESULTS:");
-        console.log(`   📊 Generic content elements: ${genericContentCount}`);
-        console.log(`   📊 Total actionable elements: ${registeredCount + genericContentCount}`);
+        // Show breakdown by site config categories
+        Object.entries(categoryBreakdown).forEach(([category, count]) => {
+            console.log(`   🎯 ${category}: ${count} elements`);
+        });
         
         // Update page state
                     this.pageState.interactiveElements = this.getAllActionableElements();
