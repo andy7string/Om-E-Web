@@ -57,12 +57,9 @@ let siteConfigs = {}; // Store site configs locally for immediate access
 async function connectWebSocket() {
     console.log("[SW] Extension startup, connecting...");
     
-    try {
-        // 🆕 NEW: Site configs will come from WebSocket server, not local storage
-        console.log("[SW] Connecting to WebSocket server for site configs...");
-        
-        // Connect to WebSocket server
-        ws = new WebSocket("ws://127.0.0.1:17892");
+            try {
+            // Connect to WebSocket server
+            ws = new WebSocket("ws://127.0.0.1:17892");
         
         // Handle connection events
         ws.onopen = () => {

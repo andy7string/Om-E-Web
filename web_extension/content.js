@@ -65,7 +65,6 @@ var changeHistory = [];                          // History of DOM changes for a
 var lastIntelligenceUpdate = 0;                  // Timestamp of last intelligence update
 const INTELLIGENCE_UPDATE_INTERVAL = 500;        // 0.5 seconds between intelligence updates
 
-// 🆕 REMOVED: Continuous DOM Monitoring System - Unnecessary performance overhead
 
 // Set default framework configuration
 window.siteConfigs = {};
@@ -117,58 +116,20 @@ function getSiteConfigDirect() {
                 siteConfig = foundConfig;
                 window.currentSiteConfig = foundConfig;
                 console.log("✅ Site config set from file:", foundConfig);
-                return true;
+                return foundConfig; // Return the actual config object
             } else {
                 console.log("⚠️ No site config found for domain:", currentDomain);
-                return false;
+                return allConfigs['default'] || null; // Return default config or null
             }
             
         } catch (error) {
             console.error("❌ Error parsing site config file:", error);
-            return false;
+            return null;
         }
     } else {
         console.error("❌ Error loading site config file:", xhr.status);
-        return false;
+        return null;
     }
-}
-
-// 🆕 NEW: Read site config directly from extension file - SYNCHRONOUS
-console.log("🔍 Reading site config directly from extension file...");
-
-// This reads the config file synchronously - no waiting, no async, no bullshit
-const configFound = getSiteConfigDirect();
-
-if (configFound) {
-    console.log("✅ Site config ready - continuing with framework setup");
-} else {
-    console.log("⚠️ No site config available - using generic scanning");
-}
-
-// 🆕 NEW: Collect ALL elements with URLs, regardless of visibility
-function collectAllUrlElements() {
-    const urlElements = [];
-    
-    // Standard links - ALL of them, visible or not
-    const allLinks = document.querySelectorAll('a[href]');
-    urlElements.push(...Array.from(allLinks));
-    
-    // Elements with custom URL attributes - ALL of them
-    const customUrlElements = document.querySelectorAll('[data-url], [data-href], [data-link]');
-    urlElements.push(...Array.from(customUrlElements));
-    
-    // Form elements that submit to URLs
-    const formElements = document.querySelectorAll('form[action]');
-    urlElements.push(...Array.from(formElements));
-    
-    // Elements with onclick navigation
-    const onclickElements = document.querySelectorAll('[onclick*="window.location"], [onclick*="href"], [onclick*="navigate"]');
-    urlElements.push(...Array.from(onclickElements));
-    
-    // Remove duplicates (same element might match multiple selectors)
-    const uniqueElements = [...new Set(urlElements)];
-    
-    return uniqueElements;
 }
 
 // 🆕 NEW: Automatic Disconnect Cycle for CSP Bypass
@@ -225,65 +186,6 @@ function performAutomaticDisconnectCycle() {
     }
 }
 
-// 🆕 NEW: Helper Functions for Framework Scanning
-function isInteractiveElement(element, siteConfig = null) {
-    // If we have site config, use framework-specific logic
-    if (siteConfig) {
-        return isInteractiveForFramework(element, siteConfig);
-    }
-    
-    // Fallback to generic logic
-    return isInteractiveGeneric(element);
-}
-
-function isInteractiveForFramework(element, siteConfig) {
-    try {
-        const selectors = siteConfig.selectors;
-        const filters = siteConfig.filters;
-        
-        // 🚨 PRIORITY 1: Always return true for elements with URLs
-        if (hasUrl(element)) {
-            console.log(`🔗 Element has URL - always interactive:`, element.href || element.getAttribute('data-url') || element.getAttribute('data-href'));
-            return true;
-        }
-        
-        // Check if element matches framework-specific interactive selectors
-        for (const [category, selectorList] of Object.entries(selectors)) {
-            if (['buttons', 'menus', 'text_inputs', 'navigation'].includes(category)) {
-                for (const selector of selectorList) {
-                    try {
-                        if (element.matches(selector)) {
-                            console.log(`🎯 Element matches ${category} selector: ${selector}`);
-                            return true; // Element matches framework pattern
-                        }
-                    } catch (error) {
-                        // Invalid selector, skip
-                    }
-                }
-            }
-        }
-        
-        // Apply framework-specific exclude filters
-        if (filters && filters.exclude) {
-            for (const excludeSelector of filters.exclude) {
-                try {
-                    if (element.matches(excludeSelector)) {
-                        console.log(`🚫 Element excluded by framework filter: ${excludeSelector}`);
-                        return false; // Explicitly excluded by framework
-                    }
-                } catch (error) {
-                    // Invalid selector, skip
-                }
-            }
-        }
-        
-        return false; // Not interactive for this framework
-    } catch (error) {
-        console.warn('⚠️ Error in framework-specific interactive check:', error);
-        return false;
-    }
-}
-
 // 🆕 NEW: Check if element has any form of URL
 function hasUrl(element) {
     try {
@@ -302,7 +204,7 @@ function hasUrl(element) {
                 return true;
             }
         }
-        
+ 
         return false;
     } catch (error) {
         return false;
@@ -366,355 +268,6 @@ function determineActionType(element) {
         
     } catch (error) {
         return 'unknown';
-    }
-}
-
-// 🆕 NEW: Smart element filtering with priority and payload size control
-function smartFilterElements(elements, options) {
-    try {
-        let filteredElements = [...elements];
-        
-        // 🎯 Step 1: Priority-based filtering
-        if (options.priorityFilter === 'high') {
-            // High priority: Only URLs and critical actions
-            filteredElements = filteredElements.filter(el => {
-                const hasUrl = hasUrl(el);
-                const actionType = determineActionType(el);
-                const isCritical = ['navigate', 'submit', 'menu_select'].includes(actionType);
-                return hasUrl || isCritical;
-            });
-            console.log(`🎯 High priority filter: ${elements.length} → ${filteredElements.length} elements`);
-        } else if (options.priorityFilter === 'medium') {
-            // Medium priority: URLs, critical actions, and common interactions
-            filteredElements = filteredElements.filter(el => {
-                const hasUrl = hasUrl(el);
-                const actionType = determineActionType(el);
-                const isCommon = ['navigate', 'submit', 'menu_select', 'click', 'toggle'].includes(actionType);
-                return hasUrl || isCommon;
-            });
-            console.log(`🎯 Medium priority filter: ${elements.length} → ${filteredElements.length} elements`);
-        }
-        // Low priority: Keep all elements (no filtering)
-        
-        // 🎯 Step 2: URL-only filtering
-        if (options.urlOnly) {
-            filteredElements = filteredElements.filter(el => hasUrl(el));
-            console.log(`🔗 URL-only filter: ${elements.length} → ${filteredElements.length} elements`);
-        }
-        
-        // 🎯 Step 3: Visibility filtering
-        if (options.visibleOnly) {
-            filteredElements = filteredElements.filter(el => isElementVisible(el));
-            console.log(`👁️ Visible-only filter: ${elements.length} → ${filteredElements.length} elements`);
-        }
-        
-        // 🎯 Step 4: Element count limiting
-        if (options.maxElements && filteredElements.length > options.maxElements) {
-            // Sort by importance before limiting
-            filteredElements.sort((a, b) => {
-                const aHasUrl = hasUrl(a);
-                const bHasUrl = hasUrl(b);
-                const aAction = determineActionType(a);
-                const bAction = determineActionType(b);
-                
-                // Priority: URLs first, then critical actions, then others
-                if (aHasUrl && !bHasUrl) return -1;
-                if (!aHasUrl && bHasUrl) return 1;
-                if (aAction === 'navigate' && bAction !== 'navigate') return -1;
-                if (aAction !== 'navigate' && bAction === 'navigate') return 1;
-                
-                return 0;
-            });
-            
-            filteredElements = filteredElements.slice(0, options.maxElements);
-            console.log(`📊 Element limit applied: ${elements.length} → ${filteredElements.length} elements`);
-        }
-        
-        // 🎯 Step 5: Payload size control
-        let currentSize = 0;
-        const sizeLimitedElements = [];
-        
-        for (const element of filteredElements) {
-            const elementSize = JSON.stringify(element).length;
-            if (currentSize + elementSize <= options.payloadSizeLimit) {
-                sizeLimitedElements.push(element);
-                currentSize += elementSize;
-            } else {
-                console.log(`📦 Payload size limit reached at ${currentSize} bytes, stopping at ${sizeLimitedElements.length} elements`);
-                break;
-            }
-        }
-        
-        console.log(`📦 Final payload: ${sizeLimitedElements.length} elements, ${currentSize} bytes`);
-        return sizeLimitedElements;
-        
-    } catch (error) {
-        console.warn('⚠️ Error in smart filtering:', error);
-        // Fallback to simple limiting
-        return elements.slice(0, options.maxElements || 50);
-    }
-}
-
-// 🆕 NEW: Generate accurate summary statistics
-function generateAccurateSummary(results) {
-    const summary = {
-        totalScanned: results.elementCounts.totalElements || 0,
-        actionableElements: results.elementCounts.interactiveElements || 0,
-        urlElements: results.elementCounts.urlElements || 0,
-        contentElements: results.elementCounts.contentElements || 0,
-        iframes: results.elementCounts.iframes || 0,
-        payloadSize: JSON.stringify(results).length,
-        scanType: results.scanType || 'unknown',
-        framework: results.framework || 'generic'
-    };
-    
-    console.log(`📊 ACCURATE SCAN SUMMARY:`);
-    console.log(`  🎯 Total elements scanned: ${summary.totalScanned}`);
-    console.log(`  🎯 REAL actionable elements: ${summary.actionableElements}`);
-    console.log(`  🔗 Elements with URLs: ${summary.urlElements}`);
-    console.log(`  📄 Content elements: ${summary.contentElements} (skipped for performance)`);
-    console.log(`  🖼️ Iframes: ${summary.iframes}`);
-    console.log(`  📦 Payload size: ${summary.payloadSize} bytes`);
-    console.log(`  🔧 Scan type: ${summary.scanType}`);
-    console.log(`  🏗️ Framework: ${summary.framework}`);
-    
-    return summary;
-}
-
-function isInteractiveGeneric(element) {
-    try {
-        // 🚨 PRIORITY 1: Always return true for elements with URLs
-        if (hasUrl(element)) {
-            console.log(`🔗 Element has URL - always interactive:`, element.href || element.getAttribute('data-url') || element.getAttribute('data-href'));
-            return true;
-        }
-        
-        const tagName = element.tagName.toLowerCase();
-        const hasClickHandler = element.onclick || element.getAttribute('onclick');
-        const hasHref = element.href;
-        const isFormElement = ['input', 'select', 'textarea', 'button'].includes(tagName);
-        const isLink = tagName === 'a' && hasHref;
-        const role = element.getAttribute('role');
-        const interactiveRoles = ['button', 'link', 'menuitem', 'tab'];
-        
-        if (isFormElement || isLink || hasClickHandler) {
-            return true;
-        }
-        
-        if (role && interactiveRoles.includes(role)) {
-            return true;
-        }
-        
-        // Check for event handlers
-        for (const attr of element.attributes) {
-            if (attr.name.startsWith('on')) {
-                return true;
-            }
-        }
-        
-        return false;
-    } catch (error) {
-        return false;
-    }
-}
-
-function isContentElement(element, siteConfig = null) {
-    // If we have site config, use framework-specific logic
-    if (siteConfig) {
-        return isContentForFramework(element, siteConfig);
-    }
-    
-    // Fallback to generic logic
-    return isContentGeneric(element);
-}
-
-function isContentForFramework(element, siteConfig) {
-    try {
-        const selectors = siteConfig.selectors;
-        
-        // Check if element matches framework-specific content selectors
-        if (selectors.text_inputs) {
-            for (const selector of selectors.text_inputs) {
-                try {
-                    if (element.matches(selector)) {
-                        return false; // This is an input, not content
-                    }
-                } catch (error) {
-                    // Invalid selector, skip
-                }
-            }
-        }
-        
-        // Check if element is explicitly marked as content in framework
-        if (selectors.content_elements) {
-            for (const selector of selectors.content_elements) {
-                try {
-                    if (element.matches(selector)) {
-                        return true; // Explicitly marked as content
-                    }
-                } catch (error) {
-                    // Invalid selector, skip
-                }
-            }
-        }
-        
-        // Fallback to generic content detection
-        return isContentGeneric(element);
-    } catch (error) {
-        console.warn('⚠️ Error in framework-specific content check:', error);
-        return isContentGeneric(element);
-    }
-}
-
-function isContentGeneric(element) {
-    try {
-        const tagName = element.tagName.toLowerCase();
-        const text = element.textContent?.trim() || '';
-        
-        // Text content elements
-        const contentTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span'];
-        if (contentTags.includes(tagName)) {
-            // Must have meaningful text content
-            return text.length > 10;
-        }
-        
-        return false;
-    } catch (error) {
-        return false;
-    }
-}
-
-// 🆕 NEW: Simple Helper Functions for Comprehensive Scanning
-function generateSimpleSelector(element) {
-    try {
-        if (element.id) {
-            return `#${element.id}`;
-        }
-        
-        if (element.className && typeof element.className === 'string') {
-            const classes = element.className.split(' ').filter(c => c.trim().length > 0);
-            if (classes.length > 0) {
-                return `${element.tagName.toLowerCase()}.${classes[0]}`;
-            }
-        }
-        
-        return `${element.tagName.toLowerCase()}`;
-        
-    } catch (error) {
-        return element.tagName.toLowerCase();
-    }
-}
-
-function extractSimpleAttributes(element) {
-    try {
-        const attributes = {};
-        const importantAttrs = ['href', 'src', 'alt', 'title', 'aria-label', 'role', 'type', 'value', 'placeholder'];
-        
-        importantAttrs.forEach(attr => {
-            if (element.hasAttribute(attr)) {
-                attributes[attr] = element.getAttribute(attr);
-            }
-        });
-        
-        return attributes;
-        
-    } catch (error) {
-        return {};
-    }
-}
-
-function getSimpleCoordinates(element) {
-    try {
-        const rect = element.getBoundingClientRect();
-        return {
-            x: Math.round(rect.left + rect.width / 2),
-            y: Math.round(rect.top + rect.height / 2),
-            width: Math.round(rect.width),
-            height: Math.round(rect.height)
-        };
-        
-    } catch (error) {
-        return { x: 0, y: 0, width: 0, height: 0 };
-    }
-}
-
-// 🆕 NEW: Main Frame Access Function
-function attemptMainFrameAccess(frameInfo) {
-    try {
-        console.log("[Content] 🔍 Attempting main frame access...");
-        
-        // 🎯 Method 1: Try to access window.top directly
-        if (window.top && window.top !== window.self) {
-            try {
-                const mainFrameElements = window.top.document.querySelectorAll('*');
-                console.log(`[Content] ✅ Direct main frame access: ${mainFrameElements.length} elements`);
-                
-                return {
-                    method: "direct_access",
-                    elementCount: mainFrameElements.length,
-                    accessible: true,
-                    note: "Successfully accessed main frame DOM directly"
-                };
-            } catch (e) {
-                console.log("[Content] ⚠️ Direct access blocked by CORS");
-            }
-        }
-        
-        // 🎯 Method 2: Try to traverse parent chain
-        let currentWindow = window;
-        let traversalDepth = 0;
-        const maxTraversal = 10; // Prevent infinite loops
-        
-        while (currentWindow !== window.top && traversalDepth < maxTraversal) {
-            traversalDepth++;
-            try {
-                const parentElements = currentWindow.parent.document.querySelectorAll('*');
-                console.log(`[Content] ✅ Parent frame ${traversalDepth} access: ${parentElements.length} elements`);
-                
-                return {
-                    method: "parent_traversal",
-                    elementCount: parentElements.length,
-                    accessible: true,
-                    traversalDepth: traversalDepth,
-                    note: `Accessed parent frame at depth ${traversalDepth}`
-                };
-            } catch (e) {
-                console.log(`[Content] ⚠️ Parent frame ${traversalDepth} access blocked by CORS`);
-                currentWindow = currentWindow.parent;
-            }
-        }
-        
-        // 🎯 Method 3: Try to inject script into parent frame
-        try {
-            const script = document.createElement('script');
-            script.textContent = `
-                console.log('[Main Frame] Script injected from iframe');
-                window.iframeAccessRequest = true;
-            `;
-            document.head.appendChild(script);
-            
-            return {
-                method: "script_injection",
-                accessible: false,
-                note: "Attempted script injection into parent frame"
-            };
-        } catch (e) {
-            console.log("[Content] ⚠️ Script injection failed:", e.message);
-        }
-        
-        return {
-            method: "none",
-            accessible: false,
-            note: "All main frame access methods failed due to CORS restrictions"
-        };
-        
-    } catch (error) {
-        console.error("[Content] ❌ Error in main frame access attempt:", error);
-        return {
-            method: "error",
-            accessible: false,
-            error: error.message
-        };
     }
 }
 
@@ -809,625 +362,6 @@ function scanWithFrameworkSelectors() {
     console.log("[Content] 🎯 Framework scanning found:", frameworkElements.length, "elements");
     return frameworkElements;
 }
-
-// 🆕 NEW: Test event listener for debugging from page context
-document.addEventListener('testIntelligence', (event) => {
-    console.log("[Content] 🧪 Test event received:", event.detail);
-    
-    const command = event.detail?.command;
-    if (!command) {
-        console.log("[Content] 🧪 No command specified, running basic test");
-        console.log("[Content] 🧪 Intelligence system status:", {
-            changeAggregator: !!changeAggregator,
-            intelligenceEngine: !!intelligenceEngine,
-            pageContext: !!pageContext,
-            actionableElementsCount: intelligenceEngine?.actionableElements?.size || 0,
-            eventHistoryCount: intelligenceEngine?.eventHistory?.length || 0
-        });
-        return;
-    }
-    
-    // Handle specific commands
-    switch (command) {
-        case 'testIntelligenceSystem':
-            console.log("[Content] 🧪 Running intelligence system test...");
-            if (intelligenceEngine) {
-                const result = {
-                    changeAggregator: !!changeAggregator,
-                    intelligenceEngine: !!intelligenceEngine,
-                    pageContext: !!pageContext,
-                    actionableElementsCount: intelligenceEngine.actionableElements.size,
-                    eventHistoryCount: intelligenceEngine.eventHistory.length,
-                    timestamp: Date.now()
-                };
-                console.log("[Content] 🧪 Test result:", result);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        case 'getActionableElements':
-            console.log("[Content] 🧪 Getting actionable elements...");
-            if (intelligenceEngine) {
-                const elements = intelligenceEngine.getActionableElementsSummary();
-                console.log("[Content] 🧪 Actionable elements:", elements);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        case 'scanElements':
-            console.log("[Content] 🧪 Scanning page elements...");
-            if (intelligenceEngine) {
-                const result = intelligenceEngine.scanAndRegisterPageElements();
-                console.log("[Content] 🧪 Scan result:", result);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        case 'getDOMStatus':
-            console.log("[Content] 🧪 Getting DOM change detection status...");
-            const domStatus = {
-                changeDetectionEnabled: changeDetectionEnabled,
-                changeCount: changeCount,
-                lastChangeTime: lastChangeTime,
-                domChangeObserver: !!domChangeObserver,
-                observerActive: domChangeObserver ? domChangeObserver.takeRecords().length >= 0 : false
-            };
-            console.log("[Content] 🧪 DOM status:", domStatus);
-            break;
-            
-        case 'executeAction':
-            const { actionId, action, params } = event.detail;
-            console.log("[Content] 🧪 Executing action:", { actionId, action, params });
-            if (intelligenceEngine) {
-                const result = intelligenceEngine.executeAction(actionId, action, params);
-                console.log("[Content] 🧪 Action execution result:", result);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available for action execution");
-            }
-            break;
-            
-        case 'testQueue':
-            console.log("[Content] 🧪 Testing queue system...");
-            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
-                console.log("[Content] 🧪 Adding test updates to queue...");
-                intelligenceEngine.queueIntelligenceUpdate('high');
-                intelligenceEngine.queueIntelligenceUpdate('normal');
-                intelligenceEngine.queueIntelligenceUpdate('low');
-                console.log("[Content] 🧪 Test updates queued, check status with 'getStatus' command");
-            } else {
-                console.log("[Content] ❌ Queue system not available");
-            }
-            break;
-            
-        case 'checkEngine':
-            console.log("[Content] 🧪 Checking engine readiness...");
-            if (intelligenceEngine) {
-                const readiness = intelligenceEngine.isEngineReady();
-                console.log("[Content] 🧪 Engine readiness check:", {
-                    isReady: readiness,
-                    initialScanCompleted: intelligenceEngine.initialScanCompleted,
-                    pageState: intelligenceEngine.pageState,
-                });
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        // 🆕 NEW: iframe Testing Commands
-        case 'testIframeScanning':
-            console.log("[Content] 🧪 Testing iframe scanning...");
-            try {
-                // Test the main frame scanning (since we're main-frame only now)
-                const result = {
-                    isMainFrame: window.top === window.self,
-                    currentUrl: window.location.href,
-                    hasIframes: document.querySelectorAll('iframe').length,
-                    iframeCount: document.querySelectorAll('iframe').length,
-                    timestamp: Date.now(),
-                    note: "Extension now runs main-frame only - no iframe scanning needed"
-                };
-                console.log("[Content] 🧪 iframe scanning test result:", result);
-            } catch (error) {
-                console.error("[Content] ❌ iframe scanning test failed:", error);
-            }
-            break;
-            
-        case 'testIframeAnalysis':
-            console.log("[Content] 🧪 Testing iframe analysis...");
-            try {
-                const iframes = document.querySelectorAll('iframe');
-                const analysis = {
-                    totalIframes: iframes.length,
-                    iframeDetails: Array.from(iframes).map((iframe, index) => ({
-                        index: index,
-                        src: iframe.src,
-                        width: iframe.offsetWidth,
-                        height: iframe.offsetHeight,
-                        isVisible: iframe.offsetWidth > 0 && iframe.offsetHeight > 0
-                    })),
-                    note: "Extension runs in main frame only - iframes are detected but not scanned",
-                    timestamp: Date.now()
-                };
-                console.log("[Content] 🧪 iframe analysis test result:", analysis);
-            } catch (error) {
-                console.error("[Content] ❌ iframe analysis test failed:", error);
-            }
-            break;
-            
-        case 'generateSiteMap':
-            console.log("[Content] 🧪 Testing site map generation...");
-            try {
-                // This will call the actual generateSiteMap function
-                generateSiteMap().then(result => {
-                    console.log("[Content] 🧪 Site map generation test result:", {
-                        success: true,
-                        totalElements: result.statistics?.totalElements || 0,
-                        clickableElements: result.statistics?.clickableElements || 0,
-                        forms: result.statistics?.formElements || 0,
-                        timestamp: Date.now()
-                    });
-                }).catch(error => {
-                    console.error("[Content] ❌ Site map generation test failed:", error);
-                });
-            } catch (error) {
-                console.error("[Content] ❌ Site map generation test failed:", error);
-            }
-            break;
-            
-        // 🆕 REMOVED: Continuous DOM Scanning Test Commands - Functions deleted
-            
-        // 🆕 REMOVED: Tear Away Test Commands - performControlledTearAway function deleted
-            
-        // 🆕 REMOVED: preScanDisconnectCycle test command - Function deleted
-            
-        case 'forceTabRefreshAndRescan':
-            console.log("[Content] 🧪 Testing force tab refresh and rescan...");
-            try {
-                // 🎯 This simulates the extension reload + navigation scenario
-                console.log("[Content] 🔄 Simulating extension reload + tab navigation...");
-                
-                // Step 1: Force service worker to refresh tabs
-                chrome.runtime.sendMessage({
-                    type: 'force_extension_reload',
-                    data: {
-                        reason: 'force_tab_refresh_and_rescan',
-                        timestamp: Date.now(),
-                        forceReload: true
-                    }
-                }, (response) => {
-                    if (chrome.runtime.lastError) {
-                        console.warn("[Content] ⚠️ Tab refresh request failed:", chrome.runtime.lastError);
-                    } else {
-                        console.log("[Content] ✅ Tab refresh request sent:", response);
-                        
-                        // Step 2: Wait for tabs to refresh, then perform comprehensive scan
-                        setTimeout(() => {
-                            console.log("[Content] 🚀 Tabs refreshed, comprehensive scan skipped");
-                        }, 5000); // Wait 5 seconds for tab refresh + content script injection
-                    }
-                });
-                
-            } catch (error) {
-                console.error("[Content] ❌ Force tab refresh and rescan failed:", error);
-            }
-            break;
-            
-        case 'contextCycleForFullAccess':
-            console.log("[Content] 🧪 Testing context cycling for full access...");
-            try {
-                // 🎯 This simulates the ideal pattern: extension reload + fresh tab access
-                console.log("[Content] 🔄 Simulating extension reload + fresh tab access pattern...");
-                
-                // Step 1: Force extension context cycle (simulates reload)
-                chrome.runtime.sendMessage({
-                    type: 'force_extension_reload',
-                    data: {
-                        reason: 'context_cycle_for_full_access',
-                        timestamp: Date.now(),
-                        forceReload: false, // Don't refresh tabs, just cycle context
-                        simulateReload: true
-                    }
-                }, (response) => {
-                    if (chrome.runtime.lastError) {
-                        console.warn("[Content] ⚠️ Context cycle request failed:", chrome.runtime.lastError);
-                    } else {
-                        console.log("[Content] ✅ Context cycle request sent:", response);
-                        
-                        // Step 2: Wait for context cycle, then scan
-                        setTimeout(() => {
-                            console.log("[Content] 🚀 Context cycled, comprehensive scan skipped");
-                            
-                            // Step 3: Log the pattern
-                            console.log("[Content] 🎯 Context cycling pattern complete:");
-                            console.log("   🔄 Extension context cycled (simulated reload)");
-                            console.log("   🎯 Fresh tab access established");
-                            console.log("   📊 Expected: Full element access (236+ elements)");
-                        }, 3000); // Wait 3 seconds for context cycle
-                    }
-                });
-                
-            } catch (error) {
-                console.error("[Content] ❌ Context cycling for full access failed:", error);
-            }
-            break;
-            
-        case 'triggerExtensionPageReload':
-            console.log("[Content] 🧪 Testing extension page reload trigger...");
-            try {
-                // 🎯 This simulates going to extension page and reloading
-                console.log("[Content] 🔄 Simulating extension page reload pattern...");
-                
-                // Step 1: Check if we're on extension page
-                const isExtensionPage = window.location.protocol === 'chrome-extension:' || 
-                                      window.location.hostname === 'chrome-extension';
-                
-                if (isExtensionPage) {
-                    console.log("[Content] ✅ On extension page, triggering reload...");
-                    
-                    // Step 2: Force extension reload from extension page
-                    chrome.runtime.sendMessage({
-                        type: 'force_extension_reload',
-                        data: {
-                            reason: 'extension_page_reload',
-                            timestamp: Date.now(),
-                            forceReload: false,
-                            fromExtensionPage: true
-                        }
-                    }, (response) => {
-                        if (chrome.runtime.lastError) {
-                            console.warn("[Content] ⚠️ Extension page reload failed:", chrome.runtime.lastError);
-                        } else {
-                            console.log("[Content] ✅ Extension page reload triggered:", response);
-                            
-                            // Step 3: Instructions for manual completion
-                            console.log("[Content] 🎯 Extension page reload pattern:");
-                            console.log("   1. ✅ Extension reload triggered");
-                            console.log("   2. 🔄 Go to chrome://extensions/ and click reload");
-                            console.log("   3. 🎯 Navigate back to Google tab");
-                            console.log("   4. 📊 Expected: Full access (236+ elements)");
-                        }
-                    });
-                    
-                } else {
-                    console.log("[Content] ⚠️ Not on extension page, cannot trigger reload");
-                    console.log("[Content] 💡 To test this pattern:");
-                    console.log("   1. 🔄 Go to chrome://extensions/");
-                    console.log("   2. 🚀 Click reload button on your extension");
-                    console.log("   3. 🎯 Navigate back to Google tab");
-                    console.log("   4. 📊 Should get full access (236+ elements)");
-                }
-                
-            } catch (error) {
-                console.error("[Content] ❌ Extension page reload trigger failed:", error);
-            }
-            break;
-            
-        case 'manualScan':
-            console.log("[Content] 🧪 Manual scan command removed");
-            break;
-            
-        case 'testAutoDisconnect':
-            console.log("[Content] 🧪 Testing automatic disconnect cycle...");
-            try {
-                performAutomaticDisconnectCycle();
-                console.log("[Content] 🧪 Automatic disconnect cycle test complete");
-                return { success: true, message: "Automatic disconnect cycle executed", timestamp: Date.now() };
-            } catch (error) {
-                console.error("[Content] ❌ Error during auto disconnect test:", error);
-                return { error: error.message, timestamp: Date.now() };
-            }
-            break;
-            
-        case 'getElementCoordinates':
-            const coordActionId = event.detail?.actionId;
-            console.log("[Content] 🧪 Getting element coordinates for:", coordActionId);
-            if (!coordActionId) {
-                console.log("[Content] ❌ No actionId provided");
-                return;
-            }
-            if (intelligenceEngine) {
-                console.log("[Content] 🔍 Step 1: Getting actionable element data...");
-                const ae = intelligenceEngine.getActionableElement(coordActionId);
-                console.log("[Content] 🔍 Actionable element data:", ae);
-                
-                if (!ae) {
-                    console.log("[Content] ❌ No actionable element found for actionId:", coordActionId);
-                    return;
-                }
-                
-                console.log("[Content] 🔍 Step 2: Resolving DOM node from selectors...");
-                const node = resolveNodeFromActionId(coordActionId);
-                console.log("[Content] 🔍 DOM node found:", node);
-                console.log("[Content] 🔍 Node tagName:", node?.tagName);
-                console.log("[Content] 🔍 Node visible:", node && node.offsetWidth > 0 && node.offsetHeight > 0);
-                
-                if (!node) {
-                    console.log("[Content] ❌ No DOM node found for actionId:", coordActionId);
-                    return;
-                }
-                
-                console.log("[Content] 🔍 Step 3: Getting bounding rect...");
-                const rect = node.getBoundingClientRect();
-                console.log("[Content] 🔍 Raw bounding rect:", rect);
-                console.log("[Content] 🔍 Rect values:", {
-                    left: rect.left,
-                    top: rect.top,
-                    width: rect.width,
-                    height: rect.height
-                });
-                
-                console.log("[Content] 🔍 Step 4: Computing coordinates...");
-                const coords = coordsForNode(node);
-                console.log("[Content] 🔍 Computed coordinates:", coords);
-                
-                const result = { ok: true, actionId: coordActionId, coords };
-                console.log("[Content] 🧪 Final coordinate result:", result);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        case 'getStatus':
-            console.log("[Content] 🧪 Getting system status...");
-            if (intelligenceEngine) {
-                const status = {
-                    intelligenceEngine: !!intelligenceEngine,
-                    actionableElementsCount: intelligenceEngine.actionableElements?.size || 0,
-                    eventHistoryCount: intelligenceEngine.eventHistory?.length || 0,
-                    updateQueueLength: intelligenceEngine.updateQueue?.length || 0,
-                    isProcessingQueue: intelligenceEngine.isProcessingQueue || false,
-                    engineReady: intelligenceEngine.isEngineReady ? intelligenceEngine.isEngineReady() : false,
-                    timestamp: Date.now()
-                };
-                console.log("[Content] 🧪 System status:", status);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        case 'reveal':
-            const revealActionId = event.detail?.actionId;
-            console.log("[Content] 🧪 Revealing element details for:", revealActionId);
-            if (!revealActionId) {
-                console.log("[Content] ❌ No actionId provided");
-                return;
-            }
-            if (intelligenceEngine) {
-                const result = intelligenceEngine.executeAction(revealActionId, 'reveal');
-                console.log("[Content] 🧪 Reveal result:", result);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        case 'getCoordinates':
-            const getCoordActionId = event.detail?.actionId;
-            console.log("[Content] 🧪 Getting coordinates with smart resolution for:", getCoordActionId);
-            if (!getCoordActionId) {
-                console.log("[Content] ❌ No actionId provided");
-                return;
-            }
-            if (intelligenceEngine) {
-                const result = intelligenceEngine.executeAction(getCoordActionId, 'getCoordinates');
-                console.log("[Content] 🧪 Smart coordinates result:", result);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        case 'testSmartClick':
-            const smartClickActionId = event.detail?.actionId;
-            console.log("[Content] 🧪 Testing smart resolution click for:", smartClickActionId);
-            if (!smartClickActionId) {
-                console.log("[Content] ❌ No actionId provided");
-                return;
-            }
-            if (intelligenceEngine) {
-                console.log("[Content] 🧪 Testing enhanced smart resolution click...");
-                const result = intelligenceEngine.executeAction(smartClickActionId, 'click');
-                console.log("[Content] 🧪 Enhanced smart click result:", result);
-            } else {
-                console.log("[Content] ❌ Intelligence engine not available");
-            }
-            break;
-            
-        case 'testEnhancedDimensions':
-            const testElementSelector = event.detail?.selector || '.custom-logo-link';
-            console.log("[Content] 🧪 Testing enhanced dimension detection for:", testElementSelector);
-            
-            const testElement = document.querySelector(testElementSelector);
-            if (testElement) {
-                const dimensionResult = hasValidDimensions(testElement);
-                console.log("[Content] 🧪 Enhanced dimension test result:", dimensionResult);
-            } else {
-                console.log("[Content] ❌ Test element not found:", testElementSelector);
-            }
-            break;
-            
-        case 'testForceVisibility':
-            const forceElementSelector = event.detail?.selector || '.ast-menu-toggle';
-            console.log("[Content] 🧪 Testing force visibility for:", forceElementSelector);
-            
-            const forceElement = document.querySelector(forceElementSelector);
-            if (forceElement) {
-                const forceResult = forceElementVisibility(forceElement);
-                console.log("[Content] 🧪 Force visibility test result:", forceResult);
-            } else {
-                console.log("[Content] ❌ Force visibility test element not found:", forceElementSelector);
-            }
-            break;
-            
-        case 'testViewportAnalysis':
-            const viewportElementSelector = event.detail?.selector || '.ast-menu-toggle';
-            console.log("[Content] 🧪 Testing viewport analysis for:", viewportElementSelector);
-            
-            const viewportElement = document.querySelector(viewportElementSelector);
-            if (viewportElement) {
-                const viewportResult = analyzeViewportPosition(viewportElement);
-                console.log("[Content] 🧪 Viewport analysis test result:", viewportResult);
-            } else {
-                console.log("[Content] ❌ Viewport analysis test element not found:", viewportElementSelector);
-            }
-            break;
-            
-        case 'testViewportFix':
-            const fixElementSelector = event.detail?.selector || '.ast-menu-toggle';
-            console.log("[Content] 🧪 Testing viewport positioning fix for:", fixElementSelector);
-            
-            const fixElement = document.querySelector(fixElementSelector);
-            if (fixElement) {
-                const fixResult = fixViewportPositioning(fixElement);
-                console.log("[Content] 🧪 Viewport positioning fix test result:", fixResult);
-            } else {
-                console.log("[Content] ❌ Viewport positioning fix test element not found:", fixElementSelector);
-            }
-            break;
-            
-        case 'testUniversalClick':
-            const universalClickSelector = event.detail?.selector || '.ast-menu-toggle';
-            console.log("[Content] 🧪 Testing universal click for:", universalClickSelector);
-            
-            const universalClickElement = document.querySelector(universalClickSelector);
-            if (universalClickElement) {
-                const universalClickResult = universalClick(universalClickElement);
-                console.log("[Content] 🧪 Universal click test result:", universalClickResult);
-            } else {
-                console.log("[Content] ❌ Universal click test element not found:", universalClickSelector);
-            }
-            break;
-            
-        case 'testClickVerification':
-            const verifySelector = event.detail?.selector || '.ast-menu-toggle';
-            console.log("[Content] 🧪 Testing click verification for:", verifySelector);
-            
-            const verifyElement = document.querySelector(verifySelector);
-            if (verifyElement) {
-                verifyClickWorked(verifyElement).then(result => {
-                    console.log("[Content] 🧪 Click verification test result:", result);
-                });
-            } else {
-                console.log("[Content] ❌ Click verification test element not found:", verifySelector);
-            }
-            break;
-            
-        case 'testSubmenuInspection':
-            const submenuSelector = event.detail?.selector || '.ast-menu-toggle';
-            console.log("[Content] 🧪 Testing submenu inspection for:", submenuSelector);
-            
-            const submenuElement = document.querySelector(submenuSelector);
-            if (submenuElement) {
-                const submenuResult = inspectSubmenuContent(submenuElement);
-                console.log("[Content] 🧪 Submenu inspection test result:", submenuResult);
-            } else {
-                console.log("[Content] ❌ Submenu inspection test element not found:", submenuSelector);
-            }
-            break;
-            
-        case 'testDelayedSubmenuInspection':
-            const delayedSelector = event.detail?.selector || '.ast-menu-toggle';
-            console.log("[Content] 🧪 Testing delayed submenu inspection for:", delayedSelector);
-            
-            const delayedElement = document.querySelector(delayedSelector);
-            if (delayedElement) {
-                delayedSubmenuInspection(delayedElement, 1000).then(result => {
-                    console.log("[Content] 🧪 Delayed submenu inspection test result:", result);
-                });
-            } else {
-                console.log("[Content] ❌ Delayed submenu inspection test element not found:", delayedSelector);
-            }
-            break;
-            
-        case 'testDocumentSearch':
-            console.log("[Content] 🧪 Testing document-wide search for menu items...");
-            const searchResult = searchDocumentForMenuItems();
-            console.log("[Content] 🧪 Document search test result:", searchResult);
-            break;
-            
-        case 'testMenuStructureBuilder':
-            console.log("[Content] 🧪 Testing menu structure builder...");
-            const menuStructures = buildMenuStructures();
-            console.log("[Content] 🧪 Menu structure builder test result:", menuStructures);
-            break;
-            
-        case 'testFrameworkScanning':
-            console.log("[Content] 🧪 Testing framework-specific scanning...");
-            console.log("[Content] 🧪 Current framework:", currentFramework);
-            console.log("[Content] 🧪 Current site config:", currentSiteConfig);
-            const frameworkElements = scanWithFrameworkSelectors();
-            console.log("[Content] 🧪 Framework scanning result:", frameworkElements);
-            break;
-            
-        case 'testEnhancedMenuClick':
-            const enhancedSelector = event.detail?.selector || '[data-index="0"]';
-            console.log("[Content] 🧪 Testing enhanced menu click for:", enhancedSelector);
-            
-            const enhancedElement = document.querySelector(enhancedSelector);
-            if (enhancedElement) {
-                console.log("[Content] 🧪 Step 1: Universal clicking the menu button...");
-                const universalClickResult = universalClick(enhancedElement);
-                console.log("[Content] 🧪 Universal click result:", universalClickResult);
-                
-                // Wait a bit, then inspect
-                setTimeout(() => {
-                    console.log("[Content] 🧪 Step 2: Inspecting submenu content...");
-                    const submenuResult = inspectSubmenuContent(enhancedElement);
-                    console.log("[Content] 🧪 Enhanced menu click final result:", submenuResult);
-                }, 1500); // Wait 1.5 seconds for everything to load
-            } else {
-                console.log("[Content] ❌ Enhanced menu click test element not found:", enhancedSelector);
-            }
-            break;
-            
-        default:
-            console.log("[Content] 🧪 Unknown command:", command);
-    }
-});
-
-console.log("[Content] 🧪 Test event listener added - available commands:");
-console.log("[Content] 🧪 - testIntelligenceSystem: Basic system test");
-console.log("[Content] 🧪 - getActionableElements: List actionable elements");
-console.log("[Content] 🧪 - scanElements: Scan page for elements");
-console.log("[Content] 🧪 - getDOMStatus: Check DOM change detection");
-console.log("[Content] 🧪 - executeAction: Execute an action");
-console.log("[Content] 🧪 - testQueue: Test the queue system");
-console.log("[Content] 🧪 - checkEngine: Check engine readiness");
-console.log("[Content] 🧪 - getStatus: Get system status including queue info");
-console.log("[Content] 🧪 - getElementCoordinates: Get coordinates for an actionId");
-console.log("[Content] 🧪 - reveal: Reveal element details with smart resolution");
-console.log("[Content] 🧪 - getCoordinates: Get coordinates with smart resolution");
-console.log("[Content] 🧪 - testSmartClick: Test enhanced smart resolution clicking");
-console.log("[Content] 🧪 - testEnhancedDimensions: Test enhanced dimension detection");
-console.log("[Content] 🧪 - testForceVisibility: Test force visibility CSS override");
-console.log("[Content] 🧪 - testViewportAnalysis: Test viewport positioning analysis");
-console.log("[Content] 🧪 - testViewportFix: Test viewport positioning fixes");
-console.log("[Content] 🧪 - testUniversalClick: Test universal click for any element");
-console.log("[Content] 🧪 - testClickVerification: Test click verification system");
-console.log("[Content] 🧪 - testSubmenuInspection: Test submenu content inspection");
-console.log("[Content] 🧪 - testDelayedSubmenuInspection: Test delayed submenu inspection");
-console.log("[Content] 🧪 - testDocumentSearch: Test document-wide menu item search");
-console.log("[Content] 🧪 - testMenuStructureBuilder: Test automatic menu structure detection");
-console.log("[Content] 🧪 - testFrameworkScanning: Test framework-specific element scanning");
-console.log("[Content] 🧪 - testEnhancedMenuClick: Test complete enhanced menu click flow");
-console.log("[Content] 🧪 Examples:");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'getElementCoordinates', actionId: 'action_navigate_a_0'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'reveal', actionId: 'action_navigate_a_0'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'executeAction', actionId: 'action_navigate_a_0', action: 'click'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSmartClick', actionId: 'action_navigate_a_0'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedDimensions', selector: '.custom-logo-link'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testForceVisibility', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testViewportAnalysis', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testViewportFix', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testUniversalClick', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testClickVerification', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testSubmenuInspection', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDelayedSubmenuInspection', selector: '.ast-menu-toggle'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testDocumentSearch'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testMenuStructureBuilder'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testFrameworkScanning'}}))");
-console.log("[Content] 🧪   document.dispatchEvent(new CustomEvent('testIntelligence', {detail: {command: 'testEnhancedMenuClick', selector: '[data-index=\"0\"]'}}))");
 
 // Utility function for async delays
 var sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -4101,19 +3035,6 @@ function searchDocumentForMenuItems(element) {
  * @param {number} delay - Delay in milliseconds (default: 500ms)
  * @returns {Promise} - Promise that resolves with submenu content
  */
-function delayedSubmenuInspection(element, delay = 500) {
-    return new Promise((resolve) => {
-        console.log(`[Delayed Inspection] ⏳ Waiting ${delay}ms for dynamic content to load...`);
-        
-        setTimeout(() => {
-            console.log(`[Delayed Inspection] 🔍 Now inspecting submenu content...`);
-            const result = inspectSubmenuContent(element);
-            console.log(`[Delayed Inspection] 📊 Delayed inspection result:`, result);
-            resolve(result);
-        }, delay);
-    });
-}
-
 /**
  * 🆕 UTILITY: Check if element is visible
  * 
@@ -5234,6 +4155,56 @@ IntelligenceEngine.prototype.analyzeStructureChanges = function(event) {
 IntelligenceEngine.prototype.isInteractiveElement = function(element) {
     if (!element || !element.tagName) return false;
     
+    // 🆕 NEW: Use site config if available (either specific or default)
+    if (siteConfig) {
+        try {
+            const selectors = siteConfig.selectors;
+            const filters = siteConfig.filters;
+            
+            // 🚨 PRIORITY 1: Always return true for elements with URLs
+            if (hasUrl(element)) {
+                console.log(`🔗 Element has URL - always interactive:`, element.href || element.getAttribute('data-url') || element.getAttribute('data-href'));
+                return true;
+            }
+            
+            // Check if element matches framework-specific interactive selectors
+            for (const [category, selectorList] of Object.entries(selectors)) {
+                if (['buttons', 'menus', 'text_inputs', 'navigation'].includes(category)) {
+                    for (const selector of selectorList) {
+                        try {
+                            if (element.matches(selector)) {
+                                console.log(`🎯 Element matches ${category} selector: ${selector}`);
+                                return true; // Element matches framework pattern
+                            }
+                        } catch (error) {
+                            // Invalid selector, skip
+                        }
+                    }
+                }
+            }
+            
+            // Apply framework-specific exclude filters
+            if (filters && filters.exclude) {
+                for (const excludeSelector of filters.exclude) {
+                    try {
+                        if (element.matches(excludeSelector)) {
+                            console.log(`🚫 Element excluded by framework filter: ${excludeSelector}`);
+                            return false; // Explicitly excluded by framework
+                        }
+                    } catch (error) {
+                        // Invalid selector, skip
+                    }
+                }
+            }
+            
+            return false; // Not interactive for this framework
+        } catch (error) {
+            console.warn('⚠️ Error in framework-specific interactive check:', error);
+            // Fall through to generic logic
+        }
+    }
+    
+    // 🆕 FALLBACK: Generic logic if no site config or error
     const interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA'];
     const interactiveRoles = ['button', 'link', 'menuitem', 'tab', 'checkbox', 'radio', 'textbox'];
     
@@ -6147,11 +5118,6 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
  * 🆕 NEW: Register an element as actionable
  */
 IntelligenceEngine.prototype.registerActionableElement = function(element, actionType = 'general') {
-    console.log(`[Content] 🔍 registerActionableElement called with:`, { element, actionType });
-    console.log(`[Content] 🔍 element type:`, typeof element);
-    console.log(`[Content] 🔍 element.tagName:`, element?.tagName);
-    console.log(`[Content] 🔍 element.getAttribute:`, typeof element?.getAttribute);
-    
     // Ensure we have a real DOM element for attribute extraction
     let domElement = element;
     
@@ -6168,9 +5134,6 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
             return null;
         }
     }
-    
-    console.log(`[Content] 🔍 Final domElement:`, domElement);
-    console.log(`[Content] 🔍 Final domElement.getAttribute:`, typeof domElement?.getAttribute);
     
     const actionableId = this.generateActionableId(domElement, actionType);
     this.actionableElements.set(actionableId.id, actionableId);
@@ -6696,13 +5659,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
                         const actionId = this.registerActionableElement(element, actionType);
                         genericContentCount++;
                         
-                        console.log("[Content] 📝 Registered generic content:", {
-                            actionId: actionId,
-                            tagName: element.tagName,
-                            actionType: actionType,
-                            textContent: element.textContent.trim().substring(0, 50) + '...',
-                            note: "Generic content detection - meaningful text found"
-                        });
+
                     }
                 }
             });

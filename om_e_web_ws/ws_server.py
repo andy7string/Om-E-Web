@@ -30,8 +30,7 @@ import re
 import time
 from urllib.parse import urlparse
 
-# 🆕 NEW: Import site config manager
-from site_config_manager import start_site_config_polling, stop_site_config_polling, get_site_config
+
 
 # Global state for managing WebSocket connections and command routing
 CLIENTS = set()                    # All connected WebSocket clients
@@ -1811,22 +1810,6 @@ async def handler(ws):
     if EXTENSION_WS is None:
         EXTENSION_WS = ws
         print("🎯 Marked as extension client")
-        
-        # 🆕 NEW: Send site configurations to extension
-        try:
-            from site_config_manager import get_all_site_configs
-            site_configs = get_all_site_configs()
-            if site_configs:
-                config_msg = {
-                    "type": "site_configs_update",
-                    "data": site_configs
-                }
-                await ws.send(json.dumps(config_msg))
-                print(f"🎯 Sent {len(site_configs)} site configs to extension")
-            else:
-                print("⚠️ No site configs available to send")
-        except Exception as e:
-            print(f"❌ Error sending site configs to extension: {e}")
     
     try:
         # Listen for incoming messages from this client
@@ -1842,22 +1825,6 @@ async def handler(ws):
             if msg.get("type") == "bridge_status":
                 EXTENSION_WS = ws
                 print("🎯 Marked as extension client (bridge_status)")
-                
-                # 🆕 NEW: Send site configurations to extension
-                try:
-                    from site_config_manager import get_all_site_configs
-                    site_configs = get_all_site_configs()
-                    if site_configs:
-                        config_msg = {
-                            "type": "site_configs_update",
-                            "data": site_configs
-                        }
-                        await ws.send(json.dumps(config_msg))
-                        print(f"🎯 Sent {len(site_configs)} site configs to extension")
-                    else:
-                        print("⚠️ No site configs available to send")
-                except Exception as e:
-                    print(f"❌ Error sending site configs to extension: {e}")
             
             # 📊 TAB INFORMATION STORAGE: Store latest tabs_info for external access
             if msg.get("type") == "tabs_info":
@@ -2308,13 +2275,8 @@ async def main():
     
     📡 SERVER ENDPOINT: ws://127.0.0.1:17892
     """
-    # 🆕 NEW: Start site config polling
-    print("🎯 Starting site configuration polling...")
-    await start_site_config_polling()
-    
     async with websockets.serve(handler, "127.0.0.1", 17892):
         print("WS listening on ws://127.0.0.1:17892")
-        print("🎯 Site config polling active (every 0.2s)")
         await asyncio.Future()  # Keep server running indefinitely
 
 if __name__ == "__main__":
