@@ -195,9 +195,9 @@
       "polymer_framework": true
     }
   },
-  "wordpress": {
+    "brighttreedigital.com.au": {
     "framework": "wordpress",
-    "scan_strategy": "wordpress_specific", 
+    "scan_strategy": "wordpress_specific",
     "selectors": {
       "navigation": [
         ".menu-link",
@@ -234,9 +234,9 @@
     },
     "scan_priority": [
       "text_inputs",
-      "main_navigation",
-      "mobile_menu",
-      "footer_links"
+      "navigation",
+      "buttons",
+      "menus"
     ]
   },
   "default": {

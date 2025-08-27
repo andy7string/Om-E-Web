@@ -76,6 +76,14 @@ var currentDomain = new URL(window.location.href).hostname.toLowerCase();
 var siteConfig = null; // Will be populated immediately from injected config or message
 console.log(`🎯 Framework setup ready for domain: ${currentDomain}`);
 
+// 🆕 NEW: Load site config immediately
+siteConfig = getSiteConfigDirect();
+if (siteConfig) {
+    console.log(`✅ Site config loaded for ${currentDomain}: ${siteConfig.framework}`);
+} else {
+    console.log(`⚠️ No site config available for ${currentDomain}, using generic framework`);
+}
+
 // 🆕 NEW: Read site config directly from extension file
 function getSiteConfigDirect() {
     // Read the config file synchronously
@@ -115,6 +123,7 @@ function getSiteConfigDirect() {
             if (foundConfig) {
                 siteConfig = foundConfig;
                 window.currentSiteConfig = foundConfig;
+                window.currentFramework = foundConfig.framework;
                 console.log("✅ Site config set from file:", foundConfig);
                 return foundConfig; // Return the actual config object
             } else {
@@ -271,95 +280,87 @@ function determineActionType(element) {
     }
 }
 
-// 🆕 NEW: Framework-specific element scanning
+// 🆕 NEW: Dynamic framework-specific element scanning
 function scanWithFrameworkSelectors() {
-    if (!currentSiteConfig) {
+    if (!window.currentSiteConfig) {
         console.log("[Content] ⚠️ No site config available, using generic scanning");
         return [];
     }
     
-    console.log("[Content] 🎯 Scanning with framework:", currentFramework, "selectors");
+    console.log("[Content] 🎯 Scanning with framework:", window.currentFramework, "selectors");
     
     const frameworkElements = [];
-    const selectors = currentSiteConfig.selectors;
+    const selectors = window.currentSiteConfig.selectors;
+    const scanPriority = window.currentSiteConfig.scan_priority || [];
     
-    // Scan navigation elements
-    if (selectors.navigation) {
-        selectors.navigation.forEach(selector => {
-            try {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    frameworkElements.push({
-                        element: element,
-                        type: 'navigation',
-                        selector: selector,
-                        framework: currentFramework
+    // 🎯 DYNAMIC: Scan ALL categories that exist in the site config
+    console.log(`[Content] 🔍 Categories: ${Object.keys(selectors).join(', ')}`);
+    
+    // If scan_priority is defined, use it to order the scanning
+    const categoriesToScan = scanPriority.length > 0 
+        ? scanPriority.filter(cat => selectors[cat]) // Only scan categories that exist
+        : Object.keys(selectors); // Fallback to all available categories
+    
+    console.log(`[Content] 🎯 Priority: ${categoriesToScan.join(' → ')}`);
+    
+    // 🆕 NEW: Track elements found per category
+    const categoryResults = {};
+    
+    categoriesToScan.forEach(category => {
+        const selectorList = selectors[category];
+        let categoryElementCount = 0;
+        
+        if (Array.isArray(selectorList) && selectorList.length > 0) {
+            // 🆕 NEW: Silent scanning - no intermediate logs
+            
+            selectorList.forEach(selector => {
+                try {
+                    const elements = document.querySelectorAll(selector);
+                    const elementCount = elements.length;
+                    categoryElementCount += elementCount;
+                    
+                    elements.forEach(element => {
+                        frameworkElements.push({
+                            element: element,
+                            type: category, // ← Dynamic category name
+                            selector: selector,
+                            framework: window.currentFramework,
+                            priority: scanPriority.indexOf(category) // ← Include priority info
+                        });
                     });
-                });
-            } catch (error) {
-                console.log("[Content] ⚠️ Error scanning selector:", selector, error);
-            }
-        });
+                } catch (error) {
+                    console.log(`[Content] ⚠️ Error scanning selector "${selector}":`, error);
+                }
+            });
+            
+            // 🆕 NEW: Store category results for summary (no individual logging)
+            categoryResults[category] = categoryElementCount;
+            
+        } else {
+            console.log(`[Content] ⚠️ Category "${category}" has no valid selectors or is empty`);
+            categoryResults[category] = 0;
+        }
+    });
+    
+    // 🆕 NEW: Display concise category summary
+    console.log(`[Content] 🎯 Framework: ${window.currentFramework} - ${Object.entries(categoryResults).map(([cat, count]) => `${cat}: ${count}`).join(', ')} - Total: ${frameworkElements.length}`);
+    
+    // 🎯 Apply max_elements filter if specified
+    if (window.currentSiteConfig.filters && window.currentSiteConfig.filters.max_elements) {
+        const maxElements = window.currentSiteConfig.filters.max_elements;
+        if (frameworkElements.length > maxElements) {
+            console.log(`[Content] 🎯 Limiting elements from ${frameworkElements.length} to ${maxElements} (site config limit)`);
+            frameworkElements.splice(maxElements); // Remove excess elements
+        }
     }
     
-    // Scan button elements
-    if (selectors.buttons) {
-        selectors.buttons.forEach(selector => {
-            try {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    frameworkElements.push({
-                        element: element,
-                        type: 'button',
-                        selector: selector,
-                        framework: currentFramework
-                    });
-                });
-            } catch (error) {
-                console.log("[Content] ⚠️ Error scanning selector:", selector, error);
-            }
-        });
-    }
+    console.log("[Content] 🎯 Framework scanning complete:", {
+        totalElements: frameworkElements.length,
+        categoriesScanned: categoriesToScan.length,
+        framework: window.currentFramework,
+        maxElements: window.currentSiteConfig.filters?.max_elements || 'unlimited'
+    });
     
-    // Scan menu elements
-    if (selectors.menus) {
-        selectors.menus.forEach(selector => {
-            try {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    frameworkElements.push({
-                        element: element,
-                        type: 'menu',
-                        selector: selector,
-                        framework: currentFramework
-                    });
-                });
-            } catch (error) {
-                console.log("[Content] ⚠️ Error scanning selector:", selector, error);
-            }
-        });
-    }
-    
-    // Scan hidden content elements
-    if (selectors.hidden_content) {
-        selectors.hidden_content.forEach(selector => {
-            try {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    frameworkElements.push({
-                        element: element,
-                        type: 'hidden_content',
-                        selector: selector,
-                        framework: currentFramework
-                    });
-                });
-            } catch (error) {
-                console.log("[Content] ⚠️ Error scanning selector:", selector, error);
-            }
-        });
-    }
-    
-    console.log("[Content] 🎯 Framework scanning found:", frameworkElements.length, "elements");
     return frameworkElements;
 }
 
@@ -420,14 +421,7 @@ function initializeDOMChangeDetection() {
                     }
                 }
             } else {
-                // 🚫 REDUCED LOGGING: Only log every 100th insignificant change
-                if (changeCount % 100 === 0) {
-                    console.log("[Content] 🚫 Filtered out insignificant DOM change:", {
-                        mutations: mutations.length,
-                        types: mutations.map(m => m.type),
-                        totalFiltered: changeCount
-                    });
-                }
+                // 🚫 SILENT: No logging of insignificant changes
             }
             
             // 🆕 NEW: Notify service worker about DOM changes (but only significant ones)
@@ -4161,43 +4155,57 @@ IntelligenceEngine.prototype.isInteractiveElement = function(element) {
             const selectors = siteConfig.selectors;
             const filters = siteConfig.filters;
             
-            // 🚨 PRIORITY 1: Always return true for elements with URLs
-            if (hasUrl(element)) {
-                console.log(`🔗 Element has URL - always interactive:`, element.href || element.getAttribute('data-url') || element.getAttribute('data-href'));
-                return true;
-            }
-            
-            // Check if element matches framework-specific interactive selectors
-            for (const [category, selectorList] of Object.entries(selectors)) {
-                if (['buttons', 'menus', 'text_inputs', 'navigation'].includes(category)) {
-                    for (const selector of selectorList) {
-                        try {
-                            if (element.matches(selector)) {
-                                console.log(`🎯 Element matches ${category} selector: ${selector}`);
-                                return true; // Element matches framework pattern
-                            }
-                        } catch (error) {
-                            // Invalid selector, skip
-                        }
-                    }
-                }
-            }
-            
-            // Apply framework-specific exclude filters
-            if (filters && filters.exclude) {
-                for (const excludeSelector of filters.exclude) {
+                    // 🚨 PRIORITY 1: Always return true for elements with URLs
+        if (hasUrl(element)) {
+            // 🆕 NEW: Don't log individual URL elements - just count them
+            return true;
+        }
+        
+        // 🎯 PRIORITY 2: Check if element matches framework-specific interactive selectors
+        for (const [category, selectorList] of Object.entries(selectors)) {
+            if (Array.isArray(selectorList)) {
+                for (const selector of selectorList) {
                     try {
-                        if (element.matches(excludeSelector)) {
-                            console.log(`🚫 Element excluded by framework filter: ${excludeSelector}`);
-                            return false; // Explicitly excluded by framework
+                        if (element.matches(selector)) {
+                            // 🆕 NEW: Don't log individual matches - just return true
+                            return true; // Element matches framework pattern
                         }
                     } catch (error) {
                         // Invalid selector, skip
                     }
                 }
             }
-            
-            return false; // Not interactive for this framework
+        }
+        
+        // 🎯 PRIORITY 3: Check if element matches include filters (enhanced scanning)
+        if (filters && filters.include) {
+            for (const includeSelector of filters.include) {
+                try {
+                    if (element.matches(includeSelector)) {
+                        // 🆕 NEW: Don't log individual include matches
+                        return true; // Explicitly included by framework
+                    }
+                } catch (error) {
+                    // Invalid selector, skip
+                }
+            }
+        }
+        
+        // 🚫 PRIORITY 4: Apply framework-specific exclude filters
+        if (filters && filters.exclude) {
+            for (const excludeSelector of filters.exclude) {
+                try {
+                    if (element.matches(excludeSelector)) {
+                        console.log(`🚫 Element excluded by framework filter: ${excludeSelector}`);
+                        return false; // Explicitly excluded by framework
+                    }
+                } catch (error) {
+                    // Invalid selector, skip
+                }
+            }
+        }
+        
+        return false; // Not interactive for this framework
         } catch (error) {
             console.warn('⚠️ Error in framework-specific interactive check:', error);
             // Fall through to generic logic
@@ -4242,12 +4250,12 @@ IntelligenceEngine.prototype.passesBasicQualityFilter = function(element) {
     const ariaHidden = element.getAttribute('aria-hidden');
     if (ariaHidden === 'true') return false;
     
-    // 🆕 ENHANCED: Always include interactive elements regardless of dimensions
-    const isInteractiveElement = this.isInteractiveElement(element);
-    if (isInteractiveElement) {
-        console.log(`[Quality Filter] ✅ Including interactive element: ${element.tagName} (${element.className})`);
-        return true; // Always include interactive elements
-    }
+            // 🆕 ENHANCED: Always include interactive elements regardless of dimensions
+        const isInteractiveElement = this.isInteractiveElement(element);
+        if (isInteractiveElement) {
+            // 🆕 NEW: Don't log individual elements - just count them
+            return true; // Always include interactive elements
+        }
     
     // 🚫 Filter out elements with no meaningful content
     const text = element.textContent?.trim();
@@ -4643,11 +4651,7 @@ IntelligenceEngine.prototype.queueIntelligenceUpdate = function(priority = 'norm
         this.updateQueue.push(updateItem); // Add to back
     }
     
-    console.log("[Content] 📋 Intelligence update queued:", {
-        id: updateItem.id,
-        priority: priority,
-        queueLength: this.updateQueue.length
-    });
+    // 🆕 NEW: Don't log individual queue details - just track silently
     
     // Process queue if not already processing
     if (!this.isProcessingQueue) {
@@ -4664,17 +4668,13 @@ IntelligenceEngine.prototype.processUpdateQueue = async function() {
     }
     
     this.isProcessingQueue = true;
-    console.log("[Content] 🔄 Processing intelligence update queue, length:", this.updateQueue.length);
-    
+    // 🆕 NEW: Simplified queue processing - only log errors and completion
     while (this.updateQueue.length > 0) {
         const updateItem = this.updateQueue.shift();
         
         try {
-            console.log("[Content] 📤 Processing queued update:", updateItem.id);
-            
             // 🆕 NEW: Check if intelligence engine is ready before sending
             if (!this.isEngineReady()) {
-                console.log("[Content] ⏳ Intelligence engine not ready, re-queuing update:", updateItem.id);
                 // Re-queue with lower priority if engine not ready
                 if (updateItem.priority !== 'low') {
                     updateItem.priority = 'low';
@@ -4689,7 +4689,6 @@ IntelligenceEngine.prototype.processUpdateQueue = async function() {
             await this.sendIntelligenceUpdateToServiceWorker(updateItem.data);
             
             this.lastUpdateTime = Date.now();
-            console.log("[Content] ✅ Queued update processed successfully:", updateItem.id);
             
         } catch (error) {
             console.error("[Content] ❌ Error processing queued update:", updateItem.id, error);
@@ -4698,7 +4697,6 @@ IntelligenceEngine.prototype.processUpdateQueue = async function() {
             if (updateItem.priority !== 'low') {
                 updateItem.priority = 'low';
                 this.updateQueue.push(updateItem);
-                console.log("[Content] 🔄 Re-queued failed update with lower priority:", updateItem.id);
             }
         }
     }
@@ -4965,7 +4963,7 @@ IntelligenceEngine.prototype.refreshPageIntelligenceWithRetry = function(trigger
     // Queue the intelligence update
     this.queueIntelligenceUpdate('high', trigger);
     
-    console.log("[Content] ✅ Intelligence update queued for trigger:", trigger);
+    // 🆕 NEW: Don't log individual trigger events - just queue silently
 };
 
 /**
@@ -5565,9 +5563,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
     try {
         console.log("[Content] 🔍 Scanning page for interactive elements...");
         
-        // 🎯 NEW: Automatic disconnect cycle for CSP bypass before scanning
-        console.log("[Content] 🔄 Performing automatic disconnect cycle for CSP bypass...");
-        performAutomaticDisconnectCycle();
+        // 🆕 CSP bypass already handled during page initialization - no need to repeat
         
         // Clear existing elements
         this.actionableElements.clear();
@@ -5619,24 +5615,35 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         let filteredCount = 0;
         let registeredCount = 0;
         
+        // 🆕 NEW: Track URL elements separately
+        let urlElementCount = 0;
+        let qualityFilteredCount = 0;
+        
         allElements.forEach(element => {
             if (this.isInteractiveElement(element)) {
                 filteredCount++;
+                
+                // 🆕 NEW: Count URL elements
+                if (hasUrl(element)) {
+                    urlElementCount++;
+                }
+                
                 if (this.passesBasicQualityFilter(element)) {
+                    qualityFilteredCount++;
                     const actionType = this.determineActionType(element);
                     const actionId = this.registerActionableElement(element, actionType);
                     registeredCount++;
                     
                     // Get the full element data to show href attributes
                     const elementData = this.getActionableElement(actionId);
-                    console.log("[Content] 📝 Registered element:", {
-                        actionId: actionId,
-                        tagName: element.tagName,
-                        actionType: actionType,
-                        textContent: element.textContent?.trim().substring(0, 30) || '',
-                        href: element.tagName === 'A' ? element.href : undefined,
-                        attributes: elementData?.attributes || {}
-                    });
+                    // console.log("[Content] 📝 Registered element:", {
+                    //     actionId: actionId,
+                    //     tagName: element.tagName,
+                    //     actionType: actionType,
+                    //     textContent: element.textContent?.trim().substring(0, 30) || '',
+                    //     href: element.tagName === 'A' ? element.href : undefined,
+                    //     attributes: elementData?.attributes || {}
+                    // });
                 }
             }
         });
@@ -5673,7 +5680,9 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         console.log("[Content] 🎯 PHASE 3 FILTERING RESULTS:");
         console.log(`   📊 Total elements found: ${allElements.length} (${frameworkElements.length} framework + ${elements.length} generic)`);
         console.log(`   🔍 Interactive elements: ${filteredCount}`);
-        console.log(`   ✅ Quality-filtered elements: ${registeredCount}`);
+        console.log(`   🔗 URL elements: ${urlElementCount}`);
+        console.log(`   ✅ Quality-filtered elements: ${qualityFilteredCount}`);
+        console.log(`   📝 Registered elements: ${registeredCount}`);
         console.log(`   📉 Reduction: ${Math.round((1 - registeredCount / allElements.length) * 100)}%`);
         
         console.log("[Content] 🎯 PHASE 4 FILTERING RESULTS:");
