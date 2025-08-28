@@ -10,15 +10,24 @@
         ".gb_ua:not([disabled]):not([aria-disabled='true']):not([hidden])",
         ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "nav:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[role='navigation']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+        "[role='navigation']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".MV3Tnb:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "a[class*='MV3Tnb']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "a[ping]:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "buttons": [
+        "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "button[aria-label]:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#gb_70:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#gb_119:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[data-ved]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+        "[data-ved]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[jsaction]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[jscontroller]:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "menus": [
         "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
@@ -61,12 +70,12 @@
         "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "url_elements": [
-        "a[href]:not([href='']):not([href^='#']):not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[data-url]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[data-href]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[data-link]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "link[href]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "area[href]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
       ]
     },
     "filters": {
@@ -121,14 +130,7 @@
         "timeout": 1000
       }
     },
-    "scan_priority": [
-      "text_inputs",
-      "search_interface",
-      "header_navigation",
-      "app_launcher",
-      "account_menu",
-      "hidden_content"
-    ],
+
     "custom_handlers": {
       "google_framework": true,
       "search_suggestions": true,
@@ -148,9 +150,14 @@
         "#back-button:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "buttons": [
+        "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "yt-icon-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "ytd-button-renderer:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "button[aria-label]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#avatar-btn:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
@@ -189,6 +196,14 @@
         "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])", 
         "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "url_elements": [
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
       ]
     },
     "interaction_patterns": {
@@ -208,13 +223,7 @@
         "timeout": 500
       }
     },
-    "scan_priority": [
-      "text_inputs",
-      "header_navigation",
-      "main_actions", 
-      "hidden_menus",
-      "dynamic_content"
-    ],
+
     "custom_handlers": {
       "shadow_dom": true,
       "web_components": true,
@@ -232,9 +241,14 @@
         ".main-navigation:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "buttons": [
+        "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         ".menu-toggle:not([disabled]):not([aria-disabled='true']):not([hidden])",
         ".ast-menu-toggle:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "button[aria-label*='menu']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+        "button[aria-label*='menu']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "menus": [
         ".menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
@@ -265,6 +279,14 @@
         "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])", 
         "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "url_elements": [
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
       ]
     },
     "interaction_patterns": {
@@ -273,13 +295,7 @@
         "wait_for": ".menu",
         "timeout": 1000
       }
-    },
-    "scan_priority": [
-      "text_inputs",
-      "navigation",
-      "buttons",
-      "menus"
-    ]
+    }
   },
   "default": {
     "framework": "generic",
@@ -296,7 +312,10 @@
         "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "[onclick]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[data-action]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+        "[data-action]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "menus": [
         "[role='menu']:not([disabled]):not([aria-disabled='true']):not([hidden])",
@@ -338,12 +357,12 @@
         "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "url_elements": [
-        "a[href]:not([href='']):not([href^='#']):not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[data-url]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[data-href]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "[data-link]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "link[href]:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "area[href]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
       ]
     },
     "filters": {
@@ -377,12 +396,6 @@
         "wait_for": "[aria-expanded='true']",
         "timeout": 1000
       }
-    },
-    "scan_priority": [
-      "text_inputs",
-      "visible_elements",
-      "hidden_elements",
-      "dynamic_content"
-    ]
+    }
   }
 }

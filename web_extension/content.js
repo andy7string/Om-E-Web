@@ -291,17 +291,9 @@ function scanWithFrameworkSelectors() {
     
     const frameworkElements = [];
     const selectors = window.currentSiteConfig.selectors;
-    const scanPriority = window.currentSiteConfig.scan_priority || [];
-    
-    // 🎯 DYNAMIC: Scan ALL categories that exist in the site config
-    console.log(`[Content] 🔍 Categories: ${Object.keys(selectors).join(', ')}`);
-    
-    // If scan_priority is defined, use it to order the scanning
-    const categoriesToScan = scanPriority.length > 0 
-        ? scanPriority.filter(cat => selectors[cat]) // Only scan categories that exist
-        : Object.keys(selectors); // Fallback to all available categories
-    
-    console.log(`[Content] 🎯 Priority: ${categoriesToScan.join(' → ')}`);
+    // 🎯 SCAN ALL CATEGORIES: No more hardcoded priority bullshit
+    const categoriesToScan = Object.keys(selectors);
+    console.log(`[Content] 🔍 Scanning ALL categories: ${categoriesToScan.join(', ')}`);
     
     // 🆕 NEW: Track elements found per category
     const categoryResults = {};
@@ -324,8 +316,7 @@ function scanWithFrameworkSelectors() {
                             element: element,
                             type: category, // ← Dynamic category name
                             selector: selector,
-                            framework: window.currentFramework,
-                            priority: scanPriority.indexOf(category) // ← Include priority info
+                            framework: window.currentFramework
                         });
                     });
                 } catch (error) {
@@ -4033,6 +4024,7 @@ var IntelligenceEngine = function() {
     this.pageState = {
         currentView: 'unknown',
         interactiveElements: [],
+        contentElements: [], // 🆕 NEW: Array of content elements
         navigationState: 'unknown',
         contentSections: [],
         lastUpdate: Date.now(),
@@ -4043,6 +4035,7 @@ var IntelligenceEngine = function() {
     this.eventHistory = [];
     this.llmInsights = [];
     this.actionableElements = new Map(); // 🆕 NEW: Map of actionable elements with IDs
+    this.contentElements = new Map(); // 🆕 NEW: Map of content elements with IDs
     this.elementCounter = 0; // 🆕 NEW: Counter for generating unique IDs
     this.initialScanCompleted = false; // 🆕 NEW: Track if initial scan is complete
     
@@ -4752,11 +4745,7 @@ IntelligenceEngine.prototype.sendIntelligenceUpdateToServiceWorker = async funct
  * 🆕 NEW: Check if intelligence engine is ready to send updates
  */
 IntelligenceEngine.prototype.isEngineReady = function() {
-    // 🎯 NEW: Automatic disconnect cycle for CSP bypass in normal workflow
-    if (Math.random() < 0.1) { // Only 10% of the time to avoid excessive disconnects
-        console.log("[Content] 🔄 Engine ready check: Performing automatic disconnect cycle for CSP bypass...");
-        performAutomaticDisconnectCycle();
-    }
+    // 🎯 FIXED: No CSP bypass needed for engine ready checks - only needed during actual scanning
     
     // Check if core components are initialized
     if (!this.pageState || !this.actionableElements) {
@@ -4869,6 +4858,23 @@ IntelligenceEngine.prototype.getActionableElementsSummary = function() {
     return elements.map(element => ({
         actionId: element.id,
         actionType: element.actionType,
+        tagName: element.tagName,
+        textContent: element.textContent,
+        selectors: element.selectors,
+        attributes: element.attributes,
+        timestamp: element.timestamp
+    }));
+};
+
+/**
+ * 🆕 NEW: Get summary of content elements for LLM
+ */
+IntelligenceEngine.prototype.getContentElementsSummary = function() {
+    const elements = Array.from(this.contentElements.values());
+    
+    return elements.map(element => ({
+        contentId: element.id,
+        contentType: element.contentType,
         tagName: element.tagName,
         textContent: element.textContent,
         selectors: element.selectors,
@@ -4994,13 +5000,35 @@ IntelligenceEngine.prototype.isExtensionContextValid = function() {
 IntelligenceEngine.prototype.generateActionableId = function(element, actionType = 'general') {
     const tagName = element.tagName?.toLowerCase() || 'unknown';
     const className = element.className || '';
-    const textContent = element.textContent?.trim().substring(0, 20) || '';
+    const textContent = element.textContent?.trim().substring(0, 100) || '';
     
     // Create a unique ID based on element properties
     const uniqueId = `action_${actionType}_${tagName}_${this.elementCounter++}`;
     
     // Generate multiple selectors for reliability
     const selectors = this.generateElementSelectors(element);
+    
+    // 🆕 ENHANCED: Extract rich context for URL elements
+    const attributes = this.extractKeyAttributes(element);
+    let urlContext = null;
+    
+    // If this is a URL element, capture rich context
+    if (element.href || element.getAttribute('data-url') || element.getAttribute('data-href')) {
+        urlContext = {
+            url: element.href || element.getAttribute('data-url') || element.getAttribute('data-href'),
+            textContent: textContent,
+            title: element.getAttribute('title'),
+            ariaLabel: element.getAttribute('aria-label'),
+            altText: element.querySelector('img')?.getAttribute('alt'),
+            // Check if it's an image link
+            hasImage: !!element.querySelector('img'),
+            imageSrc: element.querySelector('img')?.getAttribute('src'),
+            // Check if it's a button-style link
+            isButton: element.classList.contains('btn') || element.classList.contains('button') || element.role === 'button'
+        };
+        
+       // console.log(`[Content] 🔗 Rich URL context captured:`, urlContext);
+    }
     
     return {
         id: uniqueId,
@@ -5009,7 +5037,8 @@ IntelligenceEngine.prototype.generateActionableId = function(element, actionType
         selectors: selectors,
         textContent: textContent,
         className: className,
-        attributes: this.extractKeyAttributes(element),
+        attributes: attributes,
+        urlContext: urlContext, // 🆕 NEW: Rich context for URL elements
         timestamp: Date.now()
     };
 };
@@ -5088,17 +5117,27 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
     const attributes = {};
     let keyAttrs = ['id', 'name', 'type', 'role', 'aria-label', 'title', 'alt'];
     
-    // Add href for anchor tags
-    if (element.tagName === 'A') {
-        keyAttrs.push('href');
+    // 🆕 ENHANCED: Add URL-related attributes for better context
+    if (element.tagName === 'A' || element.href || element.getAttribute('data-url')) {
+        keyAttrs.push('href', 'data-url', 'data-href', 'data-link', 'target', 'rel');
     }
+    
     // Add src for images
     if (element.tagName === 'IMG') {
         keyAttrs.push('src');
     }
+    
     // Add value for form elements
     if (element.tagName === 'INPUT' || element.tagName === 'SELECT' || element.tagName === 'TEXTAREA') {
         keyAttrs.push('value');
+    }
+    
+    // 🆕 NEW: Add common CSS classes for styling context
+    if (element.className) {
+        const classes = element.className.split(' ').filter(c => c.trim());
+        if (classes.length > 0) {
+            attributes['cssClasses'] = classes;
+        }
     }
     
     keyAttrs.forEach(attr => {
@@ -5152,10 +5191,24 @@ IntelligenceEngine.prototype.getActionableElement = function(actionId) {
 };
 
 /**
+ * 🆕 NEW: Get content element by ID
+ */
+IntelligenceEngine.prototype.getContentElement = function(contentId) {
+    return this.contentElements.get(contentId);
+};
+
+/**
  * 🆕 NEW: Get all actionable elements
  */
 IntelligenceEngine.prototype.getAllActionableElements = function() {
     return Array.from(this.actionableElements.values());
+};
+
+/**
+ * 🆕 NEW: Get all content elements
+ */
+IntelligenceEngine.prototype.getAllContentElements = function() {
+    return Array.from(this.contentElements.values());
 };
 
 /**
@@ -5556,6 +5609,96 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
 };
 
 /**
+ * 🆕 NEW: Purify element to ensure it's a clean actionable element
+ * Filters out content elements and ensures only true actionable elements get registered
+ */
+IntelligenceEngine.prototype.purifyElement = function(element, category) {
+    // 🆕 NEW: Register content elements before filtering them out
+    if (category === 'content_elements') {
+        // Register content element first
+        const contentId = this.registerContentElement(element, category);
+       //console.log(`[Content] 📝 Content element registered: ${contentId}`);
+        return null; // Still return null to keep it out of actionable elements
+    }
+    
+    // All other categories are actionable (navigation, buttons, menus, text_inputs, url_elements)
+    return element;
+};
+
+/**
+ * 🆕 NEW: Register a content element
+ */
+IntelligenceEngine.prototype.registerContentElement = function(element, contentType = 'content') {
+    // Generate unique content ID
+    const contentId = this.generateContentId(element, contentType);
+    this.contentElements.set(contentId.id, contentId);
+    
+    // Add to page state
+    this.pageState.contentElements.push({
+        ...contentId,
+        element: element
+    });
+    
+    return contentId.id;
+};
+
+/**
+ * 🆕 NEW: Generate unique ID for content elements
+ */
+IntelligenceEngine.prototype.generateContentId = function(element, contentType = 'content') {
+    this.elementCounter++;
+    const tagName = element.tagName ? element.tagName.toLowerCase() : 'unknown';
+    const id = `content_${contentType}_${tagName}_${this.elementCounter}`;
+    
+    return {
+        id: id,
+        contentType: contentType,
+        tagName: tagName,
+        textContent: element.textContent ? element.textContent.trim().substring(0, 100) : '',
+        selectors: this.generateElementSelectors(element),
+        attributes: this.extractKeyAttributes(element),
+        timestamp: Date.now()
+    };
+};
+
+/**
+ * 🆕 NEW: Extract URL from element for deduplication
+ */
+IntelligenceEngine.prototype.extractElementUrl = function(element) {
+    try {
+        // Check for href attribute (links)
+        if (element.href) return element.href;
+        
+        // Check for data attributes that might contain URLs
+        const dataUrl = element.getAttribute('data-url');
+        if (dataUrl) return dataUrl;
+        
+        const dataHref = element.getAttribute('data-href');
+        if (dataHref) return dataHref;
+        
+        const dataLink = element.getAttribute('data-link');
+        if (dataLink) return dataLink;
+        
+        // 🆕 SIMPLE: No more DOM traversal bullshit - just check the element itself
+        
+        // Check for onclick handlers on the element itself
+        if (element.onclick || element.getAttribute('onclick')) {
+            const onclickValue = element.getAttribute('onclick') || '';
+            if (onclickValue.includes('window.location') || onclickValue.includes('href') || onclickValue.includes('navigate')) {
+                // Extract URL from onclick if possible
+                const urlMatch = onclickValue.match(/['"`]([^'"`]+)['"`]/);
+                if (urlMatch) return urlMatch[1];
+            }
+        }
+        
+        return null;
+    } catch (error) {
+        console.warn(`[Content] ⚠️ Error extracting URL from element:`, error);
+        return null;
+    }
+};
+
+/**
  * 🆕 NEW: Scan page and register all existing interactive elements
  */
 IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
@@ -5566,6 +5709,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         
         // Clear existing elements
         this.actionableElements.clear();
+        this.contentElements.clear(); // 🆕 NEW: Clear content elements too
         this.elementCounter = 0;
         
         // 🎯 Framework-specific scanning (site configs only)
@@ -5581,15 +5725,35 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         let registeredCount = 0;
         let urlElementCount = 0;
         
+        // 🆕 NEW: Track URLs to prevent duplicates across ALL registries
+        const registeredUrls = new Set();
+        
         allElements.forEach(element => {
-            if (this.isInteractiveElement(element) && this.passesBasicQualityFilter(element)) {
-                const actionType = this.determineActionType(element);
-                const actionId = this.registerActionableElement(element, actionType);
-                registeredCount++;
+            // Get the category from the framework element data
+            const frameworkElement = frameworkElements.find(fe => fe.element === element);
+            if (frameworkElement && frameworkElement.type) {
+                const category = frameworkElement.type;
                 
-                // Count URL elements
-                if (hasUrl(element)) {
-                    urlElementCount++;
+                // 🆕 NEW: Check for URL duplicates BEFORE any processing
+                const elementUrl = this.extractElementUrl(element);
+                if (elementUrl && registeredUrls.has(elementUrl)) {
+                    //console.log(`[Content] 🚫 Skipping duplicate URL: ${elementUrl}`);
+                    return; // Skip this element completely - don't process it at all
+                }
+                
+                // 🎯 PURIFY: Filter out content elements before processing
+                const purifiedElement = this.purifyElement(element, category);
+                if (purifiedElement && this.isInteractiveElement(purifiedElement) && this.passesBasicQualityFilter(purifiedElement)) {
+                    // Register the element (we already know it's not a duplicate URL)
+                    const actionType = this.determineActionType(purifiedElement);
+                    const actionId = this.registerActionableElement(purifiedElement, actionType);
+                    registeredCount++;
+                    
+                    // Track the URL to prevent future duplicates
+                    if (elementUrl) {
+                        registeredUrls.add(elementUrl);
+                        urlElementCount++;
+                    }
                 }
             }
         });
@@ -5607,7 +5771,8 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         
         console.log("[Content] 🎯 SCAN RESULTS:");
         console.log(`   📊 Total elements: ${allElements.length}`);
-        console.log(`   📝 Registered: ${registeredCount}`);
+        console.log(`   📝 Actionable registered: ${registeredCount}`);
+        console.log(`   📄 Content registered: ${this.contentElements.size}`);
         console.log(`   🔗 URL elements: ${urlElementCount}`);
         
         // Show breakdown by site config categories
@@ -5624,10 +5789,11 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             
             const result = {
                 success: true,
-                totalElements: this.actionableElements.size,
+                totalElements: this.actionableElements.size + this.contentElements.size,
                 actionableElements: this.getActionableElementsSummary(),
+                contentElements: this.getContentElementsSummary(),
                 actionMapping: this.generateActionMapping(),
-                message: `Successfully registered ${this.actionableElements.size} interactive elements`
+                message: `Successfully registered ${this.actionableElements.size} actionable elements and ${this.contentElements.size} content elements`
             };
             
             console.log("[Content] ✅ Page scan complete:", result);
@@ -5867,13 +6033,7 @@ function setupIntelligenceUpdates() {
         if (document.visibilityState === 'visible') {
             console.log("[Content] 🧠 Tab became visible, triggering intelligence update");
             
-            // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass on tab visibility
-            console.log("[Content] 🔄 Tab visible: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
-            performAutomaticDisconnectCycle();
-            
-            // 🎯 NEW: Run comprehensive scan to get 262+ elements - REMOVED
-            console.log("[Content] 🔍 Tab visible: Comprehensive scan skipped");
-            
+            // 🎯 FIXED: No CSP bypass needed for tab visibility - just queue intelligence update
             setTimeout(() => {
                 if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
                     intelligenceEngine.queueIntelligenceUpdate('normal');
