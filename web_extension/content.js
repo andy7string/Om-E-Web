@@ -30,6 +30,18 @@ console.log("[Content] ✅ Running in main frame:", {
     topUrl: window.top.location.href
 });
 
+// 🆕 NEW: Wait for page to be fully loaded before scanning
+if (document.readyState === 'complete') {
+    console.log("[Content] ✅ Page already fully loaded, proceeding with initialization...");
+    runScanAfterPageLoad();
+} else {
+    console.log("[Content] 🔄 Page still loading, waiting for load event...");
+    window.addEventListener('load', () => {
+        console.log("[Content] ✅ Page fully loaded, proceeding with initialization...");
+        runScanAfterPageLoad();
+    });
+}
+
 // 🆕 NEW: Content Script Intelligence System v2.0
 console.log("[Content] 🚀 Content script loaded with intelligence system v2.0");
 
@@ -345,9 +357,108 @@ function scanWithFrameworkSelectors() {
         }
     }
     
+    // 🆕 NEW: Test if selectors are actually working
+    testSelectorsAfterScan();
+    
     // Framework scanning complete
     
     return frameworkElements;
+}
+
+// 🆕 NEW: Test function to check if selectors are working
+function testSelectorsAfterScan() {
+    console.log("[Content] 🔍 TEST: Checking if selectors are actually working...");
+    
+    // Test the EXACT selectors from the current site config
+    if (window.currentSiteConfig && window.currentSiteConfig.selectors) {
+        const selectors = window.currentSiteConfig.selectors;
+        
+        let totalFound = 0;
+        
+        // Test text_inputs and buttons specifically
+        if (selectors.text_inputs) {
+            console.log("[Content] 🔍 TEST: Testing text_inputs selectors...");
+            selectors.text_inputs.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                if (elements.length > 0) {
+                    totalFound += elements.length;
+                    console.log(`[Content] ✅ TEST: Selector "${selector}" found ${elements.length} elements`);
+                    elements.forEach((el, i) => {
+                        console.log(`[Content] 🔍 TEST: Element ${i+1}: ${el.tagName}${el.id ? '#' + el.id : ''}, disabled: ${el.disabled}, aria-disabled: ${el.getAttribute('aria-disabled')}`);
+                    });
+                } else {
+                    console.log(`[Content] ❌ TEST: Selector "${selector}" found 0 elements`);
+                }
+            });
+        }
+        
+        if (selectors.buttons) {
+            console.log("[Content] 🔍 TEST: Testing buttons selectors...");
+            selectors.buttons.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                if (elements.length > 0) {
+                    totalFound += elements.length;
+                    console.log(`[Content] ✅ TEST: Selector "${selector}" found ${elements.length} elements`);
+                    elements.forEach((el, i) => {
+                        console.log(`[Content] 🔍 TEST: Element ${i+1}: ${el.tagName}${el.id ? '#' + el.id : ''}, disabled: ${el.disabled}, aria-disabled: ${el.getAttribute('aria-disabled')}`);
+                    });
+                } else {
+                    console.log(`[Content] ❌ TEST: Selector "${selector}" found 0 elements`);
+                }
+            });
+        }
+        
+        if (totalFound > 0) {
+            console.log(`[Content] 🎯 TEST RESULT: Selectors working! Found ${totalFound} elements total`);
+        } else {
+            console.log(`[Content] ❌ TEST RESULT: Selectors NOT working! Found 0 elements`);
+        }
+        
+        // 🆕 NEW: Aggressive debugging - find ALL input elements
+        console.log("[Content] 🔍 AGGRESSIVE DEBUG: Finding ALL input elements on page...");
+        const allInputs = document.querySelectorAll('input');
+        console.log(`[Content] 🔍 AGGRESSIVE DEBUG: Found ${allInputs.length} total input elements`);
+        allInputs.forEach((input, i) => {
+            console.log(`[Content] 🔍 AGGRESSIVE DEBUG: Input ${i+1}: type="${input.type}", id="${input.id}", disabled="${input.disabled}", aria-disabled="${input.getAttribute('aria-disabled')}", hidden="${input.hidden}", style.display="${input.style.display}"`);
+        });
+        
+        // Also check for any password-related elements
+        const passwordInputs = document.querySelectorAll('input[type="password"], [data-type="password"], [name*="password"], [id*="password"]');
+        console.log(`[Content] 🔍 AGGRESSIVE DEBUG: Found ${passwordInputs.length} password-related elements`);
+        passwordInputs.forEach((input, i) => {
+            console.log(`[Content] 🔍 AGGRESSIVE DEBUG: Password ${i+1}: ${input.outerHTML.substring(0, 200)}...`);
+        });
+    } else {
+        console.log("[Content] ❌ TEST: No site config available for testing");
+    }
+}
+
+// 🆕 NEW: Function to run scan after page is fully loaded
+function runScanAfterPageLoad() {
+    console.log("[Content] 🔍 Page fully loaded - now running scan...");
+    
+    if (intelligenceEngine) {
+        // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass on page load
+        console.log("[Content] 🔄 Page load: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
+        performAutomaticDisconnectCycle();
+        
+        // 🎯 NEW: Run comprehensive scan to get 262+ elements - REMOVED
+        console.log("[Content] 🔍 Page load: Comprehensive scan skipped");
+        
+        // ✅ SYNC: Scan elements (returns immediately)
+        const scanResult = intelligenceEngine.scanAndRegisterPageElements();
+        
+        // ✅ SYNC: Send intelligence update immediately after scan
+        if (scanResult && scanResult.success) {
+            console.log("[Content] 📤 Scan complete, sending intelligence update...");
+            // 🆕 NEW: Use queue system instead of immediate send
+            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                intelligenceEngine.queueIntelligenceUpdate('high');
+            }
+        }
+    } else {
+        console.error("[Content] ❌ Intelligence engine not available for delayed scan");
+    }
 }
 
 // Utility function for async delays
@@ -5736,26 +5847,41 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             if (frameworkElement && frameworkElement.type) {
                 const category = frameworkElement.type;
                 
+                console.log(`[Content] 🔍 DEBUG: Processing element: ${element.tagName}${element.id ? '#' + element.id : ''} (${category})`);
+                
                 // 🆕 NEW: Check for URL duplicates BEFORE any processing
                 const elementUrl = this.extractElementUrl(element);
                 if (elementUrl && registeredUrls.has(elementUrl)) {
-                    //console.log(`[Content] 🚫 Skipping duplicate URL: ${elementUrl}`);
+                    console.log(`[Content] 🚫 DEBUG: Skipping duplicate URL: ${elementUrl}`);
                     return; // Skip this element completely - don't process it at all
                 }
                 
                 // 🎯 PURIFY: Filter out content elements before processing
                 const purifiedElement = this.purifyElement(element, category);
-                if (purifiedElement && this.isInteractiveElement(purifiedElement) && this.passesBasicQualityFilter(purifiedElement)) {
-                    // Register the element (we already know it's not a duplicate URL)
-                    const actionType = this.determineActionType(purifiedElement);
-                    const actionId = this.registerActionableElement(purifiedElement, actionType);
-                    registeredCount++;
+                console.log(`[Content] 🔍 DEBUG: After purify: ${purifiedElement ? 'PASSED' : 'FAILED'}`);
+                
+                if (purifiedElement) {
+                    const isInteractive = this.isInteractiveElement(purifiedElement);
+                    const passesQuality = this.passesBasicQualityFilter(purifiedElement);
+                    console.log(`[Content] 🔍 DEBUG: Quality checks - interactive: ${isInteractive}, quality: ${passesQuality}`);
                     
-                    // Track the URL to prevent future duplicates
-                    if (elementUrl) {
-                        registeredUrls.add(elementUrl);
-                        urlElementCount++;
+                    if (isInteractive && passesQuality) {
+                        // Register the element (we already know it's not a duplicate URL)
+                        const actionType = this.determineActionType(purifiedElement);
+                        const actionId = this.registerActionableElement(purifiedElement, actionType);
+                        registeredCount++;
+                        console.log(`[Content] ✅ DEBUG: Element registered successfully as ${actionType}`);
+                        
+                        // Track the URL to prevent future duplicates
+                        if (elementUrl) {
+                            registeredUrls.add(elementUrl);
+                            urlElementCount++;
+                        }
+                    } else {
+                        console.log(`[Content] ❌ DEBUG: Element failed quality checks - interactive: ${isInteractive}, quality: ${passesQuality}`);
                     }
+                } else {
+                    console.log(`[Content] ❌ DEBUG: Element failed purification`);
                 }
             }
         });
@@ -5879,29 +6005,9 @@ function initializeIntelligenceSystem() {
             pageContext: pageContext
         });
         
-        // 🆕 NEW: Scan existing elements on page load
-        // ✅ OPTIMIZED: Run synchronously instead of waiting unnecessarily
+        // 🆕 NEW: Scan will be triggered by load event listener instead of running immediately
         if (intelligenceEngine) {
-            console.log("[Content] 🔍 Starting initial page element scan...");
-            
-                    // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass on page load
-        console.log("[Content] 🔄 Page load: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
-        performAutomaticDisconnectCycle();
-        
-        // 🎯 NEW: Run comprehensive scan to get 262+ elements - REMOVED
-        console.log("[Content] 🔍 Page load: Comprehensive scan skipped");
-        
-        // ✅ SYNC: Scan elements (returns immediately)
-        const scanResult = intelligenceEngine.scanAndRegisterPageElements();
-            
-            // ✅ SYNC: Send intelligence update immediately after scan
-            if (scanResult && scanResult.success) {
-                console.log("[Content] 📤 Scan complete, sending intelligence update...");
-                // 🆕 NEW: Use queue system instead of immediate send
-                if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
-                    intelligenceEngine.queueIntelligenceUpdate('high');
-                }
-            }
+            console.log("[Content] 🔍 Scan delayed until page is fully loaded...");
             
             // ✅ SYNC: Set up periodic intelligence updates
             setupIntelligenceUpdates();
