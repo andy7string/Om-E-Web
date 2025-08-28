@@ -51,6 +51,11 @@ CURRENT_PAGE_JSONL = "page.jsonl"
 CURRENT_PAGE_DATA = None
 LAST_PAGE_UPDATE = None
 
+# 🆕 NEW: Central content.jsonl file for current page content
+CURRENT_CONTENT_JSONL = "content.jsonl"
+CURRENT_CONTENT_DATA = None
+LAST_CONTENT_UPDATE = None
+
 async def consolidate_actionable_elements_to_menus(actionable_elements):
     """
     🎯 Consolidate raw actionable elements into clean menu structure
@@ -158,6 +163,150 @@ async def consolidate_actionable_elements_to_menus(actionable_elements):
             }
         }
 
+async def consolidate_content_elements_to_structure(content_elements):
+    """
+    🎯 Consolidate raw content elements into clean content structure
+    
+    This function takes the raw content elements from the extension and organizes them
+    into meaningful content structures for LLM consumption.
+    
+    @param content_elements: List of raw content elements from extension
+    @return: Clean content structure with consolidated content
+    """
+    try:
+        if not content_elements:
+            print("⚠️ No content elements to consolidate")
+            return {
+                "content_structure": {},
+                "summary": {
+                    "total_content_elements": 0,
+                    "headings": 0,
+                    "paragraphs": 0,
+                    "lists": 0,
+                    "images": 0,
+                    "tables": 0
+                }
+            }
+        
+        print(f"🎯 Consolidating {len(content_elements)} content elements into structure...")
+        
+        # 🎯 Step 1: Categorize content elements by type
+        content_categories = {
+            "headings": [],
+            "paragraphs": [],
+            "lists": [],
+            "images": [],
+            "tables": [],
+            "other": []
+        }
+        
+        for element in content_elements:
+            content_type = element.get("contentType", "unknown")
+            tag_name = element.get("tagName", "").lower()
+            text_content = element.get("textContent", "").strip()
+            
+            # 🎯 Categorize by content type and tag name
+            if content_type == "heading" or tag_name.startswith("h"):
+                content_categories["headings"].append(element)
+            elif content_type == "paragraph" or tag_name == "p":
+                content_categories["paragraphs"].append(element)
+            elif content_type == "list" or tag_name in ["ul", "ol", "li"]:
+                content_categories["lists"].append(element)
+            elif content_type == "image" or tag_name == "img":
+                content_categories["images"].append(element)
+            elif content_type == "table" or tag_name in ["table", "tr", "td", "th"]:
+                content_categories["tables"].append(element)
+            else:
+                content_categories["other"].append(element)
+        
+        print(f"🎯 Categorized: {len(content_categories['headings'])} headings, {len(content_categories['paragraphs'])} paragraphs, {len(content_categories['lists'])} lists, {len(content_categories['images'])} images, {len(content_categories['tables'])} tables, {len(content_categories['other'])} other")
+        
+        # 🎯 Step 2: Build content structure
+        content_structure = {}
+        
+        # Process headings
+        if content_categories["headings"]:
+            content_structure["headings"] = [{
+                "id": el.get("contentId"),
+                "text": el.get("textContent", ""),
+                "tagName": el.get("tagName", ""),
+                "selectors": el.get("selectors", []),
+                "level": int(el.get("tagName", "h1")[1]) if el.get("tagName", "").startswith("h") else 1
+            } for el in content_categories["headings"]]
+        
+        # Process paragraphs
+        if content_categories["paragraphs"]:
+            content_structure["paragraphs"] = [{
+                "id": el.get("contentId"),
+                "text": el.get("textContent", ""),
+                "selectors": el.get("selectors", []),
+                "attributes": el.get("attributes", {})
+            } for el in content_categories["paragraphs"]]
+        
+        # Process lists
+        if content_categories["lists"]:
+            content_structure["lists"] = [{
+                "id": el.get("contentId"),
+                "text": el.get("textContent", ""),
+                "tagName": el.get("tagName", ""),
+                "selectors": el.get("selectors", []),
+                "listType": "ordered" if el.get("tagName") == "ol" else "unordered"
+            } for el in content_categories["lists"]]
+        
+        # Process images
+        if content_categories["images"]:
+            content_structure["images"] = [{
+                "id": el.get("contentId"),
+                "alt": el.get("attributes", {}).get("alt", ""),
+                "src": el.get("attributes", {}).get("src", ""),
+                "selectors": el.get("selectors", []),
+                "attributes": el.get("attributes", {})
+            } for el in content_categories["images"]]
+        
+        # Process tables
+        if content_categories["tables"]:
+            content_structure["tables"] = [{
+                "id": el.get("contentId"),
+                "text": el.get("textContent", ""),
+                "tagName": el.get("tagName", ""),
+                "selectors": el.get("selectors", []),
+                "attributes": el.get("attributes", {})
+            } for el in content_categories["tables"]]
+        
+        # 🎯 Step 3: Create consolidated structure
+        consolidated_structure = {
+            "content_structure": content_structure,
+            "summary": {
+                "total_content_elements": len(content_elements),
+                "headings": len(content_categories["headings"]),
+                "paragraphs": len(content_categories["paragraphs"]),
+                "lists": len(content_categories["lists"]),
+                "images": len(content_categories["images"]),
+                "tables": len(content_categories["tables"]),
+                "other": len(content_categories["other"])
+            }
+        }
+        
+        print(f"✅ Content consolidation complete: {consolidated_structure['summary']['total_content_elements']} elements, {len(content_structure)} categories")
+        
+        return consolidated_structure
+        
+    except Exception as e:
+        print(f"❌ Error consolidating content elements: {e}")
+        import traceback
+        traceback.print_exc()
+        return {
+            "content_structure": {},
+            "summary": {
+                "total_content_elements": 0,
+                "headings": 0,
+                "paragraphs": 0,
+                "lists": 0,
+                "images": 0,
+                "tables": 0
+            }
+        }
+
 async def save_intelligence_to_page_jsonl(intelligence_data):
     """
     🧠 Save intelligence data to central page.jsonl file
@@ -222,6 +371,76 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
         
     except Exception as e:
         print(f"❌ Error saving intelligence to page.jsonl: {e}")
+        return None
+
+async def save_content_to_content_jsonl(intelligence_data):
+    """
+    📄 Save content data to central content.jsonl file
+    
+    This function maintains a single, up-to-date file representing the current
+    page content structure for LLM consumption.
+    
+    @param intelligence_data: Intelligence update data from extension
+    """
+    global CURRENT_CONTENT_DATA, LAST_CONTENT_UPDATE
+    
+    try:
+        # Ensure the site structures directory exists
+        if not os.path.exists(SITE_STRUCTURES_DIR):
+            os.makedirs(SITE_STRUCTURES_DIR)
+            print(f"📁 Created directory: {SITE_STRUCTURES_DIR}")
+        
+        # 🆕 NEW: Get current browser state information
+        browser_state = {
+            "total_tabs": len(CURRENT_TABS_INFO) if CURRENT_TABS_INFO else 0,
+            "active_tab": CURRENT_ACTIVE_TAB,
+            "all_tabs": CURRENT_TABS_INFO if CURRENT_TABS_INFO else [],
+            "last_tabs_update": LAST_TABS_UPDATE,
+            "extension_connected": EXTENSION_WS is not None
+        }
+        
+        # 🆕 NEW: Apply content consolidation before saving
+        content_elements = intelligence_data.get("contentElements", [])
+        consolidated_content = await consolidate_content_elements_to_structure(content_elements)
+        
+        # Prepare content data for JSONL format with browser state
+        content_data = {
+            "timestamp": time.time(),
+            "browser_state": browser_state,
+            "current_page": {
+                "url": browser_state.get("active_tab", {}).get("url", "unknown"),
+                "title": browser_state.get("active_tab", {}).get("title", "unknown"),
+                "is_active_tab": True
+            },
+            # 🆕 NEW: Clean content structure instead of raw elements
+            "content_structure": consolidated_content.get("content_structure", {}),
+            "page_state": intelligence_data.get("pageState", {}),
+            "summary": consolidated_content.get("summary", {}),
+            "intelligence_version": "2.0"
+        }
+        
+        # Update global state
+        CURRENT_CONTENT_DATA = content_data
+        LAST_CONTENT_UPDATE = time.time()
+        
+        # Save to central content.jsonl file
+        filepath = os.path.join(SITE_STRUCTURES_DIR, CURRENT_CONTENT_JSONL)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(json.dumps(content_data, ensure_ascii=False, indent=2) + '\n')
+        
+        print(f"📄 Content saved to central file: {filepath}")
+        print(f"📊 Content Summary: {content_data['summary'].get('total_content_elements', 0)} elements")
+        print(f"   📝 Headings: {content_data['summary'].get('headings', 0)}")
+        print(f"   📄 Paragraphs: {content_data['summary'].get('paragraphs', 0)}")
+        print(f"   📋 Lists: {content_data['summary'].get('lists', 0)}")
+        print(f"   🖼️ Images: {content_data['summary'].get('images', 0)}")
+        print(f"   📊 Tables: {content_data['summary'].get('tables', 0)}")
+        print(f"🌐 Browser State: {browser_state['total_tabs']} tabs, Active: {browser_state['active_tab'].get('url', 'unknown') if browser_state['active_tab'] else 'none'}")
+        
+        return filepath
+        
+    except Exception as e:
+        print(f"❌ Error saving content to content.jsonl: {e}")
         return None
 
 async def process_actionable_elements_for_llm(actionable_elements):
@@ -464,6 +683,30 @@ def get_current_page_data():
         "total_elements": CURRENT_PAGE_DATA.get("total_elements", 0),
         "intelligence_version": CURRENT_PAGE_DATA.get("intelligence_version", "unknown"),
         "browser_state": CURRENT_PAGE_DATA.get("browser_state", {}) if CURRENT_PAGE_DATA else {}
+    }
+
+def get_current_content_data():
+    """
+    📄 Get the latest page content data that was received from the extension
+    
+    This function provides external access to the current page content
+    including content structure and elements for LLM consumption.
+    
+    @returns {Object} - Current page content data with metadata
+    """
+    if CURRENT_CONTENT_DATA is None:
+        return {
+            "error": "No page content data available yet",
+            "status": "waiting_for_content_update"
+        }
+    
+    return {
+        "content_data": CURRENT_CONTENT_DATA,
+        "last_update": LAST_CONTENT_UPDATE,
+        "extension_connected": EXTENSION_WS is not None,
+        "total_content_elements": CURRENT_CONTENT_DATA.get("summary", {}).get("total_content_elements", 0),
+        "intelligence_version": CURRENT_CONTENT_DATA.get("intelligence_version", "unknown"),
+        "browser_state": CURRENT_CONTENT_DATA.get("browser_state", {}) if CURRENT_CONTENT_DATA else {}
     }
 
 def get_current_active_tab():
@@ -1864,11 +2107,60 @@ async def handler(ws):
                     # 🆕 NEW: Save to central page.jsonl file
                     await save_intelligence_to_page_jsonl(intelligence_data)
                     
+                    # 🆕 NEW: Save to central content.jsonl file
+                    await save_content_to_content_jsonl(intelligence_data)
+                    
+                    # 🆕 NEW: Auto-generate markdown file from page text
+                    try:
+                        # Extract page text from intelligence data
+                        page_state = intelligence_data.get("pageState", {})
+                        page_text = intelligence_data.get("pageText", "")
+                        
+                        if page_text:
+                            # Create text data structure for markdown generation
+                            text_data = {
+                                "frontmatter": {
+                                    "url": page_state.get("url", "unknown"),
+                                    "title": page_state.get("title", "unknown"),
+                                    "timestamp": time.time()
+                                },
+                                "markdown": page_text,
+                                "statistics": {
+                                    "totalHeadings": 0,
+                                    "totalParagraphs": 0,
+                                    "totalLists": 0,
+                                    "totalListItems": 0
+                                }
+                            }
+                            
+                            # 🎯 NEW: Save to single text.md file (overwrites previous content)
+                            try:
+                                # Create the text.md file path in the same directory as other files
+                                text_file_path = os.path.join("@site_structures", "text.md")
+                                
+                                # Write the markdown content directly
+                                with open(text_file_path, 'w', encoding='utf-8') as f:
+                                    f.write(f"# {page_state.get('title', 'Unknown Page')}\n\n")
+                                    f.write(f"**URL:** {page_state.get('url', 'unknown')}\n")
+                                    f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
+                                    f.write("---\n\n")
+                                    f.write(page_text)
+                                
+                                print(f"✅ Text content saved to: {text_file_path}")
+                                
+                            except Exception as write_error:
+                                print(f"⚠️ Error writing to text.md: {write_error}")
+                        else:
+                            print("⚠️ No page text available for markdown generation")
+                            
+                    except Exception as e:
+                        print(f"⚠️ Error during automatic markdown generation: {e}")
+                    
                     # 🆕 NEW: Process actionable elements for LLM consumption
                     # This ensures llm_actions.json is always aligned with current page
                     await process_actionable_elements_for_llm(actionable_elements)
                     
-                    print("✅ Intelligence update processed and saved")
+                    print("✅ Intelligence update processed and saved (page + content + markdown)")
                     
                 except Exception as e:
                     print(f"❌ Error processing intelligence update: {e}")
@@ -2012,6 +2304,18 @@ async def handler(ws):
                         "id": msg["id"],
                         "ok": True,
                         "result": get_current_page_data(),
+                        "error": None
+                    }
+                    await ws.send(json.dumps(response))
+                    continue
+                
+                # 🆕 NEW: Get current page content data
+                if command == "getContentData":
+                    print(f"📄 Internal command: {command} - returning stored page content data")
+                    response = {
+                        "id": msg["id"],
+                        "ok": True,
+                        "result": get_current_content_data(),
                         "error": None
                     }
                     await ws.send(json.dumps(response))

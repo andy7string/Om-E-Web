@@ -4709,7 +4709,9 @@ IntelligenceEngine.prototype.prepareIntelligenceData = function() {
         totalEvents: this.eventHistory.length,
         recommendations: this.getCurrentRecommendations(),
         actionableElements: this.getActionableElementsSummary(),
-        actionMapping: this.generateActionMapping()
+        actionMapping: this.generateActionMapping(),
+        contentElements: this.getContentElementsSummary(),
+        pageText: this.extractCleanPageText() // 🆕 NEW: Include page text for automatic markdown generation
     };
 };
 

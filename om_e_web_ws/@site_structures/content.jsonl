@@ -1,5 +1,5 @@
 {
-  "timestamp": 1756368574.4313228,
+  "timestamp": 1756368574.43348,
   "browser_state": {
     "total_tabs": 3,
     "active_tab": {
@@ -39,15 +39,7 @@
     "title": "Google",
     "is_active_tab": true
   },
-  "menu_structure": {
-    "menus": [],
-    "summary": {
-      "total_menus": 0,
-      "total_items": 0,
-      "navigation_links": 0,
-      "toggle_buttons": 0
-    }
-  },
+  "content_structure": {},
   "page_state": {
     "currentView": "unknown",
     "interactiveElements": [
@@ -636,12 +628,13 @@
     "url": "https://www.google.com/?zx=1756368287693&no_sw_cr=1",
     "title": "Google"
   },
-  "recent_insights": [],
   "summary": {
-    "total_menus": 0,
-    "total_items": 0,
-    "navigation_links": 0,
-    "toggle_buttons": 0
+    "total_content_elements": 0,
+    "headings": 0,
+    "paragraphs": 0,
+    "lists": 0,
+    "images": 0,
+    "tables": 0
   },
   "intelligence_version": "2.0"
 }
