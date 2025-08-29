@@ -383,14 +383,8 @@ function scanWithFrameworkSelectors() {
     // 🆕 NEW: Display concise category summary
     console.log(`[Content] 🎯 Framework: ${window.currentFramework} - ${Object.entries(categoryResults).map(([cat, count]) => `${cat}: ${count}`).join(', ')} - Total: ${frameworkElements.length}`);
     
-    // 🎯 Apply max_elements filter if specified
-    if (window.currentSiteConfig.filters && window.currentSiteConfig.filters.max_elements) {
-        const maxElements = window.currentSiteConfig.filters.max_elements;
-        if (frameworkElements.length > maxElements) {
-            console.log(`[Content] 🎯 Limiting elements from ${frameworkElements.length} to ${maxElements} (site config limit)`);
-            frameworkElements.splice(maxElements); // Remove excess elements
-        }
-    }
+    // 🚫 REMOVED: max_elements filter - we want ALL elements including URLs!
+    // URLs are gold - don't filter them out!
     
     // 🆕 NEW: Test if selectors are actually working
     testSelectorsAfterScan();
@@ -402,7 +396,7 @@ function scanWithFrameworkSelectors() {
 
 // 🆕 NEW: Test function to check if selectors are working
 function testSelectorsAfterScan() {
-    console.log("[Content] 🔍 TEST: Checking if selectors are actually working...");
+    
     
     // Test the EXACT selectors from the current site config
     if (window.currentSiteConfig && window.currentSiteConfig.selectors) {
@@ -412,57 +406,26 @@ function testSelectorsAfterScan() {
         
         // Test text_inputs and buttons specifically
         if (selectors.text_inputs) {
-            console.log("[Content] 🔍 TEST: Testing text_inputs selectors...");
             selectors.text_inputs.forEach(selector => {
                 const elements = document.querySelectorAll(selector);
                 if (elements.length > 0) {
                     totalFound += elements.length;
-                    console.log(`[Content] ✅ TEST: Selector "${selector}" found ${elements.length} elements`);
-                    elements.forEach((el, i) => {
-                        console.log(`[Content] 🔍 TEST: Element ${i+1}: ${el.tagName}${el.id ? '#' + el.id : ''}, disabled: ${el.disabled}, aria-disabled: ${el.getAttribute('aria-disabled')}`);
-                    });
-                } else {
-                    console.log(`[Content] ❌ TEST: Selector "${selector}" found 0 elements`);
                 }
             });
         }
         
         if (selectors.buttons) {
-            console.log("[Content] 🔍 TEST: Testing buttons selectors...");
             selectors.buttons.forEach(selector => {
                 const elements = document.querySelectorAll(selector);
                 if (elements.length > 0) {
                     totalFound += elements.length;
-                    console.log(`[Content] ✅ TEST: Selector "${selector}" found ${elements.length} elements`);
-                    elements.forEach((el, i) => {
-                        console.log(`[Content] 🔍 TEST: Element ${i+1}: ${el.tagName}${el.id ? '#' + el.id : ''}, disabled: ${el.disabled}, aria-disabled: ${el.getAttribute('aria-disabled')}`);
-                    });
-                } else {
-                    console.log(`[Content] ❌ TEST: Selector "${selector}" found 0 elements`);
                 }
             });
         }
         
-        if (totalFound > 0) {
-            console.log(`[Content] 🎯 TEST RESULT: Selectors working! Found ${totalFound} elements total`);
-        } else {
-            console.log(`[Content] ❌ TEST RESULT: Selectors NOT working! Found 0 elements`);
-        }
-        
         // 🆕 NEW: Aggressive debugging - find ALL input elements
-        console.log("[Content] 🔍 AGGRESSIVE DEBUG: Finding ALL input elements on page...");
         const allInputs = document.querySelectorAll('input');
-        console.log(`[Content] 🔍 AGGRESSIVE DEBUG: Found ${allInputs.length} total input elements`);
-        allInputs.forEach((input, i) => {
-            console.log(`[Content] 🔍 AGGRESSIVE DEBUG: Input ${i+1}: type="${input.type}", id="${input.id}", disabled="${input.disabled}", aria-disabled="${input.getAttribute('aria-disabled')}", hidden="${input.hidden}", style.display="${input.style.display}"`);
-        });
-        
-        // Also check for any password-related elements
         const passwordInputs = document.querySelectorAll('input[type="password"], [data-type="password"], [name*="password"], [id*="password"]');
-        console.log(`[Content] 🔍 AGGRESSIVE DEBUG: Found ${passwordInputs.length} password-related elements`);
-        passwordInputs.forEach((input, i) => {
-            console.log(`[Content] 🔍 AGGRESSIVE DEBUG: Password ${i+1}: ${input.outerHTML.substring(0, 200)}...`);
-        });
     } else {
         console.log("[Content] ❌ TEST: No site config available for testing");
     }
@@ -5368,7 +5331,7 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
     const actionableElement = this.getActionableElement(actionId);
     if (!actionableElement) {
         console.error("[Content] ❌ Element not found in actionableElements Map:", actionId);
-        console.log("[Content] 🔍 Available actionIds:", Array.from(this.actionableElements.keys()));
+
         return { success: false, error: "Element not found" };
     }
     
@@ -5882,41 +5845,31 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             if (frameworkElement && frameworkElement.type) {
                 const category = frameworkElement.type;
                 
-                console.log(`[Content] 🔍 DEBUG: Processing element: ${element.tagName}${element.id ? '#' + element.id : ''} (${category})`);
-                
                 // 🆕 NEW: Check for URL duplicates BEFORE any processing
                 const elementUrl = this.extractElementUrl(element);
                 if (elementUrl && registeredUrls.has(elementUrl)) {
-                    console.log(`[Content] 🚫 DEBUG: Skipping duplicate URL: ${elementUrl}`);
                     return; // Skip this element completely - don't process it at all
                 }
                 
                 // 🎯 PURIFY: Filter out content elements before processing
                 const purifiedElement = this.purifyElement(element, category);
-                console.log(`[Content] 🔍 DEBUG: After purify: ${purifiedElement ? 'PASSED' : 'FAILED'}`);
                 
                 if (purifiedElement) {
                     const isInteractive = this.isInteractiveElement(purifiedElement);
                     const passesQuality = this.passesBasicQualityFilter(purifiedElement);
-                    console.log(`[Content] 🔍 DEBUG: Quality checks - interactive: ${isInteractive}, quality: ${passesQuality}`);
                     
                     if (isInteractive && passesQuality) {
                         // Register the element (we already know it's not a duplicate URL)
                         const actionType = this.determineActionType(purifiedElement);
                         const actionId = this.registerActionableElement(purifiedElement, actionType);
                         registeredCount++;
-                        console.log(`[Content] ✅ DEBUG: Element registered successfully as ${actionType}`);
                         
                         // Track the URL to prevent future duplicates
                         if (elementUrl) {
                             registeredUrls.add(elementUrl);
                             urlElementCount++;
                         }
-                    } else {
-                        console.log(`[Content] ❌ DEBUG: Element failed quality checks - interactive: ${isInteractive}, quality: ${passesQuality}`);
                     }
-                } else {
-                    console.log(`[Content] ❌ DEBUG: Element failed purification`);
                 }
             }
         });
@@ -5932,16 +5885,8 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             }
         });
         
-        console.log("[Content] 🎯 SCAN RESULTS:");
-        console.log(`   📊 Total elements: ${allElements.length}`);
-        console.log(`   📝 Actionable registered: ${registeredCount}`);
-        console.log(`   📄 Content registered: ${this.contentElements.size}`);
-        console.log(`   🔗 URL elements: ${urlElementCount}`);
-        
-        // Show breakdown by site config categories
-        Object.entries(categoryBreakdown).forEach(([category, count]) => {
-            console.log(`   🎯 ${category}: ${count} elements`);
-        });
+        // 🎯 CONCISE SUMMARY: Show essential scan results
+        console.log(`[Content] 🎯 SCAN: ${registeredCount} actionable + ${this.contentElements.size} content + ${urlElementCount} URLs = ${allElements.length} total`);
         
         // Update page state
                     this.pageState.interactiveElements = this.getAllActionableElements();
@@ -6520,14 +6465,11 @@ function buildMenuStructures() {
         const standaloneMenus = findStandaloneNavigationMenus();
         
         // 🆕 AGGRESSIVE DEDUPLICATION: Consolidate ALL menus into clean structures
-        console.log('[Menu Builder] 🔍 Debug: About to call consolidateAllMenus...');
-        console.log('[Menu Builder] 🔍 Debug: toggleButtons length:', toggleButtons.length);
-        console.log('[Menu Builder] 🔍 Debug: mainNavigationMenus length:', mainNavigationMenus.length);
-        console.log('[Menu Builder] 🔍 Debug: standaloneMenus length:', standaloneMenus.length);
+
         
         const consolidatedMenus = consolidateAllMenus(toggleButtons, mainNavigationMenus, standaloneMenus);
         
-        console.log('[Menu Builder] 🔍 Debug: consolidateAllMenus returned:', Object.keys(consolidatedMenus));
+
         
         // 🚫 CLEAR ALL OLD STRUCTURES and use ONLY consolidated ones
         console.log('[Menu Builder] 🚫 Clearing old structures before consolidation...');
@@ -6547,7 +6489,7 @@ function buildMenuStructures() {
         console.log('[Menu Builder] ✅ After consolidation, structures are:', Object.keys(menuStructures.structures));
         
         // 🔗 Strategy 5: Build clean actionId mappings ONLY from consolidated structures
-        console.log('[Menu Builder] 🔍 Debug: Building actionId mappings from structures:', Object.keys(menuStructures.structures));
+
         const actionIdMappings = buildCleanActionIdMappings(menuStructures);
         menuStructures.actionIdMappings = actionIdMappings;
         
@@ -7248,13 +7190,12 @@ function consolidateAllMenus(toggleButtons, mainNavigationMenus, standaloneMenus
             }
             
             // 🎯 Step 3: Add toggle buttons as toggles (not separate menus)
-            console.log('[Menu Builder] 🔍 Debug: Available toggle buttons:', toggleButtons.map(t => ({text: t.toggle?.textContent, ariaLabel: t.toggle?.ariaLabel})));
-            console.log('[Menu Builder] 🔍 Debug: toggleButtons structure:', toggleButtons);
+            
             
             // 🚫 AGGRESSIVE: Add ALL toggle buttons as toggles (don't filter by text)
             let toggleCount = 0;
             toggleButtons.forEach((toggleButton, index) => {
-                console.log(`[Menu Builder] 🔍 Debug: Processing toggle button ${index}:`, toggleButton);
+
                 
                 // ✅ FIXED: Toggle buttons ARE the toggle objects, not nested
                 if (toggleButton.element) {
@@ -7280,7 +7221,7 @@ function consolidateAllMenus(toggleButtons, mainNavigationMenus, standaloneMenus
                 }
             });
             
-            console.log(`[Menu Builder] 🔍 Debug: Total toggles added: ${toggleCount}`);
+    
             
             // 🚫 AGGRESSIVE: Only ONE consolidated menu with everything merged
             consolidatedMenus[mainNavId] = mergedMenu;
@@ -7311,7 +7252,7 @@ function createHierarchicalRelationships(menuStructures) {
     
     try {
         // 🎯 Find the main navigation menu from CONSOLIDATED structures only
-        console.log('[Menu Builder] 🔍 Debug: Processing structures for hierarchical relationships:', Object.keys(menuStructures.structures));
+
         Object.values(menuStructures.structures).forEach(menu => {
             if (menu.type === 'main_navigation') {
                 hierarchicalStructures.mainNavigation = {
