@@ -33,13 +33,48 @@ console.log("[Content] ✅ Running in main frame:", {
 // 🆕 NEW: Wait for page to be fully loaded before scanning
 if (document.readyState === 'complete') {
     console.log("[Content] ✅ Page already fully loaded, proceeding with initialization...");
-    runScanAfterPageLoad();
+    scanWhenPageSettles(runScanAfterPageLoad, { quietPeriod: 250, maxWait: 10000 });
 } else {
     console.log("[Content] 🔄 Page still loading, waiting for load event...");
     window.addEventListener('load', () => {
         console.log("[Content] ✅ Page fully loaded, proceeding with initialization...");
-        runScanAfterPageLoad();
+        scanWhenPageSettles(runScanAfterPageLoad, { quietPeriod: 250, maxWait: 10000 });
     });
+}
+
+// 🆕 NEW: Function to wait for page to settle before scanning
+function scanWhenPageSettles(scanFn, {
+  observeTarget = document.body,
+  quietPeriod = 250,    // ms with no changes = settled (250ms as requested)
+  maxWait = 10000       // ms before forcing scan
+} = {}) {
+  let observer, quietTimer, hasScanned = false, maxTimer;
+
+  function finish() {
+    if (hasScanned) return;
+    hasScanned = true;
+    observer.disconnect();
+    clearTimeout(quietTimer);
+    clearTimeout(maxTimer);
+    console.log(`[Content] 🔍 Page settled (${quietPeriod}ms quiet), running scan...`);
+    scanFn();
+  }
+
+  observer = new MutationObserver(() => {
+    clearTimeout(quietTimer);
+    quietTimer = setTimeout(finish, quietPeriod);
+  });
+
+  observer.observe(observeTarget, { childList: true, subtree: true });
+  console.log(`[Content] 🔍 Page settling detection started - waiting for ${quietPeriod}ms quiet period (max ${maxWait}ms)`);
+  
+  // Kick off max wait
+  maxTimer = setTimeout(() => {
+    console.log(`[Content] ⏰ Max wait (${maxWait}ms) reached, forcing scan...`);
+    finish();
+  }, maxWait);
+  // Initial scan for cases where page is already settled
+  quietTimer = setTimeout(finish, quietPeriod);
 }
 
 // 🆕 NEW: Content Script Intelligence System v2.0
