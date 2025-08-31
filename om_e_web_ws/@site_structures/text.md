@@ -1,17 +1,14 @@
-# Sent Mail - andreworsmond21175@gmail.com - Gmail
+# Gmail
 
-**URL:** https://mail.google.com/mail/u/0/#label/George+Bellas
-**Timestamp:** 2025-08-30 01:04:15
+**URL:** https://mail.google.com/mail/u/0/#inbox
+**Timestamp:** 2025-08-31 21:13:42
 
 ---
-
-None selected
 
 Skip to content
 Using Gmail with screen readers
 
 Search mail
-Active
 Try Gemini
 99+
 Mail
@@ -19,12 +16,12 @@ Chat
 Compose
 Labels
 Inbox
-4,853
+4,857
 Starred
 Snoozed
 Sent
 Drafts
-9
+10
 More
 
 Labels
@@ -33,465 +30,260 @@ Labels
 George Bellas
 Notes
 Upgrade
-From
-Any time
-Has attachment
-To
-Advanced search
 
-1–50 of 229
+1–50 of 15,887
 Conversations
+Primary
+Promotions
+Wayne Tuong – Keep on top of the local property market
+Social
+1 new
+Updates
+MTB Direct – Clock's Ticking ⏰ Last Chance up to 50% off!
+Discord
+Updates to Discord’s Policies
+Hey! We wanted to let you know that we're updating our Terms of Service, Privacy Policy, Paid Services Terms, and Community Guidelines. These updates will support our evolving business, address
+
+18:23
+Paymentsemail
+Payment Notification from ANDY7STRING LQF6XM3N
+Dear WSUP ANDREW Please find attached a copy of your payment notification. How to open your payment notification? In order to open your payment notification you will need Adobe Reader installed on your
+09:03
+Dave & Sarah Smith
+Thanks for your enquiry on 36 Hawker Avenue, Belair
+Hi Andrew, Thank you for your enquiry on this beautiful home at 36 Hawker Avenue, Belair. The vendors have elected no price guide at this stage of the campaign. If you have any further questions or
+
+00:29
+James Lindsay
+RE: Enquiry for Property ID: 204245144, 20 Pomona Road, Stirling SA 5152, Listing Agent James Lindsay and Bronwyn Lindsay
++ Welcome to Pomona Road, Stirling + A rare release of residential land within walking distance to the Stirling township Lots 73 & 74 are offered for sale by private treaty with a price guide of
+30 Aug
+Instagram
+andy7string, catch up on moments you've missed
+notrudyayb , thegourmetkitchen_za and others posted something new. Catch up on Instagram notrudyayb, thegourmetkitchen_za and others posted something new. Open Instagram 1 You have 1 notification you
+
+30 Aug
+Olivia
+Purchaser Information Form
+
+30 Aug
+Danica, me
+2
+Floorplan Idea
+Hi, Thank you for this information, much appreciated. Running the numbers according to our discussions does lean to something that is way over my budget, please
+30 Aug
+Australia Post
+Andrew, how was your recent delivery?
+We’d like to hear from you Andrew, We recently delivered this parcel to you: Tracking number: ZKJ512878001000930306 Delivery date: 29-08-2025 12:07 We’d appreci
+
+30 Aug
+admin
+BC Funding Solutions - Client Statement - SB006 - 29 Aug 2025
+Dear Client Please find attached your monthly statement as at 31st August 2025. Please be advised that all clients should routinely check our web portal for not
+30 Aug
+admin
+BC Funding Solutions - Client Statement - B044 - 29 Aug 2025
+Dear Client Please find attached your monthly statement as at 31st August 2025. Please be advised that all clients should routinely check our web portal for not
+30 Aug
+BHP Talent Acquisit.
+Reminder: BHP's Talent Acquisition team wants to hear from you | Recordatorio: El equipo de Adquisición de Talentos de BHP quiere conocer su opinión
+Dear Andrew, We recently sent you an email asking you to provide us feedback on your recent experience with BHP's recruitment process. We know that everyone is busy but would really appreciate it
+
+29 Aug
 MTB Direct
-Inbox
-You’re Gonna Want These
--
-High-performing. Good-looking. Hot gear worth the hype. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+Final Chance. Last Weekend to Shop!
+Shop by price and lock in the savings now. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
 
-23 Jul
-Brook Hiddink
-Inbox
-don’t sell a product until you’ve done this...
--
-‌‌‌‌‌‌‌‌‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
-
-12/01/2024
-gailorsmond
-Inbox
-FW: Credit Reports
--
-From: gailorsmond [mailto:gailors@telkomsa.net] Sent: Sunday, 06 December 2020 11:06 To: andreworsmond21175@gmail.com Subject: FW: Credit Reports From: gailorsmond [mailto:gailors@telkomsa.net] Sent:
-07/12/2020
-George Bellas
-Lesson Assignment 9/27/2018
--
-Lesson Assignments Dominant 7#5 Rhythmic Patterns - Part 2 This lesson explores two additional Dominant 7#5 rhythmic patterns in odd meters. Each of the elements covered include a PDF, MIDI file, and
-Attachment:
-Dominant 7#5 Rhythmic Patterns 2.pdf
-Attachment:
-Dominant 7#5 Rhythmic Patterns 2.mid
-Attachment:
-Dominant 7#5 Rhythmic Patterns 2.mp3
-+3
-28/09/2018
-Bellas Music Studio
-Bellas Music Studio - Order
--
-Bellas Music Studio Thank you for your interest in Bellas Music Studio products. Your order has been received and will be processed once payment has been confirmed. Order Details Date Added: 09/24/2018
-
-25/09/2018
-George Bellas
-Lesson Assignment 9/20/2018
--
-Lesson Assignments Dominant 7#5 Rhythmic Patterns This lesson explores Dominant 7#5 rhythmic patterns in odd meters. Each of the elements covered include a PDF, MIDI file, and audio file. LESSON
-Attachment:
-Dominant 7#5 Rhythmic Patterns 1.pdf
-Attachment:
-Dominant 7#5 Rhythmic Patterns 1.mid
-Attachment:
-Dominant 7#5 Rhythmic Patterns 1.mp3
-21/09/2018
-George, me
-2
-Lesson Assignment 9/6/2018
--
-Hi George, Thank you for sending this lesson through, I have gone through it many times and will do more so before our next lesson, including the chord inversions with the bass on the 6th,5th and 4th
-Attachment:
-Sweeping Studies in Melodic Minor.pdf
-Attachment:
-Sweeping Studies in Melodic Minor.mid
-Attachment:
-Sweeping Studies in Melodic Minor.mp3
-07/09/2018
-George Bellas
-Lesson Receipt
--
-Hi Andrew, Attached is your lesson receipt. Thank you! Sincerely, George Bellas Bellas Music Studio www.GeorgeBellas.com PRIVACY STATEMENT All information in this email is for the intended recipient
-Attachment:
-Bellas Music Studio - Lesson Receipt.pdf
-03/08/2018
-Bellas Music Studio
-Bellas Music Studio - Order
--
-Bellas Music Studio Thank you for your interest in Bellas Music Studio products. Your order has been received and will be processed once payment has been confirmed. Order Details Date Added: 07/31/2018
-
-01/08/2018
-George Bellas
-Lesson Assignment 7/12/2018
--
-Lesson Assignments Modern Music Cues for Video This lesson covers a procedure for composing modern music cues for video. The main objective of this lesson is to compose a music cue that will be used as
-Attachment:
-Cellos.png
-Attachment:
-Percussion 1.png
-Attachment:
-Percussion 2.png
-+6
-13/07/2018
-George Bellas
-Lesson Assignment 7/5/2018
--
-Lesson Assignments EXOTIC SCALES: The Octatonic Scale - Part 1 This lesson explores diminished chord symmetry, a bitonal chord referred to as the “Alpha Chord”, along with Alpha Chord arpeggios
-Attachment:
-Diminished Seventh Chords.png
-Attachment:
-Alpha Chord.png
-Attachment:
-Alpha Chord Arpeggios.mp3
-+4
-06/07/2018
-Bellas Music Studio
-Bellas Music Studio - Order
--
-Bellas Music Studio Thank you for your interest in Bellas Music Studio products. Your order has been received and will be processed once payment has been confirmed. Order Details Date Added: 06/29/2018
-
-29/06/2018
-George Bellas
-Lesson Assignment 6/28/2018
--
-Lesson Assignments Bitonal Arpeggios within the Octatonic Scale This lesson we will explore numerous bitonal arpeggios derived from the Octatonic scale. The main objective is to learn, practice, and
-Attachment:
-Bitonal Minor Chords.png
-Attachment:
-Bitonal Arpeggios 1.mp3
-Attachment:
-Bitonal Arpeggios 1.pdf
-+4
-29/06/2018
-George Bellas
-Lesson Assignment 6/14/2018
--
-Lesson Assignments EXOTIC SCALES: The Octatonic Scale - Part 1 This lesson covers a symmetrical scale called the Octatonic Scale (AKA the diminished scale). TOPICS COVERED Scale Positions Chords
-Attachment:
-Symmetrical Chords.png
-Attachment:
-Octatonic Scale Positions.pdf
-Attachment:
-Octatonic Scale - Symmetrical Intervals.pdf
-+1
-15/06/2018
-George Bellas
-Lesson Assignment 6/7/2018
--
-Lesson Assignments Dominant 7#9 Arpeggios This lesson covers dominant 7#9 arpeggios in root position and all inversions with sets based on the 3rd, 4th, 5th, and 6th strings. ELEMENTS COVERED Dominant
-Attachment:
-Dominant 7#9 Arpeggios.pdf
-Attachment:
-Dominant 7#9 Arpeggios (2).pdf
-08/06/2018
-Bellas Music Studio
-Bellas Music Studio - Order
--
-Bellas Music Studio Thank you for your interest in Bellas Music Studio products. Your order has been received and will be processed once payment has been confirmed. Order Details Date Added: 06/04/2018
-
-04/06/2018
-George, me
-2
-Lesson Assignment 5/31/2018
--
-Sorry, its in my newly created George folder On Thu, 31 May 2018, 10:04 pm George Bellas, <george@georgebellas.com> wrote: Lesson Assignments Dominant 7#9 Chord Forms This lesson covers the
-Attachment:
-Dominant 7#9.pdf
-Attachment:
-Dominant 7#9 Resolutions.pdf
-01/06/2018
-George, me
-4
-Inbox
-Lesson Assignment 5/24/2018
--
-Hi George, Glad you had a good amount of feasting, am sure it was enjoyable. Im personally on a goal to get a Ryan Reynolds body right now, every time I think of snacking or putting food in my mouth I
-Attachment:
-DbDorian.mp3
-Attachment:
-12-Bar Blues.png
-Attachment:
-Adding Blue Tones to Dorian.png
-25/05/2018
-George, me
-4
-Lesson Assignment 5/17/2018
--
-Hi George, Thank you for your reply. Your guidance has been invaluable for me and its much appreciated. The plan forward sounds great! I shall definitely provide you with a blues sample shortly. Today
-Attachment:
-Twelve Bar Blues.pdf
-Attachment:
-Blues Scale in A.pdf
-Attachment:
-Blues Turnaround Lines.pdf
-+2
-23/05/2018
-George Bellas
-Lesson Assignment 5/10/2018
--
-Lesson Assignments Crushed Tones This lesson is on a playing technique used by blues and jazz players that has been coined as “Crushed Tones”. ELEMENTS COVERED Crushed Tones Dominant Chord Application
-Attachment:
-Crushed Tones .pdf
-Attachment:
-Applying Crushed Tones to Arpeggios.pdf
-11/05/2018
-George, me
-11
-Lesson Assignment 5/3/2018
--
-Hi Andrew, The tablature notation for some of the chords I believe is incorrect (impossible fingerings). Also, the naming of the chords is incorrect and inconsistent; what you have labeled as a B13 in
-Attachment:
-A4.mp3
-Attachment:
-A4.pdf
-Attachment:
-A3.mp3
-+6
-10/05/2018
-George Bellas
-Lesson Receipt
--
-Hi Andrew, Attached is your lesson receipt. Thank you! Sincerely, George Bellas Bellas Music Studio www.GeorgeBellas.com PRIVACY STATEMENT All information in this email is for the intended recipient
-Attachment:
-Bellas Music Studio - Lesson Receipt.pdf
-05/05/2018
-Bellas Music Studio
-Bellas Music Studio - Order
--
-Bellas Music Studio Thank you for your interest in Bellas Music Studio products. Your order has been received and will be processed once payment has been confirmed. Order Details Date Added: 05/04/2018
-
-04/05/2018
-George, me
+29 Aug
+Newenham, me, Draft
 3
-Logic Tablature
--
-You are quite welcome, Andrew! And you are indeed correct... While I do not rewrite the musical alphabet for each lesson, I have found that treating everybody individually by catering to their interests
-Attachment:
-Screen Shot 2018-05-03 at 3.39.01 PM.png
-04/05/2018
-George, me
+Lot 165 - Consideration
+Hi Jordan, Thank you for the message, please find our details attached. We did manage to go look at the stand and it is as you described, however, there is a lot of soil that has been dumped on the
+29 Aug
+Lyle Shelton, Famil.
+This Sunday: Aussies take to the streets — but here’s the real fight
+Don't miss the National Conference — registrations close Sunday! ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+
+29 Aug
+Olivia
+Check out this property on realestate.com.au
+6 Honeysuckle Way, Mount Barker, SA 5251 - https://www.realestate.com.au/property-house-sa-mount+barker-148794844 Kind regards Olivia
+
+29 Aug
+Seesaw
+New Message from Mel Angel
+Seesaw "Mel Angel: MUSEUM TOMORROW! Looking forward to our visit to t..." "MUSEUM TOMORROW! Looking forward to our visit to the Museum tomorrow for those of you who can make it. See you
+
+29 Aug
+Danica, me
 2
-Adding a Blues Character to Lines
--
-Thank you, See you tomorrow. On Wed, 2 May 2018, 4:26 pm George Bellas, <george@georgebellas.com> wrote: Hi Andrew, Thank you for the good wish! Great question about: what can be applied on top
-
-02/05/2018
-George, me
+Lot 165 Newenham
+Do you perhaps have the GPS coordinates, or a way to view this block :) On Fri, 29 Aug 2025 at 15:03, Danica Alexander <d.alexander@rossdalehomes.com.au> wrote: Regards Danica Alexander Building
+29 Aug
+Jordan, me
 3
-Typo Fixed and Assignment Re-Sent
--
-I appreciate the good wish, Andrew. Thank you. Best wishes to you and Olivia too! Sincerely, George Bellas Bellas Music Studio www.GeorgeBellas.com PRIVACY STATEMENT All information in this email is
-
-28/04/2018
-George Bellas
+Promotions
+One Lot Left NOW - New Release Coming Soon - Discover Newenham Today
+---------- Forwarded message --------- From: Jordan Truswell <sales@newenham.com.au> Date: Fri, 29 Aug 2025 at 14:15 Subject: One Lot Left NOW - New Release Coming Soon - Discover Newenham Today
+29 Aug
+Danica Alexander
 2
-Lesson Assignment 4/26/2018
--
-Lesson Assignments Dominant 9 - Chord Forms This lesson we will examine the dominant 9 chord form in root position, 1st inversion, 2nd inversion, 3rd inversion, and 4th inversion within several sets
-Attachment:
-Dominant 9th Chords.pdf
-Attachment:
-Dominant 9th Chords.pdf
-27/04/2018
-George Bellas
-Lesson Assignment 4/19/2018
--
-Lesson Assignments Extended Tertian Harmony: Ninth, Eleventh and Thirteenth Chords This lesson we begin studying a class of chords often referred to as “ Extended Tertian Harmony”. Extended tertian
-Attachment:
-Stacking Thirds.png
-Attachment:
-Top Ten Commonly Used.png
-Attachment:
-Voice Leading.png
-+1
-20/04/2018
-George Bellas
-Lesson Assignment 4/12/2018
--
-Lesson Assignments Chord Substitution This lesson continues our studies of chord substitution. The objective of this lesson is to become more familiarized with chord substitution. ELEMENTS COVERED
+55 Bollen Road, Mount Barker
+Regards Danica Alexander Building Consultant Rossdale Homes 300 Glen Osmond Road Fullarton SA 5063 Mobile: 0414 327 779 Phone: 8433 2000 Fax: 8433 2099 Email: d.alexander@rossdalehomes.com.au Website:
+29 Aug
+Tanu Ghosh
+Re: Pwermission - Solutions Architect - 6 - 12 months contract
+Hi Andrew, I hope you are well and thank you for sending your application through for the Solutions Architect role. As discussed, we will be presenting your application to the client and discussed the
 
-13/04/2018
-George, me
+29 Aug
+Australia Post
+Your parcel from Innovative Nutrition has been collected
+Collected from MAGILL LPO. VIEW ONLINE Delivered From Innovative Nutrition Tracking number: ZKJ5128780 Delivered to: SA 5072 Collected from: MAGILL LPO Your parcel has been collected. View delivery
+
+29 Aug
+mypotential
+Beca - Business Director - Digital Transformation (req15070)
+Dear Andrew Thank you for taking the time to apply for the position of Business Director - Digital Transformation (req15070) at Beca. We have reviewed your application and on this occasion it has been
+
+29 Aug
+Dodo
+Andrew, important changes to your mobile plan
+What you need to know ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ Having trouble viewing this email? View in a
+
+29 Aug
+The Pulumipus
+What's new: AWS Provider 7.0, ESC approvals, and Bun
+Faster installs, safer workflows, and more ways to keep infrastructure under control. pulumi-newsletter-banner_v2 Hi Andrew, Pulumi's updates this month focus on making cloud work easier and safer.
+
+29 Aug
+Rob Hutchinson
+AARTO rollout countrywide
+The Department of Transport on Friday 1 August gazetted new commencement dates for the Administrative Adjudication of Road Traffic Offences Act (AATRO), including a launch for the licence demerit
+
+28 Aug
+Sectional Title Sol.
+STS Community Newsletter l August Edition
+Building sustainable relationships, helping communities thrive! View this email in your browser Dear Andrew After what felt like an especially long winter, we're finally stepping into a season of
+
+28 Aug
+Sable International
+Hi Gail, could your family qualify for UK citizenship?
+View this email in your browser Could you be British? It's not just a passport. It's peace of mind. Book your spot Discover if you or your family could qualify for British citizenship during
+
+28 Aug
+David Ferrari
+Belle Property | Weekly Update
+New Release | Glenelg & Glenelg South. Glenelg South 1/24 Broadway 2 1 2 Best Offer By 15/09 (USP) Inspection: Sat 30/08/25, 10:15am - 10:45am Your Coastal Escape, Investment, First Home or
+
+28 Aug
+Belle Property Norw.
+Belle Property Norwood Weekly Update
+Dear Andrew, As we enjoy this final weekend before spring arrives, it's the perfect time to reflect on your next real estate move—whether you're looking to buy, sell, or simply stay informed
+
+28 Aug
+MTB Direct
+Built to Send: Title MTB
+Apparel, parts, and accessories now available. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+28 Aug
+Roshiba De La Ruwie.
 2
-Lesson Receipt
--
-Thank you, See you later. > On 12 Apr 2018, at 15:35, George Bellas wrote: > > Hi Andrew, > > Attached is your lesson receipt. Thank you! > > > > > > Sincerely, >
-Attachment:
-VID-20180412-WA0026.mp4
-Attachment:
-Bellas Music Studio - Receipt.pdf
-12/04/2018
-George, me
-3
-Lesson Assignment 4/5/2018
--
-Hi Andrew, Thank you for the feedback. I greatly appreciate you communicating to me about the lessons. We can most certainly slow the pace a bit and focus in on and slightly expand upon what we have
-Attachment:
-chordsub.mp3
-Attachment:
-A2and3.pdf
-Attachment:
-Basic Progression.png
-+1
-12/04/2018
-Bellas Music Studio
-Bellas Music Studio - Order
--
-Bellas Music Studio Thank you for your interest in Bellas Music Studio products. Your order has been received and will be processed once payment has been confirmed. Order Details Date Added: 04/11/2018
+The Remote Inspection has started. Join Now - 1 Coach-House Dr Teringie
+Hi Andrew, Roshiba De La Ruwiere is now ready to start the Remote Routine Inspection scheduled for today between 4:40 PM & 7:55 PM for 1 Coach-House Dr Teringie. They are now waiting for you to
 
-11/04/2018
-George, me
-3
-Resent Lesson Material
--
-Hi Andrew, Good to hear about having a better understanding about the substitutions! Good luck and have fun looking at what sounds like awe inspiring beautiful locations. Sincerely, George Bellas
+28 Aug
+Engie
+Our Ref: 729327251 Important Information for Mr Andrew Orsmond
+Hi Mr Andrew Orsmond, As of today, your outstanding balance with ENGIE previously known as Simply Energy is $29.78 (All figures stated are inclusive of GST). Did you know, you can visit our secure
+28 Aug
+no-reply
+Your OTP to access Tenant Portal
+Dear Andrew, This is your 2FA One Time Passcode (OTP) : 686511 Note: This OTP is valid for the next 15 minutes only. If you didn't generate this OTP, don't worry your account is safe. Sometimes
 
-06/04/2018
-George, me
+28 Aug
+Indeed
+Solution Architect @ BAE Systems
+Hi Andrew, It looks like your background could be a match for this Solution Architect role. Please submit a quick application if you have any interest. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+28 Aug
+Australia Post
+Your parcel from Innovative Nutrition is ready to collect
+Please collect it by 11 Sep 2025. VIEW ONLINE Awaiting collection From Innovative Nutrition Tracking number: ZKJ512878001000930306 Collect from: MAGILL LPO 556 MAGILL ROAD MAGILL SA 5072 Collect by: 11
+
+28 Aug
+Belle Property Adel.
+Belle Property Adelaide City Weekly Update
+Dear Andrew, As we enjoy this final weekend before spring arrives, it's the perfect time to reflect on your next real estate move—whether you're looking to buy, sell, or simply stay informed
+
+28 Aug
+no-reply
 2
-Lesson Assignment 4/5/2018
--
-Hi George, Thank you for the lesson, busy making finger pretzels now. I have a good few questions regarding the chord substitutions and think it will be best to ask a line at a time as am going through
-Attachment:
-Basic Progression.png
-Attachment:
-Chord Substitution Progressions.pdf
-06/04/2018
-George Bellas
-Lesson Assignment 3/29/2018
--
-Lesson Assignments Dominant 7b5#5 - Arpeggios Shapes This lesson we will examine 3-string dominant 7b5#5 arpeggios in root position, 1st inversion, 2nd inversion, 3rd inversion, and 4th inversion
-Attachment:
-Dominant 7#5b5 Arpeggios 3 String.pdf
-Attachment:
-Infusing Bends into Dominant 7b5#5 Arpeggios.pdf
-30/03/2018
-George, me
+Starburst: Thank you for your application!
+Hi Andrew, Thank you for applying to the Senior Solution Architect position at Starburst! We appreciate your interest in joining our All-Star team. Here's what is happening behind the scenes: Our
+
+28 Aug
+no-reply
+Veeam - Thank you for applying!
+Dear Andrew, Thank you for your interest in the Enterprise Architect position at Veeam. We wanted to let you know that we received your application and will be in touch if you are a match to move
+
+28 Aug
+me
+Video from Andrew
+
+28 Aug
+CommBank Yello
+Andrew, stay warm for less with $350 electricity credit from Origin and CommBank Yello
+For new or relocating Origin customers who sign up to the Origin Affinity Variable Energy Plan ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌
+
+28 Aug
+Australia Post
+We tried to deliver your parcel
+We're taking it to a nearby collection point. VIEW ONLINE Attempted Delivery From Innovative Nutrition Tracking number: ZKJ5128780 No one in attendance We couldn't deliver your parcel so we
+
+28 Aug
+Tanu, me
+3
+Fwd: Solutions Architect - 6 - 12 months contract
+Hi Tanu, Thank you for the chat earlier, please see my CV with dates attached as well as the suitability statement below, if you require additional information please let me know. Suitability Statement
+28 Aug
+Luke Bull
+3 William Rufus Place - Further Information.
+Hi Andrew, Thank you for your enquiry into 3 William Rufus Place! Find attached - further information for 3 William Rufus Place, Craigburn Farm. Including: Certificate of Title. Deposited Plan. Site
+28 Aug
+PunkCase AU
+Save Upto 50%
+Hurry & Get Your Favourite Cases at Upto 50% Off, Code: SAVE30 ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+28 Aug
+Daniella Lamp
+Buyer demand is surging. See how your suburb is performing | August market update
+Compass News and Market Update – August edition Mortgage Choice Email me Email me dlamp@mortgagechoice.com.au Call me Call me 0409 896 550 Compass Hi Andrew, The spring selling season is almost upon us
+
+28 Aug
+Eden Property Sales.
+Invoice issued | Due 11 September 2025 | Water charge 01/07/25 to 30/09/25 1 Coach-House Dr, Teringie, SA 5072
+Dear Andrew, Please find your Water usage invoice enclosed to this email. The details of this invoice are as follows: Invoice Description Summary: Water charge 01/07/25 to 30/09/25 Invoice Number:
+28 Aug
+Tanu Ghosh
 2
-Underwater Video Footage
--
-Hi George, Thank you for watching, sorry it was so big. Its all new and putting together a flow from multiple pieces is challenging and loads of fun. Thats just one go pro, they have loads of features
+Fwd: Solutions Architect - 12 -18 months contract
+Hi Andrew, I hope you are well. Our client is looking for a Solutions Architect for a 6 months contract with a view of extension At this point, the client has requested that their name remain
 
-23/03/2018
-George, me
-4
-Lesson Assignment 3/22/2018
--
-Hi George, I hope you having a great week so far. I am currently going through previous lessons, this one below for example. I am working out good resolutions between the V to a I and would like to
-Attachment:
-sectiona.mp3
-Attachment:
-Dominant 7#5b5 Chord Shapes.pdf
-23/03/2018
-George, me
-4
-Sleeping Giant
--
-Will do thank you! Upgraded this operating system and now things are slightly pair shaped Checking it out now, Thank you Andrew On 16 Mar 2018, at 14:19, George Bellas <george@georgebellas.com>
-Attachment:
-Skype Notifications.png
-16/03/2018
-George, me
-5
-Lesson Assignment 12/1/2016
--
-Hi Andrew, Thanks you for this, and yes, this previous lesson is what we will be expounding on as we focus on and explore individual altered dominant chords. Sincerely, George Bellas Bellas Music
-Attachment:
-Altered Dominant Arpeggio Example.pdf
-Attachment:
-Altered Dominants 1.pdf
-16/03/2018
-George Bellas
-Lesson Assignment 3/15/2018
--
-Lesson Assignments Bends and Portamento in Scales and Arpeggios This lesson explores methods of applying bends and portamento to scales and arpeggios on single strings. ELEMENTS COVERED Scales with
-Attachment:
-Scales with Bends and Portamento.pdf
-Attachment:
-Arpeggios with Bends and Portamento.pdf
-16/03/2018
-George Bellas
-Lesson Receipt
--
-Hi Andrew, Attached is your lesson receipt. Thank you! Sincerely, George Bellas Bellas Music Studio www.GeorgeBellas.com PRIVACY STATEMENT All information in this email is for the intended recipient
-Attachment:
-Lesson Receipt.pdf
-14/03/2018
-Bellas Music Studio
-Bellas Music Studio - Order
--
-Bellas Music Studio Thank you for your interest in Bellas Music Studio products. Your order has been received and will be processed once payment has been confirmed. Once your payment has been confirmed
+28 Aug
+bdoau
+Thank You for Your Application!
+Dear Andrew, Thank you for your interest in the Head of IT Operations and Service Delivery position. We will give careful consideration to your application by reviewing the details you provided against
+28 Aug
+Santos Recruitment
+539695 - Global Network and Security Architect - Application Received
+Dear Andrew You have successfully applied for the following position: Position Title: Global Network and Security Architect Ref#: 539695 We will review your application and evaluate against the
 
-13/03/2018
-George Bellas
-Lesson Assignment 3/8/2018
--
-Lesson Assignments Dominant 7b5 - Arpeggios This lesson we will examine the dominant 7b5 chord type, function examples, and arpeggio shapes. Also covered is the concept of Flat-Five Substitution.
-Attachment:
-Dominant 7b5 Arpeggio Inversions.pdf
-Attachment:
-Dominant 7b5 Arpeggios with Bends.mp3
-Attachment:
-Dominant 7b5 Arpeggios with Bends.pdf
-09/03/2018
-George, me
-3
-Lesson Assignment 3/1/2018
--
-Hi Andrew, I'm glad to see you working hard on this composition! It sure is peculiar how sometimes a piece will come together very quickly and seemingly effortlessly, but other times a piece, for
-Attachment:
-Sleeping Giant_20180223.logicx.zip
-Attachment:
-Rondo Form Outline.png
-Attachment:
-Sleeping Giant - RONDO From.png
-+1
-05/03/2018
-George, me
-5
-Lesson Assignment 2/22/2018
--
-Hi George, Attached an MP3. It's only one pass if thats ok. See you soon, Andrew > On 01 Mar 2018, at 6:34 PM, George Bellas wrote: > > Could also send me an MP3 of this piece. Logic is
-Attachment:
-Sleeping Giant_Form_Study.mp3
-Attachment:
-Sleeping Giant_20180223.logicx.zip
-Attachment:
-Example - b5 Substitution.png
-+2
-02/03/2018
-George Bellas
-Sleeping Giant
--
-Hi Andrew, Thank you for sharing your music with me. I think it sounds good. I like the richness of your chord choices and progression along with the arpeggiated texture. I'll listen again to see
-
-24/02/2018
-George, me
-3
-Lesson Assignment 2/15/2018
--
-Hi Andrew, Thank you very much for the feedback regarding the lesson material. I am glad you find at least some of it interesting and appealing. And please do try the rapid paced example 3 over a
-Attachment:
-Altered Dominant to Tonic Connections.pdf
-18/02/2018
-George, me
-5
-Lesson Receipt
--
-You are quite welcome Andrew. Beautiful place you have there and such a gorgeous environment. Thanks for sharing, Sincerely, George Bellas Bellas Music Studio www.GeorgeBellas.com PRIVACY STATEMENT All
-Attachment:
-Outside Time Lapse - Medium.mov
-Attachment:
-Lesson Receipt.pdf
-13/02/2018
-Bellas Music Studio
-Bellas Music Studio - Order
--
-Bellas Music Studio Thank you for your interest in Bellas Music Studio products. Your order has been received and will be processed once payment has been confirmed. Order Details Date Added: 02/12/2018
-
-12/02/2018
-George Bellas
-Lesson Assignment 2/8/2018
--
-Lesson Assignments Arpeggio Sequences for Guitar This lesson explores arpeggio sequences for guitar using various styles, techniques, chord types, and progressions. Elements Covered Arpeggio Sequences
-Attachment:
-Arpeggio Sequences.pdf
-09/02/2018
+28 Aug
+CBA HR
+Recruitment Update - Thanks for applying: Chief Technology Officer, Doshii
+Hi Andrew, Thanks for taking the time to apply for Chief Technology Officer, Doshii, REQ243846. We'll be reviewing your application shortly and then will be in touch to let you know if you've
+28 Aug
 76% of 15 GB used
 Terms · Privacy · Programme Policies
-Last account activity: 0 minutes ago
-Open in 1 other location · Details
+Last account activity: 3 minutes ago
+Details

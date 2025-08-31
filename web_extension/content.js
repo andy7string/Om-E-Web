@@ -338,12 +338,18 @@ function scanWithFrameworkSelectors() {
     
     const frameworkElements = [];
     const selectors = window.currentSiteConfig.selectors;
-    // 🎯 SCAN ALL CATEGORIES: No more hardcoded priority bullshit
-    const categoriesToScan = Object.keys(selectors);
-    console.log(`[Content] 🔍 Scanning ALL categories: ${categoriesToScan.join(', ')}`);
+    // 🎯 PRIORITY SCANNING: Most important categories first
+    const priorityOrder = ['text_inputs', 'navigation', 'url_elements', 'buttons', 'menus', 'content_elements', 'hidden_content'];
+    const categoriesToScan = priorityOrder.filter(cat => selectors[cat]).concat(
+        Object.keys(selectors).filter(cat => !priorityOrder.includes(cat))
+    );
+    console.log(`[Content] 🔍 Scanning with priority: ${categoriesToScan.join(', ')}`);
     
     // 🆕 NEW: Track elements found per category
     const categoryResults = {};
+    
+    // 🚀 NEW: Prevent duplicate element scanning using WeakSet
+    const seenElements = new WeakSet();
     
     categoriesToScan.forEach(category => {
         const selectorList = selectors[category];
@@ -355,16 +361,24 @@ function scanWithFrameworkSelectors() {
             selectorList.forEach(selector => {
                 try {
                     const elements = document.querySelectorAll(selector);
-                    const elementCount = elements.length;
-                    categoryElementCount += elementCount;
                     
                     elements.forEach(element => {
+                        // 🚀 NEW: Skip if we've already seen this DOM element
+                        if (seenElements.has(element)) {
+                            return; // Skip duplicate element
+                        }
+                        
+                        // Mark this element as seen
+                        seenElements.add(element);
+                        
                         frameworkElements.push({
                             element: element,
                             type: category, // ← Dynamic category name
                             selector: selector,
                             framework: window.currentFramework
                         });
+                        
+                        categoryElementCount++;
                     });
                 } catch (error) {
                     console.log(`[Content] ⚠️ Error scanning selector "${selector}":`, error);
@@ -446,14 +460,8 @@ function runScanAfterPageLoad() {
         // ✅ SYNC: Scan elements (returns immediately)
         const scanResult = intelligenceEngine.scanAndRegisterPageElements();
         
-        // ✅ SYNC: Send intelligence update immediately after scan
-        if (scanResult && scanResult.success) {
-            console.log("[Content] 📤 Scan complete, sending intelligence update...");
-            // 🆕 NEW: Use queue system instead of immediate send
-            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
-                intelligenceEngine.queueIntelligenceUpdate('high');
-            }
-        }
+        // 🚫 REMOVED: Intelligence update triggered here - moved to AFTER filtering is complete
+        // The scan result will trigger the intelligence update automatically when filtering is done
     } else {
         console.error("[Content] ❌ Intelligence engine not available for delayed scan");
     }
@@ -5885,15 +5893,37 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             }
         });
         
+        // 🎯 NEW: Detailed breakdown of what actionable elements you actually have
+        const actionableBreakdown = {};
+        this.actionableElements.forEach((element, id) => {
+            const type = element.actionType || 'unknown';
+            actionableBreakdown[type] = (actionableBreakdown[type] || 0) + 1;
+        });
+        
         // 🎯 CONCISE SUMMARY: Show essential scan results
         console.log(`[Content] 🎯 SCAN: ${registeredCount} actionable + ${this.contentElements.size} content + ${urlElementCount} URLs = ${allElements.length} total`);
         
+        // 🎯 NEW: Show exactly what actionable elements you got
+        console.log(`[Content] 🎯 ACTIONABLE BREAKDOWN:`, actionableBreakdown);
+        console.log(`[Content] 🎯 CATEGORY BREAKDOWN:`, categoryBreakdown);
+        
         // Update page state
-                    this.pageState.interactiveElements = this.getAllActionableElements();
-            
-            // 🆕 NEW: Mark initial scan as complete
-            this.initialScanCompleted = true;
-            console.log("[Content] ✅ Initial page scan marked as complete");
+        this.pageState.interactiveElements = this.getAllActionableElements();
+        
+        // 🆕 NEW: Mark initial scan as complete
+        this.initialScanCompleted = true;
+        console.log("[Content] ✅ Initial page scan marked as complete");
+        
+        // 🎯 NEW: Send intelligence update AFTER filtering is complete (not during scan)
+        console.log("[Content] 📤 Filtering complete, sending intelligence update with filtered results...");
+        
+        // ✅ ENSURE: Only send update if we have filtered results
+        if (this.actionableElements.size > 0 && this.queueIntelligenceUpdate) {
+            console.log(`[Content] 📤 Sending intelligence update with ${this.actionableElements.size} filtered actionable elements`);
+            this.queueIntelligenceUpdate('high', 'scan_complete');
+        } else {
+            console.log("[Content] ⚠️ No actionable elements after filtering, skipping intelligence update");
+        }
             
             const result = {
                 success: true,
