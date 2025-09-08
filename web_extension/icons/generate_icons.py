@@ -8,12 +8,12 @@ import os
 import sys
 
 try:
-    import cairosvg
+    import cairosvg  # type: ignore
 except ImportError:
     print("cairosvg not found. Installing...")
     os.system("pip install cairosvg")
     try:
-        import cairosvg
+        import cairosvg  # type: ignore
     except ImportError:
         print("Failed to install cairosvg. Please install manually:")
         print("pip install cairosvg")

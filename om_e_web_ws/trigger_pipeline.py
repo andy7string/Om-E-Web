@@ -96,6 +96,9 @@ class PipelineTrigger:
         """Listen for responses from the server"""
         print("🎧 Response listener started and waiting for messages...")
         try:
+            if self.websocket is None:
+                print("❌ WebSocket is None, cannot listen for responses")
+                return
             async for message in self.websocket:
                 print(f"📨 Raw message received: {message}")
                 try:

@@ -1,13 +1,14 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/pyright/main/packages/pyright/schema/pyrightconfig.schema.json",
   "include": [
-    "browser-use"
+    "om_e_web_ws",
+    "web_extension"
   ],
-  "venvPath": "browser-use",
+  "venvPath": ".",
   "venv": ".venv",
   "executionEnvironments": [
     {
-      "root": "browser-use",
+      "root": "om_e_web_ws",
       "venvPath": ".",
       "venv": ".venv"
     }

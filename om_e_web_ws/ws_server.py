@@ -1503,11 +1503,11 @@ def classify_element_enhanced(element_data):
         search_relevance = 0.0
         search_reasons = []
         
-        search_indicators = {
+        search_indicators = [
             'search', 'magnify', 'glass', 'lookup', 'find', 'query',
             'search-icon', 'search-btn', 'search-button', 'searchbox',
             'search-input', 'search-field', 'search-form'
-        }
+        ]
         
         # Check class names
         class_list = attributes.get('class', '').lower().split()
@@ -1527,10 +1527,14 @@ def classify_element_enhanced(element_data):
         
         # Check data attributes
         for attr_name, attr_value in attributes.items():
-            if attr_name.startswith('data-') and any(indicator in attr_value.lower() for indicator in search_indicators):
-                search_relevance = max(search_relevance, 0.7)
-                search_reasons.append(f"Search indicator in data attribute: {indicator}")
-                break
+            if attr_name.startswith('data-'):
+                for indicator in search_indicators:
+                    if indicator in attr_value.lower():
+                        search_relevance = max(search_relevance, 0.7)
+                        search_reasons.append(f"Search indicator in data attribute: {indicator}")
+                        break
+                if search_relevance >= 0.7:
+                    break
         
         # Check text content for search-related terms
         search_text_indicators = ['search', 'find', 'lookup', 'query', 'go']
@@ -2450,7 +2454,10 @@ async def handler(ws):
                                     json.dump(processed_data, f, ensure_ascii=False, indent=2)
                                 
                                 print(f"✅ Processed data saved to: {processed_filename}")
-                                print(f"📊 Elements: {len(processed_data.get('elements', []))}")
+                                if processed_data:
+                                    print(f"📊 Elements: {len(processed_data.get('elements', []))}")
+                                else:
+                                    print("📊 Elements: 0 (no data processed)")
                                 
                                 # 🧠 Run post-processing optimization
                                 print("🧠 Running post-processing optimization...")

@@ -8,7 +8,6 @@
     "settings": {
         "python.defaultInterpreterPath": "/Users/andy7string/Projects/Om_E_Web/.venv/bin/python",
         "python.analysis.extraPaths": [
-            "/Users/andy7string/Projects/Om_E_Web/browser-use",
             "/Users/andy7string/Projects/Om_E_Web/.venv/lib/python3.11/site-packages"
         ],
         "python.analysis.typeCheckingMode": "basic",
