@@ -333,11 +333,66 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
             "extension_connected": EXTENSION_WS is not None
         }
         
-        # 🆕 NEW: Apply menu consolidation before saving
+        normalized_records = intelligence_data.get("normalizedRecords") or []
+
+        if normalized_records:
+            enriched_records = []
+            meta_enriched = False
+            current_page = {
+                "url": browser_state.get("active_tab", {}).get("url", "unknown"),
+                "title": browser_state.get("active_tab", {}).get("title", "unknown"),
+                "is_active_tab": True
+            }
+
+            for record in normalized_records:
+                # Work with a copy to avoid mutating the original payload
+                rec = dict(record)
+                if not meta_enriched and rec.get("type") == "meta":
+                    rec["browser_state"] = browser_state
+                    rec["current_page"] = current_page
+                    meta_enriched = True
+                enriched_records.append(rec)
+
+            if not meta_enriched:
+                enriched_records.insert(0, {
+                    "type": "meta",
+                    "id": "meta-page",
+                    "url": current_page["url"],
+                    "title": current_page["title"],
+                    "timestamp": time.time(),
+                    "browser_state": browser_state,
+                    "current_page": current_page
+                })
+
+            meta_record = next((r for r in enriched_records if r.get("type") == "meta"), {})
+            totals = meta_record.get("totals", {})
+
+            CURRENT_PAGE_DATA = {
+                "normalized": True,
+                "timestamp": time.time(),
+                "browser_state": browser_state,
+                "current_page": current_page,
+                "summary": totals,
+                "record_count": len(enriched_records)
+            }
+            LAST_PAGE_UPDATE = time.time()
+
+            filepath = os.path.join(SITE_STRUCTURES_DIR, CURRENT_PAGE_JSONL)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                for record in enriched_records:
+                    f.write(json.dumps(record, ensure_ascii=False) + '\n')
+
+            print(f"🧠 Normalized records saved to {filepath} ({len(enriched_records)} lines)")
+            if totals:
+                print(f"📊 Summary → Sections: {totals.get('sections', 0)}, Elements: {totals.get('elements', 0)}, Actions: {totals.get('actions', 0)}")
+            print(f"🌐 Browser State: {browser_state['total_tabs']} tabs, Active: {current_page['url']}")
+
+            return filepath
+
+        # Fallback: legacy path when normalized records not available
         actionable_elements = intelligence_data.get("actionableElements", [])
         consolidated_menus = await consolidate_actionable_elements_to_menus(actionable_elements)
-        
-        # Prepare page data for JSONL format with browser state
+
         page_data = {
             "timestamp": time.time(),
             "browser_state": browser_state,
@@ -346,27 +401,24 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
                 "title": browser_state.get("active_tab", {}).get("title", "unknown"),
                 "is_active_tab": True
             },
-            # 🆕 NEW: Clean menu structure instead of raw elements
             "menu_structure": consolidated_menus,
             "page_state": intelligence_data.get("pageState", {}),
             "recent_insights": intelligence_data.get("recentInsights", []),
             "summary": consolidated_menus.get("summary", {}),
             "intelligence_version": "2.0"
         }
-        
-        # Update global state
+
         CURRENT_PAGE_DATA = page_data
         LAST_PAGE_UPDATE = time.time()
-        
-        # Save to central page.jsonl file
+
         filepath = os.path.join(SITE_STRUCTURES_DIR, CURRENT_PAGE_JSONL)
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(json.dumps(page_data, ensure_ascii=False, indent=2) + '\n')
-        
-        print(f"🧠 Intelligence saved to central file: {filepath}")
+
+        print(f"🧠 Intelligence saved to central file (legacy format): {filepath}")
         print(f"📊 Menus: {page_data['summary'].get('total_menus', 0)}, Items: {page_data['summary'].get('total_items', 0)}, Toggles: {page_data['summary'].get('toggle_buttons', 0)}")
         print(f"🌐 Browser State: {browser_state['total_tabs']} tabs, Active: {browser_state['active_tab'].get('url', 'unknown') if browser_state['active_tab'] else 'none'}")
-        
+
         return filepath
         
     except Exception as e:

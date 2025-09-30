@@ -2,7 +2,7 @@
   "_page_context": {
     "url": "https://brighttreedigital.com.au/",
     "title": "Local Web Design Adelaide | Bright Tree Digital",
-    "timestamp": 1759212462.353688,
+    "timestamp": 1759233047.557819,
     "total_actions": 106,
     "active_tab_id": 1138001757
   },
@@ -298,7 +298,7 @@
   },
   "action_link_a_21": {
     "action_type": "link",
-    "description": "Mtambo Chartered Accountants",
+    "description": "Straker Functional Fitness",
     "tag_name": "a",
     "selectors": [
       "[data-elementor-open-lightbox=\"no\"]",
@@ -313,7 +313,7 @@
   },
   "action_link_a_22": {
     "action_type": "link",
-    "description": "Joss Couture",
+    "description": "The Syrene Hotel",
     "tag_name": "a",
     "selectors": [
       "[data-elementor-open-lightbox=\"no\"]",
@@ -328,7 +328,7 @@
   },
   "action_link_a_23": {
     "action_type": "link",
-    "description": "Flutterbys School",
+    "description": "African Safari Deals",
     "tag_name": "a",
     "selectors": [
       "[data-elementor-open-lightbox=\"no\"]",
@@ -343,7 +343,7 @@
   },
   "action_link_a_24": {
     "action_type": "link",
-    "description": "The Gourmet Cookie Co",
+    "description": "Mtambo Chartered Accountants",
     "tag_name": "a",
     "selectors": [
       "[data-elementor-open-lightbox=\"no\"]",
@@ -358,7 +358,7 @@
   },
   "action_link_a_25": {
     "action_type": "link",
-    "description": "Straker Functional Fitness",
+    "description": "Joss Couture",
     "tag_name": "a",
     "selectors": [
       "[data-elementor-open-lightbox=\"no\"]",
@@ -373,7 +373,7 @@
   },
   "action_link_a_26": {
     "action_type": "link",
-    "description": "The Syrene Hotel",
+    "description": "Flutterbys School",
     "tag_name": "a",
     "selectors": [
       "[data-elementor-open-lightbox=\"no\"]",
@@ -388,7 +388,7 @@
   },
   "action_link_a_27": {
     "action_type": "link",
-    "description": "African Safari Deals",
+    "description": "The Gourmet Cookie Co",
     "tag_name": "a",
     "selectors": [
       "[data-elementor-open-lightbox=\"no\"]",
@@ -1307,7 +1307,6 @@
     "description": "Main Menu",
     "tag_name": "button",
     "selectors": [
-      "[data-index=\"0\"]",
       ".menu-toggle",
       "button.menu-toggle",
       "div:nth-child(1)"
@@ -1336,7 +1335,7 @@
     "description": "1",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control30",
+      "#slick-slide-control20",
       "li:nth-child(1)"
     ],
     "coordinates": {},
@@ -1349,7 +1348,7 @@
     "description": "2",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control31",
+      "#slick-slide-control21",
       "li:nth-child(1)"
     ],
     "coordinates": {},
@@ -1362,7 +1361,7 @@
     "description": "3",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control32",
+      "#slick-slide-control22",
       "li:nth-child(1)"
     ],
     "coordinates": {},
@@ -1375,7 +1374,7 @@
     "description": "4",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control33",
+      "#slick-slide-control23",
       "li:nth-child(1)"
     ],
     "coordinates": {},
@@ -1388,7 +1387,7 @@
     "description": "5",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control34",
+      "#slick-slide-control24",
       "li:nth-child(1)"
     ],
     "coordinates": {},
@@ -1401,7 +1400,7 @@
     "description": "6",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control35",
+      "#slick-slide-control25",
       "li:nth-child(1)"
     ],
     "coordinates": {},
@@ -1414,7 +1413,7 @@
     "description": "7",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control36",
+      "#slick-slide-control26",
       "li:nth-child(1)"
     ],
     "coordinates": {},
@@ -1427,7 +1426,7 @@
     "description": "8",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control37",
+      "#slick-slide-control27",
       "li:nth-child(1)"
     ],
     "coordinates": {},

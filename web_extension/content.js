@@ -4835,7 +4835,8 @@ IntelligenceEngine.prototype.prepareIntelligenceData = function() {
         actionableElements: this.getActionableElementsSummary(),
         actionMapping: this.generateActionMapping(),
         contentElements: this.getContentElementsSummary(),
-        pageText: this.extractCleanPageText() // 🆕 NEW: Include page text for automatic markdown generation
+        pageText: this.extractCleanPageText(), // 🆕 NEW: Include page text for automatic markdown generation
+        normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true })
     };
 };
 
@@ -4877,7 +4878,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         tag: 'body',
         label: 'Page Body',
         selector: 'body',
-        order: sectionCounter++
+        path: []
     });
 
     const rawActionableElements = this.getAllActionableElements();
@@ -4905,7 +4906,8 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
                     tag: current.tagName ? current.tagName.toLowerCase() : 'unknown',
                     label,
                     selector,
-                    parent: parentSection
+                    parent: parentSection,
+                    path: computeDomPath(current)
                 };
 
                 sectionMap.set(current, id);
@@ -4964,74 +4966,133 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         };
     };
 
-    const actions = [];
-    const elements = [];
+    const sectionBuckets = new Map(); // sectionId -> { entries: [], textCount: 0, actionCount: 0, textSeen: Set, actionSeen: Set }
+    const textIndex = new Map();
 
-    actionableElements.forEach((actionDescriptor) => {
-        const domNode = resolveDomNode(actionDescriptor);
-        const sectionId = ensureSectionRecord(domNode);
-        const bbox = computeBoundingBox(domNode);
-        const contextTrail = buildContextTrail(domNode);
-
-        const actionRecord = {
-            type: 'action',
-            id: actionDescriptor.id,
-            actionId: actionDescriptor.id,
-            parent: sectionId,
-            tag: actionDescriptor.tagName,
-            label: extractLabelFromAction(actionDescriptor, domNode),
-            actionTypes: deriveActionTypes(actionDescriptor),
-            selectors: actionDescriptor.selectors,
-            attributes: actionDescriptor.attributes || {},
-            bbox,
-            context: contextTrail,
-            confidence: deriveConfidenceScore(actionDescriptor, domNode),
-            timestamp: actionDescriptor.timestamp
-        };
-
-        if (actionDescriptor.urlContext) {
-            actionRecord.url = actionDescriptor.urlContext.url;
-            actionRecord.urlMeta = actionDescriptor.urlContext;
+    const registerTextIndex = (label, id) => {
+        if (!label || !id) return;
+        const key = normalizeAnchorKey(label);
+        if (!key) return;
+        if (!textIndex.has(key)) {
+            textIndex.set(key, []);
         }
-
-        actions.push(actionRecord);
-    });
+        textIndex.get(key).push(id);
+    };
 
     contentElements.forEach((contentDescriptor) => {
         const domNode = resolveDomNode(contentDescriptor);
         const sectionId = ensureSectionRecord(domNode);
-        const bbox = computeBoundingBox(domNode);
-        const contextTrail = buildContextTrail(domNode);
+        ensureSectionBucket(sectionId);
+        const textValue = normalizeTextContent(contentDescriptor.textContent);
+        if (!textValue) return;
+        const primarySelector = pickPrimarySelector(contentDescriptor);
+        const visibility = computeVisibility(domNode);
 
         const elementRecord = {
-            type: 'element',
+            type: 'text',
             id: contentDescriptor.id,
-            parent: sectionId,
+            section: sectionId,
             tag: contentDescriptor.tagName,
             category: contentDescriptor.contentType,
-            text: contentDescriptor.textContent,
-            selectors: contentDescriptor.selectors,
-            attributes: contentDescriptor.attributes || {},
-            bbox,
-            context: contextTrail,
-            timestamp: contentDescriptor.timestamp
+            text: textValue,
+            selector: primarySelector,
+            visibility
         };
 
-        elements.push(elementRecord);
+        registerTextIndex(textValue, elementRecord.id);
+
+        const bucket = sectionBuckets.get(sectionId);
+        const dedupKey = `${elementRecord.tag}|${textValue}`;
+        if (bucket.textSeen.has(dedupKey)) return;
+        bucket.textSeen.add(dedupKey);
+        bucket.entries.push({ order: computeDomPath(domNode), record: elementRecord });
+        bucket.textCount += 1;
     });
 
-    // Attach records in logical order: sections first, then content, then actions
-    sectionRecords.forEach((record) => records.push(record));
-    elements.forEach((record) => records.push(record));
-    actions.forEach((record) => records.push(record));
+    actionableElements.forEach((actionDescriptor) => {
+        const domNode = resolveDomNode(actionDescriptor);
+        const sectionId = ensureSectionRecord(domNode);
+        ensureSectionBucket(sectionId);
+        const primarySelector = pickPrimarySelector(actionDescriptor);
+        const visibility = computeVisibility(domNode);
+
+        const actionRecord = {
+            type: 'action',
+            id: actionDescriptor.id,
+            section: sectionId,
+            tag: actionDescriptor.tagName,
+            label: extractLabelFromAction(actionDescriptor, domNode),
+            actionTypes: deriveActionTypes(actionDescriptor),
+            selector: primarySelector,
+            visibility,
+            confidence: deriveConfidenceScore(actionDescriptor, domNode)
+        };
+
+        if (actionDescriptor.urlContext) {
+            const ctx = actionDescriptor.urlContext;
+            if (ctx.url) actionRecord.href = ctx.url;
+            if (ctx.ariaLabel) actionRecord.ariaLabel = ctx.ariaLabel;
+            if (ctx.title) actionRecord.title = ctx.title;
+        }
+        if (!actionRecord.href && actionDescriptor.attributes) {
+            const attrs = actionDescriptor.attributes;
+            if (attrs.href) actionRecord.href = attrs.href;
+            if (attrs['aria-label']) actionRecord.ariaLabel = attrs['aria-label'];
+            if (attrs.title) actionRecord.title = attrs.title;
+            if (attrs.placeholder) actionRecord.placeholder = attrs.placeholder;
+        }
+
+        const bucket = sectionBuckets.get(sectionId);
+        const dedupKey = `${actionRecord.tag}|${actionRecord.label}|${actionRecord.href || ''}|${primarySelector}`;
+        if (bucket.actionSeen.has(dedupKey)) return;
+        bucket.actionSeen.add(dedupKey);
+
+        const potentialMatches = actionRecord.label ? textIndex.get(normalizeAnchorKey(actionRecord.label)) : null;
+        if (potentialMatches && potentialMatches.length) {
+            actionRecord.relatedTexts = Array.from(new Set(potentialMatches));
+        }
+
+        bucket.entries.push({ order: computeDomPath(domNode), record: actionRecord });
+        bucket.actionCount += 1;
+    });
+
+    sectionRecords
+        .sort((a, b) => compareDomPaths(a.path || [], b.path || []))
+        .forEach((section) => {
+            records.push({
+                type: 'section',
+                id: section.id,
+                tag: section.tag,
+                label: section.label,
+                selector: section.selector,
+                parent: section.parent || null
+            });
+
+            const bucket = sectionBuckets.get(section.id);
+            if (!bucket) return;
+
+            bucket.entries
+                .sort((a, b) => compareDomPaths(a.order, b.order))
+                .forEach(entry => records.push(entry.record));
+        });
+
+    const totalText = sumBuckets(sectionBuckets, 'textCount');
+    const totalActions = sumBuckets(sectionBuckets, 'actionCount');
+
+    metaRecord.totals = {
+        sections: sectionRecords.length,
+        text: totalText,
+        actions: totalActions
+    };
+    metaRecord.generatedAt = now;
 
     records.push({
         type: 'summary',
         id: 'summary-page',
         totals: {
             sections: sectionRecords.length,
-            elements: elements.length,
-            actions: actions.length
+            text: totalText,
+            actions: totalActions
         },
         generatedAt: now
     });
@@ -5095,17 +5156,27 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     }
 
     function extractLabelFromAction(descriptor, node) {
-        if (descriptor.textContent) {
-            return descriptor.textContent.trim();
-        }
         const attr = descriptor.attributes || {};
-        if (attr['aria-label']) return attr['aria-label'];
-        if (attr.title) return attr.title;
+        const ariaLabel = (attr['aria-label'] || (node && node.getAttribute('aria-label')) || '')?.trim?.();
+        const titleLabel = (attr.title || (node && node.getAttribute('title')) || '')?.trim?.();
+        const textLabel = descriptor.textContent ? descriptor.textContent.trim() : '';
+
+        if (textLabel) {
+            const looksLikeIndex = /^\d{1,3}$/.test(textLabel);
+            if (looksLikeIndex && ariaLabel) {
+                return ariaLabel;
+            }
+            return textLabel.substring(0, 120);
+        }
+
+        if (ariaLabel) return ariaLabel;
+        if (titleLabel) return titleLabel;
         if (attr.alt) return attr.alt;
-        if (node) {
-            const label = node.getAttribute('aria-label') || node.getAttribute('title');
-            if (label) return label.trim();
-            if (node.textContent) return node.textContent.trim().substring(0, 120);
+        if (descriptor.urlContext && descriptor.urlContext.altText) {
+            return descriptor.urlContext.altText;
+        }
+        if (node && node.textContent) {
+            return node.textContent.trim().substring(0, 120);
         }
         return descriptor.tagName || 'element';
     }
@@ -5150,9 +5221,68 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         return Math.min(1, Number(score.toFixed(2)));
     }
 
+    function ensureSectionBucket(sectionId) {
+        if (!sectionBuckets.has(sectionId)) {
+            sectionBuckets.set(sectionId, {
+                entries: [],
+                textCount: 0,
+                actionCount: 0,
+                textSeen: new Set(),
+                actionSeen: new Set()
+            });
+        }
+    }
+
+    function computeVisibility(node) {
+        if (!node) return 'unknown';
+        try {
+            const rect = node.getBoundingClientRect ? node.getBoundingClientRect() : null;
+            const hidden = node.offsetParent === null || (rect && rect.width === 0 && rect.height === 0);
+            return hidden ? 'hidden' : 'visible';
+        } catch (error) {
+            return 'unknown';
+        }
+    }
+
+    function computeDomPath(node) {
+        const path = [];
+        let current = node;
+        while (current && current !== document.body && current.parentElement) {
+            const parent = current.parentElement;
+            const index = Array.prototype.indexOf.call(parent.children, current);
+            path.unshift(index);
+            current = parent;
+        }
+        return path;
+    }
+
+    function compareDomPaths(a, b) {
+        const len = Math.max(a.length, b.length);
+        for (let i = 0; i < len; i++) {
+            const av = a[i] ?? -1;
+            const bv = b[i] ?? -1;
+            if (av !== bv) return av - bv;
+        }
+        return 0;
+    }
+
+    function sumBuckets(map, key) {
+        let count = 0;
+        map.forEach(bucket => {
+            if (typeof bucket[key] === 'number') {
+                count += bucket[key];
+            }
+        });
+        return count;
+    }
+
+    function normalizeTextContent(value) {
+        if (!value) return '';
+        return value.replace(/\s+/g, ' ').trim();
+    }
+
     function filterInteractiveRecords(records) {
-        const seenSelectors = new Set();
-        const seenUrls = new Set();
+        const seenKeys = new Set();
         const filtered = [];
 
         records.forEach((descriptor) => {
@@ -5163,16 +5293,6 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             }
 
             if (!descriptor.selectors || descriptor.selectors.length === 0) {
-                return;
-            }
-
-            const selectorKey = descriptor.selectors[0];
-            if (selectorKey && seenSelectors.has(selectorKey)) {
-                return;
-            }
-
-            const url = descriptor.urlContext && descriptor.urlContext.url;
-            if (url && seenUrls.has(url)) {
                 return;
             }
 
@@ -5188,9 +5308,19 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
                 return;
             }
 
-            seenSelectors.add(selectorKey);
-            if (url) {
-                seenUrls.add(url);
+            const url = descriptor.urlContext && descriptor.urlContext.url;
+            const label = (descriptor.textContent || (descriptor.attributes && (descriptor.attributes['aria-label'] || descriptor.attributes.title)) || '').trim();
+            let uniquenessKey = descriptor.id;
+            if (!uniquenessKey) {
+                uniquenessKey = url || `${label}|${primarySelector}`;
+            }
+
+            if (uniquenessKey && seenKeys.has(uniquenessKey)) {
+                return;
+            }
+
+            if (uniquenessKey) {
+                seenKeys.add(uniquenessKey);
             }
             filtered.push(descriptor);
         });
@@ -5199,7 +5329,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     }
 
     function filterContentRecords(records) {
-        const allowedTags = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'label', 'main', 'section', 'article', 'ul', 'ol', 'li']);
+        const allowedTags = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'label']);
         const filtered = [];
 
         records.forEach((descriptor) => {
@@ -5210,6 +5340,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             if (!descriptor.textContent || descriptor.textContent.trim().length < 2) {
                 return;
             }
+            descriptor.textContent = descriptor.textContent.trim().substring(0, 240);
             filtered.push(descriptor);
         });
 
@@ -5241,6 +5372,25 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         }
 
         return false;
+    }
+
+    function pickPrimarySelector(descriptor) {
+        if (!descriptor || !Array.isArray(descriptor.selectors)) {
+            return null;
+        }
+        for (const sel of descriptor.selectors) {
+            if (typeof sel === 'string' && sel.length > 0 && !sel.includes('head')) {
+                return sel;
+            }
+        }
+        return descriptor.selectors[0] || null;
+    }
+
+    function normalizeAnchorKey(value) {
+        if (!value) return null;
+        const trimmed = value.replace(/\s+/g, ' ').trim();
+        if (!trimmed) return null;
+        return trimmed.toLowerCase();
     }
 };
 
