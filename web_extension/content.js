@@ -16,6 +16,13 @@
  * Test Client → WebSocket Server → Chrome Extension → DOM → Response → Server → Test Client
  */
 
+// 🛡️ PREVENT DUPLICATE INJECTION - Check if script already loaded
+if (window.omEWebContentScriptLoaded) {
+    console.log("[Content] 🚫 Content script already loaded, preventing duplicate injection");
+    throw new Error("Content script already loaded");
+}
+window.omEWebContentScriptLoaded = true;
+
 // 🛡️ MAIN FRAME SAFETY CHECK - Ensure script only runs in main frame
 if (window.top !== window.self) {
     console.log("[Content] 🚫 Script running in iframe, exiting to prevent iframe scanning issues");
@@ -3187,7 +3194,7 @@ function generateSelector(element) {
     }
     
     if (element.className) {
-        const classes = element.className.split(' ').filter(c => c.length > 0);
+        const classes = (element.className && typeof element.className === 'string') ? element.className.split(' ').filter(c => c.length > 0) : [];
         if (classes.length > 0) {
             return `.${classes[0]}`;
         }
@@ -4833,6 +4840,425 @@ IntelligenceEngine.prototype.prepareIntelligenceData = function() {
 };
 
 /**
+ * 🆕 EXPERIMENTAL: Build normalized JSONL-ready records for the current page
+ *
+ * This helper keeps the existing intelligence pipeline untouched while
+ * providing the next-generation structure we want to stream to the server.
+ * It consolidates page metadata, sections, content elements, and actionable
+ * elements into a compact, reference-friendly format.
+ */
+IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {}) {
+    const now = Date.now();
+    const records = [];
+
+    const metaRecord = {
+        type: 'meta',
+        id: 'meta-page',
+        url: window.location.href,
+        title: document.title || 'Untitled page',
+        timestamp: now,
+        viewport: {
+            width: window.innerWidth,
+            height: window.innerHeight
+        },
+        options
+    };
+    records.push(metaRecord);
+
+    const sectionMap = new WeakMap();
+    const sectionRecords = [];
+    let sectionCounter = 0;
+
+    const rootSectionId = 'section-root';
+    sectionMap.set(document.body, rootSectionId);
+    sectionRecords.push({
+        type: 'section',
+        id: rootSectionId,
+        tag: 'body',
+        label: 'Page Body',
+        selector: 'body',
+        order: sectionCounter++
+    });
+
+    const rawActionableElements = this.getAllActionableElements();
+    const rawContentElements = this.getAllContentElements();
+
+    const actionableElements = filterInteractiveRecords(rawActionableElements);
+    const contentElements = filterContentRecords(rawContentElements);
+
+    const ensureSectionRecord = (element) => {
+        if (!element) {
+            return rootSectionId;
+        }
+
+        let current = element;
+        while (current && !sectionMap.has(current)) {
+            if (isSectionCandidate(current)) {
+                const id = `section-${sectionCounter++}`;
+                const label = pickSectionLabel(current);
+                const selector = buildSelectorPath(current);
+                const parentSection = ensureSectionRecord(current.parentElement);
+
+                const record = {
+                    type: 'section',
+                    id,
+                    tag: current.tagName ? current.tagName.toLowerCase() : 'unknown',
+                    label,
+                    selector,
+                    parent: parentSection
+                };
+
+                sectionMap.set(current, id);
+                sectionRecords.push(record);
+                break;
+            }
+            current = current.parentElement;
+        }
+
+        return sectionMap.get(current || document.body) || rootSectionId;
+    };
+
+    const resolveDomNode = (descriptor) => {
+        if (!descriptor || !Array.isArray(descriptor.selectors)) {
+            return null;
+        }
+
+        for (const sel of descriptor.selectors) {
+            if (!sel || typeof sel !== 'string') continue;
+            try {
+                const node = document.querySelector(sel);
+                if (node) return node;
+            } catch (error) {
+                // Ignore malformed selectors
+            }
+        }
+        return null;
+    };
+
+    const buildContextTrail = (node) => {
+        if (!node) return [];
+        const trail = [];
+        let current = node;
+        while (current && current !== document.body && trail.length < 6) {
+            const label = pickSectionLabel(current);
+            if (label) {
+                trail.unshift(label);
+            }
+            current = current.parentElement;
+        }
+        return trail;
+    };
+
+    const computeBoundingBox = (node) => {
+        if (!node || typeof node.getBoundingClientRect !== 'function') {
+            return null;
+        }
+        const rect = node.getBoundingClientRect();
+        return {
+            x: Math.round(rect.left + rect.width / 2),
+            y: Math.round(rect.top + rect.height / 2),
+            left: Math.round(rect.left),
+            top: Math.round(rect.top),
+            width: Math.round(rect.width),
+            height: Math.round(rect.height)
+        };
+    };
+
+    const actions = [];
+    const elements = [];
+
+    actionableElements.forEach((actionDescriptor) => {
+        const domNode = resolveDomNode(actionDescriptor);
+        const sectionId = ensureSectionRecord(domNode);
+        const bbox = computeBoundingBox(domNode);
+        const contextTrail = buildContextTrail(domNode);
+
+        const actionRecord = {
+            type: 'action',
+            id: actionDescriptor.id,
+            actionId: actionDescriptor.id,
+            parent: sectionId,
+            tag: actionDescriptor.tagName,
+            label: extractLabelFromAction(actionDescriptor, domNode),
+            actionTypes: deriveActionTypes(actionDescriptor),
+            selectors: actionDescriptor.selectors,
+            attributes: actionDescriptor.attributes || {},
+            bbox,
+            context: contextTrail,
+            confidence: deriveConfidenceScore(actionDescriptor, domNode),
+            timestamp: actionDescriptor.timestamp
+        };
+
+        if (actionDescriptor.urlContext) {
+            actionRecord.url = actionDescriptor.urlContext.url;
+            actionRecord.urlMeta = actionDescriptor.urlContext;
+        }
+
+        actions.push(actionRecord);
+    });
+
+    contentElements.forEach((contentDescriptor) => {
+        const domNode = resolveDomNode(contentDescriptor);
+        const sectionId = ensureSectionRecord(domNode);
+        const bbox = computeBoundingBox(domNode);
+        const contextTrail = buildContextTrail(domNode);
+
+        const elementRecord = {
+            type: 'element',
+            id: contentDescriptor.id,
+            parent: sectionId,
+            tag: contentDescriptor.tagName,
+            category: contentDescriptor.contentType,
+            text: contentDescriptor.textContent,
+            selectors: contentDescriptor.selectors,
+            attributes: contentDescriptor.attributes || {},
+            bbox,
+            context: contextTrail,
+            timestamp: contentDescriptor.timestamp
+        };
+
+        elements.push(elementRecord);
+    });
+
+    // Attach records in logical order: sections first, then content, then actions
+    sectionRecords.forEach((record) => records.push(record));
+    elements.forEach((record) => records.push(record));
+    actions.forEach((record) => records.push(record));
+
+    records.push({
+        type: 'summary',
+        id: 'summary-page',
+        totals: {
+            sections: sectionRecords.length,
+            elements: elements.length,
+            actions: actions.length
+        },
+        generatedAt: now
+    });
+
+    return records;
+
+    // Helper utilities ---------------------------------------------
+
+    function isSectionCandidate(node) {
+        if (!node || node === document.body) return node === document.body;
+        if (!node.tagName) return false;
+        const tag = node.tagName.toLowerCase();
+        if (['section', 'article', 'main', 'aside', 'nav', 'header', 'footer'].includes(tag)) {
+            return true;
+        }
+        const role = node.getAttribute && node.getAttribute('role');
+        if (role && ['region', 'navigation', 'main', 'dialog'].includes(role.toLowerCase())) {
+            return true;
+        }
+        if (node.hasAttribute && (node.hasAttribute('data-section') || node.hasAttribute('data-region'))) {
+            return true;
+        }
+        return false;
+    }
+
+    function pickSectionLabel(node) {
+        if (!node) return '';
+        const ariaLabel = node.getAttribute && node.getAttribute('aria-label');
+        if (ariaLabel) return ariaLabel.trim();
+        const dataLabel = node.getAttribute && (node.getAttribute('data-section-title') || node.getAttribute('data-region'));
+        if (dataLabel) return dataLabel.trim();
+        const heading = node.querySelector && node.querySelector('h1, h2, h3, h4, h5, h6');
+        if (heading && heading.textContent) {
+            return heading.textContent.trim().substring(0, 120);
+        }
+        if (node.id) return `#${node.id}`;
+        if (node.classList && node.classList.length > 0) {
+            return `.${node.classList[0]}`;
+        }
+        return node.tagName ? node.tagName.toLowerCase() : 'section';
+    }
+
+    function buildSelectorPath(node) {
+        if (!node || node === document.body) return 'body';
+        const parts = [];
+        let current = node;
+        while (current && current !== document.body && parts.length < 6) {
+            let selector = current.tagName ? current.tagName.toLowerCase() : 'node';
+            if (current.id) {
+                selector += `#${current.id}`;
+                parts.unshift(selector);
+                break;
+            }
+            if (current.classList && current.classList.length > 0) {
+                selector += `.${current.classList[0]}`;
+            }
+            parts.unshift(selector);
+            current = current.parentElement;
+        }
+        return parts.length ? parts.join(' > ') : 'body';
+    }
+
+    function extractLabelFromAction(descriptor, node) {
+        if (descriptor.textContent) {
+            return descriptor.textContent.trim();
+        }
+        const attr = descriptor.attributes || {};
+        if (attr['aria-label']) return attr['aria-label'];
+        if (attr.title) return attr.title;
+        if (attr.alt) return attr.alt;
+        if (node) {
+            const label = node.getAttribute('aria-label') || node.getAttribute('title');
+            if (label) return label.trim();
+            if (node.textContent) return node.textContent.trim().substring(0, 120);
+        }
+        return descriptor.tagName || 'element';
+    }
+
+    function deriveActionTypes(descriptor) {
+        const types = new Set();
+        if (descriptor.actionType) {
+            types.add(descriptor.actionType);
+        }
+        const tag = descriptor.tagName ? descriptor.tagName.toLowerCase() : '';
+        if (tag === 'input') {
+            types.add('focus');
+            types.add('setValue');
+        }
+        if (tag === 'textarea') {
+            types.add('focus');
+            types.add('setValue');
+        }
+        if (tag === 'select') {
+            types.add('select');
+        }
+        if (tag === 'button' || types.has('click')) {
+            types.add('click');
+        }
+        if (descriptor.urlContext && descriptor.urlContext.url) {
+            types.add('navigate');
+        }
+        return Array.from(types);
+    }
+
+    function deriveConfidenceScore(descriptor, node) {
+        let score = 0.6;
+        if (descriptor.urlContext && descriptor.urlContext.url) {
+            score += 0.2;
+        }
+        if (descriptor.selectors && descriptor.selectors.length > 0) {
+            score += 0.1;
+        }
+        if (node && node.offsetParent !== null) {
+            score += 0.1;
+        }
+        return Math.min(1, Number(score.toFixed(2)));
+    }
+
+    function filterInteractiveRecords(records) {
+        const seenSelectors = new Set();
+        const seenUrls = new Set();
+        const filtered = [];
+
+        records.forEach((descriptor) => {
+            const tag = descriptor.tagName ? descriptor.tagName.toLowerCase() : '';
+
+            if (tag === 'link' || tag === 'meta' || tag === 'script') {
+                return;
+            }
+
+            if (!descriptor.selectors || descriptor.selectors.length === 0) {
+                return;
+            }
+
+            const selectorKey = descriptor.selectors[0];
+            if (selectorKey && seenSelectors.has(selectorKey)) {
+                return;
+            }
+
+            const url = descriptor.urlContext && descriptor.urlContext.url;
+            if (url && seenUrls.has(url)) {
+                return;
+            }
+
+            const primarySelector = descriptor.selectors
+                .filter(sel => typeof sel === 'string' && sel.length > 0)
+                .find(sel => !sel.includes('head'));
+
+            if (!primarySelector) {
+                return;
+            }
+
+            if (!isMeaningfulInteractiveSelector(primarySelector, tag, descriptor.attributes || {})) {
+                return;
+            }
+
+            seenSelectors.add(selectorKey);
+            if (url) {
+                seenUrls.add(url);
+            }
+            filtered.push(descriptor);
+        });
+
+        return filtered;
+    }
+
+    function filterContentRecords(records) {
+        const allowedTags = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'label', 'main', 'section', 'article', 'ul', 'ol', 'li']);
+        const filtered = [];
+
+        records.forEach((descriptor) => {
+            const tag = descriptor.tagName ? descriptor.tagName.toLowerCase() : '';
+            if (!allowedTags.has(tag)) {
+                return;
+            }
+            if (!descriptor.textContent || descriptor.textContent.trim().length < 2) {
+                return;
+            }
+            filtered.push(descriptor);
+        });
+
+        return filtered;
+    }
+
+    function isMeaningfulInteractiveSelector(selector, tag, attributes) {
+        if (!selector) return false;
+
+        if (selector.includes('head') || selector.includes('meta') || selector.includes('script')) {
+            return false;
+        }
+
+        if (selector.includes('elementor-background-overlay') || selector.includes('slick-track')) {
+            return false;
+        }
+
+        if (tag === 'nav' || tag === 'button' || tag === 'a' || tag === 'input' || tag === 'select' || tag === 'textarea') {
+            return true;
+        }
+
+        const classList = attributes && attributes.cssClasses ? attributes.cssClasses.join(' ') : '';
+        if (classList.match(/(btn|button|link|nav|menu|toggle|tab|cta)/i)) {
+            return true;
+        }
+
+        if (attributes && (attributes['aria-label'] || attributes.title)) {
+            return true;
+        }
+
+        return false;
+    }
+};
+
+// 🆕 DEBUG: expose normalized record builder for manual testing during migration
+window.omEWebBuildNormalizedRecords = function(options) {
+    try {
+        if (window.intelligenceEngine && typeof window.intelligenceEngine.buildNormalizedPageRecords === 'function') {
+            return window.intelligenceEngine.buildNormalizedPageRecords(options);
+        }
+        console.warn('[Content] ⚠️ intelligenceEngine not ready for normalized records');
+        return [];
+    } catch (error) {
+        console.error('[Content] ❌ Failed to build normalized records:', error);
+        return [];
+    }
+};
+
+/**
  * 🆕 NEW: Send intelligence update to service worker with error handling
  */
 IntelligenceEngine.prototype.sendIntelligenceUpdateToServiceWorker = async function(intelligenceData) {
@@ -5182,7 +5608,7 @@ IntelligenceEngine.prototype.generateElementSelectors = function(element) {
         
         // Strategy 3: Class-based selector
         if (element.className) {
-            const classes = element.className.split(' ').filter(c => c.trim());
+            const classes = (element.className && typeof element.className === 'string') ? element.className.split(' ').filter(c => c.trim()) : [];
             if (classes.length > 0) {
                 selectors.push(`.${classes[0]}`);
             }
@@ -5190,7 +5616,7 @@ IntelligenceEngine.prototype.generateElementSelectors = function(element) {
         
         // Strategy 4: Tag + class combination
         if (element.tagName && element.className) {
-            const firstClass = element.className.split(' ')[0];
+            const firstClass = (element.className && typeof element.className === 'string') ? element.className.split(' ')[0] : '';
             if (firstClass) {
                 selectors.push(`${element.tagName.toLowerCase()}.${firstClass}`);
             }
@@ -5252,7 +5678,7 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
     }
     
     // 🆕 NEW: Add common CSS classes for styling context
-    if (element.className) {
+    if (element.className && typeof element.className === 'string') {
         const classes = element.className.split(' ').filter(c => c.trim());
         if (classes.length > 0) {
             attributes['cssClasses'] = classes;
@@ -7462,7 +7888,7 @@ function generateElementSelectors(element) {
         
         // 🎯 Class selector
         if (element.className) {
-            const classes = element.className.split(' ').filter(c => c.trim());
+            const classes = (element.className && typeof element.className === 'string') ? element.className.split(' ').filter(c => c.trim()) : [];
             classes.forEach(className => {
                 if (className) {
                     selectors.push(`.${className}`);
@@ -7472,7 +7898,7 @@ function generateElementSelectors(element) {
         
         // 🎯 Tag + class selector
         if (element.className) {
-            const classes = element.className.split(' ').filter(c => c.trim());
+            const classes = (element.className && typeof element.className === 'string') ? element.className.split(' ').filter(c => c.trim()) : [];
             classes.forEach(className => {
                 if (className) {
                     selectors.push(`${element.tagName.toLowerCase()}.${className}`);
