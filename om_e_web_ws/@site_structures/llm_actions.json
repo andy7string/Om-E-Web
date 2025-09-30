@@ -1,641 +1,724 @@
 {
   "_page_context": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
-    "timestamp": 1759233047.557819,
-    "total_actions": 106,
-    "active_tab_id": 1138001757
+    "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "title": "ChatGPT - OM-E autonomy",
+    "timestamp": 1759241041.970886,
+    "total_actions": 246,
+    "active_tab_id": 1138001932
   },
-  "action_link_a_0": {
-    "action_type": "link",
-    "description": "HOME",
-    "tag_name": "a",
+  "action_textarea_textarea_0": {
+    "action_type": "textarea",
+    "description": "",
+    "tag_name": "textarea",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_0' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_1": {
-    "action_type": "link",
-    "description": "ABOUT",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_1' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_2": {
-    "action_type": "link",
-    "description": "PORTFOLIO",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_2' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_3": {
-    "action_type": "link",
-    "description": "Banner Design",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_3' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_4": {
-    "action_type": "link",
-    "description": "Logo Design",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_4' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_5": {
-    "action_type": "link",
-    "description": "Web Design",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_5' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_6": {
-    "action_type": "link",
-    "description": "SERVICES",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_6' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_7": {
-    "action_type": "link",
-    "description": "CONTACT",
-    "tag_name": "a",
-    "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_7' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_nav_nav_8": {
-    "action_type": "nav",
-    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
-    "tag_name": "nav",
-    "selectors": [
-      "#primary-site-navigation-desktop",
-      ".site-navigation",
-      "nav.site-navigation",
+      "[data-virtualkeyboard=\"true\"]",
+      "._fallbackTextarea_4ajk2_2",
+      "textarea._fallbackTextarea_4ajk2_2",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_nav_nav_8' to nav with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_textarea_textarea_0' to textarea with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_nav_nav_9": {
-    "action_type": "nav",
-    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
-    "tag_name": "nav",
-    "selectors": [
-      "#primary-site-navigation-mobile",
-      ".site-navigation",
-      "nav.site-navigation",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_nav_nav_9' to nav with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_unknown_div_10": {
+  "action_unknown_div_1": {
     "action_type": "unknown",
-    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
+    "description": "",
     "tag_name": "div",
     "selectors": [
-      ".main-navigation",
-      "div.main-navigation",
-      "nav:nth-child(1)"
+      "#prompt-textarea",
+      "[data-virtualkeyboard=\"true\"]",
+      ".ProseMirror",
+      "div.ProseMirror",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_div_10' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_div_1' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_div_11": {
-    "action_type": "unknown",
-    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
-    "tag_name": "div",
+  "action_nav_nav_2": {
+    "action_type": "nav",
+    "description": "New chat⇧⌘OSearch chats⌘KLibraryCodexGPTsExploreWeb BrowserProjectsNew projectOM-E autonomyAWS Solut",
+    "tag_name": "nav",
     "selectors": [
-      ".main-navigation",
-      "div.main-navigation",
-      "nav:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_div_11' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_12": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_12' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_link_a_13": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
+      "[data-scrolled-from-end=\"\"]",
+      ".group/scrollport",
+      "nav.group/scrollport",
       "div:nth-child(2)"
     ],
     "coordinates": {},
+    "llm_instruction": "Use actionId 'action_nav_nav_2' to nav with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_header_3": {
+    "action_type": "unknown",
+    "description": "ChatGPT",
+    "tag_name": "header",
+    "selectors": [
+      "#page-header",
+      ".draggable",
+      "header.draggable",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_header_3' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_4": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-testid=\"create-new-chat-button\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_4' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_5": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-testid=\"sidebar-item-library\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_5' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_6": {
+    "action_type": "link",
+    "description": "Codex",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_6' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_7": {
+    "action_type": "link",
+    "description": "Explore",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-testid=\"explore-gpts-button\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_7' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_8": {
+    "action_type": "link",
+    "description": "Web Browser",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_8' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_9": {
+    "action_type": "link",
+    "description": "OM-E autonomy",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_9' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_10": {
+    "action_type": "link",
+    "description": "AWS Solutions Architecture Pro Prep",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_10' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_11": {
+    "action_type": "link",
+    "description": "AI Engineering - Studies",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_11' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_12": {
+    "action_type": "link",
+    "description": "tax optimisation",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(6)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_link_a_12' to link with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_link_a_13": {
+    "action_type": "link",
+    "description": "BEAR",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(7)"
+    ],
+    "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_13' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_14": {
     "action_type": "link",
-    "description": "Get Started",
+    "description": "Pipes in kitchen floor",
     "tag_name": "a",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_14' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_15": {
     "action_type": "link",
-    "description": "Get Started",
+    "description": "BUPA tax claim codes",
     "tag_name": "a",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_15' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_16": {
     "action_type": "link",
-    "description": "Get Started",
+    "description": "Israel seven-front war references",
     "tag_name": "a",
     "selectors": [
-      ".bdt-slide-link",
-      "a.bdt-slide-link",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_16' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_17": {
     "action_type": "link",
-    "description": "",
+    "description": "Remove reflection from photo",
     "tag_name": "a",
     "selectors": [
-      "figure:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_17' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_18": {
     "action_type": "link",
-    "description": "More Info",
+    "description": "Who is Jesus",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(5)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_18' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_19": {
     "action_type": "link",
-    "description": "",
+    "description": "Translate to Afrikaans",
     "tag_name": "a",
     "selectors": [
-      "figure:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(6)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_19' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_20": {
     "action_type": "link",
-    "description": "",
+    "description": "Banking details inquiry",
     "tag_name": "a",
     "selectors": [
-      "figure:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(7)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_20' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_21": {
     "action_type": "link",
-    "description": "Straker Functional Fitness",
+    "description": "Defying military orders",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(8)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_21' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_22": {
     "action_type": "link",
-    "description": "The Syrene Hotel",
+    "description": "Sample creation guide",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(9)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_22' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_23": {
     "action_type": "link",
-    "description": "African Safari Deals",
+    "description": "Contract finance protection",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(10)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_23' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_24": {
     "action_type": "link",
-    "description": "Mtambo Chartered Accountants",
+    "description": "Interview prep plan",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(11)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_24' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_25": {
     "action_type": "link",
-    "description": "Joss Couture",
+    "description": "Version and release info",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(12)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_25' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_26": {
     "action_type": "link",
-    "description": "Flutterbys School",
+    "description": "Google rankings and hidden text",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(13)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_26' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_27": {
     "action_type": "link",
-    "description": "The Gourmet Cookie Co",
+    "description": "Interview prep for Solutions Architect",
     "tag_name": "a",
     "selectors": [
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(14)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_27' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_28": {
     "action_type": "link",
-    "description": "",
+    "description": "Gartner layers for assets",
     "tag_name": "a",
     "selectors": [
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(15)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_28' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_29": {
     "action_type": "link",
-    "description": "Read More Testimonials",
+    "description": "Mac Screenshot Shortcut Fix",
     "tag_name": "a",
     "selectors": [
-      ".elementor-button",
-      "a.elementor-button",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(16)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_29' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_30": {
     "action_type": "link",
-    "description": "",
+    "description": "Om-e Urika",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(17)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_30' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_31": {
     "action_type": "link",
-    "description": "",
+    "description": "Select all in VS Mac",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(18)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_31' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_32": {
     "action_type": "link",
-    "description": "",
+    "description": "Website Spec Development POA",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(19)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_32' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_link_a_33": {
     "action_type": "link",
-    "description": "",
+    "description": "Rainy Rock Anthem",
     "tag_name": "a",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "[data-fill=\"\"]",
+      "[data-discover=\"true\"]",
+      ".group",
+      "a.group",
+      "div:nth-child(20)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_link_a_33' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_34": {
-    "action_type": "link",
+  "action_unknown_link_34": {
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "link",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "head:nth-child(8)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_34' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_34' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_35": {
-    "action_type": "link",
+  "action_unknown_link_35": {
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "link",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "head:nth-child(9)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_35' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_35' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_36": {
-    "action_type": "link",
+  "action_unknown_link_36": {
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "link",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "head:nth-child(10)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_36' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_36' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_37": {
-    "action_type": "link",
+  "action_unknown_link_37": {
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "link",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "head:nth-child(11)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_37' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_37' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_38": {
-    "action_type": "link",
+  "action_unknown_link_38": {
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "link",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "head:nth-child(12)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_38' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_38' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_39": {
-    "action_type": "link",
+  "action_unknown_link_39": {
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "link",
     "selectors": [
-      "[data-fancybox=\"uael-gallery\"]",
-      "[data-elementor-open-lightbox=\"no\"]",
-      ".uael-grid-img",
-      "a.uael-grid-img",
-      "div:nth-child(1)"
+      "head:nth-child(13)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_39' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_39' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_40": {
-    "action_type": "link",
-    "description": "Testimonials",
-    "tag_name": "a",
+  "action_unknown_link_40": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "li:nth-child(1)"
+      "head:nth-child(14)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_40' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_40' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_41": {
-    "action_type": "link",
-    "description": "Privacy Policy",
-    "tag_name": "a",
+  "action_unknown_link_41": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "li:nth-child(1)"
+      "head:nth-child(15)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_41' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_41' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_link_a_42": {
-    "action_type": "link",
-    "description": "Website Designed by Bright Tree Digital",
-    "tag_name": "a",
+  "action_unknown_link_42": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "h6:nth-child(1)"
+      "head:nth-child(16)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_link_a_42' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_42' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_43": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(3)"
+      "head:nth-child(17)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_43' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_44": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(18)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_44' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_45": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(19)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_45' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_46": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(20)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_46' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_47": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(21)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_47' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_48": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -643,11 +726,11 @@
       "head:nth-child(22)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_44' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_48' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_link_45": {
+  "action_unknown_link_49": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -655,11 +738,11 @@
       "head:nth-child(23)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_45' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_49' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_link_46": {
+  "action_unknown_link_50": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -667,11 +750,11 @@
       "head:nth-child(24)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_46' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_50' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_link_47": {
+  "action_unknown_link_51": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -679,540 +762,611 @@
       "head:nth-child(25)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_47' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_unknown_link_48": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#astra-theme-css-css",
-      "head:nth-child(29)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_48' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_unknown_link_49": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#astra-google-fonts-css",
-      "head:nth-child(31)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_49' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_unknown_link_50": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#hfe-widgets-style-css",
-      "head:nth-child(32)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_50' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_unknown_link_51": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#dashicons-css",
-      "head:nth-child(35)"
-    ],
-    "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_51' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_52": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#portfolio-front-style-css",
-      "head:nth-child(36)"
+      "head:nth-child(26)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_52' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_53": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#hfe-style-css",
-      "head:nth-child(37)"
+      "head:nth-child(27)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_53' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_54": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-frontend-css",
-      "head:nth-child(38)"
+      "head:nth-child(28)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_54' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_55": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-post-3614-css",
-      "head:nth-child(39)"
+      "head:nth-child(29)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_55' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_56": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#uael-frontend-css",
-      "head:nth-child(40)"
+      "head:nth-child(30)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_56' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_57": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#wpforms-modern-base-css",
-      "head:nth-child(41)"
+      "head:nth-child(31)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_57' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_58": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#uael-teammember-social-icons-css",
-      "head:nth-child(42)"
+      "head:nth-child(32)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_58' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_59": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#uael-social-share-icons-brands-css",
-      "head:nth-child(43)"
+      "head:nth-child(33)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_59' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_60": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#uael-social-share-icons-fontawesome-css",
-      "head:nth-child(44)"
+      "head:nth-child(34)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_60' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_61": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#uael-nav-menu-icons-css",
-      "head:nth-child(45)"
+      "head:nth-child(35)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_61' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_62": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#e-animation-grow-css",
-      "head:nth-child(46)"
+      "head:nth-child(36)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_62' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_63": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#swiper-css",
-      "head:nth-child(47)"
+      "head:nth-child(37)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_63' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_64": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#bdt-uikit-css",
-      "head:nth-child(48)"
+      "head:nth-child(38)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_64' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_65": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#ep-helper-css",
-      "head:nth-child(49)"
+      "head:nth-child(39)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_65' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_66": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#ep-slider-css",
-      "head:nth-child(50)"
+      "head:nth-child(40)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_66' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_67": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#ep-font-css",
-      "head:nth-child(51)"
+      "head:nth-child(41)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_67' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_68": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#widget-heading-css",
-      "head:nth-child(52)"
+      "head:nth-child(42)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_68' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_69": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#widget-divider-css",
-      "head:nth-child(53)"
+      "head:nth-child(43)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_69' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_70": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#widget-image-box-css",
-      "head:nth-child(54)"
+      "head:nth-child(44)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_70' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_71": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#e-animation-fadeIn-css",
-      "head:nth-child(55)"
+      "head:nth-child(45)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_71' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_72": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#widget-image-css",
-      "head:nth-child(56)"
+      "head:nth-child(46)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_72' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_73": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-post-4609-css",
-      "head:nth-child(57)"
+      "head:nth-child(47)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_73' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_74": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-post-5533-css",
-      "head:nth-child(58)"
+      "head:nth-child(48)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_74' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_75": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#qi-addons-for-elementor-grid-style-css",
-      "head:nth-child(59)"
+      "head:nth-child(49)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_75' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_76": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#qi-addons-for-elementor-helper-parts-style-css",
-      "head:nth-child(60)"
+      "head:nth-child(50)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_76' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_77": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#qi-addons-for-elementor-style-css",
-      "head:nth-child(61)"
+      "head:nth-child(51)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_77' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_78": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#astra-addon-css-css",
-      "head:nth-child(62)"
+      "head:nth-child(52)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_78' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_79": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#hfe-elementor-icons-css",
-      "head:nth-child(64)"
+      "head:nth-child(53)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_79' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_80": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#hfe-icons-list-css",
-      "head:nth-child(65)"
+      "head:nth-child(54)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_80' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_81": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-gf-local-roboto-css",
-      "head:nth-child(70)"
+      "head:nth-child(55)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_81' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_82": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-gf-local-robotoslab-css",
-      "head:nth-child(71)"
+      "head:nth-child(56)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_82' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_83": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-gf-local-poppins-css",
-      "head:nth-child(72)"
+      "head:nth-child(57)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_83' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_84": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-gf-local-nokora-css",
-      "head:nth-child(73)"
+      "head:nth-child(58)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_84' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_85": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(81)"
+      "head:nth-child(59)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_85' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_86": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(82)"
+      "head:nth-child(60)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_86' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_87": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(83)"
+      "head:nth-child(61)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_87' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_88": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(86)"
+      "head:nth-child(62)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'action_unknown_link_88' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
   "action_unknown_link_89": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(63)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_89' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_90": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(64)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_90' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_91": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(65)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_91' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_92": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(66)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_92' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_93": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(67)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_93' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_94": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(68)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_94' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_95": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(69)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_95' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_96": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(70)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_96' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_97": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(71)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_97' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_98": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(77)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_98' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_99": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(78)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_99' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_100": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(84)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_100' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_101": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(85)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_101' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_102": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -1220,11 +1374,47 @@
       "head:nth-child(87)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_89' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_102' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_link_90": {
+  "action_unknown_link_103": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(89)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_103' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_104": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(90)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_104' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_105": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(92)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_105' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_106": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -1232,206 +1422,1883 @@
       "head:nth-child(93)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_90' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_106' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_link_91": {
+  "action_unknown_link_107": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#widget-icon-list-css",
-      "body:nth-child(7)"
+      "head:nth-child(94)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_91' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_107' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_link_92": {
+  "action_unknown_link_108": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#widget-social-icons-css",
-      "body:nth-child(8)"
+      "head:nth-child(95)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_92' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_108' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_link_93": {
+  "action_unknown_link_109": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#e-apple-webkit-css",
-      "body:nth-child(9)"
+      "head:nth-child(96)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_93' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_109' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_unknown_link_94": {
+  "action_unknown_link_110": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#astra-addon-megamenu-dynamic-css",
-      "body:nth-child(10)"
+      "head:nth-child(97)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_unknown_link_94' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_unknown_link_110' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_95": {
+  "action_unknown_link_111": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(98)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_111' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_112": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(99)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_112' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_113": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(100)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_113' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_114": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(101)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_114' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_115": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(102)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_115' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_116": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(103)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_116' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_117": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(104)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_117' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_118": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(105)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_118' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_119": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(106)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_119' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_120": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(107)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_120' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_121": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(108)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_121' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_122": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(109)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_122' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_123": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(110)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_123' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_124": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(111)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_124' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_125": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(112)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_125' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_126": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(113)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_126' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_127": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(114)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_127' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_128": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(115)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_128' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_129": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(116)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_129' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_130": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(117)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_130' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_131": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(118)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_131' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_132": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(119)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_132' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_133": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(120)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_133' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_134": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(121)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_134' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_135": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(122)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_135' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_136": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(123)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_136' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_137": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(124)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_137' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_138": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(125)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_138' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_139": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(126)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_139' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_140": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(127)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_140' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_141": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(128)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_141' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_142": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(129)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_142' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_143": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(130)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_143' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_144": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(131)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_144' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_145": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(132)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_145' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_146": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(133)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_146' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_147": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(134)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_147' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_148": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(135)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_148' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_149": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(136)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_149' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_150": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(137)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_150' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_151": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(138)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_151' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_152": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(139)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_152' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_153": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(140)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_153' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_154": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(141)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_154' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_155": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(142)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_155' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_156": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(143)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_156' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_157": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(144)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_157' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_158": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(145)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_158' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_159": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(146)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_159' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_160": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(147)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_160' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_161": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(148)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_161' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_162": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(149)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_162' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_163": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(150)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_163' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_164": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(151)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_164' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_165": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(152)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_165' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_166": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(153)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_166' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_167": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(154)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_167' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_168": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(155)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_168' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_169": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(156)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_169' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_170": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(157)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_170' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_171": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(158)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_171' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_172": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(159)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_172' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_173": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(160)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_173' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_174": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(161)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_174' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_175": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(162)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_175' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_176": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(163)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_176' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_177": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(164)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_177' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_178": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(165)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_178' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_179": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(166)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_179' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_180": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(167)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_180' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_181": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(168)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_181' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_182": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(169)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_182' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_183": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(170)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_183' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_184": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(171)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_184' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_185": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(172)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_185' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_186": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(173)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_186' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_187": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(174)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_187' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_188": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(175)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_188' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_189": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(176)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_189' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_190": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(177)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_190' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_191": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(178)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_191' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_192": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(179)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_192' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_193": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(180)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_193' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_194": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(181)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_194' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_195": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(182)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_195' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_196": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(183)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_196' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_197": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(184)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_197' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_198": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(185)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_198' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_199": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(186)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_199' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_link_200": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(187)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_link_200' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_201": {
     "action_type": "button",
-    "description": "Menu Toggle",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_95' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
-  },
-  "action_button_button_96": {
-    "action_type": "button",
-    "description": "Main Menu",
-    "tag_name": "button",
-    "selectors": [
-      ".menu-toggle",
-      "button.menu-toggle",
+      "[data-fill=\"\"]",
+      "[data-state=\"closed\"]",
+      ".group",
+      "button.group",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_96' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_201' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_97": {
+  "action_button_button_202": {
     "action_type": "button",
-    "description": "Menu Toggle",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
+      "[data-testid=\"close-sidebar-button\"]",
+      "[data-state=\"closed\"]",
+      ".text-token-text-tertiary",
+      "button.text-token-text-tertiary",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_97' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_202' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_98": {
+  "action_button_button_203": {
     "action_type": "button",
-    "description": "1",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control20",
-      "li:nth-child(1)"
+      "#radix-«r55»",
+      "[data-trailing-button=\"\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_98' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_203' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_99": {
+  "action_button_button_204": {
     "action_type": "button",
-    "description": "2",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control21",
-      "li:nth-child(1)"
+      "#radix-«r58»",
+      "[data-trailing-button=\"\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_99' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_204' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_100": {
+  "action_button_button_205": {
     "action_type": "button",
-    "description": "3",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control22",
-      "li:nth-child(1)"
+      "#radix-«r5b»",
+      "[data-trailing-button=\"\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_100' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_205' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_101": {
+  "action_button_button_206": {
     "action_type": "button",
-    "description": "4",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control23",
-      "li:nth-child(1)"
+      "#radix-«r5e»",
+      "[data-trailing-button=\"\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_101' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_206' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_102": {
+  "action_button_button_207": {
     "action_type": "button",
-    "description": "5",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control24",
-      "li:nth-child(1)"
+      "#radix-«r5h»",
+      "[data-trailing-button=\"\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_102' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_207' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_103": {
+  "action_button_button_208": {
     "action_type": "button",
-    "description": "6",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control25",
-      "li:nth-child(1)"
+      "#radix-«r5k»",
+      "[data-trailing-button=\"\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_103' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_208' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_104": {
+  "action_button_button_209": {
     "action_type": "button",
-    "description": "7",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control26",
-      "li:nth-child(1)"
+      "#radix-«r5p»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-0-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_104' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_209' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   },
-  "action_button_button_105": {
+  "action_button_button_210": {
     "action_type": "button",
-    "description": "8",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "#slick-slide-control27",
-      "li:nth-child(1)"
+      "#radix-«r5r»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-1-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'action_button_button_105' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/",
-    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+    "llm_instruction": "Use actionId 'action_button_button_210' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_211": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r5t»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-2-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_211' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_212": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r5v»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-3-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_212' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_213": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r61»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-4-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_213' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_214": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r63»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-5-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_214' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_215": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r65»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-6-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_215' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_216": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r67»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-7-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_216' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_217": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r69»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-8-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_217' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_218": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6b»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-9-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_218' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_219": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6d»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-10-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_219' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_220": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6f»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-11-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_220' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_221": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6h»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-12-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_221' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_222": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6j»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-13-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_222' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_223": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6l»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-14-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_223' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_224": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6n»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-15-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_224' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_225": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6p»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-16-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_225' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_226": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6r»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-17-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_226' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_227": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6t»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-18-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_227' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_228": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r6v»",
+      "[data-trailing-button=\"\"]",
+      "[data-testid=\"history-item-19-options\"]",
+      "[data-state=\"closed\"]",
+      ".__menu-item-trailing-btn",
+      "button.__menu-item-trailing-btn",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_228' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_229": {
+    "action_type": "button",
+    "description": "Open sidebar",
+    "tag_name": "button",
+    "selectors": [
+      "[data-testid=\"open-sidebar-button\"]",
+      ".hover:text-token-text-primary",
+      "button.hover:text-token-text-primary",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_229' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_230": {
+    "action_type": "button",
+    "description": "ChatGPT",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r0»",
+      "[data-state=\"closed\"]",
+      "[data-testid=\"model-switcher-dropdown-button\"]",
+      ".group",
+      "button.group",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_230' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_231": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".btn",
+      "button.btn",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_231' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_232": {
+    "action_type": "button",
+    "description": "ChatGPT",
+    "tag_name": "button",
+    "selectors": [
+      "#radix-«r3»",
+      "[data-state=\"closed\"]",
+      "[data-testid=\"model-switcher-dropdown-button\"]",
+      ".group",
+      "button.group",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_232' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_233": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".text-token-text-primary",
+      "button.text-token-text-primary",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_233' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_234": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#composer-plus-btn",
+      "[data-testid=\"composer-plus-btn\"]",
+      "[data-state=\"closed\"]",
+      ".composer-btn",
+      "button.composer-btn",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_234' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_235": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".composer-btn",
+      "button.composer-btn",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_235' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_button_236": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-testid=\"composer-speech-button\"]",
+      ".relative",
+      "button.relative",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_button_236' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_div_237": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      "#radix-«R1jdd59a4mj5»",
+      "[data-fill=\"\"]",
+      "[data-size=\"large\"]",
+      "[data-testid=\"accounts-profile-button\"]",
+      "[data-state=\"closed\"]",
+      ".group",
+      "div.group",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_div_237' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_button_div_238": {
+    "action_type": "button",
+    "description": "Andrew JuniorPlus",
+    "tag_name": "div",
+    "selectors": [
+      "#radix-«R14ldd59a4mj5»",
+      "[data-fill=\"\"]",
+      "[data-size=\"large\"]",
+      "[data-testid=\"accounts-profile-button\"]",
+      "[data-state=\"closed\"]",
+      ".group",
+      "div.group",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_button_div_238' to button with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_span_355": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "span",
+    "selectors": [
+      "[data-testid=\"blocking-initial-modals-done\"]",
+      ".hidden",
+      "span.hidden",
+      "body:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_span_355' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_svg_356": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "svg",
+    "selectors": [
+      "[data-rtl-flip=\"\"]",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_svg_356' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_svg_357": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "svg",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_svg_357' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_svg_358": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "svg",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_svg_358' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_svg_359": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "svg",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_svg_359' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_div_360": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".hidden",
+      "div.hidden",
+      "form:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_div_360' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
+  },
+  "action_unknown_audio_361": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "audio",
+    "selectors": [
+      ".fixed",
+      "audio.fixed",
+      "body:nth-child(8)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'action_unknown_audio_361' to unknown with this element",
+    "page_url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/68dbe2c7-6eb8-8324-9f60-24b9bca01001",
+    "page_title": "ChatGPT - OM-E autonomy"
   }
 }
