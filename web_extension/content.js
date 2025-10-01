@@ -5015,18 +5015,15 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         const elementRecord = {
             type: 'text',
             id: contentDescriptor.id,
-            section: sectionId,
-            tag: contentDescriptor.tagName,
             category: contentDescriptor.contentType,
             text: textValue,
-            selector: primarySelector,
             visibility
         };
 
         registerTextIndex(textValue, elementRecord.id);
 
         const bucket = sectionBuckets.get(sectionId);
-        const dedupKey = `${elementRecord.tag}|${textValue}`;
+        const dedupKey = `${(contentDescriptor.tagName || '').toLowerCase()}|${textValue}`;
         if (bucket.textSeen.has(dedupKey)) return;
         bucket.textSeen.add(dedupKey);
         bucket.entries.push({ order: computeDomPath(domNode), record: elementRecord });
@@ -5043,13 +5040,9 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         const actionRecord = {
             type: 'action',
             id: actionDescriptor.id,
-            section: sectionId,
-            tag: actionDescriptor.tagName,
             label: extractLabelFromAction(actionDescriptor, domNode),
             actionTypes: deriveActionTypes(actionDescriptor),
-            selector: primarySelector,
-            visibility,
-            confidence: deriveConfidenceScore(actionDescriptor, domNode)
+            visibility
         };
 
         if (actionDescriptor.urlContext) {
@@ -5122,13 +5115,9 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             const actionRecord = {
                 type: 'action',
                 id: actionId,
-                section: sectionId,
-                tag: 'a',
                 label: labelText.substring(0, 240),
                 actionTypes: ['link', 'navigate'],
-                selector: primarySelector,
                 visibility,
-                confidence: 1,
                 href,
                 ariaLabel: linkEl.getAttribute('aria-label') || undefined,
                 title: linkEl.getAttribute('title') || undefined
@@ -5803,8 +5792,8 @@ IntelligenceEngine.prototype.generateActionableId = function(element, actionType
     const className = element.className || '';
     const textContent = element.textContent?.trim().substring(0, 100) || '';
     
-    // Create a unique ID based on element properties
-    const uniqueId = `action_${actionType}_${tagName}_${this.elementCounter++}`;
+    // Create a unique compact ID
+    const uniqueId = `a_id_${this.elementCounter++}`;
     
     // Generate multiple selectors for reliability
     const selectors = this.generateElementSelectors(element);
