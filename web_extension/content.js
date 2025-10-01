@@ -200,6 +200,10 @@ function performAutomaticDisconnectCycle() {
     console.log("[Content] 🔄 Starting automatic disconnect cycle for CSP bypass...");
     
     try {
+        const isYoutube = window.location.hostname.includes('youtube.com');
+        if (isYoutube || window.currentFramework === 'youtube') {
+            return [];
+        }
         // 🎯 Step 1: Force runtime disconnect to invalidate extension context
         if (chrome.runtime && chrome.runtime.disconnect) {
             console.log("[Content] 🔌 Forcing runtime disconnect...");
@@ -4162,6 +4166,7 @@ var IntelligenceEngine = function() {
     this.contentElements = new Map(); // 🆕 NEW: Map of content elements with IDs
     this.elementCounter = 0; // 🆕 NEW: Counter for generating unique IDs
     this.initialScanCompleted = false; // 🆕 NEW: Track if initial scan is complete
+    this.youtubeRegisteredUrls = new Set(); // 🆕 Track YouTube video URLs we've already registered
     
     console.log("[Content] 🧠 IntelligenceEngine initialized with page context:", {
         url: this.pageState.url,
@@ -4233,8 +4238,12 @@ IntelligenceEngine.prototype.analyzeStructureChanges = function(event) {
                     selectors: this.actionableElements.get(actionId)?.selectors || []
                 });
             }
+
+            if (window.currentFramework === 'youtube') {
+                this.registerYoutubeLinksFromNode(element);
+            }
         });
-        
+
         // Update interactive elements count
         this.pageState.interactiveElements = this.getAllActionableElements();
         
@@ -4884,7 +4893,18 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     const rawActionableElements = this.getAllActionableElements();
     const rawContentElements = this.getAllContentElements();
 
-    const actionableElements = filterInteractiveRecords(rawActionableElements);
+    const actionableBase = Array.isArray(rawActionableElements) ? [...rawActionableElements] : [];
+    const youtubeDescriptors = this.collectYoutubeCardDescriptors(actionableBase);
+    if (youtubeDescriptors.length) {
+        actionableBase.push(...youtubeDescriptors);
+    }
+    const extraAnchorDescriptors = this.collectAdditionalAnchorDescriptors(actionableBase);
+    if (extraAnchorDescriptors.length) {
+        actionableBase.push(...extraAnchorDescriptors);
+    }
+
+    const actionableElements = filterInteractiveRecords(actionableBase);
+    const existingActionHrefs = new Set();
     const contentElements = filterContentRecords(rawContentElements);
 
     const ensureSectionRecord = (element) => {
@@ -5054,7 +5074,89 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
 
         bucket.entries.push({ order: computeDomPath(domNode), record: actionRecord });
         bucket.actionCount += 1;
+        if (actionRecord.href) {
+            existingActionHrefs.add(actionRecord.href);
+        }
     });
+
+    if (window.location.hostname && window.location.hostname.includes('youtube.com')) {
+        const youtubeSelectors = [
+            'a.yt-lockup-metadata-view-model__title[href*="watch"]',
+            'a[href*="watch"][class*="metadata-view-model__title"]',
+            'a#video-title-link[href*="watch"]'
+        ];
+        const youtubeCards = document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model');
+        const youtubeSeen = new Set(existingActionHrefs);
+
+        youtubeCards.forEach(card => {
+            let linkEl = null;
+            for (const selector of youtubeSelectors) {
+                linkEl = card.querySelector(selector);
+                if (linkEl) break;
+            }
+            if (!linkEl) return;
+
+            const href = linkEl.href;
+            if (!href || youtubeSeen.has(href)) return;
+            if (href.startsWith('javascript:') || href === '#' || href === window.location.href + '#') return;
+
+            const labelText = normalizeTextContent(linkEl.textContent) || normalizeTextContent(linkEl.getAttribute('aria-label')) || normalizeTextContent(linkEl.getAttribute('title')) || href;
+            if (!labelText) return;
+
+            const sectionId = ensureSectionRecord(linkEl);
+            ensureSectionBucket(sectionId);
+
+            const selectorList = this.generateElementSelectors(linkEl) || [];
+            const primarySelector = selectorList.find(sel => typeof sel === 'string' && sel.length > 0 && !sel.includes('head')) || selectorList[0] || null;
+            const visibility = computeVisibility(linkEl);
+
+            let actionId = `youtube_link_${href.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 80)}`;
+            if (!actionId || this.actionableElements?.has(actionId)) {
+                actionId = `youtube_link_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+            }
+
+            const actionRecord = {
+                type: 'action',
+                id: actionId,
+                section: sectionId,
+                tag: 'a',
+                label: labelText.substring(0, 240),
+                actionTypes: ['link', 'navigate'],
+                selector: primarySelector,
+                visibility,
+                confidence: 1,
+                href,
+                ariaLabel: linkEl.getAttribute('aria-label') || undefined,
+                title: linkEl.getAttribute('title') || undefined
+            };
+
+            const bucket = sectionBuckets.get(sectionId);
+            const dedupKey = `${actionRecord.label}|${href}`;
+            if (bucket.actionSeen.has(dedupKey)) return;
+            bucket.actionSeen.add(dedupKey);
+            bucket.entries.push({ order: computeDomPath(linkEl), record: actionRecord });
+            bucket.actionCount += 1;
+            youtubeSeen.add(href);
+
+            if (this.actionableElements && !this.actionableElements.has(actionId)) {
+                this.actionableElements.set(actionId, {
+                    id: actionId,
+                    tagName: 'a',
+                    actionType: 'link',
+                    textContent: labelText,
+                    selectors: selectorList,
+                    attributes: this.extractKeyAttributes(linkEl) || { href },
+                    urlContext: {
+                        url: href,
+                        textContent: labelText,
+                        title: linkEl.getAttribute('title'),
+                        ariaLabel: linkEl.getAttribute('aria-label')
+                    },
+                    timestamp: Date.now()
+                });
+            }
+        });
+    }
 
     sectionRecords
         .sort((a, b) => compareDomPaths(a.path || [], b.path || []))
@@ -6394,6 +6496,287 @@ IntelligenceEngine.prototype.extractElementUrl = function(element) {
 };
 
 /**
+ * 🆕 NEW: Get the selectors used to locate YouTube video title links
+ */
+IntelligenceEngine.prototype.getYoutubeLinkSelectors = function() {
+    return [
+        "a.yt-lockup-metadata-view-model__title[href*='watch']",
+        "yt-lockup-view-model a.yt-lockup-metadata-view-model__title[href*='watch']",
+        "yt-lockup-view-model a[href*='watch']",
+        "a#video-title-link[href*='watch']",
+        "a#video-title[href*='watch']"
+    ];
+};
+
+/**
+ * 🆕 NEW: Register YouTube video links discovered via metadata lockups
+ */
+IntelligenceEngine.prototype.registerYoutubeLockupLinks = function(registeredUrls) {
+    if (window.currentFramework !== 'youtube') {
+        return { registered: 0, urlCount: 0 };
+    }
+
+    const descriptors = this.collectYoutubeCardDescriptors();
+    let registered = 0;
+
+    if (registeredUrls) {
+        descriptors.forEach(desc => {
+            const url = desc?.urlContext?.url || desc?.attributes?.href;
+            if (url && !registeredUrls.has(url)) {
+                registeredUrls.add(url);
+                registered += 1;
+            }
+        });
+    } else {
+        registered = descriptors.length;
+    }
+
+    return { registered, urlCount: registered };
+};
+
+/**
+ * 🆕 NEW: Register YouTube links found within a specific DOM node
+ */
+IntelligenceEngine.prototype.registerYoutubeLinksFromNode = function(rootNode) {
+    const isYoutube = window.location.hostname.includes('youtube.com');
+    if (!(isYoutube || window.currentFramework === 'youtube')) {
+        return 0;
+    }
+
+    const nodes = [];
+    if (Array.isArray(rootNode)) {
+        nodes.push(...rootNode.filter(Boolean));
+    } else if (rootNode && typeof rootNode.length === 'number' && !rootNode.tagName) {
+        nodes.push(...Array.from(rootNode).filter(Boolean));
+    } else if (rootNode) {
+        nodes.push(rootNode);
+    }
+
+    if (!nodes.length) {
+        nodes.push(document.body);
+    }
+
+    const descriptors = this.collectYoutubeCardDescriptors([], nodes);
+    return descriptors.length;
+};
+
+/**
+ * 🆕 NEW: Collect structured YouTube card link descriptors (console-style)
+ */
+IntelligenceEngine.prototype.collectYoutubeCardDescriptors = function(existingDescriptors = [], roots = null) {
+    const isYoutube = window.location.hostname.includes('youtube.com');
+    if (!(isYoutube || window.currentFramework === 'youtube')) {
+        return [];
+    }
+
+    const extras = [];
+    const existingHrefs = new Set();
+
+    const addHref = (href) => {
+        if (href) existingHrefs.add(href);
+    };
+
+    existingDescriptors.forEach(desc => {
+        const url = (desc && desc.urlContext && desc.urlContext.url) || (desc && desc.attributes && desc.attributes.href);
+        addHref(url);
+    });
+
+    if (this.actionableElements) {
+        this.actionableElements.forEach(item => {
+            const url = (item && item.urlContext && item.urlContext.url) || (item && item.attributes && item.attributes.href);
+            addHref(url);
+        });
+    }
+
+    const normalize = (value) => (value ? value.replace(/\s+/g, ' ').trim() : '');
+
+    let sourceNodes = [];
+    if (Array.isArray(roots) && roots.length) {
+        sourceNodes = roots.filter(Boolean);
+    } else if (roots && typeof roots.length === 'number' && roots !== document && !roots.tagName) {
+        sourceNodes = Array.from(roots).filter(Boolean);
+    } else if (roots && roots.tagName) {
+        sourceNodes = [roots];
+    } else {
+        sourceNodes = Array.from(document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model'));
+    }
+
+    const selectors = [
+        'a.yt-lockup-metadata-view-model__title[href*="watch"]',
+        'yt-lockup-view-model a.yt-lockup-metadata-view-model__title[href*="watch"]',
+        'a#video-title-link[href*="watch"]',
+        'a[href*="watch"][class*="metadata-view-model__title"]'
+    ];
+
+    sourceNodes.forEach(card => {
+        if (!card) return;
+
+        let link = null;
+        for (const selector of selectors) {
+            link = card.querySelector(selector);
+            if (link) break;
+        }
+        if (!link) return;
+
+        const href = link.href;
+        if (!href || existingHrefs.has(href)) return;
+
+        if (href.startsWith('javascript:') || href === '#' || href === window.location.href + '#') {
+            return;
+        }
+
+        const text = normalize(link.textContent) || normalize(link.getAttribute('aria-label')) || normalize(link.getAttribute('title'));
+        if (!text) return;
+
+        let selectorsForLink = this.generateElementSelectors(link) || [];
+        selectorsForLink = selectorsForLink.filter(sel => typeof sel === 'string' && sel.length > 0);
+
+        if (!selectorsForLink.length) {
+            const fallbackSelector = this.generatePositionSelector(link);
+            if (fallbackSelector) {
+                selectorsForLink.push(fallbackSelector);
+            }
+        }
+
+        if (!selectorsForLink.length) return;
+
+        const attributes = this.extractKeyAttributes(link) || {};
+        attributes.href = href;
+
+        let sanitizedId = href.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 120);
+        if (!sanitizedId) {
+            sanitizedId = `yt_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+        }
+
+        const descriptor = {
+            id: `youtube_link_${sanitizedId}`,
+            tagName: 'a',
+            actionType: 'link',
+            textContent: text.substring(0, 240),
+            selectors: selectorsForLink,
+            attributes,
+            urlContext: {
+                url: href,
+                textContent: text.substring(0, 240),
+                title: link.getAttribute('title')?.trim() || null,
+                ariaLabel: link.getAttribute('aria-label')?.trim() || null
+            },
+            timestamp: Date.now()
+        };
+
+        extras.push(descriptor);
+        existingHrefs.add(href);
+        if (this.youtubeRegisteredUrls) {
+            this.youtubeRegisteredUrls.add(href);
+        }
+
+        if (this.actionableElements && !this.actionableElements.has(descriptor.id)) {
+            this.actionableElements.set(descriptor.id, { ...descriptor });
+        }
+        if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
+            this.pageState.interactiveElements.push({ ...descriptor });
+        }
+    });
+
+    return extras;
+};
+
+/**
+ * 🆕 NEW: Collect additional anchor descriptors for normalized records
+ */
+IntelligenceEngine.prototype.collectAdditionalAnchorDescriptors = function(existingDescriptors = []) {
+    try {
+        const extras = [];
+        const existingHrefs = new Set();
+
+        existingDescriptors.forEach(desc => {
+            const url = (desc.urlContext && desc.urlContext.url) || (desc.attributes && desc.attributes.href);
+            if (url) existingHrefs.add(url);
+        });
+
+        const anchors = document.querySelectorAll('a[href]');
+        anchors.forEach(anchor => {
+            const href = anchor.href;
+            if (!href || existingHrefs.has(href)) {
+                return;
+            }
+
+            if (href.startsWith('javascript:') || href === '#' || href === window.location.href + '#') {
+                return;
+            }
+
+            const text = anchor.innerText ? anchor.innerText.replace(/\s+/g, ' ').trim() : '';
+            const ariaLabel = anchor.getAttribute('aria-label')?.trim();
+            const titleAttr = anchor.getAttribute('title')?.trim();
+
+            if (!text && !ariaLabel && !titleAttr) {
+                return;
+            }
+
+            const visibilityNode = anchor; // use anchor for visibility checks
+            if (!this.isElementVisible || !this.isElementVisible(visibilityNode)) {
+                // Fallback: allow anchors that at least have text even if visibility helper unavailable
+                if (!text) {
+                    return;
+                }
+            }
+
+            let selectors = this.generateElementSelectors(anchor) || [];
+            selectors = selectors.filter(sel => typeof sel === 'string' && sel.length > 0);
+
+            if (!selectors.length) {
+                const fallbackSelector = this.generatePositionSelector(anchor);
+                if (fallbackSelector) {
+                    selectors.push(fallbackSelector);
+                }
+            }
+
+            if (!selectors.length) {
+                return;
+            }
+
+            const attributes = this.extractKeyAttributes(anchor) || {};
+            attributes.href = href;
+
+            const labelText = text || ariaLabel || titleAttr || href;
+            let sanitizedId = href.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 120);
+            if (!sanitizedId) {
+                sanitizedId = `auto_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+            }
+            const descriptor = {
+                id: `link_${sanitizedId}`,
+                tagName: 'a',
+                actionType: 'link',
+                textContent: labelText.substring(0, 200),
+                selectors,
+                attributes,
+                urlContext: {
+                    url: href,
+                    textContent: labelText.substring(0, 240),
+                    title: titleAttr || null,
+                    ariaLabel: ariaLabel || null
+                },
+                timestamp: Date.now()
+            };
+
+            extras.push(descriptor);
+            if (this.actionableElements && !this.actionableElements.has(descriptor.id)) {
+                this.actionableElements.set(descriptor.id, { ...descriptor });
+            }
+            if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
+                this.pageState.interactiveElements.push({ ...descriptor });
+            }
+            existingHrefs.add(href);
+        });
+
+        return extras;
+    } catch (error) {
+        console.warn('[Content] ⚠️ Failed to collect additional anchor descriptors:', error);
+        return [];
+    }
+};
+
+/**
  * 🆕 NEW: Scan page and register all existing interactive elements
  */
 IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
@@ -6406,6 +6789,11 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         this.actionableElements.clear();
         this.contentElements.clear(); // 🆕 NEW: Clear content elements too
         this.elementCounter = 0;
+        if (this.youtubeRegisteredUrls) {
+            this.youtubeRegisteredUrls.clear();
+        } else {
+            this.youtubeRegisteredUrls = new Set();
+        }
         
         // 🎯 Framework-specific scanning (site configs only)
         let frameworkElements = [];
@@ -6457,7 +6845,15 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
                 }
             }
         });
-        
+
+        if (window.currentFramework === 'youtube') {
+            const extraLinks = this.registerYoutubeLockupLinks(registeredUrls);
+            if (extraLinks.registered > 0) {
+                registeredCount += extraLinks.registered;
+                urlElementCount += extraLinks.urlCount;
+            }
+        }
+
         // 🎯 CLEAN BREAKDOWN: Show site config categories and URL elements
         const categoryBreakdown = {};
         allElements.forEach(element => {

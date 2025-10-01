@@ -90,7 +90,6 @@
         "[data-href]"
       ],
       "exclude": [
-        "[data-ved]",
         ".gb_oa",
         ".gb_ua",
         "[aria-hidden='true']",
@@ -111,7 +110,7 @@
         "span:not([href]):not([data-url]):not([data-href])",
         "figcaption:not([href]):not([data-url]):not([data-href])"
       ],
-      "max_elements": 25
+      "max_elements": 250
     },
     "interaction_patterns": {
       "expand_apps": {
@@ -198,8 +197,6 @@
         "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "url_elements": [
-        "a.yt-lockup-metadata-view-model__title[href*='watch']",
-        "yt-lockup-view-model a[href*='watch']",
         "a[href]:not([href='']):not([href^='#'])",
         "[data-url]",
         "[data-href]",
