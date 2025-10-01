@@ -1,7 +1,7 @@
 # YouTube
 
 **URL:** https://www.youtube.com/
-**Timestamp:** 2025-10-01 12:54:37
+**Timestamp:** 2025-10-01 13:45:59
 
 ---
 
@@ -9,170 +9,171 @@ AU
 Skip navigation
 Create
 All
-Podcasts
 News
+Podcasts
 Music
-Law enforcement
 Live
+Intelligence
 Mixes
-Quantum Mechanics
-AI
-Scales
-Truth
+Electric cars
+Strings
+Consciousness
 Guitar solos
-Hard Rock
+Computer programming
 History
 Classical Music
-Information
+Gadgets
+New-Age Music
+Cars
 Public speaking
-Bodybuilding
+Information
 Recently uploaded
-Watched
 New to you
-1:46:05
-CEO Of Microsoft AI: AI Is Becoming More Dangerous And Threatening! - Mustafa Suleyman
-The Diary Of A CEO
-2.2M views
+33:08
+HOW TO PRACTICE - PART 1 | Mastering Chord Tones for Changes Playing | TOM QUAYLE LESSON
+Tom Quayle
+297K views
 •
-2 years ago
-45:42
-I Found the Shocking Truth About Jesus’ Existence (Forbidden for Centuries)
+4 years ago
+37:34
+The #1 Thing They Don't Tell You About The Baphomet Symbol
 MorgueOfficial
-57K views
+223K views
 •
-3 days ago
+5 months ago
 Shorts
-Every guitar in the Hangar has a story... This one? Signed by #Metallica. ✅🤘 @matthewkheafy
-47K views
-Anabolic on a DAILY! 🤯💉
-548K views
-This “Printed” House Is Stronger Than You Think 💪🏠
-5.2M views
-31:41
-How to build your own AI coding agent (in 218 lines)
-Dave Ebbelaar
-1K views
+Nuno Bettencourt - Play With Me (Guitar Solo)
+358K views
+When The Whole City Becomes A Bike Park
+4.2M views
+dog VS robotdog
+5.5M views
+29:25
+3 Ways to Make Money with Nano Banana
+Liam Ottley
+10K views
 •
-7 hours ago
-9:10
-Government shutdown looms: What it means for you
-Fox News Clips
-4.3K views
+17 hours ago
+1:34:32
+Ex-Pentagon Official: The U.S Isn't Telling The Truth! Top-Secret UFO Encounters Finally Uncovered!
+The Diary Of A CEO
+3.8M views
 •
-2 hours ago
+11 months ago
 Shorts
-Grace Jones declines Lady Gaga collaboration
-965K views
-The Best Thing Ever
-1.1M views
-Dont click sound 😅
-1M views
+First time Yngwie heard Van Halen #vanhalen #yngwiemalmsteen #shorts
+1.7M views
+No Moving Parts. Still Works. Tesla Was a Genius. #tesla #nikolatesla #valve #trending #viralvideo
+10M views
+Why Korea is living in the future 🤯🤯🤯
+9.2M views
+15:10
+Did You Know NASA Crashed a Rocket Into the Moon?
+Shawn Ryan Clips
+734K views
+•
+7 days ago
+6:19
+LIVE
+Trump’s Gaza ceasefire plan, the beautiful lie of peace & ugly reality of occupation: Marwan Bishara
+Al Jazeera English
+137K views
+•
+23 hours ago
+16:49
+Cyberbeast v Fastest Teslas: DRAG RACE
+carwow
+2.5M views
+•
+7 months ago
+24:59
+I Made ChatGPT Believe in God (Seriously)
+Alex O'Connor
+995K views
+•
+4 months ago
+43:38
+The Gospel of Thomas: The OLDEST Teachings of Yeshua | Mystical Jesus 015
+Aaron Abke
+172K views
+•
+5 months ago
+7:34
+I'm SO BLOODY FURIOUS: New BLOOD PRESSURE Guidelines Are CRAZY
+Dr. Suneel Dhand
+359K views
+•
+1 day ago
+7:33
+Son of Hamas SHUTS DOWN Pro-Palestinian Guest on Piers Morgan
+Daniel Schonbuch
+7.6K views
+•
+1 day ago
 1:04:14
 He Died for 40 Minutes - What He Saw In Jail Will Change You Forever
 Prioritize Your Life
-385K views
+386K views
 •
 12 days ago
-10:50
-How To Play Impressive Pentatonic Licks Between Your Chords
-Andrew Clarke
-229K views
-•
-5 months ago
-44:08
-Where the Antichrist Will Come From According to the Bible
-Grace Digital Network
-131K views
-•
-10 days ago
-8:44
-Bill Maher Uses Islam’s Own Practices To Rip It To SHREDS!
-JewishUncensored
-361K views
-•
-1 day ago
-4:40
-Government energy announcement
-nzherald.co.nz
-1.7K views
-•
-7 hours ago
-10:43
-9 Clear Signs You're in Ketosis: Without Testing
-Dr. Eric Berg DC
-2M views
-•
-2 years ago
-18:59
-The Drug That Can Replace Cardio And Weightlifting
-Renaissance Periodization
-85K views
-•
-11 hours ago
-35:25
-Trump Gaza "Peace Plan" Is A DYSTOPIAN Lie - w/. Muhammad Shehada
-Owen Jones
-29K views
-•
-10 hours ago
-5:46
-DMT Always Shows Shane Mauss the Same Purple Woman on His Trips - Tales From the Trip
-Animated
-3.3M views
-•
-5 years ago
-9:29
-Alan Watts DESTROYS Religious Illusions in 10 Minutes
-T&H - Inspiration & Motivation
-190K views
-•
-5 months ago
 YouTube Playables
 Instant games, no downloads
 View all
 Play
-Thief Puzzle
-40M plays
+Solar Smash
+7.2M plays
 Play
-Tanghulu Master
-4.8M plays
-Play
-Words of Wonders
+8 Ball Billiards Classic
 13M plays
+Play
+My Mini Mart
+20M plays
 Show more
-27:16
-15 AI Tools That Will Make You $1M (With Zero Employees)
-Dan Martell
-968K views
+7:51
+J.S.Bach - Toccata & Fugue BWV 565 - 11 String Guitar
+Moran Wasser
+745K views
 •
-2 months ago
-1:33:49
-What happens when you die? John Burke has studied 1,500 people who died and came back
-Nicholas John
-359K views
+2 years ago
+51:38
+Using AI in OSINT investigations | E80
+Authentic8
+1.3K views
 •
-2 months ago
-4:23
-🎸 YNGWIE MALMSTEEN – YOU DON'T REMEMBER, I'LL NEVER FORGET (SOUL VERSION 2025) 🎷✨🎶
-LEO GATTI⚜️RECORDS ART
-7.7K views
+5 months ago
+28:06
+How Dangerous are Crossbows?
+Mike Shake
+8.3M views
 •
-5 days ago
-7:34
-I'm SO BLOODY FURIOUS: New BLOOD PRESSURE Guidelines Are CRAZY
-Dr. Suneel Dhand
-345K views
+6 months ago
+34:51
+Netanyahu OUTPLAYS Hamas In Gaza Deal, Re-Shaping The Entire Middle East!
+JNS TV
+3.6K views
 •
-1 day ago
-2:09
-3 Min Ago: Shabana Mahmood’s Tough New Rules Stun Westminster | UK Immigration Shake-Up
-The Global Times
-1K views
+1 hour ago
+21:29
+Exercise Scientist Critiques Armwrestling Legend Devon Larratt
+Renaissance Periodization
+1.2M views
 •
-1 day ago
-9:27
-EASIEST Carnivore Ice Cream EVER (2 Ingredients)
-Steak and Butter Gal
-1.4M views
+4 months ago
+13:03
+The BRUTAL Truth After Playing 4,000 Guitars!
+Rob Chapman
+422K views
 •
-1 year ago
+4 months ago
+15:34
+'Our Genocide': How do Israelis feel about the war in Gaza? | On the Ground
+The Guardian
+3.6M views
+•
+2 weeks ago
+9:43
+$3.5M Startup Selling Gluten-Free Bread at 8x Markup | Shark Tank Australia
+Shark Tank Australia
+3.2K views
+•
+4 days ago

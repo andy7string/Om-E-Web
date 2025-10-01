@@ -5005,6 +5005,10 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         ensureSectionBucket(sectionId);
         const textValue = normalizeTextContent(contentDescriptor.textContent);
         if (!textValue) return;
+        const tagName = contentDescriptor.tagName ? contentDescriptor.tagName.toLowerCase() : '';
+        if (tagName === 'h3') {
+            return;
+        }
         const primarySelector = pickPrimarySelector(contentDescriptor);
         const visibility = computeVisibility(domNode);
 
