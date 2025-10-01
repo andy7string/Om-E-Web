@@ -5107,14 +5107,11 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             const primarySelector = selectorList.find(sel => typeof sel === 'string' && sel.length > 0 && !sel.includes('head')) || selectorList[0] || null;
             const visibility = computeVisibility(linkEl);
 
-            let actionId = `youtube_link_${href.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 80)}`;
-            if (!actionId || this.actionableElements?.has(actionId)) {
-                actionId = `youtube_link_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
-            }
+            const idCandidate = `a_id_${this.elementCounter++}`;
 
             const actionRecord = {
                 type: 'action',
-                id: actionId,
+                id: idCandidate,
                 label: labelText.substring(0, 240),
                 actionTypes: ['link', 'navigate'],
                 visibility,
@@ -5131,9 +5128,9 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             bucket.actionCount += 1;
             youtubeSeen.add(href);
 
-            if (this.actionableElements && !this.actionableElements.has(actionId)) {
-                this.actionableElements.set(actionId, {
-                    id: actionId,
+            if (this.actionableElements && !this.actionableElements.has(idCandidate)) {
+                this.actionableElements.set(idCandidate, {
+                    id: idCandidate,
                     tagName: 'a',
                     actionType: 'link',
                     textContent: labelText,

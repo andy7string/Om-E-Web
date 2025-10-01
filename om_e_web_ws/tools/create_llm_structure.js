@@ -15,7 +15,6 @@ function createLLMOptimizedStructure(pageJsonlPath, textMdPath) {
   return {
     meta,
     markdown: markdownLines,
-    actions: actionsMap,
     source: {
       pageJsonl: path.resolve(pageJsonlPath),
       textMd: path.resolve(textMdPath)

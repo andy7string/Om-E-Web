@@ -1,9 +1,9 @@
 {
   "_page_context": {
     "url": "https://www.youtube.com/",
-    "title": "Playables - YouTube",
-    "timestamp": 1759292978.404254,
-    "total_actions": 247,
+    "title": "YouTube",
+    "timestamp": 1759293556.427753,
+    "total_actions": 310,
     "active_tab_id": 1138002140
   },
   "a_id_0": {
@@ -18,11 +18,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_0' to input with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_1": {
     "action_type": "unknown",
-    "description": "Back\n    \n    \n      \n    \n    \n    \n  \n    \n  \n    \n    \n  \n  \n    \n    \n    \n    \n    \n    \n    \n ",
+    "description": "Back\n    \n    \n      \n    \n    \n    \n  \n    \n  \n  \n  \n  \n\n\n  \n    \n    \n  \n  \n    \n    \n    \n    \n  ",
     "tag_name": "ytd-masthead",
     "selectors": [
       "#masthead",
@@ -33,7 +33,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_1' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_2": {
     "action_type": "unknown",
@@ -48,7 +48,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_2' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_3": {
     "action_type": "unknown",
@@ -63,7 +63,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_3' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_4": {
     "action_type": "unknown",
@@ -78,7 +78,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_4' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_5": {
     "action_type": "link",
@@ -93,7 +93,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_5' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_6": {
     "action_type": "unknown",
@@ -108,281 +108,263 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_6' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_7": {
     "action_type": "link",
-    "description": "Subscriptions",
+    "description": "The NEW Youtube Algorithm Hack Blowing Up Small Channels",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_7' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_8": {
     "action_type": "link",
-    "description": "YouTube Music",
+    "description": "Creatine, Sleep Trackers, and AI Doctors | Bryan Johnson Podcast",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_8' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_9": {
     "action_type": "link",
-    "description": "You",
+    "description": "Atheist Encounters JESUS During Near Death Experience (MUST WATCH!)",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_9' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_10": {
     "action_type": "link",
-    "description": "History",
+    "description": "The Keto Psychiatrist: What Keto Is Really Doing To Your Body! Can It Cure 43% Of Mental Illness?",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_10' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_11": {
     "action_type": "link",
-    "description": "Playlists",
+    "description": "Which AI Writes BETTER ChatGPT or Claude The Shocking Truth Revealed",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_11' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_12": {
     "action_type": "link",
-    "description": "Your videos",
+    "description": "Denmark’s Drone Crisis: A Warning for the World",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_12' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_13": {
     "action_type": "link",
-    "description": "Your movies & TV",
+    "description": "Why Quantum Computers Will Finally Solve Physics’ 100-Year Problem",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_13' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_14": {
     "action_type": "link",
-    "description": "Watch later",
+    "description": "Can Voodooists and Christians See Eye to Eye? | Face to Face",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_14' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_15": {
     "action_type": "link",
-    "description": "Liked videos",
+    "description": "7 SHOCKING Bible Facts That Will Change Your Mind",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_15' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_16": {
     "action_type": "link",
-    "description": "Downloads",
+    "description": "#1 - First Person Shooter In Unity 6 (Movement)",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_16' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_17": {
     "action_type": "link",
-    "description": "Subscriptions",
+    "description": "Struggling to Gain Muscle as a Natty? Ask the Expert (ft Jeremy Ethier)",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_17' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_18": {
     "action_type": "link",
-    "description": "Peppa Pig - Official Channel",
+    "description": "J.S.Bach - Toccata & Fugue BWV 565 - 11 String Guitar",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_18' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_19": {
     "action_type": "link",
-    "description": "BattleBots",
+    "description": "How To Speak Brilliantly (Free Course)",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_19' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_20": {
     "action_type": "link",
-    "description": "Emily's Playhouse - Learning Videos for Kids",
+    "description": "Ana Forced To Point Out The OBVIOUS On CNN",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_20' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_21": {
     "action_type": "link",
-    "description": "The Diary Of A CEO",
+    "description": "I drove the world’s GREATEST hypercar!",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_21' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_22": {
     "action_type": "link",
-    "description": "Christian Peverelli - WeAreNoCode",
+    "description": "How George Motz Makes NYC’s Best Burgers at Hamburger America | Made to Order | Bon Appétit",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_22' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_23": {
     "action_type": "link",
-    "description": "Robbie Barnby",
+    "description": "A Conversation with  Dr. Ben Bikman | Jason Fung",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_23' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_24": {
     "action_type": "link",
-    "description": "Tom Quayle",
+    "description": "15 AI Tools That Will Make You $1M (With Zero Employees)",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-guide-entry-renderer:nth-child(1)"
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_24' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_25": {
     "action_type": "link",
-    "description": "Music",
+    "description": "Subscriptions",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -393,11 +375,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_25' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_26": {
     "action_type": "link",
-    "description": "Movies & TV",
+    "description": "YouTube Music",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -408,11 +390,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_26' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_27": {
     "action_type": "link",
-    "description": "Gaming",
+    "description": "You",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -423,11 +405,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_27' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_28": {
     "action_type": "link",
-    "description": "News",
+    "description": "History",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -438,11 +420,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_28' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_29": {
     "action_type": "link",
-    "description": "Sports",
+    "description": "Playlists",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -453,11 +435,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_29' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_30": {
     "action_type": "link",
-    "description": "Learning",
+    "description": "Your videos",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -468,11 +450,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_30' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_31": {
     "action_type": "link",
-    "description": "Fashion & Beauty",
+    "description": "Your movies & TV",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -483,11 +465,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_31' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_32": {
     "action_type": "link",
-    "description": "Podcasts",
+    "description": "Watch later",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -498,11 +480,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_32' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_33": {
     "action_type": "link",
-    "description": "Playables",
+    "description": "Liked videos",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -513,11 +495,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_33' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_34": {
     "action_type": "link",
-    "description": "YouTube Studio",
+    "description": "Downloads",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -528,11 +510,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_34' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_35": {
     "action_type": "link",
-    "description": "YouTube Kids",
+    "description": "Subscriptions",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -543,11 +525,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_35' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_36": {
     "action_type": "link",
-    "description": "Settings",
+    "description": "Peppa Pig - Official Channel",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -558,11 +540,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_36' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_37": {
     "action_type": "link",
-    "description": "Report history",
+    "description": "BattleBots",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
@@ -573,9 +555,279 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_37' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_38": {
+    "action_type": "link",
+    "description": "Emily's Playhouse - Learning Videos for Kids",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_38' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_39": {
+    "action_type": "link",
+    "description": "The Diary Of A CEO",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_39' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_40": {
+    "action_type": "link",
+    "description": "Christian Peverelli - WeAreNoCode",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_40' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_41": {
+    "action_type": "link",
+    "description": "Robbie Barnby",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_41' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_42": {
+    "action_type": "link",
+    "description": "Tom Quayle",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_42' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_43": {
+    "action_type": "link",
+    "description": "Music",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_43' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_44": {
+    "action_type": "link",
+    "description": "Movies & TV",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_44' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_45": {
+    "action_type": "link",
+    "description": "Gaming",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_45' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_46": {
+    "action_type": "link",
+    "description": "News",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_46' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_47": {
+    "action_type": "link",
+    "description": "Sports",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_47' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_48": {
+    "action_type": "link",
+    "description": "Learning",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_48' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_49": {
+    "action_type": "link",
+    "description": "Fashion & Beauty",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_49' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_50": {
+    "action_type": "link",
+    "description": "Podcasts",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_50' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_51": {
+    "action_type": "link",
+    "description": "Playables",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_51' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_52": {
+    "action_type": "link",
+    "description": "YouTube Studio",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_52' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_53": {
+    "action_type": "link",
+    "description": "YouTube Kids",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_53' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_54": {
+    "action_type": "link",
+    "description": "Settings",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_54' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_55": {
+    "action_type": "link",
+    "description": "Report history",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_55' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_56": {
     "action_type": "link",
     "description": "About",
     "tag_name": "a",
@@ -583,11 +835,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_38' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_56' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_39": {
+  "a_id_57": {
     "action_type": "link",
     "description": "Press",
     "tag_name": "a",
@@ -595,11 +847,11 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_39' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_40": {
+  "a_id_58": {
     "action_type": "link",
     "description": "Copyright",
     "tag_name": "a",
@@ -607,11 +859,11 @@
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_40' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_41": {
+  "a_id_59": {
     "action_type": "link",
     "description": "Contact us",
     "tag_name": "a",
@@ -619,11 +871,11 @@
       "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_41' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_42": {
+  "a_id_60": {
     "action_type": "link",
     "description": "Creators",
     "tag_name": "a",
@@ -631,11 +883,11 @@
       "div:nth-child(5)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_42' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_43": {
+  "a_id_61": {
     "action_type": "link",
     "description": "Advertise",
     "tag_name": "a",
@@ -643,11 +895,11 @@
       "div:nth-child(6)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_43' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_44": {
+  "a_id_62": {
     "action_type": "link",
     "description": "Developers",
     "tag_name": "a",
@@ -655,11 +907,11 @@
       "div:nth-child(7)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_44' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_62' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_45": {
+  "a_id_63": {
     "action_type": "link",
     "description": "Terms",
     "tag_name": "a",
@@ -667,11 +919,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_45' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_63' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_46": {
+  "a_id_64": {
     "action_type": "link",
     "description": "Privacy",
     "tag_name": "a",
@@ -679,11 +931,11 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_46' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_64' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_47": {
+  "a_id_65": {
     "action_type": "link",
     "description": "Policy & Safety",
     "tag_name": "a",
@@ -691,11 +943,11 @@
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_47' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_65' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_48": {
+  "a_id_66": {
     "action_type": "link",
     "description": "How YouTube works",
     "tag_name": "a",
@@ -703,11 +955,11 @@
       "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_48' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_66' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_49": {
+  "a_id_67": {
     "action_type": "link",
     "description": "Test new features",
     "tag_name": "a",
@@ -715,639 +967,387 @@
       "div:nth-child(5)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_49' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_50": {
-    "action_type": "link",
-    "description": "New",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_50' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_51": {
-    "action_type": "link",
-    "description": "New",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_51' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_52": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_52' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_53": {
-    "action_type": "link",
-    "description": "New",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_53' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_54": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_54' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_55": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_55' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_56": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_56' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_57": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_58": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_59": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_60": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_61": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_62": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_62' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_63": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_63' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_64": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_64' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_65": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_65' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_66": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_66' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_67": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_67' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_68": {
     "action_type": "link",
-    "description": "",
+    "description": "Wes McDowell",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_68' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_69": {
     "action_type": "link",
-    "description": "",
+    "description": "Bryan Johnson",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_69' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_70": {
     "action_type": "link",
-    "description": "",
+    "description": "Daily Dose Of Wisdom",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_70' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_71": {
     "action_type": "link",
-    "description": "New",
+    "description": "Early 🔥 YNGWIE 🔥 Licks YOU Have To KNOW | PART 1 #shorts",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_71' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_72": {
     "action_type": "link",
-    "description": "",
+    "description": "PULL-UPS IN BOSTON. #marines #pullups #militaryuniform #navy #army #upperbodyworkout #usmilitary",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_72' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_73": {
     "action_type": "link",
-    "description": "",
+    "description": "Alex Skolnick Opens Up About Yngwie Malmsteen 'It’s All About Him",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_73' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_74": {
     "action_type": "link",
-    "description": "New",
+    "description": "The Device Hidden in an Egyptian Tomb That Shouldn’t Exist",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_74' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_75": {
     "action_type": "link",
-    "description": "",
+    "description": "Today training with the legend❤️‍🔥🇹🇭 #trending #follow #explore #trending",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_75' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_76": {
     "action_type": "link",
-    "description": "",
+    "description": "No buzz… All gain🤝🏼 #music #marshallamp #metal #guitar #unboxing #marshall #fyp",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_76' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_77": {
     "action_type": "link",
-    "description": "",
+    "description": "Rosie O'Donnell Reveals She Got Mad at Her Therapist Over Trump, with Britt Mayer and Will Witt",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_77' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_78": {
     "action_type": "link",
-    "description": "",
+    "description": "I have a weird definition of fun....",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_78' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_79": {
     "action_type": "link",
-    "description": "",
+    "description": "Why Steve Vai Had to Relearn Picking After Playing Fast for Years",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_79' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_80": {
     "action_type": "link",
-    "description": "New",
+    "description": "Skill Up Life",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_80' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_81": {
     "action_type": "link",
-    "description": "",
+    "description": "Caspersight",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_81' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_82": {
     "action_type": "link",
-    "description": "",
+    "description": "Brian May’s Guitar Tone Is STILL Untouchable (QUEEN) 🔥🎸",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_82' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_83": {
     "action_type": "link",
-    "description": "",
+    "description": "The Legendary Pool That Disappears Twice a Day",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_83' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_84": {
     "action_type": "link",
-    "description": "",
+    "description": "Martyn Ford BEATS Eddie Hall in grip test, only one man is above him #shorts #eddiehall #strongman",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_84' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_85": {
     "action_type": "link",
-    "description": "",
+    "description": "Nuno Bettencourt - Play With Me (Guitar Solo)",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_85' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_86": {
     "action_type": "link",
-    "description": "",
+    "description": "Cost of 7 days in Switzerland🤯 trains throughout trip = $421.06 #switzerland #travelguide #travel",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_86' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_87": {
     "action_type": "link",
-    "description": "",
+    "description": "When The Whole City Becomes A Bike Park",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_87' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_88": {
     "action_type": "link",
-    "description": "",
+    "description": "This Moth Looks Like a Stuffed Animal #animals #cute #shorts",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_88' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_89": {
     "action_type": "link",
-    "description": "",
+    "description": "The laziest country in the world # city # Switzerland # Travel # Meet # people # Discover",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_89' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_90": {
     "action_type": "link",
-    "description": "",
+    "description": "Extreme BMX Wheel Repair In Amsterdam!‼️😱 #bmx #asmr #youtubeshorts",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "h3:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_90' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_91": {
     "action_type": "link",
-    "description": "",
+    "description": "Julia McCoy",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_91' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_92": {
     "action_type": "link",
-    "description": "",
+    "description": "Cruise",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_92' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_93": {
     "action_type": "link",
-    "description": "",
+    "description": "MorgueOfficial",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_93' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_94": {
     "action_type": "link",
-    "description": "",
+    "description": "View all",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-spec-button-shape-next",
+      "a.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_94' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_95": {
     "action_type": "link",
@@ -1361,7 +1361,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_95' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_96": {
     "action_type": "link",
@@ -1375,11 +1375,11 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_96' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_97": {
     "action_type": "link",
-    "description": "New",
+    "description": "",
     "tag_name": "a",
     "selectors": [
       ".yt-mini-game-card-view-model__thumbnail-wrapper",
@@ -1389,7 +1389,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_97' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_98": {
     "action_type": "link",
@@ -1403,7 +1403,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_98' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_99": {
     "action_type": "link",
@@ -1417,7 +1417,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_99' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_100": {
     "action_type": "link",
@@ -1431,7 +1431,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_100' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_101": {
     "action_type": "link",
@@ -1445,7 +1445,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_101' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_102": {
     "action_type": "link",
@@ -1459,7 +1459,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_102' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_103": {
     "action_type": "link",
@@ -1473,7 +1473,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_103' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_104": {
     "action_type": "link",
@@ -1487,7 +1487,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_104' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_105": {
     "action_type": "link",
@@ -1501,7 +1501,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_105' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_106": {
     "action_type": "link",
@@ -1515,37 +1515,135 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_106' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_107": {
     "action_type": "link",
-    "description": "",
+    "description": "Unity Unlocked",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_107' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_108": {
     "action_type": "link",
-    "description": "",
+    "description": "Renaissance Periodization",
     "tag_name": "a",
     "selectors": [
-      ".yt-mini-game-card-view-model__thumbnail-wrapper",
-      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
-      "div:nth-child(4)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_108' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_109": {
+    "action_type": "link",
+    "description": "Moran Wasser",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_109' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_110": {
+    "action_type": "link",
+    "description": "Joseph Tsar",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_110' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_111": {
+    "action_type": "link",
+    "description": "The Young Turks",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_111' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_112": {
+    "action_type": "link",
+    "description": "carwow",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_112' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_113": {
+    "action_type": "link",
+    "description": "Bon Appétit",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_113' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_114": {
+    "action_type": "link",
+    "description": "Jason Fung",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_114' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_115": {
+    "action_type": "link",
+    "description": "Dan Martell",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_115' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_116": {
     "action_type": "link",
     "description": "",
     "tag_name": "a",
@@ -1555,35 +1653,225 @@
       "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_109' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_116' to link with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_110": {
+  "a_id_117": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_117' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_118": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_118' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_119": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_119' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_120": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_120' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_121": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_121' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_122": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_122' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_123": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_123' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_124": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_124' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_125": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_125' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_126": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_126' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_127": {
+    "action_type": "link",
+    "description": "New",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_127' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_128": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(11)"
+      "head:nth-child(6)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_110' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_128' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_111": {
+  "a_id_129": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(12)"
+      "head:nth-child(7)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_111' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_129' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_112": {
+  "a_id_130": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(8)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_130' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_131": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(9)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_131' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_132": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(10)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_132' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_133": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -1591,35 +1879,23 @@
       "head:nth-child(13)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_112' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_133' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_113": {
+  "a_id_134": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(14)"
+      "head:nth-child(17)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_113' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_134' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_114": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(15)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_114' to unknown with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_115": {
+  "a_id_135": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -1627,154 +1903,166 @@
       "head:nth-child(18)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_115' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_135' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_116": {
+  "a_id_136": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(19)"
+      "head:nth-child(23)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_116' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_136' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_117": {
+  "a_id_137": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(24)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_137' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_138": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
       "link.css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
-      "head:nth-child(33)"
+      "head:nth-child(38)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_117' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_138' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_118": {
+  "a_id_139": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpswwwyoutubecomsdesktop1c6b3028cssbinwwwmaindesktophomepageskeleton2xcss",
       "link.css-httpswwwyoutubecomsdesktop1c6b3028cssbinwwwmaindesktophomepageskeleton2xcss",
-      "head:nth-child(35)"
+      "head:nth-child(40)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_118' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_139' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_119": {
+  "a_id_140": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpswwwyoutubecomsdesktop1c6b3028cssbinwwwonepick2xcss",
       "link.css-httpswwwyoutubecomsdesktop1c6b3028cssbinwwwonepick2xcss",
-      "head:nth-child(36)"
+      "head:nth-child(41)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_119' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_140' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_120": {
+  "a_id_141": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_baseLage0wtrKjgLB1OamAAAAMkYd0br1rsAGKMywEu6Em4fB8fKgJxsrMdUBiMRlunA",
       "link.css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_baseLage0wtrKjgLB1OamAAAAMkYd0br1rsAGKMywEu6Em4fB8fKgJxsrMdUBiMRlunA",
-      "head:nth-child(37)"
+      "head:nth-child(42)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_120' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_141' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_121": {
+  "a_id_142": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(44)"
+      "head:nth-child(49)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_121' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_142' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_122": {
+  "a_id_143": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(45)"
+      "head:nth-child(50)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_122' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_143' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_123": {
+  "a_id_144": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(57)"
+      "head:nth-child(63)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_123' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_144' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_124": {
+  "a_id_145": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(58)"
+      "head:nth-child(64)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_124' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_145' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_125": {
+  "a_id_146": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       "#player-css",
-      "head:nth-child(63)"
+      "head:nth-child(67)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_125' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_146' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_126": {
+  "a_id_147": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpswwwyoutubecomsdesktop1c6b3028cssbinwwwmaindesktopwatchpageskeleton2xcss",
       "link.css-httpswwwyoutubecomsdesktop1c6b3028cssbinwwwmaindesktopwatchpageskeleton2xcss",
-      "body:nth-child(41)"
+      "body:nth-child(42)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_126' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_147' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_127": {
+  "a_id_148": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1785,11 +2073,11 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_127' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_148' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_128": {
+  "a_id_149": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1800,11 +2088,11 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_128' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_149' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_129": {
+  "a_id_150": {
     "action_type": "button",
     "description": "Skip navigation",
     "tag_name": "button",
@@ -1814,11 +2102,11 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_129' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_150' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_130": {
+  "a_id_151": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1828,11 +2116,11 @@
       "yt-searchbox:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_130' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_151' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_131": {
+  "a_id_152": {
     "action_type": "button",
     "description": "Search",
     "tag_name": "button",
@@ -1843,11 +2131,25 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_131' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_152' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_132": {
+  "a_id_153": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_153' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_154": {
     "action_type": "button",
     "description": "Create",
     "tag_name": "button",
@@ -1857,11 +2159,11 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_132' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_154' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_133": {
+  "a_id_155": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1872,11 +2174,11 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_133' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_155' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_134": {
+  "a_id_156": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1887,11 +2189,11 @@
       "ytd-topbar-menu-button-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_134' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_156' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_135": {
+  "a_id_157": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1902,11 +2204,11 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_135' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_157' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_136": {
+  "a_id_158": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1917,25 +2219,25 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_136' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_158' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_137": {
+  "a_id_159": {
     "action_type": "button",
-    "description": "For you",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_137' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_159' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_138": {
+  "a_id_160": {
     "action_type": "button",
     "description": "All",
     "tag_name": "button",
@@ -1945,597 +2247,289 @@
       "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_138' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_139": {
-    "action_type": "button",
-    "description": "Continue playing",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_139' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_140": {
-    "action_type": "button",
-    "description": "New",
-    "tag_name": "button",
-    "selectors": [
-      ".ytChipShapeButtonReset",
-      "button.ytChipShapeButtonReset",
-      "chip-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_140' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_141": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_141' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_142": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_142' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_143": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_143' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_144": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_144' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_145": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_145' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_146": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_146' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_147": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_147' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_148": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_148' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_149": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_149' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_150": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_150' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_151": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_151' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_152": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_152' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_153": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_153' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_154": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_154' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_155": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_155' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_156": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_156' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_157": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_157' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_158": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_158' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_159": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_159' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_160": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_160' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_161": {
     "action_type": "button",
-    "description": "",
+    "description": "News",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_161' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_162": {
     "action_type": "button",
-    "description": "",
+    "description": "Podcasts",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_162' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_163": {
     "action_type": "button",
-    "description": "",
+    "description": "Live",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_163' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_164": {
     "action_type": "button",
-    "description": "",
+    "description": "Music",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_164' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_165": {
     "action_type": "button",
-    "description": "",
+    "description": "Quantum Mechanics",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_165' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_166": {
     "action_type": "button",
-    "description": "",
+    "description": "Mixes",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_166' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_167": {
     "action_type": "button",
-    "description": "",
+    "description": "AI",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_167' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_168": {
     "action_type": "button",
-    "description": "",
+    "description": "Archaeology",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_168' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_169": {
     "action_type": "button",
-    "description": "",
+    "description": "Test drives",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_169' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_170": {
     "action_type": "button",
-    "description": "",
+    "description": "Guitar solos",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_170' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_171": {
     "action_type": "button",
-    "description": "",
+    "description": "History",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_171' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_172": {
     "action_type": "button",
-    "description": "",
+    "description": "Baking",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_172' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_173": {
     "action_type": "button",
-    "description": "",
+    "description": "Public speaking",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_173' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_174": {
     "action_type": "button",
-    "description": "",
+    "description": "Belief",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_174' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_175": {
     "action_type": "button",
-    "description": "",
+    "description": "Machines",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_175' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_176": {
     "action_type": "button",
-    "description": "",
+    "description": "Bodybuilding",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_176' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_177": {
     "action_type": "button",
-    "description": "",
+    "description": "Animated films",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_177' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_178": {
     "action_type": "button",
-    "description": "",
+    "description": "Recently uploaded",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_178' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_179": {
     "action_type": "button",
-    "description": "",
+    "description": "Watched",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_179' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_180": {
     "action_type": "button",
-    "description": "",
+    "description": "New to you",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      ".ytChipShapeButtonReset",
+      "button.ytChipShapeButtonReset",
+      "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_180' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_181": {
     "action_type": "button",
@@ -2544,12 +2538,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_181' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_182": {
     "action_type": "button",
@@ -2563,7 +2557,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_182' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_183": {
     "action_type": "button",
@@ -2577,7 +2571,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_183' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_184": {
     "action_type": "button",
@@ -2591,21 +2585,22 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_184' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_185": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_185' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_186": {
     "action_type": "button",
@@ -2614,12 +2609,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_186' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_187": {
     "action_type": "button",
@@ -2628,12 +2623,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_187' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_188": {
     "action_type": "button",
@@ -2642,12 +2637,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_188' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_189": {
     "action_type": "button",
@@ -2656,12 +2651,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_189' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_190": {
     "action_type": "button",
@@ -2670,12 +2665,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_190' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_191": {
     "action_type": "button",
@@ -2684,12 +2679,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_191' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_192": {
     "action_type": "button",
@@ -2698,12 +2693,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_192' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_193": {
     "action_type": "button",
@@ -2712,12 +2707,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_193' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_194": {
     "action_type": "button",
@@ -2726,40 +2721,40 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_194' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_195": {
     "action_type": "button",
-    "description": "",
+    "description": "Show more",
     "tag_name": "button",
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_195' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_196": {
     "action_type": "button",
-    "description": "",
+    "description": "Show less",
     "tag_name": "button",
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_196' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_197": {
     "action_type": "button",
@@ -2773,7 +2768,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_197' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_198": {
     "action_type": "button",
@@ -2787,7 +2782,7 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_198' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_199": {
     "action_type": "button",
@@ -2801,526 +2796,9 @@
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_199' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_200": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_200' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_201": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-overlay-order=\"3\"]",
-      ".ytp-playlist-menu-button",
-      "button.ytp-playlist-menu-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_201' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_202": {
-    "action_type": "button",
-    "description": "Search",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Search\"]",
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_202' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_203": {
-    "action_type": "button",
-    "description": "InfoShopping",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_203' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_204": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"More\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_204' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_205": {
-    "action_type": "button",
-    "description": "Tap to unmute",
-    "tag_name": "button",
-    "selectors": [
-      "[data-layer=\"2\"]",
-      ".ytp-unmute",
-      "button.ytp-unmute",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_205' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_206": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "a:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_206' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_207": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-featured-product-overflow-icon",
-      "button.ytp-featured-product-overflow-icon",
-      "a:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_207' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_208": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-large-play-button",
-      "button.ytp-large-play-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_208' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_209": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_209' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_210": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-featured-product-overflow-icon",
-      "button.ytp-featured-product-overflow-icon",
-      "a:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_210' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_211": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_211' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_212": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_212' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_213": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_213' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_214": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_214' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_215": {
-    "action_type": "button",
-    "description": "Cancel",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_215' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_216": {
-    "action_type": "button",
-    "description": "Confirm",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_216' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_217": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-playlist-menu-close",
-      "button.ytp-playlist-menu-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_217' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_218": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-share-panel-close",
-      "button.ytp-share-panel-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_218' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_219": {
-    "action_type": "button",
-    "description": "Watch later",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      "[data-tooltip-title=\"Watch later\"]",
-      ".ytp-watch-later-button",
-      "button.ytp-watch-later-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_219' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_220": {
-    "action_type": "button",
-    "description": "Share",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Share\"]",
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_220' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_221": {
-    "action_type": "button",
-    "description": "Copy link",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      "[data-tooltip-title=\"Copy link\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_221' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_222": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Close\"]",
-      ".ytp-overflow-panel-close",
-      "button.ytp-overflow-panel-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_222' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_223": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-title-no-tooltip=\"Play\"]",
-      "[data-tooltip-title=\"Play (k)\"]",
-      ".ytp-play-button",
-      "button.ytp-play-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_223' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_224": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-offset-y=\"0\"]",
-      "[data-tooltip-title=\"Mute (m)\"]",
-      "[data-title-no-tooltip=\"Mute\"]",
-      ".ytp-mute-button",
-      "button.ytp-mute-button",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_224' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_225": {
-    "action_type": "button",
-    "description": "Live",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-live-badge",
-      "button.ytp-live-badge",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_225' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_226": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-priority=\"3\"]",
-      "[data-tooltip-target-id=\"ytp-autonav-toggle-button\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_226' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_227": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-priority=\"5\"]",
-      "[data-tooltip-title=\"Subtitles/closed captions unavailable\"]",
-      "[data-title-no-tooltip=\"Subtitles/closed captions unavailable\"]",
-      ".ytp-subtitles-button",
-      "button.ytp-subtitles-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_227' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_228": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Settings\"]",
-      "[data-tooltip-target-id=\"ytp-settings-button\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_228' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_229": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-priority=\"7\"]",
-      "[data-tooltip-target-id=\"ytp-miniplayer-button\"]",
-      "[data-tooltip-title=\"Miniplayer (i)\"]",
-      "[data-title-no-tooltip=\"Miniplayer\"]",
-      ".ytp-miniplayer-button",
-      "button.ytp-miniplayer-button",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_229' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_230": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-priority=\"8\"]",
-      "[data-tooltip-target-id=\"ytp-pip-button\"]",
-      "[data-tooltip-title=\"Picture-in-picture\"]",
-      "[data-title-no-tooltip=\"Picture-in-picture\"]",
-      ".ytp-pip-button",
-      "button.ytp-pip-button",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_230' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_231": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-priority=\"9\"]",
-      "[data-tooltip-title=\"Theater mode (t)\"]",
-      "[data-title-no-tooltip=\"Theater mode\"]",
-      ".ytp-size-button",
-      "button.ytp-size-button",
-      "div:nth-child(6)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_231' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_232": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Play on TV\"]",
-      "[data-priority=\"10\"]",
-      ".ytp-remote-button",
-      "button.ytp-remote-button",
-      "div:nth-child(7)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_232' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_233": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-priority=\"12\"]",
-      "[data-title-no-tooltip=\"Full screen\"]",
-      "[data-tooltip-title=\"Full screen (f)\"]",
-      ".ytp-fullscreen-button",
-      "button.ytp-fullscreen-button",
-      "div:nth-child(8)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_233' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
-  },
-  "a_id_234": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -3331,11 +2809,798 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_200' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_201": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_201' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_202": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_202' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_203": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_203' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_204": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_204' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_205": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_205' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_206": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_206' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_207": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_207' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_208": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_208' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_209": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_209' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_210": {
+    "action_type": "button",
+    "description": "Show more",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_210' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_211": {
+    "action_type": "button",
+    "description": "Show less",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_211' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_212": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_212' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_213": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_213' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_214": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_214' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_215": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_215' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_216": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_216' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_217": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_217' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_218": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_218' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_219": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_219' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_220": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_220' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_221": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_221' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_222": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_222' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_223": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_223' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_224": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_224' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_225": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_225' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_226": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_226' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_227": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_227' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_228": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_228' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_229": {
+    "action_type": "button",
+    "description": "Show more",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_229' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_230": {
+    "action_type": "button",
+    "description": "Show less",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_230' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_231": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_231' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_232": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_232' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_233": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_233' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_234": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_234' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
   "a_id_235": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_235' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_236": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_236' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_237": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_237' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_238": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_238' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_239": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_239' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_240": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_240' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_241": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_241' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_242": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_242' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_243": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_243' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_244": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_244' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_245": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_245' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_246": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_246' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_247": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_247' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_248": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_248' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_249": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_249' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_250": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_250' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_251": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_251' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_252": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_252' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_253": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_253' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_254": {
+    "action_type": "button",
+    "description": "Show more",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_254' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_255": {
+    "action_type": "button",
+    "description": "Show less",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_255' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_256": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_256' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_257": {
     "action_type": "unknown",
     "description": "Search",
     "tag_name": "yt-icon-button",
@@ -3346,11 +3611,11 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_235' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_257' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_236": {
+  "a_id_258": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "yt-icon-button",
@@ -3361,11 +3626,11 @@
       "ytd-notification-topbar-button-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_236' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_258' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_237": {
+  "a_id_259": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "yt-icon-button",
@@ -3375,11 +3640,41 @@
       "tp-yt-paper-material:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_237' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_259' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_238": {
+  "a_id_260": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#button",
+      ".dropdown-trigger",
+      "yt-icon-button.dropdown-trigger",
+      "ytd-menu-renderer:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_260' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_261": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#button",
+      ".dropdown-trigger",
+      "yt-icon-button.dropdown-trigger",
+      "ytd-menu-renderer:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_261' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_262": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "yt-icon-button",
@@ -3390,11 +3685,11 @@
       "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_238' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_262' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_239": {
+  "a_id_263": {
     "action_type": "unknown",
     "description": "Skip navigation",
     "tag_name": "ytd-button-renderer",
@@ -3404,11 +3699,25 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_239' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_263' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_240": {
+  "a_id_264": {
+    "action_type": "unknown",
+    "description": "Search with your voice",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_264' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_265": {
     "action_type": "unknown",
     "description": "Create",
     "tag_name": "ytd-button-renderer",
@@ -3418,11 +3727,319 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_240' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_265' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_241": {
+  "a_id_266": {
+    "action_type": "unknown",
+    "description": "Previous",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_266' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_267": {
+    "action_type": "unknown",
+    "description": "Next",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_267' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_268": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".cta-button",
+      "ytd-button-renderer.cta-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_268' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_269": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".cta-button",
+      "ytd-button-renderer.cta-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_269' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_270": {
+    "action_type": "unknown",
+    "description": "Show more",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".expand-collapse-button",
+      "ytd-button-renderer.expand-collapse-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_270' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_271": {
+    "action_type": "unknown",
+    "description": "Show less",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".expand-collapse-button",
+      "ytd-button-renderer.expand-collapse-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_271' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_272": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".cta-button",
+      "ytd-button-renderer.cta-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_272' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_273": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".cta-button",
+      "ytd-button-renderer.cta-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_273' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_274": {
+    "action_type": "unknown",
+    "description": "Show more",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".expand-collapse-button",
+      "ytd-button-renderer.expand-collapse-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_274' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_275": {
+    "action_type": "unknown",
+    "description": "Show less",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".expand-collapse-button",
+      "ytd-button-renderer.expand-collapse-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_275' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_276": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".cta-button",
+      "ytd-button-renderer.cta-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_276' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_277": {
+    "action_type": "unknown",
+    "description": "View all",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_277' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_278": {
+    "action_type": "unknown",
+    "description": "Not interested",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_278' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_279": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".cta-button",
+      "ytd-button-renderer.cta-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_279' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_280": {
+    "action_type": "unknown",
+    "description": "Show more",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".expand-collapse-button",
+      "ytd-button-renderer.expand-collapse-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_280' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_281": {
+    "action_type": "unknown",
+    "description": "Show less",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".expand-collapse-button",
+      "ytd-button-renderer.expand-collapse-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_281' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_282": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".cta-button",
+      "ytd-button-renderer.cta-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_282' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_283": {
+    "action_type": "unknown",
+    "description": "View all",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_283' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_284": {
+    "action_type": "unknown",
+    "description": "Not interested",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_284' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_285": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".cta-button",
+      "ytd-button-renderer.cta-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_285' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_286": {
+    "action_type": "unknown",
+    "description": "Show more",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".expand-collapse-button",
+      "ytd-button-renderer.expand-collapse-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_286' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_287": {
+    "action_type": "unknown",
+    "description": "Show less",
+    "tag_name": "ytd-button-renderer",
+    "selectors": [
+      ".expand-collapse-button",
+      "ytd-button-renderer.expand-collapse-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_287' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_288": {
     "action_type": "button",
     "description": "Show more",
     "tag_name": "ytd-guide-entry-renderer",
@@ -3433,11 +4050,11 @@
       "ytd-guide-collapsible-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_241' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_288' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_242": {
+  "a_id_289": {
     "action_type": "button",
     "description": "Show less",
     "tag_name": "ytd-guide-entry-renderer",
@@ -3448,55 +4065,278 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_242' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_289' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_243": {
+  "a_id_290": {
     "action_type": "button",
     "description": "",
     "tag_name": "div",
     "selectors": [
-      ".ytp-fine-scrubbing-play",
-      "div.ytp-fine-scrubbing-play",
-      "div:nth-child(4)"
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_243' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_290' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_244": {
+  "a_id_291": {
     "action_type": "button",
     "description": "",
     "tag_name": "div",
     "selectors": [
-      ".ytp-fine-scrubbing-dismiss",
-      "div.ytp-fine-scrubbing-dismiss",
-      "div:nth-child(5)"
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_244' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_291' to button with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_245": {
+  "a_id_292": {
     "action_type": "button",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "div",
     "selectors": [
-      "[data-tooltip-title=\"Next (SHIFT+n)\"]",
-      "[data-title-no-tooltip=\"Next\"]",
-      ".ytp-next-button",
-      "a.ytp-next-button",
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_292' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_293": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_293' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_294": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_294' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_295": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_295' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_296": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_296' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_297": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_297' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_298": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_298' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_299": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_299' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_300": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_300' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_301": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_301' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_302": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_302' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_303": {
+    "action_type": "button",
+    "description": "LIVE",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_303' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_304": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_304' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_305": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_305' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_306": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_306' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_307": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_307' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "YouTube"
+  },
+  "a_id_308": {
+    "action_type": "unknown",
+    "description": "Search with your voice",
+    "tag_name": "div",
+    "selectors": [
+      "#voice-search-button",
+      ".style-scope",
+      "div.style-scope",
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_245' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_308' to unknown with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   },
-  "a_id_374": {
+  "a_id_639": {
     "action_type": "nav",
     "description": "AU\n\n\n        \n        \n          \n            \n  \n\n\n  \n    \n    \n    Home\n    \n    \n      \n    \n    ",
     "tag_name": "tp-yt-app-drawer",
@@ -3507,8 +4347,8 @@
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_374' to nav with this element",
+    "llm_instruction": "Use actionId 'a_id_639' to nav with this element",
     "page_url": "https://www.youtube.com/",
-    "page_title": "Playables - YouTube"
+    "page_title": "YouTube"
   }
 }
