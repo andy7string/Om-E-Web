@@ -87,6 +87,172 @@ function scanWhenPageSettles(scanFn, {
 // 🆕 NEW: Content Script Intelligence System v2.0
 console.log("[Content] 🚀 Content script loaded with intelligence system v2.0");
 
+function applyConfiguredFocus(reason = 'post_scan') {
+    if (initialFocusApplied) {
+        return true;
+    }
+
+    try {
+        const configSelectors = Array.isArray(window.currentSiteConfig?.focus_targets)
+            ? window.currentSiteConfig.focus_targets
+            : [];
+
+        const fallbackSelectors = [
+            "input[type='search']",
+            "input[type='text']",
+            "textarea",
+            "[contenteditable='true']",
+            "input:not([type='hidden'])",
+            "select"
+        ];
+
+        const selectorPool = [...configSelectors, ...fallbackSelectors];
+        const tested = new Set();
+
+        for (const selector of selectorPool) {
+            if (!selector || tested.has(selector)) {
+                continue;
+            }
+            tested.add(selector);
+
+            let candidate;
+            try {
+                candidate = document.querySelector(selector);
+            } catch (error) {
+                continue;
+            }
+
+            if (!candidate) {
+                continue;
+            }
+
+            if (!isElementFocusable(candidate)) {
+                continue;
+            }
+
+            if (focusElement(candidate, reason)) {
+                return true;
+            }
+        }
+    } catch (error) {
+        console.warn('[Content] ⚠️ Failed to apply configured focus:', error.message);
+    }
+
+    if (!initialFocusApplied) {
+        scheduleFocusRetry(reason);
+    }
+
+    return false;
+}
+
+function focusElement(element, reason) {
+    if (!element || typeof element.focus !== 'function') {
+        return false;
+    }
+
+    try {
+        element.focus({ preventScroll: true });
+    } catch (error) {
+        try {
+            element.focus();
+        } catch (err) {
+            return false;
+        }
+    }
+
+    if (document.activeElement !== element) {
+        return false;
+    }
+
+    initialFocusApplied = true;
+    if (focusRetryTimer) {
+        clearTimeout(focusRetryTimer);
+        focusRetryTimer = null;
+    }
+
+    try {
+        const rect = element.getBoundingClientRect();
+        const clientX = rect.left + Math.min(rect.width || 1, 10);
+        const clientY = rect.top + Math.min(rect.height || 1, 10);
+        window.dispatchEvent(new MouseEvent('mousemove', {
+            bubbles: true,
+            clientX,
+            clientY
+        }));
+    } catch (error) {
+        // Ignore pointer simulation failures
+    }
+
+    console.log(`[Content] 🎯 Default focus applied (${reason})`, {
+        tag: element.tagName,
+        id: element.id || null,
+        placeholder: element.getAttribute('placeholder') || null
+    });
+
+    simulateUserInput(element);
+
+    return true;
+}
+
+function scheduleFocusRetry(reason) {
+    if (initialFocusApplied || focusRetryTimer) {
+        return;
+    }
+
+    focusRetryTimer = setTimeout(() => {
+        focusRetryTimer = null;
+        applyConfiguredFocus(reason);
+    }, 600);
+}
+
+function isElementFocusable(element) {
+    if (!element) {
+        return false;
+    }
+
+    if (element.disabled) {
+        return false;
+    }
+
+    if (element.getAttribute('aria-disabled') === 'true') {
+        return false;
+    }
+
+    if (!isElementVisible(element)) {
+        return false;
+    }
+
+    if (element.tabIndex >= 0) {
+        return true;
+    }
+
+    const focusableTags = ['input', 'textarea', 'select', 'button'];
+    if (focusableTags.includes(element.tagName?.toLowerCase())) {
+        return true;
+    }
+
+    if (element.isContentEditable || element.getAttribute('contenteditable') === 'true') {
+        return true;
+    }
+
+    return typeof element.focus === 'function';
+}
+
+function simulateUserInput(element) {
+    try {
+        element.dispatchEvent(new InputEvent('input', {
+            bubbles: true,
+            cancelable: true,
+            data: '',
+            inputType: 'insertFromProgrammatic'
+        }));
+
+        element.dispatchEvent(new Event('change', { bubbles: true }));
+    } catch (error) {
+        console.warn('[Content] ⚠️ simulateUserInput failed:', error.message);
+    }
+}
+
 // 🆕 NEW: Guard against multiple initializations
 if (window.intelligenceSystemInitialized && window.intelligenceComponents && window.intelligenceComponents.changeAggregator && window.intelligenceComponents.intelligenceEngine) {
     console.log("[Content] ⚠️ Intelligence system already initialized, reusing existing components...");
@@ -118,6 +284,8 @@ var pageContext = null;                          // Current page context and met
 var changeHistory = [];                          // History of DOM changes for analysis
 var lastIntelligenceUpdate = 0;                  // Timestamp of last intelligence update
 const INTELLIGENCE_UPDATE_INTERVAL = 500;        // 0.5 seconds between intelligence updates
+var initialFocusApplied = false;                 // Tracks whether an initial focus has been applied
+var focusRetryTimer = null;                      // Pending retry timer for focus attempts
 
 
 // Set default framework configuration
@@ -4222,46 +4390,83 @@ IntelligenceEngine.prototype.analyzeStructureChanges = function(event) {
         .filter(c => c.type === 'childList' && c.addedNodes)
         .flatMap(c => Array.from(c.addedNodes))
         .filter(node => node.nodeType === Node.ELEMENT_NODE);
-    
-    if (newElements.length > 0) {
-        // 🆕 ENHANCED: Register new interactive elements with actionable IDs
-        newElements.forEach(element => {
-            if (this.isInteractiveElement(element)) {
-                const actionType = this.determineActionType(element);
-                const actionId = this.registerActionableElement(element, actionType);
-                
-                console.log("[Content] 🆕 New actionable element registered:", {
-                    actionId: actionId,
-                    tagName: element.tagName,
-                    actionType: actionType,
-                    textContent: element.textContent?.trim().substring(0, 30) || '',
-                    selectors: this.actionableElements.get(actionId)?.selectors || []
-                });
-            }
 
-            if (window.currentFramework === 'youtube') {
-                this.registerYoutubeLinksFromNode(element);
-            }
+    if (newElements.length === 0) {
+        return;
+    }
+
+    let newlyRegistered = 0;
+
+    newElements.forEach(element => {
+        newlyRegistered += this.registerInteractiveSubtree(element);
+
+        if (window.currentFramework === 'youtube') {
+            this.registerYoutubeLinksFromNode(element);
+        }
+    });
+
+    const navElements = newElements.filter(el => 
+        el.tagName === 'NAV' || el.getAttribute('role') === 'navigation'
+    );
+
+    if (navElements.length > 0) {
+        this.pageState.navigationState = 'expanded';
+        navElements.forEach(nav => {
+            this.registerActionableElement(nav, 'navigation');
         });
+    }
 
-        // Update interactive elements count
+    if (newlyRegistered > 0 || navElements.length > 0) {
         this.pageState.interactiveElements = this.getAllActionableElements();
-        
-        // Check for navigation changes
-        const navElements = newElements.filter(el => 
-            el.tagName === 'NAV' || el.getAttribute('role') === 'navigation'
-        );
-        
-        if (navElements.length > 0) {
-            this.pageState.navigationState = 'expanded';
-            
-            // Register navigation elements as actionable
-            navElements.forEach(nav => {
-                const actionId = this.registerActionableElement(nav, 'navigation');
-                console.log("[Content] 🧭 Navigation element registered:", actionId);
-            });
+        applyConfiguredFocus('dom_subtree');
+
+        if (this.queueIntelligenceUpdate) {
+            const changeLabel = newlyRegistered > 0 ? `${newlyRegistered} interactive descendants` : 'navigation updates';
+            console.log(`[Content] 🆕 DOM change trigger: ${changeLabel}`);
+            this.queueIntelligenceUpdate('high', 'dom_subtree');
         }
     }
+};
+
+IntelligenceEngine.prototype.registerInteractiveSubtree = function(rootNode) {
+    if (!rootNode || rootNode.nodeType !== Node.ELEMENT_NODE) {
+        return 0;
+    }
+
+    const stack = [rootNode];
+    const visited = new Set();
+    let registered = 0;
+
+    while (stack.length > 0) {
+        const current = stack.pop();
+        if (!current || current.nodeType !== Node.ELEMENT_NODE) {
+            continue;
+        }
+        if (visited.has(current)) {
+            continue;
+        }
+        visited.add(current);
+
+        const existingMarker = current.dataset?.omeActionId;
+        const wasTracked = existingMarker ? this.actionableElements.has(existingMarker) : false;
+
+        if (this.isInteractiveElement(current) && this.passesBasicQualityFilter(current)) {
+            const actionType = this.determineActionType(current);
+            const actionId = this.registerActionableElement(current, actionType);
+            if (actionId && (!existingMarker || !wasTracked)) {
+                registered += 1;
+            }
+        }
+
+        const children = current.children;
+        if (children && children.length) {
+            for (let i = 0; i < children.length; i += 1) {
+                stack.push(children[i]);
+            }
+        }
+    }
+
+    return registered;
 };
 
 /**
@@ -4364,19 +4569,18 @@ IntelligenceEngine.prototype.isInteractiveElement = function(element) {
 IntelligenceEngine.prototype.passesBasicQualityFilter = function(element) {
     if (!element) return false;
     
+    // 🆕 Always include elements we already classified as interactive
+    const isInteractiveElement = this.isInteractiveElement(element);
+    if (isInteractiveElement) {
+        return true;
+    }
+
     // 🚫 Filter out hidden elements
     if (element.hidden) return false;
     
     // 🚫 Filter out elements with aria-hidden="true"
     const ariaHidden = element.getAttribute('aria-hidden');
     if (ariaHidden === 'true') return false;
-    
-            // 🆕 ENHANCED: Always include interactive elements regardless of dimensions
-        const isInteractiveElement = this.isInteractiveElement(element);
-        if (isInteractiveElement) {
-            // 🆕 NEW: Don't log individual elements - just count them
-            return true; // Always include interactive elements
-        }
     
     // 🚫 Filter out elements with no meaningful content
     const text = element.textContent?.trim();
@@ -5040,6 +5244,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         const actionRecord = {
             type: 'action',
             id: actionDescriptor.id,
+            tag: actionDescriptor.tagName ? actionDescriptor.tagName.toLowerCase() : 'unknown',
             label: extractLabelFromAction(actionDescriptor, domNode),
             actionTypes: deriveActionTypes(actionDescriptor),
             visibility
@@ -5057,6 +5262,13 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             if (attrs['aria-label']) actionRecord.ariaLabel = attrs['aria-label'];
             if (attrs.title) actionRecord.title = attrs.title;
             if (attrs.placeholder) actionRecord.placeholder = attrs.placeholder;
+            if (attrs['data-placeholder'] && !actionRecord.placeholder) {
+                actionRecord.placeholder = attrs['data-placeholder'];
+            }
+        }
+
+        if (actionDescriptor.attributes && Object.keys(actionDescriptor.attributes).length > 0) {
+            actionRecord.attributes = { ...actionDescriptor.attributes };
         }
 
         const controlType = inferControlType(actionDescriptor, actionRecord);
@@ -5067,6 +5279,13 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         const placeholderAttr = actionDescriptor.attributes && actionDescriptor.attributes.placeholder;
         if (placeholderAttr) {
             actionRecord.placeholder = placeholderAttr;
+        } else if (actionDescriptor.attributes && actionDescriptor.attributes['data-placeholder']) {
+            actionRecord.placeholder = actionDescriptor.attributes['data-placeholder'];
+        } else if (domNode && typeof domNode.querySelector === 'function') {
+            const fallbackPlaceholder = domNode.querySelector('[data-placeholder]')?.getAttribute('data-placeholder');
+            if (fallbackPlaceholder) {
+                actionRecord.placeholder = fallbackPlaceholder.trim();
+            }
         }
 
         const bucket = sectionBuckets.get(sectionId);
@@ -5262,11 +5481,22 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         return parts.length ? parts.join(' > ') : 'body';
     }
 
+    function prettifyLabel(value) {
+        if (!value) return '';
+        const cleaned = value.replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
+        if (!cleaned) return '';
+        return cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+    }
+
     function extractLabelFromAction(descriptor, node) {
     const attr = descriptor.attributes || {};
     const ariaLabel = (attr['aria-label'] || (node && node.getAttribute('aria-label')) || '')?.trim?.();
     const titleLabel = (attr.title || (node && node.getAttribute('title')) || '')?.trim?.();
-    const placeholderLabel = (attr.placeholder || (node && node.getAttribute('placeholder')) || '')?.trim?.();
+    const placeholderLabel = (attr.placeholder || (node && node.getAttribute && node.getAttribute('placeholder')) || '')?.trim?.();
+    const dataPlaceholderAttr = (attr['data-placeholder'] || (node && node.getAttribute && node.getAttribute('data-placeholder')) || '')?.trim?.();
+    const descendantPlaceholder = node && typeof node.querySelector === 'function'
+        ? node.querySelector('[data-placeholder]')?.getAttribute('data-placeholder')?.trim()
+        : '';
     const textLabel = descriptor.textContent ? descriptor.textContent.trim() : '';
 
     if (textLabel) {
@@ -5278,16 +5508,28 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     }
 
     if (placeholderLabel) return placeholderLabel;
+    if (dataPlaceholderAttr) return dataPlaceholderAttr;
+    if (descendantPlaceholder) return descendantPlaceholder;
     if (ariaLabel) return ariaLabel;
     if (titleLabel) return titleLabel;
         if (attr.alt) return attr.alt;
         if (descriptor.urlContext && descriptor.urlContext.altText) {
             return descriptor.urlContext.altText;
         }
+        const idAttr = attr.id || (node && node.id);
+        if (idAttr) {
+            const prettyId = prettifyLabel(idAttr);
+            if (prettyId) return prettyId;
+        }
+        if (attr.cssClasses && attr.cssClasses.length > 0) {
+            const prettyClass = prettifyLabel(attr.cssClasses[0]);
+            if (prettyClass) return prettyClass;
+        }
         if (node && node.textContent) {
             return node.textContent.trim().substring(0, 120);
         }
-        return descriptor.tagName || 'element';
+        const fallback = descriptor.tagName || 'element';
+        return prettifyLabel(fallback) || fallback;
     }
 
     function deriveActionTypes(descriptor) {
@@ -5301,6 +5543,15 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             types.add('setValue');
         }
         if (tag === 'textarea') {
+            types.add('focus');
+            types.add('setValue');
+        }
+        if (descriptor.attributes && descriptor.attributes.contenteditable === 'true') {
+            types.add('focus');
+            types.add('setValue');
+        }
+        const role = descriptor.attributes && descriptor.attributes.role ? descriptor.attributes.role.toLowerCase() : '';
+        if (role === 'textbox' || role === 'input') {
             types.add('focus');
             types.add('setValue');
         }
@@ -5391,14 +5642,47 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     }
 
     function filterInteractiveRecords(records) {
-        const seenKeys = new Set();
         const filtered = [];
+        const keyToIndex = new Map();
+
+        const computeKey = (descriptor, primarySelector, url, label) => {
+            const attrs = descriptor.attributes || {};
+            const placeholder = (descriptor.placeholder || attrs.placeholder || attrs['data-placeholder'] || '').toLowerCase();
+            const aria = (attrs['aria-label'] || '').toLowerCase();
+            const idAttr = (attrs.id || '').toLowerCase();
+            if (placeholder) return `placeholder:${placeholder}`;
+            if (aria) return `aria:${aria}`;
+            if (idAttr) return `id:${idAttr}`;
+            if (label) return `label:${label.toLowerCase()}`;
+            if (url) return `url:${url}`;
+            if (primarySelector) return `selector:${primarySelector.toLowerCase()}`;
+            return descriptor.id || null;
+        };
+
+        const hasMeaningfulLabel = (descriptor) => {
+            const attrs = descriptor.attributes || {};
+            const label = (descriptor.textContent || descriptor.label || '').trim();
+            const placeholder = descriptor.placeholder || attrs.placeholder || attrs['data-placeholder'];
+            const aria = attrs['aria-label'];
+            const idAttr = attrs.id;
+            if (placeholder || aria || idAttr) return true;
+            if (!label) return false;
+            const normalized = label.toLowerCase();
+            return normalized !== 'input' && normalized !== 'button' && normalized.length > 1;
+        };
 
         records.forEach((descriptor) => {
             const tag = descriptor.tagName ? descriptor.tagName.toLowerCase() : '';
 
             if (tag === 'link' || tag === 'meta' || tag === 'script') {
                 return;
+            }
+
+            if (descriptor.attributes && descriptor.attributes.type) {
+                const typeAttr = descriptor.attributes.type.toLowerCase();
+                if (typeAttr === 'hidden' || typeAttr === 'file') {
+                    return;
+                }
             }
 
             if (!descriptor.selectors || descriptor.selectors.length === 0) {
@@ -5417,20 +5701,26 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
                 return;
             }
 
-            const url = descriptor.urlContext && descriptor.urlContext.url;
-            const label = (descriptor.textContent || (descriptor.attributes && (descriptor.attributes['aria-label'] || descriptor.attributes.title)) || '').trim();
-            let uniquenessKey = descriptor.id;
-            if (!uniquenessKey) {
-                uniquenessKey = url || `${label}|${primarySelector}`;
-            }
-
-            if (uniquenessKey && seenKeys.has(uniquenessKey)) {
+            if (descriptor.visibility === 'hidden' && !hasMeaningfulLabel(descriptor)) {
                 return;
             }
 
-            if (uniquenessKey) {
-                seenKeys.add(uniquenessKey);
+            const url = descriptor.urlContext && descriptor.urlContext.url;
+            const label = (descriptor.textContent || (descriptor.attributes && (descriptor.attributes['aria-label'] || descriptor.attributes.title || descriptor.attributes['data-placeholder'])) || '').trim();
+            const key = computeKey(descriptor, primarySelector, url, label);
+
+            if (key) {
+                const existingIndex = keyToIndex.get(key);
+                if (existingIndex !== undefined) {
+                    const existing = filtered[existingIndex];
+                    if (existing.visibility === 'hidden' && descriptor.visibility !== 'hidden') {
+                        filtered[existingIndex] = descriptor;
+                    }
+                    return;
+                }
+                keyToIndex.set(key, filtered.length);
             }
+
             filtered.push(descriptor);
         });
 
@@ -5821,13 +6111,15 @@ IntelligenceEngine.prototype.isExtensionContextValid = function() {
 /**
  * 🆕 NEW: Generate unique actionable identifier for an element
  */
-IntelligenceEngine.prototype.generateActionableId = function(element, actionType = 'general') {
+IntelligenceEngine.prototype.generateActionableId = function(element, actionType = 'general', reuseId = null) {
     const tagName = element.tagName?.toLowerCase() || 'unknown';
     const className = element.className || '';
     const textContent = element.textContent?.trim().substring(0, 100) || '';
     
-    // Create a unique compact ID
-    const uniqueId = `a_id_${this.elementCounter++}`;
+    let uniqueId = reuseId;
+    if (!uniqueId) {
+        uniqueId = `a_id_${this.elementCounter++}`;
+    }
     
     // Generate multiple selectors for reliability
     const selectors = this.generateElementSelectors(element);
@@ -5945,6 +6237,13 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
     if (element.tagName === 'A' || element.href || element.getAttribute('data-url')) {
         keyAttrs.push('href', 'data-url', 'data-href', 'data-link', 'target', 'rel');
     }
+
+    if (element.hasAttribute && element.hasAttribute('contenteditable')) {
+        keyAttrs.push('contenteditable');
+    }
+    if (element.hasAttribute && element.hasAttribute('data-placeholder')) {
+        keyAttrs.push('data-placeholder');
+    }
     
     // Add src for images
     if (element.tagName === 'IMG') {
@@ -5982,10 +6281,8 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
  * 🆕 NEW: Register an element as actionable
  */
 IntelligenceEngine.prototype.registerActionableElement = function(element, actionType = 'general') {
-    // Ensure we have a real DOM element for attribute extraction
     let domElement = element;
-    
-    // If element is an object with a selector, try to resolve it to a DOM element
+
     if (element && typeof element === 'object' && element.selector && !element.tagName) {
         try {
             domElement = document.querySelector(element.selector);
@@ -5998,16 +6295,33 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
             return null;
         }
     }
-    
-    const actionableId = this.generateActionableId(domElement, actionType);
+
+    if (!domElement || !domElement.tagName) {
+        return null;
+    }
+
+    const existingMarker = domElement.dataset?.omeActionId;
+
+    const actionableId = this.generateActionableId(domElement, actionType, existingMarker || null);
     this.actionableElements.set(actionableId.id, actionableId);
-    
-    // Add to page state
-    this.pageState.interactiveElements.push({
-        ...actionableId,
-        element: domElement
-    });
-    
+
+    if (domElement.dataset) {
+        domElement.dataset.omeActionId = actionableId.id;
+    }
+
+    if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
+        const existingIndex = this.pageState.interactiveElements.findIndex(item => item.id === actionableId.id);
+        const entry = {
+            ...actionableId,
+            element: domElement
+        };
+        if (existingIndex >= 0) {
+            this.pageState.interactiveElements[existingIndex] = entry;
+        } else {
+            this.pageState.interactiveElements.push(entry);
+        }
+    }
+
     return actionableId.id;
 };
 
@@ -6058,6 +6372,15 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
     if (!action) {
         action = actionableElement.actionType || 'click';
         console.log("[Content] 🔍 Auto-detected action:", action, "from actionType:", actionableElement.actionType);
+    }
+    
+    // 🆕 NEW: Normalize action names for text entry (generic, site-agnostic)
+    // Some pipelines label text-entry elements as 'textarea' or 'input'.
+    // Normalize these to the canonical 'setValue' so downstream handling works everywhere.
+    const lowered = typeof action === 'string' ? action.toLowerCase() : '';
+    if (['textarea', 'input', 'type', 'text', 'enter_text'].includes(lowered)) {
+        action = 'setValue';
+        console.log("[Content] 🔁 Normalized action to 'setValue' for text entry");
     }
     
     try {
@@ -6261,17 +6584,57 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                 break;
                 
             case 'setValue':
-                if (element.value !== undefined) {
-                    element.value = params.value || '';
-                    result = { 
-                        success: true, 
-                        action: 'setValue', 
-                        elementId: actionId, 
-                        value: element.value,
-                        selector: selector
-                    };
-                } else {
-                    result = { success: false, error: "Element does not support setValue" };
+                {
+                    const valueToSet = params.value != null ? String(params.value) : '';
+                    // Focus first to ensure site handlers attach properly
+                    if (typeof element.focus === 'function') {
+                        element.focus();
+                    }
+                    
+                    // Use native setter so frameworks detect change
+                    const isTextarea = element.tagName === 'TEXTAREA';
+                    const isInput = element.tagName === 'INPUT';
+                    const isContentEditable = element.isContentEditable === true || element.getAttribute('contenteditable') === 'true';
+                    
+                    try {
+                        if (isTextarea || isInput) {
+                            const proto = isTextarea ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
+                            const desc = Object.getOwnPropertyDescriptor(proto, 'value');
+                            if (desc && typeof desc.set === 'function') {
+                                desc.set.call(element, valueToSet);
+                            } else {
+                                element.value = valueToSet;
+                            }
+                        } else if (isContentEditable) {
+                            element.textContent = valueToSet;
+                        } else if (element.value !== undefined) {
+                            element.value = valueToSet;
+                        } else {
+                            result = { success: false, error: "Element does not support setValue" };
+                            break;
+                        }
+                        
+                        // Dispatch input/change events so pages react to the update
+                        element.dispatchEvent(new Event('input', { bubbles: true }));
+                        element.dispatchEvent(new Event('change', { bubbles: true }));
+                        
+                        // Optionally submit by simulating Enter, if requested
+                        if (params && params.submit) {
+                            const kOpts = { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true };
+                            element.dispatchEvent(new KeyboardEvent('keydown', kOpts));
+                            element.dispatchEvent(new KeyboardEvent('keyup', kOpts));
+                        }
+                        
+                        result = { 
+                            success: true, 
+                            action: 'setValue', 
+                            elementId: actionId, 
+                            value: isContentEditable ? element.textContent : element.value,
+                            selector: selector
+                        };
+                    } catch (e) {
+                        result = { success: false, error: `setValue failed: ${e.message}` };
+                    }
                 }
                 break;
                 
@@ -6971,6 +7334,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         // 🆕 NEW: Mark initial scan as complete
         this.initialScanCompleted = true;
         console.log("[Content] ✅ Initial page scan marked as complete");
+        applyConfiguredFocus('initial_scan');
         
         // 🎯 NEW: Send intelligence update AFTER filtering is complete (not during scan)
         console.log("[Content] 📤 Filtering complete, sending intelligence update with filtered results...");

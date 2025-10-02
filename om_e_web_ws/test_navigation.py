@@ -8,6 +8,7 @@ import asyncio
 import websockets
 import json
 import time
+import argparse
 
 class NavigationTester:
     def __init__(self):
@@ -164,7 +165,35 @@ class NavigationTester:
                 print("🔌 Connection closed")
 
 async def main():
+    parser = argparse.ArgumentParser(description="Execute LLM action via WS or run interactive tester")
+    parser.add_argument("--action-id", dest="action_id", help="Action ID to execute (e.g., a_id_0)")
+    parser.add_argument("--value", dest="value", help="Value to set (for setValue actions)")
+    parser.add_argument("--submit", dest="submit", action="store_true", help="Submit after setting the value")
+    parser.add_argument("--no-submit", dest="no_submit", action="store_true", help="Do not submit after setting the value")
+    args = parser.parse_args()
+
     tester = NavigationTester()
+
+    # Non-interactive execution path when action-id is provided
+    if args.action_id:
+        connected = await tester.connect()
+        if not connected:
+            return
+        params = {}
+        if args.value is not None:
+            params["value"] = args.value
+        # Determine submit flag precedence
+        if args.no_submit:
+            params["submit"] = False
+        elif args.submit:
+            params["submit"] = True
+        # Execute without forcing actionType; extension will resolve
+        await tester.execute_action(args.action_id, params=params)
+        # Small delay to allow any navigation
+        await asyncio.sleep(0.5)
+        return
+
+    # Fallback: interactive loop
     await tester.interactive_test()
 
 if __name__ == "__main__":

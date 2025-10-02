@@ -240,6 +240,8 @@ function isControlAction(action) {
   const tag = action.tag ? action.tag.toLowerCase() : '';
   if (tag === 'input' || tag === 'textarea' || tag === 'select') return true;
   if (action.placeholder) return true;
+  if (action.attributes && action.attributes['data-placeholder']) return true;
+  if (action.attributes && action.attributes.contenteditable === 'true') return true;
   return false;
 }
 
@@ -264,12 +266,34 @@ function describeSection(action, sectionsById) {
 
 function shouldIncludeControl(action) {
   if (!action) return false;
-  if (action.visibility !== 'hidden') return true;
-  const keywords = ['send', 'submit', 'search', 'enter', 'apply'];
-  const haystacks = [action.label, action.ariaLabel, action.placeholder, action.title]
+
+  if (action.attributes && action.attributes.type) {
+    const inputType = action.attributes.type.toLowerCase();
+    if (inputType === 'file' || inputType === 'hidden') {
+      return false;
+    }
+  }
+
+  const dataPlaceholder = action.attributes && action.attributes['data-placeholder'];
+  const candidates = [action.label, action.placeholder, action.ariaLabel, action.title, dataPlaceholder]
     .filter(Boolean)
-    .map(value => value.toLowerCase());
-  return haystacks.some(text => keywords.some(keyword => text.includes(keyword)));
+    .map(value => value.trim())
+    .filter(value => value.length > 0);
+
+  const hasMeaningfulLabel = candidates.some(value => {
+    const normalized = value.toLowerCase();
+    return normalized !== 'input' && normalized !== 'button' && normalized.length > 1;
+  });
+
+  if (!hasMeaningfulLabel) {
+    return false;
+  }
+
+  if (action.visibility === 'hidden' && candidates.length === 0) {
+    return false;
+  }
+
+  return true;
 }
 
 function findActionMatches(text, actions, headingStack, sectionsById, textById) {

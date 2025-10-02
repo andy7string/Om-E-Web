@@ -557,7 +557,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 handleDOMChanged(message, sendResponse);
                 break;
             case 'intelligence_update':
-                handleIntelligenceUpdate(message, sendResponse);
+                handleIntelligenceUpdate(message, sender, sendResponse);
                 break;
             case 'get_site_config_for_domain':
                 // Handle async response properly
@@ -975,7 +975,7 @@ async function handleDOMChanged(message, sendResponse) {
  * @param {Object} message - Intelligence update message
  * @param {Function} sendResponse - Response callback
  */
-async function handleIntelligenceUpdate(message, sendResponse) {
+async function handleIntelligenceUpdate(message, sender, sendResponse) {
     try {
         console.log("[SW] 🧠 Processing intelligence update from content script");
         
@@ -983,6 +983,29 @@ async function handleIntelligenceUpdate(message, sendResponse) {
         if (!message || !message.data) {
             console.error("[SW] ❌ Invalid intelligence update message:", message);
             sendResponse({ ok: false, error: "Invalid message format" });
+            return;
+        }
+
+        const sourceTabId = sender?.tab?.id;
+        const sourceTabUrl = sender?.tab?.url || 'unknown';
+        const sourceTabTitle = sender?.tab?.title || 'Unknown';
+
+        if (!sourceTabId) {
+            console.warn('[SW] ⚠️ Intelligence update without tab context, ignoring');
+            sendResponse({ ok: false, error: 'Missing tab context' });
+            return;
+        }
+
+        // Ensure this update is for the currently active tab
+        const activeTab = await findActiveTab();
+        if (!activeTab || activeTab.id !== sourceTabId) {
+            console.log('[SW] ⏸️ Skipping intelligence update from inactive tab', {
+                sourceTabId,
+                sourceTabUrl,
+                activeTabId: activeTab?.id,
+                reason: 'inactive_tab'
+            });
+            sendResponse({ ok: true, skipped: true, reason: 'inactive_tab' });
             return;
         }
         
@@ -995,6 +1018,11 @@ async function handleIntelligenceUpdate(message, sendResponse) {
             hasActionMapping: !!intelligenceData.actionMapping,
             timestamp: intelligenceData.timestamp
         });
+
+        // Attach tab metadata to intelligence payload
+        intelligenceData.tabId = sourceTabId;
+        intelligenceData.tabUrl = sourceTabUrl;
+        intelligenceData.tabTitle = sourceTabTitle;
         
         // 🆕 ENHANCED: Validate required fields
         if (!intelligenceData.actionableElements || !Array.isArray(intelligenceData.actionableElements)) {
@@ -1005,6 +1033,9 @@ async function handleIntelligenceUpdate(message, sendResponse) {
         if (ws && ws.readyState === WebSocket.OPEN) {
             const serverMessage = {
                 type: "intelligence_update",
+                tabId: sourceTabId,
+                tabUrl: sourceTabUrl,
+                tabTitle: sourceTabTitle,
                 data: intelligenceData
             };
             
@@ -1671,7 +1702,5 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
         sendResponse({ config: null, error: error.message });
     }
 }
-
-
 
 
