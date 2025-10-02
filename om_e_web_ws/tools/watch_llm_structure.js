@@ -17,7 +17,7 @@ ensureFile(textPath);
 let timer = null;
 let isRunning = false;
 const pendingTriggers = new Set();
-const requiredTriggers = new Set(['page', 'text']);
+let waitAttempts = 0;
 
 runOptimization('startup', { force: true });
 
@@ -58,15 +58,27 @@ function runOptimization(reason, { force = false } = {}) {
     return;
   }
 
-  if (!force && pendingTriggers.size && pendingTriggers.size < requiredTriggers.size) {
-    if (!quiet) {
-      console.log('[watch] Waiting for both page.jsonl and text.md updates before regenerating.');
-    }
-    return;
-  }
-
   isRunning = true;
   try {
+    const pageStat = fs.statSync(pagePath);
+    const textStat = fs.statSync(textPath);
+
+    if (!force && pageStat.mtimeMs > textStat.mtimeMs + 5) {
+      if (waitAttempts < 20) {
+        waitAttempts += 1;
+        if (!quiet) {
+          console.log(`[watch] Waiting for text.md to update (attempt ${waitAttempts})`);
+        }
+        isRunning = false;
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => runOptimization('delayed'), debounceMs);
+        return;
+      } else if (!quiet) {
+        console.log('[watch] Proceeding despite text.md lagging behind page.jsonl');
+      }
+    }
+
+    waitAttempts = 0;
     const result = createLLMOptimizedStructure(pagePath, textPath);
     fs.writeFileSync(outPath, JSON.stringify(result, null, 2));
     if (!quiet) {

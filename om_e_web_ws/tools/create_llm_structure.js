@@ -9,8 +9,16 @@ function createLLMOptimizedStructure(pageJsonlPath, textMdPath) {
 
   const { metaRecord, sectionsById, textById, actions } = buildPageIndexes(pageRecords);
   const { inlineMeta, markdownLines, usedActionIds } = parseTextStructure(textContent, actions, sectionsById, textById);
+  const usedActionSet = new Set(usedActionIds);
+  const controlLines = buildControlLines(actions, sectionsById, usedActionSet);
+  if (controlLines.length) {
+    markdownLines.push('');
+    markdownLines.push('## Controls');
+    markdownLines.push('');
+    markdownLines.push(...controlLines);
+  }
   const meta = buildMeta(metaRecord, inlineMeta);
-  const actionsMap = buildActionsMap(actions.list, sectionsById, new Set(usedActionIds));
+  const actionsMap = buildActionsMap(actions.list, sectionsById, usedActionSet);
 
   return {
     meta,
@@ -171,6 +179,97 @@ function parseTextStructure(markdownSource, actions, sectionsById, textById) {
   });
 
   return { inlineMeta, markdownLines: renderedLines, usedActionIds: Array.from(actions.used) };
+}
+
+function buildControlLines(actions, sectionsById, usedSet) {
+  const lines = [];
+  if (!actions || !Array.isArray(actions.list)) {
+    return lines;
+  }
+
+  const maxOrder = actions.list.reduce((max, action) => {
+    const order = typeof action.order === 'number' ? action.order : 0;
+    return order > max ? order : max;
+  }, 0);
+
+  const controls = actions.list
+    .filter(action => !usedSet.has(action.id) && isControlAction(action) && shouldIncludeControl(action))
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  controls.forEach(control => {
+    const label = control.label || control.placeholder || control.ariaLabel || control.title || 'Input field';
+    const extras = [];
+    if (control.placeholder) {
+      extras.push(`placeholder "${control.placeholder}"`);
+    }
+    if (control.controlType === 'input') {
+      extras.push('input field');
+    } else if (control.controlType === 'button') {
+      extras.push('button');
+    }
+    if (control.visibility === 'hidden') {
+      extras.push('hidden (requires context)');
+    }
+    const sectionInfo = describeSection(control, sectionsById);
+    if (sectionInfo) {
+      extras.push(sectionInfo);
+    }
+    const positionInfo = describePosition(control.order, maxOrder);
+    if (positionInfo) {
+      extras.push(positionInfo);
+    }
+
+    const detail = extras.length ? ` — ${extras.join(' • ')}` : '';
+    lines.push(`- [${label}](action:${control.id})${detail}`);
+    usedSet.add(control.id);
+    if (actions && actions.used) {
+      actions.used.add(control.id);
+    }
+  });
+
+  return lines;
+}
+
+function isControlAction(action) {
+  if (!action) return false;
+  if (action.controlType === 'input' || action.controlType === 'button') return true;
+  if (Array.isArray(action.actionTypes)) {
+    if (action.actionTypes.includes('setValue')) return true;
+    if (action.actionTypes.includes('focus') && !action.actionTypes.includes('navigate')) return true;
+  }
+  const tag = action.tag ? action.tag.toLowerCase() : '';
+  if (tag === 'input' || tag === 'textarea' || tag === 'select') return true;
+  if (action.placeholder) return true;
+  return false;
+}
+
+function describePosition(order, maxOrder) {
+  if (typeof order !== 'number' || maxOrder <= 0) {
+    return null;
+  }
+  const ratio = order / maxOrder;
+  if (ratio <= 0.25) return 'top of page';
+  if (ratio <= 0.75) return 'mid page';
+  return 'bottom of page';
+}
+
+function describeSection(action, sectionsById) {
+  if (!action || !action.section) return null;
+  const section = sectionsById.get(action.section);
+  if (!section) return null;
+  if (section.label) return section.label;
+  if (section.selector) return section.selector;
+  return null;
+}
+
+function shouldIncludeControl(action) {
+  if (!action) return false;
+  if (action.visibility !== 'hidden') return true;
+  const keywords = ['send', 'submit', 'search', 'enter', 'apply'];
+  const haystacks = [action.label, action.ariaLabel, action.placeholder, action.title]
+    .filter(Boolean)
+    .map(value => value.toLowerCase());
+  return haystacks.some(text => keywords.some(keyword => text.includes(keyword)));
 }
 
 function findActionMatches(text, actions, headingStack, sectionsById, textById) {

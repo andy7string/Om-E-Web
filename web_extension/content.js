@@ -5059,6 +5059,16 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             if (attrs.placeholder) actionRecord.placeholder = attrs.placeholder;
         }
 
+        const controlType = inferControlType(actionDescriptor, actionRecord);
+        if (controlType) {
+            actionRecord.controlType = controlType;
+        }
+
+        const placeholderAttr = actionDescriptor.attributes && actionDescriptor.attributes.placeholder;
+        if (placeholderAttr) {
+            actionRecord.placeholder = placeholderAttr;
+        }
+
         const bucket = sectionBuckets.get(sectionId);
         const dedupKey = `${actionRecord.tag}|${actionRecord.label}|${actionRecord.href || ''}|${primarySelector}`;
         if (bucket.actionSeen.has(dedupKey)) return;
@@ -5120,6 +5130,11 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
                 title: linkEl.getAttribute('title') || undefined
             };
 
+            const inferred = inferControlType({ tagName: 'a' }, actionRecord);
+            if (inferred) {
+                actionRecord.controlType = inferred;
+            }
+
             const bucket = sectionBuckets.get(sectionId);
             const dedupKey = `${actionRecord.label}|${href}`;
             if (bucket.actionSeen.has(dedupKey)) return;
@@ -5128,23 +5143,23 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             bucket.actionCount += 1;
             youtubeSeen.add(href);
 
-            if (this.actionableElements && !this.actionableElements.has(idCandidate)) {
-                this.actionableElements.set(idCandidate, {
-                    id: idCandidate,
-                    tagName: 'a',
-                    actionType: 'link',
+        if (this.actionableElements && !this.actionableElements.has(idCandidate)) {
+            this.actionableElements.set(idCandidate, {
+                id: idCandidate,
+                tagName: 'a',
+                actionType: 'link',
+                textContent: labelText,
+                selectors: selectorList,
+                attributes: this.extractKeyAttributes(linkEl) || { href },
+                urlContext: {
+                    url: href,
                     textContent: labelText,
-                    selectors: selectorList,
-                    attributes: this.extractKeyAttributes(linkEl) || { href },
-                    urlContext: {
-                        url: href,
-                        textContent: labelText,
-                        title: linkEl.getAttribute('title'),
-                        ariaLabel: linkEl.getAttribute('aria-label')
-                    },
-                    timestamp: Date.now()
-                });
-            }
+                    title: linkEl.getAttribute('title'),
+                    ariaLabel: linkEl.getAttribute('aria-label')
+                },
+                timestamp: Date.now()
+            });
+        }
         });
     }
 
@@ -5248,21 +5263,23 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     }
 
     function extractLabelFromAction(descriptor, node) {
-        const attr = descriptor.attributes || {};
-        const ariaLabel = (attr['aria-label'] || (node && node.getAttribute('aria-label')) || '')?.trim?.();
-        const titleLabel = (attr.title || (node && node.getAttribute('title')) || '')?.trim?.();
-        const textLabel = descriptor.textContent ? descriptor.textContent.trim() : '';
+    const attr = descriptor.attributes || {};
+    const ariaLabel = (attr['aria-label'] || (node && node.getAttribute('aria-label')) || '')?.trim?.();
+    const titleLabel = (attr.title || (node && node.getAttribute('title')) || '')?.trim?.();
+    const placeholderLabel = (attr.placeholder || (node && node.getAttribute('placeholder')) || '')?.trim?.();
+    const textLabel = descriptor.textContent ? descriptor.textContent.trim() : '';
 
-        if (textLabel) {
-            const looksLikeIndex = /^\d{1,3}$/.test(textLabel);
-            if (looksLikeIndex && ariaLabel) {
-                return ariaLabel;
-            }
-            return textLabel.substring(0, 120);
+    if (textLabel) {
+        const looksLikeIndex = /^\d{1,3}$/.test(textLabel);
+        if (looksLikeIndex && ariaLabel) {
+            return ariaLabel;
         }
+        return textLabel.substring(0, 120);
+    }
 
-        if (ariaLabel) return ariaLabel;
-        if (titleLabel) return titleLabel;
+    if (placeholderLabel) return placeholderLabel;
+    if (ariaLabel) return ariaLabel;
+    if (titleLabel) return titleLabel;
         if (attr.alt) return attr.alt;
         if (descriptor.urlContext && descriptor.urlContext.altText) {
             return descriptor.urlContext.altText;
@@ -5483,6 +5500,26 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         const trimmed = value.replace(/\s+/g, ' ').trim();
         if (!trimmed) return null;
         return trimmed.toLowerCase();
+    }
+
+    function inferControlType(descriptor, actionRecord) {
+        if (!actionRecord) return null;
+        const actionTypes = Array.isArray(actionRecord.actionTypes) ? actionRecord.actionTypes : [];
+        const label = (actionRecord.label || '').toLowerCase();
+        const aria = (actionRecord.ariaLabel || '').toLowerCase();
+        const placeholder = (actionRecord.placeholder || '').toLowerCase();
+        const keywords = ['search', 'submit', 'apply', 'filter', 'go', 'enter'];
+
+        if (actionTypes.includes('setValue')) {
+            return 'input';
+        }
+
+        const hasKeyword = keywords.some(keyword => label.includes(keyword) || aria.includes(keyword) || placeholder.includes(keyword));
+        if (actionTypes.includes('click') && !actionRecord.href && hasKeyword) {
+            return 'button';
+        }
+
+        return null;
     }
 };
 
@@ -5933,7 +5970,11 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
             attributes[attr] = value;
         }
     });
-    
+    const placeholder = element.getAttribute('placeholder');
+    if (placeholder) {
+        attributes.placeholder = placeholder;
+    }
+
     return attributes;
 };
 
@@ -6630,41 +6671,62 @@ IntelligenceEngine.prototype.collectYoutubeCardDescriptors = function(existingDe
 
         if (!selectorsForLink.length) return;
 
-        const attributes = this.extractKeyAttributes(link) || {};
-        attributes.href = href;
+        const actionId = this.registerActionableElement(link, 'link');
+        if (!actionId) return;
 
-        let sanitizedId = href.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 120);
-        if (!sanitizedId) {
-            sanitizedId = `yt_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+        const storedDescriptor = this.getActionableElement(actionId);
+        if (!storedDescriptor) return;
+
+        const combinedSelectors = Array.from(
+            new Set([...(storedDescriptor.selectors || []), ...selectorsForLink])
+        );
+
+        const attributes = { ...(storedDescriptor.attributes || {}) };
+        attributes.href = href;
+        const titleAttr = link.getAttribute('title');
+        if (titleAttr) {
+            attributes.title = titleAttr;
+        }
+        const ariaAttr = link.getAttribute('aria-label');
+        if (ariaAttr) {
+            attributes['aria-label'] = ariaAttr;
         }
 
+        const normalizedText = text.substring(0, 240);
+        const baseUrlContext = storedDescriptor.urlContext || {};
+
         const descriptor = {
-            id: `youtube_link_${sanitizedId}`,
-            tagName: 'a',
-            actionType: 'link',
-            textContent: text.substring(0, 240),
-            selectors: selectorsForLink,
+            ...storedDescriptor,
+            selectors: combinedSelectors,
             attributes,
+            textContent: normalizedText,
             urlContext: {
+                ...baseUrlContext,
                 url: href,
-                textContent: text.substring(0, 240),
-                title: link.getAttribute('title')?.trim() || null,
-                ariaLabel: link.getAttribute('aria-label')?.trim() || null
+                textContent: normalizedText,
+                title: titleAttr?.trim() || baseUrlContext.title || null,
+                ariaLabel: ariaAttr?.trim() || baseUrlContext.ariaLabel || null
             },
             timestamp: Date.now()
         };
 
-        extras.push(descriptor);
+        this.actionableElements.set(actionId, descriptor);
+
+        if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
+            const existingIndex = this.pageState.interactiveElements.findIndex(item => item.id === actionId);
+            if (existingIndex >= 0) {
+                const existingEntry = this.pageState.interactiveElements[existingIndex];
+                this.pageState.interactiveElements[existingIndex] = {
+                    ...descriptor,
+                    element: existingEntry.element
+                };
+            }
+        }
+
+        extras.push({ ...descriptor });
         existingHrefs.add(href);
         if (this.youtubeRegisteredUrls) {
             this.youtubeRegisteredUrls.add(href);
-        }
-
-        if (this.actionableElements && !this.actionableElements.has(descriptor.id)) {
-            this.actionableElements.set(descriptor.id, { ...descriptor });
-        }
-        if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
-            this.pageState.interactiveElements.push({ ...descriptor });
         }
     });
 
@@ -6683,6 +6745,15 @@ IntelligenceEngine.prototype.collectAdditionalAnchorDescriptors = function(exist
             const url = (desc.urlContext && desc.urlContext.url) || (desc.attributes && desc.attributes.href);
             if (url) existingHrefs.add(url);
         });
+
+        if (this.actionableElements) {
+            this.actionableElements.forEach(item => {
+                const url = (item && item.urlContext && item.urlContext.url) || (item && item.attributes && item.attributes.href);
+                if (url) {
+                    existingHrefs.add(url);
+                }
+            });
+        }
 
         const anchors = document.querySelectorAll('a[href]');
         anchors.forEach(anchor => {
@@ -6725,37 +6796,62 @@ IntelligenceEngine.prototype.collectAdditionalAnchorDescriptors = function(exist
                 return;
             }
 
-            const attributes = this.extractKeyAttributes(anchor) || {};
-            attributes.href = href;
-
             const labelText = text || ariaLabel || titleAttr || href;
-            let sanitizedId = href.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 120);
-            if (!sanitizedId) {
-                sanitizedId = `auto_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+
+            const actionId = this.registerActionableElement(anchor, 'link');
+            if (!actionId) {
+                return;
             }
+
+            const storedDescriptor = this.getActionableElement(actionId);
+            if (!storedDescriptor) {
+                return;
+            }
+
+            const combinedSelectors = Array.from(
+                new Set([...(storedDescriptor.selectors || []), ...selectors])
+            );
+
+            const attributes = { ...(storedDescriptor.attributes || {}) };
+            attributes.href = href;
+            if (titleAttr) {
+                attributes.title = titleAttr;
+            }
+            if (ariaLabel) {
+                attributes['aria-label'] = ariaLabel;
+            }
+
+            const normalizedText = labelText.substring(0, 240);
+            const baseUrlContext = storedDescriptor.urlContext || {};
             const descriptor = {
-                id: `link_${sanitizedId}`,
-                tagName: 'a',
-                actionType: 'link',
-                textContent: labelText.substring(0, 200),
-                selectors,
+                ...storedDescriptor,
+                selectors: combinedSelectors,
                 attributes,
+                textContent: labelText.substring(0, 200),
                 urlContext: {
+                    ...baseUrlContext,
                     url: href,
-                    textContent: labelText.substring(0, 240),
-                    title: titleAttr || null,
-                    ariaLabel: ariaLabel || null
+                    textContent: normalizedText,
+                    title: titleAttr?.trim() || baseUrlContext.title || null,
+                    ariaLabel: ariaLabel?.trim() || baseUrlContext.ariaLabel || null
                 },
                 timestamp: Date.now()
             };
 
-            extras.push(descriptor);
-            if (this.actionableElements && !this.actionableElements.has(descriptor.id)) {
-                this.actionableElements.set(descriptor.id, { ...descriptor });
-            }
+            this.actionableElements.set(actionId, descriptor);
+
             if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
-                this.pageState.interactiveElements.push({ ...descriptor });
+                const existingIndex = this.pageState.interactiveElements.findIndex(item => item.id === actionId);
+                if (existingIndex >= 0) {
+                    const existingEntry = this.pageState.interactiveElements[existingIndex];
+                    this.pageState.interactiveElements[existingIndex] = {
+                        ...descriptor,
+                        element: existingEntry.element
+                    };
+                }
             }
+
+            extras.push({ ...descriptor });
             existingHrefs.add(href);
         });
 
