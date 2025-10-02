@@ -7,6 +7,7 @@ import re
 import signal
 import sys
 import time
+import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
@@ -16,6 +17,17 @@ from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 
 
 def create_llm_optimized_structure(page_jsonl_path: str, text_md_path: str) -> Dict[str, Any]:
+    """
+    Build a compact, LLM-friendly structure from a JSONL page snapshot and a
+    companion markdown/text file. This mirrors the behavior of the original
+    Node.js tools while remaining side-effect free (pure function).
+
+    - Reads and parses page.jsonl line-by-line
+    - Computes indexes for sections, texts, and actions
+    - Parses the markdown to link referenced actions and gather inline meta
+    - Appends a "Controls" section for unreferenced but useful actionable items
+    - Returns a JSON-serializable dict with meta, markdown lines, and source info
+    """
     page_records = _load_page_records(page_jsonl_path)
     text_content = Path(text_md_path).read_text(encoding="utf-8")
 
@@ -48,6 +60,12 @@ def create_llm_optimized_structure(page_jsonl_path: str, text_md_path: str) -> D
 
 
 def _load_page_records(file_path: str) -> List[Dict[str, Any]]:
+    """
+    Load a JSONL file and parse each non-empty line as a JSON record.
+
+    Raises a ValueError pinpointing the line number on parse failures to help
+    diagnose partially-written files or malformed lines.
+    """
     raw = Path(file_path).read_text(encoding="utf-8")
     lines = [line.strip() for line in re.split(r"\r?\n", raw) if line.strip()]
     records: List[Dict[str, Any]] = []
@@ -69,6 +87,10 @@ class ActionsIndex:
 def _build_page_indexes(records: List[Dict[str, Any]]) -> Tuple[
     Optional[Dict[str, Any]], Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]], ActionsIndex
 ]:
+    """
+    Construct fast-lookup maps for sections and texts, and normalize action
+    records with additional metadata used in scoring and output.
+    """
     sections_by_id: Dict[str, Dict[str, Any]] = {}
     text_by_id: Dict[str, Dict[str, Any]] = {}
     actions = ActionsIndex(list=[], assigned=set(), used=set())
@@ -123,6 +145,7 @@ def _build_page_indexes(records: List[Dict[str, Any]]) -> Tuple[
 
 
 def _build_action_labels(action_record: Dict[str, Any]) -> Dict[str, List[str]]:
+    """Collect alternative labels for an action (aria-label, title, placeholder, alt)."""
     aliases: List[str] = []
 
     def add_alias(value: Optional[str]) -> None:
@@ -142,6 +165,7 @@ def _build_action_labels(action_record: Dict[str, Any]) -> Dict[str, List[str]]:
 
 
 def _build_section_trail(section_id: Optional[str], sections_by_id: Dict[str, Dict[str, Any]]) -> List[str]:
+    """Walk parent links to construct a human-readable ancestry trail."""
     trail: List[str] = []
     current = sections_by_id.get(section_id) if section_id else None
     while current and current.get("parent"):
@@ -170,6 +194,11 @@ def _parse_text_structure(
     sections_by_id: Dict[str, Dict[str, Any]],
     text_by_id: Dict[str, Dict[str, Any]],
 ) -> ParseResult:
+    """
+    Render a markdown-like output where action mentions are converted into
+    link-like markers with their action ids. Captures inline meta and keeps
+    track of which actions were referenced.
+    """
     raw_lines = re.split(r"\r?\n", markdown_source)
     inline_meta: Dict[str, str] = {}
     heading_stack: List[Optional[str]] = []
@@ -224,6 +253,11 @@ def _parse_text_structure(
 
 
 def _build_control_lines(actions: ActionsIndex, sections_by_id: Dict[str, Dict[str, Any]], used_set: Set[str]) -> List[str]:
+    """
+    Append a Controls section listing useful actionable elements that were not
+    referenced in the text. This helps expose inputs/buttons an LLM might want
+    to use even if they were not explicitly mentioned.
+    """
     lines: List[str] = []
     if not actions or not isinstance(actions.list, list):
         return lines
@@ -273,6 +307,7 @@ def _build_control_lines(actions: ActionsIndex, sections_by_id: Dict[str, Dict[s
 
 
 def _is_control_action(action: Dict[str, Any]) -> bool:
+    """Heuristic to determine if an action is a control (input/textarea/select/button)."""
     if not action:
         return False
     if action.get("controlType") in ("input", "button"):
@@ -297,6 +332,7 @@ def _is_control_action(action: Dict[str, Any]) -> bool:
 
 
 def _describe_position(order: Optional[int], max_order: int) -> Optional[str]:
+    """Rough position hint based on the action order within the page capture."""
     if not isinstance(order, int) or max_order <= 0:
         return None
     ratio = order / max_order
@@ -308,6 +344,7 @@ def _describe_position(order: Optional[int], max_order: int) -> Optional[str]:
 
 
 def _describe_section(action: Dict[str, Any], sections_by_id: Dict[str, Dict[str, Any]]) -> Optional[str]:
+    """Best-effort summary of the section an action belongs to (label or selector)."""
     section_id = action.get("section")
     if not section_id:
         return None
@@ -322,6 +359,7 @@ def _describe_section(action: Dict[str, Any], sections_by_id: Dict[str, Dict[str
 
 
 def _should_include_control(action: Dict[str, Any]) -> bool:
+    """Filter out noisy controls such as hidden or file inputs without signals."""
     if not action:
         return False
 
@@ -360,6 +398,10 @@ def _find_action_matches(
     sections_by_id: Dict[str, Dict[str, Any]],
     text_by_id: Dict[str, Dict[str, Any]],
 ) -> List[Dict[str, Any]]:
+    """
+    Find the best matching actions for a given line of text. Uses a combination
+    of exact/partial label matches, aliases, related texts, and section context.
+    """
     normalized_text = _normalize_for_match(text)
     if not normalized_text:
         return []
@@ -397,6 +439,7 @@ def _score_action_match(
     text_by_id: Dict[str, Dict[str, Any]],
     assigned: Set[str],
 ) -> float:
+    """Score a single action against the provided context and text."""
     score = 0.0
 
     normalized_label = action.get("normalizedLabel") or ""
@@ -458,6 +501,7 @@ def _score_action_match(
 
 
 def _get_section_trail_normalized(action: Dict[str, Any], sections_by_id: Dict[str, Dict[str, Any]]) -> List[str]:
+    """Return a list of normalized section labels in the action's ancestry."""
     section_id = action.get("section")
     if not section_id:
         return []
@@ -469,6 +513,7 @@ def _get_section_trail_normalized(action: Dict[str, Any], sections_by_id: Dict[s
 
 
 def _get_action_related_texts(action: Dict[str, Any], text_by_id: Dict[str, Dict[str, Any]]) -> List[str]:
+    """Cache and return normalized strings from texts related to the action."""
     cached = action.get("cachedRelatedTexts")
     if isinstance(cached, list):
         return cached
@@ -485,12 +530,17 @@ def _get_action_related_texts(action: Dict[str, Any], text_by_id: Dict[str, Dict
 
 
 def _build_action_markup(text: str, action: Dict[str, Any], mode: str) -> str:
+    """Render a markdown-style link token for the action reference."""
     escaped = _escape_markdown_link_text(text)
     prefix = "action" if mode == "primary" else "action-ref"
     return f"[{escaped}]({prefix}:{action['id']})"
 
 
 def _build_meta(meta_record: Optional[Dict[str, Any]], inline_meta: Dict[str, str]) -> Dict[str, Any]:
+    """
+    Merge meta information from the first meta record in page.jsonl and any
+    inline metadata recognized in the text source.
+    """
     meta: Dict[str, Any] = {}
     if meta_record:
         if meta_record.get("url"):
@@ -519,6 +569,10 @@ def _build_meta(meta_record: Optional[Dict[str, Any]], inline_meta: Dict[str, st
 
 
 def _build_actions_map(action_list: List[Dict[str, Any]], sections_by_id: Dict[str, Dict[str, Any]], used_set: Set[str]) -> Dict[str, Any]:
+    """
+    Pack a compact map of action fields for quick lookups by id. This mirrors
+    the original JS intent and keeps only used actions when a used_set is given.
+    """
     packed: Dict[str, str] = {}
     for action in action_list:
         if used_set and len(used_set) and action.get("id") not in used_set:
@@ -542,15 +596,19 @@ def _build_actions_map(action_list: List[Dict[str, Any]], sections_by_id: Dict[s
 
 
 def _normalize_for_match(value: str) -> str:
+    """
+    Normalize strings for matching:
+    - Unicode NFKD normalization (decompose accents) via unicodedata
+    - ASCII encode with ignore to drop diacritics
+    - Lowercase, remove punctuation, collapse whitespace
+
+    Note: The original JS used regex and diacritic stripping; this is the
+    Python equivalent using unicodedata.normalize("NFKD", ...).
+    """
     if not value or not isinstance(value, str):
         return ""
-    # Approximates the JS normalize: strip diacritics and punctuation, collapse spaces
-    ascii_value = (
-        value
-        .encode("NFKD", errors="ignore")
-        .decode("ascii", errors="ignore")
-        .replace("…", "...")
-    )
+    decomposed = unicodedata.normalize("NFKD", value)
+    ascii_value = decomposed.encode("ascii", "ignore").decode("ascii", "ignore").replace("…", "...")
     normalized = re.sub(r"[^a-z0-9\s]", " ", ascii_value.lower())
     normalized = re.sub(r"\s+", " ", normalized).strip()
     return normalized
@@ -622,11 +680,21 @@ class LLMStructureWatcher:
         debounce_ms: int = 500,
         quiet: bool = False,
     ) -> None:
+        """
+        Lightweight polling-based watcher. This avoids OS-specific watch APIs
+        and matches the JS behavior by:
+        - Debouncing rapid successive updates (e.g., when both files update)
+        - Waiting briefly for text.md to follow page.jsonl writes
+        - Regenerating the output JSON when either input changes
+
+        Polling interval defaults to 0.2s (200ms) and is configurable via CLI.
+        """
         self.page_path = str(Path(page_path).resolve())
         self.text_path = str(Path(text_path).resolve())
         self.out_path = str(Path(out_path).resolve())
         self.debounce_ms = debounce_ms
         self.quiet = quiet
+        self.poll_interval_s: float = 0.2  # default 200ms polling
 
         self._timer_deadline: Optional[float] = None
         self._pending_triggers: Set[str] = set()
@@ -638,6 +706,7 @@ class LLMStructureWatcher:
         self._ensure_file(self.text_path)
 
     def start(self) -> None:
+        """Run the watch loop until interrupted (Ctrl+C)."""
         self._run_optimization("startup", force=True)
         if not self.quiet:
             print(f"[watch] Watching {self.page_path}")
@@ -670,7 +739,9 @@ class LLMStructureWatcher:
                     self._timer_deadline = None
                     self._pending_triggers.clear()
 
-                time.sleep(0.2)  # polling interval
+                # Polling interval controls how often we check for file changes.
+                # Default is 0.2s (200ms) to balance CPU usage and responsiveness.
+                time.sleep(self.poll_interval_s)
         except KeyboardInterrupt:
             pass
         finally:
@@ -742,6 +813,7 @@ def _parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument("output", nargs="?", help="Output JSON path (default stdout for create; watcher uses default output)")
     parser.add_argument("--watch", action="store_true", help="Run in watch mode, regenerating on changes")
     parser.add_argument("--debounce", type=int, default=500, help="Debounce ms for watcher (default 500)")
+    parser.add_argument("--poll-interval", type=float, default=0.2, help="Polling interval in seconds (default 0.2)")
     parser.add_argument("--quiet", action="store_true", help="Reduce logging noise")
     return parser.parse_args(argv)
 
@@ -760,6 +832,8 @@ def main() -> None:
         out_path = args.output or default_out
         try:
             watcher = LLMStructureWatcher(page_path, text_path, out_path, debounce_ms=args.debounce, quiet=args.quiet)
+            # allow overriding the default 0.2s polling interval via CLI
+            watcher.poll_interval_s = float(args.poll_interval)
             watcher.start()
         except FileNotFoundError as exc:
             print(str(exc))
