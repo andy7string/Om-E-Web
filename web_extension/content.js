@@ -6373,6 +6373,14 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
         action = actionableElement.actionType || 'click';
         console.log("[Content] 🔍 Auto-detected action:", action, "from actionType:", actionableElement.actionType);
     }
+    // Generic normalization: treat text-entry element types as setValue
+    {
+        const lowered = typeof action === 'string' ? action.toLowerCase() : '';
+        if (['textarea', 'input', 'type', 'text', 'enter_text'].includes(lowered)) {
+            action = 'setValue';
+            console.log("[Content] 🔁 Normalized action to 'setValue' for text entry");
+        }
+    }
     
     try {
         // Use the first available selector
@@ -6386,7 +6394,7 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
         console.log("[Content] 🔍 Using selector:", selector);
         
         // Find the actual DOM element
-        const element = document.querySelector(selector);
+        let element = document.querySelector(selector);
         if (!element) {
             console.error("[Content] ❌ Element not found in DOM with selector:", selector);
             console.log("[Content] 🔍 Document readyState:", document.readyState);
@@ -6574,20 +6582,105 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                 };
                 break;
                 
-            case 'setValue':
-                if (element.value !== undefined) {
-                    element.value = params.value || '';
-                    result = { 
-                        success: true, 
-                        action: 'setValue', 
-                        elementId: actionId, 
-                        value: element.value,
+            case 'setValue': {
+                const valueToSet = params && params.value != null ? String(params.value) : '';
+
+                // If the primary element is hidden or has no dimensions, try visible-first fallbacks
+                const visibleCheck = (typeof isElementVisible === 'function') ? isElementVisible(element) : true;
+                if (!visibleCheck) {
+                    const fallbackSelectors = [
+                        '[contenteditable="true"]',
+                        'div.ProseMirror[contenteditable="true"]',
+                        '#prompt-textarea',
+                        'textarea[name="prompt-textarea"]',
+                        'textarea',
+                        'input[type="text"]',
+                        'input[type="search"]'
+                    ];
+                    for (const sel of fallbackSelectors) {
+                        const cand = document.querySelector(sel);
+                        if (cand && ((typeof isElementVisible === 'function') ? isElementVisible(cand) : true)) {
+                            console.log('[Content] 🔄 Using visible fallback for setValue:', sel);
+                            element = cand;
+                            break;
+                        }
+                    }
+                }
+
+                // Focus first to ensure site handlers attach properly
+                try { element.focus && element.focus(); } catch {}
+
+                const tag = element.tagName;
+                const isTextarea = tag === 'TEXTAREA';
+                const isInput = tag === 'INPUT';
+                const isContentEditable = element.isContentEditable === true || element.getAttribute('contenteditable') === 'true';
+
+                try {
+                    if (isTextarea || isInput) {
+                        const proto = isTextarea ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
+                        const desc = Object.getOwnPropertyDescriptor(proto, 'value');
+                        if (desc && typeof desc.set === 'function') {
+                            desc.set.call(element, valueToSet);
+                        } else {
+                            element.value = valueToSet;
+                        }
+                    } else if (isContentEditable) {
+                        element.textContent = valueToSet;
+                    } else if (element.value !== undefined) {
+                        element.value = valueToSet;
+                    } else {
+                        result = { success: false, error: 'Element does not support setValue' };
+                        break;
+                    }
+
+                    // Dispatch input/change so frameworks react
+                    element.dispatchEvent(new Event('input', { bubbles: true }));
+                    element.dispatchEvent(new Event('change', { bubbles: true }));
+
+                    // Optional submit: press Enter, then poll briefly for a visible send/submit button and click it
+                    if (params && params.submit) {
+                        const k = { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true };
+                        try {
+                            element.dispatchEvent(new KeyboardEvent('keydown', k));
+                            element.dispatchEvent(new KeyboardEvent('keyup', k));
+                        } catch {}
+
+                        const sendSelectors = [
+                            '#composer-submit-button',
+                            'button[data-testid*="send" i]',
+                            'button[aria-label*="Send" i]',
+                            'button[type="submit"]',
+                            '#composer-plus-btn'
+                        ];
+
+                        let attempts = 0;
+                        const maxAttempts = 15; // ~1.5s at 100ms intervals
+                        const poll = () => {
+                            for (const s of sendSelectors) {
+                                const btn = document.querySelector(s);
+                                if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                    try { btn.click(); } catch {}
+                                    return; // stop polling once clicked
+                                }
+                            }
+                            attempts += 1;
+                            if (attempts < maxAttempts) setTimeout(poll, 100);
+                        };
+                        setTimeout(poll, 100);
+                    }
+
+                    result = {
+                        success: true,
+                        action: 'setValue',
+                        elementId: actionId,
+                        value: isContentEditable ? element.textContent : element.value,
                         selector: selector
                     };
-                } else {
-                    result = { success: false, error: "Element does not support setValue" };
+                } catch (e) {
+                    result = { success: false, error: `setValue failed: ${e.message}` };
                 }
                 break;
+            }
                 
             case 'focus':
                 console.log("[Content] 🎯 Executing focus action on element");

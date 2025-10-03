@@ -1,13 +1,21 @@
 #!/usr/bin/env python3
 """
-🧪 Simple Navigation Test Script
-Allows you to input an actionId and execute it through the extension
+Non-interactive Navigation Test Script
+
+Usage examples:
+  - Set value without submit:
+      python3 test_navigation.py --action-id a_id_1 --value "ome" --no-submit
+  - Set value and submit:
+      python3 test_navigation.py --action-id a_id_1 --value "ome" --submit
+  - Click-only (no value):
+      python3 test_navigation.py --action-id a_id_5 --action-type click
 """
 
 import asyncio
 import websockets
 import json
 import time
+import argparse
 
 class NavigationTester:
     def __init__(self):
@@ -164,8 +172,52 @@ class NavigationTester:
                 print("🔌 Connection closed")
 
 async def main():
+    parser = argparse.ArgumentParser(description="Execute LLM action via WS (non-interactive)")
+    parser.add_argument("--action-id", dest="action_id", required=False, help="Action ID to execute (e.g., a_id_1)")
+    parser.add_argument("--value", dest="value", required=False, help="Value to set (for setValue actions)")
+    submit_group = parser.add_mutually_exclusive_group()
+    submit_group.add_argument("--submit", dest="submit", action="store_true", help="Submit after setting the value")
+    submit_group.add_argument("--no-submit", dest="no_submit", action="store_true", help="Do not submit after setting the value")
+    parser.add_argument("--action-type", dest="action_type", required=False, help="Optional actionType (e.g., setValue, click)")
+
+    args = parser.parse_args()
+
+    # If no action-id is provided, print usage and exit non-interactively
+    if not args.action_id:
+        parser.print_usage()
+        return
+
     tester = NavigationTester()
-    await tester.interactive_test()
+    connected = await tester.connect()
+    if not connected:
+        return
+
+    params = {}
+    if args.value is not None:
+        params["value"] = args.value
+        # Only include submit flag when value provided or explicitly requested
+        if args.submit:
+            params["submit"] = True
+        elif args.no_submit:
+            params["submit"] = False
+
+    # Build payload matching server expectations
+    payload = {
+        "actionId": args.action_id,
+        # Only send actionType if explicitly provided; otherwise extension will auto-detect
+        **({"actionType": args.action_type} if args.action_type else {}),
+        "params": params
+    }
+
+    print(f"🎯 Executing action (non-interactive): {payload}")
+    response = await tester.send_command("execute_llm_action", payload)
+    if response is None:
+        print("❌ No response received")
+    else:
+        print(f"📨 Response: {response}")
+    
+    if tester.websocket:
+        await tester.websocket.close()
 
 if __name__ == "__main__":
     asyncio.run(main())
