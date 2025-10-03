@@ -271,11 +271,14 @@ var changeDetectionEnabled = false;              // Flag to enable/disable chang
 var changeCount = 0;                             // Counter for total DOM changes detected
 var lastChangeTime = 0;                          // Timestamp of last DOM change
 
-// 🆕 NEW: Intelligent Change Filtering
-var lastSignificantChange = 0;                   // Timestamp of last significant change
-const MIN_CHANGE_INTERVAL = 2000;                // Minimum 2 seconds between significant changes
-const MIN_MUTATIONS_FOR_SIGNIFICANT = 3;         // Need at least 3 mutations to be significant
-const IGNORED_CHANGE_TYPES = new Set(['mouseover', 'mouseout', 'focus', 'blur']); // Ignore these
+// 🆕 NEW: Intelligent Change Filtering (guard against double injection)
+if (!window.__OME_CHANGE_FILTER_INIT__) {
+    window.__OME_CHANGE_FILTER_INIT__ = true;
+    var lastSignificantChange = 0;                   // Timestamp of last significant change
+    const MIN_CHANGE_INTERVAL = 2000;                // Minimum 2 seconds between significant changes
+    const MIN_MUTATIONS_FOR_SIGNIFICANT = 3;         // Need at least 3 mutations to be significant
+    const IGNORED_CHANGE_TYPES = new Set(['mouseover', 'mouseout', 'focus', 'blur']); // Ignore these
+}
 
 // 🆕 NEW: Intelligent Change Aggregation System
 var changeAggregator = null;                     // Aggregates DOM changes for intelligence system
