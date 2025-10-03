@@ -1,179 +1,141 @@
-# cars - Google Search
+# Google
 
-**URL:** https://www.google.com/search?q=cars&sca_esv=d1d26e03a6da53f6&sxsrf=AE3TifOjM-6k-I0nMXHSORquTP1LfyPhSg%3A1759394494440&ei=vjreaOHPGu_i2roPgoWVoQI&ved=0ahUKEwjhpvGej4WQAxVvsVYBHYJCJSQQ4dUDCBA&uact=5&oq=cars&gs_lp=Egxnd3Mtd2l6LXNlcnAiBGNhcnNIAFAAWABwAHgBkAEAmAEAoAEAqgEAuAEDyAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz-serp
-**Timestamp:** 2025-10-02 20:49:56
+**URL:** https://www.google.com/
+**Timestamp:** 2025-10-03 14:51:10
 
 ---
 
+Google Search homepage
+About
+Store
+GmailImages
+
 Accessibility links
-Skip to main content
+Skip to Discover feed
+Skip to sidebar
+Skip to footer
 Accessibility help
 Accessibility feedback
-Filters and topics
-All
-Images
-Shopping
-Short videos
-Videos
-News
-Forums
-More
-Tools
-Results for
-Home
-Teringie SA
-
-Use precise location
-Ads
-Sponsored
-carsales.com.au | Best Place To Buy & Sell Cars | carsales Australia
-carsales
-https://www.carsales.com.au
-Enquire for new & used cars now. Over 200,000 cars for sale on carsales.com.au! Australia's go-to For Cars. Buy it. Sell it. Love it. Car search made easy. Buy it. Sell it. Love it. Brands: BMW, Ford.
-Search Results
-carsales | Australia's Go-To for Cars — Buy It. Sell It. Love ...
-
-Carsales
-https://www.carsales.com.au
-Search thousands of new and used cars for sale or sell on carsales today! Find new car deals and reviews, comparisons & advice on Australia's go-to for ...
-Cars for sale or order in Australia
-Used cars
-Search cars
-Saved cars
-New & Used cars for sale in Adelaide, South Australia
-
-Carsales
-https://www.carsales.com.au › cars › adelaide-region
-Search for new & used cars for sale in Adelaide, South Australia. Read car reviews and compare prices and features at carsales.com.au.
-Used, Demo & Near New
-Private
-SUV
-Toyota
-Cars (film)
-
-Wikipedia
-https://en.wikipedia.org › wiki › Cars_(film)
-Cars is a 2006 American animated sports comedy film produced by Pixar Animation Studios for Walt Disney Pictures.
-r/Cars - For Car Enthusiasts
-
-Reddit · r/cars
-7.4M+ followers
-r/cars: r/Cars is the largest automotive enthusiast community on the Internet. We're Reddit's central hub for vehicle-related discussion, industry news, ...
-Local results
-Places
-Map
-Sky Motors
-4.7(594) · Used car dealer
-Enfield SA · (08) 7225 4226
-Closed ⋅ Opens 8:30 am Fri
-
-"The vehicle we bought (Corolla) is in superb condition and a great price."
-Ascent Car Sales
-4.9(67) · Used car dealer
-Payneham SA · 0430 531 880
-Closed ⋅ Opens 9 am Fri
-
-"Friendly dealer, easy-to-drive nice cars with fairly decent price."
-SA cheapest cars sale
-4.5(24) · Used car dealer
-Brooklyn Park SA · 0470 360 750
-Open 24 hours
-
-"The fit is perfect, and the car looks amazing."
-More places
-Ford Australia: Ford Cars, SUVs, Trucks and Vans
-
-Ford Australia
-https://www.ford.com.au
-Discover Ford Australia's latest line-up of trucks, vans, cars, and SUVs, as well as new electric vehicles. Explore the range and find a car to suit your ...
-Videos
-12:35
-YouTube · What Car?
-NEW Tesla Model Y Performance review – the BEST Tesla yet ...
-YouTube · What Car?
-21 hours ago
-Tesla Model Y Performance has 454 horsepower, 0-60 in 3.67 seconds, and a 360-mile range.
-15:34
-YouTube · FORMULA 1
-How Well Do F1 Drivers Know Their Cars?
-YouTube · FORMULA 1
-2 days ago
-F1 drivers test their knowledge of car components, identifying items like tires, steering wheels, and brake ducts.
-3:15
-YouTube · 7NEWS Australia
-Australians split on driverless cars | 7NEWS
-YouTube · 7NEWS Australia
-8 hours ago
-View all
-SACars | Vehicle Dealer
-
-SACars
-https://www.sacars.com.au
-USED CARS. USED CARS. Adrian Brien Automotive. 1305 South Road St Marys SA 5042. www. Select Department. Sales. Service. Parts. (08) 8228 3836. Sales Trading ...
-Sell Your Vehicle to SA Cars
-Used Vehicles For Sale
-New & Demo Vehicles
-Kia
-New, Demo & Used Cars Sales in Adelaide, South Australia
-
-jarviscars.com.au
-https://www.jarviscars.com.au
-For the absolute best price on new, demo and used car sales in Adelaide, visit Jarvis at one of 8 locations across Adelaide and South Australia.
-All New Cars
-Hybrid Cars (23)
-Electric Cars (1)
-Hybrid Cars (107)
-Cars (2006)
-
-IMDb
-https://www.imdb.com › title
-On the way to the biggest race of his life, a hotshot rookie race car gets stranded in a rundown town and learns that winning isn't everything in life.
-7.3/10(515,764)
-Images
-Cars (film) - Wikipedia
-en.wikipedia.org
-Cars
-Yoto
-Cars [DVD] (Limited Edition)
-Amazon.com.au
-Show more images
-Ads
-People also search for
-Car sales
-Used cars adelaide
-used cars adelaide under $5,000
-Cars guide
-Gumtree cars
-Cars movie
-Cars guide Adelaide
-used cars adelaide under $10,000
-Page navigation
-
-1
-2
-
-3
-
-4
-
-5
-
-6
-
-7
-
-8
-
-9
-
-10
-
-Next
-Footer links
-Results are personalised
--
-Try without personalisation
+Discover
+2026 Tesla Model 3 now Australia's longest-range EV | CarExpert
+The Model 3 can now travel up to 750km on a single charge, replacing the Polestar 3 as the longest-range electric car in local showrooms.
+CarExpert
+·
+4h
+Return of housing investors has RBA on alert
+The Reserve Bank says it and other financial regulators are alert to the risks of investors exacerbating the swings in house prices.
+AFR
+·
+1d
+1:18
+Black Phone 2 | Get Tickets Now - YouTube
+Discover the secret behind the mask. Black Phone 2 only in theaters October 17. Get tickets now. --- Four years ago, 13-year-old Finn killed his abductor...
+Universal Pictures
+YouTube
+·
+1d
+BYD sales slump in China as rivals capitalise
+BYD may be making waves globally, but its domestic market sales are down as competitors set record results in China.
+CarExpert
+·
+1d
+How to make your home more comfortable and add $23,000 to its value
+A popular feature added to many Australian homes can pay for itself as soon as it's fitted, even if home owners decide to sell.
+Domain
+·
+4d
+Non-banks under ASIC scrutiny for treatment of vulnerable borrowers
+Non-bank lenders are set to adopt a new code of conduct for their financial hardship practices after one was taken to court by the corporate regulator over...
+AFR
+·
+3d
+The stylish $149 Bunnings buy so popular you'll be seeing it in homes all across Australia - 9Honey
+Bunnings new outdoor furniture range has proved a huge hit with one product in particular selling fast. Mor...
+Nine - Honey
+·
+2d
+Plenty of robot vacuums are already discounted ahead of October Prime Day
+If you don't want to wait until Amazon's fall Prime Day sale to buy a robovac, there are plenty of deals available from Roborock, Roomba, Eufy,...
+The Verge
+·
+1d
+When does daylight saving time start in Australia? Here's your pocket guide - ABC News
+Here's your quick pocket guide on daylight saving as Australia comes into the warmer months.
+Australian Broadcasting Corporation
+·
+3h
+'I'm Stronger Than Ever At 71. Here Are My Tricks To Making Workouts Sustainable'
+If you told me 50 years ago that I'd be lifting heavier than ever and feeling my most energetic at 71, I never would've believed you—but here I am.
+Women's Health
+·
+1d
+Law passed to protect motorsport venues from residents and developers who complain about noise
+The US state of North Carolina has passed a law that will protect race tracks and other motorsports venues from 'nuisance complaints' from residents and...
+Drive
+·
+1d
+BYD Shark 6, beware: MG wants to take a bite out of its market with a plug-in hybrid U9 ute
+MG's U9 set for petrol-electric power in a few years to combat the Ford Ranger, GWM Cannon Alpha, and BYD Shark.
+Drive
+·
+3d
+Australia Work Visa 2025 – Full Process, New Requirements & Step-by-Step Guide
+Australia Work Visa 2025 - Applying for an Australia Work Visa in 2025 has become a structured process with new rules designed to attract.
+Timbabuild Australia -
+·
+1h
+Your South Australian market guide for Saturday October 4th and Sunday October 5th - Glam Adelaide
+Looking for an excuse to enjoy the sunshine this long weekend? Here's a guide to the fabulous spring markets on this Saturday and Sunday.
+Glam Adelaide
+·
+10h
+Chook family’s apartment sells for biggest price this year - realestate.com.au
+The Bartter family who built up one of the nation's biggest poultry businesses has sold their Cremorne Point apartment for the suburb's highest price this...
+Real Estate
+·
+1d
+Optus, Virgin Australia and biotech giant CSL paid zero company tax in 2023-24 financial year, fresh ATO report card reveals
+The ATO has revealed a near record tax take from big businesses, though some corporate heavyweights are still reducing their tax bill to nil.
+Sky News Australia
+·
+1d
+Manhattan-sized interstellar object 3I/ATLAS approaches Mars as space agencies rush to make observations | Sky News Australia
+The Manhattan-sized interstellar object 3I/ATLAS will buzz past Mars this week — making its closest pass to any planet on its route as scientists are...
+Sky News Australia
+·
+2d
+Tired of Foggy Lenses? Here’s How to Clean Glasses the Proper Way
+Glasses stay cleaner for longer when you use microfiber cloths, lens sprays, or mild dish soap instead of your clothing or paper products.
+Better Homes & Gardens
+·
+1d
+Coles Local opens first SA store as supermarket giant reveals $40m statewide spend | The Advertiser
+Supermarket giant Coles has unveiled its first Coles Local concept store in SA, while announcing a $40m investment in stores across the state creating...
+The Advertiser
+·
+19h
+Hopes new Australian fabric will revitalise domestic clothing manufacturing - ABC News
+Scientists, farmers and the fashion industry collaborate to create a natural fabric that is both woven and knitted, low on emissions and set to shake up how...
+Australian Broadcasting Corporation
+·
+5h
+That's it for the moment. Check back soon for more.
+At a glance
+VIX
+Today
+16.63
++2.09%
+Woodforde
+Mostly sunny
+20%
+17°
+Air quality
+Good
+AQC
 Australia
-Teringie, South Australia - Based on your places (Home)
-- Update location
-HelpSend feedbackPrivacyTerms
+Advertising
+Business
+How Search works
+Privacy
+Terms
+Settings

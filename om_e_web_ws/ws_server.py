@@ -2638,16 +2638,7 @@ async def main():
     
     📡 SERVER ENDPOINT: ws://127.0.0.1:17892
     """
-    # Increase max_size to handle large intelligence payloads (e.g., YouTube pages)
-    # Default is 1MB; we allow up to 8MB and enable permessage-deflate compression.
-    MAX_WS_MESSAGE_BYTES = 8 * 1024 * 1024
-    async with websockets.serve(
-        handler,
-        "127.0.0.1",
-        17892,
-        max_size=MAX_WS_MESSAGE_BYTES,
-        compression="deflate"
-    ):
+    async with websockets.serve(handler, "127.0.0.1", 17892):
         print("WS listening on ws://127.0.0.1:17892")
         await asyncio.Future()  # Keep server running indefinitely
 

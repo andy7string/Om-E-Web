@@ -271,14 +271,11 @@ var changeDetectionEnabled = false;              // Flag to enable/disable chang
 var changeCount = 0;                             // Counter for total DOM changes detected
 var lastChangeTime = 0;                          // Timestamp of last DOM change
 
-// 🆕 NEW: Intelligent Change Filtering (guard against double injection)
-if (!window.__OME_CHANGE_FILTER_INIT__) {
-    window.__OME_CHANGE_FILTER_INIT__ = true;
-    var lastSignificantChange = 0;                   // Timestamp of last significant change
-    const MIN_CHANGE_INTERVAL = 2000;                // Minimum 2 seconds between significant changes
-    const MIN_MUTATIONS_FOR_SIGNIFICANT = 3;         // Need at least 3 mutations to be significant
-    const IGNORED_CHANGE_TYPES = new Set(['mouseover', 'mouseout', 'focus', 'blur']); // Ignore these
-}
+// 🆕 NEW: Intelligent Change Filtering
+var lastSignificantChange = 0;                   // Timestamp of last significant change
+const MIN_CHANGE_INTERVAL = 2000;                // Minimum 2 seconds between significant changes
+const MIN_MUTATIONS_FOR_SIGNIFICANT = 3;         // Need at least 3 mutations to be significant
+const IGNORED_CHANGE_TYPES = new Set(['mouseover', 'mouseout', 'focus', 'blur']); // Ignore these
 
 // 🆕 NEW: Intelligent Change Aggregation System
 var changeAggregator = null;                     // Aggregates DOM changes for intelligence system
@@ -5041,14 +5038,6 @@ IntelligenceEngine.prototype.processUpdateQueue = async function() {
  * 🆕 NEW: Prepare intelligence data for updates
  */
 IntelligenceEngine.prototype.prepareIntelligenceData = function() {
-    // Build the standard normalized page records
-    const normalizedRecords = this.buildNormalizedPageRecords({ snapshot: true }) || [];
-    // Build a comprehensive raw export of DOM-tagged actionable nodes (data-ome-action-id)
-    // This ensures every element we already tagged gets harvested, even if later filtering drops it.
-    const rawDomActionRecords = (typeof this.buildRawDomActionRecords === 'function')
-        ? (this.buildRawDomActionRecords() || [])
-        : [];
-
     return {
         type: "intelligence_update",
         timestamp: Date.now(),
@@ -5060,81 +5049,9 @@ IntelligenceEngine.prototype.prepareIntelligenceData = function() {
         actionMapping: this.generateActionMapping(),
         contentElements: this.getContentElementsSummary(),
         pageText: this.extractCleanPageText(), // 🆕 NEW: Include page text for automatic markdown generation
-        // 🆕 Ensure all tagged elements are harvested into page.jsonl
-        normalizedRecords: normalizedRecords.concat(rawDomActionRecords)
+        normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true })
     };
 };
-
-/**
- * 🆕 NEW: Raw DOM Action Records Export
- * Export every element currently tagged with data-ome-action-id directly from the DOM,
- * regardless of filtering, so server always sees the full actionable surface.
- */
-IntelligenceEngine.prototype.buildRawDomActionRecords = function() {
-    try {
-        const nodes = document.querySelectorAll('[data-ome-action-id]');
-        const out = [];
-        const now = Date.now();
-        nodes.forEach(node => {
-            try {
-                const id = node.getAttribute('data-ome-action-id');
-                if (!id) return;
-                const tag = (node.tagName || '').toLowerCase();
-                const role = node.getAttribute('role') || null;
-                const name = node.getAttribute('name') || null;
-                const type = node.getAttribute('type') || null;
-                const ariaLabel = node.getAttribute('aria-label') || null;
-                const placeholder = node.getAttribute('placeholder') || null;
-                const href = node.getAttribute('href') || null;
-                const className = typeof node.className === 'string' ? node.className : '';
-                const selector = (typeof generateSelector === 'function') ? generateSelector(node) : null;
-                const label = ariaLabel || placeholder || node.getAttribute('title') || (node.textContent || '').trim();
-                const visible = (typeof isElementVisible === 'function') ? isElementVisible(node) : true;
-
-                out.push({
-                    type: 'action',
-                    id: id,
-                    tag: tag,
-                    label: label,
-                    actionTypes: deriveDomActionTypes(node),
-                    visibility: visible ? 'visible' : 'hidden',
-                    href: href || undefined,
-                    ariaLabel: ariaLabel || undefined,
-                    placeholder: placeholder || undefined,
-                    attributes: {
-                        role: role || undefined,
-                        name: name || undefined,
-                        type: type || undefined,
-                        'aria-label': ariaLabel || undefined,
-                        placeholder: placeholder || undefined,
-                        cssClasses: className ? className.split(/\s+/).filter(Boolean) : []
-                    },
-                    selector: selector || undefined,
-                    controlType: inferControlType({ tag, attributes: { type, role, placeholder }, label }, { tag }),
-                    order: out.length,
-                    exportedAt: now
-                });
-            } catch (e) { /* ignore node-level errors */ }
-        });
-        return out;
-    } catch (e) {
-        console.warn('[Content] ⚠️ Failed to build raw DOM action records:', e.message);
-        return [];
-    }
-};
-
-function deriveDomActionTypes(node) {
-    const tag = (node.tagName || '').toLowerCase();
-    const types = [];
-    if (tag === 'a' && node.getAttribute('href')) types.push('link', 'navigate');
-    if (tag === 'button') types.push('button', 'click');
-    if (tag === 'input' || tag === 'textarea' || node.getAttribute('contenteditable') === 'true') {
-        types.push('setValue', 'focus');
-        const t = (node.getAttribute('type') || '').toLowerCase();
-        if (t === 'submit') types.push('submit');
-    }
-    return types.length ? types : ['unknown'];
-}
 
 /**
  * 🆕 EXPERIMENTAL: Build normalized JSONL-ready records for the current page
@@ -6457,15 +6374,6 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
         console.log("[Content] 🔍 Auto-detected action:", action, "from actionType:", actionableElement.actionType);
     }
     
-    // 🆕 NEW: Normalize action names for text entry (generic, site-agnostic)
-    // Some pipelines label text-entry elements as 'textarea' or 'input'.
-    // Normalize these to the canonical 'setValue' so downstream handling works everywhere.
-    const lowered = typeof action === 'string' ? action.toLowerCase() : '';
-    if (['textarea', 'input', 'type', 'text', 'enter_text'].includes(lowered)) {
-        action = 'setValue';
-        console.log("[Content] 🔁 Normalized action to 'setValue' for text entry");
-    }
-    
     try {
         // Use the first available selector
         const selector = actionableElement.selectors[0];
@@ -6667,57 +6575,17 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                 break;
                 
             case 'setValue':
-                {
-                    const valueToSet = params.value != null ? String(params.value) : '';
-                    // Focus first to ensure site handlers attach properly
-                    if (typeof element.focus === 'function') {
-                        element.focus();
-                    }
-                    
-                    // Use native setter so frameworks detect change
-                    const isTextarea = element.tagName === 'TEXTAREA';
-                    const isInput = element.tagName === 'INPUT';
-                    const isContentEditable = element.isContentEditable === true || element.getAttribute('contenteditable') === 'true';
-                    
-                    try {
-                        if (isTextarea || isInput) {
-                            const proto = isTextarea ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
-                            const desc = Object.getOwnPropertyDescriptor(proto, 'value');
-                            if (desc && typeof desc.set === 'function') {
-                                desc.set.call(element, valueToSet);
-                            } else {
-                                element.value = valueToSet;
-                            }
-                        } else if (isContentEditable) {
-                            element.textContent = valueToSet;
-                        } else if (element.value !== undefined) {
-                            element.value = valueToSet;
-                        } else {
-                            result = { success: false, error: "Element does not support setValue" };
-                            break;
-                        }
-                        
-                        // Dispatch input/change events so pages react to the update
-                        element.dispatchEvent(new Event('input', { bubbles: true }));
-                        element.dispatchEvent(new Event('change', { bubbles: true }));
-                        
-                        // Optionally submit by simulating Enter, if requested
-                        if (params && params.submit) {
-                            const kOpts = { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true };
-                            element.dispatchEvent(new KeyboardEvent('keydown', kOpts));
-                            element.dispatchEvent(new KeyboardEvent('keyup', kOpts));
-                        }
-                        
-                        result = { 
-                            success: true, 
-                            action: 'setValue', 
-                            elementId: actionId, 
-                            value: isContentEditable ? element.textContent : element.value,
-                            selector: selector
-                        };
-                    } catch (e) {
-                        result = { success: false, error: `setValue failed: ${e.message}` };
-                    }
+                if (element.value !== undefined) {
+                    element.value = params.value || '';
+                    result = { 
+                        success: true, 
+                        action: 'setValue', 
+                        elementId: actionId, 
+                        value: element.value,
+                        selector: selector
+                    };
+                } else {
+                    result = { success: false, error: "Element does not support setValue" };
                 }
                 break;
                 
@@ -7422,18 +7290,12 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         // 🎯 NEW: Send intelligence update AFTER filtering is complete (not during scan)
         console.log("[Content] 📤 Filtering complete, sending intelligence update with filtered results...");
         
-        // ✅ ENSURE: Always send an update after scan
-        // Some sites (e.g., heavy SPAs) may yield zero actionable elements after filtering,
-        // but we still want to update page.jsonl/text.md with meta and content.
-        if (this.queueIntelligenceUpdate) {
-            const count = this.actionableElements ? this.actionableElements.size : 0;
-            if (count > 0) {
-                console.log(`[Content] 📤 Sending intelligence update with ${count} filtered actionable elements`);
-                this.queueIntelligenceUpdate('high', 'scan_complete');
-            } else {
-                console.log("[Content] ℹ️ No actionable elements after filtering; sending meta/content-only intelligence update");
-                this.queueIntelligenceUpdate('normal', 'scan_complete_no_actionables');
-            }
+        // ✅ ENSURE: Only send update if we have filtered results
+        if (this.actionableElements.size > 0 && this.queueIntelligenceUpdate) {
+            console.log(`[Content] 📤 Sending intelligence update with ${this.actionableElements.size} filtered actionable elements`);
+            this.queueIntelligenceUpdate('high', 'scan_complete');
+        } else {
+            console.log("[Content] ⚠️ No actionable elements after filtering, skipping intelligence update");
         }
             
             const result = {
