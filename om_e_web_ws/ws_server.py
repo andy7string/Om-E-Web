@@ -2120,6 +2120,63 @@ async def handler(ws):
                 print(f"📨 Received: {raw[:100]}...")
             msg = json.loads(raw)
             
+            # 🆕 SHORTCUT NORMALIZATION (client sugar → existing flows)
+            try:
+                if isinstance(msg, dict) and msg.get("type") in {"exec_action","set_value","click","navigate_link","navigate_url"}:
+                    shortcut_type = msg.get("type")
+                    print(f"🧭 Shortcut received: {shortcut_type}")
+                    if shortcut_type == "exec_action":
+                        # Expect: actionId, optional actionType, optional params
+                        action_id = msg.get("actionId")
+                        action_type = msg.get("actionType")
+                        params = msg.get("params", {})
+                        if not action_id:
+                            await ws.send(json.dumps({"ok": False, "error": "Missing actionId for exec_action"}))
+                            continue
+                        msg = {"type":"llm_instruction","data":{"actionId": action_id, **({"actionType": action_type} if action_type else {}), "params": params}}
+                    elif shortcut_type == "set_value":
+                        # Expect: actionId, value, optional submit
+                        action_id = msg.get("actionId")
+                        value = msg.get("value")
+                        submit = msg.get("submit")
+                        if not action_id or value is None:
+                            await ws.send(json.dumps({"ok": False, "error": "Missing actionId or value for set_value"}))
+                            continue
+                        params = {"value": value}
+                        if submit is not None:
+                            params["submit"] = bool(submit)
+                        msg = {"type":"llm_instruction","data":{"actionId": action_id, "actionType": "setValue", "params": params}}
+                    elif shortcut_type == "click":
+                        # Expect: actionId
+                        action_id = msg.get("actionId")
+                        if not action_id:
+                            await ws.send(json.dumps({"ok": False, "error": "Missing actionId for click"}))
+                            continue
+                        msg = {"type":"llm_instruction","data":{"actionId": action_id, "actionType": "click", "params": {}}}
+                    elif shortcut_type == "navigate_link":
+                        # Expect: actionId (anchor)
+                        action_id = msg.get("actionId")
+                        if not action_id:
+                            await ws.send(json.dumps({"ok": False, "error": "Missing actionId for navigate_link"}))
+                            continue
+                        msg = {"type":"llm_instruction","data":{"actionId": action_id, "actionType": "navigate", "params": {}}}
+                    elif shortcut_type == "navigate_url":
+                        # Expect: url, optional openInNewTab/replaceHistory
+                        url = msg.get("url")
+                        if not url:
+                            await ws.send(json.dumps({"ok": False, "error": "Missing url for navigate_url"}))
+                            continue
+                        params = {"url": url}
+                        if "openInNewTab" in msg:
+                            params["openInNewTab"] = bool(msg.get("openInNewTab"))
+                        if "replaceHistory" in msg:
+                            params["replaceHistory"] = bool(msg.get("replaceHistory"))
+                        # Convert to existing command form
+                        msg = {"id": f"nav-{uuid.uuid4().hex[:8]}", "command": "navigate", "params": params}
+                    print("🧭 Shortcut normalized →", msg.get("type") or msg.get("command"))
+            except Exception as e:
+                print(f"⚠️ Shortcut normalization error: {e}")
+            
             # 🎯 EXTENSION IDENTIFICATION: Mark clients sending bridge_status as extensions
             if msg.get("type") == "bridge_status":
                 EXTENSION_WS = ws

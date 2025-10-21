@@ -510,6 +510,8 @@ function handleServerMessage(messageData) {
                 case "extractPageText":
                 case "getCurrentTabInfo":
                 case "getNavigationContext":
+                case "searchActions":
+                case "discoverLoginControls":
                 case "generateSiteMap":
                 case "scanAndRegisterElements":  // 🆕 NEW: Added missing command
                 case "navigateBack":
@@ -1702,5 +1704,3 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
         sendResponse({ config: null, error: error.message });
     }
 }
-
-

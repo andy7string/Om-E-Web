@@ -161,7 +161,7 @@ class NavigationTester:
                     try:
                         await self.websocket.ping()
                         print("💓 Heartbeat sent to keep connection alive")
-                    except:
+                    except Exception:
                         print("⚠️ Heartbeat failed, connection may be unstable")
                     
         except KeyboardInterrupt:

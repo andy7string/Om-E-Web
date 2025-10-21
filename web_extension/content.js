@@ -253,6 +253,320 @@ function simulateUserInput(element) {
     }
 }
 
+// 🆕 NEW: Helper utilities for on-demand DOM discovery
+function cssEscape(value) {
+    if (value == null) return '';
+    if (window.CSS && typeof window.CSS.escape === 'function') {
+        return window.CSS.escape(value);
+    }
+    return String(value).replace(/["\\]/g, '\\$&');
+}
+
+function computeCssPath(element, maxDepth = 5) {
+    if (!element || element.nodeType !== Node.ELEMENT_NODE) {
+        return null;
+    }
+
+    const path = [];
+    let depth = 0;
+    let node = element;
+
+    while (node && node.nodeType === Node.ELEMENT_NODE && depth < maxDepth) {
+        let selector = node.nodeName.toLowerCase();
+
+        if (node.id) {
+            selector += `#${cssEscape(node.id)}`;
+            path.unshift(selector);
+            break;
+        }
+
+        const siblingTagName = selector;
+        let position = 1;
+        let sibling = node.previousElementSibling;
+        while (sibling) {
+            if (sibling.nodeName.toLowerCase() === siblingTagName) {
+                position += 1;
+            }
+            sibling = sibling.previousElementSibling;
+        }
+
+        selector += `:nth-of-type(${position})`;
+        path.unshift(selector);
+        node = node.parentElement;
+        depth += 1;
+    }
+
+    return path.join(' > ') || null;
+}
+
+function buildSelectorCandidates(element) {
+    const selectors = [];
+    if (!element || element.nodeType !== Node.ELEMENT_NODE) {
+        return selectors;
+    }
+
+    const tag = element.tagName.toLowerCase();
+
+    if (element.id) {
+        selectors.push(`#${cssEscape(element.id)}`);
+    }
+
+    const dataTestId = element.getAttribute('data-testid');
+    if (dataTestId) {
+        selectors.push(`[data-testid="${cssEscape(dataTestId)}"]`);
+    }
+
+    const nameAttr = element.getAttribute('name');
+    if (nameAttr) {
+        selectors.push(`${tag}[name="${cssEscape(nameAttr)}"]`);
+    }
+
+    const ariaLabel = element.getAttribute('aria-label');
+    if (ariaLabel) {
+        selectors.push(`${tag}[aria-label="${cssEscape(ariaLabel)}"]`);
+    }
+
+    const placeholder = element.getAttribute('placeholder');
+    if (placeholder) {
+        selectors.push(`${tag}[placeholder="${cssEscape(placeholder)}"]`);
+    }
+
+    const typeAttr = element.getAttribute('type');
+    if (typeAttr) {
+        selectors.push(`${tag}[type="${cssEscape(typeAttr)}"]`);
+    }
+
+    const cssPath = computeCssPath(element, 6);
+    if (cssPath) {
+        selectors.push(cssPath);
+    }
+
+    if (window.intelligenceEngine &&
+        typeof window.intelligenceEngine.generateElementSelectors === 'function') {
+        try {
+            const generated = window.intelligenceEngine.generateElementSelectors.call(
+                window.intelligenceEngine,
+                element
+            );
+            if (Array.isArray(generated)) {
+                generated.forEach(sel => {
+                    if (typeof sel === 'string' && sel.trim()) {
+                        selectors.push(sel.trim());
+                    }
+                });
+            }
+        } catch (error) {
+            console.warn('[Content] ⚠️ Failed to generate selectors from engine:', error.message);
+        }
+    }
+
+    return Array.from(new Set(selectors.filter(Boolean)));
+}
+
+function buildElementDescriptor(element, role) {
+    if (!element) return null;
+
+    const rect = element.getBoundingClientRect();
+    const style = window.getComputedStyle ? window.getComputedStyle(element) : null;
+    const visible = typeof isElementVisible === 'function'
+        ? isElementVisible(element)
+        : Boolean(style) &&
+            style.display !== 'none' &&
+            style.visibility !== 'hidden' &&
+            rect.width > 0 &&
+            rect.height > 0;
+
+    const attributes = {
+        id: element.getAttribute('id'),
+        name: element.getAttribute('name'),
+        type: element.getAttribute('type'),
+        placeholder: element.getAttribute('placeholder'),
+        ariaLabel: element.getAttribute('aria-label'),
+        dataTestId: element.getAttribute('data-testid'),
+        autocomplete: element.getAttribute('autocomplete'),
+        role: element.getAttribute('role')
+    };
+
+    const textContent = element.tagName.toLowerCase() === 'button'
+        ? element.innerText || element.textContent || ''
+        : element.getAttribute('value') || '';
+
+    const selectors = buildSelectorCandidates(element);
+
+    return {
+        role,
+        tagName: element.tagName.toLowerCase(),
+        primarySelector: selectors[0] || null,
+        selectors,
+        attributes,
+        text: textContent.trim(),
+        visible,
+        rect: {
+            width: rect.width,
+            height: rect.height,
+            top: rect.top,
+            left: rect.left
+        }
+    };
+}
+
+function discoverLoginControls(options = {}) {
+    const RESULT_ROLES = ['login_email', 'login_password', 'login_submit'];
+    const EXACT_SELECTORS = {
+        login_email: [
+            '#email',
+            'input#email',
+            'input[name="email"]',
+            'input[name="username"]',
+            'input[data-testid="royal-email"]',
+            'input[autocomplete="username"]',
+            'input[type="email"]'
+        ],
+        login_password: [
+            '#pass',
+            'input#pass',
+            'input[name="pass"]',
+            'input[data-testid="royal-pass"]',
+            'input[type="password"]',
+            'input[autocomplete="current-password"]'
+        ],
+        login_submit: [
+            'button[name="login"]',
+            'button[data-testid="royal-login-button"]',
+            'button[type="submit"]',
+            'input[type="submit"]'
+        ]
+    };
+
+    const KEYWORD_MATCHERS = {
+        login_email: ['email', 'e-mail', 'phone', 'mobile', 'user', 'username', 'login id'],
+        login_password: ['password', 'passcode', 'pin', 'security code'],
+        login_submit: ['log in', 'login', 'sign in', 'sign-in', 'submit', 'continue', 'next']
+    };
+
+    const SCORE = {
+        selector: 100,
+        attribute: 80,
+        keyword: 60
+    };
+
+    const matches = {
+        login_email: [],
+        login_password: [],
+        login_submit: []
+    };
+
+    const descriptorByElement = new Map();
+    const requireVisible = Boolean(options.requireVisible);
+
+    function register(element, role, score, matchedBy) {
+        if (!element || !RESULT_ROLES.includes(role)) {
+            return;
+        }
+
+        const existing = descriptorByElement.get(element);
+        if (existing) {
+            existing.score = Math.max(existing.score, score);
+            if (matchedBy && existing.matchedBy.indexOf(matchedBy) === -1) {
+                existing.matchedBy.push(matchedBy);
+            }
+            if (existing.role !== role) {
+                existing.role = role;
+            }
+            return;
+        }
+
+        const descriptor = buildElementDescriptor(element, role);
+        if (!descriptor) return;
+        if (requireVisible && !descriptor.visible) return;
+
+        descriptor.score = score;
+        descriptor.matchedBy = matchedBy ? [matchedBy] : [];
+        descriptor.elementId = element.dataset?.omeActionId || null;
+
+        descriptorByElement.set(element, descriptor);
+        matches[role].push(descriptor);
+    }
+
+    Object.entries(EXACT_SELECTORS).forEach(([role, selectors]) => {
+        selectors.forEach(selector => {
+            let nodes = [];
+            try {
+                nodes = Array.from(document.querySelectorAll(selector));
+            } catch (error) {
+                // Ignore invalid selectors
+            }
+            nodes.forEach(node => register(node, role, SCORE.selector, `selector:${selector}`));
+        });
+    });
+
+    const allInputs = Array.from(document.querySelectorAll('input, textarea'));
+    const allButtons = Array.from(document.querySelectorAll('button, input[type="submit"]'));
+
+    function hasKeyword(text, keywords) {
+        if (!text) return false;
+        const normalized = text.toLowerCase();
+        return keywords.some(keyword => normalized.includes(keyword));
+    }
+
+    allInputs.forEach(node => {
+        const typeAttr = (node.getAttribute('type') || '').toLowerCase();
+        const placeholder = node.getAttribute('placeholder') || '';
+        const ariaLabel = node.getAttribute('aria-label') || '';
+        const nameAttr = node.getAttribute('name') || '';
+
+        if (typeAttr === 'password') {
+            register(node, 'login_password', SCORE.attribute, 'type=password');
+            return;
+        }
+
+        if (typeAttr === 'email') {
+            register(node, 'login_email', SCORE.attribute, 'type=email');
+        }
+
+        if (hasKeyword(placeholder, KEYWORD_MATCHERS.login_email) ||
+            hasKeyword(ariaLabel, KEYWORD_MATCHERS.login_email) ||
+            hasKeyword(nameAttr, KEYWORD_MATCHERS.login_email)) {
+            register(node, 'login_email', SCORE.keyword, 'keyword/email');
+        }
+
+        if (hasKeyword(placeholder, KEYWORD_MATCHERS.login_password) ||
+            hasKeyword(ariaLabel, KEYWORD_MATCHERS.login_password) ||
+            hasKeyword(nameAttr, KEYWORD_MATCHERS.login_password)) {
+            register(node, 'login_password', SCORE.keyword, 'keyword/password');
+        }
+    });
+
+    allButtons.forEach(node => {
+        const text = (node.innerText || node.value || '').trim();
+        const ariaLabel = node.getAttribute('aria-label') || '';
+        const nameAttr = node.getAttribute('name') || '';
+
+        if (hasKeyword(text, KEYWORD_MATCHERS.login_submit) ||
+            hasKeyword(ariaLabel, KEYWORD_MATCHERS.login_submit) ||
+            hasKeyword(nameAttr, KEYWORD_MATCHERS.login_submit)) {
+            register(node, 'login_submit', SCORE.keyword, 'keyword/submit');
+        }
+    });
+
+    Object.keys(matches).forEach(role => {
+        matches[role] = matches[role]
+            .sort((a, b) => {
+                if (b.score !== a.score) return b.score - a.score;
+                if (a.visible !== b.visible) return (b.visible ? 1 : 0) - (a.visible ? 1 : 0);
+                return a.rect.top - b.rect.top;
+            });
+    });
+
+    const totals = Object.values(matches).reduce((sum, arr) => sum + arr.length, 0);
+
+    return {
+        timestamp: Date.now(),
+        total: totals,
+        matches
+    };
+}
+
 // 🆕 NEW: Guard against multiple initializations
 if (window.intelligenceSystemInitialized && window.intelligenceComponents && window.intelligenceComponents.changeAggregator && window.intelligenceComponents.intelligenceEngine) {
     console.log("[Content] ⚠️ Intelligence system already initialized, reusing existing components...");
@@ -1348,6 +1662,24 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 const result = getNavigationContext();
                 console.log("[Content] getNavigationContext result:", result);
                 return sendResponse(result);
+            }
+
+            if (command === "searchActions") {
+                console.log("[Content] searchActions command - params:", params);
+                if (!intelligenceEngine || typeof intelligenceEngine.searchActionableElements !== 'function') {
+                    sendResponse({ error: { code: "ENGINE_NOT_READY", msg: "Intelligence engine not available" } });
+                    return;
+                }
+                const results = intelligenceEngine.searchActionableElements(params || {});
+                console.log("[Content] searchActions found:", results.length);
+                return sendResponse({ results });
+            }
+
+            if (command === "discoverLoginControls") {
+                console.log("[Content] discoverLoginControls command - params:", params);
+                const discovery = discoverLoginControls(params || {});
+                console.log("[Content] discoverLoginControls result:", discovery);
+                return sendResponse({ ok: true, result: discovery });
             }
             
             if (command === "generateSiteMap") {
@@ -6109,6 +6441,142 @@ IntelligenceEngine.prototype.isExtensionContextValid = function() {
 };
 
 /**
+ * 🆕 NEW: Infer semantic role and hints for actionable elements
+ */
+IntelligenceEngine.prototype.inferSemanticRole = function(element, actionType = 'general', attributes = {}) {
+    try {
+        const result = {
+            role: null,
+            confidence: 0,
+            hints: []
+        };
+
+        if (!element) {
+            return result;
+        }
+
+        const tag = element.tagName ? element.tagName.toLowerCase() : '';
+        const attrMap = attributes || {};
+        const typeAttr = (attrMap.type || element.type || '').toLowerCase();
+        const roleAttr = (attrMap.role || '').toLowerCase();
+
+        const textSources = [];
+        const addSource = (value) => {
+            if (!value || typeof value !== 'string') return;
+            const trimmed = value.trim();
+            if (!trimmed) return;
+            textSources.push(trimmed.toLowerCase());
+        };
+
+        addSource(attrMap.placeholder);
+        addSource(attrMap['data-placeholder']);
+        addSource(attrMap['aria-label']);
+        addSource(attrMap.title);
+        addSource(attrMap.name);
+        addSource(attrMap.id);
+        addSource(element.textContent);
+        addSource(element.getAttribute && element.getAttribute('value'));
+
+        const classList = Array.isArray(attrMap.cssClasses) ? attrMap.cssClasses.join(' ').toLowerCase() : '';
+        if (classList) {
+            textSources.push(classList);
+        }
+
+        const containsAny = (keywords) => {
+            return textSources.some(src => keywords.some(keyword => src.includes(keyword)));
+        };
+
+        const potentialRoles = [];
+        const pushRole = (role, score, reason) => {
+            potentialRoles.push({ role, score, reason });
+        };
+
+        // Email / username fields
+        if (typeAttr === 'email' || containsAny(['email', 'e-mail'])) {
+            pushRole('login_email', typeAttr === 'email' ? 5 : 4, 'email-field');
+        }
+        if (containsAny(['username', 'user name', 'user-id', 'userid', 'login id', 'user id'])) {
+            pushRole('login_username', 4, 'username-field');
+        }
+
+        // Password / security related fields
+        if (typeAttr === 'password' || containsAny(['password', 'passcode', 'pass code', 'secret'])) {
+            pushRole('login_password', typeAttr === 'password' ? 6 : 4, 'password-field');
+        }
+        if (containsAny(['otp', 'one time', 'verification code', 'security code'])) {
+            pushRole('login_otp', 4, 'otp-field');
+        }
+
+        // Search inputs
+        if (typeAttr === 'search' || containsAny(['search', 'find', 'look up'])) {
+            pushRole('search_input', typeAttr === 'search' ? 5 : 3, 'search-field');
+        }
+
+        // Remember me / stay signed in
+        if (tag === 'input' && (typeAttr === 'checkbox' || roleAttr === 'checkbox') &&
+            containsAny(['remember me', 'keep me signed', 'stay signed', 'stay logged'])) {
+            pushRole('login_remember_me', 5, 'remember-checkbox');
+        }
+
+        // Submit / login buttons
+        const isClickable = tag === 'button' || tag === 'a' || tag === 'input';
+        const submitLike = containsAny(['log in', 'login', 'sign in', 'sign-in', 'submit', 'continue', 'next', 'send code']);
+        if (isClickable && submitLike) {
+            pushRole('login_submit', containsAny(['log in', 'login', 'sign in', 'sign-in']) ? 6 : 4, 'login-submit');
+        } else if (isClickable && (typeAttr === 'submit' || roleAttr === 'button') && containsAny(['submit', 'continue', 'apply'])) {
+            pushRole('form_submit', 3, 'form-submit');
+        }
+
+        // Forgot password link
+        if (tag === 'a' && containsAny(['forgot password', 'trouble signing in', 'reset password', 'can\'t log in'])) {
+            pushRole('login_forgot_password', 5, 'forgot-password-link');
+        }
+
+        // Generic navigation buttons that open menus or user/profile
+        if (isClickable && containsAny(['profile', 'account', 'settings']) && classList.includes('menu')) {
+            pushRole('account_menu', 2, 'account-menu');
+        }
+
+        // Choose best role
+        let bestRole = null;
+        let bestScore = 0;
+        const hints = new Set();
+
+        potentialRoles.forEach(candidate => {
+            if (candidate.score > bestScore) {
+                bestRole = candidate.role;
+                bestScore = candidate.score;
+            }
+            if (candidate.reason) {
+                hints.add(candidate.reason);
+            }
+        });
+
+        // Always provide basic tokens as hints for later search
+        textSources.forEach(text => {
+            text.split(/[^a-z0-9]+/).forEach(token => {
+                if (token && token.length >= 3) {
+                    hints.add(token);
+                }
+            });
+        });
+
+        return {
+            role: bestRole,
+            confidence: bestScore,
+            hints: Array.from(hints).slice(0, 20) // keep hints compact
+        };
+    } catch (error) {
+        console.warn('[Content] ⚠️ Failed to infer semantic role:', error.message);
+        return {
+            role: null,
+            confidence: 0,
+            hints: []
+        };
+    }
+};
+
+/**
  * 🆕 NEW: Generate unique actionable identifier for an element
  */
 IntelligenceEngine.prototype.generateActionableId = function(element, actionType = 'general', reuseId = null) {
@@ -6126,6 +6594,7 @@ IntelligenceEngine.prototype.generateActionableId = function(element, actionType
     
     // 🆕 ENHANCED: Extract rich context for URL elements
     const attributes = this.extractKeyAttributes(element);
+    const semantic = this.inferSemanticRole(element, actionType, attributes);
     let urlContext = null;
     
     // If this is a URL element, capture rich context
@@ -6155,6 +6624,9 @@ IntelligenceEngine.prototype.generateActionableId = function(element, actionType
         className: className,
         attributes: attributes,
         urlContext: urlContext, // 🆕 NEW: Rich context for URL elements
+        semanticRole: semantic.role,
+        semanticConfidence: semantic.confidence,
+        semanticHints: semantic.hints,
         timestamp: Date.now()
     };
 };
@@ -6347,11 +6819,181 @@ IntelligenceEngine.prototype.getAllActionableElements = function() {
 };
 
 /**
+ * 🆕 NEW: Search actionable elements by semantic role or keywords
+ */
+IntelligenceEngine.prototype.searchActionableElements = function(criteria = {}) {
+    const limit = Number.isFinite(criteria.limit) ? Math.max(1, criteria.limit) : 10;
+
+    const roleFilters = [];
+    if (typeof criteria.role === 'string') {
+        roleFilters.push(criteria.role.toLowerCase());
+    }
+    if (Array.isArray(criteria.roles)) {
+        criteria.roles.forEach(role => {
+            if (typeof role === 'string') {
+                roleFilters.push(role.toLowerCase());
+            }
+        });
+    }
+
+    const keywordSet = new Set();
+    if (typeof criteria.keyword === 'string') {
+        keywordSet.add(criteria.keyword.toLowerCase());
+    }
+    if (Array.isArray(criteria.keywords)) {
+        criteria.keywords.forEach(keyword => {
+            if (typeof keyword === 'string') {
+                keywordSet.add(keyword.toLowerCase());
+            }
+        });
+    }
+
+    const matchAll = Boolean(criteria.matchAll);
+    const tagFilter = typeof criteria.tag === 'string' ? criteria.tag.toLowerCase() : null;
+
+    const all = this.getAllActionableElements();
+    const matches = [];
+
+    all.forEach(item => {
+        if (!item) return;
+
+        if (tagFilter && (item.tagName || '').toLowerCase() !== tagFilter) {
+            return;
+        }
+
+        let score = 0;
+        const reasons = [];
+        const keywordMatches = new Set();
+
+        const elementRole = (item.semanticRole || '').toLowerCase();
+        const elementHints = Array.isArray(item.semanticHints) ? item.semanticHints : [];
+
+        if (roleFilters.length === 0 && keywordSet.size === 0) {
+            score += item.semanticConfidence || 0;
+            if (score <= 0) {
+                score = 1;
+            }
+            reasons.push('default');
+        }
+
+        if (roleFilters.length) {
+            if (roleFilters.includes(elementRole)) {
+                score += 20;
+                reasons.push('role-exact');
+            } else if (elementRole && roleFilters.some(role => elementRole.includes(role))) {
+                score += 10;
+                reasons.push('role-partial');
+            }
+        }
+
+        const searchPool = [];
+        if (elementRole) searchPool.push(elementRole);
+        if (item.textContent) searchPool.push(item.textContent.toLowerCase());
+
+        if (item.attributes) {
+            Object.values(item.attributes).forEach(value => {
+                if (typeof value === 'string') {
+                    searchPool.push(value.toLowerCase());
+                }
+            });
+            if (Array.isArray(item.attributes.cssClasses)) {
+                searchPool.push(item.attributes.cssClasses.join(' ').toLowerCase());
+            }
+        }
+
+        if (elementHints.length) {
+            searchPool.push(elementHints.join(' ').toLowerCase());
+        }
+
+        keywordSet.forEach(keyword => {
+            if (!keyword || keyword.length < 2) return;
+            const matched = searchPool.some(text => text && text.includes(keyword));
+            if (matched) {
+                keywordMatches.add(keyword);
+                score += 5;
+            }
+        });
+
+        if (keywordMatches.size) {
+            reasons.push('keyword');
+        }
+
+        if (matchAll && keywordSet.size && keywordMatches.size !== keywordSet.size) {
+            return;
+        }
+
+        if (roleFilters.length && elementRole && !roleFilters.includes(elementRole) && !roleFilters.some(role => elementRole.includes(role))) {
+            if (score === 0 && keywordSet.size === 0) {
+                return;
+            }
+        }
+
+        if (score <= 0) {
+            return;
+        }
+
+        if (item.semanticConfidence) {
+            score += Math.min(item.semanticConfidence, 5);
+        }
+
+        matches.push({
+            actionId: item.id,
+            semanticRole: item.semanticRole || null,
+            semanticConfidence: item.semanticConfidence || 0,
+            tagName: item.tagName || null,
+            textContent: item.textContent || '',
+            attributes: item.attributes || {},
+            score,
+            reasons,
+            keywordsMatched: Array.from(keywordMatches)
+        });
+    });
+
+    matches.sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        if (b.semanticConfidence !== a.semanticConfidence) return b.semanticConfidence - a.semanticConfidence;
+        return (b.textContent || '').length - (a.textContent || '').length;
+    });
+
+    return matches.slice(0, limit);
+};
+
+/**
  * 🆕 NEW: Get all content elements
  */
 IntelligenceEngine.prototype.getAllContentElements = function() {
     return Array.from(this.contentElements.values());
 };
+
+function pickBestSelector(selectorList, actionableElement) {
+    if (!Array.isArray(selectorList) || selectorList.length === 0) return null;
+    const selectors = selectorList.filter(s => typeof s === 'string' && s.trim().length > 0);
+    if (!selectors.length) return null;
+    const isBareClass = (s) => /^\.[a-zA-Z0-9_-]+$/.test(s.trim());
+    const isLabelSelector = (s) => /^label\b/.test(s.trim());
+    const hasId = (s) => /#/.test(s);
+    const hasAttr = (s) => /\[.+\]/.test(s);
+    const p1 = selectors.find(hasId);
+    if (p1) return p1;
+    const attrOrder = [
+        /input\[placeholder=/i,
+        /input\[aria-label=/i,
+        /textarea\[placeholder=/i,
+        /textarea\[aria-label=/i,
+        /input\[type=.*\]\[role=.*\]/i,
+        /\[contenteditable="?true"?\]/i,
+        /\[role="?(textbox|combobox)"?\]/i
+    ];
+    for (const re of attrOrder) {
+        const match = selectors.find(s => re.test(s));
+        if (match) return match;
+    }
+    const p3 = selectors.find(hasAttr);
+    if (p3) return p3;
+    const nonWeak = selectors.find(s => !isBareClass(s) && !isLabelSelector(s));
+    if (nonWeak) return nonWeak;
+    return selectors[0];
+}
 
 /**
  * 🆕 NEW: Execute action on element by ID
@@ -6383,8 +7025,8 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
     }
     
     try {
-        // Use the first available selector
-        const selector = actionableElement.selectors[0];
+        // Use the best available selector
+        const selector = pickBestSelector(actionableElement.selectors, actionableElement);
         if (!selector) {
             console.error("[Content] ❌ No valid selector found for element:", actionId);
             console.log("[Content] 🔍 Element selectors:", actionableElement.selectors);
@@ -6588,22 +7230,56 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                 // If the primary element is hidden or has no dimensions, try visible-first fallbacks
                 const visibleCheck = (typeof isElementVisible === 'function') ? isElementVisible(element) : true;
                 if (!visibleCheck) {
-                    const fallbackSelectors = [
+                    // Attribute-driven resolution using actionableElement hints (aria-label, placeholder, type, role)
+                    const s = actionableElement && actionableElement.attributes ? actionableElement.attributes : {};
+                    const aria = s['aria-label'] || s.ariaLabel || '';
+                    const placeholder = s.placeholder || '';
+                    const typeAttr = s.type || '';
+                    const roleAttr = s.role || '';
+                    const attrCandidates = [];
+                    if (aria) attrCandidates.push(`input[aria-label="${aria}"]`);
+                    if (placeholder) attrCandidates.push(`input[placeholder="${placeholder}"]`);
+                    if (typeAttr && roleAttr) attrCandidates.push(`input[type="${String(typeAttr).toLowerCase()}"][role="${String(roleAttr).toLowerCase()}"]`);
+                    if (typeAttr) attrCandidates.push(`input[type="${String(typeAttr).toLowerCase()}"]`);
+                    if (roleAttr) attrCandidates.push(`input[role="${String(roleAttr).toLowerCase()}"]`);
+
+                    // Generic high-confidence fallbacks
+                    const genericFallbacks = [
                         '[contenteditable="true"]',
                         'div.ProseMirror[contenteditable="true"]',
                         '#prompt-textarea',
                         'textarea[name="prompt-textarea"]',
                         'textarea',
+                        'input[type="search"]',
                         'input[type="text"]',
-                        'input[type="search"]'
+                        'input'
                     ];
-                    for (const sel of fallbackSelectors) {
+
+                    const tried = new Set();
+                    const tryList = [...attrCandidates, ...genericFallbacks];
+                    for (const sel of tryList) {
+                        if (tried.has(sel)) continue; tried.add(sel);
                         const cand = document.querySelector(sel);
                         if (cand && ((typeof isElementVisible === 'function') ? isElementVisible(cand) : true)) {
-                            console.log('[Content] 🔄 Using visible fallback for setValue:', sel);
+                            console.log('[Content] 🔄 Using attribute-driven/visible fallback for setValue:', sel);
                             element = cand;
                             break;
                         }
+                    }
+
+                    // As a last resort, search within the nearest form of the original element
+                    if ((!element || !((typeof isElementVisible === 'function') ? isElementVisible(element) : true)) && actionableElement && actionableElement.selectors && actionableElement.selectors.length) {
+                        try {
+                            const original = document.querySelector(actionableElement.selectors[0]);
+                            const form = original ? original.closest('form') : null;
+                            if (form) {
+                                const inForm = form.querySelector('input, textarea, [contenteditable="true"]');
+                                if (inForm && ((typeof isElementVisible === 'function') ? isElementVisible(inForm) : true)) {
+                                    console.log('[Content] 🔄 Using form-local fallback for setValue');
+                                    element = inForm;
+                                }
+                            }
+                        } catch {}
                     }
                 }
 

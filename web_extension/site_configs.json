@@ -209,6 +209,89 @@
       ]
     }
   },
+  "facebook.com": {
+    "framework": "generic",
+    "scan_strategy": "universal",
+    "url_patterns": ["facebook.com", "*.facebook.com"],
+    "focus_targets": [
+      "#email",
+      "#pass",
+      "input[name='email']",
+      "input[name='pass']",
+      "input[data-testid='royal-email']",
+      "input[data-testid='royal-pass']",
+      "input[placeholder='Search Marketplace']",
+      "input[aria-label='Search Marketplace']",
+      "input[type='search'][role='combobox']"
+    ],
+    "selectors": {
+      "text_inputs": [
+        "#email:not([aria-hidden='true'])",
+        "#pass:not([aria-hidden='true'])",
+        "input[name='email']:not([aria-hidden='true'])",
+        "input[name='pass']:not([aria-hidden='true'])",
+        "input[data-testid='royal-email']:not([aria-hidden='true'])",
+        "input[data-testid='royal-pass']:not([aria-hidden='true'])",
+        "input[type='email']:not([aria-hidden='true'])",
+        "input[type='password']:not([aria-hidden='true'])",
+        "input[placeholder*='Search' i]:not([aria-hidden='true'])",
+        "input[aria-label*='Search' i]:not([aria-hidden='true'])",
+        "input[type='search'][role='combobox']:not([aria-hidden='true'])",
+        "[role='search'] input[type='search']:not([aria-hidden='true'])",
+        "textarea:not([aria-hidden='true'])",
+        "[contenteditable='true']:not([aria-hidden='true'])"
+      ],
+      "buttons": [
+        "button[name='login']:not([aria-hidden='true'])",
+        "button[data-testid='royal-login-button']:not([aria-hidden='true'])",
+        "button[type='submit']:not([aria-hidden='true'])",
+        "input[type='submit']:not([aria-hidden='true'])"
+      ]
+    },
+    "filters": {
+      "include": [
+        "#email",
+        "#pass",
+        "input[name='email']",
+        "input[name='pass']",
+        "input[data-testid='royal-email']",
+        "input[data-testid='royal-pass']",
+        "input[type='email']",
+        "input[type='password']",
+        "button[name='login']",
+        "button[data-testid='royal-login-button']",
+        "input[placeholder*='Search' i]",
+        "input[aria-label*='Search' i]",
+        "input[type='search'][role='combobox']"
+      ],
+      "exclude": [
+        "[aria-hidden='true']",
+        "div.x1i10hfl"
+      ]
+    },
+    "forceIncludeSelectors": [
+      "#email",
+      "#pass",
+      "input[name='email']",
+      "input[name='pass']",
+      "input[data-testid='royal-email']",
+      "input[data-testid='royal-pass']",
+      "input[type='email']",
+      "input[type='password']",
+      "button[name='login']",
+      "button[data-testid='royal-login-button']",
+      "input[placeholder='Search Marketplace']",
+      "input[aria-label='Search Marketplace']",
+      "input[type='search'][role='combobox']"
+    ],
+    "extraInteractiveSelectors": [
+      "button[name='login']",
+      "button[data-testid='royal-login-button']",
+      "button[aria-label*='search' i]",
+      "button[type='submit']",
+      "input[type='submit']"
+    ]
+  },
   "youtube.com": {
     "framework": "youtube",
     "scan_strategy": "youtube_specific",
