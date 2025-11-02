@@ -28,6 +28,7 @@ import uuid
 import os
 import re
 import time
+from typing import Optional, List, Dict, Any
 from urllib.parse import urlparse
 
 
@@ -88,7 +89,6 @@ async def consolidate_actionable_elements_to_menus(actionable_elements):
         
         for element in actionable_elements:
             action_type = element.get("actionType", "unknown")
-            tag_name = element.get("tagName", "").lower()
             text_content = element.get("textContent", "").strip()
             selectors = element.get("selectors", [])
             
@@ -203,7 +203,6 @@ async def consolidate_content_elements_to_structure(content_elements):
         for element in content_elements:
             content_type = element.get("contentType", "unknown")
             tag_name = element.get("tagName", "").lower()
-            text_content = element.get("textContent", "").strip()
             
             # 🎯 Categorize by content type and tag name
             if content_type == "heading" or tag_name.startswith("h"):
@@ -378,7 +377,7 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
             LAST_PAGE_UPDATE = time.time()
 
             filepath = os.path.join(SITE_STRUCTURES_DIR, CURRENT_PAGE_JSONL)
-            with open(filepath, 'w', encoding='utf-8') as f:
+            with open(filepath, 'w', encoding='utf-8', errors='ignore') as f:
                 for record in enriched_records:
                     f.write(json.dumps(record, ensure_ascii=False) + '\n')
 
@@ -412,7 +411,7 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
         LAST_PAGE_UPDATE = time.time()
 
         filepath = os.path.join(SITE_STRUCTURES_DIR, CURRENT_PAGE_JSONL)
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(filepath, 'w', encoding='utf-8', errors='ignore') as f:
             f.write(json.dumps(page_data, ensure_ascii=False, indent=2) + '\n')
 
         print(f"🧠 Intelligence saved to central file (legacy format): {filepath}")
@@ -477,7 +476,7 @@ async def save_content_to_content_jsonl(intelligence_data):
         
         # Save to central content.jsonl file
         filepath = os.path.join(SITE_STRUCTURES_DIR, CURRENT_CONTENT_JSONL)
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(filepath, 'w', encoding='utf-8', errors='ignore') as f:
             f.write(json.dumps(content_data, ensure_ascii=False, indent=2) + '\n')
         
         print(f"📄 Content saved to central file: {filepath}")
@@ -495,7 +494,7 @@ async def save_content_to_content_jsonl(intelligence_data):
         print(f"❌ Error saving content to content.jsonl: {e}")
         return None
 
-async def process_actionable_elements_for_llm(actionable_elements):
+async def process_actionable_elements_for_llm(actionable_elements: List[Dict[str, Any]]) -> Optional[Dict[str, Dict[str, Any]]]:
     """
     🎯 Process actionable elements for LLM consumption
     
@@ -553,7 +552,7 @@ async def process_actionable_elements_for_llm(actionable_elements):
         # Save LLM action mapping
         if llm_actions:
             filepath = os.path.join(SITE_STRUCTURES_DIR, "llm_actions.json")
-            with open(filepath, 'w', encoding='utf-8') as f:
+            with open(filepath, 'w', encoding='utf-8', errors='ignore') as f:
                 json.dump(llm_actions, f, ensure_ascii=False, indent=2)
             
             print(f"🎯 LLM action mapping saved: {filepath}")
@@ -594,7 +593,7 @@ async def save_page_text_to_markdown(text_data):
         markdown_content = text_data.get('markdown', '')
         
         # Write the markdown content to file
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(filepath, 'w', encoding='utf-8', errors='ignore') as f:
             f.write(markdown_content)
         
         # Get statistics
@@ -614,7 +613,7 @@ async def save_page_text_to_markdown(text_data):
         print(f"❌ Error saving page text to markdown: {e}")
         return None
 
-async def clear_llm_actions():
+async def clear_llm_actions() -> Optional[str]:
     """
     🗑️ Clear LLM actions when no actionable elements are available
     
@@ -643,7 +642,7 @@ async def clear_llm_actions():
         
         # Save empty actions file
         filepath = os.path.join(SITE_STRUCTURES_DIR, "llm_actions.json")
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(filepath, 'w', encoding='utf-8', errors='ignore') as f:
             json.dump(empty_actions, f, ensure_ascii=False, indent=2)
         
         print(f"🗑️ LLM actions cleared for page: {current_page_url}")
@@ -685,9 +684,92 @@ async def store_dom_change_context(dom_change_data):
             print(f"🔄 DOM change context stored: {change_context['change_summary']}")
         
         return None
-        
     except Exception as e:
         print(f"❌ Error storing DOM change context: {e}")
+        return None
+
+# ------------------ LLM PROMPT GENERATOR (compact) ------------------
+
+def _map_prompt_action_sentence(record: Dict[str, Any]) -> Optional[str]:
+    try:
+        if record.get("type") != "action":
+            return None
+        if record.get("visibility") == "hidden":
+            return None
+        action_id = record.get("id")
+        if not action_id:
+            return None
+        label = (record.get("label") or record.get("ariaLabel") or "").strip()
+        tag = (record.get("tag") or "").lower()
+        action_types = record.get("actionTypes") or []
+        control_type = record.get("controlType") or ""
+
+        if tag in {"input", "textarea"} or control_type == "input" or any(t in ("input", "setValue") for t in action_types):
+            return f"return ({action_id},{{yourValue}}) to set value for '{label}'. Add submit:true to submit."
+        if tag == "a" or any(t in ("navigate", "link") for t in action_types):
+            return f"return ({action_id}) to navigate to '{label}'"
+        if tag == "button" or "click" in action_types:
+            return f"return ({action_id}) to click '{label}'"
+        return f"return ({action_id}) to interact with '{label}'"
+    except Exception:
+        return None
+
+def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, max_actions: int = 120) -> Optional[str]:
+    try:
+        title: Optional[str] = None
+        transcript = ""
+        if os.path.exists(text_md_path):
+            with open(text_md_path, 'r', encoding='utf-8', errors='ignore') as f:
+                raw = f.read()
+            lines = raw.splitlines()
+            if lines and lines[0].startswith('#'):
+                title = lines[0].lstrip('#').strip() or None
+            filtered = [ln for ln in lines if not ln.strip().startswith('URL:') and not ln.strip().startswith('**URL:**')]
+            transcript = "\n".join(filtered)[:1500]
+
+        action_lines: List[str] = []
+        if os.path.exists(page_jsonl_path):
+            with open(page_jsonl_path, 'r', encoding='utf-8', errors='ignore') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        rec = json.loads(line)
+                    except Exception:
+                        continue
+                    if rec.get('type') == 'meta' and not title:
+                        title = rec.get('title') or title
+                    mapped = _map_prompt_action_sentence(rec)
+                    if mapped:
+                        action_lines.append(mapped)
+
+        seen: set[str] = set()
+        deduped: List[str] = []
+        for s in action_lines:
+            if s in seen:
+                continue
+            seen.add(s)
+            deduped.append(s)
+        deduped = deduped[:max_actions]
+
+        parts: List[str] = []
+        parts.append(f"# {title or 'Page'}")
+        parts.append("")
+        if transcript:
+            parts.append("## Transcript (partial)")
+            parts.append(transcript.rstrip())
+            parts.append("")
+        if deduped:
+            parts.append("## Actions")
+            parts.extend([f"- {line}" for line in deduped])
+            parts.append("")
+
+        with open(out_path, 'w', encoding='utf-8', errors='ignore') as f:
+            f.write("\n".join(parts).rstrip() + "\n")
+        return out_path
+    except Exception as e:
+        print(f"⚠️ Error generating llm_prompt.md: {e}")
         return None
 
 def get_current_tabs_info():
@@ -846,7 +928,7 @@ def save_site_map_to_jsonl(site_map_data, suffix=""):
         filepath = os.path.join(SITE_STRUCTURES_DIR, filename)
         
         # Write the entire site map data to JSONL file with proper formatting
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(filepath, 'w', encoding='utf-8', errors='ignore') as f:
             f.write(json.dumps(site_map_data, ensure_ascii=False, indent=2) + '\n')
         
         print(f"💾 Site map saved to: {filepath}")
@@ -1382,7 +1464,7 @@ def siteStructuredLLMmethodinsidethefile(filepath):
         
         # Write the cleaned file to a new file (don't overwrite original)
         cleaned_filepath = filepath.replace('.jsonl', '_cleaned.jsonl')
-        with open(cleaned_filepath, 'w', encoding='utf-8') as f:
+        with open(cleaned_filepath, 'w', encoding='utf-8', errors='ignore') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         
         # Calculate new stats
@@ -2252,7 +2334,7 @@ async def handler(ws):
                                 text_file_path = os.path.join("@site_structures", "text.md")
                                 
                                 # Write the markdown content directly
-                                with open(text_file_path, 'w', encoding='utf-8') as f:
+                                with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
                                     f.write(f"# {page_state.get('title', 'Unknown Page')}\n\n")
                                     f.write(f"**URL:** {page_state.get('url', 'unknown')}\n")
                                     f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
@@ -2273,6 +2355,19 @@ async def handler(ws):
                     # This ensures llm_actions.json is always aligned with current page
                     await process_actionable_elements_for_llm(actionable_elements)
                     
+                    # 🆕 NEW: Generate compact llm_prompt.md (omit URLs in action lines)
+                    try:
+                        page_path = os.path.join(SITE_STRUCTURES_DIR, CURRENT_PAGE_JSONL)
+                        text_path = os.path.join(SITE_STRUCTURES_DIR, "text.md")
+                        prompt_out = os.path.join(SITE_STRUCTURES_DIR, "llm_prompt.md")
+                        generated = generate_llm_prompt(text_path, page_path, prompt_out)
+                        if generated:
+                            print(f"✅ LLM prompt generated at: {generated}")
+                        else:
+                            print("⚠️ LLM prompt generation returned no output")
+                    except Exception as gen_err:
+                        print(f"⚠️ Error generating llm_prompt.md: {gen_err}")
+
                     print("✅ Intelligence update processed and saved (page + content + markdown)")
                     
                 except Exception as e:
@@ -2527,12 +2622,12 @@ async def handler(ws):
                                 if success:
                                     # Save processed data
                                     processed_filename = saved_file.replace("_clean.jsonl", "_processed.jsonl")
-                                    with open(processed_filename, 'w', encoding='utf-8') as f:
+                                    with open(processed_filename, 'w', encoding='utf-8', errors='ignore') as f:
                                         json.dump(processed_data, f, ensure_ascii=False, indent=2)
                                     
                                     # COMMENTED OUT: Save mapping data
                                     # mapping_filename = saved_file.replace("_clean.jsonl", "_mapping.json")
-                                    # with open(mapping_filename, 'w', encoding='utf-8') as f:
+                                    # with open(mapping_filename, 'w', encoding='utf-8', errors='ignore') as f:
                                     #     json.dump(mapping_data, f, ensure_ascii=False, indent=2)
                                     
                                     print(f"✅ Processed data saved to: {processed_filename}")
@@ -2559,7 +2654,7 @@ async def handler(ws):
                                 processed_filename = f"{hostname}_processed.jsonl"
                                 filepath = os.path.join(SITE_STRUCTURES_DIR, processed_filename)
                                 
-                                with open(filepath, 'w', encoding='utf-8') as f:
+                                with open(filepath, 'w', encoding='utf-8', errors='ignore') as f:
                                     json.dump(processed_data, f, ensure_ascii=False, indent=2)
                                 
                                 print(f"✅ Processed data saved to: {processed_filename}")
@@ -2695,7 +2790,15 @@ async def main():
     
     📡 SERVER ENDPOINT: ws://127.0.0.1:17892
     """
-    async with websockets.serve(handler, "127.0.0.1", 17892):
+    async with websockets.serve(
+        handler,
+        "127.0.0.1",
+        17892,
+        max_size=64 * 1024 * 1024,  # increase frame limit to 64 MiB
+        max_queue=128,
+        ping_interval=20,
+        ping_timeout=20,
+    ):
         print("WS listening on ws://127.0.0.1:17892")
         await asyncio.Future()  # Keep server running indefinitely
 
