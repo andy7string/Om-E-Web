@@ -37,17 +37,37 @@ console.log("[Content] ✅ Running in main frame:", {
     topUrl: window.top.location.href
 });
 
-// 🆕 NEW: Wait for page to be fully loaded before scanning
-if (document.readyState === 'complete') {
-    console.log("[Content] ✅ Page already fully loaded, proceeding with initialization...");
-    scanWhenPageSettles(runScanAfterPageLoad, { quietPeriod: 250, maxWait: 10000 });
-} else {
-    console.log("[Content] 🔄 Page still loading, waiting for load event...");
-    window.addEventListener('load', () => {
-        console.log("[Content] ✅ Page fully loaded, proceeding with initialization...");
-        scanWhenPageSettles(runScanAfterPageLoad, { quietPeriod: 250, maxWait: 10000 });
-    });
+let initialScanScheduled = false;
+let initialScanReason = null;
+
+function scheduleInitialScan(reason = 'unspecified', options = { quietPeriod: 100, maxWait: 10000 }) {
+    if (initialScanScheduled) {
+        console.log("[Content] ⏭️ Initial scan already scheduled (reason:", initialScanReason, ")");
+        return;
+    }
+
+    initialScanScheduled = true;
+    initialScanReason = reason;
+
+    const startScan = () => {
+        console.log(`[Content] 🔍 Scheduling initial scan (${reason}) with quietPeriod ${options.quietPeriod}ms`);
+        scanWhenPageSettles(runScanAfterPageLoad, options);
+    };
+
+    if (document.readyState === 'complete') {
+        startScan();
+    } else {
+        console.log("[Content] 🔄 Page still loading, deferring initial scan until load event...");
+        window.addEventListener('load', () => startScan(), { once: true });
+    }
 }
+
+setTimeout(() => {
+    if (!initialScanScheduled) {
+        console.log("[Content] ⏳ Service worker trigger not received; scheduling fallback scan");
+        scheduleInitialScan('fallback_timeout');
+    }
+}, 4000);
 
 // 🆕 NEW: Function to wait for page to settle before scanning
 function scanWhenPageSettles(scanFn, {
@@ -1579,9 +1599,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
     
     console.log("[Content] Message received from service worker:", message);
-    
 
-    
+    if (message && message.type === "start_intelligence_scan") {
+        scheduleInitialScan('service_worker', {
+            quietPeriod: 100,
+            maxWait: 12000
+        });
+
+        if (typeof sendResponse === 'function') {
+            sendResponse({ ok: true });
+        }
+        return false;
+    }
+
     // 🆕 NEW: Check if this is a typed message (LLM action) first
     // LLM actions are handled by a separate listener to avoid conflicts
     // This ensures clean separation between automation commands and AI actions

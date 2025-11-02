@@ -1,589 +1,258 @@
 {
   "_page_context": {
-    "url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail",
-    "timestamp": 1761051476.876885,
-    "total_actions": 160,
-    "active_tab_id": 1138008972
+    "url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "title": "Bright Tree Digital | Expert Digital Design Services in Adelaide",
+    "timestamp": 1762085536.77564,
+    "total_actions": 65,
+    "active_tab_id": 1138013221
   },
   "a_id_0": {
-    "action_type": "input",
-    "description": "",
-    "tag_name": "input",
+    "action_type": "link",
+    "description": "HOME",
+    "tag_name": "a",
     "selectors": [
-      "#hist_state",
-      "body:nth-child(9)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_0' to input with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_0' to link with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_1": {
-    "action_type": "input",
-    "description": "",
-    "tag_name": "input",
+    "action_type": "link",
+    "description": "ABOUT",
+    "tag_name": "a",
     "selectors": [
-      ".gb_ye",
-      "input.gb_ye",
-      "div:nth-child(1)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_1' to input with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_1' to link with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_2": {
-    "action_type": "input",
-    "description": "",
-    "tag_name": "input",
+    "action_type": "link",
+    "description": "PORTFOLIO",
+    "tag_name": "a",
     "selectors": [
-      ".amp",
-      "input.amp",
-      "td:nth-child(2)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_2' to input with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_2' to link with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_3": {
-    "action_type": "unknown",
-    "description": "GmailSearch mailtabActiveHelpTrainingSend feedback to GoogleTry Gemini",
-    "tag_name": "header",
+    "action_type": "link",
+    "description": "Banner Design",
+    "tag_name": "a",
     "selectors": [
-      "#gb",
-      ".gb_Ha",
-      "header.gb_Ha",
-      "h1:nth-child(1)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_3' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_3' to link with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_4": {
-    "action_type": "nav",
-    "description": "99+Mail0Chat",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "Logo Design",
+    "tag_name": "a",
     "selectors": [
-      ".aeN",
-      "div.aeN",
-      "div:nth-child(1)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_4' to nav with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_4' to link with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_5": {
     "action_type": "link",
-    "description": "Gmail Help Centre",
+    "description": "Web Design",
     "tag_name": "a",
     "selectors": [
-      "div:nth-child(1)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_5' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_6": {
     "action_type": "link",
-    "description": "Try reloading the page",
+    "description": "SERVICES",
     "tag_name": "a",
     "selectors": [
-      "#reloadurl",
-      "p:nth-child(1)"
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_6' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_7": {
     "action_type": "link",
-    "description": "Help Centre",
+    "description": "CONTACT",
+    "tag_name": "a",
+    "selectors": [
+      ".menu-link",
+      "a.menu-link",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_7' to link with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_8": {
+    "action_type": "nav",
+    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
+    "tag_name": "nav",
+    "selectors": [
+      "#primary-site-navigation-desktop",
+      ".site-navigation",
+      "nav.site-navigation",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_8' to nav with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_9": {
+    "action_type": "nav",
+    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
+    "tag_name": "nav",
+    "selectors": [
+      "#primary-site-navigation-mobile",
+      ".site-navigation",
+      "nav.site-navigation",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_9' to nav with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_10": {
+    "action_type": "unknown",
+    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
+    "tag_name": "div",
+    "selectors": [
+      ".main-navigation",
+      "div.main-navigation",
+      "nav:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_10' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_11": {
+    "action_type": "unknown",
+    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
+    "tag_name": "div",
+    "selectors": [
+      ".main-navigation",
+      "div.main-navigation",
+      "nav:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_11' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_12": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".ast-builder-social-element",
+      "a.ast-builder-social-element",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_12' to link with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_13": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".ast-builder-social-element",
+      "a.ast-builder-social-element",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_13' to link with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_14": {
+    "action_type": "link",
+    "description": "Testimonials",
     "tag_name": "a",
     "selectors": [
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_7' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_8": {
-    "action_type": "link",
-    "description": "Gmail (standard view) guide",
-    "tag_name": "a",
-    "selectors": [
-      "#:n",
-      ".J-Ke",
-      "a.J-Ke",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_8' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_9": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".gb_B",
-      "a.gb_B",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_9' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_10": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".gb_B",
-      "a.gb_B",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_10' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_11": {
-    "action_type": "link",
-    "description": "Inbox",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_11' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_12": {
-    "action_type": "link",
-    "description": "Starred",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_12' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_13": {
-    "action_type": "link",
-    "description": "Snoozed",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_13' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_14": {
-    "action_type": "link",
-    "description": "Sent",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_14' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_15": {
     "action_type": "link",
-    "description": "Drafts",
+    "description": "Privacy Policy",
     "tag_name": "a",
     "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_15' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_16": {
     "action_type": "link",
-    "description": "Purchases",
+    "description": "Website Designed by Bright Tree Digital",
     "tag_name": "a",
     "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
+      "h6:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_16' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_17": {
-    "action_type": "link",
-    "description": "[Gmail]Trash",
-    "tag_name": "a",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
+      "head:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_17' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_17' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_18": {
-    "action_type": "link",
-    "description": "George Bellas",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_18' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_19": {
-    "action_type": "link",
-    "description": "Notes",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_19' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_20": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://socketlabs.vaultre.com.au/?ref%3DVksAAIA64GrdWJjyvtySuYFw4o0m3G1AAQAAAFLdWYO6ac0WTxCO4MJFUjYpp7OgQKZLBeWHSu0rCvkEU5XyMd5AsevhFUDFivcYDjzy4uAembvyDEbWx_anNpqiUwOlVlMvfStKWDdm5oINpy7zBNyrH6NgfhH5x0PkZ63vIOxMUoWS2SKECvFUDlb0y_R9sngKpF8iNb1MSl0jzV4eaDQ4EQmAqTDzQ7FxnsqTAWx0DTBt1FpxbreMjFpt6QdwPW02G_OSTsuLXTDJzonqVOKb3Mua_vSD7iEjEYF7r4QwOfGzs6IonBa03fK-5arjEwAYZPanet4S_TfWPGoCzqAozMy6sWRLQsX0HqLUZAo8GsgwkEfF_CAh8QQ&source=gmail&ust=1761137869482000&usg=AOvVaw0tWmk-vxqUCOTAtGAiztWJ\"]",
-      ".m_8319486550135965773webfont",
-      "a.m_8319486550135965773webfont",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_20' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_21": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://socketlabs.vaultre.com.au/?ref%3DVksAAD-yc-zY3vwPZQCJR5q3b6CI9aEIAQAAAFLdWYO6ac0WTxCO4MJFUjYpp7OgQKZLBeWHSu0rCvkEU5XyMd5AsevhFUDFivcYDjzy4uAembvyDEbWx_anNppH9cgIjkvILQxgilxsnsqompUIJ5pooWaSrlEb3ZB8MtgGSO3aVNq-U2WQveOZJmZFl69BxCfrM2PzoN2Z3y5hIkd40e9WCayZiAWJO0ObYcvMKmr9wN94Cd2yr8ll26dOPhw_TVKWfBuneKRNkW8S-tCYHjUQGY2hZVtc9cPqQH7xIT3QnvrcS2EaWTOjuG2C4tpsanWCY8Gr_hn3xXQHGzfhWJIUtj9t9X966ifibIHohirvZEgZaAACjRp4i90&source=gmail&ust=1761137869483000&usg=AOvVaw0QBsUoCVGr4Qu1GsiYgGH7\"]",
-      ".m_8319486550135965773webfont",
-      "a.m_8319486550135965773webfont",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_21' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_22": {
-    "action_type": "link",
-    "description": "Call",
-    "tag_name": "a",
-    "selectors": [
-      ".m_8319486550135965773webfont",
-      "a.m_8319486550135965773webfont",
-      "td:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_22' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_23": {
-    "action_type": "link",
-    "description": "Enquire",
-    "tag_name": "a",
-    "selectors": [
-      ".m_8319486550135965773webfont",
-      "a.m_8319486550135965773webfont",
-      "td:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_23' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_24": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://socketlabs.vaultre.com.au/?ref%3DVksAAF81CyCPsdqcVCqC3v-apVQzbcrQAQAAAFLdWYO6ac0WTxCO4MJFUjYpp7OgQKZLBeWHSu0rCvkEU5XyMd5AsevhFUDFivcYDjzy4uAembvyDEbWx_anNppH9cgIjkvILQxgilxsnsqo84rHg9a4X1P7wrbmve-3buf4gEdWyxV7ik5bsOtqpc2vJFk-qnKlsxe0eqyZ-JkXr3UKrFYSVzHUZX6NQKBE46BSUPugozV6tw1x0tx07aatcNVQubh6XGsanA3pCpxQv8mj8p-520qlUq8iHCMfkVNhhqseW11kcazc4_we4HNZKOvDlxYERhvW7OAwrZViLT1GVh1mahOL8SV3U93OYXXyaappKemoKpRpIca718O6awp985ahUlDfT8Jl4IR3&source=gmail&ust=1761137869483000&usg=AOvVaw0wqyH1llzED1Q4YivIYPio\"]",
-      "td:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_24' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_25": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://socketlabs.vaultre.com.au/?ref%3DVksAAKDog1C6jg4FDM4UM-38afof_9Y_AQAAAFLdWYO6ac0WTxCO4MJFUjYpp7OgQKZLBeWHSu0rCvkEU5XyMd5AsevhFUDFivcYDjzy4uAembvyDEbWx_anNppH9cgIjkvILQxgilxsnsqoGGh1o2_aBREKXEC3p0pDD-GPP8aPK1l_a4V417cekNTnQr2clHG3oRXF1jROl0lr5GYM0-hXjAR4o2HNVbOAp_AoCqzs8kyjaVG0g6iKHFNrPT4JCclTyWU_sytfEZDvLrikqD7bAbLH0MxFGDqWpFwGwJxUUDpURS9VOLKNqmCBoaJYFXQJK2SMTQa9BHm8wOG7Ub5hpXasaB17pUwrYetU8zm_Zx0xkvOM3rxSTj0P5YNjraPlujqkZCOVqQx_&source=gmail&ust=1761137869483000&usg=AOvVaw0XLyoWY7nsc-cHcWLGGw4G\"]",
-      "td:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_25' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_26": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://socketlabs.vaultre.com.au/?ref%3DVksAAJXu3zwUkaKyBRSe0bBuzBpnI9jfAQAAAFLdWYO6ac0WTxCO4MJFUjYpp7OgQKZLBeWHSu0rCvkEU5XyMd5AsevhFUDFivcYDjzy4uAembvyDEbWx_anNppH9cgIjkvILQxgilxsnsqo8bMNFIHLs6wgqisxNX7SNp96Hzv_BnwHVrbP5UWyIUuSsvxPeE8YYZlpwThWEGygaAoTh8QZMzHsIn6dCKVaexntGFAIFvjnTw428YjghiWI0IkLLGsmGbGX8KcGhYaZXcXt4wNgxR2InOrtNfpRq_AHYjmdfQMN7RX2zXvpe2xYIWHcZicJPErVqD7AxPsjcnWHQAaKO645hxmM38BfMGc35Dt2QflB0X5b-aiXAVk-T0JBPxIMmWx1ER7uXu8i&source=gmail&ust=1761137869484000&usg=AOvVaw1OgmjcTyAtvie3AglH-F8c\"]",
-      "td:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_26' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_27": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://socketlabs.vaultre.com.au/?ref%3DVksAAJgLEkhyVay0wMx1TmttwnSR0inZAQAAAFLdWYO6ac0WTxCO4MJFUjYpp7OgQKZLBeWHSu0rCvkEU5XyMd5AsevhFUDFivcYDjzy4uAembvyDEbWx_anNppH9cgIjkvILQxgilxsnsqoqPbJVJlGsmL6Lxq5PNfLVqJfI0z0Ig2lZJoiUrP8tAM6II0iKKZAhTzyH_lndQk93TnSzgI4V8uzhcQGT_12h1ptZ2W5y5tASz-nTspeF8zYKagL-yi51stKmIGimuqZ2NJUhz9JCuqugWhAm5szXXwwdYq_b6Yse7YbNL8FpTiiYlhoNuXfQ5yunCFUy7c4_H0wmHXOK-u24dfZ3EbkZ6J-m9o-EI6r8icjLauuye-JnKNkhX_2sukOyy8ssx97&source=gmail&ust=1761137869484000&usg=AOvVaw3gr8jgExUqfK6RaDtaa5AL\"]",
-      "td:nth-child(7)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_27' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_28": {
-    "action_type": "link",
-    "description": "Unsubscribe",
-    "tag_name": "a",
-    "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://socketlabs.vaultre.com.au/?ref%3DVksAAGM9vrT7ibgaE_RSapAIar-fbRYwAQAAAFLdWYO6ac0WTxCO4MJFUjYpp7OgQKZLBeWHSu0rCvkEU5XyMd5AsevhFUDFivcYDjzy4uAembvyDEbWx_anNppH9cgIjkvILQxgilxsnsqowRs09_XSPvXUN_CmOHwntgbrv-3-mrm8mQFrvUZz1V42vygRguJsF5S5CjuHa7iXlJuwLaH8GShpW1mMvydsYV1smYPDowqlQFS8JsEwmURTgS6WNUBoBG4oi92yjIez9ijeBzytcUROlaOI1DKEBogkj7tvFbHy1tDT-cEsuT5qS6-k3xolkKi2v4nJ76piL8hpMkXr1-yeXuisgIJDAFxxsglGGiIs-ozUVjoRFoa08becmflsX090V4ddy9WFOK0Ug5vR951D-2i14cqLSYBU-ZK-gdt80U9IQJFeE1fYnchBguDdN1iL1XX-QsVgkIfk7qTh_FHi5w_bUv_pvZsIEkRBdNPT_qAsMYSUIaA&source=gmail&ust=1761137869484000&usg=AOvVaw22Dt2TgvyOmuySnNdLZbz2\"]",
-      "p:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_28' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_29": {
-    "action_type": "link",
-    "description": "Update your details",
-    "tag_name": "a",
-    "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://socketlabs.vaultre.com.au/?ref%3DVksAAI0SihbAnFl-8yhnL7kv_KuN4cbzAQAAAFLdWYO6ac0WTxCO4MJFUjYpp7OgQKZLBeWHSu0rCvkEU5XyMd5AsevhFUDFivcYDjzy4uAembvyDEbWx_anNppH9cgIjkvILQxgilxsnsqoTTNbn1glI3DrhdybjMqHFoza3n-m7cO37hUlm191XUDIsUwsM0gaFekkv1ZELhI7K-u0f-crYhLT-Q6KyJfMrGbvN1d2zTXRSN4bifqRhmd4Sk2SCZJvgqnfmEQISfh06lEamBNusBpcbwqq2JHO8wxP91hx2ZAs_mvL10CyqR6X2Y2diy3u2ufN2mwQx-Hyba27ibt-r3ezXoZlCSX4oUXP25cA2tKoxoktIyFcEcTS7XOkEnTchkk4_ys23hBbzYULUKaXLBCNYCGbuNdcVtIlSzDe4PME6zOsHIFv_hTcOyA1VEp6ezu6k9y_QIMYXwGTr6JYNYPoEjYILOrxeWCHkK3bVeKVeWvXosBeH6r6fhliGwWS3oci5N0b5FAvWcOuVDnUdk_qpo7zyux1fCmcHgk9_je3n7f2y3th1fgP_zSJi2e-4ZlGre7FlwM1hS9Zb1BBGkHvZlG5Hx_7kA&source=gmail&ust=1761137869484000&usg=AOvVaw0udJ6LuAbAttII7OR5hEYp\"]",
-      "p:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_29' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_30": {
-    "action_type": "link",
-    "description": "78% of 15 GB used",
-    "tag_name": "a",
-    "selectors": [
-      ".bcB",
-      "a.bcB",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_30' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_31": {
-    "action_type": "link",
-    "description": "Terms",
-    "tag_name": "a",
-    "selectors": [
-      ".l9",
-      "a.l9",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_31' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_32": {
-    "action_type": "link",
-    "description": "Privacy",
-    "tag_name": "a",
-    "selectors": [
-      ".l9",
-      "a.l9",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_32' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_33": {
-    "action_type": "link",
-    "description": "Programme Policies",
-    "tag_name": "a",
-    "selectors": [
-      ".l9",
-      "a.l9",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_33' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_34": {
-    "action_type": "unknown",
-    "description": ".J-J5-Ji{position:relative;display:-moz-inline-box;display:inline-block}* html .J-J5-Ji{display:inli",
-    "tag_name": "style",
-    "selectors": [
-      "[data-href=\"/_/scs/mail-static/_/ss/k=gmail.main.nhz0zqspHIo.L.W.O/am=8QuIAAAQIP9THvx7eLBHUsD86_Dxqw_8sQ0HLhkCYMB_ZvwDdQD0IZepQ01xsdur-28Gn8E-_pADgryzHNysBx8AcuMxIgALAACYxgj3MQAAAAAAAAAAAAAAAAAQAIDwaKRABA/d=1/excm=at/rs=AHGWq9CA7qyDgpBk3lbRNMxEHGlaFxHeVA\"]",
-      "head:nth-child(32)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_34' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_35": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(8)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_35' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_36": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(17)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_36' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_37": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(18)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_37' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_38": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(19)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_38' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_39": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(20)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_39' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_40": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(21)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_40' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_41": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(22)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_41' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_42": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(23)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_42' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_43": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -591,1682 +260,600 @@
       "head:nth-child(24)"
     ],
     "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_18' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_19": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(25)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_19' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_20": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(26)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_20' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_21": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(27)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_21' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_22": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#astra-theme-css-css",
+      "head:nth-child(31)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_22' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_23": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#astra-google-fonts-css",
+      "head:nth-child(33)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_23' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_24": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#hfe-widgets-style-css",
+      "head:nth-child(34)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_24' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_25": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#dashicons-css",
+      "head:nth-child(37)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_25' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_26": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#portfolio-front-style-css",
+      "head:nth-child(38)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_26' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_27": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#hfe-style-css",
+      "head:nth-child(39)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_27' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_28": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#elementor-frontend-css",
+      "head:nth-child(40)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_28' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_29": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#elementor-post-3614-css",
+      "head:nth-child(41)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_29' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_30": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#uael-frontend-css",
+      "head:nth-child(42)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_30' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_31": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#wpforms-modern-base-css",
+      "head:nth-child(43)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_31' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_32": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#uael-teammember-social-icons-css",
+      "head:nth-child(44)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_32' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_33": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#uael-social-share-icons-brands-css",
+      "head:nth-child(45)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_33' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_34": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#uael-social-share-icons-fontawesome-css",
+      "head:nth-child(46)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_34' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_35": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#uael-nav-menu-icons-css",
+      "head:nth-child(47)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_35' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_36": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#widget-heading-css",
+      "head:nth-child(48)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_36' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_37": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#widget-image-css",
+      "head:nth-child(49)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_37' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_38": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#elementor-post-3605-css",
+      "head:nth-child(50)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_38' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_39": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#elementor-post-5533-css",
+      "head:nth-child(51)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_39' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_40": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#qi-addons-for-elementor-grid-style-css",
+      "head:nth-child(52)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_40' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_41": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#qi-addons-for-elementor-helper-parts-style-css",
+      "head:nth-child(53)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_41' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_42": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#qi-addons-for-elementor-style-css",
+      "head:nth-child(54)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_42' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+  },
+  "a_id_43": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "#astra-addon-css-css",
+      "head:nth-child(55)"
+    ],
+    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_43' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_44": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#base-js",
-      "head:nth-child(31)"
+      "#swiper-css",
+      "head:nth-child(57)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_44' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_45": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(36)"
+      "#hfe-elementor-icons-css",
+      "head:nth-child(58)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_45' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_46": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      ".gb_Ie",
-      "button.gb_Ie",
-      "form:nth-child(2)"
+      "#hfe-icons-list-css",
+      "head:nth-child(59)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_46' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_46' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_47": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      "[data-tooltip=\"Show search options\"]",
-      ".gb_Le",
-      "button.gb_Le",
-      "form:nth-child(5)"
+      "#bdt-uikit-css",
+      "head:nth-child(64)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_47' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_47' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_48": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      ".gb_Je",
-      "button.gb_Je",
-      "form:nth-child(6)"
+      "#ep-helper-css",
+      "head:nth-child(65)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_48' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_48' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_49": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      "[data-idom-class=\"XyWBof\"]",
-      "[data-use-native-focus-logic=\"true\"]",
-      "[data-tooltip-enabled=\"true\"]",
-      "[data-tooltip-id=\"tt-c0\"]",
-      ".VYBDae-JX-I",
-      "button.VYBDae-JX-I",
-      "span:nth-child(1)"
+      "#elementor-gf-local-roboto-css",
+      "head:nth-child(66)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_49' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_49' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_50": {
-    "action_type": "button",
-    "description": "Upgrade",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "[data-idom-class=\"M1LkOe EqiD4b\"]",
-      ".FOBRw-I",
-      "button.FOBRw-I",
-      "div:nth-child(1)"
+      "#elementor-gf-local-robotoslab-css",
+      "head:nth-child(67)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_50' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_50' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_51": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      "[data-idom-class=\"hMCF6c\"]",
-      "[data-use-native-focus-logic=\"true\"]",
-      ".wX4xVc-JX-I",
-      "button.wX4xVc-JX-I",
-      "div:nth-child(1)"
+      "head:nth-child(75)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_51' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_51' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_52": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      "[data-idom-class=\"bHI \"]",
-      "[data-use-native-focus-logic=\"true\"]",
-      "[data-tooltip-enabled=\"true\"]",
-      "[data-tooltip-id=\"ucc-0\"]",
-      "[data-tooltip-classes=\"bHK\"]",
-      ".pYTkkf-JX-I",
-      "button.pYTkkf-JX-I",
-      "span:nth-child(1)"
+      "head:nth-child(76)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_52' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_52' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_53": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      "[data-idom-class=\"bHI \"]",
-      "[data-use-native-focus-logic=\"true\"]",
-      "[data-tooltip-enabled=\"true\"]",
-      "[data-tooltip-id=\"ucc-1\"]",
-      "[data-tooltip-classes=\"bHK\"]",
-      ".pYTkkf-JX-I",
-      "button.pYTkkf-JX-I",
-      "span:nth-child(1)"
+      "head:nth-child(77)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_53' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_53' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_54": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "div",
+    "tag_name": "link",
     "selectors": [
-      "[data-ogmb=\"1\"]",
-      ".gb_Zc",
-      "div.gb_Zc",
-      "div:nth-child(1)"
+      "head:nth-child(79)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_54' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_54' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_55": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "div",
+    "tag_name": "link",
     "selectors": [
-      ".gb_Zc",
-      "div.gb_Zc",
-      "div:nth-child(2)"
+      "head:nth-child(80)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_55' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_55' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_56": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "div",
+    "tag_name": "link",
     "selectors": [
-      ".gb_Zc",
-      "div.gb_Zc",
-      "div:nth-child(3)"
+      "head:nth-child(81)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_56' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_56' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_57": {
-    "action_type": "button",
-    "description": "Active",
-    "tag_name": "div",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".lJradf",
-      "div.lJradf",
-      "div:nth-child(1)"
+      "head:nth-child(87)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_57' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_57' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_58": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "link",
     "selectors": [
-      "#lZwQje",
-      ".gb_re",
-      "a.gb_re",
-      "div:nth-child(1)"
+      "#widget-icon-list-css",
+      "body:nth-child(7)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_58' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_58' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_59": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "link",
     "selectors": [
-      ".FH",
-      "a.FH",
-      "div:nth-child(1)"
+      "#widget-social-icons-css",
+      "body:nth-child(8)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_59' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_59' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_60": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "div",
+    "tag_name": "link",
     "selectors": [
-      "#:12",
-      ".w-atf",
-      "div.w-atf",
-      "nobr:nth-child(2)"
+      "#e-apple-webkit-css",
+      "body:nth-child(9)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_60' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_60' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_61": {
-    "action_type": "button",
-    "description": "0",
-    "tag_name": "span",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".akt",
-      "span.akt",
-      "span:nth-child(1)"
+      "#astra-addon-megamenu-dynamic-css",
+      "body:nth-child(10)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_61' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_61' to unknown with this element",
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_62": {
     "action_type": "button",
-    "description": "Compose",
-    "tag_name": "div",
+    "description": "Menu Toggle",
+    "tag_name": "button",
     "selectors": [
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
+      ".ast-menu-toggle",
+      "button.ast-menu-toggle",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_62' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_63": {
     "action_type": "button",
-    "description": "More",
-    "tag_name": "span",
+    "description": "Main Menu",
+    "tag_name": "button",
     "selectors": [
-      "#:34",
-      ".J-Ke",
-      "span.J-Ke",
+      "[data-index=\"0\"]",
+      ".menu-toggle",
+      "button.menu-toggle",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_63' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   },
   "a_id_64": {
     "action_type": "button",
-    "description": "",
-    "tag_name": "div",
+    "description": "Menu Toggle",
+    "tag_name": "button",
     "selectors": [
-      "[data-tooltip=\"Create new label\"]",
-      ".aAu",
-      "div.aAu",
-      "div:nth-child(2)"
+      ".ast-menu-toggle",
+      "button.ast-menu-toggle",
+      "li:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_64' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_65": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "span",
-    "selectors": [
-      "#:35",
-      ".J-Ke",
-      "span.J-Ke",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_65' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_66": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_66' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_67": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_67' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_68": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_68' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_69": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_69' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_70": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_70' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_71": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:1n",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_71' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_72": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:1o",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_72' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_73": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-tooltip=\"Input tools on/off (Ctrl-Shift-K)\"]",
-      ".d-Na-JX-I",
-      "a.d-Na-JX-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_73' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_74": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-tooltip=\"Select input tool\"]",
-      ".d-Na-JX-I",
-      "a.d-Na-JX-I",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_74' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_75": {
-    "action_type": "button",
-    "description": "Inbox",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip-id=\"EZCsidc6\"]",
-      "[data-tooltip-classes=\"wYeeg\"]",
-      ".hN",
-      "div.hN",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_75' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_76": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip-id=\"uWodYcc7\"]",
-      "[data-tooltip-classes=\"wYeeg\"]",
-      ".hO",
-      "div.hO",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_76' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_77": {
-    "action_type": "button",
-    "description": "Promotions",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip-id=\"EZCsidc8\"]",
-      "[data-tooltip-classes=\"wYeeg\"]",
-      ".hN",
-      "div.hN",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_77' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_78": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip-id=\"uWodYcc9\"]",
-      "[data-tooltip-classes=\"wYeeg\"]",
-      ".hO",
-      "div.hO",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_78' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_79": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "img",
-    "selectors": [
-      ".qfynfc",
-      "img.qfynfc",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_79' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_80": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Reply\"]",
-      ".T-I",
-      "div.T-I",
-      "td:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_80' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_81": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "img",
-    "selectors": [
-      ".hB",
-      "img.hB",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_81' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_82": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:2a",
-      "[data-tooltip=\"More\"]",
-      ".T-I",
-      "div.T-I",
-      "td:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_82' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_83": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:29",
-      "[data-tooltip=\"Show details\"]",
-      ".ajy",
-      "div.ajy",
-      "td:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_83' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_84": {
-    "action_type": "button",
-    "description": "Reply",
-    "tag_name": "div",
-    "selectors": [
-      ".cKWzSc",
-      "div.cKWzSc",
-      "td:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_84' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_85": {
-    "action_type": "button",
-    "description": "Forward",
-    "tag_name": "div",
-    "selectors": [
-      ".XymfBd",
-      "div.XymfBd",
-      "td:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_85' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_86": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".aT5-aOt-I",
-      "div.aT5-aOt-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_86' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_87": {
-    "action_type": "submit",
-    "description": "",
-    "tag_name": "input",
-    "selectors": [
-      ".submit_as_link",
-      "input.submit_as_link",
-      "form:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_87' to submit with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_88": {
-    "action_type": "unknown",
-    "description": "(function(){try{\nvar _F_toggles_initialize=function(a){(typeof globalThis!==\"undefined\"?globalThis:t",
-    "tag_name": "body",
-    "selectors": [
-      "[data-awr-sg-installed=\"true\"]",
-      ".aAU",
-      "body.aAU",
-      "html:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_88' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_89": {
-    "action_type": "unknown",
-    "description": "Try Gemini",
-    "tag_name": "div",
-    "selectors": [
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_89' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_90": {
-    "action_type": "unknown",
-    "description": "Try Gemini",
-    "tag_name": "div",
-    "selectors": [
-      "[data-rp-placement-id=\"gemkick-pep-icon-callout-id\"]",
-      ".r4vW1e",
-      "div.r4vW1e",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_90' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_91": {
-    "action_type": "unknown",
-    "description": "99+Mail",
-    "tag_name": "div",
-    "selectors": [
-      ".Xa",
-      "div.Xa",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_91' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_92": {
-    "action_type": "unknown",
-    "description": "0Chat",
-    "tag_name": "div",
-    "selectors": [
-      ".Xa",
-      "div.Xa",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_92' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_93": {
-    "action_type": "unknown",
-    "description": "ComposeLabelsInbox5,018StarredSnoozedSentDrafts3Purchases75▼More LabelsLabels[Gmail]Trash▼George Bel",
-    "tag_name": "div",
-    "selectors": [
-      ".aqn",
-      "div.aqn",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_93' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_94": {
-    "action_type": "unknown",
-    "description": "▼",
-    "tag_name": "div",
-    "selectors": [
-      "[data-label-name=\"#^assistive_purchase\"]",
-      ".pM",
-      "div.pM",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_94' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_95": {
-    "action_type": "unknown",
-    "description": "▼",
-    "tag_name": "div",
-    "selectors": [
-      "[data-label-name=\"[Gmail]Trash\"]",
-      ".pM",
-      "div.pM",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_95' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_96": {
-    "action_type": "unknown",
-    "description": "▼",
-    "tag_name": "div",
-    "selectors": [
-      "[data-label-name=\"George Bellas\"]",
-      ".pM",
-      "div.pM",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_96' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_97": {
-    "action_type": "unknown",
-    "description": "▼",
-    "tag_name": "div",
-    "selectors": [
-      "[data-label-name=\"Notes\"]",
-      ".pM",
-      "div.pM",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_97' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_98": {
-    "action_type": "unknown",
-    "description": "Upgrade",
-    "tag_name": "div",
-    "selectors": [
-      "[data-rp-onramp-input=\"357\"]",
-      "[data-button-classes=\"M1LkOe\"]",
-      "[data-icon-classes=\"kaUFz\"]",
-      ".pt0Pr",
-      "div.pt0Pr",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_98' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_99": {
-    "action_type": "unknown",
-    "description": "Upgrade",
-    "tag_name": "div",
-    "selectors": [
-      "[data-action-behavior=\"%.@.[[null,null,\"https://one.google.com/dynamic-plans?utm_source=gmail&utm_medium=web&utm_campaign=gmail_left_navigation_entry&authuser=0\"]],null,null,\"Upgrade\",null,null,null,null,[[386,0,357,18,0,\"GMAIL_LEFT_NAVIGATION_ENTRY\",[null,\"1\",357],null,null,null,357,0],[2],\"CIIDEAAY5QIgEigAMhtHTUFJTF9MRUZUX05BVklHQVRJT05fRU5UUlk6BhIBMRjlAljlAmAA\",\"CAI=\"]]\"]",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_99' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_100": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".aqn",
-      "div.aqn",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_100' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_101": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".G-atb",
-      "div.G-atb",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_101' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_102": {
-    "action_type": "unknown",
-    "description": "Print allIn new windowNEW RELEASE - 44 Monaco Cct, Aberfoyle ParkInboxSearch for all messages with l",
-    "tag_name": "div",
-    "selectors": [
-      ".nH",
-      "div.nH",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_102' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_103": {
-    "action_type": "unknown",
-    "description": "Print allIn new windowNEW RELEASE - 44 Monaco Cct, Aberfoyle ParkInboxSearch for all messages with l",
-    "tag_name": "div",
-    "selectors": [
-      ".nH",
-      "div.nH",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_103' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_104": {
-    "action_type": "unknown",
-    "description": "Print allIn new windowNEW RELEASE - 44 Monaco Cct, Aberfoyle ParkInboxSearch for all messages with l",
-    "tag_name": "div",
-    "selectors": [
-      ".V8djrc",
-      "div.V8djrc",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_104' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_105": {
-    "action_type": "unknown",
-    "description": "Print allIn new window",
-    "tag_name": "div",
-    "selectors": [
-      ".hj",
-      "div.hj",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_105' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_106": {
-    "action_type": "unknown",
-    "description": "Print allIn new window",
-    "tag_name": "div",
-    "selectors": [
-      ".bHJ",
-      "div.bHJ",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_106' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_107": {
-    "action_type": "unknown",
-    "description": "NEW RELEASE - 44 Monaco Cct, Aberfoyle ParkInboxSearch for all messages with label InboxRemove label",
-    "tag_name": "div",
-    "selectors": [
-      "[data-subject-announcement=\"Conversation opened. 1 read message.\"]",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_107' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_108": {
-    "action_type": "unknown",
-    "description": "Scott Torney Unsubscribe18:05 (5 hours ago)to me                                                    ",
-    "tag_name": "div",
-    "selectors": [
-      ".h7",
-      "div.h7",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_108' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_109": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".lQs8Hd",
-      "div.lQs8Hd",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_109' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_110": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".wl4W9b",
-      "div.wl4W9b",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_110' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_111": {
-    "action_type": "unknown",
-    "description": "You can't react to a group with an emoji",
-    "tag_name": "div",
-    "selectors": [
-      "[data-position=\"dynamic\"]",
-      ".wrsVRe",
-      "div.wrsVRe",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_111' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_112": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".aUx",
-      "div.aUx",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_112' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_113": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".WN9Ejb",
-      "div.WN9Ejb",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_113' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_114": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".bAw",
-      "div.bAw",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_114' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_115": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".bHC-Q",
-      "span.bHC-Q",
-      "button:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_115' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_116": {
-    "action_type": "unknown",
-    "description": "LabelsInbox5,018StarredSnoozedSentDrafts3Purchases75▼More LabelsLabels[Gmail]Trash▼George Bellas▼Not",
-    "tag_name": "div",
-    "selectors": [
-      ".pp",
-      "div.pp",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_116' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_117": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".bHC-Q",
-      "span.bHC-Q",
-      "button:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_117' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_118": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".bHC-Q",
-      "span.bHC-Q",
-      "button:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_118' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_119": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".bHC-Q",
-      "span.bHC-Q",
-      "button:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_119' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_120": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".bHC-Q",
-      "span.bHC-Q",
-      "button:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_120' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_121": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".bHC-Q",
-      "span.bHC-Q",
-      "button:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_121' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_122": {
-    "action_type": "form",
-    "description": "Search mailtab",
-    "tag_name": "form",
-    "selectors": [
-      "#aso_search_form_anchor",
-      ".gb_Dd",
-      "form.gb_Dd",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_122' to form with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_141": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "iframe",
-    "selectors": [
-      "body:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_141' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_142": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".gb_Xc",
-      "span.gb_Xc",
-      "a:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_142' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_143": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "img",
-    "selectors": [
-      ".gb_Xc",
-      "img.gb_Xc",
-      "a:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_143' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_144": {
-    "action_type": "unknown",
-    "description": "tab",
-    "tag_name": "div",
-    "selectors": [
-      ".etAEh",
-      "div.etAEh",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_144' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_145": {
-    "action_type": "unknown",
-    "description": "Active",
-    "tag_name": "div",
-    "selectors": [
-      ".C2Qm1d",
-      "div.C2Qm1d",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_145' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_146": {
-    "action_type": "unknown",
-    "description": "HelpTrainingSend feedback to Google",
-    "tag_name": "div",
-    "selectors": [
-      "#M842Cd",
-      ".t9",
-      "div.t9",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_146' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_147": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".ub",
-      "div.ub",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_147' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_148": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".VYBDae-JX-ank-Rtc0Jf",
-      "span.VYBDae-JX-ank-Rtc0Jf",
-      "button:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_148' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_149": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".notranslate",
-      "span.notranslate",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_149' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_150": {
-    "action_type": "unknown",
-    "description": "Try Gemini",
-    "tag_name": "div",
-    "selectors": [
-      "#tt-c0",
-      ".ne2Ple-oshW8e-J9",
-      "div.ne2Ple-oshW8e-J9",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_150' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_151": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "img",
-    "selectors": [
-      "[data-noaft=\"\"]",
-      ".gb_Q",
-      "img.gb_Q",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_151' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_152": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".gb_R",
-      "div.gb_R",
-      "a:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_152' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_153": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_153' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_154": {
-    "action_type": "unknown",
-    "description": "99+",
-    "tag_name": "span",
-    "selectors": [
-      ".XU",
-      "span.XU",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_154' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_155": {
-    "action_type": "unknown",
-    "description": "0",
-    "tag_name": "span",
-    "selectors": [
-      ".XU",
-      "span.XU",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_155' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_156": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "img",
-    "selectors": [
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_156' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_157": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".wX4xVc-JX-ank-Rtc0Jf",
-      "span.wX4xVc-JX-ank-Rtc0Jf",
-      "button:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_157' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_158": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "img",
-    "selectors": [
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_158' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_159": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".G-asx",
-      "div.G-asx",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_159' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_160": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".adi",
-      "span.adi",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_160' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_161": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".adi",
-      "span.adi",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_161' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_162": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".pYTkkf-JX-ank-Rtc0Jf",
-      "span.pYTkkf-JX-ank-Rtc0Jf",
-      "button:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_162' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_163": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".notranslate",
-      "span.notranslate",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_163' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_164": {
-    "action_type": "unknown",
-    "description": "Print all",
-    "tag_name": "div",
-    "selectors": [
-      "#ucc-0",
-      ".ne2Ple-oshW8e-J9",
-      "div.ne2Ple-oshW8e-J9",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_164' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_165": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".pYTkkf-JX-ank-Rtc0Jf",
-      "span.pYTkkf-JX-ank-Rtc0Jf",
-      "button:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_165' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_166": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".notranslate",
-      "span.notranslate",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_166' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_167": {
-    "action_type": "unknown",
-    "description": "In new window",
-    "tag_name": "div",
-    "selectors": [
-      "#ucc-1",
-      ".ne2Ple-oshW8e-J9",
-      "div.ne2Ple-oshW8e-J9",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_167' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_168": {
-    "action_type": "unknown",
-    "description": "Search for all messages with label Inbox",
-    "tag_name": "div",
-    "selectors": [
-      "#EZCsidc6",
-      ".ne2Ple-oshW8e-J9",
-      "div.ne2Ple-oshW8e-J9",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_168' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_169": {
-    "action_type": "unknown",
-    "description": "Remove label Inbox from this conversation",
-    "tag_name": "div",
-    "selectors": [
-      "#uWodYcc7",
-      ".ne2Ple-oshW8e-J9",
-      "div.ne2Ple-oshW8e-J9",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_169' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_170": {
-    "action_type": "unknown",
-    "description": "Search for all messages with label Promotions",
-    "tag_name": "div",
-    "selectors": [
-      "#EZCsidc8",
-      ".ne2Ple-oshW8e-J9",
-      "div.ne2Ple-oshW8e-J9",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_170' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_171": {
-    "action_type": "unknown",
-    "description": "Remove label Promotions from this conversation",
-    "tag_name": "div",
-    "selectors": [
-      "#uWodYcc9",
-      ".ne2Ple-oshW8e-J9",
-      "div.ne2Ple-oshW8e-J9",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_171' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_172": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "img",
-    "selectors": [
-      "#:1f_1-e",
-      "[data-hovercard-id=\"scott.torney@harcourts.com.au\"]",
-      "[data-name=\"Scott Torney\"]",
-      ".ajn",
-      "img.ajn",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_172' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_173": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".jWOS7-JX-ank-Rtc0Jf",
-      "span.jWOS7-JX-ank-Rtc0Jf",
-      "button:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_173' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_174": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      ".notranslate",
-      "span.notranslate",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_174' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_175": {
-    "action_type": "unknown",
-    "description": "You can't react to a group with an emoji",
-    "tag_name": "div",
-    "selectors": [
-      "#tt-c1",
-      ".ne2Ple-oshW8e-J9",
-      "div.ne2Ple-oshW8e-J9",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_175' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_176": {
-    "action_type": "tab",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:48",
-      ".bse-bvF-I",
-      "div.bse-bvF-I",
-      "div:nth-child(8)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_176' to tab with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_177": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "iframe",
-    "selectors": [
-      "#apiproxy6edee350818a5c2d4aa1905377a8c3f1d5dc2ba30.2911867063",
-      "body:nth-child(44)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_177' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox/FMfcgzQcqQxHpNhjWrVgJDwlMtjZTTlZ",
-    "page_title": "NEW RELEASE - 44 Monaco Cct, Aberfoyle Park - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
+    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
   }
 }

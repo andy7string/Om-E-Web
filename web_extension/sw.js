@@ -34,6 +34,9 @@ let isConnected = false;
 // Queue for messages when WebSocket isn't ready
 let pendingMessages = [];
 
+// Track the last URL each tab has been scanned for to avoid duplicate intelligence runs
+const tabScanState = new Map(); // tabId -> { lastUrl: string, lastScanAt: number }
+
 // 🆕 NEW: Track action execution state to prevent content script refresh
 let actionInProgress = false;
 
@@ -189,6 +192,47 @@ function flushPendingMessages() {
             }
         });
     }
+}
+
+async function triggerIntelligenceScan(tabId, url, reason = "navigation_completed") {
+    if (!url || url.startsWith("chrome://")) {
+        return;
+    }
+
+    const previous = tabScanState.get(tabId);
+    if (previous && previous.lastUrl === url) {
+        console.log(`[SW] ⏭️ Skipping intelligence scan for ${url} (already processed)`);
+        return;
+    }
+
+    console.log(`[SW] 📣 Triggering intelligence scan (${reason}):`, { tabId, url });
+
+    try {
+        await chrome.scripting.executeScript({
+            target: { tabId },
+            files: ['content.js']
+        });
+    } catch (error) {
+        console.warn("[SW] Unable to ensure content script before intelligence scan:", error.message);
+    }
+
+    chrome.tabs.sendMessage(tabId, {
+        type: "start_intelligence_scan",
+        url,
+        reason,
+        timestamp: Date.now()
+    }, () => {
+        const err = chrome.runtime.lastError;
+        if (err) {
+            console.warn("[SW] Failed to deliver start_intelligence_scan:", err.message);
+        }
+    });
+
+    tabScanState.set(tabId, {
+        lastUrl: url,
+        lastScanAt: Date.now(),
+        reason
+    });
 }
 
 /**
@@ -1377,6 +1421,27 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
     await sendTabsInfo();
 });
 
+chrome.webNavigation.onBeforeNavigate.addListener((details) => {
+    if (details.frameId !== 0) {
+        return;
+    }
+    tabScanState.delete(details.tabId);
+}, { url: [{ schemes: ['http', 'https'] }] });
+
+chrome.webNavigation.onCompleted.addListener((details) => {
+    if (details.frameId !== 0) {
+        return;
+    }
+    triggerIntelligenceScan(details.tabId, details.url, "webNavigation.onCompleted");
+}, { url: [{ schemes: ['http', 'https'] }] });
+
+chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
+    if (details.frameId !== 0) {
+        return;
+    }
+    triggerIntelligenceScan(details.tabId, details.url, "webNavigation.onHistoryStateUpdated");
+}, { url: [{ schemes: ['http', 'https'] }] });
+
 /**
  * 🔄 Handle tab update events with enhanced cache management
  * 
@@ -1400,6 +1465,10 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
         // This will now update both internal state AND send to server
         await sendTabsInfo(false); // false = not a force refresh
     }
+
+    if (changeInfo.status === 'complete' && tab.url && !tab.url.startsWith('chrome://')) {
+        await triggerIntelligenceScan(tabId, tab.url, "tabs.onUpdated complete");
+    }
 });
 
 /**
@@ -1420,6 +1489,7 @@ chrome.tabs.onCreated.addListener(async (tab) => {
  */
 chrome.tabs.onRemoved.addListener(async (tabId, removeInfo) => {
     console.log("[SW] Tab removed:", tabId);
+    tabScanState.delete(tabId);
     await sendActiveTabInfo();
     await sendTabsInfo();
 });

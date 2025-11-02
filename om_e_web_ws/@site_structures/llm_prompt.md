@@ -1,6 +1,8 @@
 # Bright Tree Digital | Expert Digital Design Services in Adelaide
 
-**URL:** https://brighttreedigital.com.au/services/#websiteDesign
+## Transcript (partial)
+# Bright Tree Digital | Expert Digital Design Services in Adelaide
+
 **Timestamp:** 2025-11-02 22:42:16
 
 ---
@@ -30,31 +32,9 @@ Logo Design
 
 Elevate your brand with our custom Logo Design service.
 
-We specialize in creating logos that are not just visually striking but also embody your brand’s story and values. Our goal is to design a distinctive, memorable logo that sets you apart and builds recognition, ensuring it resonates with your audience and enhances brand loyalty.
+We specialize in creating logos that are not just visually striking but also embody your brand’s story and values. Our goal is to design a distinctive, memorable logo that sets you apart and builds re
 
-View Portfolio
-Get A Quote
-Work with us
-Send us a message to discuss your needs.
-Get A Quote
-ABOUT US
-
-We specialise in WordPress web design and graphic design, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-
-OUR PORTFOLIO
-Banner Portfolio
-Logo Portfolio
-Web Design Portfolio
-Facebook
-
-Instagram
-ABN: 29 160 886 356
-QUICK LINKS
-Home
-About
-Services
-Testimonials
-Contact
-Privacy Policy
-Copyright © 2025 Bright Tree Digital
-Website Designed by Bright Tree Digital
+## Actions
+- return (a_id_142) to navigate to 'Skip to content'
+- return (a_id_63) to click 'Main Menu'
+- return (a_id_16) to navigate to 'Website Designed by Bright Tree Digital'
