@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-Non-interactive Navigation Test Script
+Non-interactive Action Test Script
 
 Usage examples:
-  - Set value without submit:
-      python3 test_navigation.py --action-id a_id_1 --value "ome" --no-submit
-  - Set value and submit:
-      python3 test_navigation.py --action-id a_id_1 --value "ome" --submit
-  - Click-only (no value):
-      python3 test_navigation.py --action-id a_id_5 --action-type click
+  - Direct navigation:
+      python3 test_navigation.py --command navigate --action-id a_id_755
+  - Click action:
+      python3 test_navigation.py --command click --action-id a_id_133
+  - Custom LLM action:
+      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "ome" --submit
 """
 
 import asyncio
@@ -178,7 +178,9 @@ async def main():
     submit_group = parser.add_mutually_exclusive_group()
     submit_group.add_argument("--submit", dest="submit", action="store_true", help="Submit after setting the value")
     submit_group.add_argument("--no-submit", dest="no_submit", action="store_true", help="Do not submit after setting the value")
-    parser.add_argument("--action-type", dest="action_type", required=False, help="Optional actionType (e.g., setValue, click)")
+    parser.add_argument("--action-type", dest="action_type", required=False, help="Optional actionType when using the 'llm' command (e.g., setValue, click, navigate)")
+    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click"], default="llm",
+                        help="Execution mode: llm (default), navigate, click")
 
     args = parser.parse_args()
 
@@ -202,14 +204,31 @@ async def main():
             params["submit"] = False
 
     # Build payload matching server expectations
+    command_mode = args.command
+
+    if command_mode == "navigate":
+        payload = {
+            "actionId": args.action_id,
+            "actionType": args.action_type or "navigate",
+            "params": params
+        }
+        print(f"🎯 Executing navigation action: {payload}")
+        response = await tester.send_command("execute_llm_action", payload)
+    elif command_mode == "click":
+        payload = {
+            "actionId": args.action_id,
+            "actionType": "click",
+            "params": params
+        }
+        print(f"🎯 Executing click action: {payload}")
+        response = await tester.send_command("execute_llm_action", payload)
+    else:
     payload = {
         "actionId": args.action_id,
-        # Only send actionType if explicitly provided; otherwise extension will auto-detect
         **({"actionType": args.action_type} if args.action_type else {}),
         "params": params
     }
-
-    print(f"🎯 Executing action (non-interactive): {payload}")
+        print(f"🎯 Executing action (LLM mode): {payload}")
     response = await tester.send_command("execute_llm_action", payload)
     if response is None:
         print("❌ No response received")

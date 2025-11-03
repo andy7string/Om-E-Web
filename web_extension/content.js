@@ -1,3 +1,4 @@
+(() => {
 /**
  * 🚀 Chrome Extension Content Script for Web Automation
  * 
@@ -19,7 +20,7 @@
 // 🛡️ PREVENT DUPLICATE INJECTION - Check if script already loaded
 if (window.omEWebContentScriptLoaded) {
     console.log("[Content] 🚫 Content script already loaded, preventing duplicate injection");
-    throw new Error("Content script already loaded");
+    return;
 }
 window.omEWebContentScriptLoaded = true;
 
@@ -27,7 +28,7 @@ window.omEWebContentScriptLoaded = true;
 if (window.top !== window.self) {
     console.log("[Content] 🚫 Script running in iframe, exiting to prevent iframe scanning issues");
     // Exit early if we're in an iframe
-    throw new Error("Content script should not run in iframes");
+    return;
 }
 
 // 🎯 Confirm we're in main frame
@@ -4693,6 +4694,7 @@ var IntelligenceEngine = function() {
     this.eventHistory = [];
     this.llmInsights = [];
     this.actionableElements = new Map(); // 🆕 NEW: Map of actionable elements with IDs
+    this.actionableElementNodes = new Map(); // 🆕 NEW: Map of live DOM nodes keyed by actionId
     this.contentElements = new Map(); // 🆕 NEW: Map of content elements with IDs
     this.elementCounter = 0; // 🆕 NEW: Counter for generating unique IDs
     this.initialScanCompleted = false; // 🆕 NEW: Track if initial scan is complete
@@ -6811,6 +6813,8 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
         domElement.dataset.omeActionId = actionableId.id;
     }
 
+    this.storeActionableNode(actionableId.id, domElement);
+
     if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
         const existingIndex = this.pageState.interactiveElements.findIndex(item => item.id === actionableId.id);
         const entry = {
@@ -6825,6 +6829,178 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
     }
 
     return actionableId.id;
+};
+
+IntelligenceEngine.prototype.storeActionableNode = function(actionId, node) {
+    if (!actionId || !node) {
+        return;
+    }
+
+    if (node.dataset) {
+        node.dataset.omeActionId = actionId;
+    }
+
+    this.actionableElementNodes.set(actionId, node);
+};
+
+IntelligenceEngine.prototype.getStoredActionableNode = function(actionId) {
+    if (!this.actionableElementNodes.has(actionId)) {
+        return null;
+    }
+
+    const node = this.actionableElementNodes.get(actionId);
+    if (node && node.isConnected) {
+        return node;
+    }
+
+    this.actionableElementNodes.delete(actionId);
+    return null;
+};
+
+IntelligenceEngine.prototype._extractDescriptorLabel = function(descriptor) {
+    if (!descriptor) {
+        return '';
+    }
+
+    const candidates = [];
+    if (typeof descriptor.label === 'string') {
+        candidates.push(descriptor.label);
+    }
+    if (typeof descriptor.textContent === 'string') {
+        candidates.push(descriptor.textContent);
+    }
+    if (descriptor.attributes) {
+        const attrLabels = ['aria-label', 'title', 'label'];
+        attrLabels.forEach(attr => {
+            const value = descriptor.attributes[attr];
+            if (typeof value === 'string') {
+                candidates.push(value);
+            }
+        });
+    }
+
+    const candidate = candidates.find(value => value && value.trim().length > 0);
+    return candidate ? candidate.trim().toLowerCase() : '';
+};
+
+IntelligenceEngine.prototype._extractNodeLabel = function(node) {
+    if (!node) {
+        return '';
+    }
+
+    const candidates = [];
+    if (node.getAttribute) {
+        ['aria-label', 'title', 'label'].forEach(attr => {
+            const value = node.getAttribute(attr);
+            if (value) {
+                candidates.push(value);
+            }
+        });
+    }
+    if (node.textContent) {
+        candidates.push(node.textContent);
+    }
+
+    const candidate = candidates.find(value => value && value.trim().length > 0);
+    return candidate ? candidate.trim().toLowerCase() : '';
+};
+
+IntelligenceEngine.prototype._matchesActionDescriptor = function(node, actionId, descriptor) {
+    if (!node || !node.isConnected) {
+        return false;
+    }
+
+    const descriptorTag = descriptor?.tagName;
+    if (descriptorTag && node.tagName && descriptorTag.toLowerCase() !== node.tagName.toLowerCase()) {
+        return false;
+    }
+
+    if (node.dataset && node.dataset.omeActionId && node.dataset.omeActionId !== actionId) {
+        // Dataset already points to a different actionId - treat as mismatch
+        return false;
+    }
+
+    const descriptorLabel = this._extractDescriptorLabel(descriptor);
+    if (!descriptorLabel) {
+        return true;
+    }
+
+    const nodeLabel = this._extractNodeLabel(node);
+    if (!nodeLabel) {
+        return true;
+    }
+
+    return nodeLabel.includes(descriptorLabel) || descriptorLabel.includes(nodeLabel);
+};
+
+IntelligenceEngine.prototype.resolveActionableDomNode = function(actionId, descriptor) {
+    const ensureStored = (node) => {
+        if (node) {
+            this.storeActionableNode(actionId, node);
+        }
+        return node;
+    };
+
+    const result = { node: null, strategy: 'not_found', selector: null };
+
+    const storedNode = this.getStoredActionableNode(actionId);
+    if (storedNode && this._matchesActionDescriptor(storedNode, actionId, descriptor)) {
+        result.node = ensureStored(storedNode);
+        result.strategy = 'registry';
+        return result;
+    }
+
+    const escapeIdentifier = (value) => {
+        if (window.CSS && typeof window.CSS.escape === 'function') {
+            return window.CSS.escape(value);
+        }
+        return String(value).replace(/"/g, '\\"');
+    };
+
+    const attrSelector = `[data-ome-action-id="${escapeIdentifier(actionId)}"]`;
+    let node = null;
+    try {
+        node = document.querySelector(attrSelector);
+    } catch (error) {
+        node = null;
+    }
+
+    if (node && this._matchesActionDescriptor(node, actionId, descriptor)) {
+        result.node = ensureStored(node);
+        result.strategy = 'data-attribute';
+        result.selector = attrSelector;
+        return result;
+    }
+
+    const selectors = Array.isArray(descriptor?.selectors) ? descriptor.selectors.filter(sel => typeof sel === 'string' && sel.trim().length > 0) : [];
+    const prioritizedSelectors = [];
+    const preferred = pickBestSelector(selectors, descriptor);
+    if (preferred) {
+        prioritizedSelectors.push(preferred);
+    }
+    selectors.forEach(selector => {
+        if (!prioritizedSelectors.includes(selector)) {
+            prioritizedSelectors.push(selector);
+        }
+    });
+
+    for (const selector of prioritizedSelectors) {
+        let candidate = null;
+        try {
+            candidate = document.querySelector(selector);
+        } catch (error) {
+            candidate = null;
+        }
+
+        if (candidate && this._matchesActionDescriptor(candidate, actionId, descriptor)) {
+            result.node = ensureStored(candidate);
+            result.strategy = 'selector';
+            result.selector = selector;
+            return result;
+        }
+    }
+
+    return result;
 };
 
 /**
@@ -7045,36 +7221,48 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
         action = actionableElement.actionType || 'click';
         console.log("[Content] 🔍 Auto-detected action:", action, "from actionType:", actionableElement.actionType);
     }
-    // Generic normalization: treat text-entry element types as setValue
-    {
-        const lowered = typeof action === 'string' ? action.toLowerCase() : '';
+
+    if (typeof action === 'string') {
+        const lowered = action.toLowerCase();
         if (['textarea', 'input', 'type', 'text', 'enter_text'].includes(lowered)) {
             action = 'setValue';
             console.log("[Content] 🔁 Normalized action to 'setValue' for text entry");
+        } else if (['button', 'press', 'toggle', 'menu', 'menuitem', 'tab'].includes(lowered)) {
+            action = 'click';
+            console.log("[Content] 🔁 Normalized action to 'click' for interactive button-like element");
+        } else if (['link'].includes(lowered) && actionableElement.attributes?.href) {
+            action = 'navigate';
+            console.log("[Content] 🔁 Normalized action to 'navigate' for link element");
         }
     }
     
     try {
-        // Use the best available selector
-        const selector = pickBestSelector(actionableElement.selectors, actionableElement);
-        if (!selector) {
-            console.error("[Content] ❌ No valid selector found for element:", actionId);
-            console.log("[Content] 🔍 Element selectors:", actionableElement.selectors);
-            return { success: false, error: "No valid selector found for element" };
-        }
-        
-        console.log("[Content] 🔍 Using selector:", selector);
-        
-        // Find the actual DOM element
-        let element = document.querySelector(selector);
+        const resolution = this.resolveActionableDomNode(actionId, actionableElement);
+        let element = resolution.node;
+
         if (!element) {
-            console.error("[Content] ❌ Element not found in DOM with selector:", selector);
-            console.log("[Content] 🔍 Document readyState:", document.readyState);
-            console.log("[Content] 🔍 Document body exists:", !!document.body);
-            return { success: false, error: "Element not found in DOM with selector: " + selector };
+            console.error("[Content] ❌ Unable to resolve DOM element for:", actionId);
+            console.log("[Content] 🔍 Resolution attempt:", resolution);
+            return { success: false, error: "Element not found in DOM" };
         }
-        
-        console.log("[Content] ✅ Found DOM element:", element);
+
+        // Ensure we keep the most recent node on record
+        this.storeActionableNode(actionId, element);
+
+        const escapeIdentifier = (value) => {
+            if (window.CSS && typeof window.CSS.escape === 'function') {
+                return window.CSS.escape(value);
+            }
+            return String(value).replace(/"/g, '\\"');
+        };
+
+        let selector = resolution.selector || null;
+        if (!selector && element.dataset?.omeActionId === actionId) {
+            selector = `[data-ome-action-id="${escapeIdentifier(actionId)}"]`;
+        }
+
+        console.log("[Content] 🔍 Resolved element via", resolution.strategy, "using selector:", selector || '(registry)');
+        console.log("[Content] ✅ Resolved DOM element:", element);
         console.log("[Content] 🔍 Element properties:", {
             tagName: element.tagName,
             textContent: element.textContent?.trim(),
@@ -7986,6 +8174,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         
         // Clear existing elements
         this.actionableElements.clear();
+        this.actionableElementNodes.clear();
         this.contentElements.clear(); // 🆕 NEW: Clear content elements too
         this.elementCounter = 0;
         if (this.youtubeRegisteredUrls) {
@@ -9674,3 +9863,4 @@ function generateElementSelectors(element) {
     
     return selectors;
 }
+})();

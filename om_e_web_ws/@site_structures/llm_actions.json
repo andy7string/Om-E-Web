@@ -1,258 +1,1299 @@
 {
   "_page_context": {
-    "url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "title": "Bright Tree Digital | Expert Digital Design Services in Adelaide",
-    "timestamp": 1762085536.77564,
-    "total_actions": 65,
-    "active_tab_id": 1138013221
+    "url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "title": "Vance Joy",
+    "timestamp": 1762169906.655369,
+    "total_actions": 238,
+    "active_tab_id": 1138013376
   },
   "a_id_0": {
-    "action_type": "link",
-    "description": "HOME",
-    "tag_name": "a",
+    "action_type": "input",
+    "description": "",
+    "tag_name": "input",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "#input",
+      ".style-scope",
+      "input.style-scope",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_0' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_0' to input with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_1": {
-    "action_type": "link",
-    "description": "ABOUT",
-    "tag_name": "a",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "#guide-button",
+      ".style-scope",
+      "yt-icon-button.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_1' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_1' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_2": {
-    "action_type": "link",
-    "description": "PORTFOLIO",
-    "tag_name": "a",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      "#guide-button",
+      ".style-scope",
+      "yt-icon-button.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_2' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_2' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_3": {
     "action_type": "link",
-    "description": "Banner Design",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-logo:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_3' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_4": {
     "action_type": "link",
-    "description": "Logo Design",
+    "description": "https://en.wikipedia.org/wiki/Vance_Joy",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_4' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_5": {
     "action_type": "link",
-    "description": "Web Design",
+    "description": "http://creativecommons.org/licenses/b...",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_5' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_6": {
     "action_type": "link",
-    "description": "SERVICES",
+    "description": "Top songs",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_6' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_7": {
     "action_type": "link",
-    "description": "CONTACT",
+    "description": "Riptide",
     "tag_name": "a",
     "selectors": [
-      ".menu-link",
-      "a.menu-link",
-      "li:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_7' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_8": {
-    "action_type": "nav",
-    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
-    "tag_name": "nav",
+    "action_type": "link",
+    "description": "Vance Joy",
+    "tag_name": "a",
     "selectors": [
-      "#primary-site-navigation-desktop",
-      ".site-navigation",
-      "nav.site-navigation",
-      "div:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_8' to nav with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_8' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_9": {
-    "action_type": "nav",
-    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
-    "tag_name": "nav",
+    "action_type": "link",
+    "description": "Dream Your Life Away (Deluxe Edition)",
+    "tag_name": "a",
     "selectors": [
-      "#primary-site-navigation-mobile",
-      ".site-navigation",
-      "nav.site-navigation",
-      "div:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_9' to nav with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_9' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_10": {
-    "action_type": "unknown",
-    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "Fire and the Flood",
+    "tag_name": "a",
     "selectors": [
-      ".main-navigation",
-      "div.main-navigation",
-      "nav:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_10' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_10' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_11": {
-    "action_type": "unknown",
-    "description": "HOME\n                \n                ABOUT\n                \n                PORTFOLIO\n             ",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "Missing Piece",
+    "tag_name": "a",
     "selectors": [
-      ".main-navigation",
-      "div.main-navigation",
-      "nav:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_11' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_11' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_12": {
     "action_type": "link",
-    "description": "",
+    "description": "In Our Own Sweet Time",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_12' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_13": {
+    "action_type": "link",
+    "description": "Mess Is Mine",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_13' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_14": {
+    "action_type": "link",
+    "description": "Divine Feelings",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_14' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_15": {
+    "action_type": "link",
+    "description": "Divine Feelings",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_15' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_16": {
     "action_type": "link",
     "description": "",
     "tag_name": "a",
     "selectors": [
-      ".ast-builder-social-element",
-      "a.ast-builder-social-element",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_13' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_14": {
-    "action_type": "link",
-    "description": "Testimonials",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_14' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_15": {
-    "action_type": "link",
-    "description": "Privacy Policy",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_15' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_16": {
-    "action_type": "link",
-    "description": "Website Designed by Bright Tree Digital",
-    "tag_name": "a",
-    "selectors": [
-      "h6:nth-child(1)"
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_16' to link with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
   "a_id_17": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_17' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_18": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_18' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_19": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_19' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_20": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_20' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_21": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_21' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_22": {
+    "action_type": "link",
+    "description": "Singles & EPs",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_22' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_23": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_23' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_24": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_24' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_25": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_25' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_26": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_26' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_27": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_27' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_28": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_28' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_29": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_29' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_30": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_30' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_31": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_31' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_32": {
+    "action_type": "link",
+    "description": "Videos",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_32' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_33": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_33' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_34": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_34' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_35": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_35' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_36": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_36' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_37": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_37' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_38": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_38' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_39": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_39' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_40": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_40' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_41": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_41' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_42": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_42' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_43": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_43' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_44": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_44' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_45": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_45' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_46": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_46' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_47": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_47' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_48": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_48' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_49": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_49' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_50": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_50' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_51": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_51' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_52": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_52' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_53": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_53' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_54": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_54' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_55": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_55' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_56": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_56' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_57": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_58": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_59": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_60": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_61": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_62": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_62' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_63": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_63' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_64": {
+    "action_type": "link",
+    "description": "Vance Joy",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "yt-formatted-string:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_64' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_65": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_65' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_66": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_66' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_67": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_67' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_68": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_68' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_69": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_69' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_70": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_70' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_71": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_71' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_72": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_72' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_73": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_73' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_74": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_74' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_75": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_75' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_76": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_76' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_77": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_77' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_78": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_78' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_79": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_79' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_80": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_80' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_81": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_81' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_82": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_82' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_83": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytmusic-two-row-item-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_83' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_84": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(3)"
+      "head:nth-child(11)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_17' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_84' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
-  "a_id_18": {
+  "a_id_85": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(14)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_85' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_86": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(15)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_86' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_87": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(16)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_87' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_88": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(17)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_88' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_89": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(18)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_89' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_90": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(19)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_90' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_91": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(21)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_91' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_92": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(22)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_92' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_93": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -260,11 +1301,11 @@
       "head:nth-child(24)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_18' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_93' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
-  "a_id_19": {
+  "a_id_94": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -272,588 +1313,2088 @@
       "head:nth-child(25)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_19' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_94' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
-  "a_id_20": {
+  "a_id_95": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(26)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_20' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_21": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(27)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_21' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_22": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#astra-theme-css-css",
-      "head:nth-child(31)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_22' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_23": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#astra-google-fonts-css",
-      "head:nth-child(33)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_23' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_24": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#hfe-widgets-style-css",
-      "head:nth-child(34)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_24' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_25": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#dashicons-css",
-      "head:nth-child(37)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_25' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_26": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#portfolio-front-style-css",
-      "head:nth-child(38)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_26' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_27": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#hfe-style-css",
       "head:nth-child(39)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_27' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_95' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
-  "a_id_28": {
+  "a_id_96": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-frontend-css",
       "head:nth-child(40)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_28' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_96' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
-  "a_id_29": {
+  "a_id_97": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "#elementor-post-3614-css",
-      "head:nth-child(41)"
+      "#css-1659366029",
+      "[data-loaded=\"true\"]",
+      "head:nth-child(88)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_29' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_97' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
-  "a_id_30": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#uael-frontend-css",
-      "head:nth-child(42)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_30' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_31": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#wpforms-modern-base-css",
-      "head:nth-child(43)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_31' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_32": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#uael-teammember-social-icons-css",
-      "head:nth-child(44)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_32' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_33": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#uael-social-share-icons-brands-css",
-      "head:nth-child(45)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_33' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_34": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#uael-social-share-icons-fontawesome-css",
-      "head:nth-child(46)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_34' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_35": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#uael-nav-menu-icons-css",
-      "head:nth-child(47)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_35' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_36": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#widget-heading-css",
-      "head:nth-child(48)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_36' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_37": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#widget-image-css",
-      "head:nth-child(49)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_37' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_38": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#elementor-post-3605-css",
-      "head:nth-child(50)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_38' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_39": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#elementor-post-5533-css",
-      "head:nth-child(51)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_39' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_40": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#qi-addons-for-elementor-grid-style-css",
-      "head:nth-child(52)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_40' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_41": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#qi-addons-for-elementor-helper-parts-style-css",
-      "head:nth-child(53)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_41' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_42": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#qi-addons-for-elementor-style-css",
-      "head:nth-child(54)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_42' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_43": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#astra-addon-css-css",
-      "head:nth-child(55)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_43' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_44": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#swiper-css",
-      "head:nth-child(57)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_44' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_45": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#hfe-elementor-icons-css",
-      "head:nth-child(58)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_45' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_46": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#hfe-icons-list-css",
-      "head:nth-child(59)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_46' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_47": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#bdt-uikit-css",
-      "head:nth-child(64)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_47' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_48": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#ep-helper-css",
-      "head:nth-child(65)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_48' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_49": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#elementor-gf-local-roboto-css",
-      "head:nth-child(66)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_49' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_50": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#elementor-gf-local-robotoslab-css",
-      "head:nth-child(67)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_50' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_51": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(75)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_51' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_52": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(76)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_52' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_53": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(77)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_53' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_54": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(79)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_54' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_55": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(80)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_55' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_56": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(81)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_56' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_57": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(87)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_57' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_58": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#widget-icon-list-css",
-      "body:nth-child(7)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_58' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_59": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#widget-social-icons-css",
-      "body:nth-child(8)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_59' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_60": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#e-apple-webkit-css",
-      "body:nth-child(9)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_60' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_61": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#astra-addon-megamenu-dynamic-css",
-      "body:nth-child(10)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_61' to unknown with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
-  },
-  "a_id_62": {
+  "a_id_98": {
     "action_type": "button",
-    "description": "Menu Toggle",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_62' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_98' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
-  "a_id_63": {
+  "a_id_99": {
     "action_type": "button",
-    "description": "Main Menu",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      "[data-index=\"0\"]",
-      ".menu-toggle",
-      "button.menu-toggle",
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_99' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_100": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_100' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_101": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_101' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_102": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_102' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_103": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_103' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_104": {
+    "action_type": "button",
+    "description": "New playlist",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_104' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_105": {
+    "action_type": "button",
+    "description": "New playlist",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_105' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_106": {
+    "action_type": "button",
+    "description": "Shuffle",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_106' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_107": {
+    "action_type": "button",
+    "description": "Radio",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_107' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_108": {
+    "action_type": "button",
+    "description": "Subscribe 780K",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_108' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_109": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_109' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_110": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_110' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_111": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_111' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_112": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_112' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_113": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_113' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_114": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_114' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_115": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_115' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_116": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_116' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_117": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_117' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_118": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_118' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_119": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_119' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_120": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_120' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_121": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_121' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_122": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_122' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_123": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_123' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_124": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_124' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_125": {
+    "action_type": "button",
+    "description": "Show all",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_125' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_126": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_126' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_127": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_127' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_128": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_128' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_129": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_129' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_130": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_130' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_131": {
+    "action_type": "button",
+    "description": "More",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_131' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_132": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_132' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_133": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_133' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_134": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_134' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_135": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_135' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_136": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_136' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_137": {
+    "action_type": "button",
+    "description": "More",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_137' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_138": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_138' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_139": {
+    "action_type": "button",
+    "description": "More",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_139' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_140": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_140' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_141": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_141' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_142": {
+    "action_type": "button",
+    "description": "More",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_142' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_143": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_143' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_144": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_144' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_145": {
+    "action_type": "button",
+    "description": "Song",
+    "tag_name": "button",
+    "selectors": [
+      ".song-button",
+      "button.song-button",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_63' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_145' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   },
-  "a_id_64": {
+  "a_id_146": {
     "action_type": "button",
-    "description": "Menu Toggle",
+    "description": "Video",
     "tag_name": "button",
     "selectors": [
-      ".ast-menu-toggle",
-      "button.ast-menu-toggle",
-      "li:nth-child(2)"
+      ".video-button",
+      "button.video-button",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_64' to button with this element",
-    "page_url": "https://brighttreedigital.com.au/services/#websiteDesign",
-    "page_title": "Bright Tree Digital | Expert Digital Design Services in Adelaide"
+    "llm_instruction": "Use actionId 'a_id_146' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_147": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-overlay-order=\"3\"]",
+      ".ytp-playlist-menu-button",
+      "button.ytp-playlist-menu-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_147' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_148": {
+    "action_type": "button",
+    "description": "Search",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"Search\"]",
+      "[data-tooltip-opaque=\"false\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_148' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_149": {
+    "action_type": "button",
+    "description": "InfoShopping",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-opaque=\"false\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_149' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_150": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"More\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_150' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_151": {
+    "action_type": "button",
+    "description": "Tap to unmute",
+    "tag_name": "button",
+    "selectors": [
+      "[data-layer=\"2\"]",
+      ".ytp-unmute",
+      "button.ytp-unmute",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_151' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_152": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-large-play-button",
+      "button.ytp-large-play-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_152' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_153": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_153' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_154": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-featured-product-overflow-icon",
+      "button.ytp-featured-product-overflow-icon",
+      "a:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_154' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_155": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_155' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_156": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_156' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_157": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_157' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_158": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_158' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_159": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-playlist-menu-close",
+      "button.ytp-playlist-menu-close",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_159' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_160": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-share-panel-close",
+      "button.ytp-share-panel-close",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_160' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_161": {
+    "action_type": "button",
+    "description": "Watch later",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-opaque=\"false\"]",
+      "[data-tooltip-title=\"Watch later\"]",
+      ".ytp-watch-later-button",
+      "button.ytp-watch-later-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_161' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_162": {
+    "action_type": "button",
+    "description": "Share",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"Share\"]",
+      "[data-tooltip-opaque=\"false\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_162' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_163": {
+    "action_type": "button",
+    "description": "Copy link",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-opaque=\"false\"]",
+      "[data-tooltip-title=\"Copy link\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_163' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_164": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"Close\"]",
+      ".ytp-overflow-panel-close",
+      "button.ytp-overflow-panel-close",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_164' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_165": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_165' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_166": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_166' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_167": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_167' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_168": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_168' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_169": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_169' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_170": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_170' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_171": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_171' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_172": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_172' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_173": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_173' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_174": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_174' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_175": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_175' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_176": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_176' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_177": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_177' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_178": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_178' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_179": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_179' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_180": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_180' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_181": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_181' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_182": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_182' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_183": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_183' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_184": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".search-button",
+      "yt-icon-button.search-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_184' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_185": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#clear-button",
+      ".style-scope",
+      "yt-icon-button.style-scope",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_185' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_186": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".style-scope",
+      "yt-icon-button.style-scope",
+      "ytmusic-settings-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_186' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_187": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#next-items-button",
+      ".next-items-button",
+      "yt-icon-button.next-items-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_187' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_188": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#next-items-button",
+      ".next-items-button",
+      "yt-icon-button.next-items-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_188' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_189": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#next-items-button",
+      ".next-items-button",
+      "yt-icon-button.next-items-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_189' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_190": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#next-items-button",
+      ".next-items-button",
+      "yt-icon-button.next-items-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_190' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_191": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#next-items-button",
+      ".next-items-button",
+      "yt-icon-button.next-items-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_191' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_192": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#next-items-button",
+      ".next-items-button",
+      "yt-icon-button.next-items-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_192' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_193": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#next-items-button",
+      ".next-items-button",
+      "yt-icon-button.next-items-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_193' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_194": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".player-minimize-button",
+      "yt-icon-button.player-minimize-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_194' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_195": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".player-maximize-button",
+      "yt-icon-button.player-maximize-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_195' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_196": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".fullscreen-button",
+      "yt-icon-button.fullscreen-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_196' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_197": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".player-close-button",
+      "yt-icon-button.player-close-button",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_197' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_198": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".previous-button",
+      "yt-icon-button.previous-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_198' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_199": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#play-pause-button",
+      ".play-pause-button",
+      "yt-icon-button.play-pause-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_199' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_200": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".next-button",
+      "yt-icon-button.next-button",
+      "div:nth-child(6)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_200' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_201": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".volume",
+      "yt-icon-button.volume",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_201' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_202": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#button",
+      ".playback-rate-dropdown-trigger",
+      "yt-icon-button.playback-rate-dropdown-trigger",
+      "ytmusic-playback-rate-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_202' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_203": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".repeat",
+      "yt-icon-button.repeat",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_203' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_204": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".shuffle",
+      "yt-icon-button.shuffle",
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_204' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_205": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".expand-button",
+      "yt-icon-button.expand-button",
+      "div:nth-child(6)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_205' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_206": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#expand-volume",
+      ".expand-volume",
+      "yt-icon-button.expand-volume",
+      "ytmusic-player-expanding-menu:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_206' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_207": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#expand-repeat",
+      ".repeat",
+      "yt-icon-button.repeat",
+      "ytmusic-player-expanding-menu:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_207' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_208": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      "#expand-shuffle",
+      ".expand-shuffle",
+      "yt-icon-button.expand-shuffle",
+      "ytmusic-player-expanding-menu:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_208' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_209": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".toggle-player-page-button",
+      "yt-icon-button.toggle-player-page-button",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_209' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_210": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "yt-icon-button",
+    "selectors": [
+      ".exit-fullscreen-button",
+      "yt-icon-button.exit-fullscreen-button",
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_210' to unknown with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_211": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "tp-yt-paper-button",
+    "selectors": [
+      ".cast-button",
+      "tp-yt-paper-button.cast-button",
+      "ytmusic-cast-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_211' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_212": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "tp-yt-paper-button",
+    "selectors": [
+      ".cast-button",
+      "tp-yt-paper-button.cast-button",
+      "ytmusic-cast-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_212' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_213": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "tp-yt-paper-item:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_213' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_214": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "tp-yt-paper-item:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_214' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_215": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "tp-yt-paper-item:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_215' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_216": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "tp-yt-paper-item:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_216' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_217": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "tp-yt-paper-item:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_217' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_218": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "tp-yt-paper-item:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_218' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_219": {
+    "action_type": "button",
+    "description": "More",
+    "tag_name": "tp-yt-paper-button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "tp-yt-paper-button.style-scope",
+      "a:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_219' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_220": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_220' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_221": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_221' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_222": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_222' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_223": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_223' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_224": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_224' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_225": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_225' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_226": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_226' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_227": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_227' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_228": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_228' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_229": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_229' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_230": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_230' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_231": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_231' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_232": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "ytmusic-play-button-renderer",
+    "selectors": [
+      "#play-button",
+      ".style-scope",
+      "ytmusic-play-button-renderer.style-scope",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_232' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_233": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "tp-yt-paper-icon-button",
+    "selectors": [
+      "#left",
+      ".hidden",
+      "tp-yt-paper-icon-button.hidden",
+      "tp-yt-paper-tabs:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_233' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_234": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "tp-yt-paper-icon-button",
+    "selectors": [
+      "#right",
+      ".hidden",
+      "tp-yt-paper-icon-button.hidden",
+      "tp-yt-paper-tabs:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_234' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_235": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "tp-yt-paper-toggle-button",
+    "selectors": [
+      "#automix",
+      ".style-scope",
+      "tp-yt-paper-toggle-button.style-scope",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_235' to button with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_306": {
+    "action_type": "nav",
+    "description": "Home\n    \n    \n      \n      \n    \n  \n  \n\n\n\n  \n    \n  \n  \n    \n      Explore\n    \n    \n      \n      \n",
+    "tag_name": "tp-yt-app-drawer",
+    "selectors": [
+      "#guide",
+      ".style-scope",
+      "tp-yt-app-drawer.style-scope",
+      "ytmusic-app-layout:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_306' to nav with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
+  },
+  "a_id_307": {
+    "action_type": "link",
+    "description": "Learn More",
+    "tag_name": "a",
+    "selectors": [
+      ".ytp-error-link",
+      "a.ytp-error-link",
+      "span:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_307' to link with this element",
+    "page_url": "https://music.youtube.com/channel/UCwNoBkSn4w8l4olCKDCTplQ",
+    "page_title": "Vance Joy"
   }
 }
