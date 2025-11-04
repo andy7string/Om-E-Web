@@ -223,13 +223,14 @@ async def main():
         print(f"🎯 Executing click action: {payload}")
         response = await tester.send_command("execute_llm_action", payload)
     else:
-    payload = {
-        "actionId": args.action_id,
-        **({"actionType": args.action_type} if args.action_type else {}),
-        "params": params
-    }
+        payload = {
+            "actionId": args.action_id,
+            **({"actionType": args.action_type} if args.action_type else {}),
+            "params": params
+        }
         print(f"🎯 Executing action (LLM mode): {payload}")
-    response = await tester.send_command("execute_llm_action", payload)
+        response = await tester.send_command("execute_llm_action", payload)
+
     if response is None:
         print("❌ No response received")
     else:

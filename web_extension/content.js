@@ -55,9 +55,9 @@ function scheduleInitialScan(reason = 'unspecified', options = { quietPeriod: 10
         scanWhenPageSettles(runScanAfterPageLoad, options);
     };
 
-    if (document.readyState === 'complete') {
+if (document.readyState === 'complete') {
         startScan();
-    } else {
+} else {
         console.log("[Content] 🔄 Page still loading, deferring initial scan until load event...");
         window.addEventListener('load', () => startScan(), { once: true });
     }
@@ -594,6 +594,9 @@ if (window.intelligenceSystemInitialized && window.intelligenceComponents && win
     // Reuse existing components
     changeAggregator = window.intelligenceComponents.changeAggregator;
     intelligenceEngine = window.intelligenceComponents.intelligenceEngine;
+    if (intelligenceEngine) {
+        window.intelligenceEngine = intelligenceEngine;
+    }
     pageContext = window.intelligenceComponents.pageContext || pageContext;
 } else {
     window.intelligenceSystemInitialized = true;
@@ -780,7 +783,6 @@ function hasUrl(element) {
         return false;
     }
 }
-
 // 🆕 NEW: Determine what type of action an element represents
 function determineActionType(element) {
     try {
@@ -1600,7 +1602,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
     
     console.log("[Content] Message received from service worker:", message);
-
+    
     if (message && message.type === "start_intelligence_scan") {
         scheduleInitialScan('service_worker', {
             quietPeriod: 100,
@@ -1612,7 +1614,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         return false;
     }
-
+    
     // 🆕 NEW: Check if this is a typed message (LLM action) first
     // LLM actions are handled by a separate listener to avoid conflicts
     // This ensures clean separation between automation commands and AI actions
@@ -2135,7 +2137,6 @@ function removeOverlays(targetDocument = document) {
         timestamp: Date.now()
     };
 }
-
 /**
  * 🗺️ Generate comprehensive LLM-friendly site map with click coordinates
  * 
@@ -2902,7 +2903,6 @@ function analyzeViewportPosition(element) {
     console.log(`[Viewport Analysis] 📊 Analysis result:`, result);
     return result;
 }
-
 /**
  * 🆕 FIX VIEWPORT POSITIONING: Fix elements positioned outside viewport
  * 
@@ -4452,7 +4452,6 @@ function getHistoryState() {
         }))
     };
 }
-
 /**
  * 🔍 Search history by criteria
  * 
@@ -5242,7 +5241,6 @@ IntelligenceEngine.prototype.analyzeElementTransformation = function(event) {
     // Complex changes that affect both structure and state
     this.pageState.currentView = 'transforming';
 };
-
 /**
  * Generate LLM insights from event
  */
@@ -5726,23 +5724,24 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             bucket.actionCount += 1;
             youtubeSeen.add(href);
 
-        if (this.actionableElements && !this.actionableElements.has(idCandidate)) {
-            this.actionableElements.set(idCandidate, {
-                id: idCandidate,
-                tagName: 'a',
-                actionType: 'link',
-                textContent: labelText,
-                selectors: selectorList,
-                attributes: this.extractKeyAttributes(linkEl) || { href },
-                urlContext: {
-                    url: href,
+            if (this.actionableElements && !this.actionableElements.has(idCandidate)) {
+                this.storeActionableNode(idCandidate, linkEl);
+                this.actionableElements.set(idCandidate, {
+                    id: idCandidate,
+                    tagName: 'a',
+                    actionType: 'link',
                     textContent: labelText,
-                    title: linkEl.getAttribute('title'),
-                    ariaLabel: linkEl.getAttribute('aria-label')
-                },
-                timestamp: Date.now()
-            });
-        }
+                    selectors: selectorList,
+                    attributes: this.extractKeyAttributes(linkEl) || { href },
+                    urlContext: {
+                        url: href,
+                        textContent: labelText,
+                        title: linkEl.getAttribute('title'),
+                        ariaLabel: linkEl.getAttribute('aria-label')
+                    },
+                    timestamp: Date.now()
+                });
+            }
         });
     }
 
@@ -6004,7 +6003,6 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         if (!value) return '';
         return value.replace(/\s+/g, ' ').trim();
     }
-
     function filterInteractiveRecords(records) {
         const filtered = [];
         const keyToIndex = new Map();
@@ -6241,9 +6239,6 @@ IntelligenceEngine.prototype.isEngineReady = function() {
             lastUpdate: this.pageState.lastUpdate
         });
     }
-    
-    // 🎯 NEW: Force comprehensive scan integration for CSP bypass - REMOVED
-    console.log("[Content] 🔄 Engine ready: Comprehensive scan skipped");
     
     // 🆕 NEW: Refresh page context if URL has changed
     if (this.pageState.url !== window.location.href) {
@@ -6780,7 +6775,6 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
 
     return attributes;
 };
-
 /**
  * 🆕 NEW: Register an element as actionable
  */
@@ -6910,14 +6904,21 @@ IntelligenceEngine.prototype._matchesActionDescriptor = function(node, actionId,
         return false;
     }
 
+    const datasetId = node.dataset && node.dataset.omeActionId ? node.dataset.omeActionId : null;
     const descriptorTag = descriptor?.tagName;
     if (descriptorTag && node.tagName && descriptorTag.toLowerCase() !== node.tagName.toLowerCase()) {
+        if (!datasetId || datasetId !== actionId) {
+            return false;
+        }
+    }
+
+    if (datasetId && datasetId !== actionId) {
+        // Dataset already points to a different actionId - treat as mismatch
         return false;
     }
 
-    if (node.dataset && node.dataset.omeActionId && node.dataset.omeActionId !== actionId) {
-        // Dataset already points to a different actionId - treat as mismatch
-        return false;
+    if (datasetId === actionId) {
+        return true;
     }
 
     const descriptorLabel = this._extractDescriptorLabel(descriptor);
@@ -6934,20 +6935,69 @@ IntelligenceEngine.prototype._matchesActionDescriptor = function(node, actionId,
 };
 
 IntelligenceEngine.prototype.resolveActionableDomNode = function(actionId, descriptor) {
-    const ensureStored = (node) => {
-        if (node) {
-            this.storeActionableNode(actionId, node);
+    const normalizeText = (value) => (value ? value.replace(/\s+/g, ' ').trim().toLowerCase() : '');
+    const extractReadableText = (value) => (value ? value.replace(/\s+/g, ' ').trim() : '');
+    const ensureStored = (node, selectorUsed = null) => {
+        if (!node) {
+            return null;
         }
+
+        this.storeActionableNode(actionId, node);
+
+        if (descriptor && typeof descriptor === 'object') {
+            const existingSelectors = Array.isArray(descriptor.selectors) ? descriptor.selectors : [];
+            const selectorSet = new Set(existingSelectors);
+            if (selectorUsed) {
+                selectorSet.add(selectorUsed);
+            }
+
+            const refreshedAttributes = this.extractKeyAttributes ? this.extractKeyAttributes(node) : {};
+            if (!descriptor.attributes) {
+                descriptor.attributes = {};
+            }
+            Object.assign(descriptor.attributes, refreshedAttributes);
+
+            descriptor.selectors = Array.from(selectorSet);
+
+            const refreshedText = extractReadableText(node.textContent || '');
+            if (refreshedText) {
+                descriptor.textContent = refreshedText.substring(0, 200);
+            }
+
+            const hrefValue = node.href || node.getAttribute && node.getAttribute('href');
+            if (hrefValue) {
+                descriptor.urlContext = descriptor.urlContext || {};
+                descriptor.urlContext.url = hrefValue;
+                descriptor.urlContext.textContent = descriptor.textContent;
+                const ariaValue = node.getAttribute && node.getAttribute('aria-label');
+                if (ariaValue) {
+                    descriptor.urlContext.ariaLabel = ariaValue;
+                }
+                const titleValue = node.getAttribute && node.getAttribute('title');
+                if (titleValue) {
+                    descriptor.urlContext.title = titleValue;
+                }
+            }
+
+            descriptor.timestamp = Date.now();
+            this.actionableElements.set(actionId, descriptor);
+        }
+
         return node;
     };
 
-    const result = { node: null, strategy: 'not_found', selector: null };
+    const refreshAndReturn = (node, strategy, selectorUsed = null) => {
+        const stored = ensureStored(node, selectorUsed);
+        return {
+            node: stored,
+            strategy: stored ? strategy : 'not_found',
+            selector: selectorUsed
+        };
+    };
 
     const storedNode = this.getStoredActionableNode(actionId);
     if (storedNode && this._matchesActionDescriptor(storedNode, actionId, descriptor)) {
-        result.node = ensureStored(storedNode);
-        result.strategy = 'registry';
-        return result;
+        return refreshAndReturn(storedNode, 'registry');
     }
 
     const escapeIdentifier = (value) => {
@@ -6966,10 +7016,7 @@ IntelligenceEngine.prototype.resolveActionableDomNode = function(actionId, descr
     }
 
     if (node && this._matchesActionDescriptor(node, actionId, descriptor)) {
-        result.node = ensureStored(node);
-        result.strategy = 'data-attribute';
-        result.selector = attrSelector;
-        return result;
+        return refreshAndReturn(node, 'data-attribute', attrSelector);
     }
 
     const selectors = Array.isArray(descriptor?.selectors) ? descriptor.selectors.filter(sel => typeof sel === 'string' && sel.trim().length > 0) : [];
@@ -6993,14 +7040,50 @@ IntelligenceEngine.prototype.resolveActionableDomNode = function(actionId, descr
         }
 
         if (candidate && this._matchesActionDescriptor(candidate, actionId, descriptor)) {
-            result.node = ensureStored(candidate);
-            result.strategy = 'selector';
-            result.selector = selector;
-            return result;
+            return refreshAndReturn(candidate, 'selector', selector);
         }
     }
 
-    return result;
+    const normalizeHref = (value) => {
+        if (!value) return null;
+        try {
+            return new URL(value, window.location.href).href;
+        } catch (error) {
+            return value;
+        }
+    };
+
+    const hrefCandidates = new Set();
+    if (descriptor?.urlContext?.url) {
+        hrefCandidates.add(normalizeHref(descriptor.urlContext.url));
+    }
+    if (descriptor?.attributes?.href) {
+        hrefCandidates.add(normalizeHref(descriptor.attributes.href));
+    }
+
+    if (hrefCandidates.size > 0) {
+        const anchors = document.querySelectorAll('a[href]');
+        for (const anchor of anchors) {
+            const anchorHref = normalizeHref(anchor.getAttribute('href') || anchor.href);
+            if (anchorHref && hrefCandidates.has(anchorHref)) {
+                return refreshAndReturn(anchor, 'href-match');
+            }
+        }
+    }
+
+    const descriptorLabel = descriptor ? this._extractDescriptorLabel(descriptor) : '';
+    if (descriptorLabel) {
+        const targets = document.querySelectorAll('a, button, [role="button"], [data-ome-action-id]');
+        for (const target of targets) {
+            const targetLabel = normalizeText(this._extractNodeLabel(target));
+            if (!targetLabel) continue;
+            if (targetLabel.includes(descriptorLabel) || descriptorLabel.includes(targetLabel)) {
+                return refreshAndReturn(target, 'text-match');
+            }
+        }
+    }
+
+    return { node: null, strategy: 'not_found', selector: null };
 };
 
 /**
@@ -7200,7 +7283,6 @@ function pickBestSelector(selectorList, actionableElement) {
     if (nonWeak) return nonWeak;
     return selectors[0];
 }
-
 /**
  * 🆕 NEW: Execute action on element by ID
  */
@@ -7245,7 +7327,7 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
             console.log("[Content] 🔍 Resolution attempt:", resolution);
             return { success: false, error: "Element not found in DOM" };
         }
-
+        
         // Ensure we keep the most recent node on record
         this.storeActionableNode(actionId, element);
 
@@ -7891,7 +7973,6 @@ IntelligenceEngine.prototype.registerYoutubeLinksFromNode = function(rootNode) {
     const descriptors = this.collectYoutubeCardDescriptors([], nodes);
     return descriptors.length;
 };
-
 /**
  * 🆕 NEW: Collect structured YouTube card link descriptors (console-style)
  */
@@ -8336,6 +8417,9 @@ function initializeIntelligenceSystem() {
         console.log("[Content] ⚠️ Intelligence components already exist, reusing...");
         changeAggregator = window.intelligenceComponents.changeAggregator;
         intelligenceEngine = window.intelligenceComponents.intelligenceEngine;
+        if (intelligenceEngine) {
+            window.intelligenceEngine = intelligenceEngine;
+        }
         pageContext = window.intelligenceComponents.pageContext || pageContext;
         console.log("[Content] ✅ Components reused:", { changeAggregator: !!changeAggregator, intelligenceEngine: !!intelligenceEngine });
         return;
@@ -8349,6 +8433,7 @@ function initializeIntelligenceSystem() {
         changeAggregator = new ChangeAggregator();
         console.log("[Content] 🧠 Creating IntelligenceEngine...");
         intelligenceEngine = new IntelligenceEngine();
+        window.intelligenceEngine = intelligenceEngine;
         
         console.log("[Content] 🧠 Components created:", {
             changeAggregator: changeAggregator !== null,
@@ -8671,7 +8756,6 @@ function isElementVisible(element) {
 /**
  * 🆕 NEW: Initialize DOM change detection with intelligent filtering
  */
-
 /**
  * 🆕 NEW: Setup event-driven intelligence updates
  * Replaces noisy MutationObserver with specific, meaningful events
@@ -9408,7 +9492,6 @@ function getMenuName(menu) {
         return 'main';
     }
 }
-
 /**
  * 🧠 Generate intelligence-engine-friendly output
  * 
