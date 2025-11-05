@@ -9,6 +9,21 @@ Usage examples:
       python3 test_navigation.py --command click --action-id a_id_133
   - Custom LLM action:
       python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "ome" --submit
+  - Marketplace search (set value + submit):
+      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit
+      #   ↳ actionId: use the id from page.jsonl/llm_prompt.md (ex: a_id_1)
+      #   ↳ --action-type setValue tells the extension to type into the field
+      #   ↳ --value "Gibson Guitar" is the text to enter
+      #   ↳ --submit sends Enter + tries common submit buttons
+  - Generic LLM click without specifying actionType (auto-detect):
+      python3 test_navigation.py --command llm --action-id a_id_133
+      #   ↳ when --action-type is omitted, extension uses stored metadata
+  - Explicit click:
+      python3 test_navigation.py --command click --action-id a_id_133
+  - Navigate link:
+      python3 test_navigation.py --command navigate --action-id a_id_755
+  - Set value without submit:
+      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "just text" --no-submit
 """
 
 import asyncio
@@ -182,6 +197,24 @@ async def main():
     parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click"], default="llm",
                         help="Execution mode: llm (default), navigate, click")
 
+    # -------- cheat sheet ----------------------------------------------------
+    # --command llm (default):
+    #     • Use when you want the extension to auto-detect the action type
+    #     • Combine with --action-type setValue when you want to type text
+    #     • --value "your text" supplies the input text
+    #     • --submit or --no-submit control Enter+submit behaviour for forms
+    # Example: python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit
+    #          (Types "Gibson Guitar" into a_id_1 and tries to submit)
+    #
+    # --command navigate:
+    #     • For links/tabs: requires --action-id (and optional --action-type if forcing) 
+    #     • Example: python3 test_navigation.py --command navigate --action-id a_id_755
+    #
+    # --command click:
+    #     • Forces a click without extra metadata
+    #     • Example: python3 test_navigation.py --command click --action-id a_id_133
+    # -------------------------------------------------------------------------
+
     args = parser.parse_args()
 
     # If no action-id is provided, print usage and exit non-interactively
@@ -212,6 +245,11 @@ async def main():
             "actionType": args.action_type or "navigate",
             "params": params
         }
+        print("""⚙️ NAVIGATE PAYLOAD
+    - actionId: element to click/link
+    - actionType: explicit or default to "navigate"
+    - params: usually empty (no value)
+    """)
         print(f"🎯 Executing navigation action: {payload}")
         response = await tester.send_command("execute_llm_action", payload)
     elif command_mode == "click":
@@ -220,6 +258,10 @@ async def main():
             "actionType": "click",
             "params": params
         }
+        print("""⚙️ CLICK PAYLOAD
+    - actionType forced to "click"
+    - params: (not used for clicks)
+    """)
         print(f"🎯 Executing click action: {payload}")
         response = await tester.send_command("execute_llm_action", payload)
     else:
@@ -228,6 +270,11 @@ async def main():
             **({"actionType": args.action_type} if args.action_type else {}),
             "params": params
         }
+        print("""⚙️ LLM PAYLOAD
+    - command llm lets you specify actionType manually or rely on auto-detect
+    - For setValue: include --value and --submit / --no-submit flags
+    - params becomes {"value": ..., "submit": True/False}
+    """)
         print(f"🎯 Executing action (LLM mode): {payload}")
         response = await tester.send_command("execute_llm_action", payload)
 

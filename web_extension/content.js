@@ -41,7 +41,7 @@ console.log("[Content] ✅ Running in main frame:", {
 let initialScanScheduled = false;
 let initialScanReason = null;
 
-function scheduleInitialScan(reason = 'unspecified', options = { quietPeriod: 100, maxWait: 10000 }) {
+function scheduleInitialScan(reason = 'unspecified', options = { quietPeriod: 200, maxWait: 10000 }) {
     if (initialScanScheduled) {
         console.log("[Content] ⏭️ Initial scan already scheduled (reason:", initialScanReason, ")");
         return;
@@ -1605,7 +1605,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     
     if (message && message.type === "start_intelligence_scan") {
         scheduleInitialScan('service_worker', {
-            quietPeriod: 100,
+            quietPeriod: 200,
             maxWait: 12000
         });
 
@@ -4781,7 +4781,7 @@ IntelligenceEngine.prototype.analyzeStructureChanges = function(event) {
 
     if (newlyRegistered > 0 || navElements.length > 0) {
         this.pageState.interactiveElements = this.getAllActionableElements();
-        applyConfiguredFocus('dom_subtree');
+        // applyConfiguredFocus('dom_subtree');
 
         if (this.queueIntelligenceUpdate) {
             const changeLabel = newlyRegistered > 0 ? `${newlyRegistered} interactive descendants` : 'navigation updates';
@@ -5852,33 +5852,53 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     }
 
     function extractLabelFromAction(descriptor, node) {
-    const attr = descriptor.attributes || {};
-    const ariaLabel = (attr['aria-label'] || (node && node.getAttribute('aria-label')) || '')?.trim?.();
-    const titleLabel = (attr.title || (node && node.getAttribute('title')) || '')?.trim?.();
-    const placeholderLabel = (attr.placeholder || (node && node.getAttribute && node.getAttribute('placeholder')) || '')?.trim?.();
-    const dataPlaceholderAttr = (attr['data-placeholder'] || (node && node.getAttribute && node.getAttribute('data-placeholder')) || '')?.trim?.();
-    const descendantPlaceholder = node && typeof node.querySelector === 'function'
-        ? node.querySelector('[data-placeholder]')?.getAttribute('data-placeholder')?.trim()
-        : '';
-    const textLabel = descriptor.textContent ? descriptor.textContent.trim() : '';
+        const attr = descriptor.attributes || {};
+        const ariaLabel = (attr['aria-label'] || (node && node.getAttribute && node.getAttribute('aria-label')) || '')?.trim?.();
+        const titleLabel = (attr.title || (node && node.getAttribute && node.getAttribute('title')) || '')?.trim?.();
+        const placeholderLabel = (attr.placeholder || (node && node.getAttribute && node.getAttribute('placeholder')) || '')?.trim?.();
+        const dataPlaceholderAttr = (attr['data-placeholder'] || (node && node.getAttribute && node.getAttribute('data-placeholder')) || '')?.trim?.();
+        const descendantPlaceholder = node && typeof node.querySelector === 'function'
+            ? node.querySelector('[data-placeholder]')?.getAttribute('data-placeholder')?.trim()
+            : '';
+        const textLabel = descriptor.textContent ? descriptor.textContent.trim() : '';
 
-    if (textLabel) {
-        const looksLikeIndex = /^\d{1,3}$/.test(textLabel);
-        if (looksLikeIndex && ariaLabel) {
-            return ariaLabel;
+        if (textLabel) {
+            const looksLikeIndex = /^\d{1,3}$/.test(textLabel);
+            if (looksLikeIndex && ariaLabel) {
+                return ariaLabel;
+            }
+            return textLabel.substring(0, 120);
         }
-        return textLabel.substring(0, 120);
-    }
 
-    if (placeholderLabel) return placeholderLabel;
-    if (dataPlaceholderAttr) return dataPlaceholderAttr;
-    if (descendantPlaceholder) return descendantPlaceholder;
-    if (ariaLabel) return ariaLabel;
-    if (titleLabel) return titleLabel;
+        if (placeholderLabel) return placeholderLabel;
+        if (dataPlaceholderAttr) return dataPlaceholderAttr;
+        if (descendantPlaceholder) return descendantPlaceholder;
+        if (ariaLabel) return ariaLabel;
+        if (titleLabel) return titleLabel;
+
+        if (node && typeof node.querySelector === 'function') {
+            const descendantAria = node.querySelector('[aria-label]')?.getAttribute('aria-label')?.trim();
+            if (descendantAria) {
+                return descendantAria.substring(0, 120);
+            }
+        }
+
         if (attr.alt) return attr.alt;
         if (descriptor.urlContext && descriptor.urlContext.altText) {
             return descriptor.urlContext.altText;
         }
+
+        if (node) {
+            const innerText = typeof node.innerText === 'string' ? node.innerText.trim() : '';
+            if (innerText) {
+                return innerText.substring(0, 120);
+            }
+            const textContent = typeof node.textContent === 'string' ? node.textContent.trim() : '';
+            if (textContent) {
+                return textContent.substring(0, 120);
+            }
+        }
+
         const idAttr = attr.id || (node && node.id);
         if (idAttr) {
             const prettyId = prettifyLabel(idAttr);
@@ -5888,9 +5908,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             const prettyClass = prettifyLabel(attr.cssClasses[0]);
             if (prettyClass) return prettyClass;
         }
-        if (node && node.textContent) {
-            return node.textContent.trim().substring(0, 120);
-        }
+
         const fallback = descriptor.tagName || 'element';
         return prettifyLabel(fallback) || fallback;
     }
@@ -6614,6 +6632,14 @@ IntelligenceEngine.prototype.generateActionableId = function(element, actionType
     let uniqueId = reuseId;
     if (!uniqueId) {
         uniqueId = `a_id_${this.elementCounter++}`;
+    } else {
+        const match = uniqueId.match(/a_id_(\d+)$/);
+        if (match) {
+            const reusedIndex = parseInt(match[1], 10);
+            if (Number.isFinite(reusedIndex)) {
+                this.elementCounter = Math.max(this.elementCounter, reusedIndex + 1);
+            }
+        }
     }
     
     // Generate multiple selectors for reliability
@@ -8018,7 +8044,11 @@ IntelligenceEngine.prototype.collectYoutubeCardDescriptors = function(existingDe
         'a.yt-lockup-metadata-view-model__title[href*="watch"]',
         'yt-lockup-view-model a.yt-lockup-metadata-view-model__title[href*="watch"]',
         'a#video-title-link[href*="watch"]',
-        'a[href*="watch"][class*="metadata-view-model__title"]'
+        'a[href*="watch"][class*="metadata-view-model__title"]',
+        'a.shortsLockupViewModelHostEndpoint[href*="/shorts/"]',
+        'a.shortsLockupViewModelHostOutsideMetadataEndpoint[href*="/shorts/"]',
+        'a[href^="https://www.youtube.com/shorts/"]',
+        'a[href^="/shorts/"]'
     ];
 
     sourceNodes.forEach(card => {
@@ -8038,7 +8068,7 @@ IntelligenceEngine.prototype.collectYoutubeCardDescriptors = function(existingDe
             return;
         }
 
-        const text = normalize(link.textContent) || normalize(link.getAttribute('aria-label')) || normalize(link.getAttribute('title'));
+        const text = normalize(link.textContent || link.innerText) || normalize(link.getAttribute('aria-label')) || normalize(link.getAttribute('title'));
         if (!text) return;
 
         let selectorsForLink = this.generateElementSelectors(link) || [];
@@ -8354,7 +8384,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         // 🆕 NEW: Mark initial scan as complete
         this.initialScanCompleted = true;
         console.log("[Content] ✅ Initial page scan marked as complete");
-        applyConfiguredFocus('initial_scan');
+        // applyConfiguredFocus('initial_scan');
         
         // 🎯 NEW: Send intelligence update AFTER filtering is complete (not during scan)
         console.log("[Content] 📤 Filtering complete, sending intelligence update with filtered results...");

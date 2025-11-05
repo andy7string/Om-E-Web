@@ -1,40 +1,39 @@
 {
   "_page_context": {
-    "url": "https://music.youtube.com/",
-    "title": "Believer - YouTube Music",
-    "timestamp": 1762248684.869899,
-    "total_actions": 269,
-    "active_tab_id": 1138013604
+    "url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube",
+    "timestamp": 1762343279.594809,
+    "total_actions": 190,
+    "active_tab_id": 1138014088
   },
   "a_id_0": {
     "action_type": "input",
     "description": "",
     "tag_name": "input",
     "selectors": [
-      "#input",
-      ".style-scope",
-      "input.style-scope",
-      "div:nth-child(3)"
+      ".ytSearchboxComponentInput",
+      "input.ytSearchboxComponentInput",
+      "form:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_0' to input with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_1": {
     "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
+    "description": "Back\n    \n    \n      \n    \n    \n    \n  \n    \n  \n    \n    \n  \n  \n    \n    \n    \n    \n    \n    \n    \n ",
+    "tag_name": "ytd-masthead",
     "selectors": [
-      "#guide-button",
-      ".style-scope",
-      "yt-icon-button.style-scope",
+      "#masthead",
+      ".masthead-finish",
+      "ytd-masthead.masthead-finish",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_1' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_2": {
     "action_type": "unknown",
@@ -44,422 +43,724 @@
       "#guide-button",
       ".style-scope",
       "yt-icon-button.style-scope",
-      "div:nth-child(1)"
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_2' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_3": {
-    "action_type": "link",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "yt-icon-button",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytmusic-logo:nth-child(1)"
+      "#guide-button",
+      ".style-scope",
+      "yt-icon-button.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_3' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_3' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_4": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
+    "action_type": "unknown",
+    "description": "AU",
+    "tag_name": "ytd-topbar-logo-renderer",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "#logo",
+      ".style-scope",
+      "ytd-topbar-logo-renderer.style-scope",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_4' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_4' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_5": {
     "action_type": "link",
     "description": "",
     "tag_name": "a",
     "selectors": [
+      "#logo",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-topbar-logo-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_5' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_6": {
-    "action_type": "link",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "a",
+    "tag_name": "yt-icon-button",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "#back-button",
+      ".style-scope",
+      "yt-icon-button.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_6' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_6' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_7": {
     "action_type": "link",
-    "description": "",
+    "description": "Subscriptions",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_7' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_8": {
     "action_type": "link",
-    "description": "",
+    "description": "YouTube Music",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_8' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_9": {
     "action_type": "link",
-    "description": "",
+    "description": "You",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_9' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_10": {
     "action_type": "link",
-    "description": "",
+    "description": "History",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_10' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_11": {
     "action_type": "link",
-    "description": "",
+    "description": "Playlists",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_11' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_12": {
     "action_type": "link",
-    "description": "",
+    "description": "Your videos",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_12' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_13": {
     "action_type": "link",
-    "description": "",
+    "description": "Your movies & TV",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_13' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_14": {
     "action_type": "link",
-    "description": "Featured playlists for you",
+    "description": "Watch later",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_14' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_15": {
     "action_type": "link",
-    "description": "",
+    "description": "Liked videos",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_15' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_16": {
     "action_type": "link",
-    "description": "",
+    "description": "Downloads",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_16' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_17": {
     "action_type": "link",
-    "description": "",
+    "description": "Subscriptions",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_17' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_18": {
     "action_type": "link",
-    "description": "",
+    "description": "BattleBots",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_18' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_19": {
     "action_type": "link",
-    "description": "",
+    "description": "Emily's Playhouse - Learning Videos for Kids",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_19' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_20": {
     "action_type": "link",
-    "description": "",
+    "description": "Cristina Gomez",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_20' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_21": {
     "action_type": "link",
-    "description": "",
+    "description": "PowerfulJRE",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_21' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_22": {
     "action_type": "link",
-    "description": "",
+    "description": "Danny Jones",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_22' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_23": {
     "action_type": "link",
-    "description": "",
+    "description": "Wes Huff",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_23' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_24": {
     "action_type": "link",
-    "description": "",
+    "description": "Danny Jones Clips",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_24' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_25": {
     "action_type": "link",
-    "description": "",
+    "description": "Music",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_25' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_26": {
     "action_type": "link",
-    "description": "",
+    "description": "Movies & TV",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_26' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_27": {
     "action_type": "link",
-    "description": "",
+    "description": "Gaming",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_27' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_28": {
     "action_type": "link",
-    "description": "",
+    "description": "News",
     "tag_name": "a",
     "selectors": [
+      "#endpoint",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytmusic-two-row-item-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_28' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_29": {
     "action_type": "link",
-    "description": "Believer",
+    "description": "Sports",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_29' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_30": {
+    "action_type": "link",
+    "description": "Learning",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_30' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_31": {
+    "action_type": "link",
+    "description": "Fashion & Beauty",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_31' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_32": {
+    "action_type": "link",
+    "description": "Podcasts",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_32' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_33": {
+    "action_type": "link",
+    "description": "Playables",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_33' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_34": {
+    "action_type": "link",
+    "description": "YouTube Studio",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_34' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_35": {
+    "action_type": "link",
+    "description": "YouTube Kids",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_35' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_36": {
+    "action_type": "link",
+    "description": "Settings",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_36' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_37": {
+    "action_type": "link",
+    "description": "Report history",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_37' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_38": {
+    "action_type": "link",
+    "description": "About",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_38' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_39": {
+    "action_type": "link",
+    "description": "Press",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_39' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_40": {
+    "action_type": "link",
+    "description": "Copyright",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_40' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_41": {
+    "action_type": "link",
+    "description": "Contact us",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_41' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_42": {
+    "action_type": "link",
+    "description": "Creators",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_42' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_43": {
+    "action_type": "link",
+    "description": "Advertise",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(6)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_43' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_44": {
+    "action_type": "link",
+    "description": "Developers",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(7)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_44' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_45": {
+    "action_type": "link",
+    "description": "Terms",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_45' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_46": {
+    "action_type": "link",
+    "description": "Privacy",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_46' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_47": {
+    "action_type": "link",
+    "description": "Policy & Safety",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_47' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_48": {
+    "action_type": "link",
+    "description": "How YouTube works",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_48' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_49": {
+    "action_type": "link",
+    "description": "Test new features",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_49' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_50": {
+    "action_type": "link",
+    "description": "She Did Pull-Ups With NO FINGERS!🤯",
     "tag_name": "a",
     "selectors": [
       "[data-sessionlink=\"feature=player-title\"]",
-      "[data-ome-action-id=\"a_id_29\"]",
       ".ytp-title-link",
       "a.ytp-title-link",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_29' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_50' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_30": {
+  "a_id_51": {
     "action_type": "link",
-    "description": "Vance Joy",
+    "description": "@SquatUniversity",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_30' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_51' to link with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_31": {
-    "action_type": "link",
-    "description": "Dream Your Life Away (Deluxe Edition)",
+  "a_id_52": {
+    "action_type": "button",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(3)"
+      "pivot-button-view-model:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_31' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_52' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_32": {
+  "a_id_53": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -467,11 +768,35 @@
       "head:nth-child(12)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_32' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_53' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_33": {
+  "a_id_54": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(13)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_54' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_55": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(14)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_55' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_56": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -479,11 +804,11 @@
       "head:nth-child(15)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_33' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_56' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_34": {
+  "a_id_57": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -491,35 +816,11 @@
       "head:nth-child(16)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_34' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_57' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_35": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(17)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_35' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_36": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(18)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_36' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_37": {
+  "a_id_58": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -527,11 +828,11 @@
       "head:nth-child(19)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_37' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_58' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_38": {
+  "a_id_59": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -539,371 +840,255 @@
       "head:nth-child(20)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_38' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_39": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(22)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_39' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_40": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(23)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_40' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_41": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(25)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_41' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_42": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(26)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_42' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_43": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(40)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_43' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_44": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(41)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_44' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_45": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#css-2912951064",
-      "[data-loaded=\"true\"]",
-      "head:nth-child(75)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_45' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_46": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_46' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_47": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_47' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_48": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_48' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_49": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_49' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_50": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_50' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_51": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_51' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_52": {
-    "action_type": "button",
-    "description": "New playlist",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_52' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_53": {
-    "action_type": "button",
-    "description": "New playlist",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_53' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_54": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_54' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_55": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_55' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_56": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_56' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_57": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_57' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_58": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_58' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_59": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_59' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_59' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_60": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      ".css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
+      "link.css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
+      "head:nth-child(34)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_60' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_60' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_61": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".css-httpswwwyoutubecomsplayer7b9b4e02wwwplayercss",
+      "link.css-httpswwwyoutubecomsplayer7b9b4e02wwwplayercss",
+      "head:nth-child(36)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_61' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_61' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_62": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".css-httpswwwyoutubecomsdesktopb5612851cssbinwwwmaindesktopplayerskeleton2xcss",
+      "link.css-httpswwwyoutubecomsdesktopb5612851cssbinwwwmaindesktopplayerskeleton2xcss",
+      "head:nth-child(37)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_62' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_62' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_63": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".css-httpswwwyoutubecomsdesktopb5612851cssbinwwwonepick2xcss",
+      "link.css-httpswwwyoutubecomsdesktopb5612851cssbinwwwonepick2xcss",
+      "head:nth-child(38)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_63' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_63' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_64": {
-    "action_type": "button",
+    "action_type": "unknown",
     "description": "",
-    "tag_name": "button",
+    "tag_name": "link",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_basehJ2O_hzPtELB1OamAAAAyBgBd0br1rsAGKMywEp4AKiDsMv9Z3IrHntynrz1Ilnrw",
+      "link.css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_basehJ2O_hzPtELB1OamAAAAyBgBd0br1rsAGKMywEp4AKiDsMv9Z3IrHntynrz1Ilnrw",
+      "head:nth-child(39)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_64' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_64' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_65": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(46)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_65' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_66": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(47)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_66' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_67": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(53)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_67' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_68": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(59)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_68' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_69": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(60)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_69' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_70": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(61)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_70' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_71": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(62)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_71' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_72": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(63)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_72' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_73": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(64)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_73' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_74": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      ".css-httpsfontsgoogleapiscomcssfamilyRoboto300italic400italic500italic700italic",
+      "link.css-httpsfontsgoogleapiscomcssfamilyRoboto300italic400italic500italic700italic",
+      "head:nth-child(115)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_74' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_75": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      ".css-httpsfontsgoogleapiscomcssfamilyRobotoMono400",
+      "link.css-httpsfontsgoogleapiscomcssfamilyRobotoMono400",
+      "head:nth-child(116)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_75' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_76": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_76' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_77": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "div:nth-child(11)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_77' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_78": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      ".css-httpswwwyoutubecomsdesktopb5612851cssbinwwwmaindesktopwatchpageskeleton2xcss",
+      "link.css-httpswwwyoutubecomsdesktopb5612851cssbinwwwmaindesktopwatchpageskeleton2xcss",
+      "body:nth-child(49)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_78' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_79": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -914,11 +1099,69 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_65' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_79' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_66": {
+  "a_id_80": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_80' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_81": {
+    "action_type": "button",
+    "description": "Skip navigation",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_81' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_82": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytSearchboxComponentSearchButton",
+      "button.ytSearchboxComponentSearchButton",
+      "yt-searchbox:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_82' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_83": {
+    "action_type": "button",
+    "description": "Search",
+    "tag_name": "button",
+    "selectors": [
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_83' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_84": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -928,13 +1171,13 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_66' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_84' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_67": {
+  "a_id_85": {
     "action_type": "button",
-    "description": "",
+    "description": "Create",
     "tag_name": "button",
     "selectors": [
       ".yt-spec-button-shape-next",
@@ -942,83 +1185,113 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_67' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_85' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_68": {
+  "a_id_86": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_68' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_86' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_69": {
+  "a_id_87": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "#avatar-btn",
+      ".style-scope",
+      "button.style-scope",
+      "ytd-topbar-menu-button-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_69' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_87' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_70": {
+  "a_id_88": {
     "action_type": "button",
-    "description": "Song",
+    "description": "",
     "tag_name": "button",
     "selectors": [
-      ".song-button",
-      "button.song-button",
-      "div:nth-child(1)"
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_70' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_88' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_71": {
+  "a_id_89": {
     "action_type": "button",
-    "description": "Video",
+    "description": "Tap to unmute",
     "tag_name": "button",
     "selectors": [
-      ".video-button",
-      "button.video-button",
+      "[data-layer=\"2\"]",
+      ".ytp-unmute",
+      "button.ytp-unmute",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_89' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_90": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "a:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_90' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_91": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-featured-product-overflow-icon",
+      "button.ytp-featured-product-overflow-icon",
+      "a:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_91' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_92": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-large-play-button",
+      "button.ytp-large-play-button",
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_71' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_92' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_72": {
-    "action_type": "button",
-    "description": "1/0",
-    "tag_name": "button",
-    "selectors": [
-      "[data-overlay-order=\"3\"]",
-      "[data-tooltip-title=\"Playlist: \"]",
-      ".ytp-playlist-menu-button",
-      "button.ytp-playlist-menu-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_72' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_73": {
+  "a_id_93": {
     "action_type": "button",
     "description": "Search",
     "tag_name": "button",
@@ -1030,11 +1303,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_73' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_93' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_74": {
+  "a_id_94": {
     "action_type": "button",
     "description": "InfoShopping",
     "tag_name": "button",
@@ -1045,11 +1318,39 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_74' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_94' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_75": {
+  "a_id_95": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-cards-teaser-info-icon",
+      "button.ytp-cards-teaser-info-icon",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_95' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_96": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-cards-teaser-close-button",
+      "button.ytp-cards-teaser-close-button",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_96' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_97": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1060,40 +1361,40 @@
       "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_75' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_97' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_76": {
-    "action_type": "button",
-    "description": "Tap to unmute",
-    "tag_name": "button",
-    "selectors": [
-      "[data-layer=\"2\"]",
-      ".ytp-unmute",
-      "button.ytp-unmute",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_76' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_77": {
+  "a_id_98": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".ytp-large-play-button",
-      "button.ytp-large-play-button",
+      "[data-overlay-order=\"3\"]",
+      ".ytp-playlist-menu-button",
+      "button.ytp-playlist-menu-button",
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_77' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_98' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_78": {
+  "a_id_99": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_99' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_100": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1103,11 +1404,53 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_78' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_100' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_79": {
+  "a_id_101": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_101' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_102": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_102' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_103": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_103' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_104": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1117,67 +1460,11 @@
       "a:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_79' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_104' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_80": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_80' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_81": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_81' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_82": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_82' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_83": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_83' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_84": {
+  "a_id_105": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1187,11 +1474,11 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_84' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_105' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_85": {
+  "a_id_106": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1201,11 +1488,11 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_85' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_106' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_86": {
+  "a_id_107": {
     "action_type": "button",
     "description": "Watch later",
     "tag_name": "button",
@@ -1217,11 +1504,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_86' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_107' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_87": {
+  "a_id_108": {
     "action_type": "button",
     "description": "Share",
     "tag_name": "button",
@@ -1233,11 +1520,11 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_87' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_108' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_88": {
+  "a_id_109": {
     "action_type": "button",
     "description": "Copy link",
     "tag_name": "button",
@@ -1249,11 +1536,11 @@
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_88' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_109' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_89": {
+  "a_id_110": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1264,307 +1551,9 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_89' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_90": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_90' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_91": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_91' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_92": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_92' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_93": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_93' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_94": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_94' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_95": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_95' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_96": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_96' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_97": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_97' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_98": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_98' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_99": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_99' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_100": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_100' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_101": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_101' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_102": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_102' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_103": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_103' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_104": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_104' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_105": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_105' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_106": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_106' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_107": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_107' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_108": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_108' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_109": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_109' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_110": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_110' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_111": {
     "action_type": "button",
@@ -1577,50 +1566,51 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_111' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_112": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytdDesktopShortsVolumeControlsMuteIconButton",
+      "button.ytdDesktopShortsVolumeControlsMuteIconButton",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_112' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_113": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytmClosedCaptioningButtonButton",
+      "button.ytmClosedCaptioningButtonButton",
+      "ytm-closed-captioning-button:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_113' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_114": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "#button",
+      ".style-scope",
+      "button.style-scope",
+      "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_114' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_115": {
     "action_type": "button",
@@ -1633,8 +1623,8 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_115' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_116": {
     "action_type": "button",
@@ -1647,22 +1637,22 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_116' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_117": {
     "action_type": "button",
-    "description": "",
+    "description": "Subscribe",
     "tag_name": "button",
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_117' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_118": {
     "action_type": "button",
@@ -1671,12 +1661,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "label:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_118' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_119": {
     "action_type": "button",
@@ -1685,12 +1675,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "label:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_119' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_120": {
     "action_type": "button",
@@ -1699,12 +1689,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "label:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_120' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_121": {
     "action_type": "button",
@@ -1713,12 +1703,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "label:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_121' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_122": {
     "action_type": "button",
@@ -1727,12 +1717,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "label:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_122' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_123": {
     "action_type": "button",
@@ -1745,8 +1735,8 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_123' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_124": {
     "action_type": "button",
@@ -1755,12 +1745,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "button-view-model:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_124' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_125": {
     "action_type": "button",
@@ -1773,8 +1763,8 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_125' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_126": {
     "action_type": "button",
@@ -1787,8 +1777,8 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_126' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_127": {
     "action_type": "button",
@@ -1797,12 +1787,12 @@
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "button-view-model:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_127' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_128": {
     "action_type": "button",
@@ -1815,22 +1805,22 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_128' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_129": {
     "action_type": "button",
-    "description": "",
+    "description": "Save",
     "tag_name": "button",
     "selectors": [
       ".yt-spec-button-shape-next",
       "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "button-view-model:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_129' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_130": {
     "action_type": "button",
@@ -1843,8 +1833,8 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_130' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_131": {
     "action_type": "button",
@@ -1857,486 +1847,554 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_131' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_132": {
     "action_type": "button",
-    "description": "",
+    "description": "Tap to unmute",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-layer=\"2\"]",
+      ".ytp-unmute",
+      "button.ytp-unmute",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_132' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_133": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "a:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_133' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_134": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-featured-product-overflow-icon",
+      "button.ytp-featured-product-overflow-icon",
+      "a:nth-child(5)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_134' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_135": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-large-play-button",
+      "button.ytp-large-play-button",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_135' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_136": {
     "action_type": "button",
-    "description": "",
+    "description": "Search",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-tooltip-title=\"Search\"]",
+      "[data-tooltip-opaque=\"false\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_136' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_137": {
     "action_type": "button",
-    "description": "",
+    "description": "InfoShopping",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-tooltip-opaque=\"false\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_137' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_138": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-cards-teaser-info-icon",
+      "button.ytp-cards-teaser-info-icon",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_138' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_139": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-cards-teaser-close-button",
+      "button.ytp-cards-teaser-close-button",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_139' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_140": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-tooltip-title=\"More\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_140' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_141": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-overlay-order=\"3\"]",
+      ".ytp-playlist-menu-button",
+      "button.ytp-playlist-menu-button",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_141' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_142": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_142' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_143": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_143' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_144": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_144' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_145": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_145' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_146": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_146' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_147": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      ".ytp-featured-product-overflow-icon",
+      "button.ytp-featured-product-overflow-icon",
+      "a:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_147' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_148": {
     "action_type": "button",
-    "description": "",
+    "description": "Cancel",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_148' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_149": {
     "action_type": "button",
-    "description": "",
+    "description": "Confirm",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_149' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_150": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      ".ytp-playlist-menu-close",
+      "button.ytp-playlist-menu-close",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_150' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_151": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      ".ytp-share-panel-close",
+      "button.ytp-share-panel-close",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_151' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_152": {
     "action_type": "button",
-    "description": "",
+    "description": "Watch later",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-tooltip-opaque=\"false\"]",
+      "[data-tooltip-title=\"Watch later\"]",
+      ".ytp-watch-later-button",
+      "button.ytp-watch-later-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_152' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_153": {
     "action_type": "button",
-    "description": "",
+    "description": "Share",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-tooltip-title=\"Share\"]",
+      "[data-tooltip-opaque=\"false\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_153' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_154": {
     "action_type": "button",
-    "description": "",
+    "description": "Copy link",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-tooltip-opaque=\"false\"]",
+      "[data-tooltip-title=\"Copy link\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_154' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_155": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-tooltip-title=\"Close\"]",
+      ".ytp-overflow-panel-close",
+      "button.ytp-overflow-panel-close",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_155' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_156": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-title-no-tooltip=\"Play\"]",
+      "[data-tooltip-title=\"Play (k)\"]",
+      ".ytp-play-button",
+      "button.ytp-play-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_156' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_157": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-tooltip-offset-y=\"0\"]",
+      "[data-tooltip-title=\"Mute (m)\"]",
+      "[data-title-no-tooltip=\"Mute\"]",
+      ".ytp-volume-icon",
+      "button.ytp-volume-icon",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_157' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_158": {
     "action_type": "button",
-    "description": "",
+    "description": "Live",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      ".ytp-live-badge",
+      "button.ytp-live-badge",
+      "div:nth-child(5)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_158' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_159": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-priority=\"1\"]",
+      ".ytp-expand-right-bottom-section-button",
+      "button.ytp-expand-right-bottom-section-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_159' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_160": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-priority=\"3\"]",
+      "[data-tooltip-target-id=\"ytp-autonav-toggle-button\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_160' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_161": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-priority=\"5\"]",
+      "[data-tooltip-title=\"Subtitles/closed captions unavailable\"]",
+      "[data-title-no-tooltip=\"Subtitles/closed captions unavailable\"]",
+      ".ytp-subtitles-button",
+      "button.ytp-subtitles-button",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_161' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_162": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-tooltip-title=\"Settings\"]",
+      "[data-tooltip-target-id=\"ytp-settings-button\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_162' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_163": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-priority=\"9\"]",
+      "[data-tooltip-title=\"Theater mode (t)\"]",
+      "[data-title-no-tooltip=\"Theater mode\"]",
+      ".ytp-size-button",
+      "button.ytp-size-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_163' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_164": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-tooltip-title=\"Play on TV\"]",
+      "[data-priority=\"10\"]",
+      ".ytp-remote-button",
+      "button.ytp-remote-button",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_164' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_165": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-priority=\"12\"]",
+      "[data-title-no-tooltip=\"Full screen\"]",
+      "[data-tooltip-title=\"Full screen (f)\"]",
+      ".ytp-fullscreen-button",
+      "button.ytp-fullscreen-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_165' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_166": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-priority=\"8\"]",
+      "[data-tooltip-target-id=\"ytp-pip-button\"]",
+      "[data-tooltip-title=\"Picture-in-picture\"]",
+      "[data-title-no-tooltip=\"Picture-in-picture\"]",
+      ".ytp-pip-button",
+      "button.ytp-pip-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_166' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_167": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-target-id=\"ytp-fullscreen-grid-expand-button\"]",
+      "[data-tooltip-offset-y=\"-10\"]",
+      ".ytp-fullscreen-grid-expand-button",
+      "button.ytp-fullscreen-grid-expand-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_167' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_168": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -2347,1535 +2405,312 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_165' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_166": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      ".search-button",
-      "yt-icon-button.search-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_166' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_167": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#clear-button",
-      ".style-scope",
-      "yt-icon-button.style-scope",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_167' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_168": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      ".style-scope",
-      "yt-icon-button.style-scope",
-      "ytmusic-settings-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_168' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_168' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_169": {
     "action_type": "unknown",
-    "description": "",
+    "description": "Search",
     "tag_name": "yt-icon-button",
     "selectors": [
-      "#next-items-button",
-      ".next-items-button",
-      "yt-icon-button.next-items-button",
+      "#search-button-narrow",
+      ".style-scope",
+      "yt-icon-button.style-scope",
       "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_169' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_170": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "yt-icon-button",
     "selectors": [
-      "#next-items-button",
-      ".next-items-button",
-      "yt-icon-button.next-items-button",
-      "div:nth-child(2)"
+      "#icon",
+      ".style-scope",
+      "yt-icon-button.style-scope",
+      "ytd-notification-topbar-button-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_170' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_171": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "yt-icon-button",
     "selectors": [
-      "#next-items-button",
-      ".next-items-button",
-      "yt-icon-button.next-items-button",
-      "div:nth-child(2)"
+      "#trailing-button",
+      ".style-scope",
+      "yt-icon-button.style-scope",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_171' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_172": {
     "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
+    "description": "Skip navigation",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      ".player-minimize-button",
-      "yt-icon-button.player-minimize-button",
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_172' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_173": {
     "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
+    "description": "Search with your voice",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      ".player-maximize-button",
-      "yt-icon-button.player-maximize-button",
-      "div:nth-child(2)"
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_173' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_174": {
     "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
+    "description": "Create",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      ".fullscreen-button",
-      "yt-icon-button.fullscreen-button",
-      "div:nth-child(3)"
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_174' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_175": {
     "action_type": "unknown",
     "description": "",
-    "tag_name": "yt-icon-button",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      ".player-close-button",
-      "yt-icon-button.player-close-button",
-      "div:nth-child(4)"
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_175' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_176": {
     "action_type": "unknown",
     "description": "",
-    "tag_name": "yt-icon-button",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      ".previous-button",
-      "yt-icon-button.previous-button",
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_176' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_177": {
     "action_type": "unknown",
     "description": "",
-    "tag_name": "yt-icon-button",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      "#play-pause-button",
-      ".play-pause-button",
-      "yt-icon-button.play-pause-button",
-      "div:nth-child(3)"
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_177' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_178": {
     "action_type": "unknown",
     "description": "",
-    "tag_name": "yt-icon-button",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      ".next-button",
-      "yt-icon-button.next-button",
-      "div:nth-child(6)"
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_178' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_179": {
     "action_type": "unknown",
     "description": "",
-    "tag_name": "yt-icon-button",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      ".volume",
-      "yt-icon-button.volume",
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_179' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_180": {
     "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
+    "description": "Next video",
+    "tag_name": "ytd-button-renderer",
     "selectors": [
-      "#button",
-      ".playback-rate-dropdown-trigger",
-      "yt-icon-button.playback-rate-dropdown-trigger",
-      "ytmusic-playback-rate-renderer:nth-child(1)"
+      ".style-scope",
+      "ytd-button-renderer.style-scope",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_180' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_181": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
+    "action_type": "button",
+    "description": "Show more",
+    "tag_name": "ytd-guide-entry-renderer",
     "selectors": [
-      ".repeat",
-      "yt-icon-button.repeat",
-      "div:nth-child(4)"
+      "#expander-item",
+      ".style-scope",
+      "ytd-guide-entry-renderer.style-scope",
+      "ytd-guide-collapsible-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_181' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_181' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
   "a_id_182": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      ".shuffle",
-      "yt-icon-button.shuffle",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_182' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_183": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      ".expand-button",
-      "yt-icon-button.expand-button",
-      "div:nth-child(6)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_183' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_184": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#expand-volume",
-      ".expand-volume",
-      "yt-icon-button.expand-volume",
-      "ytmusic-player-expanding-menu:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_184' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_185": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#expand-repeat",
-      ".repeat",
-      "yt-icon-button.repeat",
-      "ytmusic-player-expanding-menu:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_185' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_186": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#expand-shuffle",
-      ".expand-shuffle",
-      "yt-icon-button.expand-shuffle",
-      "ytmusic-player-expanding-menu:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_186' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_187": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      ".toggle-player-page-button",
-      "yt-icon-button.toggle-player-page-button",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_187' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_188": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      ".exit-fullscreen-button",
-      "yt-icon-button.exit-fullscreen-button",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_188' to unknown with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_189": {
     "action_type": "button",
-    "description": "",
-    "tag_name": "tp-yt-paper-button",
+    "description": "Show less",
+    "tag_name": "ytd-guide-entry-renderer",
     "selectors": [
-      ".cast-button",
-      "tp-yt-paper-button.cast-button",
-      "ytmusic-cast-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_189' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_190": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "tp-yt-paper-button",
-    "selectors": [
-      ".cast-button",
-      "tp-yt-paper-button.cast-button",
-      "ytmusic-cast-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_190' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_191": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
+      "#collapser-item",
       ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "tp-yt-paper-item:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_191' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_192": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "tp-yt-paper-item:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_192' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_193": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "tp-yt-paper-item:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_193' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_194": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "tp-yt-paper-item:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_194' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_195": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "tp-yt-paper-item:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_195' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_196": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "tp-yt-paper-item:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_196' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_197": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_197' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_198": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_198' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_199": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_199' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_200": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_200' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_201": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_201' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_202": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_202' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_203": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_203' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_204": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_204' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_205": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_205' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_206": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_206' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_207": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_207' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_208": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_208' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_209": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "tp-yt-paper-icon-button",
-    "selectors": [
-      "#left",
-      ".hidden",
-      "tp-yt-paper-icon-button.hidden",
-      "tp-yt-paper-tabs:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_209' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_210": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "tp-yt-paper-icon-button",
-    "selectors": [
-      "#right",
-      ".hidden",
-      "tp-yt-paper-icon-button.hidden",
-      "tp-yt-paper-tabs:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_210' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_211": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "tp-yt-paper-toggle-button",
-    "selectors": [
-      "#automix",
-      ".style-scope",
-      "tp-yt-paper-toggle-button.style-scope",
+      "ytd-guide-entry-renderer.style-scope",
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_211' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_182' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_212": {
+  "a_id_183": {
     "action_type": "button",
     "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
+    "tag_name": "div",
     "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
+      ".yt-spec-avatar-shape",
+      "div.yt-spec-avatar-shape",
+      "yt-avatar-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_183' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
+  },
+  "a_id_184": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "tp-yt-paper-button",
+    "selectors": [
+      "#label",
+      ".dropdown-trigger",
+      "tp-yt-paper-button.dropdown-trigger",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_212' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_184' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_213": {
+  "a_id_185": {
     "action_type": "button",
     "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
+    "tag_name": "div",
     "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
+      ".ytp-fine-scrubbing-play",
+      "div.ytp-fine-scrubbing-play",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_213' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_185' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_214": {
+  "a_id_186": {
     "action_type": "button",
     "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
+    "tag_name": "div",
     "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
+      ".ytp-fine-scrubbing-dismiss",
+      "div.ytp-fine-scrubbing-dismiss",
+      "div:nth-child(5)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_214' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_186' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_215": {
+  "a_id_187": {
     "action_type": "button",
     "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
+    "tag_name": "a",
     "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-tooltip-title=\"Next (SHIFT+n)\"]",
+      "[data-title-no-tooltip=\"Next\"]",
+      ".ytp-next-button",
+      "a.ytp-next-button",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_215' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_187' to button with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_216": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
+  "a_id_188": {
+    "action_type": "unknown",
+    "description": "Search with your voice",
+    "tag_name": "div",
     "selectors": [
-      "#play-button",
+      "#voice-search-button",
       ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "div.style-scope",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_216' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_188' to unknown with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   },
-  "a_id_217": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_217' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_218": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_218' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_219": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_219' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_220": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_220' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_221": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_221' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_222": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_222' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_223": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_223' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_224": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_224' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_225": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_225' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_226": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_226' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_227": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_227' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_228": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_228' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_229": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_229' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_230": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_230' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_231": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_231' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_232": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_232' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_233": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_233' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_234": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_234' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_235": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_235' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_236": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_236' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_237": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_237' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_238": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_238' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_239": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_239' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_240": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_240' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_241": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_241' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_242": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_242' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_243": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_243' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_244": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_244' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_245": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_245' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_246": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_246' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_247": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_247' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_248": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_248' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_249": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_249' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_250": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_250' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_251": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_251' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_252": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_252' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_253": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_253' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_254": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_254' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_255": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_255' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_256": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_256' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_257": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_257' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_258": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_258' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_259": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_259' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_260": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_260' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_261": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_261' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_262": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_262' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_263": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_263' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_264": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_264' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_265": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "ytmusic-play-button-renderer",
-    "selectors": [
-      "#play-button",
-      ".style-scope",
-      "ytmusic-play-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_265' to button with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_377": {
+  "a_id_298": {
     "action_type": "nav",
-    "description": "Home\n    \n    \n      \n      \n    \n  \n  \n\n\n\n  \n    \n  \n  \n    \n      Explore\n    \n    \n      \n      \n",
+    "description": "AU\n\n\n        \n        \n          \n            \n  \n\n\n  \n    \n    \n    Home\n    \n    \n      \n    \n    ",
     "tag_name": "tp-yt-app-drawer",
     "selectors": [
       "#guide",
       ".style-scope",
       "tp-yt-app-drawer.style-scope",
-      "ytmusic-app-layout:nth-child(4)"
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_377' to nav with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_378": {
-    "action_type": "link",
-    "description": "Imagine Dragons",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_378' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
-  },
-  "a_id_379": {
-    "action_type": "link",
-    "description": "Evolve",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_379' to link with this element",
-    "page_url": "https://music.youtube.com/",
-    "page_title": "Believer - YouTube Music"
+    "llm_instruction": "Use actionId 'a_id_298' to nav with this element",
+    "page_url": "https://www.youtube.com/shorts/RWnwSRWjisI",
+    "page_title": "She Did Pull-Ups With NO FINGERS!🤯 - YouTube"
   }
 }
