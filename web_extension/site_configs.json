@@ -327,15 +327,20 @@
         "input[data-testid='royal-pass']",
         "input[type='email']",
         "input[type='password']",
-        "button[name='login']",
-        "button[data-testid='royal-login-button']",
+        "input[type='search']",
+        "input[type='search'][role='combobox']",
         "input[placeholder*='Search' i]",
         "input[aria-label*='Search' i]",
-        "input[type='search'][role='combobox']"
+        "input[aria-label='Search Marketplace']",
+        "input[aria-label='Search Facebook']",
+        "input[placeholder='Search Marketplace']",
+        "input[placeholder='Search Facebook']",
+        "button[name='login']",
+        "button[data-testid='royal-login-button']"
       ],
       "exclude": [
         "[aria-hidden='true']",
-        "div.x1i10hfl"
+        "div.x1i10hfl:not(input)"
       ]
     },
     "forceIncludeSelectors": [
@@ -347,11 +352,16 @@
       "input[data-testid='royal-pass']",
       "input[type='email']",
       "input[type='password']",
-      "button[name='login']",
-      "button[data-testid='royal-login-button']",
+      "input[type='search']",
+      "input[type='search'][role='combobox']",
       "input[placeholder='Search Marketplace']",
       "input[aria-label='Search Marketplace']",
-      "input[type='search'][role='combobox']"
+      "input[placeholder='Search Facebook']",
+      "input[aria-label='Search Facebook']",
+      "input[placeholder*='Search' i]",
+      "input[aria-label*='Search' i]",
+      "button[name='login']",
+      "button[data-testid='royal-login-button']"
     ],
     "extraInteractiveSelectors": [
       "button[name='login']",

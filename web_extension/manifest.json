@@ -9,7 +9,9 @@
     "activeTab",
     "scripting",
     "webNavigation",
-    "storage"
+    "storage",
+    "alarms",
+    "offscreen"
   ],
   
   "host_permissions": [

@@ -38,6 +38,35 @@ console.log("[Content] ✅ Running in main frame:", {
     topUrl: window.top.location.href
 });
 
+/**
+ * 🛡️ Establish a persistent keep-alive port so the service worker stays awake.
+ * This prevents Chrome from suspending the background context while the
+ * automation bridge is connected to the Python server.
+ */
+function ensureKeepAlivePortConnection() {
+    if (window.__omeKeepAlivePort) {
+        return;
+    }
+
+    try {
+        const port = chrome.runtime.connect({ name: "ome_keep_alive" });
+        window.__omeKeepAlivePort = port;
+
+        port.onDisconnect.addListener(() => {
+            console.warn("[Content] ⚠️ Keep-alive port disconnected, retrying…");
+            window.__omeKeepAlivePort = null;
+            setTimeout(ensureKeepAlivePortConnection, 500);
+        });
+
+        console.log("[Content] 🔌 Keep-alive port established");
+    } catch (error) {
+        console.error("[Content] ❌ Failed to establish keep-alive port:", error);
+        setTimeout(ensureKeepAlivePortConnection, 1000);
+    }
+}
+
+ensureKeepAlivePortConnection();
+
 let initialScanScheduled = false;
 let initialScanReason = null;
 
@@ -7871,45 +7900,170 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
 
                     // Optional submit: press Enter, then poll briefly for a visible send/submit button and click it
                     if (params && params.submit) {
-                        // Small delay to let the value settle before submitting
+                        // Detect if this is a search input with autocomplete (like Facebook, Google, YouTube)
+                        const hasAutocomplete = element.getAttribute('aria-autocomplete') === 'list' || 
+                                               element.getAttribute('aria-expanded') === 'true' ||
+                                               element.type === 'search';
+                        
+                        // For search inputs with autocomplete, wait longer for dropdown to appear before submitting
+                        const submitDelay = hasAutocomplete ? 300 : 100;
+                        
                         setTimeout(() => {
-                            // First, try pressing Enter on the input itself (works for most search forms)
-                            const enterKeyOptions = {
-                                key: 'Enter',
-                                code: 'Enter',
-                                keyCode: 13,
-                                which: 13,
-                                bubbles: true,
-                                cancelable: true,
-                                view: window
+                            // Ensure element is focused and has focus events
+                            try {
+                                element.focus();
+                                // Trigger focus event to ensure site handlers are ready
+                                element.dispatchEvent(new FocusEvent('focus', { bubbles: true }));
+                            } catch (e) {
+                                console.warn('[Content] ⚠️ Focus failed:', e);
+                            }
+                            
+                            // Function to dispatch Enter key with proper event properties
+                            const dispatchEnterKey = () => {
+                                try {
+                                    // Method 1: Try using document.execCommand for maximum compatibility
+                                    // (deprecated but still works in many cases)
+                                    try {
+                                        document.execCommand('insertText', false, '\n');
+                                    } catch (e) {
+                                        // Ignore if not supported
+                                    }
+                                    
+                                    // Method 2: Create very realistic keyboard events with all properties
+                                    const enterKeyOptions = {
+                                        key: 'Enter',
+                                        code: 'Enter',
+                                        keyCode: 13,
+                                        which: 13,
+                                        charCode: 13,
+                                        keyIdentifier: 'Enter',
+                                        bubbles: true,
+                                        cancelable: true,
+                                        view: window,
+                                        composed: true,
+                                        isComposing: false,
+                                        repeat: false
+                                    };
+                                    
+                                    // Create events with all possible properties
+                                    const keydownEvent = new KeyboardEvent('keydown', enterKeyOptions);
+                                    const keypressEvent = new KeyboardEvent('keypress', enterKeyOptions);
+                                    const keyupEvent = new KeyboardEvent('keyup', enterKeyOptions);
+                                    
+                                    // Set all target properties for maximum compatibility
+                                    ['target', 'currentTarget', 'srcElement'].forEach(prop => {
+                                        try {
+                                            Object.defineProperty(keydownEvent, prop, { value: element, writable: false, configurable: true });
+                                            Object.defineProperty(keypressEvent, prop, { value: element, writable: false, configurable: true });
+                                            Object.defineProperty(keyupEvent, prop, { value: element, writable: false, configurable: true });
+                                        } catch (e) {
+                                            // Some properties might not be settable
+                                        }
+                                    });
+                                    
+                                    // Dispatch in sequence with small delays to simulate real typing
+                                    const keydownResult = element.dispatchEvent(keydownEvent);
+                                    setTimeout(() => {
+                                        const keypressResult = element.dispatchEvent(keypressEvent);
+                                        setTimeout(() => {
+                                            const keyupResult = element.dispatchEvent(keyupEvent);
+                                            console.log('[Content] ⌨️ Enter key dispatched:', { 
+                                                keydown: keydownResult, 
+                                                keypress: keypressResult, 
+                                                keyup: keyupResult, 
+                                                defaultPrevented: keydownEvent.defaultPrevented 
+                                            });
+                                        }, 10);
+                                    }, 10);
+                                    
+                                    return !keydownEvent.defaultPrevented;
+                                } catch (e) {
+                                    console.warn('[Content] ⚠️ Enter key dispatch failed:', e);
+                                    return false;
+                                }
                             };
                             
-                            try {
-                                // Create more realistic keyboard events
-                                const keydownEvent = new KeyboardEvent('keydown', enterKeyOptions);
-                                const keypressEvent = new KeyboardEvent('keypress', enterKeyOptions);
-                                const keyupEvent = new KeyboardEvent('keyup', enterKeyOptions);
-                                
-                                // Set target properties to make events more realistic
-                                Object.defineProperty(keydownEvent, 'target', { value: element, writable: false });
-                                Object.defineProperty(keypressEvent, 'target', { value: element, writable: false });
-                                Object.defineProperty(keyupEvent, 'target', { value: element, writable: false });
-                                
-                                // Dispatch in sequence
-                                const keydownResult = element.dispatchEvent(keydownEvent);
-                                const keypressResult = element.dispatchEvent(keypressEvent);
-                                const keyupResult = element.dispatchEvent(keyupEvent);
-                                
-                                console.log('[Content] ⌨️ Enter key dispatched:', { keydown: keydownResult, keypress: keypressResult, keyup: keyupResult, defaultPrevented: keydownEvent.defaultPrevented });
-                                
-                                // Also try form submission if element is in a form
-                                const form = element.closest('form');
-                                if (form && !keydownEvent.defaultPrevented) {
+                            // For Facebook specifically, also look for "See all results" or search button in dropdown
+                            const findFacebookSearchButton = () => {
+                                try {
+                                    const ariaControls = element.getAttribute('aria-controls');
+                                    if (ariaControls) {
+                                        const listbox = document.getElementById(ariaControls);
+                                        if (listbox) {
+                                            // Look for "See all results" link or search button
+                                            // First try specific selectors
+                                            const specificSelectors = [
+                                                'a[href*="/search"]',
+                                                'a[href*="q="]',
+                                                '[role="button"][aria-label*="See all" i]',
+                                                '[role="button"][aria-label*="Search" i]'
+                                            ];
+                                            
+                                            for (const sel of specificSelectors) {
+                                                const btn = listbox.querySelector(sel);
+                                                if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                                    try {
+                                                        btn.click();
+                                                        console.log('[Content] ✅ Clicked Facebook search button via selector:', sel);
+                                                        return true;
+                                                    } catch (e) {
+                                                        console.warn('[Content] ⚠️ Facebook search button click failed:', e);
+                                                    }
+                                                }
+                                            }
+                                            
+                                            // Fallback: Search all links and buttons for "See all" or "Search" text
+                                            const allLinks = listbox.querySelectorAll('a, [role="button"], div[role="button"]');
+                                            for (const btn of allLinks) {
+                                                const text = (btn.textContent || btn.innerText || '').toLowerCase().trim();
+                                                const href = btn.href || btn.getAttribute('href') || '';
+                                                if ((text.includes('see all') || text.includes('search') || href.includes('/search')) && 
+                                                    ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                                    try {
+                                                        btn.click();
+                                                        console.log('[Content] ✅ Clicked Facebook search button by text:', text || href);
+                                                        return true;
+                                                    } catch (e) {
+                                                        console.warn('[Content] ⚠️ Facebook search button click failed:', e);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                } catch (e) {
+                                    console.warn('[Content] ⚠️ Facebook search button lookup failed:', e);
+                                }
+                                return false;
+                            };
+                            
+                            // Try Enter key first (this should execute search on Facebook, Google, YouTube)
+                            const enterWorked = dispatchEnterKey();
+                            
+                            // For Facebook, also try finding and clicking search button in dropdown
+                            if (hasAutocomplete && window.location.hostname.includes('facebook.com')) {
+                                setTimeout(() => {
+                                    if (!findFacebookSearchButton()) {
+                                        console.log('[Content] ⚠️ Facebook search button not found, trying direct navigation...');
+                                        
+                                        // Last resort: Navigate directly to Facebook search URL
+                                        const searchValue = encodeURIComponent(element.value || element.textContent || '');
+                                        if (searchValue) {
+                                            const searchUrl = `https://www.facebook.com/search/top/?q=${searchValue}`;
+                                            console.log('[Content] 🔍 Navigating to Facebook search URL:', searchUrl);
+                                            window.location.href = searchUrl;
+                                        }
+                                    }
+                                }, 400); // Wait longer to see if Enter worked first
+                            }
+                            
+                            // Also try form submission if element is in a form
+                            const form = element.closest('form');
+                            if (form && enterWorked) {
+                                setTimeout(() => {
                                     try {
                                         form.requestSubmit();
                                         console.log('[Content] ✅ Form.requestSubmit() called');
                                     } catch (e) {
-                                        // If requestSubmit fails, try submit()
                                         try {
                                             form.submit();
                                             console.log('[Content] ✅ Form.submit() called');
@@ -7917,79 +8071,80 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                             console.warn('[Content] ⚠️ Form submission failed:', e2.message);
                                         }
                                     }
-                                }
-                                
-                                // For Facebook and similar sites, also try clicking the first autocomplete result
-                                if (element.getAttribute('aria-expanded') === 'true' || element.getAttribute('aria-autocomplete') === 'list') {
-                                    setTimeout(() => {
-                                        const autocompleteSelectors = [
-                                            '[role="option"]:first-child',
-                                            '[role="listbox"] [role="option"]:first-child',
-                                            'ul[role="listbox"] li:first-child',
-                                            '[aria-label*="Search" i][role="option"]:first-child'
-                                        ];
-                                        
-                                        for (const sel of autocompleteSelectors) {
-                                            const firstOption = document.querySelector(sel);
-                                            if (firstOption && ((typeof isElementVisible === 'function') ? isElementVisible(firstOption) : true)) {
-                                                try {
-                                                    firstOption.click();
-                                                    console.log('[Content] ✅ Clicked first autocomplete option:', sel);
-                                                    return;
-                                                } catch (e) {
-                                                    console.warn('[Content] ⚠️ Autocomplete click failed:', e);
-                                                }
+                                }, 50);
+                            }
+                            
+                            // For search inputs, DON'T click autocomplete options - let Enter key handle it
+                            // Only click autocomplete as absolute last resort for non-search inputs
+                            if (!hasAutocomplete) {
+                                // Only for non-search inputs, try clicking autocomplete options
+                                setTimeout(() => {
+                                    const autocompleteSelectors = [
+                                        '[role="option"]:first-child',
+                                        '[role="listbox"] [role="option"]:first-child',
+                                        'ul[role="listbox"] li:first-child'
+                                    ];
+                                    
+                                    for (const sel of autocompleteSelectors) {
+                                        const firstOption = document.querySelector(sel);
+                                        if (firstOption && ((typeof isElementVisible === 'function') ? isElementVisible(firstOption) : true)) {
+                                            try {
+                                                firstOption.click();
+                                                console.log('[Content] ✅ Clicked first autocomplete option:', sel);
+                                                return;
+                                            } catch (e) {
+                                                console.warn('[Content] ⚠️ Autocomplete click failed:', e);
                                             }
                                         }
-                                    }, 200);
-                                }
-                            } catch (e) {
-                                console.warn('[Content] ⚠️ Enter key dispatch failed:', e);
+                                    }
+                                }, 200);
                             }
 
-                            // Also look for submit buttons in the same form or nearby
-                            const formForButtonSearch = element.closest('form');
-                            const sendSelectors = [
-                                '#composer-submit-button',
-                                'button[data-testid*="send" i]',
-                                'button[aria-label*="Send" i]',
-                                'button[aria-label*="Search" i]',
-                                'button[type="submit"]',
-                                'input[type="submit"]',
-                                '#composer-plus-btn',
-                                'button[class*="submit" i]',
-                                'button[class*="search" i]',
-                                'a[role="button"][aria-label*="Search" i]',
-                                '[role="button"][aria-label*="Search" i]'
-                            ];
+                            // Also look for submit buttons as fallback (but with longer delay for search inputs)
+                            const buttonPollDelay = hasAutocomplete ? 500 : 200;
+                            setTimeout(() => {
+                                const formForButtonSearch = element.closest('form');
+                                const sendSelectors = [
+                                    '#composer-submit-button',
+                                    'button[data-testid*="send" i]',
+                                    'button[aria-label*="Send" i]',
+                                    'button[aria-label*="Search" i]',
+                                    'button[type="submit"]',
+                                    'input[type="submit"]',
+                                    '#composer-plus-btn',
+                                    'button[class*="submit" i]',
+                                    'button[class*="search" i]',
+                                    'a[role="button"][aria-label*="Search" i]',
+                                    '[role="button"][aria-label*="Search" i]'
+                                ];
 
-                            // If we have a form, prioritize buttons within that form
-                            const searchRoot = formForButtonSearch || document;
-                            
-                            let attempts = 0;
-                            const maxAttempts = 20; // ~2s at 100ms intervals (increased for dynamic buttons)
-                            const poll = () => {
-                                for (const s of sendSelectors) {
-                                    const btn = searchRoot.querySelector(s);
-                                    if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
-                                        try { 
-                                            btn.click(); 
-                                            console.log('[Content] ✅ Submit button clicked:', s);
-                                            return; // stop polling once clicked
-                                        } catch (e) {
-                                            console.warn('[Content] ⚠️ Submit button click failed:', e);
+                                const searchRoot = formForButtonSearch || document;
+                                
+                                let attempts = 0;
+                                const maxAttempts = 10; // Reduced since Enter should work
+                                const poll = () => {
+                                    for (const s of sendSelectors) {
+                                        const btn = searchRoot.querySelector(s);
+                                        if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                            try { 
+                                                btn.click(); 
+                                                console.log('[Content] ✅ Submit button clicked:', s);
+                                                return;
+                                            } catch (e) {
+                                                console.warn('[Content] ⚠️ Submit button click failed:', e);
+                                            }
                                         }
                                     }
-                                }
-                                attempts += 1;
-                                if (attempts < maxAttempts) {
-                                    setTimeout(poll, 100);
-                                } else {
-                                    console.warn('[Content] ⚠️ Submit button not found after polling');
-                                }
-                            };
-                            setTimeout(poll, 150); // Slightly longer initial delay
-                        }, 50); // Small delay to let value settle
+                                    attempts += 1;
+                                    if (attempts < maxAttempts) {
+                                        setTimeout(poll, 100);
+                                    } else {
+                                        console.warn('[Content] ⚠️ Submit button not found after polling');
+                                    }
+                                };
+                                poll();
+                            }, buttonPollDelay);
+                        }, submitDelay);
                     }
 
                     result = {
