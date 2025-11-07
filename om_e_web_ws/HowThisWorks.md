@@ -8,11 +8,14 @@ This document explains the end‑to‑end pipeline: Chrome Extension (MV3) + Web
   - `web_extension/content.js` — Scans the DOM, assigns stable `data-ome-action-id` to actionable elements, exports page intelligence, and executes actions (`click`, `setValue`, `navigate`).
   - `web_extension/sw.js` — Service Worker. Coordinates tab activation, forwards messages between the content script and the WebSocket server, handles CSP bypass cycles and page lifecycle.
 - **Server**
-  - `om_e_web_ws/ws_server.py` — WebSocket bridge and persistence. Receives intelligence from the extension, writes artifacts, and forwards LLM instructions to the active tab. Handles large payloads (compression + larger `max_size`).
+  - `om_e_web_ws/ws_server.py` — WebSocket bridge and persistence. Receives intelligence from the extension, writes artifacts (`page.jsonl`, `content.jsonl`, `text.md`, `llm_actions.json`, `llm_prompt.md`), and forwards LLM instructions to the active tab. Handles large payloads (compression + larger `max_size`) and keeps cached tab/content state for quick API-style reads.
 - **Artifacts (written under `om_e_web_ws/@site_structures/`)**
   - `page.jsonl` — JSON Lines export with `meta`, `section`, `text`, and `action` records in DOM order.
+  - `content.jsonl` — Consolidated headings/paragraphs/lists/images extracted from the same update stream.
   - `text.md` — Human-readable transcript of the page.
-  - `llm_optimized.json` — Compact, LLM‑friendly snapshot built from the two files above.
+  - `llm_actions.json` — Direct lookup of every `actionId` with selectors/metadata for deterministic execution.
+  - `llm_prompt.md` — Lightweight prompt that mixes a clipped transcript with “return (a_id_x)” action instructions.
+  - `llm_optimized.json` — Compact, LLM‑friendly snapshot built from the structured files above (generated manually or by the watcher).
 - **Tools**
   - `om_e_web_ws/tools/create_llm_structure.js` — Transforms `page.jsonl` + `text.md` → `llm_optimized.json`.
   - `om_e_web_ws/tools/watch_llm_structure.js` — Watches the two inputs and regenerates the JSON on change.
@@ -31,9 +34,12 @@ See also: `om_e_web_ws/@site_structures/HowThisAllWorks.md` for a focused overvi
 
 3) The server writes/updates:
    - `@site_structures/page.jsonl`
+   - `@site_structures/content.jsonl`
    - `@site_structures/text.md`
+   - `@site_structures/llm_actions.json`
+   - `@site_structures/llm_prompt.md`
 
-4) You generate the LLM snapshot:
+4) Generate the optional all-in-one snapshot when you need it:
 
 ```bash
 node om_e_web_ws/tools/create_llm_structure.js \
@@ -50,7 +56,7 @@ node om_e_web_ws/tools/watch_llm_structure.js
 
 5) An agent (or your test script) reads `llm_optimized.json`, picks an `actionId` from `actions.data`, and sends an instruction via the server.
 
-6) The service worker forwards the instruction to `content.js`, which resolves the element and executes the action.
+6) The service worker forwards the instruction to `content.js`, which resolves the element and executes the action. The keep-alive port (added in `sw.js`) prevents Chrome from suspending the service worker mid-session so the WebSocket bridge stays online while you issue commands.
 
 ---
 
@@ -65,6 +71,14 @@ The file is a compact snapshot with three important sections:
   - `actions.data` — a map of `actionId` → pipe‑delimited string matching `fields`.
 
 When the LLM chooses an `actionId`, your automation layer uses the fields to decide how to execute it (e.g., link `href`, element `tag`, normalization hints).
+
+### Fast references (`llm_actions.json` + `llm_prompt.md`)
+
+- `llm_actions.json` is produced directly by the server on every intelligence update (see `process_actionable_elements_for_llm()` in `ws_server.py`). It is an exhaustive JSON map of `actionId -> {action_type, selectors, description, …}` and is ideal when you want the most literal reference data.
+- `llm_prompt.md` is generated via `generate_llm_prompt()` inside `ws_server.py` right after `text.md`/`page.jsonl` are refreshed. It contains:
+  - Title + short transcript (trimmed to ~1.5k chars, URL stripped).
+  - A canonical list of instructions using the `return (a_id_x)` syntax your LLM prompt already expects.
+- These two files give you an immediate “cheat sheet” without having to rebuild `llm_optimized.json`. The watcher/CLI still matters when you want the compressed markdown + packed action table for prompting.
 
 ---
 
@@ -237,6 +251,10 @@ Tune these if elements are missing from `page.jsonl` or resolve incorrectly duri
 
 - **Message too large / connection closed**
   - The server is configured with larger `max_size` and compression; ensure you’re running the latest `ws_server.py`.
+- **Service worker disconnects after a minute**
+  - MV3 service workers are event-driven and Chrome will suspend them even if a WebSocket is open.
+  - `sw.js` now establishes a hidden keep-alive port (see `ensureKeepAlivePort()` and the `ome_keep_alive` port) by injecting a tiny helper into any accessible tab. As long as one regular tab is open, the WebSocket bridge stays online and queued messages flush automatically once the socket is ready.
+  - If *all* open tabs are `chrome://` or otherwise inaccessible, the keep-alive port cannot be created; open a regular page before sending actions.
 
 - **Reinjection errors (`Identifier already declared`)**
   - The content script guards initialization to avoid redeclaration on reinject; ensure the extension is refreshed after updates.
@@ -371,5 +389,4 @@ Reference flow:
 4) The server normalizes and routes to the extension; result is returned to the orchestrator.
 
 This keeps prompts small, preserves the current pipeline, and lets you swap the CLI for an agent later without changing the extension.
-
 

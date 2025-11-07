@@ -1,14 +1,17 @@
 # How This All Works
 
-This directory captures three views of every page we crawl:
+This directory captures every artifact emitted by `ws_server.py` whenever the extension streams an intelligence update. Each file has a specific audience:
 
-- **page.jsonl** – the raw JSON Lines output exported by the content script. It has the `meta`, `section`, `text`, and `action` records in DOM order, one JSON object per line.
-- **text.md** – the plain-language transcript scraped from the same page, arranged the way a human would read it.
-- **llm_optimized.json** – the merged, LLM-friendly snapshot we generate by combining the two files above.
+- **page.jsonl** – the raw JSON Lines export from the content script. One JSON object per line covering `meta`, `section`, `text`, and `action` records in DOM order.
+- **content.jsonl** – the consolidated representation of headings, paragraphs, lists, tables, and other “content” elements (see `consolidate_content_elements_to_structure()` in `ws_server.py`).
+- **text.md** – a plain-language transcript with title, URL, timestamp, divider, then the extracted text body. It is what feeds `llm_prompt.md`.
+- **llm_actions.json** – a direct map of every `actionId` → `{action_type, selectors, description, tag_name, …}`. Generated via `process_actionable_elements_for_llm()` and useful for deterministic lookups.
+- **llm_prompt.md** – a trimmed transcript followed by a canonical “return (a_id_X)” action list produced by `generate_llm_prompt()`. Perfect for quick manual or LLM prompting.
+- **llm_optimized.json** – the merged, LLM-friendly snapshot generated from the structured sources above when you run `tools/create_llm_structure.js` (or its watcher).
 
-## Generating the LLM snapshot
+## Generating / regenerating the LLM snapshot
 
-We expose a single function (`createLLMOptimizedStructure`) in `tools/create_llm_structure.js`. It reads the JSONL and markdown files, lines them up, and emits a compact JSON payload with:
+We expose a single function (`createLLMOptimizedStructure`) in `tools/create_llm_structure.js`. It reads `page.jsonl` + `text.md` (and implicitly the actionable data baked into those files), lines them up, and emits a compact JSON payload with:
 
 - `meta` – page metadata (URL, title, timestamp, totals).
 - `markdown` – an array of markdown lines; actionable text is wrapped in `[label](action:ACTION_ID)` (or `action-ref:` on repeats) so an LLM can recognise clickable items.
@@ -25,7 +28,7 @@ node om_e_web_ws/tools/create_llm_structure.js \
   om_e_web_ws/@site_structures/llm_optimized.json
 ```
 
-Call this whenever you have fresh `page.jsonl` and `text.md` files and want the LLM view regenerated.
+Call this whenever you have fresh `page.jsonl` and `text.md` files and want the LLM view regenerated (even though `llm_actions.json`/`llm_prompt.md` are already kept up to date for quick references).
 
 ### Continuous regeneration while editing
 

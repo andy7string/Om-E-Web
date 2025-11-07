@@ -717,6 +717,7 @@ def _map_prompt_action_sentence(record: Dict[str, Any]) -> Optional[str]:
 def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, max_actions: int = 120) -> Optional[str]:
     try:
         title: Optional[str] = None
+        page_url: Optional[str] = None
         transcript = ""
         if os.path.exists(text_md_path):
             with open(text_md_path, 'r', encoding='utf-8', errors='ignore') as f:
@@ -738,8 +739,16 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
                         rec = json.loads(line)
                     except Exception:
                         continue
-                    if rec.get('type') == 'meta' and not title:
-                        title = rec.get('title') or title
+                    if rec.get('type') == 'meta':
+                        if not title:
+                            title = rec.get('title') or title
+                        if not page_url:
+                            page_url = (
+                                rec.get('current_page', {}).get('url')
+                                or rec.get('url')
+                                or rec.get('browser_state', {}).get('active_tab', {}).get('url')
+                                or page_url
+                            )
                     mapped = _map_prompt_action_sentence(rec)
                     if mapped:
                         action_lines.append(mapped)
@@ -755,6 +764,9 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
 
         parts: List[str] = []
         parts.append(f"# {title or 'Page'}")
+        if page_url:
+            parts.append("")
+            parts.append(f"**URL:** {page_url}")
         parts.append("")
         if transcript:
             parts.append("## Transcript (partial)")

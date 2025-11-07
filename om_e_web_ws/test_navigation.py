@@ -276,7 +276,7 @@ async def main():
     - params becomes {"value": ..., "submit": True/False}
     """)
         print(f"🎯 Executing action (LLM mode): {payload}")
-        response = await tester.send_command("execute_llm_action", payload)
+    response = await tester.send_command("execute_llm_action", payload)
 
     if response is None:
         print("❌ No response received")

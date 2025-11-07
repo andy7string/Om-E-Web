@@ -41,7 +41,220 @@ console.log("[Content] ✅ Running in main frame:", {
 let initialScanScheduled = false;
 let initialScanReason = null;
 
-function scheduleInitialScan(reason = 'unspecified', options = { quietPeriod: 200, maxWait: 10000 }) {
+const pageIdleMonitor = (() => {
+    if (window.omEWebPageIdleMonitor) {
+        return window.omEWebPageIdleMonitor;
+    }
+
+    let inflightRequests = 0;
+    const idleResolvers = new Set();
+    let idleScheduled = false;
+    let mutationObserver = null;
+    let resourceObserver = null;
+    let lastChangeTime = performance.now();
+    let quietWindowMs = 200;
+
+    const ensureNonNegative = (value) => (value < 0 ? 0 : value);
+
+    const resolveIdleWaiters = () => {
+        if (!idleResolvers.size) {
+            return;
+        }
+
+        const resolvers = Array.from(idleResolvers);
+        idleResolvers.clear();
+        resolvers.forEach((resolve) => resolve());
+    };
+
+    const scheduleIdleCheck = () => {
+        if (idleScheduled) {
+            return;
+        }
+
+        idleScheduled = true;
+
+        const runCheck = () => {
+            idleScheduled = false;
+
+            if (!idleResolvers.size) {
+                return;
+            }
+
+            if (inflightRequests > 0) {
+                scheduleIdleCheck();
+                return;
+            }
+
+            const now = performance.now();
+            if (now - lastChangeTime < quietWindowMs) {
+                scheduleIdleCheck();
+                return;
+            }
+
+            resolveIdleWaiters();
+        };
+
+        if (typeof window.requestIdleCallback === 'function') {
+            window.requestIdleCallback(runCheck, { timeout: quietWindowMs });
+        } else {
+            window.requestAnimationFrame(runCheck);
+        }
+    };
+
+    const markChange = () => {
+        lastChangeTime = performance.now();
+        scheduleIdleCheck();
+    };
+
+    const wrapFetch = () => {
+        if (typeof window.fetch !== 'function' || window.fetch.__omeWrapped) {
+            return;
+        }
+
+        const originalFetch = window.fetch;
+        const wrappedFetch = function wrappedFetch(...args) {
+            inflightRequests += 1;
+            markChange();
+
+            let completed = false;
+            const finalize = () => {
+                if (completed) {
+                    return;
+                }
+                completed = true;
+                inflightRequests = ensureNonNegative(inflightRequests - 1);
+                markChange();
+            };
+
+            try {
+                const result = originalFetch.apply(this, args);
+                return Promise.resolve(result)
+                    .then((response) => {
+                        finalize();
+                        return response;
+                    })
+                    .catch((error) => {
+                        finalize();
+                        throw error;
+                    });
+            } catch (error) {
+                finalize();
+                throw error;
+            }
+        };
+
+        wrappedFetch.__omeWrapped = true;
+        wrappedFetch.__omeOriginal = originalFetch;
+        window.fetch = wrappedFetch;
+    };
+
+    const wrapXmlHttpRequest = () => {
+        if (typeof XMLHttpRequest === 'undefined') {
+            return;
+        }
+        const proto = XMLHttpRequest.prototype;
+        if (!proto || proto.send.__omeWrapped) {
+            return;
+        }
+
+        const originalSend = proto.send;
+        proto.send = function wrappedSend(...args) {
+            inflightRequests += 1;
+            markChange();
+
+            let finalized = false;
+            const finalize = () => {
+                if (finalized) {
+                    return;
+                }
+                finalized = true;
+                inflightRequests = ensureNonNegative(inflightRequests - 1);
+                markChange();
+            };
+
+            this.addEventListener('loadend', finalize, { once: true });
+
+            try {
+                return originalSend.apply(this, args);
+            } catch (error) {
+                finalize();
+                throw error;
+            }
+        };
+
+        proto.send.__omeWrapped = true;
+    };
+
+    const ensureObservers = () => {
+        if (!mutationObserver) {
+            mutationObserver = new MutationObserver(() => markChange());
+            try {
+                mutationObserver.observe(document, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    characterData: true
+                });
+            } catch (error) {
+                console.warn("[Content] ⚠️ MutationObserver failed to start:", error.message);
+            }
+        }
+
+        if (!resourceObserver && typeof PerformanceObserver === 'function') {
+            try {
+                resourceObserver = new PerformanceObserver(() => markChange());
+                resourceObserver.observe({ entryTypes: ['resource'] });
+            } catch (error) {
+                resourceObserver = null;
+            }
+        }
+    };
+
+    const waitForIdle = ({ maxWait = 15000, quietWindow = 200 } = {}) => {
+        ensureObservers();
+        wrapFetch();
+        wrapXmlHttpRequest();
+        quietWindowMs = typeof quietWindow === 'number' && quietWindow >= 0 ? quietWindow : 0;
+        lastChangeTime = performance.now() - quietWindowMs;
+        scheduleIdleCheck();
+
+        return new Promise((resolve) => {
+            let timeoutId = null;
+
+            const complete = () => {
+                idleResolvers.delete(onIdle);
+                if (timeoutId !== null) {
+                    clearTimeout(timeoutId);
+                }
+                resolve();
+            };
+
+            const onIdle = () => {
+                complete();
+            };
+
+            idleResolvers.add(onIdle);
+            scheduleIdleCheck();
+
+            if (typeof maxWait === 'number' && Number.isFinite(maxWait) && maxWait > 0) {
+                timeoutId = setTimeout(() => {
+                    console.warn("[Content] ⚠️ Idle wait exceeded maxWait, proceeding anyway");
+                    complete();
+                }, maxWait);
+            }
+        });
+    };
+
+    const api = {
+        waitForIdle,
+        markChange
+    };
+
+    window.omEWebPageIdleMonitor = api;
+    return api;
+})();
+
+function scheduleInitialScan(reason = 'unspecified', options = { maxWait: 12000 }) {
     if (initialScanScheduled) {
         console.log("[Content] ⏭️ Initial scan already scheduled (reason:", initialScanReason, ")");
         return;
@@ -50,16 +263,24 @@ function scheduleInitialScan(reason = 'unspecified', options = { quietPeriod: 20
     initialScanScheduled = true;
     initialScanReason = reason;
 
-    const startScan = () => {
-        console.log(`[Content] 🔍 Scheduling initial scan (${reason}) with quietPeriod ${options.quietPeriod}ms`);
-        scanWhenPageSettles(runScanAfterPageLoad, options);
+    const startScan = async () => {
+        const waitBudget = options?.maxWait;
+        console.log(`[Content] 🔍 Scheduling initial scan (${reason}) using idle detection (maxWait ${waitBudget ?? '∞'}ms)`);
+        try {
+            await pageIdleMonitor.waitForIdle({ maxWait: waitBudget, quietWindow: 200 });
+        } catch (error) {
+            console.warn("[Content] ⚠️ Idle wait failed, running scan anyway:", error?.message || error);
+        }
+        runScanAfterPageLoad();
     };
 
-if (document.readyState === 'complete') {
+    if (document.readyState === 'complete') {
         startScan();
-} else {
+    } else {
         console.log("[Content] 🔄 Page still loading, deferring initial scan until load event...");
-        window.addEventListener('load', () => startScan(), { once: true });
+        window.addEventListener('load', () => {
+            startScan();
+        }, { once: true });
     }
 }
 
@@ -71,38 +292,19 @@ setTimeout(() => {
 }, 4000);
 
 // 🆕 NEW: Function to wait for page to settle before scanning
-function scanWhenPageSettles(scanFn, {
-  observeTarget = document.body,
-  quietPeriod = 250,    // ms with no changes = settled (250ms as requested)
-  maxWait = 10000       // ms before forcing scan
-} = {}) {
-  let observer, quietTimer, hasScanned = false, maxTimer;
+function scanWhenPageSettles(scanFn, options = {}) {
+    const { maxWait = 12000, quietWindow = 200 } = options ?? {};
 
-  function finish() {
-    if (hasScanned) return;
-    hasScanned = true;
-    observer.disconnect();
-    clearTimeout(quietTimer);
-    clearTimeout(maxTimer);
-    console.log(`[Content] 🔍 Page settled (${quietPeriod}ms quiet), running scan...`);
-    scanFn();
-  }
-
-  observer = new MutationObserver(() => {
-    clearTimeout(quietTimer);
-    quietTimer = setTimeout(finish, quietPeriod);
-  });
-
-  observer.observe(observeTarget, { childList: true, subtree: true });
-  console.log(`[Content] 🔍 Page settling detection started - waiting for ${quietPeriod}ms quiet period (max ${maxWait}ms)`);
-  
-  // Kick off max wait
-  maxTimer = setTimeout(() => {
-    console.log(`[Content] ⏰ Max wait (${maxWait}ms) reached, forcing scan...`);
-    finish();
-  }, maxWait);
-  // Initial scan for cases where page is already settled
-  quietTimer = setTimeout(finish, quietPeriod);
+    pageIdleMonitor
+        .waitForIdle({ maxWait, quietWindow })
+        .then(() => {
+            console.log("[Content] 💤 Browser idle detected, running scan...");
+            scanFn();
+        })
+        .catch((error) => {
+            console.warn("[Content] ⚠️ scanWhenPageSettles encountered an error, running scan anyway:", error?.message || error);
+            scanFn();
+        });
 }
 
 // 🆕 NEW: Content Script Intelligence System v2.0
@@ -822,6 +1024,10 @@ function determineActionType(element) {
         
         // 🎯 Textarea Actions
         if (tagName === 'textarea') return 'input';
+
+        // 🎯 Contenteditable / Rich text inputs
+        const isContentEditable = element.isContentEditable === true || element.getAttribute('contenteditable') === 'true';
+        if (isContentEditable) return 'input';
         
         // 🎯 Role-based Actions
         if (role === 'button') return 'click';
@@ -830,6 +1036,7 @@ function determineActionType(element) {
         if (role === 'tab') return 'tab_select';
         if (role === 'checkbox') return 'toggle';
         if (role === 'radio') return 'select';
+        if (role === 'textbox') return 'input';
         
         // 🎯 Event-based Actions
         if (element.onclick || element.getAttribute('onclick')) return 'click';
@@ -4837,9 +5044,15 @@ IntelligenceEngine.prototype.registerInteractiveSubtree = function(rootNode) {
  */
 IntelligenceEngine.prototype.isInteractiveElement = function(element) {
     if (!element || !element.tagName) return false;
+    const roleAttr = (element.getAttribute && element.getAttribute('role')) || '';
+    const normalizedRole = roleAttr.toLowerCase ? roleAttr.toLowerCase() : roleAttr;
+    const isContentEditable = element.isContentEditable === true || (element.getAttribute && element.getAttribute('contenteditable') === 'true');
+    if (isContentEditable || normalizedRole === 'textbox') {
+        return true;
+    }
     
     // 🆕 NEW: Use site config if available (either specific or default)
-    if (siteConfig) {
+        if (siteConfig) {
         try {
             const selectors = siteConfig.selectors;
             const filters = siteConfig.filters;
@@ -4909,7 +5122,7 @@ IntelligenceEngine.prototype.isInteractiveElement = function(element) {
     if (interactiveTags.includes(element.tagName)) return true;
     
     // Check role attribute
-    const role = element.getAttribute('role');
+    const role = roleAttr;
     if (role && interactiveRoles.includes(role)) return true;
     
     // Check for click handlers or interactive classes
@@ -5638,7 +5851,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             actionRecord.controlType = controlType;
         }
 
-        const placeholderAttr = actionDescriptor.attributes && actionDescriptor.attributes.placeholder;
+        const placeholderAttr = actionDescriptor.attributes && (actionDescriptor.attributes.placeholder || actionDescriptor.attributes['aria-placeholder']);
         if (placeholderAttr) {
             actionRecord.placeholder = placeholderAttr;
         } else if (actionDescriptor.attributes && actionDescriptor.attributes['data-placeholder']) {
@@ -5724,24 +5937,24 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             bucket.actionCount += 1;
             youtubeSeen.add(href);
 
-            if (this.actionableElements && !this.actionableElements.has(idCandidate)) {
+        if (this.actionableElements && !this.actionableElements.has(idCandidate)) {
                 this.storeActionableNode(idCandidate, linkEl);
-                this.actionableElements.set(idCandidate, {
-                    id: idCandidate,
-                    tagName: 'a',
-                    actionType: 'link',
+            this.actionableElements.set(idCandidate, {
+                id: idCandidate,
+                tagName: 'a',
+                actionType: 'link',
+                textContent: labelText,
+                selectors: selectorList,
+                attributes: this.extractKeyAttributes(linkEl) || { href },
+                urlContext: {
+                    url: href,
                     textContent: labelText,
-                    selectors: selectorList,
-                    attributes: this.extractKeyAttributes(linkEl) || { href },
-                    urlContext: {
-                        url: href,
-                        textContent: labelText,
-                        title: linkEl.getAttribute('title'),
-                        ariaLabel: linkEl.getAttribute('aria-label')
-                    },
-                    timestamp: Date.now()
-                });
-            }
+                    title: linkEl.getAttribute('title'),
+                    ariaLabel: linkEl.getAttribute('aria-label')
+                },
+                timestamp: Date.now()
+            });
+        }
         });
     }
 
@@ -5852,29 +6065,29 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     }
 
     function extractLabelFromAction(descriptor, node) {
-        const attr = descriptor.attributes || {};
+    const attr = descriptor.attributes || {};
         const ariaLabel = (attr['aria-label'] || (node && node.getAttribute && node.getAttribute('aria-label')) || '')?.trim?.();
         const titleLabel = (attr.title || (node && node.getAttribute && node.getAttribute('title')) || '')?.trim?.();
-        const placeholderLabel = (attr.placeholder || (node && node.getAttribute && node.getAttribute('placeholder')) || '')?.trim?.();
-        const dataPlaceholderAttr = (attr['data-placeholder'] || (node && node.getAttribute && node.getAttribute('data-placeholder')) || '')?.trim?.();
-        const descendantPlaceholder = node && typeof node.querySelector === 'function'
-            ? node.querySelector('[data-placeholder]')?.getAttribute('data-placeholder')?.trim()
-            : '';
-        const textLabel = descriptor.textContent ? descriptor.textContent.trim() : '';
+    const placeholderLabel = (attr.placeholder || (node && node.getAttribute && node.getAttribute('placeholder')) || '')?.trim?.();
+    const dataPlaceholderAttr = (attr['data-placeholder'] || (node && node.getAttribute && node.getAttribute('data-placeholder')) || '')?.trim?.();
+    const descendantPlaceholder = node && typeof node.querySelector === 'function'
+        ? node.querySelector('[data-placeholder]')?.getAttribute('data-placeholder')?.trim()
+        : '';
+    const textLabel = descriptor.textContent ? descriptor.textContent.trim() : '';
 
-        if (textLabel) {
-            const looksLikeIndex = /^\d{1,3}$/.test(textLabel);
-            if (looksLikeIndex && ariaLabel) {
-                return ariaLabel;
-            }
-            return textLabel.substring(0, 120);
+    if (textLabel) {
+        const looksLikeIndex = /^\d{1,3}$/.test(textLabel);
+        if (looksLikeIndex && ariaLabel) {
+            return ariaLabel;
         }
+        return textLabel.substring(0, 120);
+    }
 
-        if (placeholderLabel) return placeholderLabel;
-        if (dataPlaceholderAttr) return dataPlaceholderAttr;
-        if (descendantPlaceholder) return descendantPlaceholder;
-        if (ariaLabel) return ariaLabel;
-        if (titleLabel) return titleLabel;
+    if (placeholderLabel) return placeholderLabel;
+    if (dataPlaceholderAttr) return dataPlaceholderAttr;
+    if (descendantPlaceholder) return descendantPlaceholder;
+    if (ariaLabel) return ariaLabel;
+    if (titleLabel) return titleLabel;
 
         if (node && typeof node.querySelector === 'function') {
             const descendantAria = node.querySelector('[aria-label]')?.getAttribute('aria-label')?.trim();
@@ -6027,7 +6240,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
 
         const computeKey = (descriptor, primarySelector, url, label) => {
             const attrs = descriptor.attributes || {};
-            const placeholder = (descriptor.placeholder || attrs.placeholder || attrs['data-placeholder'] || '').toLowerCase();
+            const placeholder = (descriptor.placeholder || attrs.placeholder || attrs['data-placeholder'] || attrs['aria-placeholder'] || '').toLowerCase();
             const aria = (attrs['aria-label'] || '').toLowerCase();
             const idAttr = (attrs.id || '').toLowerCase();
             if (placeholder) return `placeholder:${placeholder}`;
@@ -6042,7 +6255,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         const hasMeaningfulLabel = (descriptor) => {
             const attrs = descriptor.attributes || {};
             const label = (descriptor.textContent || descriptor.label || '').trim();
-            const placeholder = descriptor.placeholder || attrs.placeholder || attrs['data-placeholder'];
+            const placeholder = descriptor.placeholder || attrs.placeholder || attrs['data-placeholder'] || attrs['aria-placeholder'];
             const aria = attrs['aria-label'];
             const idAttr = attrs.id;
             if (placeholder || aria || idAttr) return true;
@@ -6139,6 +6352,19 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
 
         if (tag === 'nav' || tag === 'button' || tag === 'a' || tag === 'input' || tag === 'select' || tag === 'textarea') {
             return true;
+        }
+
+        if (attributes) {
+            if (attributes.contenteditable === 'true') {
+                return true;
+            }
+            const roleAttr = attributes.role ? attributes.role.toLowerCase() : '';
+            if (roleAttr === 'textbox' || roleAttr === 'input') {
+                return true;
+            }
+            if (attributes['aria-placeholder']) {
+                return true;
+            }
         }
 
         const classList = attributes && attributes.cssClasses ? attributes.cssClasses.join(' ') : '';
@@ -6756,7 +6982,7 @@ IntelligenceEngine.prototype.generatePositionSelector = function(element) {
  */
 IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
     const attributes = {};
-    let keyAttrs = ['id', 'name', 'type', 'role', 'aria-label', 'title', 'alt'];
+    let keyAttrs = ['id', 'name', 'type', 'role', 'aria-label', 'aria-placeholder', 'title', 'alt'];
     
     // 🆕 ENHANCED: Add URL-related attributes for better context
     if (element.tagName === 'A' || element.href || element.getAttribute('data-url')) {
@@ -6797,6 +7023,10 @@ IntelligenceEngine.prototype.extractKeyAttributes = function(element) {
     const placeholder = element.getAttribute('placeholder');
     if (placeholder) {
         attributes.placeholder = placeholder;
+    }
+    const ariaPlaceholder = element.getAttribute('aria-placeholder');
+    if (ariaPlaceholder) {
+        attributes['aria-placeholder'] = ariaPlaceholder;
     }
 
     return attributes;
@@ -7641,34 +7871,125 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
 
                     // Optional submit: press Enter, then poll briefly for a visible send/submit button and click it
                     if (params && params.submit) {
-                        const k = { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true };
-                        try {
-                            element.dispatchEvent(new KeyboardEvent('keydown', k));
-                            element.dispatchEvent(new KeyboardEvent('keyup', k));
-                        } catch {}
-
-                        const sendSelectors = [
-                            '#composer-submit-button',
-                            'button[data-testid*="send" i]',
-                            'button[aria-label*="Send" i]',
-                            'button[type="submit"]',
-                            '#composer-plus-btn'
-                        ];
-
-                        let attempts = 0;
-                        const maxAttempts = 15; // ~1.5s at 100ms intervals
-                        const poll = () => {
-                            for (const s of sendSelectors) {
-                                const btn = document.querySelector(s);
-                                if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
-                                    try { btn.click(); } catch {}
-                                    return; // stop polling once clicked
+                        // Small delay to let the value settle before submitting
+                        setTimeout(() => {
+                            // First, try pressing Enter on the input itself (works for most search forms)
+                            const enterKeyOptions = {
+                                key: 'Enter',
+                                code: 'Enter',
+                                keyCode: 13,
+                                which: 13,
+                                bubbles: true,
+                                cancelable: true,
+                                view: window
+                            };
+                            
+                            try {
+                                // Create more realistic keyboard events
+                                const keydownEvent = new KeyboardEvent('keydown', enterKeyOptions);
+                                const keypressEvent = new KeyboardEvent('keypress', enterKeyOptions);
+                                const keyupEvent = new KeyboardEvent('keyup', enterKeyOptions);
+                                
+                                // Set target properties to make events more realistic
+                                Object.defineProperty(keydownEvent, 'target', { value: element, writable: false });
+                                Object.defineProperty(keypressEvent, 'target', { value: element, writable: false });
+                                Object.defineProperty(keyupEvent, 'target', { value: element, writable: false });
+                                
+                                // Dispatch in sequence
+                                const keydownResult = element.dispatchEvent(keydownEvent);
+                                const keypressResult = element.dispatchEvent(keypressEvent);
+                                const keyupResult = element.dispatchEvent(keyupEvent);
+                                
+                                console.log('[Content] ⌨️ Enter key dispatched:', { keydown: keydownResult, keypress: keypressResult, keyup: keyupResult, defaultPrevented: keydownEvent.defaultPrevented });
+                                
+                                // Also try form submission if element is in a form
+                                const form = element.closest('form');
+                                if (form && !keydownEvent.defaultPrevented) {
+                                    try {
+                                        form.requestSubmit();
+                                        console.log('[Content] ✅ Form.requestSubmit() called');
+                                    } catch (e) {
+                                        // If requestSubmit fails, try submit()
+                                        try {
+                                            form.submit();
+                                            console.log('[Content] ✅ Form.submit() called');
+                                        } catch (e2) {
+                                            console.warn('[Content] ⚠️ Form submission failed:', e2.message);
+                                        }
+                                    }
                                 }
+                                
+                                // For Facebook and similar sites, also try clicking the first autocomplete result
+                                if (element.getAttribute('aria-expanded') === 'true' || element.getAttribute('aria-autocomplete') === 'list') {
+                                    setTimeout(() => {
+                                        const autocompleteSelectors = [
+                                            '[role="option"]:first-child',
+                                            '[role="listbox"] [role="option"]:first-child',
+                                            'ul[role="listbox"] li:first-child',
+                                            '[aria-label*="Search" i][role="option"]:first-child'
+                                        ];
+                                        
+                                        for (const sel of autocompleteSelectors) {
+                                            const firstOption = document.querySelector(sel);
+                                            if (firstOption && ((typeof isElementVisible === 'function') ? isElementVisible(firstOption) : true)) {
+                                                try {
+                                                    firstOption.click();
+                                                    console.log('[Content] ✅ Clicked first autocomplete option:', sel);
+                                                    return;
+                                                } catch (e) {
+                                                    console.warn('[Content] ⚠️ Autocomplete click failed:', e);
+                                                }
+                                            }
+                                        }
+                                    }, 200);
+                                }
+                            } catch (e) {
+                                console.warn('[Content] ⚠️ Enter key dispatch failed:', e);
                             }
-                            attempts += 1;
-                            if (attempts < maxAttempts) setTimeout(poll, 100);
-                        };
-                        setTimeout(poll, 100);
+
+                            // Also look for submit buttons in the same form or nearby
+                            const formForButtonSearch = element.closest('form');
+                            const sendSelectors = [
+                                '#composer-submit-button',
+                                'button[data-testid*="send" i]',
+                                'button[aria-label*="Send" i]',
+                                'button[aria-label*="Search" i]',
+                                'button[type="submit"]',
+                                'input[type="submit"]',
+                                '#composer-plus-btn',
+                                'button[class*="submit" i]',
+                                'button[class*="search" i]',
+                                'a[role="button"][aria-label*="Search" i]',
+                                '[role="button"][aria-label*="Search" i]'
+                            ];
+
+                            // If we have a form, prioritize buttons within that form
+                            const searchRoot = formForButtonSearch || document;
+                            
+                            let attempts = 0;
+                            const maxAttempts = 20; // ~2s at 100ms intervals (increased for dynamic buttons)
+                            const poll = () => {
+                                for (const s of sendSelectors) {
+                                    const btn = searchRoot.querySelector(s);
+                                    if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                        try { 
+                                            btn.click(); 
+                                            console.log('[Content] ✅ Submit button clicked:', s);
+                                            return; // stop polling once clicked
+                                        } catch (e) {
+                                            console.warn('[Content] ⚠️ Submit button click failed:', e);
+                                        }
+                                    }
+                                }
+                                attempts += 1;
+                                if (attempts < maxAttempts) {
+                                    setTimeout(poll, 100);
+                                } else {
+                                    console.warn('[Content] ⚠️ Submit button not found after polling');
+                                }
+                            };
+                            setTimeout(poll, 150); // Slightly longer initial delay
+                        }, 50); // Small delay to let value settle
                     }
 
                     result = {
@@ -8288,6 +8609,23 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         this.actionableElementNodes.clear();
         this.contentElements.clear(); // 🆕 NEW: Clear content elements too
         this.elementCounter = 0;
+
+        try {
+            const existingMarkers = document.querySelectorAll('[data-ome-action-id]');
+            existingMarkers.forEach(node => {
+                try {
+                    if (node.dataset) {
+                        delete node.dataset.omeActionId;
+                    }
+                    node.removeAttribute('data-ome-action-id');
+                } catch (markerError) {
+                    console.warn('[Content] ⚠️ Failed to clear actionable marker:', markerError?.message || markerError);
+                }
+            });
+        } catch (markerScanError) {
+            console.warn('[Content] ⚠️ Unable to clear existing actionable markers:', markerScanError?.message || markerScanError);
+        }
+
         if (this.youtubeRegisteredUrls) {
             this.youtubeRegisteredUrls.clear();
         } else {

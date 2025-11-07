@@ -48,6 +48,11 @@ let tabCache = new Map(); // tabId -> cached data
 // 🆕 NEW: Proactive site config management
 let siteConfigs = {}; // Store site configs locally for immediate access
 
+// 🛡️ Keep-alive configuration to prevent Chrome from suspending the service worker
+const KEEP_ALIVE_PORT_NAME = "ome_keep_alive";
+const KEEP_ALIVE_CHECK_INTERVAL_MS = 30 * 1000;
+let keepAlivePort = null;
+
 // No caching - always get real-time tab state
 
 /**
@@ -115,17 +120,60 @@ async function connectWebSocket() {
             isConnected = false;
             
             // Attempt to reconnect after a delay
-            setTimeout(connectWebSocket, 1000);
-        };
-        
-        ws.onerror = (error) => {
-            console.error("[SW] WS error:", error);
-        };
-        
-    } catch (error) {
-        console.error("[SW] Failed to connect:", error);
-        // Retry connection after delay
         setTimeout(connectWebSocket, 1000);
+    };
+    
+    ws.onerror = (error) => {
+        console.error("[SW] WS error:", error);
+    };
+    
+} catch (error) {
+    console.error("[SW] Failed to connect:", error);
+    // Retry connection after delay
+    setTimeout(connectWebSocket, 1000);
+}
+}
+
+/**
+ * 🛡️ Ensure a keep-alive port is connected so Chrome does not suspend the worker
+ */
+async function ensureKeepAlivePort() {
+    if (keepAlivePort) {
+        return;
+    }
+    
+    try {
+        const candidateTabs = await chrome.tabs.query({ url: ["http://*/*", "https://*/*"] });
+        for (const tab of candidateTabs) {
+            if (!isTabAccessible(tab)) {
+                continue;
+            }
+            
+            try {
+                await chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    func: () => {
+                        if (window.__omeKeepAlivePort) {
+                            return;
+                        }
+                        const port = chrome.runtime.connect({ name: "ome_keep_alive" });
+                        window.__omeKeepAlivePort = port;
+                        port.onDisconnect.addListener(() => {
+                            delete window.__omeKeepAlivePort;
+                        });
+                    }
+                });
+                
+                console.log(`[SW] Keep-alive port established via tab ${tab.id}`);
+                return;
+            } catch (injectionError) {
+                console.warn(`[SW] Keep-alive injection failed for tab ${tab.id}:`, injectionError.message);
+            }
+        }
+        
+        console.warn("[SW] Keep-alive port not created - no accessible tabs available");
+    } catch (error) {
+        console.error("[SW] Failed to establish keep-alive port:", error);
     }
 }
 
@@ -640,6 +688,24 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     
     // Return true to indicate async response handling
     return true;
+});
+
+/**
+ * 🛡️ Track keep-alive ports so the service worker stays running
+ */
+chrome.runtime.onConnect.addListener((port) => {
+    if (port.name !== KEEP_ALIVE_PORT_NAME) {
+        return;
+    }
+    
+    console.log("[SW] Keep-alive port connected");
+    keepAlivePort = port;
+    
+    port.onDisconnect.addListener(() => {
+        console.log("[SW] Keep-alive port disconnected");
+        keepAlivePort = null;
+        ensureKeepAlivePort();
+    });
 });
 
 /**
@@ -1469,6 +1535,8 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     if (changeInfo.status === 'complete' && tab.url && !tab.url.startsWith('chrome://')) {
         await triggerIntelligenceScan(tabId, tab.url, "tabs.onUpdated complete");
     }
+    
+    await ensureKeepAlivePort();
 });
 
 /**
@@ -1480,6 +1548,7 @@ chrome.tabs.onCreated.addListener(async (tab) => {
     console.log("[SW] Tab created:", tab.id);
     await sendActiveTabInfo();
     await sendTabsInfo();
+    await ensureKeepAlivePort();
 });
 
 /**
@@ -1492,6 +1561,9 @@ chrome.tabs.onRemoved.addListener(async (tabId, removeInfo) => {
     tabScanState.delete(tabId);
     await sendActiveTabInfo();
     await sendTabsInfo();
+    if (!keepAlivePort) {
+        await ensureKeepAlivePort();
+    }
 });
 
 /**
@@ -1503,6 +1575,7 @@ chrome.tabs.onRemoved.addListener(async (tabId, removeInfo) => {
 chrome.runtime.onStartup.addListener(() => {
     console.log("[SW] Extension startup");
     connectWebSocket();
+    ensureKeepAlivePort();
 });
 
 /**
@@ -1514,6 +1587,7 @@ chrome.runtime.onStartup.addListener(() => {
 chrome.runtime.onInstalled.addListener(() => {
     console.log("[SW] Extension installed/updated");
     connectWebSocket();
+    ensureKeepAlivePort();
 });
 
 /**
@@ -1530,6 +1604,14 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // Initialize connection when service worker loads
 connectWebSocket();
+ensureKeepAlivePort();
+
+// Periodically verify the keep-alive port still exists
+setInterval(() => {
+    if (!keepAlivePort) {
+        ensureKeepAlivePort();
+    }
+}, KEEP_ALIVE_CHECK_INTERVAL_MS);
 
 /**
  * 🚨 Tear Away System Handlers

@@ -209,6 +209,66 @@
       ]
     }
   },
+  "perplexity.ai": {
+    "framework": "generic",
+    "scan_strategy": "universal",
+    "url_patterns": ["perplexity.ai", "*.perplexity.ai"],
+    "focus_targets": [
+      "div#ask-input[contenteditable='true']",
+      "[role='textbox'][data-lexical-editor]",
+      "div[data-lexical-editor='true'][aria-placeholder]"
+    ],
+    "selectors": {
+      "navigation": [
+        "nav",
+        "[role='navigation']",
+        "header"
+      ],
+      "buttons": [
+        "button",
+        "[role='button']",
+        "div[role='button']"
+      ],
+      "menus": [
+        "[role='menu']",
+        "[role='menuitem']",
+        "div[aria-haspopup='menu']"
+      ],
+      "hidden_content": [
+        "[aria-hidden='true']",
+        "[hidden]"
+      ],
+      "text_inputs": [
+        "div#ask-input[contenteditable='true']",
+        "[role='textbox'][data-lexical-editor]",
+        "div[data-lexical-editor='true'][aria-placeholder]"
+      ],
+      "content_elements": [
+        "main article",
+        "main section",
+        "div[role='feed']",
+        "div[role='listitem']"
+      ],
+      "url_elements": [
+        "a[href]",
+        "[data-url]",
+        "[data-href]"
+      ]
+    },
+    "filters": {
+      "include": [
+        "div#ask-input",
+        "[role='textbox'][data-lexical-editor]",
+        "a[href]",
+        "[data-url]",
+        "[data-href]"
+      ],
+      "exclude": [
+        "[aria-hidden='true']",
+        "[hidden]"
+      ]
+    }
+  },
   "facebook.com": {
     "framework": "generic",
     "scan_strategy": "universal",
@@ -222,7 +282,9 @@
       "input[data-testid='royal-pass']",
       "input[placeholder='Search Marketplace']",
       "input[aria-label='Search Marketplace']",
-      "input[type='search'][role='combobox']"
+      "input[aria-label='Search Facebook']",
+      "input[type='search'][role='combobox']",
+      "input[type='search'][aria-label*='Search' i]"
     ],
     "selectors": {
       "text_inputs": [
@@ -234,10 +296,15 @@
         "input[data-testid='royal-pass']:not([aria-hidden='true'])",
         "input[type='email']:not([aria-hidden='true'])",
         "input[type='password']:not([aria-hidden='true'])",
+        "input[type='search']:not([aria-hidden='true'])",
+        "input[type='search'][role='combobox']:not([aria-hidden='true'])",
+        "input[type='search'][aria-label*='Search' i]:not([aria-hidden='true'])",
         "input[placeholder*='Search' i]:not([aria-hidden='true'])",
         "input[aria-label*='Search' i]:not([aria-hidden='true'])",
-        "input[type='search'][role='combobox']:not([aria-hidden='true'])",
+        "input[aria-label='Search Facebook']:not([aria-hidden='true'])",
+        "input[aria-label='Search Marketplace']:not([aria-hidden='true'])",
         "[role='search'] input[type='search']:not([aria-hidden='true'])",
+        "[role='combobox'][type='search']:not([aria-hidden='true'])",
         "textarea:not([aria-hidden='true'])",
         "[contenteditable='true']:not([aria-hidden='true'])"
       ],
@@ -245,7 +312,9 @@
         "button[name='login']:not([aria-hidden='true'])",
         "button[data-testid='royal-login-button']:not([aria-hidden='true'])",
         "button[type='submit']:not([aria-hidden='true'])",
-        "input[type='submit']:not([aria-hidden='true'])"
+        "input[type='submit']:not([aria-hidden='true'])",
+        "button[aria-label*='Search' i]:not([aria-hidden='true'])",
+        "button[aria-label*='Submit' i]:not([aria-hidden='true'])"
       ]
     },
     "filters": {
