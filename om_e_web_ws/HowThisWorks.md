@@ -15,6 +15,7 @@ This document explains the end‑to‑end pipeline: Chrome Extension (MV3) + Web
   - `text.md` — Human-readable transcript of the page.
   - `llm_actions.json` — Direct lookup of every `actionId` with selectors/metadata for deterministic execution.
   - `llm_prompt.md` — Lightweight prompt that mixes a clipped transcript with “return (a_id_x)” action instructions.
+  - `transcripts/*.md` — Full long-form transcripts harvested from supported surfaces (currently the YouTube “Show transcript” panel).
   - `llm_optimized.json` — Compact, LLM‑friendly snapshot built from the structured files above (generated manually or by the watcher).
 - **Tools**
   - `om_e_web_ws/tools/create_llm_structure.js` — Transforms `page.jsonl` + `text.md` → `llm_optimized.json`.
@@ -38,6 +39,7 @@ See also: `om_e_web_ws/@site_structures/HowThisAllWorks.md` for a focused overvi
    - `@site_structures/text.md`
    - `@site_structures/llm_actions.json`
    - `@site_structures/llm_prompt.md`
+   - `@site_structures/transcripts/<timestamp>__<slug>.md` (only when transcript data is streamed, e.g., YouTube)
 
 4) Generate the optional all-in-one snapshot when you need it:
 
@@ -78,6 +80,7 @@ When the LLM chooses an `actionId`, your automation layer uses the fields to dec
 - `llm_prompt.md` is generated via `generate_llm_prompt()` inside `ws_server.py` right after `text.md`/`page.jsonl` are refreshed. It contains:
   - Title + short transcript (trimmed to ~1.5k chars, URL stripped).
   - A canonical list of instructions using the `return (a_id_x)` syntax your LLM prompt already expects.
+- When a transcript file is available, the prompt also lists the saved path (e.g., `@site_structures/transcripts/...`) so LLM agents can fetch the complete text without re-querying the browser.
 - These two files give you an immediate “cheat sheet” without having to rebuild `llm_optimized.json`. The watcher/CLI still matters when you want the compressed markdown + packed action table for prompting.
 
 ---
@@ -389,4 +392,3 @@ Reference flow:
 4) The server normalizes and routes to the extension; result is returned to the orchestrator.
 
 This keeps prompts small, preserves the current pipeline, and lets you swap the CLI for an agent later without changing the extension.
-

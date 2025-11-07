@@ -4934,6 +4934,7 @@ var IntelligenceEngine = function() {
     this.elementCounter = 0; // 🆕 NEW: Counter for generating unique IDs
     this.initialScanCompleted = false; // 🆕 NEW: Track if initial scan is complete
     this.youtubeRegisteredUrls = new Set(); // 🆕 Track YouTube video URLs we've already registered
+    this.lastTranscriptSignature = null; // 🆕 Track last harvested transcript snapshot
     
     console.log("[Content] 🧠 IntelligenceEngine initialized with page context:", {
         url: this.pageState.url,
@@ -5642,6 +5643,7 @@ IntelligenceEngine.prototype.processUpdateQueue = async function() {
  * 🆕 NEW: Prepare intelligence data for updates
  */
 IntelligenceEngine.prototype.prepareIntelligenceData = function() {
+    const transcripts = this.collectTranscriptPayloads();
     return {
         type: "intelligence_update",
         timestamp: Date.now(),
@@ -5653,7 +5655,8 @@ IntelligenceEngine.prototype.prepareIntelligenceData = function() {
         actionMapping: this.generateActionMapping(),
         contentElements: this.getContentElementsSummary(),
         pageText: this.extractCleanPageText(), // 🆕 NEW: Include page text for automatic markdown generation
-        normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true })
+        normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true }),
+        transcripts
     };
 };
 
@@ -8313,11 +8316,38 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
         }
         
         console.log("[Content] 🎯 Action executed:", { actionId, action, result });
+        
+        if (result && result.success && typeof this.schedulePostActionIntelligenceRefresh === 'function') {
+            this.schedulePostActionIntelligenceRefresh(actionId, action);
+        }
+        
         return result;
         
     } catch (error) {
         console.error("[Content] ❌ Error executing action:", error);
         return { success: false, error: error.message, actionId, action };
+    }
+};
+
+/**
+ * 🆕 NEW: Schedule a high-priority scan + intelligence refresh after DOM actions
+ */
+IntelligenceEngine.prototype.schedulePostActionIntelligenceRefresh = function(actionId, actionType = 'unknown') {
+    try {
+        if (typeof this.queueIntelligenceUpdate === 'function') {
+            this.queueIntelligenceUpdate('high', 'post_action');
+        }
+        
+        if (typeof scheduleInitialScan === 'function') {
+            scheduleInitialScan('post_action', {
+                quietPeriod: 200,
+                maxWait: 8000
+            });
+        }
+        
+        console.log("[Content] 🔁 Post-action intelligence refresh scheduled", { actionId, actionType });
+    } catch (error) {
+        console.warn("[Content] ⚠️ Failed to schedule post-action refresh:", error);
     }
 };
 
@@ -8475,6 +8505,146 @@ IntelligenceEngine.prototype.registerYoutubeLinksFromNode = function(rootNode) {
     const descriptors = this.collectYoutubeCardDescriptors([], nodes);
     return descriptors.length;
 };
+
+/**
+ * 🆕 Collect transcript payloads (currently YouTube-specific)
+ */
+IntelligenceEngine.prototype.collectTranscriptPayloads = function() {
+    const transcripts = [];
+    const youtubeTranscript = this.extractYoutubeTranscriptData();
+    if (youtubeTranscript) {
+        transcripts.push(youtubeTranscript);
+    }
+    return transcripts;
+};
+
+/**
+ * 🆕 Extract YouTube transcript data when the transcript panel is open
+ */
+IntelligenceEngine.prototype.extractYoutubeTranscriptData = function() {
+    const isYoutube = window.location.hostname.includes('youtube.com') || window.currentFramework === 'youtube';
+    if (!isYoutube) {
+        return null;
+    }
+
+    const transcriptRoot = document.querySelector('ytd-transcript-segment-list-renderer');
+    if (!transcriptRoot) {
+        return null;
+    }
+
+    const segmentsContainer = transcriptRoot.querySelector('#segments-container');
+    if (!segmentsContainer || !segmentsContainer.querySelector('ytd-transcript-segment-renderer')) {
+        return null;
+    }
+
+    // Skip if panel is hidden/collapsed
+    if (transcriptRoot.hasAttribute('hidden') || (typeof transcriptRoot.checkVisibility === 'function' && !transcriptRoot.checkVisibility())) {
+        return null;
+    }
+
+    const segmentNodes = Array.from(segmentsContainer.querySelectorAll('ytd-transcript-segment-renderer'));
+    if (!segmentNodes.length) {
+        return null;
+    }
+
+    const segments = segmentNodes.map(node => {
+        const timestampText = node.querySelector('.segment-timestamp')?.textContent?.trim() || null;
+        const text = node.querySelector('.segment-text')?.textContent?.trim();
+        if (!text) {
+            return null;
+        }
+        return {
+            timeText: timestampText,
+            offsetSeconds: parseYoutubeTimestamp(timestampText),
+            text,
+            ariaLabel: node.getAttribute('aria-label') || null
+        };
+    }).filter(Boolean);
+
+    if (!segments.length) {
+        return null;
+    }
+
+    const signature = this.buildTranscriptSignature(segments);
+    if (signature && signature === this.lastTranscriptSignature) {
+        return null;
+    }
+
+    this.lastTranscriptSignature = signature;
+
+    return {
+        source: "youtube",
+        collectedAt: Date.now(),
+        title: this.extractYoutubeVideoTitle(),
+        videoId: this.getYoutubeVideoId(),
+        videoUrl: window.location.href,
+        language: transcriptRoot.getAttribute('lang') || transcriptRoot.getAttribute('language') || document.documentElement.lang || 'en',
+        segmentCount: segments.length,
+        segments
+    };
+};
+
+IntelligenceEngine.prototype.extractYoutubeVideoTitle = function() {
+    if (this.pageState?.title && this.pageState.title !== 'Unknown') {
+        return this.pageState.title;
+    }
+    const titleNode = document.querySelector('h1.ytd-watch-metadata yt-formatted-string, h1.title');
+    return titleNode?.textContent?.trim() || document.title || 'YouTube Video';
+};
+
+IntelligenceEngine.prototype.buildTranscriptSignature = function(segments) {
+    if (!Array.isArray(segments) || !segments.length) {
+        return null;
+    }
+    const headSample = segments.slice(0, 5).map(seg => `${seg.timeText || ''}|${seg.text}`).join('||');
+    const tailSample = segments.slice(-5).map(seg => `${seg.timeText || ''}|${seg.text}`).join('||');
+    return `${this.getYoutubeVideoId() || 'unknown'}|${segments.length}|${headSample}|${tailSample}`;
+};
+
+IntelligenceEngine.prototype.getYoutubeVideoId = function() {
+    try {
+        const currentUrl = new URL(window.location.href);
+        const directId = currentUrl.searchParams.get('v');
+        if (directId) {
+            return directId;
+        }
+        const pathSegments = currentUrl.pathname.split('/').filter(Boolean);
+        const shortsIndex = pathSegments.indexOf('shorts');
+        if (shortsIndex >= 0 && pathSegments[shortsIndex + 1]) {
+            return pathSegments[shortsIndex + 1];
+        }
+        if (pathSegments.length && pathSegments[0] === 'watch' && pathSegments[1]) {
+            return pathSegments[1];
+        }
+        if (pathSegments.length === 1 && pathSegments[0].length >= 8) {
+            return pathSegments[0];
+        }
+    } catch (error) {
+        console.warn("[Content] ⚠️ Unable to parse YouTube video ID:", error);
+    }
+    return null;
+};
+
+function parseYoutubeTimestamp(value) {
+    if (!value || typeof value !== 'string') {
+        return null;
+    }
+    const cleaned = value.trim();
+    if (!cleaned) {
+        return null;
+    }
+    const parts = cleaned.split(':').map(part => parseInt(part.trim(), 10));
+    if (parts.some(num => Number.isNaN(num))) {
+        return null;
+    }
+    let multiplier = 1;
+    let seconds = 0;
+    while (parts.length) {
+        seconds += (parts.pop() || 0) * multiplier;
+        multiplier *= 60;
+    }
+    return seconds;
+}
 /**
  * 🆕 NEW: Collect structured YouTube card link descriptors (console-style)
  */
@@ -8786,6 +8956,7 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         } else {
             this.youtubeRegisteredUrls = new Set();
         }
+        this.lastTranscriptSignature = null;
         
         // 🎯 Framework-specific scanning (site configs only)
         let frameworkElements = [];

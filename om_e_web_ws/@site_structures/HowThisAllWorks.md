@@ -7,6 +7,7 @@ This directory captures every artifact emitted by `ws_server.py` whenever the ex
 - **text.md** – a plain-language transcript with title, URL, timestamp, divider, then the extracted text body. It is what feeds `llm_prompt.md`.
 - **llm_actions.json** – a direct map of every `actionId` → `{action_type, selectors, description, tag_name, …}`. Generated via `process_actionable_elements_for_llm()` and useful for deterministic lookups.
 - **llm_prompt.md** – a trimmed transcript followed by a canonical “return (a_id_X)” action list produced by `generate_llm_prompt()`. Perfect for quick manual or LLM prompting.
+- **transcripts/** – a rolling folder of harvested long-form transcripts (e.g., YouTube’s “Show transcript”). Files follow `@site_structures/transcripts/<timestamp>__<slug>.md` and are referenced from `page.jsonl` and `llm_prompt.md`.
 - **llm_optimized.json** – the merged, LLM-friendly snapshot generated from the structured sources above when you run `tools/create_llm_structure.js` (or its watcher).
 
 ## Generating / regenerating the LLM snapshot

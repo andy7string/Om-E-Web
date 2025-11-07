@@ -28,6 +28,7 @@ import uuid
 import os
 import re
 import time
+from datetime import datetime
 from typing import Optional, List, Dict, Any
 from urllib.parse import urlparse
 
@@ -56,8 +57,22 @@ LAST_PAGE_UPDATE = None
 CURRENT_CONTENT_JSONL = "content.jsonl"
 CURRENT_CONTENT_DATA = None
 LAST_CONTENT_UPDATE = None
+TRANSCRIPTS_DIR = os.path.join(SITE_STRUCTURES_DIR, "transcripts")
+CURRENT_TRANSCRIPTS_INFO = []
 
 SERVER_HEARTBEAT_INTERVAL = 20  # seconds
+
+
+def slugify(value: str) -> str:
+    """
+    Create filesystem-friendly slugs for transcript filenames.
+    """
+    if not value:
+        return "transcript"
+    value = value.lower().strip()
+    value = re.sub(r"[^a-z0-9]+", "-", value)
+    value = re.sub(r"-{2,}", "-", value).strip("-")
+    return value or "transcript"
 
 async def consolidate_actionable_elements_to_menus(actionable_elements):
     """
@@ -308,7 +323,7 @@ async def consolidate_content_elements_to_structure(content_elements):
             }
         }
 
-async def save_intelligence_to_page_jsonl(intelligence_data):
+async def save_intelligence_to_page_jsonl(intelligence_data, transcript_refs=None):
     """
     🧠 Save intelligence data to central page.jsonl file
     
@@ -318,6 +333,7 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
     @param intelligence_data: Intelligence update data from extension
     """
     global CURRENT_PAGE_DATA, LAST_PAGE_UPDATE
+    transcript_refs = list(transcript_refs or [])
     
     try:
         # Ensure the site structures directory exists
@@ -351,6 +367,8 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
                 if not meta_enriched and rec.get("type") == "meta":
                     rec["browser_state"] = browser_state
                     rec["current_page"] = current_page
+                    if transcript_refs:
+                        rec["transcripts"] = transcript_refs
                     meta_enriched = True
                 enriched_records.append(rec)
 
@@ -362,7 +380,8 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
                     "title": current_page["title"],
                     "timestamp": time.time(),
                     "browser_state": browser_state,
-                    "current_page": current_page
+                    "current_page": current_page,
+                    "transcripts": transcript_refs
                 })
 
             meta_record = next((r for r in enriched_records if r.get("type") == "meta"), {})
@@ -374,7 +393,8 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
                 "browser_state": browser_state,
                 "current_page": current_page,
                 "summary": totals,
-                "record_count": len(enriched_records)
+                "record_count": len(enriched_records),
+                "transcripts": transcript_refs
             }
             LAST_PAGE_UPDATE = time.time()
 
@@ -406,7 +426,8 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
             "page_state": intelligence_data.get("pageState", {}),
             "recent_insights": intelligence_data.get("recentInsights", []),
             "summary": consolidated_menus.get("summary", {}),
-            "intelligence_version": "2.0"
+            "intelligence_version": "2.0",
+            "transcripts": transcript_refs
         }
 
         CURRENT_PAGE_DATA = page_data
@@ -426,7 +447,7 @@ async def save_intelligence_to_page_jsonl(intelligence_data):
         print(f"❌ Error saving intelligence to page.jsonl: {e}")
         return None
 
-async def save_content_to_content_jsonl(intelligence_data):
+async def save_content_to_content_jsonl(intelligence_data, transcript_refs=None):
     """
     📄 Save content data to central content.jsonl file
     
@@ -436,6 +457,7 @@ async def save_content_to_content_jsonl(intelligence_data):
     @param intelligence_data: Intelligence update data from extension
     """
     global CURRENT_CONTENT_DATA, LAST_CONTENT_UPDATE
+    transcript_refs = list(transcript_refs or [])
     
     try:
         # Ensure the site structures directory exists
@@ -469,7 +491,8 @@ async def save_content_to_content_jsonl(intelligence_data):
             "content_structure": consolidated_content.get("content_structure", {}),
             "page_state": intelligence_data.get("pageState", {}),
             "summary": consolidated_content.get("summary", {}),
-            "intelligence_version": "2.0"
+            "intelligence_version": "2.0",
+            "transcripts": transcript_refs
         }
         
         # Update global state
@@ -495,6 +518,85 @@ async def save_content_to_content_jsonl(intelligence_data):
     except Exception as e:
         print(f"❌ Error saving content to content.jsonl: {e}")
         return None
+
+
+async def save_transcripts(transcripts, page_state=None):
+    """
+    💾 Persist transcript payloads (e.g., YouTube text) to disk for LLM consumption.
+    """
+    global CURRENT_TRANSCRIPTS_INFO
+
+    if not transcripts:
+        CURRENT_TRANSCRIPTS_INFO = []
+        return []
+
+    try:
+        if not os.path.exists(TRANSCRIPTS_DIR):
+            os.makedirs(TRANSCRIPTS_DIR)
+            print(f"📁 Created transcript directory: {TRANSCRIPTS_DIR}")
+
+        saved_refs = []
+        default_title = (page_state or {}).get("title") or "Transcript"
+
+        def format_seconds(seconds):
+            if seconds is None:
+                return None
+            seconds = int(seconds)
+            mins, secs = divmod(seconds, 60)
+            hours, mins = divmod(mins, 60)
+            if hours:
+                return f"{hours:02d}:{mins:02d}:{secs:02d}"
+            return f"{mins:02d}:{secs:02d}"
+
+        for transcript in transcripts:
+            segments = transcript.get("segments") or []
+            if not segments:
+                continue
+
+            title = transcript.get("title") or default_title
+            slug = slugify(title or transcript.get("videoId"))
+            timestamp = datetime.utcnow().strftime("%Y-%m-%d_%H-%M-%S")
+            filename = f"{timestamp}__{slug}.md"
+            rel_path = os.path.join("transcripts", filename)
+            full_path = os.path.join(SITE_STRUCTURES_DIR, rel_path)
+
+            with open(full_path, 'w', encoding='utf-8', errors='ignore') as f:
+                f.write(f"# {title}\n\n")
+                f.write(f"**Video URL:** {transcript.get('videoUrl', 'unknown')}\n")
+                f.write(f"**Video ID:** {transcript.get('videoId', 'n/a')}\n")
+                f.write(f"**Language:** {transcript.get('language', 'unknown')}\n")
+                f.write(f"**Collected At:** {datetime.utcnow().isoformat()}Z\n")
+                f.write(f"**Segments:** {len(segments)}\n\n---\n\n")
+
+                for seg in segments:
+                    timestamp_text = seg.get("timeText") or format_seconds(seg.get("offsetSeconds")) or "00:00"
+                    text_line = seg.get("text", "").strip()
+                    aria_label = seg.get("ariaLabel")
+                    if aria_label and aria_label != text_line:
+                        f.write(f"- [{timestamp_text}] {text_line} — _{aria_label}_\n")
+                    else:
+                        f.write(f"- [{timestamp_text}] {text_line}\n")
+
+            ref = {
+                "title": title,
+                "video_id": transcript.get("videoId"),
+                "video_url": transcript.get("videoUrl"),
+                "language": transcript.get("language"),
+                "segment_count": len(segments),
+                "file": f"@site_structures/{rel_path.replace(os.sep, '/')}",
+                "collected_at": transcript.get("collectedAt")
+            }
+            saved_refs.append(ref)
+            print(f"📝 Transcript saved: {ref['file']} ({len(segments)} segments)")
+
+        if saved_refs:
+            CURRENT_TRANSCRIPTS_INFO = saved_refs
+
+        return saved_refs
+
+    except Exception as e:
+        print(f"⚠️ Error saving transcripts: {e}")
+        return []
 
 async def process_actionable_elements_for_llm(actionable_elements: List[Dict[str, Any]]) -> Optional[Dict[str, Dict[str, Any]]]:
     """
@@ -721,6 +823,7 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
         title: Optional[str] = None
         page_url: Optional[str] = None
         transcript = ""
+        transcript_refs: List[Dict[str, Any]] = []
         if os.path.exists(text_md_path):
             with open(text_md_path, 'r', encoding='utf-8', errors='ignore') as f:
                 raw = f.read()
@@ -751,6 +854,8 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
                                 or rec.get('browser_state', {}).get('active_tab', {}).get('url')
                                 or page_url
                             )
+                        if not transcript_refs and rec.get("transcripts"):
+                            transcript_refs = rec.get("transcripts", [])
                     mapped = _map_prompt_action_sentence(rec)
                     if mapped:
                         action_lines.append(mapped)
@@ -777,6 +882,16 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
         if deduped:
             parts.append("## Actions")
             parts.extend([f"- {line}" for line in deduped])
+            parts.append("")
+
+        if transcript_refs:
+            parts.append("## Transcript Files")
+            for ref in transcript_refs:
+                label = ref.get("title") or ref.get("file") or "Transcript"
+                file_path = ref.get("file")
+                segment_count = ref.get("segment_count")
+                extra = f" ({segment_count} segments)" if segment_count else ""
+                parts.append(f"- {label}{extra}: {file_path}")
             parts.append("")
 
         with open(out_path, 'w', encoding='utf-8', errors='ignore') as f:
@@ -2331,16 +2446,22 @@ async def handler(ws):
                     
                     print(f"🧠 Intelligence data: {len(actionable_elements)} actionable elements, {len(recent_insights)} insights")
                     
+                    page_state = intelligence_data.get("pageState", {})
+                    transcripts_payload = intelligence_data.get("transcripts") or []
+                    
+                    # 🆕 NEW: Persist transcripts (YouTube etc.) before writing page artifacts
+                    transcript_refs = await save_transcripts(transcripts_payload, page_state)
+                    
                     # 🆕 NEW: Save to central page.jsonl file
-                    await save_intelligence_to_page_jsonl(intelligence_data)
+                    await save_intelligence_to_page_jsonl(intelligence_data, transcript_refs)
                     
                     # 🆕 NEW: Save to central content.jsonl file
-                    await save_content_to_content_jsonl(intelligence_data)
+                    await save_content_to_content_jsonl(intelligence_data, transcript_refs)
                     
                     # 🆕 NEW: Auto-generate markdown file from page text
                     try:
                         # Extract page text from intelligence data
-                        page_state = intelligence_data.get("pageState", {})
+                        page_state = page_state or {}
                         page_text = intelligence_data.get("pageText", "")
                         
                         if page_text:
