@@ -1,27 +1,27 @@
 {
-  "timestamp": 1762516822.905449,
+  "timestamp": 1762517197.77263,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
       "id": 1138014741,
-      "url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+      "url": "https://www.youtube.com/",
       "title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube",
-      "status": "loading"
+      "status": "complete"
     },
     "all_tabs": [
       {
         "id": 1138014741,
-        "url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+        "url": "https://www.youtube.com/",
         "title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube",
         "active": true,
-        "status": "loading"
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 56550.380936375,
+    "last_tabs_update": 57077.066443333,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "url": "https://www.youtube.com/",
     "title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube",
     "is_active_tab": true
   },
@@ -19419,9 +19419,9 @@
     ],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1762516670230,
-    "url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
-    "title": "Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
+    "lastUpdate": 1762517197090,
+    "url": "https://www.youtube.com/",
+    "title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "summary": {
     "total_content_elements": 404,

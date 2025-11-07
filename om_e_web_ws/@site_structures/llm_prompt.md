@@ -1,11 +1,11 @@
-# Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube
+# (10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube
 
-**URL:** https://www.youtube.com/watch?v=43r9OZ1a8nk
+**URL:** https://www.youtube.com/
 
 ## Transcript (partial)
-# Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube
+# (10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube
 
-**Timestamp:** 2025-11-07 22:30:22
+**Timestamp:** 2025-11-07 22:36:37
 
 ---
 
@@ -13,7 +13,7 @@ AU
 Skip navigation
 Create
 9+
-2:33 / 9:14
+8:39 / 9:14
 Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface!
 WorldofAI
 
@@ -28,7 +28,6 @@ Discover the all-new Cursor 2.0 with its frontier agentic coding model, Composer
 
 Cursor 2.0 showcases Composer, a novel agentic coding model, and a multi-agent interface. This update boasts four times faster code generation than similar models, enabling rapid iteration and debugging. Explore features like voice commands and a built-in browser for enhanced coding efficiency.
 Summary
-
 Transcript
 0:00
 Looks like Cursor is back again with a
@@ -57,7 +56,7 @@ times faster than similar intelligent
 0:29
 models. The model is built for low
 0:31
-latency agentic
+latency agen
 
 ## Actions
 - return (a_id_1,{yourValue}) to set value for 'Start time'. Add submit:true to submit.
@@ -135,5 +134,5 @@ latency agentic
 - return (a_id_68) to navigate to 'ShortsLockupViewModelHostEndpoint'
 - return (a_id_69) to navigate to 'ShortsLockupViewModelHostEndpoint'
 - return (a_id_70) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_734) to navigate to 'Opencode Is Probably The Best Coding Agent I've Ever Used'
-- return (a_id_735) to navigate to 'Claude Skills explained: the most POWERFUL AI tool you’re not using'
+- return (a_id_740) to navigate to 'Opencode Is Probably The Best Coding Agent I've Ever Used'
+- return (a_id_741) to navigate to 'Claude Skills explained: the most POWERFUL AI tool you’re not using'

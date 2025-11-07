@@ -1,9 +1,9 @@
 {
   "_page_context": {
-    "url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "url": "https://www.youtube.com/",
     "title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube",
-    "timestamp": 1762516822.9493718,
-    "total_actions": 330,
+    "timestamp": 1762517197.792633,
+    "total_actions": 336,
     "active_tab_id": 1138014741
   },
   "a_id_0": {
@@ -17,7 +17,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_0' to input with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_1": {
@@ -32,7 +32,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_1' to input with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_2": {
@@ -47,7 +47,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_2' to input with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_3": {
@@ -62,7 +62,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_3' to textarea with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_4": {
@@ -77,7 +77,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_4' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_5": {
@@ -92,7 +92,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_5' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_6": {
@@ -107,7 +107,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_6' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_7": {
@@ -122,7 +122,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_7' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_8": {
@@ -137,7 +137,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_8' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_9": {
@@ -152,7 +152,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_9' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_10": {
@@ -166,7 +166,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_10' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_11": {
@@ -180,7 +180,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_11' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_12": {
@@ -194,7 +194,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_12' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_13": {
@@ -208,7 +208,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_13' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_14": {
@@ -222,7 +222,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_14' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_15": {
@@ -236,7 +236,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_15' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_16": {
@@ -250,7 +250,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_16' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_17": {
@@ -264,7 +264,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_17' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_18": {
@@ -278,7 +278,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_18' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_19": {
@@ -292,7 +292,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_19' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_20": {
@@ -306,7 +306,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_20' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_21": {
@@ -320,7 +320,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_21' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_22": {
@@ -334,7 +334,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_22' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_23": {
@@ -348,7 +348,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_23' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_24": {
@@ -362,7 +362,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_24' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_25": {
@@ -376,7 +376,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_25' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_26": {
@@ -390,7 +390,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_26' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_27": {
@@ -404,7 +404,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_27' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_28": {
@@ -418,7 +418,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_28' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_29": {
@@ -432,7 +432,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_29' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_30": {
@@ -446,7 +446,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_30' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_31": {
@@ -460,7 +460,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_31' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_32": {
@@ -477,7 +477,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_32' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_33": {
@@ -494,7 +494,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_33' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_34": {
@@ -508,7 +508,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_34' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_35": {
@@ -522,7 +522,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_35' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_36": {
@@ -536,7 +536,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_36' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_37": {
@@ -550,7 +550,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_37' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_38": {
@@ -564,7 +564,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_38' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_39": {
@@ -578,7 +578,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_39' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_40": {
@@ -592,7 +592,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_40' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_41": {
@@ -606,7 +606,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_41' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_42": {
@@ -620,7 +620,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_42' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_43": {
@@ -634,7 +634,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_43' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_44": {
@@ -648,7 +648,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_44' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_45": {
@@ -662,7 +662,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_45' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_46": {
@@ -676,7 +676,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_46' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_47": {
@@ -690,7 +690,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_47' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_48": {
@@ -704,7 +704,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_48' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_49": {
@@ -718,7 +718,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_49' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_50": {
@@ -732,7 +732,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_50' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_51": {
@@ -746,7 +746,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_51' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_52": {
@@ -760,7 +760,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_52' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_53": {
@@ -774,7 +774,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_53' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_54": {
@@ -788,7 +788,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_54' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_55": {
@@ -802,7 +802,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_55' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_56": {
@@ -816,7 +816,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_56' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_57": {
@@ -830,7 +830,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_57' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_58": {
@@ -844,7 +844,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_58' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_59": {
@@ -858,7 +858,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_59' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_60": {
@@ -872,7 +872,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_60' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_61": {
@@ -886,7 +886,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_61' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_62": {
@@ -900,7 +900,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_62' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_63": {
@@ -914,7 +914,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_63' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_64": {
@@ -928,7 +928,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_64' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_65": {
@@ -942,7 +942,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_65' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_66": {
@@ -956,7 +956,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_66' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_67": {
@@ -970,7 +970,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_67' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_68": {
@@ -984,7 +984,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_68' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_69": {
@@ -998,7 +998,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_69' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_70": {
@@ -1012,7 +1012,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_70' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_71": {
@@ -1024,7 +1024,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_71' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_72": {
@@ -1036,7 +1036,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_72' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_73": {
@@ -1048,7 +1048,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_73' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_74": {
@@ -1060,7 +1060,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_74' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_75": {
@@ -1072,7 +1072,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_75' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_76": {
@@ -1084,7 +1084,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_76' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_77": {
@@ -1096,7 +1096,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_77' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_78": {
@@ -1108,7 +1108,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_78' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_79": {
@@ -1120,7 +1120,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_79' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_80": {
@@ -1134,7 +1134,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_80' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_81": {
@@ -1148,7 +1148,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_81' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_82": {
@@ -1162,7 +1162,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_82' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_83": {
@@ -1176,7 +1176,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_83' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_84": {
@@ -1190,7 +1190,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_84' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_85": {
@@ -1204,7 +1204,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_85' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_86": {
@@ -1216,7 +1216,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_86' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_87": {
@@ -1228,7 +1228,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_87' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_88": {
@@ -1240,7 +1240,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_88' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_89": {
@@ -1252,7 +1252,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_89' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_90": {
@@ -1264,7 +1264,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_90' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_91": {
@@ -1276,7 +1276,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_91' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_92": {
@@ -1288,7 +1288,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_92' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_93": {
@@ -1300,7 +1300,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_93' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_94": {
@@ -1312,7 +1312,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_94' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_95": {
@@ -1324,7 +1324,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_95' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_96": {
@@ -1336,7 +1336,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_96' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_97": {
@@ -1348,7 +1348,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_97' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_98": {
@@ -1360,7 +1360,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_98' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_99": {
@@ -1372,7 +1372,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_99' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_100": {
@@ -1384,7 +1384,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_100' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_101": {
@@ -1396,7 +1396,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_101' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_102": {
@@ -1411,7 +1411,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_102' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_103": {
@@ -1426,7 +1426,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_103' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_104": {
@@ -1440,7 +1440,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_104' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_105": {
@@ -1454,7 +1454,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_105' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_106": {
@@ -1469,7 +1469,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_106' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_107": {
@@ -1483,7 +1483,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_107' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_108": {
@@ -1497,7 +1497,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_108' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_109": {
@@ -1512,7 +1512,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_109' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_110": {
@@ -1527,7 +1527,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_110' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_111": {
@@ -1542,7 +1542,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_111' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_112": {
@@ -1557,7 +1557,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_112' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_113": {
@@ -1571,7 +1571,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_113' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_114": {
@@ -1585,7 +1585,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_114' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_115": {
@@ -1599,7 +1599,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_115' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_116": {
@@ -1615,7 +1615,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_116' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_117": {
@@ -1631,7 +1631,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_117' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_118": {
@@ -1646,7 +1646,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_118' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_119": {
@@ -1660,7 +1660,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_119' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_120": {
@@ -1674,7 +1674,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_120' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_121": {
@@ -1689,7 +1689,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_121' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_122": {
@@ -1704,7 +1704,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_122' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_123": {
@@ -1718,7 +1718,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_123' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_124": {
@@ -1732,7 +1732,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_124' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_125": {
@@ -1746,7 +1746,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_125' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_126": {
@@ -1760,7 +1760,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_126' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_127": {
@@ -1774,7 +1774,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_127' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_128": {
@@ -1788,7 +1788,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_128' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_129": {
@@ -1802,7 +1802,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_129' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_130": {
@@ -1816,7 +1816,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_130' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_131": {
@@ -1830,7 +1830,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_131' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_132": {
@@ -1844,7 +1844,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_132' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_133": {
@@ -1858,7 +1858,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_133' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_134": {
@@ -1872,7 +1872,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_134' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_135": {
@@ -1886,7 +1886,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_135' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_136": {
@@ -1900,7 +1900,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_136' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_137": {
@@ -1914,7 +1914,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_137' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_138": {
@@ -1928,7 +1928,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_138' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_139": {
@@ -1942,7 +1942,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_139' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_140": {
@@ -1956,7 +1956,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_140' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_141": {
@@ -1970,7 +1970,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_141' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_142": {
@@ -1985,7 +1985,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_142' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_143": {
@@ -2001,7 +2001,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_143' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_144": {
@@ -2018,7 +2018,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_144' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_145": {
@@ -2032,7 +2032,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_145' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_146": {
@@ -2047,7 +2047,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_146' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_147": {
@@ -2064,7 +2064,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_147' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_148": {
@@ -2081,7 +2081,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_148' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_149": {
@@ -2097,7 +2097,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_149' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_150": {
@@ -2114,7 +2114,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_150' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_151": {
@@ -2130,7 +2130,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_151' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_152": {
@@ -2147,7 +2147,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_152' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_153": {
@@ -2165,7 +2165,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_153' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_154": {
@@ -2181,7 +2181,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_154' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_155": {
@@ -2195,7 +2195,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_155' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_156": {
@@ -2209,7 +2209,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_156' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_157": {
@@ -2223,7 +2223,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_157' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_158": {
@@ -2237,7 +2237,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_158' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_159": {
@@ -2251,7 +2251,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_159' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_160": {
@@ -2265,7 +2265,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_160' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_161": {
@@ -2280,7 +2280,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_161' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_162": {
@@ -2294,7 +2294,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_162' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_163": {
@@ -2308,7 +2308,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_163' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_164": {
@@ -2322,7 +2322,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_164' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_165": {
@@ -2336,7 +2336,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_165' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_166": {
@@ -2350,7 +2350,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_166' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_167": {
@@ -2364,7 +2364,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_167' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_168": {
@@ -2378,7 +2378,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_168' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_169": {
@@ -2392,7 +2392,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_169' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_170": {
@@ -2406,7 +2406,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_170' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_171": {
@@ -2420,7 +2420,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_171' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_172": {
@@ -2434,7 +2434,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_172' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_173": {
@@ -2449,7 +2449,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_173' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_174": {
@@ -2463,7 +2463,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_174' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_175": {
@@ -2477,7 +2477,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_175' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_176": {
@@ -2491,7 +2491,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_176' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_177": {
@@ -2505,7 +2505,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_177' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_178": {
@@ -2519,7 +2519,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_178' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_179": {
@@ -2534,7 +2534,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_179' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_180": {
@@ -2548,7 +2548,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_180' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_181": {
@@ -2562,7 +2562,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_181' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_182": {
@@ -2576,7 +2576,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_182' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_183": {
@@ -2590,7 +2590,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_183' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_184": {
@@ -2604,7 +2604,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_184' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_185": {
@@ -2618,7 +2618,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_185' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_186": {
@@ -2632,7 +2632,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_186' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_187": {
@@ -2646,7 +2646,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_187' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_188": {
@@ -2660,7 +2660,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_188' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_189": {
@@ -2674,7 +2674,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_189' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_190": {
@@ -2689,7 +2689,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_190' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_191": {
@@ -2703,7 +2703,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_191' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_192": {
@@ -2717,7 +2717,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_192' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_193": {
@@ -2731,7 +2731,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_193' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_194": {
@@ -2745,7 +2745,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_194' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_195": {
@@ -2759,7 +2759,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_195' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_196": {
@@ -2773,7 +2773,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_196' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_197": {
@@ -2787,7 +2787,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_197' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_198": {
@@ -2801,7 +2801,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_198' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_199": {
@@ -2815,7 +2815,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_199' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_200": {
@@ -2829,7 +2829,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_200' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_201": {
@@ -2843,7 +2843,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_201' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_202": {
@@ -2857,7 +2857,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_202' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_203": {
@@ -2871,7 +2871,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_203' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_204": {
@@ -2885,7 +2885,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_204' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_205": {
@@ -2899,7 +2899,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_205' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_206": {
@@ -2913,7 +2913,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_206' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_207": {
@@ -2927,7 +2927,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_207' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_208": {
@@ -2941,7 +2941,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_208' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_209": {
@@ -2955,7 +2955,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_209' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_210": {
@@ -2969,7 +2969,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_210' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_211": {
@@ -2983,7 +2983,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_211' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_212": {
@@ -2997,7 +2997,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_212' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_213": {
@@ -3011,7 +3011,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_213' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_214": {
@@ -3025,7 +3025,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_214' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_215": {
@@ -3039,7 +3039,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_215' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_216": {
@@ -3053,7 +3053,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_216' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_217": {
@@ -3067,7 +3067,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_217' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_218": {
@@ -3081,7 +3081,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_218' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_219": {
@@ -3095,7 +3095,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_219' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_220": {
@@ -3109,7 +3109,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_220' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_221": {
@@ -3123,7 +3123,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_221' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_222": {
@@ -3137,7 +3137,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_222' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_223": {
@@ -3151,7 +3151,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_223' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_224": {
@@ -3165,7 +3165,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_224' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_225": {
@@ -3179,7 +3179,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_225' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_226": {
@@ -3193,7 +3193,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_226' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_227": {
@@ -3208,7 +3208,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_227' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_228": {
@@ -3223,7 +3223,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_228' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_229": {
@@ -3238,7 +3238,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_229' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_230": {
@@ -3253,7 +3253,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_230' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_231": {
@@ -3267,7 +3267,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_231' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_232": {
@@ -3281,7 +3281,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_232' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_233": {
@@ -3295,7 +3295,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_233' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_234": {
@@ -3307,7 +3307,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_234' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_235": {
@@ -3321,7 +3321,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_235' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_236": {
@@ -3335,7 +3335,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_236' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_237": {
@@ -3349,7 +3349,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_237' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_238": {
@@ -3363,7 +3363,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_238' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_239": {
@@ -3377,7 +3377,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_239' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_240": {
@@ -3391,7 +3391,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_240' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_241": {
@@ -3405,7 +3405,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_241' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_242": {
@@ -3419,7 +3419,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_242' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_243": {
@@ -3433,7 +3433,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_243' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_244": {
@@ -3447,7 +3447,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_244' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_245": {
@@ -3461,7 +3461,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_245' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_246": {
@@ -3475,7 +3475,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_246' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_247": {
@@ -3489,7 +3489,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_247' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_248": {
@@ -3503,7 +3503,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_248' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_249": {
@@ -3517,7 +3517,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_249' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_250": {
@@ -3531,7 +3531,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_250' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_251": {
@@ -3545,7 +3545,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_251' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_252": {
@@ -3559,7 +3559,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_252' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_253": {
@@ -3573,7 +3573,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_253' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_254": {
@@ -3587,7 +3587,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_254' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_255": {
@@ -3601,7 +3601,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_255' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_256": {
@@ -3615,7 +3615,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_256' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_257": {
@@ -3629,7 +3629,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_257' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_258": {
@@ -3643,7 +3643,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_258' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_259": {
@@ -3657,7 +3657,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_259' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_260": {
@@ -3671,7 +3671,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_260' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_261": {
@@ -3685,7 +3685,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_261' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_262": {
@@ -3699,7 +3699,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_262' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_263": {
@@ -3713,7 +3713,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_263' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_264": {
@@ -3727,7 +3727,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_264' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_265": {
@@ -3742,7 +3742,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_265' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_266": {
@@ -3757,7 +3757,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_266' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_267": {
@@ -3772,7 +3772,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_267' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_268": {
@@ -3787,7 +3787,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_268' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_269": {
@@ -3802,7 +3802,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_269' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_270": {
@@ -3816,7 +3816,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_270' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_271": {
@@ -3830,7 +3830,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_271' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_272": {
@@ -3844,7 +3844,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_272' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_273": {
@@ -3858,7 +3858,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_273' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_274": {
@@ -3872,7 +3872,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_274' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_275": {
@@ -3886,7 +3886,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_275' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_276": {
@@ -3900,7 +3900,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_276' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_277": {
@@ -3914,7 +3914,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_277' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_278": {
@@ -3928,7 +3928,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_278' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_279": {
@@ -3942,7 +3942,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_279' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_280": {
@@ -3956,7 +3956,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_280' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_281": {
@@ -3970,7 +3970,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_281' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_282": {
@@ -3984,7 +3984,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_282' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_283": {
@@ -3998,7 +3998,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_283' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_284": {
@@ -4012,7 +4012,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_284' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_285": {
@@ -4026,7 +4026,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_285' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_286": {
@@ -4040,7 +4040,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_286' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_287": {
@@ -4054,7 +4054,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_287' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_288": {
@@ -4068,7 +4068,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_288' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_289": {
@@ -4082,7 +4082,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_289' to button with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_290": {
@@ -4097,7 +4097,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_290' to unknown with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_695": {
@@ -4112,7 +4112,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_695' to nav with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_696": {
@@ -4127,7 +4127,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_696' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_697": {
@@ -4142,7 +4142,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_697' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_698": {
@@ -4157,7 +4157,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_698' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_699": {
@@ -4172,7 +4172,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_699' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_700": {
@@ -4187,7 +4187,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_700' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_701": {
@@ -4202,7 +4202,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_701' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_702": {
@@ -4217,7 +4217,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_702' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_703": {
@@ -4232,7 +4232,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_703' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_704": {
@@ -4247,7 +4247,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_704' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_705": {
@@ -4262,7 +4262,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_705' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_706": {
@@ -4277,7 +4277,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_706' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_707": {
@@ -4292,7 +4292,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_707' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_708": {
@@ -4307,7 +4307,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_708' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_709": {
@@ -4322,7 +4322,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_709' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_710": {
@@ -4337,7 +4337,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_710' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_711": {
@@ -4352,7 +4352,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_711' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_712": {
@@ -4367,7 +4367,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_712' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_713": {
@@ -4382,7 +4382,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_713' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_714": {
@@ -4397,7 +4397,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_714' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_715": {
@@ -4412,7 +4412,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_715' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_716": {
@@ -4427,7 +4427,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_716' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_717": {
@@ -4442,7 +4442,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_717' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_718": {
@@ -4457,7 +4457,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_718' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_719": {
@@ -4472,7 +4472,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_719' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_720": {
@@ -4487,7 +4487,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_720' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_721": {
@@ -4502,7 +4502,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_721' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_722": {
@@ -4517,7 +4517,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_722' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_723": {
@@ -4532,7 +4532,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_723' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_724": {
@@ -4547,7 +4547,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_724' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_725": {
@@ -4562,7 +4562,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_725' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_726": {
@@ -4577,7 +4577,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_726' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_727": {
@@ -4592,7 +4592,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_727' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_728": {
@@ -4607,7 +4607,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_728' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_729": {
@@ -4622,7 +4622,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_729' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_730": {
@@ -4637,7 +4637,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_730' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_731": {
@@ -4652,7 +4652,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_731' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_732": {
@@ -4667,7 +4667,7 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_732' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   },
   "a_id_733": {
@@ -4682,7 +4682,97 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_733' to link with this element",
-    "page_url": "https://www.youtube.com/watch?v=43r9OZ1a8nk",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
+  },
+  "a_id_734": {
+    "action_type": "link",
+    "description": "Opencode Is Probably The Best Coding Agent I've Ever Used",
+    "tag_name": "a",
+    "selectors": [
+      "[data-ome-action-id=\"a_id_732\"]",
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_734' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
+  },
+  "a_id_735": {
+    "action_type": "link",
+    "description": "Claude Skills explained: the most POWERFUL AI tool you’re not using",
+    "tag_name": "a",
+    "selectors": [
+      "[data-ome-action-id=\"a_id_733\"]",
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_735' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
+  },
+  "a_id_736": {
+    "action_type": "link",
+    "description": "Opencode Is Probably The Best Coding Agent I've Ever Used",
+    "tag_name": "a",
+    "selectors": [
+      "[data-ome-action-id=\"a_id_734\"]",
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_736' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
+  },
+  "a_id_737": {
+    "action_type": "link",
+    "description": "Claude Skills explained: the most POWERFUL AI tool you’re not using",
+    "tag_name": "a",
+    "selectors": [
+      "[data-ome-action-id=\"a_id_735\"]",
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_737' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
+  },
+  "a_id_738": {
+    "action_type": "link",
+    "description": "Opencode Is Probably The Best Coding Agent I've Ever Used",
+    "tag_name": "a",
+    "selectors": [
+      "[data-ome-action-id=\"a_id_736\"]",
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_738' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
+  },
+  "a_id_739": {
+    "action_type": "link",
+    "description": "Claude Skills explained: the most POWERFUL AI tool you’re not using",
+    "tag_name": "a",
+    "selectors": [
+      "[data-ome-action-id=\"a_id_737\"]",
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_739' to link with this element",
+    "page_url": "https://www.youtube.com/",
     "page_title": "(10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube"
   }
 }

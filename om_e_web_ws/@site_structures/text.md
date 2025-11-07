@@ -1,7 +1,7 @@
-# Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube
+# (10) Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface! - YouTube
 
-**URL:** https://www.youtube.com/watch?v=43r9OZ1a8nk
-**Timestamp:** 2025-11-07 22:30:22
+**URL:** https://www.youtube.com/
+**Timestamp:** 2025-11-07 22:36:37
 
 ---
 
@@ -9,7 +9,7 @@ AU
 Skip navigation
 Create
 9+
-2:33 / 9:14
+8:39 / 9:14
 Cursor 2.0: Best Way To Code! New Frontier Model + Multi-Agent Interface!
 WorldofAI
 
@@ -24,7 +24,6 @@ Discover the all-new Cursor 2.0 with its frontier agentic coding model, Composer
 
 Cursor 2.0 showcases Composer, a novel agentic coding model, and a multi-agent interface. This update boasts four times faster code generation than similar models, enabling rapid iteration and debugging. Explore features like voice commands and a built-in browser for enhanced coding efficiency.
 Summary
-
 Transcript
 0:00
 Looks like Cursor is back again with a
