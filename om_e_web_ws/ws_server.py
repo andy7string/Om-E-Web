@@ -57,6 +57,8 @@ CURRENT_CONTENT_JSONL = "content.jsonl"
 CURRENT_CONTENT_DATA = None
 LAST_CONTENT_UPDATE = None
 
+SERVER_HEARTBEAT_INTERVAL = 20  # seconds
+
 async def consolidate_actionable_elements_to_menus(actionable_elements):
     """
     🎯 Consolidate raw actionable elements into clean menu structure
@@ -2271,6 +2273,24 @@ async def handler(ws):
             except Exception as e:
                 print(f"⚠️ Shortcut normalization error: {e}")
             
+            # 💓 Heartbeat handling
+            if msg.get("type") == "ping":
+                source = msg.get("source", "client")
+                print(f"💓 Ping received from {source}")
+                try:
+                    await ws.send(json.dumps({
+                        "type": "pong",
+                        "source": "server",
+                        "timestamp": time.time()
+                    }))
+                except Exception as e:
+                    print(f"❌ Failed to reply to ping: {e}")
+                continue
+            
+            if msg.get("type") == "pong":
+                print(f"💓 Pong received from {msg.get('source', 'client')}")
+                continue
+            
             # 🎯 EXTENSION IDENTIFICATION: Mark clients sending bridge_status as extensions
             if msg.get("type") == "bridge_status":
                 EXTENSION_WS = ws
@@ -2792,6 +2812,23 @@ async def send_command(command, params=None, timeout=8.0):
         PENDING.pop(cid, None)  # Clean up
         raise
 
+
+async def extension_heartbeat_loop():
+    """
+    💓 Periodically ping the extension so we know when it silently disappears.
+    """
+    while True:
+        await asyncio.sleep(SERVER_HEARTBEAT_INTERVAL)
+        if EXTENSION_WS:
+            try:
+                await EXTENSION_WS.send(json.dumps({
+                    "type": "server_ping",
+                    "timestamp": time.time()
+                }))
+                print("💓 Server heartbeat sent to extension")
+            except Exception as e:
+                print(f"⚠️ Failed to send heartbeat to extension: {e}")
+
 async def main():
     """
     🚀 Main server function - starts WebSocket server on port 17892
@@ -2812,7 +2849,10 @@ async def main():
         ping_timeout=20,
     ):
         print("WS listening on ws://127.0.0.1:17892")
-        await asyncio.Future()  # Keep server running indefinitely
+        await asyncio.gather(
+            extension_heartbeat_loop(),
+            asyncio.Future()  # Keep server running indefinitely
+        )
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -51,7 +51,10 @@ let siteConfigs = {}; // Store site configs locally for immediate access
 // 🛡️ Keep-alive configuration to prevent Chrome from suspending the service worker
 const KEEP_ALIVE_PORT_NAME = "ome_keep_alive";
 const KEEP_ALIVE_CHECK_INTERVAL_MS = 30 * 1000;
-let keepAlivePort = null;
+const HEARTBEAT_ALARM_NAME = "ome_ws_heartbeat";
+const HEARTBEAT_PERIOD_MINUTES = 1;
+const keepAlivePorts = new Set();
+let lastHeartbeatSent = 0;
 
 // No caching - always get real-time tab state
 
@@ -63,11 +66,14 @@ let keepAlivePort = null;
  * and external test clients.
  */
 async function connectWebSocket() {
-    console.log("[SW] Extension startup, connecting...");
+    if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) {
+        return;
+    }
+
+    console.log("[SW] Extension startup / reconnect, connecting WebSocket…");
     
-            try {
-            // Connect to WebSocket server
-            ws = new WebSocket("ws://127.0.0.1:17892");
+    try {
+        ws = new WebSocket("ws://127.0.0.1:17892");
         
         // Handle connection events
         ws.onopen = () => {
@@ -93,19 +99,12 @@ async function connectWebSocket() {
                     
                     // Flush any pending messages that were queued
                     flushPendingMessages();
+                    
+                    // Send immediate heartbeat so server knows we are alive
+                    sendHeartbeat("onopen");
                 } else {
-                    console.warn("[SW] WebSocket not ready after delay, retrying...");
-                    setTimeout(() => {
-                        if (ws && ws.readyState === WebSocket.OPEN) {
-                            sendToServer({
-                                type: "bridge_status",
-                                status: "connected"
-                            });
-                            sendTabsInfo();
-                            sendActiveTabInfo();
-                            flushPendingMessages();
-                        }
-                    }, 500);
+                    console.warn("[SW] WebSocket not ready after delay, retrying…");
+                    setTimeout(connectWebSocket, 500);
                 }
             }, 100); // Small delay to ensure WebSocket is ready
         };
@@ -115,33 +114,46 @@ async function connectWebSocket() {
             handleServerMessage(event.data);
         };
         
-        ws.onclose = () => {
-            console.log("[SW] WS closed");
+        ws.onclose = (event) => {
+            console.warn("[SW] WS closed", {
+                code: event.code,
+                reason: event.reason,
+                wasClean: event.wasClean
+            });
             isConnected = false;
             
             // Attempt to reconnect after a delay
+            setTimeout(connectWebSocket, 1000);
+        };
+        
+        ws.onerror = (error) => {
+            console.error("[SW] WS error:", error);
+        };
+        
+    } catch (error) {
+        console.error("[SW] Failed to connect:", error);
+        // Retry connection after delay
         setTimeout(connectWebSocket, 1000);
-    };
-    
-    ws.onerror = (error) => {
-        console.error("[SW] WS error:", error);
-    };
-    
-} catch (error) {
-    console.error("[SW] Failed to connect:", error);
-    // Retry connection after delay
-    setTimeout(connectWebSocket, 1000);
-}
+    }
 }
 
 /**
  * 🛡️ Ensure a keep-alive port is connected so Chrome does not suspend the worker
  */
 async function ensureKeepAlivePort() {
-    if (keepAlivePort) {
+    if (keepAlivePorts.size > 0) {
         return;
     }
     
+    console.log("[SW] ⏳ No keep-alive ports detected, attempting recovery…");
+    
+    // Try to create or ensure the offscreen document first (works even with no tabs)
+    await ensureOffscreenDocument();
+    if (keepAlivePorts.size > 0) {
+        return;
+    }
+    
+    // Fallback: inject helper into any accessible HTTP(S) tab
     try {
         const candidateTabs = await chrome.tabs.query({ url: ["http://*/*", "https://*/*"] });
         for (const tab of candidateTabs) {
@@ -175,6 +187,69 @@ async function ensureKeepAlivePort() {
     } catch (error) {
         console.error("[SW] Failed to establish keep-alive port:", error);
     }
+}
+
+/**
+ * 🪟 Create/ensure an offscreen document to host a persistent keep-alive port.
+ * This is used when no regular tabs are available (e.g., only chrome:// pages open).
+ */
+async function ensureOffscreenDocument() {
+    if (!chrome.offscreen || !chrome.offscreen.createDocument) {
+        return;
+    }
+    
+    try {
+        const hasDoc = await chrome.offscreen.hasDocument?.();
+        if (hasDoc) {
+            return;
+        }
+        
+        await chrome.offscreen.createDocument({
+            url: chrome.runtime.getURL("offscreen.html"),
+            reasons: ["TESTING"],
+            justification: "Keep OM-E automation bridge alive while tabs are inactive"
+        });
+        console.log("[SW] 🪟 Offscreen document created for keep-alive");
+    } catch (error) {
+        console.warn("[SW] ⚠️ Failed to create offscreen document:", error);
+    }
+}
+
+/**
+ * 💓 Create/restart the heartbeat alarm so Chrome periodically wakes us up.
+ */
+function scheduleHeartbeatAlarm() {
+    if (!chrome.alarms) {
+        return;
+    }
+    chrome.alarms.create(HEARTBEAT_ALARM_NAME, { periodInMinutes: HEARTBEAT_PERIOD_MINUTES });
+}
+
+chrome.alarms?.onAlarm.addListener((alarm) => {
+    if (alarm.name === HEARTBEAT_ALARM_NAME) {
+        sendHeartbeat("alarm");
+        ensureKeepAlivePort();
+    }
+});
+
+/**
+ * 💓 Send a ping to the server so both sides know the connection is alive.
+ */
+function sendHeartbeat(reason = "manual") {
+    if (!ws || ws.readyState !== WebSocket.OPEN) {
+        console.warn("[SW] Heartbeat skipped - WebSocket not open");
+        connectWebSocket();
+        return;
+    }
+    
+    lastHeartbeatSent = Date.now();
+    sendToServer({
+        type: "ping",
+        source: "extension",
+        reason,
+        keepAlivePorts: keepAlivePorts.size,
+        timestamp: lastHeartbeatSent
+    });
 }
 
 /**
@@ -586,6 +661,16 @@ function handleServerMessage(messageData) {
             return;
         }
         
+        if (message.type === "server_ping") {
+            console.log("[SW] 💓 Server heartbeat received");
+            sendToServer({
+                type: "pong",
+                source: "extension",
+                timestamp: Date.now()
+            });
+            return;
+        }
+        
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);
@@ -698,12 +783,12 @@ chrome.runtime.onConnect.addListener((port) => {
         return;
     }
     
-    console.log("[SW] Keep-alive port connected");
-    keepAlivePort = port;
+    keepAlivePorts.add(port);
+    console.log("[SW] Keep-alive port connected", { total: keepAlivePorts.size });
     
     port.onDisconnect.addListener(() => {
-        console.log("[SW] Keep-alive port disconnected");
-        keepAlivePort = null;
+        keepAlivePorts.delete(port);
+        console.log("[SW] Keep-alive port disconnected", { remaining: keepAlivePorts.size });
         ensureKeepAlivePort();
     });
 });
@@ -1561,7 +1646,7 @@ chrome.tabs.onRemoved.addListener(async (tabId, removeInfo) => {
     tabScanState.delete(tabId);
     await sendActiveTabInfo();
     await sendTabsInfo();
-    if (!keepAlivePort) {
+    if (keepAlivePorts.size === 0) {
         await ensureKeepAlivePort();
     }
 });
@@ -1576,6 +1661,7 @@ chrome.runtime.onStartup.addListener(() => {
     console.log("[SW] Extension startup");
     connectWebSocket();
     ensureKeepAlivePort();
+    scheduleHeartbeatAlarm();
 });
 
 /**
@@ -1588,6 +1674,7 @@ chrome.runtime.onInstalled.addListener(() => {
     console.log("[SW] Extension installed/updated");
     connectWebSocket();
     ensureKeepAlivePort();
+    scheduleHeartbeatAlarm();
 });
 
 /**
@@ -1605,10 +1692,11 @@ chrome.runtime.onInstalled.addListener(() => {
 // Initialize connection when service worker loads
 connectWebSocket();
 ensureKeepAlivePort();
+scheduleHeartbeatAlarm();
 
 // Periodically verify the keep-alive port still exists
 setInterval(() => {
-    if (!keepAlivePort) {
+    if (keepAlivePorts.size === 0) {
         ensureKeepAlivePort();
     }
 }, KEEP_ALIVE_CHECK_INTERVAL_MS);
