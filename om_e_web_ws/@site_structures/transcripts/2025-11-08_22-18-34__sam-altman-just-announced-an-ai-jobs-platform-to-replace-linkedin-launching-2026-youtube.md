@@ -1,0 +1,416 @@
+# Sam Altman Just Announced an AI Jobs Platform to Replace LinkedIn (Launching 2026) - YouTube
+
+**Video URL:** https://www.youtube.com/watch?v=1ednC6R5Raw
+**Video ID:** 1ednC6R5Raw
+**Language:** en
+**Collected At:** 2025-11-08T22:18:34.593087Z
+**Segments:** 406
+
+---
+
+- [0:00] You know ChatGpt inside and out. You've
+- [0:02] been using AI tools for months, maybe
+- [0:04] even built some impressive automations.
+- [0:06] Yet, you're still getting passed over
+- [0:08] for AI jobs because you can't prove your
+- [0:10] skills on paper. Well, Sam Alman just
+- [0:12] dropped a bombshell announcement that's
+- [0:14] about to change everything. He's
+- [0:16] building something that makes LinkedIn
+- [0:17] look like yesterday's news. And here's
+- [0:19] the wild part. It's specifically
+- [0:21] designed to get you hired in AI, even if
+- [0:23] you don't have a computer science
+- [0:24] degree. Welcome back to bitbias.ai, AI,
+- [0:27] where we do the research so you don't
+- [0:29] have to join our community of AI
+- [0:31] enthusiasts. Click the newsletter link
+- [0:33] in the description for weekly analysis
+- [0:34] delivered straight to your inbox. So, in
+- [0:37] this video, I'm breaking down Sam
+- [0:39] Alman's brand new AI jobs platform
+- [0:41] that's launching in 2026. Think
+- [0:44] LinkedIn, but exclusively for AI talent
+- [0:46] and powered by ChatGpt itself. We'll
+- [0:49] look at exactly how it works, what AI
+- [0:51] skills are actually in demand right now,
+- [0:54] and most importantly, how you can
+- [0:56] position yourself to be one of the first
+- [0:58] 10 million Americans to get certified
+- [1:01] through this program. And wait until you
+- [1:03] hear which major companies are already
+- [1:05] on board, including one retail giant
+- [1:08] that's planning to hire thousands
+- [1:10] through this platform.
+- [1:12] Let's dive into who's behind this and
+- [1:14] why it matters. Who is Sam Alman and why
+- [1:18] should you care? Now, if you're
+- [1:20] wondering why we should pay attention to
+- [1:22] yet another tech CEO launching a
+- [1:24] platform, here's where it gets
+- [1:25] interesting. Sam Alman isn't just any
+- [1:28] tech executive. This is the guy who
+- [1:30] literally shaped how startups work
+- [1:32] today. Back in 2011, he joined Y
+- [1:35] Combinator. You know, the incubator
+- [1:37] behind Airbnb, Dropbox, and Reddit. By
+- [1:40] 2014, he was running the whole thing.
+- [1:43] But here's the plot twist that changed
+- [1:45] everything.
+- [1:46] In 2015, while everyone else was still
+- [1:49] figuring out what AI even meant, Altman
+- [1:52] co-founded Open AI with some guy named
+- [1:54] Elon Musk. You might have heard of him.
+- [1:56] Fast forward to 2019, Alman becomes CEO.
+- [2:00] And then boom, he launches Chat GPT,
+- [2:02] which now has 700 million weekly users.
+- [2:06] That's nearly double the entire US
+- [2:08] population using it every single week.
+- [2:10] The man's net worth hit $1.9 billion.
+- [2:13] Time magazine called him one of the 100
+- [2:15] most influential people. And now he's
+- [2:17] sitting in White House meetings advising
+- [2:19] on AI policy. So when this guy says he's
+- [2:22] building something new for AI jobs,
+- [2:24] trust me, the entire tech industry stops
+- [2:27] scrolling and pays attention.
+- [2:29] The platform that's about to disrupt
+- [2:31] everything. All right, so picture this
+- [2:33] scene.
+- [2:35] Last year, at a high-profile White House
+- [2:36] event surrounded by tech leaders and
+- [2:38] government officials, Altman drops this
+- [2:40] announcement. OpenAI is building what he
+- [2:42] calls the Open AAI jobs platform. And
+- [2:45] before you think, "Oh, great, another
+- [2:47] job board." Wait until you see how this
+- [2:49] actually works. This isn't just posting
+- [2:51] your resume and hoping for the best. The
+- [2:54] platform uses OpenAI's language models,
+- [2:57] the same tech behind Chat GPT, to
+- [3:00] actually understand what skills you have
+- [3:02] and match them with what companies
+- [3:04] desperately need. It's like having an AI
+- [3:06] recruiter who actually gets what you can
+- [3:08] do, not just what degrees you have.
+- [3:12] Here's where it gets really clever.
+- [3:14] Remember how you use Chat GPT for
+- [3:16] everything? Well, they're building the
+- [3:18] certification program right into Chat
+- [3:20] GPT's study mode. So, you're learning AI
+- [3:23] skills, getting certified, and then
+- [3:25] immediately getting matched with jobs
+- [3:27] all in the same ecosystem.
+- [3:30] It's brilliant really. You don't have to
+- [3:32] jump between different platforms,
+- [3:34] different login, different systems.
+- [3:36] Everything flows together. And they're
+- [3:38] not just targeting senior engineers
+- [3:40] here. They've designed tracks for
+- [3:42] everyone from someone who just learned
+- [3:44] basic prompt engineering last week to
+- [3:47] seasoned professionals building
+- [3:48] enterprise AI systems.
+- [3:51] There's even a dedicated track for small
+- [3:53] businesses and local governments who
+- [3:55] usually can't compete for AI talent.
+- [3:58] Imagine your local city government
+- [3:59] finally being able to hire someone who
+- [4:01] can implement AI solutions because they
+- [4:04] have access to this specialized talent
+- [4:06] pool. How this stacks up against
+- [4:08] LinkedIn? Now, I know what you're
+- [4:11] thinking. But we already have LinkedIn.
+- [4:14] Why do we need this? And that's exactly
+- [4:16] what I thought too until I dug deeper.
+- [4:19] See, LinkedIn is owned by Microsoft, and
+- [4:22] Microsoft is OpenAI's biggest investor.
+- [4:25] So, this move, it's OpenAI essentially
+- [4:27] saying, "Thanks for the funding, but
+- [4:29] we're coming for your territory." Now,
+- [4:31] LinkedIn covers everything from
+- [4:33] marketing jobs to plumbing services.
+- [4:36] It's broad, it's general, and let's be
+- [4:39] honest, how many times have you gotten
+- [4:41] job recommendations that have nothing to
+- [4:42] do with your actual skills? The OpenAI
+- [4:45] platform is laser focused on AI roles
+- [4:48] only. No more waiting through thousands
+- [4:51] of irrelevant postings.
+- [4:53] But here's the kicker. While LinkedIn
+- [4:56] has those little skill badges you can
+- [4:58] add to your profile, OpenAI's
+- [5:00] certifications are earned through actual
+- [5:02] AI interaction. You're proving your
+- [5:05] skills by doing, not just by passing a
+- [5:07] multiple choice quiz. The platform knows
+- [5:10] if you can actually write effective
+- [5:11] prompts, build automations, or implement
+- [5:14] AI solutions because you've demonstrated
+- [5:16] it within chat GPT itself. And unlike
+- [5:19] LinkedIn's keyword matching that we've
+- [5:21] all learned to game, this platform uses
+- [5:23] actual AI understanding to match skills
+- [5:26] to roles. It's not looking for
+- [5:28] buzzwords. It's looking for genuine
+- [5:30] capability. One analysis I read put it
+- [5:33] perfectly. This move pits Open AI
+- [5:35] directly against LinkedIn. And honestly,
+- [5:38] LinkedIn should be worried. The real
+- [5:41] problems this solves. Let me paint you a
+- [5:44] picture of what's actually happening out
+- [5:46] there. You've got millions of people
+- [5:48] who've taught themselves AI skills.
+- [5:50] Maybe you're one of them. You know chat
+- [5:53] GPT like the back of your hand. You've
+- [5:56] built automations that save hours of
+- [5:58] work, but when you apply for AI jobs,
+- [6:01] you get rejected because you don't have
+- [6:03] formal credentials.
+- [6:05] Meanwhile, companies are screaming that
+- [6:07] they can't find AI talent. It's this
+- [6:10] massive disconnect, and here's why.
+- [6:12] There's no standardized way to prove AI
+- [6:14] skills until now. The platform addresses
+- [6:17] something even bigger, though, and this
+- [6:19] might surprise you.
+- [6:21] Anthropics CEO recently warned that 50%
+- [6:25] of entry-level office jobs could
+- [6:27] fundamentally change by 2030 because of
+- [6:29] AI.
+- [6:31] That's not some distant future. That's 5
+- [6:33] years from now. So, Open AI isn't just
+- [6:36] building a jobs platform. They're
+- [6:38] building a reskilling pipeline for an
+- [6:40] entire generation of workers who need to
+- [6:42] adapt or get left behind. And then
+- [6:44] there's the small business problem. Your
+- [6:46] local marketing agency or that startup
+- [6:48] downtown. They need AI talent, but can't
+- [6:51] compete with big tech salaries or even
+- [6:53] find the right people. This platform
+- [6:55] gives them a dedicated track to access
+- [6:56] AI skilled workers who might actually
+- [6:58] want to work for smaller, more agile
+- [7:01] companies. What really gets me excited
+- [7:03] though is how this could democratize
+- [7:05] access to high-paying AI jobs. You don't
+- [7:08] need to live in Silicon Valley. You
+- [7:10] don't need an MIT degree. You just need
+- [7:12] to prove you can do the work. The AI
+- [7:15] does the matching, not some recruiter
+- [7:17] who might overlook your application
+- [7:19] because you went to a state school.
+- [7:21] The AI skills that will actually get you
+- [7:23] hired.
+- [7:25] So, let's talk about what skills are
+- [7:27] actually going to matter on this
+- [7:28] platform because this is where you need
+- [7:30] to start focusing right now. First up,
+- [7:33] prompt engineering.
+- [7:35] I know it sounds simple, but companies
+- [7:37] are literally hiring prompt engineers
+- [7:39] for six-figure salaries because getting
+- [7:41] consistent, highquality outputs from AI
+- [7:43] is harder than it looks. But it goes way
+- [7:46] beyond that. Machine learning engineers
+- [7:49] and data scientists are obviously in
+- [7:51] demand. But here's what's really
+- [7:52] interesting. There's massive demand for
+- [7:54] what I call AI translators.
+- [7:57] These are product managers and project
+- [7:59] leads who can bridge the gap between AI
+- [8:01] capabilities and business needs. You
+- [8:04] don't need to code neural networks. You
+- [8:06] need to understand how to implement AI
+- [8:08] solutions in real business contexts.
+- [8:11] Then you've got the builders, developers
+- [8:13] who can integrate AI tools into existing
+- [8:15] products. Companies don't want to
+- [8:17] rebuild everything from scratch. They
+- [8:20] want people who can add AI features to
+- [8:22] what they already have. Think about it.
+- [8:24] Every app, every website, every business
+- [8:27] tool is trying to add AI features right
+- [8:29] now. Someone has to build those
+- [8:31] integrations. Here's one that might
+- [8:33] surprise you. AI trainers and data
+- [8:35] annotators.
+- [8:37] As these models get more specialized,
+- [8:39] companies need people who can prepare
+- [8:41] data and oversee training processes.
+- [8:44] It's not the most glamorous role, but
+- [8:46] it's absolutely critical and
+- [8:48] increasingly well- paid. And this is
+- [8:51] fascinating. AI ethics and policy
+- [8:53] experts are becoming essential hires.
+- [8:56] With all the concern about AI safety and
+- [8:58] regulation, companies need people who
+- [9:00] understand both the technology and its
+- [9:03] implications.
+- [9:04] If you have any background in law,
+- [9:06] philosophy, or policy combined with AI
+- [9:09] knowledge, you're sitting on a gold
+- [9:11] mine. The platform will track all these
+- [9:14] skills and more from basic AI literacy
+- [9:17] all the way up to advanced model
+- [9:19] development. But here's the key. It's
+- [9:22] not about having a degree in these
+- [9:23] areas. It's about proving you can
+- [9:26] actually do the work. That's the
+- [9:28] revolution here. Why American
+- [9:31] professionals should be paying
+- [9:33] attention. Now, this next part is
+- [9:35] specifically for my US viewers and it's
+- [9:37] huge. OpenAI has explicitly stated they
+- [9:40] want to train and certify 10 million
+- [9:42] Americans by 2030. That's not a typo. 10
+- [9:46] million. They're not just building a
+- [9:48] global platform. They're specifically
+- [9:50] investing in the American workforce.
+- [9:52] Look at who's already signed on as
+- [9:54] partners. Walmart, yes, that Walmart is
+- [9:57] on board and planning to use this for
+- [9:59] massive hiring initiatives. John Deere,
+- [10:02] the farming equipment company, is
+- [10:04] involved because even agriculture is
+- [10:05] going AI. Accenture, BCG, Indeed. These
+- [10:09] aren't startups experimenting.
+- [10:12] These are established companies planning
+- [10:14] their future workforce strategy around
+- [10:16] this platform. But here's what really
+- [10:18] caught my attention. They're partnering
+- [10:20] with state governments.
+- [10:22] Delaware and Texas are already running
+- [10:24] pilot programs. Think about what this
+- [10:27] means. Your state's workforce
+- [10:29] development programs might soon include
+- [10:31] AI certification through ChatGpt.
+- [10:35] This isn't some Silicon Valley exclusive
+- [10:37] thing. It's coming to mainstream
+- [10:39] America.
+- [10:41] And the accessibility factor is
+- [10:43] gamechanging.
+- [10:44] By embedding certifications in chat GPT
+- [10:47] study mode, which has free tiers, anyone
+- [10:50] with internet access can start building
+- [10:52] AI skills.
+- [10:54] You don't need expensive boot camps or
+- [10:56] university courses.
+- [10:59] This could be the great equalizer for
+- [11:00] people in rural areas or those who can't
+- [11:03] afford traditional education. The timing
+- [11:05] here is critical, too. The White House
+- [11:08] has made AI literacy a national
+- [11:10] priority, and OpenAI's initiative is
+- [11:13] directly aligned with federal goals to
+- [11:15] maintain US leadership in AI.
+- [11:18] This isn't just about individual
+- [11:20] careers. It's about national
+- [11:21] competitiveness.
+- [11:23] The government wants American workers
+- [11:25] trained in AI and this platform is
+- [11:28] positioned as a key part of that
+- [11:30] strategy.
+- [11:31] For professionals watching this, the
+- [11:33] message is clear. AI fluency is about to
+- [11:36] become as important as computer literacy
+- [11:38] was in the 1990s.
+- [11:41] And unlike the slow roll out of computer
+- [11:43] training back then, this is happening at
+- [11:45] warp speed. The platform launches in
+- [11:48] 2026, but the certification programs are
+- [11:51] starting now. If you wait until 2026 to
+- [11:54] start learning, you'll be competing with
+- [11:57] millions who've already been certified.
+- [12:00] What this means for your career right
+- [12:02] now. So, here's the bottom line, and
+- [12:04] this is what I want you to really think
+- [12:06] about after watching this video. Sam
+- [12:08] Alman isn't just building another job
+- [12:10] site. He's creating an entirely new
+- [12:13] pathway into tech careers that doesn't
+- [12:15] depend on traditional credentials.
+- [12:17] As he said himself, this isn't just
+- [12:20] about advancing AI technology. It's
+- [12:22] about preparing people for an AIdriven
+- [12:25] economy.
+- [12:27] The platform might not launch until
+- [12:28] 2026, but the race starts now.
+- [12:32] Those chat GPT skills you've been
+- [12:34] building, they're about to become formal
+- [12:37] qualifications.
+- [12:39] That automation you created to save time
+- [12:41] at work,
+- [12:43] that's going to be resume gold. The AI
+- [12:46] knowledge you've been accumulating
+- [12:47] through YouTube videos and
+- [12:48] experimentation,
+- [12:50] it's about to have a formal
+- [12:51] certification pathway. What's really
+- [12:54] interesting is that OpenAI has Chat
+- [12:56] GPT's 700 million user base to tap into.
+- [13:00] LinkedIn took years to build its
+- [13:02] network. OpenAI already has the users.
+- [13:05] They just need to connect them with
+- [13:07] employers. And with their AI matching
+- [13:09] technology, they might actually solve
+- [13:11] the skill matching problem that every
+- [13:13] other job platform struggles with. For
+- [13:16] companies, this represents a massive
+- [13:18] shift, too. Instead of fighting over the
+- [13:20] same small pool of AI engineers from top
+- [13:23] universities, they'll have access to a
+- [13:25] much broader talent pool of certified
+- [13:28] professionals.
+- [13:29] It's going to change how companies think
+- [13:31] about hiring for AI roles.
+- [13:34] the next steps you should take.
+- [13:37] Before you click away, let me leave you
+- [13:39] with this. The convergence of AI
+- [13:41] advancement and workforce transformation
+- [13:43] isn't coming. It's here. Altman's
+- [13:46] platform is just the infrastructure
+- [13:47] catching up to the reality that AI
+- [13:49] skills are now fundamental career
+- [13:51] assets. Whether you're a recent
+- [13:54] graduate, a mid-career professional, or
+- [13:56] someone looking to completely change
+- [13:58] fields, this platform represents a door
+- [14:01] that's about to open.
+- [14:04] The question isn't whether AI will
+- [14:06] transform the job market. It's whether
+- [14:08] you'll be ready when it does.
+- [14:11] Those 10 million certification spots
+- [14:13] OpenAI is planning. They're going to
+- [14:15] fill up fast. The company's already
+- [14:18] signed on as partners, they're going to
+- [14:21] be hiring through this platform, whether
+- [14:22] you're on it or not. So, here's my
+- [14:25] challenge to you. Don't wait for 2026.
+- [14:28] Start building your AI skills now.
+- [14:31] Get comfortable with chat GPT if you
+- [14:33] aren't already. Learn prompt
+- [14:35] engineering.
+- [14:36] Understand how AI tools can solve real
+- [14:39] business problems because when this
+- [14:41] platform launches, you want to be among
+- [14:43] the first wave of certified
+- [14:44] professionals, not playing catch-up. The
+- [14:47] future of work is being rewritten right
+- [14:49] now and Sam Alman just handed us the
+- [14:51] rough draft. The only question left is
+- [14:54] what role are you going to play in this
+- [14:56] story?
+- [14:58] Thanks for watching. If you want to stay
+- [15:00] ahead of the AI career curve, make sure
+- [15:02] you're subscribed because I'll be
+- [15:03] covering every development in this space
+- [15:05] as it happens.
+- [15:07] Drop a comment below. What AI skill are
+- [15:10] you most interested in developing?
+- [15:12] And if you found this valuable, share it
+- [15:14] with someone who needs to hear about
+- [15:16] this opportunity.
+- [15:18] The AI revolution isn't waiting, and
+- [15:20] neither should you.

@@ -856,8 +856,36 @@ def _map_prompt_action_sentence(record: Dict[str, Any]) -> Optional[str]:
     try:
         if record.get("type") != "action":
             return None
-        if record.get("visibility") == "hidden":
-            return None
+        
+        # 🎯 ALLOW IMPORTANT HIDDEN ELEMENTS: Navigation links, especially video links
+        visibility = record.get("visibility")
+        if visibility == "hidden":
+            # Check if this is an important navigation link that should be included despite being hidden
+            tag = (record.get("tag") or "").lower()
+            action_types = record.get("actionTypes") or []
+            href = record.get("href") or ""
+            label = (record.get("label") or record.get("ariaLabel") or "").strip()
+            attributes = record.get("attributes", {})
+            css_classes = attributes.get("cssClasses", [])
+            
+            # Allow hidden elements if they are:
+            # 1. Navigation links (tag == "a" or has navigate/link actionTypes)
+            # 2. Have meaningful labels (not empty, length > 3)
+            # 3. Have an href (not empty)
+            # 4. Are YouTube video links (href contains /watch?v=) OR have yt-lockup-metadata-view-model__title class
+            is_navigation_link = tag == "a" or any(t in ("navigate", "link") for t in action_types)
+            is_video_link = "/watch?v=" in href or "yt-lockup-metadata-view-model__title" in str(css_classes)
+            has_meaningful_label = bool(label and len(label) > 3)
+            has_href = bool(href and len(href) > 0)
+            
+            # Only allow hidden elements if they meet all criteria:
+            # - Must be a navigation link
+            # - Must have a meaningful label
+            # - Must have an href
+            # - Must be a video link (YouTube) - these are important even if marked hidden
+            if not (is_navigation_link and has_meaningful_label and has_href and is_video_link):
+                return None
+        
         action_id = record.get("id")
         if not action_id:
             return None
