@@ -735,6 +735,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             case "dom_changed":
                 handleDOMChanged(message, sendResponse);
                 break;
+            case "network_activity":
+                handleNetworkActivity(message, sender);
+                return true; // Keep channel open for async response
             case 'intelligence_update':
                 handleIntelligenceUpdate(message, sender, sendResponse);
                 break;
@@ -1158,8 +1161,93 @@ async function handleDOMChanged(message, sendResponse) {
             });
         }
         
+        // 🚫 DISABLED: Don't trigger automatic rescans during action execution
+        // This prevents invalidating action IDs before actions complete
+        // Rescans will be triggered post-action instead
+        if (targetTabId && message.isSignificant && !actionInProgress) {
+            console.log("[SW] 🔁 Triggering rescan due to significant DOM changes (action not in progress)");
+            setTimeout(() => {
+                triggerIntelligenceScan(targetTabId, message.url, "dom_mutation", true);
+            }, 500); // Small delay to let DOM settle
+        } else if (actionInProgress) {
+            console.log("[SW] ⏸️ Skipping DOM mutation rescan - action in progress");
+        }
+        
     } catch (error) {
         console.error("[SW] ❌ Failed to handle DOM changed message:", error);
+    }
+}
+
+// Note: Network activity handler is added to the existing message listener below
+
+async function handleNetworkActivity(message, sender) {
+    try {
+        const tabId = sender.tab?.id;
+        if (!tabId) return;
+        
+        console.log("[SW] 🌐 Network activity:", {
+            eventType: message.eventType,
+            url: message.url,
+            status: message.status,
+            inflightRequests: message.inflightRequests,
+            tabId
+        });
+        
+        // Update tab state with network activity
+        const tabState = internalTabState.get(tabId);
+        if (tabState) {
+            if (!tabState.networkActivity) {
+                tabState.networkActivity = {
+                    inflightRequests: 0,
+                    lastActivity: null,
+                    recentRequests: []
+                };
+            }
+            
+            tabState.networkActivity.inflightRequests = message.inflightRequests || 0;
+            tabState.networkActivity.lastActivity = message.timestamp;
+            
+            // Track recent requests (keep last 10)
+            if (message.eventType.includes('_end')) {
+                tabState.networkActivity.recentRequests.push({
+                    url: message.url,
+                    status: message.status,
+                    timestamp: message.timestamp
+                });
+                if (tabState.networkActivity.recentRequests.length > 10) {
+                    tabState.networkActivity.recentRequests.shift();
+                }
+            }
+        }
+        
+        // 🆕 NEW: Notify webserver about network activity
+        sendToServer({
+            type: "network_activity",
+            tabId,
+            eventType: message.eventType,
+            url: message.url,
+            status: message.status,
+            timestamp: message.timestamp,
+            inflightRequests: message.inflightRequests
+        });
+        
+        // 🚫 DISABLED: Don't trigger automatic rescans during action execution
+        // This prevents invalidating action IDs before actions complete
+        // Rescans will be triggered post-action instead
+        if (message.eventType.includes('_end') && message.inflightRequests === 0 && !actionInProgress) {
+            console.log("[SW] 🔁 Network activity completed, scheduling rescan (action not in progress)...");
+            setTimeout(() => {
+                const tab = internalTabState.get(tabId);
+                if (tab && tab.url) {
+                    triggerIntelligenceScan(tabId, tab.url, "network_idle", true);
+                }
+            }, 1000); // Wait 1 second after network idle
+        } else if (actionInProgress) {
+            console.log("[SW] ⏸️ Skipping network idle rescan - action in progress");
+        }
+        
+    } catch (error) {
+        console.error("[SW] ❌ Failed to handle network activity:", error);
     }
 }
 

@@ -434,6 +434,12 @@
       "url_elements": [
         "a.yt-lockup-metadata-view-model__title[href*='watch']",
         "yt-lockup-view-model a[href*='watch']",
+        "a#video-title[href*='watch']",
+        "a.yt-simple-endpoint[href*='watch']",
+        "ytd-video-renderer a#video-title",
+        "ytd-guide-entry-renderer a[href]",
+        "tp-yt-app-drawer#guide a[href]",
+        "a.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer[href]",
         "a[href]:not([href='']):not([href^='#'])",
         "[data-url]",
         "[data-href]",
@@ -462,7 +468,13 @@
     "forceIncludeSelectors": [
       "ytd-transcript-segment-list-renderer",
       "#segments-container ytd-transcript-segment-renderer",
-      "yt-formatted-string.segment-text"
+      "yt-formatted-string.segment-text",
+      "a#video-title[href*='watch']",
+      "a#video-title",
+      "ytd-video-renderer a#video-title",
+      "ytd-video-renderer a.yt-simple-endpoint[href*='watch']",
+      "a.yt-simple-endpoint.style-scope.ytd-video-renderer[href*='watch']",
+      "a.yt-simple-endpoint[href*='watch'][id='video-title']"
     ],
 
     "custom_handlers": {
@@ -536,6 +548,84 @@
         "wait_for": ".menu",
         "timeout": 1000
       }
+    }
+  },
+  "wikipedia.org": {
+    "framework": "wikipedia",
+    "scan_strategy": "wikipedia_specific",
+    "url_patterns": ["wikipedia.org", "*.wikipedia.org"],
+    "focus_targets": [
+      "#searchInput",
+      "input#searchInput",
+      "input[name='search']",
+      "input[type='search']",
+      "input.mw-searchInput",
+      "input.cdx-text-input__input",
+      "input[aria-label='Search Wikipedia']",
+      "input[placeholder='Search Wikipedia']"
+    ],
+    "selectors": {
+      "text_inputs": [
+        "#searchInput:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input#searchInput:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[name='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input.mw-searchInput:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input.cdx-text-input__input:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[aria-label='Search Wikipedia']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[placeholder='Search Wikipedia']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "buttons": [
+        "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "button[aria-label*='Search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".search-toggle:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "navigation": [
+        "nav:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='navigation']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "header:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".vector-header:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "url_elements": [
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]"
+      ]
+    },
+    "filters": {
+      "include": [
+        "#searchInput",
+        "input#searchInput",
+        "input[name='search']",
+        "input[type='search']",
+        "input.mw-searchInput",
+        "input[aria-label='Search Wikipedia']",
+        "input[placeholder='Search Wikipedia']",
+        "button[aria-label*='Search']",
+        ".search-toggle"
+      ],
+      "exclude": [
+        "[aria-hidden='true']",
+        "[style*='display: none']"
+      ]
+    },
+    "forceIncludeSelectors": [
+      "#searchInput",
+      "input#searchInput",
+      "input[name='search']",
+      "input.mw-searchInput",
+      "input.cdx-text-input__input",
+      "input[aria-label='Search Wikipedia']",
+      "input[placeholder='Search Wikipedia']"
+    ],
+    "custom_handlers": {
+      "wikipedia_search": true
     }
   },
   "default": {

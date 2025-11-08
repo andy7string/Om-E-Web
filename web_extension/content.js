@@ -144,30 +144,37 @@ const pageIdleMonitor = (() => {
         const wrappedFetch = function wrappedFetch(...args) {
             inflightRequests += 1;
             markChange();
+            
+            // 🆕 NEW: Notify webserver about network activity
+            const url = args[0]?.toString() || 'unknown';
+            notifyNetworkActivity('fetch_start', url);
 
             let completed = false;
-            const finalize = () => {
+            const finalize = (status = 'complete') => {
                 if (completed) {
                     return;
                 }
                 completed = true;
                 inflightRequests = ensureNonNegative(inflightRequests - 1);
                 markChange();
+                
+                // 🆕 NEW: Notify webserver about network completion
+                notifyNetworkActivity('fetch_end', url, status);
             };
 
             try {
                 const result = originalFetch.apply(this, args);
                 return Promise.resolve(result)
                     .then((response) => {
-                        finalize();
+                        finalize('success');
                         return response;
                     })
                     .catch((error) => {
-                        finalize();
+                        finalize('error');
                         throw error;
                     });
             } catch (error) {
-                finalize();
+                finalize('error');
                 throw error;
             }
         };
@@ -190,23 +197,32 @@ const pageIdleMonitor = (() => {
         proto.send = function wrappedSend(...args) {
             inflightRequests += 1;
             markChange();
+            
+            // 🆕 NEW: Notify webserver about network activity
+            const url = this.responseURL || this._url || 'unknown';
+            notifyNetworkActivity('xhr_start', url);
 
             let finalized = false;
-            const finalize = () => {
+            const finalize = (status = 'complete') => {
                 if (finalized) {
                     return;
                 }
                 finalized = true;
                 inflightRequests = ensureNonNegative(inflightRequests - 1);
                 markChange();
+                
+                // 🆕 NEW: Notify webserver about network completion
+                notifyNetworkActivity('xhr_end', url, status);
             };
 
-            this.addEventListener('loadend', finalize, { once: true });
+            this.addEventListener('loadend', () => finalize('success'), { once: true });
+            this.addEventListener('error', () => finalize('error'), { once: true });
+            this.addEventListener('abort', () => finalize('abort'), { once: true });
 
             try {
                 return originalSend.apply(this, args);
             } catch (error) {
-                finalize();
+                finalize('error');
                 throw error;
             }
         };
@@ -1308,6 +1324,30 @@ function initializeDOMChangeDetection() {
         
     } catch (error) {
         console.error("[Content] ❌ Failed to initialize DOM change detection:", error);
+    }
+}
+
+/**
+ * 🆕 NEW: Notify service worker of network activity
+ * 
+ * @param {string} eventType - Type of network event (fetch_start, fetch_end, xhr_start, xhr_end)
+ * @param {string} url - URL of the network request
+ * @param {string} status - Status of the request (success, error, abort, complete)
+ */
+function notifyNetworkActivity(eventType, url, status = null) {
+    try {
+        if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+            chrome.runtime.sendMessage({
+                type: "network_activity",
+                eventType,
+                url,
+                status,
+                timestamp: Date.now(),
+                inflightRequests: window.inflightRequests || 0
+            });
+        }
+    } catch (error) {
+        // Silently fail - network monitoring is non-critical
     }
 }
 
@@ -6222,6 +6262,29 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
     function computeVisibility(node) {
         if (!node) return 'unknown';
         try {
+            // 🎯 SPECIAL CASE: Guide drawer items should be considered visible even if drawer is collapsed
+            // Check if element is in the guide drawer (navigation menu)
+            const isGuideItem = node.closest && (
+                node.closest('tp-yt-app-drawer#guide') ||
+                node.closest('ytd-mini-guide-renderer') ||
+                node.closest('[id*="guide"]') ||
+                (node.classList && (
+                    node.classList.contains('ytd-guide-entry-renderer') ||
+                    node.closest('.ytd-guide-entry-renderer')
+                ))
+            );
+            
+            // If it's a guide item with meaningful content, consider it visible
+            if (isGuideItem) {
+                const hasLabel = node.textContent?.trim() || 
+                                node.getAttribute('aria-label') || 
+                                node.getAttribute('title') ||
+                                node.querySelector('yt-formatted-string.title');
+                if (hasLabel) {
+                    return 'visible';
+                }
+            }
+            
             const rect = node.getBoundingClientRect ? node.getBoundingClientRect() : null;
             const hidden = node.offsetParent === null || (rect && rect.width === 0 && rect.height === 0);
             return hidden ? 'hidden' : 'visible';
@@ -8331,25 +8394,63 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
 
 /**
  * 🆕 NEW: Schedule a high-priority scan + intelligence refresh after DOM actions
+ * Enhanced with explicit transcript detection for YouTube "Show transcript" actions
+ * 
+ * 🎯 FIXED: No polling - only triggers scan AFTER action completes
  */
 IntelligenceEngine.prototype.schedulePostActionIntelligenceRefresh = function(actionId, actionType = 'unknown') {
     try {
-        if (typeof this.queueIntelligenceUpdate === 'function') {
-            this.queueIntelligenceUpdate('high', 'post_action');
+        const isYoutube = window.location.hostname.includes('youtube.com') || window.currentFramework === 'youtube';
+        const isTranscriptAction = actionType === 'click' && (
+            actionId && this.getActionableElement(actionId)?.textContent?.toLowerCase().includes('transcript')
+        );
+        
+        // 🎯 FIXED: For transcript actions, wait for page to settle then scan (no polling)
+        if (isYoutube && isTranscriptAction) {
+            console.log("[Content] 🎯 Transcript action detected, scheduling post-action scan...");
+            
+            // Wait for page to settle after transcript panel opens
+            if (typeof scanWhenPageSettles === 'function') {
+                scanWhenPageSettles(() => {
+                    console.log("[Content] 🔁 Post-action scan triggered after transcript action settled");
+                    if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                        intelligenceEngine.queueIntelligenceUpdate('high', 'post_action_transcript');
+                    }
+                }, {
+                    quietWindow: 1000,  // Wait 1 second for transcript panel to fully load
+                    maxWait: 12000,      // Max 12 seconds wait
+                    checkInterval: 300
+                });
+            }
+        } else {
+            // 🎯 ENHANCED: Use scanWhenPageSettles for more reliable post-action scanning
+            if (typeof scanWhenPageSettles === 'function') {
+                scanWhenPageSettles(() => {
+                    console.log("[Content] 🔁 Post-action scan triggered after page settled");
+                    if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+                        intelligenceEngine.queueIntelligenceUpdate('high', 'post_action_settled');
+                    }
+                }, {
+                    quietWindow: 800,  // Wait 800ms for SPAs
+                    maxWait: 10000,
+                    checkInterval: 200
+                });
+            } else if (typeof scheduleInitialScan === 'function') {
+                scheduleInitialScan('post_action', {
+                    quietPeriod: 800,  // Increased from 200ms
+                    maxWait: 10000     // Increased from 8000ms
+                });
+            }
         }
         
-        if (typeof scheduleInitialScan === 'function') {
-            scheduleInitialScan('post_action', {
-                quietPeriod: 200,
-                maxWait: 8000
-            });
-        }
-        
-        console.log("[Content] 🔁 Post-action intelligence refresh scheduled", { actionId, actionType });
+        console.log("[Content] 🔁 Post-action intelligence refresh scheduled", { actionId, actionType, isTranscriptAction });
     } catch (error) {
         console.warn("[Content] ⚠️ Failed to schedule post-action refresh:", error);
     }
 };
+
+// 🚫 REMOVED: pollForTranscriptPanel - replaced with post-action scan only
+// Polling was causing issues and is no longer needed with improved post-action scanning
 
 /**
  * 🆕 NEW: Purify element to ensure it's a clean actionable element
@@ -8683,10 +8784,16 @@ IntelligenceEngine.prototype.collectYoutubeCardDescriptors = function(existingDe
     } else if (roots && roots.tagName) {
         sourceNodes = [roots];
     } else {
-        sourceNodes = Array.from(document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model'));
+        sourceNodes = Array.from(document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model, ytd-video-renderer'));
     }
 
     const selectors = [
+        'a#video-title[href*="watch"]',
+        'a#video-title',
+        'ytd-video-renderer a#video-title',
+        'ytd-video-renderer a.yt-simple-endpoint[href*="watch"]',
+        'a.yt-simple-endpoint.style-scope.ytd-video-renderer[href*="watch"]',
+        'a.yt-simple-endpoint[href*="watch"][id="video-title"]',
         'a.yt-lockup-metadata-view-model__title[href*="watch"]',
         'yt-lockup-view-model a.yt-lockup-metadata-view-model__title[href*="watch"]',
         'a#video-title-link[href*="watch"]',
@@ -8832,8 +8939,15 @@ IntelligenceEngine.prototype.collectAdditionalAnchorDescriptors = function(exist
                 return;
             }
 
+            // 🎯 SPECIAL CASE: Video-title links should bypass visibility checks if they have a label
+            const isVideoTitleLink = (
+                anchor.id === 'video-title' ||
+                anchor.classList.contains('yt-simple-endpoint') ||
+                anchor.closest('ytd-video-renderer') !== null
+            ) && (text || ariaLabel || titleAttr);
+            
             const visibilityNode = anchor; // use anchor for visibility checks
-            if (!this.isElementVisible || !this.isElementVisible(visibilityNode)) {
+            if (!isVideoTitleLink && (!this.isElementVisible || !this.isElementVisible(visibilityNode))) {
                 // Fallback: allow anchors that at least have text even if visibility helper unavailable
                 if (!text) {
                     return;
@@ -9321,7 +9435,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         
         try {
             // Extract data from the message structure
-            const { actionId, actionType, params } = message.data || message;
+            let { actionId, actionType, params } = message.data || message;
+            
+            // 🎯 FIX: Normalize action ID format (handle both a_id_ and a_i_ formats)
+            // Some LLMs or parsers may generate a_i_ instead of a_id_
+            if (actionId && typeof actionId === 'string') {
+                const normalizedId = actionId.replace(/^a_i_/, 'a_id_');
+                if (normalizedId !== actionId) {
+                    console.log(`[Content] 🔄 Normalized action ID: ${actionId} → ${normalizedId}`);
+                    actionId = normalizedId;
+                }
+            }
             
             // 🆕 ENHANCED: Add debugging information
             console.log("[Content] 🔍 Debug info:", {
@@ -9376,38 +9500,82 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
  */
 function isSignificantChange(mutations) {
     const now = Date.now();
+    const isYoutube = window.location.hostname.includes('youtube.com') || window.currentFramework === 'youtube';
     
-    // 🚫 FILTER 1: Rate limiting - minimum 2 seconds between significant changes
-    if (now - lastSignificantChange < MIN_CHANGE_INTERVAL) {
+    // 🎯 SPECIAL CASE: YouTube transcript panels should always trigger
+    const hasTranscriptPanel = mutations.some(mutation => {
+        if (mutation.type === 'childList') {
+            return Array.from(mutation.addedNodes || []).some(node => 
+                node.nodeType === Node.ELEMENT_NODE && (
+                    node.tagName === 'YTD-TRANSCRIPT-SEGMENT-LIST-RENDERER' ||
+                    node.querySelector?.('ytd-transcript-segment-list-renderer') ||
+                    node.closest?.('ytd-transcript-segment-list-renderer')
+                )
+            );
+        }
+        return false;
+    });
+    
+    if (hasTranscriptPanel) {
+        console.log("[Content] 🎯 Transcript panel change detected - forcing significant change");
+        lastSignificantChange = now;
+        return true;
+    }
+    
+    // 🚫 FILTER 1: Rate limiting - minimum 2 seconds between significant changes (reduced for YouTube)
+    const minInterval = isYoutube ? 1000 : MIN_CHANGE_INTERVAL; // 1 second for YouTube, 2 seconds otherwise
+    if (now - lastSignificantChange < minInterval) {
         return false;
     }
     
-    // 🚫 FILTER 2: Need minimum number of mutations to be significant
-    if (mutations.length < MIN_MUTATIONS_FOR_SIGNIFICANT) {
+    // 🚫 FILTER 2: Need minimum number of mutations to be significant (reduced for YouTube)
+    const minMutations = isYoutube ? 1 : MIN_MUTATIONS_FOR_SIGNIFICANT; // 1 mutation for YouTube, 3 otherwise
+    if (mutations.length < minMutations) {
         return false;
     }
     
-    // 🚫 FILTER 3: Ignore mouse events and focus changes
-    const hasIgnoredTypes = mutations.some(mutation => 
-        IGNORED_CHANGE_TYPES.has(mutation.type) ||
-        (mutation.type === 'attributes' && 
-         ['class', 'style', 'data-'].some(prefix => 
-             mutation.attributeName?.startsWith(prefix)
-         ))
-    );
+    // 🚫 FILTER 3: Ignore mouse events and focus changes (but allow YouTube-specific elements)
+    const hasIgnoredTypes = mutations.some(mutation => {
+        // Allow YouTube transcript and video-related changes
+        if (isYoutube) {
+            const target = mutation.target;
+            if (target && (
+                target.closest?.('ytd-transcript-segment-list-renderer') ||
+                target.closest?.('ytd-video-renderer') ||
+                target.closest?.('ytd-watch-flexy')
+            )) {
+                return false; // Don't ignore YouTube-specific changes
+            }
+        }
+        
+        return IGNORED_CHANGE_TYPES.has(mutation.type) ||
+            (mutation.type === 'attributes' && 
+             ['class', 'style', 'data-'].some(prefix => 
+                 mutation.attributeName?.startsWith(prefix)
+             ));
+    });
     
     if (hasIgnoredTypes) {
         return false;
     }
     
-    // 🚫 FILTER 4: Ignore changes to hidden/invisible elements
+    // 🚫 FILTER 4: Ignore changes to hidden/invisible elements (but check YouTube elements more leniently)
     const hasVisibleChanges = mutations.some(mutation => {
         if (mutation.type === 'childList') {
             // Check if added/removed nodes are visible
-            const addedVisible = Array.from(mutation.addedNodes || []).some(node => 
-                node.nodeType === Node.ELEMENT_NODE && 
-                isElementVisible(node)
-            );
+            const addedVisible = Array.from(mutation.addedNodes || []).some(node => {
+                if (node.nodeType !== Node.ELEMENT_NODE) return false;
+                
+                // For YouTube, be more lenient with visibility checks
+                if (isYoutube && (
+                    node.tagName === 'YTD-TRANSCRIPT-SEGMENT-RENDERER' ||
+                    node.closest?.('ytd-transcript-segment-list-renderer')
+                )) {
+                    return true; // Always consider transcript segments as visible
+                }
+                
+                return isElementVisible(node);
+            });
             const removedVisible = Array.from(mutation.removedNodes || []).some(node => 
                 node.nodeType === Node.ELEMENT_NODE && 
                 isElementVisible(node)

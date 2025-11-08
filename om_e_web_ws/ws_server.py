@@ -523,6 +523,7 @@ async def save_content_to_content_jsonl(intelligence_data, transcript_refs=None)
 async def save_transcripts(transcripts, page_state=None):
     """
     💾 Persist transcript payloads (e.g., YouTube text) to disk for LLM consumption.
+    🎯 FIXED: Added duplicate detection based on video ID + segment signature
     """
     global CURRENT_TRANSCRIPTS_INFO
 
@@ -537,6 +538,50 @@ async def save_transcripts(transcripts, page_state=None):
 
         saved_refs = []
         default_title = (page_state or {}).get("title") or "Transcript"
+        
+        # 🎯 NEW: Build signature for duplicate detection
+        def build_transcript_signature(transcript):
+            """Build a signature from video ID + segment count + first/last segments"""
+            video_id = transcript.get("videoId", "unknown")
+            segments = transcript.get("segments") or []
+            if not segments:
+                return None
+            
+            segment_count = len(segments)
+            # Use first 3 and last 3 segments for signature
+            head_sample = "|".join([
+                f"{seg.get('timeText', '')}|{seg.get('text', '')[:50]}"
+                for seg in segments[:3]
+            ])
+            tail_sample = "|".join([
+                f"{seg.get('timeText', '')}|{seg.get('text', '')[:50]}"
+                for seg in segments[-3:]
+            ])
+            return f"{video_id}|{segment_count}|{head_sample}|{tail_sample}"
+        
+        # 🎯 NEW: Check existing transcripts for duplicates
+        existing_signatures = set()
+        if os.path.exists(TRANSCRIPTS_DIR):
+            for filename in os.listdir(TRANSCRIPTS_DIR):
+                if filename.endswith('.md'):
+                    filepath = os.path.join(TRANSCRIPTS_DIR, filename)
+                    try:
+                        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                            content = f.read()
+                            # Extract video ID from file
+                            video_id_match = re.search(r'\*\*Video ID:\*\* (.+)', content)
+                            segments_match = re.search(r'\*\*Segments:\*\* (\d+)', content)
+                            if video_id_match and segments_match:
+                                video_id = video_id_match.group(1).strip()
+                                segment_count = int(segments_match.group(1))
+                                # Extract first few lines of transcript content
+                                lines = [l.strip() for l in content.split('\n') if l.strip().startswith('- [')]
+                                head_sample = "|".join(lines[:3]) if len(lines) >= 3 else "|".join(lines)
+                                tail_sample = "|".join(lines[-3:]) if len(lines) >= 3 else "|".join(lines)
+                                signature = f"{video_id}|{segment_count}|{head_sample[:150]}|{tail_sample[-150:]}"
+                                existing_signatures.add(signature)
+                    except Exception:
+                        pass  # Skip files we can't read
 
         def format_seconds(seconds):
             if seconds is None:
@@ -553,6 +598,13 @@ async def save_transcripts(transcripts, page_state=None):
             if not segments:
                 continue
 
+            # 🎯 NEW: Check for duplicate before saving
+            signature = build_transcript_signature(transcript)
+            if signature and signature in existing_signatures:
+                video_id = transcript.get("videoId", "unknown")
+                print(f"⏭️ Skipping duplicate transcript for video ID: {video_id} (signature match)")
+                continue
+            
             title = transcript.get("title") or default_title
             slug = slugify(title or transcript.get("videoId"))
             timestamp = datetime.utcnow().strftime("%Y-%m-%d_%H-%M-%S")
@@ -588,6 +640,10 @@ async def save_transcripts(transcripts, page_state=None):
             }
             saved_refs.append(ref)
             print(f"📝 Transcript saved: {ref['file']} ({len(segments)} segments)")
+            
+            # Add to existing signatures to prevent duplicates in same batch
+            if signature:
+                existing_signatures.add(signature)
 
         if saved_refs:
             CURRENT_TRANSCRIPTS_INFO = saved_refs
@@ -596,6 +652,8 @@ async def save_transcripts(transcripts, page_state=None):
 
     except Exception as e:
         print(f"⚠️ Error saving transcripts: {e}")
+        import traceback
+        traceback.print_exc()
         return []
 
 async def process_actionable_elements_for_llm(actionable_elements: List[Dict[str, Any]]) -> Optional[Dict[str, Dict[str, Any]]]:
@@ -834,6 +892,9 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
             transcript = "\n".join(filtered)[:1500]
 
         action_lines: List[str] = []
+        action_records_with_index: List[Dict[str, Any]] = []
+        line_index = 0
+        
         if os.path.exists(page_jsonl_path):
             with open(page_jsonl_path, 'r', encoding='utf-8', errors='ignore') as f:
                 for line in f:
@@ -859,15 +920,110 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
                     mapped = _map_prompt_action_sentence(rec)
                     if mapped:
                         action_lines.append(mapped)
+                        # Extract metadata for menu detection and ordering
+                        action_id_match = re.search(r'\(([^)]+)\)', mapped)
+                        label_match = re.search(r"to (?:click|navigate|interact|set value for) '([^']+)'", mapped)
+                        action_id = action_id_match.group(1) if action_id_match else None
+                        label = label_match.group(1) if label_match else ""
+                        
+                        action_records_with_index.append({
+                            'line': mapped,
+                            'index': line_index,
+                            'action_id': action_id,
+                            'label': label,
+                            'record': rec
+                        })
+                        line_index += 1
 
+        # 🎯 DEDUPLICATE: Remove duplicates while preserving order
         seen: set[str] = set()
-        deduped: List[str] = []
-        for s in action_lines:
-            if s in seen:
+        deduped_records: List[Dict[str, Any]] = []
+        
+        for rec in action_records_with_index:
+            if rec['line'] in seen:
                 continue
-            seen.add(s)
-            deduped.append(s)
-        deduped = deduped[:max_actions]
+            seen.add(rec['line'])
+            deduped_records.append(rec)
+        
+        deduped_records = deduped_records[:max_actions]
+
+        # 🎯 MENU DETECTION: Identify menu items based on common patterns
+        def _is_menu_item(label: str, action_id: str):
+            """Detect if an action is a menu item and return menu group name"""
+            if not label:
+                return False, None
+            
+            label_lower = label.lower()
+            
+            # Footer/Site menu items
+            footer_keywords = ['about', 'terms', 'privacy', 'policy', 'safety', 'copyright', 
+                             'contact', 'creators', 'advertise', 'developers', 'press', 
+                             'how youtube works', 'test new features', 'help', 'send feedback',
+                             'report history', 'settings']
+            if any(keyword in label_lower for keyword in footer_keywords):
+                return True, "Footer Menu"
+            
+            # Navigation menu items
+            nav_keywords = ['home', 'shorts', 'subscriptions', 'you', 'history', 'playlists',
+                          'watch later', 'liked videos', 'downloads', 'explore', 'music',
+                          'movies', 'gaming', 'news', 'sports', 'learning', 'fashion', 'beauty',
+                          'podcasts', 'playables', 'studio', 'kids']
+            if any(keyword in label_lower for keyword in nav_keywords):
+                return True, "Navigation Menu"
+            
+            # Account menu items
+            account_keywords = ['account', 'profile', 'sign in', 'sign out', 'settings', 'preferences']
+            if any(keyword in label_lower for keyword in account_keywords):
+                return True, "Account Menu"
+            
+            return False, None
+        
+        # 🎯 GROUP ACTIONS: Separate menu items from regular actions, preserving DOM order
+        menu_groups: Dict[str, List[Dict[str, Any]]] = {}
+        regular_actions: List[Dict[str, Any]] = []
+        search_inputs: List[Dict[str, Any]] = []  # 🎯 NEW: Prioritize search inputs
+        
+        for rec in deduped_records:
+            is_menu, menu_group = _is_menu_item(rec['label'], rec['action_id'])
+            
+            # 🎯 PRIORITIZE: Extract search inputs (especially Wikipedia search)
+            label_lower = (rec.get('label') or '').lower()
+            record = rec.get('record', {})
+            action_types = record.get('actionTypes', [])
+            tag = (record.get('tag') or '').lower()
+            placeholder = (record.get('placeholder') or '').lower()
+            aria_label = (record.get('ariaLabel') or '').lower()
+            element_id = record.get('id', '')
+            element_name = record.get('name', '')
+            
+            # Check if it's a search input by various indicators
+            is_search_input = (
+                'search' in label_lower or
+                'search' in placeholder or
+                'search' in aria_label or
+                element_id == 'searchInput' or
+                element_name == 'search' or
+                (tag == 'input' and ('setValue' in action_types or 'input' in action_types) and ('search' in label_lower or 'search' in placeholder or 'search' in aria_label))
+            )
+            
+            if is_search_input:
+                search_inputs.append(rec)
+            elif is_menu and menu_group:
+                if menu_group not in menu_groups:
+                    menu_groups[menu_group] = []
+                menu_groups[menu_group].append(rec)
+            else:
+                regular_actions.append(rec)
+        
+        # Sort menu groups by their first item's DOM index to preserve order
+        for menu_group_name in menu_groups:
+            menu_groups[menu_group_name].sort(key=lambda r: r['index'])
+        
+        # Sort search inputs by DOM index (they'll appear first)
+        search_inputs.sort(key=lambda r: r['index'])
+        
+        # Sort regular actions by DOM index
+        regular_actions.sort(key=lambda r: r['index'])
 
         parts: List[str] = []
         parts.append(f"# {title or 'Page'}")
@@ -879,10 +1035,31 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
             parts.append("## Transcript (partial)")
             parts.append(transcript.rstrip())
             parts.append("")
-        if deduped:
+        
+        # 🎯 ACTIONS SECTION: Prioritize search inputs, then menu items, then regular actions
+        if deduped_records:
             parts.append("## Actions")
-            parts.extend([f"- {line}" for line in deduped])
-            parts.append("")
+            
+            # 🎯 PRIORITY 1: Search inputs (especially important for Wikipedia, Google, etc.)
+            if search_inputs:
+                parts.append("### Search")
+                parts.extend([f"- {item['line']}" for item in search_inputs])
+                parts.append("")
+            
+            # PRIORITY 2: Menu groups with headers (preserving DOM order within each group)
+            for menu_group_name in sorted(menu_groups.keys()):
+                menu_items = menu_groups[menu_group_name]
+                if menu_items:
+                    parts.append(f"### {menu_group_name}")
+                    parts.extend([f"- {item['line']}" for item in menu_items])
+                    parts.append("")
+            
+            # PRIORITY 3: Regular actions (preserving DOM order)
+            if regular_actions:
+                if search_inputs or menu_groups:
+                    parts.append("### Other Actions")
+                parts.extend([f"- {item['line']}" for item in regular_actions])
+                parts.append("")
 
         if transcript_refs:
             parts.append("## Transcript Files")
@@ -2544,6 +2721,31 @@ async def handler(ws):
                     
                 except Exception as e:
                     print(f"❌ Error processing DOM change notification: {e}")
+            
+            # 🆕 NEW: NETWORK ACTIVITY MONITORING: Track network requests and activity
+            if msg.get("type") == "network_activity":
+                print("🌐 Network activity notification received")
+                try:
+                    network_data = msg.get("data", {})
+                    event_type = network_data.get("eventType", "unknown")
+                    url = network_data.get("url", "unknown")
+                    status = network_data.get("status")
+                    inflight_requests = network_data.get("inflightRequests", 0)
+                    tab_id = network_data.get("tabId")
+                    
+                    # Log network activity (but not every single request to avoid spam)
+                    if event_type.endswith("_end") or inflight_requests == 0:
+                        print(f"🌐 Network activity: {event_type} | URL: {url[:80]}... | Status: {status} | Inflight: {inflight_requests} | Tab: {tab_id}")
+                    
+                    # 🎯 MONITORING: Track network activity patterns
+                    # This can be used to detect when page is fully loaded
+                    if event_type.endswith("_end") and inflight_requests == 0:
+                        print(f"🌐 ✅ Network idle detected - all requests completed for tab {tab_id}")
+                        # Network is idle, page should be ready for scanning
+                        # The service worker will handle triggering rescans
+                        
+                except Exception as e:
+                    print(f"❌ Error processing network activity notification: {e}")
             
             # 🆕 NEW: TEXT EXTRACTION HANDLING: Process text extraction requests
             if msg.get("type") == "extractPageText":
