@@ -1,35 +1,35 @@
 {
-  "timestamp": 1762668839.6794791,
+  "timestamp": 1762693446.337205,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138015388,
-      "url": "https://mail.google.com/mail/u/0/#inbox",
-      "title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail",
-      "status": "complete"
+      "id": 1138015385,
+      "url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+      "title": "Search/ - Wikipedia",
+      "status": "loading"
     },
     "all_tabs": [
       {
         "id": 1138015385,
+        "url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+        "title": "Search/ - Wikipedia",
+        "active": true,
+        "status": "loading"
+      },
+      {
+        "id": 1138015400,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
-      },
-      {
-        "id": 1138015388,
-        "url": "https://mail.google.com/mail/u/0/#inbox",
-        "title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail",
-        "active": true,
-        "status": "complete"
       }
     ],
-    "last_tabs_update": 32365.481386041,
+    "last_tabs_update": 56959.281981083,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://mail.google.com/mail/u/0/#inbox",
-    "title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail",
+    "url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "title": "Search/ - Wikipedia",
     "is_active_tab": true
   },
   "content_structure": {},
@@ -41,2662 +41,2049 @@
         "tagName": "input",
         "actionType": "input",
         "selectors": [
-          ".gb_ye",
-          "input.gb_ye",
+          ".cdx-text-input__input",
+          "input.cdx-text-input__input",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "gb_ye aJh afOp8c",
+        "className": "cdx-text-input__input mw-searchInput",
         "attributes": {
           "cssClasses": [
-            "gb_ye",
-            "aJh",
-            "afOp8c"
+            "cdx-text-input__input",
+            "mw-searchInput"
           ],
-          "name": "q",
-          "type": "text",
-          "aria-label": "Search mail",
-          "placeholder": "Search mail"
+          "name": "search",
+          "type": "search",
+          "placeholder": "Search Wikipedia"
         },
         "urlContext": null,
         "semanticRole": "search_input",
-        "semanticConfidence": 3,
+        "semanticConfidence": 5,
         "semanticHints": [
           "search-field",
           "search",
-          "mail",
-          "ajh",
-          "afop8c"
+          "wikipedia",
+          "cdx",
+          "text",
+          "input",
+          "searchinput"
         ],
-        "timestamp": 1762668749667
+        "timestamp": 1762693432914
       },
       {
         "id": "a_id_1",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "nav",
+        "actionType": "nav",
         "selectors": [
-          "#:2d",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(1)"
+          "#mw-panel",
+          ".vector-main-menu-landmark",
+          "nav.vector-main-menu-landmark",
+          "div:nth-child(1)"
         ],
-        "textContent": "unread, Benefriends .. Mail 14, loan approval, has attachment, 16:08, Message not delivered There was a problem delivering your message to calvin.lai@bellproperty.com. See the technical details below ",
-        "className": "zA zE byw",
+        "textContent": "",
+        "className": "vector-main-menu-landmark",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "zE",
-            "byw"
+            "vector-main-menu-landmark"
           ],
-          "id": ":2d",
-          "role": "row"
+          "id": "mw-panel",
+          "aria-label": "Site"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "unread",
-          "benefriends",
-          "mail",
-          "loan",
-          "approval",
-          "has",
-          "attachment",
-          "message",
-          "not",
-          "delivered",
-          "there",
-          "was",
-          "problem",
-          "delivering",
-          "your",
-          "calvin",
-          "lai",
-          "bellproperty",
-          "com",
-          "see"
+          "site",
+          "panel",
+          "vector",
+          "main",
+          "menu",
+          "landmark"
         ],
-        "timestamp": 1762668785605
+        "timestamp": 1762693432914
       },
       {
         "id": "a_id_2",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "input",
+        "actionType": "button",
         "selectors": [
-          "#:2q",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(2)"
+          "#vector-user-links-dropdown-checkbox",
+          "[data-event-name=\"ui.dropdown-vector-user-links-dropdown\"]",
+          ".vector-dropdown-checkbox",
+          "input.vector-dropdown-checkbox",
+          "div:nth-child(1)"
         ],
-        "textContent": "MTB Direct, Meet Some of Our Star Exclusives, 10:00, Learn why BikeYoke and Title MTB are some of th",
-        "className": "zA yO",
+        "textContent": "",
+        "className": "vector-dropdown-checkbox ",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
+            "vector-dropdown-checkbox"
           ],
-          "id": ":2q",
-          "role": "row"
+          "id": "vector-user-links-dropdown-checkbox",
+          "type": "checkbox",
+          "role": "button",
+          "aria-label": "Personal tools"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "mtb",
-          "direct",
-          "meet",
-          "some",
-          "our",
-          "star",
-          "exclusives",
-          "learn",
-          "why",
-          "bikeyoke",
-          "and",
-          "title",
-          "are",
-          "the",
-          "hottest",
-          "brands",
-          "market",
-          "directmeet",
-          "unsubscribe"
+          "personal",
+          "tools",
+          "vector",
+          "user",
+          "links",
+          "dropdown",
+          "checkbox"
         ],
-        "timestamp": 1762668749667
+        "timestamp": 1762693432918
       },
       {
         "id": "a_id_3",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "input",
+        "actionType": "button",
         "selectors": [
-          "#:33",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(3)"
+          "#vector-appearance-dropdown-checkbox",
+          "[data-event-name=\"ui.dropdown-vector-appearance-dropdown\"]",
+          ".vector-dropdown-checkbox",
+          "input.vector-dropdown-checkbox",
+          "div:nth-child(1)"
         ],
-        "textContent": "Superdry, A shipment from order SDY-S-186558 is on the way, 10:00, Order SDY-S-186558 Your order is ",
-        "className": "zA yO",
+        "textContent": "",
+        "className": "vector-dropdown-checkbox ",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
+            "vector-dropdown-checkbox"
           ],
-          "id": ":33",
-          "role": "row"
+          "id": "vector-appearance-dropdown-checkbox",
+          "type": "checkbox",
+          "role": "button",
+          "aria-label": "Appearance"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "superdry",
-          "shipment",
-          "from",
-          "order",
-          "sdy",
-          "186558",
-          "the",
-          "way",
-          "your",
-          "track",
-          "see",
-          "delivery",
-          "status",
-          "view",
-          "visit",
-          "our",
-          "store",
-          "australia",
-          "post",
-          "tracking"
+          "appearance",
+          "vector",
+          "dropdown",
+          "checkbox"
         ],
-        "timestamp": 1762668749667
+        "timestamp": 1762693432918
       },
       {
         "id": "a_id_4",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "nav",
+        "actionType": "nav",
         "selectors": [
-          "#:3g",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(4)"
+          "div:nth-child(1)"
         ],
-        "textContent": "unread, Superdry, Order SDY-S-186558 confirmed, 09:24, Order SDY-S-186558 Thanks for your order Our ",
-        "className": "zA zE",
+        "textContent": "ArticleTalk\n\t\t\n\t\t\n\t\n\n\n\t\t\t\t\t\t\t\t\n\n\t\n\tEnglish",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":3g",
-          "role": "row"
+          "aria-label": "Namespaces"
         },
         "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "email-field",
-          "unread",
-          "superdry",
-          "order",
-          "sdy",
-          "186558",
-          "confirmed",
-          "thanks",
-          "for",
-          "your",
-          "our",
-          "team",
-          "are",
-          "busy",
-          "packing",
-          "and",
-          "you",
-          "receive",
-          "email",
-          "once"
+          "namespaces",
+          "articletalk",
+          "english"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432914
       },
       {
         "id": "a_id_5",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "nav",
+        "actionType": "nav",
         "selectors": [
-          "#:3t",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(5)"
+          "div:nth-child(1)"
         ],
-        "textContent": "me, (no subject), 09:10, https://superdry.com.au/products/fuji-lite-padded-gilet-off-grey.me(no subj",
-        "className": "zA yO",
+        "textContent": "",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":3t",
-          "role": "row"
+          "aria-label": "Views"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "subject",
-          "https",
-          "superdry",
-          "com",
-          "products",
-          "fuji",
-          "lite",
-          "padded",
-          "gilet",
-          "off",
-          "grey"
+          "views"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432914
       },
       {
         "id": "a_id_6",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "nav",
+        "actionType": "nav",
         "selectors": [
-          "#:46",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(6)"
+          ".vector-page-tools-landmark",
+          "nav.vector-page-tools-landmark",
+          "div:nth-child(1)"
         ],
-        "textContent": "The Lott, Hi Andrew, here's your Powerball game purchase confirmation, 8 Nov, Ticket details inside ",
-        "className": "zA yO",
+        "textContent": "",
+        "className": "vector-page-tools-landmark",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
+            "vector-page-tools-landmark"
           ],
-          "id": ":46",
-          "role": "row"
+          "aria-label": "Page tools"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "the",
-          "lott",
-          "andrew",
-          "here",
-          "your",
-          "powerball",
-          "game",
-          "purchase",
-          "confirmation",
-          "nov",
-          "ticket",
-          "details",
-          "inside",
-          "lotthi"
+          "page",
+          "tools",
+          "vector",
+          "landmark"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432914
       },
       {
         "id": "a_id_7",
-        "tagName": "tr",
+        "tagName": "header",
         "actionType": "unknown",
         "selectors": [
-          "#:4j",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(7)"
+          ".vector-header",
+          "header.vector-header",
+          "div:nth-child(1)"
         ],
-        "textContent": "Jacky Yang, Weekly OFI Sale listing, 8 Nov, Raine & Horne Raine & Horne Unley Dear Andrew Check out ",
-        "className": "zA yO",
+        "textContent": "Main menu\n\t\n\t\n\n\n\t\t\t\t\n\t\t\n\n\t\n\tMain menu\n\tmove to sidebar\n\thide\n\n\n\t\n\n\t\n\t\tNavigation\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tMa",
+        "className": "vector-header mw-header no-font-mode-scale",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":4j",
-          "role": "row"
+            "vector-header",
+            "mw-header",
+            "no-font-mode-scale"
+          ]
         },
         "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "jacky",
-          "yang",
-          "weekly",
-          "ofi",
-          "sale",
-          "listing",
-          "nov",
-          "raine",
-          "horne",
-          "unley",
-          "dear",
-          "andrew",
-          "check",
-          "out",
-          "our",
-          "upcoming",
-          "open",
-          "for",
-          "inspection",
-          "properties"
+          "search-field",
+          "main",
+          "menu",
+          "move",
+          "sidebar",
+          "hide",
+          "navigation",
+          "pagecontentscurrent",
+          "eventsrandom",
+          "articleabout",
+          "wikipediacontact",
+          "contribute",
+          "helplearn",
+          "editcommunity",
+          "portalrecent",
+          "changesupload",
+          "filespecial",
+          "pages",
+          "search",
+          "appearance"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432914
       },
       {
         "id": "a_id_8",
-        "tagName": "tr",
+        "tagName": "header",
         "actionType": "unknown",
         "selectors": [
-          "#:4w",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(8)"
+          ".mw-body-header",
+          "header.mw-body-header",
+          "main:nth-child(1)"
         ],
-        "textContent": "unread, Wim Hof Method, New research: Our ability to control our physiology has finally been proven,",
-        "className": "zA zE",
+        "textContent": "Search/\n\t\t\t\t\t\t\t\n\n\t\n\t\n\nAdd languages\n\t\n\t\n\n\t\t\n\t\t\t\t\t\tPage contents not supported in other languages.",
+        "className": "mw-body-header vector-page-titlebar no-font-mode-scale",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":4w",
-          "role": "row"
+            "mw-body-header",
+            "vector-page-titlebar",
+            "no-font-mode-scale"
+          ]
         },
         "urlContext": null,
         "semanticRole": "search_input",
         "semanticConfidence": 3,
         "semanticHints": [
           "search-field",
-          "unread",
-          "wim",
-          "hof",
-          "method",
-          "new",
-          "research",
-          "our",
-          "ability",
-          "control",
-          "physiology",
-          "has",
-          "finally",
-          "been",
-          "proven",
-          "nov",
-          "methodnew",
-          "unsubscribe"
+          "search",
+          "add",
+          "languages",
+          "page",
+          "contents",
+          "not",
+          "supported",
+          "other",
+          "body",
+          "header",
+          "vector",
+          "titlebar",
+          "font",
+          "mode",
+          "scale"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_9",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:59",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(9)"
+          "li:nth-child(1)"
         ],
-        "textContent": "unread, deloitte-jobnotific., New jobs posted from jobs.deloitte.com.au, 7 Nov, Deloitte Services Pt",
-        "className": "zA zE",
+        "textContent": "Main page",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":59",
-          "role": "row"
+          "title": "Visit the main page [ctrl-option-z]",
+          "href": "/wiki/Main_Page"
         },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Main_Page",
+          "textContent": "Main page",
+          "title": "Visit the main page [ctrl-option-z]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "search-field",
-          "unread",
-          "deloitte",
-          "jobnotific",
-          "new",
-          "jobs",
-          "posted",
-          "from",
-          "com",
-          "nov",
-          "services",
-          "pty",
-          "ltd",
-          "logo",
+          "visit",
           "the",
-          "following",
-          "matched",
-          "your",
-          "search",
-          "agent"
+          "main",
+          "page",
+          "ctrl",
+          "option"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_10",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:5m",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(10)"
+          "li:nth-child(1)"
         ],
-        "textContent": "noreply, Your timesheet has been approved, 7 Nov, Randstad Timesheet Approved Hi Andrew Orsmond, You",
-        "className": "zA yO",
+        "textContent": "Contents",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":5m",
-          "role": "row"
+          "title": "Guides to browsing Wikipedia",
+          "href": "/wiki/Wikipedia:Contents"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:Contents",
+          "textContent": "Contents",
+          "title": "Guides to browsing Wikipedia",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "noreply",
-          "your",
-          "timesheet",
-          "has",
-          "been",
-          "approved",
-          "nov",
-          "randstad",
-          "andrew",
-          "orsmond",
-          "richard",
-          "cheung",
-          "fphgroup",
-          "com",
-          "however",
-          "was",
-          "split",
-          "into",
-          "two",
-          "timesheets"
+          "guides",
+          "browsing",
+          "wikipedia",
+          "contents"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_11",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:5z",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(11)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Lyle, Family First, Suffer the little children, 7 Nov, Net Zero falls, will trans be next? ‌ ‌ ‌ ‌ ‌",
-        "className": "zA yO",
+        "textContent": "Current events",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":5z",
-          "role": "row"
+          "title": "Articles related to current events",
+          "href": "/wiki/Portal:Current_events"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Portal:Current_events",
+          "textContent": "Current events",
+          "title": "Articles related to current events",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "lyle",
-          "family",
-          "first",
-          "suffer",
-          "the",
-          "little",
-          "children",
-          "nov",
-          "net",
-          "zero",
-          "falls",
-          "will",
-          "trans",
-          "next",
-          "firstsuffer",
-          "unsubscribe"
+          "articles",
+          "related",
+          "current",
+          "events"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_12",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:6c",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(12)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Scott Torney, COMING SOON - 52 Kingfisher Cct, Flagstaff Hill, 7 Nov, Hi Andrew, Please find below a",
-        "className": "zA yO",
+        "textContent": "Random article",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":6c",
-          "role": "row"
+          "title": "Visit a randomly selected article [ctrl-option-x]",
+          "href": "/wiki/Special:Random"
         },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Special:Random",
+          "textContent": "Random article",
+          "title": "Visit a randomly selected article [ctrl-option-x]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "search-field",
-          "scott",
-          "torney",
-          "coming",
-          "soon",
-          "kingfisher",
-          "cct",
-          "flagstaff",
-          "hill",
-          "nov",
-          "andrew",
-          "please",
-          "find",
-          "below",
-          "new",
-          "feature",
-          "property",
-          "listing",
-          "that",
-          "may"
+          "visit",
+          "randomly",
+          "selected",
+          "article",
+          "ctrl",
+          "option",
+          "random"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_13",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:6p",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(13)"
+          "li:nth-child(1)"
         ],
-        "textContent": "me, (no subject), has attachment, 7 Nov, .me(no subject) Attachment:IMG-20251107-WA0007.jpegAttachme",
-        "className": "zA yO byw",
+        "textContent": "About Wikipedia",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO",
-            "byw"
-          ],
-          "id": ":6p",
-          "role": "row"
+          "title": "Learn about Wikipedia and how it works",
+          "href": "/wiki/Wikipedia:About"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:About",
+          "textContent": "About Wikipedia",
+          "title": "Learn about Wikipedia and how it works",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "subject",
-          "has",
-          "attachment",
-          "nov",
-          "img",
-          "20251107",
-          "wa0007",
-          "jpegattachment",
-          "wa0009",
-          "wa0017",
-          "jpg",
-          "byw"
+          "learn",
+          "about",
+          "wikipedia",
+          "and",
+          "how",
+          "works"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_14",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:72",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(14)"
+          "li:nth-child(1)"
         ],
-        "textContent": "unread, Domain, Your Hallett Cove market update, 7 Nov, What's happening where you are searching? ͏ ",
-        "className": "zA zE",
+        "textContent": "Contact us",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":72",
-          "role": "row"
+          "title": "How to contact Wikipedia",
+          "href": "//en.wikipedia.org/wiki/Wikipedia:Contact_us"
         },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:Contact_us",
+          "textContent": "Contact us",
+          "title": "How to contact Wikipedia",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "search-field",
-          "unread",
-          "domain",
-          "your",
-          "hallett",
-          "cove",
-          "market",
-          "update",
-          "nov",
-          "what",
-          "happening",
-          "where",
-          "you",
-          "are",
-          "searching",
-          "domainyour",
-          "unsubscribe"
+          "how",
+          "contact",
+          "wikipedia"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_15",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:7f",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(15)"
+          "li:nth-child(1)"
         ],
-        "textContent": "health@aws.com, [Action may be required] Discontinuation of AWS Accounts Status in AWS Organizations",
-        "className": "zA yO",
+        "textContent": "Help",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":7f",
-          "role": "row"
+          "title": "Guidance on how to use and edit Wikipedia",
+          "href": "/wiki/Help:Contents"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Help:Contents",
+          "textContent": "Help",
+          "title": "Guidance on how to use and edit Wikipedia",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "health",
-          "aws",
-          "com",
-          "action",
-          "may",
-          "required",
-          "discontinuation",
-          "accounts",
-          "status",
-          "organizations",
-          "account",
-          "408928238893",
-          "nov",
-          "event",
-          "view",
-          "notification",
-          "center",
-          "details",
-          "service",
-          "console"
+          "guidance",
+          "how",
+          "use",
+          "and",
+          "edit",
+          "wikipedia",
+          "help"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_16",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:7s",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(16)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Trent & Kim Shorland, Open Homes This Weekend!, 7 Nov, Hi Andrew, Please see this weekend's open ins",
-        "className": "zA yO",
+        "textContent": "Learn to edit",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":7s",
-          "role": "row"
+          "title": "Learn how to edit Wikipedia",
+          "href": "/wiki/Help:Introduction"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Help:Introduction",
+          "textContent": "Learn to edit",
+          "title": "Learn how to edit Wikipedia",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "trent",
-          "kim",
-          "shorland",
-          "open",
-          "homes",
-          "this",
-          "weekend",
-          "nov",
-          "andrew",
-          "please",
-          "see",
-          "inspection",
-          "times",
-          "below",
-          "saturday",
-          "the",
-          "8th",
-          "november",
-          "heath",
-          "road"
+          "learn",
+          "how",
+          "edit",
+          "wikipedia"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_17",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:85",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(17)"
+          "li:nth-child(1)"
         ],
-        "textContent": "unread, Paul Lukeman, November Market Update 2025, 6 Nov, View in browser Hi Andrew, Welcome to your",
-        "className": "zA zE",
+        "textContent": "Community portal",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":85",
-          "role": "row"
+          "title": "The hub for editors",
+          "href": "/wiki/Wikipedia:Community_portal"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:Community_portal",
+          "textContent": "Community portal",
+          "title": "The hub for editors",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "unread",
-          "paul",
-          "lukeman",
-          "november",
-          "market",
-          "update",
-          "2025",
-          "nov",
-          "view",
-          "browser",
-          "andrew",
-          "welcome",
-          "your",
-          "property",
-          "for",
-          "approach",
           "the",
-          "end",
-          "spring",
-          "and"
+          "hub",
+          "for",
+          "editors",
+          "community",
+          "portal"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_18",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:8i",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(18)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Belle Property Norw., Belle Property Norwood Weekly Update, 6 Nov, Dear Andrew, Whether you're searc",
-        "className": "zA yO",
+        "textContent": "Recent changes",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":8i",
-          "role": "row"
+          "title": "A list of recent changes to Wikipedia [ctrl-option-r]",
+          "href": "/wiki/Special:RecentChanges"
         },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Special:RecentChanges",
+          "textContent": "Recent changes",
+          "title": "A list of recent changes to Wikipedia [ctrl-option-r]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "search-field",
-          "belle",
-          "property",
-          "norw",
-          "norwood",
-          "weekly",
-          "update",
-          "nov",
-          "dear",
-          "andrew",
-          "whether",
-          "you",
-          "searching",
-          "for",
-          "stylish",
-          "city",
-          "apartment",
-          "comfortable",
-          "family",
-          "home"
+          "list",
+          "recent",
+          "changes",
+          "wikipedia",
+          "ctrl",
+          "option"
         ],
-        "timestamp": 1762668749668
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_19",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:8v",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(19)"
+          "li:nth-child(1)"
         ],
-        "textContent": "unread, MTB Direct, Want to WIN Your Dream Bike?, 6 Nov, You voted. We built it. Now one lucky rider",
-        "className": "zA zE",
+        "textContent": "Upload file",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":8v",
-          "role": "row"
+          "title": "Upload files [ctrl-option-u]",
+          "href": "//en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard",
+          "textContent": "Upload file",
+          "title": "Upload files [ctrl-option-u]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "unread",
-          "mtb",
-          "direct",
-          "want",
-          "win",
-          "your",
-          "dream",
-          "bike",
-          "nov",
-          "you",
-          "voted",
-          "built",
-          "now",
-          "one",
-          "lucky",
-          "rider",
-          "wins",
-          "directwant",
-          "unsubscribe"
+          "upload",
+          "files",
+          "ctrl",
+          "option",
+          "file"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_20",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:98",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(20)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Belle Property Adel., Belle Property Adelaide City Weekly Update, 6 Nov, Dear Andrew, Even if you're",
-        "className": "zA yO",
+        "textContent": "Special pages",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":98",
-          "role": "row"
+          "href": "/wiki/Special:SpecialPages"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Special:SpecialPages",
+          "textContent": "Special pages",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "belle",
-          "property",
-          "adel",
-          "adelaide",
-          "city",
-          "weekly",
-          "update",
-          "nov",
-          "dear",
-          "andrew",
-          "even",
-          "you",
-          "not",
-          "currently",
-          "looking",
-          "buy",
-          "sell",
-          "always",
-          "useful",
-          "stay"
+          "special",
+          "pages"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_21",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:9l",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(21)"
+          ".cdx-button",
+          "a.cdx-button",
+          "div:nth-child(1)"
         ],
-        "textContent": "ListingLoop.com.au, New property match alert in Adelaide, 6 Nov, We want to help you find your next ",
-        "className": "zA yO",
+        "textContent": "Search",
+        "className": "cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only search-toggle",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
+            "cdx-button",
+            "cdx-button--fake-button",
+            "cdx-button--fake-button--enabled",
+            "cdx-button--weight-quiet",
+            "cdx-button--icon-only",
+            "search-toggle"
           ],
-          "id": ":9l",
-          "role": "row"
+          "title": "Search Wikipedia [ctrl-option-f]",
+          "href": "/wiki/Special:Search"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Special:Search",
+          "textContent": "Search",
+          "title": "Search Wikipedia [ctrl-option-f]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": "search_input",
         "semanticConfidence": 3,
         "semanticHints": [
           "search-field",
-          "listingloop",
-          "com",
-          "new",
-          "property",
-          "match",
-          "alert",
-          "adelaide",
-          "nov",
-          "want",
-          "help",
-          "you",
-          "find",
-          "your",
-          "next",
-          "here",
-          "listing",
-          "that",
-          "may",
-          "interest"
+          "search",
+          "wikipedia",
+          "ctrl",
+          "option",
+          "cdx",
+          "button",
+          "fake",
+          "enabled",
+          "weight",
+          "quiet",
+          "icon",
+          "only",
+          "toggle"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_22",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:9y",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(22)"
+          "[data-mw=\"interface\"]",
+          "li:nth-child(1)"
         ],
-        "textContent": "Michael Page Austra., New jobs for: Information Technology : International, 6 Nov, Michael Page Late",
-        "className": "zA yO",
+        "textContent": "Donate",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":9y",
-          "role": "row"
+          "href": "https://donate.wikimedia.org/?wmf_source=donate&wmf_medium=sidebar&wmf_campaign=en.wikipedia.org&uselang=en"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://donate.wikimedia.org/?wmf_source=donate&wmf_medium=sidebar&wmf_campaign=en.wikipedia.org&uselang=en",
+          "textContent": "Donate",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "michael",
-          "page",
-          "austra",
-          "new",
-          "jobs",
-          "for",
-          "information",
-          "technology",
-          "international",
-          "nov",
-          "latest",
-          "keywords",
-          "location",
-          "senior",
-          "software",
-          "engineer",
-          "solution",
-          "architect",
-          "public",
-          "sector"
+          "donate"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_23",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:ab",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(23)"
+          "[data-mw=\"interface\"]",
+          "li:nth-child(1)"
         ],
-        "textContent": "Jessica, me 3, Santos  | Global Network Architect, has attachment, 6 Nov, Yeah fair enough. I can st",
-        "className": "zA yO",
+        "textContent": "Create account",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":ab",
-          "role": "row"
+          "title": "You are encouraged to create an account and log in; however, it is not mandatory",
+          "href": "/w/index.php?title=Special:CreateAccount&returnto=Search%2F&returntoquery=q%3Dkids%2Bshoes"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&returnto=Search%2F&returntoquery=q%3Dkids%2Bshoes",
+          "textContent": "Create account",
+          "title": "You are encouraged to create an account and log in; however, it is not mandatory",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "login_submit",
+        "semanticConfidence": 6,
         "semanticHints": [
-          "jessica",
-          "santos",
-          "global",
-          "network",
-          "architect",
-          "has",
-          "attachment",
-          "nov",
-          "yeah",
-          "fair",
-          "enough",
-          "can",
-          "still",
-          "float",
+          "login-submit",
           "you",
-          "but",
-          "with",
-          "your",
-          "salary",
-          "expectations"
+          "are",
+          "encouraged",
+          "create",
+          "account",
+          "and",
+          "log",
+          "however",
+          "not",
+          "mandatory"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_24",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:ao",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(24)"
+          "[data-mw=\"interface\"]",
+          "li:nth-child(1)"
         ],
-        "textContent": "Sandra Fenwick 2, St Joseph's Hectorville - PS1, 6 Nov, Hi Everyone A reminder that the Reception Te",
-        "className": "zA yO",
+        "textContent": "Log in",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":ao",
-          "role": "row"
+          "title": "You're encouraged to log in; however, it's not mandatory. [ctrl-option-o]",
+          "href": "/w/index.php?title=Special:UserLogin&returnto=Search%2F&returntoquery=q%3Dkids%2Bshoes"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Search%2F&returntoquery=q%3Dkids%2Bshoes",
+          "textContent": "Log in",
+          "title": "You're encouraged to log in; however, it's not mandatory. [ctrl-option-o]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "login_submit",
+        "semanticConfidence": 6,
         "semanticHints": [
-          "sandra",
-          "fenwick",
-          "joseph",
-          "hectorville",
-          "ps1",
-          "nov",
-          "everyone",
-          "reminder",
-          "that",
-          "the",
-          "reception",
-          "term",
-          "one",
-          "parent",
-          "information",
-          "session",
-          "monday",
-          "november",
-          "2025",
-          "30pm"
+          "login-submit",
+          "you",
+          "encouraged",
+          "log",
+          "however",
+          "not",
+          "mandatory",
+          "ctrl",
+          "option"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_25",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:b1",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(25)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Brandon Pilgrim, Weekly Listings Update, 6 Nov, View this email in your browser Dear Andrew, Please ",
-        "className": "zA yO",
+        "textContent": "Article",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":b1",
-          "role": "row"
+          "title": "View the content page (page does not exist) [ctrl-option-c]",
+          "href": "/w/index.php?title=Search/&action=edit&redlink=1"
         },
-        "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Search/&action=edit&redlink=1",
+          "textContent": "Article",
+          "title": "View the content page (page does not exist) [ctrl-option-c]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "email-field",
-          "search-field",
-          "brandon",
-          "pilgrim",
-          "weekly",
-          "listings",
-          "update",
-          "nov",
           "view",
-          "this",
-          "email",
-          "your",
-          "browser",
-          "dear",
-          "andrew",
-          "please",
-          "find",
-          "below",
-          "collection",
-          "our"
+          "the",
+          "content",
+          "page",
+          "does",
+          "not",
+          "exist",
+          "ctrl",
+          "option",
+          "article"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_26",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:be",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(26)"
+          ".new",
+          "a.new",
+          "li:nth-child(1)"
         ],
-        "textContent": "Google Store, Andrew, make magic happen with Pixel, 5 Nov, Unlock epic photos and videos, more produ",
-        "className": "zA yO",
+        "textContent": "Talk",
+        "className": "new",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
+            "new"
           ],
-          "id": ":be",
-          "role": "row"
+          "title": "Discuss improvements to the content page (page does not exist) [ctrl-option-t]",
+          "href": "/w/index.php?title=Talk:Search/&action=edit&redlink=1",
+          "rel": "discussion"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Talk:Search/&action=edit&redlink=1",
+          "textContent": "Talk",
+          "title": "Discuss improvements to the content page (page does not exist) [ctrl-option-t]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "google",
-          "store",
-          "andrew",
-          "make",
-          "magic",
-          "happen",
-          "with",
-          "pixel",
-          "nov",
-          "unlock",
-          "epic",
-          "photos",
-          "and",
-          "videos",
-          "more",
-          "productive",
-          "days",
-          "safer",
-          "personal",
-          "info"
+          "discuss",
+          "improvements",
+          "the",
+          "content",
+          "page",
+          "does",
+          "not",
+          "exist",
+          "ctrl",
+          "option",
+          "talk",
+          "new"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_27",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:br",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(27)"
+          "li:nth-child(1)"
         ],
-        "textContent": "customerservice, Pay Advice/ RCTI/ Remittance Advice For: 885179740 - Andrew Orsmond, has attachment",
-        "className": "zA yO byw",
+        "textContent": "What links here",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO",
-            "byw"
-          ],
-          "id": ":br",
-          "role": "row"
+          "title": "List of all English Wikipedia pages containing links to this page [ctrl-option-j]",
+          "href": "/wiki/Special:WhatLinksHere/Search/"
         },
-        "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Special:WhatLinksHere/Search/",
+          "textContent": "What links here",
+          "title": "List of all English Wikipedia pages containing links to this page [ctrl-option-j]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "email-field",
-          "search-field",
-          "customerservice",
-          "pay",
-          "advice",
-          "rcti",
-          "remittance",
-          "for",
-          "885179740",
-          "andrew",
-          "orsmond",
-          "has",
-          "attachment",
-          "nov",
-          "please",
-          "find",
-          "attached",
-          "your",
-          "tax",
-          "invoice"
+          "list",
+          "all",
+          "english",
+          "wikipedia",
+          "pages",
+          "containing",
+          "links",
+          "this",
+          "page",
+          "ctrl",
+          "option",
+          "what",
+          "here"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_28",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:c4",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(28)"
+          "li:nth-child(1)"
         ],
-        "textContent": "unread, Team Global Express, It's moving! Your parcel from Dispensed is currently in-transit, 5 Nov,",
-        "className": "zA zE",
+        "textContent": "Printable version",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":c4",
-          "role": "row"
+          "title": "Printable version of this page [ctrl-option-p]",
+          "href": "javascript:print();",
+          "rel": "alternate"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "javascript:print();",
+          "textContent": "Printable version",
+          "title": "Printable version of this page [ctrl-option-p]",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "unread",
-          "team",
-          "global",
-          "express",
-          "moving",
-          "your",
-          "parcel",
-          "from",
-          "dispensed",
-          "currently",
-          "transit",
-          "nov",
-          "logo",
-          "bdtb052438",
-          "will",
-          "notify",
-          "you",
-          "when",
-          "expressit",
-          "yourtrack"
+          "printable",
+          "version",
+          "this",
+          "page",
+          "ctrl",
+          "option"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432915
       },
       {
         "id": "a_id_29",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:ch",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(29)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Jinal Dave from KPM., Phone interview - Andrew Orsmond and KPMG Australia, has attachment, 5 Nov, ​​",
-        "className": "zA yO",
+        "textContent": "Page information",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":ch",
-          "role": "row"
+          "title": "More information about this page",
+          "href": "/w/index.php?title=Search/&action=info"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Search/&action=info",
+          "textContent": "Page information",
+          "title": "More information about this page",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "jinal",
-          "dave",
-          "from",
-          "kpm",
-          "phone",
-          "interview",
-          "andrew",
-          "orsmond",
-          "and",
-          "kpmg",
-          "australia",
-          "has",
-          "attachment",
-          "nov",
-          "your",
-          "meeting",
-          "scheduled",
-          "for",
-          "november",
-          "2025"
+          "more",
+          "information",
+          "about",
+          "this",
+          "page"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_30",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:cu",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(30)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Jinal Dave from KPM., Interview with KPMG Australia, 5 Nov, ​​​​​​​​​​ Dear Andrew , We're pleased t",
-        "className": "zA yO",
+        "textContent": "Get shortened URL",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":cu",
-          "role": "row"
+          "href": "/w/index.php?title=Special:UrlShortener&url=https%3A%2F%2Fen.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DSearch%2F%26q%3Dkids%2Bshoes"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:UrlShortener&url=https%3A%2F%2Fen.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DSearch%2F%26q%3Dkids%2Bshoes",
+          "textContent": "Get shortened URL",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "jinal",
-          "dave",
-          "from",
-          "kpm",
-          "interview",
-          "with",
-          "kpmg",
-          "australia",
-          "nov",
-          "dear",
-          "andrew",
-          "pleased",
-          "confirm",
-          "your",
-          "phone",
-          "for",
-          "the",
-          "role",
-          "technology",
-          "advisory"
+          "get",
+          "shortened",
+          "url"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_31",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:d7",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(31)"
+          "li:nth-child(1)"
         ],
-        "textContent": "unread, Seesaw, Your Seesaw updates for November 5th, 2025, 5 Nov, Seesaw You have new updates in Se",
-        "className": "zA zE",
+        "textContent": "Download QR code",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":d7",
-          "role": "row"
+          "href": "/w/index.php?title=Special:QrCode&url=https%3A%2F%2Fen.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DSearch%2F%26q%3Dkids%2Bshoes"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:QrCode&url=https%3A%2F%2Fen.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DSearch%2F%26q%3Dkids%2Bshoes",
+          "textContent": "Download QR code",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "unread",
-          "seesaw",
-          "your",
-          "updates",
-          "for",
-          "november",
-          "5th",
-          "2025",
-          "nov",
-          "you",
-          "have",
-          "new",
-          "117",
-          "messages",
-          "and",
-          "other",
-          "update",
-          "view",
-          "all",
-          "get"
+          "download",
+          "code"
         ],
-        "timestamp": 1762668749669
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_32",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:dk",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(32)"
+          ".mw-redirect",
+          "a.mw-redirect",
+          "b:nth-child(1)"
         ],
-        "textContent": "unread, customerservice, Your Randstad pay advice for pay period 05/11/2025 is online, 5 Nov, Randst",
-        "className": "zA zE",
+        "textContent": "Search",
+        "className": "mw-redirect mw-disambig",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "zE"
+            "mw-redirect",
+            "mw-disambig"
           ],
-          "id": ":dk",
-          "role": "row"
+          "title": "Search",
+          "href": "/wiki/Search"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "unread",
-          "customerservice",
-          "your",
-          "randstad",
-          "pay",
-          "advice",
-          "for",
-          "period",
-          "2025",
-          "online",
-          "nov",
-          "andrew",
-          "orsmond",
-          "payroll",
-          "processed",
-          "november",
-          "now",
-          "ready",
-          "viewing",
-          "you"
-        ],
-        "timestamp": 1762668749669
-      },
-      {
-        "id": "a_id_33",
-        "tagName": "tr",
-        "actionType": "unknown",
-        "selectors": [
-          "#:dx",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(33)"
-        ],
-        "textContent": "unread, Joel Georgeson, Weekly Listings Update, 5 Nov, View this email in your browser Dear Andrew, ",
-        "className": "zA zE",
-        "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":dx",
-          "role": "row"
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Search",
+          "textContent": "Search",
+          "title": "Search",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
         },
-        "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
-        "semanticHints": [
-          "email-field",
-          "search-field",
-          "unread",
-          "joel",
-          "georgeson",
-          "weekly",
-          "listings",
-          "update",
-          "nov",
-          "view",
-          "this",
-          "email",
-          "your",
-          "browser",
-          "dear",
-          "andrew",
-          "please",
-          "find",
-          "below",
-          "collection"
-        ],
-        "timestamp": 1762668749669
-      },
-      {
-        "id": "a_id_34",
-        "tagName": "tr",
-        "actionType": "unknown",
-        "selectors": [
-          "#:ea",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(34)"
-        ],
-        "textContent": "unread, MTB Direct, Leatt 2026 Season: Designed for Impact, 5 Nov, Built for crashes, climbs and eve",
-        "className": "zA zE",
-        "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":ea",
-          "role": "row"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "unread",
-          "mtb",
-          "direct",
-          "leatt",
-          "2026",
-          "season",
-          "designed",
-          "for",
-          "impact",
-          "nov",
-          "built",
-          "crashes",
-          "climbs",
-          "and",
-          "everything",
-          "between",
-          "directleatt",
-          "unsubscribe"
-        ],
-        "timestamp": 1762668749670
-      },
-      {
-        "id": "a_id_35",
-        "tagName": "tr",
-        "actionType": "unknown",
-        "selectors": [
-          "#:en",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(35)"
-        ],
-        "textContent": "unread, carsales, Rotary reborn: Mazda targets 2035 for new RX sports car, 5 Nov, Read the latest ne",
-        "className": "zA zE",
-        "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":en",
-          "role": "row"
-        },
-        "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
-        "semanticHints": [
-          "email-field",
-          "unread",
-          "carsales",
-          "rotary",
-          "reborn",
-          "mazda",
-          "targets",
-          "2035",
-          "for",
-          "new",
-          "sports",
-          "car",
-          "nov",
-          "read",
-          "the",
-          "latest",
-          "news",
-          "reviews",
-          "and",
-          "advice"
-        ],
-        "timestamp": 1762668749670
-      },
-      {
-        "id": "a_id_36",
-        "tagName": "tr",
-        "actionType": "unknown",
-        "selectors": [
-          "#:f0",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(36)"
-        ],
-        "textContent": "Liam McBean, Out of Office: Leave Re: Application: Head of Technology, 5 Nov, I am currently on Annu",
-        "className": "zA yO",
-        "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":f0",
-          "role": "row"
-        },
-        "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
-        "semanticHints": [
-          "email-field",
-          "liam",
-          "mcbean",
-          "out",
-          "office",
-          "leave",
-          "application",
-          "head",
-          "technology",
-          "nov",
-          "currently",
-          "annual",
-          "returning",
-          "work",
-          "wednesday",
-          "5th",
-          "november",
-          "2025",
-          "during",
-          "this"
-        ],
-        "timestamp": 1762668749670
-      },
-      {
-        "id": "a_id_37",
-        "tagName": "tr",
-        "actionType": "unknown",
-        "selectors": [
-          "#:fd",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(37)"
-        ],
-        "textContent": "Liam, me 2, Application: Head of Technology, 5 Nov, Hi Liam, Thank you for the mail, you had me at \"",
-        "className": "zA yO",
-        "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":fd",
-          "role": "row"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "liam",
-          "application",
-          "head",
-          "technology",
-          "nov",
-          "thank",
-          "you",
-          "for",
-          "the",
-          "mail",
-          "had",
-          "short",
-          "list",
-          "please",
-          "reach",
-          "out",
-          "have",
-          "any",
-          "questions",
-          "kind"
-        ],
-        "timestamp": 1762668749670
-      },
-      {
-        "id": "a_id_38",
-        "tagName": "tr",
-        "actionType": "unknown",
-        "selectors": [
-          "#:fq",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(38)"
-        ],
-        "textContent": "Neal, Olivia, Eddy 6, 5B Bundey Street, Magill, has attachment, 5 Nov, Thanks Neal. Hi Andrew and Ol",
-        "className": "zA yO byw",
-        "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO",
-            "byw"
-          ],
-          "id": ":fq",
-          "role": "row"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "neal",
-          "olivia",
-          "eddy",
-          "bundey",
-          "street",
-          "magill",
-          "has",
-          "attachment",
-          "nov",
-          "thanks",
-          "andrew",
-          "and",
-          "recently",
-          "tried",
-          "contact",
-          "his",
-          "mobile",
-          "but",
-          "was",
-          "unavailable"
-        ],
-        "timestamp": 1762668749670
-      },
-      {
-        "id": "a_id_39",
-        "tagName": "tr",
-        "actionType": "unknown",
-        "selectors": [
-          "#:g3",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(39)"
-        ],
-        "textContent": "unread, ListingLoop.com.au, New property match alert in Adelaide, 5 Nov, We want to help you find yo",
-        "className": "zA zE",
-        "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":g3",
-          "role": "row"
-        },
-        "urlContext": null,
         "semanticRole": "search_input",
         "semanticConfidence": 3,
         "semanticHints": [
           "search-field",
-          "unread",
-          "listingloop",
-          "com",
-          "new",
-          "property",
-          "match",
-          "alert",
-          "adelaide",
-          "nov",
-          "want",
-          "help",
-          "you",
-          "find",
-          "your",
-          "next",
-          "here",
-          "listing",
-          "that",
-          "may"
+          "search",
+          "redirect",
+          "disambig"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
+      },
+      {
+        "id": "a_id_33",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          "div:nth-child(2)"
+        ],
+        "textContent": "sister projects",
+        "className": "",
+        "attributes": {
+          "title": "Special:SiteMatrix",
+          "href": "/wiki/Special:SiteMatrix"
+        },
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Special:SiteMatrix",
+          "textContent": "sister projects",
+          "title": "Special:SiteMatrix",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
+        "semanticHints": [
+          "special",
+          "sitematrix",
+          "sister",
+          "projects"
+        ],
+        "timestamp": 1762693432916
+      },
+      {
+        "id": "a_id_34",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Wiktionary",
+        "className": "extiw",
+        "attributes": {
+          "cssClasses": [
+            "extiw"
+          ],
+          "title": "wiktionary:Special:Search/Search/",
+          "href": "https://en.wiktionary.org/wiki/Special:Search/Search/"
+        },
+        "urlContext": {
+          "url": "https://en.wiktionary.org/wiki/Special:Search/Search/",
+          "textContent": "Wiktionary",
+          "title": "wiktionary:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
+        "semanticHints": [
+          "search-field",
+          "wiktionary",
+          "special",
+          "search",
+          "extiw"
+        ],
+        "timestamp": 1762693432916
+      },
+      {
+        "id": "a_id_35",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Wikibooks",
+        "className": "extiw",
+        "attributes": {
+          "cssClasses": [
+            "extiw"
+          ],
+          "title": "wikibooks:Special:Search/Search/",
+          "href": "https://en.wikibooks.org/wiki/Special:Search/Search/"
+        },
+        "urlContext": {
+          "url": "https://en.wikibooks.org/wiki/Special:Search/Search/",
+          "textContent": "Wikibooks",
+          "title": "wikibooks:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
+        "semanticHints": [
+          "search-field",
+          "wikibooks",
+          "special",
+          "search",
+          "extiw"
+        ],
+        "timestamp": 1762693432916
+      },
+      {
+        "id": "a_id_36",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Wikiquote",
+        "className": "extiw",
+        "attributes": {
+          "cssClasses": [
+            "extiw"
+          ],
+          "title": "wikiquote:Special:Search/Search/",
+          "href": "https://en.wikiquote.org/wiki/Special:Search/Search/"
+        },
+        "urlContext": {
+          "url": "https://en.wikiquote.org/wiki/Special:Search/Search/",
+          "textContent": "Wikiquote",
+          "title": "wikiquote:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
+        "semanticHints": [
+          "search-field",
+          "wikiquote",
+          "special",
+          "search",
+          "extiw"
+        ],
+        "timestamp": 1762693432916
+      },
+      {
+        "id": "a_id_37",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Wikisource",
+        "className": "extiw",
+        "attributes": {
+          "cssClasses": [
+            "extiw"
+          ],
+          "title": "wikisource:Special:Search/Search/",
+          "href": "https://en.wikisource.org/wiki/Special:Search/Search/"
+        },
+        "urlContext": {
+          "url": "https://en.wikisource.org/wiki/Special:Search/Search/",
+          "textContent": "Wikisource",
+          "title": "wikisource:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
+        "semanticHints": [
+          "search-field",
+          "wikisource",
+          "special",
+          "search",
+          "extiw"
+        ],
+        "timestamp": 1762693432916
+      },
+      {
+        "id": "a_id_38",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Wikiversity",
+        "className": "extiw",
+        "attributes": {
+          "cssClasses": [
+            "extiw"
+          ],
+          "title": "wikiversity:Special:Search/Search/",
+          "href": "https://en.wikiversity.org/wiki/Special:Search/Search/"
+        },
+        "urlContext": {
+          "url": "https://en.wikiversity.org/wiki/Special:Search/Search/",
+          "textContent": "Wikiversity",
+          "title": "wikiversity:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
+        "semanticHints": [
+          "search-field",
+          "wikiversity",
+          "special",
+          "search",
+          "extiw"
+        ],
+        "timestamp": 1762693432916
+      },
+      {
+        "id": "a_id_39",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Commons",
+        "className": "extiw",
+        "attributes": {
+          "cssClasses": [
+            "extiw"
+          ],
+          "title": "commons:Special:Search/Search/",
+          "href": "https://commons.wikimedia.org/wiki/Special:Search/Search/"
+        },
+        "urlContext": {
+          "url": "https://commons.wikimedia.org/wiki/Special:Search/Search/",
+          "textContent": "Commons",
+          "title": "commons:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
+        "semanticHints": [
+          "search-field",
+          "commons",
+          "special",
+          "search",
+          "extiw"
+        ],
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_40",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:gg",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(40)"
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
         ],
-        "textContent": "LinkedIn, Andrew, view your application updates from this week, 5 Nov, Your applications on LinkedIn",
-        "className": "zA yO",
+        "textContent": "Wikivoyage",
+        "className": "extiw",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
+            "extiw"
           ],
-          "id": ":gg",
-          "role": "row"
+          "title": "wikivoyage:Special:Search/Search/",
+          "href": "https://en.wikivoyage.org/wiki/Special:Search/Search/"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "urlContext": {
+          "url": "https://en.wikivoyage.org/wiki/Special:Search/Search/",
+          "textContent": "Wikivoyage",
+          "title": "wikivoyage:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "linkedin",
-          "andrew",
-          "view",
-          "your",
-          "application",
-          "updates",
-          "from",
-          "this",
-          "week",
-          "nov",
-          "applications",
-          "linkedinandrew",
-          "unsubscribe"
+          "search-field",
+          "wikivoyage",
+          "special",
+          "search",
+          "extiw"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_41",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:gt",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(41)"
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
         ],
-        "textContent": "unread, Andrew Welch, Your Personal Property Report, 5 Nov, View this email in your browser Dear And",
-        "className": "zA zE",
+        "textContent": "Wikinews",
+        "className": "extiw",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "zE"
+            "extiw"
           ],
-          "id": ":gt",
-          "role": "row"
+          "title": "wikinews:Special:Search/Search/",
+          "href": "https://en.wikinews.org/wiki/Special:Search/Search/"
         },
-        "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
+        "urlContext": {
+          "url": "https://en.wikinews.org/wiki/Special:Search/Search/",
+          "textContent": "Wikinews",
+          "title": "wikinews:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "email-field",
-          "unread",
-          "andrew",
-          "welch",
-          "your",
-          "personal",
-          "property",
-          "report",
-          "nov",
-          "view",
-          "this",
-          "email",
-          "browser",
-          "dear",
-          "thought",
-          "you",
-          "might",
-          "like",
-          "kept",
-          "date"
+          "search-field",
+          "wikinews",
+          "special",
+          "search",
+          "extiw"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_42",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:h6",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(42)"
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
         ],
-        "textContent": "unread, Pluralsight, Updated terms and privacy policy for you to review, 5 Nov, These changes will g",
-        "className": "zA zE",
+        "textContent": "Wikidata",
+        "className": "extiw",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "zE"
+            "extiw"
           ],
-          "id": ":h6",
-          "role": "row"
+          "title": "wikidata:Special:Search/Search/",
+          "href": "https://www.wikidata.org/wiki/Special:Search/Search/"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "urlContext": {
+          "url": "https://www.wikidata.org/wiki/Special:Search/Search/",
+          "textContent": "Wikidata",
+          "title": "wikidata:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "unread",
-          "pluralsight",
-          "updated",
-          "terms",
-          "and",
-          "privacy",
-          "policy",
-          "for",
-          "you",
-          "review",
-          "nov",
-          "these",
-          "changes",
-          "will",
-          "into",
-          "effect",
-          "november",
-          "2025",
-          "continuing",
-          "use"
+          "search-field",
+          "wikidata",
+          "special",
+          "search",
+          "extiw"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_43",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:hj",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(43)"
+          ".extiw",
+          "a.extiw",
+          "div:nth-child(1)"
         ],
-        "textContent": "unread, Google Store, Andrew, welcome to the Google Store, 4 Nov, You're all set to receive the late",
-        "className": "zA zE",
+        "textContent": "Wikispecies",
+        "className": "extiw",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "zE"
+            "extiw"
           ],
-          "id": ":hj",
-          "role": "row"
+          "title": "wikispecies:Special:Search/Search/",
+          "href": "https://species.wikimedia.org/wiki/Special:Search/Search/"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "urlContext": {
+          "url": "https://species.wikimedia.org/wiki/Special:Search/Search/",
+          "textContent": "Wikispecies",
+          "title": "wikispecies:Special:Search/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "unread",
-          "google",
-          "store",
-          "andrew",
-          "welcome",
-          "the",
-          "nov",
-          "you",
-          "all",
-          "set",
-          "receive",
-          "latest",
-          "news",
-          "and",
-          "offers",
-          "your",
-          "inbox",
-          "just",
-          "got",
-          "more"
+          "search-field",
+          "wikispecies",
+          "special",
+          "search",
+          "extiw"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_44",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:hw",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(44)"
+          ".external",
+          "a.external",
+          "span:nth-child(1)"
         ],
-        "textContent": "Commonwealth Bank o., Manage business account authorities in NetBank, 4 Nov, Add authorities to your",
-        "className": "zA yO",
+        "textContent": "search for Search/ in Wikipedia",
+        "className": "external text",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
+            "external",
+            "text"
           ],
-          "id": ":hw",
-          "role": "row"
+          "href": "https://en.wikipedia.org/w/index.php?search=Search%2F&title=Special%3ASearch&fulltext=1"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?search=Search%2F&title=Special%3ASearch&fulltext=1",
+          "textContent": "search for Search/ in Wikipedia",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "commonwealth",
-          "bank",
-          "manage",
-          "business",
-          "account",
-          "authorities",
-          "netbank",
-          "nov",
-          "add",
-          "your",
-          "through"
+          "search-field",
+          "search",
+          "for",
+          "wikipedia",
+          "external",
+          "text"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_45",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:i9",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(45)"
+          ".external",
+          "a.external",
+          "li:nth-child(1)"
         ],
-        "textContent": "unread, Daniella Lamp, RBA announcement: cash rate remains on hold , 4 Nov, Read our full analysis M",
-        "className": "zA zE",
+        "textContent": "log in or create an account",
+        "className": "external text",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "zE"
+            "external",
+            "text"
           ],
-          "id": ":i9",
-          "role": "row"
+          "href": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Search%2F"
         },
-        "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Search%2F",
+          "textContent": "log in or create an account",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "login_submit",
+        "semanticConfidence": 6,
         "semanticHints": [
-          "email-field",
-          "unread",
-          "daniella",
-          "lamp",
-          "rba",
-          "announcement",
-          "cash",
-          "rate",
-          "remains",
-          "hold",
-          "nov",
-          "read",
-          "our",
-          "full",
-          "analysis",
-          "mortgage",
-          "choice",
-          "email",
-          "dlamp",
-          "mortgagechoice"
+          "login-submit",
+          "log",
+          "create",
+          "account",
+          "external",
+          "text"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_46",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:im",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(46)"
+          ".mw-redirect",
+          "a.mw-redirect",
+          "li:nth-child(2)"
         ],
-        "textContent": "unread, Domain, Breaking: Interest rate decision, 4 Nov, Disappointed owners and buyers ͏ ‌ ﻿ ͏ ‌ ﻿ ",
-        "className": "zA zE",
+        "textContent": "autoconfirmed",
+        "className": "mw-redirect",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "zE"
+            "mw-redirect"
           ],
-          "id": ":im",
-          "role": "row"
+          "title": "Wikipedia:User access levels",
+          "href": "/wiki/Wikipedia:User_access_levels#Autoconfirmed_users"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:User_access_levels#Autoconfirmed_users",
+          "textContent": "autoconfirmed",
+          "title": "Wikipedia:User access levels",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "unread",
-          "domain",
-          "breaking",
-          "interest",
-          "rate",
-          "decision",
-          "nov",
-          "disappointed",
-          "owners",
-          "and",
-          "buyers",
-          "domainbreaking",
-          "unsubscribe"
+          "wikipedia",
+          "user",
+          "access",
+          "levels",
+          "autoconfirmed",
+          "redirect"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_47",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:iz",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(47)"
+          "li:nth-child(3)"
         ],
-        "textContent": "unread, Dispensed Pty Ltd, Order confirmed | Sent to Pharmacy, 4 Nov, Hey Andrew Orsmond, Great news",
-        "className": "zA zE",
+        "textContent": "article wizard",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "zE"
-          ],
-          "id": ":iz",
-          "role": "row"
+          "title": "Wikipedia:Article wizard",
+          "href": "/wiki/Wikipedia:Article_wizard"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:Article_wizard",
+          "textContent": "article wizard",
+          "title": "Wikipedia:Article wizard",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "unread",
-          "dispensed",
-          "pty",
-          "ltd",
-          "order",
-          "confirmed",
-          "sent",
-          "pharmacy",
-          "nov",
-          "hey",
-          "andrew",
-          "orsmond",
-          "great",
-          "news",
-          "your",
-          "has",
-          "been",
-          "our",
-          "partner",
-          "for"
+          "wikipedia",
+          "article",
+          "wizard"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_48",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:jc",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(48)"
+          "li:nth-child(4)"
         ],
-        "textContent": "Poppy Frances from ., KPMG Application Update, 4 Nov, ​​​​​​​​​​ Hi Andrew, Thank you for taking the",
-        "className": "zA yO",
+        "textContent": "request a new article",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":jc",
-          "role": "row"
+          "title": "Wikipedia:Requested articles",
+          "href": "/wiki/Wikipedia:Requested_articles"
         },
-        "urlContext": null,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:Requested_articles",
+          "textContent": "request a new article",
+          "title": "Wikipedia:Requested articles",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "poppy",
-          "frances",
-          "from",
-          "kpmg",
-          "application",
-          "update",
-          "nov",
-          "andrew",
-          "thank",
-          "you",
-          "for",
-          "taking",
-          "the",
-          "time",
-          "submit",
-          "your",
-          "role",
-          "manager",
-          "technology",
-          "advisory"
+          "wikipedia",
+          "requested",
+          "articles",
+          "request",
+          "new",
+          "article"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_49",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:jp",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(49)"
+          ".external",
+          "a.external",
+          "span:nth-child(1)"
         ],
-        "textContent": "Commonwealth Bank o., Your online statement is ready, 3 Nov, Your statement is ready to view in NetB",
-        "className": "zA yO",
+        "textContent": "Search for \"Search/\"",
+        "className": "external text",
         "attributes": {
           "cssClasses": [
-            "zA",
-            "yO"
+            "external",
+            "text"
           ],
-          "id": ":jp",
-          "role": "row"
+          "href": "https://en.wikipedia.org/w/index.php?search=Search%2F&title=Special%3ASearch&fulltext=1&ns0=1"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?search=Search%2F&title=Special%3ASearch&fulltext=1&ns0=1",
+          "textContent": "Search for \"Search/\"",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "commonwealth",
-          "bank",
-          "your",
-          "online",
-          "statement",
-          "ready",
-          "nov",
-          "view",
-          "netbank"
+          "search-field",
+          "search",
+          "for",
+          "external",
+          "text"
         ],
-        "timestamp": 1762668749670
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_50",
-        "tagName": "tr",
-        "actionType": "unknown",
+        "tagName": "a",
+        "actionType": "link",
         "selectors": [
-          "#:k2",
-          ".zA",
-          "tr.zA",
-          "tbody:nth-child(50)"
+          "li:nth-child(1)"
         ],
-        "textContent": "MTB Direct, Signature Has Landed, 3 Nov, A project of performance. Exclusive to MTB Direct. ͏ ͏ ͏ ͏ ",
-        "className": "zA yO",
+        "textContent": "try the purge function",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "zA",
-            "yO"
-          ],
-          "id": ":k2",
-          "role": "row"
+          "title": "Special:Purge/Search/",
+          "href": "/wiki/Special:Purge/Search/"
         },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "urlContext": {
+          "url": "https://en.wikipedia.org/wiki/Special:Purge/Search/",
+          "textContent": "try the purge function",
+          "title": "Special:Purge/Search/",
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "mtb",
-          "direct",
-          "signature",
-          "has",
-          "landed",
-          "nov",
-          "project",
-          "performance",
-          "exclusive",
-          "directsignature",
-          "unsubscribe"
+          "search-field",
+          "special",
+          "purge",
+          "search",
+          "try",
+          "the",
+          "function"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_51",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          "b:nth-child(1)"
         ],
-        "textContent": "Inbox",
-        "className": "J-Ke n0",
+        "textContent": "case sensitive",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "gb_ce",
-            "gb_Vc",
-            "gb_ge"
-          ],
-          "aria-label": "Gmail",
-          "href": "#inbox",
-          "target": "_top"
+          "title": "Case sensitivity",
+          "href": "/wiki/Case_sensitivity"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#inbox",
-          "textContent": "Inbox",
-          "title": null,
-          "ariaLabel": "Gmail",
+          "url": "https://en.wikipedia.org/wiki/Case_sensitivity",
+          "textContent": "case sensitive",
+          "title": "Case sensitivity",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "inbox",
-          "5062",
-          "unread"
+          "case",
+          "sensitivity",
+          "sensitive"
         ],
-        "timestamp": 1762668838308
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_52",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          "li:nth-child(3)"
         ],
-        "textContent": "Starred",
-        "className": "J-Ke n0",
+        "textContent": "redirect",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke",
-            "n0"
-          ],
-          "aria-label": "Starred",
-          "href": "https://mail.google.com/mail/u/0/#starred",
-          "target": "_top"
+          "title": "Wikipedia:Redirect",
+          "href": "/wiki/Wikipedia:Redirect"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#starred",
-          "textContent": "Starred",
-          "title": null,
-          "ariaLabel": "Starred",
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:Redirect",
+          "textContent": "redirect",
+          "title": "Wikipedia:Redirect",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "starred"
+          "wikipedia",
+          "redirect"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_53",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          ".external",
+          "a.external",
+          "li:nth-child(1)"
         ],
-        "textContent": "Snoozed",
-        "className": "J-Ke n0",
+        "textContent": "check the deletion log",
+        "className": "external text",
         "attributes": {
           "cssClasses": [
-            "J-Ke",
-            "n0"
+            "external",
+            "text"
           ],
-          "aria-label": "Snoozed",
-          "href": "https://mail.google.com/mail/u/0/#snoozed",
-          "target": "_top"
+          "href": "https://en.wikipedia.org/w/index.php?title=Special:Log/delete&page=Search/"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#snoozed",
-          "textContent": "Snoozed",
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:Log/delete&page=Search/",
+          "textContent": "check the deletion log",
           "title": null,
-          "ariaLabel": "Snoozed",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "snoozed"
+          "check",
+          "the",
+          "deletion",
+          "log",
+          "external",
+          "text"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432916
       },
       {
         "id": "a_id_54",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          "li:nth-child(2)"
         ],
-        "textContent": "Sent",
-        "className": "J-Ke n0",
+        "textContent": "Why was the page I created deleted?",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke",
-            "n0"
-          ],
-          "aria-label": "Sent",
-          "href": "https://mail.google.com/mail/u/0/#sent",
-          "target": "_top"
+          "title": "Wikipedia:Why was the page I created deleted?",
+          "href": "/wiki/Wikipedia:Why_was_the_page_I_created_deleted%3F"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#sent",
-          "textContent": "Sent",
-          "title": null,
-          "ariaLabel": "Sent",
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:Why_was_the_page_I_created_deleted%3F",
+          "textContent": "Why was the page I created deleted?",
+          "title": "Wikipedia:Why was the page I created deleted?",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "sent"
+          "wikipedia",
+          "why",
+          "was",
+          "the",
+          "page",
+          "created",
+          "deleted"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_55",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          "div:nth-child(1)"
         ],
-        "textContent": "Drafts",
-        "className": "J-Ke n0",
+        "textContent": "https://en.wikipedia.org/wiki/Search/",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke",
-            "n0"
-          ],
-          "aria-label": "Drafts 3 unread",
-          "href": "https://mail.google.com/mail/u/0/#drafts",
-          "target": "_top"
+          "href": "https://en.wikipedia.org/wiki/Search/"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#drafts",
-          "textContent": "Drafts",
+          "url": "https://en.wikipedia.org/wiki/Search/",
+          "textContent": "https://en.wikipedia.org/wiki/Search/",
           "title": null,
-          "ariaLabel": "Drafts 3 unread",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "drafts",
-          "unread"
+          "search-field",
+          "https",
+          "wikipedia",
+          "org",
+          "wiki",
+          "search"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_56",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Purchases",
-        "className": "J-Ke n0",
+        "textContent": "Privacy policy",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke",
-            "n0"
-          ],
-          "aria-label": "Purchases 78 unread has menu",
-          "href": "https://mail.google.com/mail/u/0/#category/purchases",
-          "target": "_top"
+          "href": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#category/purchases",
-          "textContent": "Purchases",
+          "url": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy",
+          "textContent": "Privacy policy",
           "title": null,
-          "ariaLabel": "Purchases 78 unread has menu",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "purchases",
-          "unread",
-          "has",
-          "menu"
+          "privacy",
+          "policy"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_57",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          "li:nth-child(1)"
         ],
-        "textContent": "[Gmail]Trash",
-        "className": "J-Ke n0",
+        "textContent": "Disclaimers",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke",
-            "n0"
-          ],
-          "aria-label": "[Gmail]Trash has menu",
-          "href": "https://mail.google.com/mail/u/0/#label/%5BGmail%5DTrash",
-          "target": "_top"
+          "href": "/wiki/Wikipedia:General_disclaimer"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#label/%5BGmail%5DTrash",
-          "textContent": "[Gmail]Trash",
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer",
+          "textContent": "Disclaimers",
           "title": null,
-          "ariaLabel": "[Gmail]Trash has menu",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "gmail",
-          "trash",
-          "has",
-          "menu"
+          "disclaimers"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_58",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          "li:nth-child(1)"
         ],
-        "textContent": "George Bellas",
-        "className": "J-Ke n0",
+        "textContent": "Code of Conduct",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke",
-            "n0"
-          ],
-          "aria-label": "George Bellas has menu",
-          "href": "https://mail.google.com/mail/u/0/#label/George+Bellas",
-          "target": "_top"
+          "href": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Universal_Code_of_Conduct"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#label/George+Bellas",
-          "textContent": "George Bellas",
+          "url": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Universal_Code_of_Conduct",
+          "textContent": "Code of Conduct",
           "title": null,
-          "ariaLabel": "George Bellas has menu",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "george",
-          "bellas",
-          "has",
-          "menu"
+          "code",
+          "conduct"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_59",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          ".J-Ke",
-          "a.J-Ke",
-          "span:nth-child(1)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Notes",
-        "className": "J-Ke n0",
+        "textContent": "Developers",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke",
-            "n0"
-          ],
-          "aria-label": "Notes has menu",
-          "href": "https://mail.google.com/mail/u/0/#label/Notes",
-          "target": "_top"
+          "href": "https://developer.wikimedia.org"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/#label/Notes",
-          "textContent": "Notes",
+          "url": "https://developer.wikimedia.org/",
+          "textContent": "Developers",
           "title": null,
-          "ariaLabel": "Notes has menu",
+          "ariaLabel": null,
           "hasImage": false,
           "isButton": false
         },
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "notes",
-          "has",
-          "menu"
+          "developers"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_60",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          "#:o",
-          ".J-Ke",
-          "a.J-Ke",
-          "div:nth-child(2)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Skip to content",
-        "className": "J-Ke",
+        "textContent": "Statistics",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke"
-          ],
-          "id": ":o",
-          "target": "_top"
+          "href": "https://stats.wikimedia.org/#/en.wikipedia.org"
         },
         "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/",
-          "textContent": "Skip to content",
+          "url": "https://stats.wikimedia.org/#/en.wikipedia.org",
+          "textContent": "Statistics",
           "title": null,
           "ariaLabel": null,
           "hasImage": false,
@@ -2705,34 +2092,25 @@
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "skip",
-          "content"
+          "statistics"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_61",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          "#:n",
-          ".J-Ke",
-          "a.J-Ke",
-          "div:nth-child(3)"
+          "li:nth-child(1)"
         ],
-        "textContent": "Gmail (standard view) guide",
-        "className": "J-Ke",
+        "textContent": "Cookie statement",
+        "className": "",
         "attributes": {
-          "cssClasses": [
-            "J-Ke"
-          ],
-          "id": ":n",
-          "href": "https://support.google.com/mail/answer/90559?hl=en-GB",
-          "target": "_top"
+          "href": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement"
         },
         "urlContext": {
-          "url": "https://support.google.com/mail/answer/90559?hl=en-GB",
-          "textContent": "Gmail (standard view) guide",
+          "url": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement",
+          "textContent": "Cookie statement",
           "title": null,
           "ariaLabel": null,
           "hasImage": false,
@@ -2741,29 +2119,317 @@
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "gmail",
-          "standard",
-          "view",
-          "guide"
+          "cookie",
+          "statement"
         ],
-        "timestamp": 1762668749671
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_62",
-        "tagName": "div",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".noprint",
+          "a.noprint",
+          "li:nth-child(1)"
+        ],
+        "textContent": "Mobile view",
+        "className": "noprint stopMobileRedirectToggle",
+        "attributes": {
+          "cssClasses": [
+            "noprint",
+            "stopMobileRedirectToggle"
+          ],
+          "href": "//en.wikipedia.org/w/index.php?title=Search/&q=kids+shoes&mobileaction=toggle_view_mobile"
+        },
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Search/&q=kids+shoes&mobileaction=toggle_view_mobile",
+          "textContent": "Mobile view",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
+        "semanticHints": [
+          "mobile",
+          "view",
+          "noprint",
+          "stopmobileredirecttoggle"
+        ],
+        "timestamp": 1762693432917
+      },
+      {
+        "id": "a_id_63",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".cdx-button",
+          "a.cdx-button",
+          "li:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled",
+        "attributes": {
+          "cssClasses": [
+            "cdx-button",
+            "cdx-button--fake-button",
+            "cdx-button--size-large",
+            "cdx-button--fake-button--enabled"
+          ],
+          "href": "https://www.wikimedia.org/"
+        },
+        "urlContext": {
+          "url": "https://www.wikimedia.org/",
+          "textContent": "",
+          "title": null,
+          "ariaLabel": null,
+          "altText": "Wikimedia Foundation",
+          "hasImage": true,
+          "imageSrc": "/static/images/footer/wikimedia.svg",
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
+        "semanticHints": [
+          "cdx",
+          "button",
+          "fake",
+          "size",
+          "large",
+          "enabled"
+        ],
+        "timestamp": 1762693432917
+      },
+      {
+        "id": "a_id_64",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".cdx-button",
+          "a.cdx-button",
+          "li:nth-child(1)"
+        ],
+        "textContent": "",
+        "className": "cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled",
+        "attributes": {
+          "cssClasses": [
+            "cdx-button",
+            "cdx-button--fake-button",
+            "cdx-button--size-large",
+            "cdx-button--fake-button--enabled"
+          ],
+          "href": "https://www.mediawiki.org/"
+        },
+        "urlContext": {
+          "url": "https://www.mediawiki.org/",
+          "textContent": "",
+          "title": null,
+          "ariaLabel": null,
+          "altText": "Powered by MediaWiki",
+          "hasImage": true,
+          "imageSrc": "/w/resources/assets/mediawiki_compact.svg",
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
+        "semanticHints": [
+          "cdx",
+          "button",
+          "fake",
+          "size",
+          "large",
+          "enabled"
+        ],
+        "timestamp": 1762693432917
+      },
+      {
+        "id": "a_id_65",
+        "tagName": "a",
+        "actionType": "link",
+        "selectors": [
+          ".oo-ui-element-hidden",
+          "a.oo-ui-element-hidden",
+          "body:nth-child(9)"
+        ],
+        "textContent": "",
+        "className": "oo-ui-element-hidden",
+        "attributes": {
+          "cssClasses": [
+            "oo-ui-element-hidden"
+          ],
+          "href": "https://en.wikipedia.org/w/index.php/search/?q=kids+shoes&action=edit"
+        },
+        "urlContext": {
+          "url": "https://en.wikipedia.org/w/index.php/search/?q=kids+shoes&action=edit",
+          "textContent": "",
+          "title": null,
+          "ariaLabel": null,
+          "hasImage": false,
+          "isButton": false
+        },
+        "semanticRole": null,
+        "semanticConfidence": 0,
+        "semanticHints": [
+          "element",
+          "hidden"
+        ],
+        "timestamp": 1762693432917
+      },
+      {
+        "id": "a_id_66",
+        "tagName": "button",
         "actionType": "button",
         "selectors": [
-          "[data-ogmb=\"1\"]",
-          ".gb_1c",
-          "div.gb_1c",
+          "[data-event-name=\"pinnable-header.vector-appearance.pin\"]",
+          ".vector-pinnable-header-toggle-button",
+          "button.vector-pinnable-header-toggle-button",
+          "div:nth-child(2)"
+        ],
+        "textContent": "move to sidebar",
+        "className": "vector-pinnable-header-toggle-button vector-pinnable-header-pin-button",
+        "attributes": {
+          "cssClasses": [
+            "vector-pinnable-header-toggle-button",
+            "vector-pinnable-header-pin-button"
+          ]
+        },
+        "urlContext": null,
+        "semanticRole": null,
+        "semanticConfidence": 0,
+        "semanticHints": [
+          "move",
+          "sidebar",
+          "vector",
+          "pinnable",
+          "header",
+          "toggle",
+          "button",
+          "pin"
+        ],
+        "timestamp": 1762693432917
+      },
+      {
+        "id": "a_id_67",
+        "tagName": "button",
+        "actionType": "button",
+        "selectors": [
+          "[data-event-name=\"pinnable-header.vector-appearance.unpin\"]",
+          ".vector-pinnable-header-toggle-button",
+          "button.vector-pinnable-header-toggle-button",
+          "div:nth-child(3)"
+        ],
+        "textContent": "hide",
+        "className": "vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button",
+        "attributes": {
+          "cssClasses": [
+            "vector-pinnable-header-toggle-button",
+            "vector-pinnable-header-unpin-button"
+          ]
+        },
+        "urlContext": null,
+        "semanticRole": null,
+        "semanticConfidence": 0,
+        "semanticHints": [
+          "hide",
+          "vector",
+          "pinnable",
+          "header",
+          "toggle",
+          "button",
+          "unpin"
+        ],
+        "timestamp": 1762693432917
+      },
+      {
+        "id": "a_id_68",
+        "tagName": "button",
+        "actionType": "button",
+        "selectors": [
+          ".cdx-button",
+          "button.cdx-button",
+          "form:nth-child(2)"
+        ],
+        "textContent": "Search",
+        "className": "cdx-button cdx-search-input__end-button",
+        "attributes": {
+          "cssClasses": [
+            "cdx-button",
+            "cdx-search-input__end-button"
+          ]
+        },
+        "urlContext": null,
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
+        "semanticHints": [
+          "search-field",
+          "search",
+          "cdx",
+          "button",
+          "input",
+          "end"
+        ],
+        "timestamp": 1762693432917
+      },
+      {
+        "id": "a_id_69",
+        "tagName": "button",
+        "actionType": "button",
+        "selectors": [
+          "[data-event-name=\"ui.vector-sticky-search-form.icon\"]",
+          ".cdx-button",
+          "button.cdx-button",
+          "div:nth-child(1)"
+        ],
+        "textContent": "Search",
+        "className": "cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-sticky-header-search-toggle",
+        "attributes": {
+          "cssClasses": [
+            "cdx-button",
+            "cdx-button--weight-quiet",
+            "cdx-button--icon-only",
+            "vector-sticky-header-search-toggle"
+          ]
+        },
+        "urlContext": null,
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
+        "semanticHints": [
+          "search-field",
+          "search",
+          "cdx",
+          "button",
+          "weight",
+          "quiet",
+          "icon",
+          "only",
+          "vector",
+          "sticky",
+          "header",
+          "toggle"
+        ],
+        "timestamp": 1762693432917
+      },
+      {
+        "id": "a_id_70",
+        "tagName": "input",
+        "actionType": "button",
+        "selectors": [
+          "#vector-main-menu-dropdown-checkbox",
+          "[data-event-name=\"ui.dropdown-vector-main-menu-dropdown\"]",
+          ".vector-dropdown-checkbox",
+          "input.vector-dropdown-checkbox",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "gb_1c",
+        "className": "vector-dropdown-checkbox ",
         "attributes": {
           "cssClasses": [
-            "gb_1c"
+            "vector-dropdown-checkbox"
           ],
+          "id": "vector-main-menu-dropdown-checkbox",
+          "type": "checkbox",
           "role": "button",
           "aria-label": "Main menu"
         },
@@ -2772,1320 +2438,151 @@
         "semanticConfidence": 0,
         "semanticHints": [
           "main",
-          "menu"
+          "menu",
+          "vector",
+          "dropdown",
+          "checkbox"
         ],
-        "timestamp": 1762668749671
-      },
-      {
-        "id": "a_id_63",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          ".gb_1c",
-          "div.gb_1c",
-          "div:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "gb_1c gb_4c gb_S",
-        "attributes": {
-          "cssClasses": [
-            "gb_1c",
-            "gb_4c",
-            "gb_S"
-          ],
-          "role": "button",
-          "aria-label": "Go back",
-          "title": "Go back"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "back"
-        ],
-        "timestamp": 1762668749671
-      },
-      {
-        "id": "a_id_64",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "#:12",
-          ".w-atf",
-          "div.w-atf",
-          "nobr:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "w-atf J-J5-Ji",
-        "attributes": {
-          "cssClasses": [
-            "w-atf",
-            "J-J5-Ji"
-          ],
-          "id": ":12",
-          "role": "button",
-          "aria-label": "Close"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "close",
-          "atf"
-        ],
-        "timestamp": 1762668749671
-      },
-      {
-        "id": "a_id_65",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          ".lJradf",
-          "div.lJradf",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Active",
-        "className": "lJradf XQuz9d X72uL",
-        "attributes": {
-          "cssClasses": [
-            "lJradf",
-            "XQuz9d",
-            "X72uL"
-          ],
-          "role": "button",
-          "aria-label": "Status: Active"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "status",
-          "active",
-          "ljradf",
-          "xquz9d",
-          "x72ul"
-        ],
-        "timestamp": 1762668749671
-      },
-      {
-        "id": "a_id_66",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          ".T-I",
-          "div.T-I",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Unsubscribe",
-        "className": "T-I J-J5-Ji aOd aS9 T-I-awv L3",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "aOd",
-            "aS9",
-            "T-I-awv",
-            "L3"
-          ],
-          "role": "button"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "unsubscribe",
-          "aod",
-          "as9",
-          "awv"
-        ],
-        "timestamp": 1762668749673
-      },
-      {
-        "id": "a_id_67",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Create new label\"]",
-          ".aAu",
-          "div.aAu",
-          "div:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "aAu arN",
-        "attributes": {
-          "cssClasses": [
-            "aAu",
-            "arN"
-          ],
-          "type": "button",
-          "role": "button",
-          "aria-label": "Create new label"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "create",
-          "new",
-          "label",
-          "aau",
-          "arn"
-        ],
-        "timestamp": 1762668749671
-      },
-      {
-        "id": "a_id_68",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "#:28",
-          "[data-tooltip=\"Select\"]",
-          ".T-I",
-          "div.T-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "T-I J-J5-Ji T-Pm T-I-ax7 L3 J-JN-M-I G-as3",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "T-Pm",
-            "T-I-ax7",
-            "L3",
-            "J-JN-M-I",
-            "G-as3"
-          ],
-          "id": ":28",
-          "role": "button",
-          "aria-label": "Select"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "select",
-          "ax7",
-          "as3"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_69",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Archive\"]",
-          ".T-I",
-          "div.T-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "T-I J-J5-Ji lR T-I-ax7 T-I-Js-IF mA T-I-JE",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "lR",
-            "T-I-ax7",
-            "T-I-Js-IF",
-            "mA",
-            "T-I-JE"
-          ],
-          "role": "button",
-          "aria-label": "Archive"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "archive",
-          "ax7"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_70",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Report spam\"]",
-          ".T-I",
-          "div.T-I",
-          "div:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "T-I J-J5-Ji nN T-I-ax7 T-I-Js-Gs T-I-Js-IF mA",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "nN",
-            "T-I-ax7",
-            "T-I-Js-Gs",
-            "T-I-Js-IF",
-            "mA"
-          ],
-          "role": "button",
-          "aria-label": "Report spam"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "report",
-          "spam",
-          "ax7"
-        ],
-        "timestamp": 1762668749672
+        "timestamp": 1762693432917
       },
       {
         "id": "a_id_71",
-        "tagName": "div",
+        "tagName": "input",
         "actionType": "button",
         "selectors": [
-          "[data-tooltip=\"Delete\"]",
-          ".T-I",
-          "div.T-I",
-          "div:nth-child(3)"
+          "#p-lang-btn-checkbox",
+          "[data-event-name=\"ui.dropdown-p-lang-btn\"]",
+          ".vector-dropdown-checkbox",
+          "input.vector-dropdown-checkbox",
+          "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "T-I J-J5-Ji nX T-I-ax7 T-I-Js-Gs  mA",
+        "className": "vector-dropdown-checkbox mw-interlanguage-selector-empty",
         "attributes": {
           "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "nX",
-            "T-I-ax7",
-            "T-I-Js-Gs",
-            "mA"
+            "vector-dropdown-checkbox",
+            "mw-interlanguage-selector-empty"
           ],
+          "id": "p-lang-btn-checkbox",
+          "type": "checkbox",
           "role": "button",
-          "aria-label": "Delete"
+          "aria-label": "This article is only available in this language. Add the article for other languages"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "delete",
-          "ax7"
+          "this",
+          "article",
+          "only",
+          "available",
+          "language",
+          "add",
+          "the",
+          "for",
+          "other",
+          "languages",
+          "lang",
+          "btn",
+          "checkbox",
+          "vector",
+          "dropdown",
+          "interlanguage",
+          "selector",
+          "empty"
         ],
-        "timestamp": 1762668749672
+        "timestamp": 1762693432918
       },
       {
         "id": "a_id_72",
-        "tagName": "div",
+        "tagName": "input",
         "actionType": "button",
         "selectors": [
-          "[data-tooltip=\"Mark as read\"]",
-          ".T-I",
-          "div.T-I",
+          "#vector-variants-dropdown-checkbox",
+          "[data-event-name=\"ui.dropdown-vector-variants-dropdown\"]",
+          ".vector-dropdown-checkbox",
+          "input.vector-dropdown-checkbox",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "T-I J-J5-Ji m9 T-I-ax7  T-I-Js-IF mA",
+        "className": "vector-dropdown-checkbox ",
         "attributes": {
           "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "m9",
-            "T-I-ax7",
-            "T-I-Js-IF",
-            "mA"
+            "vector-dropdown-checkbox"
           ],
+          "id": "vector-variants-dropdown-checkbox",
+          "type": "checkbox",
           "role": "button",
-          "aria-label": "Mark as read"
+          "aria-label": "Change language variant"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "mark",
-          "read",
-          "ax7"
+          "change",
+          "language",
+          "variant",
+          "vector",
+          "variants",
+          "dropdown",
+          "checkbox"
         ],
-        "timestamp": 1762668749672
+        "timestamp": 1762693432918
       },
       {
         "id": "a_id_73",
-        "tagName": "div",
+        "tagName": "input",
         "actionType": "button",
         "selectors": [
-          "[data-tooltip=\"Mark as unread\"]",
-          ".T-I",
-          "div.T-I",
-          "div:nth-child(2)"
+          "#vector-page-tools-dropdown-checkbox",
+          "[data-event-name=\"ui.dropdown-vector-page-tools-dropdown\"]",
+          ".vector-dropdown-checkbox",
+          "input.vector-dropdown-checkbox",
+          "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "T-I J-J5-Ji bvt T-I-ax7 T-I-Js-Gs T-I-Js-IF mA",
+        "className": "vector-dropdown-checkbox ",
         "attributes": {
           "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "bvt",
-            "T-I-ax7",
-            "T-I-Js-Gs",
-            "T-I-Js-IF",
-            "mA"
+            "vector-dropdown-checkbox"
           ],
+          "id": "vector-page-tools-dropdown-checkbox",
+          "type": "checkbox",
           "role": "button",
-          "aria-label": "Mark as unread"
+          "aria-label": "Tools"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "mark",
-          "unread",
-          "bvt",
-          "ax7"
+          "tools",
+          "vector",
+          "page",
+          "dropdown",
+          "checkbox"
         ],
-        "timestamp": 1762668749672
+        "timestamp": 1762693432918
       },
       {
         "id": "a_id_74",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "#:29",
-          "[data-tooltip=\"Move to\"]",
-          ".T-I",
-          "div.T-I",
-          "div:nth-child(3)"
-        ],
-        "textContent": "",
-        "className": "T-I J-J5-Ji ns T-I-ax7 T-I-Js-Gs mA",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "ns",
-            "T-I-ax7",
-            "T-I-Js-Gs",
-            "mA"
-          ],
-          "id": ":29",
-          "role": "button",
-          "aria-label": "Move to"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "move",
-          "ax7"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_75",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Refresh\"]",
-          ".T-I",
-          "div.T-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "T-I J-J5-Ji nu T-I-ax7 L3",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "nu",
-            "T-I-ax7",
-            "L3"
-          ],
-          "role": "button",
-          "aria-label": "Refresh"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "refresh",
-          "ax7"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_76",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "#:2a",
-          "[data-tooltip=\"More\"]",
-          ".T-I",
-          "div.T-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "T-I J-J5-Ji nf T-I-ax7 L3",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "nf",
-            "T-I-ax7",
-            "L3"
-          ],
-          "id": ":2a",
-          "role": "button",
-          "aria-label": "More email options"
-        },
-        "urlContext": null,
-        "semanticRole": "login_email",
-        "semanticConfidence": 4,
-        "semanticHints": [
-          "email-field",
-          "more",
-          "email",
-          "options",
-          "ax7"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_77",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Show more messages\"]",
-          ".Wm",
-          "div.Wm",
-          "div:nth-child(2)"
-        ],
-        "textContent": "1–50 of 16,561",
-        "className": "Wm",
-        "attributes": {
-          "cssClasses": [
-            "Wm"
-          ],
-          "role": "button",
-          "aria-label": "Show more messages"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "show",
-          "more",
-          "messages",
-          "561"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_78",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "#:kv",
-          "[data-tooltip=\"Newer\"]",
-          ".T-I",
-          "div.T-I",
-          "span:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "T-I J-J5-Ji amD T-I-awG HeQuj T-I-ax7 T-I-Js-IF T-I-JE L3",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "amD",
-            "T-I-awG",
-            "HeQuj",
-            "T-I-ax7",
-            "T-I-Js-IF",
-            "T-I-JE",
-            "L3"
-          ],
-          "id": ":kv",
-          "role": "button",
-          "aria-label": "Newer"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "newer",
-          "amd",
-          "awg",
-          "hequj",
-          "ax7"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_79",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "#:kw",
-          "[data-tooltip=\"Older\"]",
-          ".T-I",
-          "div.T-I",
-          "span:nth-child(3)"
-        ],
-        "textContent": "",
-        "className": "T-I J-J5-Ji amD T-I-awG T-I-ax7 T-I-Js-Gs L3",
-        "attributes": {
-          "cssClasses": [
-            "T-I",
-            "J-J5-Ji",
-            "amD",
-            "T-I-awG",
-            "T-I-ax7",
-            "T-I-Js-Gs",
-            "L3"
-          ],
-          "id": ":kw",
-          "role": "button",
-          "aria-label": "Older"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "older",
-          "amd",
-          "awg",
-          "ax7"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_80",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          ".aKj",
-          "div.aKj",
-          "td:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "aKj jOWHyd",
-        "attributes": {
-          "cssClasses": [
-            "aKj",
-            "jOWHyd"
-          ],
-          "role": "button",
-          "aria-label": "Select which tabs to show or hide."
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "select",
-          "which",
-          "tabs",
-          "show",
-          "hide",
-          "akj",
-          "jowhyd"
-        ],
-        "timestamp": 1762668749672
-      },
-      {
-        "id": "a_id_81",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Inbox section options\"]",
-          ".aAE",
-          "div.aAE",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "aAE qi J-J5-Ji J-JN-M-I",
-        "attributes": {
-          "cssClasses": [
-            "aAE",
-            "qi",
-            "J-J5-Ji",
-            "J-JN-M-I"
-          ],
-          "role": "button",
-          "aria-label": "Inbox section options"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "inbox",
-          "section",
-          "options",
-          "aae"
-        ],
-        "timestamp": 1762668749673
-      },
-      {
-        "id": "a_id_82",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          ".aT5-aOt-I",
-          "div.aT5-aOt-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "aT5-aOt-I brC-by0-P6-I aT5-aOt-I-JE",
-        "attributes": {
-          "cssClasses": [
-            "aT5-aOt-I",
-            "brC-by0-P6-I",
-            "aT5-aOt-I-JE"
-          ],
-          "role": "button",
-          "aria-label": "About"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "about",
-          "at5",
-          "aot",
-          "brc",
-          "by0"
-        ],
-        "timestamp": 1762668749673
-      },
-      {
-        "id": "a_id_83",
-        "tagName": "div",
-        "actionType": "button",
-        "selectors": [
-          ".aT5-aOt-I",
-          "div.aT5-aOt-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "aT5-aOt-I brC-dA-I",
-        "attributes": {
-          "cssClasses": [
-            "aT5-aOt-I",
-            "brC-dA-I"
-          ],
-          "role": "button",
-          "aria-label": "Hide side panel"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "hide",
-          "side",
-          "panel",
-          "at5",
-          "aot",
-          "brc"
-        ],
-        "timestamp": 1762668749673
-      },
-      {
-        "id": "a_id_84",
-        "tagName": "span",
-        "actionType": "button",
-        "selectors": [
-          ".akt",
-          "span.akt",
-          "span:nth-child(1)"
-        ],
-        "textContent": "0",
-        "className": "akt",
-        "attributes": {
-          "cssClasses": [
-            "akt"
-          ],
-          "role": "button",
-          "aria-label": "0 new messages"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "new",
-          "messages",
-          "akt"
-        ],
-        "timestamp": 1762668749673
-      },
-      {
-        "id": "a_id_85",
-        "tagName": "span",
-        "actionType": "button",
-        "selectors": [
-          "#:li",
-          ".J-Ke",
-          "span.J-Ke",
-          "div:nth-child(1)"
-        ],
-        "textContent": "More",
-        "className": "J-Ke n4 ah9",
-        "attributes": {
-          "cssClasses": [
-            "J-Ke",
-            "n4",
-            "ah9"
-          ],
-          "id": ":li",
-          "role": "button",
-          "aria-label": "More labels"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "more",
-          "labels",
-          "ah9"
-        ],
-        "timestamp": 1762668749673
-      },
-      {
-        "id": "a_id_86",
-        "tagName": "span",
-        "actionType": "button",
-        "selectors": [
-          "#:k6",
-          "[data-tooltip=\"Not starred\"]",
-          ".aXw",
-          "span.aXw",
-          "td:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "aXw T-KT",
-        "attributes": {
-          "cssClasses": [
-            "aXw",
-            "T-KT"
-          ],
-          "id": ":k6",
-          "role": "button",
-          "aria-label": "Not starred"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "not",
-          "starred",
-          "axw"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_87",
-        "tagName": "span",
-        "actionType": "button",
-        "selectors": [
-          ".brg",
-          "span.brg",
-          "div:nth-child(1)"
-        ],
-        "textContent": "+6",
-        "className": "brg",
-        "attributes": {
-          "cssClasses": [
-            "brg"
-          ],
-          "role": "button",
-          "aria-label": "6 more attachments"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "more",
-          "attachments",
-          "brg"
-        ],
-        "timestamp": 1762668749674
-      },
-      {
-        "id": "a_id_88",
-        "tagName": "span",
-        "actionType": "button",
-        "selectors": [
-          ".brg",
-          "span.brg",
-          "div:nth-child(1)"
-        ],
-        "textContent": "+5",
-        "className": "brg",
-        "attributes": {
-          "cssClasses": [
-            "brg"
-          ],
-          "role": "button",
-          "aria-label": "5 more attachments"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "more",
-          "attachments",
-          "brg"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_89",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          ".gb_Pe",
-          "button.gb_Pe",
-          "form:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "gb_Pe gb_Oe",
-        "attributes": {
-          "cssClasses": [
-            "gb_Pe",
-            "gb_Oe"
-          ],
-          "type": "button",
-          "aria-label": "Close search"
-        },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "close",
-          "search"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_90",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Show search options\"]",
-          ".gb_Te",
-          "button.gb_Te",
-          "form:nth-child(5)"
-        ],
-        "textContent": "",
-        "className": "gb_Te",
-        "attributes": {
-          "cssClasses": [
-            "gb_Te"
-          ],
-          "type": "button",
-          "role": "button",
-          "aria-label": "Advanced search options"
-        },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "advanced",
-          "search",
-          "options"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_91",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          ".gb_Qe",
-          "button.gb_Qe",
-          "form:nth-child(6)"
-        ],
-        "textContent": "",
-        "className": "gb_Qe IQO5Cf",
-        "attributes": {
-          "cssClasses": [
-            "gb_Qe",
-            "IQO5Cf"
-          ],
-          "type": "button",
-          "aria-label": "Clear search"
-        },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "clear",
-          "search",
-          "iqo5cf"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_92",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          ".gb_Ne",
-          "button.gb_Ne",
-          "form:nth-child(7)"
-        ],
-        "textContent": "",
-        "className": "gb_Ne gb_Oe bEP",
-        "attributes": {
-          "cssClasses": [
-            "gb_Ne",
-            "gb_Oe",
-            "bEP"
-          ],
-          "role": "button",
-          "aria-label": "Search mail"
-        },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "mail",
-          "bep"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_93",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          "[data-idom-class=\"XyWBof\"]",
-          "[data-use-native-focus-logic=\"true\"]",
-          "[data-tooltip-enabled=\"true\"]",
-          "[data-tooltip-id=\"tt-c0\"]",
-          ".VYBDae-JX-I",
-          "button.VYBDae-JX-I",
-          "span:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "VYBDae-JX-I VYBDae-JX-I-ql-ay5-ays XyWBof",
-        "attributes": {
-          "cssClasses": [
-            "VYBDae-JX-I",
-            "VYBDae-JX-I-ql-ay5-ays",
-            "XyWBof"
-          ],
-          "aria-label": "Try Gemini"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "try",
-          "gemini",
-          "vybdae",
-          "ay5",
-          "ays",
-          "xywbof"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_94",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          "[data-idom-class=\"M1LkOe EqiD4b\"]",
-          ".FOBRw-I",
-          "button.FOBRw-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Upgrade",
-        "className": "FOBRw-I FOBRw-I-ql-JX-O FOBRw-I-ql-Uw FOBRw-I-ql-zcdHbf FOBRw-bHf-YYd4I-Zb FOBRw-kSE8rc-FoKg4d-a2N-YoZ4jf mG9PAb M1LkOe EqiD4b",
-        "attributes": {
-          "cssClasses": [
-            "FOBRw-I",
-            "FOBRw-I-ql-JX-O",
-            "FOBRw-I-ql-Uw",
-            "FOBRw-I-ql-zcdHbf",
-            "FOBRw-bHf-YYd4I-Zb",
-            "FOBRw-kSE8rc-FoKg4d-a2N-YoZ4jf",
-            "mG9PAb",
-            "M1LkOe",
-            "EqiD4b"
-          ],
-          "role": "link"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "upgrade",
-          "fobrw",
-          "zcdhbf",
-          "bhf",
-          "yyd4i",
-          "kse8rc",
-          "fokg4d",
-          "a2n",
-          "yoz4jf",
-          "mg9pab",
-          "m1lkoe",
-          "eqid4b"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_95",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          "[data-idom-class=\"hMCF6c\"]",
-          "[data-use-native-focus-logic=\"true\"]",
-          ".wX4xVc-JX-I",
-          "button.wX4xVc-JX-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "wX4xVc-JX-I MNFoWc hMCF6c",
-        "attributes": {
-          "cssClasses": [
-            "wX4xVc-JX-I",
-            "MNFoWc",
-            "hMCF6c"
-          ],
-          "role": "link",
-          "aria-label": "Upgrade"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "upgrade",
-          "wx4xvc",
-          "mnfowc",
-          "hmcf6c"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_96",
-        "tagName": "a",
-        "actionType": "button",
-        "selectors": [
-          "#lZwQje",
-          ".gb_re",
-          "a.gb_re",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "gb_re gb_h gb_Dd t6",
-        "attributes": {
-          "cssClasses": [
-            "gb_re",
-            "gb_h",
-            "gb_Dd",
-            "t6"
-          ],
-          "id": "lZwQje",
-          "role": "button",
-          "aria-label": "Support"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "support",
-          "lzwqje"
-        ],
-        "timestamp": 1762668749675
-      },
-      {
-        "id": "a_id_97",
-        "tagName": "a",
-        "actionType": "button",
-        "selectors": [
-          ".FH",
-          "a.FH",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "FH",
-        "attributes": {
-          "cssClasses": [
-            "FH"
-          ],
-          "role": "button",
-          "aria-label": "Settings"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "settings"
-        ],
-        "timestamp": 1762668749676
-      },
-      {
-        "id": "a_id_98",
-        "tagName": "a",
-        "actionType": "button",
-        "selectors": [
-          ".gb_B",
-          "a.gb_B",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "gb_B",
-        "attributes": {
-          "cssClasses": [
-            "gb_B"
-          ],
-          "role": "button",
-          "aria-label": "Google apps",
-          "href": "https://www.google.com.au/intl/en-GB/about/products?tab=mh"
-        },
-        "urlContext": {
-          "url": "https://www.google.com.au/intl/en-GB/about/products?tab=mh",
-          "textContent": "",
-          "title": null,
-          "ariaLabel": "Google apps",
-          "hasImage": false,
-          "isButton": true
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "google",
-          "apps"
-        ],
-        "timestamp": 1762668749676
-      },
-      {
-        "id": "a_id_99",
-        "tagName": "a",
-        "actionType": "button",
-        "selectors": [
-          ".gb_B",
-          "a.gb_B",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "gb_B gb_0a gb_1",
-        "attributes": {
-          "cssClasses": [
-            "gb_B",
-            "gb_0a",
-            "gb_1"
-          ],
-          "role": "button",
-          "aria-label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
-          "href": "https://accounts.google.com/SignOutOptions?hl=en-GB&continue=https://mail.google.com/mail&service=mail&ec=GBRAFw"
-        },
-        "urlContext": {
-          "url": "https://accounts.google.com/SignOutOptions?hl=en-GB&continue=https://mail.google.com/mail&service=mail&ec=GBRAFw",
-          "textContent": "",
-          "title": null,
-          "ariaLabel": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
-          "altText": "",
-          "hasImage": true,
-          "imageSrc": "https://lh3.googleusercontent.com/ogw/AF2bZyi97m1RvAyebzqMbLCvaBvmhmPjhCbxkXEtkY5LMnGxGw=s32-c-mo",
-          "isButton": true
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "google",
-          "account",
-          "andrew",
-          "orsmond",
-          "andreworsmond21175",
-          "gmail",
-          "com"
-        ],
-        "timestamp": 1762668749676
-      },
-      {
-        "id": "a_id_100",
-        "tagName": "a",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Input tools on/off (Ctrl-Shift-K)\"]",
-          ".d-Na-JX-I",
-          "a.d-Na-JX-I",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "d-Na-JX-I d-Na-M7-JX d-Na-axY d-Na-Gs",
-        "attributes": {
-          "cssClasses": [
-            "d-Na-JX-I",
-            "d-Na-M7-JX",
-            "d-Na-axY",
-            "d-Na-Gs"
-          ],
-          "role": "button",
-          "aria-label": "Input tools on/off (Ctrl-Shift-K)"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "input",
-          "tools",
-          "off",
-          "ctrl",
-          "shift",
-          "axy"
-        ],
-        "timestamp": 1762668749676
-      },
-      {
-        "id": "a_id_101",
-        "tagName": "a",
-        "actionType": "button",
-        "selectors": [
-          "[data-tooltip=\"Select input tool\"]",
-          ".d-Na-JX-I",
-          "a.d-Na-JX-I",
-          "div:nth-child(2)"
-        ],
-        "textContent": "",
-        "className": "d-Na-JX-I d-Na-JG d-Na-IF",
-        "attributes": {
-          "cssClasses": [
-            "d-Na-JX-I",
-            "d-Na-JG",
-            "d-Na-IF"
-          ],
-          "role": "button",
-          "aria-label": "Select input tool"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "select",
-          "input",
-          "tool"
-        ],
-        "timestamp": 1762668749676
-      },
-      {
-        "id": "a_id_102",
         "tagName": "a",
         "actionType": "link",
         "selectors": [
-          "div:nth-child(1)"
+          ".mw-jump-link",
+          "a.mw-jump-link",
+          "body:nth-child(1)"
         ],
-        "textContent": "Gmail Help Centre",
-        "className": "",
+        "textContent": "Jump to content",
+        "className": "mw-jump-link",
         "attributes": {
-          "href": "https://support.google.com/mail?p=fix-gmail-loading&authuser=0"
+          "cssClasses": [
+            "mw-jump-link"
+          ],
+          "href": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes#bodyContent"
         },
         "urlContext": {
-          "url": "https://support.google.com/mail?p=fix-gmail-loading&authuser=0",
-          "textContent": "Gmail Help Centre",
+          "url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes#bodyContent",
+          "textContent": "Jump to content",
           "title": null,
           "ariaLabel": null,
           "hasImage": false,
@@ -4094,353 +2591,20 @@
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "gmail",
-          "help",
-          "centre"
+          "jump",
+          "content",
+          "link"
         ],
-        "timestamp": 1762668749678,
-        "element": {}
-      },
-      {
-        "id": "a_id_103",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "#reloadurl",
-          "p:nth-child(1)"
-        ],
-        "textContent": "Try reloading the page",
-        "className": "",
-        "attributes": {
-          "id": "reloadurl",
-          "href": "https://mail.google.com/mail/u/0/?sw=2"
-        },
-        "urlContext": {
-          "url": "https://mail.google.com/mail/u/0/?sw=2",
-          "textContent": "Try reloading the page",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "reloadurl",
-          "try",
-          "reloading",
-          "the",
-          "page"
-        ],
-        "timestamp": 1762668749678,
-        "element": {}
-      },
-      {
-        "id": "a_id_104",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Help Centre",
-        "className": "",
-        "attributes": {
-          "href": "https://support.google.com/mail/answer/8767?src=sl&hl=en-GB"
-        },
-        "urlContext": {
-          "url": "https://support.google.com/mail/answer/8767?src=sl&hl=en-GB",
-          "textContent": "Help Centre",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "help",
-          "centre"
-        ],
-        "timestamp": 1762668749678,
-        "element": {}
-      },
-      {
-        "id": "a_id_105",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".aRq",
-          "a.aRq",
-          "p:nth-child(3)"
-        ],
-        "textContent": "Learn more",
-        "className": "aRq",
-        "attributes": {
-          "cssClasses": [
-            "aRq"
-          ],
-          "href": "https://support.google.com/mail?p=inboxcategories-updates",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://support.google.com/mail?p=inboxcategories-updates",
-          "textContent": "Learn more",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "learn",
-          "more",
-          "arq"
-        ],
-        "timestamp": 1762668749678,
-        "element": {}
-      },
-      {
-        "id": "a_id_106",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".bcB",
-          "a.bcB",
-          "div:nth-child(1)"
-        ],
-        "textContent": "79% of 15 GB used",
-        "className": "bcB",
-        "attributes": {
-          "cssClasses": [
-            "bcB"
-          ],
-          "href": "https://drive.google.com/u/0/settings/storage?hl=en-GB&utm_medium=web&utm_source=gmail&utm_campaign=storage_meter&utm_content=storage_high",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://drive.google.com/u/0/settings/storage?hl=en-GB&utm_medium=web&utm_source=gmail&utm_campaign=storage_meter&utm_content=storage_high",
-          "textContent": "79% of 15 GB used",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "used",
-          "bcb"
-        ],
-        "timestamp": 1762668749679,
-        "element": {}
-      },
-      {
-        "id": "a_id_107",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".l9",
-          "a.l9",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Terms",
-        "className": "l9",
-        "attributes": {
-          "cssClasses": [
-            "l9"
-          ],
-          "href": "https://www.google.com/intl/en-GB/policies/terms/",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://www.google.com/intl/en-GB/policies/terms/",
-          "textContent": "Terms",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "terms"
-        ],
-        "timestamp": 1762668749679,
-        "element": {}
-      },
-      {
-        "id": "a_id_108",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".l9",
-          "a.l9",
-          "div:nth-child(2)"
-        ],
-        "textContent": "Privacy",
-        "className": "l9",
-        "attributes": {
-          "cssClasses": [
-            "l9"
-          ],
-          "href": "https://www.google.com/intl/en-GB/policies/privacy/",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://www.google.com/intl/en-GB/policies/privacy/",
-          "textContent": "Privacy",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "privacy"
-        ],
-        "timestamp": 1762668749679,
-        "element": {}
-      },
-      {
-        "id": "a_id_109",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".l9",
-          "a.l9",
-          "div:nth-child(3)"
-        ],
-        "textContent": "Programme Policies",
-        "className": "l9",
-        "attributes": {
-          "cssClasses": [
-            "l9"
-          ],
-          "href": "https://www.google.com/gmail/about/policy/",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://www.google.com/gmail/about/policy/",
-          "textContent": "Programme Policies",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "programme",
-          "policies"
-        ],
-        "timestamp": 1762668749679,
-        "element": {}
-      },
-      {
-        "id": "a_id_110",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-saferedirecturl=\"https://www.google.com/url?q=https://support.google.com/mail/answer/7720&source=gmail&ust=1762755145851000&usg=AOvVaw2abZdw7XGpdDrvDqjB209d\"]",
-          "td:nth-child(1)"
-        ],
-        "textContent": "LEARN MORE",
-        "className": "",
-        "attributes": {
-          "href": "https://support.google.com/mail/answer/7720",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://support.google.com/mail/answer/7720",
-          "textContent": "LEARN MORE",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "learn",
-          "more"
-        ],
-        "timestamp": 1762668785858,
-        "element": {}
-      },
-      {
-        "id": "a_id_111",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-saferedirecturl=\"https://www.google.com/url?q=https://support.google.com/mail/answer/7720%255Bbellproperty.com&source=gmail&ust=1762755145851000&usg=AOvVaw2Udy_TMyZ0kK_We4gKk3Hy\"]",
-          "p:nth-child(1)"
-        ],
-        "textContent": "https://support.google.com/mail/answer/7720 [bellproperty.com",
-        "className": "",
-        "attributes": {
-          "href": "https://support.google.com/mail/answer/7720%5Bbellproperty.com",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://support.google.com/mail/answer/7720%5Bbellproperty.com",
-          "textContent": "https://support.google.com/mail/answer/7720 [bellproperty.com",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "https",
-          "support",
-          "google",
-          "com",
-          "mail",
-          "answer",
-          "7720",
-          "bellproperty"
-        ],
-        "timestamp": 1762668785858,
-        "element": {}
-      },
-      {
-        "id": "a_id_112",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-saferedirecturl=\"https://www.google.com/url?q=http://52.20.84.62&source=gmail&ust=1762755145851000&usg=AOvVaw0VDp5yyD7x4ZYMSguJQBXe\"]",
-          "p:nth-child(2)"
-        ],
-        "textContent": "52.20.84.62",
-        "className": "",
-        "attributes": {
-          "href": "http://52.20.84.62/",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "http://52.20.84.62/",
-          "textContent": "52.20.84.62",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [],
-        "timestamp": 1762668785858,
+        "timestamp": 1762693432919,
         "element": {}
       }
     ],
     "contentElements": [],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1762668838305,
-    "url": "https://mail.google.com/mail/u/0/#inbox",
-    "title": "loan approval - andreworsmond21175@gmail.com - Gmail"
+    "lastUpdate": 1762693432556,
+    "url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "title": "Search/ - Wikipedia"
   },
   "summary": {
     "total_content_elements": 0,

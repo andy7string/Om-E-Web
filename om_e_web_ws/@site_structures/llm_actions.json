@@ -1,1670 +1,1004 @@
 {
   "_page_context": {
-    "url": "https://mail.google.com/mail/u/0/#inbox",
-    "title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail",
-    "timestamp": 1762668839.682421,
-    "total_actions": 113,
-    "active_tab_id": 1138015388
+    "url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "title": "Search/ - Wikipedia",
+    "timestamp": 1762693446.338965,
+    "total_actions": 75,
+    "active_tab_id": 1138015385
   },
   "a_id_0": {
     "action_type": "input",
     "description": "",
     "tag_name": "input",
     "selectors": [
-      ".gb_ye",
-      "input.gb_ye",
+      ".cdx-text-input__input",
+      "input.cdx-text-input__input",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_0' to input with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_1": {
-    "action_type": "unknown",
-    "description": "unread, Benefriends .. Mail 14, loan approval, has attachment, 16:08, Message not delivered There wa",
-    "tag_name": "tr",
+    "action_type": "nav",
+    "description": "",
+    "tag_name": "nav",
     "selectors": [
-      "#:2d",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(1)"
+      "#mw-panel",
+      ".vector-main-menu-landmark",
+      "nav.vector-main-menu-landmark",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_1' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_1' to nav with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_2": {
-    "action_type": "unknown",
-    "description": "MTB Direct, Meet Some of Our Star Exclusives, 10:00, Learn why BikeYoke and Title MTB are some of th",
-    "tag_name": "tr",
+    "action_type": "button",
+    "description": "",
+    "tag_name": "input",
     "selectors": [
-      "#:2q",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(2)"
+      "#vector-user-links-dropdown-checkbox",
+      "[data-event-name=\"ui.dropdown-vector-user-links-dropdown\"]",
+      ".vector-dropdown-checkbox",
+      "input.vector-dropdown-checkbox",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_2' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_2' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_3": {
-    "action_type": "unknown",
-    "description": "Superdry, A shipment from order SDY-S-186558 is on the way, 10:00, Order SDY-S-186558 Your order is ",
-    "tag_name": "tr",
+    "action_type": "button",
+    "description": "",
+    "tag_name": "input",
     "selectors": [
-      "#:33",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(3)"
+      "#vector-appearance-dropdown-checkbox",
+      "[data-event-name=\"ui.dropdown-vector-appearance-dropdown\"]",
+      ".vector-dropdown-checkbox",
+      "input.vector-dropdown-checkbox",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_3' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_3' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_4": {
-    "action_type": "unknown",
-    "description": "unread, Superdry, Order SDY-S-186558 confirmed, 09:24, Order SDY-S-186558 Thanks for your order Our ",
-    "tag_name": "tr",
+    "action_type": "nav",
+    "description": "ArticleTalk\n\t\t\n\t\t\n\t\n\n\n\t\t\t\t\t\t\t\t\n\n\t\n\tEnglish",
+    "tag_name": "nav",
     "selectors": [
-      "#:3g",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(4)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_4' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_4' to nav with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_5": {
-    "action_type": "unknown",
-    "description": "me, (no subject), 09:10, https://superdry.com.au/products/fuji-lite-padded-gilet-off-grey.me(no subj",
-    "tag_name": "tr",
+    "action_type": "nav",
+    "description": "",
+    "tag_name": "nav",
     "selectors": [
-      "#:3t",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(5)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_5' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_5' to nav with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_6": {
-    "action_type": "unknown",
-    "description": "The Lott, Hi Andrew, here's your Powerball game purchase confirmation, 8 Nov, Ticket details inside ",
-    "tag_name": "tr",
+    "action_type": "nav",
+    "description": "",
+    "tag_name": "nav",
     "selectors": [
-      "#:46",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(6)"
+      ".vector-page-tools-landmark",
+      "nav.vector-page-tools-landmark",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_6' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_6' to nav with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_7": {
     "action_type": "unknown",
-    "description": "Jacky Yang, Weekly OFI Sale listing, 8 Nov, Raine & Horne Raine & Horne Unley Dear Andrew Check out ",
-    "tag_name": "tr",
+    "description": "Main menu\n\t\n\t\n\n\n\t\t\t\t\n\t\t\n\n\t\n\tMain menu\n\tmove to sidebar\n\thide\n\n\n\t\n\n\t\n\t\tNavigation\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tMa",
+    "tag_name": "header",
     "selectors": [
-      "#:4j",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(7)"
+      ".vector-header",
+      "header.vector-header",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_7' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_8": {
     "action_type": "unknown",
-    "description": "unread, Wim Hof Method, New research: Our ability to control our physiology has finally been proven,",
-    "tag_name": "tr",
+    "description": "Search/\n\t\t\t\t\t\t\t\n\n\t\n\t\n\nAdd languages\n\t\n\t\n\n\t\t\n\t\t\t\t\t\tPage contents not supported in other languages.",
+    "tag_name": "header",
     "selectors": [
-      "#:4w",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(8)"
+      ".mw-body-header",
+      "header.mw-body-header",
+      "main:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_8' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
   "a_id_9": {
-    "action_type": "unknown",
-    "description": "unread, deloitte-jobnotific., New jobs posted from jobs.deloitte.com.au, 7 Nov, Deloitte Services Pt",
-    "tag_name": "tr",
-    "selectors": [
-      "#:59",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(9)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_9' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_10": {
-    "action_type": "unknown",
-    "description": "noreply, Your timesheet has been approved, 7 Nov, Randstad Timesheet Approved Hi Andrew Orsmond, You",
-    "tag_name": "tr",
-    "selectors": [
-      "#:5m",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(10)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_10' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_11": {
-    "action_type": "unknown",
-    "description": "Lyle, Family First, Suffer the little children, 7 Nov, Net Zero falls, will trans be next? ‌ ‌ ‌ ‌ ‌",
-    "tag_name": "tr",
-    "selectors": [
-      "#:5z",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(11)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_11' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_12": {
-    "action_type": "unknown",
-    "description": "Scott Torney, COMING SOON - 52 Kingfisher Cct, Flagstaff Hill, 7 Nov, Hi Andrew, Please find below a",
-    "tag_name": "tr",
-    "selectors": [
-      "#:6c",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(12)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_12' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_13": {
-    "action_type": "unknown",
-    "description": "me, (no subject), has attachment, 7 Nov, .me(no subject) Attachment:IMG-20251107-WA0007.jpegAttachme",
-    "tag_name": "tr",
-    "selectors": [
-      "#:6p",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(13)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_13' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_14": {
-    "action_type": "unknown",
-    "description": "unread, Domain, Your Hallett Cove market update, 7 Nov, What's happening where you are searching? ͏ ",
-    "tag_name": "tr",
-    "selectors": [
-      "#:72",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(14)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_14' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_15": {
-    "action_type": "unknown",
-    "description": "health@aws.com, [Action may be required] Discontinuation of AWS Accounts Status in AWS Organizations",
-    "tag_name": "tr",
-    "selectors": [
-      "#:7f",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(15)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_15' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_16": {
-    "action_type": "unknown",
-    "description": "Trent & Kim Shorland, Open Homes This Weekend!, 7 Nov, Hi Andrew, Please see this weekend's open ins",
-    "tag_name": "tr",
-    "selectors": [
-      "#:7s",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(16)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_16' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_17": {
-    "action_type": "unknown",
-    "description": "unread, Paul Lukeman, November Market Update 2025, 6 Nov, View in browser Hi Andrew, Welcome to your",
-    "tag_name": "tr",
-    "selectors": [
-      "#:85",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(17)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_17' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_18": {
-    "action_type": "unknown",
-    "description": "Belle Property Norw., Belle Property Norwood Weekly Update, 6 Nov, Dear Andrew, Whether you're searc",
-    "tag_name": "tr",
-    "selectors": [
-      "#:8i",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(18)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_18' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_19": {
-    "action_type": "unknown",
-    "description": "unread, MTB Direct, Want to WIN Your Dream Bike?, 6 Nov, You voted. We built it. Now one lucky rider",
-    "tag_name": "tr",
-    "selectors": [
-      "#:8v",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(19)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_19' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_20": {
-    "action_type": "unknown",
-    "description": "Belle Property Adel., Belle Property Adelaide City Weekly Update, 6 Nov, Dear Andrew, Even if you're",
-    "tag_name": "tr",
-    "selectors": [
-      "#:98",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(20)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_20' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_21": {
-    "action_type": "unknown",
-    "description": "ListingLoop.com.au, New property match alert in Adelaide, 6 Nov, We want to help you find your next ",
-    "tag_name": "tr",
-    "selectors": [
-      "#:9l",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(21)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_21' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_22": {
-    "action_type": "unknown",
-    "description": "Michael Page Austra., New jobs for: Information Technology : International, 6 Nov, Michael Page Late",
-    "tag_name": "tr",
-    "selectors": [
-      "#:9y",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(22)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_22' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_23": {
-    "action_type": "unknown",
-    "description": "Jessica, me 3, Santos  | Global Network Architect, has attachment, 6 Nov, Yeah fair enough. I can st",
-    "tag_name": "tr",
-    "selectors": [
-      "#:ab",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(23)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_23' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_24": {
-    "action_type": "unknown",
-    "description": "Sandra Fenwick 2, St Joseph's Hectorville - PS1, 6 Nov, Hi Everyone A reminder that the Reception Te",
-    "tag_name": "tr",
-    "selectors": [
-      "#:ao",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(24)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_24' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_25": {
-    "action_type": "unknown",
-    "description": "Brandon Pilgrim, Weekly Listings Update, 6 Nov, View this email in your browser Dear Andrew, Please ",
-    "tag_name": "tr",
-    "selectors": [
-      "#:b1",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(25)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_25' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_26": {
-    "action_type": "unknown",
-    "description": "Google Store, Andrew, make magic happen with Pixel, 5 Nov, Unlock epic photos and videos, more produ",
-    "tag_name": "tr",
-    "selectors": [
-      "#:be",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(26)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_26' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_27": {
-    "action_type": "unknown",
-    "description": "customerservice, Pay Advice/ RCTI/ Remittance Advice For: 885179740 - Andrew Orsmond, has attachment",
-    "tag_name": "tr",
-    "selectors": [
-      "#:br",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(27)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_27' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_28": {
-    "action_type": "unknown",
-    "description": "unread, Team Global Express, It's moving! Your parcel from Dispensed is currently in-transit, 5 Nov,",
-    "tag_name": "tr",
-    "selectors": [
-      "#:c4",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(28)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_28' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_29": {
-    "action_type": "unknown",
-    "description": "Jinal Dave from KPM., Phone interview - Andrew Orsmond and KPMG Australia, has attachment, 5 Nov, ​​",
-    "tag_name": "tr",
-    "selectors": [
-      "#:ch",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(29)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_29' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_30": {
-    "action_type": "unknown",
-    "description": "Jinal Dave from KPM., Interview with KPMG Australia, 5 Nov, ​​​​​​​​​​ Dear Andrew , We're pleased t",
-    "tag_name": "tr",
-    "selectors": [
-      "#:cu",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(30)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_30' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_31": {
-    "action_type": "unknown",
-    "description": "unread, Seesaw, Your Seesaw updates for November 5th, 2025, 5 Nov, Seesaw You have new updates in Se",
-    "tag_name": "tr",
-    "selectors": [
-      "#:d7",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(31)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_31' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_32": {
-    "action_type": "unknown",
-    "description": "unread, customerservice, Your Randstad pay advice for pay period 05/11/2025 is online, 5 Nov, Randst",
-    "tag_name": "tr",
-    "selectors": [
-      "#:dk",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(32)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_32' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_33": {
-    "action_type": "unknown",
-    "description": "unread, Joel Georgeson, Weekly Listings Update, 5 Nov, View this email in your browser Dear Andrew, ",
-    "tag_name": "tr",
-    "selectors": [
-      "#:dx",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(33)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_33' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_34": {
-    "action_type": "unknown",
-    "description": "unread, MTB Direct, Leatt 2026 Season: Designed for Impact, 5 Nov, Built for crashes, climbs and eve",
-    "tag_name": "tr",
-    "selectors": [
-      "#:ea",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(34)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_34' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_35": {
-    "action_type": "unknown",
-    "description": "unread, carsales, Rotary reborn: Mazda targets 2035 for new RX sports car, 5 Nov, Read the latest ne",
-    "tag_name": "tr",
-    "selectors": [
-      "#:en",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(35)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_35' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_36": {
-    "action_type": "unknown",
-    "description": "Liam McBean, Out of Office: Leave Re: Application: Head of Technology, 5 Nov, I am currently on Annu",
-    "tag_name": "tr",
-    "selectors": [
-      "#:f0",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(36)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_36' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_37": {
-    "action_type": "unknown",
-    "description": "Liam, me 2, Application: Head of Technology, 5 Nov, Hi Liam, Thank you for the mail, you had me at \"",
-    "tag_name": "tr",
-    "selectors": [
-      "#:fd",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(37)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_37' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_38": {
-    "action_type": "unknown",
-    "description": "Neal, Olivia, Eddy 6, 5B Bundey Street, Magill, has attachment, 5 Nov, Thanks Neal. Hi Andrew and Ol",
-    "tag_name": "tr",
-    "selectors": [
-      "#:fq",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(38)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_38' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_39": {
-    "action_type": "unknown",
-    "description": "unread, ListingLoop.com.au, New property match alert in Adelaide, 5 Nov, We want to help you find yo",
-    "tag_name": "tr",
-    "selectors": [
-      "#:g3",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(39)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_39' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_40": {
-    "action_type": "unknown",
-    "description": "LinkedIn, Andrew, view your application updates from this week, 5 Nov, Your applications on LinkedIn",
-    "tag_name": "tr",
-    "selectors": [
-      "#:gg",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(40)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_40' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_41": {
-    "action_type": "unknown",
-    "description": "unread, Andrew Welch, Your Personal Property Report, 5 Nov, View this email in your browser Dear And",
-    "tag_name": "tr",
-    "selectors": [
-      "#:gt",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(41)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_41' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_42": {
-    "action_type": "unknown",
-    "description": "unread, Pluralsight, Updated terms and privacy policy for you to review, 5 Nov, These changes will g",
-    "tag_name": "tr",
-    "selectors": [
-      "#:h6",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(42)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_42' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_43": {
-    "action_type": "unknown",
-    "description": "unread, Google Store, Andrew, welcome to the Google Store, 4 Nov, You're all set to receive the late",
-    "tag_name": "tr",
-    "selectors": [
-      "#:hj",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(43)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_43' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_44": {
-    "action_type": "unknown",
-    "description": "Commonwealth Bank o., Manage business account authorities in NetBank, 4 Nov, Add authorities to your",
-    "tag_name": "tr",
-    "selectors": [
-      "#:hw",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(44)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_44' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_45": {
-    "action_type": "unknown",
-    "description": "unread, Daniella Lamp, RBA announcement: cash rate remains on hold , 4 Nov, Read our full analysis M",
-    "tag_name": "tr",
-    "selectors": [
-      "#:i9",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(45)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_45' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_46": {
-    "action_type": "unknown",
-    "description": "unread, Domain, Breaking: Interest rate decision, 4 Nov, Disappointed owners and buyers ͏ ‌ ﻿ ͏ ‌ ﻿ ",
-    "tag_name": "tr",
-    "selectors": [
-      "#:im",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(46)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_46' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_47": {
-    "action_type": "unknown",
-    "description": "unread, Dispensed Pty Ltd, Order confirmed | Sent to Pharmacy, 4 Nov, Hey Andrew Orsmond, Great news",
-    "tag_name": "tr",
-    "selectors": [
-      "#:iz",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(47)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_47' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_48": {
-    "action_type": "unknown",
-    "description": "Poppy Frances from ., KPMG Application Update, 4 Nov, ​​​​​​​​​​ Hi Andrew, Thank you for taking the",
-    "tag_name": "tr",
-    "selectors": [
-      "#:jc",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(48)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_48' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_49": {
-    "action_type": "unknown",
-    "description": "Commonwealth Bank o., Your online statement is ready, 3 Nov, Your statement is ready to view in NetB",
-    "tag_name": "tr",
-    "selectors": [
-      "#:jp",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(49)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_49' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_50": {
-    "action_type": "unknown",
-    "description": "MTB Direct, Signature Has Landed, 3 Nov, A project of performance. Exclusive to MTB Direct. ͏ ͏ ͏ ͏ ",
-    "tag_name": "tr",
-    "selectors": [
-      "#:k2",
-      ".zA",
-      "tr.zA",
-      "tbody:nth-child(50)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_50' to unknown with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_51": {
     "action_type": "link",
-    "description": "Inbox",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_51' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_52": {
-    "action_type": "link",
-    "description": "Starred",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_52' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_53": {
-    "action_type": "link",
-    "description": "Snoozed",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_53' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_54": {
-    "action_type": "link",
-    "description": "Sent",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_54' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_55": {
-    "action_type": "link",
-    "description": "Drafts",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_55' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_56": {
-    "action_type": "link",
-    "description": "Purchases",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_56' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_57": {
-    "action_type": "link",
-    "description": "[Gmail]Trash",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_58": {
-    "action_type": "link",
-    "description": "George Bellas",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_59": {
-    "action_type": "link",
-    "description": "Notes",
-    "tag_name": "a",
-    "selectors": [
-      ".J-Ke",
-      "a.J-Ke",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_60": {
-    "action_type": "link",
-    "description": "Skip to content",
-    "tag_name": "a",
-    "selectors": [
-      "#:o",
-      ".J-Ke",
-      "a.J-Ke",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_61": {
-    "action_type": "link",
-    "description": "Gmail (standard view) guide",
-    "tag_name": "a",
-    "selectors": [
-      "#:n",
-      ".J-Ke",
-      "a.J-Ke",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_62": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-ogmb=\"1\"]",
-      ".gb_1c",
-      "div.gb_1c",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_62' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_63": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".gb_1c",
-      "div.gb_1c",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_63' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_64": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:12",
-      ".w-atf",
-      "div.w-atf",
-      "nobr:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_64' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_65": {
-    "action_type": "button",
-    "description": "Active",
-    "tag_name": "div",
-    "selectors": [
-      ".lJradf",
-      "div.lJradf",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_65' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_66": {
-    "action_type": "button",
-    "description": "Unsubscribe",
-    "tag_name": "div",
-    "selectors": [
-      ".T-I",
-      "div.T-I",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_66' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_67": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Create new label\"]",
-      ".aAu",
-      "div.aAu",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_67' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_68": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:28",
-      "[data-tooltip=\"Select\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_68' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_69": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Archive\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_69' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_70": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Report spam\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_70' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_71": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Delete\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_71' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_72": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Mark as read\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_72' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_73": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Mark as unread\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_73' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_74": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:29",
-      "[data-tooltip=\"Move to\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_74' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_75": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Refresh\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_75' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_76": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:2a",
-      "[data-tooltip=\"More\"]",
-      ".T-I",
-      "div.T-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_76' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_77": {
-    "action_type": "button",
-    "description": "1–50 of 16,561",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Show more messages\"]",
-      ".Wm",
-      "div.Wm",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_77' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_78": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:kv",
-      "[data-tooltip=\"Newer\"]",
-      ".T-I",
-      "div.T-I",
-      "span:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_78' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_79": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "#:kw",
-      "[data-tooltip=\"Older\"]",
-      ".T-I",
-      "div.T-I",
-      "span:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_79' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_80": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".aKj",
-      "div.aKj",
-      "td:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_80' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_81": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      "[data-tooltip=\"Inbox section options\"]",
-      ".aAE",
-      "div.aAE",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_81' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_82": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".aT5-aOt-I",
-      "div.aT5-aOt-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_82' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_83": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "div",
-    "selectors": [
-      ".aT5-aOt-I",
-      "div.aT5-aOt-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_83' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_84": {
-    "action_type": "button",
-    "description": "0",
-    "tag_name": "span",
-    "selectors": [
-      ".akt",
-      "span.akt",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_84' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_85": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "span",
-    "selectors": [
-      "#:li",
-      ".J-Ke",
-      "span.J-Ke",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_85' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_86": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "span",
-    "selectors": [
-      "#:k6",
-      "[data-tooltip=\"Not starred\"]",
-      ".aXw",
-      "span.aXw",
-      "td:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_86' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_87": {
-    "action_type": "button",
-    "description": "+6",
-    "tag_name": "span",
-    "selectors": [
-      ".brg",
-      "span.brg",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_87' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_88": {
-    "action_type": "button",
-    "description": "+5",
-    "tag_name": "span",
-    "selectors": [
-      ".brg",
-      "span.brg",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_88' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_89": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".gb_Pe",
-      "button.gb_Pe",
-      "form:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_89' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_90": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip=\"Show search options\"]",
-      ".gb_Te",
-      "button.gb_Te",
-      "form:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_90' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_91": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".gb_Qe",
-      "button.gb_Qe",
-      "form:nth-child(6)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_91' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_92": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      ".gb_Ne",
-      "button.gb_Ne",
-      "form:nth-child(7)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_92' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_93": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-idom-class=\"XyWBof\"]",
-      "[data-use-native-focus-logic=\"true\"]",
-      "[data-tooltip-enabled=\"true\"]",
-      "[data-tooltip-id=\"tt-c0\"]",
-      ".VYBDae-JX-I",
-      "button.VYBDae-JX-I",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_93' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_94": {
-    "action_type": "button",
-    "description": "Upgrade",
-    "tag_name": "button",
-    "selectors": [
-      "[data-idom-class=\"M1LkOe EqiD4b\"]",
-      ".FOBRw-I",
-      "button.FOBRw-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_94' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_95": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "[data-idom-class=\"hMCF6c\"]",
-      "[data-use-native-focus-logic=\"true\"]",
-      ".wX4xVc-JX-I",
-      "button.wX4xVc-JX-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_95' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_96": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "#lZwQje",
-      ".gb_re",
-      "a.gb_re",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_96' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_97": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".FH",
-      "a.FH",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_97' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_98": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".gb_B",
-      "a.gb_B",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_98' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_99": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".gb_B",
-      "a.gb_B",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_99' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_100": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-tooltip=\"Input tools on/off (Ctrl-Shift-K)\"]",
-      ".d-Na-JX-I",
-      "a.d-Na-JX-I",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_100' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_101": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      "[data-tooltip=\"Select input tool\"]",
-      ".d-Na-JX-I",
-      "a.d-Na-JX-I",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_101' to button with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_102": {
-    "action_type": "link",
-    "description": "Gmail Help Centre",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_102' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_103": {
-    "action_type": "link",
-    "description": "Try reloading the page",
-    "tag_name": "a",
-    "selectors": [
-      "#reloadurl",
-      "p:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_103' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
-  },
-  "a_id_104": {
-    "action_type": "link",
-    "description": "Help Centre",
+    "description": "Main page",
     "tag_name": "a",
     "selectors": [
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_104' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_9' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
-  "a_id_105": {
+  "a_id_10": {
     "action_type": "link",
-    "description": "Learn more",
+    "description": "Contents",
     "tag_name": "a",
     "selectors": [
-      ".aRq",
-      "a.aRq",
-      "p:nth-child(3)"
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_105' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_10' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
-  "a_id_106": {
+  "a_id_11": {
     "action_type": "link",
-    "description": "79% of 15 GB used",
+    "description": "Current events",
     "tag_name": "a",
     "selectors": [
-      ".bcB",
-      "a.bcB",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_11' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_12": {
+    "action_type": "link",
+    "description": "Random article",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_12' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_13": {
+    "action_type": "link",
+    "description": "About Wikipedia",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_13' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_14": {
+    "action_type": "link",
+    "description": "Contact us",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_14' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_15": {
+    "action_type": "link",
+    "description": "Help",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_15' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_16": {
+    "action_type": "link",
+    "description": "Learn to edit",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_16' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_17": {
+    "action_type": "link",
+    "description": "Community portal",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_17' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_18": {
+    "action_type": "link",
+    "description": "Recent changes",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_18' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_19": {
+    "action_type": "link",
+    "description": "Upload file",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_19' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_20": {
+    "action_type": "link",
+    "description": "Special pages",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_20' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_21": {
+    "action_type": "link",
+    "description": "Search",
+    "tag_name": "a",
+    "selectors": [
+      ".cdx-button",
+      "a.cdx-button",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_106' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_21' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
-  "a_id_107": {
+  "a_id_22": {
     "action_type": "link",
-    "description": "Terms",
+    "description": "Donate",
     "tag_name": "a",
     "selectors": [
-      ".l9",
-      "a.l9",
-      "div:nth-child(1)"
+      "[data-mw=\"interface\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_107' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_22' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
-  "a_id_108": {
+  "a_id_23": {
     "action_type": "link",
-    "description": "Privacy",
+    "description": "Create account",
     "tag_name": "a",
     "selectors": [
-      ".l9",
-      "a.l9",
+      "[data-mw=\"interface\"]",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_23' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_24": {
+    "action_type": "link",
+    "description": "Log in",
+    "tag_name": "a",
+    "selectors": [
+      "[data-mw=\"interface\"]",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_24' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_25": {
+    "action_type": "link",
+    "description": "Article",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_25' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_26": {
+    "action_type": "link",
+    "description": "Talk",
+    "tag_name": "a",
+    "selectors": [
+      ".new",
+      "a.new",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_26' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_27": {
+    "action_type": "link",
+    "description": "What links here",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_27' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_28": {
+    "action_type": "link",
+    "description": "Printable version",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_28' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_29": {
+    "action_type": "link",
+    "description": "Page information",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_29' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_30": {
+    "action_type": "link",
+    "description": "Get shortened URL",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_30' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_31": {
+    "action_type": "link",
+    "description": "Download QR code",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_31' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_32": {
+    "action_type": "link",
+    "description": "Search",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "b:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_32' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_33": {
+    "action_type": "link",
+    "description": "sister projects",
+    "tag_name": "a",
+    "selectors": [
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_108' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_33' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
-  "a_id_109": {
+  "a_id_34": {
     "action_type": "link",
-    "description": "Programme Policies",
+    "description": "Wiktionary",
     "tag_name": "a",
     "selectors": [
-      ".l9",
-      "a.l9",
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_34' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_35": {
+    "action_type": "link",
+    "description": "Wikibooks",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_35' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_36": {
+    "action_type": "link",
+    "description": "Wikiquote",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_36' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_37": {
+    "action_type": "link",
+    "description": "Wikisource",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_37' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_38": {
+    "action_type": "link",
+    "description": "Wikiversity",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_38' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_39": {
+    "action_type": "link",
+    "description": "Commons",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_39' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_40": {
+    "action_type": "link",
+    "description": "Wikivoyage",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_40' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_41": {
+    "action_type": "link",
+    "description": "Wikinews",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_41' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_42": {
+    "action_type": "link",
+    "description": "Wikidata",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_42' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_43": {
+    "action_type": "link",
+    "description": "Wikispecies",
+    "tag_name": "a",
+    "selectors": [
+      ".extiw",
+      "a.extiw",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_43' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_44": {
+    "action_type": "link",
+    "description": "search for Search/ in Wikipedia",
+    "tag_name": "a",
+    "selectors": [
+      ".external",
+      "a.external",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_44' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_45": {
+    "action_type": "link",
+    "description": "log in or create an account",
+    "tag_name": "a",
+    "selectors": [
+      ".external",
+      "a.external",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_45' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_46": {
+    "action_type": "link",
+    "description": "autoconfirmed",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "li:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_46' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_47": {
+    "action_type": "link",
+    "description": "article wizard",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_47' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_48": {
+    "action_type": "link",
+    "description": "request a new article",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_48' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_49": {
+    "action_type": "link",
+    "description": "Search for \"Search/\"",
+    "tag_name": "a",
+    "selectors": [
+      ".external",
+      "a.external",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_49' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_50": {
+    "action_type": "link",
+    "description": "try the purge function",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_50' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_51": {
+    "action_type": "link",
+    "description": "case sensitive",
+    "tag_name": "a",
+    "selectors": [
+      "b:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_51' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_52": {
+    "action_type": "link",
+    "description": "redirect",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_52' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_53": {
+    "action_type": "link",
+    "description": "check the deletion log",
+    "tag_name": "a",
+    "selectors": [
+      ".external",
+      "a.external",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_53' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_54": {
+    "action_type": "link",
+    "description": "Why was the page I created deleted?",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_54' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_55": {
+    "action_type": "link",
+    "description": "https://en.wikipedia.org/wiki/Search/",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_55' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_56": {
+    "action_type": "link",
+    "description": "Privacy policy",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_56' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_57": {
+    "action_type": "link",
+    "description": "Disclaimers",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_58": {
+    "action_type": "link",
+    "description": "Code of Conduct",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_59": {
+    "action_type": "link",
+    "description": "Developers",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_60": {
+    "action_type": "link",
+    "description": "Statistics",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_61": {
+    "action_type": "link",
+    "description": "Cookie statement",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_62": {
+    "action_type": "link",
+    "description": "Mobile view",
+    "tag_name": "a",
+    "selectors": [
+      ".noprint",
+      "a.noprint",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_62' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_63": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".cdx-button",
+      "a.cdx-button",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_63' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_64": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".cdx-button",
+      "a.cdx-button",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_64' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_65": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".oo-ui-element-hidden",
+      "a.oo-ui-element-hidden",
+      "body:nth-child(9)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_65' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_66": {
+    "action_type": "button",
+    "description": "move to sidebar",
+    "tag_name": "button",
+    "selectors": [
+      "[data-event-name=\"pinnable-header.vector-appearance.pin\"]",
+      ".vector-pinnable-header-toggle-button",
+      "button.vector-pinnable-header-toggle-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_66' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_67": {
+    "action_type": "button",
+    "description": "hide",
+    "tag_name": "button",
+    "selectors": [
+      "[data-event-name=\"pinnable-header.vector-appearance.unpin\"]",
+      ".vector-pinnable-header-toggle-button",
+      "button.vector-pinnable-header-toggle-button",
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_109' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_67' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
-  "a_id_110": {
-    "action_type": "link",
-    "description": "LEARN MORE",
-    "tag_name": "a",
+  "a_id_68": {
+    "action_type": "button",
+    "description": "Search",
+    "tag_name": "button",
     "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://support.google.com/mail/answer/7720&source=gmail&ust=1762755145851000&usg=AOvVaw2abZdw7XGpdDrvDqjB209d\"]",
-      "td:nth-child(1)"
+      ".cdx-button",
+      "button.cdx-button",
+      "form:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_110' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_68' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
-  "a_id_111": {
-    "action_type": "link",
-    "description": "https://support.google.com/mail/answer/7720 [bellproperty.com",
-    "tag_name": "a",
+  "a_id_69": {
+    "action_type": "button",
+    "description": "Search",
+    "tag_name": "button",
     "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=https://support.google.com/mail/answer/7720%255Bbellproperty.com&source=gmail&ust=1762755145851000&usg=AOvVaw2Udy_TMyZ0kK_We4gKk3Hy\"]",
-      "p:nth-child(1)"
+      "[data-event-name=\"ui.vector-sticky-search-form.icon\"]",
+      ".cdx-button",
+      "button.cdx-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_111' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_69' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   },
-  "a_id_112": {
-    "action_type": "link",
-    "description": "52.20.84.62",
-    "tag_name": "a",
+  "a_id_70": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "input",
     "selectors": [
-      "[data-saferedirecturl=\"https://www.google.com/url?q=http://52.20.84.62&source=gmail&ust=1762755145851000&usg=AOvVaw0VDp5yyD7x4ZYMSguJQBXe\"]",
-      "p:nth-child(2)"
+      "#vector-main-menu-dropdown-checkbox",
+      "[data-event-name=\"ui.dropdown-vector-main-menu-dropdown\"]",
+      ".vector-dropdown-checkbox",
+      "input.vector-dropdown-checkbox",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_112' to link with this element",
-    "page_url": "https://mail.google.com/mail/u/0/#inbox",
-    "page_title": "Inbox (5,061) - andreworsmond21175@gmail.com - Gmail"
+    "llm_instruction": "Use actionId 'a_id_70' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_71": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "input",
+    "selectors": [
+      "#p-lang-btn-checkbox",
+      "[data-event-name=\"ui.dropdown-p-lang-btn\"]",
+      ".vector-dropdown-checkbox",
+      "input.vector-dropdown-checkbox",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_71' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_72": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "input",
+    "selectors": [
+      "#vector-variants-dropdown-checkbox",
+      "[data-event-name=\"ui.dropdown-vector-variants-dropdown\"]",
+      ".vector-dropdown-checkbox",
+      "input.vector-dropdown-checkbox",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_72' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_73": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "input",
+    "selectors": [
+      "#vector-page-tools-dropdown-checkbox",
+      "[data-event-name=\"ui.dropdown-vector-page-tools-dropdown\"]",
+      ".vector-dropdown-checkbox",
+      "input.vector-dropdown-checkbox",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_73' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
+  },
+  "a_id_74": {
+    "action_type": "link",
+    "description": "Jump to content",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-jump-link",
+      "a.mw-jump-link",
+      "body:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_74' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
+    "page_title": "Search/ - Wikipedia"
   }
 }

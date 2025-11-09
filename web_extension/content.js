@@ -1105,6 +1105,7 @@ function scanWithFrameworkSelectors() {
     
     const frameworkElements = [];
     const selectors = window.currentSiteConfig.selectors;
+    const forceIncludeSelectors = window.currentSiteConfig.forceIncludeSelectors || [];
     // 🎯 PRIORITY SCANNING: Most important categories first
     const priorityOrder = ['text_inputs', 'navigation', 'url_elements', 'buttons', 'menus', 'content_elements', 'hidden_content'];
     const categoriesToScan = priorityOrder.filter(cat => selectors[cat]).concat(
@@ -1163,6 +1164,35 @@ function scanWithFrameworkSelectors() {
     
     // 🆕 NEW: Display concise category summary
     console.log(`[Content] 🎯 Framework: ${window.currentFramework} - ${Object.entries(categoryResults).map(([cat, count]) => `${cat}: ${count}`).join(', ')} - Total: ${frameworkElements.length}`);
+
+    // 🆕 NEW: Force-include selectors for mission-critical controls (e.g., main search input)
+    if (forceIncludeSelectors.length > 0) {
+        let forced = 0;
+        forceIncludeSelectors.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    if (seenElements.has(element)) {
+                        return;
+                    }
+                    seenElements.add(element);
+                    forced += 1;
+                    frameworkElements.push({
+                        element,
+                        type: inferForcedElementCategory(element),
+                        selector,
+                        framework: window.currentFramework,
+                        forced: true
+                    });
+                });
+            } catch (error) {
+                console.log(`[Content] ⚠️ Force include selector error "${selector}":`, error);
+            }
+        });
+        if (forced > 0) {
+            console.log(`[Content] ✅ Force-included ${forced} high-priority elements (e.g., search inputs)`);
+        }
+    }
     
     // 🚫 REMOVED: max_elements filter - we want ALL elements including URLs!
     // URLs are gold - don't filter them out!
@@ -1173,6 +1203,26 @@ function scanWithFrameworkSelectors() {
     // Framework scanning complete
     
     return frameworkElements;
+}
+
+function inferForcedElementCategory(element) {
+    if (!element || !element.tagName) {
+        return 'force_include';
+    }
+    const tag = element.tagName.toLowerCase();
+    const role = (element.getAttribute && element.getAttribute('role')) ? element.getAttribute('role').toLowerCase() : '';
+    const isContentEditable = element.isContentEditable === true || (element.getAttribute && element.getAttribute('contenteditable') === 'true');
+
+    if (tag === 'input' || tag === 'textarea' || role === 'textbox' || isContentEditable) {
+        return 'text_inputs';
+    }
+    if (tag === 'button' || role === 'button') {
+        return 'buttons';
+    }
+    if (tag === 'a' || role === 'link') {
+        return 'url_elements';
+    }
+    return 'force_include';
 }
 
 // 🆕 NEW: Test function to check if selectors are working
