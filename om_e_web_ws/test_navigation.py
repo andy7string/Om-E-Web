@@ -10,7 +10,7 @@ Usage examples:
   - Custom LLM action:
       python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "ome" --submit
   - Marketplace search (set value + submit):
-      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit
+      
       #   ↳ actionId: use the id from page.jsonl/llm_prompt.md (ex: a_id_1)
       #   ↳ --action-type setValue tells the extension to type into the field
       #   ↳ --value "Gibson Guitar" is the text to enter

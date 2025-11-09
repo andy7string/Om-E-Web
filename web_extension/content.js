@@ -7150,9 +7150,84 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
     }
 
     const existingMarker = domElement.dataset?.omeActionId;
-
-    const actionableId = this.generateActionableId(domElement, actionType, existingMarker || null);
-    this.actionableElements.set(actionableId.id, actionableId);
+    
+    // 🎯 FIX: Check if element already exists in registry by its characteristics
+    // This prevents ID mismatches when elements are re-scanned
+    const computeElementKey = (element) => {
+        const attrs = this.extractKeyAttributes(element);
+        const placeholder = (attrs.placeholder || attrs['data-placeholder'] || attrs['aria-placeholder'] || '').toLowerCase();
+        const aria = (attrs['aria-label'] || '').toLowerCase();
+        const idAttr = (attrs.id || '').toLowerCase();
+        const url = element.href || attrs.href || '';
+        const selectors = this.generateElementSelectors(element);
+        const primarySelector = selectors.find(sel => typeof sel === 'string' && sel.length > 0 && !sel.includes('head')) || '';
+        
+        if (placeholder) return `placeholder:${placeholder}`;
+        if (aria) return `aria:${aria}`;
+        if (idAttr) return `id:${idAttr}`;
+        if (url) return `url:${url.toLowerCase()}`;
+        if (primarySelector) return `selector:${primarySelector.toLowerCase()}`;
+        return null;
+    };
+    
+    const elementKey = computeElementKey(domElement);
+    let existingIdByKey = null;
+    let preservedId = null;
+    
+    // 🎯 CHECK PRESERVED MARKER IDs: If we preserved IDs from previous scan, use them
+    if (elementKey && this._preservedMarkerIds && this._preservedMarkerIds.has(elementKey)) {
+        preservedId = this._preservedMarkerIds.get(elementKey);
+    }
+    
+    // Check if we already have an element with the same key in the current registry
+    if (elementKey) {
+        this.actionableElements.forEach((descriptor, id) => {
+            // Compare using descriptor's stored attributes instead of querying DOM
+            const attrs = descriptor.attributes || {};
+            const descPlaceholder = (descriptor.placeholder || attrs.placeholder || attrs['data-placeholder'] || attrs['aria-placeholder'] || '').toLowerCase();
+            const descAria = (attrs['aria-label'] || '').toLowerCase();
+            const descIdAttr = (attrs.id || '').toLowerCase();
+            const descUrl = (descriptor.urlContext?.url || attrs.href || '').toLowerCase();
+            
+            let descKey = null;
+            if (descPlaceholder) descKey = `placeholder:${descPlaceholder}`;
+            else if (descAria) descKey = `aria:${descAria}`;
+            else if (descIdAttr) descKey = `id:${descIdAttr}`;
+            else if (descUrl) descKey = `url:${descUrl}`;
+            else if (descriptor.selectors && descriptor.selectors.length > 0) {
+                const primarySelector = descriptor.selectors.find(sel => typeof sel === 'string' && sel.length > 0 && !sel.includes('head'));
+                if (primarySelector) descKey = `selector:${primarySelector.toLowerCase()}`;
+            }
+            
+            if (descKey === elementKey && !existingIdByKey) {
+                existingIdByKey = id;
+            }
+        });
+    }
+    
+    // Prefer: existing marker > preserved ID > existing ID by key > new ID
+    const idToUse = existingMarker || preservedId || existingIdByKey || null;
+    
+    // 🎯 FIX: Always use existing marker ID or matching element ID to maintain consistency
+    // But still go through registration to ensure element is in registry
+    const actionableId = this.generateActionableId(domElement, actionType, idToUse);
+    
+    // If element already has this ID in registry, update the stored node reference
+    if (this.actionableElements.has(actionableId.id)) {
+        const existingDescriptor = this.actionableElements.get(actionableId.id);
+        // Update the stored node reference in case it changed
+        this.storeActionableNode(actionableId.id, domElement);
+        // Update the descriptor with latest info
+        const updatedDescriptor = {
+            ...existingDescriptor,
+            ...actionableId,
+            timestamp: Date.now()
+        };
+        this.actionableElements.set(actionableId.id, updatedDescriptor);
+    } else {
+        // New registration
+        this.actionableElements.set(actionableId.id, actionableId);
+    }
 
     if (domElement.dataset) {
         domElement.dataset.omeActionId = actionableId.id;
@@ -7987,80 +8062,115 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                             // Function to dispatch Enter key with proper event properties
                             const dispatchEnterKey = () => {
                                 try {
-                                    // Method 1: Try using document.execCommand for maximum compatibility
-                                    // (deprecated but still works in many cases)
-                                    try {
-                                        document.execCommand('insertText', false, '\n');
-                                    } catch (e) {
-                                        // Ignore if not supported
-                                    }
+                                    // 🎯 FACEBOOK FIX: Ensure element is focused before dispatching Enter
+                                    // This prevents the event from being handled by the wrong input
+                                    element.focus();
                                     
-                                    // Method 2: Create very realistic keyboard events with all properties
-                                    const enterKeyOptions = {
-                                        key: 'Enter',
-                                        code: 'Enter',
-                                        keyCode: 13,
-                                        which: 13,
-                                        charCode: 13,
-                                        keyIdentifier: 'Enter',
-                                        bubbles: true,
-                                        cancelable: true,
-                                        view: window,
-                                        composed: true,
-                                        isComposing: false,
-                                        repeat: false
-                                    };
-                                    
-                                    // Create events with all possible properties
-                                    const keydownEvent = new KeyboardEvent('keydown', enterKeyOptions);
-                                    const keypressEvent = new KeyboardEvent('keypress', enterKeyOptions);
-                                    const keyupEvent = new KeyboardEvent('keyup', enterKeyOptions);
-                                    
-                                    // Set all target properties for maximum compatibility
-                                    ['target', 'currentTarget', 'srcElement'].forEach(prop => {
-                                        try {
-                                            Object.defineProperty(keydownEvent, prop, { value: element, writable: false, configurable: true });
-                                            Object.defineProperty(keypressEvent, prop, { value: element, writable: false, configurable: true });
-                                            Object.defineProperty(keyupEvent, prop, { value: element, writable: false, configurable: true });
-                                        } catch (e) {
-                                            // Some properties might not be settable
-                                        }
-                                    });
-                                    
-                                    // Dispatch in sequence with small delays to simulate real typing
-                                    const keydownResult = element.dispatchEvent(keydownEvent);
+                                    // Small delay to ensure focus is set
                                     setTimeout(() => {
-                                        const keypressResult = element.dispatchEvent(keypressEvent);
+                                        // Method 1: Try using document.execCommand for maximum compatibility
+                                        // (deprecated but still works in many cases)
+                                        try {
+                                            document.execCommand('insertText', false, '\n');
+                                        } catch (e) {
+                                            // Ignore if not supported
+                                        }
+                                        
+                                        // Method 2: Create very realistic keyboard events with all properties
+                                        const enterKeyOptions = {
+                                            key: 'Enter',
+                                            code: 'Enter',
+                                            keyCode: 13,
+                                            which: 13,
+                                            charCode: 13,
+                                            keyIdentifier: 'Enter',
+                                            bubbles: false, // 🎯 FIX: Don't bubble to prevent parent form submission
+                                            cancelable: true,
+                                            view: window,
+                                            composed: true,
+                                            isComposing: false,
+                                            repeat: false
+                                        };
+                                        
+                                        // Create events with all possible properties
+                                        const keydownEvent = new KeyboardEvent('keydown', enterKeyOptions);
+                                        const keypressEvent = new KeyboardEvent('keypress', enterKeyOptions);
+                                        const keyupEvent = new KeyboardEvent('keyup', enterKeyOptions);
+                                        
+                                        // Set all target properties for maximum compatibility
+                                        ['target', 'currentTarget', 'srcElement'].forEach(prop => {
+                                            try {
+                                                Object.defineProperty(keydownEvent, prop, { value: element, writable: false, configurable: true });
+                                                Object.defineProperty(keypressEvent, prop, { value: element, writable: false, configurable: true });
+                                                Object.defineProperty(keyupEvent, prop, { value: element, writable: false, configurable: true });
+                                            } catch (e) {
+                                                // Some properties might not be settable
+                                            }
+                                        });
+                                        
+                                        // Dispatch in sequence with small delays to simulate real typing
+                                        const keydownResult = element.dispatchEvent(keydownEvent);
                                         setTimeout(() => {
-                                            const keyupResult = element.dispatchEvent(keyupEvent);
-                                            console.log('[Content] ⌨️ Enter key dispatched:', { 
-                                                keydown: keydownResult, 
-                                                keypress: keypressResult, 
-                                                keyup: keyupResult, 
-                                                defaultPrevented: keydownEvent.defaultPrevented 
-                                            });
+                                            const keypressResult = element.dispatchEvent(keypressEvent);
+                                            setTimeout(() => {
+                                                const keyupResult = element.dispatchEvent(keyupEvent);
+                                                console.log('[Content] ⌨️ Enter key dispatched on focused element:', { 
+                                                    element: element.getAttribute('aria-label') || element.getAttribute('placeholder'),
+                                                    keydown: keydownResult, 
+                                                    keypress: keypressResult, 
+                                                    keyup: keyupResult, 
+                                                    defaultPrevented: keydownEvent.defaultPrevented 
+                                                });
+                                            }, 10);
                                         }, 10);
-                                    }, 10);
+                                    }, 50); // Small delay to ensure focus
                                     
-                                    return !keydownEvent.defaultPrevented;
+                                    return true; // Return true to indicate we attempted to dispatch
                                 } catch (e) {
                                     console.warn('[Content] ⚠️ Enter key dispatch failed:', e);
                                     return false;
                                 }
                             };
                             
-                            // For Facebook specifically, also look for "See all results" or search button in dropdown
-                            const findFacebookSearchButton = () => {
+                            // 🎯 GENERIC: Find search button in autocomplete dropdown
+                            // Works for any site with autocomplete dropdowns
+                            const findAutocompleteSearchButton = () => {
                                 try {
+                                    // Extract search context to filter dropdown options appropriately
+                                    const searchContext = extractSearchContext(element);
+                                    
                                     const ariaControls = element.getAttribute('aria-controls');
                                     if (ariaControls) {
                                         const listbox = document.getElementById(ariaControls);
                                         if (listbox) {
-                                            // Look for "See all results" link or search button
-                                            // First try specific selectors
+                                            // 🎯 GENERIC: Prioritize links matching search context keywords
+                                            if (searchContext.keywords && searchContext.keywords.length > 0) {
+                                                for (const keyword of searchContext.keywords) {
+                                                    const contextSelectors = [
+                                                        `a[href*="${keyword}"]`,
+                                                        `a[href*="${keyword.toLowerCase()}"]`,
+                                                        `[role="button"][aria-label*="${keyword}" i]`
+                                                    ];
+                                                    for (const sel of contextSelectors) {
+                                                        const btn = listbox.querySelector(sel);
+                                                        if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                                            try {
+                                                                btn.click();
+                                                                console.log('[Content] ✅ Clicked context-specific search button:', sel);
+                                                                return true;
+                                                            } catch (e) {
+                                                                console.warn('[Content] ⚠️ Context search button click failed:', e);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            
+                                            // Look for generic "See all results" link or search button
                                             const specificSelectors = [
                                                 'a[href*="/search"]',
                                                 'a[href*="q="]',
+                                                'a[href*="query="]',
                                                 '[role="button"][aria-label*="See all" i]',
                                                 '[role="button"][aria-label*="Search" i]'
                                             ];
@@ -8069,11 +8179,29 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                                 const btn = listbox.querySelector(sel);
                                                 if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
                                                     try {
+                                                        // 🎯 GENERIC: Filter by search context if available
+                                                        const href = btn.href || btn.getAttribute('href') || '';
+                                                        if (searchContext.keywords && searchContext.keywords.length > 0) {
+                                                            // Skip links that don't match context keywords
+                                                            const matchesContext = searchContext.keywords.some(kw => 
+                                                                href.toLowerCase().includes(kw.toLowerCase())
+                                                            );
+                                                            if (!matchesContext && href.includes('/search/')) {
+                                                                // Check if this is a general search link when we want context-specific
+                                                                const hasContextInUrl = searchContext.keywords.some(kw => 
+                                                                    window.location.href.toLowerCase().includes(kw.toLowerCase())
+                                                                );
+                                                                if (hasContextInUrl) {
+                                                                    continue; // Skip general search links when context-specific is expected
+                                                                }
+                                                            }
+                                                        }
+                                                        
                                                         btn.click();
-                                                        console.log('[Content] ✅ Clicked Facebook search button via selector:', sel);
+                                                        console.log('[Content] ✅ Clicked autocomplete search button:', sel);
                                                         return true;
                                                     } catch (e) {
-                                                        console.warn('[Content] ⚠️ Facebook search button click failed:', e);
+                                                        console.warn('[Content] ⚠️ Autocomplete search button click failed:', e);
                                                     }
                                                 }
                                             }
@@ -8083,48 +8211,145 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                             for (const btn of allLinks) {
                                                 const text = (btn.textContent || btn.innerText || '').toLowerCase().trim();
                                                 const href = btn.href || btn.getAttribute('href') || '';
-                                                if ((text.includes('see all') || text.includes('search') || href.includes('/search')) && 
+                                                
+                                                // 🎯 GENERIC: Apply context filtering
+                                                if (searchContext.keywords && searchContext.keywords.length > 0 && href.includes('/search/')) {
+                                                    const matchesContext = searchContext.keywords.some(kw => 
+                                                        href.toLowerCase().includes(kw.toLowerCase())
+                                                    );
+                                                    if (!matchesContext) {
+                                                        const hasContextInUrl = searchContext.keywords.some(kw => 
+                                                            window.location.href.toLowerCase().includes(kw.toLowerCase())
+                                                        );
+                                                        if (hasContextInUrl) {
+                                                            continue; // Skip general search links when context-specific is expected
+                                                        }
+                                                    }
+                                                }
+                                                
+                                                if ((text.includes('see all') || text.includes('search') || href.includes('/search') || href.includes('query=') || href.includes('q=')) && 
                                                     ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
                                                     try {
                                                         btn.click();
-                                                        console.log('[Content] ✅ Clicked Facebook search button by text:', text || href);
+                                                        console.log('[Content] ✅ Clicked autocomplete search button by text:', text || href);
                                                         return true;
                                                     } catch (e) {
-                                                        console.warn('[Content] ⚠️ Facebook search button click failed:', e);
+                                                        console.warn('[Content] ⚠️ Autocomplete search button click failed:', e);
                                                     }
                                                 }
                                             }
                                         }
                                     }
                                 } catch (e) {
-                                    console.warn('[Content] ⚠️ Facebook search button lookup failed:', e);
+                                    console.warn('[Content] ⚠️ Autocomplete search button lookup failed:', e);
                                 }
                                 return false;
                             };
                             
-                            // Try Enter key first (this should execute search on Facebook, Google, YouTube)
-                            const enterWorked = dispatchEnterKey();
+                            // 🎯 GENERIC: Extract search context from element attributes
+                            const extractSearchContext = (el) => {
+                                const placeholder = (el.getAttribute('placeholder') || '').toLowerCase();
+                                const ariaLabel = (el.getAttribute('aria-label') || '').toLowerCase();
+                                const dataContext = (el.getAttribute('data-context') || '').toLowerCase();
+                                const form = el.closest('form');
+                                const formAction = form ? (form.getAttribute('action') || '') : '';
+                                
+                                // Extract keywords from attributes (e.g., "marketplace", "products", etc.)
+                                const keywords = [];
+                                const allText = `${placeholder} ${ariaLabel} ${dataContext}`;
+                                
+                                // Common search context keywords
+                                const contextKeywords = ['marketplace', 'products', 'shopping', 'store', 'items', 'listings'];
+                                for (const kw of contextKeywords) {
+                                    if (allText.includes(kw)) {
+                                        keywords.push(kw);
+                                    }
+                                }
+                                
+                                // Extract base URL from current page or form action
+                                const baseUrl = formAction || window.location.origin;
+                                
+                                return { keywords, baseUrl, formAction };
+                            };
                             
-                            // For Facebook, also try finding and clicking search button in dropdown
-                            if (hasAutocomplete && window.location.hostname.includes('facebook.com')) {
+                            // 🎯 GENERIC: Build search URL from context
+                            const buildSearchUrl = (context, searchValue) => {
+                                if (!context.baseUrl) return null;
+                                
+                                const base = context.baseUrl.startsWith('http') ? context.baseUrl : `${window.location.origin}${context.baseUrl}`;
+                                
+                                // If we have context keywords, try to build context-specific URL
+                                if (context.keywords && context.keywords.length > 0) {
+                                    const primaryKeyword = context.keywords[0];
+                                    
+                                    // Try common URL patterns for context-specific searches
+                                    const patterns = [
+                                        `/${primaryKeyword}/search/?query=${searchValue}`,
+                                        `/${primaryKeyword}/search?q=${searchValue}`,
+                                        `/search/${primaryKeyword}/?q=${searchValue}`,
+                                        `/${primaryKeyword}?q=${searchValue}`
+                                    ];
+                                    
+                                    for (const pattern of patterns) {
+                                        const url = base.endsWith('/') ? `${base}${pattern.substring(1)}` : `${base}${pattern}`;
+                                        // Return first pattern (caller can validate if needed)
+                                        return url;
+                                    }
+                                }
+                                
+                                // Fallback to generic search URL
+                                const genericPatterns = [
+                                    `/search/?q=${searchValue}`,
+                                    `/search?q=${searchValue}`,
+                                    `/search/top/?q=${searchValue}`
+                                ];
+                                
+                                for (const pattern of genericPatterns) {
+                                    const url = base.endsWith('/') ? `${base}${pattern.substring(1)}` : `${base}${pattern}`;
+                                    return url;
+                                }
+                                
+                                return null;
+                            };
+                            
+                            // Try Enter key first (this should execute search on any site with autocomplete)
+                            // Note: dispatchEnterKey is now async, so we call it and let it run
+                            dispatchEnterKey();
+                            const enterWorked = true; // Assume it will work, actual result handled async
+                            
+                            // 🎯 GENERIC: For search inputs with autocomplete, try finding search button in dropdown
+                            // This works for any site with autocomplete dropdowns (Facebook, Google, etc.)
+                            if (hasAutocomplete) {
                                 setTimeout(() => {
-                                    if (!findFacebookSearchButton()) {
-                                        console.log('[Content] ⚠️ Facebook search button not found, trying direct navigation...');
+                                    if (!findAutocompleteSearchButton()) {
+                                        console.log('[Content] ⚠️ Autocomplete search button not found, trying generic navigation...');
                                         
-                                        // Last resort: Navigate directly to Facebook search URL
+                                        // 🎯 GENERIC: Extract search context from element attributes
+                                        const searchContext = extractSearchContext(element);
                                         const searchValue = encodeURIComponent(element.value || element.textContent || '');
-                                        if (searchValue) {
-                                            const searchUrl = `https://www.facebook.com/search/top/?q=${searchValue}`;
-                                            console.log('[Content] 🔍 Navigating to Facebook search URL:', searchUrl);
-                                            window.location.href = searchUrl;
+                                        
+                                        if (searchValue && searchContext.baseUrl) {
+                                            // Build search URL generically using extracted context
+                                            const searchUrl = buildSearchUrl(searchContext, searchValue);
+                                            if (searchUrl) {
+                                                console.log('[Content] 🔍 Navigating to search URL:', searchUrl);
+                                                window.location.href = searchUrl;
+                                            }
                                         }
                                     }
                                 }, 400); // Wait longer to see if Enter worked first
                             }
                             
                             // Also try form submission if element is in a form
+                            // 🎯 GENERIC: Skip form submission for search inputs with autocomplete - they use Enter/autocomplete, not form submission
+                            // This works for any site, not just specific ones
+                            const shouldSkipFormSubmission = hasAutocomplete || 
+                                                           element.type === 'search' ||
+                                                           element.getAttribute('role') === 'combobox' ||
+                                                           element.getAttribute('aria-autocomplete') === 'list';
+                            
                             const form = element.closest('form');
-                            if (form && enterWorked) {
+                            if (form && enterWorked && !shouldSkipFormSubmission) {
                                 setTimeout(() => {
                                     try {
                                         form.requestSubmit();
@@ -8138,6 +8363,8 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                         }
                                     }
                                 }, 50);
+                            } else if (shouldSkipFormSubmission) {
+                                console.log('[Content] 🚫 Skipping form submission for autocomplete/search input - using Enter key/autocomplete');
                             }
                             
                             // For search inputs, DON'T click autocomplete options - let Enter key handle it
@@ -8166,50 +8393,102 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                 }, 200);
                             }
 
-                            // Also look for submit buttons as fallback (but with longer delay for search inputs)
-                            const buttonPollDelay = hasAutocomplete ? 500 : 200;
-                            setTimeout(() => {
-                                const formForButtonSearch = element.closest('form');
-                                const sendSelectors = [
-                                    '#composer-submit-button',
-                                    'button[data-testid*="send" i]',
-                                    'button[aria-label*="Send" i]',
-                                    'button[aria-label*="Search" i]',
-                                    'button[type="submit"]',
-                                    'input[type="submit"]',
-                                    '#composer-plus-btn',
-                                    'button[class*="submit" i]',
-                                    'button[class*="search" i]',
-                                    'a[role="button"][aria-label*="Search" i]',
-                                    '[role="button"][aria-label*="Search" i]'
-                                ];
+                            // 🎯 GENERIC: Look for submit buttons as fallback
+                            // Skip for search inputs with autocomplete (Enter key handles it)
+                            // But do look for textarea submit buttons (Enter creates new line, not submit)
+                            const shouldLookForSubmitButton = !hasAutocomplete || isTextarea;
+                            
+                            if (shouldLookForSubmitButton && params && params.submit) {
+                                const buttonPollDelay = hasAutocomplete ? 500 : 200;
+                                setTimeout(() => {
+                                    // 🎯 GENERIC: Search in form, parent container, or document
+                                    const formForButtonSearch = element.closest('form');
+                                    const parentContainer = element.closest('[role="dialog"], [role="region"], div[class*="composer"], div[class*="comment"], div[class*="message"]') || formForButtonSearch;
+                                    const searchRoot = parentContainer || document;
+                                    
+                                    // 🎯 GENERIC: Comprehensive submit button selectors
+                                    const sendSelectors = [
+                                        // Specific IDs (common patterns)
+                                        '#composer-submit-button',
+                                        '#composer-plus-btn',
+                                        'button[data-testid*="send" i]',
+                                        'button[data-testid*="submit" i]',
+                                        'button[data-testid*="post" i]',
+                                        
+                                        // Aria labels (generic)
+                                        'button[aria-label*="Send" i]',
+                                        'button[aria-label*="Post" i]',
+                                        'button[aria-label*="Submit" i]',
+                                        'button[aria-label*="Comment" i]',
+                                        'button[aria-label*="Reply" i]',
+                                        'button[aria-label*="Search" i]',
+                                        
+                                        // Type attributes
+                                        'button[type="submit"]',
+                                        'input[type="submit"]',
+                                        
+                                        // Role-based
+                                        '[role="button"][aria-label*="Send" i]',
+                                        '[role="button"][aria-label*="Post" i]',
+                                        '[role="button"][aria-label*="Submit" i]',
+                                        '[role="button"][aria-label*="Search" i]',
+                                        
+                                        // Class-based (generic patterns)
+                                        'button[class*="submit" i]',
+                                        'button[class*="send" i]',
+                                        'button[class*="post" i]',
+                                        'button[class*="search" i]'
+                                    ];
 
-                                const searchRoot = formForButtonSearch || document;
-                                
-                                let attempts = 0;
-                                const maxAttempts = 10; // Reduced since Enter should work
-                                const poll = () => {
-                                    for (const s of sendSelectors) {
-                                        const btn = searchRoot.querySelector(s);
-                                        if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
-                                            try { 
-                                                btn.click(); 
-                                                console.log('[Content] ✅ Submit button clicked:', s);
-                                                return;
-                                            } catch (e) {
-                                                console.warn('[Content] ⚠️ Submit button click failed:', e);
+                                    let attempts = 0;
+                                    const maxAttempts = isTextarea ? 15 : 10; // More attempts for textareas
+                                    const poll = () => {
+                                        // Try specific selectors first
+                                        for (const s of sendSelectors) {
+                                            const btn = searchRoot.querySelector(s);
+                                            if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                                try { 
+                                                    btn.click(); 
+                                                    console.log('[Content] ✅ Submit button clicked:', s);
+                                                    return;
+                                                } catch (e) {
+                                                    console.warn('[Content] ⚠️ Submit button click failed:', e);
+                                                }
                                             }
                                         }
-                                    }
-                                    attempts += 1;
-                                    if (attempts < maxAttempts) {
-                                        setTimeout(poll, 100);
-                                    } else {
-                                        console.warn('[Content] ⚠️ Submit button not found after polling');
-                                    }
-                                };
-                                poll();
-                            }, buttonPollDelay);
+                                        
+                                        // Last resort: Find any enabled button near the element
+                                        if (attempts >= 3) { // Only try generic selectors after a few attempts
+                                            const genericBtns = searchRoot.querySelectorAll('button:not([disabled]):not([aria-disabled="true"]), [role="button"]:not([disabled]):not([aria-disabled="true"])');
+                                            for (const btn of genericBtns) {
+                                                // Check if button is visible and has submit-related text
+                                                if ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true) {
+                                                    const btnText = (btn.textContent || btn.getAttribute('aria-label') || '').toLowerCase();
+                                                    // Look for submit-related keywords
+                                                    if (btnText.includes('send') || btnText.includes('post') || btnText.includes('submit') || 
+                                                        btnText.includes('comment') || btnText.includes('reply') || btnText.includes('search')) {
+                                                        try {
+                                                            btn.click();
+                                                            console.log('[Content] ✅ Submit button clicked (generic match):', btnText || btn.className);
+                                                            return;
+                                                        } catch (e) {
+                                                            console.warn('[Content] ⚠️ Generic submit button click failed:', e);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        
+                                        attempts += 1;
+                                        if (attempts < maxAttempts) {
+                                            setTimeout(poll, 100);
+                                        } else {
+                                            console.log('[Content] ℹ️ Submit button not found after polling (this may be expected for some inputs)');
+                                        }
+                                    };
+                                    poll();
+                                }, buttonPollDelay);
+                            }
                         }, submitDelay);
                     }
 
@@ -9043,11 +9322,47 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         
         // 🆕 CSP bypass already handled during page initialization - no need to repeat
         
+        // 🎯 PRESERVE: Store marker ID mapping before clearing (for stable ID assignment)
+        const markerIdMap = new Map(); // element key -> action ID
+        try {
+            const existingMarkers = document.querySelectorAll('[data-ome-action-id]');
+            existingMarkers.forEach(node => {
+                try {
+                    const markerId = node.dataset?.omeActionId;
+                    if (markerId && node.isConnected) {
+                        // Compute element key for stable ID mapping
+                        const attrs = this.extractKeyAttributes ? this.extractKeyAttributes(node) : {};
+                        const placeholder = (node.getAttribute('placeholder') || attrs.placeholder || '').toLowerCase();
+                        const aria = (node.getAttribute('aria-label') || attrs['aria-label'] || '').toLowerCase();
+                        const idAttr = (node.id || attrs.id || '').toLowerCase();
+                        const url = node.href || attrs.href || '';
+                        
+                        let elementKey = null;
+                        if (placeholder) elementKey = `placeholder:${placeholder}`;
+                        else if (aria) elementKey = `aria:${aria}`;
+                        else if (idAttr) elementKey = `id:${idAttr}`;
+                        else if (url) elementKey = `url:${url.toLowerCase()}`;
+                        
+                        if (elementKey) {
+                            markerIdMap.set(elementKey, markerId);
+                        }
+                    }
+                } catch (e) {
+                    // Ignore errors during key computation
+                }
+            });
+        } catch (markerScanError) {
+            console.warn('[Content] ⚠️ Unable to preserve marker IDs:', markerScanError?.message || markerScanError);
+        }
+        
         // Clear existing elements
         this.actionableElements.clear();
         this.actionableElementNodes.clear();
         this.contentElements.clear(); // 🆕 NEW: Clear content elements too
         this.elementCounter = 0;
+        
+        // Store marker map for use during registration
+        this._preservedMarkerIds = markerIdMap;
 
         try {
             const existingMarkers = document.querySelectorAll('[data-ome-action-id]');
@@ -9162,6 +9477,12 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         // 🆕 NEW: Mark initial scan as complete
         this.initialScanCompleted = true;
         console.log("[Content] ✅ Initial page scan marked as complete");
+        
+        // 🎯 CLEANUP: Clear preserved marker IDs after scan completes
+        if (this._preservedMarkerIds) {
+            this._preservedMarkerIds.clear();
+            this._preservedMarkerIds = null;
+        }
         // applyConfiguredFocus('initial_scan');
         
         // 🎯 NEW: Send intelligence update AFTER filtering is complete (not during scan)
