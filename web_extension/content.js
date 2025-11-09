@@ -4431,7 +4431,6 @@ function generateRecommendedActions(actionMap) {
 var navigationHistory = [];
 var currentHistoryIndex = -1;
 var isHistoryTrackingEnabled = true;
-
 /**
  * 🧭 Initialize history tracking
  * 
@@ -6197,8 +6196,19 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         }
         const tag = descriptor.tagName ? descriptor.tagName.toLowerCase() : '';
         if (tag === 'input') {
-            types.add('focus');
-            types.add('setValue');
+            const inputType = (descriptor.attributes && descriptor.attributes.type ? String(descriptor.attributes.type).toLowerCase() : '');
+
+            if (inputType === 'submit') {
+                types.add('submit');
+                types.add('click');
+            } else if (inputType === 'button') {
+                types.add('click');
+            } else if (inputType === 'reset') {
+                types.add('reset');
+            } else {
+                types.add('focus');
+                types.add('setValue');
+            }
         }
         if (tag === 'textarea') {
             types.add('focus');
@@ -6474,7 +6484,6 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
 
         return false;
     }
-
     function pickPrimarySelector(descriptor) {
         if (!descriptor || !Array.isArray(descriptor.selectors)) {
             return null;
@@ -7262,7 +7271,6 @@ IntelligenceEngine.prototype.storeActionableNode = function(actionId, node) {
 
     this.actionableElementNodes.set(actionId, node);
 };
-
 IntelligenceEngine.prototype.getStoredActionableNode = function(actionId) {
     if (!this.actionableElementNodes.has(actionId)) {
         return null;
@@ -8446,6 +8454,10 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                             for (const s of sendSelectors) {
                                             const btn = searchRoot.querySelector(s);
                                 if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                                const labelText = ((btn.getAttribute('aria-label') || '') + ' ' + (btn.textContent || btn.innerText || '')).toLowerCase();
+                                                if (labelText.includes('voice') || labelText.includes('microphone') || labelText.includes('mic') || labelText.includes('image') || labelText.includes('camera')) {
+                                                    continue;
+                                                }
                                                 try { 
                                                     btn.click(); 
                                                     console.log('[Content] ✅ Submit button clicked:', s);
@@ -8464,8 +8476,9 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                                 if ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true) {
                                                     const btnText = (btn.textContent || btn.getAttribute('aria-label') || '').toLowerCase();
                                                     // Look for submit-related keywords
-                                                    if (btnText.includes('send') || btnText.includes('post') || btnText.includes('submit') || 
-                                                        btnText.includes('comment') || btnText.includes('reply') || btnText.includes('search')) {
+                                                    if ((btnText.includes('send') || btnText.includes('post') || btnText.includes('submit') || 
+                                                        btnText.includes('comment') || btnText.includes('reply') || btnText.includes('search')) &&
+                                                        !(btnText.includes('voice') || btnText.includes('microphone') || btnText.includes('mic') || btnText.includes('image') || btnText.includes('camera'))) {
                                                         try {
                                                             btn.click();
                                                             console.log('[Content] ✅ Submit button clicked (generic match):', btnText || btn.className);
@@ -9840,6 +9853,31 @@ function isSignificantChange(mutations) {
         return true;
     }
     
+    // 🎯 SPECIAL CASE: YouTube playlist list renders updates frequently (virtualised entries)
+    const playlistMutationDetected = isYoutube && mutations.some(mutation => {
+        const affectedNodes = [];
+        if (mutation.target) affectedNodes.push(mutation.target);
+        if (mutation.addedNodes && mutation.addedNodes.length) {
+            affectedNodes.push(...Array.from(mutation.addedNodes));
+        }
+        if (mutation.removedNodes && mutation.removedNodes.length) {
+            affectedNodes.push(...Array.from(mutation.removedNodes));
+        }
+
+        return affectedNodes.some(node => {
+            if (!node || node.nodeType !== Node.ELEMENT_NODE) {
+                return false;
+            }
+            return node.closest?.('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer, ytd-playlist-video-list-renderer, ytd-playlist-panel-renderer');
+        });
+    });
+
+    if (playlistMutationDetected) {
+        console.log("[Content] 🎯 Playlist change detected - forcing significant change");
+        lastSignificantChange = now;
+        return true;
+    }
+
     // 🚫 FILTER 1: Rate limiting - minimum 2 seconds between significant changes (reduced for YouTube)
     const minInterval = isYoutube ? 1000 : MIN_CHANGE_INTERVAL; // 1 second for YouTube, 2 seconds otherwise
     if (now - lastSignificantChange < minInterval) {

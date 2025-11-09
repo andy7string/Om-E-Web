@@ -1,217 +1,174 @@
-# YouTube
+# loan approval - andreworsmond21175@gmail.com - Gmail
 
-**URL:** https://www.youtube.com/
+**URL:** https://mail.google.com/mail/u/0/#inbox
 
 ## Transcript (partial)
-# YouTube
+# loan approval - andreworsmond21175@gmail.com - Gmail
 
-**Timestamp:** 2025-11-09 14:37:32
+**Timestamp:** 2025-11-09 16:43:59
 
 ---
 
-AU
-Skip navigation
-Create
-5
-Home
-Shorts
-Subscriptions
-YouTube Music
-You
-History
-Playlists
-Your videos
-Your movies & TV
-Watch later
-Liked videos
-Downloads
-Subscriptions
-Peppa Pig - Official Channel
-BattleBots
-Cristina Gomez
-Julia McCoy
-Danny Jones
-Danny Jones Clips
-PowerfulJRE
-Show more
-Explore
-Music
-Movies & TV
-Gaming
-News
-Sports
-Learning
-Fashion & Beauty
-Podcasts
-Playables
-More from YouTube
-YouTube Studio
-YouTube Music
-YouTube Kids
-Settings
-Report history
-Help
-Send feedback
-AboutPressCopyrightContact usCreatorsAdvertiseDevelopers
-TermsPrivacyPolicy & SafetyHow YouTube worksTest new features
-© 2025 Google LLC
-All
-Podcasts
-Astronomical objects
-Music
-News
-AI
-Fingerboards
-Live
-Mixes
-Tablature
-Guitar amps
-Quantum Mechanics
-Bass guitar
-Belief
-Pop Music
-Consumer Electronics
-Recently uploaded
-Watched
-New to you
-35:36
-Realtime AI videos, new #1 open source model, AI reads minds, Google’s space GPUs, gynoids - AI NEWS
-AI Search
-2.2K views
-•
-39 minutes ago
-8:51
-Sydney Sweeney delivers ultimate ‘smoking hot truth bomb’ and shuts down left’s culture wars
-Sky News Australia
-7.5K views
-•
-3 hours ago
-1:35:56
-No.1 Brain Scientist: Your Brain Is Lying To You! Here's How I Discovered The Truth!
-The Diary Of A CEO
-1.2M views
-•
-2 days ago
-Shorts
-FLAT CHESTED & PROUD 😤 | Real Confidence Hits Different
-9.2K views
-Surroaster isn't even on my level #viral #fypシ #fyp #surron
-783 views
-No one realizes Zendaya had to make four terrible compromises in
+Skip to content
+Using Gmail with screen readers
+
+Search mail
+Active
+Try Gemini
+99+
+Mail
+Chat
+Compose
+Labels
+Inbox
+5,061
+Starred
+Snoozed
+Sent
+Drafts
+3
+Purchases
+78
+More
+
+Labels
+Labels
+[Gmail]Trash
+George Bellas
+Notes
+Upgrade
+
+1–50 of 16,561
+Conversations
+Primary
+9 new
+Promotions
+realestate.com.au – Recent sales for Teringie + more
+Social
+Updates
+Benefriends .. Mail
+14
+loan approval
+-
+Message not delivered There was a problem delivering your message to calvin.lai@bellproperty.com. See the technical details below or try resending in a few minutes. LEARN MORE The response was: The
+Attachment:
+image001.png
+Attachment:
+802343105 Approval Advice.pdf
+16:08
+MTB Direct
+Meet Some of Our Star Exclusives
+-
+Learn why BikeYoke and Title MTB are some of the hottest brands on the market. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+10:00
+Superdry
+A shipment from order SDY-S-186558 is on the way
+-
+Order SDY-S-186558 Your order is on the way Your order is on the way. Track your shipment to see the delivery status. View order or Visit our store View order or Visit our store Australia Post tracking
+
+10:00
+Superdry
+Order SDY-S-186558 confirmed
+-
+Order SDY-S-186558 Thanks for your order Our team are busy packing your order, and you'll receive an email once your order has been shipped. Please double check your address and order
 
 ## Actions
 ### Search
-- return (a_id_141) to click 'Search with your voice'
-- return (a_id_0,{yourValue}) to set value for 'Search'. Add submit:true to submit.
+- return (a_id_0,{yourValue}) to set value for 'Search mail'. Add submit:true to submit.
+- return (a_id_90) to click 'Advanced search options'
+- return (a_id_91) to click 'Clear search'
+- return (a_id_92) to click 'Search mail'
 
-### Account Menu
-- return (a_id_144) to click 'Account menu'
-
-### Navigation Menu
-- return (a_id_147) to click 'New to you'
+### Emails
+- return (a_id_1) to click 'unread, Benefriends .. Mail 14, loan approval, has attachment, 16:08, Message not delivered There was a problem deliveri'
+- return (a_id_2) to click 'MTB Direct, Meet Some of Our Star Exclusives, 10:00, Learn why BikeYoke and Title MTB are some of th'
+- return (a_id_3) to click 'Superdry, A shipment from order SDY-S-186558 is on the way, 10:00, Order SDY-S-186558 Your order is'
+- return (a_id_4) to click 'unread, Superdry, Order SDY-S-186558 confirmed, 09:24, Order SDY-S-186558 Thanks for your order Our'
+- return (a_id_5) to click 'me, (no subject), 09:10, https://superdry.com.au/products/fuji-lite-padded-gilet-off-grey.me(no subj'
+- return (a_id_6) to click 'The Lott, Hi Andrew, here’s your Powerball game purchase confirmation, 8 Nov, Ticket details inside'
+- return (a_id_7) to click 'Jacky Yang, Weekly OFI Sale listing, 8 Nov, Raine & Horne Raine & Horne Unley Dear Andrew Check out'
+- return (a_id_8) to click 'unread, Wim Hof Method, New research: Our ability to control our physiology has finally been proven,'
+- return (a_id_9) to click 'unread, deloitte-jobnotific., New jobs posted from jobs.deloitte.com.au, 7 Nov, Deloitte Services Pt'
+- return (a_id_10) to click 'noreply, Your timesheet has been approved, 7 Nov, Randstad Timesheet Approved Hi Andrew Orsmond, You'
+- return (a_id_11) to click 'Lyle, Family First, Suffer the little children, 7 Nov, Net Zero falls, will trans be next? ‌ ‌ ‌ ‌ ‌'
+- return (a_id_12) to click 'Scott Torney, COMING SOON - 52 Kingfisher Cct, Flagstaff Hill, 7 Nov, Hi Andrew, Please find below a'
+- return (a_id_13) to click 'me, (no subject), has attachment, 7 Nov, .me(no subject) Attachment:IMG-20251107-WA0007.jpegAttachme'
+- return (a_id_14) to click 'unread, Domain, Your Hallett Cove market update, 7 Nov, What’s happening where you are searching? ͏'
+- return (a_id_15) to click 'health@aws.com, [Action may be required] Discontinuation of AWS Accounts Status in AWS Organizations'
+- return (a_id_16) to click 'Trent & Kim Shorland, Open Homes This Weekend!, 7 Nov, Hi Andrew, Please see this weekend’s open ins'
+- return (a_id_17) to click 'unread, Paul Lukeman, November Market Update 2025, 6 Nov, View in browser Hi Andrew, Welcome to your'
+- return (a_id_18) to click 'Belle Property Norw., Belle Property Norwood Weekly Update, 6 Nov, Dear Andrew, Whether you’re searc'
+- return (a_id_19) to click 'unread, MTB Direct, Want to WIN Your Dream Bike?, 6 Nov, You voted. We built it. Now one lucky rider'
+- return (a_id_20) to click 'Belle Property Adel., Belle Property Adelaide City Weekly Update, 6 Nov, Dear Andrew, Even if you’re'
+- return (a_id_21) to click 'ListingLoop.com.au, New property match alert in Adelaide, 6 Nov, We want to help you find your next'
+- return (a_id_22) to click 'Michael Page Austra., New jobs for: Information Technology : International, 6 Nov, Michael Page Late'
+- return (a_id_23) to click 'Jessica, me 3, Santos  | Global Network Architect, has attachment, 6 Nov, Yeah fair enough. I can st'
+- return (a_id_24) to click 'Sandra Fenwick 2, St Joseph’s Hectorville - PS1, 6 Nov, Hi Everyone A reminder that the Reception Te'
+- return (a_id_25) to click 'Brandon Pilgrim, Weekly Listings Update, 6 Nov, View this email in your browser Dear Andrew, Please'
+- return (a_id_26) to click 'Google Store, Andrew, make magic happen with Pixel, 5 Nov, Unlock epic photos and videos, more produ'
+- return (a_id_27) to click 'customerservice, Pay Advice/ RCTI/ Remittance Advice For: 885179740 - Andrew Orsmond, has attachment'
+- return (a_id_28) to click 'unread, Team Global Express, It’s moving! Your parcel from Dispensed is currently in-transit, 5 Nov,'
+- return (a_id_29) to click 'Jinal Dave from KPM., Phone interview - Andrew Orsmond and KPMG Australia, has attachment, 5 Nov, ​​'
+- return (a_id_30) to click 'Jinal Dave from KPM., Interview with KPMG Australia, 5 Nov, ​​​​​​​​​​ Dear Andrew , We’re pleased t'
+- return (a_id_31) to click 'unread, Seesaw, Your Seesaw updates for November 5th, 2025, 5 Nov, Seesaw You have new updates in Se'
+- return (a_id_32) to click 'unread, customerservice, Your Randstad pay advice for pay period 05/11/2025 is online, 5 Nov, Randst'
+- return (a_id_33) to click 'unread, Joel Georgeson, Weekly Listings Update, 5 Nov, View this email in your browser Dear Andrew,'
+- return (a_id_34) to click 'unread, MTB Direct, Leatt 2026 Season: Designed for Impact, 5 Nov, Built for crashes, climbs and eve'
+- return (a_id_35) to click 'unread, carsales, Rotary reborn: Mazda targets 2035 for new RX sports car, 5 Nov, Read the latest ne'
+- return (a_id_36) to click 'Liam McBean, Out of Office: Leave Re: Application: Head of Technology, 5 Nov, I am currently on Annu'
+- return (a_id_37) to click 'Liam, me 2, Application: Head of Technology, 5 Nov, Hi Liam, Thank you for the mail, you had me at "'
+- return (a_id_38) to click 'Neal, Olivia, Eddy 6, 5B Bundey Street, Magill, has attachment, 5 Nov, Thanks Neal. Hi Andrew and Ol'
+- return (a_id_39) to click 'unread, ListingLoop.com.au, New property match alert in Adelaide, 5 Nov, We want to help you find yo'
+- return (a_id_40) to click 'LinkedIn, Andrew, view your application updates from this week, 5 Nov, Your applications on LinkedIn'
+- return (a_id_41) to click 'unread, Andrew Welch, Your Personal Property Report, 5 Nov, View this email in your browser Dear And'
+- return (a_id_42) to click 'unread, Pluralsight, Updated terms and privacy policy for you to review, 5 Nov, These changes will g'
+- return (a_id_43) to click 'unread, Google Store, Andrew, welcome to the Google Store, 4 Nov, You’re all set to receive the late'
+- return (a_id_44) to click 'Commonwealth Bank o., Manage business account authorities in NetBank, 4 Nov, Add authorities to your'
+- return (a_id_45) to click 'unread, Daniella Lamp, RBA announcement: cash rate remains on hold , 4 Nov, Read our full analysis M'
+- return (a_id_46) to click 'unread, Domain, Breaking: Interest rate decision, 4 Nov, Disappointed owners and buyers ͏ ‌ ﻿ ͏ ‌'
+- return (a_id_47) to click 'unread, Dispensed Pty Ltd, Order confirmed | Sent to Pharmacy, 4 Nov, Hey Andrew Orsmond, Great news'
+- return (a_id_48) to click 'Poppy Frances from ., KPMG Application Update, 4 Nov, ​​​​​​​​​​ Hi Andrew, Thank you for taking the'
+- return (a_id_49) to click 'Commonwealth Bank o., Your online statement is ready, 3 Nov, Your statement is ready to view in NetB'
+- return (a_id_50) to click 'MTB Direct, Signature Has Landed, 3 Nov, A project of performance. Exclusive to MTB Direct. ͏ ͏ ͏ ͏'
 
 ### Other Actions
-- return (a_id_33) to navigate to 'Advertise'
-- return (a_id_30) to navigate to 'Copyright'
-- return (a_id_37) to navigate to 'Policy & Safety'
-- return (a_id_32) to navigate to 'Creators'
-- return (a_id_39) to navigate to 'Test new features'
-- return (a_id_18) to navigate to 'YouTube Premium Home'
-- return (a_id_55) to navigate to 'View all'
-- return (a_id_139) to click 'Skip navigation'
-- return (a_id_142) to click 'Create'
-- return (a_id_146) to click 'Previous'
-- return (a_id_148) to click 'Next'
-- return (a_id_149) to click 'More actions'
-- return (a_id_151) to click 'Show more'
-- return (a_id_152) to click 'Show less'
-- return (a_id_153) to click 'Not interested'
-- return (a_id_154) to click 'Action menu'
-- return (a_id_182) to interact with '5'
-- return (a_id_19) to navigate to 'Subscriptions'
-- return (a_id_20) to navigate to 'Report history'
-- return (a_id_21) to navigate to 'Peppa Pig - Official Channel'
-- return (a_id_22) to navigate to 'BattleBots'
-- return (a_id_23) to navigate to 'Cristina Gomez'
-- return (a_id_24) to navigate to 'Julia McCoy'
-- return (a_id_25) to navigate to 'Danny Jones'
-- return (a_id_26) to navigate to 'Danny Jones Clips'
-- return (a_id_27) to navigate to 'PowerfulJRE'
-- return (a_id_189) to interact with 'Go to channel'
-- return (a_id_556) to navigate to 'Realtime AI videos, new #1 open source model, AI reads minds, Google’s space GPUs, gynoids - AI NEWS'
-- return (a_id_40) to navigate to 'AI Search'
-- return (a_id_41) to navigate to 'Sky News Australia'
-- return (a_id_42) to navigate to 'The Diary Of A CEO'
-- return (a_id_52) to navigate to 'Telnyx'
-- return (a_id_53) to navigate to 'Tucker Carlson Network'
-- return (a_id_54) to navigate to 'Stand Tall Israel'
-- return (a_id_68) to navigate to 'Dennis Gorcea'
-- return (a_id_69) to navigate to 'Purpose Developer™ | Pursuit To Own'
-- return (a_id_79) to navigate to 'Dan Martell'
-- return (a_id_80) to navigate to 'Stefan Burns'
-- return (a_id_81) to navigate to 'Movie Trailers Source'
-- return (a_id_82) to navigate to 'Guitar'
-- return (a_id_83) to navigate to 'D-Squared'
-- return (a_id_84) to navigate to 'The Squirrel'
-- return (a_id_97) to navigate to '7NEWS Australia'
-- return (a_id_98) to navigate to 'Cleo Abram'
-- return (a_id_99) to navigate to 'Helena Liu'
-- return (a_id_557) to navigate to 'Sydney Sweeney delivers ultimate ‘smoking hot truth bomb’ and shuts down left’s culture wars'
-- return (a_id_558) to navigate to 'No.1 Brain Scientist: Your Brain Is Lying To You! Here's How I Discovered The Truth!'
-- return (a_id_43) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_44) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_45) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_46) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_47) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_48) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_49) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_50) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_51) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_70) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_71) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_72) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_73) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_74) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_75) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_76) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_77) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_78) to navigate to 'ShortsLockupViewModelHostEndpoint'
-- return (a_id_559) to navigate to 'New from Telnyx: AI Agents Now Support Gulf Arabic Natural HD Voices!'
-- return (a_id_560) to navigate to 'This Is Why You Should Never Trust an AI Chatbot'
-- return (a_id_561) to navigate to 'Senator DESTROYS Australia’s FAKE Recognition of "Palestine" - They Couldn’t ANSWER!'
-- return (a_id_56) to navigate to 'Epic Plane Evolution - 8 million plays - play Playable'
-- return (a_id_57) to navigate to 'My Mini Mart - 21 million plays - play Playable'
-- return (a_id_58) to navigate to 'Fruit Clash - 1.5 million plays - play Playable'
-- return (a_id_59) to navigate to '8 Ball Billiards Classic - 13 million plays - play Playable'
-- return (a_id_60) to navigate to 'Clean It: Restaurant Cleanup - 8.5 million plays - play Playable'
-- return (a_id_61) to navigate to 'Coloring by Numbers. Pixel House - 598 thousand plays - play Playable'
-- return (a_id_62) to navigate to 'Stealth Master - 43 million plays - play Playable'
-- return (a_id_63) to navigate to 'Snake Clash! - 19 million plays - play Playable'
-- return (a_id_64) to navigate to 'Super Goal - 12 million plays - play Playable'
-- return (a_id_65) to navigate to 'Draw Climber - 20 million plays - play Playable'
-- return (a_id_66) to navigate to 'State.io - 24 million plays - play Playable'
-- return (a_id_67) to navigate to 'Rider Lite - 1.3 million plays - play Playable'
-- return (a_id_85) to navigate to 'Decor Life - Home Design Game - 17 million plays - play Playable'
-- return (a_id_86) to navigate to 'Golf Orbit - Oneshot - 1.5 million plays - play Playable'
-- return (a_id_87) to navigate to 'Words of Wonders - 14 million plays - play Playable'
-- return (a_id_88) to navigate to 'Parking Jam - 16 million plays - play Playable'
-- return (a_id_89) to navigate to 'Brain Out - 5.8 million plays - play Playable'
-- return (a_id_90) to navigate to 'Color Water Sort 3D - 16 million plays - play Playable'
-- return (a_id_91) to navigate to 'Crazy Kick! - 1.3 million plays - play Playable'
-- return (a_id_92) to navigate to 'Paper.io 2 - 12 million plays - play Playable'
-- return (a_id_93) to navigate to 'Fashion Battle - 21 million plays - play Playable'
-- return (a_id_94) to navigate to 'Aquapark.io - 12 million plays - play Playable'
-- return (a_id_95) to navigate to 'Thief Puzzle - 43 million plays - play Playable'
-- return (a_id_96) to navigate to 'Stacky Dash - 11 million plays - play Playable'
-- return (a_id_562) to navigate to 'Build SaaS Apps in 30 Minutes: This AI Agent Replaces Your Entire Dev Team (Abacus AI DeepAgent)'
-- return (a_id_563) to navigate to 'Ex-Witch Warns and EXPOSES Demonic Agenda (Jenny Weaver)'
-- return (a_id_564) to navigate to 'The AI Takeover Isn’t Coming… It’s Here'
-- return (a_id_565) to navigate to 'I Tested 500+ AI Tools, These 12 Will Blow Up Your Business'
-- return (a_id_566) to navigate to '3I/ATLAS Suddenly Begins ERUPTING with Jets of Plasma 💥 V1 BORISOV DISAPPEARS'
-- return (a_id_567) to navigate to 'HUNTING SEASON Official Trailer (2025) Mel Gibson'
-- return (a_id_568) to navigate to 'It looks complicated, but in fact there are only 4 simple chords.'
-- return (a_id_569) to navigate to 'The NEW Way to Connect Claude to Any App (It's Easy)'
-- return (a_id_570) to navigate to 'Metallica: Nothing Else Matters [Live 4K] (Melbourne, Australia - November 8, 2025)'
-- return (a_id_571) to navigate to 'Metallica rocks Melbourne | 7NEWS'
-- return (a_id_572) to navigate to 'The Real Reason We Should Revive Extinct Animals'
-- return (a_id_573) to navigate to '4 Reasons Why OpenAI's Agent Builder is NOT the Zapier Killer'
+- return (a_id_51) to navigate to 'Inbox'
+- return (a_id_52) to navigate to 'Starred'
+- return (a_id_53) to navigate to 'Snoozed'
+- return (a_id_54) to navigate to 'Sent'
+- return (a_id_55) to navigate to 'Drafts'
+- return (a_id_56) to navigate to 'Purchases'
+- return (a_id_57) to navigate to '[Gmail]Trash'
+- return (a_id_58) to navigate to 'George Bellas'
+- return (a_id_59) to navigate to 'Notes'
+- return (a_id_60) to navigate to 'Skip to content'
+- return (a_id_61) to navigate to 'Gmail (standard view) guide'
+- return (a_id_85) to interact with 'More'
+- return (a_id_67) to interact with 'Create new label'
+- return (a_id_94) to click 'Upgrade'
+- return (a_id_68) to interact with 'Select'
+- return (a_id_75) to interact with 'Refresh'
+- return (a_id_76) to interact with 'More email options'
+- return (a_id_78) to interact with 'Newer'
+- return (a_id_79) to interact with 'Older'
+- return (a_id_100) to navigate to 'Input tools on/off (Ctrl-Shift-K)'
+- return (a_id_101) to navigate to 'Select input tool'
+- return (a_id_106) to navigate to '79% of 15 GB used'
+- return (a_id_107) to navigate to 'Terms'
+- return (a_id_108) to navigate to 'Privacy'
+- return (a_id_109) to navigate to 'Programme Policies'
+- return (a_id_82) to interact with 'About'
+- return (a_id_83) to interact with 'Hide side panel'
+- return (a_id_62) to interact with 'Main menu'
+- return (a_id_63) to interact with 'Go back'
+- return (a_id_65) to interact with 'Active'
+- return (a_id_96) to navigate to 'Support'
+- return (a_id_97) to navigate to 'Settings'
+- return (a_id_93) to click 'Try Gemini'
+- return (a_id_98) to navigate to 'Google apps'
+- return (a_id_99) to navigate to 'Google Account: Andrew Orsmond  
+(andreworsmond21175@gmail.com)'
+- return (a_id_86) to interact with 'Not starred'
+- return (a_id_87) to interact with '+6'
+- return (a_id_88) to interact with '+5'

@@ -1,240 +1,366 @@
-# YouTube
+# loan approval - andreworsmond21175@gmail.com - Gmail
 
-**URL:** https://www.youtube.com/
-**Timestamp:** 2025-11-09 14:37:32
+**URL:** https://mail.google.com/mail/u/0/#inbox
+**Timestamp:** 2025-11-09 16:43:59
 
 ---
 
-AU
-Skip navigation
-Create
-5
-Home
-Shorts
-Subscriptions
-YouTube Music
-You
-History
-Playlists
-Your videos
-Your movies & TV
-Watch later
-Liked videos
-Downloads
-Subscriptions
-Peppa Pig - Official Channel
-BattleBots
-Cristina Gomez
-Julia McCoy
-Danny Jones
-Danny Jones Clips
-PowerfulJRE
-Show more
-Explore
-Music
-Movies & TV
-Gaming
-News
-Sports
-Learning
-Fashion & Beauty
-Podcasts
-Playables
-More from YouTube
-YouTube Studio
-YouTube Music
-YouTube Kids
-Settings
-Report history
-Help
-Send feedback
-AboutPressCopyrightContact usCreatorsAdvertiseDevelopers
-TermsPrivacyPolicy & SafetyHow YouTube worksTest new features
-© 2025 Google LLC
-All
-Podcasts
-Astronomical objects
-Music
-News
-AI
-Fingerboards
-Live
-Mixes
-Tablature
-Guitar amps
-Quantum Mechanics
-Bass guitar
-Belief
-Pop Music
-Consumer Electronics
-Recently uploaded
-Watched
-New to you
-35:36
-Realtime AI videos, new #1 open source model, AI reads minds, Google’s space GPUs, gynoids - AI NEWS
-AI Search
-2.2K views
-•
-39 minutes ago
-8:51
-Sydney Sweeney delivers ultimate ‘smoking hot truth bomb’ and shuts down left’s culture wars
-Sky News Australia
-7.5K views
-•
-3 hours ago
-1:35:56
-No.1 Brain Scientist: Your Brain Is Lying To You! Here's How I Discovered The Truth!
-The Diary Of A CEO
-1.2M views
-•
-2 days ago
-Shorts
-FLAT CHESTED & PROUD 😤 | Real Confidence Hits Different
-9.2K views
-Surroaster isn't even on my level #viral #fypシ #fyp #surron
-783 views
-No one realizes Zendaya had to make four terrible compromises in order to marry Tom#shorts#Zendaya
-30M views
-Stop Vibe Coding!! #ai #vibecoding
-208K views
-"put your phones down and just embrace this beautiful view" 🥰✨ #Rosé #jennie #lisa #jisoo #blackpink
-6.3M views
-0:40
-New from Telnyx: AI Agents Now Support Gulf Arabic Natural HD Voices!
-Telnyx
-25 views
-•
-2 days ago
-9:51
-This Is Why You Should Never Trust an AI Chatbot
-Tucker Carlson Network
-148K views
-•
-2 weeks ago
-17:52
-Senator DESTROYS Australia’s FAKE Recognition of "Palestine" - They Couldn’t ANSWER!
-Stand Tall Israel
-35K views
-•
-2 weeks ago
-YouTube Playables
-Instant games, no downloads
-View all
-Play
-Epic Plane Evolution
-8M plays
-Play
-My Mini Mart
-21M plays
-Play
-Fruit Clash
-1.5M plays
-Play
-8 Ball Billiards Classic
-13M plays
-Play
-Clean It: Restaurant Cleanup
-8.5M plays
-Show more
-7:47
-Build SaaS Apps in 30 Minutes: This AI Agent Replaces Your Entire Dev Team (Abacus AI DeepAgent)
-Julia McCoy
-18K views
-•
-8 days ago
-1:09:12
-Ex-Witch Warns and EXPOSES Demonic Agenda (Jenny Weaver)
-Dennis Gorcea
-7.4K views
-•
-13 hours ago
-6:28
-The AI Takeover Isn’t Coming... It’s Here
-Purpose DeveloperTM | Pursuit To Own
-173 views
-•
-2 days ago
-Shorts
-Dr. Tara Swart explains why neuroscientists don't watch the news! #happiness #neuroscience #focus
-196K views
-Genius girl Breaks the beta
-6.1M views
-Huawei Just Reinvented the Laptop 😳💻📱
-3.2M views
-🤖 I guess what you all are dying to see is IRON... all “exposed”!😆 #humanoid #xpeng #iron #robotics
-493K views
-Bro Created THE BEST Costume Ever!😳😱
-14M views
-21:30
-I Tested 500+ AI Tools, These 12 Will Blow Up Your Business
-Dan Martell
-183K views
-•
-8 days ago
-40:02
-3I/ATLAS Suddenly Begins ERUPTING with Jets of Plasma 💥 V1 BORISOV DISAPPEARS
-Stefan Burns
-384K views
-•
-Streamed 7 hours ago
-2:08
-HUNTING SEASON Official Trailer (2025) Mel Gibson
-Movie Trailers Source
-1M views
-•
-2 days ago
-1:14
-It looks complicated, but in fact there are only 4 simple chords.
-Guitar
-39K views
-•
-2 weeks ago
-12:42
-The NEW Way to Connect Claude to Any App (It's Easy)
-D-Squared
-5.9K views
-•
-2 days ago
-6:13
-Metallica: Nothing Else Matters [Live 4K] (Melbourne, Australia - November 8, 2025)
-The Squirrel
-3.6K views
-•
-13 hours ago
-YouTube Playables
-Instant games, no downloads
-View all
-Play
-Decor Life - Home Design Game
-17M plays
-Play
-Golf Orbit - Oneshot
-1.5M plays
-Play
-Words of Wonders
-14M plays
-Play
-Parking Jam
-16M plays
-Play
-Brain Out
-5.8M plays
-Show more
-1:33
-Metallica rocks Melbourne | 7NEWS
-7NEWS Australia
-8.8K views
-•
-6 hours ago
-15:50
-The Real Reason We Should Revive Extinct Animals
-Cleo Abram
-2.9M views
-•
-3 weeks ago
-9:01
-4 Reasons Why OpenAI's Agent Builder is NOT the Zapier Killer
-Helena Liu
-1.4K views
-•
-2 days ago
+Skip to content
+Using Gmail with screen readers
+
+Search mail
+Active
+Try Gemini
+99+
+Mail
+Chat
+Compose
+Labels
+Inbox
+5,061
+Starred
+Snoozed
+Sent
+Drafts
+3
+Purchases
+78
+More
+
+Labels
+Labels
+[Gmail]Trash
+George Bellas
+Notes
+Upgrade
+
+1–50 of 16,561
+Conversations
+Primary
+9 new
+Promotions
+realestate.com.au – Recent sales for Teringie + more
+Social
+Updates
+Benefriends .. Mail
+14
+loan approval
+-
+Message not delivered There was a problem delivering your message to calvin.lai@bellproperty.com. See the technical details below or try resending in a few minutes. LEARN MORE The response was: The
+Attachment:
+image001.png
+Attachment:
+802343105 Approval Advice.pdf
+16:08
+MTB Direct
+Meet Some of Our Star Exclusives
+-
+Learn why BikeYoke and Title MTB are some of the hottest brands on the market. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+10:00
+Superdry
+A shipment from order SDY-S-186558 is on the way
+-
+Order SDY-S-186558 Your order is on the way Your order is on the way. Track your shipment to see the delivery status. View order or Visit our store View order or Visit our store Australia Post tracking
+
+10:00
+Superdry
+Order SDY-S-186558 confirmed
+-
+Order SDY-S-186558 Thanks for your order Our team are busy packing your order, and you'll receive an email once your order has been shipped. Please double check your address and order details, as
+
+09:24
+me
+(no subject)
+-
+https://superdry.com.au/products/fuji-lite-padded-gilet-off-grey
+
+09:10
+The Lott
+Hi Andrew, here's your Powerball game purchase confirmation
+-
+Ticket details inside ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+
+8 Nov
+Jacky Yang
+Weekly OFI Sale listing
+-
+Raine & Horne Unley Dear Andrew Check out our upcoming Open For Inspection properties that we have scheduled for this week. If you have any questions, please do
+
+8 Nov
+Wim Hof Method
+New research: Our ability to control our physiology has finally been proven
+-
+͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌
+
+7 Nov
+deloitte-jobnotific.
+New jobs posted from jobs.deloitte.com.au
+-
+The following jobs matched your search agent at Deloitte and can be found at jobs.deloitte.com.au. Agent: Director - Engineering Advisory and Architecture, Sydn
+
+7 Nov
+noreply
+Your timesheet has been approved
+-
+RandstadTimesheet Approved Hi Andrew Orsmond, Your timesheet has been approved by Richard Cheung (richard.cheung@fphgroup.com.au) , however, it was split into t
+
+7 Nov
+Lyle, Family First
+Suffer the little children
+-
+Net Zero falls, will trans be next? ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+
+7 Nov
+Scott Torney
+COMING SOON - 52 Kingfisher Cct, Flagstaff Hill
+-
+Hi Andrew, Please find below a new feature property listing that may be of interest to you. NEW TO THE MARKET Character-Filled Tudor Family Home in Tranquil 'Craigburn Estate' For Sale $1295000
+
+7 Nov
+me
+(no subject)
+
+Attachment:
+IMG-20251107-WA0007.jpeg
+Attachment:
+IMG-20251107-WA0009.jpeg
+Attachment:
+IMG-20251107-WA0017.jpg
++6
+7 Nov
+Domain
+Your Hallett Cove market update
+-
+What's happening where you are searching? ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌
+
+7 Nov
+health@aws.com
+[Action may be required] Discontinuation of AWS Accounts Status in AWS Organizations [AWS Account: 408928238893]
+-
+AWS Health Event View in Notification Center [Action may be required] Discontinuation of AWS Accounts Status in AWS Organizations [AWS Account: 408928238893] View details in service console Hello, AWS
+
+7 Nov
+Trent & Kim Shorland
+Open Homes This Weekend!
+-
+Hi Andrew, Please see this weekend's open inspection times below! Open HOMES THIS WEEKEND Saturday the 8th of november 6 Heath Road, Crafers West SA Saturday 11:00am 4 3 2 3213sqm Learn more 5 Opal
+
+7 Nov
+Paul Lukeman
+November Market Update 2025
+-
+View in browser Hi Andrew, Welcome to your Property Market Update for November 2025. As we approach the end of spring and head into the summer season, Adelaide's property market continues to
+
+6 Nov
+Belle Property Norw.
+Belle Property Norwood Weekly Update
+-
+Dear Andrew, Whether you're searching for a stylish city apartment or a comfortable family home in the suburbs, we offer a diverse selection of properties to match every budget and lifestyle.
+
+6 Nov
+MTB Direct
+Want to WIN Your Dream Bike?
+-
+You voted. We built it. Now one lucky rider wins it. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+6 Nov
+Belle Property Adel.
+Belle Property Adelaide City Weekly Update
+-
+Dear Andrew, Even if you're not currently looking to buy or sell, it's always useful to stay informed about how your suburb is performing. For a detailed suburb profile, feel free to contact
+
+6 Nov
+ListingLoop.com.au
+New property match alert in Adelaide
+-
+We want to help you find your next property Here's a new listing that may be of interest Adelaide, SA 5000 2 Bed | 2 Bath | 1 Car HOUSE Best Offers - Contact Agent! Complete signup to view This
+
+6 Nov
+Michael Page Austra.
+New jobs for: Information Technology : International
+-
+Michael Page Latest Information Technology jobs in International Keywords: Information Technology Location: International Senior Software Engineer / Solution Architect - Public Sector Australia,
+
+6 Nov
+Jessica, me
+3
+Santos | Global Network Architect
+-
+Yeah fair enough. I can still float you in but with your salary expectations. From: Andrew Orsmond <andreworsmond21175@gmail.com> Sent: Thursday, November 6, 2025 9:19 AM To: Jessica Gadsby (She/
+6 Nov
+Sandra Fenwick
+2
+St Joseph's Hectorville - PS1
+-
+Hi Everyone A reminder that the Reception Term One Parent Information Session is on Monday 17 November 2025 - 5:30 to 6:30pm The Information Session will be held in the School Hall next to the
+
+6 Nov
+Brandon Pilgrim
+Weekly Listings Update
+-
+View this email in your browser Dear Andrew, Please find below a collection of our latest property listings on the market! For further details on any of these properties, simply click on the property
+
+6 Nov
+Google Store
+Andrew, make magic happen with Pixel
+-
+Unlock epic photos and videos, more productive days and safer personal info. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌
+
+5 Nov
+customerservice
+Pay Advice/ RCTI/ Remittance Advice For: 885179740 - Andrew Orsmond
+-
+Please find attached your Pay Advice/ Tax Invoice. For any queries relating to this document please respond to this email and your query will be attended to. -- This email was sent to you because you
+Attachment:
+11113134.pdf
+5 Nov
+Team Global Express
+It's moving! Your parcel from Dispensed is currently in-transit
+-
+In transit It's moving! Your parcel from Dispensed is currently in-transit. Team Global Express Logo Your parcel BDTB052438 from Dispensed is currently in-transit. We will notify you when your
+
+5 Nov
+Jinal Dave from KPM.
+Phone interview - Andrew Orsmond and KPMG Australia
+-
+​​​​​​​​​​ Your meeting is scheduled for November 7, 2025 at 12:00 PM GMT+11 Location: Interviewer to call Andrew on &#43;61 0439034746 If you need to reschedule, please do so here: https://www.
+5 Nov
+Jinal Dave from KPM.
+Interview with KPMG Australia
+-
+​​​​​​​​​​ Dear Andrew , We're pleased to confirm your Phone Interview for the role of "Technology Advisory Manager - Emerging Tech, Architecture & Education " with KPMG and would
+
+5 Nov
+Seesaw
+Your Seesaw updates for November 5th, 2025
+-
+Seesaw You have new updates in Seesaw 117 new messages and 1 other update View All Updates Get real-time updates with the Seesaw app Once you enable push notifications, you'll be alerted when
+
+5 Nov
+customerservice
+Your Randstad pay advice for pay period 05/11/2025 is online
+-
+Randstad pay advice Hi Andrew Orsmond, Your pay advice for payroll processed on 05 November 2025 is now ready for viewing. You can view your pay advice on my Randstad web portal by clicking the link
+
+5 Nov
+Joel Georgeson
+Weekly Listings Update
+-
+View this email in your browser Dear Andrew, Please find below a collection of our latest property listings on the market! For further details on any of these properties, simply click on the property
+
+5 Nov
+MTB Direct
+Leatt 2026 Season: Designed for Impact
+-
+Built for crashes, climbs and everything in between. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+5 Nov
+carsales
+Rotary reborn: Mazda targets 2035 for new RX sports car
+-
+Read the latest news, reviews and advice from the carsales team. . . Having trouble viewing this email? View online Carsales logo Your weekly newsletter Rotary reborn: Mazda targets 2035 for new RX
+
+5 Nov
+Liam McBean
+Out of Office: Leave Re: Application: Head of Technology
+-
+I am currently on Annual Leave, returning to work on Wednesday 5th November, 2025. During this time, I will be checking emails sporadically. If the matter is urgent, please reach out to James Tuplin at
+
+5 Nov
+Liam, me
+2
+Application: Head of Technology
+-
+Hi Liam, Thank you for the mail, you had me at "on the short list". Please reach out if you have any questions. Kind Regards, Andrew On Wed, 5 Nov 2025 at 15:34, Liam McBean <liam.mcbean@
+
+5 Nov
+Neal, Olivia, Eddy
+6
+5B Bundey Street, Magill
+-
+Thanks Neal. Hi Andrew and Olivia – I recently tried to contact Andrew on his mobile but he was unavailable. Please feel free to call me back when you are free to discuss the process from here. Kind
+Attachment:
+image002.png
+Attachment:
+image003.png
+Attachment:
+Outlook-alanwr4b.png
++5
+5 Nov
+ListingLoop.com.au
+New property match alert in Adelaide
+-
+We want to help you find your next property Here's a new listing that may be of interest Adelaide, SA 5000 3 Bed | 2 Bath | 2 Car APARTMENT Best Offers - Contact Agent Complete signup to view This
+
+5 Nov
+LinkedIn
+Andrew, view your application updates from this week
+-
+Your applications on LinkedIn ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+5 Nov
+Andrew Welch
+Your Personal Property Report
+-
+View this email in your browser Dear Andrew, We thought you might like to be kept up to date. Below we've outlined the recent updates made in relation to some of the properties that you've
+
+5 Nov
+Pluralsight
+Updated terms and privacy policy for you to review
+-
+These changes will go into effect on November 1, 2025. By continuing to use Pluralsight, you agree to the updated Privacy Policy and Terms of Use. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+5 Nov
+Google Store
+Andrew, welcome to the Google Store
+-
+You're all set to receive the latest news and offers Your inbox just got more helpful. You'll be the first to know about devices and special offers, plus all the Google Store news, tips and
+
+4 Nov
+Commonwealth Bank o.
+Manage business account authorities in NetBank
+-
+Add authorities to your business account through NetBank ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌
+
+4 Nov
+Daniella Lamp
+RBA announcement: cash rate remains on hold
+-
+Read our full analysis Mortgage Choice Email me Email me dlamp@mortgagechoice.com.au Call me Call me 0409 896 550 The RBA has held the cash rate at 3.60%. Hi Andrew, Today, the Reserve Bank of
+
+4 Nov
+Domain
+Breaking: Interest rate decision
+-
+Disappointed owners and buyers ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏
+
+4 Nov
+Dispensed Pty Ltd
+Order confirmed | Sent to Pharmacy
+-
+Hey Andrew Orsmond, Great news, your order has been confirmed! It has been sent to our partner pharmacy for processing, where your product/s will be prepared and dispatched for delivery to your
+
+4 Nov
+Poppy Frances from .
+KPMG Application Update
+-
+​​​​​​​​​​ Hi Andrew, Thank you for taking the time to submit your application for the role of Manager - Technology Advisory at KPMG. We have decided on this occasion not to progress your application.
+
+4 Nov
+Commonwealth Bank o.
+Your online statement is ready
+-
+Your statement is ready to view in NetBank. ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌
+
+3 Nov
+MTB Direct
+Signature Has Landed
+-
+A project of performance. Exclusive to MTB Direct. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
+3 Nov
+79% of 15 GB used
+Terms · Privacy · Programme Policies
+Last account activity: 0 minutes ago
+Open in 1 other location · Details
