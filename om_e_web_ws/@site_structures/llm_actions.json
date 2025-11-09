@@ -1,9 +1,9 @@
 {
   "_page_context": {
-    "url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "title": "Search/ - Wikipedia",
-    "timestamp": 1762693446.338965,
-    "total_actions": 75,
+    "url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "title": "kids shoes - Search results - Wikipedia",
+    "timestamp": 1762694175.269244,
+    "total_actions": 96,
     "active_tab_id": 1138015385
   },
   "a_id_0": {
@@ -17,10 +17,25 @@
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_0' to input with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
   "a_id_1": {
+    "action_type": "input",
+    "description": "",
+    "tag_name": "input",
+    "selectors": [
+      "#ooui-php-1",
+      ".oo-ui-inputWidget-input",
+      "input.oo-ui-inputWidget-input",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_1' to input with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_2": {
     "action_type": "nav",
     "description": "",
     "tag_name": "nav",
@@ -31,11 +46,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_1' to nav with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_2' to nav with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_2": {
+  "a_id_3": {
     "action_type": "button",
     "description": "",
     "tag_name": "input",
@@ -47,11 +62,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_2' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_3' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_3": {
+  "a_id_4": {
     "action_type": "button",
     "description": "",
     "tag_name": "input",
@@ -63,23 +78,23 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_3' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_4' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_4": {
+  "a_id_5": {
     "action_type": "nav",
-    "description": "ArticleTalk\n\t\t\n\t\t\n\t\n\n\n\t\t\t\t\t\t\t\t\n\n\t\n\tEnglish",
+    "description": "English",
     "tag_name": "nav",
     "selectors": [
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_4' to nav with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_5' to nav with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_5": {
+  "a_id_6": {
     "action_type": "nav",
     "description": "",
     "tag_name": "nav",
@@ -87,11 +102,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_5' to nav with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_6' to nav with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_6": {
+  "a_id_7": {
     "action_type": "nav",
     "description": "",
     "tag_name": "nav",
@@ -101,11 +116,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_6' to nav with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_7' to nav with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_7": {
+  "a_id_8": {
     "action_type": "unknown",
     "description": "Main menu\n\t\n\t\n\n\n\t\t\t\t\n\t\t\n\n\t\n\tMain menu\n\tmove to sidebar\n\thide\n\n\n\t\n\n\t\n\t\tNavigation\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tMa",
     "tag_name": "header",
@@ -115,13 +130,13 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_7' to unknown with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_8' to unknown with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_8": {
+  "a_id_9": {
     "action_type": "unknown",
-    "description": "Search/\n\t\t\t\t\t\t\t\n\n\t\n\t\n\nAdd languages\n\t\n\t\n\n\t\t\n\t\t\t\t\t\tPage contents not supported in other languages.",
+    "description": "Search results\n\t\t\t\t\t\t\n\t\tHelp",
     "tag_name": "header",
     "selectors": [
       ".mw-body-header",
@@ -129,11 +144,11 @@
       "main:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_8' to unknown with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_9' to unknown with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_9": {
+  "a_id_10": {
     "action_type": "link",
     "description": "Main page",
     "tag_name": "a",
@@ -141,11 +156,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_9' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_10' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_10": {
+  "a_id_11": {
     "action_type": "link",
     "description": "Contents",
     "tag_name": "a",
@@ -153,11 +168,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_10' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_11' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_11": {
+  "a_id_12": {
     "action_type": "link",
     "description": "Current events",
     "tag_name": "a",
@@ -165,11 +180,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_11' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_12' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_12": {
+  "a_id_13": {
     "action_type": "link",
     "description": "Random article",
     "tag_name": "a",
@@ -177,11 +192,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_12' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_13' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_13": {
+  "a_id_14": {
     "action_type": "link",
     "description": "About Wikipedia",
     "tag_name": "a",
@@ -189,11 +204,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_13' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_14' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_14": {
+  "a_id_15": {
     "action_type": "link",
     "description": "Contact us",
     "tag_name": "a",
@@ -201,11 +216,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_14' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_15' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_15": {
+  "a_id_16": {
     "action_type": "link",
     "description": "Help",
     "tag_name": "a",
@@ -213,11 +228,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_15' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_16' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_16": {
+  "a_id_17": {
     "action_type": "link",
     "description": "Learn to edit",
     "tag_name": "a",
@@ -225,11 +240,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_16' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_17' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_17": {
+  "a_id_18": {
     "action_type": "link",
     "description": "Community portal",
     "tag_name": "a",
@@ -237,11 +252,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_17' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_18' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_18": {
+  "a_id_19": {
     "action_type": "link",
     "description": "Recent changes",
     "tag_name": "a",
@@ -249,11 +264,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_18' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_19' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_19": {
+  "a_id_20": {
     "action_type": "link",
     "description": "Upload file",
     "tag_name": "a",
@@ -261,11 +276,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_19' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_20' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_20": {
+  "a_id_21": {
     "action_type": "link",
     "description": "Special pages",
     "tag_name": "a",
@@ -273,11 +288,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_20' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_21' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_21": {
+  "a_id_22": {
     "action_type": "link",
     "description": "Search",
     "tag_name": "a",
@@ -287,11 +302,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_21' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_22' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_22": {
+  "a_id_23": {
     "action_type": "link",
     "description": "Donate",
     "tag_name": "a",
@@ -300,11 +315,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_22' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_23' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_23": {
+  "a_id_24": {
     "action_type": "link",
     "description": "Create account",
     "tag_name": "a",
@@ -313,11 +328,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_23' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_24' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_24": {
+  "a_id_25": {
     "action_type": "link",
     "description": "Log in",
     "tag_name": "a",
@@ -326,49 +341,25 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_24' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_25": {
-    "action_type": "link",
-    "description": "Article",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_25' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
   "a_id_26": {
     "action_type": "link",
-    "description": "Talk",
+    "description": "Help",
     "tag_name": "a",
     "selectors": [
-      ".new",
-      "a.new",
-      "li:nth-child(1)"
+      ".mw-helplink",
+      "a.mw-helplink",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_26' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
   "a_id_27": {
-    "action_type": "link",
-    "description": "What links here",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_27' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_28": {
     "action_type": "link",
     "description": "Printable version",
     "tag_name": "a",
@@ -376,23 +367,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_28' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_27' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_29": {
-    "action_type": "link",
-    "description": "Page information",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_29' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_30": {
+  "a_id_28": {
     "action_type": "link",
     "description": "Get shortened URL",
     "tag_name": "a",
@@ -400,11 +379,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_30' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_28' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_31": {
+  "a_id_29": {
     "action_type": "link",
     "description": "Download QR code",
     "tag_name": "a",
@@ -412,39 +391,574 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_29' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_30": {
+    "action_type": "link",
+    "description": "Content pages",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_30' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_31": {
+    "action_type": "link",
+    "description": "Multimedia",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_31' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
   "a_id_32": {
     "action_type": "link",
-    "description": "Search",
+    "description": "Everything",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_32' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_33": {
+    "action_type": "link",
+    "description": "Advanced",
+    "tag_name": "a",
+    "selectors": [
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_33' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_34": {
+    "action_type": "link",
+    "description": "kids shows",
+    "tag_name": "a",
+    "selectors": [
+      "#mw-search-DYM-suggestion",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_34' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_35": {
+    "action_type": "link",
+    "description": "Kids shoes",
+    "tag_name": "a",
+    "selectors": [
+      ".new",
+      "a.new",
+      "i:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_35' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_36": {
+    "action_type": "link",
+    "description": "create a draft and submit it for review",
+    "tag_name": "a",
+    "selectors": [
+      "i:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_36' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_37": {
+    "action_type": "link",
+    "description": "request that a redirect be created",
+    "tag_name": "a",
+    "selectors": [
+      "i:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_37' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_38": {
+    "action_type": "link",
+    "description": "next 20",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-nextlink",
+      "a.mw-nextlink",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_38' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_39": {
+    "action_type": "link",
+    "description": "50",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-numlink",
+      "a.mw-numlink",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_39' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_40": {
+    "action_type": "link",
+    "description": "100",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-numlink",
+      "a.mw-numlink",
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_40' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_41": {
+    "action_type": "link",
+    "description": "250",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-numlink",
+      "a.mw-numlink",
+      "div:nth-child(6)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_41' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_42": {
+    "action_type": "link",
+    "description": "500",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-numlink",
+      "a.mw-numlink",
+      "div:nth-child(7)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_42' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_43": {
+    "action_type": "link",
+    "description": "TechStyle Fashion Group",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"0\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_43' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_44": {
+    "action_type": "link",
+    "description": "FabKids",
+    "tag_name": "a",
+    "selectors": [
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_44' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_45": {
+    "action_type": "link",
+    "description": "The Kids in the Shoe",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"1\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_45' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_46": {
+    "action_type": "link",
+    "description": "Satan Shoes",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"2\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_46' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_47": {
+    "action_type": "link",
+    "description": "KidsCan",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"3\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_47' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_48": {
+    "action_type": "link",
+    "description": "Kickers (brand)",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"4\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_48' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_49": {
+    "action_type": "link",
+    "description": "Jack Rogers (retailer)",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"5\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_49' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_50": {
+    "action_type": "link",
+    "description": "Reebok",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"6\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_50' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_51": {
+    "action_type": "link",
+    "description": "Incubus (running shoe)",
     "tag_name": "a",
     "selectors": [
       ".mw-redirect",
       "a.mw-redirect",
-      "b:nth-child(1)"
+      "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_32' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_51' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_33": {
+  "a_id_52": {
     "action_type": "link",
-    "description": "sister projects",
+    "description": "Clarks (shoe retailer)",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"7\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_52' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_53": {
+    "action_type": "link",
+    "description": "Emelie (film)",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"8\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_53' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_54": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_54' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_55": {
+    "action_type": "link",
+    "description": "Rothy's",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"10\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_55' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_56": {
+    "action_type": "link",
+    "description": "Bata Corporation",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"11\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_56' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_57": {
+    "action_type": "link",
+    "description": "Bata Shoes",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_58": {
+    "action_type": "link",
+    "description": "Air Jordan",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"12\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_59": {
+    "action_type": "link",
+    "description": "Jordan shoes",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_60": {
+    "action_type": "link",
+    "description": "Pete the Cat",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"13\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_61": {
+    "action_type": "link",
+    "description": "Pete the Cat: I Love My White Shoes",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_62": {
+    "action_type": "link",
+    "description": "Spy Kids (film)",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"14\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_62' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_63": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_63' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_64": {
+    "action_type": "link",
+    "description": "The Shoe Fetish Slayer",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_64' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_65": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_65' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_66": {
+    "action_type": "link",
+    "description": "Aldo (shoes)",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_66' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_67": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_67' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_68": {
+    "action_type": "link",
+    "description": "Pink Bubbles Go Ape",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"18\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_68' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_69": {
+    "action_type": "link",
+    "description": "Kids of the Century",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_69' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_70": {
+    "action_type": "link",
+    "description": "Designer Brands",
+    "tag_name": "a",
+    "selectors": [
+      "[data-serp-pos=\"19\"]",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_70' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_71": {
+    "action_type": "link",
+    "description": "Dsw shoes",
+    "tag_name": "a",
+    "selectors": [
+      ".mw-redirect",
+      "a.mw-redirect",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_71' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_72": {
+    "action_type": "link",
+    "description": "Texts from Wikisource",
     "tag_name": "a",
     "selectors": [
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_33' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_72' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_34": {
+  "a_id_73": {
     "action_type": "link",
-    "description": "Wiktionary",
+    "description": "The Disobedient Kids and other Czecho-Slovak fairy tales/The Little Cock and the Little Hen",
     "tag_name": "a",
     "selectors": [
       ".extiw",
@@ -452,13 +966,25 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_34' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_73' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_35": {
+  "a_id_74": {
     "action_type": "link",
-    "description": "Wikibooks",
+    "description": "Quotes from Wikiquote",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_74' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_75": {
+    "action_type": "link",
+    "description": "Spy Kids 2: The Island of Lost Dreams",
     "tag_name": "a",
     "selectors": [
       ".extiw",
@@ -466,13 +992,25 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_35' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_75' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_36": {
+  "a_id_76": {
     "action_type": "link",
-    "description": "Wikiquote",
+    "description": "Textbooks from Wikibooks",
+    "tag_name": "a",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_76' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_77": {
+    "action_type": "link",
+    "description": "Sport Innovation/Barefoot Running Shoes",
     "tag_name": "a",
     "selectors": [
       ".extiw",
@@ -480,263 +1018,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_36' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_77' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_37": {
-    "action_type": "link",
-    "description": "Wikisource",
-    "tag_name": "a",
-    "selectors": [
-      ".extiw",
-      "a.extiw",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_37' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_38": {
-    "action_type": "link",
-    "description": "Wikiversity",
-    "tag_name": "a",
-    "selectors": [
-      ".extiw",
-      "a.extiw",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_38' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_39": {
-    "action_type": "link",
-    "description": "Commons",
-    "tag_name": "a",
-    "selectors": [
-      ".extiw",
-      "a.extiw",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_39' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_40": {
-    "action_type": "link",
-    "description": "Wikivoyage",
-    "tag_name": "a",
-    "selectors": [
-      ".extiw",
-      "a.extiw",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_40' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_41": {
-    "action_type": "link",
-    "description": "Wikinews",
-    "tag_name": "a",
-    "selectors": [
-      ".extiw",
-      "a.extiw",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_41' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_42": {
-    "action_type": "link",
-    "description": "Wikidata",
-    "tag_name": "a",
-    "selectors": [
-      ".extiw",
-      "a.extiw",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_42' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_43": {
-    "action_type": "link",
-    "description": "Wikispecies",
-    "tag_name": "a",
-    "selectors": [
-      ".extiw",
-      "a.extiw",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_43' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_44": {
-    "action_type": "link",
-    "description": "search for Search/ in Wikipedia",
-    "tag_name": "a",
-    "selectors": [
-      ".external",
-      "a.external",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_44' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_45": {
-    "action_type": "link",
-    "description": "log in or create an account",
-    "tag_name": "a",
-    "selectors": [
-      ".external",
-      "a.external",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_45' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_46": {
-    "action_type": "link",
-    "description": "autoconfirmed",
-    "tag_name": "a",
-    "selectors": [
-      ".mw-redirect",
-      "a.mw-redirect",
-      "li:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_46' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_47": {
-    "action_type": "link",
-    "description": "article wizard",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_47' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_48": {
-    "action_type": "link",
-    "description": "request a new article",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_48' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_49": {
-    "action_type": "link",
-    "description": "Search for \"Search/\"",
-    "tag_name": "a",
-    "selectors": [
-      ".external",
-      "a.external",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_49' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_50": {
-    "action_type": "link",
-    "description": "try the purge function",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_50' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_51": {
-    "action_type": "link",
-    "description": "case sensitive",
-    "tag_name": "a",
-    "selectors": [
-      "b:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_51' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_52": {
-    "action_type": "link",
-    "description": "redirect",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_52' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_53": {
-    "action_type": "link",
-    "description": "check the deletion log",
-    "tag_name": "a",
-    "selectors": [
-      ".external",
-      "a.external",
-      "li:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_53' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_54": {
-    "action_type": "link",
-    "description": "Why was the page I created deleted?",
-    "tag_name": "a",
-    "selectors": [
-      "li:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_54' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_55": {
-    "action_type": "link",
-    "description": "https://en.wikipedia.org/wiki/Search/",
-    "tag_name": "a",
-    "selectors": [
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_55' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_56": {
+  "a_id_78": {
     "action_type": "link",
     "description": "Privacy policy",
     "tag_name": "a",
@@ -744,11 +1030,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_56' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_78' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_57": {
+  "a_id_79": {
     "action_type": "link",
     "description": "Disclaimers",
     "tag_name": "a",
@@ -756,11 +1042,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_79' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_58": {
+  "a_id_80": {
     "action_type": "link",
     "description": "Code of Conduct",
     "tag_name": "a",
@@ -768,11 +1054,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_80' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_59": {
+  "a_id_81": {
     "action_type": "link",
     "description": "Developers",
     "tag_name": "a",
@@ -780,11 +1066,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_81' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_60": {
+  "a_id_82": {
     "action_type": "link",
     "description": "Statistics",
     "tag_name": "a",
@@ -792,11 +1078,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_82' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_61": {
+  "a_id_83": {
     "action_type": "link",
     "description": "Cookie statement",
     "tag_name": "a",
@@ -804,11 +1090,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_83' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_62": {
+  "a_id_84": {
     "action_type": "link",
     "description": "Mobile view",
     "tag_name": "a",
@@ -818,11 +1104,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_62' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_84' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_63": {
+  "a_id_85": {
     "action_type": "link",
     "description": "",
     "tag_name": "a",
@@ -832,11 +1118,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_63' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_85' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_64": {
+  "a_id_86": {
     "action_type": "link",
     "description": "",
     "tag_name": "a",
@@ -846,25 +1132,11 @@
       "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_64' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_86' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_65": {
-    "action_type": "link",
-    "description": "",
-    "tag_name": "a",
-    "selectors": [
-      ".oo-ui-element-hidden",
-      "a.oo-ui-element-hidden",
-      "body:nth-child(9)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_65' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_66": {
+  "a_id_87": {
     "action_type": "button",
     "description": "move to sidebar",
     "tag_name": "button",
@@ -875,11 +1147,11 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_66' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_87' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_67": {
+  "a_id_88": {
     "action_type": "button",
     "description": "hide",
     "tag_name": "button",
@@ -890,11 +1162,11 @@
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_67' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_88' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_68": {
+  "a_id_89": {
     "action_type": "button",
     "description": "Search",
     "tag_name": "button",
@@ -904,11 +1176,25 @@
       "form:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_68' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_89' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_69": {
+  "a_id_90": {
+    "action_type": "button",
+    "description": "Search",
+    "tag_name": "button",
+    "selectors": [
+      ".oo-ui-inputWidget-input",
+      "button.oo-ui-inputWidget-input",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_90' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
+  },
+  "a_id_91": {
     "action_type": "button",
     "description": "Search",
     "tag_name": "button",
@@ -919,11 +1205,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_69' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_91' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_70": {
+  "a_id_92": {
     "action_type": "button",
     "description": "",
     "tag_name": "input",
@@ -935,27 +1221,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_70' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_92' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_71": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "input",
-    "selectors": [
-      "#p-lang-btn-checkbox",
-      "[data-event-name=\"ui.dropdown-p-lang-btn\"]",
-      ".vector-dropdown-checkbox",
-      "input.vector-dropdown-checkbox",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_71' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
-  },
-  "a_id_72": {
+  "a_id_93": {
     "action_type": "button",
     "description": "",
     "tag_name": "input",
@@ -967,11 +1237,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_72' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_93' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_73": {
+  "a_id_94": {
     "action_type": "button",
     "description": "",
     "tag_name": "input",
@@ -983,11 +1253,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_73' to button with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_94' to button with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   },
-  "a_id_74": {
+  "a_id_95": {
     "action_type": "link",
     "description": "Jump to content",
     "tag_name": "a",
@@ -997,8 +1267,8 @@
       "body:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_74' to link with this element",
-    "page_url": "https://en.wikipedia.org/w/index.php/search/?q=kids%20shoes",
-    "page_title": "Search/ - Wikipedia"
+    "llm_instruction": "Use actionId 'a_id_95' to link with this element",
+    "page_url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
+    "page_title": "kids shoes - Search results - Wikipedia"
   }
 }

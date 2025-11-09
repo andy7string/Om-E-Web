@@ -8098,11 +8098,13 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
 
                     // Optional submit: press Enter, then poll briefly for a visible send/submit button and click it
                     if (params && params.submit) {
-                        // Detect if this is a search input with autocomplete (like Facebook, Google, YouTube)
-                        const hasAutocomplete = element.getAttribute('aria-autocomplete') === 'list' || 
+                        // Detect if this is a search input with autocomplete/combobox UX
+                        const hasAutocomplete = element.getAttribute('aria-autocomplete') === 'list' ||
                                                element.getAttribute('aria-expanded') === 'true' ||
-                                               element.type === 'search';
-                        
+                                               element.type === 'search' ||
+                                               element.getAttribute('role') === 'combobox';
+                        const form = element.closest('form');
+
                         // For search inputs with autocomplete, wait longer for dropdown to appear before submitting
                         const submitDelay = hasAutocomplete ? 300 : 100;
                         
@@ -8374,9 +8376,8 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                             dispatchEnterKey();
                             const enterWorked = true; // Assume it will work, actual result handled async
                             
-                            // 🎯 GENERIC: For search inputs with autocomplete, try finding search button in dropdown
-                            // This works for any site with autocomplete dropdowns (Facebook, Google, etc.)
-                            if (hasAutocomplete) {
+                            // 🎯 GENERIC: For search inputs with autocomplete, try dropdown actions only when no form exists
+                            if (hasAutocomplete && !form) {
                                 setTimeout(() => {
                                     if (!findAutocompleteSearchButton()) {
                                         console.log('[Content] ⚠️ Autocomplete search button not found, trying generic navigation...');
@@ -8398,14 +8399,9 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                             }
                             
                             // Also try form submission if element is in a form
-                            // 🎯 GENERIC: Skip form submission for search inputs with autocomplete - they use Enter/autocomplete, not form submission
-                            // This works for any site, not just specific ones
-                            const shouldSkipFormSubmission = hasAutocomplete || 
-                                                           element.type === 'search' ||
-                                                           element.getAttribute('role') === 'combobox' ||
-                                                           element.getAttribute('aria-autocomplete') === 'list';
-                            
-                            const form = element.closest('form');
+                            // 🎯 GENERIC: If form exists, let it handle submission (even for autocomplete inputs)
+                            const shouldSkipFormSubmission = hasAutocomplete && !form;
+
                             if (form && enterWorked && !shouldSkipFormSubmission) {
                                 setTimeout(() => {
                                     try {
