@@ -654,7 +654,9 @@
       "navigation": [
         "tr.zA",
         "div[role='link'][data-legacy-thread-id]",
-        "a[role='link']"
+        "a[role='link']",
+        "a.J-Ke.n0",
+        "a.J-Ke"
       ]
     },
     "filters": {
@@ -670,11 +672,15 @@
     "forceIncludeSelectors": [
       "tr.zA",
       "tr[role='row'][data-legacy-last-message-id]",
-      "div[role='link'][data-legacy-thread-id]"
+      "div[role='link'][data-legacy-thread-id]",
+      "a.J-Ke.n0",
+      "a.J-Ke"
     ],
     "extraInteractiveSelectors": [
       "tr.zA",
-      "div[role='link'][data-legacy-thread-id]"
+      "div[role='link'][data-legacy-thread-id]",
+      "a.J-Ke.n0",
+      "a.J-Ke"
     ]
   },
   "default": {

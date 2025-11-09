@@ -2,9 +2,9 @@
   "_page_context": {
     "url": "https://www.youtube.com/",
     "title": "(5) YouTube",
-    "timestamp": 1762660680.394513,
-    "total_actions": 149,
-    "active_tab_id": 1138015367
+    "timestamp": 1762661252.872339,
+    "total_actions": 181,
+    "active_tab_id": 1138015372
   },
   "a_id_0": {
     "action_type": "input",
@@ -22,7 +22,7 @@
   },
   "a_id_1": {
     "action_type": "unknown",
-    "description": "Back\n    \n    \n      \n    \n    \n    \n  \n    \n  \n  \n  \n  \n\n\n  \n    \n    \n  \n  \n    \n    \n    \n    \n  ",
+    "description": "Back\n    \n    \n      \n    \n    \n    \n  \n    \n  \n    \n    \n  \n  \n    \n    \n    \n    \n    \n    \n    \n ",
     "tag_name": "ytd-masthead",
     "selectors": [
       "#masthead",
@@ -65,7 +65,7 @@
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_21": {
+  "a_id_18": {
     "action_type": "link",
     "description": "",
     "tag_name": "a",
@@ -76,111 +76,26 @@
       "ytd-topbar-logo-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_21' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_18' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_22": {
+  "a_id_19": {
     "action_type": "link",
-    "description": "Shorts",
+    "description": "Subscriptions",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
-      "[data-ome-action-id=\"a_id_22\"]",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_22' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_19' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_66": {
-    "action_type": "link",
-    "description": "Google’s Quantum Chip Just Broke Physics 🤯 Scientists Are Freaking Out",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_66' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_67": {
-    "action_type": "link",
-    "description": "Build on OpenAI at your own risk!",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_67' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_68": {
-    "action_type": "link",
-    "description": "3I/ATLAS Suddenly Begins ERUPTING with Jets of Plasma 💥 V1 BORISOV DISAPPEARS",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_68' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_69": {
-    "action_type": "link",
-    "description": "Package n8n Workflows Into a Simple SaaS (Zero Code)",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_69' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_70": {
-    "action_type": "link",
-    "description": "HUNTING SEASON Official Trailer (2025) Mel Gibson",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_70' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_71": {
-    "action_type": "link",
-    "description": "This Is Why You Should Never Trust an AI Chatbot",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_71' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_72": {
+  "a_id_100": {
     "action_type": "link",
     "description": "Realtime AI videos, new #1 open source model, AI reads minds, Google’s space GPUs, gynoids - AI NEWS",
     "tag_name": "a",
@@ -190,95 +105,11 @@
       "h3:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_72' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_100' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_73": {
-    "action_type": "link",
-    "description": "Crazy STAR WARS fight in a Shopping Mall..🤯",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_73' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_74": {
-    "action_type": "link",
-    "description": "Metallica: Nothing Else Matters [Live 4K] (Melbourne, Australia -  November 8, 2025)",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_74' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_75": {
-    "action_type": "link",
-    "description": "The First AI That Can Rewrite Its Own Mind — We Are NOT Ready",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_75' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_76": {
-    "action_type": "link",
-    "description": "AGI vs ASI Explained: Elon Musk’s Grok 4 vs Sam Altman’s ChatGPT 5 | Geoffrey Hinton",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_76' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_77": {
-    "action_type": "link",
-    "description": "Senator DESTROYS Australia’s FAKE Recognition of \"Palestine\" - They Couldn’t ANSWER!",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_77' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_78": {
-    "action_type": "link",
-    "description": "Ex-Witch Warns and EXPOSES Demonic Agenda (Jenny Weaver)",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_78' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_79": {
+  "a_id_101": {
     "action_type": "link",
     "description": "Sydney Sweeney delivers ultimate ‘smoking hot truth bomb’ and shuts down left’s culture wars",
     "tag_name": "a",
@@ -288,13 +119,13 @@
       "h3:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_79' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_101' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_80": {
+  "a_id_102": {
     "action_type": "link",
-    "description": "Brené Brown: The Algorithms Have Forced Us Into A Hidden Epidemic, This Is The Only Way Out!",
+    "description": "No.1 Brain Scientist: Your Brain Is Lying To You! Here's How I Discovered The Truth!",
     "tag_name": "a",
     "selectors": [
       ".yt-lockup-metadata-view-model__title",
@@ -302,11 +133,137 @@
       "h3:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_80' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_102' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_81": {
+  "a_id_103": {
+    "action_type": "link",
+    "description": "New from Telnyx: AI Agents Now Support Gulf Arabic Natural HD Voices!",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_103' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_104": {
+    "action_type": "link",
+    "description": "This Is Why You Should Never Trust an AI Chatbot",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_104' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_105": {
+    "action_type": "link",
+    "description": "Senator DESTROYS Australia’s FAKE Recognition of \"Palestine\" - They Couldn’t ANSWER!",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_105' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_106": {
+    "action_type": "link",
+    "description": "Build SaaS Apps in 30 Minutes: This AI Agent Replaces Your Entire Dev Team (Abacus AI DeepAgent)",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_106' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_107": {
+    "action_type": "link",
+    "description": "Ex-Witch Warns and EXPOSES Demonic Agenda (Jenny Weaver)",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_107' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_108": {
+    "action_type": "link",
+    "description": "The AI Takeover Isn’t Coming… It’s Here",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_108' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_109": {
+    "action_type": "link",
+    "description": "I Tested 500+ AI Tools, These 12 Will Blow Up Your Business",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_109' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_110": {
+    "action_type": "link",
+    "description": "3I/ATLAS Suddenly Begins ERUPTING with Jets of Plasma 💥 V1 BORISOV DISAPPEARS",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_110' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_111": {
+    "action_type": "link",
+    "description": "HUNTING SEASON Official Trailer (2025) Mel Gibson",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_111' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_112": {
     "action_type": "link",
     "description": "It looks complicated, but in fact there are only 4 simple chords.",
     "tag_name": "a",
@@ -316,13 +273,13 @@
       "h3:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_81' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_112' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_82": {
+  "a_id_113": {
     "action_type": "link",
-    "description": "What No One Tells You About The Worlds Largest Guitar Factory",
+    "description": "The NEW Way to Connect Claude to Any App (It's Easy)",
     "tag_name": "a",
     "selectors": [
       ".yt-lockup-metadata-view-model__title",
@@ -330,13 +287,13 @@
       "h3:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_82' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_113' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_83": {
+  "a_id_114": {
     "action_type": "link",
-    "description": "4 Reasons Why OpenAI's Agent Builder is NOT the Zapier Killer",
+    "description": "Metallica: Nothing Else Matters [Live 4K] (Melbourne, Australia -  November 8, 2025)",
     "tag_name": "a",
     "selectors": [
       ".yt-lockup-metadata-view-model__title",
@@ -344,11 +301,25 @@
       "h3:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_83' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_114' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_84": {
+  "a_id_115": {
+    "action_type": "link",
+    "description": "Metallica rocks Melbourne | 7NEWS",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-lockup-metadata-view-model__title",
+      "a.yt-lockup-metadata-view-model__title",
+      "h3:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_115' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_116": {
     "action_type": "link",
     "description": "The Real Reason We Should Revive Extinct Animals",
     "tag_name": "a",
@@ -358,13 +329,13 @@
       "h3:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_84' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_116' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_85": {
+  "a_id_117": {
     "action_type": "link",
-    "description": "Self Improving AI is getting wild",
+    "description": "4 Reasons Why OpenAI's Agent Builder is NOT the Zapier Killer",
     "tag_name": "a",
     "selectors": [
       ".yt-lockup-metadata-view-model__title",
@@ -372,34 +343,64 @@
       "h3:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_85' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_117' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_86": {
+  "a_id_20": {
     "action_type": "link",
-    "description": "CHINA Surpasses GPT-5: The FREE Model That Changes Everything",
+    "description": "Report history",
     "tag_name": "a",
     "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_86' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_20' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_21": {
+    "action_type": "link",
+    "description": "Peppa Pig - Official Channel",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_21' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_22": {
+    "action_type": "link",
+    "description": "BattleBots",
+    "tag_name": "a",
+    "selectors": [
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_22' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
   "a_id_23": {
     "action_type": "link",
-    "description": "Subscriptions",
+    "description": "Cristina Gomez",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
-      "[data-ome-action-id=\"a_id_23\"]",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_23' to link with this element",
@@ -408,14 +409,13 @@
   },
   "a_id_24": {
     "action_type": "link",
-    "description": "YouTube Music",
+    "description": "Julia McCoy",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
-      "[data-ome-action-id=\"a_id_24\"]",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_24' to link with this element",
@@ -424,14 +424,13 @@
   },
   "a_id_25": {
     "action_type": "link",
-    "description": "You",
+    "description": "Danny Jones",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
-      "[data-ome-action-id=\"a_id_25\"]",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_25' to link with this element",
@@ -440,14 +439,13 @@
   },
   "a_id_26": {
     "action_type": "link",
-    "description": "Downloads",
+    "description": "Danny Jones Clips",
     "tag_name": "a",
     "selectors": [
       "#endpoint",
-      "[data-ome-action-id=\"a_id_26\"]",
       ".yt-simple-endpoint",
       "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_26' to link with this element",
@@ -456,12 +454,13 @@
   },
   "a_id_27": {
     "action_type": "link",
-    "description": "Julia McCoy",
+    "description": "PowerfulJRE",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      "#endpoint",
+      ".yt-simple-endpoint",
+      "a.yt-simple-endpoint",
+      "ytd-guide-entry-renderer:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_27' to link with this element",
@@ -470,12 +469,10 @@
   },
   "a_id_28": {
     "action_type": "link",
-    "description": "This Week in Startups Clips",
+    "description": "About",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_28' to link with this element",
@@ -484,12 +481,10 @@
   },
   "a_id_29": {
     "action_type": "link",
-    "description": "Stefan Burns",
+    "description": "Press",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_29' to link with this element",
@@ -498,12 +493,10 @@
   },
   "a_id_30": {
     "action_type": "link",
-    "description": "",
+    "description": "Copyright",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_30' to link with this element",
@@ -512,12 +505,10 @@
   },
   "a_id_31": {
     "action_type": "link",
-    "description": "",
+    "description": "Contact us",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_31' to link with this element",
@@ -526,12 +517,10 @@
   },
   "a_id_32": {
     "action_type": "link",
-    "description": "",
+    "description": "Creators",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(5)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_32' to link with this element",
@@ -540,12 +529,10 @@
   },
   "a_id_33": {
     "action_type": "link",
-    "description": "",
+    "description": "Advertise",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(6)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_33' to link with this element",
@@ -554,12 +541,10 @@
   },
   "a_id_34": {
     "action_type": "link",
-    "description": "",
+    "description": "Developers",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(7)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_34' to link with this element",
@@ -568,12 +553,10 @@
   },
   "a_id_35": {
     "action_type": "link",
-    "description": "",
+    "description": "Terms",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_35' to link with this element",
@@ -582,12 +565,10 @@
   },
   "a_id_36": {
     "action_type": "link",
-    "description": "",
+    "description": "Privacy",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_36' to link with this element",
@@ -596,12 +577,10 @@
   },
   "a_id_37": {
     "action_type": "link",
-    "description": "",
+    "description": "Policy & Safety",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_37' to link with this element",
@@ -610,12 +589,10 @@
   },
   "a_id_38": {
     "action_type": "link",
-    "description": "",
+    "description": "How YouTube works",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_38' to link with this element",
@@ -624,12 +601,10 @@
   },
   "a_id_39": {
     "action_type": "link",
-    "description": "Simon Scrapes | AI Automation",
+    "description": "Test new features",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      "div:nth-child(5)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_39' to link with this element",
@@ -638,7 +613,7 @@
   },
   "a_id_40": {
     "action_type": "link",
-    "description": "Movie Trailers Source",
+    "description": "AI Search",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -652,7 +627,7 @@
   },
   "a_id_41": {
     "action_type": "link",
-    "description": "Tucker Carlson Network",
+    "description": "Sky News Australia",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -666,12 +641,12 @@
   },
   "a_id_42": {
     "action_type": "link",
-    "description": "",
+    "description": "The Diary Of A CEO",
     "tag_name": "a",
     "selectors": [
-      ".shortsLockupViewModelHostEndpoint",
-      "a.shortsLockupViewModelHostEndpoint",
-      "ytm-shorts-lockup-view-model:nth-child(1)"
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_42' to link with this element",
@@ -792,12 +767,12 @@
   },
   "a_id_51": {
     "action_type": "link",
-    "description": "AI Search",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_51' to link with this element",
@@ -806,7 +781,7 @@
   },
   "a_id_52": {
     "action_type": "link",
-    "description": "Violin Phonix",
+    "description": "Telnyx",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -820,7 +795,7 @@
   },
   "a_id_53": {
     "action_type": "link",
-    "description": "The Squirrel",
+    "description": "Tucker Carlson Network",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -834,7 +809,7 @@
   },
   "a_id_54": {
     "action_type": "link",
-    "description": "Dylan Curious",
+    "description": "Stand Tall Israel",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -848,12 +823,12 @@
   },
   "a_id_55": {
     "action_type": "link",
-    "description": "The AI Audiobook",
+    "description": "View all",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      ".yt-spec-button-shape-next",
+      "a.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_55' to link with this element",
@@ -862,12 +837,12 @@
   },
   "a_id_56": {
     "action_type": "link",
-    "description": "Stand Tall Israel",
+    "description": "",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_56' to link with this element",
@@ -875,6 +850,160 @@
     "page_title": "(5) YouTube"
   },
   "a_id_57": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_58": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_59": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_60": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_61": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_62": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_62' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_63": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_63' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_64": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_64' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_65": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_65' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_66": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_66' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_67": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_67' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_68": {
     "action_type": "link",
     "description": "Dennis Gorcea",
     "tag_name": "a",
@@ -884,13 +1013,13 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_57' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_68' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_58": {
+  "a_id_69": {
     "action_type": "link",
-    "description": "Sky News Australia",
+    "description": "Purpose Developer™ | Pursuit To Own",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -898,13 +1027,139 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_58' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_69' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_59": {
+  "a_id_70": {
     "action_type": "link",
-    "description": "The Diary Of A CEO",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_70' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_71": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_71' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_72": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_72' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_73": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_73' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_74": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_74' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_75": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_75' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_76": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_76' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_77": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_77' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_78": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".shortsLockupViewModelHostEndpoint",
+      "a.shortsLockupViewModelHostEndpoint",
+      "ytm-shorts-lockup-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_78' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_79": {
+    "action_type": "link",
+    "description": "Dan Martell",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -912,11 +1167,39 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_59' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_79' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_60": {
+  "a_id_80": {
+    "action_type": "link",
+    "description": "Stefan Burns",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_80' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_81": {
+    "action_type": "link",
+    "description": "Movie Trailers Source",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_81' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_82": {
     "action_type": "link",
     "description": "Guitar",
     "tag_name": "a",
@@ -926,13 +1209,13 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_60' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_82' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_61": {
+  "a_id_83": {
     "action_type": "link",
-    "description": "Phillip McKnight",
+    "description": "D-Squared",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -940,13 +1223,13 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_61' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_83' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_62": {
+  "a_id_84": {
     "action_type": "link",
-    "description": "Helena Liu",
+    "description": "The Squirrel",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -954,11 +1237,193 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_62' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_84' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_63": {
+  "a_id_85": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_85' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_86": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_86' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_87": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_87' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_88": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_88' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_89": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_89' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_90": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_90' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_91": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_91' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_92": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_92' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_93": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_93' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_94": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_94' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_95": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_95' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_96": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-mini-game-card-view-model__thumbnail-wrapper",
+      "a.yt-mini-game-card-view-model__thumbnail-wrapper",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_96' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_97": {
+    "action_type": "link",
+    "description": "7NEWS Australia",
+    "tag_name": "a",
+    "selectors": [
+      ".yt-core-attributed-string__link",
+      "a.yt-core-attributed-string__link",
+      "span:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_97' to link with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_98": {
     "action_type": "link",
     "description": "Cleo Abram",
     "tag_name": "a",
@@ -968,13 +1433,13 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_63' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_98' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_64": {
+  "a_id_99": {
     "action_type": "link",
-    "description": "Wes Roth",
+    "description": "Helena Liu",
     "tag_name": "a",
     "selectors": [
       ".yt-core-attributed-string__link",
@@ -982,85 +1447,35 @@
       "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_64' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_99' to link with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_65": {
-    "action_type": "link",
-    "description": "TODO IA",
-    "tag_name": "a",
-    "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_65' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_87": {
+  "a_id_118": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(6)"
+      "head:nth-child(11)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_87' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_118' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_88": {
+  "a_id_119": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(7)"
+      "head:nth-child(12)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_88' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_119' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_89": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(8)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_89' to unknown with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_90": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(9)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_90' to unknown with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_91": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(10)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_91' to unknown with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_92": {
+  "a_id_120": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -1068,23 +1483,35 @@
       "head:nth-child(13)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_92' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_120' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_93": {
+  "a_id_121": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(17)"
+      "head:nth-child(14)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_93' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_121' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_94": {
+  "a_id_122": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(15)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_122' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_123": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -1092,11 +1519,23 @@
       "head:nth-child(18)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_94' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_123' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_95": {
+  "a_id_124": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(22)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_124' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_125": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -1104,140 +1543,152 @@
       "head:nth-child(23)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_95' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_125' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_96": {
+  "a_id_126": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(24)"
+      "head:nth-child(28)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_96' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_126' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_97": {
+  "a_id_127": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "head:nth-child(29)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_127' to unknown with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_128": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
       "link.css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
-      "head:nth-child(38)"
+      "head:nth-child(43)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_97' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_128' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_98": {
+  "a_id_129": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpswwwyoutubecomsdesktopace6261ecssbinwwwmaindesktophomepageskeleton2xcss",
       "link.css-httpswwwyoutubecomsdesktopace6261ecssbinwwwmaindesktophomepageskeleton2xcss",
-      "head:nth-child(40)"
+      "head:nth-child(45)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_98' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_129' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_99": {
+  "a_id_130": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpswwwyoutubecomsdesktopace6261ecssbinwwwonepick2xcss",
       "link.css-httpswwwyoutubecomsdesktopace6261ecssbinwwwonepick2xcss",
-      "head:nth-child(41)"
+      "head:nth-child(46)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_99' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_130' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_100": {
+  "a_id_131": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       ".css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_baseyILugPzmADYLB1OamAAAAyBgBd0br1rsAGKMywFTGPQN02MOKvB0nFkzeaSxJUcL8w",
       "link.css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_baseyILugPzmADYLB1OamAAAAyBgBd0br1rsAGKMywFTGPQN02MOKvB0nFkzeaSxJUcL8w",
-      "head:nth-child(42)"
+      "head:nth-child(47)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_100' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_131' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_101": {
+  "a_id_132": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(49)"
+      "head:nth-child(54)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_101' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_132' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_102": {
+  "a_id_133": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(50)"
+      "head:nth-child(55)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_102' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_133' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_103": {
+  "a_id_134": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(64)"
+      "head:nth-child(69)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_103' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_134' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_104": {
+  "a_id_135": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
-      "head:nth-child(65)"
+      "head:nth-child(70)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_104' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_135' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_105": {
+  "a_id_136": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
     "selectors": [
       "#player-css",
-      "head:nth-child(68)"
+      "head:nth-child(73)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_105' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_136' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_106": {
+  "a_id_137": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "link",
@@ -1247,11 +1698,11 @@
       "body:nth-child(41)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_106' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_137' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_107": {
+  "a_id_138": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1262,11 +1713,11 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_107' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_138' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_108": {
+  "a_id_139": {
     "action_type": "button",
     "description": "Skip navigation",
     "tag_name": "button",
@@ -1276,26 +1727,27 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_108' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_139' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_109": {
+  "a_id_140": {
     "action_type": "button",
     "description": "Search",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-tooltip-title=\"Search\"]",
+      "[data-tooltip-opaque=\"false\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_109' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_140' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_110": {
+  "a_id_141": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1305,11 +1757,11 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_110' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_141' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_111": {
+  "a_id_142": {
     "action_type": "button",
     "description": "Create",
     "tag_name": "button",
@@ -1319,13 +1771,13 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_111' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_142' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_112": {
+  "a_id_143": {
     "action_type": "button",
-    "description": "",
+    "description": "5",
     "tag_name": "button",
     "selectors": [
       "#button",
@@ -1334,11 +1786,11 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_112' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_143' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_113": {
+  "a_id_144": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1349,11 +1801,11 @@
       "ytd-topbar-menu-button-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_113' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_144' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_114": {
+  "a_id_145": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "yt-icon-button",
@@ -1364,26 +1816,11 @@
       "ytd-menu-renderer:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_114' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_145' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_115": {
-    "action_type": "button",
-    "description": "",
-    "tag_name": "button",
-    "selectors": [
-      "#ally-menu-button",
-      ".ally-menu-button",
-      "button.ally-menu-button",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_115' to button with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_116": {
+  "a_id_146": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1393,11 +1830,11 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_116' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_146' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_117": {
+  "a_id_147": {
     "action_type": "button",
     "description": "New to you",
     "tag_name": "button",
@@ -1407,11 +1844,11 @@
       "chip-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_117' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_147' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_118": {
+  "a_id_148": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1421,11 +1858,11 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_118' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_148' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_119": {
+  "a_id_149": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1435,11 +1872,11 @@
       "button-view-model:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_119' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_149' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_120": {
+  "a_id_150": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1450,11 +1887,11 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_120' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_150' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_121": {
+  "a_id_151": {
     "action_type": "button",
     "description": "Show more",
     "tag_name": "button",
@@ -1464,11 +1901,11 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_121' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_151' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_122": {
+  "a_id_152": {
     "action_type": "button",
     "description": "Show less",
     "tag_name": "button",
@@ -1478,11 +1915,426 @@
       "yt-button-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_122' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_152' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_123": {
+  "a_id_153": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "yt-button-shape:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_153' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_154": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".yt-spec-button-shape-next",
+      "button.yt-spec-button-shape-next",
+      "button-view-model:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_154' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_155": {
+    "action_type": "button",
+    "description": "Tap to unmute",
+    "tag_name": "button",
+    "selectors": [
+      "[data-layer=\"2\"]",
+      ".ytp-unmute",
+      "button.ytp-unmute",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_155' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_156": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-suggested-action-badge-dismiss-button-icon",
+      "button.ytp-suggested-action-badge-dismiss-button-icon",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_156' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_157": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-featured-product-overflow-icon",
+      "button.ytp-featured-product-overflow-icon",
+      "a:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_157' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_158": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-large-play-button",
+      "button.ytp-large-play-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_158' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_159": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-cards-teaser-info-icon",
+      "button.ytp-cards-teaser-info-icon",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_159' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_160": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"Close\"]",
+      ".ytp-overflow-panel-close",
+      "button.ytp-overflow-panel-close",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_160' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_161": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"More\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_161' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_162": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-overlay-order=\"3\"]",
+      ".ytp-playlist-menu-button",
+      "button.ytp-playlist-menu-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_162' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_163": {
+    "action_type": "button",
+    "description": "Confirm",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_163' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_164": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-share-panel-close",
+      "button.ytp-share-panel-close",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_164' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_165": {
+    "action_type": "button",
+    "description": "Watch later",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-opaque=\"false\"]",
+      "[data-tooltip-title=\"Watch later\"]",
+      ".ytp-watch-later-button",
+      "button.ytp-watch-later-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_165' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_166": {
+    "action_type": "button",
+    "description": "Share",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"Share\"]",
+      "[data-tooltip-opaque=\"false\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_166' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_167": {
+    "action_type": "button",
+    "description": "Copy link",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-opaque=\"false\"]",
+      "[data-tooltip-title=\"Copy link\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_167' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_168": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-title-no-tooltip=\"Play\"]",
+      "[data-tooltip-title=\"Play (k)\"]",
+      ".ytp-play-button",
+      "button.ytp-play-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_168' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_169": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-offset-y=\"0\"]",
+      "[data-tooltip-title=\"Mute (m)\"]",
+      "[data-title-no-tooltip=\"Mute\"]",
+      ".ytp-volume-icon",
+      "button.ytp-volume-icon",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_169' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_170": {
+    "action_type": "button",
+    "description": "Live",
+    "tag_name": "button",
+    "selectors": [
+      ".ytp-live-badge",
+      "button.ytp-live-badge",
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_170' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_171": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-priority=\"1\"]",
+      ".ytp-expand-right-bottom-section-button",
+      "button.ytp-expand-right-bottom-section-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_171' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_172": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-priority=\"3\"]",
+      "[data-tooltip-target-id=\"ytp-autonav-toggle-button\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_172' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_173": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-priority=\"5\"]",
+      "[data-tooltip-title=\"Subtitles/closed captions unavailable\"]",
+      "[data-title-no-tooltip=\"Subtitles/closed captions unavailable\"]",
+      ".ytp-subtitles-button",
+      "button.ytp-subtitles-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_173' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_174": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"Settings\"]",
+      "[data-tooltip-target-id=\"ytp-settings-button\"]",
+      ".ytp-button",
+      "button.ytp-button",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_174' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_175": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-priority=\"9\"]",
+      "[data-tooltip-title=\"Theater mode (t)\"]",
+      "[data-title-no-tooltip=\"Theater mode\"]",
+      ".ytp-size-button",
+      "button.ytp-size-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_175' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_176": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-title=\"Play on TV\"]",
+      "[data-priority=\"10\"]",
+      ".ytp-remote-button",
+      "button.ytp-remote-button",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_176' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_177": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-priority=\"12\"]",
+      "[data-title-no-tooltip=\"Full screen\"]",
+      "[data-tooltip-title=\"Full screen (f)\"]",
+      ".ytp-fullscreen-button",
+      "button.ytp-fullscreen-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_177' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_178": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-priority=\"8\"]",
+      "[data-tooltip-target-id=\"ytp-pip-button\"]",
+      "[data-tooltip-title=\"Picture-in-picture\"]",
+      "[data-title-no-tooltip=\"Picture-in-picture\"]",
+      ".ytp-pip-button",
+      "button.ytp-pip-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_178' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_179": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "button",
+    "selectors": [
+      "[data-tooltip-target-id=\"ytp-fullscreen-grid-expand-button\"]",
+      "[data-tooltip-offset-y=\"-10\"]",
+      ".ytp-fullscreen-grid-expand-button",
+      "button.ytp-fullscreen-grid-expand-button",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_179' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_180": {
     "action_type": "button",
     "description": "",
     "tag_name": "button",
@@ -1493,11 +2345,11 @@
       "yt-icon-button:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_123' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_180' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_124": {
+  "a_id_181": {
     "action_type": "unknown",
     "description": "Search",
     "tag_name": "yt-icon-button",
@@ -1508,13 +2360,13 @@
       "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_124' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_181' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_125": {
+  "a_id_182": {
     "action_type": "unknown",
-    "description": "",
+    "description": "5",
     "tag_name": "yt-icon-button",
     "selectors": [
       "#icon",
@@ -1523,25 +2375,25 @@
       "ytd-notification-topbar-button-renderer:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_125' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_182' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_126": {
+  "a_id_183": {
     "action_type": "unknown",
-    "description": "Next",
+    "description": "Not interested",
     "tag_name": "ytd-button-renderer",
     "selectors": [
       ".style-scope",
       "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_126' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_183' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_127": {
+  "a_id_184": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "yt-icon-button",
@@ -1552,11 +2404,11 @@
       "div:nth-child(4)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_127' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_184' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_128": {
+  "a_id_185": {
     "action_type": "unknown",
     "description": "",
     "tag_name": "ytd-button-renderer",
@@ -1566,11 +2418,11 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_128' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_185' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_129": {
+  "a_id_186": {
     "action_type": "unknown",
     "description": "Show less",
     "tag_name": "ytd-button-renderer",
@@ -1580,11 +2432,41 @@
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_129' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_186' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_130": {
+  "a_id_187": {
+    "action_type": "button",
+    "description": "Show more",
+    "tag_name": "ytd-guide-entry-renderer",
+    "selectors": [
+      "#expander-item",
+      ".style-scope",
+      "ytd-guide-entry-renderer.style-scope",
+      "ytd-guide-collapsible-entry-renderer:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_187' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_188": {
+    "action_type": "button",
+    "description": "Show less",
+    "tag_name": "ytd-guide-entry-renderer",
+    "selectors": [
+      "#collapser-item",
+      ".style-scope",
+      "ytd-guide-entry-renderer.style-scope",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_188' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_189": {
     "action_type": "button",
     "description": "",
     "tag_name": "div",
@@ -1594,11 +2476,55 @@
       "yt-avatar-shape:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_130' to button with this element",
+    "llm_instruction": "Use actionId 'a_id_189' to button with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_131": {
+  "a_id_190": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".ytp-fine-scrubbing-play",
+      "div.ytp-fine-scrubbing-play",
+      "div:nth-child(4)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_190' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_191": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "div",
+    "selectors": [
+      ".ytp-fine-scrubbing-dismiss",
+      "div.ytp-fine-scrubbing-dismiss",
+      "div:nth-child(5)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_191' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_192": {
+    "action_type": "button",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-tooltip-title=\"Next (SHIFT+n)\"]",
+      "[data-title-no-tooltip=\"Next\"]",
+      ".ytp-next-button",
+      "a.ytp-next-button",
+      "div:nth-child(3)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_192' to button with this element",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(5) YouTube"
+  },
+  "a_id_193": {
     "action_type": "unknown",
     "description": "Search with your voice",
     "tag_name": "div",
@@ -1609,13 +2535,13 @@
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_131' to unknown with this element",
+    "llm_instruction": "Use actionId 'a_id_193' to unknown with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   },
-  "a_id_436": {
+  "a_id_555": {
     "action_type": "nav",
-    "description": "AU",
+    "description": "AU\n\n\n        \n        \n          \n            \n  \n\n\n  \n    \n    \n    Home\n    \n    \n      \n    \n    ",
     "tag_name": "tp-yt-app-drawer",
     "selectors": [
       "#guide",
@@ -1624,526 +2550,7 @@
       "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_436' to nav with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_437": {
-    "action_type": "link",
-    "description": "Google’s Quantum Chip Just Broke Physics 🤯 Scientists Are Freaking Out",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_66\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_437' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_438": {
-    "action_type": "link",
-    "description": "Build on OpenAI at your own risk!",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_67\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_438' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_439": {
-    "action_type": "link",
-    "description": "3I/ATLAS Suddenly Begins ERUPTING with Jets of Plasma 💥 V1 BORISOV DISAPPEARS",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_68\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_439' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_440": {
-    "action_type": "link",
-    "description": "Package n8n Workflows Into a Simple SaaS (Zero Code)",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_69\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_440' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_441": {
-    "action_type": "link",
-    "description": "HUNTING SEASON Official Trailer (2025) Mel Gibson",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_70\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_441' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_442": {
-    "action_type": "link",
-    "description": "This Is Why You Should Never Trust an AI Chatbot",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_71\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_442' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_443": {
-    "action_type": "link",
-    "description": "Realtime AI videos, new #1 open source model, AI reads minds, Google’s space GPUs, gynoids - AI NEWS",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_72\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_443' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_444": {
-    "action_type": "link",
-    "description": "Crazy STAR WARS fight in a Shopping Mall..🤯",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_73\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_444' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_445": {
-    "action_type": "link",
-    "description": "Metallica: Nothing Else Matters [Live 4K] (Melbourne, Australia - November 8, 2025)",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_74\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_445' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_446": {
-    "action_type": "link",
-    "description": "The First AI That Can Rewrite Its Own Mind — We Are NOT Ready",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_75\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_446' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_447": {
-    "action_type": "link",
-    "description": "AGI vs ASI Explained: Elon Musk’s Grok 4 vs Sam Altman’s ChatGPT 5 | Geoffrey Hinton",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_76\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_447' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_448": {
-    "action_type": "link",
-    "description": "Senator DESTROYS Australia’s FAKE Recognition of \"Palestine\" - They Couldn’t ANSWER!",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_77\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_448' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_449": {
-    "action_type": "link",
-    "description": "Ex-Witch Warns and EXPOSES Demonic Agenda (Jenny Weaver)",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_78\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_449' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_450": {
-    "action_type": "link",
-    "description": "Sydney Sweeney delivers ultimate ‘smoking hot truth bomb’ and shuts down left’s culture wars",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_79\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_450' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_451": {
-    "action_type": "link",
-    "description": "Brené Brown: The Algorithms Have Forced Us Into A Hidden Epidemic, This Is The Only Way Out!",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_80\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_451' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_452": {
-    "action_type": "link",
-    "description": "It looks complicated, but in fact there are only 4 simple chords.",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_81\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_452' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_453": {
-    "action_type": "link",
-    "description": "What No One Tells You About The Worlds Largest Guitar Factory",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_82\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_453' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_454": {
-    "action_type": "link",
-    "description": "4 Reasons Why OpenAI's Agent Builder is NOT the Zapier Killer",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_83\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_454' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_455": {
-    "action_type": "link",
-    "description": "The Real Reason We Should Revive Extinct Animals",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_84\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_455' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_456": {
-    "action_type": "link",
-    "description": "Self Improving AI is getting wild",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_85\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_456' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_457": {
-    "action_type": "link",
-    "description": "CHINA Surpasses GPT-5: The FREE Model That Changes Everything",
-    "tag_name": "a",
-    "selectors": [
-      "[data-ome-action-id=\"a_id_86\"]",
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_457' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_458": {
-    "action_type": "link",
-    "description": "30:24Exclusive: Data showing possible nonhuman intelligence passes peer review | Reality CheckNewsNa",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_458' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_459": {
-    "action_type": "link",
-    "description": "1:13:31“Only a Question of Time” Does AI Mean We're DOOMED? Plus Oz Pearlman Reads Piers Morgan’s Mi",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_459' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_460": {
-    "action_type": "link",
-    "description": "49:19Secret History #3: Death by GerontocracyPredictive History699K views • 2 months agoLivePlaylist",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_460' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_461": {
-    "action_type": "link",
-    "description": "8:12Is 3I/ATLAS revving an engine? Avi Loeb notes mysterious propulsion | BanfieldNewsNation441K vie",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_461' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_462": {
-    "action_type": "link",
-    "description": "52:04The Wild PacificDocumentary • 20172 years agoLivePlaylist ()Mix (50+)",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_462' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_463": {
-    "action_type": "link",
-    "description": "1:07:36Secret History #16: The Big Bang of Greek CivilizationPredictive History112K views • 2 days a",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(6)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_463' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_464": {
-    "action_type": "link",
-    "description": "51:03Is Anybody Out There?Documentary • 20232 years agoLivePlaylist ()Mix (50+)",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(7)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_464' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_465": {
-    "action_type": "link",
-    "description": "18:09What will AGI look like? A world run by AI.Julia McCoy128K views • 1 year agoLivePlaylist ()Mix",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(8)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_465' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_466": {
-    "action_type": "link",
-    "description": "20:17Cursor 2.0 Changed How I WorkBrian Casel5.8K views • 1 day agoLivePlaylist ()Mix (50+)",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(9)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_466' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_467": {
-    "action_type": "link",
-    "description": "7:24This Is Why Humans Hate AISabine Hossenfelder87K views • 11 hours agoLivePlaylist ()Mix (50+)",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(10)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_467' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_468": {
-    "action_type": "link",
-    "description": "19:43Are There Infinite Universes? Brian Cox Explains | LADbible StoriesLADbible Stories251K views •",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(11)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_468' to link with this element",
-    "page_url": "https://www.youtube.com/",
-    "page_title": "(5) YouTube"
-  },
-  "a_id_469": {
-    "action_type": "link",
-    "description": "55:15Secret History #15: Capital and the Bronze Age CollapsePredictive History130K views • 4 days ag",
-    "tag_name": "a",
-    "selectors": [
-      "[data-is-live=\"false\"]",
-      "[data-is-list=\"false\"]",
-      "[data-is-mix=\"false\"]",
-      ".ytp-modern-videowall-still",
-      "a.ytp-modern-videowall-still",
-      "div:nth-child(12)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_469' to link with this element",
+    "llm_instruction": "Use actionId 'a_id_555' to nav with this element",
     "page_url": "https://www.youtube.com/",
     "page_title": "(5) YouTube"
   }
