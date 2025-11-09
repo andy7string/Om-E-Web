@@ -852,38 +852,104 @@ async def store_dom_change_context(dom_change_data):
 
 # ------------------ LLM PROMPT GENERATOR (compact) ------------------
 
+def _format_table_row_label(record: Dict[str, Any]) -> Dict[str, Optional[str]]:
+    """Derive a human-friendly label for table/list rows (e.g., Gmail emails)."""
+    text = (record.get("textContent") or "").replace('\xa0', ' ').strip()
+    cleaned = re.sub(r"\s+", " ", text)
+
+    parts = [p.strip() for p in cleaned.split(',') if p.strip()]
+    skip_tokens = {"unread", "read", "starred", "not starred"}
+
+    sender: Optional[str] = None
+    subject: Optional[str] = None
+    time_part: Optional[str] = None
+    preview: Optional[str] = None
+
+    for part in parts:
+        lower = part.lower()
+        if "has attachment" in lower:
+            continue
+        if sender is None and lower not in skip_tokens and not re.search(r"\d{1,2}:\d{2}", part):
+            sender = part
+            continue
+        if subject is None and not re.search(r"\d{1,2}:\d{2}", part):
+            subject = part
+            continue
+        if time_part is None and re.search(r"\d{1,2}:\d{2}", part):
+            time_part = part
+            continue
+        if preview is None and lower not in skip_tokens:
+            preview = part
+
+    if sender is None and parts:
+        sender = parts[0]
+    if subject is None and len(parts) > 1:
+        subject = parts[1]
+
+    display = ""
+    if sender and subject:
+        display = f"{sender} — {subject}"
+    elif sender:
+        display = sender
+    elif subject:
+        display = subject
+    else:
+        display = cleaned[:120]
+
+    if time_part:
+        display = f"{display} ({time_part})"
+    if preview:
+        display = f"{display} — {preview[:80]}"
+
+    return {
+        "display": display.strip()[:200],
+        "sender": sender,
+        "subject": subject,
+        "time": time_part,
+        "preview": preview,
+        "raw": cleaned
+    }
+
 def _map_prompt_action_sentence(record: Dict[str, Any]) -> Optional[str]:
     try:
         if record.get("type") != "action":
             return None
         
-        # 🎯 ALLOW IMPORTANT HIDDEN ELEMENTS: Navigation links, especially video links
+        # 🎯 ALLOW IMPORTANT HIDDEN ELEMENTS: Navigation links, video links, and interactive table rows
         visibility = record.get("visibility")
         if visibility == "hidden":
-            # Check if this is an important navigation link that should be included despite being hidden
+            # Check if this is an important element that should be included despite being hidden
             tag = (record.get("tag") or "").lower()
             action_types = record.get("actionTypes") or []
             href = record.get("href") or ""
             label = (record.get("label") or record.get("ariaLabel") or "").strip()
             attributes = record.get("attributes", {})
             css_classes = attributes.get("cssClasses", [])
+            role = attributes.get("role", "").lower()
+            
+            # 🎯 GENERIC: Allow interactive table/list rows (works for any site with table-based UIs)
+            # These are often marked hidden but are critical for interaction
+            # Pattern: table rows, list items, or divs with row/listitem/option roles that have click actions
+            is_interactive_row = (tag == "tr" and role == "row") or \
+                                (tag in ("tr", "li", "div", "article", "section") and 
+                                 role in ("row", "listitem", "option", "article") and 
+                                 any(t in ("click", "button", "navigate", "link") for t in action_types))
             
             # Allow hidden elements if they are:
             # 1. Navigation links (tag == "a" or has navigate/link actionTypes)
             # 2. Have meaningful labels (not empty, length > 3)
             # 3. Have an href (not empty)
             # 4. Are YouTube video links (href contains /watch?v=) OR have yt-lockup-metadata-view-model__title class
+            # OR are interactive table/list rows (generic pattern for email clients, data tables, etc.)
             is_navigation_link = tag == "a" or any(t in ("navigate", "link") for t in action_types)
             is_video_link = "/watch?v=" in href or "yt-lockup-metadata-view-model__title" in str(css_classes)
             has_meaningful_label = bool(label and len(label) > 3)
             has_href = bool(href and len(href) > 0)
             
-            # Only allow hidden elements if they meet all criteria:
-            # - Must be a navigation link
-            # - Must have a meaningful label
-            # - Must have an href
-            # - Must be a video link (YouTube) - these are important even if marked hidden
-            if not (is_navigation_link and has_meaningful_label and has_href and is_video_link):
+            # Allow hidden elements if they meet any of these criteria:
+            # - Interactive table/list rows (generic pattern)
+            # - OR navigation links with meaningful labels, href, and video link pattern
+            if not (is_interactive_row or (is_navigation_link and has_meaningful_label and has_href and is_video_link)):
                 return None
         
         action_id = record.get("id")
@@ -893,12 +959,33 @@ def _map_prompt_action_sentence(record: Dict[str, Any]) -> Optional[str]:
         tag = (record.get("tag") or "").lower()
         action_types = record.get("actionTypes") or []
         control_type = record.get("controlType") or ""
+        attributes = record.get("attributes", {})
+        role = attributes.get("role", "").lower()
+        
+        # 🎯 GENERIC: Handle table rows and list items (works for any site with table/list-based UIs)
+        # Extract meaningful label from aria-labelledby or text content if label is empty
+        if tag == "tr" and role == "row":
+            row_info = _format_table_row_label(record)
+            display_label = row_info.get("display") or label or record.get("description") or "Table row"
+            display_label = display_label.replace("'", "\u2019").strip()
+            if row_info.get("sender"):
+                display_label = f"Email: {display_label}" if not display_label.lower().startswith("email") else display_label
+            label = display_label
+            return f"return ({action_id}) to click '{label[:200]}'"
 
+        if not label and (tag in ("tr", "li") and role in ("row", "listitem")):
+            label = "Row"
+        
         if tag in {"input", "textarea"} or control_type == "input" or any(t in ("input", "setValue") for t in action_types):
             return f"return ({action_id},{{yourValue}}) to set value for '{label}'. Add submit:true to submit."
         if tag == "a" or any(t in ("navigate", "link") for t in action_types):
             return f"return ({action_id}) to navigate to '{label}'"
         if tag == "button" or "click" in action_types:
+            return f"return ({action_id}) to click '{label}'"
+        # 🎯 GENERIC: Table rows and list items are typically clickable (works for any site)
+        # Pattern: tr with role="row", or tr/li with click/button actions
+        if (tag in ("tr", "li", "article", "section") and role in ("row", "listitem", "article") and 
+            any(t in ("click", "button", "navigate") for t in action_types)):
             return f"return ({action_id}) to click '{label}'"
         return f"return ({action_id}) to interact with '{label}'"
     except Exception:
@@ -1010,15 +1097,24 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
         menu_groups: Dict[str, List[Dict[str, Any]]] = {}
         regular_actions: List[Dict[str, Any]] = []
         search_inputs: List[Dict[str, Any]] = []  # 🎯 NEW: Prioritize search inputs
+        email_actions: List[Dict[str, Any]] = []  # 🎯 NEW: Group email/message rows
         
         for rec in deduped_records:
+            record = rec.get('record', {})
+            tag = (record.get('tag') or '').lower()
+            attributes = record.get('attributes', {})
+            role = (attributes.get('role') or '').lower()
+
+            # 🎯 PRIORITIZE: Capture email/message rows before other grouping
+            if tag == 'tr' and role == 'row':
+                email_actions.append(rec)
+                continue
+
             is_menu, menu_group = _is_menu_item(rec['label'], rec['action_id'])
             
             # 🎯 PRIORITIZE: Extract search inputs (especially Wikipedia search)
             label_lower = (rec.get('label') or '').lower()
-            record = rec.get('record', {})
             action_types = record.get('actionTypes', [])
-            tag = (record.get('tag') or '').lower()
             placeholder = (record.get('placeholder') or '').lower()
             aria_label = (record.get('ariaLabel') or '').lower()
             element_id = record.get('id', '')
@@ -1052,6 +1148,7 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
         
         # Sort regular actions by DOM index
         regular_actions.sort(key=lambda r: r['index'])
+        email_actions.sort(key=lambda r: r['index'])
 
         parts: List[str] = []
         parts.append(f"# {title or 'Page'}")
@@ -1074,7 +1171,13 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
                 parts.extend([f"- {item['line']}" for item in search_inputs])
                 parts.append("")
             
-            # PRIORITY 2: Menu groups with headers (preserving DOM order within each group)
+            # 🎯 PRIORITY 2: Email/message rows (e.g., Gmail inbox)
+            if email_actions:
+                parts.append("### Emails")
+                parts.extend([f"- {item['line']}" for item in email_actions])
+                parts.append("")
+            
+            # PRIORITY 3: Menu groups with headers (preserving DOM order within each group)
             for menu_group_name in sorted(menu_groups.keys()):
                 menu_items = menu_groups[menu_group_name]
                 if menu_items:
@@ -1082,9 +1185,9 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
                     parts.extend([f"- {item['line']}" for item in menu_items])
                     parts.append("")
             
-            # PRIORITY 3: Regular actions (preserving DOM order)
+            # PRIORITY 4: Regular actions (preserving DOM order)
             if regular_actions:
-                if search_inputs or menu_groups:
+                if search_inputs or menu_groups or email_actions:
                     parts.append("### Other Actions")
                 parts.extend([f"- {item['line']}" for item in regular_actions])
                 parts.append("")

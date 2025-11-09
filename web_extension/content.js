@@ -125,7 +125,7 @@ const pageIdleMonitor = (() => {
 
         if (typeof window.requestIdleCallback === 'function') {
             window.requestIdleCallback(runCheck, { timeout: quietWindowMs });
-        } else {
+} else {
             window.requestAnimationFrame(runCheck);
         }
     };
@@ -285,7 +285,7 @@ const pageIdleMonitor = (() => {
                 timeoutId = setTimeout(() => {
                     console.warn("[Content] ⚠️ Idle wait exceeded maxWait, proceeding anyway");
                     complete();
-                }, maxWait);
+  }, maxWait);
             }
         });
     };
@@ -677,7 +677,6 @@ function buildElementDescriptor(element, role) {
         }
     };
 }
-
 function discoverLoginControls(options = {}) {
     const RESULT_ROLES = ['login_email', 'login_password', 'login_submit'];
     const EXACT_SELECTORS = {
@@ -1444,7 +1443,6 @@ var visible = (element) => {
            style.visibility !== "hidden" && 
            style.display !== "none";
 };
-
 /**
  * 🎯 Generate CSS selector for an element (inspired by Crawl4AI)
  * 
@@ -2234,7 +2232,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // This tells Chrome that we'll send the response asynchronously
     return true;
 });
-
 /**
  * 📊 Get current tab information and navigation status
  * 
@@ -2946,7 +2943,6 @@ function findVisibleElement(element) {
     console.log(`[Smart Resolution] ❌ No suitable visible element found`);
     return null;
 }
-
 /**
  * 🆕 ENHANCED: Multi-property dimension detection based on Sentry.io guidance
  * 
@@ -3637,7 +3633,6 @@ function checkForDOMChanges(element) {
     
     return changes;
 }
-
 /**
  * 🆕 SUBMENU INSPECTION: Inspect submenu content after click
  * 
@@ -4432,7 +4427,6 @@ function generateRecommendedActions(actionMap) {
  * - Jump to specific history entries
  * - Monitor history changes
  */
-
 // Global history tracking
 var navigationHistory = [];
 var currentHistoryIndex = -1;
@@ -5122,7 +5116,7 @@ IntelligenceEngine.prototype.isInteractiveElement = function(element) {
     }
     
     // 🆕 NEW: Use site config if available (either specific or default)
-        if (siteConfig) {
+    if (siteConfig) {
         try {
             const selectors = siteConfig.selectors;
             const filters = siteConfig.filters;
@@ -5207,7 +5201,6 @@ IntelligenceEngine.prototype.isInteractiveElement = function(element) {
     
     return false;
 };
-
 /**
  * 🆕 PHASE 1: Basic quality filter for interactive elements
  * Filters out low-quality elements during scanning to reduce payload
@@ -5699,7 +5692,6 @@ IntelligenceEngine.prototype.prepareIntelligenceData = function() {
         transcripts
     };
 };
-
 /**
  * 🆕 EXPERIMENTAL: Build normalized JSONL-ready records for the current page
  *
@@ -6445,6 +6437,16 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             return false;
         }
 
+        const roleAttr = attributes && attributes.role ? attributes.role.toLowerCase() : '';
+
+        if (tag === 'tr' && roleAttr === 'row') {
+            return true;
+        }
+
+        if (tag === 'div' && roleAttr === 'link' && attributes && attributes['data-legacy-thread-id']) {
+            return true;
+        }
+
         if (tag === 'nav' || tag === 'button' || tag === 'a' || tag === 'input' || tag === 'select' || tag === 'textarea') {
             return true;
         }
@@ -6453,7 +6455,6 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             if (attributes.contenteditable === 'true') {
                 return true;
             }
-            const roleAttr = attributes.role ? attributes.role.toLowerCase() : '';
             if (roleAttr === 'textbox' || roleAttr === 'input') {
                 return true;
             }
@@ -6492,7 +6493,6 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
         if (!trimmed) return null;
         return trimmed.toLowerCase();
     }
-
     function inferControlType(descriptor, actionRecord) {
         if (!actionRecord) return null;
         const actionTypes = Array.isArray(actionRecord.actionTypes) ? actionRecord.actionTypes : [];
@@ -7150,7 +7150,7 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
     }
 
     const existingMarker = domElement.dataset?.omeActionId;
-    
+
     // 🎯 FIX: Check if element already exists in registry by its characteristics
     // This prevents ID mismatches when elements are re-scanned
     const computeElementKey = (element) => {
@@ -7226,7 +7226,7 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
         this.actionableElements.set(actionableId.id, updatedDescriptor);
     } else {
         // New registration
-        this.actionableElements.set(actionableId.id, actionableId);
+    this.actionableElements.set(actionableId.id, actionableId);
     }
 
     if (domElement.dataset) {
@@ -7276,7 +7276,6 @@ IntelligenceEngine.prototype.getStoredActionableNode = function(actionId) {
     this.actionableElementNodes.delete(actionId);
     return null;
 };
-
 IntelligenceEngine.prototype._extractDescriptorLabel = function(descriptor) {
     if (!descriptor) {
         return '';
@@ -8407,16 +8406,16 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                     const searchRoot = parentContainer || document;
                                     
                                     // 🎯 GENERIC: Comprehensive submit button selectors
-                                    const sendSelectors = [
+                        const sendSelectors = [
                                         // Specific IDs (common patterns)
-                                        '#composer-submit-button',
+                            '#composer-submit-button',
                                         '#composer-plus-btn',
-                                        'button[data-testid*="send" i]',
+                            'button[data-testid*="send" i]',
                                         'button[data-testid*="submit" i]',
                                         'button[data-testid*="post" i]',
                                         
                                         // Aria labels (generic)
-                                        'button[aria-label*="Send" i]',
+                            'button[aria-label*="Send" i]',
                                         'button[aria-label*="Post" i]',
                                         'button[aria-label*="Submit" i]',
                                         'button[aria-label*="Comment" i]',
@@ -8424,7 +8423,7 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                         'button[aria-label*="Search" i]',
                                         
                                         // Type attributes
-                                        'button[type="submit"]',
+                            'button[type="submit"]',
                                         'input[type="submit"]',
                                         
                                         // Role-based
@@ -8438,15 +8437,15 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                         'button[class*="send" i]',
                                         'button[class*="post" i]',
                                         'button[class*="search" i]'
-                                    ];
+                        ];
 
-                                    let attempts = 0;
+                        let attempts = 0;
                                     const maxAttempts = isTextarea ? 15 : 10; // More attempts for textareas
-                                    const poll = () => {
+                        const poll = () => {
                                         // Try specific selectors first
-                                        for (const s of sendSelectors) {
+                            for (const s of sendSelectors) {
                                             const btn = searchRoot.querySelector(s);
-                                            if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
                                                 try { 
                                                     btn.click(); 
                                                     console.log('[Content] ✅ Submit button clicked:', s);
@@ -8479,9 +8478,9 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                                             }
                                         }
                                         
-                                        attempts += 1;
+                            attempts += 1;
                                         if (attempts < maxAttempts) {
-                                            setTimeout(poll, 100);
+                        setTimeout(poll, 100);
                                         } else {
                                             console.log('[Content] ℹ️ Submit button not found after polling (this may be expected for some inputs)');
                                         }
@@ -8504,7 +8503,6 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                 }
                 break;
             }
-                
             case 'focus':
                 console.log("[Content] 🎯 Executing focus action on element");
                 
@@ -9176,7 +9174,6 @@ IntelligenceEngine.prototype.collectYoutubeCardDescriptors = function(existingDe
 
     return extras;
 };
-
 /**
  * 🆕 NEW: Collect additional anchor descriptors for normalized records
  */
@@ -9224,7 +9221,7 @@ IntelligenceEngine.prototype.collectAdditionalAnchorDescriptors = function(exist
                 anchor.classList.contains('yt-simple-endpoint') ||
                 anchor.closest('ytd-video-renderer') !== null
             ) && (text || ariaLabel || titleAttr);
-            
+
             const visibilityNode = anchor; // use anchor for visibility checks
             if (!isVideoTitleLink && (!this.isElementVisible || !this.isElementVisible(visibilityNode))) {
                 // Fallback: allow anchors that at least have text even if visibility helper unavailable
@@ -9870,9 +9867,9 @@ function isSignificantChange(mutations) {
         }
         
         return IGNORED_CHANGE_TYPES.has(mutation.type) ||
-            (mutation.type === 'attributes' && 
-             ['class', 'style', 'data-'].some(prefix => 
-                 mutation.attributeName?.startsWith(prefix)
+        (mutation.type === 'attributes' && 
+         ['class', 'style', 'data-'].some(prefix => 
+             mutation.attributeName?.startsWith(prefix)
              ));
     });
     
