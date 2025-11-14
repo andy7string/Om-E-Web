@@ -7236,6 +7236,8 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
     // 🎯 CHECK PRESERVED MARKER IDs: If we preserved IDs from previous scan, use them
     if (elementKey && this._preservedMarkerIds && this._preservedMarkerIds.has(elementKey)) {
         preservedId = this._preservedMarkerIds.get(elementKey);
+        // 🔧 FIX: Remove from map after use to prevent ID collision - each ID can only be reused once
+        this._preservedMarkerIds.delete(elementKey);
     }
     
     // Check if we already have an element with the same key in the current registry
@@ -9022,11 +9024,24 @@ IntelligenceEngine.prototype.extractYoutubeTranscriptData = function() {
 };
 
 IntelligenceEngine.prototype.extractYoutubeVideoTitle = function() {
+    // Prefer live DOM titles from the active YouTube watch surface
+    const titleNode = document.querySelector('h1.ytd-watch-metadata yt-formatted-string, h1.title');
+    const domTitle = titleNode?.textContent?.trim();
+    if (domTitle) {
+        return domTitle;
+    }
+
+    const docTitle = document.title?.trim();
+    if (docTitle) {
+        return docTitle;
+    }
+
+    // Fall back to cached page state only when DOM/title tags fail
     if (this.pageState?.title && this.pageState.title !== 'Unknown') {
         return this.pageState.title;
     }
-    const titleNode = document.querySelector('h1.ytd-watch-metadata yt-formatted-string, h1.title');
-    return titleNode?.textContent?.trim() || document.title || 'YouTube Video';
+
+    return 'YouTube Video';
 };
 
 IntelligenceEngine.prototype.buildTranscriptSignature = function(segments) {

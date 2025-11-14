@@ -1,35 +1,35 @@
 {
-  "timestamp": 1762694175.2625542,
+  "timestamp": 1763104869.768801,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138015385,
-      "url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
-      "title": "kids shoes - Search results - Wikipedia",
+      "id": 1138017560,
+      "url": "https://www.perplexity.ai/?login-source=floatingSignup",
+      "title": "Perplexity",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138015385,
-        "url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
-        "title": "kids shoes - Search results - Wikipedia",
+        "id": 1138017560,
+        "url": "https://www.perplexity.ai/?login-source=floatingSignup",
+        "title": "Perplexity",
         "active": true,
         "status": "loading"
       },
       {
-        "id": 1138015400,
+        "id": 1138017565,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 57701.807143333,
+    "last_tabs_update": 35484.186604958,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
-    "title": "kids shoes - Search results - Wikipedia",
+    "url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "title": "Perplexity",
     "is_active_tab": true
   },
   "content_structure": {},
@@ -38,3181 +38,810 @@
     "interactiveElements": [
       {
         "id": "a_id_0",
-        "tagName": "input",
-        "actionType": "input",
+        "tagName": "div",
+        "actionType": "unknown",
         "selectors": [
-          ".cdx-text-input__input",
-          "input.cdx-text-input__input",
+          "#ask-input",
+          "[data-lexical-editor=\"true\"]",
+          ".overflow-auto",
+          "div.overflow-auto",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "cdx-text-input__input mw-searchInput",
+        "className": "overflow-auto max-h-[45vh] lg:max-h-[40vh] sm:max-h-[25vh] outline-none font-sans resize-none caret-super selection:bg-super/30 selection:text-foreground dark:selection:bg-super/10 dark:selection:text-super text-foreground bg-transparent placeholder-quieter placeholder:select-none scrollbar-subtle size-full",
         "attributes": {
           "cssClasses": [
-            "cdx-text-input__input",
-            "mw-searchInput"
+            "overflow-auto",
+            "max-h-[45vh]",
+            "lg:max-h-[40vh]",
+            "sm:max-h-[25vh]",
+            "outline-none",
+            "font-sans",
+            "resize-none",
+            "caret-super",
+            "selection:bg-super/30",
+            "selection:text-foreground",
+            "dark:selection:bg-super/10",
+            "dark:selection:text-super",
+            "text-foreground",
+            "bg-transparent",
+            "placeholder-quieter",
+            "placeholder:select-none",
+            "scrollbar-subtle",
+            "size-full"
           ],
-          "name": "search",
-          "type": "search",
-          "placeholder": "Search Wikipedia"
+          "id": "ask-input",
+          "role": "textbox",
+          "aria-placeholder": "Ask anything…",
+          "contenteditable": "true"
         },
         "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 5,
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "search-field",
-          "search",
-          "wikipedia",
-          "cdx",
-          "text",
+          "ask",
           "input",
-          "searchinput"
+          "overflow",
+          "auto",
+          "max",
+          "45vh",
+          "40vh",
+          "25vh",
+          "outline",
+          "none",
+          "font",
+          "sans",
+          "resize",
+          "caret",
+          "super",
+          "selection",
+          "text",
+          "foreground",
+          "dark",
+          "transparent"
         ],
-        "timestamp": 1762694175144
+        "timestamp": 1763104868781
       },
       {
         "id": "a_id_1",
-        "tagName": "input",
-        "actionType": "input",
+        "tagName": "button",
+        "actionType": "button",
         "selectors": [
-          "#ooui-php-1",
-          ".oo-ui-inputWidget-input",
-          "input.oo-ui-inputWidget-input",
+          ".focus-visible:bg-subtle",
+          "button.focus-visible:bg-subtle",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "oo-ui-inputWidget-input",
+        "className": "focus-visible:bg-subtle hover:bg-subtle text-quiet  hover:text-foreground dark:hover:bg-subtle font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-base h-10 aspect-square",
         "attributes": {
           "cssClasses": [
-            "oo-ui-inputWidget-input"
+            "focus-visible:bg-subtle",
+            "hover:bg-subtle",
+            "text-quiet",
+            "hover:text-foreground",
+            "dark:hover:bg-subtle",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-full",
+            "cursor-pointer",
+            "active:scale-[0.97]",
+            "active:duration-150",
+            "active:ease-outExpo",
+            "origin-center",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-base",
+            "h-10",
+            "aspect-square"
           ],
-          "id": "ooui-php-1",
-          "name": "search",
-          "type": "search",
-          "title": "Search Wikipedia",
-          "value": "kids shoes"
+          "type": "button"
         },
         "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 5,
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "search-field",
-          "search",
-          "wikipedia",
-          "ooui",
-          "php",
-          "kids",
-          "shoes",
-          "inputwidget",
-          "input"
+          "focus",
+          "visible",
+          "subtle",
+          "hover",
+          "text",
+          "quiet",
+          "foreground",
+          "dark",
+          "font",
+          "sans",
+          "outline",
+          "none",
+          "transparent",
+          "transition",
+          "duration",
+          "300",
+          "ease",
+          "out",
+          "select",
+          "items"
         ],
-        "timestamp": 1762694175144
+        "timestamp": 1763104834091
       },
       {
         "id": "a_id_2",
-        "tagName": "nav",
-        "actionType": "nav",
+        "tagName": "button",
+        "actionType": "button",
         "selectors": [
-          "#mw-panel",
-          ".vector-main-menu-landmark",
-          "nav.vector-main-menu-landmark",
-          "div:nth-child(1)"
+          ".border",
+          "button.border",
+          "span:nth-child(1)"
         ],
-        "textContent": "",
-        "className": "vector-main-menu-landmark",
+        "textContent": "Search",
+        "className": "border border-super/20 bg-super/10 hover:bg-super/20 hover:border-super/30 text-super font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 px-2.5",
         "attributes": {
           "cssClasses": [
-            "vector-main-menu-landmark"
+            "border",
+            "border-super/20",
+            "bg-super/10",
+            "hover:bg-super/20",
+            "hover:border-super/30",
+            "text-super",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-lg",
+            "cursor-pointer",
+            "active:scale-[0.97]",
+            "active:duration-150",
+            "active:ease-outExpo",
+            "origin-center",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-sm",
+            "h-8",
+            "px-2.5"
           ],
-          "id": "mw-panel",
-          "aria-label": "Site"
+          "type": "button"
         },
         "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "semanticRole": "search_input",
+        "semanticConfidence": 3,
         "semanticHints": [
-          "site",
-          "panel",
-          "vector",
-          "main",
-          "menu",
-          "landmark"
+          "search-field",
+          "search",
+          "border",
+          "super",
+          "hover",
+          "text",
+          "font",
+          "sans",
+          "focus",
+          "outline",
+          "none",
+          "transparent",
+          "transition",
+          "duration",
+          "300",
+          "ease",
+          "out",
+          "select",
+          "items",
+          "center"
         ],
-        "timestamp": 1762694175144
+        "timestamp": 1763104834091
       },
       {
         "id": "a_id_3",
-        "tagName": "input",
+        "tagName": "button",
         "actionType": "button",
         "selectors": [
-          "#vector-user-links-dropdown-checkbox",
-          "[data-event-name=\"ui.dropdown-vector-user-links-dropdown\"]",
-          ".vector-dropdown-checkbox",
-          "input.vector-dropdown-checkbox",
-          "div:nth-child(1)"
+          "[data-testid=\"sources-switcher-button\"]",
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-subtle",
+          "button.focus-visible:bg-subtle",
+          "span:nth-child(1)"
         ],
         "textContent": "",
-        "className": "vector-dropdown-checkbox ",
+        "className": "focus-visible:bg-subtle hover:bg-subtle text-quiet  hover:text-foreground dark:hover:bg-subtle px-[4px] font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
           "cssClasses": [
-            "vector-dropdown-checkbox"
+            "focus-visible:bg-subtle",
+            "hover:bg-subtle",
+            "text-quiet",
+            "hover:text-foreground",
+            "dark:hover:bg-subtle",
+            "px-[4px]",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-lg",
+            "cursor-pointer",
+            "active:scale-[0.97]",
+            "active:duration-150",
+            "active:ease-outExpo",
+            "origin-center",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-sm",
+            "h-8",
+            "aspect-[9/8]"
           ],
-          "id": "vector-user-links-dropdown-checkbox",
-          "type": "checkbox",
-          "role": "button",
-          "aria-label": "Personal tools"
+          "type": "button"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "personal",
-          "tools",
-          "vector",
-          "user",
-          "links",
-          "dropdown",
-          "checkbox"
+          "focus",
+          "visible",
+          "subtle",
+          "hover",
+          "text",
+          "quiet",
+          "foreground",
+          "dark",
+          "4px",
+          "font",
+          "sans",
+          "outline",
+          "none",
+          "transparent",
+          "transition",
+          "duration",
+          "300",
+          "ease",
+          "out",
+          "select"
         ],
-        "timestamp": 1762694175148
+        "timestamp": 1763104834091
       },
       {
         "id": "a_id_4",
-        "tagName": "input",
+        "tagName": "button",
         "actionType": "button",
         "selectors": [
-          "#vector-appearance-dropdown-checkbox",
-          "[data-event-name=\"ui.dropdown-vector-appearance-dropdown\"]",
-          ".vector-dropdown-checkbox",
-          "input.vector-dropdown-checkbox",
-          "div:nth-child(1)"
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-subtle",
+          "button.focus-visible:bg-subtle",
+          "span:nth-child(1)"
         ],
         "textContent": "",
-        "className": "vector-dropdown-checkbox ",
+        "className": "focus-visible:bg-subtle hover:bg-subtle text-quiet  hover:text-foreground dark:hover:bg-subtle max-w-24 sm:max-w-none font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
           "cssClasses": [
-            "vector-dropdown-checkbox"
+            "focus-visible:bg-subtle",
+            "hover:bg-subtle",
+            "text-quiet",
+            "hover:text-foreground",
+            "dark:hover:bg-subtle",
+            "max-w-24",
+            "sm:max-w-none",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-lg",
+            "cursor-pointer",
+            "active:scale-[0.97]",
+            "active:duration-150",
+            "active:ease-outExpo",
+            "origin-center",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-sm",
+            "h-8",
+            "aspect-[9/8]"
           ],
-          "id": "vector-appearance-dropdown-checkbox",
-          "type": "checkbox",
-          "role": "button",
-          "aria-label": "Appearance"
+          "type": "button",
+          "aria-label": "Choose a model"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "appearance",
-          "vector",
-          "dropdown",
-          "checkbox"
+          "choose",
+          "model",
+          "focus",
+          "visible",
+          "subtle",
+          "hover",
+          "text",
+          "quiet",
+          "foreground",
+          "dark",
+          "max",
+          "none",
+          "font",
+          "sans",
+          "outline",
+          "transparent",
+          "transition",
+          "duration",
+          "300",
+          "ease"
         ],
-        "timestamp": 1762694175148
+        "timestamp": 1763104834091
       },
       {
         "id": "a_id_5",
-        "tagName": "nav",
-        "actionType": "nav",
+        "tagName": "button",
+        "actionType": "button",
         "selectors": [
+          "[data-testid=\"attach-files-button\"]",
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-subtle",
+          "button.focus-visible:bg-subtle",
           "div:nth-child(1)"
         ],
-        "textContent": "English",
-        "className": "",
+        "textContent": "",
+        "className": "focus-visible:bg-subtle hover:bg-subtle text-quiet  hover:text-foreground dark:hover:bg-subtle font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
-          "aria-label": "Namespaces"
+          "cssClasses": [
+            "focus-visible:bg-subtle",
+            "hover:bg-subtle",
+            "text-quiet",
+            "hover:text-foreground",
+            "dark:hover:bg-subtle",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-lg",
+            "cursor-pointer",
+            "active:scale-[0.97]",
+            "active:duration-150",
+            "active:ease-outExpo",
+            "origin-center",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-sm",
+            "h-8",
+            "aspect-[9/8]"
+          ],
+          "type": "button"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "namespaces",
-          "english"
+          "focus",
+          "visible",
+          "subtle",
+          "hover",
+          "text",
+          "quiet",
+          "foreground",
+          "dark",
+          "font",
+          "sans",
+          "outline",
+          "none",
+          "transparent",
+          "transition",
+          "duration",
+          "300",
+          "ease",
+          "out",
+          "select",
+          "items"
         ],
-        "timestamp": 1762694175144
+        "timestamp": 1763104834092
       },
       {
         "id": "a_id_6",
-        "tagName": "nav",
-        "actionType": "nav",
+        "tagName": "button",
+        "actionType": "button",
         "selectors": [
+          "[data-state=\"closed\"]",
+          ".focus-visible:bg-subtle",
+          "button.focus-visible:bg-subtle",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "",
+        "className": "focus-visible:bg-subtle hover:bg-subtle text-quiet  hover:text-foreground dark:hover:bg-subtle font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
-          "aria-label": "Views"
+          "cssClasses": [
+            "focus-visible:bg-subtle",
+            "hover:bg-subtle",
+            "text-quiet",
+            "hover:text-foreground",
+            "dark:hover:bg-subtle",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-lg",
+            "cursor-pointer",
+            "active:scale-[0.97]",
+            "active:duration-150",
+            "active:ease-outExpo",
+            "origin-center",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-sm",
+            "h-8",
+            "aspect-[9/8]"
+          ],
+          "type": "button",
+          "aria-label": "Dictation"
         },
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "views"
+          "dictation",
+          "focus",
+          "visible",
+          "subtle",
+          "hover",
+          "text",
+          "quiet",
+          "foreground",
+          "dark",
+          "font",
+          "sans",
+          "outline",
+          "none",
+          "transparent",
+          "transition",
+          "duration",
+          "300",
+          "ease",
+          "out",
+          "select"
         ],
-        "timestamp": 1762694175144
+        "timestamp": 1763104834092
       },
       {
         "id": "a_id_7",
-        "tagName": "nav",
-        "actionType": "nav",
+        "tagName": "button",
+        "actionType": "button",
         "selectors": [
-          ".vector-page-tools-landmark",
-          "nav.vector-page-tools-landmark",
+          "[data-testid=\"submit-button\"]",
+          ".bg-inverse/15",
+          "button.bg-inverse/15",
           "div:nth-child(1)"
         ],
         "textContent": "",
-        "className": "vector-page-tools-landmark",
+        "className": "bg-inverse/15 text-quiet !duration-100 font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-lg cursor-default opacity-50 whitespace-nowrap inline-flex text-sm h-8 aspect-[9/8]",
         "attributes": {
           "cssClasses": [
-            "vector-page-tools-landmark"
+            "bg-inverse/15",
+            "text-quiet",
+            "!duration-100",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-lg",
+            "cursor-default",
+            "opacity-50",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-sm",
+            "h-8",
+            "aspect-[9/8]"
           ],
-          "aria-label": "Page tools"
+          "type": "button",
+          "aria-label": "Submit"
         },
         "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
+        "semanticRole": "login_submit",
+        "semanticConfidence": 4,
         "semanticHints": [
-          "page",
-          "tools",
-          "vector",
-          "landmark"
+          "login-submit",
+          "submit",
+          "inverse",
+          "text",
+          "quiet",
+          "duration",
+          "100",
+          "font",
+          "sans",
+          "focus",
+          "outline",
+          "none",
+          "transparent",
+          "transition",
+          "300",
+          "ease",
+          "out",
+          "select",
+          "items",
+          "center"
         ],
-        "timestamp": 1762694175145
+        "timestamp": 1763104834092
       },
       {
         "id": "a_id_8",
-        "tagName": "header",
-        "actionType": "unknown",
+        "tagName": "button",
+        "actionType": "button",
         "selectors": [
-          ".vector-header",
-          "header.vector-header",
-          "div:nth-child(1)"
+          "[data-state=\"closed\"]",
+          ".border",
+          "button.border",
+          "span:nth-child(1)"
         ],
-        "textContent": "Main menu\n\t\n\t\n\n\n\t\t\t\t\n\t\t\n\n\t\n\tMain menu\n\tmove to sidebar\n\thide\n\n\n\t\n\n\t\n\t\tNavigation\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\tMa",
-        "className": "vector-header mw-header no-font-mode-scale",
+        "textContent": "",
+        "className": "border border-subtler text-quiet md:hover:border-subtle md:hover:text-quiet hover:bg-subtler bg-base shadow-subtle font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-square",
         "attributes": {
           "cssClasses": [
-            "vector-header",
-            "mw-header",
-            "no-font-mode-scale"
-          ]
+            "border",
+            "border-subtler",
+            "text-quiet",
+            "md:hover:border-subtle",
+            "md:hover:text-quiet",
+            "hover:bg-subtler",
+            "bg-base",
+            "shadow-subtle",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-full",
+            "cursor-pointer",
+            "active:scale-[0.97]",
+            "active:duration-150",
+            "active:ease-outExpo",
+            "origin-center",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-sm",
+            "h-8",
+            "aspect-square"
+          ],
+          "type": "button",
+          "aria-label": "Language"
         },
         "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "search-field",
-          "main",
-          "menu",
-          "move",
-          "sidebar",
-          "hide",
-          "navigation",
-          "pagecontentscurrent",
-          "eventsrandom",
-          "articleabout",
-          "wikipediacontact",
-          "contribute",
-          "helplearn",
-          "editcommunity",
-          "portalrecent",
-          "changesupload",
-          "filespecial",
-          "pages",
-          "languages",
-          "search"
+          "language",
+          "border",
+          "subtler",
+          "text",
+          "quiet",
+          "hover",
+          "subtle",
+          "base",
+          "shadow",
+          "font",
+          "sans",
+          "focus",
+          "outline",
+          "none",
+          "transparent",
+          "transition",
+          "duration",
+          "300",
+          "ease",
+          "out"
         ],
-        "timestamp": 1762694175145
+        "timestamp": 1763104834092
       },
       {
         "id": "a_id_9",
-        "tagName": "header",
-        "actionType": "unknown",
+        "tagName": "button",
+        "actionType": "button",
         "selectors": [
-          ".mw-body-header",
-          "header.mw-body-header",
-          "main:nth-child(1)"
+          "[data-state=\"closed\"]",
+          ".border",
+          "button.border",
+          "span:nth-child(1)"
         ],
-        "textContent": "Search results\n\t\t\t\t\t\t\n\t\tHelp",
-        "className": "mw-body-header vector-page-titlebar no-font-mode-scale",
+        "textContent": "",
+        "className": "border border-subtler text-quiet md:hover:border-subtle md:hover:text-quiet hover:bg-subtler bg-base shadow-subtle  font-sans focus:outline-none outline-none outline-transparent transition duration-300 ease-out select-none items-center relative group/button font-semimedium justify-center text-center items-center rounded-full cursor-pointer active:scale-[0.97] active:duration-150 active:ease-outExpo origin-center whitespace-nowrap inline-flex text-sm h-8 aspect-square",
         "attributes": {
           "cssClasses": [
-            "mw-body-header",
-            "vector-page-titlebar",
-            "no-font-mode-scale"
-          ]
+            "border",
+            "border-subtler",
+            "text-quiet",
+            "md:hover:border-subtle",
+            "md:hover:text-quiet",
+            "hover:bg-subtler",
+            "bg-base",
+            "shadow-subtle",
+            "font-sans",
+            "focus:outline-none",
+            "outline-none",
+            "outline-transparent",
+            "transition",
+            "duration-300",
+            "ease-out",
+            "select-none",
+            "items-center",
+            "relative",
+            "group/button",
+            "font-semimedium",
+            "justify-center",
+            "text-center",
+            "items-center",
+            "rounded-full",
+            "cursor-pointer",
+            "active:scale-[0.97]",
+            "active:duration-150",
+            "active:ease-outExpo",
+            "origin-center",
+            "whitespace-nowrap",
+            "inline-flex",
+            "text-sm",
+            "h-8",
+            "aspect-square"
+          ],
+          "type": "button",
+          "aria-label": "Help menu"
         },
         "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
+        "semanticRole": null,
+        "semanticConfidence": 0,
         "semanticHints": [
-          "search-field",
-          "search",
-          "results",
           "help",
-          "body",
-          "header",
-          "vector",
-          "page",
-          "titlebar",
+          "menu",
+          "border",
+          "subtler",
+          "text",
+          "quiet",
+          "hover",
+          "subtle",
+          "base",
+          "shadow",
           "font",
-          "mode",
-          "scale"
+          "sans",
+          "focus",
+          "outline",
+          "none",
+          "transparent",
+          "transition",
+          "duration",
+          "300",
+          "ease"
         ],
-        "timestamp": 1762694175145
+        "timestamp": 1763104834092
       },
       {
         "id": "a_id_10",
-        "tagName": "a",
-        "actionType": "link",
+        "tagName": "span",
+        "actionType": "unknown",
         "selectors": [
-          "li:nth-child(1)"
+          ".inline-block",
+          "span.inline-block",
+          "div:nth-child(1)"
         ],
-        "textContent": "Main page",
-        "className": "",
+        "textContent": "What do you want to know?",
+        "className": "inline-block",
         "attributes": {
-          "title": "Visit the main page [z]",
-          "href": "/wiki/Main_Page"
+          "cssClasses": [
+            "inline-block"
+          ]
         },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Main_Page",
-          "textContent": "Main page",
-          "title": "Visit the main page [z]",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
+        "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "visit",
-          "the",
-          "main",
-          "page"
+          "what",
+          "you",
+          "want",
+          "know",
+          "inline",
+          "block"
         ],
-        "timestamp": 1762694175145
+        "timestamp": 1763104834092
       },
       {
         "id": "a_id_11",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Contents",
-        "className": "",
-        "attributes": {
-          "title": "Guides to browsing Wikipedia",
-          "href": "/wiki/Wikipedia:Contents"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Wikipedia:Contents",
-          "textContent": "Contents",
-          "title": "Guides to browsing Wikipedia",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "guides",
-          "browsing",
-          "wikipedia",
-          "contents"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_12",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Current events",
-        "className": "",
-        "attributes": {
-          "title": "Articles related to current events",
-          "href": "/wiki/Portal:Current_events"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Portal:Current_events",
-          "textContent": "Current events",
-          "title": "Articles related to current events",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "articles",
-          "related",
-          "current",
-          "events"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_13",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Random article",
-        "className": "",
-        "attributes": {
-          "title": "Visit a randomly selected article [x]",
-          "href": "/wiki/Special:Random"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Special:Random",
-          "textContent": "Random article",
-          "title": "Visit a randomly selected article [x]",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "visit",
-          "randomly",
-          "selected",
-          "article",
-          "random"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_14",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "About Wikipedia",
-        "className": "",
-        "attributes": {
-          "title": "Learn about Wikipedia and how it works",
-          "href": "/wiki/Wikipedia:About"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Wikipedia:About",
-          "textContent": "About Wikipedia",
-          "title": "Learn about Wikipedia and how it works",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "learn",
-          "about",
-          "wikipedia",
-          "and",
-          "how",
-          "works"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_15",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Contact us",
-        "className": "",
-        "attributes": {
-          "title": "How to contact Wikipedia",
-          "href": "//en.wikipedia.org/wiki/Wikipedia:Contact_us"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Wikipedia:Contact_us",
-          "textContent": "Contact us",
-          "title": "How to contact Wikipedia",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "how",
-          "contact",
-          "wikipedia"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_16",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Help",
-        "className": "",
-        "attributes": {
-          "title": "Guidance on how to use and edit Wikipedia",
-          "href": "/wiki/Help:Contents"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Help:Contents",
-          "textContent": "Help",
-          "title": "Guidance on how to use and edit Wikipedia",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "guidance",
-          "how",
-          "use",
-          "and",
-          "edit",
-          "wikipedia",
-          "help"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_17",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Learn to edit",
-        "className": "",
-        "attributes": {
-          "title": "Learn how to edit Wikipedia",
-          "href": "/wiki/Help:Introduction"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Help:Introduction",
-          "textContent": "Learn to edit",
-          "title": "Learn how to edit Wikipedia",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "learn",
-          "how",
-          "edit",
-          "wikipedia"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_18",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Community portal",
-        "className": "",
-        "attributes": {
-          "title": "The hub for editors",
-          "href": "/wiki/Wikipedia:Community_portal"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Wikipedia:Community_portal",
-          "textContent": "Community portal",
-          "title": "The hub for editors",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "the",
-          "hub",
-          "for",
-          "editors",
-          "community",
-          "portal"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_19",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Recent changes",
-        "className": "",
-        "attributes": {
-          "title": "A list of recent changes to Wikipedia [r]",
-          "href": "/wiki/Special:RecentChanges"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Special:RecentChanges",
-          "textContent": "Recent changes",
-          "title": "A list of recent changes to Wikipedia [r]",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "list",
-          "recent",
-          "changes",
-          "wikipedia"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_20",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Upload file",
-        "className": "",
-        "attributes": {
-          "title": "Upload files [u]",
-          "href": "//en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard",
-          "textContent": "Upload file",
-          "title": "Upload files [u]",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "upload",
-          "files",
-          "file"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_21",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Special pages",
-        "className": "",
-        "attributes": {
-          "href": "/wiki/Special:SpecialPages"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Special:SpecialPages",
-          "textContent": "Special pages",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "special",
-          "pages"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_22",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".cdx-button",
-          "a.cdx-button",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Search",
-        "className": "cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only search-toggle",
-        "attributes": {
-          "cssClasses": [
-            "cdx-button",
-            "cdx-button--fake-button",
-            "cdx-button--fake-button--enabled",
-            "cdx-button--weight-quiet",
-            "cdx-button--icon-only",
-            "search-toggle"
-          ],
-          "title": "Search Wikipedia [f]",
-          "href": "/wiki/Special:Search"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Special:Search",
-          "textContent": "Search",
-          "title": "Search Wikipedia [f]",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "wikipedia",
-          "cdx",
-          "button",
-          "fake",
-          "enabled",
-          "weight",
-          "quiet",
-          "icon",
-          "only",
-          "toggle"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_23",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-mw=\"interface\"]",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Donate",
-        "className": "",
-        "attributes": {
-          "href": "https://donate.wikimedia.org/?wmf_source=donate&wmf_medium=sidebar&wmf_campaign=en.wikipedia.org&uselang=en"
-        },
-        "urlContext": {
-          "url": "https://donate.wikimedia.org/?wmf_source=donate&wmf_medium=sidebar&wmf_campaign=en.wikipedia.org&uselang=en",
-          "textContent": "Donate",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "donate"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_24",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-mw=\"interface\"]",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Create account",
-        "className": "",
-        "attributes": {
-          "title": "You are encouraged to create an account and log in; however, it is not mandatory",
-          "href": "/w/index.php?title=Special:CreateAccount&returnto=Special%3ASearch&returntoquery=ns0%3D1%26search%3Dkids%2Bshoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&returnto=Special%3ASearch&returntoquery=ns0%3D1%26search%3Dkids%2Bshoes",
-          "textContent": "Create account",
-          "title": "You are encouraged to create an account and log in; however, it is not mandatory",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "login_submit",
-        "semanticConfidence": 6,
-        "semanticHints": [
-          "login-submit",
-          "you",
-          "are",
-          "encouraged",
-          "create",
-          "account",
-          "and",
-          "log",
-          "however",
-          "not",
-          "mandatory"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_25",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-mw=\"interface\"]",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Log in",
-        "className": "",
-        "attributes": {
-          "title": "You're encouraged to log in; however, it's not mandatory. [o]",
-          "href": "/w/index.php?title=Special:UserLogin&returnto=Special%3ASearch&returntoquery=ns0%3D1%26search%3Dkids%2Bshoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Special%3ASearch&returntoquery=ns0%3D1%26search%3Dkids%2Bshoes",
-          "textContent": "Log in",
-          "title": "You're encouraged to log in; however, it's not mandatory. [o]",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "login_submit",
-        "semanticConfidence": 6,
-        "semanticHints": [
-          "login-submit",
-          "you",
-          "encouraged",
-          "log",
-          "however",
-          "not",
-          "mandatory"
-        ],
-        "timestamp": 1762694175145
-      },
-      {
-        "id": "a_id_26",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-helplink",
-          "a.mw-helplink",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Help",
-        "className": "mw-helplink",
-        "attributes": {
-          "cssClasses": [
-            "mw-helplink"
-          ],
-          "href": "/wiki/Help:Searching",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Help:Searching",
-          "textContent": "Help",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "help",
-          "helplink"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_27",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Printable version",
-        "className": "",
-        "attributes": {
-          "title": "Printable version of this page [p]",
-          "href": "javascript:print();",
-          "rel": "alternate"
-        },
-        "urlContext": {
-          "url": "javascript:print();",
-          "textContent": "Printable version",
-          "title": "Printable version of this page [p]",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "printable",
-          "version",
-          "this",
-          "page"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_28",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Get shortened URL",
-        "className": "",
-        "attributes": {
-          "href": "/w/index.php?title=Special:UrlShortener&url=https%3A%2F%2Fen.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DSpecial%3ASearch%26ns0%3D1%26search%3Dkids%2Bshoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:UrlShortener&url=https%3A%2F%2Fen.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DSpecial%3ASearch%26ns0%3D1%26search%3Dkids%2Bshoes",
-          "textContent": "Get shortened URL",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "get",
-          "shortened",
-          "url"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_29",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Download QR code",
-        "className": "",
-        "attributes": {
-          "href": "/w/index.php?title=Special:QrCode&url=https%3A%2F%2Fen.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DSpecial%3ASearch%26ns0%3D1%26search%3Dkids%2Bshoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:QrCode&url=https%3A%2F%2Fen.wikipedia.org%2Fw%2Findex.php%3Ftitle%3DSpecial%3ASearch%26ns0%3D1%26search%3Dkids%2Bshoes",
-          "textContent": "Download QR code",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "download",
-          "code"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_30",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Content pages",
-        "className": "",
-        "attributes": {
-          "title": "Search in (Article)",
-          "href": "/w/index.php?title=Special:Search&profile=default&search=kids+shoes&fulltext=1"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&profile=default&search=kids+shoes&fulltext=1",
-          "textContent": "Content pages",
-          "title": "Search in (Article)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "article",
-          "content",
-          "pages"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_31",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Multimedia",
-        "className": "",
-        "attributes": {
-          "title": "Search for files",
-          "href": "/w/index.php?title=Special:Search&profile=images&search=kids+shoes&fulltext=1"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&profile=images&search=kids+shoes&fulltext=1",
-          "textContent": "Multimedia",
-          "title": "Search for files",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "for",
-          "files",
-          "multimedia"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_32",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Everything",
-        "className": "",
-        "attributes": {
-          "title": "Search all of content (including talk pages)",
-          "href": "/w/index.php?title=Special:Search&profile=all&search=kids+shoes&fulltext=1"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&profile=all&search=kids+shoes&fulltext=1",
-          "textContent": "Everything",
-          "title": "Search all of content (including talk pages)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "all",
-          "content",
-          "including",
-          "talk",
-          "pages",
-          "everything"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_33",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Advanced",
-        "className": "",
-        "attributes": {
-          "title": "Search in custom namespaces",
-          "href": "/w/index.php?title=Special:Search&profile=advanced&search=kids+shoes&fulltext=1"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&profile=advanced&search=kids+shoes&fulltext=1",
-          "textContent": "Advanced",
-          "title": "Search in custom namespaces",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "custom",
-          "namespaces",
-          "advanced"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_34",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "#mw-search-DYM-suggestion",
-          "[data-ome-action-id=\"a_id_34\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "kids shows",
-        "className": "",
-        "attributes": {
-          "id": "mw-search-DYM-suggestion",
-          "title": "Special:Search",
-          "href": "https://en.wikipedia.org/w/index.php?title=Special%3ASearch&search=kids+shows&fulltext=1&profile=default&wprov=srpw1_dym1"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special%3ASearch&search=kids+shows&fulltext=1&profile=default&wprov=srpw1_dym1",
-          "textContent": "kids shows",
-          "title": "Special:Search",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "special",
-          "search",
-          "dym",
-          "suggestion",
-          "kids",
-          "shows"
-        ],
-        "timestamp": 1762694175238,
-        "element": {}
-      },
-      {
-        "id": "a_id_35",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".new",
-          "a.new",
-          "i:nth-child(1)"
-        ],
-        "textContent": "Kids shoes",
-        "className": "new",
-        "attributes": {
-          "cssClasses": [
-            "new"
-          ],
-          "title": "Kids shoes (page does not exist)",
-          "href": "/w/index.php?title=Kids_shoes&action=edit&redlink=1"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Kids_shoes&action=edit&redlink=1",
-          "textContent": "Kids shoes",
-          "title": "Kids shoes (page does not exist)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "kids",
-          "shoes",
-          "page",
-          "does",
-          "not",
-          "exist",
-          "new"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_36",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "i:nth-child(2)"
-        ],
-        "textContent": "create a draft and submit it for review",
-        "className": "",
-        "attributes": {
-          "title": "Wikipedia:Article wizard",
-          "href": "/wiki/Wikipedia:Article_wizard"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Wikipedia:Article_wizard",
-          "textContent": "create a draft and submit it for review",
-          "title": "Wikipedia:Article wizard",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "login_submit",
-        "semanticConfidence": 4,
-        "semanticHints": [
-          "login-submit",
-          "wikipedia",
-          "article",
-          "wizard",
-          "create",
-          "draft",
-          "and",
-          "submit",
-          "for",
-          "review"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_37",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "i:nth-child(3)"
-        ],
-        "textContent": "request that a redirect be created",
-        "className": "",
-        "attributes": {
-          "title": "Wikipedia:Articles for creation/Redirects",
-          "href": "/wiki/Wikipedia:Articles_for_creation/Redirects"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Wikipedia:Articles_for_creation/Redirects",
-          "textContent": "request that a redirect be created",
-          "title": "Wikipedia:Articles for creation/Redirects",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "wikipedia",
-          "articles",
-          "for",
-          "creation",
-          "redirects",
-          "request",
-          "that",
-          "redirect",
-          "created"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_38",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-nextlink",
-          "a.mw-nextlink",
-          "div:nth-child(2)"
-        ],
-        "textContent": "next 20",
-        "className": "mw-nextlink",
-        "attributes": {
-          "cssClasses": [
-            "mw-nextlink"
-          ],
-          "title": "Next 20 results",
-          "href": "/w/index.php?title=Special:Search&limit=20&offset=20&profile=default&search=kids+shoes",
-          "rel": "next"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&limit=20&offset=20&profile=default&search=kids+shoes",
-          "textContent": "next 20",
-          "title": "Next 20 results",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": "login_submit",
-        "semanticConfidence": 4,
-        "semanticHints": [
-          "login-submit",
-          "next",
-          "results",
-          "nextlink"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_39",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-numlink",
-          "a.mw-numlink",
-          "div:nth-child(4)"
-        ],
-        "textContent": "50",
-        "className": "mw-numlink",
-        "attributes": {
-          "cssClasses": [
-            "mw-numlink"
-          ],
-          "title": "Show 50 results per page",
-          "href": "/w/index.php?title=Special:Search&limit=50&offset=0&profile=default&search=kids+shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&limit=50&offset=0&profile=default&search=kids+shoes",
-          "textContent": "50",
-          "title": "Show 50 results per page",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "show",
-          "results",
-          "per",
-          "page",
-          "numlink"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_40",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-numlink",
-          "a.mw-numlink",
-          "div:nth-child(5)"
-        ],
-        "textContent": "100",
-        "className": "mw-numlink",
-        "attributes": {
-          "cssClasses": [
-            "mw-numlink"
-          ],
-          "title": "Show 100 results per page",
-          "href": "/w/index.php?title=Special:Search&limit=100&offset=0&profile=default&search=kids+shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&limit=100&offset=0&profile=default&search=kids+shoes",
-          "textContent": "100",
-          "title": "Show 100 results per page",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "show",
-          "100",
-          "results",
-          "per",
-          "page",
-          "numlink"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_41",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-numlink",
-          "a.mw-numlink",
-          "div:nth-child(6)"
-        ],
-        "textContent": "250",
-        "className": "mw-numlink",
-        "attributes": {
-          "cssClasses": [
-            "mw-numlink"
-          ],
-          "title": "Show 250 results per page",
-          "href": "/w/index.php?title=Special:Search&limit=250&offset=0&profile=default&search=kids+shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&limit=250&offset=0&profile=default&search=kids+shoes",
-          "textContent": "250",
-          "title": "Show 250 results per page",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "show",
-          "250",
-          "results",
-          "per",
-          "page",
-          "numlink"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_42",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-numlink",
-          "a.mw-numlink",
-          "div:nth-child(7)"
-        ],
-        "textContent": "500",
-        "className": "mw-numlink",
-        "attributes": {
-          "cssClasses": [
-            "mw-numlink"
-          ],
-          "title": "Show 500 results per page",
-          "href": "/w/index.php?title=Special:Search&limit=500&offset=0&profile=default&search=kids+shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&limit=500&offset=0&profile=default&search=kids+shoes",
-          "textContent": "500",
-          "title": "Show 500 results per page",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "show",
-          "500",
-          "results",
-          "per",
-          "page",
-          "numlink"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_43",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"0\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "TechStyle Fashion Group",
-        "className": "",
-        "attributes": {
-          "title": "TechStyle Fashion Group",
-          "href": "/wiki/TechStyle_Fashion_Group"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/TechStyle_Fashion_Group",
-          "textContent": "TechStyle Fashion Group",
-          "title": "TechStyle Fashion Group",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "techstyle",
-          "fashion",
-          "group"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_44",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "span:nth-child(1)"
-        ],
-        "textContent": "FabKids",
-        "className": "",
-        "attributes": {
-          "title": "TechStyle Fashion Group",
-          "href": "/wiki/TechStyle_Fashion_Group#FabKids"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/TechStyle_Fashion_Group#FabKids",
-          "textContent": "FabKids",
-          "title": "TechStyle Fashion Group",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "techstyle",
-          "fashion",
-          "group",
-          "fabkids"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_45",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"1\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "The Kids in the Shoe",
-        "className": "",
-        "attributes": {
-          "title": "The Kids in the Shoe",
-          "href": "/wiki/The_Kids_in_the_Shoe"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/The_Kids_in_the_Shoe",
-          "textContent": "The Kids in the Shoe",
-          "title": "The Kids in the Shoe",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "the",
-          "kids",
-          "shoe"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_46",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"2\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Satan Shoes",
-        "className": "",
-        "attributes": {
-          "title": "Satan Shoes",
-          "href": "/wiki/Satan_Shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Satan_Shoes",
-          "textContent": "Satan Shoes",
-          "title": "Satan Shoes",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "satan",
-          "shoes"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_47",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"3\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "KidsCan",
-        "className": "",
-        "attributes": {
-          "title": "KidsCan",
-          "href": "/wiki/KidsCan"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/KidsCan",
-          "textContent": "KidsCan",
-          "title": "KidsCan",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "kidscan"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_48",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"4\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Kickers (brand)",
-        "className": "",
-        "attributes": {
-          "title": "Kickers (brand)",
-          "href": "/wiki/Kickers_(brand)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Kickers_(brand)",
-          "textContent": "Kickers (brand)",
-          "title": "Kickers (brand)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "kickers",
-          "brand"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_49",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"5\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Jack Rogers (retailer)",
-        "className": "",
-        "attributes": {
-          "title": "Jack Rogers (retailer)",
-          "href": "/wiki/Jack_Rogers_(retailer)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Jack_Rogers_(retailer)",
-          "textContent": "Jack Rogers (retailer)",
-          "title": "Jack Rogers (retailer)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "jack",
-          "rogers",
-          "retailer"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_50",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"6\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Reebok",
-        "className": "",
-        "attributes": {
-          "title": "Reebok",
-          "href": "/wiki/Reebok"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Reebok",
-          "textContent": "Reebok",
-          "title": "Reebok",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "reebok"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_51",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-redirect",
-          "a.mw-redirect",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Incubus (running shoe)",
-        "className": "mw-redirect",
-        "attributes": {
-          "cssClasses": [
-            "mw-redirect"
-          ],
-          "title": "Incubus (running shoe)",
-          "href": "/wiki/Incubus_(running_shoe)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Incubus_(running_shoe)",
-          "textContent": "Incubus (running shoe)",
-          "title": "Incubus (running shoe)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "incubus",
-          "running",
-          "shoe",
-          "redirect"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_52",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"7\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Clarks (shoe retailer)",
-        "className": "",
-        "attributes": {
-          "title": "Clarks (shoe retailer)",
-          "href": "/wiki/Clarks_(shoe_retailer)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Clarks_(shoe_retailer)",
-          "textContent": "Clarks (shoe retailer)",
-          "title": "Clarks (shoe retailer)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "clarks",
-          "shoe",
-          "retailer"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_53",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"8\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Emelie (film)",
-        "className": "",
-        "attributes": {
-          "title": "Emelie (film)",
-          "href": "/wiki/Emelie_(film)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Emelie_(film)",
-          "textContent": "Emelie (film)",
-          "title": "Emelie (film)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "emelie",
-          "film"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_54",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "",
-        "attributes": {
-          "title": "Shoe",
-          "href": "/wiki/Shoe"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Shoe",
-          "textContent": "",
-          "title": "Shoe",
-          "ariaLabel": null,
-          "altText": "Thumbnail for Shoe",
-          "hasImage": true,
-          "imageSrc": "//upload.wikimedia.org/wikipedia/commons/thumb/0/00/Skor_fr%C3%A5n_1700-_till_1960-talet_-_Nordiska_Museet_-_NMA.0056302.jpg/120px-Skor_fr%C3%A5n_1700-_till_1960-talet_-_Nordiska_Museet_-_NMA.0056302.jpg",
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "shoe"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_55",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"10\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Rothy's",
-        "className": "",
-        "attributes": {
-          "title": "Rothy's",
-          "href": "/wiki/Rothy%27s"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Rothy%27s",
-          "textContent": "Rothy's",
-          "title": "Rothy's",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "rothy"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_56",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"11\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Bata Corporation",
-        "className": "",
-        "attributes": {
-          "title": "Bata Corporation",
-          "href": "/wiki/Bata_Corporation"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Bata_Corporation",
-          "textContent": "Bata Corporation",
-          "title": "Bata Corporation",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "bata",
-          "corporation"
-        ],
-        "timestamp": 1762694175146
-      },
-      {
-        "id": "a_id_57",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-redirect",
-          "a.mw-redirect",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Bata Shoes",
-        "className": "mw-redirect",
-        "attributes": {
-          "cssClasses": [
-            "mw-redirect"
-          ],
-          "title": "Bata Shoes",
-          "href": "/wiki/Bata_Shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Bata_Shoes",
-          "textContent": "Bata Shoes",
-          "title": "Bata Shoes",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "bata",
-          "shoes",
-          "redirect"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_58",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"12\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Air Jordan",
-        "className": "",
-        "attributes": {
-          "title": "Air Jordan",
-          "href": "/wiki/Air_Jordan"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Air_Jordan",
-          "textContent": "Air Jordan",
-          "title": "Air Jordan",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "air",
-          "jordan"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_59",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-redirect",
-          "a.mw-redirect",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Jordan shoes",
-        "className": "mw-redirect",
-        "attributes": {
-          "cssClasses": [
-            "mw-redirect"
-          ],
-          "title": "Jordan shoes",
-          "href": "/wiki/Jordan_shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Jordan_shoes",
-          "textContent": "Jordan shoes",
-          "title": "Jordan shoes",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "jordan",
-          "shoes",
-          "redirect"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_60",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"13\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Pete the Cat",
-        "className": "",
-        "attributes": {
-          "title": "Pete the Cat",
-          "href": "/wiki/Pete_the_Cat"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Pete_the_Cat",
-          "textContent": "Pete the Cat",
-          "title": "Pete the Cat",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "pete",
-          "the",
-          "cat"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_61",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-redirect",
-          "a.mw-redirect",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Pete the Cat: I Love My White Shoes",
-        "className": "mw-redirect",
-        "attributes": {
-          "cssClasses": [
-            "mw-redirect"
-          ],
-          "title": "Pete the Cat: I Love My White Shoes",
-          "href": "/wiki/Pete_the_Cat:_I_Love_My_White_Shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Pete_the_Cat:_I_Love_My_White_Shoes",
-          "textContent": "Pete the Cat: I Love My White Shoes",
-          "title": "Pete the Cat: I Love My White Shoes",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "pete",
-          "the",
-          "cat",
-          "love",
-          "white",
-          "shoes",
-          "redirect"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_62",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"14\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Spy Kids (film)",
-        "className": "",
-        "attributes": {
-          "title": "Spy Kids (film)",
-          "href": "/wiki/Spy_Kids_(film)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Spy_Kids_(film)",
-          "textContent": "Spy Kids (film)",
-          "title": "Spy Kids (film)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "spy",
-          "kids",
-          "film"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_63",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "",
-        "attributes": {
-          "title": "Jerry Brudos",
-          "href": "/wiki/Jerry_Brudos"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Jerry_Brudos",
-          "textContent": "",
-          "title": "Jerry Brudos",
-          "ariaLabel": null,
-          "altText": "Thumbnail for Jerry Brudos",
-          "hasImage": true,
-          "imageSrc": "//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Jerry_Brudos_Arrested_Statesman_Journal_June_28_1969.jpg/250px-Jerry_Brudos_Arrested_Statesman_Journal_June_28_1969.jpg",
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "jerry",
-          "brudos"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_64",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-redirect",
-          "a.mw-redirect",
-          "span:nth-child(1)"
-        ],
-        "textContent": "The Shoe Fetish Slayer",
-        "className": "mw-redirect",
-        "attributes": {
-          "cssClasses": [
-            "mw-redirect"
-          ],
-          "title": "The Shoe Fetish Slayer",
-          "href": "/wiki/The_Shoe_Fetish_Slayer"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/The_Shoe_Fetish_Slayer",
-          "textContent": "The Shoe Fetish Slayer",
-          "title": "The Shoe Fetish Slayer",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "the",
-          "shoe",
-          "fetish",
-          "slayer",
-          "redirect"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_65",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "",
-        "attributes": {
-          "title": "Aldo (brand)",
-          "href": "/wiki/Aldo_(brand)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Aldo_(brand)",
-          "textContent": "",
-          "title": "Aldo (brand)",
-          "ariaLabel": null,
-          "altText": "Thumbnail for Aldo (brand)",
-          "hasImage": true,
-          "imageSrc": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7c/ALDOHillcrestMall.jpg/250px-ALDOHillcrestMall.jpg",
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "aldo",
-          "brand"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_66",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-redirect",
-          "a.mw-redirect",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Aldo (shoes)",
-        "className": "mw-redirect",
-        "attributes": {
-          "cssClasses": [
-            "mw-redirect"
-          ],
-          "title": "Aldo (shoes)",
-          "href": "/wiki/Aldo_(shoes)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Aldo_(shoes)",
-          "textContent": "Aldo (shoes)",
-          "title": "Aldo (shoes)",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "aldo",
-          "shoes",
-          "redirect"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_67",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "",
-        "attributes": {
-          "title": "Keen (shoe company)",
-          "href": "/wiki/Keen_(shoe_company)"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Keen_(shoe_company)",
-          "textContent": "",
-          "title": "Keen (shoe company)",
-          "ariaLabel": null,
-          "altText": "Thumbnail for Keen (shoe company)",
-          "hasImage": true,
-          "imageSrc": "//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Keen_Newport_.jpg/120px-Keen_Newport_.jpg",
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "keen",
-          "shoe",
-          "company"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_68",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"18\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Pink Bubbles Go Ape",
-        "className": "",
-        "attributes": {
-          "title": "Pink Bubbles Go Ape",
-          "href": "/wiki/Pink_Bubbles_Go_Ape"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Pink_Bubbles_Go_Ape",
-          "textContent": "Pink Bubbles Go Ape",
-          "title": "Pink Bubbles Go Ape",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "pink",
-          "bubbles",
-          "ape"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_69",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-redirect",
-          "a.mw-redirect",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Kids of the Century",
-        "className": "mw-redirect",
-        "attributes": {
-          "cssClasses": [
-            "mw-redirect"
-          ],
-          "title": "Kids of the Century",
-          "href": "/wiki/Kids_of_the_Century"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Kids_of_the_Century",
-          "textContent": "Kids of the Century",
-          "title": "Kids of the Century",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "kids",
-          "the",
-          "century",
-          "redirect"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_70",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "[data-serp-pos=\"19\"]",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Designer Brands",
-        "className": "",
-        "attributes": {
-          "title": "Designer Brands",
-          "href": "/wiki/Designer_Brands"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Designer_Brands",
-          "textContent": "Designer Brands",
-          "title": "Designer Brands",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "designer",
-          "brands"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_71",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-redirect",
-          "a.mw-redirect",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Dsw shoes",
-        "className": "mw-redirect",
-        "attributes": {
-          "cssClasses": [
-            "mw-redirect"
-          ],
-          "title": "Dsw shoes",
-          "href": "/wiki/Dsw_shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Dsw_shoes",
-          "textContent": "Dsw shoes",
-          "title": "Dsw shoes",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "dsw",
-          "shoes",
-          "redirect"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_72",
-        "tagName": "a",
-        "actionType": "link",
+        "tagName": "div",
+        "actionType": "unknown",
         "selectors": [
           "div:nth-child(2)"
         ],
-        "textContent": "Texts from Wikisource",
+        "textContent": "Ask anything…",
         "className": "",
-        "attributes": {
-          "href": "https://en.wikisource.org/wiki/Special:Search?search=kids+shoes&fulltext=1",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://en.wikisource.org/wiki/Special:Search?search=kids+shoes&fulltext=1",
-          "textContent": "Texts from Wikisource",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "texts",
-          "from",
-          "wikisource"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_73",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".extiw",
-          "a.extiw",
-          "div:nth-child(1)"
-        ],
-        "textContent": "The Disobedient Kids and other Czecho-Slovak fairy tales/The Little Cock and the Little Hen",
-        "className": "extiw",
-        "attributes": {
-          "cssClasses": [
-            "extiw"
-          ],
-          "title": "s:The Disobedient Kids and other Czecho-Slovak fairy tales/The Little Cock and the Little Hen",
-          "href": "https://en.wikisource.org/wiki/The_Disobedient_Kids_and_other_Czecho-Slovak_fairy_tales/The_Little_Cock_and_the_Little_Hen"
-        },
-        "urlContext": {
-          "url": "https://en.wikisource.org/wiki/The_Disobedient_Kids_and_other_Czecho-Slovak_fairy_tales/The_Little_Cock_and_the_Little_Hen",
-          "textContent": "The Disobedient Kids and other Czecho-Slovak fairy tales/The Little Cock and the Little Hen",
-          "title": "s:The Disobedient Kids and other Czecho-Slovak fairy tales/The Little Cock and the Little Hen",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "the",
-          "disobedient",
-          "kids",
-          "and",
-          "other",
-          "czecho",
-          "slovak",
-          "fairy",
-          "tales",
-          "little",
-          "cock",
-          "hen",
-          "extiw"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_74",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "div:nth-child(2)"
-        ],
-        "textContent": "Quotes from Wikiquote",
-        "className": "",
-        "attributes": {
-          "href": "https://en.wikiquote.org/wiki/Special:Search?search=kids+shoes&fulltext=1",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://en.wikiquote.org/wiki/Special:Search?search=kids+shoes&fulltext=1",
-          "textContent": "Quotes from Wikiquote",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "quotes",
-          "from",
-          "wikiquote"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_75",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".extiw",
-          "a.extiw",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Spy Kids 2: The Island of Lost Dreams",
-        "className": "extiw",
-        "attributes": {
-          "cssClasses": [
-            "extiw"
-          ],
-          "title": "q:Spy Kids 2: The Island of Lost Dreams",
-          "href": "https://en.wikiquote.org/wiki/Spy_Kids_2:_The_Island_of_Lost_Dreams"
-        },
-        "urlContext": {
-          "url": "https://en.wikiquote.org/wiki/Spy_Kids_2:_The_Island_of_Lost_Dreams",
-          "textContent": "Spy Kids 2: The Island of Lost Dreams",
-          "title": "q:Spy Kids 2: The Island of Lost Dreams",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "spy",
-          "kids",
-          "the",
-          "island",
-          "lost",
-          "dreams",
-          "extiw"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_76",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "div:nth-child(2)"
-        ],
-        "textContent": "Textbooks from Wikibooks",
-        "className": "",
-        "attributes": {
-          "href": "https://en.wikibooks.org/wiki/Special:Search?search=kids+shoes&fulltext=1",
-          "target": "_blank"
-        },
-        "urlContext": {
-          "url": "https://en.wikibooks.org/wiki/Special:Search?search=kids+shoes&fulltext=1",
-          "textContent": "Textbooks from Wikibooks",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "textbooks",
-          "from",
-          "wikibooks"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_77",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".extiw",
-          "a.extiw",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Sport Innovation/Barefoot Running Shoes",
-        "className": "extiw",
-        "attributes": {
-          "cssClasses": [
-            "extiw"
-          ],
-          "title": "b:Sport Innovation/Barefoot Running Shoes",
-          "href": "https://en.wikibooks.org/wiki/Sport_Innovation/Barefoot_Running_Shoes"
-        },
-        "urlContext": {
-          "url": "https://en.wikibooks.org/wiki/Sport_Innovation/Barefoot_Running_Shoes",
-          "textContent": "Sport Innovation/Barefoot Running Shoes",
-          "title": "b:Sport Innovation/Barefoot Running Shoes",
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "sport",
-          "innovation",
-          "barefoot",
-          "running",
-          "shoes",
-          "extiw"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_78",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Privacy policy",
-        "className": "",
-        "attributes": {
-          "href": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy"
-        },
-        "urlContext": {
-          "url": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy",
-          "textContent": "Privacy policy",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "privacy",
-          "policy"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_79",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Disclaimers",
-        "className": "",
-        "attributes": {
-          "href": "/wiki/Wikipedia:General_disclaimer"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer",
-          "textContent": "Disclaimers",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "disclaimers"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_80",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Code of Conduct",
-        "className": "",
-        "attributes": {
-          "href": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Universal_Code_of_Conduct"
-        },
-        "urlContext": {
-          "url": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Universal_Code_of_Conduct",
-          "textContent": "Code of Conduct",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "code",
-          "conduct"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_81",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Developers",
-        "className": "",
-        "attributes": {
-          "href": "https://developer.wikimedia.org"
-        },
-        "urlContext": {
-          "url": "https://developer.wikimedia.org/",
-          "textContent": "Developers",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "developers"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_82",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Statistics",
-        "className": "",
-        "attributes": {
-          "href": "https://stats.wikimedia.org/#/en.wikipedia.org"
-        },
-        "urlContext": {
-          "url": "https://stats.wikimedia.org/#/en.wikipedia.org",
-          "textContent": "Statistics",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "statistics"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_83",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          "li:nth-child(1)"
-        ],
-        "textContent": "Cookie statement",
-        "className": "",
-        "attributes": {
-          "href": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement"
-        },
-        "urlContext": {
-          "url": "https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement",
-          "textContent": "Cookie statement",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "cookie",
-          "statement"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_84",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".noprint",
-          "a.noprint",
-          "li:nth-child(1)"
-        ],
-        "textContent": "Mobile view",
-        "className": "noprint stopMobileRedirectToggle",
-        "attributes": {
-          "cssClasses": [
-            "noprint",
-            "stopMobileRedirectToggle"
-          ],
-          "href": "//en.wikipedia.org/w/index.php?title=Special:Search&ns0=1&search=kids+shoes&mobileaction=toggle_view_mobile"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Special:Search&ns0=1&search=kids+shoes&mobileaction=toggle_view_mobile",
-          "textContent": "Mobile view",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "mobile",
-          "view",
-          "noprint",
-          "stopmobileredirecttoggle"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_85",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".cdx-button",
-          "a.cdx-button",
-          "li:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled",
-        "attributes": {
-          "cssClasses": [
-            "cdx-button",
-            "cdx-button--fake-button",
-            "cdx-button--size-large",
-            "cdx-button--fake-button--enabled"
-          ],
-          "href": "https://www.wikimedia.org/"
-        },
-        "urlContext": {
-          "url": "https://www.wikimedia.org/",
-          "textContent": "",
-          "title": null,
-          "ariaLabel": null,
-          "altText": "Wikimedia Foundation",
-          "hasImage": true,
-          "imageSrc": "/static/images/footer/wikimedia.svg",
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "cdx",
-          "button",
-          "fake",
-          "size",
-          "large",
-          "enabled"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_86",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".cdx-button",
-          "a.cdx-button",
-          "li:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled",
-        "attributes": {
-          "cssClasses": [
-            "cdx-button",
-            "cdx-button--fake-button",
-            "cdx-button--size-large",
-            "cdx-button--fake-button--enabled"
-          ],
-          "href": "https://www.mediawiki.org/"
-        },
-        "urlContext": {
-          "url": "https://www.mediawiki.org/",
-          "textContent": "",
-          "title": null,
-          "ariaLabel": null,
-          "altText": "Powered by MediaWiki",
-          "hasImage": true,
-          "imageSrc": "/w/resources/assets/mediawiki_compact.svg",
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "cdx",
-          "button",
-          "fake",
-          "size",
-          "large",
-          "enabled"
-        ],
-        "timestamp": 1762694175147
-      },
-      {
-        "id": "a_id_87",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          "[data-event-name=\"pinnable-header.vector-appearance.pin\"]",
-          ".vector-pinnable-header-toggle-button",
-          "button.vector-pinnable-header-toggle-button",
-          "div:nth-child(2)"
-        ],
-        "textContent": "move to sidebar",
-        "className": "vector-pinnable-header-toggle-button vector-pinnable-header-pin-button",
-        "attributes": {
-          "cssClasses": [
-            "vector-pinnable-header-toggle-button",
-            "vector-pinnable-header-pin-button"
-          ]
-        },
+        "attributes": {},
         "urlContext": null,
         "semanticRole": null,
         "semanticConfidence": 0,
         "semanticHints": [
-          "move",
-          "sidebar",
-          "vector",
-          "pinnable",
-          "header",
-          "toggle",
-          "button",
-          "pin"
+          "ask",
+          "anything"
         ],
-        "timestamp": 1762694175148
-      },
-      {
-        "id": "a_id_88",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          "[data-event-name=\"pinnable-header.vector-appearance.unpin\"]",
-          ".vector-pinnable-header-toggle-button",
-          "button.vector-pinnable-header-toggle-button",
-          "div:nth-child(3)"
-        ],
-        "textContent": "hide",
-        "className": "vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button",
-        "attributes": {
-          "cssClasses": [
-            "vector-pinnable-header-toggle-button",
-            "vector-pinnable-header-unpin-button"
-          ]
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "hide",
-          "vector",
-          "pinnable",
-          "header",
-          "toggle",
-          "button",
-          "unpin"
-        ],
-        "timestamp": 1762694175148
-      },
-      {
-        "id": "a_id_89",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          ".cdx-button",
-          "button.cdx-button",
-          "form:nth-child(2)"
-        ],
-        "textContent": "Search",
-        "className": "cdx-button cdx-search-input__end-button",
-        "attributes": {
-          "cssClasses": [
-            "cdx-button",
-            "cdx-search-input__end-button"
-          ]
-        },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "cdx",
-          "button",
-          "input",
-          "end"
-        ],
-        "timestamp": 1762694175148
-      },
-      {
-        "id": "a_id_90",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          ".oo-ui-inputWidget-input",
-          "button.oo-ui-inputWidget-input",
-          "span:nth-child(1)"
-        ],
-        "textContent": "Search",
-        "className": "oo-ui-inputWidget-input oo-ui-buttonElement-button",
-        "attributes": {
-          "cssClasses": [
-            "oo-ui-inputWidget-input",
-            "oo-ui-buttonElement-button"
-          ],
-          "type": "submit"
-        },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "inputwidget",
-          "input",
-          "buttonelement",
-          "button"
-        ],
-        "timestamp": 1762694175148
-      },
-      {
-        "id": "a_id_91",
-        "tagName": "button",
-        "actionType": "button",
-        "selectors": [
-          "[data-event-name=\"ui.vector-sticky-search-form.icon\"]",
-          ".cdx-button",
-          "button.cdx-button",
-          "div:nth-child(1)"
-        ],
-        "textContent": "Search",
-        "className": "cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-sticky-header-search-toggle",
-        "attributes": {
-          "cssClasses": [
-            "cdx-button",
-            "cdx-button--weight-quiet",
-            "cdx-button--icon-only",
-            "vector-sticky-header-search-toggle"
-          ]
-        },
-        "urlContext": null,
-        "semanticRole": "search_input",
-        "semanticConfidence": 3,
-        "semanticHints": [
-          "search-field",
-          "search",
-          "cdx",
-          "button",
-          "weight",
-          "quiet",
-          "icon",
-          "only",
-          "vector",
-          "sticky",
-          "header",
-          "toggle"
-        ],
-        "timestamp": 1762694175148
-      },
-      {
-        "id": "a_id_92",
-        "tagName": "input",
-        "actionType": "button",
-        "selectors": [
-          "#vector-main-menu-dropdown-checkbox",
-          "[data-event-name=\"ui.dropdown-vector-main-menu-dropdown\"]",
-          ".vector-dropdown-checkbox",
-          "input.vector-dropdown-checkbox",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "vector-dropdown-checkbox ",
-        "attributes": {
-          "cssClasses": [
-            "vector-dropdown-checkbox"
-          ],
-          "id": "vector-main-menu-dropdown-checkbox",
-          "type": "checkbox",
-          "role": "button",
-          "aria-label": "Main menu"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "main",
-          "menu",
-          "vector",
-          "dropdown",
-          "checkbox"
-        ],
-        "timestamp": 1762694175148
-      },
-      {
-        "id": "a_id_93",
-        "tagName": "input",
-        "actionType": "button",
-        "selectors": [
-          "#vector-variants-dropdown-checkbox",
-          "[data-event-name=\"ui.dropdown-vector-variants-dropdown\"]",
-          ".vector-dropdown-checkbox",
-          "input.vector-dropdown-checkbox",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "vector-dropdown-checkbox ",
-        "attributes": {
-          "cssClasses": [
-            "vector-dropdown-checkbox"
-          ],
-          "id": "vector-variants-dropdown-checkbox",
-          "type": "checkbox",
-          "role": "button",
-          "aria-label": "Change language variant"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "change",
-          "language",
-          "variant",
-          "vector",
-          "variants",
-          "dropdown",
-          "checkbox"
-        ],
-        "timestamp": 1762694175148
-      },
-      {
-        "id": "a_id_94",
-        "tagName": "input",
-        "actionType": "button",
-        "selectors": [
-          "#vector-page-tools-dropdown-checkbox",
-          "[data-event-name=\"ui.dropdown-vector-page-tools-dropdown\"]",
-          ".vector-dropdown-checkbox",
-          "input.vector-dropdown-checkbox",
-          "div:nth-child(1)"
-        ],
-        "textContent": "",
-        "className": "vector-dropdown-checkbox ",
-        "attributes": {
-          "cssClasses": [
-            "vector-dropdown-checkbox"
-          ],
-          "id": "vector-page-tools-dropdown-checkbox",
-          "type": "checkbox",
-          "role": "button",
-          "aria-label": "Tools"
-        },
-        "urlContext": null,
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "tools",
-          "vector",
-          "page",
-          "dropdown",
-          "checkbox"
-        ],
-        "timestamp": 1762694175148
-      },
-      {
-        "id": "a_id_95",
-        "tagName": "a",
-        "actionType": "link",
-        "selectors": [
-          ".mw-jump-link",
-          "a.mw-jump-link",
-          "body:nth-child(1)"
-        ],
-        "textContent": "Jump to content",
-        "className": "mw-jump-link",
-        "attributes": {
-          "cssClasses": [
-            "mw-jump-link"
-          ],
-          "href": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1#bodyContent"
-        },
-        "urlContext": {
-          "url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1#bodyContent",
-          "textContent": "Jump to content",
-          "title": null,
-          "ariaLabel": null,
-          "hasImage": false,
-          "isButton": false
-        },
-        "semanticRole": null,
-        "semanticConfidence": 0,
-        "semanticHints": [
-          "jump",
-          "content",
-          "link"
-        ],
-        "timestamp": 1762694175150,
-        "element": {}
+        "timestamp": 1763104834092
       }
     ],
     "contentElements": [],
     "navigationState": "unknown",
     "contentSections": [],
-    "lastUpdate": 1762694175067,
-    "url": "https://en.wikipedia.org/w/index.php?search=kids+shoes&title=Special%3ASearch&ns0=1",
-    "title": "kids shoes - Search results - Wikipedia"
+    "lastUpdate": 1763104869287,
+    "url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "title": "Perplexity"
   },
   "summary": {
     "total_content_elements": 0,

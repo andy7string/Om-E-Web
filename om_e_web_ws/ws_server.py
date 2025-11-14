@@ -28,6 +28,7 @@ import uuid
 import os
 import re
 import time
+import hashlib
 from datetime import datetime
 from typing import Optional, List, Dict, Any
 from urllib.parse import urlparse
@@ -59,6 +60,7 @@ CURRENT_CONTENT_DATA = None
 LAST_CONTENT_UPDATE = None
 TRANSCRIPTS_DIR = os.path.join(SITE_STRUCTURES_DIR, "transcripts")
 CURRENT_TRANSCRIPTS_INFO = []
+TRANSCRIPTS_HISTORY_MD = os.path.join(TRANSCRIPTS_DIR, "history.md")
 
 SERVER_HEARTBEAT_INTERVAL = 20  # seconds
 
@@ -520,10 +522,109 @@ async def save_content_to_content_jsonl(intelligence_data, transcript_refs=None)
         return None
 
 
+def _ensure_transcript_history_file():
+    """Ensure the transcript history markdown file exists with a header."""
+    if os.path.exists(TRANSCRIPTS_HISTORY_MD):
+        return
+    os.makedirs(os.path.dirname(TRANSCRIPTS_HISTORY_MD), exist_ok=True)
+    with open(TRANSCRIPTS_HISTORY_MD, "w", encoding="utf-8", errors="ignore") as history_file:
+        history_file.write("# Transcript History\n\n")
+
+
+def _load_transcript_history_entries():
+    """Return historical transcript metadata stored in history.md."""
+    entries = []
+    if not os.path.exists(TRANSCRIPTS_HISTORY_MD):
+        return entries
+    try:
+        with open(TRANSCRIPTS_HISTORY_MD, "r", encoding="utf-8", errors="ignore") as history_file:
+            for raw_line in history_file:
+                line = raw_line.strip()
+                if line.startswith("- {") and line.endswith("}"):
+                    try:
+                        entries.append(json.loads(line[2:]))
+                    except json.JSONDecodeError:
+                        continue
+    except Exception:
+        pass
+    return entries
+
+
+def _append_transcript_history_entry(entry: Dict[str, Any]):
+    """Append a JSON line entry to the history markdown file."""
+    _ensure_transcript_history_file()
+    with open(TRANSCRIPTS_HISTORY_MD, "a", encoding="utf-8", errors="ignore") as history_file:
+        history_file.write(f"- {json.dumps(entry, ensure_ascii=False)}\n")
+
+
+def _collect_existing_transcript_signatures() -> Dict[str, Optional[str]]:
+    """
+    Gather known transcript signatures keyed by signature value -> video_id
+    by reading history plus existing markdown files.
+    """
+    signatures: Dict[str, Optional[str]] = {}
+    history_entries = _load_transcript_history_entries()
+    for entry in history_entries:
+        sig = entry.get("signature")
+        vid = entry.get("video_id")
+        if sig:
+            signatures[sig] = vid
+
+    if not os.path.exists(TRANSCRIPTS_DIR):
+        return signatures
+
+    for filename in os.listdir(TRANSCRIPTS_DIR):
+        if not filename.endswith(".md") or filename == os.path.basename(TRANSCRIPTS_HISTORY_MD):
+            continue
+        filepath = os.path.join(TRANSCRIPTS_DIR, filename)
+        try:
+            with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+        except Exception:
+            continue
+
+        signature_match = re.search(r"<!--\s*signature:\s*(?P<sig>.+?)\s*-->", content)
+        if signature_match:
+            sig_value = signature_match.group("sig").strip()
+            video_id_match = re.search(r"\*\*Video ID:\*\* (.+)", content)
+            if sig_value and sig_value not in signatures:
+                signatures[sig_value] = video_id_match.group(1).strip() if video_id_match else None
+            continue
+
+        # Fallback for legacy files without embedded signature
+        video_id_match = re.search(r"\*\*Video ID:\*\* (.+)", content)
+        segments_match = re.search(r"\*\*Segments:\*\* (\d+)", content)
+        lines = [l.strip() for l in content.split("\n") if l.strip().startswith("- [")]
+        head_sample = "|".join(lines[:3])
+        tail_sample = "|".join(lines[-3:])
+        video_id = video_id_match.group(1).strip() if video_id_match else "unknown"
+        segment_count = int(segments_match.group(1)) if segments_match else len(lines)
+        raw = f"{video_id}|{segment_count}|{head_sample}|{tail_sample}"
+        fallback_sig = hashlib.sha256(raw.encode("utf-8")).hexdigest()
+        signatures.setdefault(fallback_sig, video_id)
+
+    return signatures
+
+
+def _build_transcript_signature(video_id: Optional[str], segments: List[Dict[str, Any]]) -> Optional[str]:
+    """Create a stable signature for a transcript payload."""
+    if not segments:
+        return None
+    sample = segments[:3] + segments[-3:]
+    sample_str = "|".join(
+        f"{seg.get('timeText', '')}|{(seg.get('text') or '')[:120]}"
+        for seg in sample
+        if seg
+    )
+    raw = f"{video_id or 'unknown'}|{len(segments)}|{sample_str}"
+    digest = hashlib.sha256(raw.encode("utf-8")).hexdigest()
+    return f"{video_id or 'unknown'}:{len(segments)}:{digest}"
+
+
 async def save_transcripts(transcripts, page_state=None):
     """
     💾 Persist transcript payloads (e.g., YouTube text) to disk for LLM consumption.
-    🎯 FIXED: Added duplicate detection based on video ID + segment signature
+    🎯 Uses stable signatures + history tracking to avoid duplicates
     """
     global CURRENT_TRANSCRIPTS_INFO
 
@@ -538,50 +639,7 @@ async def save_transcripts(transcripts, page_state=None):
 
         saved_refs = []
         default_title = (page_state or {}).get("title") or "Transcript"
-        
-        # 🎯 NEW: Build signature for duplicate detection
-        def build_transcript_signature(transcript):
-            """Build a signature from video ID + segment count + first/last segments"""
-            video_id = transcript.get("videoId", "unknown")
-            segments = transcript.get("segments") or []
-            if not segments:
-                return None
-            
-            segment_count = len(segments)
-            # Use first 3 and last 3 segments for signature
-            head_sample = "|".join([
-                f"{seg.get('timeText', '')}|{seg.get('text', '')[:50]}"
-                for seg in segments[:3]
-            ])
-            tail_sample = "|".join([
-                f"{seg.get('timeText', '')}|{seg.get('text', '')[:50]}"
-                for seg in segments[-3:]
-            ])
-            return f"{video_id}|{segment_count}|{head_sample}|{tail_sample}"
-        
-        # 🎯 NEW: Check existing transcripts for duplicates
-        existing_signatures = set()
-        if os.path.exists(TRANSCRIPTS_DIR):
-            for filename in os.listdir(TRANSCRIPTS_DIR):
-                if filename.endswith('.md'):
-                    filepath = os.path.join(TRANSCRIPTS_DIR, filename)
-                    try:
-                        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-                            content = f.read()
-                            # Extract video ID from file
-                            video_id_match = re.search(r'\*\*Video ID:\*\* (.+)', content)
-                            segments_match = re.search(r'\*\*Segments:\*\* (\d+)', content)
-                            if video_id_match and segments_match:
-                                video_id = video_id_match.group(1).strip()
-                                segment_count = int(segments_match.group(1))
-                                # Extract first few lines of transcript content
-                                lines = [l.strip() for l in content.split('\n') if l.strip().startswith('- [')]
-                                head_sample = "|".join(lines[:3]) if len(lines) >= 3 else "|".join(lines)
-                                tail_sample = "|".join(lines[-3:]) if len(lines) >= 3 else "|".join(lines)
-                                signature = f"{video_id}|{segment_count}|{head_sample[:150]}|{tail_sample[-150:]}"
-                                existing_signatures.add(signature)
-                    except Exception:
-                        pass  # Skip files we can't read
+        existing_signatures = set(_collect_existing_transcript_signatures().keys())
 
         def format_seconds(seconds):
             if seconds is None:
@@ -598,26 +656,40 @@ async def save_transcripts(transcripts, page_state=None):
             if not segments:
                 continue
 
-            # 🎯 NEW: Check for duplicate before saving
-            signature = build_transcript_signature(transcript)
+            video_id = transcript.get("videoId") or transcript.get("video_id") or "unknown"
+            video_url = transcript.get("videoUrl") or transcript.get("video_url") or "unknown"
+            signature = _build_transcript_signature(video_id, segments)
             if signature and signature in existing_signatures:
-                video_id = transcript.get("videoId", "unknown")
                 print(f"⏭️ Skipping duplicate transcript for video ID: {video_id} (signature match)")
                 continue
-            
-            title = transcript.get("title") or default_title
-            slug = slugify(title or transcript.get("videoId"))
+
+            raw_title = (
+                transcript.get("title")
+                or transcript.get("videoTitle")
+                or transcript.get("videoName")
+                or transcript.get("trackName")
+                or transcript.get("heading")
+                or video_url
+                or video_id
+                or default_title
+            )
+            title = raw_title.strip() if isinstance(raw_title, str) else default_title
+            slug_source = title or video_id or "transcript"
+            slug = slugify(slug_source)
             timestamp = datetime.utcnow().strftime("%Y-%m-%d_%H-%M-%S")
             filename = f"{timestamp}__{slug}.md"
             rel_path = os.path.join("transcripts", filename)
             full_path = os.path.join(SITE_STRUCTURES_DIR, rel_path)
 
             with open(full_path, 'w', encoding='utf-8', errors='ignore') as f:
+                if signature:
+                    f.write(f"<!-- signature: {signature} -->\n")
                 f.write(f"# {title}\n\n")
-                f.write(f"**Video URL:** {transcript.get('videoUrl', 'unknown')}\n")
-                f.write(f"**Video ID:** {transcript.get('videoId', 'n/a')}\n")
+                f.write(f"**Video URL:** {video_url}\n")
+                f.write(f"**Video ID:** {video_id}\n")
                 f.write(f"**Language:** {transcript.get('language', 'unknown')}\n")
-                f.write(f"**Collected At:** {datetime.utcnow().isoformat()}Z\n")
+                collected_at = transcript.get("collectedAt") or datetime.utcnow().isoformat() + "Z"
+                f.write(f"**Collected At:** {collected_at}\n")
                 f.write(f"**Segments:** {len(segments)}\n\n---\n\n")
 
                 for seg in segments:
@@ -631,17 +703,27 @@ async def save_transcripts(transcripts, page_state=None):
 
             ref = {
                 "title": title,
-                "video_id": transcript.get("videoId"),
-                "video_url": transcript.get("videoUrl"),
+                "video_id": video_id,
+                "video_url": video_url,
                 "language": transcript.get("language"),
                 "segment_count": len(segments),
                 "file": f"@site_structures/{rel_path.replace(os.sep, '/')}",
-                "collected_at": transcript.get("collectedAt")
+                "collected_at": collected_at,
+                "signature": signature
             }
             saved_refs.append(ref)
             print(f"📝 Transcript saved: {ref['file']} ({len(segments)} segments)")
-            
-            # Add to existing signatures to prevent duplicates in same batch
+
+            history_entry = {
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+                "video_id": video_id,
+                "video_url": video_url,
+                "title": title,
+                "segments": len(segments),
+                "file": ref["file"],
+                "signature": signature,
+            }
+            _append_transcript_history_entry(history_entry)
             if signature:
                 existing_signatures.add(signature)
 
