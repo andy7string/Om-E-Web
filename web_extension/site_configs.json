@@ -558,9 +558,12 @@
         "url_pattern": "/watch?v=",
         "handler": "youtube_transcript_pipeline",
         "selectors": [
+          "button.yt-spec-button-shape-next.yt-spec-button-shape-next--outline[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next--call-to-action[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next[aria-label='Show transcript']",
           "button[aria-label='Show transcript']",
-          "button.yt-spec-button-shape-next[aria-label*='transcript' i]",
-          "button.yt-spec-button-shape-next--outline[aria-label*='transcript' i]"
+          "button.yt-spec-button-shape-next--outline[aria-label*='transcript' i]",
+          "button.yt-spec-button-shape-next[aria-label*='transcript' i]"
         ]
       }
     }

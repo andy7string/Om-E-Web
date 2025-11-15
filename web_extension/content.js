@@ -10069,63 +10069,157 @@ function setupIntelligenceUpdates() {
     console.log("[Content] 📊 Triggers: page load, URL change, hash change, popstate, visibility, focus");
 }
 
-// 🎯 PREMIUM: Generic Capability Pipeline Executor
+// 🎯 PREMIUM: Generic Capability Pipeline Executor (Dynamic Element Finder)
 async function capabilityPipelineExecutor(capabilityAction, params) {
-    console.log(`[Content] 🎯 CAPABILITY PIPELINE: ${capabilityAction}`);
+    console.log(`[Content] 🎯 CAPABILITY PIPELINE - Dynamic Element Finder: ${capabilityAction}`);
+
+    // 🆕 DIAGNOSTIC: Check all config sources
+    console.log("[Content] 🔍 CONFIG DIAGNOSTIC:");
+    console.log("  → window.currentSiteConfig:", window.currentSiteConfig);
+    console.log("  → siteConfig (local):", typeof siteConfig !== 'undefined' ? siteConfig : 'undefined');
+    console.log("  → window.currentFramework:", window.currentFramework);
+    console.log("  → currentDomain:", currentDomain);
+
+    // 🆕 USE SAME PATTERN AS INTELLIGENCE ENGINE: Prefer local siteConfig, fallback to window.currentSiteConfig
+    const activeConfig = siteConfig || window.currentSiteConfig;
+
+    if (!activeConfig) {
+        console.log("[Content] ⚠️ Config not found, attempting reload...");
+        const reloadedConfig = getSiteConfigDirect();
+        if (!reloadedConfig) {
+            console.error("[Content] ❌ Config reload failed");
+            throw new Error("Site config not available and reload failed");
+        }
+        console.log("[Content] ✅ Config reloaded successfully");
+    }
+
+    // Final config check
+    const finalConfig = siteConfig || window.currentSiteConfig;
+    if (!finalConfig) {
+        throw new Error("Site config unavailable after reload attempt");
+    }
+
+    console.log("[Content] ✅ Using config:", finalConfig.framework);
 
     try {
-        // Step 1: Get capability config with selectors
-        const capability = window.currentSiteConfig?.capabilities?.transcript;
+        // Step 1: Dynamic capability lookup - find config by action name
+        const capabilityKey = Object.keys(finalConfig?.capabilities || {})
+            .find(key => {
+                const cap = finalConfig.capabilities[key];
+                return cap.action === capabilityAction;
+            });
 
-        if (!capability) {
-            throw new Error(`Capability config not found for: ${capabilityAction}`);
+        if (!capabilityKey) {
+            console.error(`[Content] ❌ No capability found for action: ${capabilityAction}`);
+            console.error(`[Content] Available capabilities:`, Object.keys(finalConfig?.capabilities || {}));
+            throw new Error(`No capability config found for action: ${capabilityAction}`);
         }
 
-        const selectors = capability.selectors || [];
-        console.log(`[Content] 🔍 Hunting with ${selectors.length} precision selectors from config`);
+        const capability = finalConfig.capabilities[capabilityKey];
+        console.log(`[Content] ✅ Found capability: "${capabilityKey}" for action: ${capabilityAction}`);
+        console.log(`[Content] Capability config:`, capability);
 
-        // Step 2: Hunt for element using config selectors
+        // Step 2: Get selectors for dynamic element search
+        const capabilitySelectors = capability.selectors || [];
+
+        if (capabilitySelectors.length === 0) {
+            throw new Error(`No selectors configured for capability: ${capabilityKey}`);
+        }
+
+        console.log(`[Content] 🔍 DYNAMIC SCAN: Searching DOM with ${capabilitySelectors.length} selectors...`);
+        console.log(`[Content] Selectors to try:`, capabilitySelectors);
+
         let targetElement = null;
         let matchedSelector = null;
 
-        for (const selector of selectors) {
-            targetElement = document.querySelector(selector);
-            if (targetElement) {
-                matchedSelector = selector;
-                console.log(`[Content] ✅ Element found: ${selector}`);
-                break;
+        // Try each selector with detailed logging
+        for (let i = 0; i < capabilitySelectors.length; i++) {
+            const selector = capabilitySelectors[i];
+            console.log(`[Content] 🔎 Trying selector ${i + 1}/${capabilitySelectors.length}: ${selector}`);
+
+            try {
+                const elements = document.querySelectorAll(selector);
+                console.log(`[Content]   → Found ${elements.length} elements`);
+
+                if (elements.length > 0) {
+                    targetElement = elements[0];
+                    matchedSelector = selector;
+                    console.log(`[Content] ✅ MATCH! Element found with selector: ${selector}`);
+                    console.log(`[Content] Element details:`, {
+                        tagName: targetElement.tagName,
+                        className: targetElement.className,
+                        ariaLabel: targetElement.getAttribute('aria-label'),
+                        textContent: targetElement.textContent?.trim().substring(0, 50)
+                    });
+                    break;
+                }
+            } catch (error) {
+                console.log(`[Content]   ❌ Selector error: ${error.message}`);
+            }
+        }
+
+        // If not found immediately, wait for it to appear (lazy loading)
+        if (!targetElement) {
+            console.log(`[Content] ⏳ Element not found immediately, waiting for lazy load (max 5s)...`);
+
+            for (const selector of capabilitySelectors) {
+                try {
+                    console.log(`[Content] 🔎 Waiting for: ${selector}`);
+                    targetElement = await waitForElement(selector, 5000);
+                    matchedSelector = selector;
+                    console.log(`[Content] ✅ Element appeared: ${selector}`);
+                    break;
+                } catch (error) {
+                    console.log(`[Content]   ⏱️ Timeout waiting for: ${selector}`);
+                }
             }
         }
 
         if (!targetElement) {
-            throw new Error(`Element not found using configured selectors`);
+            console.error(`[Content] ❌ Element not found after trying all selectors and waiting`);
+            console.error(`[Content] DOM snapshot - all buttons with "transcript":`,
+                Array.from(document.querySelectorAll('button'))
+                    .filter(btn => {
+                        const text = (btn.textContent || '').toLowerCase();
+                        const label = (btn.getAttribute('aria-label') || '').toLowerCase();
+                        return text.includes('transcript') || label.includes('transcript');
+                    })
+                    .map(btn => ({
+                        html: btn.outerHTML.substring(0, 200),
+                        ariaLabel: btn.getAttribute('aria-label'),
+                        classes: btn.className
+                    }))
+            );
+            throw new Error(`Element not found using any configured selectors (tried ${capabilitySelectors.length} selectors)`);
         }
 
         // Step 3: Click the element
-        console.log(`[Content] 🖱️ Clicking element...`);
+        console.log(`[Content] 🖱️ Clicking element (matched by: ${matchedSelector})...`);
         targetElement.click();
 
-        // Step 4: Wait for content to load (generic wait)
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Step 4: Wait for result to load
+        console.log(`[Content] ⏳ Waiting for capability action to complete...`);
+        await new Promise(resolve => setTimeout(resolve, 2000));
 
-        // Step 5: Trigger intelligence update - existing pipeline takes over
-        console.log("[Content] 📤 Triggering intelligence update - existing pipeline handles the rest...");
+        // Step 5: Trigger intelligence update
+        console.log("[Content] 📤 Triggering intelligence update...");
 
         if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
             intelligenceEngine.queueIntelligenceUpdate('high', `capability_${capabilityAction}`);
         }
 
-        // Give pipeline time to process
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
         return {
             success: true,
             message: `Capability ${capabilityAction} executed successfully`,
-            elementFound: matchedSelector
+            elementFound: matchedSelector,
+            matchedBy: 'selector'
         };
 
     } catch (error) {
         console.error(`[Content] ❌ Capability pipeline failed:`, error);
+        console.error(`[Content] Error stack:`, error.stack);
         throw error;
     }
 }

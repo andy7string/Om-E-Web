@@ -85,6 +85,14 @@ class NavigationTester:
                 "type": "llm_instruction",
                 "data": data or {}
             }
+        elif command == "execute_capability":
+            # 🎯 PREMIUM: Capability execution message
+            capability_data = data or {}
+            message = {
+                "type": "execute_capability",
+                "action": capability_data.get("action"),
+                "params": capability_data.get("params", {})
+            }
         else:
             message = {
                 "type": "command",
