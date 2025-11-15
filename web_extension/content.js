@@ -5726,6 +5726,10 @@ IntelligenceEngine.prototype.processUpdateQueue = async function() {
  */
 IntelligenceEngine.prototype.prepareIntelligenceData = function() {
     const transcripts = this.collectTranscriptPayloads();
+
+    // 🎯 PREMIUM: Extract capabilities from site config (URL-pattern based)
+    const capabilities = this.extractCapabilities();
+
     return {
         type: "intelligence_update",
         timestamp: Date.now(),
@@ -5736,10 +5740,63 @@ IntelligenceEngine.prototype.prepareIntelligenceData = function() {
         actionableElements: this.getActionableElementsSummary(),
         actionMapping: this.generateActionMapping(),
         contentElements: this.getContentElementsSummary(),
-        pageText: this.extractCleanPageText(), // 🆕 NEW: Include page text for automatic markdown generation
+        pageText: this.extractCleanPageText(),
         normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true }),
-        transcripts
+        transcripts,
+        capabilities // 🎯 PREMIUM: Site-specific capabilities for current URL
     };
+};
+
+/**
+ * 🎯 PREMIUM: Extract capabilities from current site config
+ * Returns only capabilities that match the current URL pattern
+ *
+ * This enables programmable web interaction - custom multi-step workflows
+ * defined declaratively per domain/URL pattern in site_configs.json
+ */
+IntelligenceEngine.prototype.extractCapabilities = function() {
+    try {
+        // Check if we have a site config loaded
+        if (!window.currentSiteConfig || !window.currentSiteConfig.capabilities) {
+            return [];
+        }
+
+        const currentUrl = window.location.href;
+        const capabilities = window.currentSiteConfig.capabilities;
+        const matchingCapabilities = [];
+
+        // 🎯 CRITICAL: Only extract capabilities from the CURRENT site's config
+        // Capabilities are site-specific - don't mix configs!
+        console.log(`[Content] 🔍 Checking capabilities for framework: ${window.currentFramework}, URL: ${currentUrl}`);
+
+        // Check each capability to see if URL pattern matches
+        for (const [capabilityId, capability] of Object.entries(capabilities)) {
+            // Check if url_pattern is present and matches current URL
+            if (capability.url_pattern && currentUrl.includes(capability.url_pattern)) {
+                matchingCapabilities.push({
+                    id: capabilityId,
+                    action: capability.action,
+                    label: capability.label,
+                    description: capability.description,
+                    handler: capability.handler,
+                    framework: window.currentFramework
+                });
+                console.log(`[Content] 🎯 Capability matched: ${capabilityId} (${capability.action}) for ${window.currentFramework}`);
+            }
+        }
+
+        if (matchingCapabilities.length > 0) {
+            console.log(`[Content] ✅ Found ${matchingCapabilities.length} matching capabilities for ${window.currentFramework}`);
+        } else {
+            console.log(`[Content] ℹ️ No capabilities matched for current URL on ${window.currentFramework}`);
+        }
+
+        return matchingCapabilities;
+
+    } catch (error) {
+        console.error("[Content] ❌ Error extracting capabilities:", error);
+        return [];
+    }
 };
 /**
  * 🆕 EXPERIMENTAL: Build normalized JSONL-ready records for the current page
@@ -10012,8 +10069,187 @@ function setupIntelligenceUpdates() {
     console.log("[Content] 📊 Triggers: page load, URL change, hash change, popstate, visibility, focus");
 }
 
-// 🆕 NEW: Message listener for LLM action execution
+// 🎯 PREMIUM: Generic Capability Pipeline Executor
+async function capabilityPipelineExecutor(capabilityAction, params) {
+    console.log(`[Content] 🎯 CAPABILITY PIPELINE: ${capabilityAction}`);
+
+    try {
+        // Step 1: Get capability config with selectors
+        const capability = window.currentSiteConfig?.capabilities?.transcript;
+
+        if (!capability) {
+            throw new Error(`Capability config not found for: ${capabilityAction}`);
+        }
+
+        const selectors = capability.selectors || [];
+        console.log(`[Content] 🔍 Hunting with ${selectors.length} precision selectors from config`);
+
+        // Step 2: Hunt for element using config selectors
+        let targetElement = null;
+        let matchedSelector = null;
+
+        for (const selector of selectors) {
+            targetElement = document.querySelector(selector);
+            if (targetElement) {
+                matchedSelector = selector;
+                console.log(`[Content] ✅ Element found: ${selector}`);
+                break;
+            }
+        }
+
+        if (!targetElement) {
+            throw new Error(`Element not found using configured selectors`);
+        }
+
+        // Step 3: Click the element
+        console.log(`[Content] 🖱️ Clicking element...`);
+        targetElement.click();
+
+        // Step 4: Wait for content to load (generic wait)
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        // Step 5: Trigger intelligence update - existing pipeline takes over
+        console.log("[Content] 📤 Triggering intelligence update - existing pipeline handles the rest...");
+
+        if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
+            intelligenceEngine.queueIntelligenceUpdate('high', `capability_${capabilityAction}`);
+        }
+
+        // Give pipeline time to process
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        return {
+            success: true,
+            message: `Capability ${capabilityAction} executed successfully`,
+            elementFound: matchedSelector
+        };
+
+    } catch (error) {
+        console.error(`[Content] ❌ Capability pipeline failed:`, error);
+        throw error;
+    }
+}
+
+// Helper function to wait for element to appear
+function waitForElement(selector, timeout = 5000) {
+    return new Promise((resolve, reject) => {
+        const element = document.querySelector(selector);
+        if (element) {
+            resolve(element);
+            return;
+        }
+
+        const observer = new MutationObserver((mutations, obs) => {
+            const element = document.querySelector(selector);
+            if (element) {
+                obs.disconnect();
+                resolve(element);
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        setTimeout(() => {
+            observer.disconnect();
+            reject(new Error(`Timeout waiting for element: ${selector}`));
+        }, timeout);
+    });
+}
+
+// 🎯 PREMIUM: Capability execution router
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.type === "execute_capability") {
+        const action = message.action;
+        const params = message.params || {};
+
+        console.log(`[Content] 🎯 CAPABILITY EXECUTION: ${action}`);
+
+        // Route to generic capability pipeline executor
+        capabilityPipelineExecutor(action, params)
+            .then(result => {
+                console.log("[Content] ✅ Capability executed successfully:", result);
+                sendResponse({ ok: true, result });
+            })
+            .catch(error => {
+                console.error("[Content] ❌ Capability execution failed:", error);
+                sendResponse({ ok: false, error: error.message });
+            });
+
+        return true; // Keep channel open for async
+    }
+
+    if (message.type === "youtube_find_transcript_button") {
+        console.log("[Content] 🎯 PHASE B: Hunting for transcript button directly in DOM...");
+
+        try {
+            // Strategy 1: Exact aria-label match
+            let button = document.querySelector('button[aria-label="Show transcript"]');
+
+            // Strategy 2: Case-insensitive contains
+            if (!button) {
+                const allButtons = Array.from(document.querySelectorAll('button'));
+                button = allButtons.find(btn => {
+                    const ariaLabel = btn.getAttribute('aria-label')?.toLowerCase() || '';
+                    return ariaLabel.includes('transcript');
+                });
+            }
+
+            if (!button) {
+                console.log("[Content] ❌ Transcript button not found in DOM");
+                sendResponse({ ok: false, error: "Transcript button not found" });
+                return true;
+            }
+
+            console.log("[Content] ✅ Found transcript button:", button);
+            console.log("[Content] 🎯 Button details:", {
+                tagName: button.tagName,
+                ariaLabel: button.getAttribute('aria-label'),
+                classes: button.className,
+                innerText: button.innerText
+            });
+
+            // Force-register this button if not already registered
+            if (intelligenceEngine) {
+                // Check if already registered
+                let existingId = null;
+                for (const [id, element] of intelligenceEngine.actionableElements) {
+                    if (element === button) {
+                        existingId = id;
+                        break;
+                    }
+                }
+
+                if (existingId) {
+                    console.log("[Content] ✅ Button already registered:", existingId);
+                    sendResponse({ ok: true, actionId: existingId, alreadyRegistered: true });
+                } else {
+                    // Force-register it now
+                    const actionId = intelligenceEngine.registerActionableElement(button, 'click');
+                    console.log("[Content] ✅ Force-registered transcript button:", actionId);
+
+                    // Trigger intelligence update to send new button to server
+                    if (intelligenceEngine.queueIntelligenceUpdate) {
+                        intelligenceEngine.queueIntelligenceUpdate('high', 'transcript_button_found');
+                    }
+
+                    sendResponse({ ok: true, actionId, newlyRegistered: true });
+                }
+            } else {
+                console.log("[Content] ⚠️ Intelligence engine not available");
+                sendResponse({ ok: false, error: "Intelligence engine not available" });
+            }
+
+        } catch (error) {
+            console.error("[Content] ❌ Error hunting for transcript button:", error);
+            sendResponse({ ok: false, error: error.message });
+        }
+
+        return true; // Keep channel open for async response
+    }
+
     if (message.type === "execute_action") {
         console.log("[Content] 🤖 Executing LLM action:", message);
         
@@ -10086,22 +10322,57 @@ function isSignificantChange(mutations) {
     const now = Date.now();
     const isYoutube = window.location.hostname.includes('youtube.com') || window.currentFramework === 'youtube';
     
-    // 🎯 SPECIAL CASE: YouTube transcript panels should always trigger
-    const hasTranscriptPanel = mutations.some(mutation => {
+    // 🎯 SPECIAL CASE: YouTube transcript elements should always trigger (panels AND buttons)
+    const hasTranscriptElement = mutations.some(mutation => {
         if (mutation.type === 'childList') {
-            return Array.from(mutation.addedNodes || []).some(node => 
-                node.nodeType === Node.ELEMENT_NODE && (
-                    node.tagName === 'YTD-TRANSCRIPT-SEGMENT-LIST-RENDERER' ||
+            return Array.from(mutation.addedNodes || []).some(node => {
+                if (node.nodeType !== Node.ELEMENT_NODE) return false;
+
+                // Detect transcript panels (actual transcript content)
+                if (node.tagName === 'YTD-TRANSCRIPT-SEGMENT-LIST-RENDERER' ||
                     node.querySelector?.('ytd-transcript-segment-list-renderer') ||
-                    node.closest?.('ytd-transcript-segment-list-renderer')
-                )
-            );
+                    node.closest?.('ytd-transcript-segment-list-renderer')) {
+                    return true;
+                }
+
+                // 🎯 FIX: Detect "Show transcript" button (multiple strategies)
+                // Strategy 1: Node itself is a button with transcript in aria-label
+                if (node.tagName === 'BUTTON') {
+                    const ariaLabel = node.getAttribute?.('aria-label')?.toLowerCase() || '';
+                    if (ariaLabel.includes('transcript')) {
+                        console.log("[Content] 🎯 Transcript button detected (direct):", ariaLabel);
+                        return true;
+                    }
+                }
+
+                // Strategy 2: Node contains a button with transcript in aria-label
+                const transcriptButton = node.querySelector?.('button[aria-label*="transcript" i]');
+                if (transcriptButton) {
+                    console.log("[Content] 🎯 Transcript button detected (querySelector):", transcriptButton.getAttribute('aria-label'));
+                    return true;
+                }
+
+                // Strategy 3: Check if added node is inside engagement panel (where transcript button lives)
+                if (node.closest?.('ytd-engagement-panel-section-list-renderer') ||
+                    node.tagName === 'YTD-ENGAGEMENT-PANEL-SECTION-LIST-RENDERER') {
+                    const buttons = node.querySelectorAll?.('button') || [];
+                    for (const btn of buttons) {
+                        const ariaLabel = btn.getAttribute?.('aria-label')?.toLowerCase() || '';
+                        if (ariaLabel.includes('transcript')) {
+                            console.log("[Content] 🎯 Transcript button detected (engagement panel):", ariaLabel);
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            });
         }
         return false;
     });
-    
-    if (hasTranscriptPanel) {
-        console.log("[Content] 🎯 Transcript panel change detected - forcing significant change");
+
+    if (hasTranscriptElement) {
+        console.log("[Content] 🎯 Transcript element change detected - forcing significant change and rescan");
         lastSignificantChange = now;
         return true;
     }

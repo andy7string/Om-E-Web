@@ -3,25 +3,39 @@
 Non-interactive Action Test Script
 
 Usage examples:
+
+  🎯 PREMIUM: Execute Capability (YouTube Transcript Retrieval)
+      python3 test_navigation.py --command capability --capability RetrieveTranscript
+      #   ↳ Navigate to a YouTube video page first
+      #   ↳ Clicks "Show transcript" button
+      #   ↳ Extracts and saves transcript to @site_structures/transcripts/
+
   - Direct navigation:
       python3 test_navigation.py --command navigate --action-id a_id_755
+
   - Click action:
-      python3 test_navigation.py --command click --action-id a_id_133
+      python3 test_navigation.py --command click --action-id a_id_465
+
   - Custom LLM action:
-      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Guitar Amps" --submit
+      python3 test_navigation.py --command llm --action-id a_id_511 --action-type setValue --value "Guitar Amps" --submit
+
   - Marketplace search (set value + submit):
-      
+      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit
       #   ↳ actionId: use the id from page.jsonl/llm_prompt.md (ex: a_id_1)
       #   ↳ --action-type setValue tells the extension to type into the field
       #   ↳ --value "Gibson Guitar" is the text to enter
       #   ↳ --submit sends Enter + tries common submit buttons
+
   - Generic LLM click without specifying actionType (auto-detect):
       python3 test_navigation.py --command llm --action-id a_id_133
       #   ↳ when --action-type is omitted, extension uses stored metadata
+
   - Explicit click:
       python3 test_navigation.py --command click --action-id a_id_133
+
   - Navigate link:
       python3 test_navigation.py --command navigate --action-id a_id_755
+
   - Set value without submit:
       python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "just text" --no-submit
 """
@@ -194,8 +208,9 @@ async def main():
     submit_group.add_argument("--submit", dest="submit", action="store_true", help="Submit after setting the value")
     submit_group.add_argument("--no-submit", dest="no_submit", action="store_true", help="Do not submit after setting the value")
     parser.add_argument("--action-type", dest="action_type", required=False, help="Optional actionType when using the 'llm' command (e.g., setValue, click, navigate)")
-    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click"], default="llm",
-                        help="Execution mode: llm (default), navigate, click")
+    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click", "capability"], default="llm",
+                        help="Execution mode: llm (default), navigate, click, capability")
+    parser.add_argument("--capability", dest="capability", required=False, help="Capability action name (e.g., RetrieveTranscript)")
 
     # -------- cheat sheet ----------------------------------------------------
     # --command llm (default):
@@ -217,10 +232,20 @@ async def main():
 
     args = parser.parse_args()
 
-    # If no action-id is provided, print usage and exit non-interactively
-    if not args.action_id:
-        parser.print_usage()
-        return
+    # Validate arguments based on command mode
+    command_mode = args.command
+
+    if command_mode == "capability":
+        # Capability mode requires --capability
+        if not args.capability:
+            print("❌ Error: --capability is required when using --command capability")
+            parser.print_usage()
+            return
+    else:
+        # Other modes require --action-id
+        if not args.action_id:
+            parser.print_usage()
+            return
 
     tester = NavigationTester()
     connected = await tester.connect()
@@ -236,10 +261,22 @@ async def main():
         elif args.no_submit:
             params["submit"] = False
 
-    # Build payload matching server expectations
-    command_mode = args.command
+    if command_mode == "capability":
+        # 🎯 PREMIUM: Execute a capability action (e.g., RetrieveTranscript)
+        capability_action = args.capability
 
-    if command_mode == "navigate":
+        payload = {
+            "action": capability_action,
+            "params": params
+        }
+        print("""⚙️ CAPABILITY PAYLOAD
+    - Executing capability action (e.g., RetrieveTranscript)
+    - Server will route to handler based on site_configs.json
+    - Handler executes multi-step workflow
+    """)
+        print(f"🎯 Executing capability: {capability_action}")
+        response = await tester.send_command("execute_capability", payload)
+    elif command_mode == "navigate":
         payload = {
             "actionId": args.action_id,
             "actionType": args.action_type or "navigate",

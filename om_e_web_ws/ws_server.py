@@ -28,6 +28,7 @@ import uuid
 import os
 import re
 import time
+from config import MAX_ACTIONS, MAX_FOOTER_LINKS
 import hashlib
 from datetime import datetime
 from typing import Optional, List, Dict, Any
@@ -46,6 +47,9 @@ CURRENT_TABS_INFO = None           # Latest tabs_info from extension
 LAST_TABS_UPDATE = None            # Timestamp of last update
 CURRENT_ACTIVE_TAB = None          # Current active tab information
 
+# 🎯 PREMIUM: Site configs loaded from extension's site_configs.json
+SITE_CONFIGS = {}                  # Loaded site configurations with capabilities
+
 # 📁 Site map storage configuration
 SITE_STRUCTURES_DIR = "@site_structures"
 
@@ -60,7 +64,7 @@ CURRENT_CONTENT_DATA = None
 LAST_CONTENT_UPDATE = None
 TRANSCRIPTS_DIR = os.path.join(SITE_STRUCTURES_DIR, "transcripts")
 CURRENT_TRANSCRIPTS_INFO = []
-TRANSCRIPTS_HISTORY_MD = os.path.join(TRANSCRIPTS_DIR, "history.md")
+VIDEO_HISTORY_JSONL = os.path.join(TRANSCRIPTS_DIR, "video_history.jsonl")
 
 SERVER_HEARTBEAT_INTERVAL = 20  # seconds
 
@@ -522,27 +526,27 @@ async def save_content_to_content_jsonl(intelligence_data, transcript_refs=None)
         return None
 
 
-def _ensure_transcript_history_file():
-    """Ensure the transcript history markdown file exists with a header."""
-    if os.path.exists(TRANSCRIPTS_HISTORY_MD):
+def _ensure_video_history_file():
+    """Ensure the video history JSONL file exists."""
+    if os.path.exists(VIDEO_HISTORY_JSONL):
         return
-    os.makedirs(os.path.dirname(TRANSCRIPTS_HISTORY_MD), exist_ok=True)
-    with open(TRANSCRIPTS_HISTORY_MD, "w", encoding="utf-8", errors="ignore") as history_file:
-        history_file.write("# Transcript History\n\n")
+    os.makedirs(os.path.dirname(VIDEO_HISTORY_JSONL), exist_ok=True)
+    # Create empty file
+    open(VIDEO_HISTORY_JSONL, 'a').close()
 
 
-def _load_transcript_history_entries():
-    """Return historical transcript metadata stored in history.md."""
+def _load_video_history_entries():
+    """Return historical transcript metadata stored in video_history.jsonl."""
     entries = []
-    if not os.path.exists(TRANSCRIPTS_HISTORY_MD):
+    if not os.path.exists(VIDEO_HISTORY_JSONL):
         return entries
     try:
-        with open(TRANSCRIPTS_HISTORY_MD, "r", encoding="utf-8", errors="ignore") as history_file:
+        with open(VIDEO_HISTORY_JSONL, "r", encoding="utf-8", errors="ignore") as history_file:
             for raw_line in history_file:
                 line = raw_line.strip()
-                if line.startswith("- {") and line.endswith("}"):
+                if line:
                     try:
-                        entries.append(json.loads(line[2:]))
+                        entries.append(json.loads(line))
                     except json.JSONDecodeError:
                         continue
     except Exception:
@@ -550,11 +554,11 @@ def _load_transcript_history_entries():
     return entries
 
 
-def _append_transcript_history_entry(entry: Dict[str, Any]):
-    """Append a JSON line entry to the history markdown file."""
-    _ensure_transcript_history_file()
-    with open(TRANSCRIPTS_HISTORY_MD, "a", encoding="utf-8", errors="ignore") as history_file:
-        history_file.write(f"- {json.dumps(entry, ensure_ascii=False)}\n")
+def _append_video_history_entry(entry: Dict[str, Any]):
+    """Append a JSON line entry to the video history JSONL file."""
+    _ensure_video_history_file()
+    with open(VIDEO_HISTORY_JSONL, "a", encoding="utf-8", errors="ignore") as history_file:
+        history_file.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 
 def _collect_existing_transcript_signatures() -> Dict[str, Optional[str]]:
@@ -563,7 +567,7 @@ def _collect_existing_transcript_signatures() -> Dict[str, Optional[str]]:
     by reading history plus existing markdown files.
     """
     signatures: Dict[str, Optional[str]] = {}
-    history_entries = _load_transcript_history_entries()
+    history_entries = _load_video_history_entries()
     for entry in history_entries:
         sig = entry.get("signature")
         vid = entry.get("video_id")
@@ -574,7 +578,7 @@ def _collect_existing_transcript_signatures() -> Dict[str, Optional[str]]:
         return signatures
 
     for filename in os.listdir(TRANSCRIPTS_DIR):
-        if not filename.endswith(".md") or filename == os.path.basename(TRANSCRIPTS_HISTORY_MD):
+        if not filename.endswith(".md") or filename == "video_history.jsonl":
             continue
         filepath = os.path.join(TRANSCRIPTS_DIR, filename)
         try:
@@ -676,8 +680,8 @@ async def save_transcripts(transcripts, page_state=None):
             title = raw_title.strip() if isinstance(raw_title, str) else default_title
             slug_source = title or video_id or "transcript"
             slug = slugify(slug_source)
-            timestamp = datetime.utcnow().strftime("%Y-%m-%d_%H-%M-%S")
-            filename = f"{timestamp}__{slug}.md"
+            date_stamp = datetime.utcnow().strftime("%Y-%m-%d")  # Changed: Only date, no time
+            filename = f"{date_stamp}__{slug}.md"
             rel_path = os.path.join("transcripts", filename)
             full_path = os.path.join(SITE_STRUCTURES_DIR, rel_path)
 
@@ -723,7 +727,7 @@ async def save_transcripts(transcripts, page_state=None):
                 "file": ref["file"],
                 "signature": signature,
             }
-            _append_transcript_history_entry(history_entry)
+            _append_video_history_entry(history_entry)
             if signature:
                 existing_signatures.add(signature)
 
@@ -1080,7 +1084,7 @@ def _map_prompt_action_sentence(record: Dict[str, Any]) -> Optional[str]:
     except Exception:
         return None
 
-def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, max_actions: int = 120) -> Optional[str]:
+def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, max_actions: int = MAX_ACTIONS) -> Optional[str]:
     try:
         title: Optional[str] = None
         page_url: Optional[str] = None
@@ -1151,95 +1155,206 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
             seen.add(rec['line'])
             deduped_records.append(rec)
         
-        deduped_records = deduped_records[:max_actions]
+        # 🎯 DOMAIN-SPECIFIC CATEGORIZATION: Apply smart categorization based on domain
+        def _extract_domain(url: str) -> str:
+            """Extract domain from URL"""
+            if not url:
+                return ""
+            try:
+                parsed = urlparse(url)
+                return parsed.netloc.lower()
+            except:
+                return ""
 
-        # 🎯 MENU DETECTION: Identify menu items based on common patterns
-        def _is_menu_item(label: str, action_id: str):
-            """Detect if an action is a menu item and return menu group name"""
-            if not label:
-                return False, None
-            
-            label_lower = label.lower()
-            
-            # Footer/Site menu items
-            footer_keywords = ['about', 'terms', 'privacy', 'policy', 'safety', 'copyright', 
-                             'contact', 'creators', 'advertise', 'developers', 'press', 
-                             'how youtube works', 'test new features', 'help', 'send feedback',
-                             'report history', 'settings']
-            if any(keyword in label_lower for keyword in footer_keywords):
-                return True, "Footer Menu"
-            
-            # Navigation menu items
-            nav_keywords = ['home', 'shorts', 'subscriptions', 'you', 'history', 'playlists',
-                          'watch later', 'liked videos', 'downloads', 'explore', 'music',
-                          'movies', 'gaming', 'news', 'sports', 'learning', 'fashion', 'beauty',
-                          'podcasts', 'playables', 'studio', 'kids']
-            if any(keyword in label_lower for keyword in nav_keywords):
-                return True, "Navigation Menu"
-            
-            # Account menu items
-            account_keywords = ['account', 'profile', 'sign in', 'sign out', 'settings', 'preferences']
-            if any(keyword in label_lower for keyword in account_keywords):
-                return True, "Account Menu"
-            
-            return False, None
-        
-        # 🎯 GROUP ACTIONS: Separate menu items from regular actions, preserving DOM order
-        menu_groups: Dict[str, List[Dict[str, Any]]] = {}
-        regular_actions: List[Dict[str, Any]] = []
-        search_inputs: List[Dict[str, Any]] = []  # 🎯 NEW: Prioritize search inputs
-        email_actions: List[Dict[str, Any]] = []  # 🎯 NEW: Group email/message rows
-        
-        for rec in deduped_records:
-            record = rec.get('record', {})
-            tag = (record.get('tag') or '').lower()
-            attributes = record.get('attributes', {})
-            role = (attributes.get('role') or '').lower()
+        def _smart_categorize_actions(records: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
+            """
+            Generic smart categorization based on hrefs and labels.
+            Works for ANY site - detects patterns, not hardcoded domains.
+            """
+            categories = {
+                'search_inputs': [],
+                'transcript_actions': [],  # CRITICAL: Transcript-related actions (show, segments, etc.)
+                'video_links': [],         # Links with /watch?v= (YouTube videos, etc.)
+                'channel_links': [],       # Links with /@ or /channel/ (user profiles)
+                'footer_links': [],        # Footer/legal links (About, Terms, etc.)
+                'regular_actions': [],
+                'email_actions': []
+            }
 
-            # 🎯 PRIORITIZE: Capture email/message rows before other grouping
-            if tag == 'tr' and role == 'row':
-                email_actions.append(rec)
-                continue
+            for rec in records:
+                record = rec.get('record', {})
+                label = (rec.get('label') or '').lower()
+                href = record.get('href', '')
+                tag = (record.get('tag') or '').lower()
+                action_types = record.get('actionTypes', [])
+                attributes = record.get('attributes', {})
+                role = (attributes.get('role') or '').lower()
 
-            is_menu, menu_group = _is_menu_item(rec['label'], rec['action_id'])
-            
-            # 🎯 PRIORITIZE: Extract search inputs (especially Wikipedia search)
-            label_lower = (rec.get('label') or '').lower()
-            action_types = record.get('actionTypes', [])
-            placeholder = (record.get('placeholder') or '').lower()
-            aria_label = (record.get('ariaLabel') or '').lower()
-            element_id = record.get('id', '')
-            element_name = record.get('name', '')
-            
-            # Check if it's a search input by various indicators
-            is_search_input = (
-                'search' in label_lower or
-                'search' in placeholder or
-                'search' in aria_label or
-                element_id == 'searchInput' or
-                element_name == 'search' or
-                (tag == 'input' and ('setValue' in action_types or 'input' in action_types) and ('search' in label_lower or 'search' in placeholder or 'search' in aria_label))
-            )
-            
-            if is_search_input:
-                search_inputs.append(rec)
-            elif is_menu and menu_group:
-                if menu_group not in menu_groups:
-                    menu_groups[menu_group] = []
-                menu_groups[menu_group].append(rec)
-            else:
-                regular_actions.append(rec)
-        
-        # Sort menu groups by their first item's DOM index to preserve order
-        for menu_group_name in menu_groups:
-            menu_groups[menu_group_name].sort(key=lambda r: r['index'])
-        
-        # Sort search inputs by DOM index (they'll appear first)
+                # 🎯 CRITICAL PRIORITY: Transcript actions (MUST be captured!)
+                # Detect: "Show transcript", "Hide transcript", transcript segments, etc.
+                is_transcript = ('transcript' in label or
+                               'ytd-transcript' in (record.get('selector') or '') or
+                               'segments-container' in (record.get('selector') or ''))
+                if is_transcript:
+                    categories['transcript_actions'].append(rec)
+                    continue
+
+                # Email/message rows (works for Gmail, etc.)
+                if tag == 'tr' and role == 'row':
+                    categories['email_actions'].append(rec)
+                    continue
+
+                # Search inputs (generic - works everywhere)
+                placeholder = (record.get('placeholder') or '').lower()
+                aria_label = (record.get('ariaLabel') or '').lower()
+                is_search = ('search' in label or 'search' in placeholder or 'search' in aria_label)
+                if is_search and ('setValue' in action_types or 'input' in action_types):
+                    categories['search_inputs'].append(rec)
+                    continue
+
+                # Video links - detect by href pattern (works for YouTube, Vimeo, etc.)
+                if '/watch?v=' in href or '/watch/' in href or '/video/' in href:
+                    categories['video_links'].append(rec)
+                    continue
+
+                # Channel/profile links - detect by href pattern
+                if '/@' in href or '/channel/' in href or '/user/' in href:
+                    categories['channel_links'].append(rec)
+                    continue
+
+                # Footer links - generic keywords that work across sites
+                # Check if label matches common footer patterns (exact match or contains)
+                footer_keywords = ['about', 'press', 'copyright', 'terms', 'privacy', 'policy',
+                                 'contact', 'advertise', 'developers', 'help', 'legal', 'creators',
+                                 'safety', 'test new', 'how', 'works']
+                is_footer = any(keyword == label or keyword in label for keyword in footer_keywords)
+                if is_footer:
+                    categories['footer_links'].append(rec)
+                    continue
+
+                # Everything else
+                categories['regular_actions'].append(rec)
+
+            return categories
+
+        # 🎯 SMART CATEGORIZATION: Pattern-based, works for all sites
+        smart_categories = _smart_categorize_actions(deduped_records)
+
+        # Extract categories
+        transcript_actions = smart_categories.get('transcript_actions', [])
+        search_inputs = smart_categories.get('search_inputs', [])
+        email_actions = smart_categories.get('email_actions', [])
+        video_links = smart_categories.get('video_links', [])
+        channel_links = smart_categories.get('channel_links', [])
+        footer_links = smart_categories.get('footer_links', [])
+        regular_actions = smart_categories.get('regular_actions', [])
+
+        # Sort all by DOM index
+        transcript_actions.sort(key=lambda r: r['index'])
         search_inputs.sort(key=lambda r: r['index'])
-        
-        # Sort regular actions by DOM index
-        regular_actions.sort(key=lambda r: r['index'])
         email_actions.sort(key=lambda r: r['index'])
+        video_links.sort(key=lambda r: r['index'])
+        channel_links.sort(key=lambda r: r['index'])
+        footer_links.sort(key=lambda r: r['index'])
+        regular_actions.sort(key=lambda r: r['index'])
+
+        # Limit footer links
+        footer_links = footer_links[:MAX_FOOTER_LINKS]
+
+        # Also run generic menu detection for backwards compatibility
+        menu_groups: Dict[str, List[Dict[str, Any]]] = {}
+
+        if False:  # Disabled - keeping for reference but using smart categorization instead
+            # Fall back to generic categorization
+            deduped_records = deduped_records[:max_actions]
+
+            # 🎯 MENU DETECTION: Identify menu items based on common patterns
+            def _is_menu_item(label: str, action_id: str):
+                """Detect if an action is a menu item and return menu group name"""
+                if not label:
+                    return False, None
+
+                label_lower = label.lower()
+
+                # Footer/Site menu items
+                footer_keywords = ['about', 'terms', 'privacy', 'policy', 'safety', 'copyright',
+                                 'contact', 'creators', 'advertise', 'developers', 'press',
+                                 'how youtube works', 'test new features', 'help', 'send feedback',
+                                 'report history', 'settings']
+                if any(keyword in label_lower for keyword in footer_keywords):
+                    return True, "Footer Menu"
+
+                # Navigation menu items
+                nav_keywords = ['home', 'shorts', 'subscriptions', 'you', 'history', 'playlists',
+                              'watch later', 'liked videos', 'downloads', 'explore', 'music',
+                              'movies', 'gaming', 'news', 'sports', 'learning', 'fashion', 'beauty',
+                              'podcasts', 'playables', 'studio', 'kids']
+                if any(keyword in label_lower for keyword in nav_keywords):
+                    return True, "Navigation Menu"
+
+                # Account menu items
+                account_keywords = ['account', 'profile', 'sign in', 'sign out', 'settings', 'preferences']
+                if any(keyword in label_lower for keyword in account_keywords):
+                    return True, "Account Menu"
+
+                return False, None
+
+            # 🎯 GROUP ACTIONS: Separate menu items from regular actions, preserving DOM order
+            menu_groups: Dict[str, List[Dict[str, Any]]] = {}
+            regular_actions: List[Dict[str, Any]] = []
+            search_inputs: List[Dict[str, Any]] = []  # 🎯 NEW: Prioritize search inputs
+            email_actions: List[Dict[str, Any]] = []  # 🎯 NEW: Group email/message rows
+
+            for rec in deduped_records:
+                record = rec.get('record', {})
+                tag = (record.get('tag') or '').lower()
+                attributes = record.get('attributes', {})
+                role = (attributes.get('role') or '').lower()
+
+                # 🎯 PRIORITIZE: Capture email/message rows before other grouping
+                if tag == 'tr' and role == 'row':
+                    email_actions.append(rec)
+                    continue
+
+                is_menu, menu_group = _is_menu_item(rec['label'], rec['action_id'])
+
+                # 🎯 PRIORITIZE: Extract search inputs (especially Wikipedia search)
+                label_lower = (rec.get('label') or '').lower()
+                action_types = record.get('actionTypes', [])
+                placeholder = (record.get('placeholder') or '').lower()
+                aria_label = (record.get('ariaLabel') or '').lower()
+                element_id = record.get('id', '')
+                element_name = record.get('name', '')
+
+                # Check if it's a search input by various indicators
+                is_search_input = (
+                    'search' in label_lower or
+                    'search' in placeholder or
+                    'search' in aria_label or
+                    element_id == 'searchInput' or
+                    element_name == 'search' or
+                    (tag == 'input' and ('setValue' in action_types or 'input' in action_types) and ('search' in label_lower or 'search' in placeholder or 'search' in aria_label))
+                )
+
+                if is_search_input:
+                    search_inputs.append(rec)
+                elif is_menu and menu_group:
+                    if menu_group not in menu_groups:
+                        menu_groups[menu_group] = []
+                    menu_groups[menu_group].append(rec)
+                else:
+                    regular_actions.append(rec)
+
+            # Sort menu groups by their first item's DOM index to preserve order
+            for menu_group_name in menu_groups:
+                menu_groups[menu_group_name].sort(key=lambda r: r['index'])
+
+            # Sort search inputs by DOM index (they'll appear first)
+            search_inputs.sort(key=lambda r: r['index'])
+
+            # Sort regular actions by DOM index
+            regular_actions.sort(key=lambda r: r['index'])
+            email_actions.sort(key=lambda r: r['index'])
 
         parts: List[str] = []
         parts.append(f"# {title or 'Page'}")
@@ -1252,35 +1367,70 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
         # Text content is available in text.md file - no need to duplicate here
         # This keeps llm_prompt.md focused on actions only
 
-        # 🎯 ACTIONS SECTION: Prioritize search inputs, then menu items, then regular actions
+        # 🎯 ACTIONS SECTION: Smart categorization based on patterns
         if deduped_records:
             parts.append("## Actions")
-            
-            # 🎯 PRIORITY 1: Search inputs (especially important for Wikipedia, Google, etc.)
+
+            # Search inputs (always first priority)
             if search_inputs:
                 parts.append("### Search")
                 parts.extend([f"- {item['line']}" for item in search_inputs])
                 parts.append("")
-            
-            # 🎯 PRIORITY 2: Email/message rows (e.g., Gmail inbox)
+
+            # 🎯 PREMIUM: Capabilities (resolved dynamically from URL + site_configs.json)
+            capabilities = resolve_capabilities_for_url(page_url) if page_url else []
+            if capabilities:
+                parts.append("### Capabilities")
+                for capability in capabilities:
+                    action = capability.get('action', 'Unknown')
+                    label = capability.get('label', 'No description')
+                    parts.append(f"- return ({action}) to {label.lower()}")
+                parts.append("")
+                print(f"🎯 Added {len(capabilities)} capabilities to llm_prompt.md")
+
+            # 🎯 CRITICAL: Transcript actions (show transcript, segments, etc.)
+            if transcript_actions:
+                parts.append("### Transcript")
+                parts.extend([f"- {item['line']}" for item in transcript_actions])
+                parts.append("")
+
+            # Email rows (Gmail, etc.)
             if email_actions:
                 parts.append("### Emails")
                 parts.extend([f"- {item['line']}" for item in email_actions])
                 parts.append("")
-            
-            # PRIORITY 3: Menu groups with headers (preserving DOM order within each group)
+
+            # Videos (YouTube, Vimeo, etc. - detected by /watch?v= pattern)
+            if video_links:
+                parts.append("### Videos")
+                parts.extend([f"- {item['line']}" for item in video_links])
+                parts.append("")
+
+            # Channels/Profiles (detected by /@ or /channel/ pattern)
+            if channel_links:
+                parts.append("### Channels")
+                parts.extend([f"- {item['line']}" for item in channel_links])
+                parts.append("")
+
+            # Menu groups (backwards compatibility with existing logic)
             for menu_group_name in sorted(menu_groups.keys()):
                 menu_items = menu_groups[menu_group_name]
                 if menu_items:
                     parts.append(f"### {menu_group_name}")
                     parts.extend([f"- {item['line']}" for item in menu_items])
                     parts.append("")
-            
-            # PRIORITY 4: Regular actions (preserving DOM order)
+
+            # Regular actions
             if regular_actions:
-                if search_inputs or menu_groups or email_actions:
+                if search_inputs or email_actions or video_links or channel_links or menu_groups:
                     parts.append("### Other Actions")
                 parts.extend([f"- {item['line']}" for item in regular_actions])
+                parts.append("")
+
+            # Footer (last, limited to MAX_FOOTER_LINKS)
+            if footer_links:
+                parts.append("### Footer")
+                parts.extend([f"- {item['line']}" for item in footer_links])
                 parts.append("")
 
         if transcript_refs:
@@ -2842,11 +2992,14 @@ async def handler(ws):
                     intelligence_data = msg.get("data", {})
                     actionable_elements = intelligence_data.get("actionableElements", [])
                     recent_insights = intelligence_data.get("recentInsights", [])
-                    
+
                     print(f"🧠 Intelligence data: {len(actionable_elements)} actionable elements, {len(recent_insights)} insights")
-                    
+
                     page_state = intelligence_data.get("pageState", {})
                     transcripts_payload = intelligence_data.get("transcripts") or []
+
+                    # 🎯 PREMIUM: Capabilities are now resolved server-side from URL
+                    # No need to store from extension - we resolve dynamically in generate_llm_prompt()
                     
                     # 🆕 NEW: Persist transcripts (YouTube etc.) before writing page artifacts
                     transcript_refs = await save_transcripts(transcripts_payload, page_state)
@@ -2921,12 +3074,76 @@ async def handler(ws):
                         print(f"⚠️ Error generating llm_prompt.md: {gen_err}")
 
                     print("✅ Intelligence update processed and saved (page + content + markdown)")
-                    
+
+                    # 🎯 PHASE B: Nuclear option - Hunt for transcript button on YouTube video pages
+                    try:
+                        current_url = page_state.get("url", "")
+                        if "/watch?v=" in current_url and "youtube.com" in current_url:
+                            print("🎯 YouTube video page detected - triggering transcript button hunter...")
+
+                            # Send command to extension to find and register transcript button
+                            hunt_command = {
+                                "type": "youtube_find_transcript_button",
+                                "url": current_url
+                            }
+
+                            if EXTENSION_WS:
+                                await EXTENSION_WS.send(json.dumps(hunt_command))
+                                print("📤 Sent transcript button hunt command to extension")
+                            else:
+                                print("⚠️ No extension WebSocket available to send hunt command")
+
+                    except Exception as hunt_err:
+                        print(f"⚠️ Error triggering transcript button hunt: {hunt_err}")
+
                 except Exception as e:
                     print(f"❌ Error processing intelligence update: {e}")
                     import traceback
                     traceback.print_exc()
-            
+
+            # 🎯 PREMIUM: CAPABILITY EXECUTION - Route to handlers
+            if msg.get("type") == "execute_capability":
+                print("🎯 Capability execution request received")
+                try:
+                    action = msg.get("action")
+                    params = msg.get("params", {})
+
+                    if not action:
+                        await ws.send(json.dumps({"ok": False, "error": "Missing capability action"}))
+                        continue
+
+                    print(f"🎯 Executing capability: {action}")
+
+                    # Look up capability handler from current page URL
+                    # We need the current URL to resolve which handler to use
+                    # For now, we'll send a generic execute_capability message to extension
+                    # and let it route based on action name
+
+                    if EXTENSION_WS:
+                        capability_command = {
+                            "type": "execute_capability",
+                            "action": action,
+                            "params": params
+                        }
+                        await EXTENSION_WS.send(json.dumps(capability_command))
+                        print(f"📤 Sent capability execution to extension: {action}")
+
+                        # For now, send immediate response
+                        # TODO: Wait for extension response in future
+                        await ws.send(json.dumps({
+                            "ok": True,
+                            "message": f"Capability {action} execution initiated"
+                        }))
+                    else:
+                        await ws.send(json.dumps({
+                            "ok": False,
+                            "error": "Extension not connected"
+                        }))
+
+                except Exception as e:
+                    print(f"❌ Error executing capability: {e}")
+                    await ws.send(json.dumps({"ok": False, "error": str(e)}))
+
             # 🆕 NEW: DOM CHANGE NOTIFICATIONS: Handle real-time DOM change updates
             if msg.get("type") == "dom_content_changed":
                 print("🔄 DOM content changed notification received")
@@ -3374,16 +3591,116 @@ async def extension_heartbeat_loop():
             except Exception as e:
                 print(f"⚠️ Failed to send heartbeat to extension: {e}")
 
+def resolve_capabilities_for_url(url: str) -> list:
+    """
+    🎯 PREMIUM: Resolve capabilities for a given URL from site_configs.json
+
+    This function:
+    1. Determines which site config matches the URL
+    2. Extracts capabilities from that config
+    3. Filters by url_pattern to return only matching capabilities
+
+    Returns: List of capability dicts with action, label, description, handler
+    """
+    try:
+        if not url or not SITE_CONFIGS:
+            return []
+
+        # Find matching site config by domain
+        matching_config = None
+        matching_domain = None
+
+        for domain, config in SITE_CONFIGS.items():
+            # Check URL patterns if they exist
+            if 'url_patterns' in config:
+                for pattern in config['url_patterns']:
+                    if pattern in url:
+                        matching_config = config
+                        matching_domain = domain
+                        break
+            # Fallback: check if domain is in URL
+            elif domain in url:
+                matching_config = config
+                matching_domain = domain
+                break
+
+            if matching_config:
+                break
+
+        if not matching_config or 'capabilities' not in matching_config:
+            return []
+
+        # Extract capabilities and filter by url_pattern
+        capabilities = matching_config['capabilities']
+        matching_capabilities = []
+
+        for cap_id, capability in capabilities.items():
+            # Check if this capability's url_pattern matches current URL
+            if 'url_pattern' in capability and capability['url_pattern'] in url:
+                matching_capabilities.append({
+                    'id': cap_id,
+                    'action': capability.get('action'),
+                    'label': capability.get('label'),
+                    'description': capability.get('description'),
+                    'handler': capability.get('handler'),
+                    'domain': matching_domain
+                })
+
+        if matching_capabilities:
+            print(f"🎯 Resolved {len(matching_capabilities)} capabilities for URL: {url}")
+            for cap in matching_capabilities:
+                print(f"  - {cap['action']}: {cap['label']}")
+
+        return matching_capabilities
+
+    except Exception as e:
+        print(f"❌ Error resolving capabilities for URL: {e}")
+        return []
+
+def load_site_configs():
+    """
+    🎯 PREMIUM: Load site_configs.json from extension directory
+    This gives server access to capabilities definitions for URL-based resolution
+    """
+    global SITE_CONFIGS
+    try:
+        # Path to extension's site_configs.json (relative to this file)
+        config_path = os.path.join(os.path.dirname(__file__), "../web_extension/site_configs.json")
+        config_path = os.path.abspath(config_path)
+
+        if not os.path.exists(config_path):
+            print(f"⚠️ Site configs not found at: {config_path}")
+            return
+
+        with open(config_path, 'r', encoding='utf-8') as f:
+            SITE_CONFIGS = json.load(f)
+
+        print(f"✅ Loaded site configs for {len(SITE_CONFIGS)} domains")
+        # Count total capabilities
+        total_caps = 0
+        for domain, config in SITE_CONFIGS.items():
+            if 'capabilities' in config:
+                total_caps += len(config['capabilities'])
+        print(f"🎯 Total capabilities available: {total_caps}")
+
+    except Exception as e:
+        print(f"❌ Error loading site configs: {e}")
+        import traceback
+        traceback.print_exc()
+
 async def main():
     """
     🚀 Main server function - starts WebSocket server on port 17892
-    
+
     The server listens for connections from:
     - Chrome extension (becomes EXTENSION_WS)
     - Test clients (can send commands and receive responses)
-    
+
     📡 SERVER ENDPOINT: ws://127.0.0.1:17892
     """
+    # 🎯 PREMIUM: Load site configs on startup
+    load_site_configs()
+
     async with websockets.serve(
         handler,
         "127.0.0.1",

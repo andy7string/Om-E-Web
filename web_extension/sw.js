@@ -660,7 +660,14 @@ function handleServerMessage(messageData) {
             });
             return;
         }
-        
+
+        // 🎯 PREMIUM: Handle capability execution messages
+        if (message.type === "execute_capability") {
+            console.log("[SW] 🎯 Processing capability execution:", message);
+            handleExecuteCapability(message);
+            return;
+        }
+
         if (message.type === "server_ping") {
             console.log("[SW] 💓 Server heartbeat received");
             sendToServer({
@@ -1419,12 +1426,52 @@ async function handleExecuteLLMAction(message, sendResponse) {
         
     } catch (error) {
         console.error("[SW] ❌ Error executing LLM action:", error);
-        
+
         // 🆕 NEW: Clear action flag on exception
         actionInProgress = false;
         console.log("[SW] 🔓 Action execution exception - clearing action flag");
-        
+
         sendResponse({ ok: false, error: error.message });
+    }
+}
+
+/**
+ * 🎯 PREMIUM: Handle capability execution
+ * Forwards capability commands to the active tab's content script
+ */
+async function handleExecuteCapability(message) {
+    try {
+        console.log("[SW] 🎯 Executing capability:", message);
+
+        const { action, params } = message;
+
+        // Find the active tab
+        const activeTab = await findActiveTab();
+        if (!activeTab) {
+            console.error("[SW] ❌ No active tab found for capability execution");
+            return;
+        }
+
+        // Forward capability message to content script
+        const capabilityMessage = {
+            type: "execute_capability",
+            action: action,
+            params: params || {}
+        };
+
+        console.log("[SW] 📨 Forwarding capability to content script:", capabilityMessage);
+
+        // Send to content script
+        const response = await chrome.tabs.sendMessage(activeTab.id, capabilityMessage);
+
+        if (response && response.ok) {
+            console.log("[SW] ✅ Capability executed successfully:", action);
+        } else {
+            console.error("[SW] ❌ Capability execution failed:", response?.error);
+        }
+
+    } catch (error) {
+        console.error("[SW] ❌ Error executing capability:", error);
     }
 }
 

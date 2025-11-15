@@ -445,6 +445,10 @@
         "#back-button:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "buttons": [
+        "button[aria-label='Show transcript']",
+        "button[aria-label*='transcript' i]",
+        "button.yt-spec-button-shape-next[aria-label*='transcript' i]",
+        "ytd-engagement-panel-title-header-renderer button[aria-label*='transcript' i]",
         "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "yt-icon-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "ytd-button-renderer:not([disabled]):not([aria-disabled='true']):not([hidden])",
@@ -527,6 +531,9 @@
       }
     },
     "forceIncludeSelectors": [
+      "button[aria-label='Show transcript']",
+      "button[aria-label*='transcript' i]",
+      "button.yt-spec-button-shape-next[aria-label*='transcript' i]",
       "ytd-transcript-segment-list-renderer",
       "#segments-container ytd-transcript-segment-renderer",
       "yt-formatted-string.segment-text",
@@ -542,6 +549,20 @@
       "shadow_dom": true,
       "web_components": true,
       "polymer_framework": true
+    },
+    "capabilities": {
+      "transcript": {
+        "action": "RetrieveTranscript",
+        "label": "Get video transcript",
+        "description": "Retrieves the full transcript for this YouTube video",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_transcript_pipeline",
+        "selectors": [
+          "button[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next[aria-label*='transcript' i]",
+          "button.yt-spec-button-shape-next--outline[aria-label*='transcript' i]"
+        ]
+      }
     }
   },
     "brighttreedigital.com.au": {
