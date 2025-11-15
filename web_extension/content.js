@@ -7003,10 +7003,28 @@ IntelligenceEngine.prototype.inferSemanticRole = function(element, actionType = 
 
 /**
  * 🆕 NEW: Extract clean text content from element, skipping style/script tags
- * Falls back to aria-label, title, placeholder, or selector if text is empty or looks like CSS
+ * Falls back to aria-placeholder, placeholder, aria-label, title, or className if text is empty or looks like CSS
  */
 IntelligenceEngine.prototype.getCleanTextContent = function(element) {
     try {
+        // 🎯 FIX: For input-like elements, prioritize placeholder attributes over text content
+        const tagName = element.tagName?.toLowerCase();
+        const isInputLike = tagName === 'input' || tagName === 'textarea' ||
+                          element.getAttribute('contenteditable') === 'true' ||
+                          element.getAttribute('role') === 'textbox';
+
+        if (isInputLike) {
+            // For input elements, check useful attributes first
+            const label = element.getAttribute('aria-placeholder')?.trim()
+                || element.getAttribute('placeholder')?.trim()
+                || element.getAttribute('aria-label')?.trim()
+                || element.getAttribute('title')?.trim();
+
+            if (label) {
+                return label.substring(0, 100);
+            }
+        }
+
         // Clone element to avoid modifying DOM
         const clone = element.cloneNode(true);
 
@@ -7022,7 +7040,8 @@ IntelligenceEngine.prototype.getCleanTextContent = function(element) {
         if (!cleanText || looksLikeCSS) {
             return element.getAttribute('aria-label')?.trim()
                 || element.getAttribute('title')?.trim()
-                || element.getAttribute('placeholder')?.trim() // 🎯 FIX: Check placeholder before className
+                || element.getAttribute('placeholder')?.trim()
+                || element.getAttribute('aria-placeholder')?.trim()
                 || element.className?.split(' ')[0]
                 || '';
         }
@@ -8157,20 +8176,27 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                         // Set the actual content
                         if (!beforeInputEvent.defaultPrevented) {
                             // Try execCommand first (some frameworks listen to this)
+                            let execCommandWorked = false;
                             try {
-                                document.execCommand('insertText', false, valueToSet);
+                                execCommandWorked = document.execCommand('insertText', false, valueToSet);
                             } catch (e) {
-                                // Fallback to textContent if execCommand fails
+                                execCommandWorked = false;
+                            }
+
+                            // Only use textContent fallback if execCommand failed or didn't insert the text
+                            if (!execCommandWorked || element.textContent.trim() !== valueToSet) {
                                 element.textContent = valueToSet;
                             }
                         }
 
-                        // Dispatch input event to notify framework
+                        // Dispatch input event to notify framework that text was inserted
+                        // 🎯 FIX: Don't include data in input event - text is already inserted
+                        // Including data causes Lexical to insert the text again
                         const inputEvent = new InputEvent('input', {
                             bubbles: true,
                             cancelable: false,
                             inputType: 'insertText',
-                            data: valueToSet
+                            data: null
                         });
                         element.dispatchEvent(inputEvent);
 
