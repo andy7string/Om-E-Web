@@ -1084,7 +1084,8 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
     try:
         title: Optional[str] = None
         page_url: Optional[str] = None
-        transcript = ""
+        # 🚫 REMOVED: transcript variable (no longer needed since we removed the duplicate section)
+        # transcript = ""
         transcript_refs: List[Dict[str, Any]] = []
         if os.path.exists(text_md_path):
             with open(text_md_path, 'r', encoding='utf-8', errors='ignore') as f:
@@ -1092,8 +1093,9 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
             lines = raw.splitlines()
             if lines and lines[0].startswith('#'):
                 title = lines[0].lstrip('#').strip() or None
-            filtered = [ln for ln in lines if not ln.strip().startswith('URL:') and not ln.strip().startswith('**URL:**')]
-            transcript = "\n".join(filtered)[:1500]
+            # 🚫 REMOVED: transcript extraction (no longer needed)
+            # filtered = [ln for ln in lines if not ln.strip().startswith('URL:') and not ln.strip().startswith('**URL:**')]
+            # transcript = "\n".join(filtered)[:1500]
 
         action_lines: List[str] = []
         action_records_with_index: List[Dict[str, Any]] = []
@@ -1245,11 +1247,11 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
             parts.append("")
             parts.append(f"**URL:** {page_url}")
         parts.append("")
-        if transcript:
-            parts.append("## Transcript (partial)")
-            parts.append(transcript.rstrip())
-            parts.append("")
-        
+
+        # 🚫 REMOVED: Transcript section (duplicate of text.md)
+        # Text content is available in text.md file - no need to duplicate here
+        # This keeps llm_prompt.md focused on actions only
+
         # 🎯 ACTIONS SECTION: Prioritize search inputs, then menu items, then regular actions
         if deduped_records:
             parts.append("## Actions")

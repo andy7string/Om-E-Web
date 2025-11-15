@@ -7002,12 +7002,45 @@ IntelligenceEngine.prototype.inferSemanticRole = function(element, actionType = 
 };
 
 /**
+ * 🆕 NEW: Extract clean text content from element, skipping style/script tags
+ * Falls back to aria-label, title, placeholder, or selector if text is empty or looks like CSS
+ */
+IntelligenceEngine.prototype.getCleanTextContent = function(element) {
+    try {
+        // Clone element to avoid modifying DOM
+        const clone = element.cloneNode(true);
+
+        // Remove style and script tags from clone
+        clone.querySelectorAll('style, script').forEach(el => el.remove());
+
+        const cleanText = clone.textContent?.trim() || '';
+
+        // 🎯 FIX: Check if text looks like CSS (starts with dot or has curly braces)
+        const looksLikeCSS = cleanText.startsWith('.') || cleanText.includes('{');
+
+        // Fallback chain if empty or looks like CSS
+        if (!cleanText || looksLikeCSS) {
+            return element.getAttribute('aria-label')?.trim()
+                || element.getAttribute('title')?.trim()
+                || element.getAttribute('placeholder')?.trim() // 🎯 FIX: Check placeholder before className
+                || element.className?.split(' ')[0]
+                || '';
+        }
+
+        return cleanText.substring(0, 100);
+    } catch (error) {
+        console.warn("[Content] ⚠️ Error extracting clean text:", error);
+        return element.textContent?.trim().substring(0, 100) || '';
+    }
+};
+
+/**
  * 🆕 NEW: Generate unique actionable identifier for an element
  */
 IntelligenceEngine.prototype.generateActionableId = function(element, actionType = 'general', reuseId = null) {
     const tagName = element.tagName?.toLowerCase() || 'unknown';
     const className = element.className || '';
-    const textContent = element.textContent?.trim().substring(0, 100) || '';
+    const textContent = this.getCleanTextContent(element);
     
     let uniqueId = reuseId;
     if (!uniqueId) {
@@ -8888,12 +8921,12 @@ IntelligenceEngine.prototype.generateContentId = function(element, contentType =
     this.elementCounter++;
     const tagName = element.tagName ? element.tagName.toLowerCase() : 'unknown';
     const id = `content_${contentType}_${tagName}_${this.elementCounter}`;
-    
+
     return {
         id: id,
         contentType: contentType,
         tagName: tagName,
-        textContent: element.textContent ? element.textContent.trim().substring(0, 100) : '',
+        textContent: this.getCleanTextContent(element), // 🎯 FIX: Use clean text extraction
         selectors: this.generateElementSelectors(element),
         attributes: this.extractKeyAttributes(element),
         timestamp: Date.now()

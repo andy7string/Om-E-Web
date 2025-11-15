@@ -1,210 +1,40 @@
-# (10) mac m4 local llm - YouTube
+# Perplexity
 
-**URL:** https://www.youtube.com/watch?v=3XCunZqvVDA
-**Timestamp:** 2025-11-15 00:20:59
+**URL:** https://www.perplexity.ai/search/guitarguitar-y74OfRiYT.idMQ6BXM8b9A
+**Timestamp:** 2025-11-15 17:34:16
 
 ---
 
-AU
-Skip navigation
-Create
-9+
-9:36 / 11:02
-THIS is the REAL DEAL 🤯 for local LLMs
-Alex Ziskind
-
-408K subscribers
-Join
-Subscribe
-9.7K
+Home
+Home
+Discover
+Spaces
+Finance
+Account
+Upgrade
+Install
 Share
-332K views 2 months ago Software engineering
-This is the stack that gets me over 4000 tokens per second locally.
-Download Docker Desktop here: https://dockr.ly/4mOdGMO to get up and running with Docker Model Runner quickly. ...
-...more
+Download Comet
 
-Shop the Alex Ziskind store
-A$37.83
-+ additional fees
-Spring
+guitarguitar
 
-A$37.83
-+ additional fees
-Spring
+Answer
+Images
 
-A$37.83
-+ additional fees
-Spring
+guitarguitar is the UK's largest guitar retailer both online and in-store, operating since 2004 with multiple shops across the country. They offer a wide range of guitars and musical instruments for all skill levels, along with expert advice, flexible delivery options, and a three-year warranty on gear. The company is employee-owned and known for providing a friendly and immersive shopping experience, including soundproof booths for testing instruments and having Europe's only physical Roland location in Glasgow. They stock electric, acoustic, bass guitars, amps, pedals, keyboards, and more, and also provide a selection of pre-owned instruments with warranties.guitarguitar+1​
 
-A$37.83
-+ additional fees
-Spring
+10 sources
 
-A$37.83
-+ additional fees
-Spring
+guitarguitar
 
-All
-From your search
-From Alex Ziskind
-Computer programming
-Learning
-Related
-For you
-15:42
-Let's Run Local AI Kimi K2 Thinking - Chart Topping 1 TRILLION Parameter Open Model
-xCreate
-18K views
-•
-6 days ago
-New
-4:05
-Open WebUI vs AnythingLLM – Free Open Source AI Tools — Which Open Source AI Tool Should You Use?
-House Of FOSS
-22K views
-•
-3 months ago
-22 videos
-Local AI (LLMs, RAG, more)
-Cole Medin
-•
-Playlist
-View full playlist
-11:52
-Smallest RTX Pro 6000 rig | OVERKILL
-Alex Ziskind
-138K views
-•
-4 months ago
-13:09
-Fine-tune your own LLM in 13 minutes, here’s how
-David Ondrej
-62K views
-•
-1 month ago
-Shorts
-Stop Vibe Coding!! #ai #vibecoding
-225K views
-NEW Microsoft AI Agent is INSANE (FREE!) 🔥
-47K views
-Gemini 3.0 DESTROYS GPT-5 in Leaked Test Results 🚀
-68K views
-Revolutionary! Is This the Future of Tech?#shorts #robu #arduino #electronics #iot #bluetooth#esp32
-508K views
-OpenAI Is Broke... So Sam Altman Did THIS
-482K views
-Why I Want This Pocket GPU 😱
-2.1M views
-13:11
-Michael Burry Is Preparing for Another Bubble.
-New Money
-183K views
-•
-4 days ago
-New
-9:13
-The 1 Thing That All Ancient Civilizations Built EXACTLY the Same.. | Matt LaCroix
-Danny Jones Clips
-29K views
-•
-14 hours ago
-New
-19:26
-DGX Spark... First Mini PC That Feels Like a Data Center
-Alex Ziskind
-250K views
-•
-3 weeks ago
-9:01
-I'm running my LLMs locally now!
-Maximilian Schwarzmüller
-52K views
-•
-6 months ago
-9:03
-Private & Uncensored Local LLMs in 5 minutes (DeepSeek and Dolphin)
-David Bombal
-429K views
-•
-9 months ago
-14:02
-Learn Ollama in 15 Minutes - Run LLM Models Locally for FREE
-Tech With Tim
-604K views
-•
-10 months ago
-38:40
-you need to learn MCP RIGHT NOW!! (Model Context Protocol)
-NetworkChuck
-919K views
-•
-2 months ago
-9:48
-Inside Anthropic's Detection of an AI-Run Cyberattack on 30 High Value Global Targets
-AI News & Strategy Daily | Nate B Jones
-6.1K views
-•
-12 hours ago
-New
-11:44
-I tried to run a 70B LLM on a MacBook Pro. It didn't go well.
-AgenticAlex
-66K views
-•
-11 months ago
-8:27
-Humans Used to Be Anunnaki Until This Happened! (Myth of Adapa) | Matt LaCroix
-Danny Jones Clips
-30K views
-•
-18 hours ago
-New
-19:45
-Meta’s AI Genius Just Quit — Even Zuckerberg Seems Surprised.
-TheAIGRID
-30K views
-•
-1 day ago
-New
-12:38
-IS THIS PROOF 3I/ATLAS IS AN ALIEN SPACECRAFT ?
-Cristina Gomez
-43K views
-•
-19 hours ago
-New
-13:35
-3 MCP Servers That Make Cursor 10x Smarter
-Robin Ebers
-2.5K views
-•
-1 day ago
-New
-11:17
-LLMs are in trouble
-ThePrimeTime
-644K views
-•
-1 month ago
-15:40
-M3 Ultra vs RTX 5090 | The Final Battle
-Alex Ziskind
-360K views
-•
-7 months ago
+1 step completed
 
-Loop
+GuitarGuitar is a well-known UK-based guitar and musical instrument retailer offering a wide range of guitars, amps, pedals, keyboards, and accessories both online and in physical stores. Established in 2004, they pride themselves on providing expert advice, a great shopping experience with soundproof booths for testing instruments, and a three-year warranty on their products. GuitarGuitar is also employee-owned, with stores across the UK, including a unique physical Roland location in Glasgow, and they offer both new and pre-owned gear with warranties.guitarguitar+1​
 
-Miniplayer
+2 sources
+You exhausted your three Pro Searches for today. Upgrade for unlimited access
+Answers will now use basic search until your limit resets tomorrow
+Skip
+Upgrade to Pro
 
-Copy video URL
-
-Copy video URL at current time
-
-Copy embed code
-
-Copy debug info
-
-Troubleshoot playback issue
-
-Stats for nerds
+Ask a follow-up
