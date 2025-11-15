@@ -8,7 +8,7 @@ Usage examples:
   - Click action:
       python3 test_navigation.py --command click --action-id a_id_133
   - Custom LLM action:
-      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "ome" --submit
+      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Guitar Amps" --submit
   - Marketplace search (set value + submit):
       
       #   ↳ actionId: use the id from page.jsonl/llm_prompt.md (ex: a_id_1)

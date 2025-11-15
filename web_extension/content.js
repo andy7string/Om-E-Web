@@ -8085,18 +8085,75 @@ IntelligenceEngine.prototype.executeAction = function(actionId, action = null, p
                         } else {
                             element.value = valueToSet;
                         }
+                        // Dispatch input/change for regular inputs
+                        element.dispatchEvent(new Event('input', { bubbles: true }));
+                        element.dispatchEvent(new Event('change', { bubbles: true }));
                     } else if (isContentEditable) {
-                        element.textContent = valueToSet;
+                        // 🆕 LEXICAL/RICH TEXT EDITOR FIX: Simulate proper typing for frameworks like Lexical, ProseMirror, etc.
+                        // Setting textContent directly causes the framework to clear it during state reconciliation
+                        console.log('[Content] 🔤 Simulating typing for contenteditable element (Lexical/rich text framework)');
+
+                        // Clear existing content first using proper events
+                        if (element.textContent.length > 0) {
+                            const selectAllRange = document.createRange();
+                            selectAllRange.selectNodeContents(element);
+                            const selection = window.getSelection();
+                            selection.removeAllRanges();
+                            selection.addRange(selectAllRange);
+
+                            // Delete existing content with beforeinput event
+                            const deleteEvent = new InputEvent('beforeinput', {
+                                bubbles: true,
+                                cancelable: true,
+                                inputType: 'deleteContentBackward',
+                                data: null
+                            });
+                            element.dispatchEvent(deleteEvent);
+                            element.textContent = '';
+                        }
+
+                        // Insert text using beforeinput + input events that Lexical listens to
+                        const beforeInputEvent = new InputEvent('beforeinput', {
+                            bubbles: true,
+                            cancelable: true,
+                            inputType: 'insertText',
+                            data: valueToSet
+                        });
+                        element.dispatchEvent(beforeInputEvent);
+
+                        // Set the actual content
+                        if (!beforeInputEvent.defaultPrevented) {
+                            // Try execCommand first (some frameworks listen to this)
+                            try {
+                                document.execCommand('insertText', false, valueToSet);
+                            } catch (e) {
+                                // Fallback to textContent if execCommand fails
+                                element.textContent = valueToSet;
+                            }
+                        }
+
+                        // Dispatch input event to notify framework
+                        const inputEvent = new InputEvent('input', {
+                            bubbles: true,
+                            cancelable: false,
+                            inputType: 'insertText',
+                            data: valueToSet
+                        });
+                        element.dispatchEvent(inputEvent);
+
+                        // Additional change event for compatibility
+                        element.dispatchEvent(new Event('change', { bubbles: true }));
+
+                        console.log('[Content] ✅ Typing simulation complete for contenteditable element');
                     } else if (element.value !== undefined) {
                         element.value = valueToSet;
+                        // Dispatch input/change for elements with value property
+                        element.dispatchEvent(new Event('input', { bubbles: true }));
+                        element.dispatchEvent(new Event('change', { bubbles: true }));
                     } else {
                         result = { success: false, error: 'Element does not support setValue' };
                         break;
                     }
-
-                    // Dispatch input/change so frameworks react
-                    element.dispatchEvent(new Event('input', { bubbles: true }));
-                    element.dispatchEvent(new Event('change', { bubbles: true }));
 
                     // Optional submit: press Enter, then poll briefly for a visible send/submit button and click it
                     if (params && params.submit) {
@@ -9385,14 +9442,56 @@ IntelligenceEngine.prototype.collectAdditionalAnchorDescriptors = function(exist
 };
 
 /**
+ * 🔧 HELPER: Compute DOM path for an element
+ * Returns array of indices representing path from body to element
+ */
+IntelligenceEngine.prototype.computeDomPath = function(node) {
+    const path = [];
+    let current = node;
+    while (current && current !== document.body && current.parentElement) {
+        const parent = current.parentElement;
+        const index = Array.prototype.indexOf.call(parent.children, current);
+        path.unshift(index);
+        current = parent;
+    }
+    return path;
+};
+
+/**
+ * 🔧 HELPER: Compare two DOM paths for sorting
+ * Returns negative if a comes before b, positive if after, 0 if equal
+ */
+IntelligenceEngine.prototype.compareDomPaths = function(a, b) {
+    const len = Math.max(a.length, b.length);
+    for (let i = 0; i < len; i++) {
+        const av = a[i] ?? -1;
+        const bv = b[i] ?? -1;
+        if (av !== bv) return av - bv;
+    }
+    return 0;
+};
+
+/**
  * 🆕 NEW: Scan page and register all existing interactive elements
  */
 IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
+    // 🔒 SCAN LOCK: Prevent concurrent scans from causing ID collisions
+    if (this._scanInProgress) {
+        console.warn("[Content] ⚠️ Scan already in progress, skipping concurrent scan request");
+        return {
+            success: false,
+            message: "Scan already in progress",
+            timestamp: Date.now()
+        };
+    }
+
+    this._scanInProgress = true;
+
     try {
         console.log("[Content] 🔍 Scanning page for interactive elements...");
-        
+
         // 🆕 CSP bypass already handled during page initialization - no need to repeat
-        
+
         // 🎯 PRESERVE: Store marker ID mapping before clearing (for stable ID assignment)
         const markerIdMap = new Map(); // element key -> action ID
         try {
@@ -9473,39 +9572,65 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
         
         // 🆕 NEW: Track URLs to prevent duplicates across ALL registries
         const registeredUrls = new Set();
-        
+
+        // 🔧 FIX: Collect elements first, then sort by DOM position before assigning IDs
+        // This ensures a_id_0 goes to the first DOM element, not the first scanned element
+        const elementsToRegister = [];
+
         allElements.forEach(element => {
             // Get the category from the framework element data
             const frameworkElement = frameworkElements.find(fe => fe.element === element);
             if (frameworkElement && frameworkElement.type) {
                 const category = frameworkElement.type;
-                
+
                 // 🆕 NEW: Check for URL duplicates BEFORE any processing
                 const elementUrl = this.extractElementUrl(element);
                 if (elementUrl && registeredUrls.has(elementUrl)) {
                     return; // Skip this element completely - don't process it at all
                 }
-                
+
                 // 🎯 PURIFY: Filter out content elements before processing
                 const purifiedElement = this.purifyElement(element, category);
-                
+
                 if (purifiedElement) {
                     const isInteractive = this.isInteractiveElement(purifiedElement);
                     const passesQuality = this.passesBasicQualityFilter(purifiedElement);
-                    
+
                     if (isInteractive && passesQuality) {
-                        // Register the element (we already know it's not a duplicate URL)
                         const actionType = this.determineActionType(purifiedElement);
-                        const actionId = this.registerActionableElement(purifiedElement, actionType);
-                        registeredCount++;
-                        
-                        // Track the URL to prevent future duplicates
+                        const domPath = this.computeDomPath(purifiedElement);
+
+                        // Collect element info instead of registering immediately
+                        elementsToRegister.push({
+                            element: purifiedElement,
+                            actionType: actionType,
+                            domPath: domPath,
+                            url: elementUrl
+                        });
+
+                        // Mark URL as seen to prevent duplicates
                         if (elementUrl) {
                             registeredUrls.add(elementUrl);
-                            urlElementCount++;
                         }
                     }
                 }
+            }
+        });
+
+        // 🔧 FIX: Sort by DOM position BEFORE assigning IDs
+        // This ensures stable, predictable ID assignment based on visual DOM order
+        elementsToRegister.sort((a, b) => {
+            return this.compareDomPaths(a.domPath, b.domPath);
+        });
+
+        // Now register in DOM order to ensure a_id_0 = first DOM element
+        elementsToRegister.forEach(item => {
+            const actionId = this.registerActionableElement(item.element, item.actionType);
+            registeredCount++;
+
+            // Track URL count
+            if (item.url) {
+                urlElementCount++;
             }
         });
 
@@ -9575,12 +9700,20 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
                 actionMapping: this.generateActionMapping(),
                 message: `Successfully registered ${this.actionableElements.size} actionable elements and ${this.contentElements.size} content elements`
             };
-            
+
             console.log("[Content] ✅ Page scan complete:", result);
+
+            // 🔓 RELEASE SCAN LOCK: Allow next scan to proceed
+            this._scanInProgress = false;
+
             return result;
-        
+
     } catch (error) {
         console.error("[Content] ❌ Error scanning page:", error);
+
+        // 🔓 RELEASE SCAN LOCK: Even on error, unlock for next scan
+        this._scanInProgress = false;
+
         return { success: false, error: error.message };
     }
 };

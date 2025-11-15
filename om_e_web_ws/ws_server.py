@@ -997,7 +997,7 @@ def _map_prompt_action_sentence(record: Dict[str, Any]) -> Optional[str]:
         if record.get("type") != "action":
             return None
         
-        # 🎯 ALLOW IMPORTANT HIDDEN ELEMENTS: Navigation links, video links, and interactive table rows
+        # 🎯 ALLOW IMPORTANT HIDDEN ELEMENTS: Navigation links, video links, interactive table rows, and form inputs
         visibility = record.get("visibility")
         if visibility == "hidden":
             # Check if this is an important element that should be included despite being hidden
@@ -1008,30 +1008,37 @@ def _map_prompt_action_sentence(record: Dict[str, Any]) -> Optional[str]:
             attributes = record.get("attributes", {})
             css_classes = attributes.get("cssClasses", [])
             role = attributes.get("role", "").lower()
-            
+            control_type = record.get("controlType") or ""
+
             # 🎯 GENERIC: Allow interactive table/list rows (works for any site with table-based UIs)
             # These are often marked hidden but are critical for interaction
             # Pattern: table rows, list items, or divs with row/listitem/option roles that have click actions
             is_interactive_row = (tag == "tr" and role == "row") or \
-                                (tag in ("tr", "li", "div", "article", "section") and 
-                                 role in ("row", "listitem", "option", "article") and 
+                                (tag in ("tr", "li", "div", "article", "section") and
+                                 role in ("row", "listitem", "option", "article") and
                                  any(t in ("click", "button", "navigate", "link") for t in action_types))
-            
-            # Allow hidden elements if they are:
-            # 1. Navigation links (tag == "a" or has navigate/link actionTypes)
-            # 2. Have meaningful labels (not empty, length > 3)
-            # 3. Have an href (not empty)
-            # 4. Are YouTube video links (href contains /watch?v=) OR have yt-lockup-metadata-view-model__title class
-            # OR are interactive table/list rows (generic pattern for email clients, data tables, etc.)
+
+            # 🎯 NEW: Allow hidden input/textarea elements (ChatGPT, Perplexity, Claude, etc.)
+            # These are often visually hidden but critical for text input via automation
+            is_input_element = (tag in ("input", "textarea") or
+                               control_type == "input" or
+                               any(t in ("input", "setValue", "focus", "textarea") for t in action_types))
+
+            # Allow navigation links with meaningful labels
             is_navigation_link = tag == "a" or any(t in ("navigate", "link") for t in action_types)
             is_video_link = "/watch?v=" in href or "yt-lockup-metadata-view-model__title" in str(css_classes)
             has_meaningful_label = bool(label and len(label) > 3)
             has_href = bool(href and len(href) > 0)
-            
+
+            # 🎯 NEW: Allow accessibility links (skip to content, etc.) with meaningful labels
+            is_accessibility_link = is_navigation_link and has_meaningful_label and has_href
+
             # Allow hidden elements if they meet any of these criteria:
             # - Interactive table/list rows (generic pattern)
-            # - OR navigation links with meaningful labels, href, and video link pattern
-            if not (is_interactive_row or (is_navigation_link and has_meaningful_label and has_href and is_video_link)):
+            # - OR input/textarea elements (NEW: ChatGPT, Perplexity, Claude hidden inputs)
+            # - OR accessibility navigation links with meaningful labels (NEW: skip links, etc.)
+            # - OR video links (YouTube specific)
+            if not (is_interactive_row or is_input_element or is_accessibility_link or (is_navigation_link and is_video_link)):
                 return None
         
         action_id = record.get("id")

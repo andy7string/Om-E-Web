@@ -194,7 +194,10 @@
         "div[contenteditable='true']",
         "textarea",
         "input[type='text']",
-        "input[type='search']"
+        "input[type='search']",
+        "input:not([type]):not([disabled]):not([aria-disabled='true'])",
+        "input[role='combobox']:not([disabled]):not([aria-disabled='true'])",
+        "input[aria-label]:not([type='hidden']):not([type='submit']):not([type='button']):not([disabled]):not([aria-disabled='true'])"
       ],
       "content_elements": [
         "main article",

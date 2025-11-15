@@ -1,0 +1,349 @@
+<!-- signature: unknown:338:ef1730606f10d82df2890abfc32ebdc6e3b32a29a28006407bf520fcfef770ee -->
+# Candace Owens REVEALS Brigitte Macron’s Alleged Transition.. (Proof Just Dropped!)
+
+**Video URL:** https://www.youtube.com/
+**Video ID:** unknown
+**Language:** en
+**Collected At:** 1763117940990
+**Segments:** 338
+
+---
+
+- [0:00] Candace is unhinged. Breit Mcronone won
+- [0:03] for defamation. Well, that that's no
+- [0:05] longer a thing because guess what? The
+- [0:07] journalist that she went after, two of
+- [0:10] them, they beat Breijit in court and
+- [0:12] today I have been sued by the first lady
+- [0:15] man of France. So, let's just go, guys.
+- [0:17] Let's just go. Welcome back to Candace.
+- [0:19] You are officially a very goofy man,
+- [0:22] Breijit, but I got to give it to you.
+- [0:24] You've definitely got balls. Fire
+- [0:27] everybody around you. And I mean
+- [0:29] literally everyone around you who told
+- [0:31] you that this was a good idea.
+- [0:32] Candace Owens just dropped a wild bomb.
+- [0:34] She's hinting that she's got Breijit
+- [0:35] Mccron's actual medical records. And
+- [0:38] according to her, they prove France's
+- [0:40] first lady underwent a gender transition
+- [0:42] before marrying President Emanuel Mcron.
+- [0:45] She's not being quiet about it either.
+- [0:47] She's leaving breadcrumbs like she wants
+- [0:49] the whole internet from Paris.
+- [0:51] Realize these are not outlandish
+- [0:53] allegations. These are not allegations
+- [0:55] coming from the quote unquote far right
+- [0:57] or the quote unquote far left. These are
+- [0:59] not allegations that are coming from
+- [1:01] deep on a Reddit feed. Okay? This is the
+- [1:05] reality. Uh it is a couple in reality
+- [1:08] that has been involved in way too many
+- [1:12] phic scandals. Okay.
+- [1:14] Cafes to Tik Tok sleuths to figure it
+- [1:17] out themselves. And the timing couldn't
+- [1:19] be worse for the Macrons. They're
+- [1:21] already dragging her to court in the US
+- [1:23] over defamation. But instead of backing
+- [1:26] off, Candace is practically storming in
+- [1:28] with a megaphone. If she's telling the
+- [1:30] truth, this could wreck the whole case
+- [1:32] against her. But if she's bluffing, then
+- [1:34] she just handed them the easiest legal
+- [1:36] win and biggest payout they could have
+- [1:38] dreamed of. Either way, she's lighting
+- [1:40] up controversy and the internet is going
+- [1:42] nuts. But to really get why this whole
+- [1:45] thing is blowing up, we got to rewind
+- [1:47] and see how the feud even started. This
+- [1:50] isn't some overnight drama. Candace has
+- [1:53] been brewing this rumor for
+- [1:54] one. We won. That is what I should tell
+- [1:56] you. Right at the top here. Piers
+- [1:58] Morgan, you owe me something like
+- [2:00] $150,000.
+- [2:03] I'd like to shout out especially all my
+- [2:04] haters here right at the top who didn't
+- [2:06] believe me when I was all like, Bridget
+- [2:07] Mcronone is a man. And instead, they
+- [2:09] decided to go with the mainstream media.
+- [2:11] The narrative that was just Candace is
+- [2:13] unhinged. Breit Mcronone won for
+- [2:15] defamation. old bat. That's no longer a
+- [2:18] thing because guess what? The journalist
+- [2:20] that she went after, two of them, they
+- [2:22] beat Breijit in court. They have been
+- [2:24] acquitted in the higher court ruling.
+- [2:26] I'll tell you all about that. It's just
+- [2:27] been a bad day, bad week, bad month, bad
+- [2:30] year for the Mcron actually. So, it's
+- [2:32] amazing.
+- [2:32] Years. She didn't just throw it out on a
+- [2:34] random Tuesday. She's been sprinkling
+- [2:36] hints all over her podcast episodes,
+- [2:39] interviews, even sliding cryptic tweets
+- [2:41] like, "Do your research, the origin, old
+- [2:44] school French gossip." Candace started
+- [2:47] talking about how Breijgit was
+- [2:48] supposedly born as Jean Michichelle, and
+- [2:50] she didn't treat it like a wild theory
+- [2:52] either. She acted like it was the
+- [2:54] worstkept secret in France. Even though
+- [2:57] Breijit herself has always said those
+- [2:58] rumors are flatout false, French media
+- [3:01] clap back hard, calling it total fake
+- [3:03] news. A lot of people rolled their eyes
+- [3:06] and moved on, but not Candice. In one of
+- [3:08] her live streams, she flat out said,
+- [3:10] "These claims aren't outlandish at all."
+- [3:13] And claimed there had been whispers for
+- [3:16] years. But here's the kicker. She didn't
+- [3:19] stop there. She turned this into one of
+- [3:21] her signature talking points, something
+- [3:23] she brings up over and over like it's
+- [3:25] part of her core message. She kept it
+- [3:28] alive on stage in viral clips, on live
+- [3:31] streams, racking up millions of views.
+- [3:33] this rumor, it became part of her brand.
+- [3:36] Every time she repeated it, her
+- [3:37] followers climbed and the backlash got
+- [3:40] louder. By mid 2025, she'd gone from
+- [3:43] vague comments to running what looked
+- [3:45] like a full-blown campaign about it.
+- [3:47] That's when the Macrons finally snapped.
+- [3:50] In July, they filed a massive lawsuit in
+- [3:53] Delaware, 22 counts. We're talking
+- [3:55] defamation, identity theft accusations,
+- [3:58] even claims that she's promoting
+- [4:00] dangerous conspiracy theories. Most
+- [4:03] people in that situation would pause,
+- [4:06] maybe post a quiet, "My bad," but not
+- [4:09] Candice. The same day the lawsuit
+- [4:12] dropped, she went right on her podcast
+- [4:14] and basically said, "Thanks for the free
+- [4:16] publicity."
+- [4:18] In the clip from that episode, you can
+- [4:20] hear her doubling down. She's saying
+- [4:22] people didn't.
+- [4:23] French President Emanuel Macron, his
+- [4:25] wife Brit are suing right-wing podcaster
+- [4:28] and conspiracy theorist Candace Owens.
+- [4:31] The defamation lawsuit filed today in
+- [4:32] Delaware claims that Owens has engaged
+- [4:34] in a quote relentless and unjustified
+- [4:36] smear campaign against the couple. The
+- [4:37] complaint goes on to allege that Owens
+- [4:39] spread outrageous conspiracy theories
+- [4:42] first
+- [4:43] that France's first lady could be a man
+- [4:46] that the Macron are related and
+- [4:48] committing inest and that the Mcron the
+- [4:51] couple is being controlled by the CIA.
+- [4:54] Obviously those are deranged claims. In
+- [4:58] response to the filing, Owens posted a
+- [5:01] screenshot of a news story about the
+- [5:02] lawsuit on her Instagram page. Uh, and
+- [5:05] wrote, "I will be coming for this wig
+- [5:07] today. Stay tuned."
+- [5:08] Believe her when she claimed Breijit was
+- [5:11] a man and now she thinks everyone owes
+- [5:13] her a big apology. And now Candace says
+- [5:17] she's ready to go allin. She's got
+- [5:19] receipts and she's about to show the
+- [5:21] world what she's been holding on to this
+- [5:23] whole time. So, what's this lawsuit
+- [5:25] really about? It's not some light slap
+- [5:28] on the wrist. Emmanuel and Breijit Mcron
+- [5:31] filed one of the most aggressive
+- [5:33] defamation cases we've seen in years.
+- [5:35] They're accusing Candace of spreading
+- [5:37] lies that could destroy Breijit's image
+- [5:39] on a global scale. They're saying she
+- [5:41] pushed fake identity records, made up
+- [5:44] gender claims, and dragged their entire
+- [5:46] marriage into a scandalous mess. Instead
+- [5:49] of staying quiet, Candace is treating
+- [5:51] this lawsuit like it's her personal PR
+- [5:54] campaign. Every time her legal team
+- [5:56] files something in court, she's right
+- [5:58] there online teasing with lip-sync
+- [6:00] clips, dramatic truth bomb captions, and
+- [6:03] bold claims that she's ready to unleash
+- [6:06] her so-called receipts. And to her,
+- [6:08] these medical records, that's her ace in
+- [6:11] the hole. She says the papers show a
+- [6:13] different birth name, a different gender
+- [6:14] marker, and even details of a surgery.
+- [6:17] But let's be real, this is all Candace's
+- [6:20] version of the story. Breit Mcronone has
+- [6:23] denied this from day one. and French
+- [6:25] officials have shut these rumors down as
+- [6:27] straight up false. Still, Candace,
+- [6:29] we would accept like a lot less. So, I
+- [6:30] just want to be very clear in case it
+- [6:32] hasn't been clear from the beginning.
+- [6:33] Maybe just some photos growing up with
+- [6:36] your brother, some photos of your first
+- [6:38] marriage, which lasted more than a
+- [6:39] decade of your life. You allegedly had
+- [6:41] three kids. Some photos of you in the
+- [6:43] hospital, giving birth to those kids,
+- [6:44] raising those kids, growing up with
+- [6:46] those kids that you alleged that you
+- [6:48] raised. We don't need to do medical exam
+- [6:50] at this moment. Just some photographic
+- [6:52] evidence that you existed for the first
+- [6:54] 30 years of your life. That would be
+- [6:56] great. Maybe wings. Uh wedding photos. I
+- [6:58] assume you took tons of wedding photos.
+- [7:00] Can we see who the mate of honor was?
+- [7:03] Just you just proof that it was you. I
+- [7:06] feel like we're not asking for a lot.
+- [7:07] How about school photos? Xavier Bousard
+- [7:10] won, by the way, in court because for
+- [7:12] whatever reason, the school that Breijit
+- [7:14] went to does not want to release the
+- [7:16] photo of Breijit at school. And so when
+- [7:19] Xavier went to the school and said,
+- [7:20] "Actually, I won in court. You have to
+- [7:21] release this." The school said, "Don't
+- [7:24] care. We're not releasing it." That
+- [7:26] would do uh school photos, I think. So,
+- [7:29] this is a really low bar. We're setting
+- [7:31] to prove that you existed for 30 years.
+- [7:33] You could go for a walk with your
+- [7:35] brother now. Answer some questions.
+- [7:37] Refuses to do absolutely everything. So,
+- [7:40] you're not going to gaslight us for
+- [7:41] asking for a bare minimum require
+- [7:44] requirement here. Okay. Prove you
+- [7:46] existed for 30 years. is moving like
+- [7:48] she's holding the key to the biggest
+- [7:49] political scandal in France. And in one
+- [7:52] of her podcast clips, she pushes it even
+- [7:54] further, pointing out how she's never
+- [7:56] seen a single wedding photo or even
+- [7:58] pictures from decades ago proving
+- [8:00] Breijit's past. That's her supposed
+- [8:03] proof. She says the missing history
+- [8:05] speaks louder than anything. Now, if
+- [8:07] these docs are actually real, someone
+- [8:10] had to dig deep inside French government
+- [8:12] records to find them, and that's no
+- [8:14] small task. But if they're fake, then
+- [8:17] Candace might have just set herself up
+- [8:18] for a court law so big it'll echo for
+- [8:20] years. No matter what, she's riding the
+- [8:23] mystery hard and the internet. It's
+- [8:25] completely lit up. People are split down
+- [8:28] the middle. One side swears Candace just
+- [8:30] dropped the mic for good, while the
+- [8:32] other side is already picking out
+- [8:34] courtroom seats. One viral comment
+- [8:36] summed it up best. Candace didn't defame
+- [8:39] Breijgit. She just broke the one rule.
+- [8:42] Don't question the powerful. That's the
+- [8:44] energy her fan base is running with
+- [8:46] right now. They see her as a bold trutht
+- [8:48] teller pulling back the curtain on
+- [8:50] elites. Others are clearly here just for
+- [8:53] the chaos.
+- [8:54] One fan straight up said, "I damn near
+- [8:57] died when she said, "I'm being sued by
+- [8:59] the first lady man." And then there are
+- [9:01] folks just hoping it all ends soon. One
+- [9:04] user kept it simple. DNA test. Case
+- [9:07] closed. But love her or hate her,
+- [9:10] everybody's watching. Because if Candace
+- [9:13] really does drop those documents for the
+- [9:15] public, that won't just shake social
+- [9:17] media. It'll explode across global
+- [9:19] headlines. And it matters because
+- [9:22] Breijit Macron isn't just anyone. Her
+- [9:25] image is tied directly to France's
+- [9:27] presidency, the country's reputation,
+- [9:29] and Emanuel Macron's own political
+- [9:32] clout. We're talking about a
+- [9:34] relationship that's already been under a
+- [9:35] microscope for years, mostly because of
+- [9:38] the age gap and their past student
+- [9:40] teacher dynamic. Now, throw this gender
+- [9:43] rumor on top, and suddenly you're
+- [9:45] looking at a full-on national scandal,
+- [9:47] not just messy gossip. And Candace is
+- [9:50] leaning into that hard. In another clip,
+- [9:53] she doesn't hold back, calling it the
+- [9:55] hot teacher story, and even saying the
+- [9:56] age gap made it a perverted story they
+- [9:59] lied about.
+- [10:01] But let's be real, what Candace is doing
+- [10:03] right now isn't just bold, it's risky to
+- [10:06] the max. If she really leaked someone's
+- [10:08] private medical records and they're
+- [10:10] authentic, that could cross serious
+- [10:12] legal lines. We're talking privacy
+- [10:14] violations, potential criminal charges,
+- [10:17] and lawsuits so brutal they could wipe
+- [10:19] out more than just her online following.
+- [10:21] Hitting post on something like that
+- [10:23] could end in major regret. Candace
+- [10:26] doesn't just sound ready for a legal
+- [10:28] battle. She welcomes it. She even brings
+- [10:31] up how the court's asking her to hand
+- [10:33] over receipts like emails, convos, and
+- [10:36] anything that could back up her claims.
+- [10:38] But she's calling out what she sees as
+- [10:40] public ignorance, too. Like people
+- [10:42] refusing to connect the dots she's been
+- [10:44] laying out. And if you followed Candace
+- [10:46] Owens for any length of time, this move
+- [10:49] not surprising at all. Stirring the pot
+- [10:52] is her brand. She's built her entire
+- [10:54] career by saying what most people won't
+- [10:56] dare say or depending on who you ask,
+- [10:59] what they're smart enough to stay quiet
+- [11:01] about. Remember when she hinted Michelle
+- [11:04] Obama was secretly trans? Or when she
+- [11:07] accused WNBA star Brittney Grryer of
+- [11:10] lying about her gender just to compete
+- [11:12] in women's basketball. She even threw
+- [11:15] shots at Megan Markle, calling her a
+- [11:17] professional victim and saying she
+- [11:19] staged parts of that Oprah interview.
+- [11:22] Wild stuff, right? But here's the thing.
+- [11:25] Candace always moves the same way. She
+- [11:27] drops a bold claim. People demand proof.
+- [11:30] She doubles down. Then she trickles out
+- [11:32] little clues to keep the buzz going.
+- [11:34] It's like she's feeding a fire one spark
+- [11:36] at a time. And only this time, it's
+- [11:38] different. She's not going after a celeb
+- [11:40] or a pro alete. She's going directly at
+- [11:43] the wife of the French president. And
+- [11:45] that means there's real power pushing
+- [11:47] back. This isn't tabloid territory
+- [11:50] anymore. This is international pressure,
+- [11:52] political blowback, and legal guns
+- [11:55] blazing. And right now, everything comes
+- [11:57] down to one question. Will Candace
+- [12:00] actually release these so-called medical
+- [12:02] records, or is she just dangling the
+- [12:05] promise of a reveal to keep everyone
+- [12:08] glued to her? She's teasing a drop that
+- [12:11] could come way sooner than people think.
+- [12:13] And if she really does it, this won't
+- [12:15] just be social media gossip. It'll
+- [12:17] dominate international headlines in
+- [12:19] minutes. But if she doesn't, if this all
+- [12:22] turns out to be smoke and no fire, then
+- [12:24] we might be watching the biggest bait
+- [12:25] and switch she's ever pulled. So, what
+- [12:29] do you think? Is she about to blow the
+- [12:31] lid off a global scandal, or is it just
+- [12:33] another viral play to stay center stage?
+- [12:36] Either way, don't blink because this
+- [12:38] drama is not slowing down anytime soon.
+- [12:41] Make sure to like, subscribe, and turn
+- [12:44] on those notifications so you don't miss
+- [12:46] the next drop in this wild saga.
