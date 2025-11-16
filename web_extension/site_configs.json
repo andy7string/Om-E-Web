@@ -565,6 +565,22 @@
           "button.yt-spec-button-shape-next--outline[aria-label*='transcript' i]",
           "button.yt-spec-button-shape-next[aria-label*='transcript' i]"
         ]
+      },
+      "playPause": {
+        "action": "TogglePlayPause",
+        "label": "Toggle video playback",
+        "description": "Toggles play/pause state of the video player",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_video_controls",
+        "selectors": [
+          "button.ytp-play-button.ytp-button[aria-keyshortcuts='k']",
+          "button.ytp-play-button[aria-label*='Play' i]",
+          "button.ytp-play-button[aria-label*='Pause' i]",
+          "button.ytp-play-button",
+          "button[aria-keyshortcuts='k']",
+          "button[data-title-no-tooltip='Play']",
+          "button[data-title-no-tooltip='Pause']"
+        ]
       }
     }
   },

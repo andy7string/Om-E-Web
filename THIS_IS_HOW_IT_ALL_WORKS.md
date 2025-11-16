@@ -68,15 +68,221 @@ Each domain entry may define:
 
 This approach keeps all automation state inside the existing files—no new RPC surface is required, just structured prompts and action selections.
 
-## 6. Watching for page changes after each action
+## 6. Capability Pipeline: Dynamic Element Discovery for Edge Cases
+
+**What it is:** A specialized execution pathway that bypasses the standard action-ID registry and instead uses **pure DOM selector scanning** to find and interact with elements. This is critical for edge cases where:
+- The initial scan missed an element (lazy-loaded UI, modals, dynamic content)
+- You need to interact with elements before they get registered
+- URL-specific workflows require custom multi-step interactions (e.g., YouTube transcript retrieval)
+
+**Why it's powerful:** Instead of hardcoding element finders into `content.js`, you define **capabilities** in `site_configs.json` with ordered selector arrays. The pipeline dynamically hunts through the DOM using those selectors, clicks the matched element, and triggers the standard intelligence update—all without modifying runtime code.
+
+### 6.1. Complete execution flow
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│ 1. Invocation (test_navigation.py or LLM orchestrator)                 │
+│    python3 test_navigation.py --command capability \                    │
+│            --capability RetrieveTranscript                               │
+└────────────────────────────┬────────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ 2. WebSocket message → ws_server.py (port 17892)                       │
+│    Message structure:                                                   │
+│    {                                                                    │
+│      "type": "execute_capability",                                      │
+│      "action": "RetrieveTranscript",                                    │
+│      "params": {}                                                       │
+│    }                                                                    │
+│                                                                         │
+│    ws_server.py (line 3105-3129):                                      │
+│    - Receives execute_capability message                               │
+│    - Validates action name                                             │
+│    - Forwards to extension via EXTENSION_WS                            │
+└────────────────────────────┬────────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ 3. Service Worker → sw.js                                              │
+│    handleServerMessage() receives message (line 621-669)               │
+│    Routes to handleExecuteCapability() (line 1442-1476)                │
+│                                                                         │
+│    Forwards to content script:                                         │
+│    {                                                                    │
+│      "type": "execute_capability",                                      │
+│      "action": "RetrieveTranscript",                                    │
+│      "params": {}                                                       │
+│    }                                                                    │
+└────────────────────────────┬────────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ 4. Content Script → content.js                                         │
+│    chrome.runtime.onMessage listener (line 10229-10248)                │
+│    Routes to capabilityPipelineExecutor() (line 10073-10226)           │
+│                                                                         │
+│    Step 1: Config access                                               │
+│    - Uses local siteConfig variable (same as intelligence engine)      │
+│    - Fallback to window.currentSiteConfig if needed                    │
+│    - Reload attempt if config missing                                  │
+│                                                                         │
+│    Step 2: Dynamic capability lookup                                   │
+│    - Searches siteConfig.capabilities for matching action name         │
+│    - Example: finds "transcript" capability for "RetrieveTranscript"   │
+│                                                                         │
+│    Step 3: Selector-based DOM scan                                     │
+│    - Iterates through capability.selectors array in priority order     │
+│    - For each selector:                                                │
+│        • document.querySelectorAll(selector)                           │
+│        • Logs match count and element details                          │
+│        • Returns first match                                           │
+│    - If no immediate match: waitForElement() with 5s timeout           │
+│                                                                         │
+│    Step 4: Element interaction                                         │
+│    - targetElement.click()                                             │
+│    - Wait 2s for result                                                │
+│                                                                         │
+│    Step 5: Intelligence update                                         │
+│    - intelligenceEngine.queueIntelligenceUpdate('high')                │
+│    - Standard pipeline takes over (scan, artifacts, etc.)              │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### 6.2. Site config capability definition
+
+**File:** `web_extension/site_configs.json`
+
+Each domain can define zero or more capabilities. Example from YouTube config:
+
+```json
+{
+  "youtube.com": {
+    "framework": "youtube",
+    "capabilities": {
+      "transcript": {
+        "action": "RetrieveTranscript",
+        "label": "Get video transcript",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_transcript_pipeline",
+        "selectors": [
+          "button.yt-spec-button-shape-next.yt-spec-button-shape-next--outline[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next--call-to-action[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next[aria-label='Show transcript']",
+          "button[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next--outline[aria-label*='transcript' i]",
+          "button.yt-spec-button-shape-next[aria-label*='transcript' i]"
+        ]
+      }
+    }
+  }
+}
+```
+
+**Key fields:**
+- `action` — Unique capability name used in execute_capability messages
+- `label` — Human-readable description
+- `url_pattern` — Optional URL substring matcher (e.g., only run on `/watch?v=` pages)
+- `handler` — Internal identifier for multi-step workflows
+- `selectors` — **Ordered array** of CSS selectors (priority: most specific → most generic)
+
+### 6.3. URL-specific capability routing
+
+Capabilities are **domain-scoped and optionally URL-filtered:**
+
+1. **Domain matching** — `currentDomain` (e.g., `www.youtube.com`) matches config key `youtube.com` via partial string matching
+2. **URL pattern filtering** — If `url_pattern` is defined, the capability only executes on matching URLs (e.g., YouTube `/watch?v=` video pages, not homepage)
+3. **Dynamic lookup** — `capabilityPipelineExecutor()` searches `capabilities` object for matching `action` name, making it generic across all domains
+
+**Example workflow:**
+- User on `https://www.youtube.com/watch?v=abc123`
+- Config loaded: `youtube.com` → includes `transcript` capability
+- Command: `execute_capability` with `action: "RetrieveTranscript"`
+- Executor finds `transcript` capability, tries 6 selectors in order
+- First match: `button[aria-label='Show transcript']`
+- Clicks button → transcript panel opens → intelligence update regenerates artifacts with transcript text
+
+### 6.4. Function signatures and parameters
+
+**test_navigation.py:**
+```python
+async def send_command(self, command, data=None):
+    # command="execute_capability"
+    # data={"action": "RetrieveTranscript", "params": {}}
+```
+
+**ws_server.py:**
+```python
+# Receives: {"type": "execute_capability", "action": str, "params": dict}
+# Routes to EXTENSION_WS
+```
+
+**sw.js:**
+```javascript
+async function handleExecuteCapability(message) {
+    const { action, params } = message;
+    // Forwards to content script via chrome.tabs.sendMessage()
+}
+```
+
+**content.js:**
+```javascript
+async function capabilityPipelineExecutor(capabilityAction, params) {
+    // capabilityAction: "RetrieveTranscript" (string)
+    // params: {} (object, optional context)
+
+    // Returns:
+    // {
+    //   success: true,
+    //   message: "Capability RetrieveTranscript executed successfully",
+    //   elementFound: "button[aria-label='Show transcript']",
+    //   matchedBy: "selector"
+    // }
+}
+```
+
+### 6.5. Why this is awesome for dynamic stuff
+
+**Zero runtime modifications:**
+- Add new capabilities by editing `site_configs.json` only
+- No need to fork `content.js`, `sw.js`, or `ws_server.py`
+- Service worker broadcasts config updates instantly to all tabs
+
+**Resilient to UI changes:**
+- Ordered selector arrays try specific → generic patterns
+- If YouTube changes button classes, add new selector to top of array
+- MutationObserver-based `waitForElement()` handles lazy loading
+
+**Multi-step workflows:**
+- Capabilities can trigger intelligence updates, which regenerate artifacts
+- LLM orchestrator reads new artifacts, decides next step
+- Chain multiple capabilities together (e.g., "open transcript" → "extract text" → "summarize")
+
+**Debugging built-in:**
+- Comprehensive console logging shows each selector attempt
+- Diagnostic output includes matched element details, DOM snapshot on failure
+- Test harness (`test_navigation.py`) lets you iterate without writing orchestrator code
+
+**Future-proof:**
+- Same pipeline works for any domain: Gmail (open compose), Twitter (post tweet), LinkedIn (send message)
+- URL patterns let you have different capabilities for different pages within same domain
+- `params` object supports contextual data (e.g., search query, form values)
+
+**Example use cases:**
+- **YouTube:** Retrieve transcript, open comments, navigate to timestamp
+- **Gmail:** Open compose modal, attach file, send draft
+- **SaaS apps:** Open account settings, export data, trigger webhooks
+- **E-commerce:** Add to cart (when product not in initial scan), open size chart, apply coupon
+
+## 7. Watching for page changes after each action
 
 To ensure the agent reacts to dynamic pages:
 
 - **Artifact polling** — The simplest option is to watch the timestamps on `page.jsonl`/`text.md`. When an action completes, wait for the next write before planning the next step.
 - **Extension debug stream → server** (future enhancement) — The content script already logs rich diagnostics (`[Content] ...`). You can capture `console.log` output via the MV3 logging APIs or inject a lightweight bridge that forwards those logs over the existing WebSocket to `ws_server.py`, which can then echo them to clients. This would let the agent confirm “setValue succeeded” without waiting for a full rescan.
-- **Force rescan** — If your UI performs heavy DOM mutations, expose a “Rescan now” action (button wired to `scanAndRegisterElements`) so the agent can request a fresh intelligence dump on demand.
+- **Force rescan** — If your UI performs heavy DOM mutations, expose a "Rescan now" action (button wired to `scanAndRegisterElements`) so the agent can request a fresh intelligence dump on demand.
 
-## 7. Operational checklist (per session)
+## 8. Operational checklist (per session)
 
 1. Start `python om_e_web_ws/ws_server.py`.
 2. Load the Chrome extension (MV3) from `web_extension/`.
@@ -85,7 +291,7 @@ To ensure the agent reacts to dynamic pages:
 5. Let the agent test: run `python om_e_web_ws/test_navigation.py --action-id <id> ...` or send JSON over WebSocket.
 6. After UI updates, adjust `site_configs.json` and redeploy only the configs (service worker pushes them live).
 
-## 8. Why this architecture scales to new apps
+## 9. Why this architecture scales to new apps
 
 - **Deterministic UI contract** — Site configs give you proactive control over what the scanner sees; no need to fork `content.js`.
 - **Prompt-friendly artifacts** — Every update emits markdown, transcripts, and action tables ready for RAG/LLM ingestion.
