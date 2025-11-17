@@ -1,0 +1,354 @@
+<!-- signature: XcVj8zzK4ss:343:a91380b2e85d13b7e2e5fd6214f3e2e817a591f5345731b9d576f82ba9a91d12 -->
+# STOP Wasting Money On AI Coding Tools Like Lovable.dev
+
+**Video URL:** https://www.youtube.com/watch?v=XcVj8zzK4ss
+**Video ID:** XcVj8zzK4ss
+**Language:** en
+**Collected At:** 1763293332770
+**Segments:** 343
+
+---
+
+- [0:00] so if you want to get into AI coding you
+- [0:01] have without a doubt heard about tools
+- [0:03] like lovable Boldt ret or v0 by versal
+- [0:08] these are all really cool tools that
+- [0:10] allow you to build prototypes very fast
+- [0:13] but they have two very big problems
+- [0:16] number one is that they are just not as
+- [0:18] powerful as the tools that developers
+- [0:21] use to code with AI and number two is
+- [0:23] that they're very expensive and this is
+- [0:25] what this video is about because if you
+- [0:27] want to get into AI coding but you don't
+- [0:30] don't want to go broke in the process
+- [0:31] then keep watching hi my name is Rob and
+- [0:34] I've been a developer for over 20 years
+- [0:36] and just in the last two weeks I have
+- [0:38] built two tools number one completely
+- [0:41] with AI right number one is social hacks
+- [0:44] doapp which I just that was the first AI
+- [0:47] project I built and it's I've built it
+- [0:49] with one of the tools that I'm going to
+- [0:50] show you in this video is a full sias
+- [0:53] that you can use to just paste any
+- [0:56] Instagram YouTube or Tik Tok video and
+- [0:58] it will convert it into text which can
+- [1:01] be useful if you're a content creator
+- [1:02] and you want to like use viral content
+- [1:04] and redo it yourself and then the next
+- [1:07] one is macro puls which is a website
+- [1:09] that you know I I got very tired of
+- [1:12] reading financial news it's very click
+- [1:13] baity and whatever so I build a website
+- [1:16] that teaches you about finance and the
+- [1:18] economy based on Ma Market data and what
+- [1:21] is happening today without all the
+- [1:23] clickbait and depressing news but I
+- [1:25] could not have built those tools with
+- [1:28] lovable bold repet or
+- [1:31] v0 and even if I could have it would
+- [1:34] have cost me a fortune so that brings us
+- [1:37] to pricing the pricing is a real issue
+- [1:40] so right now lovable is probably the
+- [1:42] most popular among you know no code
+- [1:46] tools they even have a free plan so you
+- [1:48] get like five daily messages per day and
+- [1:51] I'm going to explain to you what that
+- [1:52] means in a second and their sta plan
+- [1:56] costs $20 a month which sounds great but
+- [2:00] that just means that you get 100
+- [2:02] messages per month and again I'm going
+- [2:05] to explain to you what that means in a
+- [2:06] second then if you go to bold you get 10
+- [2:10] million tokens for the same price but if
+- [2:12] you're not into AI what does 10 million
+- [2:14] tokens even mean not going to explain it
+- [2:16] in this video but it's just very
+- [2:18] confusing if you're like a beginner
+- [2:19] right but it can get worse because repet
+- [2:22] which is really cool they have a great
+- [2:25] like app that allows you to code on your
+- [2:27] phone instead of like on your like desk
+- [2:29] or whatever
+- [2:30] which is really cool but it's $25 a
+- [2:33] month if you want to do it monthly if
+- [2:35] you do it yearly you can also pay 20 but
+- [2:37] $25 per month is that that's a bit much
+- [2:40] I'm not going to lie and the way that
+- [2:42] they say is like okay you get like $25
+- [2:44] worth of monthly credits which is
+- [2:45] approximate 100 agent checkpoints that
+- [2:48] means nothing to most people right and
+- [2:51] then the most confusing is v0 by versal
+- [2:54] I love versal I use it all the time but
+- [2:57] their free plan amazing doesn't tell you
+- [3:00] how many messages you can send and then
+- [3:02] the premium also $20 a month says that
+- [3:05] you can send 20 to 20 10 to 20 times
+- [3:08] more messages than in free but how many
+- [3:10] is
+- [3:11] that I tried looking anywhere on the
+- [3:13] website I couldn't find it super weird
+- [3:16] but what really is a message on lovable
+- [3:19] well that's the thing that's why people
+- [3:20] like lovable so much because the pricing
+- [3:22] is so clear even though it's not great
+- [3:26] if you don't know what you're doing
+- [3:27] because this is the chat box right this
+- [3:30] is the place where you request something
+- [3:33] from the AI and because the plan costs
+- [3:37] $2 a month and you get a 100 messages
+- [3:40] that makes every time you send a message
+- [3:43] in this box 20 cents which is kind of
+- [3:46] wild right and that message could be
+- [3:49] something like I prepared like a little
+- [3:51] prompt let me let me do it that message
+- [3:55] could be something like this build a
+- [3:56] modern mobile first website for a daily
+- [3:58] habit tracker app let's say you're
+- [4:00] making an app or whatever right it
+- [4:02] should have five sections a hero with a
+- [4:04] headline like this and then some like
+- [4:06] images here and there and a final call
+- [4:08] to action at the end there should be a
+- [4:10] download button yada y y yada right make
+- [4:12] it like clean fast conversion focused
+- [4:15] use for the copy use expert copywriting
+- [4:18] techniques proven methods you get it
+- [4:21] like a big prompt you send this to
+- [4:24] lovable it will create a website for you
+- [4:27] that uh you couldn't have done yourself
+- [4:28] if you're not a coder right right so
+- [4:30] this is really good and sending that
+- [4:32] message will cost you 20 cents but you
+- [4:35] know what will also cost you 20 cents
+- [4:37] make the download button blue so if you
+- [4:41] said this message it will also cost you
+- [4:43] the equivalent of 20 cents and so that
+- [4:47] means with lovable you really need to
+- [4:49] pay attention of how much you've write
+- [4:53] into this chat box into your prompts
+- [4:55] right the ideal is that you do very
+- [4:58] descriptive maybe you Chad GPT or
+- [5:00] whatever to write great prompts that
+- [5:03] then you give to lovable right so that
+- [5:07] can be good if you make real use of it
+- [5:09] but most people won't and they're going
+- [5:11] to like waste a lot of messages so this
+- [5:14] is becoming very expensive right and
+- [5:17] just to give you an idea the apps that I
+- [5:19] have built like social hacks and macro
+- [5:22] puls they would have cost a few hundred
+- [5:25] messages each so it's not easy to build
+- [5:29] comprehensive nice apps a little website
+- [5:32] sure you can do that but if you want to
+- [5:33] build apps that do something that
+- [5:35] integrate with other things do some AI
+- [5:38] stuff or whatever right the really cool
+- [5:41] stuff that people would buy from you
+- [5:43] maybe pay a membership for this is going
+- [5:45] to be very hard to do in these apps and
+- [5:48] this is where apps like cursor are
+- [5:50] different these are significantly more
+- [5:54] intimidating if you will because they
+- [5:56] are designed for developers and not not
+- [5:58] for the no no code crowd so when you
+- [6:01] look at this you're like oh I'm not a
+- [6:03] developer but I ask you to bear with me
+- [6:05] because using them is way easier than
+- [6:07] you think and not only that but they're
+- [6:09] also significantly cheaper so cursor
+- [6:12] only charges $20 a month and they give
+- [6:16] you 500 what they call fast premium
+- [6:19] requests per month for all intents and
+- [6:22] purposes one request equals one message
+- [6:25] on cursor there are ways to spend more
+- [6:27] but the vast majority of people
+- [6:29] including myself use one request for one
+- [6:32] message and it doesn't end there because
+- [6:34] that means fast premium request right
+- [6:38] they also and that is so unsustainable I
+- [6:40] don't know how they do it and they will
+- [6:41] not do it forever but they do it right
+- [6:43] now they give you unlimited slow premium
+- [6:46] request but then on top of that when you
+- [6:48] reach this you can continue to ask the
+- [6:51] AI the AI things but it will slow you
+- [6:54] down so it will take like you know 5 10
+- [6:57] seconds or so to like answer every query
+- [7:00] so this can be very frustrating but the
+- [7:02] point is it's free and included in your
+- [7:04] plan and then there is also Winder which
+- [7:08] is cursor's biggest competitors no doubt
+- [7:10] about it so I actually started with
+- [7:12] cursor and then I used the free trial
+- [7:15] and I was like wow that's pretty cool
+- [7:16] and then I saw people talking about
+- [7:18] winds surf which is cursor's biggest
+- [7:21] competitor and to be honest this did
+- [7:25] significantly better than cursa in a lot
+- [7:28] of things but but they messed up their
+- [7:31] pricing good so you think wow okay
+- [7:33] that's also like 500 premium models for
+- [7:36] like these names they are like they're
+- [7:39] so dumb it's like 500 premium model user
+- [7:42] prompt credit who says something like
+- [7:44] that see that's why lovable is
+- [7:45] successful because they say messages
+- [7:48] done and you think okay $15 per month
+- [7:51] for $500 so it's $5 cheaper than cursa
+- [7:54] no because they had this genius idea to
+- [7:57] introduce flow action credits switch
+- [8:00] when you go to cursor and you ask it
+- [8:02] something it will just take one credit
+- [8:04] and it does everything that you want
+- [8:07] when you do it with wind serve it will
+- [8:10] charge you one user prompt for the
+- [8:12] actual request and then one flow action
+- [8:15] credit for everything that the editor
+- [8:18] actually does so if you say build me a
+- [8:20] website it might cost you like 50 flow
+- [8:22] credits instead of one credit at cursor
+- [8:25] if it wasn't for this I would
+- [8:27] unconditionally recommend you us wind
+- [8:29] surf instead of cursor Unfortunately
+- [8:32] they don't so cursor is the way to go
+- [8:35] but now you might think wow cursor that
+- [8:37] looks like a real development tool I'm
+- [8:39] not a developer I just want to okay look
+- [8:41] at it we're going to take a look and
+- [8:43] after this you're going to download this
+- [8:45] thing and you're going to thank me this
+- [8:46] is what kza looks like with a fully
+- [8:48] loaded project this is macropulse the
+- [8:51] tool that I showed you earlier that
+- [8:53] educates your own finance and economy
+- [8:56] and this is how it looks like when you
+- [8:57] actually use it again this can be super
+- [8:59] intimidating but bear with me because
+- [9:01] when you start it for the first time let
+- [9:04] me where is it close folder you can say
+- [9:08] open project so that's how cursor looks
+- [9:11] like when you started for the first time
+- [9:12] then you say open project I'm going to
+- [9:15] go here and then just say uh website
+- [9:20] test for YouTube so you just create a
+- [9:22] folder then go into this folder and say
+- [9:25] open now you're in a fresh project for
+- [9:29] cursor this is not much different than
+- [9:33] lovable with the exception that you pay
+- [9:35] 4 cents instead of 20 cents every time
+- [9:38] you send a message in this little editor
+- [9:40] here right so let's do that I created a
+- [9:43] little
+- [9:45] prompt let's run it right so build a
+- [9:47] modern mobile first website for the copy
+- [9:50] blah blah blah so the thing that I
+- [9:53] highly recommend that you do because if
+- [9:54] you're not a developer there are some
+- [9:56] tools that these AIS would want to use
+- [10:00] and install but because you're not a
+- [10:02] developer you need to tell it not to do
+- [10:05] that that is something that you have to
+- [10:07] do once whenever you start talking to it
+- [10:09] you have to do it again but it saves you
+- [10:12] a lot of money so this is the critical
+- [10:14] part right here use only static HTML CSS
+- [10:18] and JavaScript you know what you don't
+- [10:19] need to you don't need to remember this
+- [10:20] you don't need to understand this in
+- [10:22] fact I'm going to put this whole prompt
+- [10:24] in the description down below so you can
+- [10:26] like copy it and try it for yourself but
+- [10:28] it basically just tell tell it do not
+- [10:29] install any packages do whoops do not
+- [10:33] use typescript you don't need to
+- [10:34] understand any of this keep it as simple
+- [10:36] as possible I'm not a coder I just want
+- [10:38] to get a website up for my app um let's
+- [10:42] just double down just make sure to make
+- [10:46] it super modern at micro
+- [10:51] animations
+- [10:53] and uh generate some mockup screenshots
+- [10:58] with
+- [11:01] svgs again you don't need to understand
+- [11:03] any of this I'm going to put this down
+- [11:05] below and let's just see what's going to
+- [11:09] happen so now it's going to go away and
+- [11:12] just do it I'm going to speed up the
+- [11:14] process a little bit because this might
+- [11:17] take a minute or two but let's
+- [11:27] see now it's being very uh overly
+- [11:29] cautious and will even create a read me
+- [11:31] file for you so that you know how to
+- [11:34] actually open this website because we
+- [11:35] told it that you're not a developer
+- [11:37] right and if we look at it let's see
+- [11:40] okay habit Master app landing page a
+- [11:42] modern mobile first landing page for the
+- [11:44] Habit Master habit tracking app so if
+- [11:46] you already know the name of an app or
+- [11:49] of your website or business then
+- [11:50] obviously change up the first prompt
+- [11:53] that we uh that we gave it but yeah now
+- [11:56] it just tells you okay simply open the
+- [11:58] index . HTML in your web browser to view
+- [12:02] the website locally I have to go to the
+- [12:07] folder where we where we that we opened
+- [12:11] in cursor and just click on the wow okay
+- [12:16] and click on the
+- [12:17] index.html and that is what it
+- [12:20] created wow there are some actual images
+- [12:23] that it created that's pretty uh that's
+- [12:25] pretty wow micro
+- [12:27] animations okay
+- [12:30] that's cool that's a that's a good start
+- [12:33] but here's the beauty about AI right now
+- [12:37] I would say you know what let's make
+- [12:39] this let's make this all a little bit uh
+- [12:43] smaller so that we can see the website
+- [12:46] while we code on it right let's say add
+- [12:49] a navigation bar at the top that Scrolls
+- [12:55] to the individual sections
+- [12:59] make the download button at the end more
+- [13:07] visible by or we can simplify this make
+- [13:10] the at the end uh at the end white with
+- [13:15] black text for increased
+- [13:19] contrast then I don't like how all the
+- [13:22] images are on the left side so we can
+- [13:25] just say uh flip the the unlock your
+- [13:31] full
+- [13:33] potential around image right text left
+- [13:41] what else
+- [13:43] um yeah let's let's let's do that we
+- [13:46] send the message again and now it will
+- [13:48] do these changes for you just like
+- [13:51] lovable
+- [13:56] W that is a website guys that is a
+- [13:58] website that cost us this was two
+- [14:01] messages this website cost us the
+- [14:04] equivalent of
+- [14:05] $8
+- [14:07] $8 that's crazy it would have cost you
+- [14:10] 40 cents on 40 cents 40 cents on lovable
+- [14:15] and it's responsive right so now you see
+- [14:18] what it would look like if it was on
+- [14:20] your phone this menu doesn't work oh
+- [14:23] it's still
+- [14:25] working okay now it's working wow even a
+- [14:28] nice animation up here
+- [14:31] too when you click on it cool it Scrolls
+- [14:35] there okay that button is a bit ugly but
+- [14:38] the animation is a bit broken but you
+- [14:40] get it you can just continue to iterate
+- [14:43] for 4 cents per message for 500 messages
+- [14:47] a month so this is cursor I hope that
+- [14:49] you give it a try plus if you want to
+- [14:51] build apps like the ones that I showed
+- [14:53] you earlier like Macro puls for example
+- [14:56] you will need to use something like
+- [14:59] cursor and if you want to learn how to
+- [15:00] use these tools and trust me it is way
+- [15:03] easier than you think then I have a
+- [15:05] video for you right here

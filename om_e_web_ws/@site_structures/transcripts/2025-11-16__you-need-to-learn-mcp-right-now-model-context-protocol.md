@@ -1,0 +1,387 @@
+<!-- signature: MsQACpcuTkU:376:99a35fca15ec72cd67070d8d8ad836076d784e9ac4316cdf253bebd57510ee4c -->
+# you need to learn MCP RIGHT NOW!! (Model Context Protocol)
+
+**Video URL:** https://www.youtube.com/watch?v=MsQACpcuTkU&t=532s
+**Video ID:** MsQACpcuTkU
+**Language:** en
+**Collected At:** 1763291310170
+**Segments:** 376
+
+---
+
+- [0:00] You need to learn MCP right now. MCP makes AI do things overpowered things.
+- [0:05] Like when I connected Claude to my Obsidian vault. What? Or Brave or Kali
+- [0:11] Linux? My jaw dropped. I mean, look at this. Claude is hacking with Kali Linux right now. So, in this video, I'm going
+- [0:16] to show you the magic of the model context protocol. I'll break down what it is, show you how to use it with Docker containers. It's all local, and
+- [0:23] even how to build your very own custom MCP servers for literally anything you can think of. My goal by the end of this
+- [0:29] video is to create a Kali Linux MCP server so our LLMs can hack for us. Doesn't that sound awesome? Get your
+- [0:35] coffee ready. Let's go. And shout out to Docker for making this video possible. So, giving LLM access to
+- [0:42] our tools makes them insanely powerful and it's necessary if we want them to do anything productive. But to do this is
+- [0:49] kind of hard. And I hate to say this, but you have to think about LM like people to a point. Now, for us humans,
+- [0:56] when we want to use tools like a task manager or an email manager, we're not going to be interacting with the code,
+- [1:01] right? No, no one would use it. That's why we have user interfaces or guies. This nice, friendly interface abstracts
+- [1:07] away the complicated code, making it easier and possible for most humans to use it. Solution found. Let's just give
+- [1:13] the LLM a guey. They'll love it. No, they won't. They hate gooies. At least
+- [1:18] for now. LLMs, they love text. So giving them a gooey, it's like they can do it.
+- [1:24] It's hard. It takes forever. Okay, fine. Just give them the code. LLMs love code, right? Not going to work. They need
+- [1:30] access to that code and your apps are not going to give it. But hold up. What about APIs? That would be perfect,
+- [1:35] right? Application programming interfaces were built so that one program could use the tools of another
+- [1:40] program. You can't give a program a guey, but you can expose API endpoints that allow a program to programmatically
+- [1:46] use these tools in a language it understands. So, for example, my real task manager, ClickUp, they expose an
+- [1:51] API endpoint that allows a program to create a task for you. And when I pretend to be a program, watch what
+- [1:57] happens. Boom. Task comes in. Or I can use the Obsidian REST API, pretend to be a computer, and create a new note. How
+- [2:05] cool is that? So, what's the point of this video? Problem solved. Give the LLM API access. Hold on. Let's say we did.
+- [2:12] First of all, this API stuff, that's code. in order to interact with the API endpoints. That's going to be running
+- [2:17] some sort of code, which the LLMs often don't have access to. And even if they did, look at this API documentation. I
+- [2:23] mean, look at ClickUps. It's super intense. You'd have to code each one of those API interactions and instruct the
+- [2:28] LLM on how to do it. Now, don't get me wrong, people do this and it works, but it's kind of a pain, right? And there's no standard way to do it. There's got to
+- [2:35] be an easier way, right? Check the title of the video. MCP came in to save the day. MCP is the model context protocol,
+- [2:42] a standardized way to give tools to LLM. It's kind of like how USBC solved our cable issues. Created by Anthropic, it
+- [2:49] did not take long for this to become the industry standard. And here's why. Check this out. So, instead of the LLM having
+- [2:55] to run code to interact with the APIs, we'll throw in what's called an MCP server. This server is abstracting away
+- [3:01] all the complexity of these API calls. Now, what does that mean? It means all the code that you would normally have to write to interact with the API, the MCP
+- [3:08] server is handling that. It has that written into its code. It'll do all that for you or for the LLM. So, all we have
+- [3:14] to do is say, "Hey LLM, connect to this MCP server." Slot right in. We'll say, "Hey, Mr. AI, when you want to create a
+- [3:20] task or get a task, you don't have to code anything. Just simply ask the MCP server to do it." The MCP server will
+- [3:26] have these tasks or tools exposed like create a task and all the LLM has to do is simply ask and use that task. It
+- [3:33] doesn't have to know anything about API endpoints, anything about the code, authentication, none of that. The MCP
+- [3:39] server abstracts all that complexity and makes it kind of stupid simple for our AI. We essentially created a guey for
+- [3:46] our LLM. They just have to click a button. And the most exciting part about this is that this MCP thing is now the
+- [3:52] standard. So if your AI, if your LLM has the ability to connect to an MCP server,
+- [3:57] which most do now, everyone's adopting it. Then you can connect to a ton of applications because everyone's exposing
+- [4:03] their APIs via an MCP server. Enough talking about it. Let's have you try an MCP server right now. Quick sip of
+- [4:09] coffee. Let's get you connected to one. I just heated up my coffee. It's super hot.
+- [4:15] Now, I've got good news. It's actually crazy easy to run your own MCP server right now locally on your computer. Let
+- [4:21] me show you. It's going to be using Docker. Shocker. That rhymed. And you can do this on pretty much any machine
+- [4:26] you want. Mac, Linux, Windows. The one requirement is that you're running Docker Desktop. Actually, let me do a whole what you need thing real quick.
+- [4:32] I'm not sure why I did jazz hands there. That felt very weird. I can't imagine how it felt for you. So, Docker Desktop
+- [4:38] and you'll also need an LLM app, something that can run large language models and something that can use MCP
+- [4:43] servers. I'm going to demonstrate three options. I'll show you cloud desktop, my personal favorite. It's free. This will
+- [4:49] be using the cloud models, which are fantastic. I'll show you LM Studio for local models like Llama. And for all you
+- [4:54] people who love, I'll show you Cursor. Let's get started with our Docker desktop install. It's really easy. I've
+- [5:01] got a fresh Mac here. I'm going to go out to docs.docker.com. docker.com/destop
+- [5:07] and that's it. I'll have all the links below in a guide. For me, I'll do Docker Desktop on Apple Silicon. I'm not going to walk through Windows or Linux
+- [5:13] installs, but they'll all be below. Keep in mind, Windows does involve the extra step of getting WSL 2 or HyperV set up
+- [5:18] as a backend. We're not going to cover that here, but there are docs in the description below. All right, I'll go ahead and install Docker Desktop and
+- [5:25] then launch it. We'll sign our life away by accepting all terms. Use recommended settings. And now here, you can create a
+- [5:31] Docker login if you want. You don't have to, but I recommend it. It's free. No pressure. Now, Docker Desktop is great
+- [5:37] at running Docker containers. You probably saw that coming, but maybe what you didn't see coming is they're great at running MCP servers with their MCP
+- [5:44] toolkit. This is brand new, hot off the presses. And when I first heard about it, I didn't care so much. Honestly, I'm
+- [5:49] like, so what? Then I tried it. And now I use it every single stinking day. It's
+- [5:55] amazing. Now, to get this working, we have to turn on a few things. The main thing is the MCP toolkit. We'll click on that real quick. Actually, is it already
+- [6:01] installed and set up? Let's go make sure. Let's go to our settings. We'll go to beta features. Okay, I already had
+- [6:07] Docker MCP toolkit enabled. Go check there right now to make sure you don't already have it enabled. And that's um
+- [6:14] all we had to do. Now, let's pick an MCP server to run. They have a whole catalog. Look at all this. Now, these
+- [6:20] are official MCP servers that are part of their catalog. As I mentioned, we can make our own. I'll show you that here in a moment. But let's search for one that
+- [6:26] will be really fun right now. Obsidian. So, yes, there is an Obsidian MCP server. I'll just add the sucker. And
+- [6:32] all I have to do is paste in my Obsidian API key, which I can get from Obsidian here. Now, Obsidian is a local open-
+- [6:37] source notes application, my favorite. I use it every day. And they have a community plugin called local REST API
+- [6:43] that I installed. We already used it earlier. I'm going to grab this API key that it provides and paste it into this
+- [6:48] field here. And that's it. Getting back to my servers tab here. You can see I have an
+- [6:54] Obsidian server, 12 tools available. If I jump in there, I can see what the tools are. Click on tools and you can see that it's describing these tools in
+- [7:01] plain language. Use Obsidian append content to append content to a new or existing file in the vault. Behind the scenes, it's doing all these API calls
+- [7:08] to the Obsidian REST API. But for you, me, and the LLM, we just know we say,
+- [7:14] "Hey, get some changes. Hey, do a simple search." And it does it for you. You
+- [7:19] ready to see it happen? Now, you're about to see some slide of hand here. Really just some magic behind the scenes. Something absolutely crazy is
+- [7:25] happening. Something called the Docker MCP gateway. Okay, I'm not going to show you that just yet. We'll cover more on that later, but just know it's doing
+- [7:30] some extra magic behind the scenes. Now, notice under MCP toolkit, we have the option for servers, the catalog, and
+- [7:36] then we have clients. These are the LLMs that can interact with the Docker MCP
+- [7:41] servers. Look at that. Cloud desktop is right here. What do you say we connect?
+- [7:46] And that was it. I just did it. So, I have Cloud running right now. This is a free account. I don't pay for anything.
+- [7:52] I'm going to restart it. Launch it again. And by the way, ignore this. We won't need this right now with our own
+- [7:58] custom tools. Now, I'm going to click on this setting box right here. And you're gonna see something amazing. MCP Docker.
+- [8:04] That's us. That's what we just did. If I click on that, it's going to show you the tools that we just added to Claude.
+- [8:10] So, watch this. Yo, create a note in my Obsidian detailing the best way to make
+- [8:17] French press coffee. Let's go. Now, it's going to start thinking. Then it's going
+- [8:23] to realize, oh, I have a tool available to me. I'm going to try and use that. Let's look behind the scenes here. Yeah,
+- [8:28] it's getting it ready now. It's going to ask you permission to use that tool because it is accessing things outside of its normal purview. Sure, I will
+- [8:34] allow it just this one time, though. Okay, so it said it did it. Let's go take a look.
+- [8:41] There it is in my notes. Are you stinking kidding me? H, it works the
+- [8:46] same way for search. I'm going to create a fun note here. Just something random.
+- [8:51] Cool. Now I'm going to ask it to search. Hey, search my vault for something about
+- [8:58] drinking tea. I'll allow one time to do the simple search. It's going to do a broader search. It'll
+- [9:04] try a few times. It's going to read the note or get the file contents. But see, here's what's happening here. This is why this is amazing. It's not having to
+- [9:10] authenticate. Doesn't know anything about that. Doesn't care. Doesn't know any code or API, anything at all. It
+- [9:16] just knows that it can call that tool, use that task tool, and that's it. And I got the information. This is so powerful
+- [9:23] for us. Are you kidding me? Coffee break for that.
+- [9:28] Hey, never chat from the future here. What I'm showing you here, it's cool, but it's all local. At this time stamp,
+- [9:33] I'm going to show you the Docker MCP gateway and how we can make any tool you build remotely accessible from things like, I don't know, N8N. Dude, it's so
+- [9:40] cool. I'll see you there. Back to the video. I seriously have goosebumps just talking about this. And I've been using this for a minute now. What do you say
+- [9:46] we go add a few more MCP servers? Because we can add a lot. We can go crazy. Let's go to the catalog. duck.go.
+- [9:52] Sure, I want one. It's already there. Fetch. It'll grab URLs. Got it. Or it'll grab the contents of a website given a
+- [9:58] URL. Oh, they have so many cool ones. Oh, they have Brave search. I need an API key. I don't feel like getting that
+- [10:04] right now. Oo, Airbnb search. Let's do that. Ooh, YouTube transcripts. We can do that. That's crazy. Okay, let's try
+- [10:11] it out. Now, this time I'm going to add some more clients. Let's add um cursor. Click connect. Done. LM Studio. Click
+- [10:18] connect. Done. Now, it's that easy because I already have cursor in LM Studio installed. And behind the scenes,
+- [10:23] all it's doing is updating an MCP server config file that each one of these apps has. Now, let's try LM Studio. I'm going
+- [10:29] to restart it real quick to make sure I've got everything I need. And LM Studio again is what we can use to run local um LLMs. I'll load a model. We'll
+- [10:36] do Gemma 312B. And then I think I'll go down here to my plug and see. Oh, yep. There it is. We'll connect our MCP
+- [10:42] tools. MCP Docker sitting right there. If I click that tool icon, we can see all the tools, I think. Oh, yeah. There
+- [10:47] it is. Beautiful. Now, let's ask it to do something. So, I'll say, "Find the top 10 best Japanese restaurants in
+- [10:52] Dallas. Use the dot.go tool and then create a note in my vault with your findings using the Obsidian tool. Local
+- [10:58] model. Let's see how you do, buddy." Keep in mind, these MCP servers are running locally on my computer. I'll give it permission. Go ahead, bud. Okay.
+- [11:05] But it didn't create the note in my vault. Let's try it again. Okay. Gemma's kind of dumb. Let's try DeepSeek, a
+- [11:12] model that can think. Give her permission. Come on, buddy. You
+- [11:17] can do this. All right. Gave permission to Obsidian. Okay. It found the Japanese restaurants. Let's check Obsidian. It
+- [11:24] did it. Oh no. Local models are dumb. But it did the
+- [11:31] tool call, which is what we cared about. If we did that same thing in Claude, it would move very quickly.
+- [11:37] [Music]
+- [11:43] Okay. Said I did it. Let's check it out. Oh, I did a great job. Check that out. That's so fun. Let's see if Cursor can
+- [11:49] do the same thing. I'm going to restart Cursor. Grab the transcript
+- [11:54] for this YouTube video. Look at that. Run the tool. And this is the free
+- [12:00] version of Cursor, too. Oh my gosh, it grabbed it. Now, let's add that to my Obsidian Vault. It's so powerful, man.
+- [12:08] Okay, it finished. Let's go check our note. There it is. Grabbed my YouTube video, summarized it, put it in our
+- [12:15] note. Come on. Are you not excited about that coffee stinking break?
+- [12:22] You know, people ask me, "Is that enthusiasm? Is that fake? Is that scripted?" No, it's not. Ask my wife.
+- [12:29] I'm always like this. All right, here we go. It's time for you to build your very own MCP server. Custom, just how you
+- [12:35] want it. Because there may not be an MCP server out there that does what you want it to do. So, right now, I'm going to walk you through building three MCP
+- [12:42] servers. Yeah, three. Because it's kind of easy. I did a lot of work to figure out how to make this work well. I went
+- [12:47] through the pain for you. The first one will be a fun demo, a simple dice roller just to kick the tires, make sure things are working. Then I'll show you how to
+- [12:53] build some real tools involving APIs. But seriously, you're going to feel like you can do anything after learning how to do this. The world we're living in
+- [13:00] right now is crazy. Let's get started. Now, the secret sauce behind all this is
+- [13:05] this prompt that I built. Here it is. Network Chuck's MCP server build prompt. contained in this one prompt is
+- [13:11] everything an AI will need to build you an MCP server. All you have to do is describe what you want. Let's do it
+- [13:17] right now. By the way, if you don't want to run all this LLM stuff right now, I do have this entire example in my GitHub
+- [13:22] link right here. Just around maybe here, we'll tell it something. Okay, I want to build a very simple dice roller MCP
+- [13:27] server. I wanted to do coin flips, DND stuff, any kind of dice roller mechanic. Bake that in, make it simple and clean.
+- [13:33] Let's copy and paste this whole thing. Pick an LLM that you know is pretty good at coding. Your quality will vary. I
+- [13:39] right now love Claude Opus 41. He's kind of amazing. Just going to paste this in and go. Coffee break while AI makes
+- [13:45] magic things happen. And what this will spit out is everything you need to build this server. It'll walk you through it
+- [13:51] step by step. I think I asked it to do too many things.
+- [13:56] It's almost done. Okay, it finally finished. It gave us a lot of stuff and we're going to follow it step by step. Now, it created us five files. A Docker
+- [14:03] file, requirements, dice server, readin, and a cloud. MD file. You really only need the first four unless you're using
+- [14:09] clot. And all the files should be right above it here. So, first I'll create a directory. Call it my dice or something.
+- [14:15] I don't know, something stupid. Jump in there. cd my dice. And we'll create our Docker file real quick. I'm just going to PB paste that in there. It's a
+- [14:21] special thing on Mac. The Docker file will describe how to build a Docker container, which we're
+- [14:26] about to do. We'll then do the requirements file, which is almost nothing. Requirements.txt
+- [14:33] and then the server, which will be the biggest piece of this. dice_server.py.
+- [14:40] And by the way, to create these files in the command line, you can use nano them, I don't care. And then finally, the readme file, which is just nice to have.
+- [14:48] Now, that's all we really need to do this. We're going to run one command right now. We'll follow the instructions
+- [14:54] here. Yep, right here. Docker build. Paste that in. And it's going to build a
+- [14:59] Docker container right now. Quick coffee break. And what it's doing, if you're not
+- [15:05] familiar with this, is it's taking all that stuff, the Docker file, which describes how to build the Docker container. It's going to add our Python
+- [15:11] server config. And it's done. If we type in Docker image ls, we'll see our DICE
+- [15:18] MCP server right there along with our other MCP servers that we added through the Docker catalog. Speaking of catalog,
+- [15:25] we need to make our own. Now, see here in the instructions, they say you can make a catalog directory if you don't already have one. You probably already
+- [15:31] have one. And if we type in ls do our home directory look in Docker the Docker directory. It's hidden inside MCP and
+- [15:38] cataloges. See I already have a few here just kind of chilling out. If you just install this you'll just see dockermcp.yaml.
+- [15:45] We're going to make our own right now. Your AI prompt should spit out a custom YAML. We'll grab that. We'll create our
+- [15:51] own right now in that location. Docker MCP cataloges. I'll call it my
+- [15:57] custom catalog. Done. And there's one more thing we have to do and it's going to tell us right
+- [16:03] here. We need to edit the registry. Now, this is how the Docker MCP gateway is going to work. Docker has their built-in
+- [16:08] catalog. You can also add custom cataloges like this or like this. And that's just a catalog. Like you shop for
+- [16:14] the MCP server you want to add. Once you do add them, they get added to what's called the registry, which if I ls
+- [16:22] the Docker MCP directory, you can see the registry file is right there. registry.yaml. Let's look inside that
+- [16:28] real quick. And there is simply a reference to our
+- [16:35] installed servers. And it's when you actually install it and register it that it shows up here. Now, we're not going to be able to do that through the guey.
+- [16:40] So, we have to add ours manually here. It's actually pretty easy. We're going to do nano or whatever you want to use to edit this file. And at the very
+- [16:48] bottom, using the same format, keeping everything lined up, we will add our server. It's called dice according to my
+- [16:54] prompt here. And we put that ref thing. Crl + xy. Enter to save. That's all we got to worry about. And let me tell you,
+- [17:00] uh, we're almost done. I was going to say we're done, but we're not done yet. We do need to edit our cloud MCP server config. We're going to change it to look
+- [17:06] something like this. I'm just going to copy this and paste it into my cloud config here. And there's a few things happening. Notice it's still running the
+- [17:12] Docker MCP gateway command. It's just running a few more options. And I actually need to change two things here.
+- [17:17] First, I'll need to make sure I change my home directory to be the exact home directory I'm using. It's going to mount that as a Docker volume. And look,
+- [17:24] cursor is like, let me help you out. Thank you, cursor. And then down here, you can notice that with the Docker MCP
+- [17:29] command, we can run more than one catalog. And that's the secret sauce here. We're referencing the main Docker
+- [17:34] catalog. And then also our custom one, which I need to change that name because I did not name it custom. I named it my
+- [17:41] custom catalog. That should be it, I think. And then notice we're referencing this registry
+- [17:46] that we already edited. And that should be all we have to worry about. Going to save this file. And I'm going to launch
+- [17:52] Claude. Fingers crossed we get no errors. Claude, don't disappoint me, buddy. Here we go. You'll get a scary
+- [17:59] error if it doesn't like it because it tries to test the containers. So far so good. Click on my tools. Go down to my
+- [18:04] MCP toolkit gateway and see if my tools are there. Come on. Flip a coin. That
+- [18:11] looks nice. Oh, come on. Come on. Come on. Roll. There's all the stuff. There's all the tools. Cool. It's showing up.
+- [18:19] The MCP tools are available, but do they work? Let's try it out. Now, the read me file gave me some options to say or try.
+- [18:26] Okay, let's roll a 2d6
+- [18:31] for me using the dice tool. Come on. Come on. I will give you
+- [18:37] permission, buddy. You got this. It worked. Yes. Oh, let's do something
+- [18:44] simple like flip a coin using the dice tool. Man, so cool. I can generate D and
+- [18:52] D stats. Let's try this. I don't play D and D, so I don't know
+- [18:58] what that means. Oh my gosh, what's it even doing? Well, that's cool either way, which I have no idea what's
+- [19:04] happening, but it seems awesome. Okay, we got a simple MCP server out of the way, but what about something that is a bit more complex? For example, I use a
+- [19:11] timer tool called toggle, which I use to track how much time I'm using to script and and film. So, for example, right now
+- [19:18] over here in my browser, I'm currently filming and I've been doing that for 51 minutes. Toggle has a great API, but no
+- [19:25] MCP server. I would like to use an MCP server so I can chat with Claude or whatever LLM I have and control my
+- [19:31] timers or check in on my timers. Let's do that right now. So, back here at the prompt, I just got to describe what I want.
+- [19:38] I want to create a toggle MCP server.
+- [19:43] This will use the toggle API. Now, I'm not going to sit here and talk about this the
+- [19:49] entire time. You'll see what I write, but I'm having to make sure I answer all these questions here.
+- [19:59] All right, that's what I want. I want it to do three things. Start a timer, stop a timer, and view existing timers. And
+- [20:04] I'm just pasting the link to the toggle API documentation. Let's go find it. Okay, it should be able to figure
+- [20:10] everything out past that. All right, Claude, new project for you. Go coffee break while I build this another MCP
+- [20:16] server. I also have it programmed to ask any
+- [20:22] questions that aren't answered that it needs to have answered to complete this task. Now, remember, when you're working with AI, it's all about context. If you
+- [20:28] provide it enough context, good context for what you want to do and you describe it well, you're going to have amazing
+- [20:34] results. Okay, it finished. Same steps as before with one minor difference. So, I'll do my Docker file. So, I'll create
+- [20:41] a new directory, add in all the files. All right. Now, I'll build that new server.
+- [20:47] This is so cool. And then I'll need to add my API key. Now, remember the cool thing about Docker MCP gateways, we can
+- [20:53] manage our secrets with Docker. Remember, I haven't told you that yet. The Docker MCP gateway, it can help you
+- [20:58] manage your secrets, things like API keys and tokens. Keep that stuff out of your code and nestled safely inside Docker MCP secrets. Anyways, back to me.
+- [21:05] Also, I explain more about Docker MCP gateways later in the video. As I mentioned before, you don't want to miss that part. So I'll do docker mcp secret
+- [21:14] list or ls rather to see what we have just our obsidian API key that we added
+- [21:19] earlier in the guey but we can do it manually here as well. So I'll do docker mcp secret and it's going to be set and
+- [21:27] my toggle API token environment variable and then I'll add in my API key right now. Done. Secret set. Let's do ls once
+- [21:35] more to see if it's there. Yep, there it is. Now it's time for the catalog piece. Now I could make a new catalog. You can
+- [21:40] have a bunch or I can just add this to my existing catalog to make it easy. And I think I'll just do that. So I'll grab
+- [21:45] just the part I need, the toggle server itself describing all of its tools. And then edit my custom catalog
+- [21:57] and add it right after dice. I think it's all lined up. Awesome. Crl + XY
+- [22:02] enter to save. And then we'll update our registry. adding that tool right below dice.
+- [22:10] [Applause] Now, because that catalog is already in our Claude configuration, we don't have to worry about it. We'll just restart
+- [22:16] Claude. And that should be all we have to do. Fingers crossed. Here we go. I'm doing this live. Like, what you saw was
+- [22:22] real. Everything past this point. No errors. Oh my gosh, that's so good. Okay, let's check our tools. The timer
+- [22:28] stuff might be at the bottom here. Ah, there it is. Start, stop, view, timers. Oh, okay. So, currently I'm filming and
+- [22:35] I have a timer for that. Do I have any current timers right now? I'm not even
+- [22:41] going to tell it what tool to use. Let it figure it out. Come on. Come on. Of course, buddy. Here you go.
+- [22:49] Yes, it's I almost spilled my coffee. Oh, no. I did. But it worked. I got to clean this up.
+- [22:56] You'd be surprised how often this happens. Okay, now let's say um stop that timer.
+- [23:04] Can it do it? No, you didn't. It totally did. Okay, now restart it. Come on. Oh
+- [23:12] my gosh, it did. That's so cool. Isn't that just the most insanely powerful thing you've ever seen? You can
+- [23:19] do whatever you want. How about we build a hacking MCP? Yes, I'm going to show
+- [23:24] you how to build right now a Kali Linux hacking MCP. This one is interesting and
+- [23:29] we won't need any special uh API stuff. We're just going to run a Kali Linux container, which is actually supported
+- [23:35] now on a Mac. So, that's really cool. We're going to run it right here on our machine. And I've got a description here
+- [23:40] that I've used. Let's see how well this does. Okay, that should give it a lot of information. Let's throw it in there and
+- [23:46] let it go to work. Now, it may kick back on you because you're trying to build a hacking container, but if you frame it
+- [23:52] the right way, it'll be fine usually. Okay, I like that. Happy authorized testing. It's done. Let's build it out.
+- [23:58] Same story as before. for we'll create a new directory, create all our files, build our container, which might take a
+- [24:05] moment. So, perfect time for I mean, well, you know, by this point. Tell you what, while you're sitting there, have
+- [24:10] you hacked the YouTube algorithm today? Let's make sure you do. Hit that like button, subscribe, notification bell,
+- [24:16] comment. You got to hack YouTube today. Ethically, of course.
+- [24:23] Okay, that actually was pretty fast, which makes me a little bit nervous, but we'll see how it goes.
+- [24:30] right under our toggle server and edit our registry.
+- [24:36] All right, it's done. I really hope this works. We're going to restart Claude.
+- [24:42] No errors. No errors. Come on. Come on. Okay, let's see if our Cali tools are in
+- [24:49] there. We should see some pretty crazy stuff in there. If it's all working correctly. H, it's not there. What tools
+- [24:56] am I looking for? There should be like an end mapap scan. Nothing. It hates me.
+- [25:01] Let's double check our work. Maybe it wants my secret set. That's why it's failing.
+- [25:08] I feel good this time. Yes. Okay. I just wanted the secret set.
+- [25:13] Okay, cool. Now, let's test some Kali Linux scan on network 10.70.2.024.
+- [25:26] do a pretty quick one. Okay, we're allowing the tool if this works. Oh my
+- [25:31] goodness. Oh, there's a white list. Did I put in a white list myself? Oh, yes.
+- [25:36] Yes, yes, okay. Okay, it put in guard rails for me, Claude. Oh, all right.
+- [25:45] So dumb. Remove the white list stuff. I want this
+- [25:50] wide open. put in guard rails
+- [25:57] can't stop me from hacking. Okay, I got it to give me what I what I needed. I think I'll have to adjust the Docker
+- [26:04] file and the server. I'll just do them all. Who knows what this LLM changed
+- [26:09] requirements is the same. Let's build it again. That should be it. I want restart Claude. Let's check our
+- [26:16] tools. Make sure they're there. There they are. Okay. Again. Okay. Okay, I'm going to change it to make sure I'm
+- [26:22] running as root. Okay, that should do it. Building again. Restarting Claude.
+- [26:28] Come on. What the heck? Oh, the Docker file was screwing me up. Yeah, comment out the user.
+- [26:36] That's what it was. This is so dumb. Let's build it again. All right, better work this time.
+- [26:44] It's driving me nuts. Let's do a Docker PS. See if it's
+- [26:50] running. It's running, but it's only running while we're doing this. Kelly Linux is being used right now by an LLM,
+- [26:57] by AI. I can talk to my hacking box with plain language. Hey, go hack that thing.
+- [27:02] And it does it. Now, while that's scanning, I'm going to show you one I've already built using the exact same methods we've used here so far. It's on
+- [27:09] my MacBook. I want to show you this one because I've played with this one a lot. This will all be in the documentation below. Got a few more tools here. Let's
+- [27:15] try this. It's just so crazy. We can do this. All right. Doing an end mapap scan. This is so awesome. I finished in
+- [27:22] endmap not necto durb buster. And in case you're wondering, you can use all these things with claw code as well.
+- [27:28] This one I don't know what's going on with him. He's taking forever.
+- [27:34] So in case you're wondering, I'm using the DVWA web app. An app that's intentionally insecure so you can try
+- [27:40] and hack things. And there's a log of it right here. Me hitting it. Oh, cool. This one's working now. WordPress scan.
+- [27:46] WP scan. And dude, this thing's killing it.
+- [27:53] SQL map coming in. I'm like using AI to hack this from like three different computers right now. This one finished.
+- [27:59] It found out what it was. Now, if you're like me, you got to be wondering, how is this all working? Like, are these MCP
+- [28:05] servers actually running as Docker containers? Are they running all the time? If I run Docker PS right now, am I
+- [28:10] going to see containers running? No. Then what's happening? And are all MCP servers local like this? or are there
+- [28:16] remote MCP servers? Let's talk about that right now. We're about to get super nerdy. I hope you're ready for this.
+- [28:24] Let's dive in. Now, first thing I want to show you is that whenever we're actually engaging with an MCP server
+- [28:30] here with Docker Desktop, it's running those MCP server containers
+- [28:35] briefly and then taking them down. You want to see? Watch. Let's do this command. Hope it works on Mac. I haven't
+- [28:41] tried this. do watch dash n0.5 docker ps
+- [28:47] brew install watch
+- [28:52] dang. All right, we'll just run it while we're doing stuff. Let's use claude to call a
+- [28:58] tool and we'll just spam docker ps. Use Airbnb tool to find a house in Tokyo for
+- [29:05] a family of eight for two weeks starting October. Let's get our command ready.
+- [29:11] Allow once. Let's watch. Oh, wait. I wasn't ready. Ah, here we go.
+- [29:18] It was too fast. I didn't catch it in time. We'll just use this watch command here or this while true loop. Ah,
+- [29:24] perfect. Let's see if it shows up now. Ah, there it is. We briefly caught it. It's so
+- [29:31] fast. That took longer than I thought it would be to track it. All that to say, every time we engage with an MCP server,
+- [29:37] a Docker container for the MCP server is spun up and spun down. They're not running all the time, only when we need
+- [29:42] them, which is kind of cool. But that's only running an MCP server locally. There's actually other ways to access MCP servers, specifically remote MCP
+- [29:49] servers. There's one from Coin Gecko, which is a popular site we can use to find out the prices of cryptocurrency.
+- [29:54] So, we'll have this Coin Gecko MCP server to cursor, for example. We'll go to our cursor settings and go to our MCP
+- [30:00] and integrations config and we'll add a new custom MCP server. And what it's going to do is open up a MCP server
+- [30:06] file. And by the way, this is exactly how most of the applications we use look. In fact, watch. Look at Claude.
+- [30:11] This right here is Claude's config. I'll open that in cursor too. And now you're not seeing double. These are two different uh config files, but it's a
+- [30:18] standard, right? So they look the stinking same. But here for cursor, I'm going to change this config. Adding coin
+- [30:23] gecko right here. Notice our Docker MCP server is running a command with the Docker command and all these arguments.
+- [30:30] We'll cover that in a second. But this one here is actually just reaching out to an external URL. This is an external
+- [30:36] MCP server. We're not hosting it. Someone else is. And it's using this transport SSE. We'll cover that here in a moment. I'm going to save it. We'll
+- [30:42] open up a new chat here and say, what is the current price of XRP? Use the Coin
+- [30:48] Gecko MCP server. We'll let it run the tool. Let it get the sample price. And there it is. So, that's super handy. But
+- [30:55] this kind of drove me crazy. And if you're like me, you probably thought the same thing. Like, how is this communication working? What do MCP
+- [31:00] servers use for communication for transport? Well, it depends on if you're running local or remote. The most interesting one that I'm like, how is
+- [31:06] this working was docker because we're simply I mean this all this is doing. It's configured to run the Docker command plus MCP gateway run. Like
+- [31:14] literally, the command will be like this. I can probably run it right now. Docker MCP gateway run. Like, yeah,
+- [31:20] that's what it's doing. And look, it's actually running. and listing all those tools and the server is now up. I'll
+- [31:26] stop that. So, what's really interesting is every time you try to use an MCP server with Docker, it's actually going
+- [31:31] to run the MCP gateway and then run the specific MCP server. It's kind of crazy. We'll cover that here in a second. I
+- [31:38] know I keep saying that, but again, seriously though, if we're just running commands, how is this working? What's
+- [31:43] the communication? It's actually just using standard out, standard input and output via the command line. That's it.
+- [31:49] This is direct communication between local processes on the same machine. JSON RPC messages are exchanged through
+- [31:54] pipes. Meaning the transport is almost nothing. It's just like you sitting next
+- [32:00] to me and I go, "Hi." Like that's it. There's no need to go over a network or anything, which is fantastic because
+- [32:05] there's like no latency, no network overhead. And you'll see that in situations like this where we're running Docker MCP servers locally. Now, you can
+- [32:12] run MCP servers without Docker. Docker is just making it crazy easy for us. But most of the time when you're running on
+- [32:17] your local machine, you're going to be using standard input and output. But what about when it's remote, not on the
+- [32:22] same computer, not on the same network. Well, we're going to be using HTTP. And in most cases, it should be HTTPS.
+- [32:29] And that's for client to server. It's going to be using SSE or server side events, which is what we see right here
+- [32:34] as our transport for server to client. And this is a lot more complex, right? Like you're setting up a web server at
+- [32:40] this point. You're setting up authentication. So operating a remote MCP server is a whole thing. Whereas
+- [32:45] running your own MCP server in your own Docker container on your local machine, you're just using standard input and output. All local, man. It's awesome.
+- [32:52] But now, real quick, I want to talk about this MCP gateway thing because it's a little crazy. And by crazy, I
+- [32:58] mean awesome. Normally, you'd have to configure an MCP server like this, one at a time, one service. So, we'd have
+- [33:04] multiple entries here for whatever service we want. But we saw that in Docker, we didn't add just one server to
+- [33:09] our config, did we? We added a bunch. Here's our list of servers right here. We have what, how many? six. Yet in our
+- [33:15] MCP server list here in cursor, we have one MCP server set up with Docker.
+- [33:20] That's the gateway. If I already use some marketing speak right now, buckle your seat belts. The Docker MCP gateway
+- [33:25] provides secure, centralized, and scalable orchestration of AI tools through containerized MCP servers. What
+- [33:32] does that mean? It means when we have Claude or Cursor, our clients, we just connect them to one MCP server. We only
+- [33:39] need to manage one connection. And this one connection, this one MCP server gives us access to a lot of stuff, a lot
+- [33:46] of other MCP servers. So, I don't know about you, but it seems like this is a
+- [33:51] lot cleaner than this. And of course, we'd also have to deal with all the authentication, the secrets for each
+- [33:57] connection, for each client that connects. But not with Docker MCP gateway. It's all centralized right
+- [34:02] there. Killer. I hope you're starting to see how cool this is. Or is it just me? I don't know. Comment below if it's just
+- [34:08] me or if you're joining me in this excitement. Hold on. I need some more coffee. I'll be right back. You can get some more coffee, too.
+- [34:18] Okay, that's steaming, man. Check that out.
+- [34:24] Almost don't even need to drink it. Yeah, I do. Now, let's get to the CLI real quick. My favorite place in the
+- [34:29] entire world. Let's go. You saw that we have some new commands with Docker. Things like Docker MCP gateway. We just
+- [34:35] tried that out. Our LLM app is actually going to run that command for us or we can run this manually. We don't really
+- [34:41] need to unless we want it to be accessed remotely. We can actually do this.
+- [34:47] We can specify the transport to be standard input output SSE streaming to
+- [34:52] make it available over the network. I know right. Imagine running your own Docker MCP gateway server for all the
+- [35:00] things in your home network or your business. just okay we're on the same
+- [35:05] page here. I think we also have the docker mcp catalog command which we can look at our if we do ls we can see we
+- [35:12] have our default docker mcp catalog and there is an official way where you can create your own docker mcp server and
+- [35:19] submit that to be added to the official catalog. You can do that but you have to get it approved. You have to wait and
+- [35:25] I'm not very patient. I don't know about you. Docker actually does help us manage our secrets. So Dr. MCP secrets. Now
+- [35:31] what's a secret? What are you talking about? Things like API keys, ooth. You can securely manage your secrets with
+- [35:36] Docker. Now, two more crazy things I want to show you. Right now, we're running Docker MCP gateway with Docker
+- [35:42] Desktop. That's like the official way to do it right now because they have the MCP gateway in beta that you can run alongside of it. But if you check out
+- [35:47] the documentation, and I bet they're going to make it better and better and better and better. Dude, this coffee is like hitting me like crazy. I love it.
+- [35:53] I'll put this link below, but you can run the Docker MCP gateway as a Docker container totally apart from the Docker
+- [35:59] MCP toolkit and Docker Desktop. Been saying Docker a lot. Coffee break. Which means yes, you could run a headless
+- [36:06] server somewhere else running all kinds of crazy stuff. And I'm going to show you this real quick. I'm going to run the gateway Docker MCP gateway run
+- [36:14] transport. I'm going run it with SSE. I think that's how we do it. Yes. So now it's actually running over the network instead of standard input output. It's
+- [36:21] on port 8811. That's my IP address. So, real quick, I'm going to jump into NAN, my local NAN configuration here in my
+- [36:27] studio. This is going to be so powerful. I'll create a new workflow. I'll have an AI agent come in and do something crazy.
+- [36:33] And I'll give it a tool. How about an MCP server? I think it'll just be HTTP
+- [36:38] slash the IP address port 8811. Let's see.
+- [36:45] Oh, it sees everything. Yes. Look at that. Over the stinking network. Okay. Okay. So, let's um I'm too excited. I'm
+- [36:52] so sorry. Let's give it a crazy prompt. Okay. Three steps. Find the best
+- [36:59] restaurant and Airbnb next to it and then put it in my Obsidian vault using three different tools. Can it do it? I
+- [37:04] have no idea. Let's see. I'm so excited to see if this works. Something broke, though.
+- [37:11] How to tell to ignore robots. See if it'll be okay. Oh, yeah. Yeah, it's great. Yes.
+- [37:17] Look at the logs here in the terminal. It using all these things, all these tools, but I forgot step three. Oh, I
+- [37:23] didn't give it memory. Hold on. You know what? Let's try to oneshot this.
+- [37:29] Let's go. This is magic. This is pure magic. You did it. There it is. All right. So,
+- [37:35] where's the best restaurant? Okay. So, it gave me a lot of options. Needs some work on the prompt, but still, it used all the tools just like that over the
+- [37:42] network. And it was with one command I did, right? Like that wasn't that hard.
+- [37:47] Okay, you just learned MCP. Not only can you use an MCP server, but you learned how to build one yourself and you know
+- [37:54] how it works. That's a skill. Put that on your stinking resume. Who do you know that knows how to do this? The list is
+- [38:00] not very long right now. Now, I would love to know what you thought of this video and what you plan on building with MCP servers. Please comment below and
+- [38:06] let me know. Also, if you like more stuff like this, more AI automation, which is like more real world, right?
+- [38:13] Check out my other video on N8N, an automation platform that's just mind-boggling. That video was so fun to
+- [38:19] make and I plan to make another one on top of that. And of course, you saw how I connected our MCP environment, the
+- [38:24] Docker MCP gateway to N8N, opening up just a billion possibilities. It's endless. We're in a gold rush
+- [38:30] opportunity right now just to learn and create and do things like crazy. Don't waste it. That's all I got. I'll catch
+- [38:37] you guys next time.

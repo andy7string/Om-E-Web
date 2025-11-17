@@ -581,6 +581,47 @@
           "button[data-title-no-tooltip='Play']",
           "button[data-title-no-tooltip='Pause']"
         ]
+      },
+      "subscribe": {
+        "action": "SubscribeToChannel",
+        "label": "Subscribe to the channel",
+        "description": "Subscribes to the current YouTube channel",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_channel_actions",
+        "selectors": [
+          "button[aria-label*='Subscribe' i]",
+          "ytd-subscribe-button-renderer button[aria-label*='Subscribe' i]",
+          "ytd-subscribe-button-renderer button",
+          "button.yt-spec-button-shape-next--filled[aria-label*='Subscribe' i]"
+        ]
+      },
+      "like": {
+        "action": "LikeVideo",
+        "label": "Like this video",
+        "description": "Likes the current YouTube video",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_video_engagement",
+        "selectors": [
+          "like-button-view-model button[aria-label*='like' i]",
+          "button[aria-label*='like this video' i]",
+          "ytd-menu-renderer button[aria-label*='like' i]",
+          "button.yt-spec-button-shape-next[aria-label*='like' i]",
+          "button[aria-label*='like' i]"
+        ]
+      },
+      "dislike": {
+        "action": "DislikeVideo",
+        "label": "Dislike this video",
+        "description": "Dislikes the current YouTube video",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_video_engagement",
+        "selectors": [
+          "dislike-button-view-model button[aria-label*='dislike' i]",
+          "button[aria-label*='dislike this video' i]",
+          "ytd-menu-renderer button[aria-label*='dislike' i]",
+          "button.yt-spec-button-shape-next[aria-label*='dislike' i]",
+          "button[aria-label*='dislike' i]"
+        ]
       }
     }
   },

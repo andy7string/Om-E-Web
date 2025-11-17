@@ -1,0 +1,443 @@
+<!-- signature: gNR3XI5Eb0k:432:0cdab2081b53b60ae04567dd66908ee46e056fc29eed5152095d94922fc59fb5 -->
+# I was wrong about Claude Code (UPDATED AI workflow tutorial)
+
+**Video URL:** https://www.youtube.com/watch?v=gNR3XI5Eb0k
+**Video ID:** gNR3XI5Eb0k
+**Language:** en
+**Collected At:** 1763344147867
+**Segments:** 432
+
+---
+
+- [0:00] So, I wasn't sure if I should make this
+- [0:01] video because I recently did a video two
+- [0:03] months ago about my AI coding workflow,
+- [0:05] but so much has changed in that time
+- [0:07] that I felt like I had to do it. If
+- [0:08] you're new here, welcome to the video.
+- [0:09] My name is Chris and I build
+- [0:10] productivity apps. And today, I'm going
+- [0:12] to share my updated AI coding workflow.
+- [0:14] So, if you saw my workflow video, you
+- [0:16] know that I use Cursor and Cursor agents
+- [0:18] to do the AI coding, which most
+- [0:20] developers are currently using right
+- [0:21] now. But I've recently switched to
+- [0:22] Claude Code, and I basically haven't
+- [0:24] used Cursor's AI features like agents in
+- [0:26] over a week. In this video, we're going
+- [0:27] to cover why I switched to Cloud Code.
+- [0:29] my workflow and practical tips to get
+- [0:31] the most out of cloud code and then some
+- [0:33] general thoughts on where I think AI
+- [0:34] coding is heading in general. Okay, so
+- [0:36] what happened? Why did I change to cloud
+- [0:37] code? So, I've been using cursor just
+- [0:38] like everyone else for over a year now.
+- [0:40] There's absolutely nothing wrong with
+- [0:41] cursor, but about a week ago, Enthropic
+- [0:43] introduced some new pricing to Claude
+- [0:45] code. If you're not familiar, it is
+- [0:47] basically a coding agent. So, it
+- [0:49] actually lives in the terminal. So, it's
+- [0:51] not a code editor like cursor. It just
+- [0:53] lives in the terminal and you can put it
+- [0:54] into any codebase and just ask it to do
+- [0:56] anything. You can ask it questions. You
+- [0:57] can ask it to add features. And I have
+- [0:59] been genuinely surprised by the results
+- [1:01] that I've been getting. A lot of these
+- [1:02] things were things that cursor even with
+- [1:04] Claude Opus for Max, which is again one
+- [1:07] of the best models for coding, was
+- [1:09] really struggling to help me with.
+- [1:10] Claude Code was able to come up with
+- [1:12] solutions to these issues really
+- [1:14] quickly. It seemed to think about
+- [1:15] complex problems way better than
+- [1:16] cursor's agent. And the solutions it
+- [1:18] came up with were genuinely better every
+- [1:20] time I compared the two. So how does
+- [1:21] this stuff actually work? Way it works
+- [1:22] is you go to any project in your
+- [1:24] terminal and then you just run the
+- [1:25] claude command. And when you run this
+- [1:27] command, you can start chatting with it.
+- [1:28] You can ask it questions. You can tell
+- [1:29] it to work on features. Exactly like
+- [1:31] cursor agent. And my workflow barely
+- [1:33] deviates from how I use cursor agent.
+- [1:35] I'm just constantly asking the agent to
+- [1:37] do things. I'm checking the code.
+- [1:38] Technically, I am still using cursor,
+- [1:40] but I'm not really using any of the AI
+- [1:42] stuff. I just use cursor or Xcode as my
+- [1:44] editor. And then I have Claude Code in a
+- [1:46] terminal window. Usually on the right
+- [1:48] side.
+- [1:51] First thing is Claude Code does have
+- [1:53] something called plan mode. So, if you
+- [1:55] hit shift tab on your computer, you'll
+- [1:57] see that it'll change to plan mode. And
+- [1:59] what this is going to do is it's only
+- [2:01] going to think through the problem, and
+- [2:02] it's not going to actually generate or
+- [2:05] modify any code. So, the way that I use
+- [2:07] cloud code is I always first use plan
+- [2:09] mode. I ask it to make a change. So, if
+- [2:11] I ask it something like, can you go
+- [2:13] modify this? I make sure I'm in plan
+- [2:14] mode, I hit enter, and then it's going
+- [2:16] to think through for a pretty long time
+- [2:18] usually, and then it's going to spit out
+- [2:20] its game plan. I review this game plan
+- [2:23] very thoroughly and then if I'm happy
+- [2:25] with it, I tell it, okay, go ahead, go
+- [2:27] try to execute the plan. If not, I hit
+- [2:29] no and then I revise the plan. And so
+- [2:31] that's tip number one in step one in my
+- [2:32] workflow is I always use plan mode
+- [2:34] first. So number two is I always
+- [2:36] generate a Claude MD file. So this is a
+- [2:39] file that's basically the brain and the
+- [2:41] memory of Claude when it's working on
+- [2:42] your project. You can kind of think of
+- [2:44] it like cursor rules. You're basically
+- [2:45] giving Claude rules, but it is very
+- [2:47] important and Claude really follows this
+- [2:49] thoroughly. If you hit /init in any
+- [2:51] codebase, it's actually going to
+- [2:53] automatically generate this file for
+- [2:54] you. And then you can go ahead and make
+- [2:56] modifications or you can even tell cloud
+- [2:58] code itself like, hey, can you remember
+- [2:59] to do this next time? And it'll go ahead
+- [3:01] and add to the claude MD file. So step
+- [3:03] number two is generating this and making
+- [3:05] sure that it's accurate and up to date
+- [3:06] and exactly how I want it to be. So step
+- [3:08] number three when I'm about to start
+- [3:09] actually using it and modifying code is
+- [3:12] I always make sure to commit frequently
+- [3:14] and use Git as almost a checkpoint
+- [3:16] system. So, if you're familiar with
+- [3:18] cursor, they have this really nice
+- [3:20] restore feature in the chat. You can go
+- [3:22] anywhere back in your chat, hit the
+- [3:23] restore button, and it'll basically go
+- [3:25] back to that point in time of the chat.
+- [3:28] It's really great when cursor agent is
+- [3:29] going down the wrong path or you made a
+- [3:31] mistake. And I was constantly using that
+- [3:33] feature. Cloud code has nothing like
+- [3:35] this. So, the way I'm getting around
+- [3:36] this is by using git almost as my
+- [3:38] checkpoint system. When I'm happy with
+- [3:40] the changes, I make a commit and if I
+- [3:42] don't like the changes, I just discard
+- [3:44] or revert the commit. It's kind of a
+- [3:46] hacky system and I haven't found a
+- [3:47] better way to do this, but it gets the
+- [3:49] job done. It gives me the ability to
+- [3:50] undo changes if Claude does something
+- [3:52] that I'm not happy with. Number four is
+- [3:54] using screenshots. So, you can actually
+- [3:55] drag screenshots into Claude code so
+- [3:58] that way it has context. Very similar to
+- [3:59] cursor agent. You can drag images into
+- [4:01] the chat. I do this with errors. I do
+- [4:03] this with design screenshots, but I'm
+- [4:04] constantly dragging in images. Number
+- [4:06] five is similar to images. I usually
+- [4:08] also drag in entire folders. And I'm not
+- [4:10] talking about folders in your codebase.
+- [4:12] I'm talking about other folders in other
+- [4:14] code bases. So something I'm frequently
+- [4:16] doing for Ellie, for example, is I'm
+- [4:18] working on the Ellie front end. I like
+- [4:19] to drag in the folder for the back end
+- [4:21] and tell it, hey, by the way, this is
+- [4:23] what the back end looks like. I found it
+- [4:24] is very helpful to give it additional
+- [4:26] context on something like how does the
+- [4:28] back end work? Can't actually make
+- [4:29] changes to the folders if you give it
+- [4:31] permission. So sometimes if I'm asking
+- [4:32] it to build something on the front end,
+- [4:34] it can go ahead and make changes for the
+- [4:35] back end for me. I heard that working
+- [4:37] with multiple codebases not officially
+- [4:38] supported, but this is a way to get
+- [4:40] around that. Number six is giving it
+- [4:41] URLs. So something a lot of people don't
+- [4:43] know is that claude code actually has
+- [4:45] access to a web browser. So you can just
+- [4:48] paste in the link to documentation kind
+- [4:50] of similar to what you can do with
+- [4:51] cursor. But when you give it the link to
+- [4:53] documentation, it will go to the
+- [4:54] website, read the documentation and get
+- [4:56] whatever context that it needs. I can
+- [4:58] also run Google searches and go find
+- [5:00] documentation. So sometimes I just tell
+- [5:01] it things like make sure to use the
+- [5:03] latest Google calendar API and it'll
+- [5:05] actually go do a web search and go find
+- [5:07] the documentation. So I don't even have
+- [5:08] to paste the link in. I'm constantly
+- [5:10] doing that, especially when I'm working
+- [5:12] with newer APIs. Number seven is
+- [5:13] sometimes I use sub aents. Cloud code
+- [5:16] has the ability to spin up sub aents. So
+- [5:18] these are instances of cloud code with
+- [5:20] their own context that will go off in
+- [5:22] parallel. So if I'm doing a task that's
+- [5:24] pretty massive, like trying to port an
+- [5:26] entire LE iOS app to Android. I told it
+- [5:29] for the sake of time, can you actually
+- [5:30] break this problem down and run sub
+- [5:32] agents where necessary? Actually spun up
+- [5:34] like 10 agents that all ran in parallel
+- [5:36] at the same time. If I ran this without
+- [5:38] sub agents, this probably would have
+- [5:39] taken over an hour to run. But since I
+- [5:41] ran it with sub agents in parallel, they
+- [5:43] all ran at the same time and it was able
+- [5:45] to finish much faster. Number eight is
+- [5:47] that I actually asked it to doublech
+- [5:48] checkck its work. So when it's done, I
+- [5:50] often ask it, hey, can you make sure
+- [5:52] that it didn't break anything else or
+- [5:54] can you try to find some edge cases and
+- [5:56] just confirm that everything is working.
+- [5:58] I've been surprised that sometimes it
+- [5:59] actually does find things that I've
+- [6:01] originally missed and it gives me a
+- [6:02] little bit more peace of mind about the
+- [6:03] code that it generated. Number nine,
+- [6:05] which really isn't a tip, this is what I
+- [6:06] do, is I always review the code that it
+- [6:09] generates. This thing is so good that I
+- [6:10] can easily see people just blindly
+- [6:12] accepting whatever it's producing. But
+- [6:14] my advice and for my workflow, I always
+- [6:16] review the code that it produces almost
+- [6:17] as if it was another developer and I'm
+- [6:19] basically just kind of reviewing a pull
+- [6:21] request and reviewing their changes. If
+- [6:22] you're using any of these AI tools, you
+- [6:24] should be doing that anyway. But I think
+- [6:25] it's worth saying because especially
+- [6:26] with Claude Code, this can get really
+- [6:28] tempting to just blindly accept things
+- [6:30] because it is really good at generating
+- [6:32] some of this stuff.
+- [6:36] I wanted to share some real examples of
+- [6:37] things that I was able to build with
+- [6:39] Claude code that I wasn't able to do
+- [6:41] with cursor. Specifically, I've been
+- [6:42] using cursor with claude sonnet 4 as the
+- [6:45] model and sometimes I even use claude
+- [6:47] opus for max, which is one of the most
+- [6:49] expensive and powerful models on cursor
+- [6:51] and it still wasn't able to get some of
+- [6:53] these things. So, one example was very
+- [6:55] custom drag and drop animations in the
+- [6:57] LE iOS app. So, this is where you can
+- [6:59] hold down and reorder list items. This
+- [7:01] isn't using the default Swift UI drag
+- [7:03] and drop. It's a completely custom drag
+- [7:04] and drop experience which cursor did
+- [7:06] seem to be struggling with after a
+- [7:08] couple hours, but the minute I switched
+- [7:09] to cloud code, it was able to get it in
+- [7:10] like 30 minutes. Second example is a
+- [7:12] feature in Ellie where you can take an
+- [7:14] external calendar event like a Google
+- [7:16] calendar event and convert it into a
+- [7:18] task. I have been struggling with this
+- [7:19] feature for over a year now because it
+- [7:21] is extremely complex. It touches three
+- [7:24] different calendar integrations. It
+- [7:25] touches recurring tasks. It's just an
+- [7:27] overall very complicated feature the way
+- [7:29] that it's built into Ellie. Because of
+- [7:31] the complexity, cursor had a really hard
+- [7:32] time helping me with this. Every time it
+- [7:34] changed something and something was
+- [7:35] fixed, another thing ended up breaking.
+- [7:37] But Cloud Code was able to deal with all
+- [7:39] of that complexity and I was able to
+- [7:40] successfully ship this in less than 1
+- [7:43] hour. So the last example is a very
+- [7:44] extreme one. I actually started the
+- [7:46] process of porting over the Ellie iOS
+- [7:48] app to Android. And I had attempted to
+- [7:50] do this with Cursor in the past, but it
+- [7:53] kind of struggled to do this because
+- [7:54] this is a pretty big migration. Cloud
+- [7:56] Code actually made substantial progress
+- [7:57] and I was thoroughly surprised by the
+- [7:59] results I got with this. If you don't
+- [8:01] believe me on the timeline, I was live
+- [8:02] tweeting the entire thing. So, you can
+- [8:04] go check that out if you want some
+- [8:05] proof. But these were three concrete
+- [8:06] examples, but I had five or six other
+- [8:08] features that I used as benchmarks to
+- [8:10] test cursor versus cla code. And every
+- [8:12] single time, Claude Code gave me better
+- [8:13] results and much much faster than cursor
+- [8:16] could. Cloud code has been around for a
+- [8:17] few months now and I've heard really
+- [8:19] good things. But the reason I was
+- [8:20] hesitant to try it is it was only
+- [8:23] available through API based pricing
+- [8:25] which means I had to provide my own API
+- [8:28] key and I had to pay based on the amount
+- [8:30] of tokens that I was using with claude
+- [8:32] code. And as someone who does a ton of
+- [8:34] AI coding that scared me because I'd
+- [8:36] rack up a huge bill if I use this the
+- [8:38] same way I was using cursor. So I've
+- [8:39] always stayed away from it until they
+- [8:41] introduced their new $200 Claude Max
+- [8:43] plan which allows you to have borderline
+- [8:45] unlimited usage and not have to worry
+- [8:47] about the tokenbased pricing. Obviously,
+- [8:48] the big caveat is to use it the way I'm
+- [8:50] using it. It costs about $200 a month.
+- [8:52] They do have some cheaper plans, but in
+- [8:54] my experience, they're way too limited.
+- [8:55] I use Cloud Code on their $20 a month
+- [8:57] plan, and I hit the limit in like 10
+- [8:58] minutes. I used it on the $100 plan, and
+- [9:00] I hit the limit in an hour.
+- [9:01] Realistically, my recommendation is to
+- [9:03] use the $200 plan.
+- [9:07] So, when you subscribe to Claude Code,
+- [9:09] you can choose between using the Claude
+- [9:10] Sonnet 4 model or the Claude Opus for
+- [9:13] model, or you can have it auto select
+- [9:14] and try to use the best one for the
+- [9:16] task. Personally, I just have everything
+- [9:17] set to opus because I'm paying for the
+- [9:19] max plan. And even using Opus for almost
+- [9:21] every request, I rarely hit the limit on
+- [9:23] the max plan, but I have heard people
+- [9:24] say that Sonnet 4 is actually good and
+- [9:26] sometimes even better than Opus in some
+- [9:28] cases.
+- [9:32] Why is this thing performing better than
+- [9:33] Cursor Agent if Cursor agent is using
+- [9:35] the exact same model? So, that was the
+- [9:37] first question I had and I did a little
+- [9:38] bit of research. I have no definitive
+- [9:40] proof here. So, this is just my opinion.
+- [9:41] My hypothesis is that cursor is super
+- [9:44] optimized from a token usage standpoint
+- [9:47] that it does a lot of things like
+- [9:48] compression and not using the full
+- [9:50] context window to try to save cost which
+- [9:53] makes sense because at the scale that
+- [9:54] cursor is operating at they have to do
+- [9:56] whatever they can to try to get the
+- [9:58] token usage down so that way as much as
+- [10:00] possible can fit in the $20 a month
+- [10:02] plan. I think that claude code is not
+- [10:05] doing optimizations like this. I think
+- [10:07] it is eating a ton of money. Someone
+- [10:09] wrote a program you can run to actually
+- [10:10] see how much tokens you consumed, how
+- [10:12] much it would have cost if you were on
+- [10:14] the API based pricing. Here's what my
+- [10:16] usage looked like in a little over a
+- [10:18] week. If this is accurate, I have used
+- [10:20] over $3,000 and over a billion tokens in
+- [10:23] a little over the week, which is
+- [10:25] absolutely crazy. If that's accurate, I
+- [10:27] think Cloud Code is losing Anthropic a
+- [10:29] ton of money because I'm just paying a
+- [10:30] flat $200. I think it's not as optimized
+- [10:32] as Cursor and it's just consuming
+- [10:34] tokens. And what that does is it
+- [10:35] probably allows for better output. This
+- [10:37] makes me really question how Enthropic
+- [10:39] is doing this. They're probably doing
+- [10:40] this to try to take more market share.
+- [10:42] Anthropic has probably 1/100th the
+- [10:44] number of users on Cloud Code than
+- [10:46] Cursor does. So, I think that they can
+- [10:47] sustain this a little bit longer. But,
+- [10:49] if developers start picking up on this
+- [10:50] and start using Cloud Code, who knows
+- [10:52] how long this is going to last. I
+- [10:53] probably just accelerated that timeline
+- [10:55] by making this video, but I think
+- [10:56] everyone's going to figure it out
+- [10:57] eventually. So, I think it's worth
+- [10:58] sharing with you guys.
+- [11:02] Okay, so what are the downsides to it?
+- [11:04] Number one, the cost is extremely high.
+- [11:05] I think to use this effectively, you
+- [11:07] have to be on the $200 a month plan,
+- [11:09] which is just not affordable to most
+- [11:10] developers. But if you can afford it, I
+- [11:13] highly recommend trying it. Maybe I'll
+- [11:14] do a whole separate video about coding
+- [11:16] tools at different price points, but the
+- [11:17] price point is probably the biggest
+- [11:19] downside. The second downside, which I
+- [11:20] already mentioned, is that there is no
+- [11:22] checkpoint functionality like cursor
+- [11:24] agent where you can just restore to a
+- [11:26] specific point in the chat. You have to
+- [11:27] do that manual workaround with git that
+- [11:29] I'm doing, which kind of sucks, but I'm
+- [11:31] kind of used to it, so it's not even
+- [11:32] that big of a dealbreaker anymore. And
+- [11:34] number three, it takes a very long time
+- [11:35] to run. Some of the actions that I take
+- [11:37] have taken over 30 minutes to run, which
+- [11:39] really can be disruptive to flow. But
+- [11:41] again, since you can in theory run sub
+- [11:43] agents and run things in parallel, that
+- [11:44] is a way to cut back the time. You can
+- [11:46] also just open up multiple terminal
+- [11:48] windows and use multiple instances of
+- [11:50] clawed code at the same time, which I am
+- [11:52] frequently doing.
+- [11:56] So, who is this for? I think that if you
+- [11:57] are a developer who does a lot of coding
+- [12:00] and if you make apps and you make money
+- [12:01] from your app, I think this is a
+- [12:02] no-brainer at $200 a month because I am
+- [12:05] getting substantially more value than
+- [12:07] $200 a month. At least in my case. So, I
+- [12:09] think if you do this stuff as a
+- [12:10] professional and you make money from
+- [12:12] software development, this is a really
+- [12:13] good investment. I think if coding is
+- [12:15] just a hobby or you're just getting
+- [12:16] started, I actually recommend just
+- [12:17] sticking with cursor and using that
+- [12:19] instead. Again, there's nothing wrong
+- [12:20] with cursor. It is still an incredible
+- [12:22] tool. It's just that claude code has
+- [12:24] been better in my experience. So that's
+- [12:26] why I've switched to it right now.
+- [12:27] Please share your experience below. And
+- [12:28] if you have any tips on using Claude
+- [12:30] Code or you found something even better,
+- [12:32] please leave a comment down below. I'm
+- [12:33] always looking for new tools and ways to
+- [12:34] improve my workflow. But I hope you guys
+- [12:36] found this interesting. If you like this
+- [12:37] kind of content, check out my Instagram
+- [12:39] and Tik Tok. I post almost every other
+- [12:40] day about building productivity apps.
+- [12:42] And obviously, if you like this content,
+- [12:44] don't forget to subscribe. But thank you
+- [12:45] guys so much for watching and I'll see
+- [12:46] you guys in the next video.
+- [12:51] [Music]
