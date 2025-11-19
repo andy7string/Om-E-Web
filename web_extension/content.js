@@ -1265,18 +1265,22 @@ function testSelectorsAfterScan() {
 // 🆕 NEW: Function to run scan after page is fully loaded
 function runScanAfterPageLoad() {
     console.log("[Content] 🔍 Page fully loaded - now running scan...");
-    
+
     if (intelligenceEngine) {
+        // ♻️ DESTROY & RECREATE: Ensure completely fresh start (like browser refresh)
+        console.log("[Content] ♻️ Service worker scan - recreating engine for fresh start");
+        const freshEngine = recreateIntelligenceEngine();
+
         // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass on page load
         console.log("[Content] 🔄 Page load: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
         performAutomaticDisconnectCycle();
-        
+
         // 🎯 NEW: Run comprehensive scan to get 262+ elements - REMOVED
         console.log("[Content] 🔍 Page load: Comprehensive scan skipped");
-        
-        // ✅ SYNC: Scan elements (returns immediately)
-        const scanResult = intelligenceEngine.scanAndRegisterPageElements();
-        
+
+        // ✅ SYNC: Scan elements on FRESH engine (counter = 0, no old state)
+        const scanResult = freshEngine.scanAndRegisterPageElements();
+
         // 🚫 REMOVED: Intelligence update triggered here - moved to AFTER filtering is complete
         // The scan result will trigger the intelligence update automatically when filtering is done
     } else {
@@ -1317,29 +1321,24 @@ function initializeDOMChangeDetection() {
                     types: mutations.map(m => m.type),
                     timestamp: new Date().toISOString()
                 });
-                
-                if (changeAggregator && intelligenceEngine) {
-                    mutations.forEach(mutation => {
-                        const changeInfo = {
-                            type: mutation.type,
-                            target: mutation.target?.tagName || 'unknown',
-                            mutations: 1,
-                            timestamp: lastChangeTime,
-                            addedNodes: mutation.addedNodes?.length || 0,
-                            removedNodes: mutation.removedNodes?.length || 0,
-                            attributeName: mutation.attributeName || null
-                        };
-                        
-                        changeAggregator.addChange(changeInfo);
-                    });
-                    
-                    // 🆕 NEW: Trigger intelligence update on significant changes
-                    console.log("[Content] 🧠 Triggering intelligence update due to significant DOM change");
-                    // 🆕 NEW: Use queue system instead of immediate send
-                    if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
-                        intelligenceEngine.queueIntelligenceUpdate('high');
-                    }
-                }
+
+                // 🚫 DISABLED: DOM mutation rescans cause too many rapid scans during SPA navigation
+                // This was triggering 6+ rescans in 2 seconds, causing:
+                // - Mixed data from old + new pages
+                // - Race conditions in server updates
+                // - ID inflation and chaos
+                //
+                // ✅ NEW APPROACH: Only rescan on explicit service worker requests
+                // Service worker will trigger scans on REAL navigation events:
+                // - webNavigation.onHistoryStateUpdated
+                // - webNavigation.onCompleted
+                // - tabs.onUpdated (complete status)
+                //
+                // if (intelligenceEngine && intelligenceEngine.queueFullRescan) {
+                //     intelligenceEngine.queueFullRescan('dom_mutation');
+                // }
+
+                console.log("[Content] 📊 DOM mutation logged but NOT triggering rescan (service worker controls rescans)");
             } else {
                 // 🚫 SILENT: No logging of insignificant changes
             }
@@ -2233,10 +2232,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             // 🆕 NEW: Scan page and register all interactive elements
             // Perform a comprehensive scan of the page to find and register all interactive elements
             if (command === "scanAndRegisterElements") {
-                console.log("[Content] scanAndRegisterElements command - no params needed");
-                
+                console.log("[Content] scanAndRegisterElements command - recreating engine for fresh start");
+
                 try {
-                    const result = intelligenceEngine?.scanAndRegisterPageElements();
+                    // ♻️ DESTROY & RECREATE: Ensure completely fresh start (like browser refresh)
+                    const freshEngine = recreateIntelligenceEngine();
+                    const result = freshEngine.scanAndRegisterPageElements();
                     console.log("[Content] scanAndRegisterElements result:", result);
                     return sendResponse(result);
                 } catch (error) {
@@ -4876,7 +4877,7 @@ var ChangeAggregator = function() {
 };
 
 ChangeAggregator.prototype.addChange = function(change) {
-    console.log("[Content] 🧠 ChangeAggregator: Adding change:", change);
+   // console.log("[Content] 🧠 ChangeAggregator: Adding change:", change);
     this.pendingChanges.push(change);
     this.scheduleProcessing();
 };
@@ -4884,7 +4885,7 @@ ChangeAggregator.prototype.addChange = function(change) {
 ChangeAggregator.prototype.scheduleProcessing = function() {
     if (this.processingScheduled) return;
     
-    console.log("[Content] 🧠 ChangeAggregator: Scheduling processing...");
+   // console.log("[Content] 🧠 ChangeAggregator: Scheduling processing...");
     this.processingScheduled = true;
     var self = this;
     setTimeout(function() {
@@ -4896,26 +4897,26 @@ ChangeAggregator.prototype.scheduleProcessing = function() {
 ChangeAggregator.prototype.processChanges = function() {
     if (this.pendingChanges.length === 0) return;
     
-    console.log("[Content] 🧠 ChangeAggregator: Processing", this.pendingChanges.length, "changes...");
+   // console.log("[Content] 🧠 ChangeAggregator: Processing", this.pendingChanges.length, "changes...");
     
     var changes = [...this.pendingChanges];
     this.pendingChanges = [];
     
     // Group changes by type and target
     var groups = this.groupChanges(changes);
-    console.log("[Content] 🧠 ChangeAggregator: Created", groups.length, "change groups");
+   // console.log("[Content] 🧠 ChangeAggregator: Created", groups.length, "change groups");
     
     // Generate intelligence events for each group
     var self = this;
     groups.forEach(function(group, index) {
         var event = self.generateIntelligenceEvent(group);
         if (event) {
-            console.log("[Content] 🧠 ChangeAggregator: Generated intelligence event", index + 1, ":", event);
+          //  console.log("[Content] 🧠 ChangeAggregator: Generated intelligence event", index + 1, ":", event);
             intelligenceEngine.processEvent(event);
         }
     });
     
-    console.log("[Content] 🧠 ChangeAggregator: Processing complete");
+   // console.log("[Content] 🧠 ChangeAggregator: Processing complete");
 };
 
 ChangeAggregator.prototype.groupChanges = function(changes) {
@@ -5018,11 +5019,19 @@ var IntelligenceEngine = function() {
     this.initialScanCompleted = false; // 🆕 NEW: Track if initial scan is complete
     this.youtubeRegisteredUrls = new Set(); // 🆕 Track YouTube video URLs we've already registered
     this.lastTranscriptSignature = null; // 🆕 Track last harvested transcript snapshot
-    
+
+    // 🔒 SCAN LOCK: Prevent concurrent registration during full scans
+    this._scanInProgress = false; // Track if a full scan is currently running
+
+    // 🛡️ DUPLICATE PREVENTION: Track registered elements to prevent duplicate IDs
+    this.registeredElements = new WeakSet(); // DOM elements already registered (WeakSet for memory safety)
+    this.elementToActionId = new WeakMap(); // Reverse lookup: element → actionId
+
     console.log("[Content] 🧠 IntelligenceEngine initialized with page context:", {
         url: this.pageState.url,
         title: this.pageState.title,
-        timestamp: this.pageState.lastUpdate
+        timestamp: this.pageState.lastUpdate,
+        features: ['scanLock', 'duplicatePrevention']
     });
 };
 
@@ -5030,13 +5039,13 @@ var IntelligenceEngine = function() {
  * Process an intelligence event
  */
 IntelligenceEngine.prototype.processEvent = function(event) {
-    console.log("[Content] 🧠 IntelligenceEngine: Processing event:", event);
+   // console.log("[Content] 🧠 IntelligenceEngine: Processing event:", event);
     
     this.eventHistory.push(event);
     this.updatePageState(event);
     this.generateLLMInsights(event);
     
-    console.log("[Content] 🧠 IntelligenceEngine: Event processed, sending update...");
+   // console.log("[Content] 🧠 IntelligenceEngine: Event processed, sending update...");
     
     // Send intelligence update to service worker
     // NOTE: Disabled old intelligence system - using new sendIntelligenceUpdateToServer instead
@@ -5067,6 +5076,8 @@ IntelligenceEngine.prototype.updatePageState = function(event) {
 
 /**
  * Analyze structure changes (new elements, navigation, etc.)
+ * 🚫 DISABLED: No longer triggering rescans on mutations
+ * Service worker controls all rescans via navigation events
  */
 IntelligenceEngine.prototype.analyzeStructureChanges = function(event) {
     const newElements = event.changes
@@ -5078,37 +5089,34 @@ IntelligenceEngine.prototype.analyzeStructureChanges = function(event) {
         return;
     }
 
-    let newlyRegistered = 0;
+    // 🚫 DISABLED: Don't queue rescans on mutations anymore
+    // console.log(`[Content] 🔄 Significant DOM changes detected (${newElements.length} new elements) - queueing full rescan`);
+    // this.queueFullRescan('dom_mutation');
 
-    newElements.forEach(element => {
-        newlyRegistered += this.registerInteractiveSubtree(element);
+    // Just log for debugging
+    console.log(`[Content] 📊 Structure change detected: ${newElements.length} new elements (rescan controlled by service worker)`);
+};
 
-        if (window.currentFramework === 'youtube') {
-            this.registerYoutubeLinksFromNode(element);
-        }
-    });
-
-    const navElements = newElements.filter(el => 
-        el.tagName === 'NAV' || el.getAttribute('role') === 'navigation'
-    );
-
-    if (navElements.length > 0) {
-        this.pageState.navigationState = 'expanded';
-        navElements.forEach(nav => {
-            this.registerActionableElement(nav, 'navigation');
-        });
+/**
+ * Queue a full rescan (waits for current scan to finish if one is in progress)
+ * ♻️ DESTROY & RECREATE: Kills old engine, creates fresh instance, scans from 0
+ */
+IntelligenceEngine.prototype.queueFullRescan = function(reason) {
+    // If scan already in progress, queue for after it finishes
+    if (this._scanInProgress) {
+        console.log(`[Content] ⏸️ Rescan queued (${reason}) - waiting for current scan to finish`);
+        this._rescanQueued = reason;
+        return;
     }
 
-    if (newlyRegistered > 0 || navElements.length > 0) {
-        this.pageState.interactiveElements = this.getAllActionableElements();
-        // applyConfiguredFocus('dom_subtree');
+    // ♻️ DESTROY & RECREATE: Kill this instance, create fresh one, scan with new instance
+    console.log(`[Content] ♻️ Full rescan (${reason}) - destroying and recreating engine`);
 
-        if (this.queueIntelligenceUpdate) {
-            const changeLabel = newlyRegistered > 0 ? `${newlyRegistered} interactive descendants` : 'navigation updates';
-            console.log(`[Content] 🆕 DOM change trigger: ${changeLabel}`);
-            this.queueIntelligenceUpdate('high', 'dom_subtree');
-        }
-    }
+    // Get fresh instance with zero state
+    const newEngine = recreateIntelligenceEngine();
+
+    // Trigger scan on NEW instance (not old `this`)
+    newEngine.scanAndRegisterPageElements();
 };
 
 IntelligenceEngine.prototype.registerInteractiveSubtree = function(rootNode) {
@@ -5116,9 +5124,20 @@ IntelligenceEngine.prototype.registerInteractiveSubtree = function(rootNode) {
         return 0;
     }
 
+    // 🔒 SCAN LOCK CHECK: Abort if full scan is in progress
+    // This prevents duplicate ID assignment when DOM mutations occur during a full scan
+    if (this._scanInProgress) {
+        console.log("[Content] 🔒 registerInteractiveSubtree blocked - full scan in progress", {
+            rootNode: rootNode.tagName,
+            reason: 'Scan lock active'
+        });
+        return 0;
+    }
+
     const stack = [rootNode];
     const visited = new Set();
     let registered = 0;
+    let skippedDuplicates = 0;
 
     while (stack.length > 0) {
         const current = stack.pop();
@@ -5130,6 +5149,17 @@ IntelligenceEngine.prototype.registerInteractiveSubtree = function(rootNode) {
         }
         visited.add(current);
 
+        // 🛡️ DUPLICATE PREVENTION: Check if element already registered
+        // WeakSet check prevents same DOM element from getting multiple action IDs
+        if (this.registeredElements && this.registeredElements.has(current)) {
+            const existingActionId = this.elementToActionId ? this.elementToActionId.get(current) : null;
+            if (existingActionId) {
+                skippedDuplicates += 1;
+                // Element already registered, skip it
+                continue;
+            }
+        }
+
         const existingMarker = current.dataset?.omeActionId;
         const wasTracked = existingMarker ? this.actionableElements.has(existingMarker) : false;
 
@@ -5139,6 +5169,7 @@ IntelligenceEngine.prototype.registerInteractiveSubtree = function(rootNode) {
             if (actionId && (!existingMarker || !wasTracked)) {
                 registered += 1;
             }
+            // 🛡️ Tracking happens inside registerActionableElement - no need to duplicate here
         }
 
         const children = current.children;
@@ -5147,6 +5178,14 @@ IntelligenceEngine.prototype.registerInteractiveSubtree = function(rootNode) {
                 stack.push(children[i]);
             }
         }
+    }
+
+    if (skippedDuplicates > 0) {
+        console.log("[Content] 🛡️ Prevented duplicate registrations:", {
+            skipped: skippedDuplicates,
+            registered: registered,
+            rootNode: rootNode.tagName
+        });
     }
 
     return registered;
@@ -7117,19 +7156,16 @@ IntelligenceEngine.prototype.generateActionableId = function(element, actionType
     const tagName = element.tagName?.toLowerCase() || 'unknown';
     const className = element.className || '';
     const textContent = this.getCleanTextContent(element);
-    
+
+    // 🚫 NO COUNTER BUMPING: Only reuse ID if it's from THIS scan (prevents inflation)
+    // If reuseId is provided, it means we already registered this element in THIS scan
+    // Otherwise, generate next sequential ID starting from current counter
     let uniqueId = reuseId;
     if (!uniqueId) {
         uniqueId = `a_id_${this.elementCounter++}`;
-    } else {
-        const match = uniqueId.match(/a_id_(\d+)$/);
-        if (match) {
-            const reusedIndex = parseInt(match[1], 10);
-            if (Number.isFinite(reusedIndex)) {
-                this.elementCounter = Math.max(this.elementCounter, reusedIndex + 1);
-            }
-        }
     }
+    // ❌ REMOVED: No Math.max logic that bumps counter based on old IDs
+    // This was causing counter inflation when old DOM markers were found
     
     // Generate multiple selectors for reliability
     const selectors = this.generateElementSelectors(element);
@@ -7317,69 +7353,14 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
         return null;
     }
 
-    const existingMarker = domElement.dataset?.omeActionId;
+    // 🚫 NEVER READ OLD DOM MARKERS: Ignore data-ome-action-id from previous scans
+    // Only check our NEW instance's registry to prevent duplicates within THIS scan
+    // This ensures counter starts from 0 on every rescan (no ID inflation)
 
-    // 🎯 FIX: Check if element already exists in registry by its characteristics
-    // This prevents ID mismatches when elements are re-scanned
-    const computeElementKey = (element) => {
-        const attrs = this.extractKeyAttributes(element);
-        const placeholder = (attrs.placeholder || attrs['data-placeholder'] || attrs['aria-placeholder'] || '').toLowerCase();
-        const aria = (attrs['aria-label'] || '').toLowerCase();
-        const idAttr = (attrs.id || '').toLowerCase();
-        const url = element.href || attrs.href || '';
-        const selectors = this.generateElementSelectors(element);
-        const primarySelector = selectors.find(sel => typeof sel === 'string' && sel.length > 0 && !sel.includes('head')) || '';
-        
-        if (placeholder) return `placeholder:${placeholder}`;
-        if (aria) return `aria:${aria}`;
-        if (idAttr) return `id:${idAttr}`;
-        if (url) return `url:${url.toLowerCase()}`;
-        if (primarySelector) return `selector:${primarySelector.toLowerCase()}`;
-        return null;
-    };
-    
-    const elementKey = computeElementKey(domElement);
-    let existingIdByKey = null;
-    let preservedId = null;
-    
-    // 🎯 CHECK PRESERVED MARKER IDs: If we preserved IDs from previous scan, use them
-    if (elementKey && this._preservedMarkerIds && this._preservedMarkerIds.has(elementKey)) {
-        preservedId = this._preservedMarkerIds.get(elementKey);
-        // 🔧 FIX: Remove from map after use to prevent ID collision - each ID can only be reused once
-        this._preservedMarkerIds.delete(elementKey);
-    }
-    
-    // Check if we already have an element with the same key in the current registry
-    if (elementKey) {
-        this.actionableElements.forEach((descriptor, id) => {
-            // Compare using descriptor's stored attributes instead of querying DOM
-            const attrs = descriptor.attributes || {};
-            const descPlaceholder = (descriptor.placeholder || attrs.placeholder || attrs['data-placeholder'] || attrs['aria-placeholder'] || '').toLowerCase();
-            const descAria = (attrs['aria-label'] || '').toLowerCase();
-            const descIdAttr = (attrs.id || '').toLowerCase();
-            const descUrl = (descriptor.urlContext?.url || attrs.href || '').toLowerCase();
-            
-            let descKey = null;
-            if (descPlaceholder) descKey = `placeholder:${descPlaceholder}`;
-            else if (descAria) descKey = `aria:${descAria}`;
-            else if (descIdAttr) descKey = `id:${descIdAttr}`;
-            else if (descUrl) descKey = `url:${descUrl}`;
-            else if (descriptor.selectors && descriptor.selectors.length > 0) {
-                const primarySelector = descriptor.selectors.find(sel => typeof sel === 'string' && sel.length > 0 && !sel.includes('head'));
-                if (primarySelector) descKey = `selector:${primarySelector.toLowerCase()}`;
-            }
-            
-            if (descKey === elementKey && !existingIdByKey) {
-                existingIdByKey = id;
-            }
-        });
-    }
-    
-    // Prefer: existing marker > preserved ID > existing ID by key > new ID
-    const idToUse = existingMarker || preservedId || existingIdByKey || null;
-    
-    // 🎯 FIX: Always use existing marker ID or matching element ID to maintain consistency
-    // But still go through registration to ensure element is in registry
+    // Check if we already registered THIS element in THIS scan
+    const alreadyRegisteredId = this.elementToActionId.get(domElement);
+    const idToUse = alreadyRegisteredId || null;
+
     const actionableId = this.generateActionableId(domElement, actionType, idToUse);
     
     // If element already has this ID in registry, update the stored node reference
@@ -7404,6 +7385,15 @@ IntelligenceEngine.prototype.registerActionableElement = function(element, actio
     }
 
     this.storeActionableNode(actionableId.id, domElement);
+
+    // 🛡️ TRACK REGISTRATION: Add to duplicate prevention tracking
+    // This is the single source of truth - all registrations flow through here
+    if (this.registeredElements && !this.registeredElements.has(domElement)) {
+        this.registeredElements.add(domElement);
+    }
+    if (this.elementToActionId && !this.elementToActionId.has(domElement)) {
+        this.elementToActionId.set(domElement, actionableId.id);
+    }
 
     if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
         const existingIndex = this.pageState.interactiveElements.findIndex(item => item.id === actionableId.id);
@@ -9608,60 +9598,40 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
 
         // 🆕 CSP bypass already handled during page initialization - no need to repeat
 
-        // 🎯 PRESERVE: Store marker ID mapping before clearing (for stable ID assignment)
-        const markerIdMap = new Map(); // element key -> action ID
-        try {
-            const existingMarkers = document.querySelectorAll('[data-ome-action-id]');
-            existingMarkers.forEach(node => {
-                try {
-                    const markerId = node.dataset?.omeActionId;
-                    if (markerId && node.isConnected) {
-                        // Compute element key for stable ID mapping
-                        const attrs = this.extractKeyAttributes ? this.extractKeyAttributes(node) : {};
-                        const placeholder = (node.getAttribute('placeholder') || attrs.placeholder || '').toLowerCase();
-                        const aria = (node.getAttribute('aria-label') || attrs['aria-label'] || '').toLowerCase();
-                        const idAttr = (node.id || attrs.id || '').toLowerCase();
-                        const url = node.href || attrs.href || '';
-                        
-                        let elementKey = null;
-                        if (placeholder) elementKey = `placeholder:${placeholder}`;
-                        else if (aria) elementKey = `aria:${aria}`;
-                        else if (idAttr) elementKey = `id:${idAttr}`;
-                        else if (url) elementKey = `url:${url.toLowerCase()}`;
-                        
-                        if (elementKey) {
-                            markerIdMap.set(elementKey, markerId);
-                        }
-                    }
-                } catch (e) {
-                    // Ignore errors during key computation
-                }
-            });
-        } catch (markerScanError) {
-            console.warn('[Content] ⚠️ Unable to preserve marker IDs:', markerScanError?.message || markerScanError);
-        }
-        
-        // Clear existing elements
-        this.actionableElements.clear();
-        this.actionableElementNodes.clear();
-        this.contentElements.clear(); // 🆕 NEW: Clear content elements too
-        this.elementCounter = 0;
-        
-        // Store marker map for use during registration
-        this._preservedMarkerIds = markerIdMap;
+        // ♻️ NO MANUAL CLEARING NEEDED: Engine already recreated with zero state
+        // When queueFullRescan() calls recreateIntelligenceEngine(), we get a brand new instance with:
+        // - All Maps empty (actionableElements, actionableElementNodes, contentElements)
+        // - Counter at 0
+        // - Fresh WeakSet/WeakMap for duplicate prevention
+        // - No leftover state or "history"
+        //
+        // This function just scans and registers - the reset already happened.
 
+        // 🧹 CLEAN DOM MARKERS: Remove old data-ome-action-id attributes from previous scan
+        // (This is DOM state, not engine state, so we still need to clean it manually)
+        console.log("[Content] 🧹 Starting DOM marker cleanup...");
         try {
             const existingMarkers = document.querySelectorAll('[data-ome-action-id]');
-            existingMarkers.forEach(node => {
-                try {
-                    if (node.dataset) {
-                        delete node.dataset.omeActionId;
+            console.log(`[Content] 🧹 Found ${existingMarkers.length} old DOM markers to clean`);
+
+            if (existingMarkers.length > 0) {
+                console.log(`[Content] 🧹 Removing ${existingMarkers.length} old DOM markers`);
+                let removedCount = 0;
+                existingMarkers.forEach(node => {
+                    try {
+                        if (node.dataset) {
+                            delete node.dataset.omeActionId;
+                        }
+                        node.removeAttribute('data-ome-action-id');
+                        removedCount++;
+                    } catch (markerError) {
+                        console.warn('[Content] ⚠️ Failed to clear actionable marker:', markerError?.message || markerError);
                     }
-                    node.removeAttribute('data-ome-action-id');
-                } catch (markerError) {
-                    console.warn('[Content] ⚠️ Failed to clear actionable marker:', markerError?.message || markerError);
-                }
-            });
+                });
+                console.log(`[Content] ✅ Successfully removed ${removedCount} DOM markers`);
+            } else {
+                console.log("[Content] ✅ No old DOM markers found (clean slate)");
+            }
         } catch (markerScanError) {
             console.warn('[Content] ⚠️ Unable to clear existing actionable markers:', markerScanError?.message || markerScanError);
         }
@@ -9822,6 +9792,20 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
             // 🔓 RELEASE SCAN LOCK: Allow next scan to proceed
             this._scanInProgress = false;
 
+            // 🔄 CHECK FOR QUEUED RESCAN: If mutations happened during scan, trigger rescan now
+            // ♻️ Use queueFullRescan() to ensure engine is recreated for queued rescan too
+            if (this._rescanQueued) {
+                const queuedReason = this._rescanQueued;
+                this._rescanQueued = null;
+                console.log(`[Content] 🔄 Starting queued rescan (${queuedReason})`);
+                setTimeout(() => {
+                    // Use global intelligenceEngine reference (not `this`) since this instance may be destroyed
+                    if (intelligenceEngine && intelligenceEngine.queueFullRescan) {
+                        intelligenceEngine.queueFullRescan(queuedReason);
+                    }
+                }, 100); // Small delay to let DOM settle
+            }
+
             return result;
 
     } catch (error) {
@@ -9829,6 +9813,20 @@ IntelligenceEngine.prototype.scanAndRegisterPageElements = function() {
 
         // 🔓 RELEASE SCAN LOCK: Even on error, unlock for next scan
         this._scanInProgress = false;
+
+        // 🔄 CHECK FOR QUEUED RESCAN: Even on error, trigger queued rescan
+        // ♻️ Use queueFullRescan() to ensure engine is recreated for queued rescan too
+        if (this._rescanQueued) {
+            const queuedReason = this._rescanQueued;
+            this._rescanQueued = null;
+            console.log(`[Content] 🔄 Starting queued rescan after error (${queuedReason})`);
+            setTimeout(() => {
+                // Use global intelligenceEngine reference (not `this`) since this instance may be destroyed
+                if (intelligenceEngine && intelligenceEngine.queueFullRescan) {
+                    intelligenceEngine.queueFullRescan(queuedReason);
+                }
+            }, 100);
+        }
 
         return { success: false, error: error.message };
     }
@@ -9853,6 +9851,68 @@ if (document.readyState === 'loading') {
     
     // 🆕 NEW: Initialize intelligence system
     initializeIntelligenceSystem();
+}
+
+/**
+ * ♻️ DESTROY & RECREATE: Kill old IntelligenceEngine and create fresh instance
+ *
+ * This is the ONLY way to guarantee a truly clean reset:
+ * - Destroys all references to old instance
+ * - Creates brand new instance with zero state
+ * - All Maps, Sets, counters start from scratch
+ * - Impossible to have leftover elements or "history"
+ *
+ * @returns {IntelligenceEngine} The newly created engine instance
+ */
+function recreateIntelligenceEngine() {
+    // Log what's being destroyed BEFORE we destroy it
+    if (intelligenceEngine) {
+        console.log("[Content] ♻️ Destroying old IntelligenceEngine:", {
+            actionableElements: intelligenceEngine.actionableElements?.size || 0,
+            actionableElementNodes: intelligenceEngine.actionableElementNodes?.size || 0,
+            contentElements: intelligenceEngine.contentElements?.size || 0,
+            elementCounter: intelligenceEngine.elementCounter || 0,
+            message: "All Maps, node registry, and counter will be garbage collected"
+        });
+    } else {
+        console.log("[Content] ♻️ No existing IntelligenceEngine to destroy");
+    }
+
+    // 1. DESTROY: Clear all references to old instance
+    if (intelligenceEngine) {
+        intelligenceEngine = null;
+        window.intelligenceEngine = null;
+        if (window.intelligenceComponents) {
+            window.intelligenceComponents.intelligenceEngine = null;
+        }
+    }
+
+    // 2. RECREATE: Brand new instance (zero state, fresh start)
+    console.log("[Content] ♻️ Creating new IntelligenceEngine (all state cleared)...");
+    intelligenceEngine = new IntelligenceEngine();
+    window.intelligenceEngine = intelligenceEngine;
+
+    // 3. UPDATE GLOBAL REFERENCES: Ensure all code uses new instance
+    if (window.intelligenceComponents) {
+        window.intelligenceComponents.intelligenceEngine = intelligenceEngine;
+    } else {
+        window.intelligenceComponents = {
+            changeAggregator: changeAggregator,
+            intelligenceEngine: intelligenceEngine,
+            pageContext: pageContext
+        };
+    }
+
+    // 4. VERIFY: Log new instance state to confirm clean slate
+    console.log("[Content] ✅ IntelligenceEngine recreated with clean state:", {
+        actionableElements: intelligenceEngine.actionableElements?.size || 0,
+        actionableElementNodes: intelligenceEngine.actionableElementNodes?.size || 0,
+        contentElements: intelligenceEngine.contentElements?.size || 0,
+        elementCounter: intelligenceEngine.elementCounter || 0,
+        message: "All registries empty, counter at 0"
+    });
+
+    return intelligenceEngine;
 }
 
 /**
@@ -9998,16 +10058,16 @@ function setupIntelligenceUpdates() {
     const urlObserver = new MutationObserver(() => {
         const newUrl = window.location.href;
         if (newUrl !== currentUrl) {
-            console.log("[Content] 🧠 URL changed, triggering intelligence update:", {
+            console.log("[Content] 🧠 URL changed, triggering full rescan:", {
                 from: currentUrl,
                 to: newUrl
             });
             currentUrl = newUrl;
-            
-            // 🆕 NEW: Use queue system instead of delayed send
+
+            // ♻️ URL CHANGE = FULL RESCAN: Treat like browser refresh (destroy + recreate + scan)
             setTimeout(() => {
-                if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
-                    intelligenceEngine.queueIntelligenceUpdate('normal');
+                if (intelligenceEngine && intelligenceEngine.queueFullRescan) {
+                    intelligenceEngine.queueFullRescan('url_change');
                 }
             }, 1000);
         }
@@ -10023,20 +10083,20 @@ function setupIntelligenceUpdates() {
     
     // 3. ✅ TRIGGER: On hash changes (SPA navigation)
     window.addEventListener('hashchange', () => {
-        console.log("[Content] 🧠 Hash changed, triggering intelligence update");
+        console.log("[Content] 🧠 Hash changed, triggering full rescan");
         setTimeout(() => {
-            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
-                intelligenceEngine.queueIntelligenceUpdate('normal');
+            if (intelligenceEngine && intelligenceEngine.queueFullRescan) {
+                intelligenceEngine.queueFullRescan('hash_change');
             }
         }, 500);
     });
-    
+
     // 4. ✅ TRIGGER: On popstate (browser back/forward)
     window.addEventListener('popstate', () => {
-        console.log("[Content] 🧠 Popstate event, triggering intelligence update");
+        console.log("[Content] 🧠 Popstate event, triggering full rescan");
         setTimeout(() => {
-            if (intelligenceEngine && intelligenceEngine.queueIntelligenceUpdate) {
-                intelligenceEngine.queueIntelligenceUpdate('normal');
+            if (intelligenceEngine && intelligenceEngine.queueFullRescan) {
+                intelligenceEngine.queueFullRescan('popstate');
             }
         }, 500);
     });

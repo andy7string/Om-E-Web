@@ -1168,16 +1168,28 @@ async function handleDOMChanged(message, sendResponse) {
             });
         }
         
-        // 🚫 DISABLED: Don't trigger automatic rescans during action execution
-        // This prevents invalidating action IDs before actions complete
-        // Rescans will be triggered post-action instead
-        if (targetTabId && message.isSignificant && !actionInProgress) {
-            console.log("[SW] 🔁 Triggering rescan due to significant DOM changes (action not in progress)");
-            setTimeout(() => {
-                triggerIntelligenceScan(targetTabId, message.url, "dom_mutation", true);
-            }, 500); // Small delay to let DOM settle
-        } else if (actionInProgress) {
-            console.log("[SW] ⏸️ Skipping DOM mutation rescan - action in progress");
+        // 🚫 DISABLED: Don't trigger full rescans on DOM mutations
+        // DOM mutations are now handled incrementally by content.js via registerInteractiveSubtree
+        // which respects the scan lock and prevents duplicate IDs.
+        // Triggering full rescans here causes:
+        // - Counter accumulation (165 → 173 → 189 → 250)
+        // - ID inconsistency in llm_prompt.md
+        // - Multiple overlapping scans
+        // - Chaos for LLM as action IDs keep changing
+        //
+        // ORIGINAL CODE (DISABLED):
+        // if (targetTabId && message.isSignificant && !actionInProgress) {
+        //     console.log("[SW] 🔁 Triggering rescan due to significant DOM changes (action not in progress)");
+        //     setTimeout(() => {
+        //         triggerIntelligenceScan(targetTabId, message.url, "dom_mutation", true);
+        //     }, 500);
+        // } else if (actionInProgress) {
+        //     console.log("[SW] ⏸️ Skipping DOM mutation rescan - action in progress");
+        // }
+
+        // ✅ NEW: Log that we're letting content.js handle mutations incrementally
+        if (targetTabId && message.isSignificant) {
+            console.log("[SW] ✅ DOM mutation detected - content.js will handle incrementally via registerInteractiveSubtree");
         }
         
     } catch (error) {
