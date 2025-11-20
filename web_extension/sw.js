@@ -34,13 +34,14 @@ let isConnected = false;
 // Queue for messages when WebSocket isn't ready
 let pendingMessages = [];
 
-// Track the last URL each tab has been scanned for to avoid duplicate intelligence runs
-const tabScanState = new Map(); // tabId -> { lastUrl: string, lastScanAt: number }
+// ============================================================================
+// 🎯 CLEAN SCAN ORCHESTRATION - One scan at a time, no overlaps
+// ============================================================================
+// Per-tab state tracking with pageVersion
+const tabState = new Map(); // tabId -> { pageVersion, scanInProgress, lastUrl }
 
-// 🆕 NEW: Track action execution state to prevent content script refresh
-let actionInProgress = false;
-
-// 🆕 ENHANCED TAB STATE MANAGEMENT
+// Legacy state (keeping for compatibility with other code)
+const tabScanState = new Map(); // DEPRECATED - will be removed
 let internalTabState = new Map(); // tabId -> enhanced tab info
 let lastActiveTabId = null;
 let tabCache = new Map(); // tabId -> cached data
@@ -317,45 +318,109 @@ function flushPendingMessages() {
     }
 }
 
-async function triggerIntelligenceScan(tabId, url, reason = "navigation_completed") {
+// ============================================================================
+// 🚀 UNIFIED SCAN REQUEST - Single entry point for ALL scan triggers
+// ============================================================================
+async function requestScan(tabId, url, trigger) {
+    console.log(`[SW] Scan request: tab=${tabId}, trigger=${trigger}, url=${url}`);
+
+    // Skip chrome:// URLs
     if (!url || url.startsWith("chrome://")) {
+        console.log(`[SW] ⏭️  Skipping chrome:// URL`);
         return;
     }
 
-    const previous = tabScanState.get(tabId);
-    if (previous && previous.lastUrl === url) {
-        console.log(`[SW] ⏭️ Skipping intelligence scan for ${url} (already processed)`);
+    const state = tabState.get(tabId) || { pageVersion: 0, scanInProgress: false };
+
+    // 🔒 DEDUPE: Scan already in progress
+    if (state.scanInProgress) {
+        console.log(`[SW] ⏸️  Scan in progress, ignoring request from ${trigger}`);
         return;
     }
 
-    console.log(`[SW] 📣 Triggering intelligence scan (${reason}):`, { tabId, url });
+    // 🔒 DEDUPE: Same URL, already scanned (unless forced rescan)
+    // Force rescan for: post_action, significant_dom_change (page changed but URL didn't)
+    const forcedTriggers = ['post_action', 'significant_dom_change'];
+    const shouldSkip = state.lastUrl === url && !state.scanInProgress && !forcedTriggers.includes(trigger);
 
+    if (shouldSkip) {
+        console.log(`[SW] ✅ Already scanned ${url}, skipping (trigger: ${trigger})`);
+        return;
+    }
+
+    // Increment pageVersion
+    const pageVersion = state.pageVersion + 1;
+
+    // Mark scan in progress
+    tabState.set(tabId, {
+        pageVersion,
+        scanInProgress: true,
+        lastUrl: url
+    });
+
+    console.log(`[SW] 🚀 Starting scan: pageVersion=${pageVersion}, trigger=${trigger}`);
+
+    // Ensure content script is injected
     try {
         await chrome.scripting.executeScript({
             target: { tabId },
             files: ['content.js']
         });
     } catch (error) {
-        console.warn("[SW] Unable to ensure content script before intelligence scan:", error.message);
+        console.warn("[SW] Unable to inject content script:", error.message);
+        // Release lock on error
+        const currentState = tabState.get(tabId);
+        if (currentState) {
+            currentState.scanInProgress = false;
+        }
+        return;
     }
 
-    chrome.tabs.sendMessage(tabId, {
-        type: "start_intelligence_scan",
-        url,
-        reason,
-        timestamp: Date.now()
-    }, () => {
-        const err = chrome.runtime.lastError;
-        if (err) {
-            console.warn("[SW] Failed to deliver start_intelligence_scan:", err.message);
+    // Send scan request to content script
+    try {
+        await chrome.tabs.sendMessage(tabId, {
+            type: 'start_scan',
+            pageVersion,
+            url,
+            trigger
+        });
+    } catch (err) {
+        console.error('[SW] Failed to send scan request:', err);
+        // Release lock on error
+        const currentState = tabState.get(tabId);
+        if (currentState) {
+            currentState.scanInProgress = false;
         }
-    });
+    }
+}
 
-    tabScanState.set(tabId, {
-        lastUrl: url,
-        lastScanAt: Date.now(),
-        reason
-    });
+// ============================================================================
+// 📦 Handle scan completion from content script
+// ============================================================================
+function handleScanComplete(message, sender) {
+    const tabId = sender.tab.id;
+    const state = tabState.get(tabId);
+
+    if (state) {
+        state.scanInProgress = false;
+        console.log(`[SW] ✅ Scan complete: tab=${tabId}, pageVersion=${message.pageVersion}`);
+    }
+
+    // Forward intelligence update to server
+    if (message.intelligenceData && ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+            type: 'intelligence_update',
+            data: message.intelligenceData
+        }));
+    }
+}
+
+// ============================================================================
+// DEPRECATED - Old function kept for compatibility, redirects to requestScan
+// ============================================================================
+async function triggerIntelligenceScan(tabId, url, reason = "navigation_completed") {
+    console.log(`[SW] ⚠️  DEPRECATED: triggerIntelligenceScan called, redirecting to requestScan`);
+    await requestScan(tabId, url, reason);
 }
 
 /**
@@ -747,6 +812,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return true; // Keep channel open for async response
             case 'intelligence_update':
                 handleIntelligenceUpdate(message, sender, sendResponse);
+                break;
+            case 'scan_complete':
+                handleScanComplete(message, sender);
+                sendResponse({ ok: true });
+                break;
+            case 'request_scan':
+                // Content script detected significant DOM change
+                if (sender.tab) {
+                    requestScan(sender.tab.id, message.url, message.trigger);
+                }
+                sendResponse({ ok: true });
                 break;
             case 'get_site_config_for_domain':
                 // Handle async response properly
@@ -1407,25 +1483,14 @@ async function handleExecuteLLMAction(message, sendResponse) {
         
         if (response && response.ok) {
             console.log("[SW] ✅ LLM action executed successfully:", actionId);
-            
-            // 🆕 NEW: Clear action flag immediately after successful execution
-            actionInProgress = false;
-            console.log("[SW] 🔓 Action execution completed - allowing content script refresh");
-            
-            // 🆕 NEW: Add delay before refreshing content script to prevent interrupting action execution
-            console.log("[SW] ⏳ Waiting 2 seconds before refreshing content script to ensure action completes...");
-            setTimeout(() => {
-                // Only refresh if tab still exists and needs it
-                if (activeTab && internalTabState.has(activeTab.id)) {
-                    const tabState = internalTabState.get(activeTab.id);
-                    if (tabState && tabState.needsFreshScan) {
-                        console.log("[SW] 🔄 Now refreshing content script after action execution delay");
-                        ensureContentScriptFresh(activeTab.id);
-                    }
-                }
-            }, 2000); // 2 second delay
-            
+
             sendResponse({ ok: true, result: response.result });
+
+            // 🆕 NEW: Trigger rescan after action completes (1s delay for DOM changes)
+            console.log("[SW] ⏳ Waiting 1 second before triggering post-action scan...");
+            setTimeout(async () => {
+                await requestScan(activeTab.id, activeTab.url, 'post_action');
+            }, 1000);
         } else {
             console.error("[SW] ❌ LLM action execution failed:", response?.error);
             
@@ -1674,11 +1739,9 @@ function sendErrorResponse(id, code, msg) {
     });
 }
 
-/**
- * 📱 Handle tab activation events with enhanced state management
- * 
- * When a tab becomes active, update internal state and ensure content script is fresh
- */
+// ============================================================================
+// TRIGGER 3: Tab Activation (user switches tabs)
+// ============================================================================
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
     console.log("[SW] Tab activated:", activeInfo.tabId);
     
@@ -1726,48 +1789,44 @@ chrome.webNavigation.onBeforeNavigate.addListener((details) => {
     tabScanState.delete(details.tabId);
 }, { url: [{ schemes: ['http', 'https'] }] });
 
+// ============================================================================
+// TRIGGER 1: URL Change (normal navigation)
+// ============================================================================
 chrome.webNavigation.onCompleted.addListener((details) => {
     if (details.frameId !== 0) {
         return;
     }
-    triggerIntelligenceScan(details.tabId, details.url, "webNavigation.onCompleted");
+    requestScan(details.tabId, details.url, "url_change");
 }, { url: [{ schemes: ['http', 'https'] }] });
 
+// ============================================================================
+// TRIGGER 2: SPA Navigation (history API)
+// ============================================================================
 chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
     if (details.frameId !== 0) {
         return;
     }
-    triggerIntelligenceScan(details.tabId, details.url, "webNavigation.onHistoryStateUpdated");
+    requestScan(details.tabId, details.url, "spa_navigation");
 }, { url: [{ schemes: ['http', 'https'] }] });
 
 /**
- * 🔄 Handle tab update events with enhanced cache management
- * 
- * When a tab's URL or title changes, clear cache and refresh content script
+ * 🔄 Handle tab update events - send tab info to server
+ *
+ * Note: Scans are triggered by webNavigation.onCompleted, not here
  */
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     if (changeInfo.url || changeInfo.title) {
         console.log("[SW] Tab updated:", tabId, "to:", changeInfo.url || tab.url);
-        
-        // 🆕 ENHANCED: Clear cache and mark for fresh scan
-        clearTabCache(tabId);
-        
-        // 🆕 ENHANCED: Force content script refresh for this tab
-        await ensureContentScriptFresh(tabId);
-        
-        // 🆕 NEW: Send active tab info if this is the active tab
+
+        // Send active tab info if this is the active tab
         if (tab.active) {
             await sendActiveTabInfo();
         }
-        
-        // This will now update both internal state AND send to server
-        await sendTabsInfo(false); // false = not a force refresh
+
+        // Send tabs info to server
+        await sendTabsInfo(false);
     }
 
-    if (changeInfo.status === 'complete' && tab.url && !tab.url.startsWith('chrome://')) {
-        await triggerIntelligenceScan(tabId, tab.url, "tabs.onUpdated complete");
-    }
-    
     await ensureKeepAlivePort();
 });
 
@@ -1788,8 +1847,9 @@ chrome.tabs.onCreated.addListener(async (tab) => {
  * 
  * When a tab is removed, send updated tab info
  */
-chrome.tabs.onRemoved.addListener(async (tabId, removeInfo) => {
+chrome.tabs.onRemoved.addListener(async (tabId) => {
     console.log("[SW] Tab removed:", tabId);
+    tabState.delete(tabId);
     tabScanState.delete(tabId);
     await sendActiveTabInfo();
     await sendTabsInfo();

@@ -1,153 +1,137 @@
-# (21) ai - YouTube
+# Home | Online Courses, Learning Paths, and Certifications - Pluralsight
 
-**URL:** https://www.youtube.com/results?search_query=mindset
-**Timestamp:** 2025-11-18 23:43:02
+**URL:** https://www.pluralsight.com/
+**Timestamp:** 2025-11-20 23:02:15
 
 ---
 
-AU
-Skip navigation
-Create
-9+
-Home
-Shorts
-Subscriptions
-YouTube Music
-You
-Downloads
-Filters
-13:55
-Now playing
-It Begins: An AI Literally Attempted Murder To Avoid Shutdown
-8.9M views
-1 month ago
-Species | Documenting AGI
-Detailed sources: https://docs.google.com/document/d/18rlFKQiYLEPAnfUzp3WbNjzzNjbiS8oc4OKScxeJB7g/edit?usp=sharing ...
+Sign in
+Individuals
+Business
+Public Sector
+Courses
+Resources
+Contact sales
+View plans
+Take 55% off your first year.
+Use code 55EARLYACCESS to save now. View plans
+The AI bubble, IT job disruption, and other front-page predictions.
+Download the 2026 Tech Forecast
+Empower your team with future-ready tech skills
 
-CC
+Stay ahead in AI, cloud, cybersecurity, and more to drive innovation and achieve measurable results.
 
-An AI, unexpectedly, blackmailed a researcher to prevent shutdown. Researchers then tested multiple leading AI models in extreme scenarios. The results reveal disturbing patterns of self-preservation across different AI models.
-Summary
-18:05
-Now playing
-First recorded major hack using AI...
-34K views
-1 day ago
-Matthew Berman
+6,500+ tech courses
+3,500+ hands-on labs
+500+ skill assessments
+150+ certification paths
+For businesses
+For individuals
 
-Try Vultr yourself when you visit http://getvultr.com/forwardfutureai and use promo code "BERMAN300" for $300 off your first 30 ...
+Top-tier training
 
-New
+Tackle tech trends with the best in the industry
 
-4K
+Learn from real experts. Our author list is highly curated with 91% of them backed by at least 10 years experience in their field. Cast a wide learning net or develop a highly specialized learning path, reassured that you’re getting top notch, up-to-speed insights.
 
-17:16
-Now playing
-We’ve Lost Control of AI
-1.6M views
-2 weeks ago
-SciShow
+View course library
+2025 Forrester WaveTM names Pluralsight as a Leader among tech skills dev platforms
 
-If you find these trends concerning and you want to make a difference, you can go to http://controlai.com/scishow, where ControlAI ...
+See how our offering and strategy stack up.
 
-CC
+Learn more
+AI + Data
 
-SciShow explores the rapid advancements in AI, examining concerns from leading experts. The video delves into the "black box problem," highlighting the challenges of understanding AI's inner workings and predicting behavior. This exploration of AI's complex processes raises critical questions about control and safety.
-Summary
-Current AI Models have 3 Unfixable Problems
-821K views
-4 weeks ago
-Sabine Hossenfelder
+Work smarter (not harder) with artificial intelligence and keep up with Claude AI and more in this rapidly growing tech field.
 
-Use code sabine at https://incogni.com/sabine to get an exclusive 60% off an annual Incogni plan. If you've used current AI ...
+Find out how
+Software dev
 
-CC
+Build fluency in languages like C#, Java, Angular, and JavaScript and keep evolving as they do to develop efficiently.
 
-Current AI models face three fundamental limitations. Sabine Hossenfelder explores these issues, examining limitations in generalization and the vulnerability to prompt injection. This insightful analysis delves into the core challenges hindering true artificial general intelligence.
-Summary
-35 lessons
-Artificial Intelligence(AI)
-Sudhakar Atchala
-•
-Course
-Means Ends Analysis Search Technique Algorithm in Artificial Intelligence with Simple Example · 6:46
-Depth First Search (DFS) with example || Uninformed Search || Artificial Intelligence · 13:21
-View full course
-Godfather of AI: They Keep Silencing Me But I’m Trying to Warn Them!
-11M views
-5 months ago
-The Diary Of A CEO
+Find out how
+Cloud + IT Ops
 
-He pioneered AI, now he's warning the world. Godfather of AI Geoffrey Hinton breaks his silence on the deadly dangers of AI no ...
+From AWS to Google Cloud and everything in between, expand your cloud clout for down-to-earth professional returns.
 
-4K
+Find out how
+Security
 
-36 chapters
-Intro | Why Do They Call You the Godfather of AI? | Warning About the Dangers of AI | Concerns We Should Have About AI | European AI Regulations | Cyber Attack Risk | How to Protect Yourself From Cyber Attacks | Using AI to Create Viruses | AI and Corrupt Elections | How AI Creates Echo Chambers | Regulating New Technologies | Are Regulations Holding Us Back From Competing With China? | The Threat of Lethal Autonomous Weapons | Can These AI Threats Combine? | Restricting AI From Taking Over | Reflecting on Your Life’s Work Amid AI Risks | Student Leaving OpenAI Over Safety Concerns | Are You Hopeful About the Future of AI? | The Threat of AI-Induced Joblessness | If Muscles and Intelligence Are Replaced, What’s Left? | Ads | Difference Between Current AI and Superintelligence | Coming to Terms With AI’s Capabilities | How AI May Widen the Wealth Inequality Gap | Why Is AI Superior to Humans? | AI’s Potential to Know More Than Humans | Can AI Replicate Human Uniqueness? | Will Machines Have Feelings? | Working at Google | Why Did You Leave Google? | Ads | What Should People Be Doing About AI? | Impressive Family Background | Advice You’d Give Looking Back | Final Message on AI Safety | What’s the Biggest Threat to Human Happiness?
-The AI ‘Bubble’ - What They ARE NOT Telling You!
-170K views
-16 hours ago
-Graham Stephan
+Stop cyber attacks in their tracks and secure critical skills to position yourself as the expert at keeping data under lock and key.
 
-For a limited time, use my exclusive link to get $1000 of Nivida Stock + $100 in Cash Rewards with a qualifying deposit: ...
+Find out how
 
-New
+Learn by doing
 
-4K
+Build confidence with hands-on practice
 
-【Geminiは世界を理解するAIになる】Googleの精鋭集団「DeepMind」責任者が語る万能AI/最先端AIエージェントをまだ公開しない理由/20年の悲願「AGI」接近中【1on1 Tech】
-1.6K views
-2 hours ago
-TBS CROSS DIG with Bloomberg
-https://youtube.com/@tbs_bloomberg チャンネル登録・高評価をよろしくお願いします 最先端のテックストーリーをわかり ...
+Experiment with new skills in 3,500+ interactive labs and AI or cloud sandboxes to quickly get the hang of them in real-world environments and take your career (and salary!) to the next level.
 
-New
+Learn about labs
 
-5 chapters
-番組開始【GeminiとAI研究の舞台裏】 | 開発部門責任者が語るGeminiの“未来” | AIエージェント実現に向けた課題 | 加速するAI開発の中で 変わらない“使命” | 汎用人工知能「AGI」はあと5年で実現する?
-The AI Safety Expert: These Are The Only 5 Jobs That Will Remain In 2030! - Dr. Roman Yampolskiy
-10M views
-2 months ago
-The Diary Of A CEO
-and Roman Yampolskiy
-WARNING: AI could end humanity, and we're completely unprepared. Dr. Roman Yampolskiy reveals how AI will take 99% of jobs ...
+Identify skills gaps
 
-4K
+Speed up learning with personalized, AI-powered guidance
 
-35 chapters
-Intro | How to Stop AI From Killing Everyone | What's the Probability Something Goes Wrong? | How Long Have You Been Working on AI Safety? | What Is AI? | Prediction for 2027 | What Jobs Will Actually Exist? | Can AI Really Take All Jobs? | What Happens When All Jobs Are Taken? | Is There a Good Argument Against AI Replacing Humans? | Prediction for 2030 | What Happens by 2045? | Will We Just Find New Careers and Ways to Live? | Is Anything More Important Than AI Safety Right Now? | Can't We Just Unplug It? | Do We Just Go With It? | What Is Most Likely to Cause Human Extinction? | No One Knows What's Going On Inside AI | Ads | Thoughts on OpenAI and Sam Altman | What Will the World Look Like in 2100? | What Can Be Done About the AI Doom Narrative? | Should People Be Protesting? | Are We Living in a Simulation? | How Certain Are You We're in a Simulation? | Can We Live Forever? | Bitcoin | What Should I Do Differently After This Conversation? | Are You Religious? | Do These Conversations Make People Feel Good? | What Do Your Strongest Critics Say? | Closing Statements | If You Had One Button, What Would You Pick? | Are We Moving Toward Mass Unemployment? | Most Important Characteristics
-Godfather of AI WARNS: "You Have No Idea What's Coming"
-4M views
-1 month ago
-The Diary Of A CEO Clips
-He pioneered the technology that powers modern AI, and now he is sounding the alarm. Geoffrey Hinton, often called the ...
+Identify current skill levels and growth opportunities with Skill IQ assessments, then get custom content recommendations to upskill faster. Plus, learners receive instant guidance from Pluralsight’s AI assistant, Iris, to improve skill development outcomes.
 
-4K
+Explore skill assessments
 
-Channels new to you
-Which Dream Bed Would You Choose? ✨ Ultimate Oddly Satisfying AI ASMR
-179K views
-2 days ago
-Impossible AIs
-Join Impossible AIs and unlock exclusive perks! ✨ @ImpossibleAIs-c9z Drift into pure comfort—AI-crafted relaxing beds designed ...
+Develop tech teams
 
-New
+Accelerate business initiatives
 
-4K
+Join the Fortune 500 companies and more than 23,000 businesses that rely on Pluralsight to:
 
-Cursed Sora 2 AI Disney Video's P.6
-103K views
-1 day ago
-MochiRates
-How I'm making $3749+/month on YouTube (without showing my face) using “Content Stacking” ...
-
-New
-
-MochiRates presents a rapid-fire montage of upcoming Disney and Pixar films. The compilation showcases diverse animation styles and genres, from heartwarming family tales to action-packed adventures. Prepare for a whirlwind tour of upcoming cinematic delights.
-Summary
-Which Ocean Would You Swim In? | Satisfying AI ASMR Relaxing
-10M views
-3 months ago
-No Talking.
-Satisfying AI ASMR #asmr #asmrsounds #satisfyingvideo.
-+6 More
+Identify knowledge gaps and align tech learning to organizational initiatives
+Build skills to transform and retain in-house tech talent
+Validate skills with assessments, certification practice exams, and hands-on practice labs
+View team plans
+See all solutions
+What our customers are saying
+Pluralsight is solely responsible for getting me from practically minimum wage to over six figures a year.
+Winston S.
+Cloud Architect
+Investing in [our internal] technology college means investing in the people, in the talent. . . We do that together with Pluralsight.
+Saul Van Beurden
+Head of Technology
+At Saab, we're building technologies that most people won't see for another 10 to 15 years. That's why we trust Pluralsight - not just to meet today's demands but to prepare our people for the future.
+Navid Azadi
+Learning and Development Specialist
+Tap into Pluralsight
+View individual plans
+View team plans
+Support
+Contact
+Help Center
+IP Allowlist
+Sitemap
+Download Pluralsight
+View Plans
+Professional Services
+Community
+Guides
+Teach
+Partner with Pluralsight
+Affiliate Partners
+Pluralsight One
+Authors
+Company
+About Us
+Careers
+Newsroom
+Resources
+Industries
+Education
+Financial Services (FSBI)
+Healthcare
+Insurance
+Non-Profit
+Public Sector
+Get tech insights and updates
+Don’t miss the latest industry news, career resources, offers, and more.
+Sign up now
+Copyright © 2004 - Pluralsight LLC. All rights reserved
+Terms of Use
+Privacy Policy
+Code of Conduct

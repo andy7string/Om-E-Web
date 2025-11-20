@@ -1,3241 +1,2552 @@
 {
   "_page_context": {
-    "url": "https://www.youtube.com/results?search_query=mindset",
-    "title": "(21) ai - YouTube",
-    "timestamp": 1763471582.506461,
-    "total_actions": 223,
-    "active_tab_id": 1138019387
-  },
-  "a_id_185": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(11)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_185' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_186": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(12)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_186' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_187": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(13)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_187' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_188": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(14)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_188' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_189": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(15)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_189' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_190": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(18)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_190' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_191": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(19)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_191' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_192": {
-    "action_type": "unknown",
-    "description": "css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
-    "tag_name": "link",
-    "selectors": [
-      ".css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
-      "link.css-httpsfontsgoogleapiscomcss2familyRobotowght300400500700familyYouTubeSanswght300900displayswap",
-      "head:nth-child(33)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_192' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_193": {
-    "action_type": "unknown",
-    "description": "css-httpswwwyoutubecomsdesktop9c0f82dacssbinwwwonepick2xcss",
-    "tag_name": "link",
-    "selectors": [
-      ".css-httpswwwyoutubecomsdesktop9c0f82dacssbinwwwonepick2xcss",
-      "link.css-httpswwwyoutubecomsdesktop9c0f82dacssbinwwwonepick2xcss",
-      "head:nth-child(35)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_193' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_194": {
-    "action_type": "unknown",
-    "description": "css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_baseIznkyo28KCsLB1OamAAAAyBgBd0br1rsAGKMy",
-    "tag_name": "link",
-    "selectors": [
-      ".css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_baseIznkyo28KCsLB1OamAAAAyBgBd0br1rsAGKMywEHnucz1rcQjzlclqmTEi06Vw9rxA",
-      "link.css-httpswwwyoutubecoms_ytmainappweb_sskytmainappwebkevlar_baseIznkyo28KCsLB1OamAAAAyBgBd0br1rsAGKMywEHnucz1rcQjzlclqmTEi06Vw9rxA",
-      "head:nth-child(36)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_194' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_195": {
-    "action_type": "unknown",
-    "description": "YouTube",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(43)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_195' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_196": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(44)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_196' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_197": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(59)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_197' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_198": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "head:nth-child(60)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_198' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_199": {
-    "action_type": "unknown",
-    "description": "",
-    "tag_name": "link",
-    "selectors": [
-      "#player-css",
-      "head:nth-child(63)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_199' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_200": {
-    "action_type": "unknown",
-    "description": "Back\n    \n    \n      \n    \n    \n    \n  \n    \n  \n    \n    \n  \n  \n    \n    \n    \n    \n    \n    \n    \n ",
-    "tag_name": "ytd-masthead",
-    "selectors": [
-      "#masthead",
-      ".masthead-finish",
-      "ytd-masthead.masthead-finish",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_200' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_201": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#back-button",
-      ".style-scope",
-      "yt-icon-button.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_201' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_202": {
-    "action_type": "button",
-    "description": "Back",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_202' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_203": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#guide-button",
-      ".style-scope",
-      "yt-icon-button.style-scope",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_203' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_204": {
-    "action_type": "button",
-    "description": "Guide",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_204' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_205": {
-    "action_type": "unknown",
-    "description": "AU",
-    "tag_name": "ytd-topbar-logo-renderer",
-    "selectors": [
-      "#logo",
-      ".style-scope",
-      "ytd-topbar-logo-renderer.style-scope",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_205' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_206": {
-    "action_type": "link",
-    "description": "YouTube Premium Home",
-    "tag_name": "a",
-    "selectors": [
-      "#logo",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-topbar-logo-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_206' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_207": {
-    "action_type": "unknown",
-    "description": "Skip navigation",
-    "tag_name": "ytd-button-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_207' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_208": {
-    "action_type": "button",
-    "description": "Skip navigation",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_208' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_209": {
-    "action_type": "input",
-    "description": "Search",
-    "tag_name": "input",
-    "selectors": [
-      ".ytSearchboxComponentInput",
-      "input.ytSearchboxComponentInput",
-      "form:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_209' to input with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_210": {
-    "action_type": "button",
-    "description": "Clear search query",
-    "tag_name": "button",
-    "selectors": [
-      ".ytSearchboxComponentClearButton",
-      "button.ytSearchboxComponentClearButton",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_210' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_211": {
-    "action_type": "button",
-    "description": "Search",
-    "tag_name": "button",
-    "selectors": [
-      ".ytSearchboxComponentSearchButton",
-      "button.ytSearchboxComponentSearchButton",
-      "yt-searchbox:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_211' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_212": {
-    "action_type": "unknown",
-    "description": "Search",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#search-button-narrow",
-      ".style-scope",
-      "yt-icon-button.style-scope",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_212' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_213": {
-    "action_type": "button",
-    "description": "Search",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_213' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_214": {
-    "action_type": "unknown",
-    "description": "Search with your voice",
-    "tag_name": "div",
-    "selectors": [
-      "#voice-search-button",
-      ".style-scope",
-      "div.style-scope",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_214' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_215": {
-    "action_type": "unknown",
-    "description": "Search with your voice",
-    "tag_name": "ytd-button-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_215' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_216": {
-    "action_type": "button",
-    "description": "Search with your voice",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_216' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_217": {
-    "action_type": "unknown",
-    "description": "Create",
-    "tag_name": "ytd-button-renderer",
-    "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_217' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_218": {
-    "action_type": "button",
-    "description": "Create",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_218' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_219": {
-    "action_type": "unknown",
-    "description": "9+",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#icon",
-      ".style-scope",
-      "yt-icon-button.style-scope",
-      "ytd-notification-topbar-button-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_219' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_220": {
-    "action_type": "button",
-    "description": "9+",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_220' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_221": {
-    "action_type": "button",
-    "description": "Account menu",
-    "tag_name": "button",
-    "selectors": [
-      "#avatar-btn",
-      ".style-scope",
-      "button.style-scope",
-      "ytd-topbar-menu-button-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_221' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_222": {
-    "action_type": "nav",
-    "description": "AU",
-    "tag_name": "tp-yt-app-drawer",
-    "selectors": [
-      "#guide",
-      ".style-scope",
-      "tp-yt-app-drawer.style-scope",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_222' to nav with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_223": {
-    "action_type": "unknown",
-    "description": "Guide",
-    "tag_name": "yt-icon-button",
-    "selectors": [
-      "#guide-button",
-      ".style-scope",
-      "yt-icon-button.style-scope",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_223' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_224": {
-    "action_type": "button",
-    "description": "style-scope",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_224' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_225": {
-    "action_type": "button",
-    "description": "Home",
-    "tag_name": "button",
-    "selectors": [
-      "#ally-menu-button",
-      ".ally-menu-button",
-      "button.ally-menu-button",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_225' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_226": {
-    "action_type": "link",
-    "description": "Shorts\n  \n  \n    Shorts",
-    "tag_name": "a",
-    "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_226' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_227": {
-    "action_type": "button",
-    "description": "Shorts",
-    "tag_name": "button",
-    "selectors": [
-      "#ally-menu-button",
-      ".ally-menu-button",
-      "button.ally-menu-button",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_227' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_228": {
-    "action_type": "link",
-    "description": "Subscriptions\n  \n  \n    Subscriptions",
-    "tag_name": "a",
-    "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_228' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_229": {
-    "action_type": "button",
-    "description": "Subscriptions",
-    "tag_name": "button",
-    "selectors": [
-      "#ally-menu-button",
-      ".ally-menu-button",
-      "button.ally-menu-button",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_229' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_230": {
-    "action_type": "link",
-    "description": "YouTube Music\n  \n  \n    YouTube Music",
-    "tag_name": "a",
-    "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_230' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_231": {
-    "action_type": "button",
-    "description": "YouTube Music",
-    "tag_name": "button",
-    "selectors": [
-      "#ally-menu-button",
-      ".ally-menu-button",
-      "button.ally-menu-button",
-      "span:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_231' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "url": "https://www.pluralsight.com/",
+    "title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight",
+    "timestamp": 1763641935.377687,
+    "total_actions": 175,
+    "active_tab_id": 1138020063
   },
   "a_id_232": {
     "action_type": "link",
-    "description": "You\n  \n  \n    You",
+    "description": "Pluralsight",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
+      "#psMainLogo",
+      "[data-aa-title=\"PN-Pluralsight\"]",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_232' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_233": {
-    "action_type": "button",
-    "description": "You",
-    "tag_name": "button",
+    "action_type": "input",
+    "description": "What do you want to learn?",
+    "tag_name": "input",
     "selectors": [
-      "#ally-menu-button",
-      ".ally-menu-button",
-      "button.ally-menu-button",
-      "span:nth-child(1)"
+      "[data-gtm-form-interact-id=\"0\"]",
+      ".header_search--input",
+      "input.header_search--input",
+      "form:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_233' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_233' to input with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_234": {
     "action_type": "link",
-    "description": "Downloads\n  \n  \n    Downloads",
+    "description": "hidden",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-mini-guide-entry-renderer:nth-child(1)"
+      ".hidden",
+      "a.hidden",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_234' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_235": {
-    "action_type": "button",
-    "description": "Downloads",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "menu-dropdown-panel--overlay",
+    "tag_name": "div",
     "selectors": [
-      "#ally-menu-button",
-      ".ally-menu-button",
-      "button.ally-menu-button",
-      "span:nth-child(1)"
+      ".menu-dropdown-panel--overlay",
+      "div.menu-dropdown-panel--overlay",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_235' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_235' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_236": {
-    "action_type": "unknown",
-    "description": "Filters\n  Search filters",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Sign in to",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
+      "[data-aa-title=\"UN-Skills Sign In\"]",
+      ".menu-dropdown-skills",
+      "a.menu-dropdown-skills",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_236' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_236' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_237": {
-    "action_type": "button",
-    "description": "Filters",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_237' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_238": {
     "action_type": "link",
-    "description": "It Begins: An AI Literally Attempted Murder To Avoid Shutdown",
+    "description": "Sign in to",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"UN-A Cloud Guru Sign In\"]",
+      ".menu-dropdown-cloud-guru",
+      "a.menu-dropdown-cloud-guru",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_238' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_237' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_238": {
+    "action_type": "button",
+    "description": "Individuals",
+    "tag_name": "button",
+    "selectors": [
+      "#individualsNavHeader",
+      "[data-aa-title=\"ps-nav-individuals\"]",
+      ".g3p-main-nav__btn",
+      "button.g3p-main-nav__btn",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_238' to button with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_239": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "button",
+    "description": "Business",
+    "tag_name": "button",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "#businessNavHeader",
+      "[data-aa-title=\"ps-nav-businesses\"]",
+      ".g3p-main-nav__btn",
+      "button.g3p-main-nav__btn",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_239' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_239' to button with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_240": {
     "action_type": "button",
-    "description": "Action menu",
+    "description": "Public Sector",
     "tag_name": "button",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "#publicSectorNavHeader",
+      "[data-aa-title=\"ps-nav-publicSector\"]",
+      ".g3p-main-nav__btn",
+      "button.g3p-main-nav__btn",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_240' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_241": {
-    "action_type": "link",
-    "description": "Species | Documenting AGI",
-    "tag_name": "a",
+    "action_type": "button",
+    "description": "Courses",
+    "tag_name": "button",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "#coursesNavHeader",
+      "[data-aa-title=\"ps-nav-courses\"]",
+      ".g3p-main-nav__btn",
+      "button.g3p-main-nav__btn",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_241' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_241' to button with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_242": {
     "action_type": "button",
-    "description": "An AI, unexpectedly, blackmailed a researcher to prevent shutdown. Researchers then tested multiple ",
-    "tag_name": "div",
+    "description": "Resources",
+    "tag_name": "button",
     "selectors": [
-      "#collapsed-title",
-      ".style-scope",
-      "div.style-scope",
-      "div:nth-child(4)"
+      "#resourcesNavHeader",
+      "[data-aa-title=\"ps-nav-resources\"]",
+      ".g3p-main-nav__btn",
+      "button.g3p-main-nav__btn",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_242' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_243": {
     "action_type": "link",
-    "description": "Quality and accuracy may vary.",
+    "description": "Contact sales",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "div:nth-child(1)"
+      "[data-aa-title=\"blog-nav-contact-sales\"]",
+      "[data-ps-analytics=\"blog-nav|Contact sales|contact-sales\"]",
+      ".g3p-nav-contact-sales",
+      "a.g3p-nav-contact-sales",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_243' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_244": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "button",
+    "description": "View plans",
+    "tag_name": "button",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "#toggleGetStarted",
+      ".g3p-nav-get-started",
+      "button.g3p-nav-get-started",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_244' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_244' to button with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_245": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "For individuals",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"nav-for-individuals\"]",
+      ".get-started__icon",
+      "a.get-started__icon",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_245' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_245' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_246": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "For businesses",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
+      "[data-aa-title=\"nav-for-business\"]",
+      ".get-started__icon",
+      "a.get-started__icon",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_246' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_247": {
+    "action_type": "link",
+    "description": "For public sector",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"nav-pubsec\"]",
+      ".get-started__icon",
+      "a.get-started__icon",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_247' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_248": {
+    "action_type": "link",
+    "description": "Individuals",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"main-nav-individuals\"]",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_246' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_247": {
-    "action_type": "button",
-    "description": "Less",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_247' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_248": {
-    "action_type": "button",
-    "description": "Like this summary",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_248' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_248' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_249": {
-    "action_type": "button",
-    "description": "Dislike this summary",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Try for free",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "[data-aa-title=\"main-nav-individuals-free-trial\"]",
+      "[data-ps-analytics=\"main-nav-individuals|Try for free|https://www.pluralsight.com/individuals/pricing/free-trial\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_249' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_249' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_250": {
     "action_type": "link",
-    "description": "First recorded major hack using AI...",
+    "description": "Gift Pluralsight",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"main-nav-individuals-gop\"]",
+      "[data-ps-analytics=\"main-nav-individuals|Gift Pluralsight|https://www.pluralsight.com/gift-of-pluralsight\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_250' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_251": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "link",
+    "description": "Core Tech",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "[data-aa-title=\"main-nav-plans-core-tech\"]",
+      "[data-ps-analytics=\"main-nav-plans|Core Tech|https://www.pluralsight.com/individuals/pricing/core-tech\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_251' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_251' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_252": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "AI+",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-aa-title=\"main-nav-plans-ai\"]",
+      "[data-ps-analytics=\"main-nav-plans|AI+|https://www.pluralsight.com/individuals/pricing/ai\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_252' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_252' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_253": {
     "action_type": "link",
-    "description": "Matthew Berman",
+    "description": "Cloud+A Cloud Guru courses and\n                  labs",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-aa-title=\"main-nav-plans-cloud\"]",
+      "[data-ps-analytics=\"main-nav-plans|Cloud+|https://www.pluralsight.com/individuals/pricing/cloud\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_253' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_254": {
     "action_type": "link",
-    "description": "We’ve Lost Control of AI",
+    "description": "Security+",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"main-nav-plans-security\"]",
+      "[data-ps-analytics=\"main-nav-plans|Security+|https://www.pluralsight.com/individuals/pricing/security\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_254' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_255": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "link",
+    "description": "Data+",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "[data-aa-title=\"main-nav-plans-data\"]",
+      "[data-ps-analytics=\"main-nav-plans|Data+|https://www.pluralsight.com/individuals/pricing/data\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_255' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_255' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_256": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Complete",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-aa-title=\"main-nav-plans-complete\"]",
+      "[data-ps-analytics=\"main-nav-plans|Complete|https://www.pluralsight.com/individuals/pricing/complete\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_256' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_256' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_257": {
     "action_type": "link",
-    "description": "SciShow",
+    "description": "Skill assessments",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-aa-title=\"main-nav-features-skills-assessments\"]",
+      "[data-ps-analytics=\"main-nav-features|Skill assessments|https://www.pluralsight.com/product/skills-assessment\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_257' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_258": {
-    "action_type": "button",
-    "description": "SciShow explores the rapid advancements in AI, examining concerns from leading experts. The video de",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "Learning paths",
+    "tag_name": "a",
     "selectors": [
-      "#collapsed-title",
-      ".style-scope",
-      "div.style-scope",
-      "div:nth-child(4)"
+      "[data-aa-title=\"main-nav-features-learning-paths\"]",
+      "[data-ps-analytics=\"main-nav-features|Learning paths|https://www.pluralsight.com/product/paths\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_258' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_258' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_259": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Hands-on learning",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-features-hands-on-learning\"]",
+      "[data-ps-analytics=\"main-nav-features|Hands on learning|https://www.pluralsight.com/product/hands-on-learning\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_259' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_259' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_260": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Certification prep",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-features-certification-prep\"]",
+      "[data-ps-analytics=\"main-nav-features|Certification prep|https://www.pluralsight.com/product/cert-prep\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_260' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_260' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_261": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Labs",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
+      "[data-aa-title=\"main-nav-features-labs\"]",
+      "[data-ps-analytics=\"main-nav-features|Labs|https://www.pluralsight.com/product/labs\"]",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_261' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_262": {
+    "action_type": "link",
+    "description": "For business",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"for-business\"]",
+      "[data-ps-analytics=\"main-nav-business|For Business|https://www.pluralsight.com/businesses\"]",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_261' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_262": {
-    "action_type": "button",
-    "description": "Less",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_262' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_262' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_263": {
-    "action_type": "button",
-    "description": "Like this summary",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Small business",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "[data-aa-title=\"main-nav-business-small-business\"]",
+      "[data-ps-analytics=\"main-nav-business|Small business|https://www.pluralsight.com/businesses/small-business\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_263' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_263' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_264": {
-    "action_type": "button",
-    "description": "Dislike this summary",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Enterprise",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "[data-aa-title=\"main-nav-business-enterprise\"]",
+      "[data-ps-analytics=\"main-nav-business|Enterprise|https://www.pluralsight.com/businesses/enterprise\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_264' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_264' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_265": {
     "action_type": "link",
-    "description": "Current AI Models have 3 Unfixable Problems",
+    "description": "Solutions",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"main-nav-business-solutions\"]",
+      "[data-ps-analytics=\"main-nav-business|Solutions|https://www.pluralsight.com/solutions\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_265' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_266": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "link",
+    "description": "Public sector",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "[data-aa-title=\"main-nav-industry-Public-Sector\"]",
+      "[data-ps-analytics=\"main-nav-industry|Public sector|https://www.pluralsight.com/industries/public-sector\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_266' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_266' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_267": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Healthcare",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-aa-title=\"main-nav-industry-Healthcare\"]",
+      "[data-ps-analytics=\"main-nav-industry|Healthcare|https://www.pluralsight.com/industries/healthcare\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_267' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_267' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_268": {
     "action_type": "link",
-    "description": "Sabine Hossenfelder",
+    "description": "Financial services",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-aa-title=\"main-nav-industry-Financial services\"]",
+      "[data-ps-analytics=\"main-nav-industry|Financial services|https://www.pluralsight.com/industries/finance\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_268' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_269": {
-    "action_type": "button",
-    "description": "Current AI models face three fundamental limitations. Sabine Hossenfelder explores these issues, exa",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "Insurance",
+    "tag_name": "a",
     "selectors": [
-      "#collapsed-title",
-      ".style-scope",
-      "div.style-scope",
-      "div:nth-child(4)"
+      "[data-aa-title=\"main-nav-industry-Insurance\"]",
+      "[data-ps-analytics=\"main-nav-industry|Insurance|https://www.pluralsight.com/industries/insurance\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_269' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_269' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_270": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Nonprofits",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-industry-nonprofits\"]",
+      "[data-ps-analytics=\"main-nav-industry|Nonprofits|https://www.pluralsightone.org/initiatives-overview/licensing-for-nonprofits\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_270' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_270' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_271": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Instructor-led training",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-features-instructor-led-training\"]",
+      "[data-ps-analytics=\"main-nav|Instructor-led training|https://www.pluralsight.com/product/professional-services/tech-employee-development\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_271' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_271' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_272": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Analytics",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-features-analytics\"]",
+      "[data-ps-analytics=\"main-nav|Analytics|https://www.pluralsight.com/product/advanced-analytics\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_272' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_272' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_273": {
-    "action_type": "button",
-    "description": "Less",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Federal",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-public-sector-federal\"]",
+      "[data-ps-analytics=\"main-nav-public-sector|Federal|https://www.pluralsight.com/industries/public-sector/federal\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_273' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_273' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_274": {
-    "action_type": "button",
-    "description": "Like this summary",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "State and local",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "[data-aa-title=\"main-nav-public-sector-state-and-local\"]",
+      "[data-ps-analytics=\"main-nav-public-sector|State and local|https://www.pluralsight.com/industries/public-sector/state-local\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_274' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_274' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_275": {
-    "action_type": "button",
-    "description": "Dislike this summary",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Higher education",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "[data-aa-title=\"main-nav-public-sector-higher-education\"]",
+      "[data-ps-analytics=\"main-nav-public-sector|Higher education|https://www.pluralsight.com/industries/public-sector/higher-education\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_275' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_275' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_276": {
     "action_type": "link",
-    "description": "Artificial Intelligence(AI)",
+    "description": "Government contractors",
     "tag_name": "a",
     "selectors": [
-      ".yt-lockup-metadata-view-model__title",
-      "a.yt-lockup-metadata-view-model__title",
-      "h3:nth-child(1)"
+      "[data-aa-title=\"main-nav-public-sector-government-contractors\"]",
+      "[data-ps-analytics=\"main-nav-public-sector|Government contractors|https://www.pluralsight.com/industries/public-sector/integrators\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_276' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_277": {
     "action_type": "link",
-    "description": "Sudhakar Atchala",
+    "description": "Canadian government",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      "[data-aa-title=\"main-nav-public-sector-canadian-government\"]",
+      "[data-ps-analytics=\"main-nav-public-sector|Canadian government|https://www.pluralsight.com/industries/public-sector/canada\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_277' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_278": {
     "action_type": "link",
-    "description": "Depth First Search (DFS) with example || Uninformed Search || Artificial Intelligence · 13:21",
+    "description": "Security",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      "[data-aa-title=\"main-nav-solutions-Security\"]",
+      "[data-ps-analytics=\"main-nav-solutions|Security|https://www.pluralsight.com/solutions/security\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_278' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_279": {
     "action_type": "link",
-    "description": "View full course",
+    "description": "Cloud transformation",
     "tag_name": "a",
     "selectors": [
-      ".yt-core-attributed-string__link",
-      "a.yt-core-attributed-string__link",
-      "span:nth-child(1)"
+      "[data-aa-title=\"main-nav-solutions-cloud-transformation\"]",
+      "[data-ps-analytics=\"main-nav-solutions|Cloud transformation|https://www.pluralsight.com/solutions/cloud-transformation\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_279' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_280": {
-    "action_type": "button",
-    "description": "More actions",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Upskilling & reskilling",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "[data-aa-title=\"main-nav-solutions-Upskilling & reskilling\"]",
+      "[data-ps-analytics=\"main-nav-solutions|Upskilling & reskilling|https://www.pluralsight.com/solutions/upskilling-reskilling\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_280' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_280' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_281": {
     "action_type": "link",
-    "description": "Godfather of AI: They Keep Silencing Me But I’m Trying to Warn Them!",
+    "description": "Tech fluency",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"main-nav-solutions-Software delivery\"]",
+      "[data-ps-analytics=\"main-nav-solutions|Software delivery|https://www.pluralsight.com/solutions/tech-fluency\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_281' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_282": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "link",
+    "description": "Engineer onboarding",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "[data-aa-title=\"main-nav-solutions-engineer-onboarding\"]",
+      "[data-ps-analytics=\"main-nav-solutions|Engineering onboarding|https://www.pluralsight.com/solutions/engineer-onboarding\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_282' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_282' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_283": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Software delivery",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-aa-title=\"main-nav-solutions-software-delivery\"]",
+      "[data-ps-analytics=\"main-nav-solutions|Software delivery|https://www.pluralsight.com/solutions/software-delivery\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_283' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_283' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_284": {
     "action_type": "link",
-    "description": "The Diary Of A CEO",
+    "description": "Software development",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-software-development\"]",
+      "[data-ps-analytics=\"main-nav-courses-software-development|Software Development|https://www.pluralsight.com/browse?=&sort=newest&course-category=Software%20Development&page=1\"]",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_284' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_285": {
-    "action_type": "button",
-    "description": "Intro | Why Do They Call You the Godfather of AI? | Warning About the Dangers of AI | Concerns We Sh",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "Databases",
+    "tag_name": "a",
     "selectors": [
-      "#collapsed-title",
-      ".style-scope",
-      "div.style-scope",
-      "div:nth-child(4)"
+      "[data-aa-title=\"main-nav-courses-databases\"]",
+      "[data-ps-analytics=\"main-nav-courses|Databases|https://www.pluralsight.com/browse?=&q=databases&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_285' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_285' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_286": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Game development",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-game-development\"]",
+      "[data-ps-analytics=\"main-nav-courses|Game development|https://www.pluralsight.com/browse?=&q=game%20development&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_286' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_286' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_287": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Mobile development",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-mobile-development\"]",
+      "[data-ps-analytics=\"main-nav-courses|Mobile development|https://www.pluralsight.com/browse?=&q=mobile%20development&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_287' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_287' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_288": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Programming languages",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-programming-language\"]",
+      "[data-ps-analytics=\"main-nav-courses|Programming languages|https://www.pluralsight.com/browse?=&q=programming%20languages&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_288' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_288' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_289": {
-    "action_type": "button",
-    "description": "Less",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Web development",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-web-development\"]",
+      "[data-ps-analytics=\"main-nav-courses|Web development|https://www.pluralsight.com/browse?=&q=web%20development&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_289' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_289' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_290": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Artificial Intelligence",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
+      "[data-aa-title=\"main-nav-courses-artificial-intelligence\"]",
+      "[data-ps-analytics=\"main-nav-courses-artificial-intellligence|Artificial Intelligence|https://www.pluralsight.com/browse?=&sort=newest&course-category=Artificial%20Intelligence&page=1\"]",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_290' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_290' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_291": {
-    "action_type": "button",
-    "description": "yt-spec-button-shape-next",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Generative AI",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-genrative-ai\"]",
+      "[data-ps-analytics=\"main-nav-courses|Generative AI|https://www.pluralsight.com/browse?=&q=generative%20ai&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_291' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_291' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_292": {
     "action_type": "link",
-    "description": "Intro\n    Intro\n    0:00",
+    "description": "Artificial Intelligence",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-ai\"]",
+      "[data-ps-analytics=\"main-nav-courses|Artificial Intelligence|https://www.pluralsight.com/ai\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_292' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_293": {
     "action_type": "link",
-    "description": "Why Do They Call You the Godfather of AI?\n    Why Do They Call You the Godfather of AI?\n    2:11",
+    "description": "Cloud",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-cloud\"]",
+      "[data-ps-analytics=\"main-nav-courses-cloud|Cloud|https://www.pluralsight.com/browse?=&sort=newest&course-category=Cloud&page=1\"]",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_293' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_294": {
     "action_type": "link",
-    "description": "Warning About the Dangers of AI\n    Warning About the Dangers of AI\n    4:20",
+    "description": "Cloud architecture & design",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-cloud-architecture-design\"]",
+      "[data-ps-analytics=\"main-nav-courses|Cloud architecture & design|https://www.pluralsight.com/browse?=&q=cloud%20architecture%20design&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_294' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_295": {
     "action_type": "link",
-    "description": "Concerns We Should Have About AI\n    Concerns We Should Have About AI\n    7:06",
+    "description": "Cloud platforms",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-cloud-platforms\"]",
+      "[data-ps-analytics=\"main-nav-courses|Cloud platforms|https://www.pluralsight.com/browse?=&q=cloud%20platforms&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_295' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_296": {
     "action_type": "link",
-    "description": "European AI Regulations\n    European AI Regulations\n    10:33",
+    "description": "Salesforce CRM",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-salesforce-crm\"]",
+      "[data-ps-analytics=\"main-nav-courses|Salesforce CRM|https://www.pluralsight.com/browse?=&q=salesforce&%20engineering&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_296' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_297": {
     "action_type": "link",
-    "description": "Cyber Attack Risk\n    Cyber Attack Risk\n    12:12",
+    "description": "Security",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-security\"]",
+      "[data-ps-analytics=\"main-nav-courses-security|Security|https://www.pluralsight.com/browse?=&sort=newest&page=1&course-category=Security\"]",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_297' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_298": {
     "action_type": "link",
-    "description": "How to Protect Yourself From Cyber Attacks\n    How to Protect Yourself From Cyber Attacks\n    14:25",
+    "description": "Certifications",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-certifications\"]",
+      "[data-ps-analytics=\"main-nav-courses|Certifications|https://www.pluralsight.com/browse?=&q=security%20certifications&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_298' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_299": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Governance, risk & compliance",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-governance-risk-compliance\"]",
+      "[data-ps-analytics=\"main-nav-course|Governance, risk & compliance|https://www.pluralsight.com/browse?=&q=security%20risk%20compliance&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_299' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_299' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_300": {
-    "action_type": "button",
-    "description": "yt-spec-button-shape-next",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Security architecture & engineering",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-security-architecture-engineering\"]",
+      "[data-ps-analytics=\"main-nav-course|Security architecture & engineering|https://www.pluralsight.com/browse?=&q=security%20architecture%20engineering&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_300' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_300' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_301": {
     "action_type": "link",
-    "description": "The AI ‘Bubble’ - What They ARE NOT Telling You!",
+    "description": "Security operations",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"main-nav-courses-security-operations\"]",
+      "[data-ps-analytics=\"main-nav-course|Security operations|https://www.pluralsight.com/browse?=&q=security%20operations&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_301' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_302": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "link",
+    "description": "Security testing",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "[data-aa-title=\"main-nav-courses-security-testing\"]",
+      "[data-ps-analytics=\"main-nav-course|Security testing|https://www.pluralsight.com/browse?=&q=security%20testing&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_302' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_302' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_303": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Data & machine learning",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-data\"]",
+      "[data-ps-analytics=\"main-nav-courses-data|Data and Machine Learning|https://www.pluralsight.com/browse?=&sort=newest&page=1&course-category=Data\"]",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_303' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_303' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_304": {
     "action_type": "link",
-    "description": "Graham Stephan",
+    "description": "Big data",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-big-data\"]",
+      "[data-ps-analytics=\"main-nav-course|Big data|https://www.pluralsight.com/browse?=&q=big%20data&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_304' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_305": {
     "action_type": "link",
-    "description": "【Geminiは世界を理解するAIになる】Googleの精鋭集団「DeepMind」責任者が語る万能AI／最先端AIエージェントをまだ公開しない理由／20年の悲願「AGI」接近中【1on1 Tech】",
+    "description": "Business intelligence",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"main-nav-courses-business-intelligence\"]",
+      "[data-ps-analytics=\"main-nav-course|Business intelligence|https://www.pluralsight.com/browse?=&q=business%20intelligence&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_305' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_306": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "link",
+    "description": "Data visualization",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "[data-aa-title=\"main-nav-courses-data-visualization\"]",
+      "[data-ps-analytics=\"main-nav-course|Data visualization|https://www.pluralsight.com/browse?=&q=data%20visualization&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_306' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_306' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_307": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Languages & libraries",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-languages-libraries\"]",
+      "[data-ps-analytics=\"main-nav-course|Languages & libraries|https://www.pluralsight.com/browse?=&q=data%20languages%20libraries&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_307' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_307' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_308": {
     "action_type": "link",
-    "description": "TBS CROSS DIG with Bloomberg",
+    "description": "Machine learning",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-machine-learning\"]",
+      "[data-ps-analytics=\"main-nav-course|Machine learning|https://www.pluralsight.com/browse?=&q=machine%20learning&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_308' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_309": {
-    "action_type": "button",
-    "description": "番組開始【GeminiとAI研究の舞台裏】 | 開発部門責任者が語るGeminiの“未来” | AIエージェント実現に向けた課題 | 加速するAI開発の中で 変わらない“使命” | 汎用人工知能「AG",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "IT Ops",
+    "tag_name": "a",
     "selectors": [
-      "#collapsed-title",
-      ".style-scope",
-      "div.style-scope",
-      "div:nth-child(4)"
+      "[data-aa-title=\"main-nav-courses-it-ops\"]",
+      "[data-ps-analytics=\"main-nav-courses-it-ops|IT Ops|https://www.pluralsight.com/browse?=&sort=newest&page=1&course-category=IT%20Ops\"]",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_309' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_309' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_310": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Client operating systems",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-client-operating-systems\"]",
+      "[data-ps-analytics=\"main-nav-course|Client operating systems|https://www.pluralsight.com/browse?=&q=client%20operating%20systems=&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_310' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_310' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_311": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Collaboration platforms",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-collaboration-platforms\"]",
+      "[data-ps-analytics=\"main-nav-course|Collaboration platforms|https://www.pluralsight.com/browse?=&q=collaboration%20platforms&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_311' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_311' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_312": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Configuration management",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-configuration-managment\"]",
+      "[data-ps-analytics=\"main-nav-course|Configuration management|https://www.pluralsight.com/browse?=&q=configuration%20management&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_312' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_312' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_313": {
-    "action_type": "button",
-    "description": "Less",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Containers",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-containers\"]",
+      "[data-ps-analytics=\"main-nav-course|Containers|https://www.pluralsight.com/browse?=&q=containers&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_313' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_313' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_314": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "IT automation",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-it-automation\"]",
+      "[data-ps-analytics=\"main-nav-course|IT automation|https://www.pluralsight.com/browse?=&q=IT%20automation&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_314' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_314' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_315": {
-    "action_type": "button",
-    "description": "yt-spec-button-shape-next",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Network architecture",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-network-architecture\"]",
+      "[data-ps-analytics=\"main-nav-course|Network architecture|https://www.pluralsight.com/browse?=&q=network%20architecture&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_315' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_315' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_316": {
     "action_type": "link",
-    "description": "番組開始【GeminiとAI研究の舞台裏】\n    番組開始【GeminiとAI研究の舞台裏】\n    0:00",
+    "description": "Virtualization",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-virtualization\"]",
+      "[data-ps-analytics=\"main-nav-course|Virtualization|https://www.pluralsight.com/browse?=&q=virtualization&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_316' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_317": {
     "action_type": "link",
-    "description": "開発部門責任者が語るGeminiの“未来”\n    開発部門責任者が語るGeminiの“未来”\n    2:34",
+    "description": "Business professional",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-business-professional\"]",
+      "[data-ps-analytics=\"main-nav-courses-business-professional|Business Professional|https://www.pluralsight.com/browse?=&sort=newest&page=1&course-category=Business\"]",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_317' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_318": {
     "action_type": "link",
-    "description": "AIエージェント実現に向けた課題\n    AIエージェント実現に向けた課題\n    7:07",
+    "description": "Office applications",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-office-applications\"]",
+      "[data-ps-analytics=\"main-nav-course|Office applications|https://www.pluralsight.com/browse?=&q=office%20applications&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_318' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_319": {
     "action_type": "link",
-    "description": "加速するAI開発の中で 変わらない“使命”\n    加速するAI開発の中で 変わらない“使命”\n    8:54",
+    "description": "Security awareness",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-security-awareness\"]",
+      "[data-ps-analytics=\"main-nav-course|Security awareness|https://www.pluralsight.com/browse?=&q=security%20awareness&type=all&sort=relevance\"]",
+      ".course--padding",
+      "a.course--padding",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_319' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_320": {
     "action_type": "link",
-    "description": "汎用人工知能「AGI」はあと5年で実現する？\n    汎用人工知能「AGI」はあと5年で実現する？\n    13:29",
+    "description": "View all courses",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-all-courses\"]",
+      ".g3p-nav--anchor_btn",
+      "a.g3p-nav--anchor_btn",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_320' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_321": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Learn",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
+      "[data-aa-title=\"main-nav-resources-learn\"]",
+      "[data-ps-analytics=\"main-nav-resources-learn|Learn|https://www.pluralsight.com/resources\"]",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_321' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_321' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_322": {
-    "action_type": "button",
-    "description": "yt-spec-button-shape-next",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Tech guides",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-resources-tech-guide\"]",
+      "[data-ps-analytics=\"main-nav-resources|Tech guides|https://www.pluralsight.com/resources/blog?unified-tags=guides\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_322' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_322' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_323": {
     "action_type": "link",
-    "description": "The AI Safety Expert: These Are The Only 5 Jobs That Will Remain In 2030! - Dr. Roman Yampolskiy",
+    "description": "Case studies",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"main-nav-resources-case-studies\"]",
+      "[data-ps-analytics=\"main-nav-resources|Case studies|https://www.pluralsight.com/resources?q=&content-type=Case+studies\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_323' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_324": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "link",
+    "description": "Infographics",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "[data-aa-title=\"main-nav-resources-infographics\"]",
+      "[data-ps-analytics=\"main-nav-resources|Infographics|https://www.pluralsight.com/resources?q=&content-type=Infographics\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_324' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_324' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_325": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Reports",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "[data-aa-title=\"main-nav-resources-reports\"]",
+      "[data-ps-analytics=\"main-nav-resources|Reports|https://www.pluralsight.com/resources?q=&content-type=Reports\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_325' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_325' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_326": {
-    "action_type": "button",
-    "description": "Intro | How to Stop AI From Killing Everyone | What's the Probability Something Goes Wrong? | How Lo",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "Video series",
+    "tag_name": "a",
     "selectors": [
-      "#collapsed-title",
-      ".style-scope",
-      "div.style-scope",
-      "div:nth-child(4)"
+      "[data-aa-title=\"main-nav-resources-video-series\"]",
+      "[data-ps-analytics=\"main-nav-resources|Video series|https://www.pluralsight.com/resources/videos\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_326' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_326' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_327": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Connect",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
+      "[data-aa-title=\"main-nav-resources-connect\"]",
+      "[data-ps-analytics=\"main-nav-resources-connect|Connect|https://www.pluralsight.com/events\"]",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_327' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_327' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_328": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Webinars",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-resources-Webinars\"]",
+      "[data-ps-analytics=\"main-nav-resources|Webinars|https://www.pluralsight.com/resources?q=&content-type=Webinars\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_328' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_328' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_329": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Blog",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
+      "[data-aa-title=\"main-nav-resources-blog\"]",
+      "[data-ps-analytics=\"main-nav-resources-blog|Blog|https://www.pluralsight.com/resources/blog\"]",
       "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_329' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_329' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_330": {
-    "action_type": "button",
-    "description": "Less",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Software dev",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-resources-software-dev\"]",
+      "[data-ps-analytics=\"main-nav-resources|Software dev|https://www.pluralsight.com/resources/blog?unified-tags=software-development\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_330' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_330' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_331": {
-    "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "action_type": "link",
+    "description": "Cloud",
+    "tag_name": "a",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "[data-aa-title=\"main-nav-resources-cloud\"]",
+      "[data-ps-analytics=\"main-nav-resources|Cloud|https://www.pluralsight.com/resources/blog?unified-tags=cloud\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_331' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_331' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_332": {
-    "action_type": "button",
-    "description": "yt-spec-button-shape-next",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "IT Ops",
+    "tag_name": "a",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "[data-aa-title=\"main-nav-resources-it-ops\"]",
+      "[data-ps-analytics=\"main-nav-resources|IT Ops|https://www.pluralsight.com/resources/blog?unified-tags=tech-operations\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_332' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_332' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_333": {
     "action_type": "link",
-    "description": "Intro\n    Intro\n    0:00",
+    "description": "Data",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-resources-data\"]",
+      "[data-ps-analytics=\"main-nav-resources|Data|https://www.pluralsight.com/resources/blog?unified-tags=ai-and-data\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_333' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_334": {
     "action_type": "link",
-    "description": "How to Stop AI From Killing Everyone\n    How to Stop AI From Killing Everyone\n    2:28",
+    "description": "Security",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-resources-security\"]",
+      "[data-ps-analytics=\"main-nav-resources|Security|https://www.pluralsight.com/resources/blog?q=&unified-tags=cybersecurity\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_334' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_335": {
     "action_type": "link",
-    "description": "What's the Probability Something Goes Wrong?\n    What's the Probability Something Goes Wrong?\n    4:",
+    "description": "g3p-nav-resource--right_img",
     "tag_name": "a",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "[data-aa-title=\"main-nav-featured-resource-image\"]",
+      "[data-ps-analytics=\"main-nav|Featured Resource Image|https://www.pluralsight.com/resource-center/reports/tech-forecast-2026\"]",
+      ".g3p-nav-resource--right_img",
+      "a.g3p-nav-resource--right_img",
+      "div:nth-child(3)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_335' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_336": {
-    "action_type": "link",
-    "description": "How Long Have You Been Working on AI Safety?\n    How Long Have You Been Working on AI Safety?\n    4:",
-    "tag_name": "a",
+    "action_type": "button",
+    "description": "Open menu",
+    "tag_name": "button",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      "#menuIcon",
+      ".g3p-menu-btn",
+      "button.g3p-menu-btn",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_336' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_336' to button with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_337": {
-    "action_type": "link",
-    "description": "What Is AI?\n    What Is AI?\n    8:15",
-    "tag_name": "a",
+    "action_type": "unknown",
+    "description": "Sign in\n              \n                \n                  \n                \n              \n         ",
+    "tag_name": "div",
     "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
+      ".g3p-main-container--overlay",
+      "div.g3p-main-container--overlay",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_337' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_337' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_338": {
-    "action_type": "link",
-    "description": "Prediction for 2027\n    Prediction for 2027\n    9:54",
-    "tag_name": "a",
-    "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_338' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_339": {
-    "action_type": "link",
-    "description": "What Jobs Will Actually Exist?\n    What Jobs Will Actually Exist?\n    11:38",
-    "tag_name": "a",
-    "selectors": [
-      "#endpoint",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "ytd-macro-markers-list-item-renderer:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_339' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_340": {
     "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "description": "Sign in\n              \n                \n                  \n                \n              \n         ",
+    "tag_name": "div",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
+      "#mobileMainModal",
+      ".g3p-nav-mobile__main-modal",
+      "div.g3p-nav-mobile__main-modal",
       "div:nth-child(1)"
     ],
     "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_338' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_339": {
+    "action_type": "input",
+    "description": "What do you want to learn?",
+    "tag_name": "input",
+    "selectors": [
+      "[data-gtm-form-interact-id=\"0\"]",
+      ".mobile_header_search--input",
+      "input.mobile_header_search--input",
+      "form:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_339' to input with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_340": {
+    "action_type": "unknown",
+    "description": "Sign in to Skills\n              \n              \n            \n            \n              \n           ",
+    "tag_name": "div",
+    "selectors": [
+      "#signInModal",
+      ".g3p-signin-modal-overlay",
+      "div.g3p-signin-modal-overlay",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_340' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_341": {
-    "action_type": "button",
-    "description": "yt-spec-button-shape-next",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "Individuals\n                  \n                  \n                \n\n                \n               ",
+    "tag_name": "div",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "#individualNavMobileOptions",
+      ".g3p-mobile-navs-subheaders",
+      "div.g3p-mobile-navs-subheaders",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_341' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_341' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_342": {
-    "action_type": "link",
-    "description": "Godfather of AI WARNS: \"You Have No Idea What's Coming\"",
-    "tag_name": "a",
+    "action_type": "unknown",
+    "description": "For business\n                  \n                  \n                \n\n                \n              ",
+    "tag_name": "div",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "#businessesNavMobileOptions",
+      ".g3p-mobile-navs-subheaders",
+      "div.g3p-mobile-navs-subheaders",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_342' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_342' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_343": {
     "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "description": "For public sector\n                  \n                  \n                \n\n                \n         ",
+    "tag_name": "div",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "#publicSectorNavMobileOptions",
+      ".g3p-mobile-navs-subheaders",
+      "div.g3p-mobile-navs-subheaders",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_343' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_344": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "Software development\n                  \n                  \n                \n\n                \n      ",
+    "tag_name": "div",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "#coursesNavMobileOptions",
+      ".g3p-mobile-navs-subheaders",
+      "div.g3p-mobile-navs-subheaders",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_344' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_344' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_345": {
     "action_type": "link",
-    "description": "The Diary Of A CEO Clips",
+    "description": "Virtualization",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-aa-title=\"main-nav-courses-virtualization\"]",
+      "[data-ps-analytics=\"main-nav-course|Virtualization|https://www.pluralsight.com/browse?=&q=virtualization&type=all\"]",
+      "div:nth-child(7)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_345' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_346": {
     "action_type": "link",
-    "description": "Which Dream Bed Would You Choose? ✨ Ultimate Oddly Satisfying AI ASMR",
+    "description": "Office applications",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-aa-title=\"main-nav-courses-office-applications\"]",
+      "[data-ps-analytics=\"main-nav-course|Office applications|https://www.pluralsight.com/browse?=&q=office%20applications&type=all\"]",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_346' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_347": {
-    "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "action_type": "link",
+    "description": "Security awareness",
+    "tag_name": "a",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "[data-aa-title=\"main-nav-courses-security-awareness\"]",
+      "[data-ps-analytics=\"main-nav-course|Security awareness|https://www.pluralsight.com/browse?=&q=security%20awareness&type=all\"]",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_347' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_347' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_348": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "Learn\n                  \n                  \n                \n\n                \n                  \n  ",
+    "tag_name": "div",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "#resourcesNavMobileOptions",
+      ".g3p-mobile-navs-subheaders",
+      "div.g3p-mobile-navs-subheaders",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_348' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_348' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_349": {
-    "action_type": "link",
-    "description": "Impossible AIs",
-    "tag_name": "a",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_349' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_349' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_350": {
-    "action_type": "link",
-    "description": "Cursed Sora 2 AI Disney Video's P.6",
-    "tag_name": "a",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "div:nth-child(8)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_350' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_350' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_351": {
     "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "description": "hidden",
+    "tag_name": "div",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "#promo-slider_",
+      ".hidden",
+      "div.hidden",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_351' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_352": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_352' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_352' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_353": {
     "action_type": "link",
-    "description": "MochiRates",
+    "description": "View plans",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-aa-title=\"promo-banner-cta\"]",
+      ".promo-cta",
+      "a.promo-cta",
+      "span:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_353' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_354": {
-    "action_type": "button",
-    "description": "MochiRates presents a rapid-fire montage of upcoming Disney and Pixar films. The compilation showcas",
-    "tag_name": "div",
+    "action_type": "link",
+    "description": "Download the 2026 Tech Forecast",
+    "tag_name": "a",
     "selectors": [
-      "#collapsed-title",
-      ".style-scope",
-      "div.style-scope",
-      "div:nth-child(4)"
+      "[data-aa-title=\"promo-banner-cta\"]",
+      ".promo-cta",
+      "a.promo-cta",
+      "span:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_354' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_354' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_355": {
     "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
       "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_355' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_356": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_356' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_356' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_357": {
     "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "ytd-button-renderer",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".style-scope",
-      "ytd-button-renderer.style-scope",
-      "div:nth-child(1)"
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_357' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_358": {
-    "action_type": "button",
-    "description": "Less",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "yt-button-shape:nth-child(1)"
+      "div:nth-child(3)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_358' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_358' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_359": {
-    "action_type": "button",
-    "description": "Like this summary",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_359' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_359' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_360": {
-    "action_type": "button",
-    "description": "Dislike this summary",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_360' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_361": {
     "action_type": "link",
-    "description": "Which Ocean Would You Swim In? | Satisfying AI ASMR Relaxing",
+    "description": "Learn more",
     "tag_name": "a",
     "selectors": [
-      "#video-title",
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "h3:nth-child(2)"
+      "[data-fancybox=\"\"]",
+      "[data-src=\"/content/ps/en/resources/blog/news/2025-forrester-wave-leader\"]",
+      "[data-ps-analytics=\"button_as_anchor|Learn more|https://www.pluralsight.com/resources/blog/news/2025-forrester-wave-leader.html\"]",
+      ".cmp-button",
+      "a.cmp-button",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_361' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_360' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_361": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_361' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_362": {
     "action_type": "unknown",
-    "description": "dropdown-trigger",
-    "tag_name": "yt-icon-button",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "#button",
-      ".dropdown-trigger",
-      "yt-icon-button.dropdown-trigger",
-      "ytd-menu-renderer:nth-child(3)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_362' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_363": {
-    "action_type": "button",
-    "description": "Action menu",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_363' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_363' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_364": {
     "action_type": "link",
-    "description": "No Talking.",
+    "description": "Find out how",
     "tag_name": "a",
     "selectors": [
-      ".yt-simple-endpoint",
-      "a.yt-simple-endpoint",
-      "yt-formatted-string:nth-child(1)"
+      "[data-fancybox=\"\"]",
+      "[data-src=\"/content/pluralsight/en/ai\"]",
+      ".view-all-link",
+      "a.view-all-link",
+      "div:nth-child(2)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_364' to link with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_365": {
-    "action_type": "button",
-    "description": "yt-spec-button-shape-next",
-    "tag_name": "button",
-    "selectors": [
-      ".yt-spec-button-shape-next",
-      "button.yt-spec-button-shape-next",
-      "button-view-model:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_365' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_366": {
-    "action_type": "button",
-    "description": "Tap to unmute",
-    "tag_name": "button",
-    "selectors": [
-      "[data-layer=\"2\"]",
-      ".ytp-unmute",
-      "button.ytp-unmute",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_366' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_367": {
-    "action_type": "button",
-    "description": "ytp-suggested-action-badge-dismiss-button-icon",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "a:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_367' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_368": {
-    "action_type": "button",
-    "description": "ytp-featured-product-overflow-icon",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-featured-product-overflow-icon",
-      "button.ytp-featured-product-overflow-icon",
-      "a:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_368' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_369": {
-    "action_type": "button",
-    "description": "Play",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-large-play-button",
-      "button.ytp-large-play-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_369' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_370": {
-    "action_type": "button",
-    "description": "Search",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Search\"]",
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_370' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_371": {
-    "action_type": "button",
-    "description": "InfoShopping",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_371' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_372": {
-    "action_type": "button",
-    "description": "Show cards",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-cards-teaser-info-icon",
-      "button.ytp-cards-teaser-info-icon",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_372' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_373": {
-    "action_type": "button",
-    "description": "Close",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-cards-teaser-close-button",
-      "button.ytp-cards-teaser-close-button",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_373' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_374": {
-    "action_type": "button",
-    "description": "More",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"More\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_374' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_375": {
-    "action_type": "button",
-    "description": "Playlist",
-    "tag_name": "button",
-    "selectors": [
-      "[data-overlay-order=\"3\"]",
-      ".ytp-playlist-menu-button",
-      "button.ytp-playlist-menu-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_375' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_376": {
-    "action_type": "button",
-    "description": "ytp-button",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_376' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_377": {
-    "action_type": "button",
-    "description": "ytp-suggested-action-badge-dismiss-button-icon",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_377' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_378": {
-    "action_type": "button",
-    "description": "ytp-button",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_378' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_379": {
-    "action_type": "button",
-    "description": "ytp-suggested-action-badge-dismiss-button-icon",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_379' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_380": {
-    "action_type": "button",
-    "description": "ytp-suggested-action-badge-dismiss-button-icon",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-suggested-action-badge-dismiss-button-icon",
-      "button.ytp-suggested-action-badge-dismiss-button-icon",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_380' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_381": {
-    "action_type": "button",
-    "description": "ytp-featured-product-overflow-icon",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-featured-product-overflow-icon",
-      "button.ytp-featured-product-overflow-icon",
-      "a:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_381' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_382": {
-    "action_type": "button",
-    "description": "Cancel",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_382' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_383": {
-    "action_type": "button",
-    "description": "Confirm",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_383' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_384": {
-    "action_type": "button",
-    "description": "Close",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-playlist-menu-close",
-      "button.ytp-playlist-menu-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_384' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_385": {
-    "action_type": "button",
-    "description": "Close",
-    "tag_name": "button",
-    "selectors": [
-      ".ytp-share-panel-close",
-      "button.ytp-share-panel-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_385' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_386": {
-    "action_type": "button",
-    "description": "Watch later",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      "[data-tooltip-title=\"Watch later\"]",
-      ".ytp-watch-later-button",
-      "button.ytp-watch-later-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_386' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_387": {
-    "action_type": "button",
-    "description": "Share",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Share\"]",
-      "[data-tooltip-opaque=\"false\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_387' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_388": {
-    "action_type": "button",
-    "description": "Copy link",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-opaque=\"false\"]",
-      "[data-tooltip-title=\"Copy link\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(3)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_388' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_389": {
-    "action_type": "button",
-    "description": "Close",
-    "tag_name": "button",
-    "selectors": [
-      "[data-tooltip-title=\"Close\"]",
-      ".ytp-overflow-panel-close",
-      "button.ytp-overflow-panel-close",
-      "div:nth-child(2)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_389' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_390": {
-    "action_type": "button",
-    "description": "Play from this position",
-    "tag_name": "div",
-    "selectors": [
-      ".ytp-fine-scrubbing-play",
-      "div.ytp-fine-scrubbing-play",
-      "div:nth-child(4)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_390' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_391": {
-    "action_type": "button",
-    "description": "Exit precise seeking",
-    "tag_name": "div",
-    "selectors": [
-      ".ytp-fine-scrubbing-dismiss",
-      "div.ytp-fine-scrubbing-dismiss",
-      "div:nth-child(5)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_391' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_392": {
-    "action_type": "button",
-    "description": "Play (k)",
-    "tag_name": "button",
-    "selectors": [
-      "[data-title-no-tooltip=\"Play\"]",
-      "[data-tooltip-title=\"Play (k)\"]",
-      ".ytp-play-button",
-      "button.ytp-play-button",
-      "div:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_392' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_393": {
-    "action_type": "button",
-    "description": "Next (SHIFT+n)",
+    "action_type": "link",
+    "description": "Find out how",
     "tag_name": "a",
     "selectors": [
-      "[data-tooltip-title=\"Next (SHIFT+n)\"]",
-      "[data-title-no-tooltip=\"Next\"]",
-      ".ytp-next-button",
-      "a.ytp-next-button",
-      "div:nth-child(3)"
+      "[data-fancybox=\"\"]",
+      "[data-src=\"/content/pluralsight/en/browse/software-development\"]",
+      ".view-all-link",
+      "a.view-all-link",
+      "div:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_393' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_365' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_366": {
+    "action_type": "link",
+    "description": "Find out how",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"\"]",
+      "[data-src=\"/content/pluralsight/en/browse/cloud-computing\"]",
+      ".view-all-link",
+      "a.view-all-link",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_366' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_367": {
+    "action_type": "link",
+    "description": "Find out how",
+    "tag_name": "a",
+    "selectors": [
+      "[data-fancybox=\"\"]",
+      "[data-src=\"/content/pluralsight/en/browse/information-cyber-security\"]",
+      ".view-all-link",
+      "a.view-all-link",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_367' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_368": {
+    "action_type": "unknown",
+    "description": "sequence",
+    "tag_name": "div",
+    "selectors": [
+      ".sequence",
+      "div.sequence",
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_368' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_369": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_369' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_370": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_370' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_371": {
+    "action_type": "unknown",
+    "description": "hidden",
+    "tag_name": "div",
+    "selectors": [
+      "#newBlade_",
+      ".hidden",
+      "div.hidden",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_371' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_372": {
+    "action_type": "unknown",
+    "description": "hidden",
+    "tag_name": "div",
+    "selectors": [
+      "#get-started_",
+      ".hidden",
+      "div.hidden",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_372' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_373": {
+    "action_type": "unknown",
+    "description": "hidden",
+    "tag_name": "div",
+    "selectors": [
+      "#button-container_",
+      ".hidden",
+      "div.hidden",
+      "div:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_373' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_374": {
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
+    "selectors": [
+      "div:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_374' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_375": {
+    "action_type": "link",
+    "description": "Contact",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-contact\"]",
+      "[data-ps-analyitcs=\"footer-link|Contact|https://www.pluralsight.com/contact\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_375' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_376": {
+    "action_type": "link",
+    "description": "Help Center",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-help-center\"]",
+      "[data-ps-analyitcs=\"footer-link|Help Center|https://www.pluralsight.com/contact\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_376' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_377": {
+    "action_type": "link",
+    "description": "IP Allowlist",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-ip-allowlist\"]",
+      "[data-ps-analyitcs=\"footer-link|IP Allowlist|https://www.pluralsight.com/help/allowlist\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_377' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_378": {
+    "action_type": "link",
+    "description": "Sitemap",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-sitemap\"]",
+      "[data-ps-analyitcs=\"footer-link|Sitemap|https://www.pluralsight.com/sitemap.xml\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_378' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_379": {
+    "action_type": "link",
+    "description": "Download Pluralsight",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-downloads\"]",
+      "[data-ps-analyitcs=\"footer-link|Download Pluralsight|https://www.pluralsight.com/product/downloads\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_379' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_380": {
+    "action_type": "link",
+    "description": "View Plans",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-plans-pricing\"]",
+      "[data-ps-analyitcs=\"footer-link|View Plans|https://www.pluralsight.com/get-started\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_380' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_381": {
+    "action_type": "link",
+    "description": "Professional Services",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-professional-services\"]",
+      "[data-ps-analyitcs=\"footer-link|Professional Services|https://www.pluralsight.com/professional-services\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_381' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_382": {
+    "action_type": "link",
+    "description": "Teach",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-teach\"]",
+      "[data-ps-analyitcs=\"footer-link|Teach|https://www.pluralsight.com/teach\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_382' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_383": {
+    "action_type": "link",
+    "description": "Partner with Pluralsight",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-partner-with-pluralsight\"]",
+      "[data-ps-analyitcs=\"footer-link|Partner with Pluralsight|https://www.pluralsight.com/partners\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_383' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_384": {
+    "action_type": "link",
+    "description": "Affiliate Partners",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-affiliate-partners\"]",
+      "[data-ps-analyitcs=\"footer-link|Affiliate Partners|https://www.pluralsight.com/affiliate\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_384' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_385": {
+    "action_type": "link",
+    "description": "Pluralsight One",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-pluralsightone\"]",
+      "[data-ps-analyitcs=\"footer-link|Pluralsight One|https://www.pluralsightone.org/\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_385' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_386": {
+    "action_type": "link",
+    "description": "Authors",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-authors\"]",
+      "[data-ps-analyitcs=\"footer-link|Authors|https://www.pluralsight.com/authors\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_386' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_387": {
+    "action_type": "link",
+    "description": "About Us",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-about\"]",
+      "[data-ps-analyitcs=\"footer-link|About Us|https://www.pluralsight.com/about\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_387' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_388": {
+    "action_type": "link",
+    "description": "Careers",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-careers\"]",
+      "[data-ps-analyitcs=\"footer-link|Careers|https://www.pluralsight.com/careers\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_388' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_389": {
+    "action_type": "link",
+    "description": "Newsroom",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-newsroom\"]",
+      "[data-ps-analyitcs=\"footer-link|Newsroom|https://www.pluralsight.com/newsroom\"]",
+      ".footer-link-name",
+      "a.footer-link-name",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_389' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_390": {
+    "action_type": "link",
+    "description": "Sign up now",
+    "tag_name": "a",
+    "selectors": [
+      ".button-wrapper",
+      "a.button-wrapper",
+      "li:nth-child(2)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_390' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_391": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-facebook-social\"]",
+      "[data-ps-analyitcs=\"footer-social|facebook-social|https://www.facebook.com/pluralsight\"]",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_391' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_392": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-twitter-social\"]",
+      "[data-ps-analyitcs=\"footer-social|twitter-social|https://www.x.com/pluralsight\"]",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_392' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
+  },
+  "a_id_393": {
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
+    "selectors": [
+      "[data-aa-title=\"footer-instagram-social\"]",
+      "[data-ps-analyitcs=\"footer-social|instagram-social|https://www.instagram.com/pluralsight\"]",
+      "li:nth-child(1)"
+    ],
+    "coordinates": {},
+    "llm_instruction": "Use actionId 'a_id_393' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_394": {
-    "action_type": "button",
-    "description": "Mute (m)",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
     "selectors": [
-      "[data-tooltip-offset-y=\"0\"]",
-      "[data-tooltip-title=\"Mute (m)\"]",
-      "[data-title-no-tooltip=\"Mute\"]",
-      ".ytp-volume-icon",
-      "button.ytp-volume-icon",
-      "div:nth-child(1)"
+      "[data-aa-title=\"footer-linkedin-social\"]",
+      "[data-ps-analyitcs=\"footer-social|linkedin-social|https://www.linkedin.com/company/pluralsight/\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_394' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_394' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_395": {
-    "action_type": "button",
-    "description": "Live",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "",
+    "tag_name": "a",
     "selectors": [
-      ".ytp-live-badge",
-      "button.ytp-live-badge",
-      "div:nth-child(5)"
+      "[data-aa-title=\"footer-youtube-social\"]",
+      "[data-ps-analyitcs=\"footer-social|youtube-social|https://www.youtube.com/@pluralsight\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_395' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_395' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_396": {
-    "action_type": "button",
-    "description": "ytp-expand-right-bottom-section-button",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Terms of Use",
+    "tag_name": "a",
     "selectors": [
-      "[data-priority=\"1\"]",
-      ".ytp-expand-right-bottom-section-button",
-      "button.ytp-expand-right-bottom-section-button",
-      "div:nth-child(1)"
+      "[data-aa-title=\"footer-terms-of-use\"]",
+      "[data-ps-analytics=\"footer-link|Terms of Use|https://legal.pluralsight.com/policies\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_396' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_396' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_397": {
-    "action_type": "button",
-    "description": "ytp-button",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Privacy Policy",
+    "tag_name": "a",
     "selectors": [
-      "[data-priority=\"3\"]",
-      "[data-tooltip-target-id=\"ytp-autonav-toggle-button\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(2)"
+      "[data-aa-title=\"footer-privacy-policy\"]",
+      "[data-ps-analytics=\"footer-link|Privacy Policy|https://legal.pluralsight.com/policies?name=privacy-notice\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_397' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_397' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_398": {
-    "action_type": "button",
-    "description": "Subtitles/closed captions unavailable",
-    "tag_name": "button",
+    "action_type": "link",
+    "description": "Code of Conduct",
+    "tag_name": "a",
     "selectors": [
-      "[data-priority=\"5\"]",
-      "[data-tooltip-title=\"Subtitles/closed captions unavailable\"]",
-      "[data-title-no-tooltip=\"Subtitles/closed captions unavailable\"]",
-      ".ytp-subtitles-button",
-      "button.ytp-subtitles-button",
-      "div:nth-child(3)"
+      "[data-aa-title=\"footer-code-of-conduct\"]",
+      "[data-ps-analytics=\"footer-link|Code of Conduct|https://legal.pluralsight.com/policies?name=modern-slavery-act-transparency-statement\"]",
+      "li:nth-child(1)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_398' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_398' to link with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_399": {
-    "action_type": "button",
-    "description": "Settings",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "[data-tooltip-title=\"Settings\"]",
-      "[data-tooltip-target-id=\"ytp-settings-button\"]",
-      ".ytp-button",
-      "button.ytp-button",
-      "div:nth-child(4)"
+      "head:nth-child(49)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_399' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_399' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_400": {
-    "action_type": "button",
-    "description": "Theater mode (t)",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "[data-priority=\"9\"]",
-      "[data-tooltip-title=\"Default view (t)\"]",
-      "[data-title-no-tooltip=\"Default view\"]",
-      ".ytp-size-button",
-      "button.ytp-size-button",
-      "div:nth-child(1)"
+      "head:nth-child(50)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_400' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_400' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_401": {
-    "action_type": "button",
-    "description": "Play on TV",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "[data-tooltip-title=\"Play on TV\"]",
-      "[data-priority=\"10\"]",
-      ".ytp-remote-button",
-      "button.ytp-remote-button",
-      "div:nth-child(2)"
+      "head:nth-child(51)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_401' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_401' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_402": {
-    "action_type": "button",
-    "description": "Full screen (f)",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "[data-priority=\"12\"]",
-      "[data-title-no-tooltip=\"Full screen\"]",
-      "[data-tooltip-title=\"Full screen (f)\"]",
-      ".ytp-fullscreen-button",
-      "button.ytp-fullscreen-button",
-      "div:nth-child(3)"
+      "head:nth-child(52)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_402' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_402' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_403": {
-    "action_type": "button",
-    "description": "ytp-pip-button",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "[data-priority=\"8\"]",
-      "[data-tooltip-target-id=\"ytp-pip-button\"]",
-      "[data-tooltip-title=\"Picture-in-picture\"]",
-      "[data-title-no-tooltip=\"Picture-in-picture\"]",
-      ".ytp-pip-button",
-      "button.ytp-pip-button",
-      "div:nth-child(3)"
+      "head:nth-child(53)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_403' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_403' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_404": {
-    "action_type": "button",
-    "description": "ytp-fullscreen-grid-expand-button",
-    "tag_name": "button",
+    "action_type": "unknown",
+    "description": "",
+    "tag_name": "link",
     "selectors": [
-      "[data-tooltip-target-id=\"ytp-fullscreen-grid-expand-button\"]",
-      "[data-tooltip-offset-y=\"-10\"]",
-      ".ytp-fullscreen-grid-expand-button",
-      "button.ytp-fullscreen-grid-expand-button",
-      "div:nth-child(1)"
+      "head:nth-child(54)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_404' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_404' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_405": {
     "action_type": "unknown",
-    "description": "style-scope",
-    "tag_name": "yt-icon-button",
+    "description": "",
+    "tag_name": "iframe",
     "selectors": [
-      "#trailing-button",
-      ".style-scope",
-      "yt-icon-button.style-scope",
-      "div:nth-child(4)"
+      "#db-sync",
+      "body:nth-child(20)"
     ],
     "coordinates": {},
     "llm_instruction": "Use actionId 'a_id_405' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   },
   "a_id_406": {
-    "action_type": "button",
-    "description": "Collapse",
-    "tag_name": "button",
-    "selectors": [
-      "#button",
-      ".style-scope",
-      "button.style-scope",
-      "yt-icon-button:nth-child(1)"
-    ],
-    "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_406' to button with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
-  },
-  "a_id_407": {
     "action_type": "unknown",
-    "description": "css-httpswwwyoutubecomsdesktop9c0f82dacssbinwwwmaindesktopwatchpageskeleton2xcss",
-    "tag_name": "link",
+    "description": "",
+    "tag_name": "img",
     "selectors": [
-      ".css-httpswwwyoutubecomsdesktop9c0f82dacssbinwwwmaindesktopwatchpageskeleton2xcss",
-      "link.css-httpswwwyoutubecomsdesktop9c0f82dacssbinwwwmaindesktopwatchpageskeleton2xcss",
-      "body:nth-child(40)"
+      "#db_lr_pixel_ad",
+      "body:nth-child(21)"
     ],
     "coordinates": {},
-    "llm_instruction": "Use actionId 'a_id_407' to unknown with this element",
-    "page_url": "https://www.youtube.com/results?search_query=mindset",
-    "page_title": "(21) ai - YouTube"
+    "llm_instruction": "Use actionId 'a_id_406' to unknown with this element",
+    "page_url": "https://www.pluralsight.com/",
+    "page_title": "Home | Online Courses, Learning Paths, and Certifications - Pluralsight"
   }
 }

@@ -70,6 +70,218 @@ ensureKeepAlivePortConnection();
 let initialScanScheduled = false;
 let initialScanReason = null;
 
+// ============================================================================
+// 🆕 NEW CLEAN SCAN ORCHESTRATION
+// ============================================================================
+let scanInProgress = false;
+let currentPageVersion = null;
+let significantChangeDetector = null;
+let lastSignificantChangeTime = 0;
+
+/**
+ * ============================================================================
+ * MAIN SCAN FUNCTION - Execute scan with DOM-settle detection
+ * ============================================================================
+ */
+async function executeScanWithSettle(pageVersion, url, trigger) {
+    console.log(`[Content] Scan request received: pageVersion=${pageVersion}, trigger=${trigger}`);
+
+    // 🔒 CHECK SCAN LOCK
+    if (scanInProgress) {
+        console.log('[Content] ⏸️  Scan already in progress, ignoring request');
+        return;
+    }
+
+    // Set lock
+    scanInProgress = true;
+    currentPageVersion = pageVersion;
+
+    try {
+        console.log('[Content] 🕐 Waiting for DOM to settle...');
+
+        // ============================================================================
+        // STEP 1: WAIT FOR DOM TO SETTLE
+        // ============================================================================
+        await waitForDOMSettle({
+            maxWait: 5000,      // Failsafe: 5s max
+            quietWindow: 200    // No mutations for 200ms = settled
+        });
+
+        console.log('[Content] ✅ DOM settled, starting scan...');
+
+        // ============================================================================
+        // STEP 2: RUN ACTUAL SCAN
+        // ============================================================================
+        await intelligenceEngine.scanAndRegisterPageElements();
+
+        console.log('[Content] ✅ Scan complete, sending results...');
+
+        // ============================================================================
+        // STEP 3: SEND RESULTS
+        // ============================================================================
+        const intelligenceData = intelligenceEngine.prepareIntelligenceData();
+
+        chrome.runtime.sendMessage({
+            type: 'scan_complete',
+            pageVersion: currentPageVersion,
+            url: window.location.href,
+            trigger: trigger,
+            intelligenceData: intelligenceData
+        });
+
+    } catch (error) {
+        console.error('[Content] Scan failed:', error);
+
+        // Send error to service worker
+        chrome.runtime.sendMessage({
+            type: 'scan_error',
+            pageVersion: currentPageVersion,
+            error: error.message
+        });
+
+    } finally {
+        // 🔓 RELEASE LOCK
+        scanInProgress = false;
+        console.log('[Content] Scan lock released');
+
+        // Start significant change detector after scan completes
+        startSignificantChangeDetector();
+    }
+}
+
+/**
+ * ============================================================================
+ * DOM SETTLE DETECTION - Minimal MutationObserver
+ * ============================================================================
+ */
+function waitForDOMSettle({ maxWait, quietWindow }) {
+    return new Promise((resolve) => {
+        let observer;
+        let quietTimer;
+        let maxWaitTimer;
+        let lastMutationTime = Date.now();
+
+        const cleanup = () => {
+            if (observer) observer.disconnect();
+            if (quietTimer) clearTimeout(quietTimer);
+            if (maxWaitTimer) clearTimeout(maxWaitTimer);
+        };
+
+        const settle = () => {
+            cleanup();
+            const totalWait = Date.now() - lastMutationTime;
+            console.log(`[Content] DOM settled after ${totalWait}ms`);
+            resolve();
+        };
+
+        // MAX WAIT FAILSAFE - If DOM never settles, proceed anyway
+        maxWaitTimer = setTimeout(() => {
+            console.log(`[Content] ⚠️  Max wait (${maxWait}ms) reached, proceeding with scan`);
+            settle();
+        }, maxWait);
+
+        // MUTATION OBSERVER - Detect when DOM stops changing
+        observer = new MutationObserver((mutations) => {
+            lastMutationTime = Date.now();
+
+            // Clear previous quiet timer
+            if (quietTimer) clearTimeout(quietTimer);
+
+            // Start new quiet timer
+            quietTimer = setTimeout(() => {
+                const quietTime = Date.now() - lastMutationTime;
+                if (quietTime >= quietWindow) {
+                    console.log(`[Content] No mutations for 200ms, DOM settled`);
+                    settle();
+                }
+            }, quietWindow);
+        });
+
+        // Start observing
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: false,    // Ignore attribute changes (noisy)
+            characterData: false  // Ignore text changes (noisy)
+        });
+
+        // Start initial quiet timer (in case DOM is already settled)
+        quietTimer = setTimeout(settle, quietWindow);
+    });
+}
+
+/**
+ * ============================================================================
+ * SIGNIFICANT CHANGE DETECTOR - Continuous observer for major DOM changes
+ * ============================================================================
+ * Watches DOM continuously. When DOM stops changing for 200ms, triggers scan.
+ * Same pattern as waitForDOMSettle - resets timer on each mutation.
+ */
+function startSignificantChangeDetector() {
+    if (significantChangeDetector) {
+        return; // Already running
+    }
+
+    let mutationCount = 0;
+    let quietTimer = null;
+    const QUIET_WINDOW_MS = 200;  // Same as scan settle
+
+    significantChangeDetector = new MutationObserver((mutations) => {
+        mutationCount += mutations.length;
+
+        // Clear previous timer - DOM still changing
+        if (quietTimer) {
+            clearTimeout(quietTimer);
+        }
+
+        // Start new quiet window timer
+        quietTimer = setTimeout(() => {
+            const now = Date.now();
+
+            // Significant change criteria:
+            // 1. More than 10 mutations (substantial DOM change)
+            // 2. At least 2 seconds since last significant change (rate limit)
+            const isSignificant = mutationCount > 10 && (now - lastSignificantChangeTime) > 2000;
+
+            if (isSignificant) {
+                console.log(`[Content] 🔄 Significant DOM change detected (${mutationCount} mutations), DOM quiet for 200ms, triggering scan`);
+                lastSignificantChangeTime = now;
+
+                // Trigger scan via service worker
+                chrome.runtime.sendMessage({
+                    type: 'request_scan',
+                    url: window.location.href,
+                    trigger: 'significant_dom_change'
+                });
+            }
+
+            // Reset counter
+            mutationCount = 0;
+        }, QUIET_WINDOW_MS);
+    });
+
+    // Start observing - always watching
+    significantChangeDetector.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: false,
+        characterData: false
+    });
+
+    console.log('[Content] 🔍 Significant change detector started - watching DOM continuously');
+}
+
+/**
+ * Stop the significant change detector (e.g., during active scan)
+ */
+function stopSignificantChangeDetector() {
+    if (significantChangeDetector) {
+        significantChangeDetector.disconnect();
+        significantChangeDetector = null;
+        console.log('[Content] 🔍 Significant change detector stopped');
+    }
+}
+
 const pageIdleMonitor = (() => {
     if (window.omEWebPageIdleMonitor) {
         return window.omEWebPageIdleMonitor;
@@ -1937,7 +2149,21 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         return false;
     }
-    
+
+    // ============================================================================
+    // 🆕 NEW SCAN ORCHESTRATION - Clean scan with DOM-settle
+    // ============================================================================
+    if (message && message.type === "start_scan") {
+        console.log(`[Content] 🚀 Scan request received: pageVersion=${message.pageVersion}, trigger=${message.trigger}`);
+
+        // Execute scan asynchronously
+        executeScanWithSettle(message.pageVersion, message.url, message.trigger)
+            .then(() => sendResponse({ ok: true }))
+            .catch(err => sendResponse({ ok: false, error: err.message }));
+
+        return true; // Keep channel open for async response
+    }
+
     // 🆕 NEW: Check if this is a typed message (LLM action) first
     // LLM actions are handled by a separate listener to avoid conflicts
     // This ensures clean separation between automation commands and AI actions
