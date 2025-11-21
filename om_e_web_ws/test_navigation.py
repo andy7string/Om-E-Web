@@ -14,10 +14,10 @@ Usage examples:
       python3 test_navigation.py --command navigate --action-id a_id_812
 
   - Click action:
-      python3 test_navigation.py --command click --action-id a_id_465
+      python3 test_navigation.py --command click --action-id a_id_52
 
   - Custom LLM action:
-      python3 test_navigation.py --command llm --action-id a_id_765 --action-type setValue --value "Guitar Amps" --submit
+      python3 test_navigation.py --command llm --action-id a_id_277 --action-type setValue --value "Guitar Amps" --submit
 
   - Marketplace search (set value + submit):
       python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit

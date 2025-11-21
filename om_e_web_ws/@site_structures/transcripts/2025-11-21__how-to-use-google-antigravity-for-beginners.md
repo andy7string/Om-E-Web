@@ -1,0 +1,458 @@
+<!-- signature: 2SFbqQvsFGc:447:e5c3baab134d11d80ea442659817ca2e0316d4b4d4749dfb172f4e9b69c72a19 -->
+# How To Use Google Antigravity For Beginners
+
+**Video URL:** https://www.youtube.com/watch?v=2SFbqQvsFGc
+**Video ID:** 2SFbqQvsFGc
+**Language:** en
+**Collected At:** 1763693440623
+**Segments:** 447
+
+---
+
+- [0:00] quite literally watch the rendering
+- [0:01] incur while over here it is live coding
+- [0:04] and then it's recording right there you
+- [0:06] can see with the opening URL and this
+- [0:08] right here is the money this right here
+- [0:09] is why I'm bullish on anti-gravity for
+- [0:10] the future let's learn everything we
+- [0:12] need to know about Google anti-gravity
+- [0:14] as fast as possible back on today's
+- [0:16] video we're going to go over
+- [0:16] fundamentally everything you need to
+- [0:18] know about this new editor provided by
+- [0:20] the big old Google to best showcase this
+- [0:22] we're going to build a live app together
+- [0:24] therefore by the end of this video
+- [0:24] you're not only going to know how to use
+- [0:25] anti-gravity perfectly but also know how
+- [0:27] to create an app sound good let's jump
+- [0:28] in so yesterday's video got a lot of
+- [0:30] heat. So, let's go ahead and begin. This
+- [0:31] is anti-gravity. First thing I want you
+- [0:33] to note, if you're familiar with
+- [0:35] Windserve, cursor, VS Code, you're like,
+- [0:37] Corbin, why does this look familiar?
+- [0:38] That is the type of IDE we're dealing
+- [0:40] with in this type of setting. So, if
+- [0:42] you're coming from the experience of
+- [0:43] like, yo, I build in Replet, I build in
+- [0:44] Bolt. This is going to be a different
+- [0:46] experience. I've been developing for a
+- [0:48] while, so I personally like this kind of
+- [0:49] developing experience, but let's go
+- [0:51] ahead and create our app together. First
+- [0:52] thing we're going to do is just simply
+- [0:53] hit open folder. And then once you hit
+- [0:55] open folder, if you don't have a folder
+- [0:56] that is created for a project yet, just
+- [0:58] simply hit new folder in the finder
+- [1:00] window and name it. I named mine app
+- [1:02] dummy. So first thing I want to show you
+- [1:04] is one of the most powerful features
+- [1:06] that in the short term is very buggy,
+- [1:08] but I know in the long term is going to
+- [1:10] probably break the internet and that
+- [1:12] specifically has to do with its ability
+- [1:14] for Chrome. I'll make sure I leave this
+- [1:16] in the description down below. This is
+- [1:17] anti-gravity browser extension. Why is
+- [1:19] this important? This is what's going to
+- [1:20] allow anti-gravity to control your app.
+- [1:23] do tests in your app, click buttons in
+- [1:25] your app, screen record your app, like
+- [1:27] all the really cool stuff. You're gonna
+- [1:29] need this. So, specifically this
+- [1:31] extension, which for some reason you
+- [1:32] can't even search for it on the store in
+- [1:34] the description down below. And part of
+- [1:35] the reason why I'm so bullish on
+- [1:37] anti-gravity, even though I still use
+- [1:38] cursor AI, is because of this extension.
+- [1:41] As we know, Chrome is a Google product.
+- [1:43] Anti-gravity is a Google product.
+- [1:44] Therefore, as they keep iterating new
+- [1:46] updates for the anti-gravity IDE here,
+- [1:49] we already know this is going to get
+- [1:51] crazy. This is essentially the sauce for
+- [1:53] anyone wondering like it's not that big
+- [1:54] of a deal Corbin. You can still do that
+- [1:56] in cursor. You can still do that in
+- [1:57] reply. Reply did it 6 months ago. You
+- [1:59] are fundamentally misunderstanding what
+- [2:02] the screen recording is. Yes, in the
+- [2:04] short term it's like, oh Corbin, it's
+- [2:06] just picture and picture analyzing.
+- [2:08] We've had this. No, no, but you are
+- [2:10] misunderstanding the intention behind
+- [2:12] it. What's going to happen is maybe not
+- [2:14] in this update, maybe not in the next
+- [2:15] update, but maybe by the third update,
+- [2:17] it's going to get so good that you know
+- [2:19] every single time you run into a bug and
+- [2:21] an error and you're extremely frustrated
+- [2:22] and you have to go in this back and
+- [2:23] forth. No, no, no more back and forth.
+- [2:25] It's going to get so good where it can
+- [2:26] interactively do manual testing for you,
+- [2:28] it's going to be able to read backend
+- [2:30] logs, front-end logs, and solve the bug
+- [2:32] all automatically. We're not there yet,
+- [2:35] but that's why I'm so bullish. Let's
+- [2:36] create this app. Now, every single app
+- [2:37] you've ever used in your entire life
+- [2:39] will have a thing called a text tag. And
+- [2:40] the text tag I like to use is TypeScript
+- [2:42] with React. So I'm going to go ahead and
+- [2:44] just do the prompt here. Create a
+- [2:46] TypeScript React app and give it a
+- [2:47] simple landing page. I'm going to choose
+- [2:48] a model of Gemini 3 Pro. That's fine.
+- [2:51] I'm not going to plan it. I'm just going
+- [2:53] to execute. If you've never coded in
+- [2:54] your entire life or you have little to
+- [2:56] no coding experience, I encourage you to
+- [2:57] do a very simple prompt like this
+- [2:59] because what this is going to do is it's
+- [3:00] going to allow you to visually see what
+- [3:02] the code looks like when it's rendered
+- [3:04] onto your local machine, your laptop,
+- [3:06] your desktop, whatever it may be. What
+- [3:08] you need to understand is that back in
+- [3:09] the day to do all of this, you would
+- [3:11] have had to known how to install the
+- [3:13] relevant dependencies needed to build
+- [3:15] out this kind of text tag. But we have
+- [3:16] gotten to the point now where you can
+- [3:18] use human language to build out this
+- [3:20] kind of app. All you need to do now is
+- [3:21] wait. So, while this is cooking, if you
+- [3:23] ever want to open up that browser
+- [3:24] ability, we can come up here and hit
+- [3:26] browser preview. One thing that's very
+- [3:27] annoying about the plug-in right now, so
+- [3:29] it's not just you, is that when it's
+- [3:30] enabled, for some reason, they opted so
+- [3:33] that it always opens as the tab here.
+- [3:35] You can't kind of silo it. So, that's
+- [3:37] kind of frustrating. I assume by the
+- [3:38] time you watch this, they'll probably
+- [3:39] fix that. But what you need to
+- [3:40] understand is that they went the extra
+- [3:42] 10 yards here with this specific Chrome
+- [3:44] extension where even if you are not in
+- [3:47] incognito mode, it can still control
+- [3:48] your browser. So, keep that in mind as
+- [3:50] that is going to be a very powerful
+- [3:51] thing you could do where essentially you
+- [3:53] don't have to keep logging in if that is
+- [3:54] required for your application for
+- [3:56] testing. Now, and that's actually why
+- [3:58] they probably did it to be honest with
+- [3:59] you. Now, if we come up here, this is
+- [4:00] their agent manager. I assume
+- [4:03] short-term, midterm, maybe long-term.
+- [4:05] They might change how this looks a
+- [4:06] little. It's a little bit confusing if
+- [4:09] you've never coded before because of how
+- [4:10] much they keep it separate comparative
+- [4:12] to what I see of cursor. I really like
+- [4:13] how cursor does it. But what this allows
+- [4:15] you to do is this will show you all your
+- [4:17] workspaces. And all the workspaces is
+- [4:20] going to be a app you're working on. And
+- [4:22] all an app is that you're working on the
+- [4:24] reality of it is it's just a folder,
+- [4:26] y'all. And I say that so you don't have
+- [4:28] to over complicate any of this. like
+- [4:30] this situation. It's just creating a
+- [4:31] bunch of files in a folder just like if
+- [4:33] you had a Google doc and a Google Drive
+- [4:34] folder. Same situation. We got app dummy
+- [4:37] here. We got a real app called thumb.com
+- [4:39] and we got like another test app. One
+- [4:41] thing I'm noticing with this IDE
+- [4:42] specifically and specifically Gemini 3
+- [4:45] Pro low and high is the generations do
+- [4:48] take a little bit of time. Keep that in
+- [4:50] mind. But as you can see over here, look
+- [4:52] at all these files that are created
+- [4:53] through one sentence. I've always
+- [4:55] preached this on this channel. In
+- [4:56] reality, anyone could code. You just
+- [4:58] need a no fundamental development
+- [5:00] knowledge so you know things like what
+- [5:02] the heck a TypeScript React app is.
+- [5:04] Let's going to let this generate and the
+- [5:05] generation's almost done but let me
+- [5:06] click around here a little bit so you
+- [5:08] can understand how to maybe set up your
+- [5:09] IDE. So it's absolutely beautiful. Uh
+- [5:11] first thing what you notice is an inbox
+- [5:12] here. For some reason they opted to have
+- [5:15] it so that the reason it shows all these
+- [5:17] workspaces here is because you can see
+- [5:18] as in theory you can go ahead and run
+- [5:21] multiple command lines or in other words
+- [5:23] multiple agents at once. So, if you were
+- [5:25] with me for the video yesterday where it
+- [5:27] absolutely broke because everyone was
+- [5:28] using the thing, these are all the
+- [5:30] original agent prompts here. But what is
+- [5:32] cool and what you'll notice is that in
+- [5:33] this inbox, in theory, if you wanted to
+- [5:35] wild out, you could in theory run like
+- [5:37] three agents and have one agent for
+- [5:39] dummy, one agent for testab, one agent
+- [5:40] for thumb, maybe four agents for dummy,
+- [5:42] whatever it may be. It's a little
+- [5:43] excessive. I don't really see the use
+- [5:45] case personally, but obviously for the
+- [5:47] actual single application, the single
+- [5:49] repository, I could see myself running
+- [5:51] like three or four agents to at least
+- [5:53] build out the front end. All right, it
+- [5:54] looks like it's finished here, y'all.
+- [5:55] And here we go. So, the purpose of agent
+- [5:58] window as well is to try to mitigate as
+- [6:00] much of the file organization over here
+- [6:02] to not they don't want to scare you. So,
+- [6:04] the idea here is that as you can see
+- [6:06] here, it's running a command and the
+- [6:07] agent's going to pull up here pretty
+- [6:08] soon. So, here we go. Once it's able to
+- [6:10] pull it up here, you'll notice these
+- [6:12] blue little bars. It kind of just
+- [6:14] disappeared right there. What is
+- [6:15] occurring when it does those blue little
+- [6:16] bars that you see in the side is that is
+- [6:18] when it's doing its live recording. And
+- [6:20] then you can see right behind me here.
+- [6:21] Wow. I'm just realizing for some of
+- [6:23] y'all that's never like been in one of
+- [6:24] these IDEs. I know this looks extremely
+- [6:26] scary. Trust me y'all. It's very simple
+- [6:28] once you do it a couple times. Playback
+- [6:29] available. If I hit view here, it's
+- [6:31] going to show you what it recorded.
+- [6:33] Obviously, this UI is absolute trash.
+- [6:35] So, I'm going to want it to kind of ramp
+- [6:36] it up here. But for now, you'll notice
+- [6:38] is that it'll do like a fast little
+- [6:40] loop. It's almost like a Tik Tok. Maybe
+- [6:42] like a Vine if you if you remember Vine
+- [6:44] was very fast here. What's occurring now
+- [6:46] is yes what I said earlier where it's
+- [6:48] probably like taking a video of this and
+- [6:50] then when it analyzes it for to code
+- [6:52] into it it's probably taking the
+- [6:54] screenshot data but think about it what
+- [6:56] is a video literally a ton of frames why
+- [6:58] do you think it's called FPS frames per
+- [7:00] second are you watching this in 30
+- [7:02] frames per second 60 frames per second
+- [7:05] same idea what I'm really looking
+- [7:07] forward to is when this gets to the
+- [7:08] point where it can actually debug and
+- [7:10] record live like very very well it's a
+- [7:12] little buggy right now so I'm going to
+- [7:14] go ahead and what you do when you do a
+- [7:16] command like that and you built out your
+- [7:17] first app and you're following along
+- [7:19] because you know you got to follow
+- [7:20] along. It's going to be all green here
+- [7:21] because this is new code. If I say
+- [7:22] accept all, we're good. This is nice. We
+- [7:25] got all this new code here. It's
+- [7:26] absolutely beautiful. It's a
+- [7:28] million-dollar product. You know you
+- [7:29] want to buy my landing page. I know you
+- [7:30] do. I'm going to go ahead and check it
+- [7:31] out real quick. I think it looks like
+- [7:32] trash right now. It does look like
+- [7:34] trash. So, I can show you a very simple
+- [7:35] thing we can do here, right? So, we can
+- [7:36] screenshot and a lot of IDE already do
+- [7:39] this, but I can, you know, drag it and
+- [7:40] be like, "Hey, make this look better."
+- [7:43] And this is kind of the back and forth
+- [7:45] that you have with quote unquote vibe
+- [7:47] coding now. So I'm going to let this
+- [7:48] make this look better cuz right now it
+- [7:50] looks horrible. And then we're going to
+- [7:51] do a real quick workflow that I wanted
+- [7:53] to show you in yesterday's video that is
+- [7:55] where it can essentially record go down
+- [7:57] it and then create a component based off
+- [7:58] what it sees visually. And while we let
+- [8:00] that make our landing page look amazing,
+- [8:02] if you genuinely are interested in
+- [8:04] learning how to code just through human
+- [8:06] language or in other words, vibe coding,
+- [8:08] you really got to check out this series
+- [8:09] here. This is an ongoing series
+- [8:11] happening on the channel here. This is
+- [8:12] going to probably be 8 to 10 hours by
+- [8:14] the time it's done. Check out episode 1.
+- [8:16] If you don't like it, you don't like it.
+- [8:18] I run this down as if you've never coded
+- [8:20] in your entire life. As simple as
+- [8:22] possible, y'all. Description down below.
+- [8:23] Let's build your first AI app or just
+- [8:25] app. Okay, another cool thing you can do
+- [8:27] is if you've never been in this kind of
+- [8:28] environment, you might be like, Corbin,
+- [8:30] where what's happening? Can I watch this
+- [8:32] live? You can watch this live. You
+- [8:34] simply go to your browser here. You can
+- [8:35] quite literally watch the rendering
+- [8:37] incur while over here it is live coding
+- [8:39] and then it's recording right there. You
+- [8:42] can see with the opening URL and this
+- [8:44] right here is the money. This right here
+- [8:45] is why I'm bullish on anti-gravity for
+- [8:47] the future. So like right now if you
+- [8:48] started using it you're buying like you
+- [8:50] know it's a penny stock but this thing
+- [8:52] is going to become one of the big boys
+- [8:53] pretty soon here. You just got to give
+- [8:55] the team time. This is their first
+- [8:57] launch. That feature right there is so
+- [8:59] prototype that yeah, it's extremely
+- [9:00] buggy, but I'm extremely bullish on it
+- [9:02] because as a developer, the one thing
+- [9:04] that really mitigates your ability to
+- [9:06] push out code fast is usually very
+- [9:08] annoying bugs. You can get stuck on bugs
+- [9:10] for hours. But this is good. And I think
+- [9:12] a lot of people have been saying in the
+- [9:13] community what they like most about
+- [9:14] anti-gravity and specifically Gemini is
+- [9:16] how good they do the UI. Like this UI is
+- [9:19] really solid to be honest with you. This
+- [9:20] is way more solid than it should be.
+- [9:22] Nice. All right, looks good. Keep. So
+- [9:24] let's go ahead and try that little
+- [9:25] screen recording workflow here. Okay,
+- [9:26] looks good. Can you navigate to local
+- [9:27] host and take a screen recording put in
+- [9:29] an MD and then add a component you want?
+- [9:32] You might be saying, Corbin, what the
+- [9:33] heck is an MD? Don't worry about it. Is
+- [9:34] not code that is read by the application
+- [9:38] in production or just a live website
+- [9:39] link. All an MD is is like directions
+- [9:42] you put on a Google doc. It's just text
+- [9:43] on a file. While stuff like appsx, like
+- [9:47] this is just code that is actually read
+- [9:48] by a machine. MD, it could be read by
+- [9:51] the AI to follow directions, but it's
+- [9:53] not being read by the machine when the
+- [9:54] application is actually being run. If
+- [9:56] you want another example of this, it's
+- [9:57] very clear. Think of like a readme. And
+- [9:59] if you don't even know what a readme is,
+- [10:00] that's like when you go to GitHub and
+- [10:02] you scroll down this information behind
+- [10:04] me where it's purely just for you to
+- [10:06] read. That's why they called a read me.
+- [10:08] That is all an MD is. Now, if you don't
+- [10:09] even know what GitHub is and you're even
+- [10:11] more confused, you really got to take a
+- [10:13] step back and learn what GitHub is.
+- [10:15] That's fundamentally non-negotiable. If
+- [10:17] you try to build out anything real, you
+- [10:19] got to know what GitHub is. If you
+- [10:20] don't, it anything you build will fail.
+- [10:22] And I'm not saying that to be harsh. I'm
+- [10:24] saying that because here's a situation I
+- [10:26] know you've ran into before. You're
+- [10:27] building, you're building, you're build,
+- [10:28] build, build, build build. Suggestion,
+- [10:30] if you know, you know. You're building
+- [10:32] and then you do a prompt and it
+- [10:33] absolutely breaks your app and then
+- [10:34] you're trying to revert back. You're
+- [10:36] trying to talk to the AI and it gets
+- [10:37] extremely frustrating. You run into
+- [10:38] loops and your app just keeps breaking.
+- [10:40] With something like GitHub, it's version
+- [10:41] control. So if you break it, you can
+- [10:43] fall back to what we call stable code.
+- [10:46] Learn it. Trust me. All right, here we
+- [10:48] go. The recording capture view is
+- [10:50] absolutely beautiful. And it's finding
+- [10:52] something to add here. Nice. Look at
+- [10:53] that. Just went back up again. So, let's
+- [10:55] go over the settings real quick and what
+- [10:56] you should choose. Review policy. Always
+- [10:58] proceed. This is if you want the AI
+- [11:00] model just to go absolutely crazy and
+- [11:02] you never tell it to stop. You can have
+- [11:04] it so that it requests review, which
+- [11:06] means that if before it does a change,
+- [11:07] it's like, hey, can I do this change? If
+- [11:09] you just want to have fun, mess around,
+- [11:10] do you always proceed, it just goes.
+- [11:12] Another example of this is terminal
+- [11:13] command auto execution. This is like
+- [11:14] when you need to install stuff. So, if
+- [11:16] you never created a TypeScript React app
+- [11:18] and you don't have this on, it's going
+- [11:20] to be like, "Hey, can I do this
+- [11:21] command?" and then you're going to say
+- [11:22] yes or no. Alternatively, you can just
+- [11:24] turn this on and let it install
+- [11:25] everything it needs to install to run
+- [11:27] the application. Basically, if you've
+- [11:28] never coded in your entire life,
+- [11:29] probably turn that on just to see an app
+- [11:31] running because that in itself is going
+- [11:33] to unlock something in your brain to be
+- [11:34] like, "This is actually pretty cool."
+- [11:35] You definitely want this on. Auto open
+- [11:37] edited files. This allows the agent to
+- [11:38] have more liberty in your repository.
+- [11:40] And stuff like this, auto agent fix
+- [11:42] lints, auto continue, especially this
+- [11:44] one. This is good for its ability to
+- [11:46] catch errors or warnings that come in
+- [11:48] when they're coding. If you want the
+- [11:49] agent to have a direct line and
+- [11:51] connection to the internet, which you
+- [11:52] probably do, so we can get the most
+- [11:54] up-to-date information when it comes to
+- [11:55] using different packages and different
+- [11:57] APIs, you're going to want this on.
+- [11:59] Enable agent web tools. Turn that on. It
+- [12:01] can search the internet. Now, the
+- [12:02] browser over here is what we've been
+- [12:04] playing around with and what you've
+- [12:05] seen. So, you definitely want this on if
+- [12:06] you want to have the ability to mess
+- [12:07] with Chrome. Everything else is very
+- [12:09] much preference. So, just kind of look
+- [12:11] through it. If you don't even understand
+- [12:12] what it means, literally copy it. Go
+- [12:14] into a chat and be like, "What does this
+- [12:16] even mean?" And then you can figure it
+- [12:17] out from there. All right, here we go.
+- [12:19] Right here. Love by developers. Nova has
+- [12:21] completely transformed our development
+- [12:22] workflow. The intelligent tools are a
+- [12:24] game changer. Thank you, Sarah.
+- [12:28] All right. Made a component based off
+- [12:30] visual context. I like it. So, that just
+- [12:32] about does today's video. Make sure to
+- [12:33] check out that entire series I
+- [12:34] referenced in the description down
+- [12:35] below. If you truly want to learn how to
+- [12:37] connect a backend, a front end, all of
+- [12:38] it together, one big cake, check out the
+- [12:41] series description down below. But, as
+- [12:43] you already know, these style of videos,
+- [12:44] I'll see you in the next. Did Corbin
+- [12:46] just show you as fast as possible how to
+- [12:47] use anti-gravity so you can build any
+- [12:49] application in the entire world type of
+- [12:50] video.
