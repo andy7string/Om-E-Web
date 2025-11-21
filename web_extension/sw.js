@@ -321,8 +321,14 @@ function flushPendingMessages() {
 // ============================================================================
 // 🚀 UNIFIED SCAN REQUEST - Single entry point for ALL scan triggers
 // ============================================================================
+
+// 🔍 DEBUG: Track scan request order
+let scanRequestCounter = 0;
+
 async function requestScan(tabId, url, trigger) {
-    console.log(`[SW] Scan request: tab=${tabId}, trigger=${trigger}, url=${url}`);
+    const requestNum = ++scanRequestCounter;
+    const timestamp = new Date().toISOString().split('T')[1].slice(0, 12);
+    console.log(`[SW] 🔍 SCAN REQUEST #${requestNum} @ ${timestamp} | trigger="${trigger}" | tab=${tabId} | url=${url}`);
 
     // Skip chrome:// URLs
     if (!url || url.startsWith("chrome://")) {
@@ -348,8 +354,16 @@ async function requestScan(tabId, url, trigger) {
         return;
     }
 
-    // Increment pageVersion
-    const pageVersion = state.pageVersion + 1;
+    // 🔢 PAGE VERSION: Only increment on actual navigation (URL change)
+    // Keep same version for rescans of same URL (DOM mutations, post_action, etc.)
+    const isNewPage = state.lastUrl !== url;
+    const pageVersion = isNewPage ? state.pageVersion + 1 : (state.pageVersion || 1);
+
+    if (isNewPage) {
+        console.log(`[SW] 📄 NEW PAGE: pageVersion=${pageVersion}`);
+    } else {
+        console.log(`[SW] 🔄 RESCAN: pageVersion=${pageVersion} (unchanged)`);
+    }
 
     // Mark scan in progress
     tabState.set(tabId, {
@@ -406,11 +420,15 @@ function handleScanComplete(message, sender) {
         console.log(`[SW] ✅ Scan complete: tab=${tabId}, pageVersion=${message.pageVersion}`);
     }
 
-    // Forward intelligence update to server
+    // Forward intelligence update to server (include pageVersion)
     if (message.intelligenceData && ws && ws.readyState === WebSocket.OPEN) {
+        const dataWithPageVersion = {
+            ...message.intelligenceData,
+            pageVersion: message.pageVersion
+        };
         ws.send(JSON.stringify({
             type: 'intelligence_update',
-            data: message.intelligenceData
+            data: dataWithPageVersion
         }));
     }
 }

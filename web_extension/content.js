@@ -1482,11 +1482,13 @@ function runScanAfterPageLoad() {
         // 🎯 NEW: Run comprehensive scan to get 262+ elements - REMOVED
         console.log("[Content] 🔍 Page load: Comprehensive scan skipped");
 
-        // ✅ SYNC: Scan elements on FRESH engine (counter = 0, no old state)
-        const scanResult = freshEngine.scanAndRegisterPageElements();
-
-        // 🚫 REMOVED: Intelligence update triggered here - moved to AFTER filtering is complete
-        // The scan result will trigger the intelligence update automatically when filtering is done
+        // 🔔 ROUTE TO SW: All scans go through service worker
+        chrome.runtime.sendMessage({
+            type: 'request_scan',
+            url: window.location.href,
+            trigger: 'content_page_load_fallback'
+        });
+        console.log("[Content] 🔔 Scan requested via SW (content_page_load_fallback)");
     } else {
         console.error("[Content] ❌ Intelligence engine not available for delayed scan");
     }
@@ -2450,18 +2452,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             // 🆕 NEW: Scan page and register all interactive elements
             // Perform a comprehensive scan of the page to find and register all interactive elements
             if (command === "scanAndRegisterElements") {
-                console.log("[Content] scanAndRegisterElements command - recreating engine for fresh start");
+                console.log("[Content] scanAndRegisterElements command - routing to SW");
 
-                try {
-                    // ♻️ DESTROY & RECREATE: Ensure completely fresh start (like browser refresh)
-                    const freshEngine = recreateIntelligenceEngine();
-                    const result = freshEngine.scanAndRegisterPageElements();
-                    console.log("[Content] scanAndRegisterElements result:", result);
-                    return sendResponse(result);
-                } catch (error) {
-                    console.error("[Content] scanAndRegisterElements error:", error);
-                    return sendResponse({ success: false, error: error.message });
-                }
+                // 🔔 ROUTE TO SW: All scans go through service worker
+                chrome.runtime.sendMessage({
+                    type: 'request_scan',
+                    url: window.location.href,
+                    trigger: 'content_manual_command'
+                });
+                console.log("[Content] 🔔 Scan requested via SW (content_manual_command)");
+                return sendResponse({ success: true, message: 'Scan requested via SW' });
             }
             
             // 🆕 NEW: Test intelligence system status
@@ -5211,21 +5211,13 @@ IntelligenceEngine.prototype.analyzeStructureChanges = function(event) {
  * ♻️ DESTROY & RECREATE: Kills old engine, creates fresh instance, scans from 0
  */
 IntelligenceEngine.prototype.queueFullRescan = function(reason) {
-    // If scan already in progress, queue for after it finishes
-    if (this._scanInProgress) {
-        console.log(`[Content] ⏸️ Rescan queued (${reason}) - waiting for current scan to finish`);
-        this._rescanQueued = reason;
-        return;
-    }
-
-    // ♻️ DESTROY & RECREATE: Kill this instance, create fresh one, scan with new instance
-    console.log(`[Content] ♻️ Full rescan (${reason}) - destroying and recreating engine`);
-
-    // Get fresh instance with zero state
-    const newEngine = recreateIntelligenceEngine();
-
-    // Trigger scan on NEW instance (not old `this`)
-    newEngine.scanAndRegisterPageElements();
+    // 🔔 ROUTE TO SW: All scans go through service worker
+    console.log(`[Content] 🔔 queueFullRescan(${reason}) - routing to SW`);
+    chrome.runtime.sendMessage({
+        type: 'request_scan',
+        url: window.location.href,
+        trigger: `content_rescan_${reason}`
+    });
 };
 
 IntelligenceEngine.prototype.registerInteractiveSubtree = function(rootNode) {
@@ -6229,7 +6221,7 @@ IntelligenceEngine.prototype.buildNormalizedPageRecords = function(options = {})
             const primarySelector = selectorList.find(sel => typeof sel === 'string' && sel.length > 0 && !sel.includes('head')) || selectorList[0] || null;
             const visibility = computeVisibility(linkEl);
 
-            const idCandidate = `a_id_${this.elementCounter++}`;
+            const idCandidate = `a_id_${currentPageVersion}_${this.elementCounter++}`;
 
             const actionRecord = {
                 type: 'action',
@@ -7271,7 +7263,7 @@ IntelligenceEngine.prototype.generateActionableId = function(element, actionType
     // Otherwise, generate next sequential ID starting from current counter
     let uniqueId = reuseId;
     if (!uniqueId) {
-        uniqueId = `a_id_${this.elementCounter++}`;
+        uniqueId = `a_id_${currentPageVersion}_${this.elementCounter++}`;
     }
     // ❌ REMOVED: No Math.max logic that bumps counter based on old IDs
     // This was causing counter inflation when old DOM markers were found

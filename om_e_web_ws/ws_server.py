@@ -373,6 +373,7 @@ async def save_intelligence_to_page_jsonl(intelligence_data, transcript_refs=Non
                 if not meta_enriched and rec.get("type") == "meta":
                     rec["browser_state"] = browser_state
                     rec["current_page"] = current_page
+                    rec["pageVersion"] = intelligence_data.get("pageVersion")
                     if transcript_refs:
                         rec["transcripts"] = transcript_refs
                     meta_enriched = True
@@ -387,7 +388,8 @@ async def save_intelligence_to_page_jsonl(intelligence_data, transcript_refs=Non
                     "timestamp": time.time(),
                     "browser_state": browser_state,
                     "current_page": current_page,
-                    "transcripts": transcript_refs
+                    "transcripts": transcript_refs,
+                    "pageVersion": intelligence_data.get("pageVersion")
                 })
 
             meta_record = next((r for r in enriched_records if r.get("type") == "meta"), {})
@@ -1088,6 +1090,7 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
     try:
         title: Optional[str] = None
         page_url: Optional[str] = None
+        page_version: Optional[int] = None
         # 🚫 REMOVED: transcript variable (no longer needed since we removed the duplicate section)
         # transcript = ""
         transcript_refs: List[Dict[str, Any]] = []
@@ -1125,6 +1128,8 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
                                 or rec.get('browser_state', {}).get('active_tab', {}).get('url')
                                 or page_url
                             )
+                        if page_version is None and rec.get("pageVersion") is not None:
+                            page_version = rec.get("pageVersion")
                         if not transcript_refs and rec.get("transcripts"):
                             transcript_refs = rec.get("transcripts", [])
                     mapped = _map_prompt_action_sentence(rec)
@@ -1357,10 +1362,9 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
             email_actions.sort(key=lambda r: r['index'])
 
         parts: List[str] = []
-        parts.append(f"# {title or 'Page'}")
-        if page_url:
-            parts.append("")
-            parts.append(f"**URL:** {page_url}")
+        parts.append(f"# ({page_version}) {title or 'Page'}")
+        parts.append("")
+        parts.append(f"**URL:** {page_url or 'unknown'}")
         parts.append("")
 
         # 🚫 REMOVED: Transcript section (duplicate of text.md)
