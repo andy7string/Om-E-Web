@@ -3057,6 +3057,8 @@ async def handler(ws):
                     recent_insights = intelligence_data.get("recentInsights", [])
 
                     print(f"🧠 Intelligence data: {len(actionable_elements)} actionable elements, {len(recent_insights)} insights")
+                    print(f"🧠 DEBUG: intelligence_data keys: {list(intelligence_data.keys())}")
+                    print(f"🧠 DEBUG: pageVersion in intelligence_data: {intelligence_data.get('pageVersion')}")
 
                     page_state = intelligence_data.get("pageState", {})
                     transcripts_payload = intelligence_data.get("transcripts") or []

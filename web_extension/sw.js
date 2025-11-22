@@ -35,10 +35,124 @@ let isConnected = false;
 let pendingMessages = [];
 
 // ============================================================================
+// 🎯 PERSISTENT PAGE VERSION MANAGEMENT - Chrome Storage API
+// ============================================================================
+/**
+ * 🔐 ROCK-SOLID PAGE VERSION STORAGE
+ * 
+ * Uses Chrome Storage API for persistence across:
+ * - Extension reloads
+ * - Browser restarts
+ * - Tab navigations
+ * 
+ * Business Rules:
+ * 1. Tab closes → Delete all versions for that tab
+ * 2. Tab opens/navigates → Start from version 1
+ * 3. Page refresh (F5) → Reset to version 1
+ * 4. SPA navigation → Increment version
+ * 5. DOM mutation/rescan → Keep same version
+ * 
+ * Storage structure:
+ * {
+ *   "pageVersions": {
+ *     "tab_123_https://youtube.com/watch": 5,
+ *     "tab_456_https://youtube.com/results?q=test": 3
+ *   }
+ * }
+ */
+
+// Normalize URL for storage key (remove fragments, normalize query params)
+function normalizeUrl(url) {
+    try {
+        const urlObj = new URL(url);
+        // Remove fragment
+        urlObj.hash = '';
+        // Sort query params for consistency
+        urlObj.searchParams.sort();
+        return urlObj.toString();
+    } catch (e) {
+        return url; // Fallback to original if parsing fails
+    }
+}
+
+// Generate storage key for tab-URL combination
+function getPageVersionKey(tabId, url) {
+    const normalized = normalizeUrl(url);
+    return `tab_${tabId}_${normalized}`;
+}
+
+// Get pageVersion from Chrome Storage
+async function getPageVersion(tabId, url) {
+    const key = getPageVersionKey(tabId, url);
+    const result = await chrome.storage.local.get(['pageVersions']);
+    const versions = result.pageVersions || {};
+    const version = versions[key] || 0; // 0 means "not yet set"
+    console.log(`[SW] 📖 Read pageVersion=${version} for ${key}`);
+    return version;
+}
+
+// Set pageVersion in Chrome Storage
+async function setPageVersion(tabId, url, version) {
+    const key = getPageVersionKey(tabId, url);
+    const result = await chrome.storage.local.get(['pageVersions']);
+    const versions = result.pageVersions || {};
+    versions[key] = version;
+    await chrome.storage.local.set({ pageVersions: versions });
+    console.log(`[SW] 💾 Saved pageVersion=${version} for ${key}`);
+    return version;
+}
+
+// Increment pageVersion for new page navigation
+async function incrementPageVersion(tabId, url) {
+    const current = await getPageVersion(tabId, url);
+    const newVersion = current + 1;
+    await setPageVersion(tabId, url, newVersion);
+    console.log(`[SW] ⬆️  Incremented pageVersion: ${current} → ${newVersion}`);
+    return newVersion;
+}
+
+// Reset pageVersion to 1 (for page refresh)
+async function resetPageVersion(tabId, url) {
+    await setPageVersion(tabId, url, 1);
+    console.log(`[SW] 🔄 Reset pageVersion to 1 for tab ${tabId}`);
+    return 1;
+}
+
+// Delete all pageVersions for a specific tab (on tab close)
+async function deleteTabPageVersions(tabId) {
+    const result = await chrome.storage.local.get(['pageVersions']);
+    const versions = result.pageVersions || {};
+
+    // Remove all entries for this tab
+    const cleaned = {};
+    let removedCount = 0;
+    for (const [key, version] of Object.entries(versions)) {
+        const keyTabId = parseInt(key.split('_')[1]);
+        if (keyTabId !== tabId) {
+            cleaned[key] = version;
+        } else {
+            removedCount++;
+        }
+    }
+
+    if (removedCount > 0) {
+        await chrome.storage.local.set({ pageVersions: cleaned });
+        console.log(`[SW] 🗑️  Deleted ${removedCount} pageVersion entries for tab ${tabId}`);
+    }
+}
+
+// Listen for tab close events
+chrome.tabs.onRemoved.addListener((tabId) => {
+    console.log(`[SW] 🚪 Tab ${tabId} closed, cleaning up pageVersions`);
+    deleteTabPageVersions(tabId);
+    tabState.delete(tabId);
+});
+
+// ============================================================================
 // 🎯 CLEAN SCAN ORCHESTRATION - One scan at a time, no overlaps
 // ============================================================================
-// Per-tab state tracking with pageVersion
-const tabState = new Map(); // tabId -> { pageVersion, scanInProgress, lastUrl }
+// Per-tab state tracking (in-memory for scan coordination)
+const tabState = new Map(); // tabId -> { scanInProgress, lastUrl }
 
 // Legacy state (keeping for compatibility with other code)
 const tabScanState = new Map(); // DEPRECATED - will be removed
@@ -72,35 +186,35 @@ async function connectWebSocket() {
     }
 
     console.log("[SW] Extension startup / reconnect, connecting WebSocket…");
-    
+
     try {
         ws = new WebSocket("ws://127.0.0.1:17892");
-        
+
         // Handle connection events
         ws.onopen = () => {
             console.log("[SW] WS open");
             isConnected = true;
-            
+
             // Wait for WebSocket to be fully ready before sending messages
             setTimeout(() => {
                 if (ws && ws.readyState === WebSocket.OPEN) {
                     console.log("[SW] WebSocket fully ready, sending initial messages");
-                    
+
                     // Send bridge status to identify this client as the extension
                     sendToServer({
                         type: "bridge_status",
                         status: "connected"
                     });
-                    
+
                     // Send initial tabs information
                     sendTabsInfo();
-                    
+
                     // 🆕 NEW: Send active tab info immediately on connection
                     sendActiveTabInfo();
-                    
+
                     // Flush any pending messages that were queued
                     flushPendingMessages();
-                    
+
                     // Send immediate heartbeat so server knows we are alive
                     sendHeartbeat("onopen");
                 } else {
@@ -109,12 +223,12 @@ async function connectWebSocket() {
                 }
             }, 100); // Small delay to ensure WebSocket is ready
         };
-        
+
         ws.onmessage = (event) => {
             console.log("[SW] Message received:", event.data);
             handleServerMessage(event.data);
         };
-        
+
         ws.onclose = (event) => {
             console.warn("[SW] WS closed", {
                 code: event.code,
@@ -122,15 +236,15 @@ async function connectWebSocket() {
                 wasClean: event.wasClean
             });
             isConnected = false;
-            
+
             // Attempt to reconnect after a delay
             setTimeout(connectWebSocket, 1000);
         };
-        
+
         ws.onerror = (error) => {
             console.error("[SW] WS error:", error);
         };
-        
+
     } catch (error) {
         console.error("[SW] Failed to connect:", error);
         // Retry connection after delay
@@ -145,15 +259,15 @@ async function ensureKeepAlivePort() {
     if (keepAlivePorts.size > 0) {
         return;
     }
-    
+
     console.log("[SW] ⏳ No keep-alive ports detected, attempting recovery…");
-    
+
     // Try to create or ensure the offscreen document first (works even with no tabs)
     await ensureOffscreenDocument();
     if (keepAlivePorts.size > 0) {
         return;
     }
-    
+
     // Fallback: inject helper into any accessible HTTP(S) tab
     try {
         const candidateTabs = await chrome.tabs.query({ url: ["http://*/*", "https://*/*"] });
@@ -161,7 +275,7 @@ async function ensureKeepAlivePort() {
             if (!isTabAccessible(tab)) {
                 continue;
             }
-            
+
             try {
                 await chrome.scripting.executeScript({
                     target: { tabId: tab.id },
@@ -176,14 +290,14 @@ async function ensureKeepAlivePort() {
                         });
                     }
                 });
-                
+
                 console.log(`[SW] Keep-alive port established via tab ${tab.id}`);
                 return;
             } catch (injectionError) {
                 console.warn(`[SW] Keep-alive injection failed for tab ${tab.id}:`, injectionError.message);
             }
         }
-        
+
         console.warn("[SW] Keep-alive port not created - no accessible tabs available");
     } catch (error) {
         console.error("[SW] Failed to establish keep-alive port:", error);
@@ -198,13 +312,13 @@ async function ensureOffscreenDocument() {
     if (!chrome.offscreen || !chrome.offscreen.createDocument) {
         return;
     }
-    
+
     try {
         const hasDoc = await chrome.offscreen.hasDocument?.();
         if (hasDoc) {
             return;
         }
-        
+
         await chrome.offscreen.createDocument({
             url: chrome.runtime.getURL("offscreen.html"),
             reasons: ["TESTING"],
@@ -242,7 +356,7 @@ function sendHeartbeat(reason = "manual") {
         connectWebSocket();
         return;
     }
-    
+
     lastHeartbeatSent = Date.now();
     sendToServer({
         type: "ping",
@@ -264,13 +378,13 @@ async function loadSiteConfigsFromStorage() {
         const result = await chrome.storage.local.get(['siteConfigs']);
         siteConfigs = result.siteConfigs || {};
         console.log(`[SW] 📋 Loaded ${Object.keys(siteConfigs).length} site configs from storage on startup`);
-        
+
         // Log available domains for debugging
         if (Object.keys(siteConfigs).length > 0) {
             const domains = Object.keys(siteConfigs).filter(domain => domain !== 'default');
             console.log(`[SW] 🎯 Available site configs for domains:`, domains);
         }
-        
+
     } catch (error) {
         console.error("[SW] ❌ Failed to load site configs from storage on startup:", error);
         siteConfigs = {};
@@ -306,7 +420,7 @@ function flushPendingMessages() {
         console.log(`[SW] Flushing ${pendingMessages.length} pending messages`);
         const messagesToSend = [...pendingMessages];
         pendingMessages = [];
-        
+
         messagesToSend.forEach(message => {
             try {
                 ws.send(JSON.stringify(message));
@@ -336,7 +450,7 @@ async function requestScan(tabId, url, trigger) {
         return;
     }
 
-    const state = tabState.get(tabId) || { pageVersion: 0, scanInProgress: false };
+    const state = tabState.get(tabId) || { scanInProgress: false };
 
     // 🔒 DEDUPE: Scan already in progress
     if (state.scanInProgress) {
@@ -354,20 +468,31 @@ async function requestScan(tabId, url, trigger) {
         return;
     }
 
-    // 🔢 PAGE VERSION: Only increment on actual navigation (URL change)
-    // Keep same version for rescans of same URL (DOM mutations, post_action, etc.)
+    // 🔢 PAGE VERSION: Get from Chrome Storage (persistent across reloads)
     const isNewPage = state.lastUrl !== url;
-    const pageVersion = isNewPage ? state.pageVersion + 1 : (state.pageVersion || 1);
+    const isRefresh = !isNewPage && trigger === 'navigation_completed';
+    let pageVersion;
 
-    if (isNewPage) {
+    if (isRefresh) {
+        // Page refresh (F5) - reset to version 1
+        pageVersion = await resetPageVersion(tabId, url);
+        console.log(`[SW] 🔄 PAGE REFRESH: pageVersion reset to ${pageVersion}`);
+    } else if (isNewPage) {
+        // New URL navigation - increment version
+        pageVersion = await incrementPageVersion(tabId, url);
         console.log(`[SW] 📄 NEW PAGE: pageVersion=${pageVersion}`);
     } else {
+        // Rescan of same URL - keep existing version
+        pageVersion = await getPageVersion(tabId, url);
+        if (pageVersion === 0) {
+            // First scan of this tab-URL combo
+            pageVersion = await incrementPageVersion(tabId, url);
+        }
         console.log(`[SW] 🔄 RESCAN: pageVersion=${pageVersion} (unchanged)`);
     }
 
     // Mark scan in progress
     tabState.set(tabId, {
-        pageVersion,
         scanInProgress: true,
         lastUrl: url
     });
@@ -424,7 +549,7 @@ function handleScanComplete(message, sender) {
     if (message.intelligenceData && ws && ws.readyState === WebSocket.OPEN) {
         const dataWithPageVersion = {
             ...message.intelligenceData,
-            pageVersion: message.pageVersion
+            pageVersion: message.pageVersion || 1  // Never send null
         };
         ws.send(JSON.stringify({
             type: 'intelligence_update',
@@ -448,7 +573,7 @@ async function triggerIntelligenceScan(tabId, url, reason = "navigation_complete
  */
 function clearTabCache(tabId) {
     console.log("[SW] Clearing cache for tab:", tabId);
-    
+
     // Clear any cached data for this tab
     if (tabCache.has(tabId)) {
         const cachedData = tabCache.get(tabId);
@@ -459,7 +584,7 @@ function clearTabCache(tabId) {
         });
         tabCache.delete(tabId);
     }
-    
+
     // Mark tab as needing fresh scan
     const tabState = internalTabState.get(tabId);
     if (tabState) {
@@ -481,17 +606,17 @@ async function ensureContentScriptFresh(tabId) {
             console.log("[SW] ⏸️ Skipping content script refresh - action in progress for tab:", tabId);
             return;
         }
-        
+
         console.log("[SW] Ensuring content script is fresh for tab:", tabId);
-        
+
         // Force re-injection of content script
         await chrome.scripting.executeScript({
             target: { tabId: tabId },
             files: ['content.js']
         });
-        
+
         console.log("[SW] Content script refreshed for tab:", tabId);
-        
+
         // 🆕 NEW: Proactively send site config immediately after content script injection
         try {
             const tab = await chrome.tabs.get(tabId);
@@ -502,17 +627,17 @@ async function ensureContentScriptFresh(tabId) {
         } catch (error) {
             console.warn(`[SW] ⚠️ Could not proactively send site config after refresh for tab ${tabId}:`, error.message);
         }
-        
+
         // Mark tab as having fresh content script
         const tabState = internalTabState.get(tabId);
         if (tabState) {
             tabState.contentScriptFresh = true;
             tabState.lastContentScriptRefresh = Date.now();
         }
-        
+
     } catch (error) {
         console.log("[SW] Content script refresh failed:", error.message);
-        
+
         // Mark tab as having refresh issues
         const tabState = internalTabState.get(tabId);
         if (tabState) {
@@ -541,21 +666,21 @@ async function sendTabsInfo(forceRefresh = false) {
             status: tab.status,
             pendingUrl: tab.pendingUrl
         }));
-        
+
         // 🆕 ENHANCED: Update internal state and manage cache
         updateInternalTabState(tabsInfo, forceRefresh);
-        
+
         // Send to server
         sendToServer({
             type: "tabs_info",
             tabs: tabsInfo
         });
-        
+
         console.log("[SW] Tabs info updated and sent to server");
-        
+
         // 🆕 NEW: Also send active tab information immediately
         await sendActiveTabInfo();
-        
+
     } catch (error) {
         console.error("[SW] Failed to get tabs info:", error);
     }
@@ -579,14 +704,14 @@ async function sendActiveTabInfo() {
                 status: activeTab.status,
                 pendingUrl: activeTab.pendingUrl
             };
-            
+
             // Send active tab info to server
             sendToServer({
                 type: "active_tab_info",
                 activeTab: activeTabInfo,
                 timestamp: Date.now()
             });
-            
+
             console.log("[SW] 🎯 Active tab info sent:", {
                 id: activeTabInfo.id,
                 url: activeTabInfo.url,
@@ -606,25 +731,25 @@ async function sendActiveTabInfo() {
  */
 function updateInternalTabState(tabsInfo, forceRefresh = false) {
     console.log("[SW] Updating internal tab state...");
-    
+
     // Clear old state if force refresh
     if (forceRefresh) {
         internalTabState.clear();
         tabCache.clear();
         console.log("[SW] Internal state cleared due to force refresh");
     }
-    
+
     // Update internal state with new tab info
     tabsInfo.forEach(tabInfo => {
         const oldInfo = internalTabState.get(tabInfo.id);
-        
+
         // Check if this tab has changed significantly
-        if (!oldInfo || 
-            oldInfo.url !== tabInfo.url || 
+        if (!oldInfo ||
+            oldInfo.url !== tabInfo.url ||
             oldInfo.title !== tabInfo.title ||
             oldInfo.active !== tabInfo.active ||
             oldInfo.status !== tabInfo.status) {
-            
+
             console.log("[SW] Tab state changed:", {
                 id: tabInfo.id,
                 oldUrl: oldInfo?.url,
@@ -634,10 +759,10 @@ function updateInternalTabState(tabsInfo, forceRefresh = false) {
                 oldStatus: oldInfo?.status,
                 newStatus: tabInfo.status
             });
-            
+
             // Clear any cached references for this tab
             clearTabCache(tabInfo.id);
-            
+
             // Update internal state with enhanced information
             internalTabState.set(tabInfo.id, {
                 ...tabInfo,
@@ -660,14 +785,14 @@ function updateInternalTabState(tabsInfo, forceRefresh = false) {
                 siteConfigError: null,
                 lastConfigError: null
             });
-            
+
             // If this is a new active tab, ensure content script is fresh
             if (tabInfo.active && tabInfo.id !== lastActiveTabId) {
                 console.log("[SW] New active tab detected, ensuring fresh content script");
                 ensureContentScriptFresh(tabInfo.id);
                 lastActiveTabId = tabInfo.id;
             }
-            
+
             // If URL changed, this definitely needs fresh scan
             if (oldInfo && oldInfo.url !== tabInfo.url) {
                 console.log("[SW] URL change detected, forcing content script refresh");
@@ -675,7 +800,7 @@ function updateInternalTabState(tabsInfo, forceRefresh = false) {
             }
         }
     });
-    
+
     // Remove tabs that no longer exist
     const currentTabIds = new Set(tabsInfo.map(t => t.id));
     for (const [tabId, tabInfo] of internalTabState.entries()) {
@@ -685,7 +810,7 @@ function updateInternalTabState(tabsInfo, forceRefresh = false) {
             clearTabCache(tabId);
         }
     }
-    
+
     console.log("[SW] Internal tab state updated:", {
         totalTabs: internalTabState.size,
         activeTabs: tabsInfo.filter(t => t.active).length,
@@ -705,22 +830,22 @@ function handleServerMessage(messageData) {
     try {
         const message = JSON.parse(messageData);
         console.log("[SW] Parsed message:", message);
-        
+
         // Handle site configs update
         if (message.type === "site_configs_update") {
             console.log("[SW] 📋 Received site configs update:", message.data);
-            
+
             // 🆕 NEW: Store site configs locally for immediate access
             siteConfigs = message.data;
             console.log(`[SW] ✅ Site configs stored locally: ${Object.keys(siteConfigs).length} configs available`);
-            
+
             // Store in chrome.storage for persistence
             chrome.storage.local.set({ siteConfigs: message.data }, () => {
                 console.log("[SW] ✅ Site configs stored in chrome.storage");
             });
-            
 
-            
+
+
             // Forward to all content scripts
             chrome.tabs.query({}, (tabs) => {
                 tabs.forEach(tab => {
@@ -734,7 +859,7 @@ function handleServerMessage(messageData) {
             });
             return;
         }
-        
+
         // Handle LLM action messages
         if (message.type === "execute_llm_action") {
             console.log("[SW] 🤖 Processing LLM action:", message.data);
@@ -760,11 +885,11 @@ function handleServerMessage(messageData) {
             });
             return;
         }
-        
+
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);
-            
+
             // Route command to appropriate handler
             switch (message.command) {
                 case "navigate":
@@ -807,7 +932,7 @@ function handleServerMessage(messageData) {
  */
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("[SW] Internal message received:", message);
-    
+
     try {
         switch (message.type) {
             case "setWsUrl":
@@ -874,7 +999,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         console.error("[SW] Error handling internal message:", error);
         sendResponse({ ok: false, error: error.message });
     }
-    
+
     // Return true to indicate async response handling
     return true;
 });
@@ -886,10 +1011,10 @@ chrome.runtime.onConnect.addListener((port) => {
     if (port.name !== KEEP_ALIVE_PORT_NAME) {
         return;
     }
-    
+
     keepAlivePorts.add(port);
     console.log("[SW] Keep-alive port connected", { total: keepAlivePorts.size });
-    
+
     port.onDisconnect.addListener(() => {
         keepAlivePorts.delete(port);
         console.log("[SW] Keep-alive port disconnected", { remaining: keepAlivePorts.size });
@@ -909,24 +1034,24 @@ async function handleNavigateCommand(message) {
     try {
         const { url } = message.params;
         console.log("[SW] Executing navigate command with params:", message.params);
-        
+
         // Find the active tab to navigate
         const activeTab = await findActiveTab();
         if (!activeTab) {
             sendErrorResponse(message.id, "NO_ACTIVE_TAB", "No active tab found");
             return;
         }
-        
+
         // Navigate the tab to the new URL
         await chrome.tabs.update(activeTab.id, { url: url });
         console.log("[SW] Navigated tab:", activeTab.id, "to:", url);
-        
+
         // 🆕 ENHANCED: Clear cache and mark for fresh scan
         clearTabCache(activeTab.id);
-        
+
         // Send success response
         sendSuccessResponse(message.id, {});
-        
+
     } catch (error) {
         console.error("[SW] Navigation failed:", error);
         sendErrorResponse(message.id, "NAVIGATION_ERROR", error.message);
@@ -944,7 +1069,7 @@ async function handleNavigateCommand(message) {
 async function handleDOMCommand(message) {
     try {
         console.log("[SW] Sending DOM command to content script:", message.command);
-        
+
         // Find the active tab to send the command to
         console.log("[SW] 🔍 Finding active tab for command:", message.command);
         const activeTab = await findActiveTab();
@@ -952,21 +1077,21 @@ async function handleDOMCommand(message) {
             sendErrorResponse(message.id, "NO_ACTIVE_TAB", "No active tab found");
             return;
         }
-        
+
         console.log("[SW] 🎯 Command will be sent to tab:", {
             id: activeTab.id,
             url: activeTab.url,
             title: activeTab.title,
             active: activeTab.active
         });
-        
+
         // 🆕 ENHANCED: Check if content script needs refresh
         const tabState = internalTabState.get(activeTab.id);
         if (tabState && (tabState.needsFreshScan || !tabState.contentScriptFresh)) {
             console.log("[SW] Content script needs refresh for tab:", activeTab.id);
             await ensureContentScriptFresh(activeTab.id);
         }
-        
+
         // Try to inject content script if it's not already there
         try {
             await chrome.scripting.executeScript({
@@ -974,26 +1099,26 @@ async function handleDOMCommand(message) {
                 files: ['content.js']
             });
             console.log("[SW] Content script injected into tab:", activeTab.id);
-            
+
             // 🆕 NEW: Proactively send site config immediately after content script injection
             console.log(`[SW] 🚀 Proactively sending site config after content script injection for tab ${activeTab.id}`);
             await proactivelySendSiteConfig(activeTab.id, activeTab.url);
-            
+
         } catch (injectError) {
             console.log("[SW] Content script already exists or injection failed:", injectError.message);
         }
-        
+
         // Wait a moment for content script to initialize
         await new Promise(resolve => setTimeout(resolve, 100));
-        
+
         // Send message to content script in the active tab
         const response = await chrome.tabs.sendMessage(activeTab.id, {
             command: message.command,
             params: message.params || {}
         });
-        
+
         console.log("[SW] Content script response:", response);
-        
+
         // Check if response contains an error
         if (response && response.error) {
             console.log("[SW] Content script returned error:", response.error);
@@ -1005,12 +1130,12 @@ async function handleDOMCommand(message) {
                 tabState.lastSuccessfulScan = Date.now();
                 console.log("[SW] Tab marked as successfully scanned:", activeTab.id);
             }
-            
+
             // Send successful response back to server
             console.log("[SW] Sending successful response back to server");
             sendSuccessResponse(message.id, response || {});
         }
-        
+
     } catch (error) {
         console.error("[SW] Failed to execute DOM command:", error);
         sendErrorResponse(message.id, "MESSAGE_ERROR", error.message);
@@ -1027,23 +1152,23 @@ async function handleSetWsUrl(message, sendResponse) {
     try {
         const { url } = message;
         console.log("[SW] Setting WebSocket URL to:", url);
-        
+
         // Store the new URL
         await chrome.storage.local.set({ wsUrl: url });
-        
+
         // If we have an existing connection, close it and reconnect
         if (ws) {
             console.log("[SW] Closing existing WebSocket connection");
             ws.close();
         }
-        
+
         // Reconnect with new URL
         setTimeout(() => {
             connectWebSocket();
         }, 100);
-        
+
         sendResponse({ ok: true, message: "WebSocket URL updated" });
-        
+
     } catch (error) {
         console.error("[SW] Failed to set WebSocket URL:", error);
         sendResponse({ ok: false, error: error.message });
@@ -1059,14 +1184,14 @@ async function handleSetWsUrl(message, sendResponse) {
 async function handleForceRefresh(message, sendResponse) {
     try {
         console.log("[SW] Force refresh requested");
-        
+
         // Force refresh all internal state
         await sendTabsInfo(true); // true = force refresh
-        
+
         // Force content script refresh for all tabs
         const tabs = await chrome.tabs.query({});
         let refreshedCount = 0;
-        
+
         for (const tab of tabs) {
             try {
                 await ensureContentScriptFresh(tab.id);
@@ -1075,14 +1200,14 @@ async function handleForceRefresh(message, sendResponse) {
                 console.log("[SW] Failed to refresh content script for tab:", tab.id, error.message);
             }
         }
-        
+
         console.log("[SW] Force refresh completed:", refreshedCount, "tabs refreshed");
-        sendResponse({ 
-            ok: true, 
+        sendResponse({
+            ok: true,
             message: `Force refresh completed: ${refreshedCount} tabs refreshed`,
             refreshedTabs: refreshedCount
         });
-        
+
     } catch (error) {
         console.error("[SW] Force refresh failed:", error);
         sendResponse({ ok: false, error: error.message });
@@ -1098,28 +1223,28 @@ async function handleForceRefresh(message, sendResponse) {
 async function handleClearAllCache(message, sendResponse) {
     try {
         console.log("[SW] Clear all cache requested");
-        
+
         // Clear all tab cache
         const clearedTabs = [];
         for (const [tabId, cachedData] of tabCache.entries()) {
             clearTabCache(tabId);
             clearedTabs.push(tabId);
         }
-        
+
         // Mark all tabs as needing fresh scan
         for (const [tabId, tabState] of internalTabState.entries()) {
             tabState.needsFreshScan = true;
             tabState.contentScriptFresh = false;
             tabState.cacheCleared = true;
         }
-        
+
         console.log("[SW] All cache cleared:", clearedTabs.length, "tabs affected");
-        sendResponse({ 
-            ok: true, 
+        sendResponse({
+            ok: true,
             message: `All cache cleared: ${clearedTabs.length} tabs affected`,
             clearedTabs: clearedTabs.length
         });
-        
+
     } catch (error) {
         console.error("[SW] Clear all cache failed:", error);
         sendResponse({ ok: false, error: error.message });
@@ -1135,7 +1260,7 @@ async function handleClearAllCache(message, sendResponse) {
 async function handleGetStatus(message, sendResponse) {
     try {
         console.log("[SW] Status request received");
-        
+
         // Calculate status metrics
         const totalTabs = internalTabState.size;
         const tabsWithFreshScripts = Array.from(internalTabState.values())
@@ -1144,21 +1269,21 @@ async function handleGetStatus(message, sendResponse) {
             .filter(tab => tab.needsFreshScan).length;
         const tabsWithCacheIssues = Array.from(internalTabState.values())
             .filter(tab => tab.contentScriptRefreshFailed).length;
-        
+
         // 🆕 NEW: DOM change metrics
         const tabsWithDOMChanges = Array.from(internalTabState.values())
             .filter(tab => tab.domChanges && tab.domChanges.totalChanges > 0).length;
         const totalDOMChanges = Array.from(internalTabState.values())
             .reduce((total, tab) => total + (tab.domChanges?.totalChanges || 0), 0);
         const recentDOMChanges = Array.from(internalTabState.values())
-            .filter(tab => tab.domChanges && tab.domChanges.lastChangeTime && 
-                    (Date.now() - tab.domChanges.lastChangeTime) < 30000).length; // Last 30 seconds
-        
+            .filter(tab => tab.domChanges && tab.domChanges.lastChangeTime &&
+                (Date.now() - tab.domChanges.lastChangeTime) < 30000).length; // Last 30 seconds
+
         // 🆕 NEW: Site config status
         const tabsWithSiteConfigs = Array.from(internalTabState.values())
             .filter(tab => tab.siteConfigSent).length;
         const totalSiteConfigs = Object.keys(siteConfigs).length;
-        
+
         const status = {
             isConnected: isConnected,
             totalTabs: totalTabs,
@@ -1176,10 +1301,10 @@ async function handleGetStatus(message, sendResponse) {
             websocketState: ws ? ws.readyState : 'CLOSED',
             timestamp: Date.now()
         };
-        
+
         console.log("[SW] Status calculated:", status);
         sendResponse({ ok: true, result: status });
-        
+
     } catch (error) {
         console.error("[SW] Get status failed:", error);
         sendResponse({ ok: false, error: error.message });
@@ -1205,7 +1330,7 @@ async function handleDOMChanged(message, sendResponse) {
             url: message.url,
             timestamp: new Date(message.timestamp).toISOString()
         });
-        
+
         // Find the tab that sent this message
         let targetTabId = null;
         for (const [tabId, tabState] of internalTabState.entries()) {
@@ -1214,7 +1339,7 @@ async function handleDOMChanged(message, sendResponse) {
                 break;
             }
         }
-        
+
         if (targetTabId) {
             // Update internal state with DOM changes
             const tabState = internalTabState.get(targetTabId);
@@ -1223,16 +1348,16 @@ async function handleDOMChanged(message, sendResponse) {
                 tabState.domChanges.totalChanges = message.changeNumber;
                 tabState.domChanges.lastChangeTime = message.timestamp;
                 tabState.domChanges.lastMutationCount = message.totalMutations;
-                
+
                 // Add change types to the set
                 message.types.forEach(type => {
                     tabState.domChanges.changeTypes.add(type);
                 });
-                
+
                 // Mark tab as needing fresh scan
                 tabState.needsFreshScan = true;
                 tabState.lastDOMChange = message.timestamp;
-                
+
                 console.log("[SW] ✅ Tab DOM changes updated:", {
                     tabId: targetTabId,
                     url: tabState.url,
@@ -1245,7 +1370,7 @@ async function handleDOMChanged(message, sendResponse) {
         } else {
             console.log("[SW] ⚠️ Could not find tab for DOM change message:", message.url);
         }
-        
+
         // 🆕 NEW: Optionally notify server about significant DOM changes
         if (message.totalMutations > 10) { // Only notify for significant changes
             console.log("[SW] 📤 Notifying server of significant DOM changes");
@@ -1261,7 +1386,7 @@ async function handleDOMChanged(message, sendResponse) {
                 }
             });
         }
-        
+
         // 🚫 DISABLED: Don't trigger full rescans on DOM mutations
         // DOM mutations are now handled incrementally by content.js via registerInteractiveSubtree
         // which respects the scan lock and prevents duplicate IDs.
@@ -1285,7 +1410,7 @@ async function handleDOMChanged(message, sendResponse) {
         if (targetTabId && message.isSignificant) {
             console.log("[SW] ✅ DOM mutation detected - content.js will handle incrementally via registerInteractiveSubtree");
         }
-        
+
     } catch (error) {
         console.error("[SW] ❌ Failed to handle DOM changed message:", error);
     }
@@ -1297,7 +1422,7 @@ async function handleNetworkActivity(message, sender) {
     try {
         const tabId = sender.tab?.id;
         if (!tabId) return;
-        
+
         console.log("[SW] 🌐 Network activity:", {
             eventType: message.eventType,
             url: message.url,
@@ -1305,7 +1430,7 @@ async function handleNetworkActivity(message, sender) {
             inflightRequests: message.inflightRequests,
             tabId
         });
-        
+
         // Update tab state with network activity
         const tabState = internalTabState.get(tabId);
         if (tabState) {
@@ -1316,10 +1441,10 @@ async function handleNetworkActivity(message, sender) {
                     recentRequests: []
                 };
             }
-            
+
             tabState.networkActivity.inflightRequests = message.inflightRequests || 0;
             tabState.networkActivity.lastActivity = message.timestamp;
-            
+
             // Track recent requests (keep last 10)
             if (message.eventType.includes('_end')) {
                 tabState.networkActivity.recentRequests.push({
@@ -1332,7 +1457,7 @@ async function handleNetworkActivity(message, sender) {
                 }
             }
         }
-        
+
         // 🆕 NEW: Notify webserver about network activity
         sendToServer({
             type: "network_activity",
@@ -1343,7 +1468,7 @@ async function handleNetworkActivity(message, sender) {
             timestamp: message.timestamp,
             inflightRequests: message.inflightRequests
         });
-        
+
         // 🚫 DISABLED: Don't trigger automatic rescans during action execution
         // This prevents invalidating action IDs before actions complete
         // Rescans will be triggered post-action instead
@@ -1358,7 +1483,7 @@ async function handleNetworkActivity(message, sender) {
         } else if (actionInProgress) {
             console.log("[SW] ⏸️ Skipping network idle rescan - action in progress");
         }
-        
+
     } catch (error) {
         console.error("[SW] ❌ Failed to handle network activity:", error);
     }
@@ -1376,7 +1501,7 @@ async function handleNetworkActivity(message, sender) {
 async function handleIntelligenceUpdate(message, sender, sendResponse) {
     try {
         console.log("[SW] 🧠 Processing intelligence update from content script");
-        
+
         // 🆕 ENHANCED: Better data validation
         if (!message || !message.data) {
             console.error("[SW] ❌ Invalid intelligence update message:", message);
@@ -1406,7 +1531,7 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
             sendResponse({ ok: true, skipped: true, reason: 'inactive_tab' });
             return;
         }
-        
+
         const intelligenceData = message.data;
         console.log("[SW] 🧠 Intelligence data received:", {
             hasPageState: !!intelligenceData.pageState,
@@ -1421,12 +1546,12 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
         intelligenceData.tabId = sourceTabId;
         intelligenceData.tabUrl = sourceTabUrl;
         intelligenceData.tabTitle = sourceTabTitle;
-        
+
         // 🆕 ENHANCED: Validate required fields
         if (!intelligenceData.actionableElements || !Array.isArray(intelligenceData.actionableElements)) {
             console.warn("[SW] ⚠️ Missing or invalid actionableElements in intelligence data");
         }
-        
+
         // Forward intelligence update to server
         if (ws && ws.readyState === WebSocket.OPEN) {
             const serverMessage = {
@@ -1436,16 +1561,16 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
                 tabTitle: sourceTabTitle,
                 data: intelligenceData
             };
-            
+
             ws.send(JSON.stringify(serverMessage));
             console.log("[SW] 📤 Intelligence update sent to server");
-            
+
             sendResponse({ ok: true, message: "Intelligence update sent to server" });
         } else {
             console.warn("[SW] ⚠️ WebSocket not available for intelligence update");
             sendResponse({ ok: false, error: "WebSocket not available" });
         }
-        
+
     } catch (error) {
         console.error("[SW] ❌ Error handling intelligence update:", error);
         console.error("[SW] ❌ Error details:", {
@@ -1469,13 +1594,13 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
 async function handleExecuteLLMAction(message, sendResponse) {
     try {
         console.log("[SW] 🤖 Executing LLM action:", message.data);
-        
+
         const { actionId, actionType, params } = message.data;
-        
+
         // 🆕 NEW: Set action in progress flag to prevent content script refresh
         actionInProgress = true;
         console.log("[SW] 🔒 Action execution started - preventing content script refresh");
-        
+
         // Find the active tab to execute the action
         const activeTab = await findActiveTab();
         if (!activeTab) {
@@ -1483,7 +1608,7 @@ async function handleExecuteLLMAction(message, sendResponse) {
             sendResponse({ ok: false, error: "No active tab found" });
             return;
         }
-        
+
         // Send action execution command to content script
         const actionMessage = {
             type: "execute_action",
@@ -1493,12 +1618,12 @@ async function handleExecuteLLMAction(message, sendResponse) {
                 params: params
             }
         };
-        
+
         console.log("[SW] 📨 Sending execute_action message to content script:", actionMessage);
-        
+
         // Execute the action in the content script
         const response = await chrome.tabs.sendMessage(activeTab.id, actionMessage);
-        
+
         if (response && response.ok) {
             console.log("[SW] ✅ LLM action executed successfully:", actionId);
 
@@ -1511,14 +1636,14 @@ async function handleExecuteLLMAction(message, sendResponse) {
             }, 1000);
         } else {
             console.error("[SW] ❌ LLM action execution failed:", response?.error);
-            
+
             // 🆕 NEW: Clear action flag on failure
             actionInProgress = false;
             console.log("[SW] 🔓 Action execution failed - clearing action flag");
-            
+
             sendResponse({ ok: false, error: response?.error || "Action execution failed" });
         }
-        
+
     } catch (error) {
         console.error("[SW] ❌ Error executing LLM action:", error);
 
@@ -1582,38 +1707,38 @@ async function handleExecuteCapability(message) {
  */
 async function findActiveTab() {
     try {
-        
+
         // Strategy 1: Find currently active tab with force refresh
         let tabs = await chrome.tabs.query({ active: true, currentWindow: true });
         if (tabs.length > 0) {
             const tab = tabs[0];
-            
+
             // 🆕 ENHANCED: Check if this tab is accessible for content scripts
             if (isTabAccessible(tab)) {
                 // Force refresh tab info to ensure we have latest data
                 const refreshedTab = await chrome.tabs.get(tab.id);
-                
+
                 console.log("[SW] ✅ Found accessible active tab (current window):", {
                     id: refreshedTab.id,
                     url: refreshedTab.url,
                     title: refreshedTab.title,
                     status: refreshedTab.status
                 });
-                
+
                 return refreshedTab;
             } else {
                 console.log("[SW] ⚠️ Active tab is not accessible (chrome:// URL):", tab.url);
             }
         }
-        
+
         // Strategy 2: Find tab in last focused window
         tabs = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
         if (tabs.length > 0) {
             const tab = tabs[0];
-            
+
             if (isTabAccessible(tab)) {
                 const refreshedTab = await chrome.tabs.get(tab.id);
-                
+
                 console.log("[SW] ✅ Found accessible active tab (last focused):", {
                     id: refreshedTab.id,
                     url: refreshedTab.url,
@@ -1625,16 +1750,16 @@ async function findActiveTab() {
                 console.log("[SW] ⚠️ Last focused tab is not accessible:", tab.url);
             }
         }
-        
+
         // Strategy 3: Find any accessible tab in current window
         console.log("[SW] Looking for accessible tabs in current window...");
-        
+
         const currentWindow = await chrome.windows.getCurrent();
         if (currentWindow) {
-            const currentWindowTabs = await chrome.tabs.query({ 
+            const currentWindowTabs = await chrome.tabs.query({
                 windowId: currentWindow.id
             });
-            
+
             // Filter for accessible tabs and prioritize non-active ones
             const accessibleTabs = currentWindowTabs
                 .filter(tab => isTabAccessible(tab))
@@ -1646,11 +1771,11 @@ async function findActiveTab() {
                     if (!a.active && b.active) return 1;
                     return 0;
                 });
-            
+
             if (accessibleTabs.length > 0) {
                 const bestTab = accessibleTabs[0];
                 const refreshedTab = await chrome.tabs.get(bestTab.id);
-                
+
                 console.log("[SW] ✅ Found best accessible tab in current window:", {
                     id: refreshedTab.id,
                     url: refreshedTab.url,
@@ -1658,18 +1783,18 @@ async function findActiveTab() {
                     active: refreshedTab.active,
                     reason: "accessible tab found"
                 });
-                
+
                 return refreshedTab;
             }
         }
-        
+
         // Last resort: find any visible non-chrome tab across all windows
         console.log("[SW] Last resort: searching for any accessible tab...");
         tabs = await chrome.tabs.query({});
-        const visibleNonChromeTabs = tabs.filter(tab => 
+        const visibleNonChromeTabs = tabs.filter(tab =>
             isTabAccessible(tab) && tab.visible === true
         );
-        
+
         if (visibleNonChromeTabs.length > 0) {
             // Sort by priority: active tabs first, then by recency
             const sortedTabs = visibleNonChromeTabs.sort((a, b) => {
@@ -1677,10 +1802,10 @@ async function findActiveTab() {
                 if (!a.active && b.active) return 1;
                 return 0;
             });
-            
+
             const bestTab = sortedTabs[0];
             const refreshedTab = await chrome.tabs.get(bestTab.id);
-            
+
             console.log("[SW] ✅ Using accessible visible tab as fallback:", {
                 id: refreshedTab.id,
                 url: refreshedTab.url,
@@ -1688,13 +1813,13 @@ async function findActiveTab() {
                 active: refreshedTab.active,
                 reason: "fallback accessible tab"
             });
-            
+
             return refreshedTab;
         }
-        
+
         console.warn("[SW] No accessible tabs found");
         return null;
-        
+
     } catch (error) {
         console.error("[SW] Error finding active tab:", error);
         return null;
@@ -1709,17 +1834,17 @@ async function findActiveTab() {
  */
 function isTabAccessible(tab) {
     if (!tab.url) return false;
-    
+
     // Chrome:// URLs are not accessible
     if (tab.url.startsWith('chrome://')) return false;
     if (tab.url.startsWith('chrome-extension://')) return false;
     if (tab.url.startsWith('about:')) return false;
     if (tab.url.startsWith('edge://')) return false;
     if (tab.url.startsWith('moz-extension://')) return false;
-    
+
     // Must have a valid URL
     if (tab.url === 'about:blank') return false;
-    
+
     return true;
 }
 
@@ -1762,16 +1887,16 @@ function sendErrorResponse(id, code, msg) {
 // ============================================================================
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
     console.log("[SW] Tab activated:", activeInfo.tabId);
-    
+
     // 🆕 ENHANCED: Clear cache for the previously active tab
     if (lastActiveTabId && lastActiveTabId !== activeInfo.tabId) {
         console.log("[SW] Clearing cache for previously active tab:", lastActiveTabId);
         clearTabCache(lastActiveTabId);
     }
-    
+
     // Update last active tab
     lastActiveTabId = activeInfo.tabId;
-    
+
     // 🆕 ENHANCED: Force content script injection into new active tab
     try {
         await chrome.scripting.executeScript({
@@ -1779,22 +1904,22 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
             files: ['content.js']
         });
         console.log("[SW] Content script injected into newly active tab");
-        
 
-        
 
-        
+
+
+
         // Mark tab as having fresh content script
         const tabState = internalTabState.get(activeInfo.tabId);
         if (tabState) {
             tabState.contentScriptFresh = true;
             tabState.lastContentScriptRefresh = Date.now();
         }
-        
+
     } catch (error) {
         console.log("[SW] Content script injection failed:", error.message);
     }
-    
+
     // 🆕 NEW: Send active tab info immediately when tab changes
     await sendActiveTabInfo();
     await sendTabsInfo();
@@ -1942,23 +2067,23 @@ setInterval(() => {
 async function handleForceContentScriptReinjection(message, sendResponse) {
     try {
         console.log("[SW] 🚨 Handling force content script re-injection...");
-        
+
         const { tabId, reason, timestamp } = message.data;
-        
+
         // 🎯 Get the current active tab if not provided
         const targetTabId = tabId || await getCurrentActiveTabId();
         if (!targetTabId) {
             throw new Error("No active tab found for re-injection");
         }
-        
+
         console.log(`[SW] 🚨 Force re-injecting content script in tab ${targetTabId} for reason: ${reason}`);
-        
+
         // 🎯 Force content script refresh
         await ensureContentScriptFresh(targetTabId);
-        
+
         // 🎯 Clear tab cache to force fresh scan
         clearTabCache(targetTabId);
-        
+
         // 🎯 Mark tab as needing fresh scan
         const tabState = internalTabState.get(targetTabId);
         if (tabState) {
@@ -1966,15 +2091,15 @@ async function handleForceContentScriptReinjection(message, sendResponse) {
             tabState.contentScriptFresh = false;
             tabState.lastContentScriptRefresh = Date.now();
         }
-        
-        sendResponse({ 
-            success: true, 
+
+        sendResponse({
+            success: true,
             tabId: targetTabId,
             reason: reason,
             message: `Content script re-injected in tab ${targetTabId}`,
             timestamp: timestamp
         });
-        
+
     } catch (error) {
         console.error("[SW] ❌ Error during force content script re-injection:", error);
         sendResponse({ success: false, error: error.message });
@@ -1990,39 +2115,39 @@ async function handleForceContentScriptReinjection(message, sendResponse) {
 async function handleForceExtensionReload(message, sendResponse) {
     try {
         console.log("[SW] 🚨 Handling force extension reload...");
-        
+
         const { reason, timestamp } = message.data;
-        
+
         console.log(`[SW] 🚨 Force reloading extension for reason: ${reason}`);
-        
+
         // 🎯 Clear all internal state
         internalTabState.clear();
-        
+
         // 🎯 Disconnect WebSocket
         if (ws) {
             ws.close();
             ws = null;
         }
-        
+
         // 🎯 Force extension reload by updating manifest
         // Note: This is a workaround - actual reload requires user action
         console.log("[SW] 🚨 Extension reload requested - user must manually reload from chrome://extensions/");
-        
+
         // 🎯 CRITICAL: Force refresh all active tabs to ensure fresh content script injection
         if (message.data.forceReload) {
             console.log("[SW] 🔄 Force reload requested, refreshing active tabs...");
-            
+
             try {
                 // Get all active tabs
                 const tabs = await chrome.tabs.query({ active: true });
                 console.log(`[SW] 🔄 Found ${tabs.length} active tabs to refresh`);
-                
+
                 for (const tab of tabs) {
                     try {
                         // 🎯 CRITICAL: Force hard refresh (bypass cache)
                         await chrome.tabs.reload(tab.id, { bypassCache: true });
                         console.log(`[SW] ✅ Tab ${tab.id} hard refreshed: ${tab.url}`);
-                        
+
                         // 🎯 Wait a moment for page to load, then inject content script
                         setTimeout(async () => {
                             try {
@@ -2035,28 +2160,28 @@ async function handleForceExtensionReload(message, sendResponse) {
                                 console.warn(`[SW] ⚠️ Failed to re-inject content script into tab ${tab.id}:`, error);
                             }
                         }, 2000); // Wait 2 seconds for page load
-                        
+
                     } catch (error) {
                         console.warn(`[SW] ⚠️ Failed to refresh tab ${tab.id}:`, error);
                     }
                 }
-                
+
                 console.log("[SW] ✅ All active tabs refreshed and content scripts queued for re-injection");
-                
+
             } catch (error) {
                 console.error("[SW] ❌ Error refreshing tabs:", error);
             }
         }
-        
-        sendResponse({ 
-            success: true, 
+
+        sendResponse({
+            success: true,
             reason: reason,
             message: "Extension reload requested - manual reload required",
             timestamp: timestamp,
             note: "Go to chrome://extensions/ and click reload button",
             tabsRefreshed: message.data.forceReload || false
         });
-        
+
     } catch (error) {
         console.error("[SW] ❌ Error during force extension reload:", error);
         sendResponse({ success: false, error: error.message });
@@ -2072,9 +2197,9 @@ async function handleForceExtensionReload(message, sendResponse) {
 async function handleImmediateScanResults(message, sendResponse) {
     try {
         console.log("[SW] 📊 Handling immediate scan results after tear away...");
-        
+
         const scanData = message.data;
-        
+
         console.log(`[SW] 📊 Immediate scan results received:`, {
             scanType: scanData.scanType,
             totalElements: scanData.elementCounts?.totalElements || 0,
@@ -2085,7 +2210,7 @@ async function handleImmediateScanResults(message, sendResponse) {
             scanDuration: scanData.scanDuration || 0,
             tearAwaySuccess: scanData.tearAwaySuccess || false
         });
-        
+
         // 🎯 Send results to server via WebSocket
         if (isConnected && ws) {
             const serverMessage = {
@@ -2093,7 +2218,7 @@ async function handleImmediateScanResults(message, sendResponse) {
                 timestamp: Date.now(),
                 data: scanData
             };
-            
+
             ws.send(JSON.stringify(serverMessage));
             console.log("[SW] 📊 Immediate scan results sent to server");
         } else {
@@ -2104,13 +2229,13 @@ async function handleImmediateScanResults(message, sendResponse) {
                 data: scanData
             });
         }
-        
-        sendResponse({ 
-            success: true, 
+
+        sendResponse({
+            success: true,
             message: "Immediate scan results processed successfully",
             timestamp: Date.now()
         });
-        
+
     } catch (error) {
         console.error("[SW] ❌ Error handling immediate scan results:", error);
         sendResponse({ success: false, error: error.message });
@@ -2127,17 +2252,17 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
     try {
         const domain = message.domain;
         console.log(`[SW] 🎯 Looking up site config for domain: ${domain}`);
-        
+
         // Use local site configs if available, otherwise get from storage
         if (Object.keys(siteConfigs).length === 0) {
             const result = await chrome.storage.local.get(['siteConfigs']);
             siteConfigs = result.siteConfigs || {};
             console.log(`[SW] 📋 Loaded ${Object.keys(siteConfigs).length} site configs from storage for lookup`);
         }
-        
+
         // Look up site config for this domain
         let siteConfig = null;
-        
+
         // Check for exact domain match
         if (siteConfigs[domain]) {
             siteConfig = siteConfigs[domain];
@@ -2149,13 +2274,13 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
                     break;
                 }
             }
-            
+
             // Fallback to default config
             if (!siteConfig && siteConfigs['default']) {
                 siteConfig = siteConfigs['default'];
             }
         }
-        
+
         if (siteConfig) {
             console.log(`[SW] ✅ Found site config for ${domain}:`, siteConfig.framework);
             sendResponse({ config: siteConfig });
@@ -2163,7 +2288,7 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
             console.log(`[SW] ⚠️ No site config found for ${domain}`);
             sendResponse({ config: null });
         }
-        
+
     } catch (error) {
         console.error('[SW] ❌ Error getting site config:', error);
         sendResponse({ config: null, error: error.message });

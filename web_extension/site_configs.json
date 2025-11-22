@@ -461,6 +461,7 @@
         "ytd-masthead",
         "#guide-button",
         "#searchbox",
+        ".ytSearchboxComponentInput",
         "#logo",
         "#back-button",
         "#guide",
@@ -652,6 +653,20 @@
           "ytd-menu-renderer button[aria-label*='dislike' i]",
           "button.yt-spec-button-shape-next[aria-label*='dislike' i]",
           "button[aria-label*='dislike' i]"
+        ]
+      },
+      "search": {
+        "action": "SearchYouTube",
+        "label": "Search YouTube",
+        "description": "Search for videos, channels, or content on YouTube",
+        "url_pattern": "youtube.com",
+        "handler": "youtube_search",
+        "selectors": [
+          "input.ytSearchboxComponentInput[name='search_query']",
+          "input.yt-searchbox-input[name='search_query']",
+          "input[name='search_query'][placeholder='Search']",
+          "#search-input input[name='search_query']",
+          "input[placeholder='Search']"
         ]
       }
     }

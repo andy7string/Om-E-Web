@@ -9,6 +9,10 @@ Usage examples:
       #   ↳ Navigate to a YouTube video page first
       #   ↳ Clicks "Show transcript" button
       #   ↳ Extracts and saves transcript to @site_structures/transcripts/
+      # Search without submitting (just type in the box)
+      python3 test_navigation.py --command capability --capability SearchYouTube --value "Tesla" --no-submit
+      # Search for something else
+      python3 test_navigation.py --command capability --capability SearchYouTube --value "Python tutorials" --submit
 
   - Direct navigation:
       python3 test_navigation.py --command navigate --action-id a_id_812
@@ -17,7 +21,7 @@ Usage examples:
       python3 test_navigation.py --command click --action-id a_id_52
 
   - Custom LLM action:
-      python3 test_navigation.py --command llm --action-id a_id_277 --action-type setValue --value "Guitar Amps" --submit
+      python3 test_navigation.py --command llm --action-id a_id_1_379 --action-type setValue --value "Guitar Amps" --submit
 
   - Marketplace search (set value + submit):
       python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit
@@ -50,7 +54,7 @@ class NavigationTester:
     def __init__(self):
         self.websocket = None
         self.server_url = "ws://localhost:17892"
-        
+        7
     async def connect(self):
         """Connect to the WebSocket server"""
         try:
