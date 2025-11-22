@@ -17,9 +17,9 @@ from typing import Dict, Any, Optional
 import hashlib
 
 # Configuration
-SITE_CONFIGS_FILE = "site_configs.jsonl"
+SITE_CONFIGS_FILE = "site_configs.json"
 POLL_INTERVAL = 0.2  # 200ms polling
-SITE_STRUCTURES_DIR = "@site_configs"
+SITE_STRUCTURES_DIR = "../web_extension"
 
 class SiteConfigManager:
     def __init__(self):

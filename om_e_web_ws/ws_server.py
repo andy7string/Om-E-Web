@@ -33,6 +33,7 @@ import hashlib
 from datetime import datetime
 from typing import Optional, List, Dict, Any
 from urllib.parse import urlparse
+from site_config_manager import get_site_config, start_site_config_polling, get_all_site_configs
 
 
 
@@ -1160,6 +1161,64 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
             seen.add(rec['line'])
             deduped_records.append(rec)
         
+        # 🎯 SPA FILTERING: Prune stale elements BEFORE categorization
+        # This ensures pruned elements don't count against MAX_ACTIONS limit
+        if page_version is not None:
+            filtered_records: List[Dict[str, Any]] = []
+            for rec in deduped_records:
+                action_id = rec.get('action_id')
+                if not action_id:
+                    filtered_records.append(rec)
+                    continue
+                
+                # Parse action ID: a_id_{version}_{counter}
+                parts = action_id.split('_')
+                if len(parts) >= 3 and parts[0] == 'a' and parts[1] == 'id':
+                    try:
+                        action_ver = int(parts[2])
+                        if action_ver < page_version:
+                            # This is an old element. Check if it's persistent.
+                            record = rec.get('record', {})
+                            tag = (record.get('tag') or '').lower()
+                            attributes = record.get('attributes', {})
+                            
+                            site_config = get_site_config(page_url)
+                            persistent_selectors = site_config.get('selectors', {}).get('persistent_selectors', [])
+                            
+                            is_persistent = False
+                            for selector in persistent_selectors:
+                                # Simple selector matching
+                                # 1. Tag match
+                                if selector == tag:
+                                    is_persistent = True
+                                    break
+                                # 2. ID match
+                                if selector.startswith('#'):
+                                    elem_id = attributes.get('id')
+                                    if elem_id and selector[1:] == elem_id:
+                                        is_persistent = True
+                                        break
+                                # 3. Class match (simple .class)
+                                if selector.startswith('.'):
+                                    classes = attributes.get('cssClasses', [])
+                                    if selector[1:] in classes:
+                                        is_persistent = True
+                                        break
+                            
+                            if not is_persistent:
+                                # Stale element - SKIP
+                                print(f"🗑️ Pruning stale element: {action_id} (v{action_ver} < v{page_version})")
+                                continue
+                            else:
+                                print(f"🛡️ Keeping persistent element: {action_id} (v{action_ver})")
+                    except ValueError:
+                        pass # ID format mismatch, ignore
+                
+                filtered_records.append(rec)
+            
+            deduped_records = filtered_records
+            print(f"✅ SPA Filtering: {len(filtered_records)} elements after pruning")
+        
         # 🎯 DOMAIN-SPECIFIC CATEGORIZATION: Apply smart categorization based on domain
         def _extract_domain(url: str) -> str:
             """Extract domain from URL"""
@@ -1197,9 +1256,9 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
 
                 # 🎯 CRITICAL PRIORITY: Transcript actions (MUST be captured!)
                 # Detect: "Show transcript", "Hide transcript", transcript segments, etc.
-                is_transcript = ('transcript' in label or
-                               'ytd-transcript' in (record.get('selector') or '') or
-                               'segments-container' in (record.get('selector') or ''))
+                is_transcript = ('transcript' in label or 
+                               'transcript' in (attributes.get('aria-label') or '').lower())
+                
                 if is_transcript:
                     categories['transcript_actions'].append(rec)
                     continue
@@ -3607,6 +3666,7 @@ def resolve_capabilities_for_url(url: str) -> list:
     Returns: List of capability dicts with action, label, description, handler
     """
     try:
+        SITE_CONFIGS = get_all_site_configs()
         if not url or not SITE_CONFIGS:
             return []
 
@@ -3661,36 +3721,7 @@ def resolve_capabilities_for_url(url: str) -> list:
         print(f"❌ Error resolving capabilities for URL: {e}")
         return []
 
-def load_site_configs():
-    """
-    🎯 PREMIUM: Load site_configs.json from extension directory
-    This gives server access to capabilities definitions for URL-based resolution
-    """
-    global SITE_CONFIGS
-    try:
-        # Path to extension's site_configs.json (relative to this file)
-        config_path = os.path.join(os.path.dirname(__file__), "../web_extension/site_configs.json")
-        config_path = os.path.abspath(config_path)
 
-        if not os.path.exists(config_path):
-            print(f"⚠️ Site configs not found at: {config_path}")
-            return
-
-        with open(config_path, 'r', encoding='utf-8') as f:
-            SITE_CONFIGS = json.load(f)
-
-        print(f"✅ Loaded site configs for {len(SITE_CONFIGS)} domains")
-        # Count total capabilities
-        total_caps = 0
-        for domain, config in SITE_CONFIGS.items():
-            if 'capabilities' in config:
-                total_caps += len(config['capabilities'])
-        print(f"🎯 Total capabilities available: {total_caps}")
-
-    except Exception as e:
-        print(f"❌ Error loading site configs: {e}")
-        import traceback
-        traceback.print_exc()
 
 async def main():
     """
@@ -3702,8 +3733,8 @@ async def main():
 
     📡 SERVER ENDPOINT: ws://127.0.0.1:17892
     """
-    # 🎯 PREMIUM: Load site configs on startup
-    load_site_configs()
+    # 🎯 PREMIUM: Load site configs on startup (Polling Mode)
+    await start_site_config_polling()
 
     async with websockets.serve(
         handler,

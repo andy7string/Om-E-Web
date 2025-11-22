@@ -2,7 +2,11 @@
   "google.com": {
     "framework": "google",
     "scan_strategy": "google_specific",
-    "url_patterns": ["google.com", "google.*", "*.google.com"],
+    "url_patterns": [
+      "google.com",
+      "google.*",
+      "*.google.com"
+    ],
     "focus_targets": [
       "input[name='q']",
       "input[type='search']",
@@ -162,7 +166,10 @@
   "chatgpt.com": {
     "framework": "chatgpt",
     "scan_strategy": "generic",
-    "url_patterns": ["chatgpt.com", "*.chatgpt.com"],
+    "url_patterns": [
+      "chatgpt.com",
+      "*.chatgpt.com"
+    ],
     "focus_targets": [
       "div[contenteditable='true'][data-placeholder]",
       "div[contenteditable='true'][role='textbox']",
@@ -214,7 +221,10 @@
   "claude.ai": {
     "framework": "claude",
     "scan_strategy": "generic",
-    "url_patterns": ["claude.ai", "*.claude.ai"],
+    "url_patterns": [
+      "claude.ai",
+      "*.claude.ai"
+    ],
     "focus_targets": [
       "div[contenteditable='true'][data-testid='chat-input']",
       "div[contenteditable='true'][role='textbox']",
@@ -273,7 +283,10 @@
   "perplexity.ai": {
     "framework": "generic",
     "scan_strategy": "universal",
-    "url_patterns": ["perplexity.ai", "*.perplexity.ai"],
+    "url_patterns": [
+      "perplexity.ai",
+      "*.perplexity.ai"
+    ],
     "focus_targets": [
       "div#ask-input[contenteditable='true']",
       "[role='textbox'][data-lexical-editor]",
@@ -333,7 +346,10 @@
   "facebook.com": {
     "framework": "generic",
     "scan_strategy": "universal",
-    "url_patterns": ["facebook.com", "*.facebook.com"],
+    "url_patterns": [
+      "facebook.com",
+      "*.facebook.com"
+    ],
     "focus_targets": [
       "#email",
       "#pass",
@@ -435,11 +451,27 @@
   "youtube.com": {
     "framework": "youtube",
     "scan_strategy": "youtube_specific",
-    "url_patterns": ["youtube.com", "*.youtube.com", "youtu.be"],
+    "url_patterns": [
+      "youtube.com",
+      "*.youtube.com",
+      "youtu.be"
+    ],
     "selectors": {
+      "persistent_selectors": [
+        "ytd-masthead",
+        "#guide-button",
+        "#searchbox",
+        "#logo",
+        "#back-button",
+        "#guide",
+        "ytd-mini-guide-renderer",
+        "#start",
+        "#end",
+        "#center"
+      ],
       "navigation": [
         "ytd-masthead:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#logo:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#back-button:not([disabled]):not([aria-disabled='true']):not([hidden])"
@@ -462,7 +494,7 @@
       ],
       "menus": [
         "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "#avatar-btn:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "#avatar-btn:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "#voice-search-button:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
@@ -481,19 +513,19 @@
         "input[placeholder]:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "content_elements": [
-        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "p:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "article:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "section:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "url_elements": [
@@ -520,7 +552,7 @@
         "timeout": 1000
       },
       "expand_account": {
-        "trigger": "#avatar-btn", 
+        "trigger": "#avatar-btn",
         "wait_for": "#account-menu",
         "timeout": 1000
       },
@@ -544,7 +576,6 @@
       "a.yt-simple-endpoint.style-scope.ytd-video-renderer[href*='watch']",
       "a.yt-simple-endpoint[href*='watch'][id='video-title']"
     ],
-
     "custom_handlers": {
       "shadow_dom": true,
       "web_components": true,
@@ -625,7 +656,7 @@
       }
     }
   },
-    "brighttreedigital.com.au": {
+  "brighttreedigital.com.au": {
     "framework": "wordpress",
     "scan_strategy": "wordpress_specific",
     "selectors": {
@@ -647,7 +678,7 @@
       ],
       "menus": [
         ".menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        ".navigation:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        ".navigation:not([disabled]):not([aria-disabled='true']):not([hidden])",
         ".primary-menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
         ".main-menu:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
@@ -660,19 +691,19 @@
         "input[placeholder]:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "content_elements": [
-        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "p:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "article:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "section:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "url_elements": [
@@ -695,7 +726,10 @@
   "wikipedia.org": {
     "framework": "wikipedia",
     "scan_strategy": "wikipedia_specific",
-    "url_patterns": ["wikipedia.org", "*.wikipedia.org"],
+    "url_patterns": [
+      "wikipedia.org",
+      "*.wikipedia.org"
+    ],
     "focus_targets": [
       "#searchInput",
       "input#searchInput",
@@ -773,7 +807,10 @@
   "mail.google.com": {
     "framework": "generic",
     "scan_strategy": "universal",
-    "url_patterns": ["mail.google.com", "*.mail.google.com"],
+    "url_patterns": [
+      "mail.google.com",
+      "*.mail.google.com"
+    ],
     "focus_targets": [
       "input[name='q']",
       "input[aria-label='Search mail']",
@@ -877,19 +914,19 @@
         "[aria-placeholder]"
       ],
       "content_elements": [
-        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "p:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "article:not([disabled]):not([aria-disabled='true']):not([hidden])", 
-        "section:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
-        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])", 
+        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
         "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
       ],
       "url_elements": [

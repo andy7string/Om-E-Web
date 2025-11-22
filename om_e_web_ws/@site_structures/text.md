@@ -1,184 +1,189 @@
-# (27) YouTube
+# (29) Dynamic Whole-Body Manipulation with Spot - YouTube
 
-**URL:** https://www.youtube.com/
-**Timestamp:** 2025-11-21 22:38:45
+**URL:** https://www.youtube.com/watch?v=a-_W2nB1YPI
+**Timestamp:** 2025-11-22 17:55:13
 
 ---
 
+AU
 Skip navigation
 Create
 9+
-Home
-Shorts
-Subscriptions
-YouTube Music
-You
-Downloads
+1:08 / 13:12
+Tombstone
+All The Main Event Knockouts From BattleBots 2019 Fight Nights | BATTLEBOTS
+BattleBots
+2.4M subscribers
+6K
+Share
+1.1M views 10 months ago #BattleBots
+It's Robot Fighting Time! Every main event knockout from World Championship IV, 2019 fight nights.
+
+Subscribe: / @battlebots ...
+...more
+
+Relive the intense knockouts from BattleBots 2019's main events. Witness incredible robot combat and strategic maneuvering within the arena. Experience the high-energy clashes and devastating blows between these custom-built machines.
+Summary
+Shop the BattleBots store
+A$58.88
++ additional fees
+Official Battlebots Shop!
+
+A$27.89
++ additional fees
+Official Battlebots Shop!
+
+A$34.09
++ additional fees
+Official Battlebots Shop!
+
+A$27.89
++ additional fees
+Official Battlebots Shop!
+
+A$27.89
++ additional fees
+Official Battlebots Shop!
+
+A$38.74
++ additional fees
+Official Battlebots Shop!
+
 All
-Music
-Podcasts
-AI
-Mixes
-Weight
-Calisthenics
-Fingerboards
-Strings
-Biomechanics
-Auditions
-Rock & Roll
-Hard Rock
-Biology
-Baking
-Cars
-Recently uploaded
-Watched
-New to you
-19:39
-Claude Code Masterclass
-CS Dojo
-5.2K views
+From BattleBots
+Robot Combat
+Related
+For you
+11:32
+How this bot goes the distance for the first time ever! | Road To The Final | BattleBots
+BattleBots
+117K views
 •
-1 day ago
-9:25
-DRAG RACE: Porsche 911 GT3 RS vs McLaren 750S
-CarExpert
-3.4K views
+10 months ago
+6:02
+Three Little Pigs 1 | Silly Crocodile Fairy Tales & Bedtime Stories for Kids
+Just For Kids
+14M views
 •
-5 hours ago
-7:27
-Slash & Eric Gales -Purple Haze (Jimi Hendrix cover)
-SeattleStoodios
-2.2M views
+5 years ago
+12:09
+Ultimate RC Mini Games Battle
+Dude Perfect
+18M views
+•
+2 years ago
+10:00
+F1 vs Rally vs Drift Car vs Truck: Ultimate Race
+Red Bull
+13M views
 •
 1 year ago
-Shorts
-Rasputin walk to work Helsinki shuffle girl
-9.3M views
-i miss you - Ichika Nito (Live at Reggie's, Chicago, Illinois, May 22, 2025)
-7.6K views
-Taking JoJo posing to the next level✌🏼 #dilyaabdusalimova #jojo #steelballrun #stoneocean #animeart
-6.7M views
-Rolls-Royce 95000 horsepowerultra heavy bikes 💪#viral #reels #billionaire
-4.4M views
-Try These Spinal Rotation & Mobility Drills! #shorts #rangeofmotion #spinalhealth
-28K views
-23:44
-"Built to Lift: How Gym Weight Plates Are Made"
-Manufacturing With Skills
-1M views
-•
-6 months ago
-0:39
-Epic Intro from Technical Difficulties
-Pavel888
-92 views
-•
-2 days ago
-5:04
-Lainey Wilson Sings a Medley of Iconic Country Songs | Live at CMA Awards 2025
-CMA
-and 2 more
-537K views
-•
-1 day ago
-Shorts
-How much would you pay to hire him for an hour?🤔💭
+1:03:17
+CALM - Soaking worship instrumental | Prayer and Devotional
+Central Record
 3.1M views
-#viral#viralvideo#fyp#funny#prank#pranks#prankvideo#mdr#laugh#dance
-8.2M views
-Most nonchalant award goes to 🏆 @The Rybka Twins @Joanna Wilson @Ash Watson @Luke Stoney
-4M views
-The only human the devil fears #doom #doomthedarkages 8
-667K views
-This Girl Killed this Beat ( LOJAY X SARZ - MONALISA ) Red Bull Dance Your Style World Finals 2022
-8.1M views
-23:18
-CROOKED Trump BEGS FOR CASH as He TANKS IT ALL
-MeidasTouch
-178K views
 •
-5 hours ago
-13:24
-Google's New "Antigravity" AI IDE: Better Than Cursor? (Review & Demo)
-Telusko
-9K views
+1 year ago
+30:27
+Light Illuminating Blue Glitter Particles | 4K Relaxing Screensaver
+Josu Relax
+4.7M views
 •
-21 hours ago
-8:20
-The Most Powerful AI Agent Ever Just Got Better: Full Autonomy
-AI Revolution
-9.6K views
+8 years ago
+Shorts
+Chinese Robot Dogs Coming to the Battlefield
+153K views
+Close look at Tesla Optimus' NEW hands & Grok integration
+1.6M views
+3D Printed decompression toy
+1.8M views
+It is the most FUN circuit to build and race! Suzuka Circuit Carrera Track🇯🇵 #formula1 #suzuka #gp
+4.2M views
+Robot can play ping pong #tabletennis #robot
+64M views
+Warning: you will be looping this forever after learning it
+463K views
+Cats & Dogs
+YouTube Movies & TV
+Comedy • 2001
+Free
+PG
+3:21
+Robogames 2023 Day One Sampling
+jimdinunzio
+7.3K views
 •
-13 hours ago
-3:59
-Samantha Fish (Unknown) [at The Observatory] LIVE
-Presented to the Audience
-51 views
+2 years ago
+39:55
+All The Knockouts From BattleBots World Championship 5 | BATTLEBOTS
+BattleBots
+10M views
 •
-3 days ago
-11:40
-How to DESTROY Visceral Belly Fat (In 30 Days)
-Jeremy Ethier
-2.9M views
+1 year ago
+17:03
+$1 vs $100,000,000 House!
+MrBeast
+391M views
+•
+2 years ago
+10:24
+F1 Australian Grand Prix
+Captain Gamer
+38 views
+•
+12 hours ago
+New
+16:54
+Morning Adhkar (Remembrance) - Recite Daily with Mufti Menk
+Mufti Menk
+13M views
+•
+2 years ago
+16:04
+Craziest Animal Encounters of All Time
+Daily Dose Of Internet
+29M views
+•
+8 months ago
+18:36
+Tombstone Unleashed: Most Vicious Fights | BATTLEBOTS
+BattleBots
+750K views
+•
+7 months ago
+6:30
+Fastest Running Race In The Desert | Silly Crocodile Animated Stories For Kids
+Just For Kids
+3.6M views
+•
+2 years ago
+19:00
+Mark Rober vs Dude Perfect- Ultimate Robot Battle
+Mark Rober
+91M views
+•
+1 year ago
+14:05
+Greatest Moments Red Bull Soapbox Race: Paris #redbullsoapboxrace
+Legends Of Soapbox Racing
+4.7M views
 •
 4 months ago
-20:24
-I Bought The "Perfect" Bike
-Sur Ronster
-2.9M views
+35:10
+30 Minutes With Holy Spirit: Piano Worship for Prayer & Meditation
+DappyTKeys
+292K views
 •
-2 months ago
-24:40
-Buckethead LIVE! Concert (TV Special, 2025)
-NatterNet
-10K views
+3 years ago
+8:28
+8 Minutes of Baby Animals: Pure Joy and Cuteness | Nat Geo Animals
+Nat Geo Animals
+1.5M views
 •
-10 hours ago
-4:42
-UNREAL GUITAR SOLO BY SOPHIE LLOYD 🎸 | Rugby World Cup 2025 Final
-World Rugby and World Rugby Women
-1.7M views
+4 months ago
+20:01
+20-Min Reiki Healing Music for Positive Energy & Stress Relief #healingmusic
+Reiki Healing Japan 365
+893K views
 •
-1 month ago
-12:01
-The New Ubuntu on Mac is EXCELLENT
-Action Retro
-233K views
-•
-2 weeks ago
-1:20
-Riff precision 99.8% - James Hetfield was NOT human in his prime!
-Andriy Vasylenko 2
-3.8M views
-•
-4 years ago
-3:07
-No oven! THE FAMOUS dessert that is driving the world crazy! No oven, with just 1 egg!
-cooking kisy
-5.2M views
-•
-1 year ago
-10:49
-From AI skeptic to UNFAIR advantage
-Brian Casel
-1.6K views
-•
-22 hours ago
-3:54
-Denzel Washington shows the Italian MAFIA who’s the real BOSS
-FilmIsNow Trailer Italia
-3M views
-•
-2 weeks ago
-6:39
-He Turned ROCK ’N’ ROLL When Nobody Saw It Coming.. What An Audition!
-Top Talent
-283K views
-•
-3 weeks ago
-2:46:20
-Making Beats with the Dirtywave M8 (11/18/25)
-Jay Maculate
-459 views
-•
-Streamed 2 days ago
+3 years ago
