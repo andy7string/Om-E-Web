@@ -51,6 +51,36 @@ CURRENT_ACTIVE_TAB = None          # Current active tab information
 # 🎯 PREMIUM: Site configs loaded from extension's site_configs.json
 SITE_CONFIGS = {}                  # Loaded site configurations with capabilities
 
+def get_all_site_configs():
+    """
+    Load site_configs.json from the extension directory
+
+    Returns:
+        dict: Site configurations with capabilities, or empty dict if load fails
+    """
+    global SITE_CONFIGS
+
+    if SITE_CONFIGS:
+        return SITE_CONFIGS
+
+    try:
+        # Path to site_configs.json in the extension directory
+        config_path = os.path.join("..", "web_extension", "site_configs.json")
+
+        if not os.path.exists(config_path):
+            print(f"⚠️ Site configs not found at: {config_path}")
+            return {}
+
+        with open(config_path, 'r', encoding='utf-8') as f:
+            SITE_CONFIGS = json.load(f)
+
+        print(f"✅ Loaded site configs: {len(SITE_CONFIGS)} domains configured")
+        return SITE_CONFIGS
+
+    except Exception as e:
+        print(f"❌ Error loading site configs: {e}")
+        return {}
+
 # 📁 Site map storage configuration
 SITE_STRUCTURES_DIR = "@site_structures"
 
@@ -3099,11 +3129,29 @@ async def handler(ws):
                                 # Create the text.md file path in the same directory as other files
                                 text_file_path = os.path.join("@site_structures", "text.md")
 
+                                # Get current URL for capability resolution
+                                current_url = page_state.get('url', '')
+
+                                # Resolve capabilities for this URL
+                                capabilities = resolve_capabilities_for_url(current_url) if current_url else []
+
                                 # Write the markdown content directly
                                 with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
+                                    # Frontmatter
                                     f.write(f"# {page_state.get('title', 'Unknown Page')}\n\n")
                                     f.write(f"**URL:** {page_state.get('url', 'unknown')}\n")
                                     f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
+
+                                    # 🎯 CAPABILITIES SECTION: Show domain-specific actions
+                                    if capabilities:
+                                        f.write("## Available Actions\n\n")
+                                        f.write("The following pre-configured actions are available for this page:\n\n")
+                                        for cap in capabilities:
+                                            f.write(f"**{cap['action']}** - {cap['label']}\n")
+                                            f.write(f"  - {cap['description']}\n")
+                                            f.write(f"  - Usage: `python3 test_navigation.py --command capability --capability {cap['action']}`\n\n")
+                                        f.write("---\n\n")
+
                                     f.write("---\n\n")
                                     f.write(page_text)
 

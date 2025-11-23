@@ -12,7 +12,7 @@ Usage examples:
       # Search without submitting (just type in the box)
       python3 test_navigation.py --command capability --capability SearchYouTube --value "Tesla" --no-submit
       # Search for something else
-      python3 test_navigation.py --command capability --capability SearchYouTube --value "Python tutorials" --submit
+      python3 test_navigation.py --command capability --capability SearchYouTube --value "claude" --submit
 
   - Direct navigation:
       python3 test_navigation.py --command navigate --action-id a_id_812
@@ -54,7 +54,7 @@ class NavigationTester:
     def __init__(self):
         self.websocket = None
         self.server_url = "ws://localhost:17892"
-        7
+
     async def connect(self):
         """Connect to the WebSocket server"""
         try:
