@@ -1181,9 +1181,12 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
                             record = rec.get('record', {})
                             tag = (record.get('tag') or '').lower()
                             attributes = record.get('attributes', {})
-                            
-                            site_config = get_site_config(page_url)
-                            persistent_selectors = site_config.get('selectors', {}).get('persistent_selectors', [])
+
+                            # Get site config (only if we have a URL)
+                            persistent_selectors = []
+                            if page_url:
+                                site_config = get_site_config(page_url)
+                                persistent_selectors = site_config.get('selectors', {}).get('persistent_selectors', [])
                             
                             is_persistent = False
                             for selector in persistent_selectors:

@@ -38,106 +38,164 @@ let pendingMessages = [];
 // 🎯 PERSISTENT PAGE VERSION MANAGEMENT - Chrome Storage API
 // ============================================================================
 /**
- * 🔐 ROCK-SOLID PAGE VERSION STORAGE
- * 
- * Uses Chrome Storage API for persistence across:
+ * 🔐 GENERIC TAB+DOMAIN PAGE VERSION TRACKING
+ *
+ * Per-domain version scoping: Each domain maintains its own version counter per tab
+ * Example: YouTube video 1 → 2 → 3, Google search stays at 1
+ *
+ * Uses chrome.storage.local for persistence across:
  * - Extension reloads
  * - Browser restarts
  * - Tab navigations
- * 
+ *
  * Business Rules:
- * 1. Tab closes → Delete all versions for that tab
- * 2. Tab opens/navigates → Start from version 1
- * 3. Page refresh (F5) → Reset to version 1
- * 4. SPA navigation → Increment version
- * 5. DOM mutation/rescan → Keep same version
- * 
- * Storage structure:
+ * 1. Tab closes → Delete all domains for that tab
+ * 2. First scan on domain → Version 1
+ * 3. Navigation on same domain → Increment version (1 → 2 → 3...)
+ * 4. Different domain → New entry at version 1
+ * 5. Rescan (mutation, etc.) → Keep same version
+ *
+ * Storage structure (chrome.storage.local.tabState):
  * {
- *   "pageVersions": {
- *     "tab_123_https://youtube.com/watch": 5,
- *     "tab_456_https://youtube.com/results?q=test": 3
+ *   "version": "1.0",
+ *   "lastUpdated": "2025-11-23T...",
+ *   "tabs": {
+ *     "123": {
+ *       "domains": {
+ *         "youtube.com": {
+ *           "currentVersion": 5,
+ *           "lastScanAt": "2025-11-23T..."
+ *         },
+ *         "google.com": {
+ *           "currentVersion": 3,
+ *           "lastScanAt": "2025-11-23T..."
+ *         }
+ *       }
+ *     }
  *   }
  * }
  */
 
-// Normalize URL for storage key (remove fragments, normalize query params)
-function normalizeUrl(url) {
+// Extract domain from URL (e.g., "https://www.youtube.com/watch" → "youtube.com")
+function extractDomain(url) {
     try {
         const urlObj = new URL(url);
-        // Remove fragment
-        urlObj.hash = '';
-        // Sort query params for consistency
-        urlObj.searchParams.sort();
-        return urlObj.toString();
-    } catch (e) {
-        return url; // Fallback to original if parsing fails
+        // Remove "www." prefix if present
+        const hostname = urlObj.hostname.replace(/^www\./, '');
+        return hostname;
+    } catch (err) {
+        console.error('[SW] Failed to extract domain:', err);
+        return null;
     }
 }
 
-// Generate storage key for tab-URL combination
-function getPageVersionKey(tabId, url) {
-    const normalized = normalizeUrl(url);
-    return `tab_${tabId}_${normalized}`;
+// Read tab state from chrome.storage.local (persistent storage)
+async function readTabState() {
+    try {
+        const result = await chrome.storage.local.get(['tabState']);
+        if (result.tabState) {
+            return result.tabState;
+        }
+        // Default structure
+        return { version: "1.0", lastUpdated: new Date().toISOString(), tabs: {} };
+    } catch (err) {
+        console.error('[SW] Failed to read tab state:', err);
+        return { version: "1.0", lastUpdated: new Date().toISOString(), tabs: {} };
+    }
 }
 
-// Get pageVersion from Chrome Storage
+// Write tab state to chrome.storage.local
+async function writeTabState(state) {
+    try {
+        // Update timestamp
+        state.lastUpdated = new Date().toISOString();
+
+        await chrome.storage.local.set({ tabState: state });
+        console.log('[SW] 💾 Tab state saved to storage');
+        return true;
+    } catch (err) {
+        console.error('[SW] Failed to write tab state:', err);
+        return false;
+    }
+}
+
+// Get pageVersion for tab+domain
 async function getPageVersion(tabId, url) {
-    const key = getPageVersionKey(tabId, url);
-    const result = await chrome.storage.local.get(['pageVersions']);
-    const versions = result.pageVersions || {};
-    const version = versions[key] || 0; // 0 means "not yet set"
-    console.log(`[SW] 📖 Read pageVersion=${version} for ${key}`);
+    const domain = extractDomain(url);
+    if (!domain) {
+        console.warn('[SW] Could not extract domain from URL:', url);
+        return 0;
+    }
+
+    const state = await readTabState();
+    const tabData = state.tabs[tabId];
+
+    if (!tabData || !tabData.domains || !tabData.domains[domain]) {
+        console.log(`[SW] 📖 No version found for tab ${tabId}, domain ${domain} (will start at 1)`);
+        return 0; // 0 means "not yet set"
+    }
+
+    const version = tabData.domains[domain].currentVersion;
+    console.log(`[SW] 📖 Read pageVersion=${version} for tab ${tabId}, domain ${domain}`);
     return version;
 }
 
-// Set pageVersion in Chrome Storage
+// Set pageVersion for tab+domain
 async function setPageVersion(tabId, url, version) {
-    const key = getPageVersionKey(tabId, url);
-    const result = await chrome.storage.local.get(['pageVersions']);
-    const versions = result.pageVersions || {};
-    versions[key] = version;
-    await chrome.storage.local.set({ pageVersions: versions });
-    console.log(`[SW] 💾 Saved pageVersion=${version} for ${key}`);
+    const domain = extractDomain(url);
+    if (!domain) {
+        console.warn('[SW] Could not extract domain from URL:', url);
+        return 0;
+    }
+
+    const state = await readTabState();
+
+    // Ensure tab exists
+    if (!state.tabs[tabId]) {
+        state.tabs[tabId] = { domains: {} };
+    }
+
+    // Ensure domains object exists
+    if (!state.tabs[tabId].domains) {
+        state.tabs[tabId].domains = {};
+    }
+
+    // Set version for domain
+    state.tabs[tabId].domains[domain] = {
+        currentVersion: version,
+        lastScanAt: new Date().toISOString()
+    };
+
+    await writeTabState(state);
+    console.log(`[SW] 💾 Saved pageVersion=${version} for tab ${tabId}, domain ${domain}`);
     return version;
 }
 
-// Increment pageVersion for new page navigation
+// Increment pageVersion for tab+domain
 async function incrementPageVersion(tabId, url) {
     const current = await getPageVersion(tabId, url);
     const newVersion = current + 1;
     await setPageVersion(tabId, url, newVersion);
-    console.log(`[SW] ⬆️  Incremented pageVersion: ${current} → ${newVersion}`);
+    console.log(`[SW] ⬆️  Incremented pageVersion: ${current} → ${newVersion} (tab ${tabId}, ${extractDomain(url)})`);
     return newVersion;
 }
 
 // Reset pageVersion to 1 (for page refresh)
 async function resetPageVersion(tabId, url) {
     await setPageVersion(tabId, url, 1);
-    console.log(`[SW] 🔄 Reset pageVersion to 1 for tab ${tabId}`);
+    console.log(`[SW] 🔄 Reset pageVersion to 1 for tab ${tabId}, domain ${extractDomain(url)}`);
     return 1;
 }
 
-// Delete all pageVersions for a specific tab (on tab close)
+// Delete all domains for a specific tab (on tab close)
 async function deleteTabPageVersions(tabId) {
-    const result = await chrome.storage.local.get(['pageVersions']);
-    const versions = result.pageVersions || {};
+    const state = await readTabState();
 
-    // Remove all entries for this tab
-    const cleaned = {};
-    let removedCount = 0;
-    for (const [key, version] of Object.entries(versions)) {
-        const keyTabId = parseInt(key.split('_')[1]);
-        if (keyTabId !== tabId) {
-            cleaned[key] = version;
-        } else {
-            removedCount++;
-        }
-    }
-
-    if (removedCount > 0) {
-        await chrome.storage.local.set({ pageVersions: cleaned });
-        console.log(`[SW] 🗑️  Deleted ${removedCount} pageVersion entries for tab ${tabId}`);
+    if (state.tabs[tabId]) {
+        const domainCount = Object.keys(state.tabs[tabId].domains || {}).length;
+        delete state.tabs[tabId];
+        await writeTabState(state);
+        console.log(`[SW] 🗑️  Deleted tab ${tabId} with ${domainCount} domain(s)`);
     }
 }
 
@@ -459,8 +517,8 @@ async function requestScan(tabId, url, trigger) {
     }
 
     // 🔒 DEDUPE: Same URL, already scanned (unless forced rescan)
-    // Force rescan for: post_action, significant_dom_change (page changed but URL didn't)
-    const forcedTriggers = ['post_action', 'significant_dom_change'];
+    // Force rescan for: post_action, significant_dom_change, page_refresh
+    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh'];
     const shouldSkip = state.lastUrl === url && !state.scanInProgress && !forcedTriggers.includes(trigger);
 
     if (shouldSkip) {
@@ -470,7 +528,7 @@ async function requestScan(tabId, url, trigger) {
 
     // 🔢 PAGE VERSION: Get from Chrome Storage (persistent across reloads)
     const isNewPage = state.lastUrl !== url;
-    const isRefresh = !isNewPage && trigger === 'navigation_completed';
+    const isRefresh = trigger === 'page_refresh';
     let pageVersion;
 
     if (isRefresh) {
@@ -1933,13 +1991,45 @@ chrome.webNavigation.onBeforeNavigate.addListener((details) => {
 }, { url: [{ schemes: ['http', 'https'] }] });
 
 // ============================================================================
+// TRIGGER 0: Detect F5 Refresh (before page loads)
+// ============================================================================
+chrome.webNavigation.onCommitted.addListener((details) => {
+    if (details.frameId !== 0) {
+        return;
+    }
+
+    // Check if this is a refresh (F5 or Ctrl+R)
+    const isReload = details.transitionType === 'reload' ||
+                     details.transitionQualifiers?.includes('forward_back');
+
+    if (isReload) {
+        console.log(`[SW] 🔄 F5 REFRESH detected for tab ${details.tabId}`);
+        // Mark this tab as having a refresh, so onCompleted knows to reset version
+        const state = tabState.get(details.tabId) || {};
+        state.isRefresh = true;
+        tabState.set(details.tabId, state);
+    }
+}, { url: [{ schemes: ['http', 'https'] }] });
+
+// ============================================================================
 // TRIGGER 1: URL Change (normal navigation)
 // ============================================================================
 chrome.webNavigation.onCompleted.addListener((details) => {
     if (details.frameId !== 0) {
         return;
     }
-    requestScan(details.tabId, details.url, "url_change");
+
+    // Check if this was marked as a refresh by onCommitted
+    const state = tabState.get(details.tabId) || {};
+    const trigger = state.isRefresh ? "page_refresh" : "url_change";
+
+    // Clear refresh flag
+    if (state.isRefresh) {
+        state.isRefresh = false;
+        tabState.set(details.tabId, state);
+    }
+
+    requestScan(details.tabId, details.url, trigger);
 }, { url: [{ schemes: ['http', 'https'] }] });
 
 // ============================================================================

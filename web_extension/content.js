@@ -110,6 +110,13 @@
             console.log(`[Content] 📖 Read pageVersion=${currentPageVersion} from DOM (or defaulted to 1)`);
         }
 
+        // 🔄 RESET COUNTER: Always reset to 0 for full rescan
+        // Every scan is a complete rescan (clears all DOM markers and rescans everything)
+        // The pageVersion differentiates between different page states, but within each scan
+        // we always start from 0
+        intelligenceEngine.elementCounter = 0;
+        console.log(`[Content] 🔄 Reset elementCounter to 0 for pageVersion=${currentPageVersion} scan`);
+
         try {
             console.log('[Content] 🕐 Waiting for DOM to settle...');
 
