@@ -3078,34 +3078,27 @@ async def handler(ws):
                     # 🆕 NEW: Save to central content.jsonl file
                     await save_content_to_content_jsonl(intelligence_data, transcript_refs)
                     
-                    # 🆕 NEW: Auto-generate markdown file from page text
+                    # 🆕 NEW: Auto-generate markdown file from semantic page text
                     try:
-                        # Extract page text from intelligence data
+                        # Extract semantic page data from intelligence data
                         page_state = page_state or {}
-                        page_text = intelligence_data.get("pageText", "")
-                        
+                        semantic_data = intelligence_data.get("semanticPageData", {})
+
+                        # Fallback to plain text if semantic data not available
+                        if semantic_data and semantic_data.get("text"):
+                            page_text = semantic_data.get("text", "")
+                            actionables = semantic_data.get("actionables", [])
+                            print(f"✅ Using semantic text with {len(actionables)} tagged elements")
+                        else:
+                            page_text = intelligence_data.get("pageText", "")
+                            print("⚠️ Semantic data not available, using plain text")
+
                         if page_text:
-                            # Create text data structure for markdown generation
-                            text_data = {
-                                "frontmatter": {
-                                    "url": page_state.get("url", "unknown"),
-                                    "title": page_state.get("title", "unknown"),
-                                    "timestamp": time.time()
-                                },
-                                "markdown": page_text,
-                                "statistics": {
-                                    "totalHeadings": 0,
-                                    "totalParagraphs": 0,
-                                    "totalLists": 0,
-                                    "totalListItems": 0
-                                }
-                            }
-                            
                             # 🎯 NEW: Save to single text.md file (overwrites previous content)
                             try:
                                 # Create the text.md file path in the same directory as other files
                                 text_file_path = os.path.join("@site_structures", "text.md")
-                                
+
                                 # Write the markdown content directly
                                 with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
                                     f.write(f"# {page_state.get('title', 'Unknown Page')}\n\n")
@@ -3113,33 +3106,35 @@ async def handler(ws):
                                     f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
                                     f.write("---\n\n")
                                     f.write(page_text)
-                                
+
                                 print(f"✅ Text content saved to: {text_file_path}")
-                                
+
                             except Exception as write_error:
                                 print(f"⚠️ Error writing to text.md: {write_error}")
                         else:
                             print("⚠️ No page text available for markdown generation")
-                            
+
                     except Exception as e:
                         print(f"⚠️ Error during automatic markdown generation: {e}")
                     
-                    # 🆕 NEW: Process actionable elements for LLM consumption
-                    # This ensures llm_actions.json is always aligned with current page
-                    await process_actionable_elements_for_llm(actionable_elements)
-                    
-                    # 🆕 NEW: Generate compact llm_prompt.md (omit URLs in action lines)
-                    try:
-                        page_path = os.path.join(SITE_STRUCTURES_DIR, CURRENT_PAGE_JSONL)
-                        text_path = os.path.join(SITE_STRUCTURES_DIR, "text.md")
-                        prompt_out = os.path.join(SITE_STRUCTURES_DIR, "llm_prompt.md")
-                        generated = generate_llm_prompt(text_path, page_path, prompt_out)
-                        if generated:
-                            print(f"✅ LLM prompt generated at: {generated}")
-                        else:
-                            print("⚠️ LLM prompt generation returned no output")
-                    except Exception as gen_err:
-                        print(f"⚠️ Error generating llm_prompt.md: {gen_err}")
+                    # 🚫 DISABLED: Old actionable elements processing (conflicts with semantic extraction)
+                    # # 🆕 NEW: Process actionable elements for LLM consumption
+                    # # This ensures llm_actions.json is always aligned with current page
+                    # await process_actionable_elements_for_llm(actionable_elements)
+
+                    # 🚫 DISABLED: Old llm_prompt.md generation (replaced by semantic text.md)
+                    # # 🆕 NEW: Generate compact llm_prompt.md (omit URLs in action lines)
+                    # try:
+                    #     page_path = os.path.join(SITE_STRUCTURES_DIR, CURRENT_PAGE_JSONL)
+                    #     text_path = os.path.join(SITE_STRUCTURES_DIR, "text.md")
+                    #     prompt_out = os.path.join(SITE_STRUCTURES_DIR, "llm_prompt.md")
+                    #     generated = generate_llm_prompt(text_path, page_path, prompt_out)
+                    #     if generated:
+                    #         print(f"✅ LLM prompt generated at: {generated}")
+                    #     else:
+                    #         print("⚠️ LLM prompt generation returned no output")
+                    # except Exception as gen_err:
+                    #     print(f"⚠️ Error generating llm_prompt.md: {gen_err}")
 
                     print("✅ Intelligence update processed and saved (page + content + markdown)")
 

@@ -5509,6 +5509,251 @@
     };
 
     /**
+     * 🆕 NEW: Extract semantic text with inline action IDs
+     *
+     * Walks the DOM like innerText does (only visible elements),
+     * but tags interactive elements with their action IDs.
+     *
+     * Example output:
+     *   <Button id="a_id_0">Skip navigation</Button>
+     *   <Input id="a_id_1">Search</Input>
+     *   <Link id="a_id_2">Guthrie Govan acoustic solo</Link>
+     *   Regular text here
+     *
+     * Returns: { text: string, actionables: Array }
+     */
+    IntelligenceEngine.prototype.extractSemanticTextWithIds = function () {
+        const textParts = [];
+        const actionables = [];
+        let counter = 0;
+
+        // 🧹 CLEAN: Remove old semantic IDs from previous extraction
+        try {
+            const oldMarkers = document.querySelectorAll('[data-ome-action-id]');
+            console.log(`[Content] 🧹 Cleaning ${oldMarkers.length} old semantic IDs before extraction`);
+            oldMarkers.forEach(el => {
+                el.removeAttribute('data-ome-action-id');
+                if (el.dataset) {
+                    delete el.dataset.omeActionId;
+                }
+            });
+        } catch (err) {
+            console.warn('[Content] ⚠️ Error cleaning old semantic IDs:', err);
+        }
+
+        // Helper: Check if element is visible (same logic as innerText)
+        const isVisible = (element) => {
+            if (!element || element.nodeType !== Node.ELEMENT_NODE) return true;
+
+            const style = window.getComputedStyle(element);
+            if (style.display === 'none') return false;
+            if (style.visibility === 'hidden') return false;
+            if (style.opacity === '0') return false;
+
+            return true;
+        };
+
+        // Helper: Get text label from element
+        const getLabel = (element) => {
+            // Try aria-label first (most explicit)
+            let label = element.getAttribute('aria-label');
+            if (label && label.trim()) return label.trim();
+
+            // Try innerText (visible text)
+            label = element.innerText || element.textContent || '';
+            label = label.trim();
+
+            // Fallback to placeholder for inputs
+            if (!label && element.tagName === 'INPUT') {
+                label = element.getAttribute('placeholder') ||
+                        element.getAttribute('aria-placeholder') || '';
+            }
+
+            // Fallback to title
+            if (!label) {
+                label = element.getAttribute('title') || '';
+            }
+
+            return label.trim();
+        };
+
+        // Helper: Determine element type
+        const getElementType = (element) => {
+            const tag = element.tagName.toLowerCase();
+            const role = element.getAttribute('role');
+            const type = element.getAttribute('type');
+
+            // Buttons
+            if (tag === 'button' || role === 'button') return 'Button';
+
+            // Links
+            if (tag === 'a' || role === 'link') return 'Link';
+
+            // Inputs
+            if (tag === 'input') {
+                if (type === 'submit' || type === 'button') return 'Button';
+                return 'Input';
+            }
+
+            if (tag === 'textarea') return 'Input';
+            if (tag === 'select') return 'Select';
+
+            return null; // Not interactive
+        };
+
+        // Walk the DOM tree
+        const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
+            {
+                acceptNode: (node) => {
+                    // Text nodes - always accept if parent is visible
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        if (node.parentElement && isVisible(node.parentElement)) {
+                            return NodeFilter.FILTER_ACCEPT;
+                        }
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    // Element nodes - check visibility
+                    if (!isVisible(node)) {
+                        return NodeFilter.FILTER_REJECT; // Skip hidden subtrees
+                    }
+
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        let node;
+        const processedElements = new WeakSet(); // Prevent duplicate processing
+
+        while (node = walker.nextNode()) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                // Regular text - add as-is
+                const text = node.textContent.trim();
+                if (text && text.length > 0) {
+                    textParts.push(text);
+                }
+
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                // Skip if already processed
+                if (processedElements.has(node)) continue;
+
+                // 🔍 SMART LOOKUP: For <a> without href, check if child has href
+                let targetElement = node;
+                if (node.tagName.toLowerCase() === 'a') {
+                    const href = node.getAttribute('href');
+                    if (!href || !href.trim() || href === '#' || href.startsWith('javascript:')) {
+                        // No valid href - check direct children for <a> with href
+                        const childLink = Array.from(node.children).find(child => {
+                            if (child.tagName.toLowerCase() === 'a') {
+                                const childHref = child.getAttribute('href');
+                                return childHref && childHref.trim() &&
+                                       childHref !== '#' && !childHref.startsWith('javascript:');
+                            }
+                            return false;
+                        });
+
+                        if (childLink) {
+                            targetElement = childLink; // Use child instead
+                        }
+                    }
+                }
+
+                // Check if interactive
+                const elementType = getElementType(targetElement);
+
+                if (elementType) {
+                    const label = getLabel(targetElement);
+
+                    // Only tag if it has meaningful content
+                    if (label && label.length > 0) {
+                        const actionId = `a_id_${counter++}`;
+
+                        // Write ID to DOM for later execution
+                        targetElement.setAttribute('data-ome-action-id', actionId);
+
+                        // Store actionable metadata
+                        actionables.push({
+                            id: actionId,
+                            type: elementType,
+                            label: label,
+                            tag: targetElement.tagName.toLowerCase(),
+                            href: targetElement.href || null,
+                            selector: this.generateSimpleSelector(targetElement)
+                        });
+
+                        // Add semantic tag to text
+                        textParts.push(`<${elementType} id="${actionId}">${label}</${elementType}>`);
+
+                        // Mark as processed
+                        processedElements.add(targetElement);
+                        if (targetElement !== node) {
+                            processedElements.add(node); // Also mark parent
+                        }
+
+                        // Skip children - already captured in label
+                        const skipSubtree = () => {
+                            let next = walker.nextNode();
+                            while (next && node.contains(next)) {
+                                processedElements.add(next);
+                                next = walker.nextNode();
+                            }
+                            if (next) {
+                                walker.previousNode(); // Back up one step
+                            }
+                        };
+                        skipSubtree();
+                    }
+                }
+            }
+        }
+
+        // Join text parts and clean up
+        let text = textParts.join('\n');
+
+        // Normalize whitespace (like extractCleanPageText does)
+        text = text.normalize('NFKC');
+        text = text.replace(/[ \t]+/g, ' ');
+
+        let lines = text.split('\n').map(l => l.trim());
+        lines = lines.filter((l, i, arr) => l || (arr[i - 1] && arr[i - 1] !== ''));
+
+        return {
+            text: lines.join('\n'),
+            actionables: actionables
+        };
+    };
+
+    /**
+     * 🆕 Helper: Generate simple selector for element
+     */
+    IntelligenceEngine.prototype.generateSimpleSelector = function (element) {
+        // Try ID first
+        if (element.id) {
+            return `#${element.id}`;
+        }
+
+        // Try data-ome-action-id
+        const actionId = element.getAttribute('data-ome-action-id');
+        if (actionId) {
+            return `[data-ome-action-id="${actionId}"]`;
+        }
+
+        // Try class
+        if (element.className && typeof element.className === 'string') {
+            const firstClass = element.className.split(' ')[0];
+            if (firstClass) {
+                return `${element.tagName.toLowerCase()}.${firstClass}`;
+            }
+        }
+
+        // Fallback to tag
+        return element.tagName.toLowerCase();
+    };
+
+    /**
      * 🆕 Extract headings from the page
      */
     IntelligenceEngine.prototype.extractHeadings = function () {
@@ -5902,6 +6147,7 @@
             actionMapping: this.generateActionMapping(),
             contentElements: this.getContentElementsSummary(),
             pageText: this.extractCleanPageText(),
+            semanticPageData: this.extractSemanticTextWithIds(), // 🆕 NEW: Semantic text with IDs
             normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true }),
             transcripts,
             capabilities // 🎯 PREMIUM: Site-specific capabilities for current URL
@@ -7502,9 +7748,10 @@
             this.actionableElements.set(actionableId.id, actionableId);
         }
 
-        if (domElement.dataset) {
-            domElement.dataset.omeActionId = actionableId.id;
-        }
+        // 🚫 DISABLED: Old ID writing system (conflicts with semantic extraction)
+        // if (domElement.dataset) {
+        //     domElement.dataset.omeActionId = actionableId.id;
+        // }
 
         this.storeActionableNode(actionableId.id, domElement);
 
@@ -7538,9 +7785,10 @@
             return;
         }
 
-        if (node.dataset) {
-            node.dataset.omeActionId = actionId;
-        }
+        // 🚫 DISABLED: Old ID writing system (conflicts with semantic extraction)
+        // if (node.dataset) {
+        //     node.dataset.omeActionId = actionId;
+        // }
 
         this.actionableElementNodes.set(actionId, node);
     };
@@ -7796,7 +8044,43 @@
      * 🆕 NEW: Get actionable element by ID
      */
     IntelligenceEngine.prototype.getActionableElement = function (actionId) {
-        return this.actionableElements.get(actionId);
+        // First, try the old system's Map
+        let element = this.actionableElements.get(actionId);
+
+        // If not found in Map, query DOM for semantic extraction IDs
+        if (!element) {
+            try {
+                const domElement = document.querySelector(`[data-ome-action-id="${actionId}"]`);
+                if (domElement) {
+                    console.log("[Content] ✅ Found element via semantic extraction ID:", actionId);
+
+                    // Build a minimal descriptor from the DOM element
+                    element = {
+                        id: actionId,
+                        tagName: domElement.tagName.toLowerCase(),
+                        actionType: domElement.tagName.toLowerCase() === 'a' ? 'navigate' :
+                                   (domElement.tagName.toLowerCase() === 'input' ||
+                                    domElement.tagName.toLowerCase() === 'textarea') ? 'setValue' : 'click',
+                        textContent: domElement.innerText || domElement.textContent || '',
+                        attributes: {
+                            href: domElement.href || null,
+                            'aria-label': domElement.getAttribute('aria-label') || null
+                        },
+                        selectors: [`[data-ome-action-id="${actionId}"]`]
+                    };
+
+                    // Store it in the Map for future lookups
+                    this.actionableElements.set(actionId, element);
+
+                    // Also store the DOM node
+                    this.actionableElementNodes.set(actionId, domElement);
+                }
+            } catch (err) {
+                console.warn("[Content] ⚠️ Error querying DOM for semantic ID:", err);
+            }
+        }
+
+        return element;
     };
 
     /**
@@ -9729,34 +10013,35 @@
             //
             // This function just scans and registers - the reset already happened.
 
-            // 🧹 CLEAN DOM MARKERS: Remove old data-ome-action-id attributes from previous scan
-            // (This is DOM state, not engine state, so we still need to clean it manually)
-            console.log("[Content] 🧹 Starting DOM marker cleanup...");
-            try {
-                const existingMarkers = document.querySelectorAll('[data-ome-action-id]');
-                console.log(`[Content] 🧹 Found ${existingMarkers.length} old DOM markers to clean`);
-
-                if (existingMarkers.length > 0) {
-                    console.log(`[Content] 🧹 Removing ${existingMarkers.length} old DOM markers`);
-                    let removedCount = 0;
-                    existingMarkers.forEach(node => {
-                        try {
-                            if (node.dataset) {
-                                delete node.dataset.omeActionId;
-                            }
-                            node.removeAttribute('data-ome-action-id');
-                            removedCount++;
-                        } catch (markerError) {
-                            console.warn('[Content] ⚠️ Failed to clear actionable marker:', markerError?.message || markerError);
-                        }
-                    });
-                    console.log(`[Content] ✅ Successfully removed ${removedCount} DOM markers`);
-                } else {
-                    console.log("[Content] ✅ No old DOM markers found (clean slate)");
-                }
-            } catch (markerScanError) {
-                console.warn('[Content] ⚠️ Unable to clear existing actionable markers:', markerScanError?.message || markerScanError);
-            }
+            // 🚫 DISABLED: Old DOM marker cleanup (now handled by semantic extraction)
+            // // 🧹 CLEAN DOM MARKERS: Remove old data-ome-action-id attributes from previous scan
+            // // (This is DOM state, not engine state, so we still need to clean it manually)
+            // console.log("[Content] 🧹 Starting DOM marker cleanup...");
+            // try {
+            //     const existingMarkers = document.querySelectorAll('[data-ome-action-id]');
+            //     console.log(`[Content] 🧹 Found ${existingMarkers.length} old DOM markers to clean`);
+            //
+            //     if (existingMarkers.length > 0) {
+            //         console.log(`[Content] 🧹 Removing ${existingMarkers.length} old DOM markers`);
+            //         let removedCount = 0;
+            //         existingMarkers.forEach(node => {
+            //             try {
+            //                 if (node.dataset) {
+            //                     delete node.dataset.omeActionId;
+            //                 }
+            //                 node.removeAttribute('data-ome-action-id');
+            //                 removedCount++;
+            //             } catch (markerError) {
+            //                 console.warn('[Content] ⚠️ Failed to clear actionable marker:', markerError?.message || markerError);
+            //             }
+            //         });
+            //         console.log(`[Content] ✅ Successfully removed ${removedCount} DOM markers`);
+            //     } else {
+            //         console.log("[Content] ✅ No old DOM markers found (clean slate)");
+            //     }
+            // } catch (markerScanError) {
+            //     console.warn('[Content] ⚠️ Unable to clear existing actionable markers:', markerScanError?.message || markerScanError);
+            // }
 
             if (this.youtubeRegisteredUrls) {
                 this.youtubeRegisteredUrls.clear();

@@ -38,7 +38,7 @@ Usage examples:
       python3 test_navigation.py --command click --action-id a_id_133
 
   - Navigate link:
-      python3 test_navigation.py --command navigate --action-id a_id_755
+      python3 test_navigation.py --command navigate --action-id a_id_19
 
   - Set value without submit:
       python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "just text" --no-submit
