@@ -1,0 +1,466 @@
+<!-- signature: WceVZrqMWRw:455:025ca2e973f912309cdac4317fc11a3787483ef22d4be899a3cec0d109195baf -->
+# My container house looks completely different!
+
+**Video URL:** https://www.youtube.com/watch?v=WceVZrqMWRw
+**Video ID:** WceVZrqMWRw
+**Language:** en
+**Collected At:** 1763988047625
+**Segments:** 455
+
+---
+
+- [0:18] If you don't know, I got these
+- [0:20] containers for my container house
+- [0:21] secondhand and for a bargain, but it may
+- [0:24] be pretty obvious why. It is rust and
+- [0:26] dent and hole central over here. And I
+- [0:28] think it's about time that I remove all
+- [0:30] the rust and repair them so that they
+- [0:32] can last the test of time. And yes, I am
+- [0:34] going to start with the easy side first.
+- [0:36] This side has way less rust and I have
+- [0:38] removed two of the doors already. So,
+- [0:40] I'm going to start at the back at the
+- [0:42] bottom here and work my way up. The
+- [0:44] scaffolding is already here as well,
+- [0:46] which is a massive plus. I've already
+- [0:48] removed and treated all the rust on my
+- [0:50] container roofs from when I was
+- [0:51] installing my ski roof and my rooftop
+- [0:53] deck. And now that all my cutouts are
+- [0:55] almost complete, it's a great time to
+- [0:56] get rid of all this rust and treat it.
+- [0:58] And trust me, I have dealt with a lot of
+- [1:01] rust on this build, and I find the wire
+- [1:02] cut brush to be the best for removing
+- [1:04] rust on containers. When removing rust,
+- [1:06] you need to get it right back to the
+- [1:08] bare steel. And specifically, these
+- [1:10] containers are cotton steel. So, they're
+- [1:12] actually meant to have a thin layer of
+- [1:13] rust over them, which may sound
+- [1:15] contradictory since I'm removing it all,
+- [1:17] but let me show you the difference
+- [1:18] between this bad rust that I'm removing
+- [1:20] and the protective rust layer that forms
+- [1:21] once I've got it down to bare steel and
+- [1:23] applied vinegar. That's the good rust
+- [1:25] that we're looking for. Once you've
+- [1:26] removed the rust and treated it and it's
+- [1:28] all dry, you can spray a protective
+- [1:30] layer of paint over the top and it can
+- [1:32] be applied a couple of times and then
+- [1:33] the containers are good as new. Of
+- [1:35] course, not all areas of the containers
+- [1:37] though are that easy to remove the rust
+- [1:39] from. Some are worse than others. Some
+- [1:40] have big dents and some actually have
+- [1:42] holes. There's also little areas to get
+- [1:44] into, so it won't be as easy as using
+- [1:46] the wire cut brush all the time. I do
+- [1:47] have a bunch of other ones that I can
+- [1:49] use as well, but I'll also need to do
+- [1:50] some repairs. It is a beautiful day, so
+- [1:53] let's crank some music and get into it.
+- [2:22] Heat. Heat.
+- [2:43] I've removed all the rust that I can on
+- [2:45] this container up with the stairs up all
+- [2:48] the way that I can reach. So, I'm going
+- [2:49] to have to move the scaffolding over
+- [2:51] now. I've already removed the rust on
+- [2:53] these two ends as well because I did
+- [2:55] that when I did the doors. So now I just
+- [2:57] have to get this one above and then I'm
+- [2:58] going to treat and protect it. Now I
+- [3:00] don't want to do it this way. I would
+- [3:02] rather just go around the whole entire
+- [3:04] containers, remove all the rust at once
+- [3:06] and then treat it all at once and
+- [3:08] protect it all at once. But would you
+- [3:11] believe it? Apparently it's going to be
+- [3:12] thunderstorming for the next 4 days even
+- [3:14] though it looks like this now. So
+- [3:16] unfortunately I'm just going to have to
+- [3:17] treat and protect as I go because I
+- [3:20] don't want to get caught out with rain
+- [3:21] coming down and have all my hard work
+- [3:23] just like washed away. So, that means
+- [3:25] it's time to grab the scaffolding, move
+- [3:27] it over here, and get to all the rust
+- [3:30] that's on this container here. It's
+- [3:32] actually not that tricky of a job. It
+- [3:34] just is achy holding the grinder all the
+- [3:37] time. Um, but it's just also long. You
+- [3:40] get covered in rust and that's not very
+- [3:42] nice. But it's not hard. Although, I
+- [3:44] better not speak too fast. The top has a
+- [3:45] lot more rust than the bottom.
+- [4:08] Wow, I'm absolutely covered in rust. But
+- [4:11] it's a job that has to be done. It is
+- [4:13] not a nice job though. But I have
+- [4:16] completed removing all the rust off this
+- [4:19] side. So, it's all gone from all the
+- [4:21] ones down the bottom here and then on
+- [4:23] the side up the top there. Not on the
+- [4:25] front face, just on the side. So, cuz I
+- [4:29] can't remove the rust all at once, I'm
+- [4:31] going to go up now and just use a brush
+- [4:34] and just try make sure like all the
+- [4:36] steel, all the rust is gone. And then
+- [4:38] I'll use a blower and blow it away too.
+- [4:40] And then I can finally treat it. I'm
+- [4:42] just spraying the areas and treating it
+- [4:44] to create that thin protective layer.
+- [4:46] And I'm going to give it a good amount
+- [4:48] of time to dry, too. So, it's definitely
+- [4:50] all dry before I give it a spray with
+- [4:52] the protective paint at the end. And
+- [4:54] then this side will be all done, all
+- [4:56] rust removed, and I can move on to the
+- [4:59] front, I think. Which I don't think
+- [5:01] there's that much at the front, like
+- [5:02] just the big container at the front.
+- [5:04] There is more on the second story. A lot
+- [5:06] more on the second story.
+- [5:26] I love it when we hide
+- [5:30] in the pale blue.
+- [5:38] Do you feel the winds are turning around
+- [5:46] goes up must always come back down.
+- [5:59] And then I woke up to rain and it rained
+- [6:02] and rained and rained. Well, that was a
+- [6:05] fun 4 days of rain straight, non-stop.
+- [6:08] But at least my dam and the rainwater
+- [6:10] tank loved it. I'm really not a fan of
+- [6:12] the weather in this location. And let me
+- [6:14] just quickly explain why. Before I lived
+- [6:16] here, I lived right at the top of
+- [6:18] Western Australia in the Kimbley region,
+- [6:20] where in western seasons there is only
+- [6:22] two seasons, which is dry and wet
+- [6:25] seasons. In the Mirong calendar, which
+- [6:27] is the indigenous calendar for the area
+- [6:29] that I lived in, there is three seasons,
+- [6:31] which is hot, cold, and wet. So the wet
+- [6:34] season was my favorite and that's around
+- [6:36] December to March and it was just full
+- [6:40] of rain non-stop and the temperatures
+- [6:42] reach like 48° but the non-stop rain
+- [6:44] just feels these gorgeous gorgees with
+- [6:47] waterfalls. There is waterfalls coming
+- [6:49] from everywhere and because it's so hot
+- [6:51] there is no tourists cuz it's very hard
+- [6:53] to travel in that heat. But in the dry
+- [6:55] season it is a beautiful 30 to 40° and
+- [6:58] it doesn't change. It stays a lovely
+- [7:00] temperature. You never need a jumper
+- [7:02] year round. So is hot year round and
+- [7:04] even though there's more tourists in dry
+- [7:06] season, Kimbley area is 425
+- [7:11] 100,000 wait
+- [7:15] 42500 0. That's how big it is. So there
+- [7:19] is a lot of space. I think it works out
+- [7:21] to be 0.9 people per kilometer. So
+- [7:25] that's pretty insane because yeah, it's
+- [7:26] it's a massive space. There's definitely
+- [7:28] room for everybody that comes to visit.
+- [7:30] So basically it's hot year round and I
+- [7:32] absolutely loved that because I as a
+- [7:34] small person I get cold very easily
+- [7:37] anyway because it is so beautiful and
+- [7:40] sunny today. Hopefully it stays that
+- [7:42] way. I will be checking the radar the
+- [7:43] entire time because rust removal is not
+- [7:45] something that you can start and then
+- [7:47] have it be rained on and see if you've
+- [7:49] been with me long enough to remember
+- [7:50] this. I got it right at the beginning
+- [7:52] before I even started building the
+- [7:54] container house.
+- [7:58] This is my antique wood fire oven
+- [8:02] that I got for a bargain off marketplace
+- [8:04] before I even started this build. It is
+- [8:07] gorgeous in very good condition
+- [8:09] actually. I plan to use it in the
+- [8:11] kitchen obviously, but also to heat the
+- [8:13] water in the house hopefully. Fingers
+- [8:15] crossed. My plumber said that should be
+- [8:17] fine. And hopefully it'll act as like a
+- [8:19] way of heating the house as well. So
+- [8:21] obviously I'll need to give it a good
+- [8:23] good clean out.
+- [8:27] I'm going to cover this back up and then
+- [8:28] let's transform this house. I think I'm
+- [8:30] going to start on the back today. I have
+- [8:31] a feeling it may be the hardest. So, I'm
+- [8:34] just going to try and knock it out of
+- [8:36] the park and get it over and done with
+- [8:38] so that I'm not too daunted by the rest
+- [8:39] of it. Although, the upper story rooftop
+- [8:42] deck area might be quite tricky, too.
+- [9:00] One step closer to the heaven.
+- [9:06] We get we
+- [9:11] keep our hands up high
+- [9:14] in
+- [9:18] loving you.
+- [9:33] That's it for the back bottom part. Now
+- [9:36] I need to go up to the top. The bottom
+- [9:37] wasn't as bad as I thought it was going
+- [9:39] to be because I actually forgot that I
+- [9:41] had done a lot of it way back when I
+- [9:43] first got the containers. So I kind of
+- [9:45] just had to do a few more spots and go
+- [9:47] over it a little bit. But it actually
+- [9:48] went pretty fast. But now I have to get
+- [9:50] the scaffolding and go all along the
+- [9:52] back, which is going to be very
+- [9:54] timeconuming. Of course, when I'm
+- [9:56] removing this much rust, I need sun. Not
+- [9:58] only so that the containers have time to
+- [10:00] dry, but also so that I can charge my
+- [10:02] Anker Solex F3000, which is the perfect
+- [10:05] power station to help me complete this
+- [10:06] part of the build because I'm using my
+- [10:08] grinder non-stop. And the Anker Solex
+- [10:11] F3000 is the longest lasting power
+- [10:13] station for essentials. And for me,
+- [10:15] well, my power tools are my essentials.
+- [10:17] The Anker Solex F3000 and huge capacity
+- [10:20] of 372
+- [10:22] WH expandable up to 12KWH. So, not only
+- [10:26] is it able to power my angle grinder to
+- [10:28] run non-stop to remove the rust, but I'm
+- [10:30] also charging my batteries for my
+- [10:31] battery grinder in case I need them as a
+- [10:33] backup. And it's also keeping my filming
+- [10:35] equipment charged all at once. But with
+- [10:37] a massive 3,600W/230V
+- [10:41] output and a 3A Anderson DC output, the
+- [10:44] F3000 and handle it and power multiple
+- [10:46] devices all at once, like all of my
+- [10:48] tools and filming equipment. or if
+- [10:50] you're in a caravan or on the road, it
+- [10:52] could be your fridge, lights, small
+- [10:54] appliances, electronics, and you can
+- [10:56] even charge the caravan itself. Even if
+- [10:58] it's for use around your home, with
+- [11:00] ultra low idle power consumption, the
+- [11:02] F3000 your fridge for 2 days during a
+- [11:05] blackout to keep all your food fresh.
+- [11:07] And even when it's not in use, it will
+- [11:09] stay on standby for up to 5 days, so you
+- [11:11] never have to stress about unexpectedly
+- [11:13] not having power. Depending whether
+- [11:15] you're on the road, at home, or in the
+- [11:17] middle of building a house like me, you
+- [11:18] can recharge the F3000 with 6,000 watt
+- [11:22] max recharge power, which is fully
+- [11:24] charging in 1 and 1/2 hours. When you're
+- [11:26] using ACV charger and solar combined, or
+- [11:29] for me with just a solar, it's a 2,400 W
+- [11:32] max recharge power. I'm going to use the
+- [11:34] Anker Solex F3000 my entire rust removal
+- [11:38] process and see how far I can get with
+- [11:40] it before I have to recharge it. And
+- [11:42] then I want to see how long it takes to
+- [11:43] fully recharge her so that I'm ready to
+- [11:45] go for round two. So let's test her out.
+- [11:47] It is sitting at 100% now as we can see.
+- [11:51] And I'm going to go find my extension
+- [11:54] cord, plug it in so that I can reach up
+- [11:56] on to the containers. And we'll see how
+- [11:58] long this lasts and how much rust I can
+- [11:59] remove with it before it dies. Let's go.
+- [12:06] I have completed the lower back
+- [12:09] container. And I have to admit, there
+- [12:11] wasn't too much rust on here. But should
+- [12:14] we check and see what she's up to?
+- [12:17] Oh my god.
+- [12:19] So, that says 90% and that's for the
+- [12:22] entire lower back container. We're
+- [12:24] really going to test it with this top
+- [12:25] one here cuz there is a lot more rust.
+- [12:32] So, the entire back is completed with
+- [12:35] the grinder.
+- [12:37] 60% exactly.
+- [12:43] I've now completely done the entire
+- [12:45] back. So, the top and the bottom. And
+- [12:47] I've done this side on the bottom and on
+- [12:49] the top. And now I'm going to head up
+- [12:51] and do the top at the front there. But
+- [12:54] the Anchor Solex F3000 is still going
+- [12:57] strong. It is on
+- [13:00] 10%.
+- [13:02] Oh my gosh, I got so close. I got all
+- [13:06] there to like halfway under that window.
+- [13:10] Rust removed and the Anchor Solex F3000
+- [13:14] has finally run out and gone to 0%. I'm
+- [13:17] going to go down now and plug her into
+- [13:20] those solar panels over there and time
+- [13:22] how long it takes to charge her up.
+- [13:24] There we have it. 4 hours and 7 minutes
+- [13:28] fully recharged. And I think the power
+- [13:30] of the Anker Solex F3000 convenience
+- [13:33] speaks for itself. And with Infini
+- [13:35] Power, it has a 10-year lifespan, so you
+- [13:37] can rely on it for years to come. If you
+- [13:39] want to grab the Anker Solex F3000 and
+- [13:41] any other Anker Solex power station,
+- [13:43] there's a link below in my description.
+- [13:56] swinging
+- [13:59] So swinging
+- [14:02] swinging
+- [14:05] swinging
+- [14:08] you make the land beautiful
+- [14:15] singes
+- [14:25] the
+- [14:30] I've got all the rust removed. All of it
+- [14:33] up the top and all down the bottom. So,
+- [14:35] that means I can move on to treatment
+- [14:38] first. Go over all of Sorry, my GoPro
+- [14:40] died. So, now I have to run over with
+- [14:42] treatment, let it dry, and then do the
+- [14:44] spray, too. I'm also hoping that I can
+- [14:47] go spray the front as well. And then I
+- [14:48] should have this entire back, the front
+- [14:51] down the bottom, and then those two
+- [14:54] entire sides done. And we hide
+- [15:00] in the blue sky
+- [15:04] floating on.
+- [15:08] Do you feel the winds are turning
+- [15:11] around?
+- [15:23] I'll be safe in your arms like the light
+- [15:27] in the day never.
+- [15:30] I'm looking down the line
+- [15:34] with you by my side. I'll be fine.
+- [15:51] It is looking like a sunny day today. I
+- [15:54] don't want to speak too fast, but
+- [15:55] fingers crossed I do have another sunny
+- [15:57] day today before I get into hopefully
+- [16:00] the last day of rust removal for the
+- [16:02] container house, which will be a pretty
+- [16:04] big moment, too. And something I haven't
+- [16:05] been wanting to do for like quite a long
+- [16:07] time as well. But first, I thought I
+- [16:09] would tell you my plans for some of the
+- [16:11] plants that I have here and kind of a
+- [16:13] setup around the property. So, I grabbed
+- [16:15] these plants here. I've got two weeping
+- [16:17] malbury trees. Two I can't remember the
+- [16:20] name of these palms. What are these
+- [16:22] palms called? Are they called Alexandra?
+- [16:24] No. Is that a different one? I'm not
+- [16:26] sure. But I've got these two palms. And
+- [16:28] then I've got some jasmine and
+- [16:34] I'm not sure what the other one is
+- [16:35] called. Star something maybe. So my
+- [16:37] property is quite big and it's filled
+- [16:39] with mainly Jara and Murray trees which
+- [16:41] are gorgeous and they give a lot of
+- [16:43] treetop cover. So there is a lot of
+- [16:46] shade around the property but the cover
+- [16:47] is also very high up. So when you're
+- [16:50] going through the property it's all very
+- [16:52] open and I want to create lots of like
+- [16:55] little areas within the property like
+- [16:57] for example my secret garden uh the dam
+- [17:00] areas. I want to have like a movie kind
+- [17:02] of theater area. maybe like a camping
+- [17:05] chill zone for like campfires and
+- [17:07] everything. I want to have my outdoor
+- [17:09] bathroom area. There's like quite a few
+- [17:12] areas like I want to have like a net
+- [17:14] area. Yeah, there's quite a few areas
+- [17:16] that I want to have. But at the moment,
+- [17:18] like I'm starting to create these areas
+- [17:20] obviously and they're so open and I kind
+- [17:24] of want to close them all in to make
+- [17:26] them their own like hidden little areas.
+- [17:28] And I think that'll be quite easy with
+- [17:29] like the garden area. Obviously, that's
+- [17:31] going to kind of do it to itself when
+- [17:33] everything grows. But in the other
+- [17:34] areas, for example, down by the dam,
+- [17:37] I've got to think of something a little
+- [17:39] bit different. So, I'm thinking like
+- [17:40] barrier type things, but I can't do that
+- [17:42] directly in the ground everywhere
+- [17:43] because most of the property is like a
+- [17:46] high clay content, but also my property
+- [17:49] is on a slope and everything runs
+- [17:51] downwards. Some areas are quite wet um
+- [17:55] as well. So, I'm thinking of making like
+- [17:58] I guess planter boxes, but like massive
+- [18:00] ones out of cinder blocks and like
+- [18:02] concreting them and everything so that I
+- [18:05] have these huge like planter boxes with
+- [18:07] lots of space for the plants to grow
+- [18:10] down there. And I'm thinking having like
+- [18:11] kind of making it I'm thinking like 25
+- [18:16] 50 25 to 50 m long. So, I think I'm just
+- [18:19] going to use like basically steel mesh
+- [18:22] and then create like a timber frame
+- [18:25] around it and then have that attached to
+- [18:28] steel posts that are concreted into the
+- [18:30] ground. And then the planter boxes will
+- [18:33] be filled with like mainly vines so that
+- [18:35] they grow up all the steel mesh. Uh cuz
+- [18:37] vines are so fast growing as well, but
+- [18:40] also palms. Palms grow very quickly as
+- [18:42] well. So, I'm thinking combination of
+- [18:44] like palms on the side, vines all in the
+- [18:46] mesh. Yeah, I think it will be gorgeous.
+- [19:24] Okay team, I am getting there. It is
+- [19:27] such a gross job though. This rust is
+- [19:30] not nice, but it is very satisfying to
+- [19:34] see it disappear. I do admit that. But
+- [19:36] I'm completed the entire side here. So,
+- [19:39] all down the bottom and all up the top.
+- [19:42] So, I'm going to move up to that top
+- [19:44] level at the front there and get rid of
+- [19:47] all the rust there. And that is it. That
+- [19:49] will be all the rust gone. I'm up on the
+- [19:52] deck and I have assessed the area. And
+- [19:55] would you look at this?
+- [19:58] There is not that much rust to remove
+- [20:04] there. The worst is probably over here.
+- [20:07] Here would be the worst, but it's just
+- [20:11] down the bottom. There's only a little
+- [20:13] bit up there. This might not take that
+- [20:17] long.
+- [20:19] I'm so excited
+- [20:21] to have rust-free containers.
+- [20:24] All right, let's do it. Last little
+- [20:27] stretch.
+- [20:45] Hey,
+- [20:53] hey, hey.
+- [21:00] And that's a wrap.
+- [21:02] All the rust is gone. Can you believe
+- [21:05] it? It's pretty insane. Cuz these were
+- [21:09] actual rust boxes. Like proper proper
+- [21:12] rust boxes. But as I went along, I
+- [21:14] realized some of the rust wasn't as bad
+- [21:16] as I thought it was. Some areas were
+- [21:18] definitely terrible. But I got through
+- [21:20] it all. And I am so excited to hopefully
+- [21:23] never be covered in rust again. But
+- [21:25] knowing me, I surely will get something
+- [21:26] rusty again because it's cheap on
+- [21:28] marketplace or something. But let's get
+- [21:30] this all sprayed up and then I want to
+- [21:32] go have a picnic. So, you know the
+- [21:33] drill. Now, I'm going to treat it first
+- [21:36] and then I'm going to protect it.
+- [22:20] Hello.
+- [22:24] Mommy is so exhausted.
+- [22:43] All the rust is gone on my house and I
+- [22:46] could not be more stoked. It is all
+- [22:48] treated. It is all protected. And I
+- [22:51] think that calls for a beer for me. And
+- [22:54] what do you want? A picnic. Picnic for
+- [22:56] Django.
+- [22:59] What about some strawberries?
+- [23:02] Strawberries or watermelon?
+- [23:04] Do you want some cheese?
+- [23:09] You are so cute.
+- [23:14] Hey. Hey. Hey.
+- [24:05] Heat. Heat.

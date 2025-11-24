@@ -3110,8 +3110,11 @@ async def handler(ws):
                     
                     # 🆕 NEW: Auto-generate markdown file from semantic page text
                     try:
-                        # Extract semantic page data from intelligence data
-                        page_state = page_state or {}
+                        # 🔧 FIX: Get URL and title from root of intelligence_data (not pageState)
+                        # We removed pageState to simplify, so metadata is at root level
+                        page_url = intelligence_data.get('url', 'unknown')
+                        page_title = intelligence_data.get('title', 'Unknown Page')
+
                         semantic_data = intelligence_data.get("semanticPageData", {})
 
                         # Fallback to plain text if semantic data not available
@@ -3129,17 +3132,14 @@ async def handler(ws):
                                 # Create the text.md file path in the same directory as other files
                                 text_file_path = os.path.join("@site_structures", "text.md")
 
-                                # Get current URL for capability resolution
-                                current_url = page_state.get('url', '')
-
                                 # Resolve capabilities for this URL
-                                capabilities = resolve_capabilities_for_url(current_url) if current_url else []
+                                capabilities = resolve_capabilities_for_url(page_url) if page_url else []
 
                                 # Write the markdown content directly
                                 with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
                                     # Frontmatter
-                                    f.write(f"# {page_state.get('title', 'Unknown Page')}\n\n")
-                                    f.write(f"**URL:** {page_state.get('url', 'unknown')}\n")
+                                    f.write(f"# {page_title}\n\n")
+                                    f.write(f"**URL:** {page_url}\n")
                                     f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
 
                                     # 🎯 CAPABILITIES SECTION: Show domain-specific actions

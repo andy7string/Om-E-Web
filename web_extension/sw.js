@@ -526,28 +526,31 @@ async function requestScan(tabId, url, trigger) {
         return;
     }
 
-    // 🔢 PAGE VERSION: Get from Chrome Storage (persistent across reloads)
-    const isNewPage = state.lastUrl !== url;
-    const isRefresh = trigger === 'page_refresh';
-    let pageVersion;
+    // 🗑️ CRUFT REMOVAL: Page version system removed - text.md uses simple sequential IDs
+    // // 🔢 PAGE VERSION: Get from Chrome Storage (persistent across reloads)
+    // const isNewPage = state.lastUrl !== url;
+    // const isRefresh = trigger === 'page_refresh';
+    // let pageVersion;
+    //
+    // if (isRefresh) {
+    //     // Page refresh (F5) - reset to version 1
+    //     pageVersion = await resetPageVersion(tabId, url);
+    //     console.log(`[SW] 🔄 PAGE REFRESH: pageVersion reset to ${pageVersion}`);
+    // } else if (isNewPage) {
+    //     // New URL navigation - increment version
+    //     pageVersion = await incrementPageVersion(tabId, url);
+    //     console.log(`[SW] 📄 NEW PAGE: pageVersion=${pageVersion}`);
+    // } else {
+    //     // Rescan of same URL - keep existing version
+    //     pageVersion = await getPageVersion(tabId, url);
+    //     if (pageVersion === 0) {
+    //         // First scan of this tab-URL combo
+    //         pageVersion = await incrementPageVersion(tabId, url);
+    //     }
+    //     console.log(`[SW] 🔄 RESCAN: pageVersion=${pageVersion} (unchanged)`);
+    // }
 
-    if (isRefresh) {
-        // Page refresh (F5) - reset to version 1
-        pageVersion = await resetPageVersion(tabId, url);
-        console.log(`[SW] 🔄 PAGE REFRESH: pageVersion reset to ${pageVersion}`);
-    } else if (isNewPage) {
-        // New URL navigation - increment version
-        pageVersion = await incrementPageVersion(tabId, url);
-        console.log(`[SW] 📄 NEW PAGE: pageVersion=${pageVersion}`);
-    } else {
-        // Rescan of same URL - keep existing version
-        pageVersion = await getPageVersion(tabId, url);
-        if (pageVersion === 0) {
-            // First scan of this tab-URL combo
-            pageVersion = await incrementPageVersion(tabId, url);
-        }
-        console.log(`[SW] 🔄 RESCAN: pageVersion=${pageVersion} (unchanged)`);
-    }
+    const pageVersion = null;  // ✅ SIMPLIFIED: No more page versioning
 
     // Mark scan in progress
     tabState.set(tabId, {
@@ -555,7 +558,7 @@ async function requestScan(tabId, url, trigger) {
         lastUrl: url
     });
 
-    console.log(`[SW] 🚀 Starting scan: pageVersion=${pageVersion}, trigger=${trigger}`);
+    console.log(`[SW] 🚀 Starting scan: trigger=${trigger}`);
 
     // Ensure content script is injected
     try {

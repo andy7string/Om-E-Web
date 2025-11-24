@@ -95,27 +95,31 @@
         // Set lock
         scanInProgress = true;
 
-        // 📌 READ/WRITE pageVersion from/to DOM for persistence
-        // If pageVersion is provided by sw.js, use it and update DOM
-        // Otherwise, read from DOM (or default to 1)
-        if (pageVersion !== null && pageVersion !== undefined) {
-            // SW provided a version, store it in DOM
-            document.body.dataset.omePageVersion = pageVersion;
-            currentPageVersion = pageVersion;
-            console.log(`[Content] 📝 Stored pageVersion=${pageVersion} in DOM`);
-        } else {
-            // No version provided, read from DOM
-            const domVersion = document.body.dataset.omePageVersion;
-            currentPageVersion = domVersion ? parseInt(domVersion, 10) : 1;
-            console.log(`[Content] 📖 Read pageVersion=${currentPageVersion} from DOM (or defaulted to 1)`);
-        }
+        // 🗑️ CRUFT REMOVAL: Page version system removed - text.md uses simple sequential IDs
+        // // 📌 READ/WRITE pageVersion from/to DOM for persistence
+        // // If pageVersion is provided by sw.js, use it and update DOM
+        // // Otherwise, read from DOM (or default to 1)
+        // if (pageVersion !== null && pageVersion !== undefined) {
+        //     // SW provided a version, store it in DOM
+        //     document.body.dataset.omePageVersion = pageVersion;
+        //     currentPageVersion = pageVersion;
+        //     console.log(`[Content] 📝 Stored pageVersion=${pageVersion} in DOM`);
+        // } else {
+        //     // No version provided, read from DOM
+        //     const domVersion = document.body.dataset.omePageVersion;
+        //     currentPageVersion = domVersion ? parseInt(domVersion, 10) : 1;
+        //     console.log(`[Content] 📖 Read pageVersion=${currentPageVersion} from DOM (or defaulted to 1)`);
+        // }
+        //
+        // // 🔄 RESET COUNTER: Always reset to 0 for full rescan
+        // // Every scan is a complete rescan (clears all DOM markers and rescans everything)
+        // // The pageVersion differentiates between different page states, but within each scan
+        // // we always start from 0
+        // intelligenceEngine.elementCounter = 0;
+        // console.log(`[Content] 🔄 Reset elementCounter to 0 for pageVersion=${currentPageVersion} scan`);
 
-        // 🔄 RESET COUNTER: Always reset to 0 for full rescan
-        // Every scan is a complete rescan (clears all DOM markers and rescans everything)
-        // The pageVersion differentiates between different page states, but within each scan
-        // we always start from 0
-        intelligenceEngine.elementCounter = 0;
-        console.log(`[Content] 🔄 Reset elementCounter to 0 for pageVersion=${currentPageVersion} scan`);
+        currentPageVersion = null;  // ✅ SIMPLIFIED: No more page versioning
+        console.log(`[Content] 🚀 Starting scan (no page versioning)`);
 
         try {
             console.log('[Content] 🕐 Waiting for DOM to settle...');
@@ -133,9 +137,10 @@
             // ============================================================================
             // STEP 2: RUN ACTUAL SCAN
             // ============================================================================
-            await intelligenceEngine.scanAndRegisterPageElements();
+            // 🗑️ CRUFT REMOVAL: Dual scanning removed - only use extractSemanticTextWithIds()
+            // await intelligenceEngine.scanAndRegisterPageElements();
 
-            console.log('[Content] ✅ Scan complete, sending results...');
+            console.log('[Content] ✅ Scan complete (semantic extraction only), sending results...');
 
             // ============================================================================
             // STEP 3: SEND RESULTS
@@ -5563,6 +5568,15 @@
             label = element.innerText || element.textContent || '';
             label = label.trim();
 
+            // Fallback to value attribute for submit/button inputs
+            if (!label && element.tagName === 'INPUT') {
+                const inputType = element.getAttribute('type');
+                if (inputType === 'submit' || inputType === 'button' || inputType === 'reset') {
+                    label = element.getAttribute('value') || '';
+                    if (label && label.trim()) return label.trim();
+                }
+            }
+
             // Fallback to placeholder for inputs
             if (!label && element.tagName === 'INPUT') {
                 label = element.getAttribute('placeholder') ||
@@ -6136,21 +6150,27 @@
         // 🎯 PREMIUM: Extract capabilities from site config (URL-pattern based)
         const capabilities = this.extractCapabilities();
 
+        // 🗑️ CRUFT REMOVAL: Removed unused data - only keeping what's needed for text.md
         return {
             type: "intelligence_update",
             timestamp: Date.now(),
-            pageState: this.pageState,
-            recentInsights: this.llmInsights.slice(-5),
-            totalEvents: this.eventHistory.length,
-            recommendations: this.getCurrentRecommendations(),
-            actionableElements: this.getActionableElementsSummary(),
-            actionMapping: this.generateActionMapping(),
-            contentElements: this.getContentElementsSummary(),
-            pageText: this.extractCleanPageText(),
-            semanticPageData: this.extractSemanticTextWithIds(), // 🆕 NEW: Semantic text with IDs
-            normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true }),
-            transcripts,
-            capabilities // 🎯 PREMIUM: Site-specific capabilities for current URL
+
+            // ✅ KEEP: Basic page metadata (needed for text.md frontmatter)
+            url: window.location.href,
+            title: document.title,
+
+            // pageState: this.pageState,  // ❌ REMOVED: Not needed for text.md
+            // recentInsights: this.llmInsights.slice(-5),  // ❌ REMOVED: Not needed
+            // totalEvents: this.eventHistory.length,  // ❌ REMOVED: Not needed
+            // recommendations: this.getCurrentRecommendations(),  // ❌ REMOVED: Not needed
+            // actionableElements: this.getActionableElementsSummary(),  // ❌ REMOVED: Not needed (Map-based)
+            // actionMapping: this.generateActionMapping(),  // ❌ REMOVED: Not needed
+            // contentElements: this.getContentElementsSummary(),  // ❌ REMOVED: Not needed
+            // pageText: this.extractCleanPageText(),  // ❌ REMOVED: Redundant with semantic text
+            semanticPageData: this.extractSemanticTextWithIds(), // ✅ KEEP: This generates text.md!
+            // normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true }),  // ❌ REMOVED: For llm_prompt.md which we don't use
+            transcripts,  // ✅ KEEP: For YouTube transcripts
+            capabilities  // ✅ KEEP: For site-specific capabilities
         };
     };
 
@@ -6393,9 +6413,14 @@
             const primarySelector = pickPrimarySelector(actionDescriptor);
             const visibility = computeVisibility(domNode);
 
+            // 🔧 FIX: Use semantic ID from DOM (written by extractSemanticTextWithIds)
+            // instead of scan ID (which has pageVersion prefix)
+            const semanticId = domNode?.getAttribute('data-ome-action-id');
+            const actionId = semanticId || actionDescriptor.id; // Fallback to scan ID
+
             const actionRecord = {
                 type: 'action',
-                id: actionDescriptor.id,
+                id: actionId,
                 tag: actionDescriptor.tagName ? actionDescriptor.tagName.toLowerCase() : 'unknown',
                 label: extractLabelFromAction(actionDescriptor, domNode),
                 actionTypes: deriveActionTypes(actionDescriptor),
@@ -6488,7 +6513,9 @@
                 const primarySelector = selectorList.find(sel => typeof sel === 'string' && sel.length > 0 && !sel.includes('head')) || selectorList[0] || null;
                 const visibility = computeVisibility(linkEl);
 
-                const idCandidate = `a_id_${currentPageVersion}_${this.elementCounter++}`;
+                // 🔧 FIX: Use semantic ID from DOM (if exists) instead of generating scan ID
+                const semanticId = linkEl.getAttribute('data-ome-action-id');
+                const idCandidate = semanticId || `a_id_${currentPageVersion}_${this.elementCounter++}`;
 
                 const actionRecord = {
                     type: 'action',
@@ -6658,6 +6685,15 @@
                     return ariaLabel;
                 }
                 return textLabel.substring(0, 120);
+            }
+
+            // 🆕 CRITICAL FIX: For input elements (submit, button, reset), use value attribute as label
+            const tag = descriptor.tagName ? descriptor.tagName.toLowerCase() : '';
+            if (tag === 'input' && attr.type) {
+                const inputType = String(attr.type).toLowerCase();
+                if (['submit', 'button', 'reset'].includes(inputType) && attr.value) {
+                    return attr.value.trim().substring(0, 120);
+                }
             }
 
             if (placeholderLabel) return placeholderLabel;
