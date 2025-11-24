@@ -517,8 +517,8 @@ async function requestScan(tabId, url, trigger) {
     }
 
     // 🔒 DEDUPE: Same URL, already scanned (unless forced rescan)
-    // Force rescan for: post_action, significant_dom_change, page_refresh
-    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh'];
+    // Force rescan for: post_action, significant_dom_change, page_refresh, tab_switch
+    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh', 'tab_switch'];
     const shouldSkip = state.lastUrl === url && !state.scanInProgress && !forcedTriggers.includes(trigger);
 
     if (shouldSkip) {
@@ -1981,6 +1981,17 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
     // 🆕 NEW: Send active tab info immediately when tab changes
     await sendActiveTabInfo();
     await sendTabsInfo();
+
+    // 🔄 TRIGGER SCAN: When switching to a tab, trigger fresh scan to update artifacts
+    try {
+        const tab = await chrome.tabs.get(activeInfo.tabId);
+        if (tab && tab.url && !tab.url.startsWith('chrome://')) {
+            console.log("[SW] 🔄 Triggering scan for newly activated tab:", tab.url);
+            await requestScan(activeInfo.tabId, tab.url, 'tab_switch');
+        }
+    } catch (error) {
+        console.log("[SW] Failed to trigger scan for activated tab:", error.message);
+    }
 });
 
 chrome.webNavigation.onBeforeNavigate.addListener((details) => {
