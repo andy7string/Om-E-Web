@@ -1,0 +1,232 @@
+{
+  "framework": "youtube",
+  "scan_strategy": "youtube_specific",
+  "url_patterns": [
+    "youtube.com",
+    "*.youtube.com",
+    "youtu.be"
+  ],
+  "selectors": {
+    "persistent_selectors": [
+      "ytd-masthead",
+      "#guide-button",
+      "#searchbox",
+      ".ytSearchboxComponentInput",
+      "#logo",
+      "#back-button",
+      "#guide",
+      "ytd-mini-guide-renderer",
+      "#start",
+      "#end",
+      "#center"
+    ],
+    "navigation": [
+      "ytd-masthead:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#logo:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#back-button:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "buttons": [
+      "button[aria-label='Show transcript']",
+      "button[aria-label*='transcript' i]",
+      "button.yt-spec-button-shape-next[aria-label*='transcript' i]",
+      "ytd-engagement-panel-title-header-renderer button[aria-label*='transcript' i]",
+      "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "yt-icon-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "ytd-button-renderer:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "button[aria-label]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#avatar-btn:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "menus": [
+      "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#avatar-btn:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#voice-search-button:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "hidden_content": [
+      "#guide:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".ytd-app-drawer:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#searchbox-suggestions:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#account-menu:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "text_inputs": [
+      "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[placeholder]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "content_elements": [
+      "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "url_elements": [
+      "a.yt-lockup-metadata-view-model__title[href*='watch']",
+      "yt-lockup-view-model a[href*='watch']",
+      "a#video-title[href*='watch']",
+      "a.yt-simple-endpoint[href*='watch']",
+      "ytd-video-renderer a#video-title",
+      "ytd-guide-entry-renderer a[href]",
+      "tp-yt-app-drawer#guide a[href]",
+      "a.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer[href]",
+      "a[href]:not([href='']):not([href^='#'])",
+      "[data-url]",
+      "[data-href]",
+      "[data-link]",
+      "link[href]",
+      "area[href]"
+    ]
+  },
+  "interaction_patterns": {
+    "expand_guide": {
+      "trigger": "#guide-button",
+      "wait_for": "#guide",
+      "timeout": 1000
+    },
+    "expand_account": {
+      "trigger": "#avatar-btn",
+      "wait_for": "#account-menu",
+      "timeout": 1000
+    },
+    "expand_search": {
+      "trigger": "#searchbox",
+      "wait_for": "#searchbox-suggestions",
+      "timeout": 500
+    }
+  },
+  "exclude_text": [
+    "More actions",
+    "Action menu",
+    "Go to channel"
+  ],
+  "exclude": [
+    "button[aria-label='More actions']",
+    "button[aria-label='Action menu']"
+  ],
+  "forceIncludeSelectors": [
+    "button[aria-label='Show transcript']",
+    "button[aria-label*='transcript' i]",
+    "button.yt-spec-button-shape-next[aria-label*='transcript' i]",
+    "ytd-transcript-segment-list-renderer",
+    "#segments-container ytd-transcript-segment-renderer",
+    "yt-formatted-string.segment-text",
+    "a#video-title[href*='watch']",
+    "a#video-title",
+    "ytd-video-renderer a#video-title",
+    "ytd-video-renderer a.yt-simple-endpoint[href*='watch']",
+    "a.yt-simple-endpoint.style-scope.ytd-video-renderer[href*='watch']",
+    "a.yt-simple-endpoint[href*='watch'][id='video-title']"
+  ],
+  "custom_handlers": {
+    "shadow_dom": true,
+    "web_components": true,
+    "polymer_framework": true
+  },
+  "capabilities": {
+    "transcript": {
+      "action": "RetrieveTranscript",
+      "label": "Get video transcript",
+      "description": "Retrieves the full transcript for this YouTube video",
+      "url_pattern": "/watch?v=",
+      "handler": "youtube_transcript_pipeline",
+      "selectors": [
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--outline[aria-label='Show transcript']",
+        "button.yt-spec-button-shape-next--call-to-action[aria-label='Show transcript']",
+        "button.yt-spec-button-shape-next[aria-label='Show transcript']",
+        "button[aria-label='Show transcript']",
+        "button.yt-spec-button-shape-next--outline[aria-label*='transcript' i]",
+        "button.yt-spec-button-shape-next[aria-label*='transcript' i]"
+      ]
+    },
+    "playPause": {
+      "action": "TogglePlayPause",
+      "label": "Toggle video playback",
+      "description": "Toggles play/pause state of the video player",
+      "url_pattern": "/watch?v=",
+      "handler": "youtube_video_controls",
+      "selectors": [
+        "button.ytp-play-button.ytp-button[aria-keyshortcuts='k']",
+        "button.ytp-play-button[aria-label*='Play' i]",
+        "button.ytp-play-button[aria-label*='Pause' i]",
+        "button.ytp-play-button",
+        "button[aria-keyshortcuts='k']",
+        "button[data-title-no-tooltip='Play']",
+        "button[data-title-no-tooltip='Pause']"
+      ]
+    },
+    "subscribe": {
+      "action": "SubscribeToChannel",
+      "label": "Subscribe to the channel",
+      "description": "Subscribes to the current YouTube channel",
+      "url_pattern": "/watch?v=",
+      "handler": "youtube_channel_actions",
+      "selectors": [
+        "button[aria-label*='Subscribe' i]",
+        "ytd-subscribe-button-renderer button[aria-label*='Subscribe' i]",
+        "ytd-subscribe-button-renderer button",
+        "button.yt-spec-button-shape-next--filled[aria-label*='Subscribe' i]"
+      ]
+    },
+    "like": {
+      "action": "LikeVideo",
+      "label": "Like this video",
+      "description": "Likes the current YouTube video",
+      "url_pattern": "/watch?v=",
+      "handler": "youtube_video_engagement",
+      "selectors": [
+        "like-button-view-model button[aria-label*='like' i]",
+        "button[aria-label*='like this video' i]",
+        "ytd-menu-renderer button[aria-label*='like' i]",
+        "button.yt-spec-button-shape-next[aria-label*='like' i]",
+        "button[aria-label*='like' i]"
+      ]
+    },
+    "dislike": {
+      "action": "DislikeVideo",
+      "label": "Dislike this video",
+      "description": "Dislikes the current YouTube video",
+      "url_pattern": "/watch?v=",
+      "handler": "youtube_video_engagement",
+      "selectors": [
+        "dislike-button-view-model button[aria-label*='dislike' i]",
+        "button[aria-label*='dislike this video' i]",
+        "ytd-menu-renderer button[aria-label*='dislike' i]",
+        "button.yt-spec-button-shape-next[aria-label*='dislike' i]",
+        "button[aria-label*='dislike' i]"
+      ]
+    },
+    "search": {
+      "action": "SearchYouTube",
+      "label": "Search YouTube",
+      "description": "Search for videos, channels, or content on YouTube",
+      "url_pattern": "youtube.com",
+      "handler": "youtube_search",
+      "selectors": [
+        "input.ytSearchboxComponentInput[name='search_query']",
+        "input.yt-searchbox-input[name='search_query']",
+        "input[name='search_query'][placeholder='Search']",
+        "#search-input input[name='search_query']",
+        "input[placeholder='Search']"
+      ]
+    }
+  }
+}

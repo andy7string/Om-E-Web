@@ -1,0 +1,59 @@
+{
+  "framework": "generic",
+  "scan_strategy": "universal",
+  "url_patterns": [
+    "mail.google.com",
+    "*.mail.google.com"
+  ],
+  "focus_targets": [
+    "input[name='q']",
+    "input[aria-label='Search mail']",
+    "input[type='text'][aria-label*='Search' i]",
+    "form[role='search']",
+    "tr.zA"
+  ],
+  "selectors": {
+    "text_inputs": [
+      "input[name='q']",
+      "input[aria-label='Search mail']",
+      "input[type='text'][aria-label*='Search' i]",
+      "textarea[aria-label*='Search' i]"
+    ],
+    "buttons": [
+      "div[role='button']",
+      "span[role='button']",
+      "button",
+      "a[role='button']"
+    ],
+    "navigation": [
+      "tr.zA",
+      "div[role='link'][data-legacy-thread-id]",
+      "a[role='link']",
+      "a.J-Ke.n0",
+      "a.J-Ke"
+    ]
+  },
+  "filters": {
+    "exclude": [
+      ".brc",
+      ".brd",
+      "ul.bqY",
+      "span.aXw",
+      "div[role='toolbar']",
+      "div[role='checkbox']"
+    ]
+  },
+  "forceIncludeSelectors": [
+    "tr.zA",
+    "tr[role='row'][data-legacy-last-message-id]",
+    "div[role='link'][data-legacy-thread-id]",
+    "a.J-Ke.n0",
+    "a.J-Ke"
+  ],
+  "extraInteractiveSelectors": [
+    "tr.zA",
+    "div[role='link'][data-legacy-thread-id]",
+    "a.J-Ke.n0",
+    "a.J-Ke"
+  ]
+}

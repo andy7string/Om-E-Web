@@ -1122,57 +1122,76 @@
 
     // 🆕 NEW: Read site config directly from extension file
     function getSiteConfigDirect() {
-        // Read the config file synchronously
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', chrome.runtime.getURL('site_configs.json'), false); // Synchronous
-        xhr.send();
+        try {
+            // Step 1: Load index file (domain → config file path mapping)
+            const indexXhr = new XMLHttpRequest();
+            indexXhr.open('GET', chrome.runtime.getURL('site_configs.json'), false); // Synchronous
+            indexXhr.send();
 
-        if (xhr.status === 200) {
-            try {
-                const allConfigs = JSON.parse(xhr.responseText);
-                console.log("✅ Site configs loaded from file:", Object.keys(allConfigs));
-
-                // Find config for current domain
-                let foundConfig = null;
-
-                // Check for exact domain match
-                if (allConfigs[currentDomain]) {
-                    foundConfig = allConfigs[currentDomain];
-                    console.log(`✅ Exact domain match found for ${currentDomain}: ${foundConfig.framework}`);
-                } else {
-                    // Check for partial domain match
-                    for (const [configDomain, config] of Object.entries(allConfigs)) {
-                        if (currentDomain.includes(configDomain) && configDomain !== 'default') {
-                            foundConfig = config;
-                            console.log(`✅ Partial domain match found: ${configDomain} matches ${currentDomain}: ${config.framework}`);
-                            break;
-                        }
-                    }
-
-                    // Fallback to default config
-                    if (!foundConfig && allConfigs['default']) {
-                        foundConfig = allConfigs['default'];
-                        console.log(`✅ Using default config for ${currentDomain}: ${foundConfig.framework}`);
-                    }
-                }
-
-                if (foundConfig) {
-                    siteConfig = foundConfig;
-                    window.currentSiteConfig = foundConfig;
-                    window.currentFramework = foundConfig.framework;
-                    console.log("✅ Site config set from file:", foundConfig);
-                    return foundConfig; // Return the actual config object
-                } else {
-                    console.log("⚠️ No site config found for domain:", currentDomain);
-                    return allConfigs['default'] || null; // Return default config or null
-                }
-
-            } catch (error) {
-                console.error("❌ Error parsing site config file:", error);
+            if (indexXhr.status !== 200) {
+                console.error("❌ Error loading site config index file:", indexXhr.status);
                 return null;
             }
-        } else {
-            console.error("❌ Error loading site config file:", xhr.status);
+
+            const domainIndex = JSON.parse(indexXhr.responseText);
+            console.log("✅ Site config index loaded:", Object.keys(domainIndex).length, "domains");
+
+            // Step 2: Find config file path for current domain
+            let configFilePath = null;
+            let matchedDomain = null;
+
+            // Check for exact domain match
+            if (domainIndex[currentDomain]) {
+                configFilePath = domainIndex[currentDomain];
+                matchedDomain = currentDomain;
+                console.log(`✅ Exact domain match: ${currentDomain} → ${configFilePath}`);
+            } else {
+                // Check for partial domain match
+                for (const [pattern, filePath] of Object.entries(domainIndex)) {
+                    if (pattern !== 'default' && currentDomain.includes(pattern)) {
+                        configFilePath = filePath;
+                        matchedDomain = pattern;
+                        console.log(`✅ Partial domain match: ${pattern} matches ${currentDomain} → ${filePath}`);
+                        break;
+                    }
+                }
+            }
+
+            // Fallback to default config
+            if (!configFilePath) {
+                configFilePath = domainIndex['default'];
+                matchedDomain = 'default';
+                console.log(`✅ Using default config for ${currentDomain} → ${configFilePath}`);
+            }
+
+            if (!configFilePath) {
+                console.error("❌ No config file path found for domain:", currentDomain);
+                return null;
+            }
+
+            // Step 3: Load specific config file
+            const configXhr = new XMLHttpRequest();
+            configXhr.open('GET', chrome.runtime.getURL(configFilePath), false); // Synchronous
+            configXhr.send();
+
+            if (configXhr.status !== 200) {
+                console.error(`❌ Error loading config file ${configFilePath}:`, configXhr.status);
+                return null;
+            }
+
+            const config = JSON.parse(configXhr.responseText);
+            console.log(`✅ Config loaded from ${configFilePath}:`, config.framework);
+
+            // Step 4: Set globals (same as before)
+            siteConfig = config;
+            window.currentSiteConfig = config;
+            window.currentFramework = config.framework;
+            console.log("✅ Site config set:", config);
+
+            return config;
+
+        } catch (error) {
+            console.error("❌ Error in getSiteConfigDirect:", error);
             return null;
         }
     }
@@ -5683,6 +5702,46 @@
 
                     // Only tag if it has meaningful content
                     if (label && label.length > 0) {
+                        // 🚫 EXCLUSION: Check if element should be excluded based on site config
+                        const activeConfig = siteConfig || window.currentSiteConfig;
+                        let shouldExclude = false;
+
+                        if (activeConfig) {
+                            // Check text-based exclusion
+                            if (activeConfig.exclude_text && Array.isArray(activeConfig.exclude_text)) {
+                                shouldExclude = activeConfig.exclude_text.some(excludeText => {
+                                    return label.toLowerCase().includes(excludeText.toLowerCase());
+                                });
+                                if (shouldExclude) {
+                                    console.log(`[Content] 🚫 Excluding element by text: "${label}" matches exclude pattern`);
+                                }
+                            }
+
+                            // Check selector-based exclusion
+                            if (!shouldExclude && activeConfig.exclude && Array.isArray(activeConfig.exclude)) {
+                                shouldExclude = activeConfig.exclude.some(excludeSelector => {
+                                    try {
+                                        return targetElement.matches(excludeSelector);
+                                    } catch (err) {
+                                        console.warn('[Content] ⚠️ Invalid exclude selector:', excludeSelector, err);
+                                        return false;
+                                    }
+                                });
+                                if (shouldExclude) {
+                                    console.log(`[Content] 🚫 Excluding element by selector: "${label}"`);
+                                }
+                            }
+                        }
+
+                        // Skip excluded elements
+                        if (shouldExclude) {
+                            processedElements.add(targetElement);
+                            if (targetElement !== node) {
+                                processedElements.add(node);
+                            }
+                            continue;
+                        }
+
                         const actionId = `a_id_${counter++}`;
 
                         // Write ID to DOM for later execution

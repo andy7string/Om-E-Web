@@ -1,35 +1,28 @@
 {
-  "timestamp": 1763988047.692535,
+  "timestamp": 1763991312.002162,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138023291,
-      "url": "https://www.youtube.com/watch?v=WceVZrqMWRw",
-      "title": "(1) My container house looks completely different! - YouTube",
+      "id": 1138023305,
+      "url": "https://brighttreedigital.com.au/",
+      "title": "Local Web Design Adelaide | Bright Tree Digital",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138023291,
-        "url": "https://www.youtube.com/watch?v=WceVZrqMWRw",
-        "title": "(1) My container house looks completely different! - YouTube",
-        "active": true,
-        "status": "loading"
-      },
-      {
-        "id": 1138023296,
+        "id": 1138023305,
         "url": "https://brighttreedigital.com.au/",
         "title": "Local Web Design Adelaide | Bright Tree Digital",
-        "active": false,
-        "status": "complete"
+        "active": true,
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 23461.390461958,
+    "last_tabs_update": 26739.893863666,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/watch?v=WceVZrqMWRw",
-    "title": "(1) My container house looks completely different! - YouTube",
+    "url": "https://brighttreedigital.com.au/",
+    "title": "Local Web Design Adelaide | Bright Tree Digital",
     "is_active_tab": true
   },
   "menu_structure": {
@@ -48,16 +41,5 @@
     "navigation_links": 0
   },
   "intelligence_version": "2.0",
-  "transcripts": [
-    {
-      "title": "My container house looks completely different!",
-      "video_id": "WceVZrqMWRw",
-      "video_url": "https://www.youtube.com/watch?v=WceVZrqMWRw",
-      "language": "en",
-      "segment_count": 455,
-      "file": "@site_structures/transcripts/2025-11-24__my-container-house-looks-completely-different.md",
-      "collected_at": 1763988047625,
-      "signature": "WceVZrqMWRw:455:025ca2e973f912309cdac4317fc11a3787483ef22d4be899a3cec0d109195baf"
-    }
-  ]
+  "transcripts": []
 }

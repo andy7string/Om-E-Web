@@ -1,0 +1,164 @@
+{
+  "framework": "google",
+  "scan_strategy": "google_specific",
+  "url_patterns": [
+    "google.com",
+    "google.*",
+    "*.google.com"
+  ],
+  "focus_targets": [
+    "input[name='q']",
+    "input[type='search']",
+    "textarea",
+    "[contenteditable='true']",
+    "textarea[name='q']",
+    "input.gLFyf",
+    "textarea.gLFyf",
+    "#APjFqb"
+  ],
+  "selectors": {
+    "navigation": [
+      "header:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='banner']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".gb_ua:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "nav:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='navigation']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".MV3Tnb:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "a[class*='MV3Tnb']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "a[ping]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "buttons": [
+      "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "button[aria-label]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#gb_70:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#gb_119:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[data-ved]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[jsaction]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[jscontroller]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "menus": [
+      "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#searchbox-input:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#gb_70:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#gb_119:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[aria-label*='Google apps']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[aria-label*='Google Apps']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "hidden_content": [
+      "#gb:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#searchbox-suggestions:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#searchbox-results:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[aria-hidden='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "text_inputs": [
+      "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[placeholder]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "textarea[name='q']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[name='q']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input.gLFyf:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "textarea.gLFyf:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "#APjFqb:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='search'] input:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='search'] textarea:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "content_elements": [
+      "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "url_elements": [
+      "a[href]:not([href='']):not([href^='#'])",
+      "[data-url]",
+      "[data-href]",
+      "[data-link]",
+      "link[href]",
+      "area[href]"
+    ]
+  },
+  "filters": {
+    "include": [
+      "header",
+      "nav",
+      "#searchbox",
+      "#gb_70",
+      "[aria-label*='Google apps']",
+      "a[href]",
+      "[data-url]",
+      "[data-href]",
+      "textarea[name='q']",
+      "input[name='q']",
+      ".gLFyf",
+      "[role='search'] input",
+      "[role='search'] textarea"
+    ],
+    "exclude": [
+      "[data-ved]",
+      ".gb_oa",
+      ".gb_ua",
+      "[aria-hidden='true']",
+      "[style*='display: none']",
+      "div:not([href]):not([data-url]):not([data-href]):not([onclick]):not([role='button']):not([role='link'])",
+      "section:not([href]):not([data-url]):not([data-href])",
+      "main:not([href]):not([data-url]):not([data-href])",
+      "article:not([href]):not([data-url]):not([data-href])",
+      "header:not([href]):not([data-url]):not([data-href])",
+      "footer:not([href]):not([data-url]):not([data-href])",
+      "h1:not([href]):not([data-url]):not([data-href])",
+      "h2:not([href]):not([data-url]):not([data-href])",
+      "h3:not([href]):not([data-url]):not([data-href])",
+      "h4:not([href]):not([data-url]):not([data-href])",
+      "h5:not([href]):not([data-url]):not([data-href])",
+      "h6:not([href]):not([data-url]):not([data-href])",
+      "p:not([href]):not([data-url]):not([data-href])",
+      "span:not([href]):not([data-url]):not([data-href])",
+      "figcaption:not([href]):not([data-url]):not([data-href])"
+    ],
+    "max_elements": 100
+  },
+  "interaction_patterns": {
+    "expand_apps": {
+      "trigger": "[aria-label*='Google apps'], [aria-label*='Google Apps']",
+      "wait_for": "#gb",
+      "timeout": 1000
+    },
+    "expand_search": {
+      "trigger": "#searchbox, #searchbox-input, [role='search']",
+      "wait_for": "#searchbox-suggestions",
+      "timeout": 500
+    },
+    "expand_account": {
+      "trigger": "#gb_70, #gb_119",
+      "wait_for": "[role='menu']",
+      "timeout": 1000
+    }
+  },
+  "custom_handlers": {
+    "google_framework": true,
+    "search_suggestions": true,
+    "app_drawer": true
+  }
+}

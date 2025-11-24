@@ -1,0 +1,997 @@
+{
+  "google.com": {
+    "framework": "google",
+    "scan_strategy": "google_specific",
+    "url_patterns": [
+      "google.com",
+      "google.*",
+      "*.google.com"
+    ],
+    "focus_targets": [
+      "input[name='q']",
+      "input[type='search']",
+      "textarea",
+      "[contenteditable='true']",
+      "textarea[name='q']",
+      "input.gLFyf",
+      "textarea.gLFyf",
+      "#APjFqb"
+    ],
+    "selectors": {
+      "navigation": [
+        "header:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='banner']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".gb_ua:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "nav:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='navigation']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".MV3Tnb:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "a[class*='MV3Tnb']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "a[ping]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "buttons": [
+        "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "button[aria-label]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#gb_70:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#gb_119:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[data-ved]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[jsaction]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[jscontroller]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "menus": [
+        "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#searchbox-input:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#gb_70:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#gb_119:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[aria-label*='Google apps']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[aria-label*='Google Apps']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "hidden_content": [
+        "#gb:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#searchbox-suggestions:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#searchbox-results:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[aria-hidden='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".gb_oa:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "text_inputs": [
+        "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[placeholder]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "textarea[name='q']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[name='q']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input.gLFyf:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "textarea.gLFyf:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#APjFqb:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='search'] input:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='search'] textarea:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "content_elements": [
+        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "url_elements": [
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
+      ]
+    },
+    "filters": {
+      "include": [
+        "header",
+        "nav",
+        "#searchbox",
+        "#gb_70",
+        "[aria-label*='Google apps']",
+        "a[href]",
+        "[data-url]",
+        "[data-href]",
+        "textarea[name='q']",
+        "input[name='q']",
+        ".gLFyf",
+        "[role='search'] input",
+        "[role='search'] textarea"
+      ],
+      "exclude": [
+        "[data-ved]",
+        ".gb_oa",
+        ".gb_ua",
+        "[aria-hidden='true']",
+        "[style*='display: none']",
+        "div:not([href]):not([data-url]):not([data-href]):not([onclick]):not([role='button']):not([role='link'])",
+        "section:not([href]):not([data-url]):not([data-href])",
+        "main:not([href]):not([data-url]):not([data-href])",
+        "article:not([href]):not([data-url]):not([data-href])",
+        "header:not([href]):not([data-url]):not([data-href])",
+        "footer:not([href]):not([data-url]):not([data-href])",
+        "h1:not([href]):not([data-url]):not([data-href])",
+        "h2:not([href]):not([data-url]):not([data-href])",
+        "h3:not([href]):not([data-url]):not([data-href])",
+        "h4:not([href]):not([data-url]):not([data-href])",
+        "h5:not([href]):not([data-url]):not([data-href])",
+        "h6:not([href]):not([data-url]):not([data-href])",
+        "p:not([href]):not([data-url]):not([data-href])",
+        "span:not([href]):not([data-url]):not([data-href])",
+        "figcaption:not([href]):not([data-url]):not([data-href])"
+      ],
+      "max_elements": 100
+    },
+    "interaction_patterns": {
+      "expand_apps": {
+        "trigger": "[aria-label*='Google apps'], [aria-label*='Google Apps']",
+        "wait_for": "#gb",
+        "timeout": 1000
+      },
+      "expand_search": {
+        "trigger": "#searchbox, #searchbox-input, [role='search']",
+        "wait_for": "#searchbox-suggestions",
+        "timeout": 500
+      },
+      "expand_account": {
+        "trigger": "#gb_70, #gb_119",
+        "wait_for": "[role='menu']",
+        "timeout": 1000
+      }
+    },
+    "custom_handlers": {
+      "google_framework": true,
+      "search_suggestions": true,
+      "app_drawer": true
+    }
+  },
+  "chatgpt.com": {
+    "framework": "chatgpt",
+    "scan_strategy": "generic",
+    "url_patterns": [
+      "chatgpt.com",
+      "*.chatgpt.com"
+    ],
+    "focus_targets": [
+      "div[contenteditable='true'][data-placeholder]",
+      "div[contenteditable='true'][role='textbox']",
+      "textarea",
+      "input[type='text']"
+    ],
+    "selectors": {
+      "navigation": [
+        "nav:not([hidden])",
+        "[role='navigation']",
+        "header[role='banner']"
+      ],
+      "buttons": [
+        "button",
+        "[role='button']",
+        "div[role='button']",
+        "[data-testid*='button']"
+      ],
+      "menus": [
+        "[role='menu']",
+        "[role='menuitem']",
+        "div[aria-haspopup='menu']"
+      ],
+      "hidden_content": [
+        "[aria-hidden='true']",
+        "[data-state='closed']"
+      ],
+      "text_inputs": [
+        "div[contenteditable='true']",
+        "textarea",
+        "input[type='text']",
+        "input[type='search']",
+        "input:not([type]):not([disabled]):not([aria-disabled='true'])",
+        "input[role='combobox']:not([disabled]):not([aria-disabled='true'])",
+        "input[aria-label]:not([type='hidden']):not([type='submit']):not([type='button']):not([disabled]):not([aria-disabled='true'])"
+      ],
+      "content_elements": [
+        "main article",
+        "main section",
+        "div[role='feed']",
+        "div[role='listitem']"
+      ],
+      "url_elements": [
+        "a[href]",
+        "[data-url]"
+      ]
+    }
+  },
+  "claude.ai": {
+    "framework": "claude",
+    "scan_strategy": "generic",
+    "url_patterns": [
+      "claude.ai",
+      "*.claude.ai"
+    ],
+    "focus_targets": [
+      "div[contenteditable='true'][data-testid='chat-input']",
+      "div[contenteditable='true'][role='textbox']",
+      "div.tiptap.ProseMirror[contenteditable='true']",
+      "textarea",
+      "input[type='text']"
+    ],
+    "selectors": {
+      "navigation": [
+        "nav:not([hidden])",
+        "[role='navigation']",
+        "header[role='banner']"
+      ],
+      "buttons": [
+        "button",
+        "[role='button']",
+        "div[role='button']",
+        "[data-testid*='button']"
+      ],
+      "menus": [
+        "[role='menu']",
+        "[role='menuitem']",
+        "div[aria-haspopup='menu']"
+      ],
+      "hidden_content": [
+        "[aria-hidden='true']",
+        "[data-state='closed']"
+      ],
+      "text_inputs": [
+        "div[contenteditable='true'][data-testid='chat-input']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[contenteditable='true'][role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div.tiptap.ProseMirror[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "content_elements": [
+        "main article",
+        "main section",
+        "div[role='feed']",
+        "div[role='listitem']"
+      ],
+      "url_elements": [
+        "a[href]",
+        "[data-url]"
+      ]
+    },
+    "forceIncludeSelectors": [
+      "div[contenteditable='true'][data-testid='chat-input']",
+      "div[contenteditable='true'][role='textbox']",
+      "div.tiptap.ProseMirror[contenteditable='true']"
+    ]
+  },
+  "perplexity.ai": {
+    "framework": "generic",
+    "scan_strategy": "universal",
+    "url_patterns": [
+      "perplexity.ai",
+      "*.perplexity.ai"
+    ],
+    "focus_targets": [
+      "div#ask-input[contenteditable='true']",
+      "[role='textbox'][data-lexical-editor]",
+      "div[data-lexical-editor='true'][aria-placeholder]"
+    ],
+    "selectors": {
+      "navigation": [
+        "nav",
+        "[role='navigation']",
+        "header"
+      ],
+      "buttons": [
+        "button",
+        "[role='button']",
+        "div[role='button']"
+      ],
+      "menus": [
+        "[role='menu']",
+        "[role='menuitem']",
+        "div[aria-haspopup='menu']"
+      ],
+      "hidden_content": [
+        "[aria-hidden='true']",
+        "[hidden]"
+      ],
+      "text_inputs": [
+        "div#ask-input[contenteditable='true']",
+        "[role='textbox'][data-lexical-editor]",
+        "div[data-lexical-editor='true'][aria-placeholder]"
+      ],
+      "content_elements": [
+        "main article",
+        "main section",
+        "div[role='feed']",
+        "div[role='listitem']"
+      ],
+      "url_elements": [
+        "a[href]",
+        "[data-url]",
+        "[data-href]"
+      ]
+    },
+    "filters": {
+      "include": [
+        "div#ask-input",
+        "[role='textbox'][data-lexical-editor]",
+        "a[href]",
+        "[data-url]",
+        "[data-href]"
+      ],
+      "exclude": [
+        "[aria-hidden='true']",
+        "[hidden]"
+      ]
+    }
+  },
+  "facebook.com": {
+    "framework": "generic",
+    "scan_strategy": "universal",
+    "url_patterns": [
+      "facebook.com",
+      "*.facebook.com"
+    ],
+    "focus_targets": [
+      "#email",
+      "#pass",
+      "input[name='email']",
+      "input[name='pass']",
+      "input[data-testid='royal-email']",
+      "input[data-testid='royal-pass']",
+      "input[placeholder='Search Marketplace']",
+      "input[aria-label='Search Marketplace']",
+      "input[aria-label='Search Facebook']",
+      "input[type='search'][role='combobox']",
+      "input[type='search'][aria-label*='Search' i]"
+    ],
+    "selectors": {
+      "text_inputs": [
+        "#email:not([aria-hidden='true'])",
+        "#pass:not([aria-hidden='true'])",
+        "input[name='email']:not([aria-hidden='true'])",
+        "input[name='pass']:not([aria-hidden='true'])",
+        "input[data-testid='royal-email']:not([aria-hidden='true'])",
+        "input[data-testid='royal-pass']:not([aria-hidden='true'])",
+        "input[type='email']:not([aria-hidden='true'])",
+        "input[type='password']:not([aria-hidden='true'])",
+        "input[type='search']:not([aria-hidden='true'])",
+        "input[type='search'][role='combobox']:not([aria-hidden='true'])",
+        "input[type='search'][aria-label*='Search' i]:not([aria-hidden='true'])",
+        "input[placeholder*='Search' i]:not([aria-hidden='true'])",
+        "input[aria-label*='Search' i]:not([aria-hidden='true'])",
+        "input[aria-label='Search Facebook']:not([aria-hidden='true'])",
+        "input[aria-label='Search Marketplace']:not([aria-hidden='true'])",
+        "[role='search'] input[type='search']:not([aria-hidden='true'])",
+        "[role='combobox'][type='search']:not([aria-hidden='true'])",
+        "textarea:not([aria-hidden='true'])",
+        "[contenteditable='true']:not([aria-hidden='true'])"
+      ],
+      "buttons": [
+        "button[name='login']:not([aria-hidden='true'])",
+        "button[data-testid='royal-login-button']:not([aria-hidden='true'])",
+        "button[type='submit']:not([aria-hidden='true'])",
+        "input[type='submit']:not([aria-hidden='true'])",
+        "button[aria-label*='Search' i]:not([aria-hidden='true'])",
+        "button[aria-label*='Submit' i]:not([aria-hidden='true'])"
+      ]
+    },
+    "filters": {
+      "include": [
+        "#email",
+        "#pass",
+        "input[name='email']",
+        "input[name='pass']",
+        "input[data-testid='royal-email']",
+        "input[data-testid='royal-pass']",
+        "input[type='email']",
+        "input[type='password']",
+        "input[type='search']",
+        "input[type='search'][role='combobox']",
+        "input[placeholder*='Search' i]",
+        "input[aria-label*='Search' i]",
+        "input[aria-label='Search Marketplace']",
+        "input[aria-label='Search Facebook']",
+        "input[placeholder='Search Marketplace']",
+        "input[placeholder='Search Facebook']",
+        "button[name='login']",
+        "button[data-testid='royal-login-button']"
+      ],
+      "exclude": [
+        "[aria-hidden='true']",
+        "div.x1i10hfl:not(input)"
+      ]
+    },
+    "forceIncludeSelectors": [
+      "#email",
+      "#pass",
+      "input[name='email']",
+      "input[name='pass']",
+      "input[data-testid='royal-email']",
+      "input[data-testid='royal-pass']",
+      "input[type='email']",
+      "input[type='password']",
+      "input[type='search']",
+      "input[type='search'][role='combobox']",
+      "input[placeholder='Search Marketplace']",
+      "input[aria-label='Search Marketplace']",
+      "input[placeholder='Search Facebook']",
+      "input[aria-label='Search Facebook']",
+      "input[placeholder*='Search' i]",
+      "input[aria-label*='Search' i]",
+      "button[name='login']",
+      "button[data-testid='royal-login-button']"
+    ],
+    "extraInteractiveSelectors": [
+      "button[name='login']",
+      "button[data-testid='royal-login-button']",
+      "button[aria-label*='search' i]",
+      "button[type='submit']",
+      "input[type='submit']"
+    ]
+  },
+  "youtube.com": {
+    "framework": "youtube",
+    "scan_strategy": "youtube_specific",
+    "url_patterns": [
+      "youtube.com",
+      "*.youtube.com",
+      "youtu.be"
+    ],
+    "selectors": {
+      "persistent_selectors": [
+        "ytd-masthead",
+        "#guide-button",
+        "#searchbox",
+        ".ytSearchboxComponentInput",
+        "#logo",
+        "#back-button",
+        "#guide",
+        "ytd-mini-guide-renderer",
+        "#start",
+        "#end",
+        "#center"
+      ],
+      "navigation": [
+        "ytd-masthead:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#logo:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#back-button:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "buttons": [
+        "button[aria-label='Show transcript']",
+        "button[aria-label*='transcript' i]",
+        "button.yt-spec-button-shape-next[aria-label*='transcript' i]",
+        "ytd-engagement-panel-title-header-renderer button[aria-label*='transcript' i]",
+        "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "yt-icon-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "ytd-button-renderer:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "button[aria-label]:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#avatar-btn:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "menus": [
+        "#guide-button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#avatar-btn:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#searchbox:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#voice-search-button:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "hidden_content": [
+        "#guide:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".ytd-app-drawer:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#searchbox-suggestions:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "#account-menu:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "text_inputs": [
+        "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[placeholder]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "content_elements": [
+        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "url_elements": [
+        "a.yt-lockup-metadata-view-model__title[href*='watch']",
+        "yt-lockup-view-model a[href*='watch']",
+        "a#video-title[href*='watch']",
+        "a.yt-simple-endpoint[href*='watch']",
+        "ytd-video-renderer a#video-title",
+        "ytd-guide-entry-renderer a[href]",
+        "tp-yt-app-drawer#guide a[href]",
+        "a.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer[href]",
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
+      ]
+    },
+    "interaction_patterns": {
+      "expand_guide": {
+        "trigger": "#guide-button",
+        "wait_for": "#guide",
+        "timeout": 1000
+      },
+      "expand_account": {
+        "trigger": "#avatar-btn",
+        "wait_for": "#account-menu",
+        "timeout": 1000
+      },
+      "expand_search": {
+        "trigger": "#searchbox",
+        "wait_for": "#searchbox-suggestions",
+        "timeout": 500
+      }
+    },
+    "exclude_text": [
+      "More actions",
+      "Action menu"
+    ],
+    "exclude": [
+      "button[aria-label='More actions']",
+      "button[aria-label='Action menu']"
+    ],
+    "forceIncludeSelectors": [
+      "button[aria-label='Show transcript']",
+      "button[aria-label*='transcript' i]",
+      "button.yt-spec-button-shape-next[aria-label*='transcript' i]",
+      "ytd-transcript-segment-list-renderer",
+      "#segments-container ytd-transcript-segment-renderer",
+      "yt-formatted-string.segment-text",
+      "a#video-title[href*='watch']",
+      "a#video-title",
+      "ytd-video-renderer a#video-title",
+      "ytd-video-renderer a.yt-simple-endpoint[href*='watch']",
+      "a.yt-simple-endpoint.style-scope.ytd-video-renderer[href*='watch']",
+      "a.yt-simple-endpoint[href*='watch'][id='video-title']"
+    ],
+    "custom_handlers": {
+      "shadow_dom": true,
+      "web_components": true,
+      "polymer_framework": true
+    },
+    "capabilities": {
+      "transcript": {
+        "action": "RetrieveTranscript",
+        "label": "Get video transcript",
+        "description": "Retrieves the full transcript for this YouTube video",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_transcript_pipeline",
+        "selectors": [
+          "button.yt-spec-button-shape-next.yt-spec-button-shape-next--outline[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next--call-to-action[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next[aria-label='Show transcript']",
+          "button[aria-label='Show transcript']",
+          "button.yt-spec-button-shape-next--outline[aria-label*='transcript' i]",
+          "button.yt-spec-button-shape-next[aria-label*='transcript' i]"
+        ]
+      },
+      "playPause": {
+        "action": "TogglePlayPause",
+        "label": "Toggle video playback",
+        "description": "Toggles play/pause state of the video player",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_video_controls",
+        "selectors": [
+          "button.ytp-play-button.ytp-button[aria-keyshortcuts='k']",
+          "button.ytp-play-button[aria-label*='Play' i]",
+          "button.ytp-play-button[aria-label*='Pause' i]",
+          "button.ytp-play-button",
+          "button[aria-keyshortcuts='k']",
+          "button[data-title-no-tooltip='Play']",
+          "button[data-title-no-tooltip='Pause']"
+        ]
+      },
+      "subscribe": {
+        "action": "SubscribeToChannel",
+        "label": "Subscribe to the channel",
+        "description": "Subscribes to the current YouTube channel",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_channel_actions",
+        "selectors": [
+          "button[aria-label*='Subscribe' i]",
+          "ytd-subscribe-button-renderer button[aria-label*='Subscribe' i]",
+          "ytd-subscribe-button-renderer button",
+          "button.yt-spec-button-shape-next--filled[aria-label*='Subscribe' i]"
+        ]
+      },
+      "like": {
+        "action": "LikeVideo",
+        "label": "Like this video",
+        "description": "Likes the current YouTube video",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_video_engagement",
+        "selectors": [
+          "like-button-view-model button[aria-label*='like' i]",
+          "button[aria-label*='like this video' i]",
+          "ytd-menu-renderer button[aria-label*='like' i]",
+          "button.yt-spec-button-shape-next[aria-label*='like' i]",
+          "button[aria-label*='like' i]"
+        ]
+      },
+      "dislike": {
+        "action": "DislikeVideo",
+        "label": "Dislike this video",
+        "description": "Dislikes the current YouTube video",
+        "url_pattern": "/watch?v=",
+        "handler": "youtube_video_engagement",
+        "selectors": [
+          "dislike-button-view-model button[aria-label*='dislike' i]",
+          "button[aria-label*='dislike this video' i]",
+          "ytd-menu-renderer button[aria-label*='dislike' i]",
+          "button.yt-spec-button-shape-next[aria-label*='dislike' i]",
+          "button[aria-label*='dislike' i]"
+        ]
+      },
+      "search": {
+        "action": "SearchYouTube",
+        "label": "Search YouTube",
+        "description": "Search for videos, channels, or content on YouTube",
+        "url_pattern": "youtube.com",
+        "handler": "youtube_search",
+        "selectors": [
+          "input.ytSearchboxComponentInput[name='search_query']",
+          "input.yt-searchbox-input[name='search_query']",
+          "input[name='search_query'][placeholder='Search']",
+          "#search-input input[name='search_query']",
+          "input[placeholder='Search']"
+        ]
+      }
+    }
+  },
+  "brighttreedigital.com.au": {
+    "framework": "wordpress",
+    "scan_strategy": "wordpress_specific",
+    "selectors": {
+      "navigation": [
+        ".menu-link:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "nav:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".primary-menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".main-navigation:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "buttons": [
+        "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".menu-toggle:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".ast-menu-toggle:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "button[aria-label*='menu']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "menus": [
+        ".menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".navigation:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".primary-menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".main-menu:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "text_inputs": [
+        "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[placeholder]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "content_elements": [
+        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "url_elements": [
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
+      ]
+    },
+    "interaction_patterns": {
+      "expand_menu": {
+        "trigger": ".menu-toggle",
+        "wait_for": ".menu",
+        "timeout": 1000
+      }
+    }
+  },
+  "wikipedia.org": {
+    "framework": "wikipedia",
+    "scan_strategy": "wikipedia_specific",
+    "url_patterns": [
+      "wikipedia.org",
+      "*.wikipedia.org"
+    ],
+    "focus_targets": [
+      "#searchInput",
+      "input#searchInput",
+      "input[name='search']",
+      "input[type='search']",
+      "input.mw-searchInput",
+      "input.cdx-text-input__input",
+      "input[aria-label='Search Wikipedia']",
+      "input[placeholder='Search Wikipedia']"
+    ],
+    "selectors": {
+      "text_inputs": [
+        "#searchInput:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input#searchInput:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[name='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input.mw-searchInput:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input.cdx-text-input__input:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[aria-label='Search Wikipedia']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[placeholder='Search Wikipedia']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "buttons": [
+        "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "button[aria-label*='Search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".search-toggle:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "navigation": [
+        "nav:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "[role='navigation']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "header:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".vector-header:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "url_elements": [
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]"
+      ]
+    },
+    "filters": {
+      "include": [
+        "#searchInput",
+        "input#searchInput",
+        "input[name='search']",
+        "input[type='search']",
+        "input.mw-searchInput",
+        "input[aria-label='Search Wikipedia']",
+        "input[placeholder='Search Wikipedia']",
+        "button[aria-label*='Search']",
+        ".search-toggle"
+      ],
+      "exclude": [
+        "[aria-hidden='true']",
+        "[style*='display: none']"
+      ]
+    },
+    "forceIncludeSelectors": [
+      "#searchInput",
+      "input#searchInput",
+      "input[name='search']",
+      "input.mw-searchInput",
+      "input.cdx-text-input__input",
+      "input[aria-label='Search Wikipedia']",
+      "input[placeholder='Search Wikipedia']"
+    ],
+    "custom_handlers": {
+      "wikipedia_search": true
+    }
+  },
+  "mail.google.com": {
+    "framework": "generic",
+    "scan_strategy": "universal",
+    "url_patterns": [
+      "mail.google.com",
+      "*.mail.google.com"
+    ],
+    "focus_targets": [
+      "input[name='q']",
+      "input[aria-label='Search mail']",
+      "input[type='text'][aria-label*='Search' i]",
+      "form[role='search']",
+      "tr.zA"
+    ],
+    "selectors": {
+      "text_inputs": [
+        "input[name='q']",
+        "input[aria-label='Search mail']",
+        "input[type='text'][aria-label*='Search' i]",
+        "textarea[aria-label*='Search' i]"
+      ],
+      "buttons": [
+        "div[role='button']",
+        "span[role='button']",
+        "button",
+        "a[role='button']"
+      ],
+      "navigation": [
+        "tr.zA",
+        "div[role='link'][data-legacy-thread-id]",
+        "a[role='link']",
+        "a.J-Ke.n0",
+        "a.J-Ke"
+      ]
+    },
+    "filters": {
+      "exclude": [
+        ".brc",
+        ".brd",
+        "ul.bqY",
+        "span.aXw",
+        "div[role='toolbar']",
+        "div[role='checkbox']"
+      ]
+    },
+    "forceIncludeSelectors": [
+      "tr.zA",
+      "tr[role='row'][data-legacy-last-message-id]",
+      "div[role='link'][data-legacy-thread-id]",
+      "a.J-Ke.n0",
+      "a.J-Ke"
+    ],
+    "extraInteractiveSelectors": [
+      "tr.zA",
+      "div[role='link'][data-legacy-thread-id]",
+      "a.J-Ke.n0",
+      "a.J-Ke"
+    ]
+  },
+  "default": {
+    "framework": "generic",
+    "scan_strategy": "universal",
+    "focus_targets": [
+      "input[type='search']",
+      "input[type='text']",
+      "textarea",
+      "[contenteditable='true']",
+      "input:not([type='hidden'])"
+    ],
+    "selectors": {
+      "navigation": [
+        "nav:not([disabled]):not([aria-disabled='true'])",
+        "[role='navigation']:not([disabled]):not([aria-disabled='true'])",
+        "header:not([disabled]):not([aria-disabled='true'])",
+        ".header:not([disabled]):not([aria-disabled='true'])",
+        ".main-nav:not([disabled]):not([aria-disabled='true'])"
+      ],
+      "buttons": [
+        "button",
+        "[role='button']",
+        "[onclick]",
+        "[data-action]",
+        "input[type='submit']",
+        "input[type='button']",
+        "input[type='reset']"
+      ],
+      "menus": [
+        "[role='menu']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".dropdown:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".navigation:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "hidden_content": [
+        "[aria-hidden='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".hidden:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".collapsed:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        ".invisible:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "text_inputs": [
+        "input[type='text']",
+        "input[type='search']",
+        "input[type='email']",
+        "input[type='password']",
+        "textarea",
+        "[contenteditable='true']",
+        "[role='textbox']",
+        "input[placeholder]",
+        "[aria-placeholder]"
+      ],
+      "content_elements": [
+        "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+        "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+      ],
+      "url_elements": [
+        "a[href]:not([href='']):not([href^='#'])",
+        "[data-url]",
+        "[data-href]",
+        "[data-link]",
+        "link[href]",
+        "area[href]"
+      ]
+    },
+    "filters": {
+      "include": [
+        "a[href]",
+        "[data-url]",
+        "[data-href]"
+      ],
+      "exclude": [
+        "div:not([href]):not([data-url]):not([data-href]):not([onclick]):not([role='button']):not([role='link'])",
+        "section:not([href]):not([data-url]):not([data-href])",
+        "main:not([href]):not([data-url]):not([data-href])",
+        "article:not([href]):not([data-url]):not([data-href])",
+        "header:not([href]):not([data-url]):not([data-href])",
+        "footer:not([href]):not([data-url]):not([data-href])",
+        "h1:not([href]):not([data-url]):not([data-href])",
+        "h2:not([href]):not([data-url]):not([data-href])",
+        "h3:not([href]):not([data-url]):not([data-href])",
+        "h4:not([href]):not([data-url]):not([data-href])",
+        "h5:not([href]):not([data-url]):not([data-href])",
+        "h6:not([href]):not([data-url]):not([data-href])",
+        "p:not([href]):not([data-url]):not([data-href])",
+        "span:not([href]):not([data-url]):not([data-href])",
+        "figcaption:not([href]):not([data-url]):not([data-href])"
+      ],
+      "max_elements": 100
+    },
+    "interaction_patterns": {
+      "expand_menu": {
+        "trigger": "[aria-expanded='false']",
+        "wait_for": "[aria-expanded='true']",
+        "timeout": 1000
+      }
+    }
+  }
+}

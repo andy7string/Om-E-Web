@@ -58,7 +58,10 @@
   
   "web_accessible_resources": [
     {
-      "resources": ["site_configs.json"],
+      "resources": [
+        "site_configs.json",
+        "site_configs/*.json"
+      ],
       "matches": ["<all_urls>"]
     }
   ]

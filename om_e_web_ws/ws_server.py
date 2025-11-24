@@ -53,7 +53,7 @@ SITE_CONFIGS = {}                  # Loaded site configurations with capabilitie
 
 def get_all_site_configs():
     """
-    Load site_configs.json from the extension directory
+    Load site_configs.json index and individual domain config files
 
     Returns:
         dict: Site configurations with capabilities, or empty dict if load fails
@@ -64,17 +64,43 @@ def get_all_site_configs():
         return SITE_CONFIGS
 
     try:
-        # Path to site_configs.json in the extension directory
-        config_path = os.path.join("..", "web_extension", "site_configs.json")
+        # Step 1: Load the index file (domain → config file path mapping)
+        index_path = os.path.join("..", "web_extension", "site_configs.json")
 
-        if not os.path.exists(config_path):
-            print(f"⚠️ Site configs not found at: {config_path}")
+        if not os.path.exists(index_path):
+            print(f"⚠️ Site config index not found at: {index_path}")
             return {}
 
-        with open(config_path, 'r', encoding='utf-8') as f:
-            SITE_CONFIGS = json.load(f)
+        with open(index_path, 'r', encoding='utf-8') as f:
+            domain_index = json.load(f)
 
-        print(f"✅ Loaded site configs: {len(SITE_CONFIGS)} domains configured")
+        print(f"✅ Loaded site config index: {len(domain_index)} domain mappings")
+
+        # Step 2: Load each individual config file
+        extension_dir = os.path.join("..", "web_extension")
+        loaded_configs = {}
+
+        for domain, config_file_path in domain_index.items():
+            try:
+                # Construct full path to config file
+                full_config_path = os.path.join(extension_dir, config_file_path)
+
+                if not os.path.exists(full_config_path):
+                    print(f"⚠️ Config file not found for {domain}: {full_config_path}")
+                    continue
+
+                # Load the config file
+                with open(full_config_path, 'r', encoding='utf-8') as cf:
+                    config = json.load(cf)
+                    loaded_configs[domain] = config
+                    print(f"  ✅ Loaded config for {domain}: {config.get('framework', 'unknown')}")
+
+            except Exception as e:
+                print(f"  ❌ Error loading config for {domain}: {e}")
+                continue
+
+        SITE_CONFIGS = loaded_configs
+        print(f"✅ Total configs loaded: {len(SITE_CONFIGS)} domains")
         return SITE_CONFIGS
 
     except Exception as e:

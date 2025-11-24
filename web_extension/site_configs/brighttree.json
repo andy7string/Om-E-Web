@@ -1,0 +1,67 @@
+{
+  "framework": "wordpress",
+  "scan_strategy": "wordpress_specific",
+  "selectors": {
+    "navigation": [
+      ".menu-link:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "nav:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".primary-menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".main-navigation:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "buttons": [
+      "button:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".menu-toggle:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".ast-menu-toggle:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "button[aria-label*='menu']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='submit']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='button']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='reset']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "menus": [
+      ".menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".navigation:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".primary-menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".main-menu:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "text_inputs": [
+      "input[type='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[type='search']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "textarea:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[contenteditable='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "[role='textbox']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "input[placeholder]:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "content_elements": [
+      "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "url_elements": [
+      "a[href]:not([href='']):not([href^='#'])",
+      "[data-url]",
+      "[data-href]",
+      "[data-link]",
+      "link[href]",
+      "area[href]"
+    ]
+  },
+  "interaction_patterns": {
+    "expand_menu": {
+      "trigger": ".menu-toggle",
+      "wait_for": ".menu",
+      "timeout": 1000
+    }
+  }
+}

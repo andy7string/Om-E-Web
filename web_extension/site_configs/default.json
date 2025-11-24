@@ -1,0 +1,108 @@
+{
+  "framework": "generic",
+  "scan_strategy": "universal",
+  "focus_targets": [
+    "input[type='search']",
+    "input[type='text']",
+    "textarea",
+    "[contenteditable='true']",
+    "input:not([type='hidden'])"
+  ],
+  "selectors": {
+    "navigation": [
+      "nav:not([disabled]):not([aria-disabled='true'])",
+      "[role='navigation']:not([disabled]):not([aria-disabled='true'])",
+      "header:not([disabled]):not([aria-disabled='true'])",
+      ".header:not([disabled]):not([aria-disabled='true'])",
+      ".main-nav:not([disabled]):not([aria-disabled='true'])"
+    ],
+    "buttons": [
+      "button",
+      "[role='button']",
+      "[onclick]",
+      "[data-action]",
+      "input[type='submit']",
+      "input[type='button']",
+      "input[type='reset']"
+    ],
+    "menus": [
+      "[role='menu']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".menu:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".dropdown:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".navigation:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "hidden_content": [
+      "[aria-hidden='true']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".hidden:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".collapsed:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      ".invisible:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "text_inputs": [
+      "input[type='text']",
+      "input[type='search']",
+      "input[type='email']",
+      "input[type='password']",
+      "textarea",
+      "[contenteditable='true']",
+      "[role='textbox']",
+      "input[placeholder]",
+      "[aria-placeholder]"
+    ],
+    "content_elements": [
+      "h1:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h2:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h3:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h4:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h5:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "h6:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "p:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "article:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "section:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "main:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "div[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "div[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "span[class*='text']:not([disabled]):not([aria-disabled='true']):not([hidden])",
+      "span[class*='content']:not([disabled]):not([aria-disabled='true']):not([hidden])"
+    ],
+    "url_elements": [
+      "a[href]:not([href='']):not([href^='#'])",
+      "[data-url]",
+      "[data-href]",
+      "[data-link]",
+      "link[href]",
+      "area[href]"
+    ]
+  },
+  "filters": {
+    "include": [
+      "a[href]",
+      "[data-url]",
+      "[data-href]"
+    ],
+    "exclude": [
+      "div:not([href]):not([data-url]):not([data-href]):not([onclick]):not([role='button']):not([role='link'])",
+      "section:not([href]):not([data-url]):not([data-href])",
+      "main:not([href]):not([data-url]):not([data-href])",
+      "article:not([href]):not([data-url]):not([data-href])",
+      "header:not([href]):not([data-url]):not([data-href])",
+      "footer:not([href]):not([data-url]):not([data-href])",
+      "h1:not([href]):not([data-url]):not([data-href])",
+      "h2:not([href]):not([data-url]):not([data-href])",
+      "h3:not([href]):not([data-url]):not([data-href])",
+      "h4:not([href]):not([data-url]):not([data-href])",
+      "h5:not([href]):not([data-url]):not([data-href])",
+      "h6:not([href]):not([data-url]):not([data-href])",
+      "p:not([href]):not([data-url]):not([data-href])",
+      "span:not([href]):not([data-url]):not([data-href])",
+      "figcaption:not([href]):not([data-url]):not([data-href])"
+    ],
+    "max_elements": 100
+  },
+  "interaction_patterns": {
+    "expand_menu": {
+      "trigger": "[aria-expanded='false']",
+      "wait_for": "[aria-expanded='true']",
+      "timeout": 1000
+    }
+  }
+}
