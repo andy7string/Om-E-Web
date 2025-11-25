@@ -10719,35 +10719,104 @@
             // Step 3: Execute appropriate action based on element type
             const tagName = targetElement.tagName.toLowerCase();
             const isInput = tagName === 'input' || tagName === 'textarea';
+            const isContentEditable = targetElement.isContentEditable || targetElement.getAttribute('contenteditable') === 'true';
 
-            if (isInput && params.value !== undefined) {
-                // Handle input fields - type value and optionally submit
-                console.log(`[Content] ⌨️ Setting value on input element: "${params.value}"`);
-                targetElement.value = params.value;
-                targetElement.dispatchEvent(new Event('input', { bubbles: true }));
-                targetElement.dispatchEvent(new Event('change', { bubbles: true }));
+            if ((isInput || isContentEditable) && params.value !== undefined) {
+                // Handle input fields (including contenteditable like ProseMirror)
+                console.log(`[Content] ⌨️ Setting value on ${isContentEditable ? 'contenteditable' : 'input'} element: "${params.value}"`);
+
+                if (isContentEditable) {
+                    // ProseMirror/Lexical/contenteditable handling
+                    targetElement.focus();
+                    targetElement.innerHTML = '<p><br></p>'; // Clear existing content
+                    document.execCommand('insertText', false, params.value);
+                    targetElement.dispatchEvent(new Event('input', { bubbles: true }));
+                    console.log(`[Content] ✅ Value set via execCommand for contenteditable`);
+                } else {
+                    // Regular input/textarea
+                    targetElement.value = params.value;
+                    targetElement.dispatchEvent(new Event('input', { bubbles: true }));
+                    targetElement.dispatchEvent(new Event('change', { bubbles: true }));
+                }
 
                 if (params.submit) {
                     console.log(`[Content] 📤 Submitting form...`);
-                    // Try to submit via Enter key
-                    const enterEvent = new KeyboardEvent('keydown', {
-                        key: 'Enter',
-                        code: 'Enter',
-                        keyCode: 13,
-                        which: 13,
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    targetElement.dispatchEvent(enterEvent);
 
-                    // Also try finding and clicking submit button
-                    const form = targetElement.closest('form');
-                    if (form) {
-                        const submitBtn = form.querySelector('button[type="submit"], button[aria-label*="Search" i], button.ytSearchboxComponentSearchButton');
-                        if (submitBtn) {
-                            console.log(`[Content] 🖱️ Clicking submit button`);
-                            submitBtn.click();
+                    // Wait for UI to update (React/framework state sync)
+                    await new Promise(r => setTimeout(r, 300));
+
+                    // Get submit method from capability config
+                    // Options: 'enter' (press Enter), 'click' (click button), 'form' (form.submit())
+                    // Default: 'enter' for backwards compatibility with search inputs
+                    const submitMethod = capability.submitMethod || 'enter';
+                    const submitSelector = capability.submitSelector;
+
+                    console.log(`[Content] 📤 Submit method: ${submitMethod}${submitSelector ? `, selector: ${submitSelector}` : ''}`);
+
+                    if (submitMethod === 'click') {
+                        // Method: Click button (for ChatGPT, etc.)
+                        let submitBtn = null;
+
+                        if (submitSelector) {
+                            submitBtn = document.querySelector(submitSelector);
+                            if (submitBtn) {
+                                console.log(`[Content] ✅ Found submit button via config: ${submitSelector}`);
+                            }
                         }
+
+                        // Fallback selectors if config selector not found
+                        if (!submitBtn) {
+                            const fallbackSelectors = [
+                                'button[data-testid="send-button"]',
+                                '#composer-submit-button',
+                                'button[type="submit"]',
+                                'button[aria-label*="Send" i]',
+                                'button[aria-label*="Submit" i]'
+                            ];
+                            for (const sel of fallbackSelectors) {
+                                submitBtn = document.querySelector(sel);
+                                if (submitBtn) {
+                                    console.log(`[Content] ✅ Found submit button via fallback: ${sel}`);
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (submitBtn) {
+                            submitBtn.click();
+                            console.log(`[Content] 🖱️ Submit button clicked`);
+                        } else {
+                            console.log(`[Content] ⚠️ No submit button found, trying Enter key as fallback`);
+                            targetElement.dispatchEvent(new KeyboardEvent('keydown', {
+                                key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, cancelable: true
+                            }));
+                        }
+
+                    } else if (submitMethod === 'form') {
+                        // Method: Submit parent form directly
+                        const form = targetElement.closest('form');
+                        if (form) {
+                            console.log(`[Content] 📝 Submitting via form.submit()`);
+                            form.submit();
+                        } else {
+                            console.log(`[Content] ⚠️ No parent form, trying Enter key`);
+                            targetElement.dispatchEvent(new KeyboardEvent('keydown', {
+                                key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, cancelable: true
+                            }));
+                        }
+
+                    } else {
+                        // Method: 'enter' (default) - Press Enter key on input (for YouTube, Google, etc.)
+                        console.log(`[Content] ⌨️ Submitting via Enter key`);
+                        const enterEvent = new KeyboardEvent('keydown', {
+                            key: 'Enter',
+                            code: 'Enter',
+                            keyCode: 13,
+                            which: 13,
+                            bubbles: true,
+                            cancelable: true
+                        });
+                        targetElement.dispatchEvent(enterEvent);
                     }
                 }
             } else {

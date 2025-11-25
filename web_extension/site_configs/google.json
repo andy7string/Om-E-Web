@@ -160,5 +160,25 @@
     "google_framework": true,
     "search_suggestions": true,
     "app_drawer": true
+  },
+  "capabilities": {
+    "search": {
+      "action": "SearchGoogle",
+      "label": "Search Google",
+      "description": "Enter a search query into Google search box. Usage:\n# Type search without submitting (just fill the search box)\npython3 test_navigation.py --command capability --capability SearchGoogle --value \"anthropic claude ai\" --no-submit\n# Type and submit search (execute the search)\npython3 test_navigation.py --command capability --capability SearchGoogle --value \"python asyncio tutorial\" --submit",
+      "url_pattern": "google",
+      "inputType": "text",
+      "paramName": "text",
+      "selectors": [
+        "textarea[name='q']",
+        "input[name='q']",
+        "textarea.gLFyf",
+        "input.gLFyf",
+        "#APjFqb",
+        "input[type='search'][role='combobox']",
+        "[role='search'] textarea",
+        "[role='search'] input[type='search']"
+      ]
+    }
   }
 }

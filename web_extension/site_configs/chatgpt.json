@@ -11,6 +11,12 @@
     "textarea",
     "input[type='text']"
   ],
+  "forceIncludeSelectors": [
+    "#prompt-textarea",
+    "div.ProseMirror[contenteditable='true']",
+    "textarea[name='prompt-textarea']",
+    "div[contenteditable='true'][role='textbox']"
+  ],
   "selectors": {
     "navigation": [
       "nav:not([hidden])",
@@ -51,5 +57,23 @@
       "a[href]",
       "[data-url]"
     ]
+  },
+  "capabilities": {
+    "sendPrompt": {
+      "action": "SendPrompt",
+      "label": "Send text to ChatGPT prompt",
+      "description": "Type a prompt into ChatGPT. Usage:\n# Type prompt without submitting (just fill the box)\npython3 test_navigation.py --command capability --capability SendPrompt --value \"Explain quantum computing\" --no-submit\n# Type and submit prompt (send to ChatGPT)\npython3 test_navigation.py --command capability --capability SendPrompt --value \"Write a Python function that sorts a list\" --submit",
+      "url_pattern": "chatgpt.com",
+      "inputType": "text",
+      "paramName": "text",
+      "selectors": [
+        "#prompt-textarea",
+        "div.ProseMirror[contenteditable='true']",
+        "div[contenteditable='true'][id='prompt-textarea']",
+        "div[contenteditable='true']"
+      ],
+      "submitMethod": "click",
+      "submitSelector": "button[data-testid='send-button']"
+    }
   }
 }

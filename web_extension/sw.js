@@ -35,6 +35,15 @@ let isConnected = false;
 let pendingMessages = [];
 
 // ============================================================================
+// 🗑️ PAGE VERSIONING SYSTEM - COMMENTED OUT FOR TESTING
+// ============================================================================
+// NOTE: This entire section has been commented out because pageVersion is no longer used.
+// The system now uses simple sequential IDs in text.md instead of version tracking.
+// After testing confirms no issues, this entire block can be safely deleted.
+// ============================================================================
+
+/*
+// ============================================================================
 // 🎯 PERSISTENT PAGE VERSION MANAGEMENT - Chrome Storage API
 // ============================================================================
 /**
@@ -74,7 +83,7 @@ let pendingMessages = [];
  *     }
  *   }
  * }
- */
+ *\/
 
 // Extract domain from URL (e.g., "https://www.youtube.com/watch" → "youtube.com")
 function extractDomain(url) {
@@ -205,6 +214,11 @@ chrome.tabs.onRemoved.addListener((tabId) => {
     deleteTabPageVersions(tabId);
     tabState.delete(tabId);
 });
+*/
+
+// ============================================================================
+// 🗑️ END OF COMMENTED OUT PAGE VERSIONING SYSTEM
+// ============================================================================
 
 // ============================================================================
 // 🎯 CLEAN SCAN ORCHESTRATION - One scan at a time, no overlaps
@@ -603,18 +617,14 @@ function handleScanComplete(message, sender) {
 
     if (state) {
         state.scanInProgress = false;
-        console.log(`[SW] ✅ Scan complete: tab=${tabId}, pageVersion=${message.pageVersion}`);
+        console.log(`[SW] ✅ Scan complete: tab=${tabId}`);
     }
 
-    // Forward intelligence update to server (include pageVersion)
+    // Forward intelligence update to server
     if (message.intelligenceData && ws && ws.readyState === WebSocket.OPEN) {
-        const dataWithPageVersion = {
-            ...message.intelligenceData,
-            pageVersion: message.pageVersion || 1  // Never send null
-        };
         ws.send(JSON.stringify({
             type: 'intelligence_update',
-            data: dataWithPageVersion
+            data: message.intelligenceData
         }));
     }
 }

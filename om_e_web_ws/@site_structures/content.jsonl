@@ -1,28 +1,35 @@
 {
-  "timestamp": 1763991312.002551,
+  "timestamp": 1764069477.673182,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138023305,
-      "url": "https://brighttreedigital.com.au/",
-      "title": "Local Web Design Adelaide | Bright Tree Digital",
+      "id": 1138023541,
+      "url": "https://www.google.com/search?sca_esv=a7bc91a92d9a045d&sxsrf=AE3TifONqyUVGOivPipxhqfe36wcak7SnA%3A1764069010924&source=hp&ei=ko4lafumNu3j0PEPo-XYuQc&iflsig=AOw8s4IAAAAAaSWcoqXl2xeRhsTh7KoHTPloL9ACq47Y&aep=22&udm=50&ved=2ahUKEwjhvPzGlo2RAxWxVPUHHbsSFqQQoo4PegYIAQgAEAA&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mtid=G5AlafiaLI6TseMP0arL0AE",
+      "title": "Google Search",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138023305,
-        "url": "https://brighttreedigital.com.au/",
-        "title": "Local Web Design Adelaide | Bright Tree Digital",
+        "id": 1138023541,
+        "url": "https://www.google.com/search?sca_esv=a7bc91a92d9a045d&sxsrf=AE3TifONqyUVGOivPipxhqfe36wcak7SnA%3A1764069010924&source=hp&ei=ko4lafumNu3j0PEPo-XYuQc&iflsig=AOw8s4IAAAAAaSWcoqXl2xeRhsTh7KoHTPloL9ACq47Y&aep=22&udm=50&ved=2ahUKEwjhvPzGlo2RAxWxVPUHHbsSFqQQoo4PegYIAQgAEAA&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mtid=G5AlafiaLI6TseMP0arL0AE",
+        "title": "Google Search",
         "active": true,
         "status": "loading"
+      },
+      {
+        "id": 1138023546,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
+        "active": false,
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 26739.893863666,
+    "last_tabs_update": 45909.821449791,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "url": "https://www.google.com/search?sca_esv=a7bc91a92d9a045d&sxsrf=AE3TifONqyUVGOivPipxhqfe36wcak7SnA%3A1764069010924&source=hp&ei=ko4lafumNu3j0PEPo-XYuQc&iflsig=AOw8s4IAAAAAaSWcoqXl2xeRhsTh7KoHTPloL9ACq47Y&aep=22&udm=50&ved=2ahUKEwjhvPzGlo2RAxWxVPUHHbsSFqQQoo4PegYIAQgAEAA&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mtid=G5AlafiaLI6TseMP0arL0AE",
+    "title": "Google Search",
     "is_active_tab": true
   },
   "content_structure": {},

@@ -1,102 +1,48 @@
-# Local Web Design Adelaide | Bright Tree Digital
+# Google Search
 
-**URL:** https://brighttreedigital.com.au/
-**Timestamp:** 2025-11-25 00:05:12
+**URL:** https://www.google.com/search?sca_esv=a7bc91a92d9a045d&sxsrf=AE3TifONqyUVGOivPipxhqfe36wcak7SnA%3A1764069010924&source=hp&ei=ko4lafumNu3j0PEPo-XYuQc&iflsig=AOw8s4IAAAAAaSWcoqXl2xeRhsTh7KoHTPloL9ACq47Y&aep=22&udm=50&ved=2ahUKEwjhvPzGlo2RAxWxVPUHHbsSFqQQoo4PegYIAQgAEAA&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mtid=G5AlafiaLI6TseMP0arL0AE
+**Timestamp:** 2025-11-25 21:47:57
+
+## Available Actions
+
+The following pre-configured actions are available for this page:
+
+**SearchGoogle** - Search Google
+  - Enter a search query into Google search box. Usage:
+# Type search without submitting (just fill the search box)
+python3 test_navigation.py --command capability --capability SearchGoogle --value "anthropic claude ai" --no-submit
+# Type and submit search (execute the search)
+python3 test_navigation.py --command capability --capability SearchGoogle --value "python asyncio tutorial" --submit
+  - Usage: `python3 test_navigation.py --command capability --capability SearchGoogle`
 
 ---
 
-<Link id="a_id_0">Skip to content</Link>
-<Link id="a_id_1">Bright Tree Digital</Link>
-<Link id="a_id_2">HOME</Link>
-<Link id="a_id_3">ABOUT</Link>
-<Link id="a_id_4">PORTFOLIO</Link>
-<Link id="a_id_5">SERVICES</Link>
-<Link id="a_id_6">CONTACT</Link>
-<Link id="a_id_7">Facebook</Link>
-<Link id="a_id_8">Instagram</Link>
-Dynamic Web Design Bringing Your Vision to Life
-Grow Your Brand Online With our Expertise
-<Link id="a_id_9">GET STARTED</Link>
-<Button id="a_id_10">Previous slide</Button>
-<Button id="a_id_11">Next slide</Button>
-Welcome to Bright Tree Digital...
-...where your vision takes digital form and your business’s potential is fully realized. Specializing in
-WordPress web design
-and compelling
-graphic design
-, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
-Our Services
-Start your journey here...
-<Link id="a_id_12">Get in touch today!</Link>
-Our Work
-<Link id="a_id_13">Straker Functional Fitness</Link>
-<Link id="a_id_14">The Syrene Hotel</Link>
-<Link id="a_id_15">African Safari Deals</Link>
-<Link id="a_id_16">Mtambo Chartered Accountants</Link>
-<Link id="a_id_17">Joss Couture</Link>
-<Link id="a_id_18">Flutterbys School</Link>
-<Link id="a_id_19">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_20">Straker Functional Fitness</Link>
-<Link id="a_id_21">The Syrene Hotel</Link>
-<Link id="a_id_22">African Safari Deals</Link>
-<Link id="a_id_23">Mtambo Chartered Accountants</Link>
-<Link id="a_id_24">Joss Couture</Link>
-<Link id="a_id_25">Flutterbys School</Link>
-<Link id="a_id_26">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_27">Straker Functional Fitness</Link>
-<Link id="a_id_28">The Syrene Hotel</Link>
-<Link id="a_id_29">African Safari Deals</Link>
-<Link id="a_id_30">Mtambo Chartered Accountants</Link>
-<Button id="a_id_31">1 of 2</Button>
-<Button id="a_id_32">2 of 2</Button>
-<Button id="a_id_33">3 of 2</Button>
-<Button id="a_id_34">4 of 2</Button>
-<Button id="a_id_35">5 of 2</Button>
-<Button id="a_id_36">6 of 2</Button>
-<Button id="a_id_37">7 of 2</Button>
-<Button id="a_id_38">8 of 2</Button>
-What Our Clients Say!
-We are so happy that
-Bright Tree Digital
-designed our Logos and websites for our 2 food businesses.
-Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
-Michelene Rendell
-Owner, The Kitchen
-Highly recommended.
-Bright Tree Digital
-presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
-Daniella Finney
-Owner, The Syrene Boutique Hotel
-Big shoutout to Olivia at
-Bright Tree Digital
-, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
-Natalie Cassar
-Owner, New Moon Digital
-<Link id="a_id_39">Read More Testimonials</Link>
-Ready for a Website Makeover?
-<Link id="a_id_40">Reach Out Now!</Link>
-ABOUT US
-We specialise in
-WordPress web design
-and
-graphic design
-, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-OUR PORTFOLIO
-<Link id="a_id_41">Banner Portfolio</Link>
-<Link id="a_id_42">Logo Portfolio</Link>
-<Link id="a_id_43">Web Design Portfolio</Link>
-<Link id="a_id_44">Facebook</Link>
-<Link id="a_id_45">Instagram</Link>
-ABN: 29 160 886 356
-QUICK LINKS
-<Link id="a_id_46">Home</Link>
-<Link id="a_id_47">About</Link>
-<Link id="a_id_48">Services</Link>
-<Link id="a_id_49">Testimonials</Link>
-<Link id="a_id_50">Contact</Link>
-<Link id="a_id_51">Privacy Policy</Link>
-Copyright © 2025 Bright Tree Digital
-<Link id="a_id_52">Website Designed by Bright Tree Digital</Link>
+---
+
+<style>table,div,span,p{display:none}</style><meta content="0;url=/httpservice/retry/enablejs?sei=Y5AlafjcIu-S0PEP8vW2oAM" http-equiv="refresh"><div style="display:block">Please click <a href="/httpservice/retry/enablejs?sei=Y5AlafjcIu-S0PEP8vW2oAM">here</a> if you are not redirected within a few seconds.</div>
+Accessibility links
+<Link id="a_id_0">Skip to main content</Link>
+<Link id="a_id_1">Accessibility help</Link>
+<Link id="a_id_2">Accessibility feedback</Link>
+<Link id="a_id_3">Go to Google Home</Link>
+Filters and topics
+<Link id="a_id_4">AI Mode</Link>
+<Link id="a_id_5">All</Link>
+<Link id="a_id_6">Images</Link>
+<Link id="a_id_7">Videos</Link>
+<Link id="a_id_8">News</Link>
+<Button id="a_id_9">More</Button>
+<Button id="a_id_10">Google apps</Button>
+<Button id="a_id_11">Google Account: Andrew Orsmond
+(andreworsmond21175@gmail.com)</Button>
+<Button id="a_id_12">Start new search</Button>
+<Button id="a_id_13">Open AI Mode history</Button>
+Meet AI Mode
+Ask detailed questions for better responses
+<Input id="a_id_14">Ask anything</Input>
+<Button id="a_id_15">More input options</Button>
+<Button id="a_id_16">Microphone</Button>
+<Button id="a_id_17">How do I get started playing padel?</Button>
+<Button id="a_id_18">What are the types of plastics and can they all be recycled?</Button>
+<Button id="a_id_19">Running routes near me with a 5km loop</Button>
+Search Results

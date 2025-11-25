@@ -475,7 +475,570 @@ Result: Files written to @site_structures/ directory
 
 ---
 
-## 3. Scan Trigger Coordination Problem
+## 3. Capability Pipeline Architecture
+
+### Overview
+
+The **Capability Pipeline** is a parallel execution system that complements the standard action-ID pipeline. While the standard pipeline relies on pre-registered element IDs (`a_id_XXX`), the capability pipeline performs **dynamic, on-demand element discovery** using selector-based searches. This enables interaction with lazy-loaded content, modal dialogs, and site-specific features that may not be present during initial page scan.
+
+**Key Differentiator:** Site-specific capabilities are defined entirely in configuration files (`site_configs/*.json`) without modifying runtime code, enabling rapid addition of new automation capabilities.
+
+### Architecture Comparison
+
+```
+┌─ STANDARD ACTION-ID PIPELINE (95% of use cases) ────────────────────────┐
+│                                                                          │
+│  1. Page loads → content.js scans DOM                                   │
+│  2. Elements registered with a_id_0, a_id_1, a_id_2, etc.              │
+│  3. Artifacts generated (page.jsonl, llm_actions.json)                  │
+│  4. LLM reads artifacts → sends execute_llm_action with actionId        │
+│  5. Content script looks up element by ID → executes action             │
+│                                                                          │
+│  ✅ Fast (no DOM search needed)                                         │
+│  ✅ Reliable (element already registered)                               │
+│  ❌ Can't handle lazy-loaded/modal content not present at scan time     │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+┌─ CAPABILITY PIPELINE (edge cases, dynamic content) ──────────────────────┐
+│                                                                          │
+│  1. LLM/Client sends execute_capability with action name                │
+│  2. Content script loads site config for current domain                 │
+│  3. Looks up capability by action name → gets selector array           │
+│  4. Tries selectors in order (specific → generic)                       │
+│  5. Waits up to 5s for lazy-loaded elements                            │
+│  6. Executes action (click, setValue, etc.)                             │
+│  7. Triggers intelligence update                                        │
+│                                                                          │
+│  ✅ Handles lazy-loaded/modal content                                   │
+│  ✅ Site-specific (custom selectors per domain)                         │
+│  ✅ Config-driven (no code changes needed)                              │
+│  ❌ Slower (requires DOM search)                                        │
+│  ❌ Less reliable (selectors may change)                                │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+### Complete Message Flow: Capability Execution
+
+```
+┌─ TEST CLIENT / LLM (test_navigation.py)
+│
+├─ User runs:
+│  python3 test_navigation.py --command capability \
+│    --capability SendPrompt --value "Hello" --submit
+│
+├─ Builds payload:
+│  {
+│    "type": "execute_capability",
+│    "action": "SendPrompt",
+│    "params": {
+│      "value": "Hello",
+│      "submit": true
+│    }
+│  }
+│
+└─ Sends via WebSocket to ws://localhost:17892
+                    ↓
+┌─ WEBSOCKET SERVER (ws_server.py)
+│
+├─ handler() receives message (Line 3242)
+│
+├─ Checks: if msg.get("type") == "execute_capability"
+│
+├─ Extracts:
+│  action = msg.get("action")  # "SendPrompt"
+│  params = msg.get("params", {})  # {"value": "Hello", "submit": true}
+│
+├─ Forwards to extension (Line 3260-3265):
+│  capability_command = {
+│    "type": "execute_capability",
+│    "action": "SendPrompt",
+│    "params": {"value": "Hello", "submit": true}
+│  }
+│  await EXTENSION_WS.send(json.dumps(capability_command))
+│
+└─ No processing in server - pure message routing
+                    ↓
+┌─ SERVICE WORKER (sw.js)
+│
+├─ ws.onmessage event fires
+│
+├─ handleServerMessage() parses message (Line 944)
+│
+├─ Checks: if message.type === "execute_capability"
+│
+├─ Calls: handleExecuteCapability(message) (Line 1733-1767)
+│  ├─ Extracts: action, params from message
+│  ├─ Finds: activeTab = await findActiveTab()
+│  ├─ Builds: capabilityMessage = {
+│  │    type: "execute_capability",
+│  │    action: "SendPrompt",
+│  │    params: {"value": "Hello", "submit": true}
+│  │  }
+│  └─ Forwards: chrome.tabs.sendMessage(activeTab.id, capabilityMessage)
+│
+└─ Message sent to content script
+                    ↓
+┌─ CONTENT SCRIPT (content.js)
+│
+├─ chrome.runtime.onMessage listener fires
+│
+├─ Message handler: if (message.type === "execute_capability")
+│
+├─ Calls: capabilityPipelineExecutor(action, params) (Line 10595-10828)
+│
+├─ STEP 1: Load Site Config (Lines 10605-10625)
+│  ├─ Tries: siteConfig || window.currentSiteConfig
+│  ├─ Fallback: getSiteConfigDirect() if not available
+│  ├─ Config example for chatgpt.com:
+│  │  {
+│  │    "framework": "chatgpt",
+│  │    "capabilities": {
+│  │      "sendPrompt": {
+│  │        "action": "SendPrompt",
+│  │        "label": "Send text to ChatGPT prompt",
+│  │        "selectors": [
+│  │          "#prompt-textarea",
+│  │          "div.ProseMirror[contenteditable='true']",
+│  │          "div[contenteditable='true']"
+│  │        ],
+│  │        "submitSelector": "button[data-testid='send-button']"
+│  │      }
+│  │    }
+│  │  }
+│
+├─ STEP 2: Lookup Capability (Lines 10627-10643)
+│  ├─ Searches: Object.keys(config.capabilities)
+│  ├─ Finds: capability where cap.action === "SendPrompt"
+│  ├─ Returns: capability config object
+│  └─ Error if not found: "No capability config found for action: SendPrompt"
+│
+├─ STEP 3: Dynamic Element Discovery (Lines 10644-10698)
+│  ├─ Gets: selectors array from capability config
+│  ├─ Tries each selector in order:
+│  │  1. "#prompt-textarea"
+│  │  2. "div.ProseMirror[contenteditable='true']"
+│  │  3. "div[contenteditable='true']"
+│  │
+│  ├─ For each selector:
+│  │  ├─ Try: document.querySelectorAll(selector)
+│  │  ├─ If found: Break loop, use first element
+│  │  ├─ If not found: Continue to next selector
+│  │
+│  ├─ If still not found after all selectors:
+│  │  ├─ Wait: Use waitForElement(selector, 5000) for each selector
+│  │  ├─ Uses: MutationObserver to watch for element appearing
+│  │  ├─ Timeout: 5 seconds per selector
+│  │
+│  └─ If STILL not found:
+│     └─ Throw: "Element not found using any configured selectors"
+│
+├─ STEP 4: Execute Action (Lines 10719-10802)
+│  │
+│  ├─ Determine element type:
+│  │  ├─ isInput: tagName === 'input' || tagName === 'textarea'
+│  │  ├─ isContentEditable: element.isContentEditable || contenteditable='true'
+│  │
+│  ├─ IF input/textarea and params.value provided:
+│  │  │
+│  │  ├─ Handle contenteditable (ProseMirror/Lexical):
+│  │  │  ├─ targetElement.focus()
+│  │  │  ├─ targetElement.innerHTML = '<p><br></p>' (clear)
+│  │  │  ├─ document.execCommand('insertText', false, params.value)
+│  │  │  └─ Dispatch: input event
+│  │  │
+│  │  ├─ Handle regular input/textarea:
+│  │  │  ├─ targetElement.value = params.value
+│  │  │  ├─ Dispatch: input event
+│  │  │  └─ Dispatch: change event
+│  │  │
+│  │  └─ IF params.submit === true:
+│  │     ├─ Wait: 300ms (let React enable submit button)
+│  │     │
+│  │     ├─ Try submitSelector from config:
+│  │     │  └─ submitBtn = document.querySelector(capability.submitSelector)
+│  │     │
+│  │     ├─ Fallback selectors if not found:
+│  │     │  ├─ 'button[data-testid="send-button"]'
+│  │     │  ├─ '#composer-submit-button'
+│  │     │  ├─ 'button[type="submit"]'
+│  │     │  ├─ 'button[aria-label*="Send" i]'
+│  │     │  ├─ 'button[aria-label*="Submit" i]'
+│  │     │  └─ 'button[aria-label*="Search" i]'
+│  │     │
+│  │     ├─ If submit button found:
+│  │     │  └─ submitBtn.click()
+│  │     │
+│  │     └─ Last resort (no button found):
+│  │        └─ Dispatch Enter key event to target element
+│  │
+│  └─ ELSE (clickable element):
+│     └─ targetElement.click()
+│
+├─ STEP 5: Wait for Result (Line 2804-2805)
+│  └─ Wait: 2000ms (let action complete)
+│
+├─ STEP 6: Trigger Intelligence Update (Lines 10807-10814)
+│  └─ Call: intelligenceEngine.queueIntelligenceUpdate('high', 'capability_SendPrompt')
+│  └─ Wait: 1000ms (let scan complete)
+│
+├─ STEP 7: Return Success (Lines 10816-10821)
+│  └─ Return: {
+│       success: true,
+│       message: "Capability SendPrompt executed successfully",
+│       elementFound: "div.ProseMirror[contenteditable='true']",
+│       matchedBy: "selector"
+│     }
+│
+└─ Response sent back through Service Worker → Server → Client
+```
+
+**Total Time:** 2-8 seconds (includes waiting periods)
+**Blocking Points:**
+- Element discovery with waits (0-5 seconds if lazy-loaded)
+- Action completion wait (2 seconds)
+- Intelligence update (1 second)
+
+### Site Config Structure
+
+**Location:** `web_extension/site_configs/*.json`
+
+**Capability Definition Schema:**
+```json
+{
+  "framework": "site_name",
+  "url_patterns": ["example.com", "*.example.com"],
+  "capabilities": {
+    "capabilityName": {
+      "action": "ActionName",
+      "label": "Human-readable description",
+      "description": "Detailed usage instructions with examples",
+      "url_pattern": "optional_url_substring_for_activation",
+      "inputType": "text | click",
+      "paramName": "text | value",
+      "selectors": [
+        "specific.selector#with-id",
+        "less.specific[aria-label='label']",
+        "generic[contenteditable='true']"
+      ],
+      "submitMethod": "enter | click | form",
+      "submitSelector": "button[data-testid='submit-btn']"
+    }
+  }
+}
+```
+
+**Field Descriptions:**
+
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `action` | ✅ Yes | String | Unique identifier for capability (e.g., "SendPrompt") |
+| `label` | ✅ Yes | String | Short human-readable name for UI display |
+| `description` | ⚠️ Recommended | String | Usage instructions with CLI examples |
+| `url_pattern` | ❌ No | String | URL substring to match (capability only active on matching URLs) |
+| `inputType` | ❌ No | String | "text" (input field) or "click" (button/link) |
+| `paramName` | ❌ No | String | Parameter name for input value |
+| `selectors` | ✅ Yes | Array<String> | CSS selectors tried in order (specific → generic) |
+| `submitMethod` | ❌ No | String | How to submit: "enter" (default), "click", or "form" |
+| `submitSelector` | ❌ No | String | CSS selector for submit button (only used when submitMethod="click") |
+
+**Submit Method Options:**
+
+| Method | When to Use | Behaviour |
+|--------|-------------|-----------|
+| `enter` | Search inputs (YouTube, Google) | Dispatches Enter keydown event on input element. **Default if not specified.** |
+| `click` | Chat apps (ChatGPT, Claude) | Clicks button found via `submitSelector` or fallback selectors |
+| `form` | Traditional forms | Calls `form.submit()` on parent form element |
+
+**Decision Guide:**
+- Use `enter` for search boxes that submit on Enter key (most search inputs)
+- Use `click` for chat/messaging apps where a send button must be clicked
+- Use `form` for traditional HTML forms with submit buttons
+
+### Example Configurations
+
+#### ChatGPT Send Prompt
+```json
+{
+  "framework": "chatgpt",
+  "capabilities": {
+    "sendPrompt": {
+      "action": "SendPrompt",
+      "label": "Send text to ChatGPT prompt",
+      "description": "Type a prompt into ChatGPT. Usage:\n# Type without submitting\npython3 test_navigation.py --command capability --capability SendPrompt --value \"Explain quantum computing\" --no-submit\n# Type and submit\npython3 test_navigation.py --command capability --capability SendPrompt --value \"Write a Python function\" --submit",
+      "url_pattern": "chatgpt.com",
+      "inputType": "text",
+      "paramName": "text",
+      "selectors": [
+        "#prompt-textarea",
+        "div.ProseMirror[contenteditable='true']",
+        "div[contenteditable='true'][id='prompt-textarea']",
+        "div[contenteditable='true']"
+      ],
+      "submitMethod": "click",
+      "submitSelector": "button[data-testid='send-button']"
+    }
+  }
+}
+```
+
+**Note:** ChatGPT uses `submitMethod: "click"` because:
+1. The input is a `contenteditable` div (ProseMirror editor), not a form input
+2. Enter key creates a new line, doesn't submit
+3. The send button must be explicitly clicked
+
+**Selector Priority Explanation:**
+1. `#prompt-textarea` - Most specific (ID selector) - try first
+2. `div.ProseMirror[contenteditable='true']` - Framework-specific (ProseMirror editor)
+3. `div[contenteditable='true'][id='prompt-textarea']` - Compound fallback
+4. `div[contenteditable='true']` - Generic fallback - last resort
+
+#### Google Search
+```json
+{
+  "framework": "google",
+  "capabilities": {
+    "search": {
+      "action": "SearchGoogle",
+      "label": "Search Google",
+      "description": "Enter a search query. Usage:\n# Type without submitting\npython3 test_navigation.py --command capability --capability SearchGoogle --value \"anthropic claude\" --no-submit\n# Type and submit\npython3 test_navigation.py --command capability --capability SearchGoogle --value \"python tutorial\" --submit",
+      "url_pattern": "google",
+      "inputType": "text",
+      "paramName": "text",
+      "selectors": [
+        "textarea[name='q']",
+        "input[name='q']",
+        "textarea.gLFyf",
+        "input.gLFyf",
+        "#APjFqb",
+        "input[type='search'][role='combobox']",
+        "[role='search'] textarea",
+        "[role='search'] input[type='search']"
+      ]
+    }
+  }
+}
+```
+
+**Note:** Google uses the default `submitMethod: "enter"` (not specified = defaults to Enter key).
+This works because search inputs naturally submit on Enter press.
+
+### Content Editable Handling
+
+The capability pipeline has special handling for **contenteditable** elements (used by rich text editors like ProseMirror, Lexical, Draft.js):
+
+**Problem:** Standard `.value` property doesn't work on contenteditable elements.
+
+**Solution:** Use `document.execCommand('insertText', ...)` (Lines 10728-10734)
+
+```javascript
+if (isContentEditable) {
+    // ProseMirror/Lexical handling
+    targetElement.focus();
+    targetElement.innerHTML = '<p><br></p>'; // Clear existing content
+    document.execCommand('insertText', false, params.value);
+    targetElement.dispatchEvent(new Event('input', { bubbles: true }));
+}
+```
+
+**Why this works:**
+- `execCommand('insertText')` triggers proper editor events
+- Editor frameworks intercept and process the text correctly
+- `innerHTML = '<p><br></p>'` resets to clean state
+- Dispatching `input` event ensures React/Vue reactivity
+
+### Submit Button Discovery
+
+When `params.submit === true`, the pipeline uses a 3-tier fallback strategy:
+
+```javascript
+// Tier 1: Config-defined submitSelector
+const submitSelector = capability.submitSelector;
+let submitBtn = document.querySelector(submitSelector);
+
+// Tier 2: Common submit button patterns
+if (!submitBtn) {
+    const fallbackSelectors = [
+        'button[data-testid="send-button"]',
+        '#composer-submit-button',
+        'button[type="submit"]',
+        'button[aria-label*="Send" i]',
+        'button[aria-label*="Submit" i]',
+        'button[aria-label*="Search" i]'
+    ];
+    // Try each...
+}
+
+// Tier 3: Enter key (last resort)
+if (!submitBtn) {
+    const enterEvent = new KeyboardEvent('keydown', {
+        key: 'Enter', code: 'Enter', keyCode: 13
+    });
+    targetElement.dispatchEvent(enterEvent);
+}
+```
+
+### Test Commands
+
+**Basic capability execution:**
+```bash
+python3 test_navigation.py --command capability \
+  --capability SendPrompt \
+  --value "Hello Claude"
+```
+
+**With submit:**
+```bash
+python3 test_navigation.py --command capability \
+  --capability SendPrompt \
+  --value "Write a function" \
+  --submit
+```
+
+**Without submit (fill only):**
+```bash
+python3 test_navigation.py --command capability \
+  --capability SearchGoogle \
+  --value "python asyncio" \
+  --no-submit
+```
+
+### Adding New Capabilities
+
+**To add a new capability for a site:**
+
+1. **Edit site config** (`web_extension/site_configs/{domain}.json`)
+2. **Add capability definition** to `capabilities` object
+3. **Test immediately** - no extension reload needed
+
+**Example: Add YouTube search capability**
+
+```json
+{
+  "framework": "youtube",
+  "capabilities": {
+    "searchYoutube": {
+      "action": "SearchYouTube",
+      "label": "Search YouTube",
+      "description": "Search for videos on YouTube",
+      "url_pattern": "youtube.com",
+      "selectors": [
+        "input#search",
+        "input[name='search_query']",
+        "input[aria-label*='Search' i]"
+      ],
+      "submitSelector": "button#search-icon-legacy"
+    }
+  }
+}
+```
+
+**Test:**
+```bash
+python3 test_navigation.py --command capability \
+  --capability SearchYouTube \
+  --value "anthropic claude" \
+  --submit
+```
+
+### Performance Characteristics
+
+| Metric | Typical | Worst Case | Notes |
+|--------|---------|------------|-------|
+| **Element discovery** | 10-50ms | 5000ms | If lazy-loaded, waits up to 5s |
+| **Action execution** | 50-100ms | 500ms | Click or setValue |
+| **Action completion wait** | 2000ms | 2000ms | Fixed wait for result |
+| **Intelligence update** | 1000ms | 1000ms | Fixed wait for scan |
+| **Total latency** | 3-4s | 8-9s | Includes all waiting periods |
+
+**Optimization opportunities:**
+- Reduce fixed waits (2s action completion, 1s intelligence update)
+- Use event-driven detection instead of timeouts
+- Add response validation (don't wait if not needed)
+
+### Error Handling
+
+**Common failure modes:**
+
+| Error | Cause | Resolution |
+|-------|-------|------------|
+| `No capability config found for action: X` | Capability not defined in site config | Add capability to site_configs/{domain}.json |
+| `Element not found using any configured selectors` | Selectors don't match DOM | Inspect page, update selectors in config |
+| `Site config not available and reload failed` | Config didn't load on page | Reload tab to reinject content script |
+| `No active tab found for capability execution` | No accessible tab open | Open a regular web page (not chrome://) |
+
+**Error response format:**
+```javascript
+{
+  success: false,
+  message: "Error message",
+  error: "Detailed error description"
+}
+```
+
+### Integration Points
+
+**Capability Pipeline touches these components:**
+
+```
+test_navigation.py (Line 65-101)
+  └─ send_command() - Builds execute_capability message
+       ↓
+ws_server.py (Line 3242-3266)
+  └─ handler() - Routes capability to extension
+       ↓
+sw.js (Line 1733-1767)
+  └─ handleExecuteCapability() - Forwards to content script
+       ↓
+content.js (Line 10595-10828)
+  └─ capabilityPipelineExecutor() - Executes capability
+       ↓
+site_configs/{domain}.json
+  └─ Capability definitions (selectors, submitSelector)
+```
+
+### Design Principles
+
+1. **Config-driven** - All site-specific logic in JSON, not code
+2. **Graceful degradation** - Multiple selector fallbacks
+3. **Event-driven where possible** - But uses timeouts when needed
+4. **Framework-agnostic** - Works with React, Vue, vanilla JS, contenteditable
+5. **No hardcoded selectors** - Everything configurable per domain
+6. **Zero-downtime updates** - Edit config, test immediately
+
+### Future Enhancements
+
+**Potential improvements:**
+
+1. **Multi-step workflows** - Chain multiple capabilities
+   ```json
+   "workflow": ["SearchGoogle", "ClickFirstResult", "ExtractContent"]
+   ```
+
+2. **Conditional logic** - Execute based on page state
+   ```json
+   "conditions": {"selector": ".logged-in", "present": true}
+   ```
+
+3. **Response extraction** - Return specific data after action
+   ```json
+   "extract": {"selector": ".result", "attribute": "textContent"}
+   ```
+
+4. **Retry strategies** - Configurable retry with backoff
+   ```json
+   "retry": {"maxAttempts": 3, "backoff": "exponential"}
+   ```
+
+5. **Event-driven completion** - Wait for specific element/event instead of timeout
+   ```json
+   "waitFor": {"selector": ".response", "timeout": 10000}
+   ```
+
+---
+
+## 4. Scan Trigger Coordination Problem
 
 ### The 8 Overlapping Scan Triggers
 
