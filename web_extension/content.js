@@ -3597,14 +3597,44 @@
             console.log(`[Universal Click] 📋 Element details:`, elementInfo);
 
             // 🆕 ENHANCED: Multiple click strategies for maximum compatibility
+            // Detect if this looks like a React/Facebook component (role="button" on div, complex classes)
+            const isReactLikeElement = element.getAttribute('role') === 'button' &&
+                element.tagName !== 'BUTTON' &&
+                (element.className.length > 50 || element.className.includes(' x'));
+
+            // For React-heavy sites (Facebook), run all strategies instead of stopping at first
+            // because native click() doesn't throw but won't activate React handlers
+            const runAllStrategies = isReactLikeElement;
+
             const clickStrategies = [
-                // Strategy 1: Native click() method
+                // Strategy 1: Pointer events (Facebook/React compatibility) - FIRST for React elements
+                () => {
+                    const rect = element.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+
+                    element.dispatchEvent(new PointerEvent('pointerdown', {
+                        bubbles: true, cancelable: true, view: window,
+                        clientX: centerX, clientY: centerY, pointerId: 1, pointerType: 'mouse'
+                    }));
+                    element.dispatchEvent(new PointerEvent('pointerup', {
+                        bubbles: true, cancelable: true, view: window,
+                        clientX: centerX, clientY: centerY, pointerId: 1, pointerType: 'mouse'
+                    }));
+                    element.dispatchEvent(new MouseEvent('click', {
+                        bubbles: true, cancelable: true, view: window,
+                        clientX: centerX, clientY: centerY
+                    }));
+                    return 'pointer events (Facebook/React)';
+                },
+
+                // Strategy 2: Native click() method
                 () => {
                     element.click();
                     return 'native click()';
                 },
 
-                // Strategy 2: MouseEvent simulation
+                // Strategy 3: MouseEvent simulation
                 () => {
                     const clickEvent = new MouseEvent('click', {
                         bubbles: true,
@@ -3615,7 +3645,7 @@
                     return 'MouseEvent simulation';
                 },
 
-                // Strategy 3: Focus + Enter key
+                // Strategy 4: Focus + Enter key
                 () => {
                     element.focus();
                     const enterEvent = new KeyboardEvent('keydown', {
@@ -3629,7 +3659,7 @@
                     return 'Focus + Enter key';
                 },
 
-                // Strategy 4: mousedown + mouseup events
+                // Strategy 5: mousedown + mouseup events
                 () => {
                     const mousedownEvent = new MouseEvent('mousedown', { bubbles: true, cancelable: true });
                     const mouseupEvent = new MouseEvent('mouseup', { bubbles: true, cancelable: true });
@@ -3638,7 +3668,7 @@
                     return 'mousedown + mouseup events';
                 },
 
-                // Strategy 5: Touch events (for mobile compatibility)
+                // Strategy 6: Touch events (for mobile compatibility)
                 () => {
                     const touchStartEvent = new TouchEvent('touchstart', { bubbles: true, cancelable: true });
                     const touchEndEvent = new TouchEvent('touchend', { bubbles: true, cancelable: true });
@@ -3648,19 +3678,31 @@
                 }
             ];
 
-            // Try each strategy until one works
+            // Try each strategy until one works (or run all for React-like elements)
             let clickSuccess = false;
             let clickMethod = 'none';
+            const successfulStrategies = [];
+
+            console.log(`[Universal Click] 🔍 React-like element: ${isReactLikeElement}, runAllStrategies: ${runAllStrategies}`);
 
             for (const strategy of clickStrategies) {
                 try {
                     clickMethod = strategy();
                     clickSuccess = true;
+                    successfulStrategies.push(clickMethod);
                     console.log(`[Universal Click] ✅ Strategy succeeded: ${clickMethod}`);
-                    break;
+                    // For React elements, continue trying all strategies
+                    // For normal elements, stop at first success
+                    if (!runAllStrategies) {
+                        break;
+                    }
                 } catch (error) {
                     console.log(`[Universal Click] ⚠️ Strategy failed: ${clickMethod} - ${error.message}`);
                 }
+            }
+
+            if (runAllStrategies && successfulStrategies.length > 0) {
+                clickMethod = successfulStrategies.join(' + ');
             }
 
             if (clickSuccess) {
@@ -5583,6 +5625,15 @@
             let label = element.getAttribute('aria-label');
             if (label && label.trim()) return label.trim();
 
+            // Try placeholder/aria-placeholder (for inputs AND contenteditable)
+            const isContentEditable = element.isContentEditable || element.getAttribute('contenteditable') === 'true';
+            const isTextInput = element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || isContentEditable || element.getAttribute('role') === 'textbox';
+
+            if (isTextInput) {
+                label = element.getAttribute('placeholder') || element.getAttribute('aria-placeholder') || '';
+                if (label && label.trim()) return label.trim();
+            }
+
             // Try innerText (visible text)
             label = element.innerText || element.textContent || '';
             label = label.trim();
@@ -5594,12 +5645,6 @@
                     label = element.getAttribute('value') || '';
                     if (label && label.trim()) return label.trim();
                 }
-            }
-
-            // Fallback to placeholder for inputs
-            if (!label && element.tagName === 'INPUT') {
-                label = element.getAttribute('placeholder') ||
-                        element.getAttribute('aria-placeholder') || '';
             }
 
             // Fallback to title
@@ -5615,6 +5660,7 @@
             const tag = element.tagName.toLowerCase();
             const role = element.getAttribute('role');
             const type = element.getAttribute('type');
+            const isContentEditable = element.isContentEditable || element.getAttribute('contenteditable') === 'true';
 
             // Buttons
             if (tag === 'button' || role === 'button') return 'Button';
@@ -5622,7 +5668,7 @@
             // Links
             if (tag === 'a' || role === 'link') return 'Link';
 
-            // Inputs
+            // Inputs (including contenteditable and role="textbox")
             if (tag === 'input') {
                 if (type === 'submit' || type === 'button') return 'Button';
                 return 'Input';
@@ -5630,6 +5676,9 @@
 
             if (tag === 'textarea') return 'Input';
             if (tag === 'select') return 'Select';
+
+            // Contenteditable divs (ChatGPT, Perplexity, Claude, etc.)
+            if (isContentEditable || role === 'textbox') return 'Input';
 
             return null; // Not interactive
         };
@@ -5757,8 +5806,12 @@
                             selector: this.generateSimpleSelector(targetElement)
                         });
 
-                        // Add semantic tag to text
-                        textParts.push(`<${elementType} id="${actionId}">${label}</${elementType}>`);
+                        // Add semantic tag to text (with usage hints for inputs)
+                        if (elementType === 'Input') {
+                            textParts.push(`<${elementType} id="${actionId}" use="(${actionId}, 'your text', submit:true)">${label}</${elementType}>`);
+                        } else {
+                            textParts.push(`<${elementType} id="${actionId}">${label}</${elementType}>`);
+                        }
 
                         // Mark as processed
                         processedElements.add(targetElement);
@@ -10821,8 +10874,10 @@
                 }
             } else {
                 // Handle buttons and other clickable elements
-                console.log(`[Content] 🖱️ Clicking element (matched by: ${matchedSelector})...`);
-                targetElement.click();
+                // Use universalClick for React/Facebook compatibility (multiple click strategies)
+                console.log(`[Content] 🖱️ Clicking element via universalClick (matched by: ${matchedSelector})...`);
+                const clickResult = universalClick(targetElement);
+                console.log(`[Content] 🖱️ universalClick result:`, clickResult);
             }
 
             // Step 4: Wait for result to load
