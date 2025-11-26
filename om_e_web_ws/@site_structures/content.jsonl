@@ -1,18 +1,18 @@
 {
-  "timestamp": 1764126158.7457652,
+  "timestamp": 1764127112.445875,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
       "id": 1138023700,
-      "url": "https://chatgpt.com/",
-      "title": "ChatGPT",
+      "url": "https://www.facebook.com/marketplace/adelaide/search/?query=bmw",
+      "title": "(10) Facebook",
       "status": "loading"
     },
     "all_tabs": [
       {
         "id": 1138023700,
-        "url": "https://chatgpt.com/",
-        "title": "ChatGPT",
+        "url": "https://www.facebook.com/marketplace/adelaide/search/?query=bmw",
+        "title": "(10) Facebook",
         "active": true,
         "status": "loading"
       },
@@ -24,12 +24,12 @@
         "status": "complete"
       }
     ],
-    "last_tabs_update": 23237.771003833,
+    "last_tabs_update": 24195.339726833,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/",
-    "title": "ChatGPT",
+    "url": "https://www.facebook.com/marketplace/adelaide/search/?query=bmw",
+    "title": "(10) Facebook",
     "is_active_tab": true
   },
   "content_structure": {},

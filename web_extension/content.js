@@ -5630,8 +5630,18 @@
             const isTextInput = element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || isContentEditable || element.getAttribute('role') === 'textbox';
 
             if (isTextInput) {
-                label = element.getAttribute('placeholder') || element.getAttribute('aria-placeholder') || '';
+                // Check standard placeholder attributes + data-placeholder (ProseMirror)
+                label = element.getAttribute('placeholder') || element.getAttribute('aria-placeholder') || element.getAttribute('data-placeholder') || '';
                 if (label && label.trim()) return label.trim();
+
+                // For contenteditable: check child elements for data-placeholder (ChatGPT, Claude, etc.)
+                if (isContentEditable) {
+                    const placeholderChild = element.querySelector('[data-placeholder]');
+                    if (placeholderChild) {
+                        label = placeholderChild.getAttribute('data-placeholder') || '';
+                        if (label && label.trim()) return label.trim();
+                    }
+                }
 
                 // Try associated <label> element (HTML standard for form inputs)
                 if (element.id) {
@@ -5843,10 +5853,18 @@
                         }
 
                         // Skip children - already captured in label
+                        // EXCEPTION: Never skip input/textarea - these are high-value form elements
                         const skipSubtree = () => {
                             let next = walker.nextNode();
                             while (next && node.contains(next)) {
-                                processedElements.add(next);
+                                // Don't mark inputs/textareas as processed - let them be handled individually
+                                const isFormInput = next.nodeType === Node.ELEMENT_NODE &&
+                                    (next.tagName === 'INPUT' || next.tagName === 'TEXTAREA' ||
+                                     next.getAttribute('role') === 'textbox' ||
+                                     next.isContentEditable || next.getAttribute('contenteditable') === 'true');
+                                if (!isFormInput) {
+                                    processedElements.add(next);
+                                }
                                 next = walker.nextNode();
                             }
                             if (next) {
