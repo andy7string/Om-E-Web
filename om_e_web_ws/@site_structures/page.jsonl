@@ -1,35 +1,35 @@
 {
-  "timestamp": 1764074055.42329,
+  "timestamp": 1764126158.745088,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138023548,
-      "url": "https://gemini.google.com/app",
-      "title": "Google Gemini",
+      "id": 1138023700,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138023546,
+        "id": 1138023700,
+        "url": "https://chatgpt.com/",
+        "title": "ChatGPT",
+        "active": true,
+        "status": "loading"
+      },
+      {
+        "id": 1138023751,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
-      },
-      {
-        "id": 1138023548,
-        "url": "https://gemini.google.com/app",
-        "title": "Google Gemini",
-        "active": true,
-        "status": "loading"
       }
     ],
-    "last_tabs_update": 50488.221485875,
+    "last_tabs_update": 23237.771003833,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://gemini.google.com/app",
-    "title": "Google Gemini",
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
     "is_active_tab": true
   },
   "menu_structure": {

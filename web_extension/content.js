@@ -5632,6 +5632,29 @@
             if (isTextInput) {
                 label = element.getAttribute('placeholder') || element.getAttribute('aria-placeholder') || '';
                 if (label && label.trim()) return label.trim();
+
+                // Try associated <label> element (HTML standard for form inputs)
+                if (element.id) {
+                    const associatedLabel = document.querySelector(`label[for="${element.id}"]`);
+                    if (associatedLabel) {
+                        label = associatedLabel.innerText || associatedLabel.textContent || '';
+                        if (label && label.trim()) return label.trim();
+                    }
+                }
+                // Also check if input is wrapped by <label>
+                const parentLabel = element.closest('label');
+                if (parentLabel) {
+                    label = parentLabel.innerText || parentLabel.textContent || '';
+                    if (label && label.trim()) return label.trim();
+                }
+
+                // Fallback to name attribute as label (e.g., name="search" -> "Search")
+                const nameAttr = element.getAttribute('name');
+                if (nameAttr && nameAttr.trim()) {
+                    // Capitalise first letter for display
+                    const formatted = nameAttr.charAt(0).toUpperCase() + nameAttr.slice(1).replace(/[-_]/g, ' ');
+                    return formatted;
+                }
             }
 
             // Try innerText (visible text)
