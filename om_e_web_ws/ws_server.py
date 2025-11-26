@@ -3281,6 +3281,37 @@ async def handler(ws):
                     print(f"❌ Error executing capability: {e}")
                     await ws.send(json.dumps({"ok": False, "error": str(e)}))
 
+            # 📜 SCROLL: Page-by-page viewport scrolling
+            if msg.get("type") == "execute_scroll":
+                print("📜 Scroll request received")
+                try:
+                    direction = msg.get("direction", "down")
+                    print(f"📜 Scrolling: direction={direction}")
+
+                    if EXTENSION_WS:
+                        scroll_command = {
+                            "command": "scroll",
+                            "id": f"scroll_{int(time.time() * 1000)}",
+                            "params": {"direction": direction}
+                        }
+                        await EXTENSION_WS.send(json.dumps(scroll_command))
+                        print(f"📤 Sent scroll command to extension: direction={direction}")
+
+                        # Send immediate acknowledgement
+                        await ws.send(json.dumps({
+                            "ok": True,
+                            "message": f"Scroll {direction} initiated"
+                        }))
+                    else:
+                        await ws.send(json.dumps({
+                            "ok": False,
+                            "error": "Extension not connected"
+                        }))
+
+                except Exception as e:
+                    print(f"❌ Error executing scroll: {e}")
+                    await ws.send(json.dumps({"ok": False, "error": str(e)}))
+
             # 🆕 NEW: DOM CHANGE NOTIFICATIONS: Handle real-time DOM change updates
             if msg.get("type") == "dom_content_changed":
                 print("🔄 DOM content changed notification received")

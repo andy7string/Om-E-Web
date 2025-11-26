@@ -1,621 +1,383 @@
-# Jeff - Wikipedia
+# (3) YouTube
 
-**URL:** https://en.wikipedia.org/wiki/Jeff
-**Timestamp:** 2025-11-26 16:30:52
+**URL:** https://www.youtube.com/
+**Timestamp:** 2025-11-26 17:29:39
 
 ---
 
-<Link id="a_id_0">Jump to content</Link>
-Main menu
-<Link id="a_id_1">Search</Link>
-Appearance
-<Link id="a_id_2">Donate</Link>
-<Link id="a_id_3">Create account</Link>
-<Link id="a_id_4">Log in</Link>
-Toggle the table of contents
-Jeff
-1 language
-<Link id="a_id_5">Article</Link>
-<Link id="a_id_6">Talk</Link>
-<Link id="a_id_7">Read</Link>
-<Link id="a_id_8">Edit</Link>
-<Link id="a_id_9">View history</Link>
-Tools
-Checked
-<Link id="a_id_10">All edits by unregistered and new users are subject to review prior to becoming visible to unregistered users</Link>
-From Wikipedia, the free encyclopedia
-For other uses, see
-<Link id="a_id_11">Jeff (disambiguation)</Link>
-.
-Jeff
-is a masculine name, often a short form (
-<Link id="a_id_12">hypocorism</Link>
-) of the English
-<Link id="a_id_13">given names</Link>
-<Link id="a_id_14">Jefferson</Link>
-or
-<Link id="a_id_15">Jeffrey</Link>
-, the latter of which comes from a
-<Link id="a_id_16">medieval</Link>
-variant of
-<Link id="a_id_17">Geoffrey</Link>
-.
-<Link id="a_id_18">[1]</Link>
-Music
-[
-<Link id="a_id_19">edit</Link>
-]
-<Link id="a_id_20">DJ Jazzy Jeff</Link>
-, American DJ/turntablist record producer Jeffrey Allen Townes
-<Link id="a_id_21">Excision (musician)</Link>
-, Canadian dubstep producer and DJ Jeff Abel
-<Link id="a_id_22">Jeff Abercrombie</Link>
-, bassist for American rock band Fuel
-<Link id="a_id_23">Jeff Allen</Link>
-, English session drummer
-<Link id="a_id_24">Jeff Baxter</Link>
-, American guitarist for rock bands Steely Dan and The Doobie Brothers
-<Link id="a_id_25">Jeff Beal</Link>
-(born 1963), American composer of music for various media
-<Link id="a_id_26">Jeff Beck</Link>
-(1944–2023), English guitarist
-<Link id="a_id_27">Jeff Buckley</Link>
-(1966–1997), American singer-songwriter
-<Link id="a_id_28">Jeff Coffin</Link>
-, saxophonist, bandleader, composer and educator
-<Link id="a_id_29">Jeff Current</Link>
-, lead singer of American alternative rock band Against All Will
-<Link id="a_id_30">Jeff Fatt</Link>
-, Australian musician and actor, formerly with the children's band
-<Link id="a_id_31">The Wiggles</Link>
-<Link id="a_id_32">Jeff Gillan</Link>
-, an American journalist
-<Link id="a_id_33">Jeff Graham</Link>
-, Canadian radio DJ
-<Link id="a_id_34">Jeff Hanneman</Link>
-(1964–2013), American guitarist, founding member of the thrash metal band Slayer
-<Link id="a_id_35">Jeff Hartford</Link>
-, Canadian DJ and producer
-<Link id="a_id_36">Jeff Healey</Link>
-(1966–2008), Canadian blues-rock guitarist and songwriter
-<Link id="a_id_37">Jeff Loomis</Link>
-, lead guitarist for heavy metal band Nevermore
-<Link id="a_id_38">Jeff Lynne</Link>
-, British singer-songwriter and record producer
-<Link id="a_id_39">Jeff Mangum</Link>
-, American singer-songwriter and founder of
-<Link id="a_id_40">Neutral Milk Hotel</Link>
-<Link id="a_id_41">Jeff Mills</Link>
-, American techno DJ and producer
-<Link id="a_id_42">Jeff Pilson</Link>
-(born 1959), American musician
-<Link id="a_id_43">Jeff Porcaro</Link>
-(1954–1992), American session drummer and member of the rock band Toto
-<Link id="a_id_44">Jeff Satur</Link>
-, Thai Singer and Actor
-<Link id="a_id_45">Jeff Scott Soto</Link>
-, American rock singer of Puerto Rican descent
-<Link id="a_id_46">Jeff Stinco</Link>
-, Canadian singer-songwriter and lead guitarist for pop-punk band Simple Plan
-<Link id="a_id_47">Jeff Timmons</Link>
-, American pop singer, producer, and pop group
-<Link id="a_id_48">98 Degrees</Link>
-founding member
-<Link id="a_id_49">Jeff Todd Titon</Link>
-(born 1943), professor of music and author
-<Link id="a_id_50">Jeff Tweedy</Link>
-, American singer-songwriter and founding member of
-<Link id="a_id_51">Wilco</Link>
-<Link id="a_id_52">Jeff Waters</Link>
-, Canadian thrash metal guitarist for band
-<Link id="a_id_53">Annihilator</Link>
-Sports
-[
-<Link id="a_id_54">edit</Link>
-]
-<Link id="a_id_55">Jeff Abbott (baseball)</Link>
-, American retired professional baseball player
-<Link id="a_id_56">Jeff Abbott (racing driver)</Link>
-, American professional motorsport drifter
-<Link id="a_id_57">Jeff Adams</Link>
-, Canadian Paralympian and wheelchair sport world champion
-<Link id="a_id_58">Jeff Adrien</Link>
-, college basketball player
-<Link id="a_id_59">Jeff Agoos</Link>
-(born 1968), retired Swiss-born American soccer defender
-<Link id="a_id_60">Jeff Allam</Link>
-, British racing driver
-<Link id="a_id_61">Jeff Altenburg</Link>
-, American professional race car driver
-<Link id="a_id_62">Jeff Andretti</Link>
-, American race car driver
-<Link id="a_id_63">Jeff Astle</Link>
-(1942–2002), English footballer
-<Link id="a_id_64">Jeff Bagwell</Link>
-, Hall of Fame American baseball player
-<Link id="a_id_65">Jeff Bearden</Link>
-(born 1963), American professional wrestler
-<Link id="a_id_66">Jeff Bennett (athlete)</Link>
-(born 1948), American decathlete
-<Link id="a_id_67">Jeff Bes</Link>
-, Canadian ice hockey player
-<Link id="a_id_68">Jeff Blake</Link>
-, American football player
-<Link id="a_id_69">Jeff Burton</Link>
-, NASCAR racer
-<Link id="a_id_70">Jeff Butler (football manager)</Link>
-(1934–2017), English football manager
-<Link id="a_id_71">Jeff Carter</Link>
-, Canadian ice hockey player
-<Link id="a_id_72">Jeff Chandler (boxer)</Link>
-, boxing champion
-<Link id="a_id_73">Jeff Cheung</Link>
-, American skateboarder and artist
-<Link id="a_id_74">Jeff Cirillo</Link>
-, retired baseball player
-<Link id="a_id_75">Jeff Clement</Link>
-, American baseball player
-<Link id="a_id_76">Jeff Cobb</Link>
-(born 1982), American professional wrestler
-<Link id="a_id_77">Jeff Coetzee</Link>
-, South African professional tennis player
-<Link id="a_id_78">Jeff Conine</Link>
-, retired baseball player
-<Link id="a_id_79">Jeff Curran</Link>
-(born 1977), American retired professional mixed martial artist
-<Link id="a_id_80">Jeff Curran (footballer)</Link>
-(born 1961), Scottish-born Australian former soccer player
-<Link id="a_id_81">Jeff Elliott</Link>
-, British decathlete and pole vaulter
-<Link id="a_id_82">Jeff Farmer (wrestler)</Link>
-(born 1962), American retired professional wrestler
-<Link id="a_id_83">Jeff Fenech</Link>
-, boxer
-<Link id="a_id_84">Jeff Ferguson (ice hockey)</Link>
-(born 1969), Canadian ice hockey and roller hockey goaltender
-<Link id="a_id_85">Jeff Foster (basketball)</Link>
-(born 1977), American basketball player
-<Link id="a_id_86">Jeff Francis</Link>
-, baseball player
-<Link id="a_id_87">Jeff Francoeur</Link>
-, baseball player
-<Link id="a_id_88">Jeff Friesen</Link>
-, NHL player
-<Link id="a_id_89">Jeff Garcia</Link>
-, American football player
-<Link id="a_id_90">Jeff Gaylord</Link>
-(1958–2023), American professional wrestler
-<Link id="a_id_91">Jeff George</Link>
-, American football player
-<Link id="a_id_92">Jeff Gladney</Link>
-(born 1996), American football player
-<Link id="a_id_93">Jeff Gordon</Link>
-, NASCAR racer
-<Link id="a_id_94">Jeff Graham</Link>
-, American football player
-<Link id="a_id_95">Jeff Graham (quarterback)</Link>
-, American football player
-<Link id="a_id_96">Jeff Green (basketball)</Link>
-, American professional basketball forward
-<Link id="a_id_97">Jeff Guiel</Link>
-, Canadian baseball player
-<Link id="a_id_98">Jeff Halliburton</Link>
-(born 1949), American former basketball player
-<Link id="a_id_99">Jeff Halpern</Link>
-(born 1976), American NHL hockey player
-<Link id="a_id_100">Jeff Hardy</Link>
-(born 1977), American professional wrestler
-<Link id="a_id_101">Jeff Holland</Link>
-(born 1997), American football player
-<Link id="a_id_102">Jeff Hopkins</Link>
-(born 1964), Welsh football manager
-<Link id="a_id_103">Jeff Hornacek</Link>
-, American basketball player
-<Link id="a_id_104">Jeff Horton</Link>
-American football coach
-<Link id="a_id_105">Jeff Jarrett</Link>
-, American professional wrestler
-<Link id="a_id_106">Jeff Kent</Link>
-, baseball player
-<Link id="a_id_107">Jeff Leiding</Link>
-, American football player
-<Link id="a_id_108">Jeff Leka</Link>
-, American racing driver
-<Link id="a_id_109">Jeff Lindgren</Link>
-, American baseball player
-<Link id="a_id_110">Jeff Locke (American football)</Link>
-, American football player
-<Link id="a_id_111">Jeff Lockie</Link>
-, American football player
-<Link id="a_id_112">Jeff Loots</Link>
-, American football player
-<Link id="a_id_113">Jeff Luc</Link>
-, American football player
-<Link id="a_id_114">Jeff McIntyre</Link>
-(born 1954), American football player
-<Link id="a_id_115">Jeff Mills (linebacker)</Link>
-, American football player
-<Link id="a_id_116">Jeff Newman (baseball)</Link>
-(born 1948), American baseball player
-<Link id="a_id_117">Jeff Nielsen</Link>
-, professional hockey player
-<Link id="a_id_118">Jeff Norton</Link>
-, National Hockey League player
-<Link id="a_id_119">Jeff Okudah</Link>
-(born 1999), American football player
-<Link id="a_id_120">Jeff Otis</Link>
-, American football player
-<Link id="a_id_121">Jeff Overbaugh</Link>
-, American football player
-<Link id="a_id_122">Jeff Pain</Link>
-, American-born, Canadian skeleton racer
-<Link id="a_id_123">3.0 (professional wrestling)</Link>
-, Canadian professional wrestler Jeff Parker
-<Link id="a_id_124">Jeff Reed (American football)</Link>
-, American football player
-<Link id="a_id_125">Jeff Reed (baseball)</Link>
-, retired baseball player
-<Link id="a_id_126">Jeff Salzenstein</Link>
-(born 1973), American tennis player
-<Link id="a_id_127">Jeff Samardzija</Link>
-(born 1985), Major League Baseball pitcher
-<Link id="a_id_128">Jeff Shantz</Link>
-, National Hockey League player
-<Link id="a_id_129">Jeff Simmons (racing driver)</Link>
-, American race car driver
-<Link id="a_id_130">Jeff Skinner</Link>
-, Canadian National Hockey League player
-<Link id="a_id_131">Jeff Speakman</Link>
-, American actor and martial artist
-<Link id="a_id_132">Jeff Stevenson (rugby league)</Link>
-(1932–2007), English rugby league footballer
-<Link id="a_id_133">Jeff Stork</Link>
-, American volleyball player
-Charles
-<Link id="a_id_134">Jeff Tesreau</Link>
-(1888–1946), American Major League Baseball pitcher
-<Link id="a_id_135">Jeff Thomson</Link>
-, Australian cricketer
-<Link id="a_id_136">Jeff Van Gundy</Link>
-, American NBA coach and broadcaster
-<Link id="a_id_137">Jeff Walz</Link>
-(born 1971), American basketball coach
-<Link id="a_id_138">Jeff Williams (baseball)</Link>
-, pitcher for the Hanshin Tigers
-<Link id="a_id_139">Jeff Williams (cyclist)</Link>
-, British cyclist
-<Link id="a_id_140">Jeff Wilson (American football)</Link>
-(born 1995), American football player
-<Link id="a_id_141">Jeff Wiseman</Link>
-(born 1950), Australian Paralympic athlete and businessman
-<Link id="a_id_142">Jeff Withey</Link>
-(born 1990), American basketball player
-Literature
-[
-<Link id="a_id_143">edit</Link>
-]
-<Link id="a_id_144">Jeff Abbott</Link>
-, American suspense novelist
-<Link id="a_id_145">Jeff Kinney</Link>
-, American game designer, cartoonist, producer, actor, and children's book author
-<Link id="a_id_146">Jeff Koons</Link>
-, American artist
-<Link id="a_id_147">Jeff Noon</Link>
-, British novelist, short story writer, and playwright
-<Link id="a_id_148">Jeff Smith</Link>
-, American cartoonist
-<Link id="a_id_149">Jeff VanderMeer</Link>
-, American writer
-<Link id="a_id_150">Jeff Weiss</Link>
-, American playwright, impresario, and actor
-Politics
-[
-<Link id="a_id_151">edit</Link>
-]
-<Link id="a_id_152">Jeff Adachi</Link>
-, elected U.S. San Francisco Public Defender, pension reform advocate, and San Francisco mayoral candidate
-<Link id="a_id_153">Jeff Bingaman</Link>
-, junior U.S. Senator from New Mexico
-<Link id="a_id_154">Jeff Cooling</Link>
-(born 1987), Iowa state representative
-<Link id="a_id_155">Jeff Flake</Link>
-, U.S. Senator from Arizona
-<Link id="a_id_156">Jeff Kennett</Link>
-, premier of Victoria, Australia
-<Link id="a_id_157">Jeff Kurtz</Link>
-(born 1954), Iowa state representative
-<Link id="a_id_158">Jeff Landry</Link>
-, Governor of Louisiana
-<Link id="a_id_159">Jeff Merkley</Link>
-, U.S. Senator from Oregon
-<Link id="a_id_160">Jeff Sessions</Link>
-, United States Attorney General and US Senator
-<Link id="a_id_161">Jeff Truly</Link>
-(1861–1946), Mississippi legislator and judge
-Film and television
-[
-<Link id="a_id_162">edit</Link>
-]
-<Link id="a_id_163">Jeff Alexander</Link>
-(1910–1989), American conductor, arranger, and composer of film, radio, and television scores
-<Link id="a_id_164">Jeff Anderson</Link>
-, American actor
-<Link id="a_id_165">Jeff Bennett</Link>
-, American voice actor and singer
-<Link id="a_id_166">Jeff Bergman</Link>
-, American voice actor
-<Link id="a_id_167">Jeff Bollow</Link>
-, American writer and director
-<Link id="a_id_168">Jeff Brazier</Link>
-(born 1979), English television presenter and reality TV personality
-<Link id="a_id_169">Jeff Bridges</Link>
-, American actor
-<Link id="a_id_170">Jeff Chandler</Link>
-(1918–1961), American film actor
-<Link id="a_id_171">Jeff Cohen (actor)</Link>
-, American attorney and former child actor who appeared as Chunk in the 1985 movie
-The Goonies
-<Link id="a_id_172">Jeff Conaway</Link>
-(1950–2011), American actor
-<Link id="a_id_173">Jeff Coopwood</Link>
-, American actor, singer, broadcaster and educator
-<Link id="a_id_174">Jeff Corey</Link>
-(1914–2002), American stage and screen actor and director
-<Link id="a_id_175">Jeff Corwin</Link>
-, American animal and nature conservationist, host of
-<Link id="a_id_176">The Jeff Corwin Experience</Link>
-and
-<Link id="a_id_177">Corwin's Quest</Link>
-<Link id="a_id_178">Jeff Daniels</Link>
-, American actor
-<Link id="a_id_179">Jeff B. Davis</Link>
-, American actor, comedian and singer
-<Link id="a_id_180">Jeff Deverett</Link>
-, Canadian film producer
-<Link id="a_id_181">Jeff Dunham</Link>
-, American ventriloquist and comedian
-<Link id="a_id_182">Jeff East</Link>
-, American actor
-<Link id="a_id_183">Jeff Foxworthy</Link>
-, American comedian and actor
-<Link id="a_id_184">Jeff Garlin</Link>
-, American comedic actor
-<Link id="a_id_185">Jeff Goldblum</Link>
-, American film actor
-<Link id="a_id_186">Jeff Hunter</Link>
-, American film actor
-<Link id="a_id_187">Jeff Hyslop</Link>
-(born 1951), Canadian actor, singer, dancer, choreographer, and director
-<Link id="a_id_188">Jeff Katz</Link>
-, American film producer and studio executive
-<Link id="a_id_189">Jeff Loveness</Link>
-, American screenwriter and television producer
-<Link id="a_id_190">Jeff Machado</Link>
-(died 2023), Brazilian actor
-<Link id="a_id_191">Jeff Maxwell</Link>
-, American actor
-<Link id="a_id_192">Jeff McCarthy</Link>
-, American character actor
-<Link id="a_id_193">Jeff "Swampy" Marsh</Link>
-, American television director, writer, producer, storyboard artist, and actor
-<Link id="a_id_194">Jeff Osterhage</Link>
-, American film and television actor
-<Link id="a_id_195">Jeff Probst</Link>
-, American television personality, host of
-<Link id="a_id_196">Survivor</Link>
-<Link id="a_id_197">Jeff Stelling</Link>
-, British sports journalist, sport television presenter and game show host
-<Link id="a_id_198">Jeff Stevenson</Link>
-(born 1961), English actor and comedian
-<Link id="a_id_199">Jeff Thisted</Link>
-, American game show host
-<Link id="a_id_200">Jeff Yagher</Link>
-, American actor
-<Link id="a_id_201">Jeff York</Link>
-(1912–1995), American actor
-Programming
-[
-<Link id="a_id_202">edit</Link>
-]
-<Link id="a_id_203">Jeff Dean</Link>
-, a senior fellow at Google and inventor of many of Google's core technologies
-<Link id="a_id_204">Jeff Minter</Link>
-, British computer/video game designer and programmer
-<Link id="a_id_205">Jeff Moss</Link>
-, American hacker, computer and internet security expert
-Other fields
-[
-<Link id="a_id_206">edit</Link>
-]
-<Link id="a_id_207">Jeff Arcuri</Link>
-(born 1987 or 1988), American stand-up comedian
-<Link id="a_id_208">Jeff Bezos</Link>
-, American entrepreneur, industrialist, media proprietor, investor, and the former chief executive officer of Amazon
-<Link id="a_id_209">Jeff Canoy</Link>
-(born 1984), Filipino broadcast journalist and documentarian
-<Link id="a_id_210">Jeff Cooper</Link>
-(1920–2006), United States Marine and firearms expert
-<Link id="a_id_211">Jeff Erlanger</Link>
-(1970–2007), American advocate and activist for disability rights
-<Link id="a_id_212">Jeff Fairburn</Link>
-, British businessman
-<Link id="a_id_213">Jeff Green</Link>
-(born 1977), American billionaire advertising executive
-<Link id="a_id_214">Jeff Hawkins</Link>
-, founder of Palm Computing and Handspring
-<Link id="a_id_215">Jeff Kaplan</Link>
-, vice president of Blizzard Entertainment
-<Link id="a_id_216">Jeff Kidder</Link>
-(1875–1908), American lawman
-<Link id="a_id_217">Jeff Kwatinetz</Link>
-, American entertainment executive
-<Link id="a_id_218">Jeph Jacques</Link>
-, webcomic maker,
-Questionable Content
-<Link id="a_id_219">Jeff Kuhn</Link>
-, physicist and astronomer
-<Link id="a_id_220">Jeff Lemire</Link>
-(born 1976), Canadian comic book writer, artist, and television producer
-<Link id="a_id_221">Jeff Luers</Link>
-, American anarchist, environmental activist, and arsonist
-<Link id="a_id_222">Jeff Nuttall</Link>
-, British 1960s counter-culture figure
-<Link id="a_id_223">Jeff Remmel</Link>
-, American mathematician
-<Link id="a_id_224">Jeff S. Shamma</Link>
-, professor of electrical engineering at King Abdullah University of Science and Technology
-<Link id="a_id_225">Jeff Shannon</Link>
-(1961–2013), American film critic
-<Link id="a_id_226">Jeff Sigafoos</Link>
-, New Zealand professor of educational psychology
-<Link id="a_id_227">Jeff Sneider</Link>
-, American entertainment journalist
-<Link id="a_id_228">Jeff Steele</Link>
-(born 1971), American entertainment industry executive
-<Link id="a_id_229">Jeff Weise</Link>
-(1988–2005), American mass murderer and spree killer
-<Link id="a_id_230">Jeff Wooller</Link>
-, British accountant
-<Link id="a_id_231">Jeff Greason</Link>
-, American inventor and proponent of space settlement
-Fictional characters
-[
-<Link id="a_id_232">edit</Link>
-]
-<Link id="a_id_233">Jeff</Link>
-, one half of the comic-strip duo Akbar and Jeff of
-Life in Hell
-Jeff, the main character in the 1980s Canadian children's television program
-<Link id="a_id_234">Today's Special</Link>
-Jeff, the
-<Link id="a_id_235">alter ego</Link>
-of Jenko in the film
-<Link id="a_id_236">22 Jump Street</Link>
-Jeff, a character in the 2004 American comedy movie
-<Link id="a_id_237">Connie and Carla</Link>
-Jeff, best friend of Clarence in the 2014–17 American animated television series
-<Link id="a_id_238">Clarence</Link>
-Jeff McCallister, a character in the
-<Link id="a_id_239">Home Alone franchise</Link>
-Jeff, a character in the video game
-<Link id="a_id_240">EarthBound</Link>
-Jeff, an enemy in the 2020 VR game
-<Link id="a_id_241">Half-Life: Alyx</Link>
-Jeff Albertson, more commonly known as
-<Link id="a_id_242">Comic Book Guy</Link>
-, from
-<Link id="a_id_243">The Simpsons</Link>
-Jeff Atkins, a character in the Netflix series
-<Link id="a_id_244">13 Reasons Why</Link>
-Jeff Bennett, a fictional character of
-<Link id="a_id_245">Taxi</Link>
-Jeff Boomhauer, from the American television series
-<Link id="a_id_246">King of the Hill</Link>
-<Link id="a_id_247">Jeff Colby</Link>
-, on the American television series
-<Link id="a_id_248">Dynasty</Link>
-and
-<Link id="a_id_249">The Colbys</Link>
-Jeff Daly, character in
-<Link id="a_id_250">Rumor has it...</Link>
-, played by
-<Link id="a_id_251">Mark Ruffalo</Link>
-Jeff Denlon, a character in the
-<Link id="a_id_252">Saw</Link>
-franchise
-Jeff Difford, a character in
-<Link id="a_id_253">Young Sheldon</Link>
-Jeff Fungus, a character and voiced by
-<Link id="a_id_254">Frank Oz</Link>
-in the
-<Link id="a_id_255">Monsters, Inc.</Link>
-franchise named after
-<Link id="a_id_256">Jeff Gordon</Link>
-Jeff Gorvette, a character from Pixar's
-<Link id="a_id_257">Cars</Link>
-franchise
-Jeff Heaney, a recurring character in the sitcom
-<Link id="a_id_258">Peep Show</Link>
-Jeff Isaacs, a character in
-<Link id="a_id_259">Degrassi: The Next Generation</Link>
-Jeff K., a character on the
-<Link id="a_id_260">Something Awful</Link>
-comedy website
-Jeff the Killer, a character from the
-<Link id="a_id_261">creepypasta</Link>
-of the same name
-<Link id="a_id_262">Jeff the Land Shark</Link>
-, a character in
-<Link id="a_id_263">Marvel Comics</Link>
-Jeff Murdock, a main character in the first three seasons of the British sitcom
-<Link id="a_id_264">Coupling</Link>
-Jeff Suckler, a minor character in the FX series
-<Link id="a_id_265">What We Do In The Shadows</Link>
-Jeff Thompkins, title character in the 2011 comedy-drama film
-<Link id="a_id_266">Jeff, Who Lives at Home</Link>
-Jeff Winger, main character in the NBC sitcom
-<Link id="a_id_267">Community</Link>
-Jeff, an alien worm in the 2002 science fiction film
-<Link id="a_id_268">Men in Black II</Link>
-As a surname
-[
-<Link id="a_id_269">edit</Link>
-]
-<Link id="a_id_270">Janina Jeff</Link>
-, American geneticist
-<Link id="a_id_271">Sandra Jeff</Link>
-, New Mexico politician
-<Link id="a_id_272">Mary Jeff</Link>
-, Scottish politician
-See also
-[
-<Link id="a_id_273">edit</Link>
-]
-<Link id="a_id_274">Jef</Link>
-, short form of Josef/Jozef
-References
-[
-<Link id="a_id_275">edit</Link>
-]
-<Link id="a_id_276">Jump up</Link>
-Campbell, Mike.
-<Link id="a_id_277">"Meaning, origin and history of the name Jeff"</Link>
-.
-Behind the Name
-.
-This page or section lists people that share the same
-<Link id="a_id_278">given name</Link>
-.
-If an
-<Link id="a_id_279">internal link</Link>
-led you here, you may wish to change that link to point directly to the intended article.
-<img src="https://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?useformat=desktop&amp;type=1x1&amp;usesul3=1" alt="" width="1" height="1" style="border: none; position: absolute;">
-<Link id="a_id_280">Categories</Link>
-:
-<Link id="a_id_281">Given names</Link>
-<Link id="a_id_282">English masculine given names</Link>
-<Link id="a_id_283">Masculine given names</Link>
-<Link id="a_id_284">Lists of people by given name</Link>
-<Link id="a_id_285">Hypocorisms</Link>
-This page was last edited on 13 October 2025, at 04:04
-(UTC)
-.
-Text is available under the
-<Link id="a_id_286">Creative Commons Attribution-ShareAlike 4.0 License</Link>
-;
-additional terms may apply. By using this site, you agree to the
-<Link id="a_id_287">Terms of Use</Link>
-and
-<Link id="a_id_288">Privacy Policy</Link>
-. Wikipedia® is a registered trademark of the
-<Link id="a_id_289">Wikimedia Foundation, Inc.</Link>
-, a non-profit organization.
-<Link id="a_id_290">Privacy policy</Link>
-<Link id="a_id_291">About Wikipedia</Link>
-<Link id="a_id_292">Disclaimers</Link>
-<Link id="a_id_293">Contact Wikipedia</Link>
-<Link id="a_id_294">Code of Conduct</Link>
-<Link id="a_id_295">Developers</Link>
-<Link id="a_id_296">Statistics</Link>
-<Link id="a_id_297">Cookie statement</Link>
-<Link id="a_id_298">Mobile view</Link>
+<Button id="a_id_0">Guide</Button>
+<Link id="a_id_1">YouTube Premium Home</Link>
+AU
+<Button id="a_id_2">Skip navigation</Button>
+<Input id="a_id_3" use="(a_id_3, 'your text', submit:true)">Search</Input>
+<Button id="a_id_4">Search</Button>
+<Button id="a_id_5">Search with your voice</Button>
+<Button id="a_id_6">Create</Button>
+<Button id="a_id_7">Notifications</Button>
+<Button id="a_id_8">Account menu</Button>
+<Link id="a_id_9">Home</Link>
+<Link id="a_id_10">Shorts</Link>
+<Link id="a_id_11">Subscriptions</Link>
+<Link id="a_id_12">Peppa Pig - Official Channel. Live streaming.</Link>
+<Link id="a_id_13">BattleBots. Live streaming.</Link>
+<Link id="a_id_14">Emily's Playhouse - Learning Videos for Kids. Live streaming.</Link>
+<Link id="a_id_15">NetworkChuck</Link>
+<Link id="a_id_16">Cristina Gomez. New content available.</Link>
+<Link id="a_id_17">Julia McCoy. New content available.</Link>
+<Link id="a_id_18">PowerfulJRE. New content available.</Link>
+<Button id="a_id_19">Show more</Button>
+<Link id="a_id_20">You</Link>
+<Link id="a_id_21">History</Link>
+<Link id="a_id_22">Playlists</Link>
+<Link id="a_id_23">Watch later</Link>
+<Link id="a_id_24">Liked videos</Link>
+<Link id="a_id_25">Your videos</Link>
+<Link id="a_id_26">Downloads</Link>
+<Button id="a_id_27">Show more</Button>
+Explore
+<Link id="a_id_28">Music</Link>
+<Link id="a_id_29">Movies & TV</Link>
+<Link id="a_id_30">Gaming</Link>
+<Button id="a_id_31">Show more</Button>
+More from YouTube
+<Link id="a_id_32">YouTube Studio</Link>
+<Link id="a_id_33">YouTube Music</Link>
+<Link id="a_id_34">YouTube Kids</Link>
+<Link id="a_id_35">Settings</Link>
+<Link id="a_id_36">Report history</Link>
+<Link id="a_id_37">Help</Link>
+<Link id="a_id_38">Send feedback</Link>
+<Link id="a_id_39">About</Link>
+<Link id="a_id_40">Press</Link>
+<Link id="a_id_41">Copyright</Link>
+<Link id="a_id_42">Contact us</Link>
+<Link id="a_id_43">Creators</Link>
+<Link id="a_id_44">Advertise</Link>
+<Link id="a_id_45">Developers</Link>
+<Link id="a_id_46">Terms</Link>
+<Link id="a_id_47">Privacy</Link>
+<Link id="a_id_48">Policy & Safety</Link>
+<Link id="a_id_49">How YouTube works</Link>
+<Link id="a_id_50">Test new features</Link>
+© 2025 Google LLC
+<Button id="a_id_51">All</Button>
+<Button id="a_id_52">Music</Button>
+<Button id="a_id_53">Podcasts</Button>
+<Button id="a_id_54">News</Button>
+<Button id="a_id_55">AI</Button>
+<Button id="a_id_56">Mixes</Button>
+<Button id="a_id_57">Weight</Button>
+<Button id="a_id_58">Calories</Button>
+<Button id="a_id_59">Music riffs</Button>
+<Button id="a_id_60">Scales</Button>
+<Button id="a_id_61">Live</Button>
+<Button id="a_id_62">Bodyweight exercises</Button>
+<Button id="a_id_63">Thrillers</Button>
+<Button id="a_id_64">Progressive Rock</Button>
+<Button id="a_id_65">Dramedy</Button>
+<Button id="a_id_66">Baking</Button>
+<Button id="a_id_67">Information</Button>
+<Button id="a_id_68">Pop Music</Button>
+<Button id="a_id_69">Recently uploaded</Button>
+<Button id="a_id_70">Watched</Button>
+<Button id="a_id_71">New to you</Button>
+<Button id="a_id_72">Next</Button>
+<Link id="a_id_73">2:32</Link>
+<Link id="a_id_74">Incredible Hotel California Solo 2 minutes, 32 seconds</Link>
+<Link id="a_id_75">Renzo Delacruz</Link>
+592K views
+•
+4 years ago
+<Link id="a_id_76">12:25</Link>
+<Link id="a_id_77">Your App Will Fail, If You Do This 12 minutes, 25 seconds</Link>
+<Link id="a_id_78">corbin</Link>
+3.2K views
+•
+15 hours ago
+<Link id="a_id_79">1:51:39</Link>
+<Link id="a_id_80">Collaboration channels</Link>
+<Link id="a_id_81">Insulin Doctor: This Is The First Sign Of Dementia! The Shocking Link Between Keto & Brain Decline! 1 hour, 51 minutes</Link>
+The Diary Of A CEO
+and Dr. Boz [Annette Bosworth, MD]
+1M views
+•
+1 day ago
+Shorts
+<Link id="a_id_82">September 10, 2025</Link>
+7.8K views
+<Link id="a_id_83">Classic Moments from Jackie Chan's Interviews #funny</Link>
+6.1M views
+<Link id="a_id_84">That fire is CRAZY!</Link>
+9.7K views
+<Link id="a_id_85">Can We Stop World's Best Tennis Player</Link>
+59M views
+<Link id="a_id_86">How I Got Shredded at 53 Through Simple Workouts #homeworkout #nogym</Link>
+777K views
+<Link id="a_id_87">2:18</Link>
+<Link id="a_id_88">Anthropic launches Claude Opus 4.5 2 minutes, 18 seconds</Link>
+<Link id="a_id_89">CNBC Television</Link>
+12K views
+•
+1 day ago
+<Link id="a_id_90">16:20</Link>
+<Link id="a_id_91">Google Gemini 3 Found a VIRAL Digital Product (no coding) 16 minutes</Link>
+<Link id="a_id_92">Success With Sam</Link>
+1.7K views
+•
+15 hours ago
+<Link id="a_id_93">1:51</Link>
+<Link id="a_id_94">Take Five - Guitar solo arrangement 1 minute, 51 seconds</Link>
+<Link id="a_id_95">Dirk Mündelein</Link>
+7.3K views
+•
+7 years ago
+<Link id="a_id_96">2:36</Link>
+<Link id="a_id_97">Avatar: Fire and Ash | New Trailer 2 minutes, 36 seconds</Link>
+<Link id="a_id_98">Avatar</Link>
+13M views
+•
+2 months ago
+<Link id="a_id_99">8:39</Link>
+<Link id="a_id_100">Bigfoot 200: David Goggins Returns After 5 Year Ultrarunning Hiatus 8 minutes, 39 seconds</Link>
+<Link id="a_id_101">Singletrack</Link>
+888K views
+•
+3 months ago
+<Link id="a_id_102">31:13</Link>
+<Link id="a_id_103">108 Times OM Mantra Chanting | 432Hz Singing Bowl | 30 Minutes Deep Yoga & Meditation Music 31 minutes</Link>
+<Link id="a_id_104">Inner Lotus Music</Link>
+9.4M views
+•
+5 years ago
+<Link id="a_id_105">42:20</Link>
+<Link id="a_id_106">Monday Night Livestream — 11/24/25 Swybryding Morse 42 minutes</Link>
+<Link id="a_id_107">Marshall C. Harrison</Link>
+350 views
+•
+Streamed 1 day ago
+<Link id="a_id_108">10:52</Link>
+<Link id="a_id_109">Write Novels With Claude Opus 4.5 in Seconds 10 minutes, 52 seconds</Link>
+<Link id="a_id_110">Writing Secrets</Link>
+785 views
+•
+10 hours ago
+<Link id="a_id_111">16:55</Link>
+<Link id="a_id_112">Have I Been Undervaluing Isometrics For Growth? Heres The Latest Data 16 minutes</Link>
+<Link id="a_id_113">Renaissance Periodization</Link>
+107K views
+•
+3 weeks ago
+<Link id="a_id_114">1:41</Link>
+<Link id="a_id_115">Cemetery Gates – Pyry Lintunen | Ääni ratkaisee | The Voice of Finland 1 minute, 41 seconds</Link>
+<Link id="a_id_116">The Voice of Finland</Link>
+364K views
+•
+3 years ago
+<Link id="a_id_117">14:33</Link>
+<Link id="a_id_118">F1 Driver Goes Undercover in Amateur Kart Race 14 minutes, 33 seconds</Link>
+<Link id="a_id_119">Quadrant</Link>
+8.8M views
+•
+2 months ago
+<Link id="a_id_120">LIVE</Link>
+<Button id="a_id_121">Tap to watch live</Button>
+<Link id="a_id_122">🔴 LIVE BattleBots' Greatest Champions | BEST FIGHTS | BATTLEBOTS LIVESTREAM</Link>
+<Link id="a_id_123">BattleBots</Link>
+28 watching
+<Link id="a_id_124">6:37</Link>
+<Link id="a_id_125">How much time should a person spend exercising? 6 minutes, 37 seconds</Link>
+<Link id="a_id_126">Peter Attia MD</Link>
+518K views
+•
+1 year ago
+<Link id="a_id_127">4:43</Link>
+<Link id="a_id_128">Collaboration channels</Link>
+<Link id="a_id_129">Extreme - "Here's To The Losers" (Official Video) 4 minutes, 43 seconds</Link>
+OfficiallyExtreme
+and earMUSIC
+50K views
+•
+15 hours ago
+<Link id="a_id_130">4:17</Link>
+<Link id="a_id_131">Thor vs Hulk - Fight Scene - The Avengers (2012) Movie Clip HD 4 minutes, 17 seconds</Link>
+<Link id="a_id_132">TopMovieClips</Link>
+494M views
+•
+8 years ago
+<Link id="a_id_133">2:36</Link>
+<Button id="a_id_134">Tap to watch live</Button>
+<Link id="a_id_135">Greg Kelly: 'Only Trump can do this' 2 minutes, 36 seconds</Link>
+<Link id="a_id_136">Newsmax</Link>
+1.8K views
+•
+2 hours ago
+<Link id="a_id_137">11:52</Link>
+<Link id="a_id_138">Warning Signs of Colon Cancer You Should Never Ignore 11 minutes, 52 seconds</Link>
+<Link id="a_id_139">Leonid Kim MD</Link>
+3.4M views
+•
+8 months ago
+<Link id="a_id_140">6:36</Link>
+<Link id="a_id_141">Why Walking RULES For Reaching 10% Body Fat Over Intervals 6 minutes, 36 seconds</Link>
+<Link id="a_id_142">Paul Revelia</Link>
+4.7K views
+•
+11 hours ago
+<Link id="a_id_143">5:28</Link>
+<Link id="a_id_144">Fasting + Exercise - The TRUTH Nobody Tells You 5 minutes, 28 seconds</Link>
+<Link id="a_id_145">Denis Reiser</Link>
+1.3K views
+•
+2 days ago
+<Link id="a_id_146">22:52</Link>
+<Link id="a_id_147">The Amp I Wish I Had 20 Years Ago 22 minutes</Link>
+<Link id="a_id_148">Rhett Shull</Link>
+477K views
+•
+5 months ago
+<Link id="a_id_149">1:54</Link>
+<Link id="a_id_150">The Billionaires’ plan for AI | Sen. Bernie Sanders 1 minute, 54 seconds</Link>
+<Link id="a_id_151">Senator Bernie Sanders</Link>
+143K views
+•
+4 days ago
+<Link id="a_id_152">7:58</Link>
+<Link id="a_id_153">Large Language Models explained briefly 7 minutes, 58 seconds</Link>
+<Link id="a_id_154">3Blue1Brown</Link>
+4.4M views
+•
+1 year ago
+<Link id="a_id_155">18:07</Link>
+<Link id="a_id_156">Sam Altman PANICS Over Google OpenAI Leapfrog 18 minutes</Link>
+<Link id="a_id_157">Breaking Points</Link>
+187K views
+•
+13 hours ago
+<Link id="a_id_158">8:26</Link>
+<Link id="a_id_159">DANGEROUS A.I. Bubble Will Wipe Out US Market - The DARK Side of A.I. Expansion 8 minutes, 26 seconds</Link>
+<Link id="a_id_160">World Affairs In Context</Link>
+40K views
+•
+17 hours ago
+<Link id="a_id_161">29:06</Link>
+<Link id="a_id_162">The ULTIMATE Guide to Cutting 29 minutes</Link>
+<Link id="a_id_163">Chris Bumstead</Link>
+638K views
+•
+1 month ago
+<Link id="a_id_164">26:14</Link>
+<Link id="a_id_165">Does OpenAI expect a Government Bailout? 26 minutes</Link>
+<Link id="a_id_166">Patrick Boyle</Link>
+444K views
+•
+2 days ago
+<Link id="a_id_167">1:45</Link>
+<Link id="a_id_168">Syncatto - Observatory (Charlie Robbins) 1 minute, 45 seconds</Link>
+<Link id="a_id_169">Charlie Robbins</Link>
+20K views
+•
+9 years ago
+<Link id="a_id_170">15:01</Link>
+<Link id="a_id_171">I Built my DREAM Home Garage Gym | Here's how I did it (Just Copy Me) 15 minutes</Link>
+<Link id="a_id_172">Mark Dabu</Link>
+86K views
+•
+2 months ago
+<Link id="a_id_173">7:31</Link>
+<Link id="a_id_174">Mateus Asato - Don't Dream It's Over (Best Live Version) 7 minutes, 31 seconds</Link>
+<Link id="a_id_175">ThePlayersPlay</Link>
+142K views
+•
+6 years ago
+<Link id="a_id_176">3:04</Link>
+<Link id="a_id_177">The Protein Overnight Oats I Ate Every Day For The Last 2 Years 3 minutes, 4 seconds</Link>
+<Link id="a_id_178">Felu - Fit by cooking</Link>
+2.9M views
+•
+3 years ago
+<Link id="a_id_179">1:19</Link>
+<Link id="a_id_180">Prehistoric Planet: Ice Age — Season 3 Official Trailer | Apple TV 1 minute, 19 seconds</Link>
+<Link id="a_id_181">Apple TV</Link>
+505K views
+•
+2 weeks ago
+<Link id="a_id_182">1:36:04</Link>
+<Link id="a_id_183">Ilya Sutskever – We're moving from the age of scaling to the age of research 1 hour, 36 minutes</Link>
+<Link id="a_id_184">Dwarkesh Patel</Link>
+219K views
+•
+13 hours ago
+<Link id="a_id_185">13:58</Link>
+<Link id="a_id_186">Nano Banana Pro Viral SFX Hooks in Minutes (Plus More AI Tricks) 13 minutes, 58 seconds</Link>
+<Link id="a_id_187">AI Samson</Link>
+3.1K views
+•
+14 hours ago
+Shorts
+<Link id="a_id_188">Jamie Campbell Bower’s voice is so good it’s basically ear candy!#jamiecampbellbower #stranger</Link>
+3.1M views
+<Link id="a_id_189">The ultimate trio — Ariana Grande, Nicki Minaj & Jessie J — setting the stage ablaze together! 🔥🎤</Link>
+6.4M views
+<Link id="a_id_190">Top 4 Times Fighters pranked Dana White</Link>
+10M views
+<Link id="a_id_191">The closest jeans to Kendrick’s I own 😂 #jumprope #skipping #kendricklamar #SuperBowl #cwalk</Link>
+5.8M views
+<Link id="a_id_192">Who's better, a professional boxer or a muscle man?</Link>
+4.6M views
+<Link id="a_id_193">7:28</Link>
+<Link id="a_id_194">Build Biceps Without Heavy Weights 7 minutes, 28 seconds</Link>
+<Link id="a_id_195">Keith Hanenian, Esq. | Built DifferentTM</Link>
+215K views
+•
+2 months ago
+<Link id="a_id_196">19:30</Link>
+<Link id="a_id_197">If YOU Take Supplements, You NEED To See This 19 minutes</Link>
+<Link id="a_id_198">The Diary Of A CEO Clips</Link>
+673K views
+•
+4 months ago
+<Link id="a_id_199">4:43</Link>
+<Link id="a_id_200">OMG HIS VOICE IS UNIQUE- Michael Jackson - Billie Jean | Allie Sherlock & Fabio Rodrigues cover 4 minutes, 43 seconds</Link>
+<Link id="a_id_201">Allie Sherlock</Link>
+61M views
+•
+5 years ago
+<Link id="a_id_202">4:43</Link>
+<Button id="a_id_203">Tap to watch live</Button>
+<Link id="a_id_204">Trump signs executive order launching Genesis Mission AI project 4 minutes, 43 seconds</Link>
+<Link id="a_id_205">NBC News</Link>
+4.1K views
+•
+3 hours ago
+<Link id="a_id_206">5:39</Link>
+<Link id="a_id_207">Jensen Huang-The First Six Months of NVIDIA 5 minutes, 39 seconds</Link>
+<Link id="a_id_208">Entrepreneurship.org</Link>
+870K views
+•
+12 years ago
+<Link id="a_id_209">15:13</Link>
+<Link id="a_id_210">3 Insulin Tricks That Kill Visceral Fat FAST 15 minutes</Link>
+<Link id="a_id_211">Doctor Mike Diamonds</Link>
+676K views
+•
+1 month ago
+<Link id="a_id_212">11:36</Link>
+<Link id="a_id_213">We grew a forest WITHOUT planting a single tree 11 minutes, 36 seconds</Link>
+<Link id="a_id_214">Planet Wild</Link>
+1.1M views
+•
+10 days ago
+<Link id="a_id_215">11:05</Link>
+<Link id="a_id_216">WORLDS STRONGEST Athletes Attempt The HARDEST SKILLS 11 minutes, 5 seconds</Link>
+<Link id="a_id_217">CHRIS HERIA</Link>
+186K views
+•
+3 months ago
+<Link id="a_id_218">1:24:08</Link>
+<Link id="a_id_219">Collaboration channels</Link>
+<Link id="a_id_220">The Thinking Game | Full documentary | Tribeca Film Festival official selection 1 hour, 24 minutes</Link>
+Google DeepMind
+and The Thinking Game Film
+91K views
+•
+15 hours ago

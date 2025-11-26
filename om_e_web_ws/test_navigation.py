@@ -42,6 +42,13 @@ Usage examples:
 
   - Set value without submit:
       python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "just text" --no-submit
+
+  📜 SCROLL: Page-by-page viewport scrolling
+      python3 test_navigation.py --command scroll                    # scroll down (default)
+      python3 test_navigation.py --command scroll --direction down   # scroll down one page
+      python3 test_navigation.py --command scroll --direction up     # scroll up one page
+      python3 test_navigation.py --command scroll --direction top    # scroll to top
+      python3 test_navigation.py --command scroll --direction bottom # scroll to bottom
 """
 
 import asyncio
@@ -96,6 +103,13 @@ class NavigationTester:
                 "type": "execute_capability",
                 "action": capability_data.get("action"),
                 "params": capability_data.get("params", {})
+            }
+        elif command == "execute_scroll":
+            # 📜 SCROLL: Page-by-page viewport scrolling
+            scroll_data = data or {}
+            message = {
+                "type": "execute_scroll",
+                "direction": scroll_data.get("direction", "down")
             }
         else:
             message = {
@@ -220,9 +234,11 @@ async def main():
     submit_group.add_argument("--submit", dest="submit", action="store_true", help="Submit after setting the value")
     submit_group.add_argument("--no-submit", dest="no_submit", action="store_true", help="Do not submit after setting the value")
     parser.add_argument("--action-type", dest="action_type", required=False, help="Optional actionType when using the 'llm' command (e.g., setValue, click, navigate)")
-    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click", "capability"], default="llm",
-                        help="Execution mode: llm (default), navigate, click, capability")
+    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click", "capability", "scroll"], default="llm",
+                        help="Execution mode: llm (default), navigate, click, capability, scroll")
     parser.add_argument("--capability", dest="capability", required=False, help="Capability action name (e.g., RetrieveTranscript)")
+    parser.add_argument("--direction", dest="direction", choices=["down", "up", "top", "bottom"], default="down",
+                        help="Scroll direction: down (default), up, top, bottom")
 
     # -------- cheat sheet ----------------------------------------------------
     # --command llm (default):
@@ -253,6 +269,9 @@ async def main():
             print("❌ Error: --capability is required when using --command capability")
             parser.print_usage()
             return
+    elif command_mode == "scroll":
+        # Scroll mode doesn't require --action-id (uses --direction instead)
+        pass
     else:
         # Other modes require --action-id
         if not args.action_id:
@@ -313,6 +332,17 @@ async def main():
     """)
         print(f"🎯 Executing click action: {payload}")
         response = await tester.send_command("execute_llm_action", payload)
+    elif command_mode == "scroll":
+        # 📜 SCROLL: Page-by-page viewport scrolling
+        payload = {
+            "direction": args.direction
+        }
+        print("""📜 SCROLL PAYLOAD
+    - direction: down, up, top, bottom
+    - Scrolls one viewport height at a time (end becomes beginning)
+    """)
+        print(f"📜 Executing scroll: direction={args.direction}")
+        response = await tester.send_command("execute_scroll", payload)
     else:
         payload = {
             "actionId": args.action_id,

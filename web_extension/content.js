@@ -2128,6 +2128,132 @@
     }
 
     /**
+     * 📜 SCROLL COMMAND - Page-by-page scrolling for LLM navigation
+     *
+     * Scrolls the page so that the end of the current viewport becomes
+     * the beginning of the next viewport. Uses smooth scrolling for
+     * better visual feedback.
+     *
+     * @param {Object} params - Scroll parameters
+     * @param {string} params.direction - 'down', 'up', 'top', 'bottom' (default: 'down')
+     * @returns {Object} - Scroll result with new position info
+     */
+    async function cmd_scroll({ direction = 'down' } = {}) {
+        console.log("[Content] scroll: Starting scroll with direction:", direction);
+
+        const startY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const maxScrollY = document.documentElement.scrollHeight - viewportHeight;
+
+        let targetY;
+
+        switch (direction) {
+            case 'up':
+                // Scroll up by one viewport height
+                targetY = Math.max(0, startY - viewportHeight);
+                break;
+            case 'top':
+                // Scroll to the very top
+                targetY = 0;
+                break;
+            case 'bottom':
+                // Scroll to the very bottom
+                targetY = maxScrollY;
+                break;
+            case 'down':
+            default:
+                // Scroll down by one viewport height (end becomes beginning)
+                targetY = Math.min(maxScrollY, startY + viewportHeight);
+                break;
+        }
+
+        // Execute the scroll with smooth behavior
+        window.scrollTo({
+            top: targetY,
+            behavior: 'smooth'
+        });
+
+        // 🎯 SCROLL-END DETECTION: Wait for scroll position to stabilise
+        // Uses a scroll event listener that resolves when position stops changing
+        await waitForScrollEnd(targetY);
+
+        const endY = window.scrollY;
+        const atTop = endY === 0;
+        const atBottom = endY >= maxScrollY - 1; // -1 for rounding tolerance
+
+        console.log("[Content] scroll: Scroll complete:", {
+            direction,
+            startY,
+            endY,
+            scrolled: endY - startY,
+            atTop,
+            atBottom
+        });
+
+        return {
+            ok: true,
+            direction,
+            startY,
+            endY,
+            scrolled: endY - startY,
+            viewportHeight,
+            maxScrollY,
+            atTop,
+            atBottom
+        };
+    }
+
+    /**
+     * 🎯 SCROLL-END DETECTION - Waits for scroll animation to complete
+     *
+     * Uses scroll event listener with idle detection to know when
+     * smooth scrolling has finished. Falls back to timeout for safety.
+     *
+     * @param {number} targetY - Target scroll position
+     * @param {number} maxWait - Maximum wait time in ms (default: 1000)
+     * @returns {Promise} - Resolves when scroll is complete
+     */
+    function waitForScrollEnd(targetY, maxWait = 1000) {
+        return new Promise((resolve) => {
+            let lastScrollY = window.scrollY;
+            let stableCount = 0;
+            let checkInterval;
+            let timeoutId;
+
+            const cleanup = () => {
+                if (checkInterval) clearInterval(checkInterval);
+                if (timeoutId) clearTimeout(timeoutId);
+            };
+
+            // Check every 50ms if scroll position has stabilised
+            checkInterval = setInterval(() => {
+                const currentY = window.scrollY;
+
+                if (currentY === lastScrollY) {
+                    stableCount++;
+                    // Position stable for 3 checks (150ms) = scroll complete
+                    if (stableCount >= 3) {
+                        console.log("[Content] scroll: Scroll-end detected (position stable)");
+                        cleanup();
+                        resolve();
+                    }
+                } else {
+                    // Still scrolling, reset counter
+                    stableCount = 0;
+                    lastScrollY = currentY;
+                }
+            }, 50);
+
+            // Failsafe: resolve after maxWait regardless
+            timeoutId = setTimeout(() => {
+                console.log("[Content] scroll: Scroll-end timeout (failsafe)");
+                cleanup();
+                resolve();
+            }, maxWait);
+        });
+    }
+
+    /**
      * 📨 Message handler for WebSocket communication
      * 
      * This listener handles all incoming messages from the service worker,
@@ -2265,6 +2391,19 @@
                         headings: result.headings.length,
                         paragraphs: result.paragraphs.length,
                         lists: result.lists.length
+                    });
+                    return sendResponse(result);
+                }
+
+                // 📜 SCROLL COMMAND - Page-by-page viewport scrolling
+                if (command === "scroll") {
+                    console.log("[Content] scroll command - direction:", params?.direction || 'down');
+                    const result = await cmd_scroll(params || {});
+                    console.log("[Content] scroll result:", {
+                        direction: result.direction,
+                        scrolled: result.scrolled,
+                        atTop: result.atTop,
+                        atBottom: result.atBottom
                     });
                     return sendResponse(result);
                 }
@@ -5795,7 +5934,7 @@
                                     return label.toLowerCase().includes(excludeText.toLowerCase());
                                 });
                                 if (shouldExclude) {
-                                    console.log(`[Content] 🚫 Excluding element by text: "${label}" matches exclude pattern`);
+                                   // console.log(`[Content] 🚫 Excluding element by text: "${label}" matches exclude pattern`);
                                 }
                             }
 

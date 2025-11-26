@@ -531,8 +531,8 @@ async function requestScan(tabId, url, trigger) {
     }
 
     // 🔒 DEDUPE: Same URL, already scanned (unless forced rescan)
-    // Force rescan for: post_action, significant_dom_change, page_refresh, tab_switch
-    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh', 'tab_switch'];
+    // Force rescan for: post_action, significant_dom_change, page_refresh, tab_switch, post_scroll
+    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh', 'tab_switch', 'post_scroll'];
     const shouldSkip = state.lastUrl === url && !state.scanInProgress && !forcedTriggers.includes(trigger);
 
     if (shouldSkip) {
@@ -971,6 +971,7 @@ function handleServerMessage(messageData) {
                 case "click":
                 case "getPageMarkdown":
                 case "extractPageText":
+                case "scroll":  // 📜 Page-by-page viewport scrolling
                 case "getCurrentTabInfo":
                 case "getNavigationContext":
                 case "searchActions":
@@ -1205,6 +1206,14 @@ async function handleDOMCommand(message) {
             // Send successful response back to server
             console.log("[SW] Sending successful response back to server");
             sendSuccessResponse(message.id, response || {});
+
+            // 📜 POST-SCROLL SCAN: Trigger rescan after scroll completes
+            if (message.command === "scroll" && response && response.ok) {
+                console.log("[SW] 📜 Scroll complete, triggering post-scroll scan...");
+                setTimeout(() => {
+                    requestScan(activeTab.id, activeTab.url, 'post_scroll');
+                }, 300);
+            }
         }
 
     } catch (error) {

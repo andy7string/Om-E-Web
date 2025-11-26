@@ -1,35 +1,28 @@
 {
-  "timestamp": 1764136852.062927,
+  "timestamp": 1764140379.737531,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138023751,
-      "url": "https://en.wikipedia.org/wiki/Jeff",
-      "title": "Jeff - Wikipedia",
+      "id": 1138023899,
+      "url": "https://www.youtube.com/",
+      "title": "(3) YouTube",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138023751,
-        "url": "https://en.wikipedia.org/wiki/Jeff",
-        "title": "Jeff - Wikipedia",
+        "id": 1138023899,
+        "url": "https://www.youtube.com/",
+        "title": "(3) YouTube",
         "active": true,
         "status": "loading"
-      },
-      {
-        "id": 1138023773,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
-        "status": "complete"
       }
     ],
-    "last_tabs_update": 33936.467643375,
+    "last_tabs_update": 37365.415778416,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://en.wikipedia.org/wiki/Jeff",
-    "title": "Jeff - Wikipedia",
+    "url": "https://www.youtube.com/",
+    "title": "(3) YouTube",
     "is_active_tab": true
   },
   "content_structure": {},
