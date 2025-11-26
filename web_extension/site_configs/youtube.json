@@ -213,22 +213,6 @@
         "button.yt-spec-button-shape-next[aria-label*='dislike' i]",
         "button[aria-label*='dislike' i]"
       ]
-    },
-    "search": {
-      "action": "SearchYouTube",
-      "label": "Search YouTube",
-      "description": "Search for videos, channels, or content on YouTube. Usage:\n# Type search without submitting (just fill the search box)\npython3 test_navigation.py --command capability --capability SearchYouTube --value \"python tutorials\" --no-submit\n# Type and submit search (execute the search)\npython3 test_navigation.py --command capability --capability SearchYouTube --value \"Anthropic AI\" --submit",
-      "url_pattern": "youtube.com",
-      "handler": "youtube_search",
-      "inputType": "text",
-      "paramName": "text",
-      "selectors": [
-        "input.ytSearchboxComponentInput[name='search_query']",
-        "input.yt-searchbox-input[name='search_query']",
-        "input[name='search_query'][placeholder='Search']",
-        "#search-input input[name='search_query']",
-        "input[placeholder='Search']"
-      ]
     }
   }
 }

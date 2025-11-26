@@ -3748,7 +3748,21 @@ def resolve_capabilities_for_url(url: str) -> list:
         matching_config = None
         matching_domain = None
 
-        for domain, config in SITE_CONFIGS.items():
+        # Extract hostname from URL
+        from urllib.parse import urlparse
+        parsed = urlparse(url)
+        hostname = parsed.netloc.lower().replace('www.', '')
+
+        # Sort domains by specificity (longer = more specific = higher priority)
+        sorted_domains = sorted(
+            [d for d in SITE_CONFIGS.keys() if d != 'default'],
+            key=lambda x: len(x),
+            reverse=True
+        )
+
+        for domain in sorted_domains:
+            config = SITE_CONFIGS[domain]
+
             # Check URL patterns if they exist
             if 'url_patterns' in config:
                 for pattern in config['url_patterns']:
@@ -3756,11 +3770,18 @@ def resolve_capabilities_for_url(url: str) -> list:
                         matching_config = config
                         matching_domain = domain
                         break
-            # Fallback: check if domain is in URL
-            elif domain in url:
+
+            # Check exact hostname match
+            if not matching_config and hostname == domain:
                 matching_config = config
                 matching_domain = domain
-                break
+
+            # Check wildcard patterns (*.google.com)
+            if not matching_config and domain.startswith('*.'):
+                base_domain = domain[2:]  # Remove "*."
+                if hostname == base_domain or hostname.endswith('.' + base_domain):
+                    matching_config = config
+                    matching_domain = domain
 
             if matching_config:
                 break

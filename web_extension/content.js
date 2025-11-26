@@ -265,9 +265,9 @@
                 const now = Date.now();
 
                 // Significant change criteria:
-                // 1. More than 20 mutations (substantial DOM change)
+                // 1. More than 15 mutations (substantial DOM change)
                 // 2. At least 2 seconds since last significant change (rate limit)
-                const isSignificant = mutationCount > 20 && (now - lastSignificantChangeTime) > 2000;
+                const isSignificant = mutationCount > 15 && (now - lastSignificantChangeTime) > 2000;
 
                 if (isSignificant) {
                     console.log(`[Content] 🔄 Significant DOM change detected (${mutationCount} mutations), DOM quiet for 200ms, triggering scan`);
@@ -9137,25 +9137,17 @@
                                 const enterWorked = true; // Assume it will work, actual result handled async
 
                                 // 🎯 GENERIC: For search inputs with autocomplete, try dropdown actions only when no form exists
+                                // 🚫 DISABLED: Generic URL construction removed - it constructs wrong URLs for most sites
+                                // Sites with JS-based search (Ultimate Guitar, etc.) handle Enter key themselves
+                                // Constructing generic URLs like /search/?q=X causes 404s on many sites
                                 if (hasAutocomplete && !form) {
                                     setTimeout(() => {
                                         if (!findAutocompleteSearchButton()) {
-                                            console.log('[Content] ⚠️ Autocomplete search button not found, trying generic navigation...');
-
-                                            // 🎯 GENERIC: Extract search context from element attributes
-                                            const searchContext = extractSearchContext(element);
-                                            const searchValue = encodeURIComponent(element.value || element.textContent || '');
-
-                                            if (searchValue && searchContext.baseUrl) {
-                                                // Build search URL generically using extracted context
-                                                const searchUrl = buildSearchUrl(searchContext, searchValue);
-                                                if (searchUrl) {
-                                                    console.log('[Content] 🔍 Navigating to search URL:', searchUrl);
-                                                    window.location.href = searchUrl;
-                                                }
-                                            }
+                                            console.log('[Content] ⚠️ Autocomplete search button not found - relying on Enter key to trigger site JS');
+                                            // Don't construct generic URLs - they're wrong for most sites
+                                            // The Enter key dispatch above should trigger the site's search handler
                                         }
-                                    }, 400); // Wait longer to see if Enter worked first
+                                    }, 400);
                                 }
 
                                 // Also try form submission if element is in a form

@@ -2377,14 +2377,31 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
         // Look up site config for this domain
         let siteConfig = null;
 
-        // Check for exact domain match
+        // Check for exact domain match first
         if (siteConfigs[domain]) {
             siteConfig = siteConfigs[domain];
+            console.log(`[SW] 🎯 Exact domain match: ${domain}`);
         } else {
-            // Check for partial domain match
-            for (const [configDomain, config] of Object.entries(siteConfigs)) {
-                if (domain.includes(configDomain) && configDomain !== 'default') {
-                    siteConfig = config;
+            // Sort config domains by specificity (longer = more specific = higher priority)
+            const sortedConfigDomains = Object.keys(siteConfigs)
+                .filter(d => d !== 'default')
+                .sort((a, b) => b.length - a.length);
+
+            // Check for wildcard/subdomain matches
+            for (const configDomain of sortedConfigDomains) {
+                // Handle wildcard patterns like *.google.com
+                if (configDomain.startsWith('*.')) {
+                    const baseDomain = configDomain.slice(2); // Remove "*."
+                    if (domain === baseDomain || domain.endsWith('.' + baseDomain)) {
+                        siteConfig = siteConfigs[configDomain];
+                        console.log(`[SW] 🎯 Wildcard match: ${domain} matched ${configDomain}`);
+                        break;
+                    }
+                }
+                // Handle exact subdomain match (domain ends with .configDomain)
+                else if (domain.endsWith('.' + configDomain)) {
+                    siteConfig = siteConfigs[configDomain];
+                    console.log(`[SW] 🎯 Subdomain match: ${domain} matched ${configDomain}`);
                     break;
                 }
             }
@@ -2392,6 +2409,7 @@ async function handleGetSiteConfigForDomain(message, sendResponse) {
             // Fallback to default config
             if (!siteConfig && siteConfigs['default']) {
                 siteConfig = siteConfigs['default'];
+                console.log(`[SW] 🎯 Using default config for: ${domain}`);
             }
         }
 

@@ -1,35 +1,35 @@
 {
-  "timestamp": 1764127112.445875,
+  "timestamp": 1764136852.062927,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138023700,
-      "url": "https://www.facebook.com/marketplace/adelaide/search/?query=bmw",
-      "title": "(10) Facebook",
+      "id": 1138023751,
+      "url": "https://en.wikipedia.org/wiki/Jeff",
+      "title": "Jeff - Wikipedia",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138023700,
-        "url": "https://www.facebook.com/marketplace/adelaide/search/?query=bmw",
-        "title": "(10) Facebook",
+        "id": 1138023751,
+        "url": "https://en.wikipedia.org/wiki/Jeff",
+        "title": "Jeff - Wikipedia",
         "active": true,
         "status": "loading"
       },
       {
-        "id": 1138023751,
+        "id": 1138023773,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 24195.339726833,
+    "last_tabs_update": 33936.467643375,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.facebook.com/marketplace/adelaide/search/?query=bmw",
-    "title": "(10) Facebook",
+    "url": "https://en.wikipedia.org/wiki/Jeff",
+    "title": "Jeff - Wikipedia",
     "is_active_tab": true
   },
   "content_structure": {},

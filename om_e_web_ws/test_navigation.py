@@ -15,13 +15,13 @@ Usage examples:
       python3 test_navigation.py --command capability --capability SearchYouTube --value "claude" --submit
 
   - Direct navigation:
-      python3 test_navigation.py --command navigate --action-id a_id_25
+      python3 test_navigation.py --command navigate --action-id a_id_74
 
   - Click action:
-      python3 test_navigation.py --command click --action-id a_id_61
+      python3 test_navigation.py --command click --action-id a_id_6
 
   - Custom LLM action:
-      python3 test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "Guitar Amps" --submit
+      python3 test_navigation.py --command llm --action-id a_id_4 --action-type setValue --value "andreworsmond21175@gmail.com" --submit
 
   - Marketplace search (set value + submit):
       python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit
