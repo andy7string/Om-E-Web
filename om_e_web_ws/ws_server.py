@@ -3168,7 +3168,8 @@ async def handler(ws):
                                     f.write(f"**URL:** {page_url}\n")
                                     f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
 
-                                    # 🎯 CAPABILITIES SECTION: Show domain-specific actions
+                                    # 🎯 CAPABILITIES SECTION: Show domain-specific + universal actions
+                                    # Universal scroll capabilities are automatically included via resolve_capabilities_for_url()
                                     if capabilities:
                                         f.write("## Available Actions\n\n")
                                         f.write("The following pre-configured actions are available for this page:\n\n")
@@ -3250,6 +3251,38 @@ async def handler(ws):
                         continue
 
                     print(f"🎯 Executing capability: {action}")
+
+                    # 📜 SCROLL CAPABILITIES: Route scroll actions to scroll handler
+                    scroll_actions = {
+                        'ScrollDown': 'down',
+                        'ScrollUp': 'up',
+                        'ScrollTop': 'top',
+                        'ScrollBottom': 'bottom'
+                    }
+
+                    if action in scroll_actions:
+                        direction = scroll_actions[action]
+                        print(f"📜 Routing scroll capability: {action} -> direction={direction}")
+
+                        if EXTENSION_WS:
+                            scroll_command = {
+                                "command": "scroll",
+                                "id": f"scroll_{int(time.time() * 1000)}",
+                                "params": {"direction": direction}
+                            }
+                            await EXTENSION_WS.send(json.dumps(scroll_command))
+                            print(f"📤 Sent scroll command to extension: direction={direction}")
+
+                            await ws.send(json.dumps({
+                                "ok": True,
+                                "message": f"Scroll {direction} initiated"
+                            }))
+                        else:
+                            await ws.send(json.dumps({
+                                "ok": False,
+                                "error": "Extension not connected"
+                            }))
+                        continue
 
                     # Look up capability handler from current page URL
                     # We need the current URL to resolve which handler to use
@@ -3817,29 +3850,71 @@ def resolve_capabilities_for_url(url: str) -> list:
             if matching_config:
                 break
 
-        if not matching_config or 'capabilities' not in matching_config:
-            return []
-
-        # Extract capabilities and filter by url_pattern
-        capabilities = matching_config['capabilities']
+        # Extract capabilities and filter by url_pattern (if config exists)
         matching_capabilities = []
 
-        for cap_id, capability in capabilities.items():
-            # Check if this capability's url_pattern matches current URL
-            if 'url_pattern' in capability and capability['url_pattern'] in url:
-                matching_capabilities.append({
-                    'id': cap_id,
-                    'action': capability.get('action'),
-                    'label': capability.get('label'),
-                    'description': capability.get('description'),
-                    'handler': capability.get('handler'),
-                    'domain': matching_domain
-                })
+        if matching_config and 'capabilities' in matching_config:
+            capabilities = matching_config['capabilities']
+            for cap_id, capability in capabilities.items():
+                # Check if this capability's url_pattern matches current URL
+                if 'url_pattern' in capability and capability['url_pattern'] in url:
+                    matching_capabilities.append({
+                        'id': cap_id,
+                        'action': capability.get('action'),
+                        'label': capability.get('label'),
+                        'description': capability.get('description'),
+                        'handler': capability.get('handler'),
+                        'domain': matching_domain
+                    })
 
         if matching_capabilities:
             print(f"🎯 Resolved {len(matching_capabilities)} capabilities for URL: {url}")
             for cap in matching_capabilities:
                 print(f"  - {cap['action']}: {cap['label']}")
+
+        # 📜 UNIVERSAL CAPABILITIES: Always available on all domains
+        universal_capabilities = [
+            {
+                'id': 'scroll_down',
+                'action': 'ScrollDown',
+                'label': 'Scroll down one page',
+                'description': 'Scrolls the viewport down by one screen height',
+                'command': 'scroll',
+                'params': {'direction': 'down'},
+                'domain': 'universal'
+            },
+            {
+                'id': 'scroll_up',
+                'action': 'ScrollUp',
+                'label': 'Scroll up one page',
+                'description': 'Scrolls the viewport up by one screen height',
+                'command': 'scroll',
+                'params': {'direction': 'up'},
+                'domain': 'universal'
+            },
+            {
+                'id': 'scroll_top',
+                'action': 'ScrollTop',
+                'label': 'Scroll to top of page',
+                'description': 'Scrolls to the very top of the page',
+                'command': 'scroll',
+                'params': {'direction': 'top'},
+                'domain': 'universal'
+            },
+            {
+                'id': 'scroll_bottom',
+                'action': 'ScrollBottom',
+                'label': 'Scroll to bottom of page',
+                'description': 'Scrolls to the very bottom of the page',
+                'command': 'scroll',
+                'params': {'direction': 'bottom'},
+                'domain': 'universal'
+            }
+        ]
+
+        # Append universal capabilities
+        matching_capabilities.extend(universal_capabilities)
+        print(f"📜 Added {len(universal_capabilities)} universal scroll capabilities")
 
         return matching_capabilities
 

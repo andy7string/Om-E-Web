@@ -531,8 +531,9 @@ async function requestScan(tabId, url, trigger) {
     }
 
     // 🔒 DEDUPE: Same URL, already scanned (unless forced rescan)
-    // Force rescan for: post_action, significant_dom_change, page_refresh, tab_switch, post_scroll
-    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh', 'tab_switch', 'post_scroll'];
+    // Force rescan for: post_action, significant_dom_change, page_refresh, tab_switch, post_scroll, inputPattern_submit
+    // TODO: Move forcedTriggers to config
+    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh', 'tab_switch', 'post_scroll', 'inputPattern_submit'];
     const shouldSkip = state.lastUrl === url && !state.scanInProgress && !forcedTriggers.includes(trigger);
 
     if (shouldSkip) {

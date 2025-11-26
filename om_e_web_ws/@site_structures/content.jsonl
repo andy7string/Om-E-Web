@@ -1,28 +1,42 @@
 {
-  "timestamp": 1764140379.737531,
+  "timestamp": 1764164306.538791,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 3,
     "active_tab": {
-      "id": 1138023899,
-      "url": "https://www.youtube.com/",
-      "title": "(3) YouTube",
-      "status": "loading"
+      "id": 1138024047,
+      "url": "https://chatgpt.com/c/6926fce1-d1f8-8321-824a-9b003ae211c2",
+      "title": "Nailing it extension",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138023899,
-        "url": "https://www.youtube.com/",
-        "title": "(3) YouTube",
+        "id": 1138024047,
+        "url": "https://chatgpt.com/c/6926fce1-d1f8-8321-824a-9b003ae211c2",
+        "title": "Nailing it extension",
         "active": true,
-        "status": "loading"
+        "status": "complete"
+      },
+      {
+        "id": 1138024052,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138024053,
+        "url": "https://brighttreedigital.com.au/",
+        "title": "Local Web Design Adelaide | Bright Tree Digital",
+        "active": false,
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 37365.415778416,
+    "last_tabs_update": 61067.381933666,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/",
-    "title": "(3) YouTube",
+    "url": "https://chatgpt.com/c/6926fce1-d1f8-8321-824a-9b003ae211c2",
+    "title": "Nailing it extension",
     "is_active_tab": true
   },
   "content_structure": {},

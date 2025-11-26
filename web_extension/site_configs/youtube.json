@@ -214,5 +214,22 @@
         "button[aria-label*='dislike' i]"
       ]
     }
+  },
+  "inputPatterns": {
+    "comment": {
+      "description": "YouTube main comment input",
+      "placeholder": "#simplebox-placeholder[role='textbox']",
+      "container": "ytd-comment-simplebox-renderer",
+      "realInput": "#contenteditable-root[contenteditable='true']",
+      "clickToReveal": true,
+      "waitMs": 300,
+      "submitSelector": "#submit-button button[aria-label='Comment'], ytd-button-renderer#submit-button button[aria-label='Comment'], button[aria-label='Comment']"
+    },
+    "reply": {
+      "description": "YouTube comment reply input",
+      "container": "ytd-commentbox",
+      "realInput": "#contenteditable-root[contenteditable='true']",
+      "submitSelector": "#submit-button button[aria-label='Reply'], ytd-button-renderer#submit-button button[aria-label='Reply'], button[aria-label='Reply']"
+    }
   }
 }

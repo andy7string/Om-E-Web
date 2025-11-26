@@ -2,53 +2,56 @@
 """
 Non-interactive Action Test Script
 
+Run from om_e_web_ws/ directory:
+    cd om_e_web_ws && python test_navigation.py [options]
+
 Usage examples:
 
-  🎯 PREMIUM: Execute Capability (YouTube Transcript Retrieval)
-      python3 test_navigation.py --command capability --capability RetrieveTranscript
-      #   ↳ Navigate to a YouTube video page first
-      #   ↳ Clicks "Show transcript" button
-      #   ↳ Extracts and saves transcript to @site_structures/transcripts/
-      # Search without submitting (just type in the box)
-      python3 test_navigation.py --command capability --capability SearchYouTube --value "Tesla" --no-submit
-      # Search for something else
-      python3 test_navigation.py --command capability --capability SearchYouTube --value "claude" --submit
+  🎯 CAPABILITY: Site-specific actions (YouTube, etc.)
+      python test_navigation.py --command capability --capability RetrieveTranscript
+      python test_navigation.py --command capability --capability SearchYouTube --value "Tesla" --no-submit
+      python test_navigation.py --command capability --capability SearchYouTube --value "claude" --submit
 
-  - Direct navigation:
-      python3 test_navigation.py --command navigate --action-id a_id_74
+  🔗 NAVIGATE: Click links
+      python test_navigation.py --command navigate --action-id a_id_0
 
-  - Click action:
-      python3 test_navigation.py --command click --action-id a_id_6
+  👆 CLICK: Click buttons
+      python test_navigation.py --command click --action-id a_id_3
 
-  - Custom LLM action:
-      python3 test_navigation.py --command llm --action-id a_id_4 --action-type setValue --value "andreworsmond21175@gmail.com" --submit
+  ✅ TOGGLE: Checkbox / Switch (set state directly via DOM API)
+      python test_navigation.py --command llm --action-id a_id_2 --action-type toggle --value true
+      python test_navigation.py --command llm --action-id a_id_2 --action-type toggle --value false
+      #   ↳ Sets checkbox to true/false directly (no click guessing)
+      #   ↳ Check text.md for: <Checkbox id="a_id_X" checked="false" use="(a_id_X, toggle, true|false)">
 
-  - Marketplace search (set value + submit):
-      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit
-      #   ↳ actionId: use the id from page.jsonl/llm_prompt.md (ex: a_id_1)
-      #   ↳ --action-type setValue tells the extension to type into the field
-      #   ↳ --value "Gibson Guitar" is the text to enter
-      #   ↳ --submit sends Enter + tries common submit buttons
+  🔘 RADIO: Select radio button (set state directly)
+      python test_navigation.py --command llm --action-id a_id_5 --action-type toggle --value true
+      #   ↳ Sets radio to selected
+      #   ↳ Check text.md for: <Radio id="a_id_X" selected="false" use="(a_id_X, toggle, true)">
 
-  - Generic LLM click without specifying actionType (auto-detect):
-      python3 test_navigation.py --command llm --action-id a_id_133
-      #   ↳ when --action-type is omitted, extension uses stored metadata
+  🎚️ SLIDER: Set range value
+      python test_navigation.py --command llm --action-id a_id_7 --action-type setValue --value "50"
+      #   ↳ Sets slider to value (check min/max in text.md)
+      #   ↳ Check text.md for: <Slider id="a_id_X" value="0" min="0" max="100" use="(a_id_X, setValue, number)">
 
-  - Explicit click:
-      python3 test_navigation.py --command click --action-id a_id_133
+  📝 INPUT: Type into text fields
+      python test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "my text" --submit
+      python test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "just text" --no-submit
+      #   ↳ Check text.md for: <Input id="a_id_X" use="(a_id_X, 'your text', submit:true)">
 
-  - Navigate link:
-      python3 test_navigation.py --command navigate --action-id a_id_19
+  📋 SELECT: Dropdown selection
+      python test_navigation.py --command llm --action-id a_id_5 --action-type setValue --value "Option Name"
+      #   ↳ Check text.md for: <Select id="a_id_X" value="current" use="(a_id_X, select, 'option')">
 
-  - Set value without submit:
-      python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "just text" --no-submit
+  🤖 LLM AUTO: Let extension auto-detect action type
+      python test_navigation.py --command llm --action-id a_id_133
 
   📜 SCROLL: Page-by-page viewport scrolling
-      python3 test_navigation.py --command scroll                    # scroll down (default)
-      python3 test_navigation.py --command scroll --direction down   # scroll down one page
-      python3 test_navigation.py --command scroll --direction up     # scroll up one page
-      python3 test_navigation.py --command scroll --direction top    # scroll to top
-      python3 test_navigation.py --command scroll --direction bottom # scroll to bottom
+      python test_navigation.py --command scroll                    # scroll down (default)
+      python test_navigation.py --command scroll --direction down   # scroll down one page
+      python test_navigation.py --command scroll --direction up     # scroll up one page
+      python test_navigation.py --command scroll --direction top    # scroll to top
+      python test_navigation.py --command scroll --direction bottom # scroll to bottom
 """
 
 import asyncio

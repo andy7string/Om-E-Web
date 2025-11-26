@@ -3411,7 +3411,7 @@
                 `No valid dimensions found. CSS state: display=${display}, visibility=${visibility}, opacity=${opacity}, position=${position}, z-index=${zIndex}`
         };
 
-        console.log(`[Enhanced Dimensions] Analysis for ${element.tagName}:`, result);
+        //console.log(`[Enhanced Dimensions] Analysis for ${element.tagName}:`, result);
         return result;
     }
 
@@ -3711,14 +3711,35 @@
      * This function provides a bulletproof way to click ANY element that exists
      * in the DOM, regardless of dimensions, CSS state, or layout issues.
      * It's the ultimate fallback for the intelligence system.
-     * 
+     *
      * @param {Element} element - DOM element to click
+     * @param {string} clickType - 'simple' for single native click, 'aggressive' for all strategies (default)
      * @returns {Object} - Click result and element details
      */
-    function universalClick(element) {
+    function universalClick(element, clickType = 'aggressive') {
         if (!element) return { success: false, reason: 'No element provided' };
 
-        console.log(`[Universal Click] 🔥 UNIVERSAL CLICK on ${element.tagName} (${element.className})`);
+        console.log(`[Universal Click] 🔥 UNIVERSAL CLICK (${clickType}) on ${element.tagName} (${element.className})`);
+
+        // 🆕 SIMPLE MODE: Just do a single native click - ideal for checkboxes/radios/switches
+        if (clickType === 'simple') {
+            try {
+                element.click();
+                console.log(`[Universal Click] ✅ Simple click succeeded`);
+                return {
+                    success: true,
+                    method: 'simple native click()',
+                    elementInfo: {
+                        tagName: element.tagName,
+                        type: element.type || element.getAttribute('type'),
+                        checked: element.checked
+                    }
+                };
+            } catch (e) {
+                console.error(`[Universal Click] ❌ Simple click failed:`, e);
+                return { success: false, reason: e.message };
+            }
+        }
 
         try {
             // Get element details before clicking
@@ -5747,13 +5768,24 @@
         }
 
         // Helper: Check if element is visible (same logic as innerText)
+        // 🆕 Exception: Elements with aria-labelledby are kept even if hidden (accessible form controls)
         const isVisible = (element) => {
             if (!element || element.nodeType !== Node.ELEMENT_NODE) return true;
 
             const style = window.getComputedStyle(element);
-            if (style.display === 'none') return false;
-            if (style.visibility === 'hidden') return false;
-            if (style.opacity === '0') return false;
+            const isHidden = style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0';
+
+            if (isHidden) {
+                // 🆕 EXCEPTION: If element has aria-labelledby that resolves to text, it's actionable
+                const labelledBy = element.getAttribute('aria-labelledby');
+                if (labelledBy) {
+                    const labelEl = document.getElementById(labelledBy);
+                    if (labelEl && (labelEl.innerText || labelEl.textContent || '').trim()) {
+                        return true; // Has valid aria label - keep it
+                    }
+                }
+                return false;
+            }
 
             return true;
         };
@@ -5806,6 +5838,50 @@
                 }
             }
 
+            // 🆕 For checkbox/radio/range: Check sibling text and wrapper elements
+            // These inputs often have label text in adjacent elements, not inside them
+            if (element.tagName === 'INPUT') {
+                const inputType = (element.getAttribute('type') || '').toLowerCase();
+                if (inputType === 'checkbox' || inputType === 'radio' || inputType === 'range') {
+                    // Check aria-labelledby (referenced element's text)
+                    const labelledBy = element.getAttribute('aria-labelledby');
+                    if (labelledBy) {
+                        const labelEl = document.getElementById(labelledBy);
+                        if (labelEl) {
+                            label = labelEl.innerText || labelEl.textContent || '';
+                            if (label && label.trim()) return label.trim();
+                        }
+                    }
+
+                    // Check parent wrapper for adjacent text
+                    const parent = element.parentElement;
+                    if (parent) {
+                        // Get text from parent, excluding the input itself
+                        const clone = parent.cloneNode(true);
+                        const inputs = clone.querySelectorAll('input, select, textarea');
+                        inputs.forEach(inp => inp.remove());
+                        label = (clone.innerText || clone.textContent || '').trim();
+                        if (label && label.length > 0 && label.length < 100) return label;
+                    }
+
+                    // Check immediate next sibling text
+                    const nextSibling = element.nextSibling;
+                    if (nextSibling && nextSibling.nodeType === Node.TEXT_NODE) {
+                        label = nextSibling.textContent.trim();
+                        if (label) return label;
+                    }
+                    // Check next element sibling
+                    const nextEl = element.nextElementSibling;
+                    if (nextEl) {
+                        label = (nextEl.innerText || nextEl.textContent || '').trim();
+                        if (label && label.length > 0 && label.length < 100) return label;
+                    }
+
+                    // Fallback: use type as label (e.g., "Checkbox", "Radio")
+                    return inputType.charAt(0).toUpperCase() + inputType.slice(1);
+                }
+            }
+
             // Try innerText (visible text)
             label = element.innerText || element.textContent || '';
             label = label.trim();
@@ -5834,17 +5910,29 @@
             const type = element.getAttribute('type');
             const isContentEditable = element.isContentEditable || element.getAttribute('contenteditable') === 'true';
 
-            // Buttons
-            if (tag === 'button' || role === 'button') return 'Button';
+            // Buttons (including tab, menuitem, etc.)
+            if (tag === 'button' || role === 'button' || role === 'tab' || role === 'menuitem') return 'Button';
 
             // Links
             if (tag === 'a' || role === 'link') return 'Link';
 
-            // Inputs (including contenteditable and role="textbox")
+            // Inputs - handle specific types
             if (tag === 'input') {
                 if (type === 'submit' || type === 'button') return 'Button';
+                if (type === 'checkbox') return 'Checkbox';
+                if (type === 'radio') return 'Radio';
+                if (type === 'range') return 'Slider';
                 return 'Input';
             }
+
+            // ARIA roles for form controls
+            if (role === 'checkbox') return 'Checkbox';
+            if (role === 'radio') return 'Radio';
+            if (role === 'slider') return 'Slider';
+            if (role === 'switch') return 'Switch';
+            if (role === 'combobox') return 'Select';
+            if (role === 'listbox') return 'Select';
+            if (role === 'option') return 'Option';
 
             if (tag === 'textarea') return 'Input';
             if (tag === 'select') return 'Select';
@@ -5882,8 +5970,25 @@
         let node;
         const processedElements = new WeakSet(); // Prevent duplicate processing
 
+        // 🆕 Pre-scan: Find all element IDs that are referenced by aria-labelledby
+        // These will be "claimed" by their referencing elements (checkbox, radio, etc.)
+        const ariaLabelTargetIds = new Set();
+        document.querySelectorAll('[aria-labelledby]').forEach(el => {
+            const labelledBy = el.getAttribute('aria-labelledby');
+            if (labelledBy) {
+                // aria-labelledby can contain multiple space-separated IDs
+                labelledBy.split(/\s+/).forEach(id => ariaLabelTargetIds.add(id));
+            }
+        });
+
         while (node = walker.nextNode()) {
             if (node.nodeType === Node.TEXT_NODE) {
+                // 🆕 Skip text if parent is an aria-labelledby target (will be claimed by checkbox/radio/etc.)
+                const parent = node.parentElement;
+                if (parent && parent.id && ariaLabelTargetIds.has(parent.id)) {
+                    continue; // Skip - this text belongs to a form control label
+                }
+
                 // Regular text - add as-is
                 const text = node.textContent.trim();
                 if (text && text.length > 0) {
@@ -5978,9 +6083,31 @@
                             selector: this.generateSimpleSelector(targetElement)
                         });
 
-                        // Add semantic tag to text (with usage hints for inputs)
+                        // Add semantic tag to text (with usage hints for interactive elements)
                         if (elementType === 'Input') {
                             textParts.push(`<${elementType} id="${actionId}" use="(${actionId}, 'your text', submit:true)">${label}</${elementType}>`);
+                        } else if (elementType === 'Checkbox') {
+                            // 🆕 Checkbox: Show state and toggle hint with true/false
+                            const isChecked = targetElement.checked || targetElement.getAttribute('aria-checked') === 'true';
+                            textParts.push(`<${elementType} id="${actionId}" checked="${isChecked}" use="(${actionId}, toggle, true|false)">${label}</${elementType}>`);
+                        } else if (elementType === 'Radio') {
+                            // 🆕 Radio: Show state and toggle hint with true/false
+                            const isSelected = targetElement.checked || targetElement.getAttribute('aria-checked') === 'true';
+                            textParts.push(`<${elementType} id="${actionId}" selected="${isSelected}" use="(${actionId}, toggle, true)">${label}</${elementType}>`);
+                        } else if (elementType === 'Slider') {
+                            // 🆕 Slider/Range: Show value and set hint
+                            const value = targetElement.value || targetElement.getAttribute('aria-valuenow') || '0';
+                            const min = targetElement.min || targetElement.getAttribute('aria-valuemin') || '0';
+                            const max = targetElement.max || targetElement.getAttribute('aria-valuemax') || '100';
+                            textParts.push(`<${elementType} id="${actionId}" value="${value}" min="${min}" max="${max}" use="(${actionId}, setValue, number)">${label}</${elementType}>`);
+                        } else if (elementType === 'Switch') {
+                            // 🆕 Switch: Show state and toggle hint with true/false
+                            const isOn = targetElement.checked || targetElement.getAttribute('aria-checked') === 'true';
+                            textParts.push(`<${elementType} id="${actionId}" on="${isOn}" use="(${actionId}, toggle, true|false)">${label}</${elementType}>`);
+                        } else if (elementType === 'Select') {
+                            // 🆕 Select/Dropdown: Show current value
+                            const currentValue = targetElement.value || targetElement.selectedOptions?.[0]?.text || '';
+                            textParts.push(`<${elementType} id="${actionId}" value="${currentValue}" use="(${actionId}, select, 'option')">${label}</${elementType}>`);
                         } else {
                             textParts.push(`<${elementType} id="${actionId}">${label}</${elementType}>`);
                         }
@@ -5989,6 +6116,16 @@
                         processedElements.add(targetElement);
                         if (targetElement !== node) {
                             processedElements.add(node); // Also mark parent
+                        }
+
+                        // 🆕 Also mark aria-labelledby referenced element as processed
+                        // Prevents duplicate "Show password" text appearing separately
+                        const labelledBy = targetElement.getAttribute('aria-labelledby');
+                        if (labelledBy) {
+                            const labelEl = document.getElementById(labelledBy);
+                            if (labelEl) {
+                                processedElements.add(labelEl);
+                            }
                         }
 
                         // Skip children - already captured in label
@@ -8676,6 +8813,27 @@
                 case 'click':
                     console.log("[Content] 🖱️ Executing click action on element");
 
+                    // 🆕 AUTO-DETECT: Use simple click for toggle elements (checkbox/radio/switch)
+                    // These need a single click - aggressive multi-click toggles them on then off!
+                    const inputType = (element.getAttribute('type') || '').toLowerCase();
+                    const elementRole = element.getAttribute('role');
+                    const isToggleElement = inputType === 'checkbox' || inputType === 'radio' || inputType === 'range' ||
+                                           elementRole === 'checkbox' || elementRole === 'radio' || elementRole === 'switch' || elementRole === 'slider';
+
+                    if (isToggleElement) {
+                        console.log("[Content] ✅ Toggle element detected - using SIMPLE click");
+                        const simpleResult = universalClick(element, 'simple');
+                        result = {
+                            success: simpleResult.success,
+                            action: 'click',
+                            elementId: actionId,
+                            message: simpleResult.success ? 'Toggle clicked successfully' : 'Toggle click failed',
+                            clickType: 'simple',
+                            elementInfo: simpleResult.elementInfo
+                        };
+                        break;
+                    }
+
                     // 🆕 ENHANCED SMART RESOLUTION: Find the best clickable target
                     let clickTarget = element;
                     let clickTargetInfo = "original element";
@@ -8757,6 +8915,38 @@
                             dimensionMethod: dimensionCheck.bestDimensions.method,
                             dimensionAnalysis: dimensionCheck.analysis
                         }
+                    };
+                    break;
+
+                case 'toggle':
+                    // 🆕 TOGGLE: Set checkbox/radio/switch state directly via DOM API
+                    // Usage: --action-type toggle --value true/false
+                    console.log("[Content] ✅ Executing toggle action on element");
+
+                    const previousState = element.checked;
+                    const desiredState = params.value === true || params.value === 'true' || params.value === '1';
+
+                    console.log(`[Content] ✅ Toggle: current=${previousState}, desired=${desiredState}`);
+
+                    if (previousState !== desiredState) {
+                        // Set the state directly via DOM API
+                        element.checked = desiredState;
+                        // Dispatch events to trigger listeners (React, Vue, vanilla JS)
+                        element.dispatchEvent(new Event('change', { bubbles: true }));
+                        element.dispatchEvent(new Event('input', { bubbles: true }));
+                        console.log(`[Content] ✅ Toggle: state changed to ${desiredState}`);
+                    } else {
+                        console.log(`[Content] ✅ Toggle: already in desired state`);
+                    }
+
+                    result = {
+                        success: true,
+                        action: 'toggle',
+                        elementId: actionId,
+                        message: `Toggled to ${element.checked}`,
+                        previousState: previousState,
+                        currentState: element.checked,
+                        changed: previousState !== element.checked
                     };
                     break;
 
@@ -8844,6 +9034,41 @@
 
                 case 'setValue': {
                     const valueToSet = params && params.value != null ? String(params.value) : '';
+
+                    // Check site config inputPatterns for special handling (click-to-reveal, custom submit)
+                    const activeConfig = siteConfig || window.currentSiteConfig;
+                    let matchedInputPattern = null;
+                    if (activeConfig && activeConfig.inputPatterns && element) {
+                        for (const [patternName, pattern] of Object.entries(activeConfig.inputPatterns)) {
+                            try {
+                                // Match by: element is inside the pattern's container
+                                const inContainer = pattern.container && element.closest(pattern.container);
+                                // Or: element matches the placeholder selector
+                                const isPlaceholder = pattern.placeholder && element.matches(pattern.placeholder);
+
+                                if (inContainer || isPlaceholder) {
+                                    console.log(`[Content] 🎯 inputPattern matched: ${patternName}`);
+                                    matchedInputPattern = pattern;
+
+                                    // Handle click-to-reveal if this is a placeholder
+                                    if (isPlaceholder && pattern.clickToReveal && pattern.realInput) {
+                                        console.log('[Content] 🔄 Click-to-reveal: clicking placeholder');
+                                        element.click();
+
+                                        const container = element.closest(pattern.container) || document;
+                                        const realInput = container.querySelector(pattern.realInput);
+                                        if (realInput && realInput !== element) {
+                                            console.log(`[Content] ✅ Found revealed input: ${realInput.tagName}#${realInput.id || ''}`);
+                                            element = realInput;
+                                        }
+                                    }
+                                    break;
+                                }
+                            } catch (e) {
+                                console.log(`[Content] ⚠️ inputPattern check failed: ${e.message}`);
+                            }
+                        }
+                    }
 
                     // If the primary element is hidden or has no dimensions, try visible-first fallbacks
                     const visibleCheck = (typeof isElementVisible === 'function') ? isElementVisible(element) : true;
@@ -9345,6 +9570,29 @@
                                 if (shouldLookForSubmitButton && params && params.submit) {
                                     const buttonPollDelay = hasAutocomplete ? 500 : 200;
                                     setTimeout(() => {
+                                        // 🎯 Check inputPattern submitSelector first (site-specific submit button)
+                                        if (matchedInputPattern && matchedInputPattern.submitSelector) {
+                                            const patternSelectors = matchedInputPattern.submitSelector.split(',').map(s => s.trim());
+                                            for (const sel of patternSelectors) {
+                                                try {
+                                                    const btn = document.querySelector(sel);
+                                                    if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
+                                                        console.log(`[Content] ✅ Found submit button via inputPattern: ${sel}`);
+                                                        btn.click();
+                                                        // Route scan request through service worker after submit
+                                                        console.log('[Content] 🔄 Requesting rescan via SW after inputPattern submit');
+                                                        chrome.runtime.sendMessage({
+                                                            type: 'request_scan',
+                                                            url: window.location.href,
+                                                            trigger: 'inputPattern_submit'
+                                                        });
+                                                        return;
+                                                    }
+                                                } catch (e) { /* selector failed, try next */ }
+                                            }
+                                            console.log('[Content] ⚠️ inputPattern submitSelector not found, trying generic');
+                                        }
+
                                         // 🎯 GENERIC: Search in form, parent container, or document
                                         const formForButtonSearch = element.closest('form');
                                         const parentContainer = element.closest('[role="dialog"], [role="region"], div[class*="composer"], div[class*="comment"], div[class*="message"]') || formForButtonSearch;
