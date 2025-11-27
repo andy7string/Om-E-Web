@@ -11726,29 +11726,41 @@
     function injectHUDStyles(shadow) {
         const style = document.createElement('style');
         style.textContent = `
+            /* 🐰 OM-E Bunny */
             .ome-orb {
                 position: fixed;
                 bottom: 24px;
                 right: 24px;
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-                box-shadow: 0 4px 12px rgba(99,102,241,0.4), 0 0 0 2px rgba(255,255,255,0.1) inset;
-                cursor: grab;
+                width: 52px;
+                height: 64px;
+                background: transparent;
+                cursor: pointer;
                 z-index: 2147483646;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 user-select: none;
                 touch-action: none;
-                transition: transform 0.15s ease, box-shadow 0.15s ease;
+                transition: transform 0.15s ease, filter 0.15s ease;
+                filter: drop-shadow(0 0 8px rgba(167,139,250,0.4));
             }
-            .ome-orb:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(99,102,241,0.5), 0 0 0 2px rgba(255,255,255,0.2) inset; }
-            .ome-orb:active, .ome-orb.dragging { cursor: grabbing; transform: scale(0.95); }
-            .ome-orb-icon { width: 24px; height: 24px; animation: ome-rotate 8s linear infinite; }
-            @keyframes ome-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-            .ome-orb:hover .ome-orb-icon { animation-play-state: paused; }
+            .ome-orb:hover { transform: scale(1.1); filter: drop-shadow(0 0 12px rgba(167,139,250,0.6)); }
+            .ome-orb.holding { cursor: none; }
+            .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateY(0); }
+            .ome-bunny { width: 100%; height: 100%; }
+            .ome-bunny-paws {
+                position: absolute;
+                bottom: -8px;
+                left: 50%;
+                transform: translateX(-50%) translateY(8px);
+                opacity: 0;
+                transition: opacity 0.2s ease, transform 0.2s ease;
+                pointer-events: none;
+            }
+            @keyframes ome-bunny-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+            .ome-orb:not(.holding) { animation: ome-bunny-float 2s ease-in-out infinite; }
+            @keyframes ome-bunny-wiggle { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+            .ome-orb.holding { animation: ome-bunny-wiggle 0.3s ease-in-out infinite; }
 
             .ome-hud {
                 position: fixed;
@@ -11798,34 +11810,87 @@
     function createOrb(shadow) {
         const orb = document.createElement('div');
         orb.className = 'ome-orb';
-        orb.innerHTML = `<svg class="ome-orb-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>`;
+        // 🐰 Bunny face outline with soft glow
+        orb.innerHTML = `
+            <svg class="ome-bunny" viewBox="0 0 52 64" fill="none" stroke="rgba(167,139,250,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Ears (clickable) -->
+                <ellipse class="ome-ear" cx="18" cy="16" rx="6" ry="14" fill="rgba(0,0,0,0.01)" style="cursor:pointer"/>
+                <ellipse class="ome-ear" cx="34" cy="16" rx="6" ry="14" fill="rgba(0,0,0,0.01)" style="cursor:pointer"/>
+                <!-- Inner ears -->
+                <ellipse cx="18" cy="16" rx="3" ry="9" stroke="rgba(251,207,232,0.6)" style="pointer-events:none"/>
+                <ellipse cx="34" cy="16" rx="3" ry="9" stroke="rgba(251,207,232,0.6)" style="pointer-events:none"/>
+                <!-- Head -->
+                <ellipse cx="26" cy="42" rx="18" ry="16"/>
+                <!-- Eyes -->
+                <circle cx="20" cy="40" r="2.5" fill="rgba(167,139,250,0.8)" stroke="none"/>
+                <circle cx="32" cy="40" r="2.5" fill="rgba(167,139,250,0.8)" stroke="none"/>
+                <circle cx="21" cy="39" r="1" fill="white" stroke="none"/>
+                <circle cx="33" cy="39" r="1" fill="white" stroke="none"/>
+                <!-- Nose -->
+                <ellipse cx="26" cy="47" rx="2.5" ry="2" fill="rgba(251,207,232,0.7)" stroke="none"/>
+                <!-- Mouth -->
+                <path d="M26 49 Q23 52 21 50" stroke="rgba(167,139,250,0.6)"/>
+                <path d="M26 49 Q29 52 31 50" stroke="rgba(167,139,250,0.6)"/>
+                <!-- Whiskers -->
+                <path d="M14 45 L8 43" stroke="rgba(167,139,250,0.4)"/>
+                <path d="M14 47 L8 48" stroke="rgba(167,139,250,0.4)"/>
+                <path d="M38 45 L44 43" stroke="rgba(167,139,250,0.4)"/>
+                <path d="M38 47 L44 48" stroke="rgba(167,139,250,0.4)"/>
+            </svg>
+            <!-- Paws that appear when holding -->
+            <svg class="ome-bunny-paws" width="32" height="16" viewBox="0 0 32 16" fill="none" stroke="rgba(167,139,250,0.9)" stroke-width="2">
+                <ellipse cx="8" cy="8" rx="6" ry="5"/>
+                <ellipse cx="24" cy="8" rx="6" ry="5"/>
+                <circle cx="5" cy="5" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
+                <circle cx="8" cy="3" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
+                <circle cx="11" cy="5" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
+                <circle cx="21" cy="5" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
+                <circle cx="24" cy="3" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
+                <circle cx="27" cy="5" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
+            </svg>
+        `;
 
-        orb.addEventListener('click', () => { if (!hudState.dragging) toggleHUD(); });
+        // 🐰 Ear click opens HUD
+        orb.querySelectorAll('.ome-ear').forEach(ear => {
+            ear.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleHUD();
+            });
+        });
 
-        let startX = 0, startY = 0, startLeft = 0, startTop = 0;
-        orb.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            hudState.dragging = false;
-            startX = e.clientX; startY = e.clientY;
-            const rect = orb.getBoundingClientRect();
-            startLeft = rect.left; startTop = rect.top;
-            orb.classList.add('dragging');
+        // 🐰 Track holding state
+        let isHolding = false;
+        let followHandler = null;
 
-            const onMove = (e) => {
-                const dx = e.clientX - startX, dy = e.clientY - startY;
-                if (Math.abs(dx) > 5 || Math.abs(dy) > 5) hudState.dragging = true;
-                orb.style.right = 'auto'; orb.style.bottom = 'auto';
-                orb.style.left = `${Math.max(0, Math.min(window.innerWidth - 48, startLeft + dx))}px`;
-                orb.style.top = `${Math.max(0, Math.min(window.innerHeight - 48, startTop + dy))}px`;
-            };
-            const onUp = () => {
-                orb.classList.remove('dragging');
-                document.removeEventListener('mousemove', onMove);
-                document.removeEventListener('mouseup', onUp);
-                setTimeout(() => { hudState.dragging = false; }, 50);
-            };
-            document.addEventListener('mousemove', onMove);
-            document.addEventListener('mouseup', onUp);
+        orb.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (isHolding) {
+                // Release bunny - stay in place
+                isHolding = false;
+                orb.classList.remove('holding');
+                document.removeEventListener('mousemove', followHandler);
+            } else {
+                // Bunny grabs cursor!
+                isHolding = true;
+                orb.classList.add('holding');
+                followHandler = (e) => {
+                    orb.style.right = 'auto'; orb.style.bottom = 'auto';
+                    orb.style.left = `${e.clientX - 26}px`;
+                    orb.style.top = `${e.clientY - 32}px`;
+                };
+                document.addEventListener('mousemove', followHandler);
+            }
+        });
+
+        // Double-click to open HUD
+        orb.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
+            if (isHolding) {
+                isHolding = false;
+                orb.classList.remove('holding');
+                document.removeEventListener('mousemove', followHandler);
+            }
+            toggleHUD();
         });
 
         shadow.appendChild(orb);
