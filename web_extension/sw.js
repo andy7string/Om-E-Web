@@ -967,6 +967,19 @@ function handleServerMessage(messageData) {
                 case "navigate":
                     handleNavigateCommand(message);
                     break;
+                // 🗂️ TAB CONTROL: Browser tab management commands
+                case "switchTab":
+                    handleSwitchTabCommand(message);
+                    break;
+                case "openTab":
+                    handleOpenTabCommand(message);
+                    break;
+                case "closeTab":
+                    handleCloseTabCommand(message);
+                    break;
+                case "updateTabUrl":
+                    handleUpdateTabUrlCommand(message);
+                    break;
                 case "waitFor":
                 case "getText":
                 case "click":
@@ -1128,6 +1141,181 @@ async function handleNavigateCommand(message) {
     } catch (error) {
         console.error("[SW] Navigation failed:", error);
         sendErrorResponse(message.id, "NAVIGATION_ERROR", error.message);
+    }
+}
+
+// ============================================================================
+// 🗂️ TAB CONTROL HANDLERS - Browser tab management via chrome.tabs API
+// ============================================================================
+
+/**
+ * 🗂️ Handle switch tab command
+ *
+ * Switches to a specific tab by ID, making it the active tab.
+ * Uses chrome.tabs.update() to activate the tab.
+ *
+ * @param {Object} message - Command message with tabId in params
+ */
+async function handleSwitchTabCommand(message) {
+    try {
+        const { tabId } = message.params || {};
+        console.log("[SW] 🗂️ Executing switchTab command with params:", message.params);
+
+        if (!tabId) {
+            sendErrorResponse(message.id, "MISSING_PARAM", "tabId is required for switchTab");
+            return;
+        }
+
+        // Activate the specified tab
+        await chrome.tabs.update(parseInt(tabId), { active: true });
+        console.log("[SW] 🗂️ Switched to tab:", tabId);
+
+        // Get the tab info to return
+        const tab = await chrome.tabs.get(parseInt(tabId));
+
+        // Send updated tab info to server
+        await sendActiveTabInfo();
+        await sendTabsInfo();
+
+        // Send success response
+        sendSuccessResponse(message.id, {
+            tabId: tab.id,
+            url: tab.url,
+            title: tab.title,
+            active: tab.active
+        });
+
+    } catch (error) {
+        console.error("[SW] 🗂️ Switch tab failed:", error);
+        sendErrorResponse(message.id, "SWITCH_TAB_ERROR", error.message);
+    }
+}
+
+/**
+ * 🗂️ Handle open tab command
+ *
+ * Opens a new browser tab with an optional URL.
+ * Uses chrome.tabs.create() to create the new tab.
+ *
+ * @param {Object} message - Command message with optional url in params
+ */
+async function handleOpenTabCommand(message) {
+    try {
+        const { url } = message.params || {};
+        console.log("[SW] 🗂️ Executing openTab command with params:", message.params);
+
+        // Create new tab (with URL if provided)
+        const createOptions = {};
+        if (url) {
+            createOptions.url = url;
+        }
+
+        const newTab = await chrome.tabs.create(createOptions);
+        console.log("[SW] 🗂️ Opened new tab:", newTab.id, "url:", newTab.url || "new tab page");
+
+        // Send updated tab info to server
+        await sendActiveTabInfo();
+        await sendTabsInfo();
+
+        // Send success response
+        sendSuccessResponse(message.id, {
+            tabId: newTab.id,
+            url: newTab.url,
+            title: newTab.title,
+            active: newTab.active
+        });
+
+    } catch (error) {
+        console.error("[SW] 🗂️ Open tab failed:", error);
+        sendErrorResponse(message.id, "OPEN_TAB_ERROR", error.message);
+    }
+}
+
+/**
+ * 🗂️ Handle close tab command
+ *
+ * Closes a specific tab by ID.
+ * Uses chrome.tabs.remove() to close the tab.
+ *
+ * @param {Object} message - Command message with tabId in params
+ */
+async function handleCloseTabCommand(message) {
+    try {
+        const { tabId } = message.params || {};
+        console.log("[SW] 🗂️ Executing closeTab command with params:", message.params);
+
+        if (!tabId) {
+            sendErrorResponse(message.id, "MISSING_PARAM", "tabId is required for closeTab");
+            return;
+        }
+
+        // Close the specified tab
+        await chrome.tabs.remove(parseInt(tabId));
+        console.log("[SW] 🗂️ Closed tab:", tabId);
+
+        // Send updated tab info to server
+        await sendActiveTabInfo();
+        await sendTabsInfo();
+
+        // Send success response
+        sendSuccessResponse(message.id, {
+            closedTabId: parseInt(tabId),
+            message: `Tab ${tabId} closed successfully`
+        });
+
+    } catch (error) {
+        console.error("[SW] 🗂️ Close tab failed:", error);
+        sendErrorResponse(message.id, "CLOSE_TAB_ERROR", error.message);
+    }
+}
+
+/**
+ * 🗂️ Handle update tab URL command
+ *
+ * Navigates a specific tab to a new URL.
+ * Uses chrome.tabs.update() to change the URL.
+ *
+ * @param {Object} message - Command message with tabId and url in params
+ */
+async function handleUpdateTabUrlCommand(message) {
+    try {
+        const { tabId, url } = message.params || {};
+        console.log("[SW] 🗂️ Executing updateTabUrl command with params:", message.params);
+
+        if (!tabId) {
+            sendErrorResponse(message.id, "MISSING_PARAM", "tabId is required for updateTabUrl");
+            return;
+        }
+        if (!url) {
+            sendErrorResponse(message.id, "MISSING_PARAM", "url is required for updateTabUrl");
+            return;
+        }
+
+        // Update the tab's URL
+        await chrome.tabs.update(parseInt(tabId), { url: url });
+        console.log("[SW] 🗂️ Updated tab:", tabId, "to URL:", url);
+
+        // Clear cache for this tab
+        clearTabCache(parseInt(tabId));
+
+        // Get the updated tab info
+        const tab = await chrome.tabs.get(parseInt(tabId));
+
+        // Send updated tab info to server
+        await sendActiveTabInfo();
+        await sendTabsInfo();
+
+        // Send success response
+        sendSuccessResponse(message.id, {
+            tabId: tab.id,
+            url: tab.url,
+            title: tab.title,
+            active: tab.active
+        });
+
+    } catch (error) {
+        console.error("[SW] 🗂️ Update tab URL failed:", error);
+        sendErrorResponse(message.id, "UPDATE_TAB_URL_ERROR", error.message);
     }
 }
 
@@ -1737,42 +1925,127 @@ async function handleExecuteLLMAction(message, sendResponse) {
 }
 
 /**
- * 🎯 PREMIUM: Handle capability execution
- * Forwards capability commands to the active tab's content script
+ * 🎯 PREMIUM: Handle capability execution with smart dispatcher
+ *
+ * Routes capabilities to appropriate handlers:
+ * - Tab capabilities (SwitchTab, OpenTab, etc.) → Service worker handlers (chrome.tabs API)
+ * - DOM capabilities (RetrieveTranscript, etc.) → Content script (page-level operations)
  */
 async function handleExecuteCapability(message) {
     try {
         console.log("[SW] 🎯 Executing capability:", message);
 
-        const { action, params } = message;
+        const { id, action, params } = message;
+        const requestId = id || `cap_${action}_${Date.now()}`;
 
-        // Find the active tab
-        const activeTab = await findActiveTab();
-        if (!activeTab) {
-            console.error("[SW] ❌ No active tab found for capability execution");
+        // 🗂️ SMART DISPATCHER: Check if this is a tab manipulation capability
+        const tabCapabilities = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL'];
+
+        if (tabCapabilities.includes(action)) {
+            // Route to service worker handlers (browser-level operations)
+            console.log("[SW] 🗂️ Routing to tab capability handler:", action, "requestId:", requestId);
+            await handleTabCapability(action, params || {}, requestId);
             return;
         }
 
-        // Forward capability message to content script
-        const capabilityMessage = {
-            type: "execute_capability",
-            action: action,
-            params: params || {}
-        };
+        // 🎯 DOM CAPABILITY: Route to content script (page-level operations)
+        console.log("[SW] 🎯 Routing to DOM capability handler:", action, "requestId:", requestId);
+        await handleDOMCapability(action, params || {}, requestId);
 
-        console.log("[SW] 📨 Forwarding capability to content script:", capabilityMessage);
+    } catch (error) {
+        console.error("[SW] ❌ Error executing capability:", error);
+    }
+}
 
+/**
+ * 🗂️ Handle tab manipulation capabilities
+ *
+ * Adapts capability format to existing tab command handlers.
+ * Tab operations use chrome.tabs API and don't require content script.
+ *
+ * @param {string} action - Capability action name (SwitchTab, OpenTab, etc.)
+ * @param {Object} params - Parameters (tabId, url, etc.)
+ * @param {string} requestId - Request ID for response matching
+ */
+async function handleTabCapability(action, params, requestId) {
+    console.log("[SW] 🗂️ Handling tab capability:", action, "params:", params, "requestId:", requestId);
+
+    // Create a message in the format expected by tab handlers
+    // Use the passed requestId so responses can be matched by the server
+    const adaptedMessage = {
+        id: requestId,
+        params: params
+    };
+
+    try {
+        switch (action) {
+            case 'SwitchTab':
+                await handleSwitchTabCommand(adaptedMessage);
+                break;
+            case 'OpenTab':
+                await handleOpenTabCommand(adaptedMessage);
+                break;
+            case 'CloseTab':
+                await handleCloseTabCommand(adaptedMessage);
+                break;
+            case 'UpdateTabURL':
+                await handleUpdateTabUrlCommand(adaptedMessage);
+                break;
+            default:
+                console.error("[SW] 🗂️ Unknown tab capability:", action);
+                sendErrorResponse(requestId, "UNKNOWN_TAB_ACTION", `Unknown tab capability: ${action}`);
+        }
+    } catch (error) {
+        console.error("[SW] 🗂️ Tab capability execution failed:", error);
+        sendErrorResponse(requestId, "TAB_CAPABILITY_ERROR", error.message);
+    }
+}
+
+/**
+ * 🎯 Handle DOM-based capabilities
+ *
+ * Forwards capability commands to the active tab's content script.
+ * Used for page-level operations like RetrieveTranscript, TogglePlayPause, etc.
+ *
+ * @param {string} action - Capability action name
+ * @param {Object} params - Parameters for the capability
+ * @param {string} requestId - Request ID for response matching
+ */
+async function handleDOMCapability(action, params, requestId) {
+    console.log("[SW] 🎯 Handling DOM capability:", action, "params:", params, "requestId:", requestId);
+
+    // Find the active tab
+    const activeTab = await findActiveTab();
+    if (!activeTab) {
+        console.error("[SW] ❌ No active tab found for DOM capability execution");
+        sendErrorResponse(requestId, "NO_ACTIVE_TAB", "No active tab found for DOM capability execution");
+        return;
+    }
+
+    // Forward capability message to content script
+    const capabilityMessage = {
+        type: "execute_capability",
+        action: action,
+        params: params || {}
+    };
+
+    console.log("[SW] 📨 Forwarding capability to content script:", capabilityMessage);
+
+    try {
         // Send to content script
         const response = await chrome.tabs.sendMessage(activeTab.id, capabilityMessage);
 
         if (response && response.ok) {
-            console.log("[SW] ✅ Capability executed successfully:", action);
+            console.log("[SW] ✅ DOM capability executed successfully:", action);
+            // Send success response back to server with the request ID
+            sendSuccessResponse(requestId, response.result || { action: action, status: "completed" });
         } else {
-            console.error("[SW] ❌ Capability execution failed:", response?.error);
+            console.error("[SW] ❌ DOM capability execution failed:", response?.error);
+            sendErrorResponse(requestId, "DOM_CAPABILITY_FAILED", response?.error || "DOM capability execution failed");
         }
-
     } catch (error) {
-        console.error("[SW] ❌ Error executing capability:", error);
+        console.error("[SW] ❌ Error sending to content script:", error);
+        sendErrorResponse(requestId, "CONTENT_SCRIPT_ERROR", error.message);
     }
 }
 

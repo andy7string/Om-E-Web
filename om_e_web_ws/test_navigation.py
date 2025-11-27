@@ -12,6 +12,12 @@ Usage examples:
       python test_navigation.py --command capability --capability SearchYouTube --value "Tesla" --no-submit
       python test_navigation.py --command capability --capability SearchYouTube --value "claude" --submit
 
+  🗂️ TAB CONTROL: Browser tab management (use tab IDs from text.md Tabs line)
+      python test_navigation.py --command capability --capability SwitchTab --params '{"tabId": 1138024345}'
+      python test_navigation.py --command capability --capability OpenTab --params '{"url": "https://chatgpt.com"}'
+      python test_navigation.py --command capability --capability CloseTab --params '{"tabId": 1138024288}'
+      python test_navigation.py --command capability --capability UpdateTabURL --params '{"tabId": 1138024288, "url": "https://example.com"}'
+
   🔗 NAVIGATE: Click links
       python test_navigation.py --command navigate --action-id a_id_0
 
@@ -30,12 +36,13 @@ Usage examples:
       #   ↳ Check text.md for: <Radio id="a_id_X" selected="false" use="(a_id_X, toggle, true)">
 
   🎚️ SLIDER: Set range value
-      python test_navigation.py --command llm --action-id a_id_7 --action-type setValue --value "50"
+      python test_navigation.py --command llm --action-id a_id_49 --action-type setValue --value "this is homie ome extension brother"
       #   ↳ Sets slider to value (check min/max in text.md)
       #   ↳ Check text.md for: <Slider id="a_id_X" value="0" min="0" max="100" use="(a_id_X, setValue, number)">
 
   📝 INPUT: Type into text fields
-      python test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "my text" --submit
+      python test_navigation.py --command llm --action-id a_id_62 --action-type setValue --value "we just got additional capabilitites to view and control tabs bro look at our file, Andrew is making this wor
+k for us" --submit
       python test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "just text" --no-submit
       #   ↳ Check text.md for: <Input id="a_id_X" use="(a_id_X, 'your text', submit:true)">
 
@@ -46,12 +53,19 @@ Usage examples:
   🤖 LLM AUTO: Let extension auto-detect action type
       python test_navigation.py --command llm --action-id a_id_133
 
-  📜 SCROLL: Page-by-page viewport scrolling
+  📜 SCROLL: Page-by-page viewport scrolling (two methods)
+      # Method 1: Using --command scroll
       python test_navigation.py --command scroll                    # scroll down (default)
       python test_navigation.py --command scroll --direction down   # scroll down one page
       python test_navigation.py --command scroll --direction up     # scroll up one page
       python test_navigation.py --command scroll --direction top    # scroll to top
       python test_navigation.py --command scroll --direction bottom # scroll to bottom
+
+      # Method 2: Using capability (same as other capabilities)
+      python test_navigation.py --command capability --capability ScrollDown
+      python test_navigation.py --command capability --capability ScrollUp
+      python test_navigation.py --command capability --capability ScrollTop
+      python test_navigation.py --command capability --capability ScrollBottom
 """
 
 import asyncio
@@ -242,6 +256,8 @@ async def main():
     parser.add_argument("--capability", dest="capability", required=False, help="Capability action name (e.g., RetrieveTranscript)")
     parser.add_argument("--direction", dest="direction", choices=["down", "up", "top", "bottom"], default="down",
                         help="Scroll direction: down (default), up, top, bottom")
+    parser.add_argument("--params", dest="params_json", required=False,
+                        help="JSON string of parameters (e.g., '{\"tabId\": 123, \"url\": \"https://example.com\"}')")
 
     # -------- cheat sheet ----------------------------------------------------
     # --command llm (default):
@@ -287,6 +303,23 @@ async def main():
         return
 
     params = {}
+
+    # 🆕 NEW: Parse --params JSON if provided
+    if args.params_json:
+        try:
+            parsed_params = json.loads(args.params_json)
+            if isinstance(parsed_params, dict):
+                params.update(parsed_params)
+                print(f"📋 Parsed --params: {parsed_params}")
+            else:
+                print(f"❌ Error: --params must be a JSON object, got: {type(parsed_params).__name__}")
+                return
+        except json.JSONDecodeError as e:
+            print(f"❌ Error: Invalid JSON in --params: {e}")
+            print(f"   Received: {args.params_json}")
+            return
+
+    # Merge --value and --submit flags (these override --params if both provided)
     if args.value is not None:
         params["value"] = args.value
         # Only include submit flag when value provided or explicitly requested

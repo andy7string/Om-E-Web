@@ -3168,6 +3168,46 @@ async def handler(ws):
                                     f.write(f"**URL:** {page_url}\n")
                                     f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
 
+                                    # 🗂️ BROWSER TABS: Compact tab info for LLM context
+                                    if CURRENT_TABS_INFO:
+                                        total_tabs = len(CURRENT_TABS_INFO)
+                                        active_tab = CURRENT_ACTIVE_TAB or {}
+
+                                        # Format active tab info
+                                        active_id = active_tab.get('id', '?')
+                                        active_title = active_tab.get('title', 'Unknown')[:30]
+                                        active_url = active_tab.get('url', '')
+                                        active_status = active_tab.get('status', 'unknown')
+
+                                        # Extract domain from URL
+                                        try:
+                                            active_domain = urlparse(active_url).hostname or 'unknown'
+                                        except:
+                                            active_domain = 'unknown'
+
+                                        # Build compact tab line
+                                        tab_parts = [f"**Tabs ({total_tabs}):** Active: #{active_id} \"{active_title}\" {active_domain} [{active_status}]"]
+
+                                        # Add other tabs (non-active)
+                                        other_tabs = [t for t in CURRENT_TABS_INFO if not t.get('active', False)]
+                                        if other_tabs:
+                                            other_strs = []
+                                            for t in other_tabs[:3]:  # Limit to 3 other tabs
+                                                t_id = t.get('id', '?')
+                                                t_title = t.get('title', 'Unknown')[:20]
+                                                t_url = t.get('url', '')
+                                                try:
+                                                    t_domain = urlparse(t_url).hostname or '?'
+                                                except:
+                                                    t_domain = '?'
+                                                other_strs.append(f"#{t_id} \"{t_title}\" {t_domain}")
+                                            if other_strs:
+                                                tab_parts.append(" | Other: " + ", ".join(other_strs))
+                                            if len(other_tabs) > 3:
+                                                tab_parts.append(f" (+{len(other_tabs) - 3} more)")
+
+                                        f.write("".join(tab_parts) + "\n\n")
+
                                     # 🎯 CAPABILITIES SECTION: Show domain-specific + universal actions
                                     # Universal scroll capabilities are automatically included via resolve_capabilities_for_url()
                                     if capabilities:
@@ -3176,7 +3216,12 @@ async def handler(ws):
                                         for cap in capabilities:
                                             f.write(f"**{cap['action']}** - {cap['label']}\n")
                                             f.write(f"  - {cap['description']}\n")
-                                            f.write(f"  - Usage: `python3 test_navigation.py --command capability --capability {cap['action']}`\n\n")
+                                            # Use usage_example if provided, otherwise basic command
+                                            base_cmd = f"python3 test_navigation.py --command capability --capability {cap['action']}"
+                                            if cap.get('usage_example'):
+                                                f.write(f"  - Usage: `{base_cmd} {cap['usage_example']}`\n\n")
+                                            else:
+                                                f.write(f"  - Usage: `{base_cmd}`\n\n")
                                         f.write("---\n\n")
 
                                     f.write("---\n\n")
@@ -3284,26 +3329,32 @@ async def handler(ws):
                             }))
                         continue
 
-                    # Look up capability handler from current page URL
-                    # We need the current URL to resolve which handler to use
-                    # For now, we'll send a generic execute_capability message to extension
-                    # and let it route based on action name
+                    # 🎯 UNIFIED CAPABILITY ROUTING: All capabilities go through execute_capability
+                    # Smart dispatcher in sw.js handles routing:
+                    # - Tab capabilities (SwitchTab, OpenTab, etc.) → service worker handlers
+                    # - DOM capabilities (RetrieveTranscript, etc.) → content script
 
                     if EXTENSION_WS:
+                        # Generate unique request ID for response matching
+                        request_id = f"cap_{action}_{int(time.time() * 1000)}"
+
                         capability_command = {
                             "type": "execute_capability",
+                            "id": request_id,
                             "action": action,
                             "params": params
                         }
-                        await EXTENSION_WS.send(json.dumps(capability_command))
-                        print(f"📤 Sent capability execution to extension: {action}")
 
-                        # For now, send immediate response
-                        # TODO: Wait for extension response in future
-                        await ws.send(json.dumps({
-                            "ok": True,
-                            "message": f"Capability {action} execution initiated"
-                        }))
+                        # Store client for response routing
+                        COMMAND_CLIENTS[request_id] = ws
+                        print(f"📋 Stored client for response routing: {request_id}")
+
+                        await EXTENSION_WS.send(json.dumps(capability_command))
+                        print(f"📤 Sent capability execution to extension: {action} (id: {request_id})")
+
+                        # Response will be routed back via COMMAND_CLIENTS when extension responds
+                        # No immediate response - wait for actual result from extension
+
                     else:
                         await ws.send(json.dumps({
                             "ok": False,
@@ -3909,12 +3960,53 @@ def resolve_capabilities_for_url(url: str) -> list:
                 'command': 'scroll',
                 'params': {'direction': 'bottom'},
                 'domain': 'universal'
+            },
+            # 🗂️ TAB CONTROL CAPABILITIES: Browser tab management
+            {
+                'id': 'switch_tab',
+                'action': 'SwitchTab',
+                'label': 'Switch to a tab by ID',
+                'description': 'Switches to a specific browser tab',
+                'command': 'switchTab',
+                'params': {},
+                'domain': 'universal',
+                'usage_example': "--params '{\"tabId\": TAB_ID}'"
+            },
+            {
+                'id': 'open_tab',
+                'action': 'OpenTab',
+                'label': 'Open a new tab',
+                'description': 'Opens a new browser tab with optional URL',
+                'command': 'openTab',
+                'params': {},
+                'domain': 'universal',
+                'usage_example': "--params '{\"url\": \"https://example.com\"}'"
+            },
+            {
+                'id': 'close_tab',
+                'action': 'CloseTab',
+                'label': 'Close a tab by ID',
+                'description': 'Closes a specific browser tab',
+                'command': 'closeTab',
+                'params': {},
+                'domain': 'universal',
+                'usage_example': "--params '{\"tabId\": TAB_ID}'"
+            },
+            {
+                'id': 'update_tab_url',
+                'action': 'UpdateTabURL',
+                'label': 'Navigate a tab to a URL',
+                'description': 'Updates a tab to navigate to a new URL',
+                'command': 'updateTabUrl',
+                'params': {},
+                'domain': 'universal',
+                'usage_example': "--params '{\"tabId\": TAB_ID, \"url\": \"https://example.com\"}'"
             }
         ]
 
         # Append universal capabilities
         matching_capabilities.extend(universal_capabilities)
-        print(f"📜 Added {len(universal_capabilities)} universal scroll capabilities")
+        print(f"📜 Added {len(universal_capabilities)} universal capabilities (scroll + tab control)")
 
         return matching_capabilities
 

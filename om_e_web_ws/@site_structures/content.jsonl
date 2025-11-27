@@ -1,42 +1,28 @@
 {
-  "timestamp": 1764164306.538791,
+  "timestamp": 1764244953.530577,
   "browser_state": {
-    "total_tabs": 3,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138024047,
-      "url": "https://chatgpt.com/c/6926fce1-d1f8-8321-824a-9b003ae211c2",
-      "title": "Nailing it extension",
+      "id": 1138024349,
+      "url": "https://www.youtube.com/watch?v=GLU1C_cIsgY",
+      "title": "(1) Trump Just Sold Americans Out to Big A.I. - YouTube",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138024047,
-        "url": "https://chatgpt.com/c/6926fce1-d1f8-8321-824a-9b003ae211c2",
-        "title": "Nailing it extension",
+        "id": 1138024349,
+        "url": "https://www.youtube.com/watch?v=GLU1C_cIsgY",
+        "title": "(1) Trump Just Sold Americans Out to Big A.I. - YouTube",
         "active": true,
-        "status": "complete"
-      },
-      {
-        "id": 1138024052,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138024053,
-        "url": "https://brighttreedigital.com.au/",
-        "title": "Local Web Design Adelaide | Bright Tree Digital",
-        "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 61067.381933666,
+    "last_tabs_update": 11814.73394475,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/c/6926fce1-d1f8-8321-824a-9b003ae211c2",
-    "title": "Nailing it extension",
+    "url": "https://www.youtube.com/watch?v=GLU1C_cIsgY",
+    "title": "(1) Trump Just Sold Americans Out to Big A.I. - YouTube",
     "is_active_tab": true
   },
   "content_structure": {},
