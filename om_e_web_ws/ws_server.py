@@ -4001,12 +4001,40 @@ def resolve_capabilities_for_url(url: str) -> list:
                 'params': {},
                 'domain': 'universal',
                 'usage_example': "--params '{\"tabId\": TAB_ID, \"url\": \"https://example.com\"}'"
+            },
+            # 🔍 ZOOM CAPABILITIES: Browser zoom control (15% increments)
+            {
+                'id': 'zoom_in',
+                'action': 'ZoomIn',
+                'label': 'Zoom in 15%',
+                'description': 'Increases page zoom by 15%',
+                'command': 'zoomIn',
+                'params': {},
+                'domain': 'universal'
+            },
+            {
+                'id': 'zoom_out',
+                'action': 'ZoomOut',
+                'label': 'Zoom out 15%',
+                'description': 'Decreases page zoom by 15%',
+                'command': 'zoomOut',
+                'params': {},
+                'domain': 'universal'
+            },
+            {
+                'id': 'zoom_reset',
+                'action': 'ZoomReset',
+                'label': 'Reset zoom to 100%',
+                'description': 'Resets page zoom to default (100%)',
+                'command': 'zoomReset',
+                'params': {},
+                'domain': 'universal'
             }
         ]
 
         # Append universal capabilities
         matching_capabilities.extend(universal_capabilities)
-        print(f"📜 Added {len(universal_capabilities)} universal capabilities (scroll + tab control)")
+        print(f"📜 Added {len(universal_capabilities)} universal capabilities (scroll + tab + zoom)")
 
         return matching_capabilities
 

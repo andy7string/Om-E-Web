@@ -1,861 +1,1055 @@
-# WebSocket Server (ws_server.py) - Function Documentation
+# WebSocket Server Documentation (ws_server.py)
 
 ## Overview
 
-The WebSocket server (`ws_server.py`) is the central communication hub for the Om_E_Web system. It acts as a bridge between the Chrome extension (content script + service worker) and external clients (test scripts, LLMs, or automation tools). The server handles:
+The WebSocket server (`ws_server.py`) is the central hub of the Om_E_Web system, acting as a bridge between test clients, the Chrome extension, and the file system. It runs on port **17892** and manages:
 
-- Real-time bidirectional WebSocket communication
-- Message routing between extension and clients
-- Artifact generation (JSONL files, markdown files)
-- Intelligence data processing and storage
-- Transcript management with deduplication
-- Site configuration management
-- Element classification and filtering
-
-**Port:** 17892
-**Protocol:** WebSocket (ws://127.0.0.1:17892)
-**Max Message Size:** 64 MiB
-**Heartbeat:** 20 seconds
+- Full round-trip communication between test clients and the Chrome extension
+- Intelligence data processing and artifact generation
+- Real-time page state tracking
+- Capability execution routing
+- Transcript persistence and deduplication
 
 ## Architecture
 
-### Global State Management
-- **CLIENTS**: Set of all connected WebSocket clients
-- **EXTENSION_WS**: Reference to the Chrome extension WebSocket connection
-- **PENDING**: Dict mapping command IDs to futures for async response handling
-- **COMMAND_CLIENTS**: Dict mapping command IDs to originating clients for response routing
-- **CURRENT_TABS_INFO**: Latest tab information from extension
-- **CURRENT_ACTIVE_TAB**: Current active tab metadata
-- **CURRENT_PAGE_DATA**: Latest page intelligence data (actionable elements, page state)
-- **CURRENT_CONTENT_DATA**: Latest page content structure
-- **SITE_CONFIGS**: Loaded site configurations with capabilities
-- **CURRENT_TRANSCRIPTS_INFO**: List of saved transcript references
+### Communication Pattern
 
-### Message Flow
 ```
-External Client → Server → Extension (forward commands)
-Extension → Server → External Client (route responses)
-Extension → Server → File System (persist artifacts)
+Test Client → ws_server.py (port 17892) → Chrome Extension
+                    ↓
+            Artifact Files (@site_structures/)
+                    ↓
+Chrome Extension → ws_server.py → Test Client
 ```
 
-### File Organization
+### Global State Variables
+
+| Variable | Type | Purpose |
+|----------|------|---------|
+| `CLIENTS` | `set` | All connected WebSocket clients |
+| `EXTENSION_WS` | WebSocket | Reference to Chrome extension client |
+| `PENDING` | `dict` | Command ID → Future mapping for async response routing |
+| `COMMAND_CLIENTS` | `dict` | Command ID → Client mapping for response routing |
+| `CURRENT_TABS_INFO` | `list` | Latest tabs information from extension |
+| `LAST_TABS_UPDATE` | `float` | Timestamp of last tabs update |
+| `CURRENT_ACTIVE_TAB` | `dict` | Current active tab information |
+| `CURRENT_PAGE_DATA` | `dict` | Latest page intelligence data |
+| `LAST_PAGE_UPDATE` | `float` | Timestamp of last page update |
+| `CURRENT_CONTENT_DATA` | `dict` | Latest page content data |
+| `LAST_CONTENT_UPDATE` | `float` | Timestamp of last content update |
+| `CURRENT_TRANSCRIPTS_INFO` | `list` | Current transcript references |
+| `SITE_CONFIGS` | `dict` | Loaded site configurations with capabilities |
+
+---
+
+## Core Functions
+
+### Server Lifecycle
+
+#### `async def main()`
+**Purpose:** Entry point - starts WebSocket server and background tasks
+
+**What it does:**
+- Loads site configs via `start_site_config_polling()`
+- Starts WebSocket server on `127.0.0.1:17892`
+- Launches `extension_heartbeat_loop()` to monitor extension health
+- Configures WebSocket with 64 MiB max frame size
+
+**Called by:** `__main__`
+
+---
+
+#### `async def handler(ws)`
+**Purpose:** Main WebSocket connection handler for each client
+
+**What it does:**
+- Adds client to `CLIENTS` set
+- Identifies extension clients (first to connect or sending `bridge_status`)
+- Routes messages between clients based on type
+- Cleans up on disconnect
+
+**Message routing logic:**
+1. Test client sends command → Routes to extension
+2. Extension sends response → Routes back to original test client
+3. Extension sends intelligence_update → Processes and saves artifacts
+4. Extension sends tabs_info → Stores in global state
+
+**Called by:** websockets.serve() for each connection
+
+---
+
+### Message Handling (Inside handler)
+
+The handler processes these message types:
+
+#### 1. **Shortcut Normalization** (Client Sugar)
+Converts shorthand commands to standard message format:
+- `exec_action` → `llm_instruction`
+- `set_value` → `llm_instruction` with setValue
+- `click` → `llm_instruction` with click
+- `navigate_link` → `llm_instruction` with navigate
+- `navigate_url` → `command: navigate`
+
+#### 2. **Heartbeat Messages** (`ping`/`pong`)
+Keeps connections alive and monitors health
+
+#### 3. **Extension Identification** (`bridge_status`)
+Marks client as the extension (stores in `EXTENSION_WS`)
+
+#### 4. **Tab Information** (`tabs_info`)
+Stores tab data in `CURRENT_TABS_INFO` for external access
+
+#### 5. **Active Tab Information** (`active_tab_info`)
+Stores active tab details in `CURRENT_ACTIVE_TAB` and logs to terminal
+
+#### 6. **Intelligence Update** (`intelligence_update`)
+**Most important message type** - processes page intelligence:
+- Extracts actionable elements and page state
+- Saves transcripts via `save_transcripts()`
+- Generates `page.jsonl` via `save_intelligence_to_page_jsonl()`
+- Generates `content.jsonl` via `save_content_to_content_jsonl()`
+- Creates `text.md` from semantic page data
+- Triggers YouTube transcript button hunt if on video page
+
+#### 7. **Capability Execution** (`execute_capability`)
+Routes capability requests:
+- Scroll capabilities → Converts to scroll commands
+- Other capabilities → Forwards to extension with request ID
+- Stores request ID in `COMMAND_CLIENTS` for response routing
+
+#### 8. **Scroll Execution** (`execute_scroll`)
+Handles scroll requests by forwarding to extension
+
+#### 9. **DOM Change Notifications** (`dom_content_changed`)
+Tracks DOM mutations (stores context but doesn't persist to reduce noise)
+
+#### 10. **Network Activity** (`network_activity`)
+Monitors network requests and detects idle state
+
+#### 11. **Text Extraction** (`extractPageText`)
+Forwards text extraction requests to extension
+
+#### 12. **LLM Instructions** (`llm_instruction`)
+Processes LLM action requests and forwards to extension as `execute_llm_action`
+
+#### 13. **Command Forwarding** (`command` with `id`)
+Routes commands from test clients to extension:
+- **Internal commands** handled by server:
+  - `getTabsInfo` → Returns `CURRENT_TABS_INFO`
+  - `getPageData` → Returns `CURRENT_PAGE_DATA`
+  - `getContentData` → Returns `CURRENT_CONTENT_DATA`
+  - `getActiveTab` → Returns `CURRENT_ACTIVE_TAB`
+- **Extension commands** forwarded with client tracking
+
+#### 14. **Response Handling** (messages with `id` and `ok`/`error`)
+Routes responses back to original client:
+1. Checks for text extraction response → Saves to markdown
+2. Checks for pending future in `PENDING` → Resolves future
+3. Checks for tracked client in `COMMAND_CLIENTS` → Routes to client
+4. Fallback: Broadcasts to any test client
+
+---
+
+### Intelligence Processing
+
+#### `async def save_intelligence_to_page_jsonl(intelligence_data, transcript_refs=None)`
+**Purpose:** Generate central `page.jsonl` file with normalized records
+
+**Parameters:**
+- `intelligence_data`: Intelligence update from extension
+- `transcript_refs`: List of transcript file references
+
+**What it does:**
+- Checks for `normalizedRecords` (preferred format)
+- Enriches meta record with browser state and transcript refs
+- Falls back to legacy consolidation if normalized records unavailable
+- Writes JSONL file with one record per line
+- Updates `CURRENT_PAGE_DATA` and `LAST_PAGE_UPDATE`
+
+**Writes to:** `@site_structures/page.jsonl`
+
+**Called by:** `handler()` on intelligence_update
+
+---
+
+#### `async def save_content_to_content_jsonl(intelligence_data, transcript_refs=None)`
+**Purpose:** Generate central `content.jsonl` file with content structure
+
+**Parameters:**
+- `intelligence_data`: Intelligence update from extension
+- `transcript_refs`: List of transcript file references
+
+**What it does:**
+- Extracts `contentElements` from intelligence data
+- Consolidates via `consolidate_content_elements_to_structure()`
+- Enriches with browser state
+- Updates `CURRENT_CONTENT_DATA` and `LAST_CONTENT_UPDATE`
+
+**Writes to:** `@site_structures/content.jsonl`
+
+**Called by:** `handler()` on intelligence_update
+
+---
+
+#### `async def consolidate_actionable_elements_to_menus(actionable_elements)`
+**Purpose:** Legacy function - organizes actionable elements into menu structures
+
+**What it does:**
+- Categorizes elements by type (navigation, toggle, action, content)
+- Builds main navigation structure
+- Returns consolidated menu structure with summary
+
+**Called by:** `save_intelligence_to_page_jsonl()` (legacy fallback)
+
+**Returns:** Dict with menus and summary
+
+---
+
+#### `async def consolidate_content_elements_to_structure(content_elements)`
+**Purpose:** Organize content elements by type (headings, paragraphs, lists, etc.)
+
+**What it does:**
+- Categorizes content by type (heading, paragraph, list, image, table)
+- Processes each category with metadata
+- Returns structured content with summary statistics
+
+**Called by:** `save_content_to_content_jsonl()`
+
+**Returns:** Dict with content_structure and summary
+
+---
+
+### Transcript Management
+
+#### `async def save_transcripts(transcripts, page_state=None)`
+**Purpose:** Persist transcript data to disk with deduplication
+
+**Parameters:**
+- `transcripts`: List of transcript payloads from extension
+- `page_state`: Optional page state for metadata
+
+**What it does:**
+- Loads existing transcript signatures from history
+- Generates signature for each transcript via `_build_transcript_signature()`
+- Skips duplicates based on signature match
+- Creates markdown file with frontmatter and timestamped segments
+- Appends entry to `video_history.jsonl`
+- Updates `CURRENT_TRANSCRIPTS_INFO`
+
+**Writes to:**
+- `@site_structures/transcripts/{date}__{slug}.md`
+- `@site_structures/transcripts/video_history.jsonl`
+
+**Called by:** `handler()` on intelligence_update
+
+**Returns:** List of transcript reference objects
+
+---
+
+#### `def _build_transcript_signature(video_id, segments)`
+**Purpose:** Create stable signature for transcript deduplication
+
+**What it does:**
+- Samples first 3 and last 3 segments
+- Combines video_id, segment count, and sample text
+- Generates SHA256 hash
+
+**Returns:** String like `"{video_id}:{count}:{hash}"`
+
+---
+
+#### `def _collect_existing_transcript_signatures()`
+**Purpose:** Build lookup of known transcript signatures
+
+**What it does:**
+- Reads `video_history.jsonl`
+- Scans existing markdown files for embedded signatures
+- Falls back to generating signatures from file content
+
+**Returns:** Dict mapping signature → video_id
+
+---
+
+#### `def _ensure_video_history_file()`
+**Purpose:** Ensure history file exists
+
+**Called by:** `_append_video_history_entry()`
+
+---
+
+#### `def _load_video_history_entries()`
+**Purpose:** Load historical transcript entries from JSONL
+
+**Returns:** List of history entry dicts
+
+---
+
+#### `def _append_video_history_entry(entry)`
+**Purpose:** Append new transcript entry to history file
+
+**Parameters:**
+- `entry`: Dict with timestamp, video_id, title, segments, file, signature
+
+---
+
+### Text and Markdown Generation
+
+#### `async def save_page_text_to_markdown(text_data)`
+**Purpose:** Save extracted page text to markdown file
+
+**Parameters:**
+- `text_data`: Text extraction result with markdown and statistics
+
+**What it does:**
+- Extracts URL and generates filename from hostname
+- Writes markdown content to file
+- Logs content statistics
+
+**Writes to:** `@site_structures/{hostname}_page_text.md`
+
+**Called by:** `handler()` when processing text extraction response
+
+**Returns:** File path or None
+
+---
+
+#### `def generate_llm_prompt(text_md_path, page_jsonl_path, out_path, max_actions=MAX_ACTIONS)`
+**Purpose:** Generate LLM-friendly prompt from page data (LEGACY - mostly disabled)
+
+**Parameters:**
+- `text_md_path`: Path to text.md file
+- `page_jsonl_path`: Path to page.jsonl file
+- `out_path`: Output path for llm_prompt.md
+- `max_actions`: Maximum actions to include
+
+**What it does:**
+- Reads page.jsonl and extracts action records
+- Applies SPA filtering (prunes stale elements based on pageVersion)
+- Smart categorizes actions (search, transcripts, emails, videos, etc.)
+- Resolves capabilities via `resolve_capabilities_for_url()`
+- Generates organized markdown with sections
+
+**Called by:** Previously called on intelligence_update (now disabled)
+
+**Returns:** Path to generated file or None
+
+---
+
+#### `def _map_prompt_action_sentence(record)`
+**Purpose:** Convert action record to human-readable instruction
+
+**Parameters:**
+- `record`: Action record from page.jsonl
+
+**What it does:**
+- Filters hidden elements (except important ones like inputs, table rows)
+- Formats action instructions based on type:
+  - Input/textarea: `return (a_id_123,{yourValue}) to set value for 'label'`
+  - Links: `return (a_id_123) to navigate to 'label'`
+  - Buttons: `return (a_id_123) to click 'label'`
+  - Table rows: `return (a_id_123) to click 'Email: sender — subject'`
+
+**Called by:** `generate_llm_prompt()`
+
+**Returns:** Formatted instruction string or None
+
+---
+
+#### `def _format_table_row_label(record)`
+**Purpose:** Extract meaningful labels from table rows (e.g., Gmail emails)
+
+**What it does:**
+- Parses comma-separated text content
+- Identifies sender, subject, time, preview
+- Formats as readable label
+
+**Called by:** `_map_prompt_action_sentence()`
+
+**Returns:** Dict with display, sender, subject, time, preview, raw
+
+---
+
+### State Access Functions
+
+#### `def get_current_tabs_info()`
+**Purpose:** External access to latest tab information
+
+**Returns:** Dict with tabs, last_update, extension_connected, total_clients
+
+---
+
+#### `def get_current_page_data()`
+**Purpose:** External access to latest page intelligence
+
+**Returns:** Dict with page_data, last_update, extension_connected, totals
+
+---
+
+#### `def get_current_content_data()`
+**Purpose:** External access to latest page content
+
+**Returns:** Dict with content_data, last_update, totals
+
+---
+
+#### `def get_current_active_tab()`
+**Purpose:** Get current active tab information
+
+**What it does:**
+- Returns `CURRENT_ACTIVE_TAB` if available (preferred)
+- Falls back to searching `CURRENT_TABS_INFO` for active tab
+
+**Returns:** Dict with active_tab details and metadata
+
+---
+
+### Command Sending
+
+#### `async def send_command(command, params=None, timeout=8.0)`
+**Purpose:** Internal function for server-to-extension commands
+
+**Parameters:**
+- `command`: Command name (e.g., "navigate", "click")
+- `params`: Optional parameters dict
+- `timeout`: Response timeout in seconds (default 8.0)
+
+**What it does:**
+- Waits for extension to be identified
+- Generates unique command ID
+- Creates future and stores in `PENDING`
+- Sends command to extension
+- Waits for response via future
+- Cleans up `PENDING` entry
+
+**Used by:** Internal server operations (not test clients)
+
+**Returns:** Response message or raises RuntimeError on timeout
+
+---
+
+### Heartbeat
+
+#### `async def extension_heartbeat_loop()`
+**Purpose:** Periodically ping extension to detect silent disconnections
+
+**What it does:**
+- Sleeps for `SERVER_HEARTBEAT_INTERVAL` (20 seconds)
+- Sends `server_ping` to extension if connected
+- Logs failures
+
+**Called by:** `main()` as background task
+
+---
+
+### Capabilities
+
+#### `def resolve_capabilities_for_url(url)`
+**Purpose:** Resolve available capabilities for given URL
+
+**Parameters:**
+- `url`: Current page URL
+
+**What it does:**
+- Loads site configs via `get_all_site_configs()`
+- Matches URL hostname to site config domain
+- Extracts capabilities that match URL pattern
+- Adds universal scroll capabilities
+- Returns list of capability dicts with action, label, description
+
+**Called by:** `generate_llm_prompt()`, text.md generation in handler
+
+**Returns:** List of capability dicts
+
+---
+
+#### `def get_all_site_configs()`
+**Purpose:** Load site configurations from disk
+
+**What it does:**
+- Loads `site_configs.json` (index mapping domain → config file)
+- Loads individual config files for each domain
+- Caches in `SITE_CONFIGS` global
+
+**Called by:** `resolve_capabilities_for_url()`
+
+**Returns:** Dict mapping domain → config
+
+---
+
+### Utility Functions
+
+#### `def slugify(value)`
+**Purpose:** Create filesystem-friendly slug for filenames
+
+**Parameters:**
+- `value`: String to slugify
+
+**Returns:** Lowercase string with hyphens instead of special characters
+
+---
+
+#### `async def process_actionable_elements_for_llm(actionable_elements)`
+**Purpose:** Process actionable elements into LLM-friendly action mapping (DISABLED)
+
+**What it does:**
+- Creates mapping of action_id → metadata
+- Enriches with page context
+- Saves to `llm_actions.json`
+
+**Called by:** Previously called on intelligence_update (now disabled)
+
+**Returns:** Dict of LLM actions or None
+
+---
+
+#### `async def clear_llm_actions()`
+**Purpose:** Clear LLM actions when no elements available
+
+**What it does:**
+- Creates empty `llm_actions.json` with page context
+- Indicates no actions available
+
+**Called by:** `process_actionable_elements_for_llm()`
+
+**Returns:** File path or None
+
+---
+
+#### `async def store_dom_change_context(dom_change_data)`
+**Purpose:** Store DOM change context for LLM (mostly disabled to reduce noise)
+
+**Parameters:**
+- `dom_change_data`: DOM change notification from extension
+
+**What it does:**
+- Logs significant changes (>5 mutations)
+- Does NOT persist to file (too noisy)
+
+**Called by:** `handler()` on dom_content_changed
+
+---
+
+### Site Map Processing (Legacy)
+
+These functions handle the old site map generation flow (mostly disabled):
+
+#### `def save_site_map_to_jsonl(site_map_data, suffix="")`
+**Purpose:** Save site map to JSONL file (DISABLED)
+
+#### `def process_clean_site_map(raw_file_path)`
+**Purpose:** Process raw site map file into LLM format (DISABLED)
+
+#### `def process_clean_site_map_data(raw_data)`
+**Purpose:** Process raw site map data directly (DISABLED)
+
+#### `def siteStructuredLLMmethodinsidethefile(filepath)`
+**Purpose:** Post-processing optimization (DISABLED)
+
+#### `def classify_element_enhanced(element_data)`
+**Purpose:** Enhanced element classification (DISABLED)
+
+#### `def deduplicate_elements(elements)`
+**Purpose:** Remove duplicate elements (DISABLED)
+
+#### `def filter_non_interactive_elements(elements)`
+**Purpose:** Filter non-interactive elements (DISABLED)
+
+#### `def calculate_element_importance_score(element)`
+**Purpose:** Calculate element importance (DISABLED)
+
+---
+
+## Workflows
+
+### 1. WebSocket Connection Flow
+
 ```
-@site_structures/
-├── page.jsonl              # Current page state with actions (JSONL records)
-├── content.jsonl           # Current page content structure
-├── text.md                 # Human-readable page text with frontmatter
-├── llm_actions.json        # Action ID → metadata mapping for LLM
-├── llm_prompt.md           # Compact prompt with actions (legacy)
-└── transcripts/
-    ├── video_history.jsonl # Historical transcript metadata
-    └── *.md                # Individual transcript files
-```
-
----
-
-## Function Catalog
-
-### get_all_site_configs (Line 54)
-**Type:** sync
-**Purpose:** Load site configuration index and individual domain config files
-**Parameters:** None
-**Returns:** `dict` - Site configurations with capabilities, or empty dict if load fails
-**Called by:** resolve_capabilities_for_url, main (on startup)
-**Calls:** None
-**Description:** Loads `web_extension/site_configs.json` index file, then loads each individual domain config file referenced in the index. Caches loaded configs in `SITE_CONFIGS` global. Returns mapping of domain → config with framework, selectors, and capabilities.
-
----
-
-### slugify (Line 129)
-**Type:** sync
-**Purpose:** Create filesystem-friendly slugs for transcript filenames
-**Parameters:**
-- `value` (str): Input string to slugify
-**Returns:** `str` - Slugified string
-**Called by:** save_transcripts
-**Calls:** None
-**Description:** Converts strings to lowercase, removes special characters, replaces spaces with hyphens, and collapses multiple hyphens. Used for generating safe transcript filenames.
-
----
-
-### consolidate_actionable_elements_to_menus (Line 140)
-**Type:** async
-**Purpose:** Consolidate raw actionable elements into clean menu structure
-**Parameters:**
-- `actionable_elements` (list): Raw actionable elements from extension
-**Returns:** `dict` - Clean menu structure with consolidated menus and summary
-**Called by:** save_intelligence_to_page_jsonl (legacy fallback path)
-**Calls:** None
-**Description:** Categorizes elements by type (navigation, toggle, action, content), builds main navigation menu with items and toggles. Returns structured menu data with summary statistics. **NOTE:** This is legacy code used only when normalized records are not available.
-
----
-
-### consolidate_content_elements_to_structure (Line 246)
-**Type:** async
-**Purpose:** Consolidate raw content elements into clean content structure
-**Parameters:**
-- `content_elements` (list): Raw content elements from extension
-**Returns:** `dict` - Clean content structure with categorized content and summary
-**Called by:** save_content_to_content_jsonl
-**Calls:** None
-**Description:** Categorizes content elements by type (headings, paragraphs, lists, images, tables), creates structured representation with IDs, text, selectors, and attributes. Returns consolidated structure with summary statistics.
-
----
-
-### save_intelligence_to_page_jsonl (Line 389)
-**Type:** async
-**Purpose:** Save intelligence data to central page.jsonl file
-**Parameters:**
-- `intelligence_data` (dict): Intelligence update data from extension
-- `transcript_refs` (list, optional): List of transcript references to include
-**Returns:** `str` - File path if successful, None if failed
-**Called by:** handler (intelligence_update message)
-**Calls:** consolidate_actionable_elements_to_menus (fallback)
-**Description:** Maintains single up-to-date file representing current page state. Handles two paths: (1) **Normalized path** - writes enriched normalized records with browser state, page context, transcripts; (2) **Legacy path** - consolidates menus for older format. Enriches meta record with browser state, active tab info, and page version. Writes JSONL with one record per line.
-
----
-
-### save_content_to_content_jsonl (Line 515)
-**Type:** async
-**Purpose:** Save content data to central content.jsonl file
-**Parameters:**
-- `intelligence_data` (dict): Intelligence update data from extension
-- `transcript_refs` (list, optional): List of transcript references to include
-**Returns:** `str` - File path if successful, None if failed
-**Called by:** handler (intelligence_update message)
-**Calls:** consolidate_content_elements_to_structure
-**Description:** Maintains single up-to-date file representing current page content structure. Applies content consolidation before saving, adds browser state and page context. Saves to content.jsonl with timestamp, browser state, content structure, page state, and summary statistics.
-
----
-
-### _ensure_video_history_file (Line 588)
-**Type:** sync
-**Purpose:** Ensure video history JSONL file exists
-**Parameters:** None
-**Returns:** None
-**Called by:** _append_video_history_entry
-**Calls:** None
-**Description:** Creates `@site_structures/transcripts/video_history.jsonl` if it doesn't exist, including parent directories.
-
----
-
-### _load_video_history_entries (Line 597)
-**Type:** sync
-**Purpose:** Return historical transcript metadata stored in video_history.jsonl
-**Parameters:** None
-**Returns:** `list[dict]` - List of historical transcript entries
-**Called by:** _collect_existing_transcript_signatures
-**Calls:** None
-**Description:** Reads video_history.jsonl line by line, parses each JSON entry, silently skips malformed lines. Returns empty list if file doesn't exist.
-
----
-
-### _append_video_history_entry (Line 616)
-**Type:** sync
-**Purpose:** Append a JSON line entry to the video history JSONL file
-**Parameters:**
-- `entry` (Dict[str, Any]): History entry to append
-**Returns:** None
-**Called by:** save_transcripts
-**Calls:** _ensure_video_history_file
-**Description:** Ensures history file exists, then appends entry as JSON line. Used for tracking all transcript saves.
-
----
-
-### _collect_existing_transcript_signatures (Line 623)
-**Type:** sync
-**Purpose:** Gather known transcript signatures keyed by signature value → video_id
-**Parameters:** None
-**Returns:** `Dict[str, Optional[str]]` - Dict mapping signature → video_id
-**Called by:** save_transcripts
-**Calls:** _load_video_history_entries
-**Description:** Reads history file and existing transcript markdown files, extracts signatures from embedded comments or generates fallback signatures for legacy files. Returns mapping used for deduplication.
-
----
-
-### _build_transcript_signature (Line 672)
-**Type:** sync
-**Purpose:** Create a stable signature for a transcript payload
-**Parameters:**
-- `video_id` (Optional[str]): Video identifier
-- `segments` (List[Dict[str, Any]]): Transcript segments
-**Returns:** `Optional[str]` - Signature string or None if no segments
-**Called by:** save_transcripts
-**Calls:** None
-**Description:** Creates signature from video_id, segment count, and sample of first/last 3 segments. Format: `{video_id}:{segment_count}:{sha256_hash}`. Used for deduplication.
-
----
-
-### save_transcripts (Line 687)
-**Type:** async
-**Purpose:** Persist transcript payloads (e.g., YouTube text) to disk with deduplication
-**Parameters:**
-- `transcripts` (list): List of transcript payloads from extension
-- `page_state` (dict, optional): Page state for default title
-**Returns:** `list[dict]` - List of saved transcript references
-**Called by:** handler (intelligence_update message)
-**Calls:** _collect_existing_transcript_signatures, _build_transcript_signature, _append_video_history_entry, slugify
-**Description:** For each transcript: (1) builds signature, (2) checks for duplicates, (3) skips if duplicate found, (4) generates slug from title, (5) writes markdown file with frontmatter and timestamped segments, (6) appends to history. Returns list of saved transcript refs with file paths.
-
----
-
-### process_actionable_elements_for_llm (Line 804)
-**Type:** async
-**Purpose:** Process actionable elements for LLM consumption
-**Parameters:**
-- `actionable_elements` (List[Dict[str, Any]]): List of actionable elements from extension
-**Returns:** `Optional[Dict[str, Dict[str, Any]]]` - LLM action mapping or None
-**Called by:** handler (intelligence_update message - currently disabled)
-**Calls:** clear_llm_actions
-**Description:** Transforms actionable elements into LLM-friendly format with action mappings and execution instructions. Creates `llm_actions.json` with page context metadata and action details (action_type, description, selectors, coordinates). **NOTE:** Currently disabled in favor of semantic text extraction.
-
----
-
-### save_page_text_to_markdown (Line 876)
-**Type:** async
-**Purpose:** Save page text to markdown file
-**Parameters:**
-- `text_data` (dict): Text extraction data from extension
-**Returns:** `str` - File path if successful, None if failed
-**Called by:** handler (text extraction response)
-**Calls:** None
-**Description:** Extracts URL, generates hostname-based filename, writes markdown content to `@site_structures/{hostname}_page_text.md`. Prints statistics (headings, paragraphs, lists, file size).
-
----
-
-### clear_llm_actions (Line 923)
-**Type:** async
-**Purpose:** Clear LLM actions when no actionable elements are available
-**Parameters:** None
-**Returns:** `Optional[str]` - File path if successful, None if failed
-**Called by:** process_actionable_elements_for_llm
-**Calls:** None
-**Description:** Creates empty `llm_actions.json` file with page context metadata to indicate no actions available on current page.
-
----
-
-### store_dom_change_context (Line 964)
-**Type:** async
-**Purpose:** Store DOM change context for LLM consumption
-**Parameters:**
-- `dom_change_data` (dict): DOM change notification data
-**Returns:** None
-**Called by:** handler (dom_content_changed message)
-**Calls:** None
-**Description:** Creates change context entry with timestamp, tab_id, total mutations, change types. **NOTE:** File writing is disabled to reduce noise - only logs significant changes (>5 mutations).
-
----
-
-### _format_table_row_label (Line 1000)
-**Type:** sync
-**Purpose:** Derive a human-friendly label for table/list rows (e.g., Gmail emails)
-**Parameters:**
-- `record` (Dict[str, Any]): Record with textContent
-**Returns:** `Dict[str, Optional[str]]` - Dict with display, sender, subject, time, preview, raw
-**Called by:** _map_prompt_action_sentence
-**Calls:** None
-**Description:** Parses comma-separated text content to extract structured parts (sender, subject, time, preview). Handles email-specific patterns like "unread", "has attachment", timestamps. Returns formatted display string and individual parts.
-
----
-
-### _map_prompt_action_sentence (Line 1058)
-**Type:** sync
-**Purpose:** Map a record to LLM prompt action sentence
-**Parameters:**
-- `record` (Dict[str, Any]): Normalized record from page.jsonl
-**Returns:** `Optional[str]` - Action sentence or None if filtered out
-**Called by:** generate_llm_prompt
-**Calls:** _format_table_row_label
-**Description:** Converts normalized records into LLM-friendly action sentences. Filters out hidden elements unless they're important (interactive rows, input elements, accessibility links, video links). Generates sentences like `return (a_id_X) to click 'Label'` or `return (a_id_X,{yourValue}) to set value for 'Label'. Add submit:true to submit.` Handles table rows, inputs, links, buttons, and generic interactions.
-
----
-
-### generate_llm_prompt (Line 1146)
-**Type:** sync
-**Purpose:** Generate compact LLM prompt file with actions organized by category
-**Parameters:**
-- `text_md_path` (str): Path to text.md file
-- `page_jsonl_path` (str): Path to page.jsonl file
-- `out_path` (str): Output path for llm_prompt.md
-- `max_actions` (int): Maximum actions to include (default from config.py)
-**Returns:** `Optional[str]` - Output path if successful, None if failed
-**Called by:** handler (intelligence_update message - currently disabled)
-**Calls:** _map_prompt_action_sentence, resolve_capabilities_for_url
-**Description:** Reads text.md and page.jsonl, extracts title/URL/page version, maps records to action sentences, deduplicates, applies SPA filtering (prunes stale elements based on page version), smart categorizes actions (search, transcript, emails, videos, channels, footer, regular), resolves capabilities from site config, generates organized markdown with sections. **NOTE:** Currently disabled in favor of semantic text.md generation.
-
----
-
-### get_current_tabs_info (Line 1575)
-**Type:** sync
-**Purpose:** Get the latest tab information received from extension
-**Parameters:** None
-**Returns:** `dict` - Tabs info with metadata or error status
-**Called by:** handler (getTabsInfo command)
-**Calls:** None
-**Description:** Returns stored tab information including tabs array, last update timestamp, extension connection status, and total clients. Used for external programmatic access to tab state.
-
----
-
-### get_current_page_data (Line 1598)
-**Type:** sync
-**Purpose:** Get the latest page intelligence data received from extension
-**Parameters:** None
-**Returns:** `dict` - Page intelligence data with metadata or error status
-**Called by:** handler (getPageData command)
-**Calls:** None
-**Description:** Returns stored page intelligence including actionable elements, page state, browser state, and metadata. Provides external access to current page intelligence for LLM consumption.
-
----
-
-### get_current_content_data (Line 1622)
-**Type:** sync
-**Purpose:** Get the latest page content data received from extension
-**Parameters:** None
-**Returns:** `dict` - Page content data with metadata or error status
-**Called by:** handler (getContentData command)
-**Calls:** None
-**Description:** Returns stored page content including content structure, summary statistics, browser state, and metadata. Provides external access to current page content for LLM consumption.
-
----
-
-### get_current_active_tab (Line 1646)
-**Type:** sync
-**Purpose:** Get the current active tab information
-**Parameters:** None
-**Returns:** `dict` - Active tab info with metadata or error status
-**Called by:** handler (getActiveTab command)
-**Calls:** None
-**Description:** Returns stored active tab info (preferred source) or searches CURRENT_TABS_INFO for active tab (fallback). Provides quick access to active tab for LLM interactions and automation. Includes source indicator (active_tab_info_message or tabs_info_fallback).
-
----
-
-### save_site_map_to_jsonl (Line 1706)
-**Type:** sync
-**Purpose:** Save site map data to a JSONL file in @site_structures folder
-**Parameters:**
-- `site_map_data` (dict): Raw site map data from extension
-- `suffix` (str): Optional suffix for filename (e.g., "_clean")
-**Returns:** `str` - File path if successful, None if failed
-**Called by:** handler (auto-save on generateSiteMap response - currently disabled)
-**Calls:** None
-**Description:** Extracts URL, generates hostname-based filename, writes site map to `@site_structures/{hostname}{suffix}.jsonl`. **NOTE:** Currently disabled in favor of direct processing.
-
----
-
-### process_clean_site_map (Line 1743)
-**Type:** sync
-**Purpose:** Process raw site map file into LLM-friendly format
-**Parameters:**
-- `raw_file_path` (str): Path to _clean.jsonl file
-**Returns:** `Tuple[dict, dict, bool]` - (processed_data, mapping_data, success_status)
-**Called by:** handler (auto-processing after save - currently disabled)
-**Calls:** None
-**Description:** Reads raw JSONL, extracts interactive elements, adds FindMe_id to each element, creates LLM-optimized structure, generates element mapping. **NOTE:** Currently disabled in favor of process_clean_site_map_data.
-
----
-
-### process_clean_site_map_data (Line 1831)
-**Type:** sync
-**Purpose:** Process raw site map data directly into LLM-friendly format with enhanced classification
-**Parameters:**
-- `raw_data` (dict): Raw site map data from extension
-**Returns:** `Tuple[dict, dict, bool]` - (processed_data, mapping_data, success_status)
-**Called by:** handler (direct processing on generateSiteMap response)
-**Calls:** deduplicate_elements, filter_non_interactive_elements, classify_element_enhanced
-**Description:** Extracts interactive elements, applies deduplication and filtering, applies enhanced classification using browser-use techniques, creates FindMe_id for each element, builds processed data with classification statistics, returns processed data and mapping. Provides detailed logging of filtering and classification results.
-
----
-
-### siteStructuredLLMmethodinsidethefile (Line 2027)
-**Type:** sync
-**Purpose:** Post-process written file to remove unnecessary fields and create smaller optimized file
-**Parameters:**
-- `filepath` (str): Path to processed file
-**Returns:** `bool` - True if successful, False if failed
-**Called by:** handler (after process_clean_site_map_data)
-**Calls:** calculate_element_importance_score
-**Description:** Cleans metadata (keep only url/title), removes statistics section, consolidates pageStructure with elements, merges headings/forms into elements array, applies enhanced element filtering based on classification scores or importance scores, creates consolidated elements with context, writes cleaned file as `{filename}_cleaned.jsonl`. Provides detailed breakdown of element types and score distribution.
-
----
-
-### classify_element_enhanced (Line 2317)
-**Type:** sync
-**Purpose:** Enhanced element classification using browser-use techniques
-**Parameters:**
-- `element_data` (dict): Raw element data from extension
-**Returns:** `dict` - Enhanced classification with confidence scores
-**Called by:** process_clean_site_map_data
-**Calls:** _matches_interactive_pattern
-**Description:** Implements sophisticated element detection and classification with 7 factors: (1) Interactive element detection (strict selectors for buttons, inputs, links), (2) Accessibility property analysis (ARIA attributes), (3) Search element detection (class names, IDs, data attributes), (4) Content quality assessment (text length, patterns), (5) Functional importance (navigation, forms, links), (6) Visibility score (coordinates, dimensions), (7) Element categorization (search, navigation, form, content, heading). Returns comprehensive classification with confidence scores (0.0-1.0) and reasons.
-
----
-
-### _matches_interactive_pattern (Line 2629)
-**Type:** sync
-**Purpose:** Helper function to check if element matches interactive pattern
-**Parameters:**
-- `element_data` (dict): Element data dictionary
-- `pattern` (dict): Pattern dictionary with matching criteria
-**Returns:** `bool` - True if element matches pattern
-**Called by:** classify_element_enhanced
-**Calls:** None
-**Description:** Checks if element matches pattern criteria: tag match, attribute match (type, has_href, not_placeholder). Used for strict interactive element detection in enhanced classification.
-
----
-
-### deduplicate_elements (Line 2667)
-**Type:** sync
-**Purpose:** Remove duplicate elements based on content and position
-**Parameters:**
-- `elements` (list): List of element dictionaries
-**Returns:** `list` - Deduplicated list of elements
-**Called by:** process_clean_site_map_data
-**Calls:** _normalize_selector, _should_keep_existing_element
-**Description:** Creates unique keys based on href (for real links), text+selector (for text elements), or type+selector (for others). Compares elements with same key and keeps better one based on priority (real links > better selectors > more content). Returns deduplicated list.
-
----
-
-### _normalize_selector (Line 2736)
-**Type:** sync
-**Purpose:** Normalize CSS selector for better deduplication
-**Parameters:**
-- `selector` (str): CSS selector string
-**Returns:** `str` - Normalized selector
-**Called by:** deduplicate_elements
-**Calls:** None
-**Description:** Removes nth-child selectors, specific IDs, normalizes common class patterns. Used for comparing selectors that are functionally equivalent but syntactically different.
-
----
-
-### _should_keep_existing_element (Line 2760)
-**Type:** sync
-**Purpose:** Determine which element to keep when duplicates are found
-**Parameters:**
-- `existing` (dict): Existing element
-- `new_element` (dict): New element to compare
-**Returns:** `bool` - True if existing should be kept, False if new should replace
-**Called by:** deduplicate_elements
-**Calls:** None
-**Description:** Priority order: (1) Real links over placeholders, (2) More specific selectors (shorter), (3) More content (longer text). Used during deduplication.
-
----
-
-### filter_non_interactive_elements (Line 2805)
-**Type:** sync
-**Purpose:** Filter out elements that are not actually interactive
-**Parameters:**
-- `elements` (list): List of element dictionaries
-**Returns:** `list` - Filtered list with only truly interactive elements
-**Called by:** process_clean_site_map_data
-**Calls:** _is_truly_interactive
-**Description:** Removes elements marked as interactive but lacking actual interactive properties. Returns filtered list.
-
----
-
-### _is_truly_interactive (Line 2832)
-**Type:** sync
-**Purpose:** Check if an element is truly interactive
-**Parameters:**
-- `element` (dict): Element dictionary
-**Returns:** `bool` - True if element is truly interactive
-**Called by:** filter_non_interactive_elements
-**Calls:** None
-**Description:** Checks for: (1) Real href (not #, not javascript:), (2) Interactive tags (button, input, select, textarea, a), (3) Interactive ARIA roles, (4) Event handlers (onclick, etc.), (5) Interactive attributes (type="button"), (6) Clickable class indicators. Returns True if any condition met.
-
----
-
-### calculate_element_importance_score (Line 2899)
-**Type:** sync
-**Purpose:** Calculate importance score for an element (0.0 to 1.0)
-**Parameters:**
-- `element` (dict): Element dictionary
-**Returns:** `float` - Score from 0.0 to 1.0
-**Called by:** siteStructuredLLMmethodinsidethefile (fallback scoring)
-**Calls:** None
-**Description:** Scoring factors: (1) Element type (interactive=0.4, heading=0.35, form=0.3, form_input=0.25, other=0.1), (2) Content quality (text length: >50=0.2, >20=0.15, >5=0.1, else=0.05), (3) Functionality (real link=0.15, placeholder=0.05), (4) Context relevance (navigation/main_content/interaction=0.1), (5) Selector quality (YouTube-specific or generic meaningful=0.05). Capped at 1.0.
-
----
-
-### handler (Line 2969)
-**Type:** async
-**Purpose:** WebSocket connection handler for each client
-**Parameters:**
-- `ws` (WebSocket): WebSocket connection object
-**Returns:** None
-**Called by:** websockets.serve (main)
-**Calls:** consolidate_actionable_elements_to_menus, consolidate_content_elements_to_structure, save_intelligence_to_page_jsonl, save_content_to_content_jsonl, save_transcripts, process_actionable_elements_for_llm, save_page_text_to_markdown, clear_llm_actions, store_dom_change_context, process_clean_site_map_data, siteStructuredLLMmethodinsidethefile, get_current_tabs_info, get_current_page_data, get_current_content_data, get_current_active_tab, resolve_capabilities_for_url
-**Description:** Main WebSocket message handler. Manages client lifecycle, identifies extension vs test clients, routes messages bidirectionally. Handles message types: ping/pong (heartbeat), bridge_status (extension identification), tabs_info (tab updates), active_tab_info (active tab updates), intelligence_update (page intelligence + artifact generation), execute_capability (capability execution), dom_content_changed (DOM change notifications), network_activity (network monitoring), extractPageText (text extraction), llm_instruction (LLM action execution), getTabsInfo/getPageData/getContentData/getActiveTab (internal commands), command forwarding (extension commands), response routing (route responses to clients). Implements shortcut normalization (exec_action, set_value, click, navigate_link, navigate_url). Cleans up on disconnect.
-
-**Key Message Handlers:**
-- **intelligence_update**: Saves transcripts, generates page.jsonl, content.jsonl, text.md, triggers transcript button hunt on YouTube
-- **execute_capability**: Routes capability execution to extension
-- **llm_instruction**: Forwards LLM instructions to extension as execute_llm_action
-- **extractPageText**: Forwards text extraction to extension, saves result to markdown
-- **generateSiteMap response**: Auto-processes site map with enhanced classification and filtering
-
----
-
-### send_command (Line 3659)
-**Type:** async
-**Purpose:** Internal command sender for server-to-extension communication
-**Parameters:**
-- `command` (str): Command name
-- `params` (dict, optional): Command parameters
-- `timeout` (float): Timeout in seconds (default 8.0)
-**Returns:** `dict` - Response from extension
-**Called by:** None (internal utility, not currently used)
-**Calls:** None
-**Description:** Generates unique command ID, creates future in PENDING dict, sends command to extension via WebSocket, waits for response with timeout. Used for internal server commands that need responses. Cleans up PENDING entry after response or timeout.
-
----
-
-### extension_heartbeat_loop (Line 3715)
-**Type:** async
-**Purpose:** Periodically ping the extension to detect silent disconnections
-**Parameters:** None
-**Returns:** None (runs indefinitely)
-**Called by:** main
-**Calls:** None
-**Description:** Sends server_ping message to extension every SERVER_HEARTBEAT_INTERVAL seconds (20s). Helps detect when extension silently disappears. Logs success/failure of each heartbeat.
-
----
-
-### resolve_capabilities_for_url (Line 3731)
-**Type:** sync
-**Purpose:** Resolve capabilities for a given URL from site_configs.json
-**Parameters:**
-- `url` (str): URL to resolve capabilities for
-**Returns:** `list[dict]` - List of capability dicts with action, label, description, handler
-**Called by:** generate_llm_prompt, handler (text.md generation)
-**Calls:** get_all_site_configs
-**Description:** (1) Finds matching site config by domain or url_patterns, (2) Extracts capabilities from config, (3) Filters capabilities by url_pattern to return only matching ones. Returns list of capabilities with id, action, label, description, handler, domain. Logs resolved capabilities.
-
----
-
-### main (Line 3800)
-**Type:** async
-**Purpose:** Main server function - starts WebSocket server on port 17892
-**Parameters:** None
-**Returns:** None (runs indefinitely)
-**Called by:** __main__
-**Calls:** start_site_config_polling, extension_heartbeat_loop
-**Description:** (1) Loads site configs with polling, (2) Starts WebSocket server on ws://127.0.0.1:17892 with max_size=64 MiB, max_queue=128, ping_interval=20s, (3) Runs extension heartbeat loop concurrently with server. Listens for connections from Chrome extension and test clients.
-
----
-
-## Function Interactions
-
-### Message Processing Flow
-
-**Intelligence Update Flow:**
-```
-Extension → handler (intelligence_update)
-  → save_transcripts (if transcripts present)
-    → _collect_existing_transcript_signatures
-      → _load_video_history_entries
-    → _build_transcript_signature
-    → slugify
-    → _append_video_history_entry
-      → _ensure_video_history_file
-  → save_intelligence_to_page_jsonl
-    → consolidate_actionable_elements_to_menus (fallback)
-  → save_content_to_content_jsonl
-    → consolidate_content_elements_to_structure
-  → Write text.md with capabilities
-    → resolve_capabilities_for_url
-      → get_all_site_configs
-```
-
-**Site Map Processing Flow:**
-```
-Extension → handler (generateSiteMap response)
-  → process_clean_site_map_data
-    → deduplicate_elements
-      → _normalize_selector
-      → _should_keep_existing_element
-    → filter_non_interactive_elements
-      → _is_truly_interactive
-    → classify_element_enhanced
-      → _matches_interactive_pattern
-  → siteStructuredLLMmethodinsidethefile
-    → calculate_element_importance_score (fallback)
-```
-
-**LLM Prompt Generation Flow (Legacy):**
-```
-handler (intelligence_update)
-  → generate_llm_prompt
-    → _map_prompt_action_sentence
-      → _format_table_row_label
-    → resolve_capabilities_for_url
-      → get_all_site_configs
-```
-
-### Command Routing Flow
-
-**Test Client → Extension:**
-```
-Test Client → handler (command message)
-  → Store command_id → client in COMMAND_CLIENTS
-  → Forward to EXTENSION_WS
-Extension → handler (response message)
-  → Look up client in COMMAND_CLIENTS
-  → Route response to original client
-```
-
-**Internal Command Flow:**
-```
-Test Client → handler (getTabsInfo/getPageData/getContentData/getActiveTab)
-  → get_current_tabs_info / get_current_page_data / etc.
-  → Send response directly to client (no extension involved)
+Client connects
+    ↓
+Added to CLIENTS set
+    ↓
+First client OR bridge_status message?
+    ↓ Yes
+Set as EXTENSION_WS
+    ↓
+Listen for messages
+    ↓
+On disconnect:
+  - Remove from CLIENTS
+  - Clear EXTENSION_WS if extension
+  - Clean up COMMAND_CLIENTS entries
 ```
 
 ---
 
-## Integration Points
+### 2. Standard Action Execution Flow
 
-### Extension Integration (via WebSocket)
-
-**Messages Sent to Extension:**
-- `server_ping` - Heartbeat ping
-- `youtube_find_transcript_button` - Trigger transcript button hunt on YouTube
-- `execute_capability` - Execute capability action
-- `execute_llm_action` - Execute LLM instruction
-- `extractPageText` - Request text extraction
-- Command forwarding (navigate, click, etc.)
-
-**Messages Received from Extension:**
-- `ping/pong` - Heartbeat responses
-- `bridge_status` - Extension identification
-- `tabs_info` - Tab information update
-- `active_tab_info` - Active tab update
-- `intelligence_update` - Page intelligence data (triggers artifact generation)
-- `dom_content_changed` - DOM change notifications
-- `network_activity` - Network activity notifications
-- Command responses (ok/error/result)
-
-### File System Integration
-
-**Files Written:**
-- `@site_structures/page.jsonl` - Current page state with normalized records
-- `@site_structures/content.jsonl` - Current page content structure
-- `@site_structures/text.md` - Human-readable page text with frontmatter
-- `@site_structures/llm_actions.json` - Action ID → metadata mapping
-- `@site_structures/llm_prompt.md` - Compact prompt (legacy)
-- `@site_structures/transcripts/*.md` - Individual transcript files
-- `@site_structures/transcripts/video_history.jsonl` - Transcript history
-- `@site_structures/{hostname}_page_text.md` - Extracted page text
-- `@site_structures/{hostname}_processed.jsonl` - Processed site map
-- `@site_structures/{hostname}_processed_cleaned.jsonl` - Optimized site map
-
-**Files Read:**
-- `web_extension/site_configs.json` - Site config index
-- `web_extension/configs/*.json` - Individual domain configs
-- `@site_structures/transcripts/video_history.jsonl` - Historical transcripts
-- `@site_structures/transcripts/*.md` - Existing transcript files
-- `@site_structures/page.jsonl` - For LLM prompt generation
-- `@site_structures/text.md` - For LLM prompt generation
-
-### Site Config Integration
-
-**Config Loading:**
-- `get_all_site_configs()` - Loads on startup, caches in SITE_CONFIGS global
-- `start_site_config_polling()` - Watches for config changes (polling mode)
-
-**Capability Resolution:**
-- `resolve_capabilities_for_url(url)` - Matches URL to domain, filters capabilities by url_pattern
-- Used in: LLM prompt generation, text.md generation
-
-**Persistent Selectors:**
-- Used in SPA filtering to keep persistent elements across page versions
-- Prevents stale element pruning for important navigation elements
+```
+Test Client: {"type": "llm_instruction", "data": {"actionId": "a_id_123", "actionType": "click"}}
+    ↓
+ws_server handler() receives message
+    ↓
+Recognizes llm_instruction type
+    ↓
+Generates unique ID (llm-abc123)
+    ↓
+Forwards to EXTENSION_WS as execute_llm_action
+    ↓
+Extension executes action and sends response
+    ↓
+handler() receives response with id=llm-abc123
+    ↓
+Routes back to original client via COMMAND_CLIENTS
+```
 
 ---
 
-## Orphaned Functions
+### 3. Capability Execution Flow
 
-**None identified.** All functions are either:
-1. Called by `handler` (main message handler)
-2. Called by other functions in the processing pipeline
-3. Called by `main` (startup)
-4. Helper functions with clear call paths
-
-**Note:** `send_command` (Line 3659) is defined but not currently used. It was designed for internal server-to-extension commands but the current architecture uses direct WebSocket sending instead. This is intentional for simplicity and is kept for potential future use.
-
----
-
-## Key Design Patterns
-
-### 1. Event-Driven Architecture
-The server is entirely event-driven, reacting to WebSocket messages. No polling or timers except for heartbeat.
-
-### 2. Artifact Generation on Intelligence Update
-Every time the extension sends `intelligence_update`, the server:
-1. Saves transcripts (with deduplication)
-2. Writes page.jsonl (normalized records)
-3. Writes content.jsonl (content structure)
-4. Writes text.md (human-readable with capabilities)
-
-This ensures artifacts are always in sync with current page state.
-
-### 3. Signature-Based Transcript Deduplication
-Transcripts use stable signatures (video_id + segment_count + sample hash) to avoid duplicates. Signatures are embedded in markdown files and tracked in video_history.jsonl.
-
-### 4. Enhanced Element Classification
-Site map processing uses browser-use-inspired techniques:
-- **7-factor scoring** (interactivity, accessibility, search, content, functionality, visibility)
-- **Strict interactive patterns** (buttons, inputs, real links only)
-- **Confidence-based filtering** (keeps high-confidence elements)
-
-### 5. SPA Support with Page Versioning
-Action IDs include page version (`a_id_{version}_{counter}`). LLM prompt generation prunes stale elements unless they match `persistent_selectors` in site config.
-
-### 6. Capability-Driven Automation
-Capabilities are resolved server-side from URL + site_configs.json. No capability data is stored from extension - always resolved dynamically. This ensures capabilities are always up-to-date with config file.
-
-### 7. Command Response Routing
-Uses `COMMAND_CLIENTS` dict to track which client sent each command, enabling accurate response routing in multi-client scenarios.
+```
+Test Client: {"type": "execute_capability", "action": "RetrieveTranscript"}
+    ↓
+ws_server handler() receives message
+    ↓
+Recognizes execute_capability type
+    ↓
+Is it a scroll capability?
+    ↓ No
+Generates unique request ID (cap_RetrieveTranscript_1234567890)
+    ↓
+Stores client in COMMAND_CLIENTS[request_id]
+    ↓
+Forwards to EXTENSION_WS with request ID
+    ↓
+Extension executes capability and sends response with same ID
+    ↓
+handler() receives response
+    ↓
+Looks up client in COMMAND_CLIENTS[request_id]
+    ↓
+Routes response back to client
+```
 
 ---
 
-## Performance Considerations
+### 4. Intelligence Update Flow (Main Data Pipeline)
 
-### Message Size Limits
-- Max WebSocket frame: 64 MiB
-- Max queue: 128 messages
-- Handles large intelligence updates with normalized records
+```
+Extension: {"type": "intelligence_update", "data": {...}}
+    ↓
+ws_server handler() receives message
+    ↓
+Extracts intelligence_data
+    ↓
+Parallel processing:
+  1. save_transcripts() → @site_structures/transcripts/*.md
+  2. save_intelligence_to_page_jsonl() → @site_structures/page.jsonl
+  3. save_content_to_content_jsonl() → @site_structures/content.jsonl
+  4. Generate text.md with:
+     - Frontmatter (title, URL, timestamp)
+     - Browser tabs info
+     - Capabilities section
+     - Semantic page text
+    ↓
+YouTube video page detected?
+    ↓ Yes
+Send youtube_find_transcript_button command to extension
+```
 
-### File I/O Patterns
-- **Append-only**: video_history.jsonl (efficient)
-- **Overwrite**: page.jsonl, content.jsonl, text.md (ensures current state)
-- **Create-once**: Transcript markdown files (deduplication prevents rewrites)
+---
 
-### Memory Management
-- `SITE_CONFIGS` cached in memory after first load
-- `CURRENT_TABS_INFO`, `CURRENT_PAGE_DATA`, `CURRENT_CONTENT_DATA` updated on each message
-- `PENDING` dict cleaned up after command completion or timeout
-- `COMMAND_CLIENTS` dict cleaned up when clients disconnect
+### 5. Tab Information Flow
 
-### Logging Strategy
-- **Verbose**: Intelligence updates, artifact generation, capability resolution
-- **Reduced**: DOM changes (>5 mutations only), network activity (idle detection only)
-- **Disabled**: DOM change history file (too noisy)
+```
+Extension: {"type": "tabs_info", "tabs": [...]}
+    ↓
+ws_server handler() receives message
+    ↓
+Stores in CURRENT_TABS_INFO global
+    ↓
+Updates LAST_TABS_UPDATE timestamp
+    ↓
+Logs to terminal
+```
+
+---
+
+### 6. Active Tab Information Flow
+
+```
+Extension: {"type": "active_tab_info", "activeTab": {...}}
+    ↓
+ws_server handler() receives message
+    ↓
+Extracts activeTab details
+    ↓
+Stores in CURRENT_ACTIVE_TAB global
+    ↓
+Logs formatted info to terminal:
+  "🎯 ACTIVE TAB: ID=X | URL=... | Title=... | Status=..."
+```
+
+---
+
+### 7. Response Routing Flow
+
+```
+Extension sends response: {"id": "cmd-abc123", "ok": true, "result": {...}}
+    ↓
+ws_server handler() receives response
+    ↓
+Check for special response types:
+  - Text extraction? → Save to markdown
+  - Site map? → Process for LLM (disabled)
+    ↓
+Check PENDING dict for future
+    ↓ Found
+Resolve future with response
+    ↓ Not found
+Check COMMAND_CLIENTS dict
+    ↓ Found
+Route response to tracked client
+    ↓ Not found
+Fallback: Broadcast to any test client
+```
+
+---
+
+### 8. Transcript Persistence Flow
+
+```
+save_transcripts() called with transcript payloads
+    ↓
+Load existing signatures via _collect_existing_transcript_signatures()
+    ↓
+For each transcript:
+  1. Generate signature via _build_transcript_signature()
+  2. Check if signature exists in known signatures
+     ↓ Yes (duplicate)
+     Skip
+     ↓ No (new)
+  3. Generate slug from title via slugify()
+  4. Create filename: {date}__{slug}.md
+  5. Write markdown with:
+     - HTML signature comment
+     - Frontmatter (title, URL, ID, language, timestamp)
+     - Timestamped segments
+  6. Append entry to video_history.jsonl
+  7. Add signature to known signatures set
+    ↓
+Return list of transcript references
+```
+
+---
+
+### 9. Internal Command Handling Flow
+
+```
+Test Client: {"id": "cmd-123", "command": "getTabsInfo"}
+    ↓
+ws_server handler() receives message
+    ↓
+Recognizes internal command type
+    ↓
+Executes locally:
+  - getTabsInfo → get_current_tabs_info()
+  - getPageData → get_current_page_data()
+  - getContentData → get_current_content_data()
+  - getActiveTab → get_current_active_tab()
+    ↓
+Sends response directly to client (no extension involved)
+```
+
+---
+
+## Message Types Reference
+
+### Incoming Messages (Client/Extension → Server)
+
+| Type | Source | Purpose |
+|------|--------|---------|
+| `ping` | Any | Heartbeat check |
+| `pong` | Any | Heartbeat response |
+| `bridge_status` | Extension | Extension identification |
+| `tabs_info` | Extension | Tab list update |
+| `active_tab_info` | Extension | Active tab details |
+| `intelligence_update` | Extension | **Main data payload** - page intelligence |
+| `execute_capability` | Test Client | Request capability execution |
+| `execute_scroll` | Test Client | Request scroll action |
+| `dom_content_changed` | Extension | DOM mutation notification |
+| `network_activity` | Extension | Network request monitoring |
+| `extractPageText` | Test Client | Request text extraction |
+| `llm_instruction` | Test Client | LLM action execution request |
+| `command` with `id` | Test Client | Generic command (navigate, etc.) |
+| Response with `id`, `ok` | Extension | Command/capability response |
+
+### Outgoing Messages (Server → Client/Extension)
+
+| Type | Destination | Purpose |
+|------|-------------|---------|
+| `pong` | Sender | Heartbeat response |
+| `server_ping` | Extension | Server heartbeat |
+| `youtube_find_transcript_button` | Extension | Trigger transcript button hunt |
+| `execute_llm_action` | Extension | Forward LLM instruction |
+| `execute_capability` | Extension | Forward capability request |
+| `scroll` command | Extension | Scroll instruction |
+| Response with `id`, `ok` | Test Client | Command result |
+
+---
+
+## File Output
+
+### Files Written by ws_server.py
+
+| File | Function | Purpose |
+|------|----------|---------|
+| `@site_structures/page.jsonl` | `save_intelligence_to_page_jsonl()` | Normalized page records (meta, sections, actions) |
+| `@site_structures/content.jsonl` | `save_content_to_content_jsonl()` | Content structure (headings, paragraphs, lists, etc.) |
+| `@site_structures/text.md` | `handler()` intelligence_update | Human-readable page text with frontmatter and capabilities |
+| `@site_structures/transcripts/{date}__{slug}.md` | `save_transcripts()` | Individual transcript files with timestamped segments |
+| `@site_structures/transcripts/video_history.jsonl` | `_append_video_history_entry()` | Append-only transcript history log |
+| `@site_structures/llm_actions.json` | `process_actionable_elements_for_llm()` | LLM action mapping (DISABLED) |
+| `@site_structures/{hostname}_page_text.md` | `save_page_text_to_markdown()` | Legacy text extraction (rarely used) |
+| `@site_structures/llm_prompt.md` | `generate_llm_prompt()` | LLM-friendly prompt (DISABLED) |
+
+---
+
+## Key Configuration
+
+| Config | Value | Purpose |
+|--------|-------|---------|
+| Port | `17892` | WebSocket server port |
+| Max frame size | `64 MiB` | Maximum WebSocket message size |
+| Max queue | `128` | Maximum queued messages |
+| Ping interval | `20s` | WebSocket ping interval |
+| Ping timeout | `20s` | WebSocket ping timeout |
+| Heartbeat interval | `20s` | Server heartbeat to extension |
+| Default command timeout | `8.0s` | Response timeout for send_command() |
+| Max actions | `MAX_ACTIONS` | Max actions in llm_prompt.md |
+| Max footer links | `MAX_FOOTER_LINKS` | Max footer links in llm_prompt.md |
+
+---
+
+## Important Implementation Details
+
+### Client Identification
+
+The server identifies the extension client by:
+1. **First connection** - First client to connect becomes `EXTENSION_WS`
+2. **Bridge status message** - Any client sending `{"type": "bridge_status"}` is marked as extension
+
+This allows reconnection if the extension disconnects and reconnects.
+
+---
+
+### Response Routing System
+
+The server uses TWO mechanisms for routing responses:
+
+1. **PENDING dict** - For internal `send_command()` calls
+   - Maps command ID → Future
+   - Used by server's internal operations
+   - Future resolves when response arrives
+
+2. **COMMAND_CLIENTS dict** - For external test client commands
+   - Maps command ID → WebSocket client
+   - Used by test clients sending commands
+   - Response routed back to tracked client
+
+This dual system supports both internal server operations and external test client automation.
+
+---
+
+### Transcript Deduplication Strategy
+
+Transcripts are deduplicated using stable signatures:
+- **Signature components:** video_id + segment_count + sample_text_hash
+- **Sample text:** First 3 and last 3 segments
+- **Persistence:** Stored in `video_history.jsonl` and embedded in markdown files
+- **Lookup:** Checks both history file and existing markdown files
+
+This ensures the same transcript is never saved twice, even across restarts.
+
+---
+
+### SPA Filtering (Page Version Tracking)
+
+The `generate_llm_prompt()` function implements SPA (Single Page Application) filtering:
+- Each page scan increments `pageVersion`
+- Each action ID embeds version: `a_id_{version}_{counter}`
+- Old elements (version < current) are pruned unless they match persistent selectors
+- Persistent selectors defined per-domain in site_configs.json
+
+This prevents stale action IDs from cluttering the LLM prompt after page updates.
+
+---
+
+### Smart Action Categorization
+
+The prompt generator uses pattern-based categorization (not domain-specific):
+- **Search inputs:** Detects "search" in label/placeholder/aria-label
+- **Transcript actions:** Detects "transcript" in label/aria-label (CRITICAL priority)
+- **Video links:** Detects `/watch?v=` or `/watch/` in href
+- **Channel links:** Detects `/@` or `/channel/` in href
+- **Email rows:** Detects table rows with role="row"
+- **Footer links:** Detects common footer keywords (about, terms, privacy, etc.)
+
+This generic approach works across all websites without hardcoding domains.
+
+---
+
+### Error Handling Philosophy
+
+The server uses try-except blocks extensively but never crashes:
+- Intelligence processing errors are logged and continue
+- Message handling errors are caught per-message
+- File write errors are logged but don't stop the server
+- WebSocket disconnections trigger cleanup but don't crash
+
+This ensures the server stays running even when individual operations fail.
+
+---
+
+## Common Operations
+
+### Starting the Server
+
+```bash
+python om_e_web_ws/ws_server.py
+```
+
+Expected output:
+```
+WS listening on ws://127.0.0.1:17892
+🔌 Client connected! Total clients: 1
+🎯 Marked as extension client
+```
+
+---
+
+### Sending a Command (Test Client)
+
+```python
+import asyncio
+import websockets
+import json
+
+async def send_command():
+    async with websockets.connect("ws://127.0.0.1:17892") as ws:
+        msg = {
+            "id": "cmd-123",
+            "command": "getActiveTab"
+        }
+        await ws.send(json.dumps(msg))
+        response = await ws.recv()
+        print(json.loads(response))
+
+asyncio.run(send_command())
+```
+
+---
+
+### Triggering Page Scan (Extension Sends Intelligence Update)
+
+The extension automatically sends intelligence updates when pages load or change. The server processes them automatically.
+
+---
+
+## Debugging Tips
+
+1. **Check extension connection:**
+   ```
+   Look for: "🎯 Marked as extension client"
+   ```
+
+2. **Verify tab information:**
+   ```
+   Look for: "📊 Tab info updated and stored - N tabs available"
+   ```
+
+3. **Monitor intelligence updates:**
+   ```
+   Look for: "🧠 Intelligence update received from extension"
+   Followed by: "✅ Intelligence update processed and saved"
+   ```
+
+4. **Track response routing:**
+   ```
+   Look for: "📤 Routing response cmd-123 back to original client"
+   ```
+
+5. **Check file generation:**
+   ```
+   Look for: "🧠 Normalized records saved to @site_structures/page.jsonl"
+   Look for: "✅ Text content saved to: @site_structures/text.md"
+   ```
+
+6. **Monitor transcript saves:**
+   ```
+   Look for: "📝 Transcript saved: @site_structures/transcripts/*.md"
+   Or: "⏭️ Skipping duplicate transcript for video ID: ..."
+   ```
+
+---
+
+## Architecture Decisions
+
+### Why Two Response Routing Systems?
+
+**PENDING (futures):**
+- For internal server operations
+- Supports async/await patterns
+- Used by `send_command()` helper
+
+**COMMAND_CLIENTS (dict):**
+- For external test clients
+- Supports multiple simultaneous clients
+- Tracks which client sent which command
+
+This separation allows the server to both:
+1. Initiate its own commands to the extension (internal)
+2. Act as a transparent bridge for test clients (external)
+
+---
+
+### Why Store Global State?
+
+The server maintains global state (`CURRENT_TABS_INFO`, `CURRENT_ACTIVE_TAB`, etc.) to:
+1. **Avoid repeated extension queries** - Data is pushed once and cached
+2. **Enable internal commands** - Server can respond without extension roundtrip
+3. **Enrich artifacts** - Browser state is embedded in page.jsonl and text.md
+4. **Support external access** - Test clients can query state via `getTabsInfo`, etc.
+
+---
+
+### Why Disable Site Map Processing?
+
+The site map generation (old approach) has been largely replaced by:
+- **Normalized records** from extension's new scanning engine
+- **Semantic page data** with tagged actionables
+- **Direct JSONL output** instead of processing pipelines
+
+The old functions remain in code for reference but are disabled/commented out.
 
 ---
 
 ## Future Enhancements
 
-### Potential Improvements
-1. **WebSocket reconnection**: Auto-reconnect extension on disconnect
-2. **Streaming artifacts**: Stream large intelligence updates instead of single message
-3. **Incremental updates**: Update artifacts incrementally instead of full rewrites
-4. **Response correlation**: Better tracking for async command/response pairs
-5. **Rate limiting**: Throttle intelligence updates during rapid page changes
-6. **Compression**: Compress large WebSocket messages
-7. **Authentication**: Add token-based auth for external clients
+Potential improvements to the server:
 
-### Disabled Features (Candidates for Removal)
-1. **generate_llm_prompt()** - Replaced by semantic text.md generation
-2. **process_actionable_elements_for_llm()** - Conflicts with semantic extraction
-3. **save_site_map_to_jsonl()** - Replaced by direct processing
-4. **DOM change history file** - Too noisy, disabled logging
+1. **Session management** - Track multiple browser sessions
+2. **Persistent history** - Store all intelligence updates to database
+3. **Real-time LLM integration** - Direct LLM API calls from server
+4. **REST API layer** - HTTP endpoints alongside WebSocket
+5. **Authentication** - Secure access control for production use
+6. **Metrics dashboard** - Web UI showing server stats
+7. **Replay mode** - Replay historical intelligence updates for testing
 
 ---
 
-## Error Handling Patterns
+## Related Documentation
 
-### Try-Catch Blocks
-Almost all functions have try-catch blocks with:
-- Error logging with descriptive messages
-- Traceback printing for debugging
-- Graceful fallbacks (return None, empty dict, or False)
-
-### Safe Defaults
-- Empty lists/dicts when data unavailable
-- Status messages in response objects
-- Fallback paths for legacy data formats
-
-### Cleanup on Disconnect
-- Remove client from CLIENTS set
-- Clear EXTENSION_WS if extension disconnects
-- Clean up COMMAND_CLIENTS entries for disconnected client
-- Log disconnect events
-
----
-
-## Dependencies
-
-### Python Libraries
-- `asyncio` - Async event loop
-- `websockets` - WebSocket server
-- `json` - JSON parsing
-- `uuid` - Unique ID generation
-- `os` - File system operations
-- `re` - Regex for text processing
-- `time` - Timestamps
-- `hashlib` - SHA256 for transcript signatures
-- `datetime` - Timestamps for transcripts
-- `typing` - Type hints
-- `urllib.parse` - URL parsing
-
-### Internal Modules
-- `config` - MAX_ACTIONS, MAX_FOOTER_LINKS constants
-- `site_config_manager` - get_site_config, start_site_config_polling, get_all_site_configs
-
----
-
-## Testing Strategy
-
-### Manual Testing
-1. Start server: `python om_e_web_ws/ws_server.py`
-2. Load extension in Chrome
-3. Navigate to page, verify artifacts generated
-4. Send test commands via `test_navigation.py`
-5. Check terminal logs for message flow
-
-### Test Files
-- `test_navigation.py` - CLI test harness for action execution
-
-### Verification Points
-1. **Artifact generation**: Check @site_structures/ files created
-2. **Transcript deduplication**: Reload same video, verify no duplicate
-3. **Element classification**: Check processed.jsonl for scores
-4. **Capability resolution**: Verify capabilities in text.md
-5. **SPA filtering**: Check llm_prompt.md for stale element pruning
-
----
-
-## Configuration
-
-### Global Constants
-- `MAX_ACTIONS` - From config.py
-- `MAX_FOOTER_LINKS` - From config.py
-- `SERVER_HEARTBEAT_INTERVAL` - 20 seconds
-- `SITE_STRUCTURES_DIR` - "@site_structures"
-- `CURRENT_PAGE_JSONL` - "page.jsonl"
-- `CURRENT_CONTENT_JSONL` - "content.jsonl"
-- `TRANSCRIPTS_DIR` - "@site_structures/transcripts"
-- `VIDEO_HISTORY_JSONL` - "@site_structures/transcripts/video_history.jsonl"
-
-### WebSocket Config
-- **Host**: 127.0.0.1
-- **Port**: 17892
-- **Max frame size**: 64 MiB
-- **Max queue**: 128
-- **Ping interval**: 20s
-- **Ping timeout**: 20s
-
----
-
-## Conclusion
-
-The WebSocket server is the backbone of the Om_E_Web system, handling:
-- Real-time bidirectional communication
-- Artifact generation and persistence
-- Transcript management with deduplication
-- Enhanced element classification
-- Capability resolution
-- Command routing
-- Error handling and logging
-
-It's designed for reliability, extensibility, and clear separation of concerns. The event-driven architecture ensures responsiveness, while the artifact generation pipeline ensures LLMs always have up-to-date page intelligence.
+- `/Users/andy7string/Projects/Om_E_Web/CLAUDE.md` - Project overview and coding philosophy
+- `/Users/andy7string/Projects/Om_E_Web/SYSTEM_ARCHITECTURE_COMPLETE.md` - Complete system architecture
+- `/Users/andy7string/Projects/Om_E_Web/web_extension/README.md` - Extension details
+- `/Users/andy7string/Projects/Om_E_Web/om_e_web_ws/HowThisWorks.md` - Artifact generation details

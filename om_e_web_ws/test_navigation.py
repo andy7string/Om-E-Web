@@ -18,6 +18,11 @@ Usage examples:
       python test_navigation.py --command capability --capability CloseTab --params '{"tabId": 1138024288}'
       python test_navigation.py --command capability --capability UpdateTabURL --params '{"tabId": 1138024288, "url": "https://example.com"}'
 
+  🔍 ZOOM CONTROL: Browser zoom (15% increments)
+      python test_navigation.py --command capability --capability ZoomIn
+      python test_navigation.py --command capability --capability ZoomOut
+      python test_navigation.py --command capability --capability ZoomReset
+
   🔗 NAVIGATE: Click links
       python test_navigation.py --command navigate --action-id a_id_0
 

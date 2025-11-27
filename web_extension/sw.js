@@ -1938,13 +1938,21 @@ async function handleExecuteCapability(message) {
         const { id, action, params } = message;
         const requestId = id || `cap_${action}_${Date.now()}`;
 
-        // 🗂️ SMART DISPATCHER: Check if this is a tab manipulation capability
+        // 🗂️ SMART DISPATCHER: Check if this is a browser-level capability
         const tabCapabilities = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL'];
+        const zoomCapabilities = ['ZoomIn', 'ZoomOut', 'ZoomReset'];
 
         if (tabCapabilities.includes(action)) {
             // Route to service worker handlers (browser-level operations)
             console.log("[SW] 🗂️ Routing to tab capability handler:", action, "requestId:", requestId);
             await handleTabCapability(action, params || {}, requestId);
+            return;
+        }
+
+        if (zoomCapabilities.includes(action)) {
+            // Route to zoom handlers (browser-level operations)
+            console.log("[SW] 🔍 Routing to zoom capability handler:", action, "requestId:", requestId);
+            await handleZoomCapability(action, params || {}, requestId);
             return;
         }
 
@@ -1998,6 +2006,69 @@ async function handleTabCapability(action, params, requestId) {
     } catch (error) {
         console.error("[SW] 🗂️ Tab capability execution failed:", error);
         sendErrorResponse(requestId, "TAB_CAPABILITY_ERROR", error.message);
+    }
+}
+
+/**
+ * 🔍 Handle zoom capabilities
+ *
+ * Uses chrome.tabs.setZoom() API for browser-level zoom control.
+ * Zoom changes by 15% increments (0.15 factor).
+ *
+ * @param {string} action - Capability action name (ZoomIn, ZoomOut, ZoomReset)
+ * @param {Object} params - Parameters (unused for zoom)
+ * @param {string} requestId - Request ID for response matching
+ */
+async function handleZoomCapability(action, params, requestId) {
+    console.log("[SW] 🔍 Handling zoom capability:", action, "requestId:", requestId);
+
+    try {
+        // Find the active tab
+        const activeTab = await findActiveTab();
+        if (!activeTab) {
+            console.error("[SW] 🔍 No active tab found for zoom");
+            sendErrorResponse(requestId, "NO_ACTIVE_TAB", "No active tab found for zoom");
+            return;
+        }
+
+        // Get current zoom level
+        const currentZoom = await chrome.tabs.getZoom(activeTab.id);
+        console.log("[SW] 🔍 Current zoom level:", currentZoom);
+
+        let newZoom;
+        const ZOOM_INCREMENT = 0.15; // 15% increment
+
+        switch (action) {
+            case 'ZoomIn':
+                newZoom = Math.min(currentZoom + ZOOM_INCREMENT, 5.0); // Max 500%
+                break;
+            case 'ZoomOut':
+                newZoom = Math.max(currentZoom - ZOOM_INCREMENT, 0.25); // Min 25%
+                break;
+            case 'ZoomReset':
+                newZoom = 1.0; // 100%
+                break;
+            default:
+                console.error("[SW] 🔍 Unknown zoom action:", action);
+                sendErrorResponse(requestId, "UNKNOWN_ZOOM_ACTION", `Unknown zoom action: ${action}`);
+                return;
+        }
+
+        // Apply the new zoom level
+        await chrome.tabs.setZoom(activeTab.id, newZoom);
+        console.log("[SW] 🔍 Zoom changed:", currentZoom, "->", newZoom);
+
+        // Send success response
+        sendSuccessResponse(requestId, {
+            action: action,
+            previousZoom: Math.round(currentZoom * 100),
+            newZoom: Math.round(newZoom * 100),
+            tabId: activeTab.id
+        });
+
+    } catch (error) {
+        console.error("[SW] 🔍 Zoom capability execution failed:", error);
+        sendErrorResponse(requestId, "ZOOM_CAPABILITY_ERROR", error.message);
     }
 }
 

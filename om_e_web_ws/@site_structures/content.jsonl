@@ -1,28 +1,35 @@
 {
-  "timestamp": 1764244953.530577,
+  "timestamp": 1764248691.739938,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138024349,
-      "url": "https://www.youtube.com/watch?v=GLU1C_cIsgY",
-      "title": "(1) Trump Just Sold Americans Out to Big A.I. - YouTube",
+      "id": 1138024362,
+      "url": "https://brighttreedigital.com.au/",
+      "title": "Local Web Design Adelaide | Bright Tree Digital",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138024349,
-        "url": "https://www.youtube.com/watch?v=GLU1C_cIsgY",
-        "title": "(1) Trump Just Sold Americans Out to Big A.I. - YouTube",
+        "id": 1138024362,
+        "url": "https://brighttreedigital.com.au/",
+        "title": "Local Web Design Adelaide | Bright Tree Digital",
         "active": true,
+        "status": "complete"
+      },
+      {
+        "id": 1138024367,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
+        "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 11814.73394475,
+    "last_tabs_update": 15597.739885375,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/watch?v=GLU1C_cIsgY",
-    "title": "(1) Trump Just Sold Americans Out to Big A.I. - YouTube",
+    "url": "https://brighttreedigital.com.au/",
+    "title": "Local Web Design Adelaide | Bright Tree Digital",
     "is_active_tab": true
   },
   "content_structure": {},
