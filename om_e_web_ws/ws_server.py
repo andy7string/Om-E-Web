@@ -3396,6 +3396,32 @@ async def handler(ws):
                     print(f"❌ Error executing scroll: {e}")
                     await ws.send(json.dumps({"ok": False, "error": str(e)}))
 
+            # 🎛️ HUD: Toggle overlay interface
+            if msg.get("type") == "toggle_hud":
+                print("🎛️ HUD toggle request received")
+                try:
+                    if EXTENSION_WS:
+                        hud_command = {
+                            "type": "toggle_hud",
+                            "id": f"hud_{int(time.time() * 1000)}"
+                        }
+                        await EXTENSION_WS.send(json.dumps(hud_command))
+                        print("📤 Sent HUD toggle command to extension")
+
+                        await ws.send(json.dumps({
+                            "ok": True,
+                            "message": "HUD toggle initiated"
+                        }))
+                    else:
+                        await ws.send(json.dumps({
+                            "ok": False,
+                            "error": "Extension not connected"
+                        }))
+
+                except Exception as e:
+                    print(f"❌ Error toggling HUD: {e}")
+                    await ws.send(json.dumps({"ok": False, "error": str(e)}))
+
             # 🆕 NEW: DOM CHANGE NOTIFICATIONS: Handle real-time DOM change updates
             if msg.get("type") == "dom_content_changed":
                 print("🔄 DOM content changed notification received")

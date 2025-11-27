@@ -46,9 +46,10 @@ Usage examples:
       #   ↳ Check text.md for: <Slider id="a_id_X" value="0" min="0" max="100" use="(a_id_X, setValue, number)">
 
   📝 INPUT: Type into text fields
-      python test_navigation.py --command llm --action-id a_id_62 --action-type setValue --value "we just got additional capabilitites to view and control tabs bro look at our file, Andrew is making this wor
+      python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "claude"
+
 k for us" --submit
-      python test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "just text" --no-submit
+      python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "claude" --submit
       #   ↳ Check text.md for: <Input id="a_id_X" use="(a_id_X, 'your text', submit:true)">
 
   📋 SELECT: Dropdown selection
@@ -71,6 +72,9 @@ k for us" --submit
       python test_navigation.py --command capability --capability ScrollUp
       python test_navigation.py --command capability --capability ScrollTop
       python test_navigation.py --command capability --capability ScrollBottom
+
+  🎛️ HUD: Toggle the overlay HUD interface
+      python test_navigation.py --command hud                     # toggle HUD open/closed
 """
 
 import asyncio
@@ -132,6 +136,11 @@ class NavigationTester:
             message = {
                 "type": "execute_scroll",
                 "direction": scroll_data.get("direction", "down")
+            }
+        elif command == "toggle_hud":
+            # 🎛️ HUD: Toggle overlay interface
+            message = {
+                "type": "toggle_hud"
             }
         else:
             message = {
@@ -256,8 +265,8 @@ async def main():
     submit_group.add_argument("--submit", dest="submit", action="store_true", help="Submit after setting the value")
     submit_group.add_argument("--no-submit", dest="no_submit", action="store_true", help="Do not submit after setting the value")
     parser.add_argument("--action-type", dest="action_type", required=False, help="Optional actionType when using the 'llm' command (e.g., setValue, click, navigate)")
-    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click", "capability", "scroll"], default="llm",
-                        help="Execution mode: llm (default), navigate, click, capability, scroll")
+    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click", "capability", "scroll", "hud"], default="llm",
+                        help="Execution mode: llm (default), navigate, click, capability, scroll, hud")
     parser.add_argument("--capability", dest="capability", required=False, help="Capability action name (e.g., RetrieveTranscript)")
     parser.add_argument("--direction", dest="direction", choices=["down", "up", "top", "bottom"], default="down",
                         help="Scroll direction: down (default), up, top, bottom")
@@ -295,6 +304,9 @@ async def main():
             return
     elif command_mode == "scroll":
         # Scroll mode doesn't require --action-id (uses --direction instead)
+        pass
+    elif command_mode == "hud":
+        # HUD mode doesn't require --action-id
         pass
     else:
         # Other modes require --action-id
@@ -384,6 +396,14 @@ async def main():
     """)
         print(f"📜 Executing scroll: direction={args.direction}")
         response = await tester.send_command("execute_scroll", payload)
+    elif command_mode == "hud":
+        # 🎛️ HUD: Toggle overlay interface
+        print("""🎛️ HUD TOGGLE
+    - Toggles the OM-E HUD overlay open/closed
+    - HUD provides visual feedback and controls
+    """)
+        print("🎛️ Toggling HUD...")
+        response = await tester.send_command("toggle_hud", {})
     else:
         payload = {
             "actionId": args.action_id,
@@ -396,7 +416,7 @@ async def main():
     - params becomes {"value": ..., "submit": True/False}
     """)
         print(f"🎯 Executing action (LLM mode): {payload}")
-    response = await tester.send_command("execute_llm_action", payload)
+        response = await tester.send_command("execute_llm_action", payload)
 
     if response is None:
         print("❌ No response received")

@@ -1,35 +1,35 @@
 {
-  "timestamp": 1764248691.739339,
+  "timestamp": 1764251723.935894,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138024362,
-      "url": "https://brighttreedigital.com.au/",
-      "title": "Local Web Design Adelaide | Bright Tree Digital",
-      "status": "complete"
+      "id": 1138024390,
+      "url": "https://www.google.com/search?q=claude%0D%0A&sca_esv=cb427c73f925e7d3&sxsrf=AE3TifNMEPA1_sWG3jvPVz_v7AQSjImHFA%3A1764251411955&source=hp&ei=E1coaaW0OKnO1e8PifmVkAE&iflsig=AOw8s4IAAAAAaShlI6FVPVcMjyBUqQHl8MKC3e7ldvnt",
+      "title": "claude - Google Search",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138024362,
-        "url": "https://brighttreedigital.com.au/",
-        "title": "Local Web Design Adelaide | Bright Tree Digital",
-        "active": true,
+        "id": 1138024386,
+        "url": "https://www.youtube.com/",
+        "title": "(1) YouTube",
+        "active": false,
         "status": "complete"
       },
       {
-        "id": 1138024367,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
-        "status": "complete"
+        "id": 1138024390,
+        "url": "https://www.google.com/search?q=claude%0D%0A&sca_esv=cb427c73f925e7d3&sxsrf=AE3TifNMEPA1_sWG3jvPVz_v7AQSjImHFA%3A1764251411955&source=hp&ei=E1coaaW0OKnO1e8PifmVkAE&iflsig=AOw8s4IAAAAAaShlI6FVPVcMjyBUqQHl8MKC3e7ldvnt",
+        "title": "claude - Google Search",
+        "active": true,
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 15597.739885375,
+    "last_tabs_update": 18707.529305708,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "url": "https://www.google.com/search?q=claude%0D%0A&sca_esv=cb427c73f925e7d3&sxsrf=AE3TifNMEPA1_sWG3jvPVz_v7AQSjImHFA%3A1764251411955&source=hp&ei=E1coaaW0OKnO1e8PifmVkAE&iflsig=AOw8s4IAAAAAaShlI6FVPVcMjyBUqQHl8MKC3e7ldvnt",
+    "title": "claude - Google Search",
     "is_active_tab": true
   },
   "menu_structure": {

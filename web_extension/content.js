@@ -11705,4 +11705,197 @@
     // findStandaloneNavigationMenus(), consolidateAllMenus(), buildCleanActionIdMappings(),
     // getMenuName(), generateIntelligenceOutput(), deduplicateMenus(), and 11 more helper functions
 
+    // ============================================================================
+    // 🎛️ OM-E HUD SYSTEM - Floating orb and overlay interface
+    // ============================================================================
+
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, visible: boolean, dragging: boolean }} */
+    const hudState = {
+        host: null,
+        shadow: null,
+        orb: null,
+        hud: null,
+        visible: false,
+        dragging: false
+    };
+
+    /**
+     * 🎨 Inject HUD styles into Shadow DOM
+     * @param {ShadowRoot} shadow
+     */
+    function injectHUDStyles(shadow) {
+        const style = document.createElement('style');
+        style.textContent = `
+            .ome-orb {
+                position: fixed;
+                bottom: 24px;
+                right: 24px;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+                box-shadow: 0 4px 12px rgba(99,102,241,0.4), 0 0 0 2px rgba(255,255,255,0.1) inset;
+                cursor: grab;
+                z-index: 2147483646;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                user-select: none;
+                touch-action: none;
+                transition: transform 0.15s ease, box-shadow 0.15s ease;
+            }
+            .ome-orb:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(99,102,241,0.5), 0 0 0 2px rgba(255,255,255,0.2) inset; }
+            .ome-orb:active, .ome-orb.dragging { cursor: grabbing; transform: scale(0.95); }
+            .ome-orb-icon { width: 24px; height: 24px; animation: ome-rotate 8s linear infinite; }
+            @keyframes ome-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+            .ome-orb:hover .ome-orb-icon { animation-play-state: paused; }
+
+            .ome-hud {
+                position: fixed;
+                top: 0; left: 0;
+                width: 100vw; height: 100vh;
+                background: rgba(15,15,20,0.92);
+                backdrop-filter: blur(8px);
+                z-index: 2147483645;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif;
+                color: #e5e7eb;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+            .ome-hud.visible { display: flex; opacity: 1; }
+            .ome-hud-header { position: absolute; top: 24px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; }
+            .ome-hud-title { font-size: 18px; font-weight: 600; letter-spacing: 0.5px; color: #a5b4fc; }
+            .ome-hud-close {
+                position: absolute; top: 20px; right: 24px;
+                width: 36px; height: 36px;
+                border: none; border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                color: #9ca3af; font-size: 20px;
+                cursor: pointer;
+                display: flex; align-items: center; justify-content: center;
+                transition: background 0.15s ease, color 0.15s ease;
+            }
+            .ome-hud-close:hover { background: rgba(239,68,68,0.2); color: #f87171; }
+            .ome-hud-content { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 600px; padding: 24px; text-align: center; }
+            .ome-hud-status { font-size: 14px; color: #6b7280; }
+            .ome-hud-indicator { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; margin-right: 8px; animation: ome-pulse 2s ease-in-out infinite; }
+            @keyframes ome-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+            .ome-hud-hint { font-size: 12px; color: #4b5563; margin-top: 16px; }
+            .ome-hud-hint kbd { display: inline-block; padding: 2px 6px; background: rgba(255,255,255,0.1); border-radius: 4px; font-family: monospace; font-size: 11px; color: #9ca3af; }
+        `;
+        shadow.appendChild(style);
+    }
+
+    /**
+     * 🔮 Create floating orb
+     * @param {ShadowRoot} shadow
+     * @returns {HTMLElement}
+     */
+    function createOrb(shadow) {
+        const orb = document.createElement('div');
+        orb.className = 'ome-orb';
+        orb.innerHTML = `<svg class="ome-orb-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>`;
+
+        orb.addEventListener('click', () => { if (!hudState.dragging) toggleHUD(); });
+
+        let startX = 0, startY = 0, startLeft = 0, startTop = 0;
+        orb.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            hudState.dragging = false;
+            startX = e.clientX; startY = e.clientY;
+            const rect = orb.getBoundingClientRect();
+            startLeft = rect.left; startTop = rect.top;
+            orb.classList.add('dragging');
+
+            const onMove = (e) => {
+                const dx = e.clientX - startX, dy = e.clientY - startY;
+                if (Math.abs(dx) > 5 || Math.abs(dy) > 5) hudState.dragging = true;
+                orb.style.right = 'auto'; orb.style.bottom = 'auto';
+                orb.style.left = `${Math.max(0, Math.min(window.innerWidth - 48, startLeft + dx))}px`;
+                orb.style.top = `${Math.max(0, Math.min(window.innerHeight - 48, startTop + dy))}px`;
+            };
+            const onUp = () => {
+                orb.classList.remove('dragging');
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+                setTimeout(() => { hudState.dragging = false; }, 50);
+            };
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        });
+
+        shadow.appendChild(orb);
+        return orb;
+    }
+
+    /**
+     * 📺 Create HUD overlay
+     * @param {ShadowRoot} shadow
+     * @returns {HTMLElement}
+     */
+    function createHUD(shadow) {
+        const hud = document.createElement('div');
+        hud.className = 'ome-hud';
+        hud.innerHTML = `
+            <div class="ome-hud-header"><span class="ome-hud-title">OM-E Web</span></div>
+            <button class="ome-hud-close">&times;</button>
+            <div class="ome-hud-content">
+                <div class="ome-hud-status"><span class="ome-hud-indicator"></span>Extension Active</div>
+                <div class="ome-hud-hint">Click orb or use <kbd>--command hud</kbd> to toggle</div>
+            </div>
+        `;
+        hud.querySelector('.ome-hud-close').addEventListener('click', () => toggleHUD());
+        hud.addEventListener('click', (e) => { if (e.target === hud) toggleHUD(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hudState.visible) toggleHUD(); });
+        shadow.appendChild(hud);
+        return hud;
+    }
+
+    /** 🎛️ Initialize HUD system */
+    function initHUD() {
+        if (hudState.host) return;
+        const host = document.createElement('div');
+        host.id = 'ome-hud-host';
+        host.setAttribute('data-ome-ignore', 'true');
+        document.body.appendChild(host);
+
+        const shadow = host.attachShadow({ mode: 'closed' });
+        injectHUDStyles(shadow);
+        hudState.host = host;
+        hudState.shadow = shadow;
+        hudState.orb = createOrb(shadow);
+        hudState.hud = createHUD(shadow);
+        console.log('[Content] 🎛️ HUD initialized');
+    }
+
+    /** 🔄 Toggle HUD visibility */
+    function toggleHUD() {
+        if (!hudState.hud) initHUD();
+        hudState.visible = !hudState.visible;
+        hudState.hud.classList.toggle('visible', hudState.visible);
+        console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
+    }
+
+    // 🎛️ HUD message handler
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        if (message.type === 'toggle_hud') {
+            console.log('[Content] 🎛️ toggle_hud received');
+            if (!hudState.host) initHUD();
+            toggleHUD();
+            sendResponse({ ok: true, visible: hudState.visible });
+            return true;
+        }
+    });
+
+    // 🚀 Auto-init orb on load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHUD);
+    } else {
+        initHUD();
+    }
+
 })();

@@ -958,6 +958,13 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // 🎛️ HUD: Toggle overlay interface
+        if (message.type === "toggle_hud") {
+            console.log("[SW] 🎛️ Processing HUD toggle");
+            handleToggleHUD(message);
+            return;
+        }
+
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);
@@ -1962,6 +1969,55 @@ async function handleExecuteCapability(message) {
 
     } catch (error) {
         console.error("[SW] ❌ Error executing capability:", error);
+    }
+}
+
+/**
+ * 🎛️ Handle HUD toggle command
+ *
+ * Forwards toggle_hud message to the active tab's content script.
+ * The content script manages orb and HUD overlay visibility.
+ *
+ * @param {Object} message - Message with id property
+ */
+async function handleToggleHUD(message) {
+    try {
+        console.log("[SW] 🎛️ Toggling HUD");
+        const requestId = message.id || `hud_${Date.now()}`;
+
+        const activeTab = await findActiveTab();
+        if (!activeTab) {
+            console.error("[SW] 🎛️ No active tab found for HUD toggle");
+            sendToServer({
+                type: "hud_response",
+                id: requestId,
+                ok: false,
+                error: "No active tab found"
+            });
+            return;
+        }
+
+        // Forward to content script
+        const response = await chrome.tabs.sendMessage(activeTab.id, {
+            type: "toggle_hud"
+        });
+
+        console.log("[SW] 🎛️ HUD toggle response:", response);
+        sendToServer({
+            type: "hud_response",
+            id: requestId,
+            ok: response?.ok ?? true,
+            result: response
+        });
+
+    } catch (error) {
+        console.error("[SW] ❌ Error toggling HUD:", error);
+        sendToServer({
+            type: "hud_response",
+            id: message.id,
+            ok: false,
+            error: error.message
+        });
     }
 }
 
