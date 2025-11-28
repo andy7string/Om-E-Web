@@ -11768,18 +11768,13 @@
         theme: 'robot'  // Current orb theme (default)
     };
 
-    // 💬 Debounced chat input save (500ms delay)
-    let chatInputSaveTimer = null;
+    // 💬 Save chat input immediately (persists across navigation)
     function saveChatInput(value) {
-        clearTimeout(chatInputSaveTimer);
-        chatInputSaveTimer = setTimeout(() => {
-            try {
-                chrome.runtime.sendMessage({ type: 'set_orb_state', chatInput: value });
-                console.log('[Content] 💾 Saved chat input to SW');
-            } catch (e) {
-                console.warn('[Content] Could not save chat input:', e);
-            }
-        }, 500);
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', chatInput: value });
+        } catch (e) {
+            console.warn('[Content] Could not save chat input:', e);
+        }
     }
 
     // ============================================================================
@@ -12003,16 +11998,26 @@
     function injectHUDStyles(shadow) {
         const style = document.createElement('style');
         style.textContent = `
-            /* 🐰 OM-E Bunny */
+            /* 🎯 HUD Canvas - our coordinate system */
+            :host {
+                position: fixed !important;
+                inset: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                pointer-events: none !important;
+                z-index: 2147483646 !important;
+            }
+
+            /* 🐰 OM-E Orb - positioned relative to our canvas */
             .ome-orb {
-                position: fixed;
-                bottom: 24px;
-                right: 24px;
+                position: absolute;
+                right: 2%;
+                bottom: 3%;
                 width: 50px;
                 height: 78px;
                 background: transparent;
                 cursor: pointer;
-                z-index: 2147483646;
+                pointer-events: auto;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -12571,22 +12576,30 @@
             document.removeEventListener('mousemove', followHandler);
             followHandler = null;
 
-            // 💾 Save position when released
-            const left = parseInt(orb.style.left) || 0;
-            const top = parseInt(orb.style.top) || 0;
-            if (left > 0 || top > 0) {
-                saveOrbPosition(left, top);
-            }
+            // 💾 Save position when released (convert to percentages)
+            const orbRect = orb.getBoundingClientRect();
+            const hostRect = hudState.host.getBoundingClientRect();
+            // Calculate percentage from right and bottom of our canvas
+            const rightPct = ((hostRect.right - orbRect.right) / hostRect.width) * 100;
+            const bottomPct = ((hostRect.bottom - orbRect.bottom) / hostRect.height) * 100;
+            // Reset to percentage positioning for consistency
+            orb.style.left = 'auto';
+            orb.style.top = 'auto';
+            orb.style.right = `${Math.max(0, rightPct)}%`;
+            orb.style.bottom = `${Math.max(0, bottomPct)}%`;
+            saveOrbPosition(Math.max(0, rightPct), Math.max(0, bottomPct));
         }
 
         /**
          * Start follow mode - bunny follows cursor
+         * Uses left/top during drag for smooth tracking, converts to right/bottom on release
          */
         function startFollowing() {
             if (hudState.dragging) return;
             hudState.dragging = true;
             orb.classList.add('holding');
             followHandler = (e) => {
+                // Use left/top during active drag for smooth cursor tracking
                 orb.style.right = 'auto';
                 orb.style.bottom = 'auto';
                 orb.style.left = `${e.clientX - 30}px`;
@@ -12767,110 +12780,115 @@
     }
 
     /**
-     * 📐 Clamp orb position to keep it visible in viewport
+     * 📐 Clamp orb position to keep it visible within our canvas
      * Called on window resize to ensure orb doesn't go off-screen
+     * Uses percentage positioning for consistency
      */
     function clampOrbToViewport() {
-        if (!hudState.orb) return;
+        if (!hudState.orb || !hudState.host) return;
 
-        // Check if orb is using left/top positioning (was dragged)
-        // vs default bottom/right positioning (CSS handles that)
-        const usesLeftTop = hudState.orb.style.left && hudState.orb.style.left !== 'auto';
-        if (!usesLeftTop) return;
+        // Get positions relative to our canvas
+        const orbRect = hudState.orb.getBoundingClientRect();
+        const hostRect = hudState.host.getBoundingClientRect();
 
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
+        // Calculate current percentages
+        let rightPct = ((hostRect.right - orbRect.right) / hostRect.width) * 100;
+        let bottomPct = ((hostRect.bottom - orbRect.bottom) / hostRect.height) * 100;
 
-        // Orb dimensions (from CSS: width: 50px, height: 78px)
-        const orbWidth = 50;
-        const orbHeight = 78;
-        const padding = 10;
+        // Clamp to keep visible (1% to 90% range)
+        const minPct = 1;
+        const maxRightPct = 90;
+        const maxBottomPct = 85; // Extra space for zoom controls
 
-        // Get current position
-        let left = parseInt(hudState.orb.style.left) || 0;
-        let top = parseInt(hudState.orb.style.top) || 0;
-
-        // Calculate max positions (account for scroll controls on right + zoom below)
-        const maxLeft = viewportWidth - orbWidth - 60;
-        const maxTop = viewportHeight - orbHeight - 40;
-
-        // Clamp position
-        const clampedLeft = Math.max(padding, Math.min(left, maxLeft));
-        const clampedTop = Math.max(padding, Math.min(top, maxTop));
+        const clampedRightPct = Math.max(minPct, Math.min(rightPct, maxRightPct));
+        const clampedBottomPct = Math.max(minPct, Math.min(bottomPct, maxBottomPct));
 
         // Only update if clamping was needed
-        if (clampedLeft !== left || clampedTop !== top) {
-            hudState.orb.style.left = `${clampedLeft}px`;
-            hudState.orb.style.top = `${clampedTop}px`;
-            console.log('[Content] 📐 Clamped orb to viewport:', clampedLeft, clampedTop);
-
-            // Save clamped position
-            saveOrbPosition(clampedLeft, clampedTop);
+        if (Math.abs(clampedRightPct - rightPct) > 0.5 || Math.abs(clampedBottomPct - bottomPct) > 0.5) {
+            hudState.orb.style.left = 'auto';
+            hudState.orb.style.top = 'auto';
+            hudState.orb.style.right = `${clampedRightPct}%`;
+            hudState.orb.style.bottom = `${clampedBottomPct}%`;
+            console.log('[Content] 📐 Clamped orb position:', { right: clampedRightPct.toFixed(1) + '%', bottom: clampedBottomPct.toFixed(1) + '%' });
+            saveOrbPosition(clampedRightPct, clampedBottomPct);
         }
     }
 
     /**
-     * 💾 Save orb position to service worker
-     * @param {number} left - CSS left value in px
-     * @param {number} top - CSS top value in px
+     * 💾 Save orb position to service worker (using percentages for consistency)
+     * @param {number} rightPct - Right offset as percentage (0-100)
+     * @param {number} bottomPct - Bottom offset as percentage (0-100)
      */
-    function saveOrbPosition(left, top) {
+    function saveOrbPosition(rightPct, bottomPct) {
         try {
-            chrome.runtime.sendMessage({ type: 'set_orb_state', position: { left, top } });
-            console.log('[Content] 💾 Saved orb position to SW:', left, top);
+            chrome.runtime.sendMessage({ type: 'set_orb_state', position: { rightPct, bottomPct } });
+            console.log('[Content] 💾 Saved orb position to SW:', { rightPct: rightPct.toFixed(1) + '%', bottomPct: bottomPct.toFixed(1) + '%' });
         } catch (e) {
             console.warn('[Content] Could not save position:', e);
         }
     }
 
     /**
-     * 📍 Apply saved position to orb
-     * @param {{ left: number, top: number }} position
+     * 📍 Apply saved position to orb (using percentages)
+     * @param {{ rightPct: number, bottomPct: number } | { right: number, bottom: number } | { left: number, top: number }} position
      */
     function applyOrbPosition(position) {
         if (!hudState.orb || !position) return;
-        hudState.orb.style.right = 'auto';
-        hudState.orb.style.bottom = 'auto';
-        hudState.orb.style.left = `${position.left}px`;
-        hudState.orb.style.top = `${position.top}px`;
-        console.log('[Content] 📍 Applied orb position:', position.left, position.top);
+
+        // New format: percentages
+        if (position.rightPct !== undefined && position.bottomPct !== undefined) {
+            hudState.orb.style.left = 'auto';
+            hudState.orb.style.top = 'auto';
+            hudState.orb.style.right = `${position.rightPct}%`;
+            hudState.orb.style.bottom = `${position.bottomPct}%`;
+            console.log('[Content] 📍 Applied orb position:', { right: position.rightPct + '%', bottom: position.bottomPct + '%' });
+        }
+        // Legacy format: pixels (right/bottom) - convert to percentages
+        else if (position.right !== undefined && position.bottom !== undefined) {
+            const rightPct = (position.right / window.innerWidth) * 100;
+            const bottomPct = (position.bottom / window.innerHeight) * 100;
+            hudState.orb.style.left = 'auto';
+            hudState.orb.style.top = 'auto';
+            hudState.orb.style.right = `${rightPct}%`;
+            hudState.orb.style.bottom = `${bottomPct}%`;
+            saveOrbPosition(rightPct, bottomPct);
+            console.log('[Content] 📍 Converted pixel position to percentages');
+        }
+        // Legacy format: pixels (left/top) - convert to percentages
+        else if (position.left !== undefined && position.top !== undefined) {
+            const rightPct = ((window.innerWidth - position.left - 50) / window.innerWidth) * 100;
+            const bottomPct = ((window.innerHeight - position.top - 78) / window.innerHeight) * 100;
+            hudState.orb.style.left = 'auto';
+            hudState.orb.style.top = 'auto';
+            hudState.orb.style.right = `${Math.max(0, rightPct)}%`;
+            hudState.orb.style.bottom = `${Math.max(0, bottomPct)}%`;
+            saveOrbPosition(Math.max(0, rightPct), Math.max(0, bottomPct));
+            console.log('[Content] 📍 Converted legacy left/top to percentages');
+        }
     }
 
     /**
      * 🔍 Restore orb to same screen position after zoom
-     * Uses pre-zoom viewport percentages to calculate new CSS position
-     * Also applies inverse scale to keep orb same visual size
-     * @param {number} screenXPct - Pre-zoom X position as viewport percentage (0-1)
-     * @param {number} screenYPct - Pre-zoom Y position as viewport percentage (0-1)
+     * Uses percentage positioning for consistency
+     * @param {number} rightPct - Right position as percentage (0-100)
+     * @param {number} bottomPct - Bottom position as percentage (0-100)
      */
-    function restoreOrbScreenPosition(screenXPct, screenYPct) {
+    function restoreOrbScreenPosition(rightPct, bottomPct) {
         if (!hudState.orb) return;
 
-        // Convert percentage back to pixels using NEW viewport dimensions
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
+        // Clamp to keep orb visible (1% to 90% range)
+        const clampedRightPct = Math.max(1, Math.min(rightPct, 90));
+        const clampedBottomPct = Math.max(1, Math.min(bottomPct, 85));
 
-        const newLeft = screenXPct * viewportWidth;
-        const newTop = screenYPct * viewportHeight;
-
-        // Orb dimensions (from CSS)
-        const orbWidth = 50;
-        const orbHeight = 68;
-
-        // Clamp to keep orb visible in viewport with some padding
-        const padding = 10;
-        const clampedLeft = Math.max(padding, Math.min(newLeft, viewportWidth - orbWidth - 60));
-        const clampedTop = Math.max(padding, Math.min(newTop, viewportHeight - orbHeight - 40));
-
-        // Apply new position
-        hudState.orb.style.right = 'auto';
-        hudState.orb.style.bottom = 'auto';
-        hudState.orb.style.left = `${clampedLeft}px`;
-        hudState.orb.style.top = `${clampedTop}px`;
+        // Apply percentage position
+        hudState.orb.style.left = 'auto';
+        hudState.orb.style.top = 'auto';
+        hudState.orb.style.right = `${clampedRightPct}%`;
+        hudState.orb.style.bottom = `${clampedBottomPct}%`;
 
         // Save to service worker
-        saveOrbPosition(clampedLeft, clampedTop);
-        console.log(`[Content] 🔍 Restored orb screen position: ${Math.round(screenXPct * 100)}%, ${Math.round(screenYPct * 100)}% → ${clampedLeft}px, ${clampedTop}px`);
+        saveOrbPosition(clampedRightPct, clampedBottomPct);
+        console.log(`[Content] 🔍 Restored orb position: right:${clampedRightPct.toFixed(1)}%, bottom:${clampedBottomPct.toFixed(1)}%`);
     }
 
     /**

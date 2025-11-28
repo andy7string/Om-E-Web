@@ -1,28 +1,28 @@
 {
-  "timestamp": 1764338433.736619,
+  "timestamp": 1764340049.767921,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138026473,
-      "url": "https://www.youtube.com/",
-      "title": "(6) YouTube",
+      "id": 1138026524,
+      "url": "https://www.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/learn/quiz/4540356?components=add_to_cart%2Cavailable_coupons%2Cbuy_button%2Cbuy_for_team%2Ccacheable_buy_button%2Ccacheable_deal_badge%2Ccacheable_discount_expiration%2Ccacheable_price_text%2Ccacheable_purchase_text%2Ccurated_for_ufb_notice_context%2Cdeal_badge%2Cdiscount_expiration%2Cgift_this_course%2Cincentives%2Cinstructor_links%2Clifetime_access_context%2Cmoney_back_guarantee%2Cprice_text%2Cpurchase_tabs_context%2Cpurchase%2Crecommendation%2Credeem_coupon%2Csidebar_container%2Cpurchase_body_container#overview",
+      "title": "Course: Practice Exams | AWS Certified Developer Associate | Udemy",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138026473,
-        "url": "https://www.youtube.com/",
-        "title": "(6) YouTube",
+        "id": 1138026524,
+        "url": "https://www.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/learn/quiz/4540356?components=add_to_cart%2Cavailable_coupons%2Cbuy_button%2Cbuy_for_team%2Ccacheable_buy_button%2Ccacheable_deal_badge%2Ccacheable_discount_expiration%2Ccacheable_price_text%2Ccacheable_purchase_text%2Ccurated_for_ufb_notice_context%2Cdeal_badge%2Cdiscount_expiration%2Cgift_this_course%2Cincentives%2Cinstructor_links%2Clifetime_access_context%2Cmoney_back_guarantee%2Cprice_text%2Cpurchase_tabs_context%2Cpurchase%2Crecommendation%2Credeem_coupon%2Csidebar_container%2Cpurchase_body_container#overview",
+        "title": "Course: Practice Exams | AWS Certified Developer Associate | Udemy",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 59707.080695208,
+    "last_tabs_update": 61344.803097708,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/",
-    "title": "(6) YouTube",
+    "url": "https://www.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/learn/quiz/4540356?components=add_to_cart%2Cavailable_coupons%2Cbuy_button%2Cbuy_for_team%2Ccacheable_buy_button%2Ccacheable_deal_badge%2Ccacheable_discount_expiration%2Ccacheable_price_text%2Ccacheable_purchase_text%2Ccurated_for_ufb_notice_context%2Cdeal_badge%2Cdiscount_expiration%2Cgift_this_course%2Cincentives%2Cinstructor_links%2Clifetime_access_context%2Cmoney_back_guarantee%2Cprice_text%2Cpurchase_tabs_context%2Cpurchase%2Crecommendation%2Credeem_coupon%2Csidebar_container%2Cpurchase_body_container#overview",
+    "title": "Course: Practice Exams | AWS Certified Developer Associate | Udemy",
     "is_active_tab": true
   },
   "menu_structure": {

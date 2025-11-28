@@ -1,9 +1,9 @@
-# (6) YouTube
+# Course: Practice Exams | AWS Certified Developer Associate | Udemy
 
-**URL:** https://www.youtube.com/
-**Timestamp:** 2025-11-29 00:30:33
+**URL:** https://www.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/learn/quiz/4540356?components=add_to_cart%2Cavailable_coupons%2Cbuy_button%2Cbuy_for_team%2Ccacheable_buy_button%2Ccacheable_deal_badge%2Ccacheable_discount_expiration%2Ccacheable_price_text%2Ccacheable_purchase_text%2Ccurated_for_ufb_notice_context%2Cdeal_badge%2Cdiscount_expiration%2Cgift_this_course%2Cincentives%2Cinstructor_links%2Clifetime_access_context%2Cmoney_back_guarantee%2Cprice_text%2Cpurchase_tabs_context%2Cpurchase%2Crecommendation%2Credeem_coupon%2Csidebar_container%2Cpurchase_body_container#overview
+**Timestamp:** 2025-11-29 00:57:29
 
-**Tabs (1):** Active: #1138026473 "(6) YouTube" www.youtube.com [loading]
+**Tabs (1):** Active: #1138026524 "Course: Practice Exams | AWS C" www.udemy.com [loading]
 
 ## Available Actions
 
@@ -65,239 +65,275 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<Button id="a_id_0">Guide</Button>
-<Link id="a_id_1">YouTube Premium Home</Link>
-AU
-<Button id="a_id_2">Skip navigation</Button>
-<Input id="a_id_3" use="(a_id_3, 'your text', submit:true)">Search</Input>
-<Button id="a_id_4">Search</Button>
-<Button id="a_id_5">Search with your voice</Button>
-<Button id="a_id_6">Create</Button>
-<Button id="a_id_7">Notifications</Button>
-<Button id="a_id_8">Account menu</Button>
-<Link id="a_id_9">Home</Link>
-<Link id="a_id_10">Shorts</Link>
-<Link id="a_id_11">Subscriptions</Link>
-<Link id="a_id_12">Peppa Pig - Official Channel. Live streaming.</Link>
-<Link id="a_id_13">BattleBots. Live streaming.</Link>
-<Link id="a_id_14">Moon Dev. Live streaming.</Link>
-<Link id="a_id_15">Emily's Playhouse - Learning Videos for Kids. Live streaming.</Link>
-<Link id="a_id_16">Cristina Gomez. New content available.</Link>
-<Link id="a_id_17">The Diary Of A CEO. New content available.</Link>
-<Link id="a_id_18">Julia McCoy. New content available.</Link>
-<Button id="a_id_19">Show more</Button>
-<Link id="a_id_20">You</Link>
-<Link id="a_id_21">History</Link>
-<Link id="a_id_22">Playlists</Link>
-<Link id="a_id_23">Watch later</Link>
-<Link id="a_id_24">Liked videos</Link>
-<Link id="a_id_25">Your videos</Link>
-<Link id="a_id_26">Downloads</Link>
+<Link id="a_id_0">Practice Exams | AWS Certified Developer Associate</Link>
+<Button id="a_id_1">Share this course</Button>
+Practice Test 1
+Practice Test #1 (AWS Certified Developer Associate - DVA-C02)
+Practice tests are learning tools that help you practice answering questions in preparation to take a standardized exam. You can take the practice test as many times as you like in various modes.
+Choose test mode to begin test
+<Button id="a_id_2">Practice mode
+Beta
+Practice answering questions in a low-stakes environment and review each answer before moving on to the next question
+Questions
+65
+Duration
+None
+Passing score
+None</Button>
+<Button id="a_id_3">Exam mode
+Simulate a standardized test by completing your practice test within the time limit and achieving a passing score.
+Questions
+65
+Duration
+2h 10min
+Passing score
+72% correct</Button>
+<Link id="a_id_4">Skip test</Link>
+Set a certification due date
+AWS Certified Developer – Associate
+When do you want to be ready for your exam?
+<Input id="a_id_5" use="(a_id_5, 'your text', submit:true)">MM/DD/YYYY</Input>
+<Button id="a_id_6">Choose date</Button>
+<Button id="a_id_7">Course content</Button>
+<Button id="a_id_8">AI Assistant</Button>
+<Button id="a_id_9">Practice tests</Button>
+<Checkbox id="a_id_10" checked="false" use="(a_id_10, toggle, true|false)">Mark lecture Practice Test #1 (AWS Certified Developer Associate - DVA-C02) as complete</Checkbox>
+Start
+Practice Test 1: Practice Test #1 (AWS Certified Developer Associate - DVA-C02)
+<Checkbox id="a_id_11" checked="false" use="(a_id_11, toggle, true|false)">Mark lecture Practice Test #2 (AWS Certified Developer Associate - DVA-C02) as complete</Checkbox>
+Start
+Practice Test 2: Practice Test #2 (AWS Certified Developer Associate - DVA-C02)
+<Checkbox id="a_id_12" checked="false" use="(a_id_12, toggle, true|false)">Mark lecture Practice Test #3 (AWS Certified Developer Associate - DVA-C02) as complete</Checkbox>
+Start
+Practice Test 3: Practice Test #3 (AWS Certified Developer Associate - DVA-C02)
+<Checkbox id="a_id_13" checked="false" use="(a_id_13, toggle, true|false)">Mark lecture Practice Test #4 (AWS Certified Developer Associate - DVA-C02) as complete</Checkbox>
+Start
+Practice Test 4: Practice Test #4 (AWS Certified Developer Associate - DVA-C02)
+<Checkbox id="a_id_14" checked="false" use="(a_id_14, toggle, true|false)">Mark lecture Practice Test #5 (AWS Certified Developer Associate - DVA-C02) as complete</Checkbox>
+Start
+Practice Test 5: Practice Test #5 (AWS Certified Developer Associate - DVA-C02)
+<Checkbox id="a_id_15" checked="false" use="(a_id_15, toggle, true|false)">Mark lecture Practice Test #6 (AWS Certified Developer Associate - DVA-C02) as complete</Checkbox>
+Start
+Practice Test 6: Practice Test #6 (AWS Certified Developer Associate - DVA-C02)
+<Button id="a_id_16">Overview</Button>
+<Button id="a_id_17">Q&A
+Questions and answers</Button>
+<Button id="a_id_18">Notes</Button>
+<Button id="a_id_19">Announcements</Button>
+<Button id="a_id_20">Reviews</Button>
+<Button id="a_id_21">Learning tools</Button>
+390 Original Questions for DVA-C02 ! Practice for the AWS Certified Developer Certification and ace the DVA-C02 Exam!
+Rating: 4.5 out of 5
+4.5
+13,049 ratings
+140,803
+Students
+390 questions
+Total
+Last updated
+October 2025
+English
+information alert
+Schedule learning time
+Learning a little each day adds up. Research shows that students who make learning a habit are more likely to reach their goals. Set time aside to learn and get reminders using your learning scheduler.
+<Button id="a_id_22">Get started</Button>
+<Button id="a_id_23">Dismiss</Button>
+Prepare for your certification with this course.
+<Link id="a_id_24">AWS Certified Developer – Associate
+Issued by Amazon Web Services Training and Certification</Link>
+By the numbers
+Skill level: Beginner Level
+Students: 140803
+Languages: English
+Captions: No
+Description
+Preparing for AWS Certified Developer Architect Associate DVA-C02?
+This is
+THE practice exams course to give you the winning edge
+.
+These practice exams have been co-authored by Stephane Maarek and Abhishek Singh who bring their collective experience of passing
+18 AWS Certifications
+to the table.
+The tone and tenor of the questions mimic the real exam.
+Along with the
+detailed description and “exam alert”
+provided within the explanations, we have also
+extensively referenced AWS documentation
+to get you up to speed on all domain areas being tested for the DVA-C02 exam.
+We want you to think of this course as the final pit-stop so that you can cross the winning line with absolute confidence and get AWS Certified! Trust our process, you are in good hands.
+All questions have been
+written from scratch! And more questions are being added over time!
+You can see for yourself some of the amazing
+testimonials
+from our students who have aced the real exam:
+FEATURED REVIEWS:
+5 stars:
+These exams should definitely be a part of everyone's study material, they were extremely helpful and packed with information. I got a 43% on the first exam before taking his course, then after taking the course I got 76, 78, 84, 89, 86 on all 5 tests, and
+was able to pass with a 959/1000
+on the real exam
+5 stars:
+I recommend you take this practice exam with Stephane's hands-on course. For your reference,
+I passed a real exam over 900 points
+.
+5 stars:
+Passed with 914 on the exam
+. This is exam was very good in comparison to the real exam
+Quality speaks for itself...
+SAMPLE QUESTION:
+You have migrated an on-premise SQL Server database to an Amazon Relational Database Service (RDS) database attached to a VPC inside a private subnet. Also, the related Java application, hosted on-premise, has been moved to an Amazon Lambda function.
+Which of the following should you implement to connect AWS Lambda function to its RDS instance?
+Use Lambda layers to connect to the internet and RDS separately
+Configure lambda to connect to the public subnet that will give internet access and use Security Group to access RDS inside the private subnet
+Use Environment variables to pass in the RDS connection string
+Configure Lambda to connect to VPC with private subnet and Security Group needed to access RDS
+What's your guess? Scroll below for the answer.
+Correct: 4.
+CORRECT OPTION
+Configure Lambda to connect to VPC with private subnet and Security Group needed to access RDS
+- You can configure a Lambda function to connect to private subnets in a virtual private cloud (VPC) in your account. Use Amazon Virtual Private Cloud (Amazon VPC) to create a private network for resources such as databases, cache instances, or internal services. Connect your lambda function to the VPC to access private resources during execution. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of the security group and subnet in your function's VPC configuration. This is the right way of giving RDS access to Lambda.
+INCORRECT OPTIONS
+Use Lambda layers to connect to the internet and RDS separately
+- You can configure your Lambda function to pull in additional code and content in the form of layers. A layer is a ZIP archive that contains libraries, a custom runtime, or other dependencies. Layers will not help in configuring access to RDS instance and hence is an incorrect choice.
+Configure lambda to connect to the public subnet that will give internet access and use the Security Group to access RDS inside the private subnet
+- This is an incorrect statement. Connecting a Lambda function to a public subnet does not give it internet access or a public IP address. To grant internet access to your function, its associated VPC must have a NAT gateway (or NAT instance) in a public subnet.
+Use Environment variables to pass in the RDS connection string
+- You can use environment variables to store secrets securely and adjust your function's behavior without updating code. You can use environment variables to exchange data with RDS, but you will still need access to RDS, which is not possible with just environment variables.
+Instructor
+My name is Stéphane Maarek, I am passionate about Cloud Computing, and I will be your instructor in this course. I teach about AWS certifications, focusing on helping my students improve their professional proficiencies in AWS.
+I have already taught 1,500,000+ students and gotten 500,000+ reviews throughout my career in designing and delivering these certifications and courses!
+I'm delighted to welcome Abhishek Singh as my co-instructor for these practice exams!
+Welcome to the best practice exams to help you prepare for your
+AWS Certified Developer Architect Associate
+exam.
+You can retake the exams as many times as you want
+This is a huge original question bank
+You get support from instructors if you have questions
+Each question has a
+detailed explanation
+Mobile-compatible with the Udemy app
+30-days money-back guarantee if you're not satisfied
+We hope that by now you're convinced!.
+And there are a lot more questions inside the course.
+Happy learning and best of luck for your AWS Certified Developer Associate exam.
+What you’ll learn
+Practice for the DVA-C02 exam with 6 full practice exams of 65 questions each
+Consolidate and validate the learning from the Ultimate AWS Certified Developer Associate course
+Ace your AWS Certified Developer Associate DVA-C02 exam
+The DVA-C02 exams practice exams have been written from scratch
+Are there any course requirements or prerequisites?
+Prepare with the Ultimate AWS Certified Developer Associate course
+Who this course is for:
+Anyone who wants to practice the DVA-C02 AWS Certified Developer exam before taking the real one!
+Instructor
+<Link id="a_id_25">Stephane Maarek | AWS Certified Cloud Practitioner,Solutions Architect,Developer</Link>
+Best Selling Instructor, 11x AWS Certified, Kafka Guru
+Stephane is a solutions architect, consultant and software developer that has a particular interest in all things related to Cloud & Big Data. He's also a many-times best seller instructor on Udemy for his courses in
+AWS
+and
+Apache Kafka
+.
+[See FAQ below to see in which order you can take my courses]
+Stéphane is recognized as an
+AWS Hero
+and is an
+AWS Certified Solutions Architect Professional & AWS Certified DevOps Professional
+. He loves to teach people how to use the AWS properly, to get them ready for their
+AWS certifications
+, and most importantly for the real world.
+He also loves
+Apache Kafka
+. He used on the Program Committee organizing the Kafka Summit in New York, London and San Francisco. He also was an active member of the Apache Kafka community, and has authored blogs on Medium and the guest blog for Confluent. He also has
+co-founded Conduktor
+, a prominent company in the Kafka ecosystem.
+During his spare time he enjoys cooking, practicing yoga, surfing, watching TV shows, and traveling to awesome destinations!
+FAQ: In which order should you learn?...
+AWS Cloud:
+Start with AWS Certified Cloud Practitioner or AWS Certified Solutions Architect Associate, then move on to AWS Certified Developer Associate and then AWS Certified SysOps Administrator. Afterwards you can either do AWS Certified Solutions Architect Professional or AWS Certified DevOps Professional, or a specialty certification of your choosing. You can also learn about AI with the AWS Certified AI Practitioner course!
+Apache Kafka:
+Start with Apache Kafka for Beginners, then you can learn Connect, Streams and Schema Registry if you're a developer, and Setup and Monitoring courses if you're an admin. Both tracks are needed to pass the Confluent Kafka certification.
+Instructor
+<Link id="a_id_26">Abhishek Singh</Link>
+Cloud Evangelist
+Abhishek is an AWS veteran and has built successful SaaS and consumer solutions using AWS services since 2012. Over the course of his professional career, Abhishek has interviewed and mentored hundreds of candidates for entry-level and lateral positions for Cloud based IT solutions development. Abhishek is passionate about sharing his knowledge on AWS Cloud, Machine Learning and Big Data. He wants to help his fellow IT Professionals level-up their skills to ace the AWS Certifications and above all, get ready for the real world AWS ecosystem.
+He is an AWS Certified Solutions Architect Professional, AWS Certified DevOps Engineer Professional, AWS Certified Machine Learning Specialist, AWS Certified Big Data Specialist and AWS Certified Database Specialist.
+Overall, Abhishek has over 15 years of experience working on a diverse range of Enterprise Technologies based on AI/ML, Big Data and Analytics. He runs a successful AI/ML and Big Data Consultancy advocating solutions on AWS Cloud and has advised multiple clients in the US to architect and implement their AI/ML and Big Data solutions using the AWS suite of services.
 <Button id="a_id_27">Show more</Button>
-Explore
-<Link id="a_id_28">Music</Link>
-<Link id="a_id_29">Movies & TV</Link>
-<Link id="a_id_30">Gaming</Link>
-<Button id="a_id_31">Show more</Button>
-More from YouTube
-<Link id="a_id_32">YouTube Studio</Link>
-<Link id="a_id_33">YouTube Music</Link>
-<Link id="a_id_34">YouTube Kids</Link>
-<Link id="a_id_35">Settings</Link>
-<Link id="a_id_36">Report history</Link>
-<Link id="a_id_37">Help</Link>
-<Link id="a_id_38">Send feedback</Link>
-<Link id="a_id_39">About</Link>
-<Link id="a_id_40">Press</Link>
-<Link id="a_id_41">Copyright</Link>
-<Link id="a_id_42">Contact us</Link>
-<Link id="a_id_43">Creators</Link>
-<Link id="a_id_44">Advertise</Link>
-<Link id="a_id_45">Developers</Link>
-<Link id="a_id_46">Terms</Link>
-<Link id="a_id_47">Privacy</Link>
-<Link id="a_id_48">Policy & Safety</Link>
-<Link id="a_id_49">How YouTube works</Link>
-<Link id="a_id_50">Test new features</Link>
-© 2025 Google LLC
-<Button id="a_id_51">All</Button>
-<Button id="a_id_52">Podcasts</Button>
-<Button id="a_id_53">News</Button>
-<Button id="a_id_54">Music</Button>
-<Button id="a_id_55">AI</Button>
-<Button id="a_id_56">Boat building</Button>
-<Button id="a_id_57">Overhead press</Button>
-<Button id="a_id_58">Fingerstyle guitar</Button>
-<Button id="a_id_59">Weight</Button>
-<Button id="a_id_60">Mixes</Button>
-<Button id="a_id_61">Live</Button>
-<Button id="a_id_62">Calisthenics</Button>
-<Button id="a_id_63">Alternative Metal</Button>
-<Button id="a_id_64">Electronic musical instruments</Button>
-<Button id="a_id_65">Soul Music</Button>
-<Button id="a_id_66">Comedy</Button>
-<Button id="a_id_67">Recently uploaded</Button>
-<Button id="a_id_68">Watched</Button>
-<Button id="a_id_69">New to you</Button>
-<Button id="a_id_70">Next</Button>
-<Link id="a_id_71">2:22:20</Link>
-<Link id="a_id_72">AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris 2 hours, 22 minutes</Link>
-<Link id="a_id_73">The Diary Of A CEO</Link>
-694K views
-•
-1 day ago
-<Link id="a_id_74">2:17</Link>
-<Link id="a_id_75">Abasi Micro Aggressor Capture Test (Quad Cortex) 2 minutes, 17 seconds</Link>
-<Link id="a_id_76">Charlie Robbins</Link>
-2.8K views
-•
-1 day ago
-<Link id="a_id_77">4:13</Link>
-<Link id="a_id_78">YUNGBLUD & Halsey cover Death Cab for Cutie 'I Will Follow You Into The Dark' for Like A Version 4 minutes, 13 seconds</Link>
-<Link id="a_id_79">triple j</Link>
-19M views
-•
-6 years ago
-<Link id="a_id_80">1:03:02</Link>
-<Link id="a_id_81">AI Just Hacked the World With Almost No Humans Involved 1 hour, 3 minutes</Link>
-<Link id="a_id_82">DTF Cyber Podcast</Link>
-349 views
-•
-20 hours ago
-<Link id="a_id_83">6:56</Link>
-<Link id="a_id_84">‘Terrifying prospect’: Economists predict at least two interest rate hikes in 2026 6 minutes, 56 seconds</Link>
-<Link id="a_id_85">Sky News Australia</Link>
-15K views
-•
-1 day ago
-<Link id="a_id_86">14:31</Link>
-<Link id="a_id_87">SHOULDER EXERCISES THAT ACTUALLY WORK | DLB 14 minutes, 31 seconds</Link>
-<Link id="a_id_88">DanaLinnBailey</Link>
-13K views
-•
-2 days ago
-<Link id="a_id_89">2:52</Link>
-<Link id="a_id_90">AI can already replace 11.7% of the U.S. workforce, MIT study finds 2 minutes, 52 seconds</Link>
-<Link id="a_id_91">CNBC Television</Link>
-42K views
-•
-1 day ago
-<Link id="a_id_92">9:26</Link>
-<Link id="a_id_93">Comet 3i Atlas - Is it REALLY a COMET - I took a PICTURE 9 minutes, 26 seconds</Link>
-<Link id="a_id_94">Ray's Astrophotography</Link>
-314K views
-•
-1 day ago
-<Link id="a_id_95">YouTube Playables</Link>
-<Link id="a_id_96">YouTube Playables</Link>
-Instant games, no downloads
-<Link id="a_id_97">View all</Link>
-<Button id="a_id_98">Not interested</Button>
-<Link id="a_id_99">Play</Link>
-<Link id="a_id_100">Hole.io
-6.8M plays</Link>
-<Link id="a_id_101">Play</Link>
-<Link id="a_id_102">Guess Their Answer
-9M plays</Link>
-<Link id="a_id_103">Continue</Link>
-<Link id="a_id_104">Solar Smash
-9.9M plays</Link>
-<Link id="a_id_105">Play</Link>
-<Link id="a_id_106">Color Match
-15M plays</Link>
-<Link id="a_id_107">Play</Link>
-<Link id="a_id_108">My Mini Mart
-22M plays</Link>
-<Link id="a_id_109">Play</Link>
-<Link id="a_id_110">Color Water Sort 3D
-17M plays</Link>
-<Button id="a_id_111">Show more</Button>
-<Link id="a_id_112">2:40</Link>
-<Button id="a_id_113">Tap to watch live</Button>
-<Link id="a_id_114">Race To Weaponise The Mind: How Brain Weapons Alter Memory & Behaviour | WION Pulse 2 minutes, 40 seconds</Link>
-<Link id="a_id_115">WION</Link>
-24K views
-•
-2 days ago
-<Link id="a_id_116">1:29</Link>
-<Link id="a_id_117">AI Breakthrough: Scientists Harness AI Agents to Discover Hundreds of Potential Anti-Aging Therapies 1 minute, 29 seconds</Link>
-<Link id="a_id_118">AI Application (paper summaries or stories)</Link>
-14 views
-•
-1 day ago
-<Link id="a_id_119">2:09</Link>
-<Link id="a_id_120">Charlie Brown Thanksgiving Theme - Jazz Guitar Cover by Quinn Parsley 2 minutes, 9 seconds</Link>
-<Link id="a_id_121">Quinn Parsley</Link>
-109 views
-•
-1 day ago
-<Link id="a_id_122">10:58</Link>
-<Link id="a_id_123">Nuclear Engineer Warns That ANYONE Can Build Nuclear Technology At Home | Max Zamilov 10 minutes, 58 seconds</Link>
-<Link id="a_id_124">Danny Jones Clips</Link>
-18K views
-•
-18 hours ago
-Shorts
-<Link id="a_id_125">"She started DANCING to GANGNAM STYLE at the CHINESE BBQ restaurant! 🇨🇳🕺🔥" #shorts #VibeX #vlog</Link>
-22K views
-<Link id="a_id_126">LazyTown Cast Then and Now (2004 vs 2025) #shortsfeed #shorts #lazytown #castthenandnow #evolution</Link>
-1.6M views
-<Link id="a_id_127">Gabi Kovalenko: Jesus Knew Sophia - The Divine Feminine</Link>
-1.5K views
-<Link id="a_id_128">Gang initiation in Australia</Link>
-3.1M views
-<Link id="a_id_129">Ranking the funniest Sora AI women olympic moments 😂 #shorts #funny #sora2 #viral</Link>
-770K views
-<Link id="a_id_130">Katy Perry changed Roar lyrics after becoming a mother 🥹🫶</Link>
-9.5M views
-<Link id="a_id_131">4:14</Link>
-<Link id="a_id_132">No One Was Ready for How EMOTIONAL This 'Wicked Game' Cover Is | Chris Isaak - Wicked Game 4 minutes, 14 seconds</Link>
-<Link id="a_id_133">Leire</Link>
-2.1M views
-•
-6 months ago
-<Link id="a_id_134">Upcoming</Link>
-<Link id="a_id_135">Vibe Coding is Ending Software Development As We Know It (And Why That’s Good) 10 minutes, 41 seconds</Link>
-<Link id="a_id_136">Julia McCoy</Link>
-8 waiting
-•
-Premieres 11/29/25, 1:30 AM
-<Button id="a_id_137">Notify me</Button>
-<Link id="a_id_138">20:24</Link>
-<Link id="a_id_139">The #1 BEST Diet That Prevents 80% of Disease 20 minutes</Link>
-<Link id="a_id_140">The Diary Of A CEO Clips</Link>
-50K views
-•
-18 hours ago
-<Link id="a_id_141">1:21:11</Link>
-<Link id="a_id_142">Collaboration channels</Link>
-<Link id="a_id_143">AI Safety Expert: All Jobs Gone by 2027 - Dr. Roman Yampolskiy 1 hour, 21 minutes</Link>
-Wes Roth
-and Dylan Curious
-15K views
-•
-11 hours ago
-<Link id="a_id_144">12:05</Link>
-<Link id="a_id_145">Everyone is losing their job to AI. They say AI will give us more jobs. They're lying. 12 minutes, 5 seconds</Link>
-<Link id="a_id_146">Hey AI</Link>
-4.6K views
-•
-1 day ago
-<Link id="a_id_147">10:51</Link>
-<Link id="a_id_148">AI bots are experiencing BRAIN ROT... and it’s happening to all of us 10 minutes, 51 seconds</Link>
-<Link id="a_id_149">Glenn Beck</Link>
-31K views
-•
-2 days ago
-<Link id="a_id_150">17:14</Link>
-<Link id="a_id_151">THE REAL GOAT OF DRUMS. 17 minutes</Link>
-<Link id="a_id_152">El Estepario Siberiano</Link>
-199K views
-•
-20 hours ago
-<Link id="a_id_153">58:29</Link>
-<Link id="a_id_154">The Rapid Rise of AI in Indie Filmmaking 58 minutes</Link>
-<Link id="a_id_155">Indie Film Community with Jeff Deverett</Link>
-432 views
-•
-1 day ago
+Teach the world online
+Create an online video course, reach students across the globe, and earn money
+<Link id="a_id_28">Teach on Udemy</Link>
+Top companies choose
+<Link id="a_id_29">Udemy Business</Link>
+to build in-demand career skills.
+Explore top skills and certifications
+In-demand Careers
+<Link id="a_id_30">Data Scientist</Link>
+<Link id="a_id_31">Full Stack Web Developer</Link>
+<Link id="a_id_32">Cloud Engineer</Link>
+<Link id="a_id_33">Project Manager</Link>
+<Link id="a_id_34">Game Developer</Link>
+<Link id="a_id_35">All Career Accelerators</Link>
+Web Development
+<Link id="a_id_36">Web Development</Link>
+<Link id="a_id_37">JavaScript</Link>
+<Link id="a_id_38">React JS</Link>
+<Link id="a_id_39">Angular</Link>
+<Link id="a_id_40">Java</Link>
+IT Certifications
+<Link id="a_id_41">Amazon AWS</Link>
+<Link id="a_id_42">AWS Certified Cloud Practitioner</Link>
+<Link id="a_id_43">AZ-900: Microsoft Azure Fundamentals</Link>
+<Link id="a_id_44">AWS Certified Solutions Architect - Associate</Link>
+<Link id="a_id_45">Kubernetes</Link>
+Leadership
+<Link id="a_id_46">Leadership</Link>
+<Link id="a_id_47">Management Skills</Link>
+<Link id="a_id_48">Project Management</Link>
+<Link id="a_id_49">Personal Productivity</Link>
+<Link id="a_id_50">Emotional Intelligence</Link>
+Certifications by Skill
+<Link id="a_id_51">Cybersecurity Certification</Link>
+<Link id="a_id_52">Project Management Certification</Link>
+<Link id="a_id_53">Cloud Certification</Link>
+<Link id="a_id_54">Data Analytics Certification</Link>
+<Link id="a_id_55">HR Management Certification</Link>
+<Link id="a_id_56">See all Certifications</Link>
+Data Science
+<Link id="a_id_57">Data Science</Link>
+<Link id="a_id_58">Python</Link>
+<Link id="a_id_59">Machine Learning</Link>
+<Link id="a_id_60">ChatGPT</Link>
+<Link id="a_id_61">Deep Learning</Link>
+Communication
+<Link id="a_id_62">Communication Skills</Link>
+<Link id="a_id_63">Presentation Skills</Link>
+<Link id="a_id_64">Public Speaking</Link>
+<Link id="a_id_65">Writing</Link>
+<Link id="a_id_66">PowerPoint</Link>
+Business Analytics & Intelligence
+<Link id="a_id_67">Microsoft Excel</Link>
+<Link id="a_id_68">SQL</Link>
+<Link id="a_id_69">Microsoft Power BI</Link>
+<Link id="a_id_70">Data Analysis</Link>
+<Link id="a_id_71">Business Analysis</Link>
+About
+<Link id="a_id_72">About us</Link>
+<Link id="a_id_73">Careers</Link>
+<Link id="a_id_74">Contact us</Link>
+<Link id="a_id_75">Blog</Link>
+<Link id="a_id_76">Investors</Link>
+Discover Udemy
+<Link id="a_id_77">Get the app</Link>
+<Link id="a_id_78">Teach on Udemy</Link>
+<Link id="a_id_79">Plans and Pricing</Link>
+<Link id="a_id_80">Affiliate</Link>
+<Link id="a_id_81">Help and Support</Link>
+Udemy for Business
+<Link id="a_id_82">Udemy Business</Link>
+Legal & Accessibility
+<Link id="a_id_83">Accessibility statement</Link>
+<Link id="a_id_84">Privacy policy</Link>
+<Link id="a_id_85">Sitemap</Link>
+<Link id="a_id_86">Terms</Link>
+© 2025 Udemy, Inc.
+<Button id="a_id_87">Cookie settings</Button>
+<Button id="a_id_88">English</Button>
