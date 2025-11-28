@@ -1,42 +1,35 @@
 {
-  "timestamp": 1764328664.6079412,
+  "timestamp": 1764330038.9882722,
   "browser_state": {
-    "total_tabs": 3,
+    "total_tabs": 2,
     "active_tab": {
       "id": 1138026248,
-      "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/project",
-      "title": "ChatGPT - OM-E autonomy",
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
       "status": "complete"
     },
     "all_tabs": [
       {
         "id": 1138026248,
-        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/project",
-        "title": "ChatGPT - OM-E autonomy",
+        "url": "https://chatgpt.com/",
+        "title": "ChatGPT",
         "active": true,
         "status": "complete"
       },
       {
-        "id": 1138026256,
+        "id": 1138026263,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
-      },
-      {
-        "id": 1138026258,
-        "url": "chrome://newtab/",
-        "title": "New tab",
-        "active": false,
-        "status": "complete"
       }
     ],
-    "last_tabs_update": 49966.079554458,
+    "last_tabs_update": 51333.217281416,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/project",
-    "title": "ChatGPT - OM-E autonomy",
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
     "is_active_tab": true
   },
   "content_structure": {},

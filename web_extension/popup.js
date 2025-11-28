@@ -13,7 +13,8 @@ const resetDOMBtn = document.getElementById("resetDOMBtn");
 // 🐰 Orb Style Buttons
 const orbKawaiiBtn = document.getElementById("orbKawaii");
 const orbRobotBtn = document.getElementById("orbRobot");
-const orbButtons = [orbKawaiiBtn, orbRobotBtn];
+const orbAtomBtn = document.getElementById("orbAtom");
+const orbButtons = [orbKawaiiBtn, orbRobotBtn, orbAtomBtn];
 
 // Status display elements
 const connectionStatus = document.getElementById("connectionStatus");

@@ -1,9 +1,9 @@
-# ChatGPT - OM-E autonomy
+# ChatGPT
 
-**URL:** https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/project
-**Timestamp:** 2025-11-28 21:47:44
+**URL:** https://chatgpt.com/
+**Timestamp:** 2025-11-28 22:10:38
 
-**Tabs (3):** Active: #1138026248 "ChatGPT - OM-E autonomy" chatgpt.com [complete] | Other: #1138026256 "Extensions" extensions, #1138026258 "New tab" newtab
+**Tabs (2):** Active: #1138026248 "ChatGPT" chatgpt.com [complete] | Other: #1138026263 "Extensions" extensions
 
 ## Available Actions
 
@@ -65,58 +65,66 @@ The following pre-configured actions are available for this page:
 
 ---
 
+<Link id="a_id_0">Skip to content</Link>
 Chat history
-<Link id="a_id_0">Home</Link>
-<Button id="a_id_1">Close sidebar</Button>
-<Link id="a_id_2">New chat
+<Link id="a_id_1">Home</Link>
+<Button id="a_id_2">Close sidebar</Button>
+<Link id="a_id_3">New chat
 ⇧
 ⌘
 O</Link>
 Search chats
-<Link id="a_id_3">Library</Link>
-<Link id="a_id_4">Codex</Link>
-<Link id="a_id_5">Atlas</Link>
-<Button id="a_id_6">GPTs</Button>
-<Link id="a_id_7">Explore</Link>
-<Link id="a_id_8">Web Browser</Link>
-<Button id="a_id_9">Projects</Button>
+<Link id="a_id_4">Library</Link>
+<Link id="a_id_5">Codex</Link>
+<Link id="a_id_6">Atlas</Link>
+<Button id="a_id_7">GPTs</Button>
+<Link id="a_id_8">Explore</Link>
+<Link id="a_id_9">Web Browser</Link>
+<Button id="a_id_10">Projects</Button>
 New project
-<Link id="a_id_10">OM-E autonomy</Link>
-<Link id="a_id_11">Claude</Link>
-<Link id="a_id_12">Pacifier Project</Link>
-<Link id="a_id_13">BinaryBeats</Link>
-<Link id="a_id_14">FPH</Link>
+<Link id="a_id_11">OM-E autonomy</Link>
+<Link id="a_id_12">Claude</Link>
+<Link id="a_id_13">Pacifier Project</Link>
+<Link id="a_id_14">BinaryBeats</Link>
+<Link id="a_id_15">FPH</Link>
 See more
-<Button id="a_id_15">Your chats</Button>
-<Link id="a_id_16">Modify bunny design</Link>
-<Link id="a_id_17">Invite ANZ to PEXA</Link>
-<Link id="a_id_18">Extension conversation</Link>
-<Link id="a_id_19">Om-e extension response</Link>
-<Link id="a_id_20">Gravity Forms email issue</Link>
-<Link id="a_id_21">Nailing it with extension</Link>
-<Link id="a_id_22">Website legitimacy check</Link>
-<Link id="a_id_23">Confident response to Jeff</Link>
-<Link id="a_id_24">Web automation test</Link>
+<Button id="a_id_16">Your chats</Button>
+<Link id="a_id_17">Modify bunny design</Link>
+<Link id="a_id_18">Invite ANZ to PEXA</Link>
+<Link id="a_id_19">Extension conversation</Link>
+<Link id="a_id_20">Om-e extension response</Link>
+<Link id="a_id_21">Gravity Forms email issue</Link>
+<Link id="a_id_22">Nailing it with extension</Link>
+<Link id="a_id_23">Website legitimacy check</Link>
+<Link id="a_id_24">Confident response to Jeff</Link>
 <Link id="a_id_25">Web automation test</Link>
-<Link id="a_id_26">Claude assistance options</Link>
-<Link id="a_id_27">Claude usage clarification</Link>
-<Link id="a_id_28">Write a poem</Link>
-<Link id="a_id_29">Sort list in Python</Link>
-<Link id="a_id_30">Automation test message</Link>
-<Link id="a_id_31">Confidence boost</Link>
-<Link id="a_id_32">Palm reading analysis</Link>
-<Link id="a_id_33">Emotional reaction reflection</Link>
-<Link id="a_id_34">Calming emotional reactions</Link>
-<Link id="a_id_35">Handling strong language</Link>
-<Link id="a_id_36">Search elements in console</Link>
-<Link id="a_id_37">Guitar request clarification</Link>
-<Link id="a_id_38">New chat</Link>
-<Link id="a_id_39">Guitar assistance offer</Link>
-<Link id="a_id_40">Next steps discussion</Link>
-<Link id="a_id_41">Conversation transcript</Link>
-<Link id="a_id_42">Contact form not received</Link>
-<Link id="a_id_43">New chat</Link>
-<Button id="a_id_44">Open profile menu</Button>
-<Button id="a_id_45">Model selector</Button>
-<Button id="a_id_46">Share</Button>
-<Button id="a_id_47">Show project details</Button>
+<Link id="a_id_26">Web automation test</Link>
+<Link id="a_id_27">Claude assistance options</Link>
+<Link id="a_id_28">Claude usage clarification</Link>
+<Link id="a_id_29">Write a poem</Link>
+<Link id="a_id_30">Sort list in Python</Link>
+<Link id="a_id_31">Automation test message</Link>
+<Link id="a_id_32">Confidence boost</Link>
+<Link id="a_id_33">Palm reading analysis</Link>
+<Link id="a_id_34">Emotional reaction reflection</Link>
+<Link id="a_id_35">Calming emotional reactions</Link>
+<Link id="a_id_36">Handling strong language</Link>
+<Link id="a_id_37">Search elements in console</Link>
+<Link id="a_id_38">Guitar request clarification</Link>
+<Link id="a_id_39">New chat</Link>
+<Link id="a_id_40">Guitar assistance offer</Link>
+<Link id="a_id_41">Next steps discussion</Link>
+<Link id="a_id_42">Conversation transcript</Link>
+<Link id="a_id_43">Contact form not received</Link>
+<Link id="a_id_44">New chat</Link>
+<Button id="a_id_45">Open profile menu</Button>
+<Button id="a_id_46">Model selector, current model is 5.1</Button>
+<Button id="a_id_47">Start a group chat</Button>
+<Button id="a_id_48">Turn on temporary chat</Button>
+Hey,
+<Button id="a_id_49">ome</Button>
+. Ready to dive in?
+<Input id="a_id_50" use="(a_id_50, 'your text', submit:true)">Ask anything</Input>
+<Button id="a_id_51">Add files and more</Button>
+<Button id="a_id_52">Dictate button</Button>
+<Button id="a_id_53">Start voice mode</Button>

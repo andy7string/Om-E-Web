@@ -11860,9 +11860,9 @@
                 </svg>`
         },
 
-        // 🤖 Robot - cute bot with goggles and glowing eyes
+        // 🤖 Om-E - cute bot with goggles and glowing eyes
         robot: {
-            name: 'Robot',
+            name: 'Om-E',
             earSelector: '.ome-goggle',
             color: '#00e5ff',  // Cyan from eyes
             svg: `
@@ -11912,6 +11912,71 @@
                     <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
                     <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
                 </svg>`
+        },
+
+        // ⚛️ Atom - glowing orbital rings with Om-E purple color scheme
+        atom: {
+            name: 'Atom',
+            earSelector: '.ome-atom-click',
+            color: '#ba93ff',  // Purple glow (matching goggles)
+            svg: `
+                <svg class="ome-bunny ome-atom-svg" viewBox="0 0 60 60" fill="none">
+                    <defs>
+                        <!-- Nucleus gradient - dark purple like robot head -->
+                        <radialGradient id="atomNucleusGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(120,100,180,0.95)"/>
+                            <stop offset="50%" stop-color="rgba(80,70,150,0.9)"/>
+                            <stop offset="100%" stop-color="rgba(50,45,100,0.85)"/>
+                        </radialGradient>
+                        <!-- Nucleus outer glow - purple -->
+                        <radialGradient id="atomNucleusGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(147,112,219,0.6)"/>
+                            <stop offset="100%" stop-color="rgba(80,70,150,0)"/>
+                        </radialGradient>
+                        <!-- Orbital gradients - dark purple center to light purple (goggle color) at edges -->
+                        <linearGradient id="atomOrbitGrad1" x1="0%" y1="50%" x2="100%" y2="50%">
+                            <stop offset="0%" stop-color="rgba(186,147,255,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(147,112,219,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(80,70,150,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(147,112,219,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(186,147,255,0.95)"/>
+                        </linearGradient>
+                        <linearGradient id="atomOrbitGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(186,147,255,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(147,112,219,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(80,70,150,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(147,112,219,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(186,147,255,0.95)"/>
+                        </linearGradient>
+                        <linearGradient id="atomOrbitGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(186,147,255,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(147,112,219,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(80,70,150,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(147,112,219,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(186,147,255,0.95)"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Clickable area - invisible circle -->
+                    <circle class="ome-atom-click" cx="30" cy="30" r="28" fill="transparent" style="cursor:pointer"/>
+                    <!-- Orbital ring 1 - horizontal -->
+                    <ellipse class="ome-orbit ome-orbit-1" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad1)" stroke-width="2"/>
+                    <!-- Orbital ring 2 - tilted left -->
+                    <ellipse class="ome-orbit ome-orbit-2" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad2)" stroke-width="2" transform="rotate(-60 30 30)"/>
+                    <!-- Orbital ring 3 - tilted right -->
+                    <ellipse class="ome-orbit ome-orbit-3" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad3)" stroke-width="2" transform="rotate(60 30 30)"/>
+                    <!-- Nucleus outer glow -->
+                    <circle cx="30" cy="30" r="12" fill="url(#atomNucleusGlow)"/>
+                    <!-- Nucleus core - spinning -->
+                    <g class="ome-nucleus">
+                        <circle cx="30" cy="30" r="7" fill="url(#atomNucleusGrad)"/>
+                        <circle cx="30" cy="30" r="8" fill="none" stroke="rgba(186,147,255,0.4)" stroke-width="1"/>
+                        <!-- Inner swirl details for rotation effect -->
+                        <circle cx="27" cy="28" r="1.5" fill="rgba(186,147,255,0.6)"/>
+                        <circle cx="33" cy="32" r="1.2" fill="rgba(147,112,219,0.5)"/>
+                        <circle cx="29" cy="33" r="1" fill="rgba(186,147,255,0.4)"/>
+                    </g>
+                </svg>`,
+            paws: ``  // No paws for atom
         }
     };
 
@@ -11960,6 +12025,14 @@
             .ome-orb:not(.holding) { animation: ome-bunny-float 2s ease-in-out infinite; }
             @keyframes ome-bunny-wiggle { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
             .ome-orb.holding { animation: ome-bunny-wiggle 0.3s ease-in-out infinite; }
+
+            /* ⚛️ Atom animations */
+            @keyframes ome-nucleus-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+            @keyframes ome-orbit-pulse { 0%,100% { opacity: 0.5; stroke-width: 1.5; } 50% { opacity: 1; stroke-width: 3; } }
+            .ome-atom-svg .ome-nucleus { transform-origin: 30px 30px; animation: ome-nucleus-spin 6s linear infinite; }
+            .ome-atom-svg .ome-orbit { animation: ome-orbit-pulse 2.5s ease-in-out infinite; }
+            .ome-atom-svg .ome-orbit-2 { animation-delay: 0.8s; }
+            .ome-atom-svg .ome-orbit-3 { animation-delay: 1.6s; }
 
             .ome-hud {
                 position: fixed;
