@@ -1,28 +1,28 @@
 {
-  "timestamp": 1764335784.896847,
+  "timestamp": 1764338433.736619,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138026351,
-      "url": "https://www.google.com/",
-      "title": "Google",
+      "id": 1138026473,
+      "url": "https://www.youtube.com/",
+      "title": "(6) YouTube",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138026351,
-        "url": "https://www.google.com/",
-        "title": "Google",
+        "id": 1138026473,
+        "url": "https://www.youtube.com/",
+        "title": "(6) YouTube",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 57082.908178916,
+    "last_tabs_update": 59707.080695208,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/",
-    "title": "Google",
+    "url": "https://www.youtube.com/",
+    "title": "(6) YouTube",
     "is_active_tab": true
   },
   "menu_structure": {

@@ -37,7 +37,9 @@ let pendingMessages = [];
 // 🐰 ORB STATE - persists across page navigations
 const orbState = {
     theme: 'robot',       // Current theme name (robot is default)
-    position: null        // { left: number, top: number } or null for default
+    position: null,       // { left: number, top: number } or null for default
+    chatVisible: false,   // 💬 Chat panel open/closed
+    chatInput: ''         // 💬 Text in input box (persists across nav)
 };
 
 // ============================================================================
@@ -1131,6 +1133,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 // 🐰 Update orb state from content script
                 if (message.theme !== undefined) orbState.theme = message.theme;
                 if (message.position !== undefined) orbState.position = message.position;
+                if (message.chatVisible !== undefined) orbState.chatVisible = message.chatVisible;
+                if (message.chatInput !== undefined) orbState.chatInput = message.chatInput;
                 console.log('[SW] 🐰 Updated orb state:', orbState);
                 sendResponse({ ok: true });
                 break;
