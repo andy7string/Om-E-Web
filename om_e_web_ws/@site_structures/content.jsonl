@@ -1,28 +1,28 @@
 {
-  "timestamp": 1764301036.4570189,
+  "timestamp": 1764302228.599691,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138025032,
-      "url": "https://mail.google.com/mail/u/0/#inbox",
-      "title": "Inbox (5,184) - andreworsmond21175@gmail.com - Gmail",
+      "id": 1138025037,
+      "url": "https://www.google.com/",
+      "title": "Google",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138025032,
-        "url": "https://mail.google.com/mail/u/0/#inbox",
-        "title": "Inbox (5,184) - andreworsmond21175@gmail.com - Gmail",
+        "id": 1138025037,
+        "url": "https://www.google.com/",
+        "title": "Google",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 22323.613101416,
+    "last_tabs_update": 23096.192735291,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://mail.google.com/mail/u/0/#inbox",
-    "title": "Inbox (5,184) - andreworsmond21175@gmail.com - Gmail",
+    "url": "https://www.google.com/",
+    "title": "Google",
     "is_active_tab": true
   },
   "content_structure": {},

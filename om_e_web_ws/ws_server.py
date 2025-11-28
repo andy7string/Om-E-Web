@@ -3301,6 +3301,8 @@ async def handler(ws):
                     scroll_actions = {
                         'ScrollDown': 'down',
                         'ScrollUp': 'up',
+                        'ScrollLeft': 'left',
+                        'ScrollRight': 'right',
                         'ScrollTop': 'top',
                         'ScrollBottom': 'bottom'
                     }
@@ -4021,6 +4023,24 @@ def resolve_capabilities_for_url(url: str) -> list:
                 'description': 'Scrolls the viewport up by one screen height',
                 'command': 'scroll',
                 'params': {'direction': 'up'},
+                'domain': 'universal'
+            },
+            {
+                'id': 'scroll_left',
+                'action': 'ScrollLeft',
+                'label': 'Scroll left one page',
+                'description': 'Scrolls the viewport left by one screen width',
+                'command': 'scroll',
+                'params': {'direction': 'left'},
+                'domain': 'universal'
+            },
+            {
+                'id': 'scroll_right',
+                'action': 'ScrollRight',
+                'label': 'Scroll right one page',
+                'description': 'Scrolls the viewport right by one screen width',
+                'command': 'scroll',
+                'params': {'direction': 'right'},
                 'domain': 'universal'
             },
             {

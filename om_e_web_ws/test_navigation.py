@@ -70,6 +70,8 @@ k for us" --submit
       # Method 2: Using capability (same as other capabilities)
       python test_navigation.py --command capability --capability ScrollDown
       python test_navigation.py --command capability --capability ScrollUp
+      python test_navigation.py --command capability --capability ScrollLeft
+      python test_navigation.py --command capability --capability ScrollRight
       python test_navigation.py --command capability --capability ScrollTop
       python test_navigation.py --command capability --capability ScrollBottom
 

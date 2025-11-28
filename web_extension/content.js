@@ -2135,22 +2135,38 @@
      * better visual feedback.
      *
      * @param {Object} params - Scroll parameters
-     * @param {string} params.direction - 'down', 'up', 'top', 'bottom' (default: 'down')
+     * @param {string} params.direction - 'down', 'up', 'left', 'right', 'top', 'bottom' (default: 'down')
      * @returns {Object} - Scroll result with new position info
      */
     async function cmd_scroll({ direction = 'down' } = {}) {
         console.log("[Content] scroll: Starting scroll with direction:", direction);
 
+        const startX = window.scrollX;
         const startY = window.scrollY;
+        const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
+        const maxScrollX = document.documentElement.scrollWidth - viewportWidth;
         const maxScrollY = document.documentElement.scrollHeight - viewportHeight;
 
-        let targetY;
+        let targetX = startX;
+        let targetY = startY;
 
         switch (direction) {
             case 'up':
                 // Scroll up by one viewport height
                 targetY = Math.max(0, startY - viewportHeight);
+                break;
+            case 'down':
+                // Scroll down by one viewport height
+                targetY = Math.min(maxScrollY, startY + viewportHeight);
+                break;
+            case 'left':
+                // Scroll left by one viewport width
+                targetX = Math.max(0, startX - viewportWidth);
+                break;
+            case 'right':
+                // Scroll right by one viewport width
+                targetX = Math.min(maxScrollX, startX + viewportWidth);
                 break;
             case 'top':
                 // Scroll to the very top
@@ -2160,15 +2176,15 @@
                 // Scroll to the very bottom
                 targetY = maxScrollY;
                 break;
-            case 'down':
             default:
-                // Scroll down by one viewport height (end becomes beginning)
+                // Default: scroll down
                 targetY = Math.min(maxScrollY, startY + viewportHeight);
                 break;
         }
 
         // Execute the scroll with smooth behavior
         window.scrollTo({
+            left: targetX,
             top: targetY,
             behavior: 'smooth'
         });
@@ -2177,29 +2193,32 @@
         // Uses a scroll event listener that resolves when position stops changing
         await waitForScrollEnd(targetY);
 
+        const endX = window.scrollX;
         const endY = window.scrollY;
         const atTop = endY === 0;
         const atBottom = endY >= maxScrollY - 1; // -1 for rounding tolerance
+        const atLeft = endX === 0;
+        const atRight = endX >= maxScrollX - 1;
 
         console.log("[Content] scroll: Scroll complete:", {
             direction,
-            startY,
-            endY,
-            scrolled: endY - startY,
-            atTop,
-            atBottom
+            startX, startY,
+            endX, endY,
+            scrolledX: endX - startX,
+            scrolledY: endY - startY,
+            atTop, atBottom, atLeft, atRight
         });
 
         return {
             ok: true,
             direction,
-            startY,
-            endY,
-            scrolled: endY - startY,
-            viewportHeight,
-            maxScrollY,
-            atTop,
-            atBottom
+            startX, startY,
+            endX, endY,
+            scrolledX: endX - startX,
+            scrolledY: endY - startY,
+            viewportWidth, viewportHeight,
+            maxScrollX, maxScrollY,
+            atTop, atBottom, atLeft, atRight
         };
     }
 
@@ -11947,16 +11966,32 @@
             .ome-hud-hint { font-size: 12px; color: #4b5563; margin-top: 16px; }
             .ome-hud-hint kbd { display: inline-block; padding: 2px 6px; background: rgba(255,255,255,0.1); border-radius: 4px; font-family: monospace; font-size: 11px; color: #9ca3af; }
 
-            /* ⬆️⬇️ Scroll Arrows (right side of orb) */
-            .ome-scroll-arrows {
+            /* ⬆️⬇️⬅️➡️ Scroll Controls (right side of orb, cross pattern) */
+            .ome-scroll-controls {
                 position: absolute;
-                right: -18px;
+                right: -32px;
                 top: 50%;
                 transform: translateY(-50%);
-                display: flex;
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: 14px auto 14px;
+                grid-template-rows: 14px auto 14px;
+                gap: 1px;
                 align-items: center;
-                gap: 3px;
+                justify-items: center;
+            }
+            .ome-scroll-up { grid-column: 2; grid-row: 1; }
+            .ome-scroll-left { grid-column: 1; grid-row: 2; }
+            .ome-scroll-label { grid-column: 2; grid-row: 2; }
+            .ome-scroll-right { grid-column: 3; grid-row: 2; }
+            .ome-scroll-down { grid-column: 2; grid-row: 3; }
+            .ome-scroll-label {
+                font-size: 5px;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+                opacity: 0.5;
+                text-transform: uppercase;
+                cursor: default;
+                user-select: none;
             }
             /* 🔍 Zoom Controls (bottom of orb) */
             .ome-zoom-controls {
@@ -12042,10 +12077,13 @@
             hudState.orb.classList.remove('holding');
         }
 
-        // Build controls HTML - scroll arrows (right) + zoom controls (bottom)
+        // Build controls HTML - scroll controls (right, cross pattern) + zoom controls (bottom)
         const scrollHTML = `
-            <div class="ome-scroll-arrows" style="color: ${theme.color}">
+            <div class="ome-scroll-controls" style="color: ${theme.color}">
                 <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                <button class="ome-ctrl-btn ome-scroll-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <span class="ome-scroll-label">Scroll</span>
+                <button class="ome-ctrl-btn ome-scroll-right"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
                 <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
             </div>`;
         const zoomHTML = `
@@ -12081,6 +12119,14 @@
         hudState.orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
             e.stopPropagation();
             window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+        });
+        hudState.orb.querySelector('.ome-scroll-left')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.scrollBy({ left: -window.innerWidth * 0.8, behavior: 'smooth' });
+        });
+        hudState.orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.scrollBy({ left: window.innerWidth * 0.8, behavior: 'smooth' });
         });
 
         // Re-attach zoom button handlers
@@ -12119,10 +12165,13 @@
         // 🎨 Use theme system - get SVG from registry
         const theme = ORB_THEMES[hudState.theme] || ORB_THEMES.kawaii;
 
-        // Build controls HTML - scroll arrows (right) + zoom controls (bottom)
+        // Build controls HTML - scroll controls (right, cross pattern) + zoom controls (bottom)
         const scrollHTML = `
-            <div class="ome-scroll-arrows" style="color: ${theme.color}">
+            <div class="ome-scroll-controls" style="color: ${theme.color}">
                 <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                <button class="ome-ctrl-btn ome-scroll-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <span class="ome-scroll-label">Scroll</span>
+                <button class="ome-ctrl-btn ome-scroll-right"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
                 <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
             </div>`;
         const zoomHTML = `
@@ -12194,6 +12243,14 @@
             e.stopPropagation();
             window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
         });
+        orb.querySelector('.ome-scroll-left')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.scrollBy({ left: -window.innerWidth * 0.8, behavior: 'smooth' });
+        });
+        orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.scrollBy({ left: window.innerWidth * 0.8, behavior: 'smooth' });
+        });
 
         // 🔍 Zoom button handlers (send to service worker)
         orb.querySelector('.ome-zoom-in')?.addEventListener('click', (e) => {
@@ -12215,7 +12272,7 @@
             // If click was on ear/halo or control button, their handlers already handled it
             if (e.target.classList.contains('ome-ear') ||
                 e.target.classList.contains('ome-halo') ||
-                e.target.closest('.ome-scroll-arrows') ||
+                e.target.closest('.ome-scroll-controls') ||
                 e.target.closest('.ome-zoom-controls')) return;
 
             if (hudState.dragging) {

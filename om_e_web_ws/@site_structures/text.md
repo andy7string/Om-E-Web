@@ -1,9 +1,9 @@
-# Inbox (5,184) - andreworsmond21175@gmail.com - Gmail
+# Google
 
-**URL:** https://mail.google.com/mail/u/0/#inbox
-**Timestamp:** 2025-11-28 14:07:16
+**URL:** https://www.google.com/
+**Timestamp:** 2025-11-28 14:27:08
 
-**Tabs (1):** Active: #1138025032 "Inbox (5,184) - andreworsmond2" mail.google.com [loading]
+**Tabs (1):** Active: #1138025037 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -16,6 +16,14 @@ The following pre-configured actions are available for this page:
 **ScrollUp** - Scroll up one page
   - Scrolls the viewport up by one screen height
   - Usage: `python3 test_navigation.py --command capability --capability ScrollUp`
+
+**ScrollLeft** - Scroll left one page
+  - Scrolls the viewport left by one screen width
+  - Usage: `python3 test_navigation.py --command capability --capability ScrollLeft`
+
+**ScrollRight** - Scroll right one page
+  - Scrolls the viewport right by one screen width
+  - Usage: `python3 test_navigation.py --command capability --capability ScrollRight`
 
 **ScrollTop** - Scroll to top of page
   - Scrolls to the very top of the page
@@ -57,422 +65,336 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<style nonce="xxU9hu5CL3mMGP7_pxOpBw">#loading {display:none}</style>JavaScript must be enabled in order for you to use Gmail. However, it seems that JavaScript is either disabled or not supported by your browser. Learn more at our <a href="https://support.google.com/mail/bin/answer.py?ctx=gmail&amp;answer=6557&amp;hl=en-GB&amp;authuser=0">Help Centre</a>.
-None selected
-<Link id="a_id_0">Skip to content</Link>
-<Link id="a_id_1">Using Gmail with screen readers</Link>
-<Button id="a_id_2">Main menu</Button>
-<Link id="a_id_3">Gmail</Link>
-Search mail
-<Input id="a_id_4" use="(a_id_4, 'your text', submit:true)">Search mail</Input>
-<Button id="a_id_5">Advanced search options</Button>
-<Button id="a_id_6">Search mail</Button>
-<Button id="a_id_7">Status: Active</Button>
-<Button id="a_id_8">Support</Button>
-<Button id="a_id_9">Settings</Button>
-<Button id="a_id_10">Try Gemini</Button>
-Try Gemini
-<Button id="a_id_11">Google apps</Button>
-<Button id="a_id_12">Google Account: Andrew Orsmond
+Google Search homepage
+<Link id="a_id_0">Gmail</Link>
+<Link id="a_id_1">Search for Images</Link>
+<Button id="a_id_2">Google apps</Button>
+<Button id="a_id_3">Google Account: Andrew Orsmond
 (andreworsmond21175@gmail.com)</Button>
-<Link id="a_id_13">Mail, 5184 unread messages</Link>
-Mail
-<Link id="a_id_14">Chat, 0 unread messages</Link>
-Chat
-<Button id="a_id_15">Compose</Button>
-<Link id="a_id_16">Inbox 5184 unread</Link>
-5,184
-<Link id="a_id_17">Starred</Link>
-<Link id="a_id_18">Snoozed</Link>
-<Link id="a_id_19">Sent</Link>
-<Link id="a_id_20">Drafts 4 unread</Link>
-4
-<Link id="a_id_21">Purchases 96 unread has menu</Link>
-96
-<Button id="a_id_22">More labels</Button>
-Labels
-<Button id="a_id_23">Create new label</Button>
-<Link id="a_id_24">[Gmail]Trash has menu</Link>
-<Link id="a_id_25">George Bellas has menu</Link>
-<Link id="a_id_26">Notes has menu</Link>
-<Button id="a_id_27">Upgrade</Button>
-<Button id="a_id_28">Select</Button>
-<Button id="a_id_29">Refresh</Button>
-<Button id="a_id_30">More email options</Button>
-<Button id="a_id_31">Show more messages</Button>
-<Button id="a_id_32">Newer</Button>
-<Button id="a_id_33">Older</Button>
-<Button id="a_id_34">Input tools on/off (Ctrl-Shift-K)</Button>
-<Button id="a_id_35">Select input tool</Button>
-Conversations
-<Button id="a_id_36">Primary</Button>
-<Button id="a_id_37">Promotions, 18 new messages,</Button>
-<Button id="a_id_38">Social</Button>
-<Button id="a_id_39">Updates</Button>
-<Button id="a_id_40">Not starred</Button>
-Trent & Kim Shorland
-<Link id="a_id_41">December Property Guide
--
-Hi Andrew, We are pleased to present the latest copy of the Harcourts Adelaide Hills Property Guide, showcasing our current listings and a selection of recent s</Link>
-13:05
-<Button id="a_id_42">Not starred</Button>
-Clicks IT Recruitme.
-<Link id="a_id_43">Highest Paying Jobs in Tech | BI, Data & Analytics
--
-Curous to know which tech jobs attract the highest salaries? View Jobs in VIC View Jobs in NSW View Jobs in QLD View Jobs in ACT Hi Andrew, Do you know what the</Link>
-11:37
-<Button id="a_id_44">Not starred</Button>
-VentraIP
-<Link id="a_id_45">Final Days to Save Big on Hosting, Domains & Security
--
-Build, grow and protect your online presence with huge Black Friday discounts. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌</Link>
-10:13
-<Button id="a_id_46">Not starred</Button>
-Trent & Kim Shorland
-<Link id="a_id_47">Open Homes This Weekend!
--
-Hi Andrew, Please see below the open inspection times for this weekend! Open Inspections sATURDAY the 29th of november 9 Piccadilly Crescent, Piccadilly SA Satu</Link>
-10:02
-<Button id="a_id_48">Not starred</Button>
-MTB Direct
-<Link id="a_id_49">Black Friday Just Got BETTER!
--
-Take a further 10% off this Black Friday sale! ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏</Link>
-07:33
-<Button id="a_id_50">Not starred</Button>
-Olivia
-<Link id="a_id_51">Fwd: Request for Quote - Building Inspection Magill
--
-Xxx Kind regards Olivia ---------- Forwarded message --------- From: Stage Inspections <stages@houseinspectaustralia.com.au> Date: Thu, 27 Nov 2025 at 16:47 Sub</Link>
-Attachment:
-hiaemailbanner1000x300117467_3a9d25fb-65ab-4c8b-89b5-0b6d5d90a214.gif
-27 Nov
-<Button id="a_id_52">Not starred</Button>
-AAMI
-<Link id="a_id_53">Andrew & Olivia, ready to renew your policy?
--
-Renew online today Renew online today Click here to View Online My Account AAMI App AAMI Driver Rewards Comprehensive Car MPA155588428 Time to renew, Andrew & O</Link>
-27 Nov
-<Button id="a_id_54">Not starred</Button>
-Belle Property Norw.
-<Link id="a_id_55">Belle Property Norwood Weekly Update
--
-Dear Andrew, An ideal home looks different for everyone. Growing families might dream of a spacious backyard, young professionals often gravitate toward the ene</Link>
-27 Nov
-<Button id="a_id_56">Not starred</Button>
-Therese Otten
-.
-<Link id="a_id_57">Skills-Based Hiring: Moving Beyond Degrees and Years of Experience
--
-"Must have Bachelor's degree and 5+ years experience." This single line in your... ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏</Link>
-27 Nov
-<Button id="a_id_58">Not starred</Button>
-Belle Property Adel.
-<Link id="a_id_59">Belle Property Adelaide City Weekly Update
--
-Dear Andrew, Buying a home is often the biggest financial decision you’ll ever make. That’s why the right property should fit both your budget and your lifestyl</Link>
-27 Nov
-<Button id="a_id_60">Not starred</Button>
-OpenAI
-<Link id="a_id_61">Third-party security incident
--
-OpenAI Logo Transparency is important to us, so we want to inform you about a recent security incident at Mixpanel, a data analytics provider that OpenAI used for web analytics on the frontend</Link>
-27 Nov
-<Button id="a_id_62">Not starred</Button>
-Seesaw
-<Link id="a_id_63">New Message from Mel Angel
--
-Seesaw "Mel Angel: HOUSEKEEPING INFORMATION FOR PICNIC TONIGHT Dear..." "HOUSEKEEPING INFORMATION FOR PICNIC TONIGHT Dear Families, The sun is shining here in Hectorville, and the oval</Link>
-27 Nov
-<Button id="a_id_64">Not starred</Button>
-Elle Gosling
-<Link id="a_id_65">Just Listed: 9 Piccadilly Crescent, Piccadilly
--
-Hi Andrew, We have just listed a property which may be a match for you! A match for you A Grand Family Estate with Enchanting Piccadilly Valley Views For Sale $1.49m - $1.59m 9 Piccadilly Crescent,</Link>
-27 Nov
-<Button id="a_id_66">Not starred</Button>
-Jacky Yang
-<Link id="a_id_67">Weekly OFI Sale listing
--
-Raine & Horne Raine & Horne Unley Dear Andrew Check out our upcoming Open For Inspection properties that we have scheduled for this week. If you have any questions, please do not hesitate to</Link>
-27 Nov
-<Button id="a_id_68">Not starred</Button>
-ListingLoop.com.au
-<Link id="a_id_69">New property match alert in Adelaide
--
-We want to help you find your next property Here's a new listing that may be of interest Adelaide, SA 5000 2 Bed | 2 Bath | 1 Car APARTMENT Best Offers By 5pm Tuesday 16th December, USP Complete</Link>
-27 Nov
-<Button id="a_id_70">Not starred</Button>
-Sandra Fenwick
-<Link id="a_id_71">St Joseph's Hectorville Preschool
--
-Hello Everyone Attached is a letter from your Preschool Teacher. Kind regards Sandra Sandra Fenwick School Secretary - Enrolments (08) 8115 7714 sfenwick@sjh.catholic.edu.au facebook instagram webste</Link>
-Attachment:
-Ms Cai.pdf
-27 Nov
-<Button id="a_id_72">Not starred</Button>
-Benefriends
-,
-Olivia
-2
-<Link id="a_id_73">buiding insurance
--
-Hi Andrew & Olivia Please send me your building insurance certificate. Also your lawyer for settlement details. Because the bank will invite them to PEXA settle system. also please help me to</Link>
-Attachment:
-image001.png
-Attachment:
-ANZ_HOM_CERTIFICATE_OF_INSURANCE_HOMP0006500418_20251125111919572.pdf
-27 Nov
-<Button id="a_id_74">Not starred</Button>
-Daniella Lamp
-<Link id="a_id_75">Australia’s priciest home sales revealed | November Market Update
--
-Compass News and Market Update – November edition Mortgage Choice Email me Email me dlamp@mortgagechoice.com.au Call me Call me 0409 896 550 Compass Property Market & Lending Update Hi Andrew, The</Link>
-27 Nov
-<Button id="a_id_76">Not starred</Button>
-Benefriends
-,
-Olivia
-2
-<Link id="a_id_77">3000 cash back
--
-Thanks Jian, we will wait for your mail. Kind regards Olivia On Wed, 26 Nov 2025 at 10:54, Benefriends Capital <jian@benefriends.com.au> wrote: Hi Andrew, Olivia I have asked team to fill the</Link>
-Attachment:
-image001.png
-27 Nov
-<Button id="a_id_78">Not starred</Button>
-VentraIP
-<Link id="a_id_79">Save 50% on SSL Certificates this Black Friday!
--
-Boost trust, remove browser warnings and save big today. ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌</Link>
-27 Nov
-<Button id="a_id_80">Not starred</Button>
-Seesaw
-<Link id="a_id_81">Your Seesaw updates for November 26th, 2025
--
-Seesaw You have new updates in Seesaw 124 new messages 1 post in Amber's journal View All Updates Get real-time updates with the Seesaw app Once you enable push notifications, you'll be alerted</Link>
-27 Nov
-<Button id="a_id_82">Not starred</Button>
-Brandon Pilgrim
-<Link id="a_id_83">Weekly Listings Update
--
-View this email in your browser Dear Andrew, Please find below a collection of our latest property listings on the market! For further details on any of these properties, simply click on the property</Link>
-27 Nov
-<Button id="a_id_84">Not starred</Button>
-Eden Property Sales.
-<Link id="a_id_85">Invoice issued | Due 11 December 2025 | Water charge 01/10/25 to 31/12/25 1 Coach-House Dr, Teringie, SA 5072
--
-Dear Andrew, Please find your Water usage invoice enclosed to this email. The details of this invoice are as follows: Invoice Description Summary: Water charge 01/10/25 to 31/12/25 Invoice Number:</Link>
-Attachment:
-0986d66f27c64b8b0887b99503a9d99c_incoming-invoice-receipt.pdf
-Attachment:
-sawater_25_11_27_8d21a3338f90781cb64200a46439fa49_6927619002c2f.pdf
-27 Nov
-<Button id="a_id_86">Not starred</Button>
-customerservice
-<Link id="a_id_87">Pay Advice/ RCTI/ Remittance Advice For: 885179740 - Andrew Orsmond
--
-Please find attached your Pay Advice/ Tax Invoice. For any queries relating to this document please respond to this email and your query will be attended to. -- This email was sent to you because you</Link>
-Attachment:
-11165419.pdf
-26 Nov
-<Button id="a_id_88">Not starred</Button>
-customerservice
-<Link id="a_id_89">Your Randstad pay advice for pay period 26/11/2025 is online
--
-Randstad pay advice Hi Andrew Orsmond, Your pay advice for payroll processed on 26 November 2025 is now ready for viewing. You can view your pay advice on my Randstad web portal by clicking the link</Link>
-26 Nov
-<Button id="a_id_90">Not starred</Button>
-Olivia Orsmond
-<Link id="a_id_91">Invitation: Mummy to laser vein clinic @ Fri Dec 5, 2025 3:30am - 4am (SAST) (Andrew Orsmond)
--
-Mummy to laser vein clinic You have been invited by Olivia Orsmond to attend an event named Mummy to laser vein clinic on Friday Dec 5, 2025 ⋅ 3:30am – 4am (South Africa Standard Time). When Friday Dec</Link>
-26 Nov
-<Button id="a_id_92">Not starred</Button>
-Seesaw
-<Link id="a_id_93">New Message from Mel Angel
--
-Seesaw "Mel Angel: REMINDER: COMMUNITY PICNIC TOMORROW! Dear Families..." "REMINDER: COMMUNITY PICNIC TOMORROW! Dear Families, we are very much looking forward to your company tomorrow</Link>
-26 Nov
-<Button id="a_id_94">Not starred</Button>
-Google tips and upd.
-<Link id="a_id_95">Andrew, get ready to score some deals on Black Friday
--
-Search and shop what you see, browse on the go and more.‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌</Link>
-26 Nov
-<Button id="a_id_96">Not starred</Button>
-ListingLoop.com.au
-<Link id="a_id_97">New property match alert in Adelaide
--
-We want to help you find your next property Here's a new listing that may be of interest Adelaide, SA 5000 1 Bed | 1 Bath APARTMENT Best Offers - Contact Agent! Complete signup to view This</Link>
-26 Nov
-<Button id="a_id_98">Not starred</Button>
-Wim Hof
-<Link id="a_id_99">Black Friday: get our Power of the Mind course at 75% off
--
-Your exclusive Black Friday bundle is waiting inside. ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌</Link>
-25 Nov
-<Button id="a_id_100">Not starred</Button>
-MTB Direct
-<Link id="a_id_101">Andrew! Open for a Discount, Just for You!
--
-Your additional 10% off gift awaits! ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏</Link>
-25 Nov
-<Button id="a_id_102">Not starred</Button>
-Superdry
-2
-<Link id="a_id_103">Refund notification
--
-Order SDY-S-187020 Some items in your order have been refunded Total amount refunded: $98.00 Order summary Vintage Athletic Polo | Enamel Green × 1 S Refunded POLO OFFER (-$40.95) $89.95 $49.00 Vintage</Link>
-25 Nov
-<Button id="a_id_104">Not starred</Button>
-carsales
-<Link id="a_id_105">2026 Nissan Navara unveiled! Familiar face... but there's a Triton twist
--
-Read the latest news, reviews and advice from the carsales team. . . Having trouble viewing this email? View online Carsales logo Your weekly newsletter 2026 Nissan Navara revealed in full Aus-centric</Link>
-25 Nov
-<Button id="a_id_106">Not starred</Button>
-ListingLoop.com.au
-<Link id="a_id_107">New property match alerts
--
-We want to help you find your next property Here are some new listings that may be of interest Apartment in Adelaide, SA Best offer 2 Bed | 3 Bath Complete signup to view Apartment in Adelaide, SA $499</Link>
-25 Nov
-<Button id="a_id_108">Not starred</Button>
-Solitaire Automotive
-<Link id="a_id_109">Appointment Scheduled: Solitaire Volkswagen appointment on 08/12/2025 7:50:00 AM
--
-CUPRA logo Stay connected g+ yt Appointment Confirmation Confirmation Code: X09VQ7CZ65 Date and Time: 08/12/2025 7:50:00 AM Requested Arrangement: Loaner Vehicle Vehicle: 2022 CUPRA FORMENTOR DD518J</Link>
-Attachment:
-X09VQ7CZ65_en_AU_Service_Appointments.vcs
-25 Nov
-<Button id="a_id_110">Not starred</Button>
-Samsung account
-<Link id="a_id_111">Request to change phone number received
--
-Request to change phone number received Dear Customer, We received a request to change the phone number used for Samsung account two-step verification. It will take 2 weeks to verify your request and</Link>
-25 Nov
-<Button id="a_id_112">Not starred</Button>
-Samsung account
-<Link id="a_id_113">Samsung account verification code
--
-Samsung account verification code Dear Customer, Enter the code below on your Chrome Mobile to verify it's you. Here's your code: 770445 This code is only valid for 5 minutes after it's</Link>
-25 Nov
-<Button id="a_id_114">Not starred</Button>
-CGU
-,
-me
-4
-<Link id="a_id_115">Your ANZ Home Insurance Policy HOMP0006500418
--
----------- Forwarded message --------- From: Andrew Orsmond <andreworsmond21175@gmail.com> Date: Tue, 25 Nov 2025 at 11:19 Subject: Fwd: Your ANZ Home Insurance Policy HOMP0006500418 To: lina.</Link>
-Attachment:
-ANZ_HOM_CERTIFICATE_OF_INSURANCE_HOMP0006500418_20251125111919572.pdf
-Attachment:
-ANZ_DDRSA_V3_112024.pdf
-Attachment:
-ANZ_HOME_INSURANCE_SPDS_REV1_102025.pdf
-<Button id="a_id_116">2 more attachments</Button>
-25 Nov
-<Button id="a_id_117">Not starred</Button>
-salesandser.
-,
-me
-2
-<Link id="a_id_118">ANZ Home Insurance PDS, FSG & KFS Information Pack
--
----------- Forwarded message --------- From: <salesandservice@anz.com> Date: Tue, 25 Nov 2025, 10:26 am Subject: ANZ Home Insurance PDS, FSG & KFS Information Pack To: <andreworsmond21175@</Link>
-25 Nov
-<Button id="a_id_119">Not starred</Button>
-salesandservice
-<Link id="a_id_120">Confidential: Your new ANZ accounts
--
-Dear ANDREW, Your Account\Account's are now open. You'll find your Customer Registration Number that your new account is linked to in the attached Welcome Letter. You will need your Customer</Link>
-Attachment:
-WelcomeLetter_25112025_105223905.pdf
-25 Nov
-<Button id="a_id_121">Not starred</Button>
-ListingLoop.com.au
-<Link id="a_id_122">New property match alert in Adelaide
--
-We want to help you find your next property Here's a new listing that may be of interest Adelaide, SA 5000 2 Bed | 3 Bath | 1 Car APARTMENT CONTACT AGENT Complete signup to view This property not</Link>
-25 Nov
-<Button id="a_id_123">Not starred</Button>
-Eric Jem
-<Link id="a_id_124">First to see | Broadview & Allenby Gardens
--
-First to see. 6A Blyth Street, Broadview This impressive four-bedroom residence comes thoughtfully equipped with the premium inclusions buyers expect in a high-calibre home. The kitchen pairs strong</Link>
-24 Nov
-<Button id="a_id_125">Not starred</Button>
-Australia Post
-2
-<Link id="a_id_126">Your parcel has been returned to Superdry Australia
--
-Tracking number 33TU37237076 Australia Post Your return parcel has reached its destination Delivered to Superdry Australia Delivered To Superdry Australia Tracking number 33TU37237076 Quickly manage</Link>
-24 Nov
-<Button id="a_id_127">Not starred</Button>
-Australia Post
-<Link id="a_id_128">How was your recent send?
--
-Please complete this short survey ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏</Link>
-24 Nov
-<Button id="a_id_129">Not starred</Button>
-Benefrien.
-..
-Olivia
-38
-<Link id="a_id_130">loan approval
--
-Hi Jian Our appointment is at ANZ Bank tomorrow at the Norwood branch at 10:00am. Kind regards Olivia On Mon, 24 Nov 2025 at 11:45, Benefriends Capital <jian@benefriends.com.au> wrote: Hi Olivia</Link>
-Attachment:
-image001.png
-Attachment:
-Stamp Duty Relief Application.pdf
-Attachment:
-CT 6322 506 Allotment 743 in DP 136111.pdf
-<Button id="a_id_131">1 more attachment</Button>
-24 Nov
-<Button id="a_id_132">Not starred</Button>
-Rob Hutchinson
-<Link id="a_id_133">Call for comment on dangerous Business Licensing Bill
--
-Licensing or strangulation – the provisions are nothing but BEE in disguise and warned that they preclude any group of society from being eligible for obtaining a business licence ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏</Link>
-24 Nov
-<Button id="a_id_134">Not starred</Button>
-carsales
-<Link id="a_id_135">Hurry! Interest is increasing on the 2023 CUPRA Formentor
--
-Looks like you're not the only one eyeing off that saved car—other buyers are starting to make enquiries. Don't miss out! Having trouble viewing this email? View online Carsales logo Interest</Link>
-23 Nov
-<Button id="a_id_136">Not starred</Button>
-MTB Direct
-<Link id="a_id_137">Selling Fast Top Black Friday Deals!
--
-Score up to 70% off the best sellers everyone's chasing. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏</Link>
-23 Nov
-<Button id="a_id_138">Not starred</Button>
-noreply
-<Link id="a_id_139">Your timesheet has been approved
--
-Randstad Timesheet Approved Hi Andrew Orsmond, Your timesheet has been approved by Richard Cheung (richard.cheung@fphgroup.com.au) , however, it was split into two timesheets: Shift Timesheet and</Link>
-22 Nov
-<Button id="a_id_140">Not starred</Button>
-Google
-2
-<Link id="a_id_141">Security alert for andy7string@gmail.com
--
-This is a copy of a security alert sent to andy7string@gmail.com. andreworsmond21175@gmail.com is the recovery email for this account. If you don't recognize this account, remove it. New passkey</Link>
-22 Nov
-<Link id="a_id_142">80% of 15 GB used</Link>
-<Link id="a_id_143">Terms</Link>
+<Select id="a_id_4" value="" use="(a_id_4, select, 'option')">Search</Select>
+<Button id="a_id_5">Search by voice</Button>
+<Button id="a_id_6">Search by image</Button>
+<Button id="a_id_7">AI Mode</Button>
+<Button id="a_id_8">Google Search</Button>
+<Button id="a_id_9">I'm Feeling Lucky</Button>
+Accessibility links
+<Link id="a_id_10">Skip to Discover feed</Link>
+<Link id="a_id_11">Skip to sidebar</Link>
+<Link id="a_id_12">Skip to footer</Link>
+<Link id="a_id_13">Accessibility help</Link>
+<Link id="a_id_14">Accessibility feedback</Link>
+Discover
+<Link id="a_id_15">The safest way to build wealth in Australia is to do nothing
+We were creating something new – but the profits were flowing to the people who owned something old: property.
+The Sydney Morning Herald
 ·
-<Link id="a_id_144">Privacy</Link>
+6d</Link>
+<Button id="a_id_16">More options</Button>
+<Link id="a_id_17">BMW Vision Neue Klasse X: Guangzhou EV crossover preview
+BMW's Vision Neue Klasse X electric crossover adds Panoramic Vision, 10-minute 300 km charging, 30% more range, smarter eDrive and bidirectional home power.
+SpeedMe.ru
 ·
-<Link id="a_id_145">Programme Policies</Link>
-Last account activity: 1 minute ago
-<Link id="a_id_146">Details</Link>
-<Button id="a_id_147">Calendar</Button>
-<Button id="a_id_148">Keep</Button>
-<Button id="a_id_149">Tasks</Button>
-<Button id="a_id_150">Contacts</Button>
-<Button id="a_id_151">Get add-ons</Button>
-<Button id="a_id_152">Hide side panel</Button>
+4d</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">ATO targets Queensland businesses suspected of failing to pay staff, taxes
+An investigation into farms and labour hire businesses in Queensland's agricultural heartland have uncovered $25 million in unpaid taxes, according to...
+ABC News
+·
+1d</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">RBA could backtrack on plan to ban credit card surcharges
+The Reserve Bank of Australia might water down its controversial proposal to impose a ban on credit card surcharge fees, which drew a backlash from business...
+AFR
+·
+1d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Three flavours will be available in the 2026 GWM Cannon range, offering unique takes for comfort, off-roading, and work
+GWM will double down on three distinct streams for its Cannon ute, updating its line-up in China to better tackle the market-dominating Ford Ranger and...
+Drive
+·
+1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">ChatGPT and Copilot are being booted out of WhatsApp
+OpenAI's ChatGPT and Microsoft's Copilot are both leaving WhatsApp thanks to upcoming changes to the messaging app's terms of service that will prohibit...
+The Verge
+·
+1d</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">BOM releases SA’s Summer forecast - News
+SA's Summer forecast is being issued by the Bureau of Meteorology as news emerges of the plight of farmers starting to harvest on the back of devastating...
+InDaily
+·
+1h</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">With each passing hour, a major Hong Kong fire only became more deadly
+Hong Kong's deadliest fire in decades tore through a group of high-rise residential towers in a densely packed housing estate, causing major issues for...
+ABC News
+·
+8h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Finance Minister Katy Gallagher admits public service looking at ‘bottom 5pc’ of spending
+Finance Minister Katy Gallagher has admitted for the first time that public service departments have been directed to identify the least important 5 per...
+AFR
+·
+23h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">How to get the most from Qantas’ new Adelaide flights
+New direct flights from Adelaide to Auckland unlock a world of award-winning wineries, adventure activities and cultural experiences just four hours away.
+The Advertiser
+·
+3d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">3:10
+Best Moment: 1959 Gibson ES-355 Mono Guitar | ANTIQUES ROADSHOW
+Subscribe to the ANTIQUES ROADSHOW on YouTube: https://youtube.com/c/AntiquesRoadshowPBS?sub_confirmation=1 In anticipation of ANTIQUES ROADSHOW's Season 30...
+Antiques Roadshow PBS
+YouTube
+·
+1d</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Duty calls: How the Ford Ranger Super Duty could be put into action
+Ford designed the Ranger Super Duty for fleet and industries, but its capabilities could see it used in other areas.
+CarExpert
+·
+3h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Centrelink’s cost-of-living boost arriving on 30 November, delivering an extra $250–$400 to eligible Australians
+Centrelink Cost of Living Boost Arriving - The Australian government has confirmed a new Centrelink cost-of-living boost scheduled to arrive on 30 November,
+heritagecountrymotel.com.au
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">The Aircraft Set To Replace The World’s Largest Commercial Jet
+A new era dawns as the iconic superjumbo bows out, but which aircraft will claim the throne?
+Simple Flying
+·
+3d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">We found a cache of rare Aboriginal artefacts, telling a story of trade and ingenuity
+The tools reveal how Aboriginal ancestors survived and thrived in the continent's interior more than 100 years ago.
+The Conversation
+·
+4h</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">I tested three 5-star OLED TVs from LG and Samsung, and I know which one I’d buy on Black Friday
+It has been a truly phenomenal year for OLED TVs. I've personally tested many of the best OLED TVs from 2025, and I also managed to test four flagship...
+TechRadar
+·
+1w</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">ASX 200 LIVE: ASX wavers; Westpac cops record $NZ3.64m fine, Suncorp weighs after UBS downgrade
+Bourse set for weekly rise; JPMorgan upgrades Woolworths; Corporate Travel's scandal deepens with UK boss suspended; Suncorp downgraded by UBS; Westpac hit...
+AFR
+·
+10h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Microsoft habit proves hard to kick for Airbus
+Exclusive Breaking free from Microsoft is harder than it looks. Airbus began migrating its 100,000-plus workforce from Office to Google Workspace more than...
+The Register
+·
+1d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">You can travel between Sydney, Canberra and Melbourne for as little as $10 on affordable bus Flix – but at what cost?
+European budget travel brand FlixBus promises low prices and a better experience. Will it be enough to get Australians off planes and out of their cars?
+The Guardian
+·
+2d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Here's the average Australian superannuation balance at 60
+How does your superannuation balance compare to the average? Let's dig deeper into the numbers now...
+The Motley Fool Australia
+·
+6d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">1:52
+Mission To Mars | Spacecraft Commissioning
+Our operators have spent recent days stabilizing spacecraft attitudes, deploying solar arrays, checking guidance and navigation systems, and powering up all...
+Rocket Lab
+YouTube
+·
+1d</Link>
+<Button id="a_id_56">More options</Button>
+<Link id="a_id_57">The rule change that could stop 'overpowered' e-bikes being brought into Australia
+Federal Transport Minister Catherine King says the government will strengthen e-bike importing rules to bring them into line with the European standard.
+ABC News
+·
+1d</Link>
+<Button id="a_id_58">More options</Button>
+<Link id="a_id_59">Victoria taken to task for soaring debt
+Each year, the Auditor‐General releases a report assessing Victoria's consolidated financial statements. The Victorian Auditor‐General's Report on the...
+MacroBusiness
+·
+1d</Link>
+<Button id="a_id_60">More options</Button>
+<Link id="a_id_61">ABC's Adele Ferguson, Chris Gillett win Gold Walkley for childcare investigation
+ABC journalists Adele Ferguson and Chris Gillett have won the Gold Walkley Award for their investigation into shocking safety failures in Australia's...
+ABC News
+·
+5h</Link>
+<Button id="a_id_62">More options</Button>
+<Link id="a_id_63">Mark Beretta leaving Sunrise after more than two decades as sports anchor
+After an extraordinary 22 years as sports anchor on Australia's #1 brekky program, Sunrise, and 30 years with the Seven Network, Mark Beretta has decided it...
+7NEWS
+·
+1d</Link>
+<Button id="a_id_64">More options</Button>
+<Link id="a_id_65">Watch Adelaide Live
+Stream Adelaide in the Live & On-Demand on Kayo Sports. New to Kayo? Start your free trial now.
+Kayo Sports
+·
+2d</Link>
+<Button id="a_id_66">More options</Button>
+<Link id="a_id_67">DJI’s new camera is brilliant – with one major catch
+From waterfall caves to rainforest roads, DJI's newest action camera delivers stunning results in challenging conditions – but is it really worth the...
+News.com.au
+·
+1w</Link>
+<Button id="a_id_68">More options</Button>
+<Link id="a_id_69">Tempers flare as food barons plot Maggie Beer Holdings rescue
+Maggie Beer says having the owners of Bickford's cordials and San Remo pasta as controlling shareholders is a turning point, but not all are happy.
+AFR
+·
+1d</Link>
+<Button id="a_id_70">More options</Button>
+<Link id="a_id_71">Goolwa turns up the summer vibes with a new beachfront bar and cafe overlooking the ocean
+South Coast locals are in for a treat this summer, with the Goolwa Surf Life Saving Club announcing not one, but two new beachside offerings.
+Glam Adelaide
+·
+1d</Link>
+<Button id="a_id_72">More options</Button>
+<Link id="a_id_73">Our pension system rewards the rich but punishes the poor
+How can a wealthy couple work with almost no impact on their pension, but poor retirees who need the income have their earnings slashed by 60 per cent?
+The Sydney Morning Herald
+·
+3d</Link>
+<Button id="a_id_74">More options</Button>
+<Link id="a_id_75">Over 17 Hours: Australia & New Zealand's Longest Nonstop Flights
+For obvious reasons, any discussion about the world's longest nonstop passenger flights necessarily involves Australia and New Zealand.
+Simple Flying
+·
+1d</Link>
+<Button id="a_id_76">More options</Button>
+<Link id="a_id_77">Eucalyptus set to be Australia’s next unicorn with $1.4b valuation
+Australia's obsession with weight-loss medications like Ozempic and Wegovy has catapulted a local start-up to unicorn status, set to clinch a $1.37 billion...
+AFR
+·
+3d</Link>
+<Button id="a_id_78">More options</Button>
+<Link id="a_id_79">Price rises kill rate cut
+Mortgage holders hopes of another interest rate cut this year had been fading, but the latest economic data has made it a certainty.
+ABC
+·
+1d</Link>
+<Button id="a_id_80">More options</Button>
+<Link id="a_id_81">Discovery of near century-old scrapbooks reveals seaweed secrets
+The State Library of WA is running an appeal to save a set of seaweed scrapbooks made nearly 100 years ago by a renowned Kalgoorlie-born naturalist.
+ABC News
+·
+3h</Link>
+<Button id="a_id_82">More options</Button>
+<Link id="a_id_83">What is 6-7 and why do kids keep saying it
+'You sound like AI!” my son says accusingly as I try to help him with his homework. What? What does that even mean? Is that an insult or a compliment?
+The Australian
+·
+2d</Link>
+<Button id="a_id_84">More options</Button>
+<Link id="a_id_85">How Amazon turned our capitalist era of free markets into the age of technofeudalism | Yanis Varoufakis
+Amazon Web Services owns the basic infrastructure for other businesses to operate online, turning even governments into its serfs, says the leader of MeRA25...
+The Guardian
+·
+10h</Link>
+<Button id="a_id_86">More options</Button>
+<Link id="a_id_87">Jakarta overtakes Tokyo as world’s most populous city, according to UN
+The rankings were changed after the UN used new criteria to give a more accurate picture of the rapid urbanisation driving the growth of megacities.
+The Guardian
+·
+4h</Link>
+<Button id="a_id_88">More options</Button>
+<Link id="a_id_89">Government threatens to shut down 'illegal' street charity
+Queensland's transport department has threatened to penalise residents who set up street-side charity cupboards without filling in the requisite paperwork.
+ABC News
+·
+1d</Link>
+<Button id="a_id_90">More options</Button>
+<Link id="a_id_91">Ex-Townsville mayor's campaign lies prompt review of local government laws
+Queensland's premier has backed calls for major reform of local government laws after the state's corruption watchdog found former Townsville mayor Troy...
+ABC News
+·
+2h</Link>
+<Button id="a_id_92">More options</Button>
+<Link id="a_id_93">SA town goes dry as citywide booze ban comes into effect
+South Australia breaks new ground as a second regional town introduces an unprecedented citywide alcohol ban to check escalating anti-social behaviour.
+The Advertiser
+·
+16h</Link>
+<Button id="a_id_94">More options</Button>
+<Link id="a_id_95">Report confirms Apple world domination
+Apple's smartphone shipments in 2025 are expected to top Samsung's for the first time in over a decade and become the world's leading seller of smartphones,...
+News.com.au
+·
+16h</Link>
+<Button id="a_id_96">More options</Button>
+<Link id="a_id_97">Polestar 2 price drop undercuts Tesla Model 3 across EU
+Polestar 2 drops to €39990 with an €8210 discount, undercutting Tesla Model 3. Up to 659 km WLTP range, plus Plug & Charge and Snapdragon infotainment.
+SpeedMe.ru
+·
+1w</Link>
+<Button id="a_id_98">More options</Button>
+<Link id="a_id_99">Everything you need to know about Ninja's latest 3-in-1 coffee machine
+Owning a coffee machine used to feel like a luxury, but as cafe prices soar and the at-home technologies improve, investing in your own cafe setup has...
+Nine
+·
+22h</Link>
+<Button id="a_id_100">More options</Button>
+<Link id="a_id_101">Robot comedy to Indigenous space policy: $103m in research grants revealed
+An interstellar Indigenous policy for “culturally respectful and environmentally responsible space exploration”, inspired by Dreamtime stories,...
+The Australian
+·
+2d</Link>
+<Button id="a_id_102">More options</Button>
+<Link id="a_id_103">Dollar set for biggest weekly fall in four months, Fed in focus
+Nov 27 (Reuters) - The U.S. dollar headed for its steepest weekly drop in four months on Thursday as investors bet on further monetary easing, amid pressure...
+Reuters
+·
+12h</Link>
+<Button id="a_id_104">More options</Button>
+<Link id="a_id_105">Near-fatal crash survivor wins $2.7m prize home
+A Sunshine Coast man who suffered 50 fractures when he lost control of his motorbike and hit a guard rail 10 years ago is the new owner of a $2.7 million...
+Sunshine Coast News
+·
+1d</Link>
+<Button id="a_id_106">More options</Button>
+<Link id="a_id_107">Strategic battle: the rare earths war just heated up
+Behind the Australian government efforts to reduce the Chinese power on the Northern Minerals share register is one of the world's great technology battles.
+The Australian
+·
+2d</Link>
+<Button id="a_id_108">More options</Button>
+<Link id="a_id_109">8:15
+TikTok Awards 2025: Aussie creators react to looming social media ban | 9 News Australia
+With less than two weeks before it kicks in, Australian creators and internet personalities have weighed in on the looming social media ban from the TikTok...
+9 News Australia
+YouTube
+·
+1d</Link>
+<Button id="a_id_110">More options</Button>
+<Link id="a_id_111">Cut Crow to return to Adelaide for 2026
+Despite being delisted from the club's AFL squad for next year, ruckman Kieran Strachan will remain at Adelaide as part of the Crows' SANFL side in 2026.
+Zero Hanger
+·
+23h</Link>
+<Button id="a_id_112">More options</Button>
+<Link id="a_id_113">DFAT asks Westpac to consider PNG sponsorship deal
+Westpac is among a group of Australian companies being urged by the Albanese government to consider sponsoring Papua New Guinea's new NRL team,...
+AFR
+·
+19h</Link>
+<Button id="a_id_114">More options</Button>
+That's it for the moment. Check back soon for more.
+Australia
+<Link id="a_id_115">Advertising</Link>
+<Link id="a_id_116">Business</Link>
+<Link id="a_id_117">How Search works</Link>
+<Link id="a_id_118">Privacy</Link>
+<Link id="a_id_119">Terms</Link>
+<Button id="a_id_120">Settings</Button>
