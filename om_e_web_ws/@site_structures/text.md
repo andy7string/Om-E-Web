@@ -1,13 +1,33 @@
-# Google
+# (6) AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris - YouTube
 
-**URL:** https://www.google.com/
-**Timestamp:** 2025-11-28 18:42:52
+**URL:** https://www.youtube.com/watch?v=BFU1OCkhBwo&t=733s
+**Timestamp:** 2025-11-28 21:25:59
 
-**Tabs (1):** Active: #1138026083 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138026248 "(6) AI Expert: 6 People Are Qu" www.youtube.com [complete]
 
 ## Available Actions
 
 The following pre-configured actions are available for this page:
+
+**RetrieveTranscript** - Get video transcript
+  - Retrieves the full transcript for this YouTube video
+  - Usage: `python3 test_navigation.py --command capability --capability RetrieveTranscript`
+
+**TogglePlayPause** - Toggle video playback
+  - Toggles play/pause state of the video player
+  - Usage: `python3 test_navigation.py --command capability --capability TogglePlayPause`
+
+**SubscribeToChannel** - Subscribe to the channel
+  - Subscribes to the current YouTube channel
+  - Usage: `python3 test_navigation.py --command capability --capability SubscribeToChannel`
+
+**LikeVideo** - Like this video
+  - Likes the current YouTube video
+  - Usage: `python3 test_navigation.py --command capability --capability LikeVideo`
+
+**DislikeVideo** - Dislike this video
+  - Dislikes the current YouTube video
+  - Usage: `python3 test_navigation.py --command capability --capability DislikeVideo`
 
 **ScrollDown** - Scroll down one page
   - Scrolls the viewport down by one screen height
@@ -65,213 +85,174 @@ The following pre-configured actions are available for this page:
 
 ---
 
-Google Search homepage
-<Link id="a_id_0">Gmail</Link>
-<Link id="a_id_1">Search for Images</Link>
-<Button id="a_id_2">Google apps</Button>
-<Button id="a_id_3">Google Account: Andrew Orsmond
-(andreworsmond21175@gmail.com)</Button>
-<Select id="a_id_4" value="" use="(a_id_4, select, 'option')">Search</Select>
-<Button id="a_id_5">Search by voice</Button>
-<Button id="a_id_6">Search by image</Button>
-<Button id="a_id_7">AI Mode</Button>
-<Button id="a_id_8">Google Search</Button>
-<Button id="a_id_9">I'm Feeling Lucky</Button>
-Accessibility links
-<Link id="a_id_10">Skip to Discover feed</Link>
-<Link id="a_id_11">Skip to sidebar</Link>
-<Link id="a_id_12">Skip to footer</Link>
-<Link id="a_id_13">Accessibility help</Link>
-<Link id="a_id_14">Accessibility feedback</Link>
-Discover
-<Link id="a_id_15">Tasmania upgrades housing scheme, amid allegations of 'betrayal' towards buyers
-Tasmania is the only state or territory that is not joining the federal government's Help to Buy home ownership scheme, which aims to reduce the time it...
-ABC News
-·
-2h</Link>
-<Button id="a_id_16">More options</Button>
-<Link id="a_id_17">Legend Perkins to turn Adelaide Supercar laps
-SUPERCARS Hall of Famer Larry Perkins is returning to the streets of Adelaide this weekend – in a Supercar. The six-time Bathurst 1000 winner is at the.
-V8 Sleuth
-·
-6h</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">New Data Reveals The Top 20 Factors Influencing ChatGPT Citations
-SE Ranking analyzed 129000 domains to identify the top 20 factors driving ChatGPT citations. Backlinks, traffic, and trust scores ranked highest.
-Search Engine Journal
-·
-1d</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">BoM never planned to end reliance on 'legacy' site
-After blowing past its budget to spend $96 million dollars on overhauling its website, generating a political pyroclastic cloud, the Bureau of Meteorology...
-iTnews
-·
-10h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Google Is Building A New OS
-Windows, macOS, and Linux are the three major desktop OSs in today's world. However, there could soon be a new contender, with Google stepping up to the...
-Hackaday
-·
-20h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Scientists Discover Speech Trait That Foreshadows Cognitive Decline
-Early signs of Alzheimer's disease may be hidden in the way a person speaks, but it's not yet clear which details of our diction are most critical for...
-ScienceAlert
-·
-20h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">23:21
-2026 Ford Ranger Super Duty review: off-road & POV test drive
-What an excellent idea Ford. These will sell well, especially for fleets looking at something more comfortable and safer than a 70 series.
-Driving Enthusiast
-YouTube
-·
-1d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">That syncon feeling: the 150 tonnes of spinning steel that could help stabilise Australia’s energy transition
-Australia's largest synchronous condenser begins testing in Victoria, joining an expanding network operators say will reduce the grid's reliance on fossil...
-The Guardian
-·
-5d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Thousands of readers bought this smartwatch this year (it's not from Apple, Samsung, or Google)
-We found the top 10 smartwatches and fitness trackers our readers bought most this year, and there were several surprises on the list.
-ZDNET
-·
-4d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">DroneShield soars; Bendigo Bank’s ‘risk’; Goldman’s ASX bargains
-Want to get this in your inbox at lunchtime every weekday? Financial Review subscribers can sign up for The Brief newsletter here.
-AFR
-·
-3d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Honda CR-V Hybrid 2026: The Next-Gen SUV Redefining Power, Luxury & Efficiency
-Experience the Honda CR-V Hybrid 2026, a next-gen SUV combining advanced hybrid power, premium luxury, and outstanding efficiency.
-waterhousewood.com
-·
-20m</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Aldi’s Retro-Inspired Record Player Looks Just Like a Luxe Version Nearly 3x the Price
-Aldi is setting the mood for the holidays with a must-have Crosley lookalike. It's perfect for playing records on-the-go and makes a great Christmas gift,...
-Parade Magazine
-·
-3d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">2:11
-Tasmania's credit rating downgraded to lowest of all Australian states | ABC NEWS
-One of the two major credit rating agencies has downgraded Tasmania's credit rating from Aa2 to Aa3, making it the worst-rated of any Australian state.
-ABC News (Australia)
-YouTube
-·
-1d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Garmin recovery band leak hints at a Whoop-style tracker
-Garmin India just leaked a promo image on Facebook showing a sleek, screenless band with a single side-mounted LED.
-Gadgets & Wearables
-·
-2d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">TPG Telecom says disaster roaming deal with Telstra and Optus is close
-TPG Telecom has told the parliamentary triple zero inquiry into a fatal emergency call service outage last month that it is close to finalising an agreement...
-iTnews
-·
-1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Qantas plans more flights to India
-Qantas and low-cost sibling Jetstar plan to spread their wings across India, with new and upgraded jets unlocking direct flights between Australia and the...
-Executive Traveller
-·
-9h</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Iconic Aussie TV presenter announces retirement after nearly 40 years: 'It's time'
-A legendary TV presenter has revealed she is stepping down from her iconic role after nearly 40 years on our screens. Jane Edmanson has been on Gardening...
-Yahoo News Australia
-·
-10h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">“A rare chance to own a piece of rock history”: Dave Grohl’s DG-335 is one of Gibson’s most in-demand signature models – and now it’s back in an elusive new finish
-The wildly popular Trini Lopez/ES-335 hybrid is back – and it's styled after the model Grohl has been playing on stages since 2021.
-Guitar World
-·
-1w</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Significant haul of drugs seized in Adelaide
-28 Nov 2025 11:31am. A man has been arrested after police located 20kg of illicit drugs on an interstate passenger bus service this morning.
-SAPOL - Home
-·
-7h</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">ADF at risk with old satellite kept on line
-The Australian Defence Force will have to rely on an ageing, vulnerable commercial satellite for battlefield communications for up to eight more years after...
-The Australian
-·
-21h</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">South Australia solar battery hybrid project passes EPBC test with minimal conditions
-EPBC permission granted for what could be South Australia's first solar battery hybrid project, looking to connect next to the new transmission link to NSW.
-Renew Economy
-·
-1d</Link>
-<Button id="a_id_56">More options</Button>
-<Link id="a_id_57">‘Guardrails off’: AI tools spark alarm
-The latest AI revolution happening in bedrooms and home offices allows complete privacy – but experts warn it's creating a Wild West for illegal content...
-News.com.au
-·
-22h</Link>
-<Button id="a_id_58">More options</Button>
-<Link id="a_id_59">ATO warns family trusts to confess to past errors
-Families with trusts have a year to declare errors dating back to last century if they want to avoid big interest bills. Tax experts say the ATO is at...
-AFR
-·
-14h</Link>
-<Button id="a_id_60">More options</Button>
-<Link id="a_id_61">Slipknot-gauged mechanical transmission and robotic operation
-Mechanical transmission is essential in force-related activities ranging from the daily tying of shoe laces1 to sophisticated surgical2 and robotic...
-Nature
-·
-1d</Link>
-<Button id="a_id_62">More options</Button>
-<Link id="a_id_63">Hybrid work champion Cannon-Brookes rejects WFH mandates
-Atlassian co-founder Mike Cannon-Brookes, the hybrid work evangelist who declared his employees can work from anywhere, slammed work-from-home mandates as...
-The Australian
-·
-18h</Link>
-<Button id="a_id_64">More options</Button>
-<Link id="a_id_65">Greens out-step flat-footed Liberals on crucial deal
-The environmental deal is a major win for a government whose critics on the left are calling for it to be more reformist.
-ABC News
-·
-12h</Link>
-<Button id="a_id_66">More options</Button>
-<Link id="a_id_67">Waters fastest as Allen stuns in second Adelaide practice
-Grove Racing's Kai Allen has fired the first warning shot in the race for the Supercars title with the second fastest time in Practice 2 at the BP Adelaide...
-Speedcafe.com
-·
-7h</Link>
-<Button id="a_id_68">More options</Button>
-<Link id="a_id_69">How to spot 'ghost stores' posing as Australian businesses
-With Australians expected to spend billions this Black Friday, the consumer watchdog is warning about a growing number of "ghost stores" targeting...
-ABC News
-·
-2d</Link>
-<Button id="a_id_70">More options</Button>
-<Link id="a_id_71">Has the RBA cut interest rates too hard and too fast?
-After three interest rate cuts this year, inflation is back and questions are being asked about the political pressure applied to the Reserve Bank.
-AFR
-·
-5h</Link>
-<Button id="a_id_72">More options</Button>
-<Link id="a_id_73">Star producer behind Spider-Man and Kill Bill joins South Australian feature film VINES
-South Australia's screen industry has scored a major coup, with internationally acclaimed Hollywood producer E. Bennett Walsh officially joining the South...
-Glam Adelaide
-·
-14h</Link>
-<Button id="a_id_74">More options</Button>
-Australia
-<Link id="a_id_75">Advertising</Link>
-<Link id="a_id_76">Business</Link>
-<Link id="a_id_77">How Search works</Link>
-<Link id="a_id_78">Privacy</Link>
-<Link id="a_id_79">Terms</Link>
-<Button id="a_id_80">Settings</Button>
+<Button id="a_id_0">Guide</Button>
+<Link id="a_id_1">YouTube Premium Home</Link>
+AU
+<Button id="a_id_2">Skip navigation</Button>
+<Input id="a_id_3" use="(a_id_3, 'your text', submit:true)">Search</Input>
+<Button id="a_id_4">Search</Button>
+<Button id="a_id_5">Search with your voice</Button>
+<Button id="a_id_6">Create</Button>
+<Button id="a_id_7">Notifications</Button>
+<Button id="a_id_8">Account menu</Button>
+<Link id="a_id_9">Share link</Link>
+<Button id="a_id_10">Close</Button>
+AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris
+<Link id="a_id_11">The Diary Of A CEO</Link>
+13.7M subscribers
+<Button id="a_id_12">Join this channel</Button>
+<Button id="a_id_13">Current setting is personalized notifications. Tap to change your notification setting for The Diary Of A CEO</Button>
+<Button id="a_id_14">like this video along with 20,678 other people</Button>
+<Button id="a_id_15">Dislike this video</Button>
+<Button id="a_id_16">Share</Button>
+<Button id="a_id_17">Download</Button>
+<Button id="a_id_18">Thanks</Button>
+649,652 views
+1 day ago
+2 products
+Ex-Google Insider and AI Expert TRISTAN HARRIS reveals how ChatGPT, China, and Elon Musk are racing to build uncontrollable AI, and warns it will blackmail humans, hack democracy, and threaten jobs...by 2027.
+
+Tristan Harris is a former Google design ethicist and leading voice from Netflix’s The Social Dilemma. He is also co-founder of the Center for Humane Technology, where he advises policymakers, tech leaders, and the public on th
+...
+<Button id="a_id_19">...more</Button>
+The Diary Of A CEO tagged products below.
+<Link id="a_id_20">Learn more</Link>
+<Link id="a_id_21">Black Friday 1% Bundle (2 Diaries), Limited shipping areas , from The Diary</Link>
+<Link id="a_id_22">The Conversation Cards Game Edition, Limited shipping areas , from The Diary</Link>
+<Button id="a_id_23">All</Button>
+<Button id="a_id_24">From The Diary Of A CEO</Button>
+<Button id="a_id_25">Intelligence</Button>
+<Button id="a_id_26">Presentations</Button>
+<Button id="a_id_27">Related</Button>
+<Button id="a_id_28">For you</Button>
+<Button id="a_id_29">Recently uploaded</Button>
+<Button id="a_id_30">Watched</Button>
+<Button id="a_id_31">Next</Button>
+<Link id="a_id_32">18:46</Link>
+<Link id="a_id_33">Everyone Got This Wrong About Muscle Growth (My NEW Study) 18 minutes</Link>
+Jeremy Ethier
+225K views
+•
+19 hours ago
+New
+<Link id="a_id_34">9:52</Link>
+<Link id="a_id_35">I believe the world will change dramatically, soon 9 minutes, 52 seconds</Link>
+Sabine Hossenfelder
+323K views
+•
+18 hours ago
+New
+<Link id="a_id_36">10:04</Link>
+<Link id="a_id_37">How Tony Robbins Rewired His Mind to Achieve His Dream 10 minutes, 4 seconds</Link>
+Tony Robbins
+262K views
+•
+5 months ago
+<Link id="a_id_38">14:03</Link>
+<Link id="a_id_39">Claude Code for Desktop is the BEST way to build apps with AI EVER 14 minutes, 3 seconds</Link>
+Alex Finn
+27K views
+•
+1 day ago
+New
+<Link id="a_id_40">7:38</Link>
+<Link id="a_id_41">Alter Bridge - Blackbird 7 minutes, 38 seconds</Link>
+ConcertsOnVEVO
+2.1M views
+•
+2 years ago
+<Link id="a_id_42">36:43</Link>
+<Link id="a_id_43">Why Koenigsegg’s new 2,300hp hypercar changes everything 36 minutes</Link>
+carwow
+590K views
+•
+23 hours ago
+New
+<Link id="a_id_44">31:16</Link>
+<Link id="a_id_45">I Skied Down Mount Everest (world first, no oxygen) 31 minutes</Link>
+Red Bull
+17M views
+•
+2 weeks ago
+<Link id="a_id_46">37:05</Link>
+<Link id="a_id_47">the last biggest shred collab in the world 37 minutes</Link>
+Jared Dines
+110K views
+•
+20 hours ago
+New
+<Link id="a_id_48">24:00</Link>
+<Link id="a_id_49">You SUCK at Prompting AI (Here's the secret) 24 minutes</Link>
+NetworkChuck
+177K views
+•
+1 day ago
+New
+<Link id="a_id_50">15:57</Link>
+<Link id="a_id_51">Why Some Guys Build Muscle 3x Faster (How You Can Too) 15 minutes</Link>
+Jeremy Ethier
+828K views
+•
+2 months ago
+<Link id="a_id_52">11:37</Link>
+<Link id="a_id_53">'Musk Will Get Richer, People Will Get Unemployed': Nobel Laureate Hinton on AI 11 minutes, 37 seconds</Link>
+Bloomberg Television
+1M views
+•
+3 weeks ago
+<Link id="a_id_54">15:20</Link>
+<Link id="a_id_55">Neil’s Tips For Navigating Misinformation 15 minutes</Link>
+StarTalk
+257K views
+•
+14 hours ago
+New
+<Link id="a_id_56">5:46</Link>
+<Link id="a_id_57">DMT Always Shows Shane Mauss the Same Purple Woman on His Trips - Tales From the Trip 5 minutes, 46 seconds</Link>
+Animated
+3.4M views
+•
+5 years ago
+<Link id="a_id_58">17:14</Link>
+<Link id="a_id_59">THE REAL GOAT OF DRUMS. 17 minutes</Link>
+El Estepario Siberiano
+174K views
+•
+17 hours ago
+New
+<Link id="a_id_60">8:28</Link>
+<Link id="a_id_61">How an Interview DISASTER Became a HUGE Success for Diary of a CEO's Steven Bartlett (Extended) 8 minutes, 28 seconds</Link>
+The Tonight Show Starring Jimmy Fallon
+1.2M views
+•
+2 months ago
+<Link id="a_id_62">13:32</Link>
+<Link id="a_id_63">Locked Their Hard Drives, Listen to Them Rage 13 minutes, 32 seconds</Link>
+Scammer Payback
+1.9M views
+•
+1 month ago
+<Link id="a_id_64">15:18</Link>
+<Link id="a_id_65">Training W/ Real Life Vampire (Anti-aging) 15 minutes</Link>
+Jesse James West
+7.6M views
+•
+2 years ago
+<Link id="a_id_66">23:15</Link>
+<Link id="a_id_67">Doctor Reveals SHOCKING Truth About Testosterone 23 minutes</Link>
+The Diary Of A CEO Clips
+190K views
+•
+3 months ago
+<Link id="a_id_68">13:16</Link>
+<Link id="a_id_69">You're Wasting Your Money On Protein (NEW RESEARCH) 13 minutes, 16 seconds</Link>
+Jeremy Ethier
+1.6M views
+•
+1 month ago
+<Link id="a_id_70">5:03</Link>
+<Link id="a_id_71">Kevin Hart Warns About Porn | Netflix Is A Joke 5 minutes, 3 seconds</Link>
+Netflix Is A Joke
+12M views
+•
+5 years ago

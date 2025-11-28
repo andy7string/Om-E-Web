@@ -12416,6 +12416,49 @@
     }
 
     /**
+     * 📐 Clamp orb position to keep it visible in viewport
+     * Called on window resize to ensure orb doesn't go off-screen
+     */
+    function clampOrbToViewport() {
+        if (!hudState.orb) return;
+
+        // Check if orb is using left/top positioning (was dragged)
+        // vs default bottom/right positioning (CSS handles that)
+        const usesLeftTop = hudState.orb.style.left && hudState.orb.style.left !== 'auto';
+        if (!usesLeftTop) return;
+
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        // Orb dimensions (from CSS: width: 50px, height: 78px)
+        const orbWidth = 50;
+        const orbHeight = 78;
+        const padding = 10;
+
+        // Get current position
+        let left = parseInt(hudState.orb.style.left) || 0;
+        let top = parseInt(hudState.orb.style.top) || 0;
+
+        // Calculate max positions (account for scroll controls on right + zoom below)
+        const maxLeft = viewportWidth - orbWidth - 60;
+        const maxTop = viewportHeight - orbHeight - 40;
+
+        // Clamp position
+        const clampedLeft = Math.max(padding, Math.min(left, maxLeft));
+        const clampedTop = Math.max(padding, Math.min(top, maxTop));
+
+        // Only update if clamping was needed
+        if (clampedLeft !== left || clampedTop !== top) {
+            hudState.orb.style.left = `${clampedLeft}px`;
+            hudState.orb.style.top = `${clampedTop}px`;
+            console.log('[Content] 📐 Clamped orb to viewport:', clampedLeft, clampedTop);
+
+            // Save clamped position
+            saveOrbPosition(clampedLeft, clampedTop);
+        }
+    }
+
+    /**
      * 💾 Save orb position to service worker
      * @param {number} left - CSS left value in px
      * @param {number} top - CSS top value in px
@@ -12550,6 +12593,9 @@
         } catch (e) {
             console.warn('[Content] Error getting orb state:', e);
         }
+
+        // 📐 Keep orb visible on window resize
+        window.addEventListener('resize', clampOrbToViewport);
 
         console.log('[Content] 🎛️ HUD initialized');
     }

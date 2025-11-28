@@ -1,28 +1,28 @@
 {
-  "timestamp": 1764317572.5175612,
+  "timestamp": 1764327359.298261,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138026083,
-      "url": "https://www.google.com/",
-      "title": "Google",
-      "status": "loading"
+      "id": 1138026248,
+      "url": "https://www.youtube.com/watch?v=BFU1OCkhBwo&t=733s",
+      "title": "(6) AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris - YouTube",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138026083,
-        "url": "https://www.google.com/",
-        "title": "Google",
+        "id": 1138026248,
+        "url": "https://www.youtube.com/watch?v=BFU1OCkhBwo&t=733s",
+        "title": "(6) AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris - YouTube",
         "active": true,
-        "status": "loading"
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 38809.282697791,
+    "last_tabs_update": 48576.550013791,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/",
-    "title": "Google",
+    "url": "https://www.youtube.com/watch?v=BFU1OCkhBwo&t=733s",
+    "title": "(6) AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris - YouTube",
     "is_active_tab": true
   },
   "content_structure": {},
