@@ -1134,6 +1134,41 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 console.log('[SW] 🐰 Updated orb state:', orbState);
                 sendResponse({ ok: true });
                 break;
+            case 'set_orb_theme':
+                // 🐰 Set orb theme from popup and forward to active tab
+                (async () => {
+                    try {
+                        const themeName = message.theme;
+                        if (!themeName) {
+                            sendResponse({ ok: false, error: "Missing theme name" });
+                            return;
+                        }
+
+                        // Update orbState
+                        orbState.theme = themeName;
+                        console.log('[SW] 🐰 Orb theme set from popup:', themeName);
+
+                        // Forward to active tab's content script
+                        const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+                        if (activeTab && activeTab.id) {
+                            try {
+                                await chrome.tabs.sendMessage(activeTab.id, {
+                                    type: 'apply_orb_theme',
+                                    theme: themeName
+                                });
+                                console.log('[SW] 🐰 Theme forwarded to tab:', activeTab.id);
+                            } catch (tabError) {
+                                console.warn('[SW] Could not send theme to tab:', tabError.message);
+                            }
+                        }
+
+                        sendResponse({ ok: true, theme: themeName });
+                    } catch (error) {
+                        console.error('[SW] Error setting orb theme:', error);
+                        sendResponse({ ok: false, error: error.message });
+                    }
+                })();
+                return true; // Keep channel open for async
             default:
                 console.warn("[SW] Unknown internal message type:", message.type);
                 sendResponse({ ok: false, error: "Unknown message type" });

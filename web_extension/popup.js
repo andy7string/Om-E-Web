@@ -10,6 +10,11 @@ const enableDOMBtn = document.getElementById("enableDOMBtn");
 const disableDOMBtn = document.getElementById("disableDOMBtn");
 const resetDOMBtn = document.getElementById("resetDOMBtn");
 
+// 🐰 Orb Style Buttons
+const orbKawaiiBtn = document.getElementById("orbKawaii");
+const orbRobotBtn = document.getElementById("orbRobot");
+const orbButtons = [orbKawaiiBtn, orbRobotBtn];
+
 // Status display elements
 const connectionStatus = document.getElementById("connectionStatus");
 const activeTabs = document.getElementById("activeTabs");
@@ -162,6 +167,72 @@ resetDOMBtn.addEventListener("click", async () => {
     }
 });
 
+// 🐰 Orb Theme Selection Handlers
+
+/**
+ * Set active orb theme button styling
+ * @param {string} themeName - Theme key ('kawaii' or 'robot')
+ */
+function setActiveOrbButton(themeName) {
+    orbButtons.forEach(btn => {
+        if (btn.dataset.theme === themeName) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+/**
+ * Handle orb theme button click
+ * @param {string} themeName - Theme key to set
+ */
+async function handleOrbThemeClick(themeName) {
+    try {
+        showStatus(`Switching to ${themeName} style...`, "info");
+
+        // Send message to service worker to change theme
+        const response = await chrome.runtime.sendMessage({
+            type: "set_orb_theme",
+            theme: themeName
+        });
+
+        if (response && response.ok) {
+            setActiveOrbButton(themeName);
+            showStatus(`Orb style changed to ${themeName}!`, "success");
+        } else {
+            showStatus("Failed to change orb style", "error");
+        }
+    } catch (error) {
+        showStatus("Error changing orb style: " + error.message, "error");
+    }
+}
+
+// Attach click handlers to orb buttons
+orbButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        handleOrbThemeClick(btn.dataset.theme);
+    });
+});
+
+/**
+ * Load current orb theme from service worker and update button state
+ */
+async function loadCurrentOrbTheme() {
+    try {
+        const response = await chrome.runtime.sendMessage({ type: "get_orb_state" });
+        if (response && response.ok && response.theme) {
+            setActiveOrbButton(response.theme);
+        } else {
+            // Default to robot if not set
+            setActiveOrbButton('robot');
+        }
+    } catch (error) {
+        console.error("Error loading orb theme:", error);
+        setActiveOrbButton('robot');
+    }
+}
+
 // Update status display
 async function updateStatusDisplay() {
     try {
@@ -245,10 +316,11 @@ wsUrlInput.addEventListener("keypress", (event) => {
 // Initialize status display when popup opens
 document.addEventListener("DOMContentLoaded", () => {
     updateStatusDisplay();
-    
+    loadCurrentOrbTheme();  // 🐰 Load current orb theme
+
     // Update status every 2 seconds while popup is open
     const statusInterval = setInterval(updateStatusDisplay, 2000);
-    
+
     // Clean up interval when popup closes
     window.addEventListener("beforeunload", () => {
         clearInterval(statusInterval);

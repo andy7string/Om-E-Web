@@ -1,28 +1,42 @@
 {
-  "timestamp": 1764327359.298261,
+  "timestamp": 1764328664.6079412,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 3,
     "active_tab": {
       "id": 1138026248,
-      "url": "https://www.youtube.com/watch?v=BFU1OCkhBwo&t=733s",
-      "title": "(6) AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris - YouTube",
+      "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/project",
+      "title": "ChatGPT - OM-E autonomy",
       "status": "complete"
     },
     "all_tabs": [
       {
         "id": 1138026248,
-        "url": "https://www.youtube.com/watch?v=BFU1OCkhBwo&t=733s",
-        "title": "(6) AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris - YouTube",
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/project",
+        "title": "ChatGPT - OM-E autonomy",
         "active": true,
+        "status": "complete"
+      },
+      {
+        "id": 1138026256,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138026258,
+        "url": "chrome://newtab/",
+        "title": "New tab",
+        "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 48576.550013791,
+    "last_tabs_update": 49966.079554458,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/watch?v=BFU1OCkhBwo&t=733s",
-    "title": "(6) AI Expert: 6 People Are Quietly Deciding The Future Of Humanity! Tristan Harris - YouTube",
+    "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/project",
+    "title": "ChatGPT - OM-E autonomy",
     "is_active_tab": true
   },
   "content_structure": {},

@@ -11780,56 +11780,83 @@
 
     /** @type {Object<string, OrbTheme>} */
     const ORB_THEMES = {
-        // 🐰 Kawaii - white/cream cute bunny with pink accents
+        // 🐱 Kawaii - fluffy white kitty with cherry, big sparkly blue eyes
         kawaii: {
             name: 'Kawaii',
             earSelector: '.ome-ear',
-            color: '#00e5ff',  // Cyan (consistent across all themes)
+            color: '#7ec8e3',  // Sparkly blue (matching eyes)
             svg: `
-                <svg class="ome-bunny" viewBox="-3 7 66 88" fill="none">
+                <svg class="ome-bunny" viewBox="0 0 60 72" fill="none">
                     <defs>
-                        <!-- Body gradient: white/cream -->
-                        <linearGradient id="kawaiiBodyGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-                            <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
-                            <stop offset="100%" stop-color="rgba(245,240,250,0.85)"/>
+                        <!-- Fluffy white body gradient -->
+                        <radialGradient id="kawaiiFluffyGrad" cx="50%" cy="40%" r="60%">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.95)"/>
+                            <stop offset="70%" stop-color="rgba(248,244,255,0.9)"/>
+                            <stop offset="100%" stop-color="rgba(232,224,240,0.85)"/>
+                        </radialGradient>
+                        <!-- Pink inner ear -->
+                        <linearGradient id="kawaiiPinkEarGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255,182,193,0.8)"/>
+                            <stop offset="100%" stop-color="rgba(255,145,164,0.7)"/>
                         </linearGradient>
-                        <!-- Ear fill gradient -->
-                        <linearGradient id="kawaiiEarGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-                            <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
-                            <stop offset="100%" stop-color="rgba(250,245,255,0.85)"/>
-                        </linearGradient>
-                        <!-- Inner ear pink -->
-                        <linearGradient id="kawaiiInnerEarGrad" x1="50%" y1="0%" x2="50%" y2="100%">
-                            <stop offset="0%" stop-color="rgba(255,182,193,0.7)"/>
-                            <stop offset="100%" stop-color="rgba(255,150,170,0.6)"/>
-                        </linearGradient>
+                        <!-- Sparkly blue eye gradient -->
+                        <radialGradient id="kawaiiEyeBlueGrad" cx="50%" cy="30%" r="50%">
+                            <stop offset="0%" stop-color="#7ec8e3"/>
+                            <stop offset="50%" stop-color="#4a9eca"/>
+                            <stop offset="100%" stop-color="#2d7eb0"/>
+                        </radialGradient>
+                        <!-- Cherry gradient -->
+                        <radialGradient id="kawaiiCherryGrad" cx="30%" cy="30%" r="60%">
+                            <stop offset="0%" stop-color="#ff8a9b"/>
+                            <stop offset="100%" stop-color="#e05670"/>
+                        </radialGradient>
                     </defs>
-                    <!-- Left ear -->
-                    <path class="ome-ear" d="M18 36 C10 36 8 28 10 16 C12 6 16 2 20 2 C24 2 26 8 26 18 C26 28 24 36 18 36 Z" fill="url(#kawaiiEarGrad)" stroke="rgba(200,180,220,0.8)" stroke-width="2" style="cursor:pointer"/>
-                    <!-- Left inner ear -->
-                    <path d="M18 32 C14 32 13 26 14 18 C15 10 17 6 19 6 C21 6 22 10 22 18 C22 26 21 32 18 32 Z" fill="url(#kawaiiInnerEarGrad)" style="pointer-events:none"/>
-                    <!-- Right ear -->
-                    <path class="ome-ear" d="M42 36 C36 36 34 28 34 18 C34 8 36 2 40 2 C44 2 48 6 50 16 C52 28 50 36 42 36 Z" fill="url(#kawaiiEarGrad)" stroke="rgba(200,180,220,0.8)" stroke-width="2" style="cursor:pointer"/>
-                    <!-- Right inner ear -->
-                    <path d="M42 32 C39 32 38 26 38 18 C38 10 39 6 41 6 C43 6 45 10 46 18 C47 26 46 32 42 32 Z" fill="url(#kawaiiInnerEarGrad)" style="pointer-events:none"/>
-                    <!-- Head - soft oval -->
-                    <ellipse cx="30" cy="56" rx="22" ry="20" fill="url(#kawaiiBodyGrad)" stroke="rgba(200,180,220,0.7)" stroke-width="2"/>
-                    <!-- Rosy cheeks -->
-                    <ellipse cx="14" cy="58" rx="4" ry="3" fill="rgba(255,180,190,0.5)"/>
-                    <ellipse cx="46" cy="58" rx="4" ry="3" fill="rgba(255,180,190,0.5)"/>
-                    <!-- Eyes - cute dots -->
-                    <ellipse cx="22" cy="54" rx="3" ry="4" fill="rgba(60,60,80,0.8)"/>
-                    <ellipse cx="38" cy="54" rx="3" ry="4" fill="rgba(60,60,80,0.8)"/>
-                    <!-- Eye shine -->
-                    <circle cx="23" cy="52" r="1.5" fill="rgba(255,255,255,0.9)"/>
-                    <circle cx="39" cy="52" r="1.5" fill="rgba(255,255,255,0.9)"/>
-                    <!-- Cute smile -->
-                    <path d="M24 64 Q30 70 36 64" stroke="rgba(180,150,180,0.7)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- Left ear (pointed, cat-style) - clickable -->
+                    <path class="ome-ear" d="M12 28 L8 8 L22 22 Z" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.8)" stroke-width="1.5" style="cursor:pointer"/>
+                    <path d="M13 24 L11 12 L19 21 Z" fill="url(#kawaiiPinkEarGrad)" style="pointer-events:none"/>
+                    <!-- Right ear - clickable -->
+                    <path class="ome-ear" d="M48 28 L52 8 L38 22 Z" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.8)" stroke-width="1.5" style="cursor:pointer"/>
+                    <path d="M47 24 L49 12 L41 21 Z" fill="url(#kawaiiPinkEarGrad)" style="pointer-events:none"/>
+                    <!-- Strawberry on top - clickable to open HUD -->
+                    <g class="ome-ear" style="cursor:pointer">
+                        <path d="M30 2 Q28 -2 26 0 M30 2 Q32 -2 34 0 M30 2 Q30 -3 30 -1" stroke="#50a060" stroke-width="1.5" fill="none"/>
+                        <ellipse cx="30" cy="10" rx="9" ry="8" fill="url(#kawaiiCherryGrad)"/>
+                        <ellipse cx="27" cy="7" rx="2.5" ry="1.5" fill="rgba(255,255,255,0.5)"/>
+                        <!-- Strawberry seeds -->
+                        <ellipse cx="26" cy="12" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                        <ellipse cx="34" cy="11" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                        <ellipse cx="30" cy="14" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                    </g>
+                    <!-- Fluffy head -->
+                    <ellipse cx="30" cy="38" rx="24" ry="22" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.7)" stroke-width="1.5"/>
+                    <!-- Fluffy cheek tufts -->
+                    <ellipse cx="8" cy="40" rx="6" ry="8" fill="url(#kawaiiFluffyGrad)"/>
+                    <ellipse cx="52" cy="40" rx="6" ry="8" fill="url(#kawaiiFluffyGrad)"/>
+                    <!-- Big sparkly eyes -->
+                    <ellipse cx="20" cy="38" rx="7" ry="8" fill="url(#kawaiiEyeBlueGrad)" stroke="rgba(45,96,144,0.5)" stroke-width="0.5"/>
+                    <ellipse cx="40" cy="38" rx="7" ry="8" fill="url(#kawaiiEyeBlueGrad)" stroke="rgba(45,96,144,0.5)" stroke-width="0.5"/>
+                    <!-- Eye highlights (sparkles) -->
+                    <circle cx="17" cy="35" r="2.5" fill="rgba(255,255,255,0.95)"/>
+                    <circle cx="22" cy="33" r="1.2" fill="rgba(255,255,255,0.9)"/>
+                    <circle cx="37" cy="35" r="2.5" fill="rgba(255,255,255,0.95)"/>
+                    <circle cx="42" cy="33" r="1.2" fill="rgba(255,255,255,0.9)"/>
+                    <!-- Pupils -->
+                    <ellipse cx="21" cy="40" rx="2" ry="2.5" fill="rgba(26,48,80,0.9)"/>
+                    <ellipse cx="41" cy="40" rx="2" ry="2.5" fill="rgba(26,48,80,0.9)"/>
+                    <!-- Rosy blush -->
+                    <ellipse cx="10" cy="44" rx="4" ry="2.5" fill="rgba(255,150,170,0.5)"/>
+                    <ellipse cx="50" cy="44" rx="4" ry="2.5" fill="rgba(255,150,170,0.5)"/>
+                    <!-- Cute nose -->
+                    <ellipse cx="30" cy="46" rx="2.5" ry="2" fill="rgba(255,176,192,0.8)"/>
+                    <!-- Tiny smile -->
+                    <path d="M26 50 Q30 54 34 50" stroke="rgba(192,144,160,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <!-- Little body hint -->
+                    <ellipse cx="30" cy="64" rx="14" ry="8" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.6)" stroke-width="1"/>
                 </svg>`,
             paws: `
                 <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
-                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(255,255,255,0.3)" stroke="rgba(200,180,220,0.5)" stroke-width="1"/>
-                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(255,255,255,0.3)" stroke="rgba(200,180,220,0.5)" stroke-width="1"/>
+                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(255,255,255,0.4)" stroke="rgba(208,192,224,0.5)" stroke-width="1"/>
+                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(255,255,255,0.4)" stroke="rgba(208,192,224,0.5)" stroke-width="1"/>
                 </svg>`
         },
 
@@ -12640,6 +12667,23 @@
             console.log('[Content] 🎨 get_orb_themes received');
             const themes = Object.entries(ORB_THEMES).map(([key, t]) => ({ key, name: t.name }));
             sendResponse({ ok: true, current: hudState.theme, themes });
+            return true;
+        }
+
+        // 🐰 Apply orb theme from popup (forwarded via SW)
+        if (message.type === 'apply_orb_theme') {
+            const themeName = message.theme;
+            console.log(`[Content] 🐰 apply_orb_theme from popup: ${themeName}`);
+
+            if (!hudState.host) initHUD();
+
+            if (ORB_THEMES[themeName]) {
+                applyOrbTheme(themeName);
+                hudState.theme = themeName;
+                sendResponse({ ok: true, theme: themeName });
+            } else {
+                sendResponse({ ok: false, error: `Unknown theme: ${themeName}` });
+            }
             return true;
         }
     });
