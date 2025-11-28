@@ -1,9 +1,9 @@
-# ChatGPT
+# Google
 
-**URL:** https://chatgpt.com/
-**Timestamp:** 2025-11-28 22:46:31
+**URL:** https://www.google.com/
+**Timestamp:** 2025-11-28 23:46:24
 
-**Tabs (1):** Active: #1138026267 "ChatGPT" chatgpt.com [loading]
+**Tabs (1):** Active: #1138026351 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -65,64 +65,91 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<Link id="a_id_0">Skip to content</Link>
-Chat history
-<Link id="a_id_1">Home</Link>
-<Button id="a_id_2">Close sidebar</Button>
-<Link id="a_id_3">New chat
-⇧
-⌘
-O</Link>
-Search chats
-<Link id="a_id_4">Library</Link>
-<Link id="a_id_5">Codex</Link>
-<Link id="a_id_6">Atlas</Link>
-<Button id="a_id_7">GPTs</Button>
-<Link id="a_id_8">Explore</Link>
-<Link id="a_id_9">Web Browser</Link>
-<Button id="a_id_10">Projects</Button>
-New project
-<Link id="a_id_11">OM-E autonomy</Link>
-<Link id="a_id_12">Claude</Link>
-<Link id="a_id_13">Pacifier Project</Link>
-<Link id="a_id_14">BinaryBeats</Link>
-<Link id="a_id_15">FPH</Link>
-See more
-<Button id="a_id_16">Your chats</Button>
-<Link id="a_id_17">Modify bunny design</Link>
-<Link id="a_id_18">Invite ANZ to PEXA</Link>
-<Link id="a_id_19">Extension conversation</Link>
-<Link id="a_id_20">Om-e extension response</Link>
-<Link id="a_id_21">Gravity Forms email issue</Link>
-<Link id="a_id_22">Nailing it with extension</Link>
-<Link id="a_id_23">Website legitimacy check</Link>
-<Link id="a_id_24">Confident response to Jeff</Link>
-<Link id="a_id_25">Web automation test</Link>
-<Link id="a_id_26">Web automation test</Link>
-<Link id="a_id_27">Claude assistance options</Link>
-<Link id="a_id_28">Claude usage clarification</Link>
-<Link id="a_id_29">Write a poem</Link>
-<Link id="a_id_30">Sort list in Python</Link>
-<Link id="a_id_31">Automation test message</Link>
-<Link id="a_id_32">Confidence boost</Link>
-<Link id="a_id_33">Palm reading analysis</Link>
-<Link id="a_id_34">Emotional reaction reflection</Link>
-<Link id="a_id_35">Calming emotional reactions</Link>
-<Link id="a_id_36">Handling strong language</Link>
-<Link id="a_id_37">Search elements in console</Link>
-<Link id="a_id_38">Guitar request clarification</Link>
-<Link id="a_id_39">New chat</Link>
-<Link id="a_id_40">Guitar assistance offer</Link>
-<Link id="a_id_41">Next steps discussion</Link>
-<Link id="a_id_42">Conversation transcript</Link>
-<Link id="a_id_43">Contact form not received</Link>
-<Link id="a_id_44">New chat</Link>
-<Button id="a_id_45">Open profile menu</Button>
-<Button id="a_id_46">Model selector, current model is 5.1</Button>
-<Button id="a_id_47">Start a group chat</Button>
-<Button id="a_id_48">Turn on temporary chat</Button>
-What are you working on?
-<Input id="a_id_49" use="(a_id_49, 'your text', submit:true)">Ask anything</Input>
-<Button id="a_id_50">Add files and more</Button>
-<Button id="a_id_51">Dictate button</Button>
-<Button id="a_id_52">Start voice mode</Button>
+Google Search homepage
+<Link id="a_id_0">About</Link>
+<Link id="a_id_1">Store</Link>
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
+(andreworsmond21175@gmail.com)</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
+Accessibility links
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
+Discover
+<Link id="a_id_17">Best 4x4 Australia 2026
+GWM Tank 500 3.0-litre diesel - H2China's GWM is set to launch a new 3.0-litre four-cylinder turbo-diesel engine option in the Prado-rivalling Tank 500 SUV...
+CarsGuide
+·
+21h</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Australia Tough New Traffic Rule: From 1st December 2025 – $1,500 Fine and Instant Licence Cancellation
+Australia Tough New Traffic Rule - Australia is preparing for a major shift in road safety regulations as a strict new traffic rule comes into effect from...
+heritagecountrymotel.com.au
+·
+1d</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">New data shows under-40s lead on growth and innovation as AI accelerates business success
+CPA Australia is calling on young Australians to leverage artificial intelligence to turn entrepreneurial dreams into reality.
+Glam Adelaide
+·
+3d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Google ditches EU antitrust complaint about Microsoft cloud amid EU probe
+Alphabet's Google on Friday dropped its EU antitrust complaint about rival Microsoft's cloud computing practices, a week after EU regulators launched an...
+Reuters
+·
+2h</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">New Toyota Corolla 2026: Bold Design, Premium Features and Affordable Price
+Toyota's Corolla has been the world's best-selling car for decades, and the 2026 model is set to keep that crown with a fresh redesign that amps up the...
+acmesignsandgraphicstx.com
+·
+10h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Aldi’s Sleek Home Essential Is a Powerful Solution for Stress-Free Holiday Cleaning
+Aldi is getting ready for the holidays with a must-have home essential. Ideal for tackling spills, dirty carpets, dusty floors and so much more.
+Parade Magazine
+·
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">NASA Astronaut Chris Williams, Crewmates Arrive at Space Station
+NASA astronaut Chris Williams, accompanied by Roscosmos cosmonauts Sergey Kud-Sverchkov and Sergei Mikaev, safely arrived at the International Space Station...
+NASA (.gov)
+·
+1d</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">AWS builds a DNS backstop to allow changes when its notoriously flaky US East region wobbles
+The cause of major internet outages is often the domain name system (DNS) and/or problems at Amazon Web Services' US East region. The cloud giant has now...
+The Register
+·
+1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">A Solar Gravity Lens Telescope Would Revolutionize Astronomy
+Astronomers in the U.S. and Europe are actively working on a revolutionary new optical telescope concept that would harness our Sun's own massive gravity to...
+Forbes
+·
+3d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Dairy 'disrupter' who invented spreadable butter in 70s wins science award
+Dairy farmer Geoff Boxsell, 86, has won the 2025 Dairy Science Award for inventing spreadable butter more than 50 years ago.
+ABC News
+·
+11h</Link>
+<Button id="a_id_36">More options</Button>
+Australia
+<Link id="a_id_37">Advertising</Link>
+<Link id="a_id_38">Business</Link>
+<Link id="a_id_39">How Search works</Link>
+<Link id="a_id_40">Privacy</Link>
+<Link id="a_id_41">Terms</Link>
+<Button id="a_id_42">Settings</Button>

@@ -11755,13 +11755,15 @@
     // 🎛️ OM-E HUD SYSTEM - Floating orb and overlay interface
     // ============================================================================
 
-    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, visible: boolean, dragging: boolean, theme: string }} */
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, visible: boolean, chatVisible: boolean, dragging: boolean, theme: string }} */
     const hudState = {
         host: null,
         shadow: null,
         orb: null,
         hud: null,
+        chatPanel: null,      // 💬 Chat panel element
         visible: false,
+        chatVisible: false,   // 💬 Chat panel visibility
         dragging: false,
         theme: 'robot'  // Current orb theme (default)
     };
@@ -12098,10 +12100,35 @@
                 cursor: default;
                 user-select: none;
             }
-            /* 🔍 Zoom Controls (bottom of orb) */
+            /* 💬 Prompt Button (between orb and zoom) */
+            .ome-prompt-btn {
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 3px 10px;
+                font-size: 9px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #a5b4fc;
+                background: rgba(167,139,250,0.25);
+                border: 1px solid rgba(167,139,250,0.5);
+                border-radius: 10px;
+                cursor: pointer;
+                opacity: 0.85;
+                transition: opacity 0.15s ease, background 0.15s ease, transform 0.15s ease;
+                white-space: nowrap;
+                z-index: 10;
+            }
+            .ome-prompt-btn:hover { opacity: 1; background: rgba(167,139,250,0.4); transform: translateX(-50%) scale(1.08); }
+            .ome-prompt-btn:active { transform: translateX(-50%) scale(0.95); }
+            .ome-prompt-btn.active { opacity: 1; background: rgba(167,139,250,0.5); border-color: #a5b4fc; color: #fff; }
+
+            /* 🔍 Zoom Controls (bottom of orb, below prompt) */
             .ome-zoom-controls {
                 position: absolute;
-                bottom: -14px;
+                bottom: -42px;
                 left: 50%;
                 transform: translateX(-50%);
                 display: flex;
@@ -12169,6 +12196,101 @@
             .ome-theme-btn svg { width: 40px; height: 52px; }
             .ome-theme-btn span { font-size: 10px; color: #9ca3af; }
             .ome-theme-btn.active span { color: #a5b4fc; }
+
+            /* 💬 Chat Panel (anchored to orb) */
+            .ome-chat-panel {
+                position: absolute;
+                bottom: 0;
+                right: 70px;
+                width: 320px;
+                max-height: 400px;
+                background: rgba(20,20,28,0.95);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(167,139,250,0.3);
+                border-radius: 12px;
+                display: none;
+                flex-direction: column;
+                font-family: system-ui, -apple-system, sans-serif;
+                box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+                overflow: hidden;
+            }
+            .ome-chat-panel.visible { display: flex; }
+
+            /* 💬 Chat Messages Area */
+            .ome-chat-messages {
+                flex: 1;
+                overflow-y: auto;
+                padding: 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                min-height: 200px;
+                max-height: 320px;
+            }
+            .ome-chat-messages::-webkit-scrollbar { width: 6px; }
+            .ome-chat-messages::-webkit-scrollbar-track { background: transparent; }
+            .ome-chat-messages::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.3); border-radius: 3px; }
+
+            /* 💬 Message Bubbles */
+            .ome-chat-bubble {
+                max-width: 85%;
+                padding: 8px 12px;
+                border-radius: 12px;
+                font-size: 13px;
+                line-height: 1.4;
+                word-wrap: break-word;
+            }
+            .ome-chat-bubble.user {
+                align-self: flex-end;
+                background: rgba(167,139,250,0.3);
+                color: #e5e7eb;
+                border-bottom-right-radius: 4px;
+            }
+            .ome-chat-bubble.assistant {
+                align-self: flex-start;
+                background: rgba(255,255,255,0.1);
+                color: #d1d5db;
+                border-bottom-left-radius: 4px;
+            }
+
+            /* 💬 Chat Input Area */
+            .ome-chat-input-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 12px;
+                border-top: 1px solid rgba(255,255,255,0.1);
+                background: rgba(0,0,0,0.2);
+            }
+            .ome-chat-input {
+                flex: 1;
+                background: rgba(255,255,255,0.08);
+                border: 1px solid rgba(255,255,255,0.15);
+                border-radius: 8px;
+                padding: 8px 12px;
+                font-size: 13px;
+                color: #e5e7eb;
+                outline: none;
+                transition: border-color 0.15s ease, background 0.15s ease;
+            }
+            .ome-chat-input::placeholder { color: #6b7280; }
+            .ome-chat-input:focus { border-color: rgba(167,139,250,0.5); background: rgba(255,255,255,0.1); }
+            .ome-chat-send {
+                width: 32px;
+                height: 32px;
+                border: none;
+                border-radius: 8px;
+                background: rgba(167,139,250,0.4);
+                color: #e5e7eb;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.15s ease;
+            }
+            .ome-chat-send:hover { background: rgba(167,139,250,0.6); }
+            .ome-chat-send:active { transform: scale(0.95); }
+            .ome-chat-send svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
         `;
         shadow.appendChild(style);
     }
@@ -12251,8 +12373,24 @@
                 <button class="ome-ctrl-btn ome-zoom-out">−</button>
             </div>`;
 
-        // Update orb content (SVG + paws + scroll + zoom)
-        hudState.orb.innerHTML = theme.svg + theme.paws + scrollHTML + zoomHTML;
+        // 💬 Prompt button (opens chat panel)
+        const promptHTML = `
+            <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
+
+        // 💬 Chat panel (anchored to orb)
+        const chatPanelHTML = `
+            <div class="ome-chat-panel">
+                <div class="ome-chat-messages"></div>
+                <div class="ome-chat-input-wrapper">
+                    <input type="text" class="ome-chat-input" placeholder="Ask anything..." />
+                    <button class="ome-chat-send">
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </div>
+            </div>`;
+
+        // Update orb content (SVG + paws + scroll + prompt + zoom + chat panel)
+        hudState.orb.innerHTML = theme.svg + theme.paws + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
         hudState.theme = themeName;
 
         // Re-attach ear click handlers (with drag-aware logic)
@@ -12301,6 +12439,24 @@
             chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomReset', params: {} });
         });
 
+        // 💬 Re-attach prompt button handler
+        hudState.orb.querySelector('.ome-prompt-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleChatPanel();
+        });
+
+        // 💬 Re-attach chat panel reference and handlers
+        const chatPanel = hudState.orb.querySelector('.ome-chat-panel');
+        if (chatPanel) {
+            hudState.chatPanel = chatPanel;
+            chatPanel.addEventListener('click', (e) => e.stopPropagation());
+            // Restore visibility state if was open
+            if (hudState.chatVisible) {
+                chatPanel.classList.add('visible');
+                hudState.orb.querySelector('.ome-prompt-btn')?.classList.add('active');
+            }
+        }
+
         // Update theme selector active state if HUD exists
         if (hudState.hud) {
             hudState.hud.querySelectorAll('.ome-theme-btn').forEach(btn => {
@@ -12339,7 +12495,23 @@
                 <button class="ome-ctrl-btn ome-zoom-out">−</button>
             </div>`;
 
-        orb.innerHTML = theme.svg + theme.paws + scrollHTML + zoomHTML;
+        // 💬 Prompt button (opens chat panel)
+        const promptHTML = `
+            <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
+
+        // 💬 Chat panel (anchored to orb)
+        const chatPanelHTML = `
+            <div class="ome-chat-panel">
+                <div class="ome-chat-messages"></div>
+                <div class="ome-chat-input-wrapper">
+                    <input type="text" class="ome-chat-input" placeholder="Ask anything..." />
+                    <button class="ome-chat-send">
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </div>
+            </div>`;
+
+        orb.innerHTML = theme.svg + theme.paws + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
 
         // 🐰 Track holding state (use hudState so all handlers can access)
         let followHandler = null;
@@ -12424,14 +12596,34 @@
             chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomReset', params: {} });
         });
 
-        // 🐰 Body click: toggle follow mode (but NOT on ears/halo/scroll/zoom)
+        // 💬 Prompt button handler (opens chat panel)
+        orb.querySelector('.ome-prompt-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleChatPanel();
+        });
+
+        // 💬 Store chat panel reference and set up its handlers
+        const chatPanel = orb.querySelector('.ome-chat-panel');
+        if (chatPanel) {
+            hudState.chatPanel = chatPanel;
+            // Prevent clicks inside panel from bubbling to orb
+            chatPanel.addEventListener('click', (e) => e.stopPropagation());
+            // Close panel on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && hudState.chatVisible) toggleChatPanel();
+            });
+        }
+
+        // 🐰 Body click: toggle follow mode (but NOT on ears/halo/scroll/zoom/prompt/chat)
         orb.addEventListener('click', (e) => {
             e.stopPropagation();
-            // If click was on ear/halo or control button, their handlers already handled it
+            // If click was on interactive element, their handlers already handled it
             if (e.target.classList.contains('ome-ear') ||
                 e.target.classList.contains('ome-halo') ||
                 e.target.closest('.ome-scroll-controls') ||
-                e.target.closest('.ome-zoom-controls')) return;
+                e.target.closest('.ome-zoom-controls') ||
+                e.target.closest('.ome-prompt-btn') ||
+                e.target.closest('.ome-chat-panel')) return;
 
             if (hudState.dragging) {
                 releaseOrb();
@@ -12706,6 +12898,22 @@
         hudState.visible = !hudState.visible;
         hudState.hud.classList.toggle('visible', hudState.visible);
         console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
+    }
+
+    /** 💬 Toggle Chat Panel visibility */
+    function toggleChatPanel() {
+        if (!hudState.chatPanel) return;
+        hudState.chatVisible = !hudState.chatVisible;
+        hudState.chatPanel.classList.toggle('visible', hudState.chatVisible);
+        // Toggle active state on prompt button
+        const promptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
+        if (promptBtn) promptBtn.classList.toggle('active', hudState.chatVisible);
+        // Focus input when opening
+        if (hudState.chatVisible) {
+            const input = hudState.chatPanel.querySelector('.ome-chat-input');
+            if (input) input.focus();
+        }
+        console.log('[Content] 💬 Chat panel:', hudState.chatVisible ? 'visible' : 'hidden');
     }
 
     // 🎛️ HUD message handler
