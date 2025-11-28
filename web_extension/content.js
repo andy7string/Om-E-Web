@@ -2348,6 +2348,33 @@
             return true; // Keep channel open for async response
         }
 
+        // 🔍 GET ORB SCREEN POSITION - Returns orb position as viewport percentage (before zoom)
+        if (message && message.type === "get_orb_screen_position") {
+            if (!hudState.orb) {
+                sendResponse({ ok: false });
+                return false;
+            }
+            const rect = hudState.orb.getBoundingClientRect();
+            // Return position as percentage of viewport (0-1)
+            sendResponse({
+                ok: true,
+                screenX: rect.left / window.innerWidth,
+                screenY: rect.top / window.innerHeight
+            });
+            return false;
+        }
+
+        // 🔍 SET ORB SCREEN POSITION - Restore orb to same screen position after zoom
+        if (message && message.type === "set_orb_screen_position") {
+            restoreOrbScreenPosition(message.screenX, message.screenY);
+            // Also apply inverse scale to keep orb same visual size
+            if (message.newZoom) {
+                applyOrbZoomScale(message.newZoom);
+            }
+            sendResponse({ ok: true });
+            return false;
+        }
+
         // 🆕 NEW: Check if this is a typed message (LLM action) first
         // LLM actions are handled by a separate listener to avoid conflicts
         // This ensures clean separation between automation commands and AI actions
@@ -11736,7 +11763,7 @@
         hud: null,
         visible: false,
         dragging: false,
-        theme: 'kawaii'  // Current orb theme (default)
+        theme: 'robot'  // Current orb theme (default)
     };
 
     // ============================================================================
@@ -11753,135 +11780,110 @@
 
     /** @type {Object<string, OrbTheme>} */
     const ORB_THEMES = {
-        // 🐰 Kawaii cute bunny (big blue eyes, pink ears, fluffy) - DEFAULT
+        // 🐰 Kawaii - white/cream cute bunny with pink accents
         kawaii: {
             name: 'Kawaii',
             earSelector: '.ome-ear',
-            color: '#1e88e5',  // Blue from eyes
+            color: '#00e5ff',  // Cyan (consistent across all themes)
             svg: `
-                <svg class="ome-bunny" viewBox="0 0 60 80" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <!-- Fluffy white fur base -->
+                <svg class="ome-bunny" viewBox="-3 7 66 88" fill="none">
                     <defs>
-                        <radialGradient id="furGrad" cx="50%" cy="30%" r="70%">
-                            <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="100%" stop-color="#f0f0f5"/>
-                        </radialGradient>
-                        <radialGradient id="earPinkGrad" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#ffb6c1"/>
-                            <stop offset="100%" stop-color="#ff8fa3"/>
-                        </radialGradient>
-                        <radialGradient id="eyeGrad" cx="30%" cy="30%" r="70%">
-                            <stop offset="0%" stop-color="#4fc3f7"/>
-                            <stop offset="100%" stop-color="#1e88e5"/>
-                        </radialGradient>
+                        <!-- Body gradient: white/cream -->
+                        <linearGradient id="kawaiiBodyGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+                            <stop offset="100%" stop-color="rgba(245,240,250,0.85)"/>
+                        </linearGradient>
+                        <!-- Ear fill gradient -->
+                        <linearGradient id="kawaiiEarGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+                            <stop offset="100%" stop-color="rgba(250,245,255,0.85)"/>
+                        </linearGradient>
+                        <!-- Inner ear pink -->
+                        <linearGradient id="kawaiiInnerEarGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255,182,193,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(255,150,170,0.6)"/>
+                        </linearGradient>
                     </defs>
-                    <!-- Big fluffy ears (clickable) - shifted down by 6px -->
-                    <ellipse class="ome-ear" cx="18" cy="22" rx="10" ry="20" fill="url(#furGrad)" stroke="#e0e0e0" stroke-width="1" style="cursor:pointer"/>
-                    <ellipse class="ome-ear" cx="42" cy="22" rx="10" ry="20" fill="url(#furGrad)" stroke="#e0e0e0" stroke-width="1" style="cursor:pointer"/>
-                    <!-- Inner ear pink -->
-                    <ellipse cx="18" cy="24" rx="5" ry="14" fill="url(#earPinkGrad)" style="pointer-events:none"/>
-                    <ellipse cx="42" cy="24" rx="5" ry="14" fill="url(#earPinkGrad)" style="pointer-events:none"/>
-                    <!-- Fluffy head -->
-                    <ellipse cx="30" cy="54" rx="22" ry="20" fill="url(#furGrad)" stroke="#e8e8e8" stroke-width="1"/>
-                    <!-- Fluffy cheek tufts -->
-                    <ellipse cx="10" cy="54" rx="5" ry="4" fill="url(#furGrad)" stroke="none"/>
-                    <ellipse cx="50" cy="54" rx="5" ry="4" fill="url(#furGrad)" stroke="none"/>
-                    <!-- Big sparkly eyes -->
-                    <ellipse cx="22" cy="51" rx="6" ry="7" fill="url(#eyeGrad)" stroke="none"/>
-                    <ellipse cx="38" cy="51" rx="6" ry="7" fill="url(#eyeGrad)" stroke="none"/>
-                    <!-- Eye pupils -->
-                    <ellipse cx="23" cy="52" rx="3" ry="4" fill="#1a237e" stroke="none"/>
-                    <ellipse cx="39" cy="52" rx="3" ry="4" fill="#1a237e" stroke="none"/>
-                    <!-- Big eye sparkles -->
-                    <circle cx="20" cy="48" r="2.5" fill="white" stroke="none"/>
-                    <circle cx="36" cy="48" r="2.5" fill="white" stroke="none"/>
-                    <circle cx="24" cy="53" r="1" fill="white" stroke="none"/>
-                    <circle cx="40" cy="53" r="1" fill="white" stroke="none"/>
+                    <!-- Left ear -->
+                    <path class="ome-ear" d="M18 36 C10 36 8 28 10 16 C12 6 16 2 20 2 C24 2 26 8 26 18 C26 28 24 36 18 36 Z" fill="url(#kawaiiEarGrad)" stroke="rgba(200,180,220,0.8)" stroke-width="2" style="cursor:pointer"/>
+                    <!-- Left inner ear -->
+                    <path d="M18 32 C14 32 13 26 14 18 C15 10 17 6 19 6 C21 6 22 10 22 18 C22 26 21 32 18 32 Z" fill="url(#kawaiiInnerEarGrad)" style="pointer-events:none"/>
+                    <!-- Right ear -->
+                    <path class="ome-ear" d="M42 36 C36 36 34 28 34 18 C34 8 36 2 40 2 C44 2 48 6 50 16 C52 28 50 36 42 36 Z" fill="url(#kawaiiEarGrad)" stroke="rgba(200,180,220,0.8)" stroke-width="2" style="cursor:pointer"/>
+                    <!-- Right inner ear -->
+                    <path d="M42 32 C39 32 38 26 38 18 C38 10 39 6 41 6 C43 6 45 10 46 18 C47 26 46 32 42 32 Z" fill="url(#kawaiiInnerEarGrad)" style="pointer-events:none"/>
+                    <!-- Head - soft oval -->
+                    <ellipse cx="30" cy="56" rx="22" ry="20" fill="url(#kawaiiBodyGrad)" stroke="rgba(200,180,220,0.7)" stroke-width="2"/>
                     <!-- Rosy cheeks -->
-                    <ellipse cx="14" cy="58" rx="4" ry="2.5" fill="rgba(255,182,193,0.6)" stroke="none"/>
-                    <ellipse cx="46" cy="58" rx="4" ry="2.5" fill="rgba(255,182,193,0.6)" stroke="none"/>
-                    <!-- Cute pink nose -->
-                    <ellipse cx="30" cy="59" rx="3" ry="2" fill="#ff8fa3" stroke="none"/>
-                    <!-- Tiny mouth -->
-                    <path d="M30 62 Q27 65 25 64" stroke="#d4a5a5" stroke-width="1.5" fill="none"/>
-                    <path d="M30 62 Q33 65 35 64" stroke="#d4a5a5" stroke-width="1.5" fill="none"/>
-                    <!-- Whiskers -->
-                    <line x1="8" y1="56" x2="16" y2="57" stroke="#d0d0d0" stroke-width="1"/>
-                    <line x1="8" y1="60" x2="16" y2="60" stroke="#d0d0d0" stroke-width="1"/>
-                    <line x1="52" y1="56" x2="44" y2="57" stroke="#d0d0d0" stroke-width="1"/>
-                    <line x1="52" y1="60" x2="44" y2="60" stroke="#d0d0d0" stroke-width="1"/>
+                    <ellipse cx="14" cy="58" rx="4" ry="3" fill="rgba(255,180,190,0.5)"/>
+                    <ellipse cx="46" cy="58" rx="4" ry="3" fill="rgba(255,180,190,0.5)"/>
+                    <!-- Eyes - cute dots -->
+                    <ellipse cx="22" cy="54" rx="3" ry="4" fill="rgba(60,60,80,0.8)"/>
+                    <ellipse cx="38" cy="54" rx="3" ry="4" fill="rgba(60,60,80,0.8)"/>
+                    <!-- Eye shine -->
+                    <circle cx="23" cy="52" r="1.5" fill="rgba(255,255,255,0.9)"/>
+                    <circle cx="39" cy="52" r="1.5" fill="rgba(255,255,255,0.9)"/>
+                    <!-- Cute smile -->
+                    <path d="M24 64 Q30 70 36 64" stroke="rgba(180,150,180,0.7)" stroke-width="2" fill="none" stroke-linecap="round"/>
                 </svg>`,
             paws: `
                 <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
-                    <ellipse cx="8" cy="8" rx="7" ry="5" fill="#f8f8ff" stroke="#e0e0e0" stroke-width="1"/>
-                    <ellipse cx="28" cy="8" rx="7" ry="5" fill="#f8f8ff" stroke="#e0e0e0" stroke-width="1"/>
-                    <!-- Pink toe beans -->
-                    <ellipse cx="5" cy="6" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
-                    <ellipse cx="8" cy="5" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
-                    <ellipse cx="11" cy="6" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
-                    <ellipse cx="25" cy="6" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
-                    <ellipse cx="28" cy="5" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
-                    <ellipse cx="31" cy="6" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
+                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(255,255,255,0.3)" stroke="rgba(200,180,220,0.5)" stroke-width="1"/>
+                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(255,255,255,0.3)" stroke="rgba(200,180,220,0.5)" stroke-width="1"/>
                 </svg>`
         },
 
-        // 🌙 Minimal ghost-like orb
-        minimal: {
-            name: 'Minimal',
-            earSelector: '.ome-ear',
-            color: 'rgba(167,139,250,0.8)',  // Purple
+        // 🤖 Robot - cute bot with goggles and glowing eyes
+        robot: {
+            name: 'Robot',
+            earSelector: '.ome-goggle',
+            color: '#00e5ff',  // Cyan from eyes
             svg: `
-                <svg class="ome-bunny" viewBox="0 0 56 72" fill="none">
+                <svg class="ome-bunny" viewBox="0 14 60 72" fill="none">
                     <defs>
-                        <radialGradient id="ghostGrad" cx="50%" cy="30%" r="60%">
-                            <stop offset="0%" stop-color="rgba(167,139,250,0.3)"/>
-                            <stop offset="100%" stop-color="rgba(167,139,250,0.1)"/>
+                        <!-- Body gradient: purple top to blue bottom -->
+                        <linearGradient id="robotBodyGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(147,112,219,0.5)"/>
+                            <stop offset="50%" stop-color="rgba(80,100,200,0.4)"/>
+                            <stop offset="100%" stop-color="rgba(66,133,244,0.35)"/>
+                        </linearGradient>
+                        <!-- Goggle gradient -->
+                        <linearGradient id="goggleGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(186,147,255,0.6)"/>
+                            <stop offset="100%" stop-color="rgba(147,112,219,0.5)"/>
+                        </linearGradient>
+                        <!-- Glowing eye gradient -->
+                        <radialGradient id="glowEyeGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#00ffff"/>
+                            <stop offset="100%" stop-color="#00e5ff"/>
                         </radialGradient>
                     </defs>
-                    <!-- Simple rounded shape with ears -->
-                    <ellipse class="ome-ear" cx="18" cy="20" rx="6" ry="14" fill="url(#ghostGrad)" stroke="rgba(167,139,250,0.6)" stroke-width="1.5" style="cursor:pointer"/>
-                    <ellipse class="ome-ear" cx="38" cy="20" rx="6" ry="14" fill="url(#ghostGrad)" stroke="rgba(167,139,250,0.6)" stroke-width="1.5" style="cursor:pointer"/>
-                    <ellipse cx="28" cy="48" rx="18" ry="16" fill="url(#ghostGrad)" stroke="rgba(167,139,250,0.6)" stroke-width="1.5"/>
-                    <!-- Simple dot eyes -->
-                    <circle cx="22" cy="46" r="2" fill="rgba(167,139,250,0.8)"/>
-                    <circle cx="34" cy="46" r="2" fill="rgba(167,139,250,0.8)"/>
-                    <!-- Tiny smile -->
-                    <path d="M25 52 Q28 55 31 52" stroke="rgba(167,139,250,0.6)" stroke-width="1.5" fill="none"/>
+                    <!-- Ear muffs (sides) - positioned at bottom of dome -->
+                    <ellipse cx="6" cy="54" rx="5" ry="7" fill="rgba(66,133,244,0.35)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <ellipse cx="54" cy="54" rx="5" ry="7" fill="rgba(66,133,244,0.35)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <!-- Wide dome/helmet head shape -->
+                    <path d="M8 58 Q8 32 30 28 Q52 32 52 58 Q52 64 30 66 Q8 64 8 58 Z" fill="url(#robotBodyGrad)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <!-- Goggles on top (clickable) -->
+                    <ellipse class="ome-goggle" cx="20" cy="34" rx="9" ry="7" fill="url(#goggleGrad)" stroke="rgba(147,112,219,0.8)" stroke-width="1.5" style="cursor:pointer"/>
+                    <ellipse class="ome-goggle" cx="40" cy="34" rx="9" ry="7" fill="url(#goggleGrad)" stroke="rgba(147,112,219,0.8)" stroke-width="1.5" style="cursor:pointer"/>
+                    <!-- Goggle lenses (dark) -->
+                    <ellipse cx="20" cy="34" rx="6" ry="5" fill="rgba(40,40,80,0.7)" style="pointer-events:none"/>
+                    <ellipse cx="40" cy="34" rx="6" ry="5" fill="rgba(40,40,80,0.7)" style="pointer-events:none"/>
+                    <!-- Goggle bridge -->
+                    <rect x="28" y="32" width="4" height="4" rx="1" fill="rgba(147,112,219,0.6)" style="pointer-events:none"/>
+                    <!-- Face plate area (rounded rect) -->
+                    <rect x="14" y="46" rx="6" ry="6" width="32" height="16" fill="rgba(30,50,90,0.5)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
+                    <!-- Glowing cyan eyes -->
+                    <ellipse cx="23" cy="54" rx="3" ry="5" fill="url(#glowEyeGrad)"/>
+                    <ellipse cx="37" cy="54" rx="3" ry="5" fill="url(#glowEyeGrad)"/>
+                    <!-- Eye glow effect -->
+                    <ellipse cx="23" cy="54" rx="4" ry="6" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="2"/>
+                    <ellipse cx="37" cy="54" rx="4" ry="6" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="2"/>
                 </svg>`,
             paws: `
                 <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
-                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(167,139,250,0.15)" stroke="rgba(167,139,250,0.5)" stroke-width="1"/>
-                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(167,139,250,0.15)" stroke="rgba(167,139,250,0.5)" stroke-width="1"/>
-                </svg>`
-        },
-
-        // 😊 Bliss - happy blue orb with clickable halo
-        bliss: {
-            name: 'Bliss',
-            earSelector: '.ome-halo',
-            color: 'rgba(74,144,217,0.8)',  // Blue
-            svg: `
-                <svg class="ome-bunny" viewBox="0 0 56 72" fill="none">
-                    <defs>
-                        <radialGradient id="blissGrad" cx="50%" cy="30%" r="60%">
-                            <stop offset="0%" stop-color="rgba(74,144,217,0.35)"/>
-                            <stop offset="100%" stop-color="rgba(74,144,217,0.15)"/>
-                        </radialGradient>
-                    </defs>
-                    <!-- Clickable halo -->
-                    <ellipse class="ome-halo" cx="28" cy="14" rx="14" ry="5" fill="rgba(74,144,217,0.2)" stroke="rgba(74,144,217,0.7)" stroke-width="1.5" style="cursor:pointer"/>
-                    <!-- Round head/body -->
-                    <circle cx="28" cy="44" rx="20" fill="url(#blissGrad)" stroke="rgba(74,144,217,0.6)" stroke-width="1.5"/>
-                    <!-- Happy closed eyes (curved lines) -->
-                    <path d="M18 40 Q21 37 24 40" stroke="rgba(74,144,217,0.8)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <path d="M32 40 Q35 37 38 40" stroke="rgba(74,144,217,0.8)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <!-- Gentle smile -->
-                    <path d="M22 50 Q28 56 34 50" stroke="rgba(74,144,217,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                </svg>`,
-            paws: `
-                <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
-                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(74,144,217,0.15)" stroke="rgba(74,144,217,0.5)" stroke-width="1"/>
-                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(74,144,217,0.15)" stroke="rgba(74,144,217,0.5)" stroke-width="1"/>
+                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
+                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
                 </svg>`
         }
     };
@@ -11898,8 +11900,8 @@
                 position: fixed;
                 bottom: 24px;
                 right: 24px;
-                width: 60px;
-                height: 80px;
+                width: 50px;
+                height: 78px;
                 background: transparent;
                 cursor: pointer;
                 z-index: 2147483646;
@@ -11910,8 +11912,11 @@
                 touch-action: none;
                 transition: transform 0.15s ease, filter 0.15s ease;
                 filter: drop-shadow(0 0 10px rgba(167,139,250,0.5));
+                --ome-zoom-scale: 1;
+                transform: scale(var(--ome-zoom-scale, 1));
+                transform-origin: bottom right;
             }
-            .ome-orb:hover { transform: scale(1.1); filter: drop-shadow(0 0 14px rgba(167,139,250,0.7)); }
+            .ome-orb:hover { transform: scale(calc(var(--ome-zoom-scale, 1) * 1.1)); filter: drop-shadow(0 0 14px rgba(167,139,250,0.7)); }
             .ome-orb.holding { cursor: none; }
             .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateX(-50%) translateY(0); }
             .ome-bunny { width: 100%; height: 100%; }
@@ -11969,7 +11974,7 @@
             /* ⬆️⬇️⬅️➡️ Scroll Controls (right side of orb, cross pattern) */
             .ome-scroll-controls {
                 position: absolute;
-                right: -32px;
+                right: -62px;
                 top: 50%;
                 transform: translateY(-50%);
                 display: grid;
@@ -12025,6 +12030,11 @@
             .ome-ctrl-btn:hover { opacity: 1; transform: scale(1.2); }
             .ome-ctrl-btn:active { transform: scale(0.9); }
             .ome-ctrl-btn svg { width: 8px; height: 8px; stroke: currentColor; stroke-width: 2.5; fill: none; }
+            .ome-ctrl-btn.ome-boundary { animation: ome-boundary-flash 0.3s ease-out; }
+            @keyframes ome-boundary-flash {
+                0% { background: rgba(255, 100, 100, 0.8); transform: scale(1.1); }
+                100% { background: transparent; transform: scale(1); }
+            }
             .ome-zoom-label {
                 font-size: 6px;
                 font-weight: 600;
@@ -12064,11 +12074,59 @@
     }
 
     /**
+     * 🔄 Scroll with boundary feedback
+     * Shows visual feedback if scroll boundary is reached
+     * @param {string} direction - 'up', 'down', 'left', 'right'
+     * @param {HTMLElement} button - The button element to flash if at boundary
+     */
+    function scrollWithFeedback(direction, button) {
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        const maxScrollX = document.documentElement.scrollWidth - window.innerWidth;
+        const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+
+        // Check if we can scroll in the requested direction
+        let canScroll = false;
+        let scrollOptions = { behavior: 'smooth' };
+
+        switch (direction) {
+            case 'up':
+                canScroll = scrollY > 0;
+                scrollOptions.top = -window.innerHeight * 0.8;
+                break;
+            case 'down':
+                canScroll = scrollY < maxScrollY;
+                scrollOptions.top = window.innerHeight * 0.8;
+                break;
+            case 'left':
+                canScroll = scrollX > 0;
+                scrollOptions.left = -window.innerWidth * 0.8;
+                break;
+            case 'right':
+                canScroll = scrollX < maxScrollX;
+                scrollOptions.left = window.innerWidth * 0.8;
+                break;
+        }
+
+        if (canScroll) {
+            window.scrollBy(scrollOptions);
+        } else if (button) {
+            // Flash the button to indicate boundary
+            button.classList.remove('ome-boundary');
+            // Force reflow to restart animation
+            void button.offsetWidth;
+            button.classList.add('ome-boundary');
+            // Remove class after animation completes
+            setTimeout(() => button.classList.remove('ome-boundary'), 300);
+        }
+    }
+
+    /**
      * 🎨 Apply theme to orb (swaps SVG content)
      * @param {string} themeName - Theme key from ORB_THEMES
      */
     function applyOrbTheme(themeName) {
-        const theme = ORB_THEMES[themeName] || ORB_THEMES.kawaii;
+        const theme = ORB_THEMES[themeName] || ORB_THEMES.minimal;
         if (!hudState.orb) return;
 
         // Release any active dragging first
@@ -12111,22 +12169,22 @@
             });
         });
 
-        // Re-attach scroll button handlers
+        // Re-attach scroll button handlers (with boundary feedback)
         hudState.orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' });
+            scrollWithFeedback('up', e.currentTarget);
         });
         hudState.orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+            scrollWithFeedback('down', e.currentTarget);
         });
         hudState.orb.querySelector('.ome-scroll-left')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.scrollBy({ left: -window.innerWidth * 0.8, behavior: 'smooth' });
+            scrollWithFeedback('left', e.currentTarget);
         });
         hudState.orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.scrollBy({ left: window.innerWidth * 0.8, behavior: 'smooth' });
+            scrollWithFeedback('right', e.currentTarget);
         });
 
         // Re-attach zoom button handlers
@@ -12163,7 +12221,7 @@
         orb.className = 'ome-orb';
 
         // 🎨 Use theme system - get SVG from registry
-        const theme = ORB_THEMES[hudState.theme] || ORB_THEMES.kawaii;
+        const theme = ORB_THEMES[hudState.theme] || ORB_THEMES.minimal;
 
         // Build controls HTML - scroll controls (right, cross pattern) + zoom controls (bottom)
         const scrollHTML = `
@@ -12234,22 +12292,22 @@
             });
         });
 
-        // ⬆️⬇️ Scroll button handlers
+        // ⬆️⬇️⬅️➡️ Scroll button handlers (with boundary feedback)
         orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' });
+            scrollWithFeedback('up', e.currentTarget);
         });
         orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+            scrollWithFeedback('down', e.currentTarget);
         });
         orb.querySelector('.ome-scroll-left')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.scrollBy({ left: -window.innerWidth * 0.8, behavior: 'smooth' });
+            scrollWithFeedback('left', e.currentTarget);
         });
         orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.scrollBy({ left: window.innerWidth * 0.8, behavior: 'smooth' });
+            scrollWithFeedback('right', e.currentTarget);
         });
 
         // 🔍 Zoom button handlers (send to service worker)
@@ -12384,6 +12442,69 @@
         console.log('[Content] 📍 Applied orb position:', position.left, position.top);
     }
 
+    /**
+     * 🔍 Restore orb to same screen position after zoom
+     * Uses pre-zoom viewport percentages to calculate new CSS position
+     * Also applies inverse scale to keep orb same visual size
+     * @param {number} screenXPct - Pre-zoom X position as viewport percentage (0-1)
+     * @param {number} screenYPct - Pre-zoom Y position as viewport percentage (0-1)
+     */
+    function restoreOrbScreenPosition(screenXPct, screenYPct) {
+        if (!hudState.orb) return;
+
+        // Convert percentage back to pixels using NEW viewport dimensions
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        const newLeft = screenXPct * viewportWidth;
+        const newTop = screenYPct * viewportHeight;
+
+        // Orb dimensions (from CSS)
+        const orbWidth = 50;
+        const orbHeight = 68;
+
+        // Clamp to keep orb visible in viewport with some padding
+        const padding = 10;
+        const clampedLeft = Math.max(padding, Math.min(newLeft, viewportWidth - orbWidth - 60));
+        const clampedTop = Math.max(padding, Math.min(newTop, viewportHeight - orbHeight - 40));
+
+        // Apply new position
+        hudState.orb.style.right = 'auto';
+        hudState.orb.style.bottom = 'auto';
+        hudState.orb.style.left = `${clampedLeft}px`;
+        hudState.orb.style.top = `${clampedTop}px`;
+
+        // Save to service worker
+        saveOrbPosition(clampedLeft, clampedTop);
+        console.log(`[Content] 🔍 Restored orb screen position: ${Math.round(screenXPct * 100)}%, ${Math.round(screenYPct * 100)}% → ${clampedLeft}px, ${clampedTop}px`);
+    }
+
+    /**
+     * 🔍 Apply zoom scale to keep orb same visual size
+     * Uses CSS custom property so hover states work correctly
+     * @param {number} zoomLevel - Browser zoom level (1.0 = 100%)
+     */
+    function applyOrbZoomScale(zoomLevel) {
+        if (!hudState.orb) return;
+
+        // Validate zoom level
+        if (!zoomLevel || zoomLevel <= 0 || isNaN(zoomLevel)) {
+            console.warn(`[Content] 🔍 Invalid zoom level: ${zoomLevel}, resetting to 1.0`);
+            zoomLevel = 1.0;
+        }
+
+        // Scale inversely to zoom: at 150% zoom, scale to 0.667 to appear same size
+        const scale = 1 / zoomLevel;
+
+        // Clamp scale to reasonable bounds (0.5x to 2x)
+        const clampedScale = Math.max(0.5, Math.min(2.0, scale));
+
+        // Update CSS custom property (CSS handles the actual transform)
+        hudState.orb.style.setProperty('--ome-zoom-scale', clampedScale.toString());
+        hudState.zoomScale = zoomLevel;
+        console.log(`[Content] 🔍 Orb scale: zoom=${Math.round(zoomLevel * 100)}%, scale=${clampedScale.toFixed(3)}`);
+    }
+
     /** 🎛️ Initialize HUD system */
     function initHUD() {
         if (hudState.host) return;
@@ -12418,6 +12539,11 @@
                     if (response.position) {
                         applyOrbPosition(response.position);
                         console.log('[Content] 📍 Restored position from SW:', response.position);
+                    }
+                    // Apply zoom scale to keep orb same visual size
+                    if (response.zoom && response.zoom !== 1.0) {
+                        applyOrbZoomScale(response.zoom);
+                        console.log('[Content] 🔍 Applied zoom scale from SW:', response.zoom);
                     }
                 }
             });

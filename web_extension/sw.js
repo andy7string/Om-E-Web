@@ -36,7 +36,7 @@ let pendingMessages = [];
 
 // 🐰 ORB STATE - persists across page navigations
 const orbState = {
-    theme: 'kawaii',      // Current theme name
+    theme: 'robot',       // Current theme name (robot is default)
     position: null        // { left: number, top: number } or null for default
 };
 
@@ -1113,10 +1113,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 handleImmediateScanResults(message, sendResponse);
                 break;
             case 'get_orb_state':
-                // 🐰 Return current orb state to content script
-                console.log('[SW] 🐰 Returning orb state:', orbState);
-                sendResponse({ ok: true, ...orbState });
-                break;
+                // 🐰 Return current orb state to content script (include zoom)
+                (async () => {
+                    try {
+                        const activeTab = await findActiveTab();
+                        const zoom = activeTab ? await chrome.tabs.getZoom(activeTab.id) : 1.0;
+                        console.log('[SW] 🐰 Returning orb state:', { ...orbState, zoom });
+                        sendResponse({ ok: true, ...orbState, zoom });
+                    } catch (e) {
+                        console.log('[SW] 🐰 Returning orb state (no zoom):', orbState);
+                        sendResponse({ ok: true, ...orbState, zoom: 1.0 });
+                    }
+                })();
+                return true; // Keep channel open for async
+            // break intentionally removed - return true above handles async
             case 'set_orb_state':
                 // 🐰 Update orb state from content script
                 if (message.theme !== undefined) orbState.theme = message.theme;
@@ -2245,16 +2255,27 @@ async function handleZoomCapabilityDirect(action) {
         throw new Error("No active tab found for zoom");
     }
 
-    const currentZoom = await chrome.tabs.getZoom(activeTab.id);
+    // 🐰 Step 1: Get orb's current screen position BEFORE zoom
+    let preZoomPosition = null;
+    try {
+        preZoomPosition = await chrome.tabs.sendMessage(activeTab.id, {
+            type: 'get_orb_screen_position'
+        });
+        console.log("[SW] 🔍 Pre-zoom orb position:", preZoomPosition);
+    } catch (e) {
+        console.log("[SW] 🔍 Could not get pre-zoom position");
+    }
+
+    const oldZoom = await chrome.tabs.getZoom(activeTab.id);
     const ZOOM_INCREMENT = 0.15;
     let newZoom;
 
     switch (action) {
         case 'ZoomIn':
-            newZoom = Math.min(currentZoom + ZOOM_INCREMENT, 5.0);
+            newZoom = Math.min(oldZoom + ZOOM_INCREMENT, 5.0);
             break;
         case 'ZoomOut':
-            newZoom = Math.max(currentZoom - ZOOM_INCREMENT, 0.25);
+            newZoom = Math.max(oldZoom - ZOOM_INCREMENT, 0.25);
             break;
         case 'ZoomReset':
             newZoom = 1.0;
@@ -2263,8 +2284,24 @@ async function handleZoomCapabilityDirect(action) {
             throw new Error(`Unknown zoom action: ${action}`);
     }
 
+    // 🐰 Step 2: Apply zoom
     await chrome.tabs.setZoom(activeTab.id, newZoom);
-    console.log("[SW] 🔍 Zoom changed:", Math.round(currentZoom * 100) + "% ->", Math.round(newZoom * 100) + "%");
+    console.log("[SW] 🔍 Zoom changed:", Math.round(oldZoom * 100) + "% ->", Math.round(newZoom * 100) + "%");
+
+    // 🐰 Step 3: Restore orb to same screen position
+    if (preZoomPosition && preZoomPosition.screenX !== undefined) {
+        try {
+            await chrome.tabs.sendMessage(activeTab.id, {
+                type: 'set_orb_screen_position',
+                screenX: preZoomPosition.screenX,
+                screenY: preZoomPosition.screenY,
+                oldZoom,
+                newZoom
+            });
+        } catch (e) {
+            console.log("[SW] 🔍 Could not restore orb position");
+        }
+    }
 }
 
 /**
