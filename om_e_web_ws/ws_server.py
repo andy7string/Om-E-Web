@@ -3422,6 +3422,60 @@ async def handler(ws):
                     print(f"❌ Error toggling HUD: {e}")
                     await ws.send(json.dumps({"ok": False, "error": str(e)}))
 
+            # 🎨 ORB THEME: Set orb theme
+            if msg.get("type") == "set_orb_theme":
+                theme_name = msg.get("theme", "classic")
+                print(f"🎨 Set orb theme request: {theme_name}")
+                try:
+                    if EXTENSION_WS:
+                        theme_command = {
+                            "type": "set_orb_theme",
+                            "theme": theme_name,
+                            "id": f"theme_{int(time.time() * 1000)}"
+                        }
+                        await EXTENSION_WS.send(json.dumps(theme_command))
+                        print(f"📤 Sent set_orb_theme command to extension: {theme_name}")
+
+                        await ws.send(json.dumps({
+                            "ok": True,
+                            "message": f"Orb theme set to: {theme_name}"
+                        }))
+                    else:
+                        await ws.send(json.dumps({
+                            "ok": False,
+                            "error": "Extension not connected"
+                        }))
+
+                except Exception as e:
+                    print(f"❌ Error setting orb theme: {e}")
+                    await ws.send(json.dumps({"ok": False, "error": str(e)}))
+
+            # 🎨 ORB THEME: Get available themes
+            if msg.get("type") == "get_orb_themes":
+                print("🎨 Get orb themes request")
+                try:
+                    if EXTENSION_WS:
+                        themes_command = {
+                            "type": "get_orb_themes",
+                            "id": f"themes_{int(time.time() * 1000)}"
+                        }
+                        await EXTENSION_WS.send(json.dumps(themes_command))
+                        print("📤 Sent get_orb_themes command to extension")
+
+                        await ws.send(json.dumps({
+                            "ok": True,
+                            "message": "Getting available themes..."
+                        }))
+                    else:
+                        await ws.send(json.dumps({
+                            "ok": False,
+                            "error": "Extension not connected"
+                        }))
+
+                except Exception as e:
+                    print(f"❌ Error getting orb themes: {e}")
+                    await ws.send(json.dumps({"ok": False, "error": str(e)}))
+
             # 🆕 NEW: DOM CHANGE NOTIFICATIONS: Handle real-time DOM change updates
             if msg.get("type") == "dom_content_changed":
                 print("🔄 DOM content changed notification received")

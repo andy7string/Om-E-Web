@@ -75,6 +75,11 @@ k for us" --submit
 
   🎛️ HUD: Toggle the overlay HUD interface
       python test_navigation.py --command hud                     # toggle HUD open/closed
+
+  🎨 ORB THEME: Change the floating orb appearance
+      python test_navigation.py --command theme --theme kawaii    # cute white bunny with blue eyes (default)
+      python test_navigation.py --command theme --theme minimal   # simple ghost-like orb
+      python test_navigation.py --command theme --theme bliss     # happy blue orb with clickable halo
 """
 
 import asyncio
@@ -141,6 +146,13 @@ class NavigationTester:
             # 🎛️ HUD: Toggle overlay interface
             message = {
                 "type": "toggle_hud"
+            }
+        elif command == "set_orb_theme":
+            # 🎨 ORB THEME: Set orb theme
+            theme_data = data or {}
+            message = {
+                "type": "set_orb_theme",
+                "theme": theme_data.get("theme", "classic")
             }
         else:
             message = {
@@ -265,11 +277,13 @@ async def main():
     submit_group.add_argument("--submit", dest="submit", action="store_true", help="Submit after setting the value")
     submit_group.add_argument("--no-submit", dest="no_submit", action="store_true", help="Do not submit after setting the value")
     parser.add_argument("--action-type", dest="action_type", required=False, help="Optional actionType when using the 'llm' command (e.g., setValue, click, navigate)")
-    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click", "capability", "scroll", "hud"], default="llm",
-                        help="Execution mode: llm (default), navigate, click, capability, scroll, hud")
+    parser.add_argument("--command", dest="command", choices=["llm", "navigate", "click", "capability", "scroll", "hud", "theme"], default="llm",
+                        help="Execution mode: llm (default), navigate, click, capability, scroll, hud, theme")
     parser.add_argument("--capability", dest="capability", required=False, help="Capability action name (e.g., RetrieveTranscript)")
     parser.add_argument("--direction", dest="direction", choices=["down", "up", "top", "bottom"], default="down",
                         help="Scroll direction: down (default), up, top, bottom")
+    parser.add_argument("--theme", dest="theme", choices=["kawaii", "minimal", "bliss"], default="kawaii",
+                        help="Orb theme: kawaii (default), minimal, bliss")
     parser.add_argument("--params", dest="params_json", required=False,
                         help="JSON string of parameters (e.g., '{\"tabId\": 123, \"url\": \"https://example.com\"}')")
 
@@ -307,6 +321,9 @@ async def main():
         pass
     elif command_mode == "hud":
         # HUD mode doesn't require --action-id
+        pass
+    elif command_mode == "theme":
+        # Theme mode doesn't require --action-id
         pass
     else:
         # Other modes require --action-id
@@ -404,6 +421,15 @@ async def main():
     """)
         print("🎛️ Toggling HUD...")
         response = await tester.send_command("toggle_hud", {})
+    elif command_mode == "theme":
+        # 🎨 ORB THEME: Change orb appearance
+        print("""🎨 ORB THEME
+    - Changes the floating orb appearance
+    - Available themes: kawaii, vader, minimal
+    - Theme persists across sessions
+    """)
+        print(f"🎨 Setting orb theme to: {args.theme}")
+        response = await tester.send_command("set_orb_theme", {"theme": args.theme})
     else:
         payload = {
             "actionId": args.action_id,

@@ -34,6 +34,12 @@ let isConnected = false;
 // Queue for messages when WebSocket isn't ready
 let pendingMessages = [];
 
+// 🐰 ORB STATE - persists across page navigations
+const orbState = {
+    theme: 'kawaii',      // Current theme name
+    position: null        // { left: number, top: number } or null for default
+};
+
 // ============================================================================
 // 🗑️ PAGE VERSIONING SYSTEM - COMMENTED OUT FOR TESTING
 // ============================================================================
@@ -965,6 +971,20 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // 🎨 Set orb theme
+        if (message.type === "set_orb_theme") {
+            console.log("[SW] 🎨 Processing orb theme change:", message.theme);
+            handleSetOrbTheme(message);
+            return;
+        }
+
+        // 🎨 Get available orb themes
+        if (message.type === "get_orb_themes") {
+            console.log("[SW] 🎨 Getting available orb themes");
+            handleGetOrbThemes(message);
+            return;
+        }
+
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);
@@ -1071,6 +1091,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             case 'execute_llm_action':
                 handleExecuteLLMAction(message, sendResponse);
                 break;
+            case 'execute_capability':
+                // Handle capability execution from content script (e.g., zoom controls)
+                // Must handle async properly to keep message channel open
+                handleExecuteCapabilityFromContent(message, sendResponse).catch(error => {
+                    console.error('[SW] Error in handleExecuteCapabilityFromContent:', error);
+                    sendResponse({ ok: false, error: error.message });
+                });
+                break;
             case 'ping':
                 // Simple ping response for context validation
                 sendResponse({ ok: true, pong: true });
@@ -1083,6 +1111,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 break;
             case 'immediate_scan_results':
                 handleImmediateScanResults(message, sendResponse);
+                break;
+            case 'get_orb_state':
+                // 🐰 Return current orb state to content script
+                console.log('[SW] 🐰 Returning orb state:', orbState);
+                sendResponse({ ok: true, ...orbState });
+                break;
+            case 'set_orb_state':
+                // 🐰 Update orb state from content script
+                if (message.theme !== undefined) orbState.theme = message.theme;
+                if (message.position !== undefined) orbState.position = message.position;
+                console.log('[SW] 🐰 Updated orb state:', orbState);
+                sendResponse({ ok: true });
                 break;
             default:
                 console.warn("[SW] Unknown internal message type:", message.type);
@@ -2022,6 +2062,103 @@ async function handleToggleHUD(message) {
 }
 
 /**
+ * 🎨 Handle set orb theme command
+ *
+ * Forwards set_orb_theme message to the active tab's content script.
+ *
+ * @param {Object} message - Message with id and theme properties
+ */
+async function handleSetOrbTheme(message) {
+    try {
+        console.log("[SW] 🎨 Setting orb theme:", message.theme);
+        const requestId = message.id || `theme_${Date.now()}`;
+
+        const activeTab = await findActiveTab();
+        if (!activeTab) {
+            console.error("[SW] 🎨 No active tab found for theme change");
+            sendToServer({
+                type: "orb_theme_response",
+                id: requestId,
+                ok: false,
+                error: "No active tab found"
+            });
+            return;
+        }
+
+        // Forward to content script
+        const response = await chrome.tabs.sendMessage(activeTab.id, {
+            type: "set_orb_theme",
+            theme: message.theme
+        });
+
+        console.log("[SW] 🎨 Set orb theme response:", response);
+        sendToServer({
+            type: "orb_theme_response",
+            id: requestId,
+            ok: response?.ok ?? false,
+            result: response
+        });
+
+    } catch (error) {
+        console.error("[SW] ❌ Error setting orb theme:", error);
+        sendToServer({
+            type: "orb_theme_response",
+            id: message.id,
+            ok: false,
+            error: error.message
+        });
+    }
+}
+
+/**
+ * 🎨 Handle get orb themes command
+ *
+ * Forwards get_orb_themes message to the active tab's content script.
+ *
+ * @param {Object} message - Message with id property
+ */
+async function handleGetOrbThemes(message) {
+    try {
+        console.log("[SW] 🎨 Getting available orb themes");
+        const requestId = message.id || `themes_${Date.now()}`;
+
+        const activeTab = await findActiveTab();
+        if (!activeTab) {
+            console.error("[SW] 🎨 No active tab found");
+            sendToServer({
+                type: "orb_themes_response",
+                id: requestId,
+                ok: false,
+                error: "No active tab found"
+            });
+            return;
+        }
+
+        // Forward to content script
+        const response = await chrome.tabs.sendMessage(activeTab.id, {
+            type: "get_orb_themes"
+        });
+
+        console.log("[SW] 🎨 Get orb themes response:", response);
+        sendToServer({
+            type: "orb_themes_response",
+            id: requestId,
+            ok: response?.ok ?? false,
+            result: response
+        });
+
+    } catch (error) {
+        console.error("[SW] ❌ Error getting orb themes:", error);
+        sendToServer({
+            type: "orb_themes_response",
+            id: message.id,
+            ok: false,
+            error: error.message
+        });
+    }
+}
+
+/**
  * 🗂️ Handle tab manipulation capabilities
  *
  * Adapts capability format to existing tab command handlers.
@@ -2063,6 +2200,71 @@ async function handleTabCapability(action, params, requestId) {
         console.error("[SW] 🗂️ Tab capability execution failed:", error);
         sendErrorResponse(requestId, "TAB_CAPABILITY_ERROR", error.message);
     }
+}
+
+/**
+ * 🎮 Handle capability execution from content script
+ *
+ * Routes capability requests from HUD controls (zoom buttons, etc.)
+ * to the appropriate handlers.
+ *
+ * @param {Object} message - Message with action and params
+ * @param {Function} sendResponse - Response callback
+ */
+async function handleExecuteCapabilityFromContent(message, sendResponse) {
+    const { action, params } = message;
+    console.log("[SW] 🎮 Capability from content script:", action);
+
+    try {
+        const zoomCapabilities = ['ZoomIn', 'ZoomOut', 'ZoomReset'];
+
+        if (zoomCapabilities.includes(action)) {
+            // Handle zoom directly (no requestId needed for internal calls)
+            await handleZoomCapabilityDirect(action);
+            sendResponse({ ok: true, action });
+        } else {
+            console.warn("[SW] 🎮 Unknown capability from content:", action);
+            sendResponse({ ok: false, error: `Unknown capability: ${action}` });
+        }
+    } catch (error) {
+        console.error("[SW] 🎮 Capability error:", error);
+        sendResponse({ ok: false, error: error.message });
+    }
+}
+
+/**
+ * 🔍 Handle zoom directly (for internal content script calls)
+ *
+ * Simplified zoom handler without WebSocket response handling.
+ *
+ * @param {string} action - ZoomIn, ZoomOut, or ZoomReset
+ */
+async function handleZoomCapabilityDirect(action) {
+    const activeTab = await findActiveTab();
+    if (!activeTab) {
+        throw new Error("No active tab found for zoom");
+    }
+
+    const currentZoom = await chrome.tabs.getZoom(activeTab.id);
+    const ZOOM_INCREMENT = 0.15;
+    let newZoom;
+
+    switch (action) {
+        case 'ZoomIn':
+            newZoom = Math.min(currentZoom + ZOOM_INCREMENT, 5.0);
+            break;
+        case 'ZoomOut':
+            newZoom = Math.max(currentZoom - ZOOM_INCREMENT, 0.25);
+            break;
+        case 'ZoomReset':
+            newZoom = 1.0;
+            break;
+        default:
+            throw new Error(`Unknown zoom action: ${action}`);
+    }
+
+    await chrome.tabs.setZoom(activeTab.id, newZoom);
+    console.log("[SW] 🔍 Zoom changed:", Math.round(currentZoom * 100) + "% ->", Math.round(newZoom * 100) + "%");
 }
 
 /**

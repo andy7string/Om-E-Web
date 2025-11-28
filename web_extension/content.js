@@ -11709,14 +11709,162 @@
     // 🎛️ OM-E HUD SYSTEM - Floating orb and overlay interface
     // ============================================================================
 
-    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, visible: boolean, dragging: boolean }} */
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, visible: boolean, dragging: boolean, theme: string }} */
     const hudState = {
         host: null,
         shadow: null,
         orb: null,
         hud: null,
         visible: false,
-        dragging: false
+        dragging: false,
+        theme: 'kawaii'  // Current orb theme (default)
+    };
+
+    // ============================================================================
+    // 🎨 ORB THEMES REGISTRY - Different visual styles for the floating orb
+    // ============================================================================
+
+    /**
+     * @typedef {Object} OrbTheme
+     * @property {string} name - Display name
+     * @property {string} svg - SVG markup for the orb
+     * @property {string} paws - SVG markup for paws (shown when holding)
+     * @property {string} earSelector - CSS selector for clickable ears
+     */
+
+    /** @type {Object<string, OrbTheme>} */
+    const ORB_THEMES = {
+        // 🐰 Kawaii cute bunny (big blue eyes, pink ears, fluffy) - DEFAULT
+        kawaii: {
+            name: 'Kawaii',
+            earSelector: '.ome-ear',
+            color: '#1e88e5',  // Blue from eyes
+            svg: `
+                <svg class="ome-bunny" viewBox="0 0 60 80" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Fluffy white fur base -->
+                    <defs>
+                        <radialGradient id="furGrad" cx="50%" cy="30%" r="70%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="100%" stop-color="#f0f0f5"/>
+                        </radialGradient>
+                        <radialGradient id="earPinkGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#ffb6c1"/>
+                            <stop offset="100%" stop-color="#ff8fa3"/>
+                        </radialGradient>
+                        <radialGradient id="eyeGrad" cx="30%" cy="30%" r="70%">
+                            <stop offset="0%" stop-color="#4fc3f7"/>
+                            <stop offset="100%" stop-color="#1e88e5"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- Big fluffy ears (clickable) - shifted down by 6px -->
+                    <ellipse class="ome-ear" cx="18" cy="22" rx="10" ry="20" fill="url(#furGrad)" stroke="#e0e0e0" stroke-width="1" style="cursor:pointer"/>
+                    <ellipse class="ome-ear" cx="42" cy="22" rx="10" ry="20" fill="url(#furGrad)" stroke="#e0e0e0" stroke-width="1" style="cursor:pointer"/>
+                    <!-- Inner ear pink -->
+                    <ellipse cx="18" cy="24" rx="5" ry="14" fill="url(#earPinkGrad)" style="pointer-events:none"/>
+                    <ellipse cx="42" cy="24" rx="5" ry="14" fill="url(#earPinkGrad)" style="pointer-events:none"/>
+                    <!-- Fluffy head -->
+                    <ellipse cx="30" cy="54" rx="22" ry="20" fill="url(#furGrad)" stroke="#e8e8e8" stroke-width="1"/>
+                    <!-- Fluffy cheek tufts -->
+                    <ellipse cx="10" cy="54" rx="5" ry="4" fill="url(#furGrad)" stroke="none"/>
+                    <ellipse cx="50" cy="54" rx="5" ry="4" fill="url(#furGrad)" stroke="none"/>
+                    <!-- Big sparkly eyes -->
+                    <ellipse cx="22" cy="51" rx="6" ry="7" fill="url(#eyeGrad)" stroke="none"/>
+                    <ellipse cx="38" cy="51" rx="6" ry="7" fill="url(#eyeGrad)" stroke="none"/>
+                    <!-- Eye pupils -->
+                    <ellipse cx="23" cy="52" rx="3" ry="4" fill="#1a237e" stroke="none"/>
+                    <ellipse cx="39" cy="52" rx="3" ry="4" fill="#1a237e" stroke="none"/>
+                    <!-- Big eye sparkles -->
+                    <circle cx="20" cy="48" r="2.5" fill="white" stroke="none"/>
+                    <circle cx="36" cy="48" r="2.5" fill="white" stroke="none"/>
+                    <circle cx="24" cy="53" r="1" fill="white" stroke="none"/>
+                    <circle cx="40" cy="53" r="1" fill="white" stroke="none"/>
+                    <!-- Rosy cheeks -->
+                    <ellipse cx="14" cy="58" rx="4" ry="2.5" fill="rgba(255,182,193,0.6)" stroke="none"/>
+                    <ellipse cx="46" cy="58" rx="4" ry="2.5" fill="rgba(255,182,193,0.6)" stroke="none"/>
+                    <!-- Cute pink nose -->
+                    <ellipse cx="30" cy="59" rx="3" ry="2" fill="#ff8fa3" stroke="none"/>
+                    <!-- Tiny mouth -->
+                    <path d="M30 62 Q27 65 25 64" stroke="#d4a5a5" stroke-width="1.5" fill="none"/>
+                    <path d="M30 62 Q33 65 35 64" stroke="#d4a5a5" stroke-width="1.5" fill="none"/>
+                    <!-- Whiskers -->
+                    <line x1="8" y1="56" x2="16" y2="57" stroke="#d0d0d0" stroke-width="1"/>
+                    <line x1="8" y1="60" x2="16" y2="60" stroke="#d0d0d0" stroke-width="1"/>
+                    <line x1="52" y1="56" x2="44" y2="57" stroke="#d0d0d0" stroke-width="1"/>
+                    <line x1="52" y1="60" x2="44" y2="60" stroke="#d0d0d0" stroke-width="1"/>
+                </svg>`,
+            paws: `
+                <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
+                    <ellipse cx="8" cy="8" rx="7" ry="5" fill="#f8f8ff" stroke="#e0e0e0" stroke-width="1"/>
+                    <ellipse cx="28" cy="8" rx="7" ry="5" fill="#f8f8ff" stroke="#e0e0e0" stroke-width="1"/>
+                    <!-- Pink toe beans -->
+                    <ellipse cx="5" cy="6" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
+                    <ellipse cx="8" cy="5" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
+                    <ellipse cx="11" cy="6" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
+                    <ellipse cx="25" cy="6" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
+                    <ellipse cx="28" cy="5" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
+                    <ellipse cx="31" cy="6" rx="2" ry="1.5" fill="#ffb6c1" stroke="none"/>
+                </svg>`
+        },
+
+        // 🌙 Minimal ghost-like orb
+        minimal: {
+            name: 'Minimal',
+            earSelector: '.ome-ear',
+            color: 'rgba(167,139,250,0.8)',  // Purple
+            svg: `
+                <svg class="ome-bunny" viewBox="0 0 56 72" fill="none">
+                    <defs>
+                        <radialGradient id="ghostGrad" cx="50%" cy="30%" r="60%">
+                            <stop offset="0%" stop-color="rgba(167,139,250,0.3)"/>
+                            <stop offset="100%" stop-color="rgba(167,139,250,0.1)"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- Simple rounded shape with ears -->
+                    <ellipse class="ome-ear" cx="18" cy="20" rx="6" ry="14" fill="url(#ghostGrad)" stroke="rgba(167,139,250,0.6)" stroke-width="1.5" style="cursor:pointer"/>
+                    <ellipse class="ome-ear" cx="38" cy="20" rx="6" ry="14" fill="url(#ghostGrad)" stroke="rgba(167,139,250,0.6)" stroke-width="1.5" style="cursor:pointer"/>
+                    <ellipse cx="28" cy="48" rx="18" ry="16" fill="url(#ghostGrad)" stroke="rgba(167,139,250,0.6)" stroke-width="1.5"/>
+                    <!-- Simple dot eyes -->
+                    <circle cx="22" cy="46" r="2" fill="rgba(167,139,250,0.8)"/>
+                    <circle cx="34" cy="46" r="2" fill="rgba(167,139,250,0.8)"/>
+                    <!-- Tiny smile -->
+                    <path d="M25 52 Q28 55 31 52" stroke="rgba(167,139,250,0.6)" stroke-width="1.5" fill="none"/>
+                </svg>`,
+            paws: `
+                <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
+                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(167,139,250,0.15)" stroke="rgba(167,139,250,0.5)" stroke-width="1"/>
+                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(167,139,250,0.15)" stroke="rgba(167,139,250,0.5)" stroke-width="1"/>
+                </svg>`
+        },
+
+        // 😊 Bliss - happy blue orb with clickable halo
+        bliss: {
+            name: 'Bliss',
+            earSelector: '.ome-halo',
+            color: 'rgba(74,144,217,0.8)',  // Blue
+            svg: `
+                <svg class="ome-bunny" viewBox="0 0 56 72" fill="none">
+                    <defs>
+                        <radialGradient id="blissGrad" cx="50%" cy="30%" r="60%">
+                            <stop offset="0%" stop-color="rgba(74,144,217,0.35)"/>
+                            <stop offset="100%" stop-color="rgba(74,144,217,0.15)"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- Clickable halo -->
+                    <ellipse class="ome-halo" cx="28" cy="14" rx="14" ry="5" fill="rgba(74,144,217,0.2)" stroke="rgba(74,144,217,0.7)" stroke-width="1.5" style="cursor:pointer"/>
+                    <!-- Round head/body -->
+                    <circle cx="28" cy="44" rx="20" fill="url(#blissGrad)" stroke="rgba(74,144,217,0.6)" stroke-width="1.5"/>
+                    <!-- Happy closed eyes (curved lines) -->
+                    <path d="M18 40 Q21 37 24 40" stroke="rgba(74,144,217,0.8)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M32 40 Q35 37 38 40" stroke="rgba(74,144,217,0.8)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- Gentle smile -->
+                    <path d="M22 50 Q28 56 34 50" stroke="rgba(74,144,217,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>`,
+            paws: `
+                <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
+                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(74,144,217,0.15)" stroke="rgba(74,144,217,0.5)" stroke-width="1"/>
+                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(74,144,217,0.15)" stroke="rgba(74,144,217,0.5)" stroke-width="1"/>
+                </svg>`
+        }
     };
 
     /**
@@ -11731,8 +11879,8 @@
                 position: fixed;
                 bottom: 24px;
                 right: 24px;
-                width: 52px;
-                height: 64px;
+                width: 60px;
+                height: 80px;
                 background: transparent;
                 cursor: pointer;
                 z-index: 2147483646;
@@ -11742,22 +11890,22 @@
                 user-select: none;
                 touch-action: none;
                 transition: transform 0.15s ease, filter 0.15s ease;
-                filter: drop-shadow(0 0 8px rgba(167,139,250,0.4));
+                filter: drop-shadow(0 0 10px rgba(167,139,250,0.5));
             }
-            .ome-orb:hover { transform: scale(1.1); filter: drop-shadow(0 0 12px rgba(167,139,250,0.6)); }
+            .ome-orb:hover { transform: scale(1.1); filter: drop-shadow(0 0 14px rgba(167,139,250,0.7)); }
             .ome-orb.holding { cursor: none; }
-            .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateY(0); }
+            .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateX(-50%) translateY(0); }
             .ome-bunny { width: 100%; height: 100%; }
             .ome-bunny-paws {
                 position: absolute;
                 bottom: -8px;
                 left: 50%;
-                transform: translateX(-50%) translateY(8px);
+                transform: translateX(-50%) translateY(6px);
                 opacity: 0;
                 transition: opacity 0.2s ease, transform 0.2s ease;
                 pointer-events: none;
             }
-            @keyframes ome-bunny-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+            @keyframes ome-bunny-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
             .ome-orb:not(.holding) { animation: ome-bunny-float 2s ease-in-out infinite; }
             @keyframes ome-bunny-wiggle { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
             .ome-orb.holding { animation: ome-bunny-wiggle 0.3s ease-in-out infinite; }
@@ -11798,8 +11946,165 @@
             @keyframes ome-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
             .ome-hud-hint { font-size: 12px; color: #4b5563; margin-top: 16px; }
             .ome-hud-hint kbd { display: inline-block; padding: 2px 6px; background: rgba(255,255,255,0.1); border-radius: 4px; font-family: monospace; font-size: 11px; color: #9ca3af; }
+
+            /* ⬆️⬇️ Scroll Arrows (right side of orb) */
+            .ome-scroll-arrows {
+                position: absolute;
+                right: -18px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 3px;
+            }
+            /* 🔍 Zoom Controls (bottom of orb) */
+            .ome-zoom-controls {
+                position: absolute;
+                bottom: -14px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2px;
+            }
+            .ome-ctrl-btn {
+                width: 14px;
+                height: 14px;
+                border: 1.5px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0.5;
+                transition: opacity 0.15s ease, transform 0.15s ease;
+                padding: 0;
+                font-size: 9px;
+                font-weight: bold;
+                color: currentColor;
+                line-height: 1;
+            }
+            .ome-ctrl-btn:hover { opacity: 1; transform: scale(1.2); }
+            .ome-ctrl-btn:active { transform: scale(0.9); }
+            .ome-ctrl-btn svg { width: 8px; height: 8px; stroke: currentColor; stroke-width: 2.5; fill: none; }
+            .ome-zoom-label {
+                font-size: 6px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                opacity: 0.5;
+                cursor: pointer;
+                transition: opacity 0.15s ease;
+                text-transform: uppercase;
+            }
+            .ome-zoom-label:hover { opacity: 1; }
+
+            /* 🎨 Theme Selector */
+            .ome-theme-section { margin-top: 24px; width: 100%; max-width: 400px; }
+            .ome-theme-label { font-size: 12px; color: #6b7280; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+            .ome-theme-grid { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+            .ome-theme-btn {
+                width: 72px; height: 90px;
+                border: 2px solid rgba(255,255,255,0.1);
+                border-radius: 12px;
+                background: rgba(255,255,255,0.05);
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                transition: all 0.2s ease;
+                padding: 8px;
+            }
+            .ome-theme-btn:hover { border-color: rgba(167,139,250,0.5); background: rgba(167,139,250,0.1); }
+            .ome-theme-btn.active { border-color: #a5b4fc; background: rgba(167,139,250,0.2); }
+            .ome-theme-btn svg { width: 40px; height: 52px; }
+            .ome-theme-btn span { font-size: 10px; color: #9ca3af; }
+            .ome-theme-btn.active span { color: #a5b4fc; }
         `;
         shadow.appendChild(style);
+    }
+
+    /**
+     * 🎨 Apply theme to orb (swaps SVG content)
+     * @param {string} themeName - Theme key from ORB_THEMES
+     */
+    function applyOrbTheme(themeName) {
+        const theme = ORB_THEMES[themeName] || ORB_THEMES.kawaii;
+        if (!hudState.orb) return;
+
+        // Release any active dragging first
+        if (hudState.dragging) {
+            hudState.dragging = false;
+            hudState.orb.classList.remove('holding');
+        }
+
+        // Build controls HTML - scroll arrows (right) + zoom controls (bottom)
+        const scrollHTML = `
+            <div class="ome-scroll-arrows" style="color: ${theme.color}">
+                <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </div>`;
+        const zoomHTML = `
+            <div class="ome-zoom-controls" style="color: ${theme.color}">
+                <button class="ome-ctrl-btn ome-zoom-in">+</button>
+                <span class="ome-zoom-label ome-zoom-reset">Zoom</span>
+                <button class="ome-ctrl-btn ome-zoom-out">−</button>
+            </div>`;
+
+        // Update orb content (SVG + paws + scroll + zoom)
+        hudState.orb.innerHTML = theme.svg + theme.paws + scrollHTML + zoomHTML;
+        hudState.theme = themeName;
+
+        // Re-attach ear click handlers (with drag-aware logic)
+        hudState.orb.querySelectorAll(theme.earSelector).forEach(ear => {
+            ear.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (hudState.dragging) {
+                    // Just release, don't open HUD
+                    hudState.dragging = false;
+                    hudState.orb.classList.remove('holding');
+                } else {
+                    toggleHUD();
+                }
+            });
+        });
+
+        // Re-attach scroll button handlers
+        hudState.orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' });
+        });
+        hudState.orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+        });
+
+        // Re-attach zoom button handlers
+        hudState.orb.querySelector('.ome-zoom-in')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomIn', params: {} });
+        });
+        hudState.orb.querySelector('.ome-zoom-out')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomOut', params: {} });
+        });
+        hudState.orb.querySelector('.ome-zoom-reset')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomReset', params: {} });
+        });
+
+        // Update theme selector active state if HUD exists
+        if (hudState.hud) {
+            hudState.hud.querySelectorAll('.ome-theme-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.theme === themeName);
+            });
+        }
+
+        console.log(`[Content] 🎨 Orb theme: ${themeName}`);
     }
 
     /**
@@ -11810,87 +12115,114 @@
     function createOrb(shadow) {
         const orb = document.createElement('div');
         orb.className = 'ome-orb';
-        // 🐰 Bunny face outline with soft glow
-        orb.innerHTML = `
-            <svg class="ome-bunny" viewBox="0 0 52 64" fill="none" stroke="rgba(167,139,250,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <!-- Ears (clickable) -->
-                <ellipse class="ome-ear" cx="18" cy="16" rx="6" ry="14" fill="rgba(0,0,0,0.01)" style="cursor:pointer"/>
-                <ellipse class="ome-ear" cx="34" cy="16" rx="6" ry="14" fill="rgba(0,0,0,0.01)" style="cursor:pointer"/>
-                <!-- Inner ears -->
-                <ellipse cx="18" cy="16" rx="3" ry="9" stroke="rgba(251,207,232,0.6)" style="pointer-events:none"/>
-                <ellipse cx="34" cy="16" rx="3" ry="9" stroke="rgba(251,207,232,0.6)" style="pointer-events:none"/>
-                <!-- Head -->
-                <ellipse cx="26" cy="42" rx="18" ry="16"/>
-                <!-- Eyes -->
-                <circle cx="20" cy="40" r="2.5" fill="rgba(167,139,250,0.8)" stroke="none"/>
-                <circle cx="32" cy="40" r="2.5" fill="rgba(167,139,250,0.8)" stroke="none"/>
-                <circle cx="21" cy="39" r="1" fill="white" stroke="none"/>
-                <circle cx="33" cy="39" r="1" fill="white" stroke="none"/>
-                <!-- Nose -->
-                <ellipse cx="26" cy="47" rx="2.5" ry="2" fill="rgba(251,207,232,0.7)" stroke="none"/>
-                <!-- Mouth -->
-                <path d="M26 49 Q23 52 21 50" stroke="rgba(167,139,250,0.6)"/>
-                <path d="M26 49 Q29 52 31 50" stroke="rgba(167,139,250,0.6)"/>
-                <!-- Whiskers -->
-                <path d="M14 45 L8 43" stroke="rgba(167,139,250,0.4)"/>
-                <path d="M14 47 L8 48" stroke="rgba(167,139,250,0.4)"/>
-                <path d="M38 45 L44 43" stroke="rgba(167,139,250,0.4)"/>
-                <path d="M38 47 L44 48" stroke="rgba(167,139,250,0.4)"/>
-            </svg>
-            <!-- Paws that appear when holding -->
-            <svg class="ome-bunny-paws" width="32" height="16" viewBox="0 0 32 16" fill="none" stroke="rgba(167,139,250,0.9)" stroke-width="2">
-                <ellipse cx="8" cy="8" rx="6" ry="5"/>
-                <ellipse cx="24" cy="8" rx="6" ry="5"/>
-                <circle cx="5" cy="5" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
-                <circle cx="8" cy="3" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
-                <circle cx="11" cy="5" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
-                <circle cx="21" cy="5" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
-                <circle cx="24" cy="3" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
-                <circle cx="27" cy="5" r="2" fill="rgba(251,207,232,0.5)" stroke="none"/>
-            </svg>
-        `;
 
-        // 🐰 Ear click opens HUD
-        orb.querySelectorAll('.ome-ear').forEach(ear => {
+        // 🎨 Use theme system - get SVG from registry
+        const theme = ORB_THEMES[hudState.theme] || ORB_THEMES.kawaii;
+
+        // Build controls HTML - scroll arrows (right) + zoom controls (bottom)
+        const scrollHTML = `
+            <div class="ome-scroll-arrows" style="color: ${theme.color}">
+                <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </div>`;
+        const zoomHTML = `
+            <div class="ome-zoom-controls" style="color: ${theme.color}">
+                <button class="ome-ctrl-btn ome-zoom-in">+</button>
+                <span class="ome-zoom-label ome-zoom-reset">Zoom</span>
+                <button class="ome-ctrl-btn ome-zoom-out">−</button>
+            </div>`;
+
+        orb.innerHTML = theme.svg + theme.paws + scrollHTML + zoomHTML;
+
+        // 🐰 Track holding state (use hudState so all handlers can access)
+        let followHandler = null;
+
+        /**
+         * Release the bunny from follow mode and save position
+         */
+        function releaseOrb() {
+            if (!hudState.dragging) return;
+            hudState.dragging = false;
+            orb.classList.remove('holding');
+            document.removeEventListener('mousemove', followHandler);
+            followHandler = null;
+
+            // 💾 Save position when released
+            const left = parseInt(orb.style.left) || 0;
+            const top = parseInt(orb.style.top) || 0;
+            if (left > 0 || top > 0) {
+                saveOrbPosition(left, top);
+            }
+        }
+
+        /**
+         * Start follow mode - bunny follows cursor
+         */
+        function startFollowing() {
+            if (hudState.dragging) return;
+            hudState.dragging = true;
+            orb.classList.add('holding');
+            followHandler = (e) => {
+                orb.style.right = 'auto';
+                orb.style.bottom = 'auto';
+                orb.style.left = `${e.clientX - 30}px`;
+                orb.style.top = `${e.clientY - 40}px`;
+            };
+            document.addEventListener('mousemove', followHandler);
+        }
+
+        // 🐰 Ear click opens HUD (only when NOT dragging)
+        orb.querySelectorAll(theme.earSelector).forEach(ear => {
             ear.addEventListener('click', (e) => {
                 e.stopPropagation();
-                toggleHUD();
+                if (hudState.dragging) {
+                    // Release only - don't open HUD
+                    releaseOrb();
+                } else {
+                    // Open HUD
+                    toggleHUD();
+                }
             });
         });
 
-        // 🐰 Track holding state
-        let isHolding = false;
-        let followHandler = null;
-
-        orb.addEventListener('click', (e) => {
+        // ⬆️⬇️ Scroll button handlers
+        orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (isHolding) {
-                // Release bunny - stay in place
-                isHolding = false;
-                orb.classList.remove('holding');
-                document.removeEventListener('mousemove', followHandler);
-            } else {
-                // Bunny grabs cursor!
-                isHolding = true;
-                orb.classList.add('holding');
-                followHandler = (e) => {
-                    orb.style.right = 'auto'; orb.style.bottom = 'auto';
-                    orb.style.left = `${e.clientX - 26}px`;
-                    orb.style.top = `${e.clientY - 32}px`;
-                };
-                document.addEventListener('mousemove', followHandler);
-            }
+            window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' });
+        });
+        orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
         });
 
-        // Double-click to open HUD
-        orb.addEventListener('dblclick', (e) => {
+        // 🔍 Zoom button handlers (send to service worker)
+        orb.querySelector('.ome-zoom-in')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (isHolding) {
-                isHolding = false;
-                orb.classList.remove('holding');
-                document.removeEventListener('mousemove', followHandler);
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomIn', params: {} });
+        });
+        orb.querySelector('.ome-zoom-out')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomOut', params: {} });
+        });
+        orb.querySelector('.ome-zoom-reset')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomReset', params: {} });
+        });
+
+        // 🐰 Body click: toggle follow mode (but NOT on ears/halo/scroll/zoom)
+        orb.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // If click was on ear/halo or control button, their handlers already handled it
+            if (e.target.classList.contains('ome-ear') ||
+                e.target.classList.contains('ome-halo') ||
+                e.target.closest('.ome-scroll-arrows') ||
+                e.target.closest('.ome-zoom-controls')) return;
+
+            if (hudState.dragging) {
+                releaseOrb();
+            } else {
+                startFollowing();
             }
-            toggleHUD();
         });
 
         shadow.appendChild(orb);
@@ -11905,24 +12237,100 @@
     function createHUD(shadow) {
         const hud = document.createElement('div');
         hud.className = 'ome-hud';
+
+        // Build theme buttons HTML
+        const themeButtons = Object.entries(ORB_THEMES).map(([key, theme]) => {
+            const isActive = key === hudState.theme ? 'active' : '';
+            // Use a simple preview (just the SVG scaled down)
+            return `<button class="ome-theme-btn ${isActive}" data-theme="${key}">${theme.svg}<span>${theme.name}</span></button>`;
+        }).join('');
+
         hud.innerHTML = `
             <div class="ome-hud-header"><span class="ome-hud-title">OM-E Web</span></div>
             <button class="ome-hud-close">&times;</button>
             <div class="ome-hud-content">
                 <div class="ome-hud-status"><span class="ome-hud-indicator"></span>Extension Active</div>
-                <div class="ome-hud-hint">Click orb or use <kbd>--command hud</kbd> to toggle</div>
+                <div class="ome-theme-section">
+                    <div class="ome-theme-label">Orb Style</div>
+                    <div class="ome-theme-grid">${themeButtons}</div>
+                </div>
+                <div class="ome-hud-hint">Click orb ears or use <kbd>--command hud</kbd> to toggle</div>
             </div>
         `;
+
+        // Close button handler
         hud.querySelector('.ome-hud-close').addEventListener('click', () => toggleHUD());
+
+        // Click outside to close
         hud.addEventListener('click', (e) => { if (e.target === hud) toggleHUD(); });
+
+        // Escape key to close
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hudState.visible) toggleHUD(); });
+
+        // Theme button handlers
+        hud.querySelectorAll('.ome-theme-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const themeName = btn.dataset.theme;
+                setOrbTheme(themeName);
+            });
+        });
+
         shadow.appendChild(hud);
         return hud;
+    }
+
+    /**
+     * 🎨 Set and persist orb theme
+     * @param {string} themeName - Theme key from ORB_THEMES
+     */
+    function setOrbTheme(themeName) {
+        if (!ORB_THEMES[themeName]) {
+            console.warn(`[Content] Unknown theme: ${themeName}`);
+            return;
+        }
+        applyOrbTheme(themeName);
+
+        // Persist to service worker (async, non-blocking)
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', theme: themeName });
+            console.log('[Content] 💾 Saved theme to SW:', themeName);
+        } catch (e) {
+            console.warn('[Content] Could not persist theme:', e);
+        }
+    }
+
+    /**
+     * 💾 Save orb position to service worker
+     * @param {number} left - CSS left value in px
+     * @param {number} top - CSS top value in px
+     */
+    function saveOrbPosition(left, top) {
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', position: { left, top } });
+            console.log('[Content] 💾 Saved orb position to SW:', left, top);
+        } catch (e) {
+            console.warn('[Content] Could not save position:', e);
+        }
+    }
+
+    /**
+     * 📍 Apply saved position to orb
+     * @param {{ left: number, top: number }} position
+     */
+    function applyOrbPosition(position) {
+        if (!hudState.orb || !position) return;
+        hudState.orb.style.right = 'auto';
+        hudState.orb.style.bottom = 'auto';
+        hudState.orb.style.left = `${position.left}px`;
+        hudState.orb.style.top = `${position.top}px`;
+        console.log('[Content] 📍 Applied orb position:', position.left, position.top);
     }
 
     /** 🎛️ Initialize HUD system */
     function initHUD() {
         if (hudState.host) return;
+
         const host = document.createElement('div');
         host.id = 'ome-hud-host';
         host.setAttribute('data-ome-ignore', 'true');
@@ -11934,6 +12342,32 @@
         hudState.shadow = shadow;
         hudState.orb = createOrb(shadow);
         hudState.hud = createHUD(shadow);
+
+        // 🐰 Request orb state from service worker and apply
+        try {
+            chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.warn('[Content] Could not get orb state:', chrome.runtime.lastError);
+                    return;
+                }
+                if (response && response.ok) {
+                    // Apply saved theme
+                    if (response.theme && ORB_THEMES[response.theme]) {
+                        hudState.theme = response.theme;
+                        applyOrbTheme(response.theme);
+                        console.log('[Content] 🎨 Restored theme from SW:', response.theme);
+                    }
+                    // Apply saved position
+                    if (response.position) {
+                        applyOrbPosition(response.position);
+                        console.log('[Content] 📍 Restored position from SW:', response.position);
+                    }
+                }
+            });
+        } catch (e) {
+            console.warn('[Content] Error getting orb state:', e);
+        }
+
         console.log('[Content] 🎛️ HUD initialized');
     }
 
@@ -11946,12 +12380,37 @@
     }
 
     // 🎛️ HUD message handler
-    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+        // Toggle HUD visibility
         if (message.type === 'toggle_hud') {
             console.log('[Content] 🎛️ toggle_hud received');
             if (!hudState.host) initHUD();
             toggleHUD();
             sendResponse({ ok: true, visible: hudState.visible });
+            return true;
+        }
+
+        // 🎨 Set orb theme via CLI/WebSocket
+        if (message.type === 'set_orb_theme') {
+            const themeName = message.theme;
+            console.log(`[Content] 🎨 set_orb_theme received: ${themeName}`);
+
+            if (!hudState.host) initHUD();
+
+            if (ORB_THEMES[themeName]) {
+                setOrbTheme(themeName);
+                sendResponse({ ok: true, theme: themeName, available: Object.keys(ORB_THEMES) });
+            } else {
+                sendResponse({ ok: false, error: `Unknown theme: ${themeName}`, available: Object.keys(ORB_THEMES) });
+            }
+            return true;
+        }
+
+        // 🎨 Get available themes
+        if (message.type === 'get_orb_themes') {
+            console.log('[Content] 🎨 get_orb_themes received');
+            const themes = Object.entries(ORB_THEMES).map(([key, t]) => ({ key, name: t.name }));
+            sendResponse({ ok: true, current: hudState.theme, themes });
             return true;
         }
     });

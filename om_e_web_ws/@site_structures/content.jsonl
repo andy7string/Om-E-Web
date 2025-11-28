@@ -1,35 +1,28 @@
 {
-  "timestamp": 1764252850.6569002,
+  "timestamp": 1764301036.4570189,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138024399,
-      "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69285c17-c5c8-8320-b139-9f7de10154a5",
-      "title": "OM-E autonomy - Logo design example",
-      "status": "complete"
+      "id": 1138025032,
+      "url": "https://mail.google.com/mail/u/0/#inbox",
+      "title": "Inbox (5,184) - andreworsmond21175@gmail.com - Gmail",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138024399,
-        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69285c17-c5c8-8320-b139-9f7de10154a5",
-        "title": "OM-E autonomy - Logo design example",
+        "id": 1138025032,
+        "url": "https://mail.google.com/mail/u/0/#inbox",
+        "title": "Inbox (5,184) - andreworsmond21175@gmail.com - Gmail",
         "active": true,
-        "status": "complete"
-      },
-      {
-        "id": 1138024402,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 19792.023873041,
+    "last_tabs_update": 22323.613101416,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69285c17-c5c8-8320-b139-9f7de10154a5",
-    "title": "OM-E autonomy - Logo design example",
+    "url": "https://mail.google.com/mail/u/0/#inbox",
+    "title": "Inbox (5,184) - andreworsmond21175@gmail.com - Gmail",
     "is_active_tab": true
   },
   "content_structure": {},

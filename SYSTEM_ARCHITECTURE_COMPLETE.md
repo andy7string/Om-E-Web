@@ -1678,6 +1678,271 @@ test_navigation.py (~250 lines):
 
 ---
 
+## 8.5 HUD Pipeline Architecture
+
+### Overview
+
+The **HUD (Heads-Up Display) Pipeline** provides a visual overlay interface for the Om-E-Web extension. It consists of a floating "bunny orb" that appears on every page and an expandable HUD panel for status information. The HUD uses Shadow DOM for style isolation.
+
+**Key Features:**
+- Floating bunny orb with interactive ears
+- Shadow DOM isolation (closed mode - no page style interference)
+- Multiple trigger methods (ears click, double-click, keyboard, CLI)
+- Draggable orb with hold-to-follow behaviour
+- Auto-initializes on page load
+
+### Complete Message Flow: HUD Toggle
+
+```
+┌─ TEST CLIENT (test_navigation.py)
+│
+├─ User runs:
+│  python test_navigation.py --command hud
+│
+├─ Line 268: Argument parsing recognizes "hud" command mode
+│
+├─ Line 399-406: HUD mode handler
+│  if command_mode == "hud":
+│      response = await tester.send_command("toggle_hud", {})
+│
+├─ Line 140-144: send_command() builds message
+│  message = {
+│    "type": "toggle_hud"
+│  }
+│
+└─ Sends via WebSocket to ws://localhost:17892
+                    ↓
+┌─ WEBSOCKET SERVER (ws_server.py)
+│
+├─ Line 3399: handler() receives message
+│  if msg.get("type") == "toggle_hud":
+│
+├─ Line 3401: Logs request
+│  print("🎛️ HUD toggle request received")
+│
+├─ Line 3404-3407: Builds HUD command with unique ID
+│  hud_command = {
+│    "type": "toggle_hud",
+│    "id": f"hud_{int(time.time() * 1000)}"
+│  }
+│
+├─ Line 3408: Forwards to extension
+│  await EXTENSION_WS.send(json.dumps(hud_command))
+│
+├─ Line 3411-3414: Sends acknowledgement to client
+│  await ws.send(json.dumps({
+│    "ok": True,
+│    "message": "HUD toggle initiated"
+│  }))
+│
+└─ Message forwarded to Service Worker
+                    ↓
+┌─ SERVICE WORKER (sw.js)
+│
+├─ Line 961-965: handleServerMessage() routes HUD messages
+│  if (message.type === "toggle_hud") {
+│    console.log("[SW] 🎛️ Processing HUD toggle");
+│    handleToggleHUD(message);
+│    return;
+│  }
+│
+├─ Line 1983-2019: handleToggleHUD(message)
+│  async function handleToggleHUD(message) {
+│    const requestId = message.id || `hud_${Date.now()}`;
+│
+├─ Line 1988: Find active tab
+│    const activeTab = await findActiveTab();
+│
+├─ Line 2001-2003: Forward to content script
+│    const response = await chrome.tabs.sendMessage(activeTab.id, {
+│      type: "toggle_hud"
+│    });
+│
+├─ Line 2006-2011: Send response back to server
+│    sendToServer({
+│      type: "hud_response",
+│      id: requestId,
+│      ok: response?.ok ?? true,
+│      result: response
+│    });
+│
+└─ Message sent to Content Script
+                    ↓
+┌─ CONTENT SCRIPT (content.js)
+│
+├─ Line 11957-11965: HUD message listener
+│  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+│    if (message.type === 'toggle_hud') {
+│      console.log('[Content] 🎛️ toggle_hud received');
+│      if (!hudState.host) initHUD();
+│      toggleHUD();
+│      sendResponse({ ok: true, visible: hudState.visible });
+│      return true;
+│    }
+│  });
+│
+├─ Line 11949-11954: toggleHUD() function
+│  function toggleHUD() {
+│    if (!hudState.hud) initHUD();
+│    hudState.visible = !hudState.visible;
+│    hudState.hud.classList.toggle('visible', hudState.visible);
+│  }
+│
+├─ Response: { ok: true, visible: boolean }
+│
+└─ HUD visibility toggled in Shadow DOM
+                    ↓
+┌─ RESPONSE FLOW (reverse path)
+│
+├─ Content Script → Service Worker
+│  sendResponse({ ok: true, visible: hudState.visible })
+│
+├─ Service Worker → WebSocket Server
+│  sendToServer({ type: "hud_response", id, ok, result })
+│
+└─ WebSocket Server → Test Client
+   Response displayed to user
+```
+
+**Total Time:** 50-200ms
+**Blocking:** None (event-driven throughout)
+
+### HUD System Components (content.js Lines 11709-11974)
+
+#### State Object
+```javascript
+// Line 11713-11720
+const hudState = {
+  host: HTMLElement|null,    // Shadow DOM host element
+  shadow: ShadowRoot|null,   // Closed Shadow DOM root
+  orb: HTMLElement|null,     // Floating bunny orb element
+  hud: HTMLElement|null,     // HUD overlay panel element
+  visible: boolean,          // Current HUD visibility state
+  dragging: boolean          // Orb drag state
+};
+```
+
+#### Key Functions
+
+| Function | Line | Purpose |
+|----------|------|---------|
+| `injectHUDStyles(shadow)` | 11726 | Inject CSS into Shadow DOM |
+| `createOrb(shadow)` | 11810 | Create floating bunny orb with ears |
+| `createHUD(shadow)` | 11913 | Create HUD overlay panel |
+| `initHUD()` | 11932 | Initialize entire HUD system |
+| `toggleHUD()` | 11949 | Toggle HUD panel visibility |
+
+#### Shadow DOM Structure
+```
+<div id="ome-hud-host" data-ome-ignore="true">
+  #shadow-root (closed)
+    ├─ <style>...</style>           <!-- Injected styles -->
+    ├─ <div class="ome-orb">        <!-- Floating bunny -->
+    │   └─ <svg class="ome-bunny">  <!-- Bunny SVG with ears -->
+    │       ├─ <path class="ome-ear"><!-- Left ear (clickable) -->
+    │       ├─ <path class="ome-ear"><!-- Right ear (clickable) -->
+    │       └─ ...                   <!-- Body, face, etc. -->
+    └─ <div class="ome-hud">        <!-- HUD overlay panel -->
+        ├─ <div class="ome-hud-title">OM-E</div>
+        ├─ <button class="ome-hud-close">&times;</button>
+        └─ <div class="ome-hud-content">
+            ├─ <div class="ome-hud-status">Extension Active</div>
+            └─ <div class="ome-hud-hint">Click orb or use...</div>
+```
+
+### User Interaction Methods
+
+The HUD can be toggled via multiple methods:
+
+| Method | Trigger | Code Location |
+|--------|---------|---------------|
+| **Ear Click** | Click bunny's ears | Line 11862-11866 |
+| **Double Click** | Double-click orb | Line 11894-11902 |
+| **Escape Key** | Press Escape when HUD visible | Line 11926 |
+| **Close Button** | Click × on HUD | Line 11924 |
+| **Overlay Click** | Click outside HUD content | Line 11925 |
+| **CLI Command** | `python test_navigation.py --command hud` | Line 399-406 |
+
+### Orb Drag Behaviour
+
+The orb supports drag-to-position via mouse hold:
+
+```javascript
+// Lines 11869-11902: Hold-to-follow behaviour
+let isHolding = false;
+let holdTimer = null;
+const HOLD_DURATION = 400;  // ms to trigger follow mode
+
+orb.addEventListener('mousedown', (e) => {
+    holdTimer = setTimeout(() => {
+        isHolding = true;
+        orb.classList.add('holding');
+        document.addEventListener('mousemove', followHandler);
+    }, HOLD_DURATION);
+});
+
+orb.addEventListener('mouseup', () => {
+    clearTimeout(holdTimer);
+    if (isHolding) {
+        isHolding = false;
+        orb.classList.remove('holding');
+        document.removeEventListener('mousemove', followHandler);
+    }
+});
+```
+
+### Auto-Initialization
+
+The HUD automatically initializes on page load:
+
+```javascript
+// Lines 11967-11972: Auto-init orb
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHUD);
+} else {
+    initHUD();
+}
+```
+
+**Note:** The orb always appears; the HUD panel is hidden by default and toggles on interaction.
+
+### CLI Test Commands
+
+```bash
+# Toggle HUD visibility
+python test_navigation.py --command hud
+
+# The HUD responds with current visibility state
+# Response: {"ok": true, "message": "HUD toggle initiated"}
+# Service Worker receives: {"ok": true, "visible": true|false}
+```
+
+### Integration Points
+
+```
+test_navigation.py (Lines 76-78, 268-269, 399-406)
+  └─ send_command("toggle_hud", {})
+       ↓
+ws_server.py (Lines 3399-3423)
+  └─ handler() routes toggle_hud to extension
+       ↓
+sw.js (Lines 961-966, 1983-2019)
+  └─ handleToggleHUD() forwards to content script
+       ↓
+content.js (Lines 11709-11974)
+  └─ HUD System (Shadow DOM isolated)
+```
+
+### Design Principles
+
+1. **Shadow DOM isolation** - Closed shadow root prevents page CSS conflicts
+2. **Event-driven** - No polling or timers for toggle state
+3. **Multiple entry points** - CLI, ears, double-click, keyboard all work
+4. **Non-intrusive** - `data-ome-ignore="true"` prevents self-scanning
+5. **Instant feedback** - Response includes current visibility state
+
+---
+
 ## 9. Conclusion: Where We Are
 
 ### ✅ What Works Well
