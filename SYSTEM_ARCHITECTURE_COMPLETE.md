@@ -1038,6 +1038,370 @@ site_configs/{domain}.json
 
 ---
 
+## 3.5 Iframe Element Pipeline Architecture
+
+### Overview
+
+The **Iframe Element Pipeline** enables scanning and action execution on elements inside **cross-origin iframes** (e.g., CyberSource payment forms, embedded Stripe checkout). Cross-origin iframes are security-sandboxed—main frame JavaScript cannot access their DOM directly. This pipeline uses Chrome Extension's `all_frames: true` capability to inject content scripts into both main frame AND iframes, coordinating ID assignment through the Service Worker.
+
+**Key Differentiator:** Iframe elements appear in `text.md` with an `iframe="true"` attribute, and action execution uses the `--iframe` flag to route through iframe-aware execution.
+
+### The Cross-Origin Iframe Problem
+
+```
+┌─ MAIN FRAME (example.com) ──────────────────────────────────────────────────┐
+│                                                                              │
+│  document.querySelector('input#card')  // ❌ FAILS - can't reach into iframe │
+│                                                                              │
+│  ┌─ CROSS-ORIGIN IFRAME (flex.cybersource.com) ─────────────────────────┐   │
+│  │                                                                       │   │
+│  │   <input name="number" aria-label="Card Number">                     │   │
+│  │   <input name="cvn" aria-label="Security Code">                      │   │
+│  │                                                                       │   │
+│  │   // Main frame JavaScript CANNOT access these elements              │   │
+│  │   // Content script in main frame CANNOT query these                 │   │
+│  │                                                                       │   │
+│  └───────────────────────────────────────────────────────────────────────┘   │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Security constraint:** Browser Same-Origin Policy prevents main frame scripts from accessing cross-origin iframe DOM.
+
+### Solution: Dual Content Script Injection
+
+**Manifest configuration:**
+```json
+"content_scripts": [{
+  "matches": ["<all_urls>"],
+  "js": ["content.js"],
+  "all_frames": true,   // ← KEY: Inject into iframes too
+  "run_at": "document_idle"
+}]
+```
+
+With `all_frames: true`, Chrome injects `content.js` into BOTH:
+1. Main frame (example.com)
+2. All iframes (flex.cybersource.com)
+
+Each runs independently and communicates via Service Worker.
+
+### Architecture Comparison
+
+```
+┌─ STANDARD ACTION-ID PIPELINE (main frame only) ─────────────────────────────┐
+│                                                                              │
+│  1. Main frame loads → content.js scans DOM                                 │
+│  2. Elements registered with a_id_0, a_id_1, a_id_2, etc.                  │
+│  3. Artifacts generated (page.jsonl, text.md)                               │
+│  4. LLM reads text.md → sends execute_llm_action with actionId              │
+│  5. SW forwards via chrome.tabs.sendMessage → content.js executes           │
+│                                                                              │
+│  ✅ Fast (single frame)                                                      │
+│  ✅ Simple (direct messaging)                                                │
+│  ❌ Cannot access cross-origin iframe elements                               │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ IFRAME ELEMENT PIPELINE ────────────────────────────────────────────────────┐
+│                                                                              │
+│  1. Main frame scans → assigns a_id_0 through a_id_N                        │
+│  2. Each iframe auto-scans → assigns LOCAL IDs (iframe_0, iframe_1)         │
+│  3. Iframes send intelligence to SW with local IDs                          │
+│  4. SW merges → assigns FINAL IDs (a_id_12, a_id_13, etc.)                  │
+│  5. SW broadcasts back to ALL frames → iframes update DOM with final IDs    │
+│  6. text.md shows elements with iframe="true" attribute                     │
+│  7. Action with --iframe flag → SW uses scripting.executeScript(allFrames)  │
+│                                                                              │
+│  ✅ Accesses cross-origin iframe elements                                    │
+│  ✅ Sequential IDs across all frames                                         │
+│  ✅ Config-driven (uses --iframe flag for routing)                           │
+│  ❌ More complex (requires coordination)                                     │
+│  ❌ Timing-sensitive (iframes may load dynamically)                          │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Complete Message Flow: Iframe Element Scanning
+
+```
+┌─ PAGE LOAD (example.com with CyberSource iframe)
+│
+├─ MAIN FRAME (content.js) ────────────────────────────────────────────────────
+│
+│  1. Detects: window.top === window.self (I am main frame)
+│
+│  2. Scans DOM, assigns IDs: a_id_0 through a_id_N
+│     - Sets data-ome-action-id attribute on each element
+│
+│  3. Counts iframes: document.querySelectorAll('iframe')
+│     ⚠️ MAY BE 0 if CyberSource creates iframes dynamically via JS!
+│
+│  4. Sends to SW:
+│     {
+│       type: "scan_complete",
+│       intelligenceData: {...},
+│       expectedIframeCount: 0|N
+│     }
+│
+└─ Message goes to Service Worker
+                    ↓
+┌─ SERVICE WORKER (sw.js)
+│
+│  If expectedIframeCount > 0:
+│    - Store pending data
+│    - Wait for iframe reports
+│
+│  If expectedIframeCount === 0:
+│    - Send immediately (may miss dynamic iframes)
+│
+└─ May need to wait for iframes
+                    ↓
+┌─ IFRAME (flex.cybersource.com content.js) ───────────────────────────────────
+│
+│  1. Detects: window.top !== window.self (I am in iframe)
+│
+│  2. Auto-scans when ready (document_idle)
+│
+│  3. Assigns LOCAL IDs: iframe_0, iframe_1, etc.
+│     - Sets data-ome-action-id="iframe_0" on each element
+│
+│  4. Sends to SW:
+│     {
+│       type: "iframe_intelligence",
+│       elements: [
+│         { localId: "iframe_0", tag: "input", text: "Card number", ... },
+│         { localId: "iframe_1", tag: "input", text: "CVN", ... }
+│       ],
+│       iframeUrl: "https://flex.cybersource.com/..."
+│     }
+│
+└─ Message goes to Service Worker
+                    ↓
+┌─ SERVICE WORKER (sw.js) - MERGE PHASE
+│
+│  1. Caches iframe elements with frameId
+│
+│  2. Calls mergeIframeIntelligence():
+│     - Gets next available ID from main frame count (e.g., a_id_12)
+│     - Creates mapping: { "iframe_0": "a_id_12", "iframe_1": "a_id_13" }
+│     - Appends iframe elements to main intelligence
+│
+│  3. Broadcasts ID updates to ALL frames via scripting.executeScript:
+│     chrome.scripting.executeScript({
+│       target: { tabId, allFrames: true },
+│       func: (mappings) => {
+│         const currentUrl = window.location.href;
+│         const mapping = mappings[currentUrl];
+│         if (!mapping) return 0;
+│         for (const [localId, finalId] of Object.entries(mapping)) {
+│           const el = document.querySelector(`[data-ome-action-id="${localId}"]`);
+│           if (el) el.setAttribute('data-ome-action-id', finalId);
+│         }
+│       },
+│       args: [{ "https://flex.cybersource.com/...": idMapping }]
+│     });
+│
+│  4. Sends merged intelligence to Python server
+│
+└─ Broadcast completes
+                    ↓
+┌─ IFRAME DOM UPDATED
+│
+│  Before: <input data-ome-action-id="iframe_0" name="number">
+│  After:  <input data-ome-action-id="a_id_12" name="number">
+│
+└─ IDs now match what's in text.md
+                    ↓
+┌─ PYTHON SERVER (ws_server.py)
+│
+│  Writes to text.md with iframe="true" marker:
+│
+│  === Secure Iframe Elements ===
+│  <Input id="a_id_12" type="text" iframe="true" use="(a_id_12, 'your text', submit:true, iframe:true)">Card number</Input>
+│  <Input id="a_id_13" type="text" iframe="true" use="(a_id_13, 'your text', submit:true, iframe:true)">CVN</Input>
+│
+└─ LLM can now see and reference iframe elements
+```
+
+### Complete Message Flow: Iframe Action Execution
+
+```
+┌─ TEST CLIENT (test_navigation.py)
+│
+├─ User runs:
+│  python test_navigation.py --command llm --action-id a_id_12 \
+│    --action-type setValue --value "4111111111111111" --iframe
+│
+├─ Line 333-334: Parses --iframe flag
+│  parser.add_argument("--iframe", action="store_true",
+│    help="Target element is inside an iframe")
+│
+├─ Line 394-396: Adds isIframeElement to params
+│  if args.iframe:
+│    params["isIframeElement"] = True
+│
+├─ Builds payload:
+│  {
+│    "type": "llm_instruction",
+│    "data": {
+│      "actionId": "a_id_12",
+│      "actionType": "setValue",
+│      "params": {
+│        "value": "4111111111111111",
+│        "isIframeElement": true    ← KEY: Routes to iframe execution
+│      }
+│    }
+│  }
+│
+└─ Sends via WebSocket to ws://localhost:17892
+                    ↓
+┌─ WEBSOCKET SERVER (ws_server.py)
+│
+│  Forwards to extension (no special handling needed)
+│
+└─ Message goes to Service Worker
+                    ↓
+┌─ SERVICE WORKER (sw.js) - handleExecuteLLMAction
+│
+│  1. Extracts: actionId, actionType, params
+│
+│  2. Checks: params.isIframeElement === true?
+│
+│  3. IF isIframeElement === true:
+│     │
+│     │  // Use chrome.scripting.executeScript with allFrames
+│     │  // This executes in ALL frames (main + iframes)
+│     │
+│     └─ await chrome.scripting.executeScript({
+│          target: { tabId: activeTab.id, allFrames: true },
+│          func: (aId, aType, aParams) => {
+│            const el = document.querySelector(`[data-ome-action-id="${aId}"]`);
+│            if (!el) return { found: false };
+│
+│            // Element found in this frame!
+│            if (aType === 'setValue') {
+│              el.focus();
+│              el.value = aParams.value;
+│              el.dispatchEvent(new Event('input', { bubbles: true }));
+│              el.dispatchEvent(new Event('change', { bubbles: true }));
+│
+│              if (aParams.submit) {
+│                el.dispatchEvent(new KeyboardEvent('keydown', {
+│                  key: 'Enter', code: 'Enter', keyCode: 13, bubbles: true
+│                }));
+│              }
+│              return { found: true, executed: 'setValue' };
+│            }
+│
+│            if (aType === 'click') {
+│              el.click();
+│              return { found: true, executed: 'click' };
+│            }
+│
+│            // Default: focus
+│            el.focus();
+│            return { found: true, executed: 'focus' };
+│          },
+│          args: [actionId, actionType, params]
+│        });
+│
+│  4. ELSE (not iframe element):
+│     │
+│     │  // Use standard chrome.tabs.sendMessage (main frame only)
+│     │
+│     └─ await chrome.tabs.sendMessage(activeTab.id, {
+│          type: "execute_action",
+│          data: { actionId, actionType, params }
+│        });
+│
+│  5. Return response to server
+│
+└─ Action executed in correct frame
+```
+
+### Text.md Output Format
+
+Iframe elements appear in a dedicated section with the `iframe="true"` marker:
+
+```markdown
+================================================================================
+Secure Iframe Elements (Cross-Origin)
+================================================================================
+
+<Input id="a_id_12" type="text" iframe="true" use="(a_id_12, 'your text', submit:true, iframe:true)">Card number</Input>
+<Input id="a_id_13" type="text" iframe="true" use="(a_id_13, 'your text', submit:true, iframe:true)">Expiry month</Input>
+<Input id="a_id_14" type="text" iframe="true" use="(a_id_14, 'your text', submit:true, iframe:true)">Expiry year</Input>
+<Input id="a_id_15" type="text" iframe="true" use="(a_id_15, 'your text', submit:true, iframe:true)">CVN</Input>
+<Button id="a_id_16" iframe="true">Submit Payment</Button>
+```
+
+**The `use=` hint** shows the LLM exactly how to call this element with the iframe flag.
+
+### Test Commands
+
+**Type into iframe input:**
+```bash
+python test_navigation.py --command llm --action-id a_id_12 \
+  --action-type setValue --value "4111111111111111" --iframe
+```
+
+**Type and submit (press Enter):**
+```bash
+python test_navigation.py --command llm --action-id a_id_12 \
+  --action-type setValue --value "4111111111111111" --iframe --submit
+```
+
+**Click button in iframe:**
+```bash
+python test_navigation.py --command click --action-id a_id_16 --iframe
+```
+
+### Key Code Locations
+
+| File | Lines | Purpose |
+|------|-------|---------|
+| `manifest.json` | `all_frames: true` | Enable iframe content script injection |
+| `content.js` | 27-149 | Iframe detection (`window.top !== window.self`), local ID assignment |
+| `content.js` | 160-290 | Main frame scan, iframe counting |
+| `sw.js` | 631-714 | `handleScanComplete()` - waits for iframe reports |
+| `sw.js` | 1932-2063 | `handleIframeIntelligence()`, `mergeIframeIntelligence()` |
+| `sw.js` | ~2176-2213 | Broadcast ID updates to ALL frames via `scripting.executeScript` |
+| `sw.js` | ~2254-2369 | `handleExecuteLLMAction()` - routes based on `isIframeElement` |
+| `ws_server.py` | ~3242-3250 | Writes iframe section to text.md with `iframe="true"` |
+| `test_navigation.py` | 333-334 | `--iframe` flag argument |
+| `test_navigation.py` | 394-396 | Adds `isIframeElement: true` to params |
+
+### Known Limitations
+
+| Issue | Cause | Workaround |
+|-------|-------|------------|
+| **Dynamic iframes missed** | CyberSource creates iframes via JS AFTER main scan | Wait for page to settle, trigger rescan |
+| **ID mismatch** | Broadcast fails if iframe disconnected | Reload tab to reinject content script |
+| **Timing race** | Iframe content script not ready when SW tries to send | Auto-retry in mergeIframeIntelligence |
+| **Multiple rescans** | Each scan clears iframe cache | SW caches iframe data between scans |
+
+### Error Handling
+
+**Common errors and their meaning:**
+
+| Error | Cause | Resolution |
+|-------|-------|------------|
+| `Actionable element not found: a_id_12` | ID in text.md but not in iframe DOM | Iframe DOM wasn't updated with final IDs - check broadcast log |
+| `Expecting 0 iframe reports` | Iframes created after main scan | Trigger rescan after iframes load |
+| `Frame X skipped: Receiving end does not exist` | Iframe disconnected | Reload tab |
+| `isIframeElement but no results` | Element not in any frame | Verify element exists, check action-id in DOM |
+
+### Design Principles
+
+1. **Sequential IDs** - Iframe elements get IDs that continue from main frame count
+2. **Explicit routing** - `--iframe` flag required for iframe elements (no guessing)
+3. **Broadcast pattern** - SW sends to ALL frames, each checks its own URL
+4. **Graceful fallback** - If iframe broadcast fails, main frame still works
+5. **DOM-first truth** - Final IDs must be in DOM before action execution
+
+---
+
 ## 4. Scan Trigger Coordination Problem
 
 ### The 8 Overlapping Scan Triggers

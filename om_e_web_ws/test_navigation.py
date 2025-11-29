@@ -1,89 +1,129 @@
 #!/usr/bin/env python3
 """
-Non-interactive Action Test Script
+OM-E Web Action Test Script
+===========================
 
 Run from om_e_web_ws/ directory:
     cd om_e_web_ws && python test_navigation.py [options]
 
-Usage examples:
+Check @site_structures/text.md for element IDs and tab IDs.
 
-  🎯 CAPABILITY: Site-specific actions (YouTube, etc.)
-      python test_navigation.py --command capability --capability RetrieveTranscript
-      python test_navigation.py --command capability --capability SearchYouTube --value "Tesla" --no-submit
-      python test_navigation.py --command capability --capability SearchYouTube --value "claude" --submit
+================================================================================
+1. MAIN FRAME ELEMENTS
+================================================================================
 
-  🗂️ TAB CONTROL: Browser tab management (use tab IDs from text.md Tabs line)
-      python test_navigation.py --command capability --capability SwitchTab --params '{"tabId": 1138024345}'
-      python test_navigation.py --command capability --capability OpenTab --params '{"url": "https://chatgpt.com"}'
-      python test_navigation.py --command capability --capability CloseTab --params '{"tabId": 1138024288}'
-      python test_navigation.py --command capability --capability UpdateTabURL --params '{"tabId": 1138024288, "url": "https://example.com"}'
+CLICK - Buttons and clickable elements
+    python test_navigation.py --command click --action-id a_id_2
 
-  🔍 ZOOM CONTROL: Browser zoom (15% increments)
-      python test_navigation.py --command capability --capability ZoomIn
-      python test_navigation.py --command capability --capability ZoomOut
-      python test_navigation.py --command capability --capability ZoomReset
+LINK - Navigate via anchor links
+    python test_navigation.py --command navigate --action-id a_id_3
 
-  🔗 NAVIGATE: Click links
-      python test_navigation.py --command navigate --action-id a_id_1
+INPUT - Type into text fields
+    python test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "hello world"
 
-  👆 CLICK: Click buttons
-      python test_navigation.py --command click --action-id a_id_11
+INPUT + SUBMIT - Type and submit (press Enter)
+    python test_navigation.py --command llm --action-id a_id_19 --action-type setValue --value "binary beats at 7.83 effects" --submit
 
-  ✅ TOGGLE: Checkbox / Switch (set state directly via DOM API)
-      python test_navigation.py --command llm --action-id a_id_2 --action-type toggle --value true
-      python test_navigation.py --command llm --action-id a_id_2 --action-type toggle --value false
-      #   ↳ Sets checkbox to true/false directly (no click guessing)
-      #   ↳ Check text.md for: <Checkbox id="a_id_X" checked="false" use="(a_id_X, toggle, true|false)">
+SELECT - Choose dropdown option
+    python test_navigation.py --command llm --action-id a_id_5 --action-type setValue --value "Option Text"
 
-  🔘 RADIO: Select radio button (set state directly)
-      python test_navigation.py --command llm --action-id a_id_5 --action-type toggle --value true
-      #   ↳ Sets radio to selected
-      #   ↳ Check text.md for: <Radio id="a_id_X" selected="false" use="(a_id_X, toggle, true)">
+CHECKBOX - Toggle on/off
+    python test_navigation.py --command llm --action-id a_id_3 --action-type toggle --value true
+    python test_navigation.py --command llm --action-id a_id_3 --action-type toggle --value false
 
-  🎚️ SLIDER: Set range value
-      python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "this is homie ome extension brother"
-      #   ↳ Sets slider to value (check min/max in text.md)
-      #   ↳ Check text.md for: <Slider id="a_id_X" value="0" min="0" max="100" use="(a_id_X, setValue, number)">
+RADIO - Select radio button
+    python test_navigation.py --command llm --action-id a_id_4 --action-type toggle --value true
 
-  📝 INPUT: Type into text fields
-      python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "claude"
-      #   ↳ Check text.md for: <Input id="a_id_X" use="(a_id_X, 'your text', submit:true)">
+SLIDER - Set range value
+    python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "50"
 
-  🖼️ IFRAME INPUT: Type into inputs inside cross-origin iframes (e.g., payment forms)
-      python test_navigation.py --command llm --action-id a_id_13 --action-type setValue --value "4111111111111111" --iframe
-      #   ↳ Check text.md for: <Input id="a_id_X" iframe="true" use="(a_id_X, 'your text', submit:true, iframe:true)">
-      #   ↳ The --iframe flag routes execution to the iframe context
+================================================================================
+2. IFRAME ELEMENTS (payment forms, embedded content)
+================================================================================
 
-  📋 SELECT: Dropdown selection
-      python test_navigation.py --command llm --action-id a_id_5 --action-type setValue --value "Option Name"
-      #   ↳ Check text.md for: <Select id="a_id_X" value="current" use="(a_id_X, select, 'option')">
+Elements with iframe="true" in text.md require the --iframe flag.
 
-  🤖 LLM AUTO: Let extension auto-detect action type
-      python test_navigation.py --command llm --action-id a_id_11
+IFRAME INPUT - Type into iframe input
+    python test_navigation.py --command llm --action-id a_id_13 --action-type setValue --value "4111111111111111" --iframe
 
-  📜 SCROLL: Page-by-page viewport scrolling (two methods)
-      # Method 1: Using --command scroll
-      python test_navigation.py --command scroll                    # scroll down (default)
-      python test_navigation.py --command scroll --direction down   # scroll down one page
-      python test_navigation.py --command scroll --direction up     # scroll up one page
-      python test_navigation.py --command scroll --direction top    # scroll to top
-      python test_navigation.py --command scroll --direction bottom # scroll to bottom
+IFRAME INPUT + SUBMIT
+    python test_navigation.py --command llm --action-id a_id_13 --action-type setValue --value "4111111111111111" --iframe --submit
 
-      # Method 2: Using capability (same as other capabilities)
-      python test_navigation.py --command capability --capability ScrollDown
-      python test_navigation.py --command capability --capability ScrollUp
-      python test_navigation.py --command capability --capability ScrollLeft
-      python test_navigation.py --command capability --capability ScrollRight
-      python test_navigation.py --command capability --capability ScrollTop
-      python test_navigation.py --command capability --capability ScrollBottom
+IFRAME CLICK - Click button in iframe
+    python test_navigation.py --command click --action-id a_id_15 --iframe
 
-  🎛️ HUD: Toggle the overlay HUD interface
-      python test_navigation.py --command hud                     # toggle HUD open/closed
+================================================================================
+3. SCROLLING
+================================================================================
 
-  🎨 ORB THEME: Change the floating orb appearance
-      python test_navigation.py --command theme --theme kawaii    # cute white bunny with blue eyes (default)
-      python test_navigation.py --command theme --theme minimal   # simple ghost-like orb
-      python test_navigation.py --command theme --theme bliss     # happy blue orb with clickable halo
+SCROLL DOWN - One viewport height
+    python test_navigation.py --command capability --capability ScrollDown
+
+SCROLL UP - One viewport height
+    python test_navigation.py --command capability --capability ScrollUp
+
+SCROLL TO TOP
+    python test_navigation.py --command capability --capability ScrollTop
+
+SCROLL TO BOTTOM
+    python test_navigation.py --command capability --capability ScrollBottom
+
+================================================================================
+4. TAB MANAGEMENT (get tab IDs from text.md Tabs line)
+================================================================================
+
+SWITCH TAB
+    python test_navigation.py --command capability --capability SwitchTab --params '{"tabId": 1138024345}'
+
+OPEN NEW TAB
+    python test_navigation.py --command capability --capability OpenTab --params '{"url": "https://google.com"}'
+
+CLOSE TAB
+    python test_navigation.py --command capability --capability CloseTab --params '{"tabId": 1138024288}'
+
+NAVIGATE TAB TO URL
+    python test_navigation.py --command capability --capability UpdateTabURL --params '{"tabId": 1138024288, "url": "https://example.com"}'
+
+================================================================================
+5. ZOOM
+================================================================================
+
+ZOOM IN (+15%)
+    python test_navigation.py --command capability --capability ZoomIn
+
+ZOOM OUT (-15%)
+    python test_navigation.py --command capability --capability ZoomOut
+
+ZOOM RESET (100%)
+    python test_navigation.py --command capability --capability ZoomReset
+
+================================================================================
+6. SITE CAPABILITIES (site-specific actions from site_configs/*.json)
+================================================================================
+
+YOUTUBE (on /watch?v= pages):
+    python test_navigation.py --command capability --capability RetrieveTranscript
+    python test_navigation.py --command capability --capability TogglePlayPause
+    python test_navigation.py --command capability --capability LikeVideo
+    python test_navigation.py --command capability --capability DislikeVideo
+    python test_navigation.py --command capability --capability SubscribeToChannel
+
+FACEBOOK:
+    python test_navigation.py --command capability --capability SendMessage
+    python test_navigation.py --command capability --capability SaveItem
+    python test_navigation.py --command capability --capability OpenMap
+
+================================================================================
+7. UI CONTROLS
+================================================================================
+
+TOGGLE HUD
+    python test_navigation.py --command hud
+
+SET ORB THEME
+    python test_navigation.py --command theme --theme kawaii
+    python test_navigation.py --command theme --theme minimal
+    python test_navigation.py --command theme --theme bliss
 """
 
 import asyncio
@@ -293,24 +333,6 @@ async def main():
     parser.add_argument("--iframe", dest="iframe", action="store_true",
                         help="Target element is inside an iframe (routes to iframe execution context)")
 
-    # -------- cheat sheet ----------------------------------------------------
-    # --command llm (default):
-    #     • Use when you want the extension to auto-detect the action type
-    #     • Combine with --action-type setValue when you want to type text
-    #     • --value "your text" supplies the input text
-    #     • --submit or --no-submit control Enter+submit behaviour for forms
-    # Example: python3 test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "Gibson Guitar" --submit
-    #          (Types "Gibson Guitar" into a_id_1 and tries to submit)
-    #
-    # --command navigate:
-    #     • For links/tabs: requires --action-id (and optional --action-type if forcing) 
-    #     • Example: python3 test_navigation.py --command navigate --action-id a_id_755
-    #
-    # --command click:
-    #     • Forces a click without extra metadata
-    #     • Example: python3 test_navigation.py --command click --action-id a_id_133
-    # -------------------------------------------------------------------------
-
     args = parser.parse_args()
 
     # Validate arguments based on command mode
@@ -374,72 +396,31 @@ async def main():
         print("🖼️ Iframe mode: action will execute in iframe context")
 
     if command_mode == "capability":
-        # 🎯 PREMIUM: Execute a capability action (e.g., RetrieveTranscript)
-        capability_action = args.capability
-
-        payload = {
-            "action": capability_action,
-            "params": params
-        }
-        print("""⚙️ CAPABILITY PAYLOAD
-    - Executing capability action (e.g., RetrieveTranscript)
-    - Server will route to handler based on site_configs.json
-    - Handler executes multi-step workflow
-    """)
-        print(f"🎯 Executing capability: {capability_action}")
+        payload = {"action": args.capability, "params": params}
+        print(f"🎯 Capability: {args.capability}")
         response = await tester.send_command("execute_capability", payload)
+
     elif command_mode == "navigate":
-        payload = {
-            "actionId": args.action_id,
-            "actionType": args.action_type or "navigate",
-            "params": params
-        }
-        print("""⚙️ NAVIGATE PAYLOAD
-    - actionId: element to click/link
-    - actionType: explicit or default to "navigate"
-    - params: usually empty (no value)
-    """)
-        print(f"🎯 Executing navigation action: {payload}")
+        payload = {"actionId": args.action_id, "actionType": args.action_type or "navigate", "params": params}
+        print(f"🔗 Navigate: {args.action_id}")
         response = await tester.send_command("execute_llm_action", payload)
+
     elif command_mode == "click":
-        payload = {
-            "actionId": args.action_id,
-            "actionType": "click",
-            "params": params
-        }
-        print("""⚙️ CLICK PAYLOAD
-    - actionType forced to "click"
-    - params: (not used for clicks)
-    """)
-        print(f"🎯 Executing click action: {payload}")
+        payload = {"actionId": args.action_id, "actionType": "click", "params": params}
+        print(f"👆 Click: {args.action_id}")
         response = await tester.send_command("execute_llm_action", payload)
+
     elif command_mode == "scroll":
-        # 📜 SCROLL: Page-by-page viewport scrolling
-        payload = {
-            "direction": args.direction
-        }
-        print("""📜 SCROLL PAYLOAD
-    - direction: down, up, top, bottom
-    - Scrolls one viewport height at a time (end becomes beginning)
-    """)
-        print(f"📜 Executing scroll: direction={args.direction}")
+        payload = {"direction": args.direction}
+        print(f"📜 Scroll: {args.direction}")
         response = await tester.send_command("execute_scroll", payload)
+
     elif command_mode == "hud":
-        # 🎛️ HUD: Toggle overlay interface
-        print("""🎛️ HUD TOGGLE
-    - Toggles the OM-E HUD overlay open/closed
-    - HUD provides visual feedback and controls
-    """)
-        print("🎛️ Toggling HUD...")
+        print("🎛️ Toggle HUD")
         response = await tester.send_command("toggle_hud", {})
+
     elif command_mode == "theme":
-        # 🎨 ORB THEME: Change orb appearance
-        print("""🎨 ORB THEME
-    - Changes the floating orb appearance
-    - Available themes: kawaii, vader, minimal
-    - Theme persists across sessions
-    """)
-        print(f"🎨 Setting orb theme to: {args.theme}")
+        print(f"🎨 Theme: {args.theme}")
         response = await tester.send_command("set_orb_theme", {"theme": args.theme})
     else:
         payload = {
@@ -447,12 +428,10 @@ async def main():
             **({"actionType": args.action_type} if args.action_type else {}),
             "params": params
         }
-        print("""⚙️ LLM PAYLOAD
-    - command llm lets you specify actionType manually or rely on auto-detect
-    - For setValue: include --value and --submit / --no-submit flags
-    - params becomes {"value": ..., "submit": True/False}
-    """)
-        print(f"🎯 Executing action (LLM mode): {payload}")
+        action_desc = f"{args.action_type or 'auto'} on {args.action_id}"
+        if params.get("value"):
+            action_desc += f" = '{params['value']}'"
+        print(f"🤖 LLM: {action_desc}")
         response = await tester.send_command("execute_llm_action", payload)
 
     if response is None:

@@ -1,42 +1,35 @@
 {
-  "timestamp": 1764414751.1799161,
+  "timestamp": 1764417023.909924,
   "browser_state": {
-    "total_tabs": 3,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138026890,
-      "url": "https://account.ezyreg.sa.gov.au/account/payment-method.htm?payment-type=CREDIT&trolleySource=true",
-      "title": "EzyReg Account",
+      "id": 1138026894,
+      "url": "https://www.google.com/search?q=binary+beats+at+7.83+effects&sca_esv=3f36eaa053a30b56&sxsrf=AE3TifPwlPoh5_l_bSHcfjwtAC8CtMkadw%3A1764416977011&source=hp&ei=0N0qae_YO5zY1e8PxtqBoA4&iflsig=AOw8s4IAAAAAaSrr4UmQI0V6H5whZ9FZ3h5lFQS-YP6Z&aep=22&udm=50&ved=0ahUKEwjvgJi5pZeRAxUcbPUHHUZtAOQQteYPCBM&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mstk=AUtExfC6I5LugG3cdPyGIrjD-BwZ2FJTlUESXnVoEcSRm2bAUOlAvnS8A42UNQsL2mzercJoefHDRZ6botHII-J9B4YEma58XDn8kl-63SUnSOFweR1y_JeM3wCnzoqctq6HUcY0SfRU6m3Jr2g1-Rh4TypICKZUvNIanCw6BFcZj3oa9sDC4Eef3KwXRCD__VR3SZpwpQC-AtavQWJF2vz0qo_kmFYaAd1GAFwVSVzkggizpsxMrX3gBpd5_VZ-KFNnOn3_50mG8I6YIYBx2DMZI4lYQ4JwhO0LTlA&csuir=1&mtid=-d0qafulFauTseMPucWx2QU",
+      "title": "binary beats at 7.83 effects - Google Search",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138026890,
-        "url": "https://account.ezyreg.sa.gov.au/account/payment-method.htm?payment-type=CREDIT&trolleySource=true",
-        "title": "EzyReg Account",
+        "id": 1138026894,
+        "url": "https://www.google.com/search?q=binary+beats+at+7.83+effects&sca_esv=3f36eaa053a30b56&sxsrf=AE3TifPwlPoh5_l_bSHcfjwtAC8CtMkadw%3A1764416977011&source=hp&ei=0N0qae_YO5zY1e8PxtqBoA4&iflsig=AOw8s4IAAAAAaSrr4UmQI0V6H5whZ9FZ3h5lFQS-YP6Z&aep=22&udm=50&ved=0ahUKEwjvgJi5pZeRAxUcbPUHHUZtAOQQteYPCBM&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mstk=AUtExfC6I5LugG3cdPyGIrjD-BwZ2FJTlUESXnVoEcSRm2bAUOlAvnS8A42UNQsL2mzercJoefHDRZ6botHII-J9B4YEma58XDn8kl-63SUnSOFweR1y_JeM3wCnzoqctq6HUcY0SfRU6m3Jr2g1-Rh4TypICKZUvNIanCw6BFcZj3oa9sDC4Eef3KwXRCD__VR3SZpwpQC-AtavQWJF2vz0qo_kmFYaAd1GAFwVSVzkggizpsxMrX3gBpd5_VZ-KFNnOn3_50mG8I6YIYBx2DMZI4lYQ4JwhO0LTlA&csuir=1&mtid=-d0qafulFauTseMPucWx2QU",
+        "title": "binary beats at 7.83 effects - Google Search",
         "active": true,
         "status": "complete"
       },
       {
-        "id": 1138026894,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138026937,
-        "url": "https://en.wikipedia.org/w/index.php?search=this&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1",
-        "title": "this - Search results - Wikipedia",
+        "id": 1138026963,
+        "url": "https://chatgpt.com/",
+        "title": "ChatGPT",
         "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 49468.306230458,
+    "last_tabs_update": 51742.7170005,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://account.ezyreg.sa.gov.au/account/payment-method.htm?payment-type=CREDIT&trolleySource=true",
-    "title": "EzyReg Account",
+    "url": "https://www.google.com/search?q=binary+beats+at+7.83+effects&sca_esv=3f36eaa053a30b56&sxsrf=AE3TifPwlPoh5_l_bSHcfjwtAC8CtMkadw%3A1764416977011&source=hp&ei=0N0qae_YO5zY1e8PxtqBoA4&iflsig=AOw8s4IAAAAAaSrr4UmQI0V6H5whZ9FZ3h5lFQS-YP6Z&aep=22&udm=50&ved=0ahUKEwjvgJi5pZeRAxUcbPUHHUZtAOQQteYPCBM&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mstk=AUtExfC6I5LugG3cdPyGIrjD-BwZ2FJTlUESXnVoEcSRm2bAUOlAvnS8A42UNQsL2mzercJoefHDRZ6botHII-J9B4YEma58XDn8kl-63SUnSOFweR1y_JeM3wCnzoqctq6HUcY0SfRU6m3Jr2g1-Rh4TypICKZUvNIanCw6BFcZj3oa9sDC4Eef3KwXRCD__VR3SZpwpQC-AtavQWJF2vz0qo_kmFYaAd1GAFwVSVzkggizpsxMrX3gBpd5_VZ-KFNnOn3_50mG8I6YIYBx2DMZI4lYQ4JwhO0LTlA&csuir=1&mtid=-d0qafulFauTseMPucWx2QU",
+    "title": "binary beats at 7.83 effects - Google Search",
     "is_active_tab": true
   },
   "content_structure": {},
