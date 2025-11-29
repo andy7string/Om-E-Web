@@ -12883,6 +12883,18 @@
                     // 💾 Debounced save to persist across navigation
                     saveChatInput(chatInput.value);
                 });
+
+                // 💬 Restore chat input value after theme change
+                try {
+                    chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                        if (response?.ok && response.chatInput) {
+                            chatInput.value = response.chatInput;
+                            typingPreview.textContent = response.chatInput;
+                        }
+                    });
+                } catch (e) {
+                    console.warn('[Content] Could not restore chat input:', e);
+                }
             }
 
             // 📐 Setup resize handlers for chat panel
@@ -13072,6 +13084,18 @@
                     // 💾 Debounced save to persist across navigation
                     saveChatInput(chatInput.value);
                 });
+
+                // 💬 Restore chat input value on initial load
+                try {
+                    chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                        if (response?.ok && response.chatInput) {
+                            chatInput.value = response.chatInput;
+                            typingPreview.textContent = response.chatInput;
+                        }
+                    });
+                } catch (e) {
+                    console.warn('[Content] Could not restore chat input:', e);
+                }
             }
 
             // 📐 Setup resize handlers for chat panel
