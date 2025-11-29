@@ -3227,6 +3227,30 @@ async def handler(ws):
                                     f.write("---\n\n")
                                     f.write(page_text)
 
+                                    # 🖼️ IFRAME ELEMENTS: Append elements from cross-origin iframes
+                                    iframe_elements = [el for el in actionable_elements if el.get('isIframeElement')]
+                                    if iframe_elements:
+                                        f.write("\n\n---\n\n")
+                                        f.write("## Secure Iframe Elements\n\n")
+                                        f.write("*These elements are inside secure cross-origin iframes (e.g., payment forms):*\n\n")
+                                        for el in iframe_elements:
+                                            action_id = el.get('actionId', 'unknown')
+                                            tag = el.get('tag', 'input')
+                                            text = el.get('text') or el.get('label') or el.get('placeholder') or el.get('name') or 'Unnamed'
+                                            el_type = el.get('type', '')
+
+                                            # Format based on tag type - include iframe="true" for routing
+                                            if tag == 'button':
+                                                f.write(f"<Button id=\"{action_id}\" iframe=\"true\">{text}</Button>\n")
+                                            elif tag == 'select':
+                                                f.write(f"<Select id=\"{action_id}\" iframe=\"true\">{text}</Select>\n")
+                                            else:
+                                                # Input elements
+                                                type_hint = f" type=\"{el_type}\"" if el_type else ""
+                                                f.write(f"<Input id=\"{action_id}\"{type_hint} iframe=\"true\" use=\"({action_id}, 'your text', submit:true, iframe:true)\">{text}</Input>\n")
+
+                                        print(f"🖼️ Added {len(iframe_elements)} iframe elements to text.md")
+
                                 print(f"✅ Text content saved to: {text_file_path}")
 
                             except Exception as write_error:

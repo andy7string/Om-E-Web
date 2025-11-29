@@ -1,9 +1,9 @@
-# Local Web Design Adelaide | Bright Tree Digital
+# EzyReg Account
 
-**URL:** https://brighttreedigital.com.au/
-**Timestamp:** 2025-11-29 01:00:56
+**URL:** https://account.ezyreg.sa.gov.au/account/payment-method.htm?payment-type=CREDIT&trolleySource=true
+**Timestamp:** 2025-11-29 21:42:31
 
-**Tabs (1):** Active: #1138026524 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
+**Tabs (3):** Active: #1138026890 "EzyReg Account" account.ezyreg.sa.gov.au [complete] | Other: #1138026894 "Extensions" extensions, #1138026937 "this - Search result" en.wikipedia.org
 
 ## Available Actions
 
@@ -65,96 +65,41 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<Link id="a_id_0">Skip to content</Link>
-<Link id="a_id_1">Bright Tree Digital</Link>
-<Link id="a_id_2">HOME</Link>
-<Link id="a_id_3">ABOUT</Link>
-<Link id="a_id_4">PORTFOLIO</Link>
-<Link id="a_id_5">SERVICES</Link>
-<Link id="a_id_6">CONTACT</Link>
-<Link id="a_id_7">Facebook</Link>
-<Link id="a_id_8">Instagram</Link>
-Dynamic Web Design Bringing Your Vision to Life
-<Button id="a_id_9">Previous slide</Button>
-<Button id="a_id_10">Next slide</Button>
-Welcome to Bright Tree Digital...
-...where your vision takes digital form and your business’s potential is fully realized. Specializing in
-WordPress web design
-and compelling
-graphic design
-, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
-Our Services
-Start your journey here...
-<Link id="a_id_11">Get in touch today!</Link>
-Our Work
-<Link id="a_id_12">Straker Functional Fitness</Link>
-<Link id="a_id_13">The Syrene Hotel</Link>
-<Link id="a_id_14">African Safari Deals</Link>
-<Link id="a_id_15">Mtambo Chartered Accountants</Link>
-<Link id="a_id_16">Joss Couture</Link>
-<Link id="a_id_17">Flutterbys School</Link>
-<Link id="a_id_18">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_19">Straker Functional Fitness</Link>
-<Link id="a_id_20">The Syrene Hotel</Link>
-<Link id="a_id_21">African Safari Deals</Link>
-<Link id="a_id_22">Mtambo Chartered Accountants</Link>
-<Link id="a_id_23">Joss Couture</Link>
-<Link id="a_id_24">Flutterbys School</Link>
-<Link id="a_id_25">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_26">Straker Functional Fitness</Link>
-<Link id="a_id_27">The Syrene Hotel</Link>
-<Link id="a_id_28">African Safari Deals</Link>
-<Link id="a_id_29">Mtambo Chartered Accountants</Link>
-<Button id="a_id_30">1 of 2</Button>
-<Button id="a_id_31">2 of 2</Button>
-<Button id="a_id_32">3 of 2</Button>
-<Button id="a_id_33">4 of 2</Button>
-<Button id="a_id_34">5 of 2</Button>
-<Button id="a_id_35">6 of 2</Button>
-<Button id="a_id_36">7 of 2</Button>
-<Button id="a_id_37">8 of 2</Button>
-What Our Clients Say!
-We are so happy that
-Bright Tree Digital
-designed our Logos and websites for our 2 food businesses.
-Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
-Michelene Rendell
-Owner, The Kitchen
-Highly recommended.
-Bright Tree Digital
-presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
-Daniella Finney
-Owner, The Syrene Boutique Hotel
-Big shoutout to Olivia at
-Bright Tree Digital
-, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
-Natalie Cassar
-Owner, New Moon Digital
-<Link id="a_id_38">Read More Testimonials</Link>
-Ready for a Website Makeover?
-<Link id="a_id_39">Reach Out Now!</Link>
-ABOUT US
-We specialise in
-WordPress web design
-and
-graphic design
-, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-OUR PORTFOLIO
-<Link id="a_id_40">Banner Portfolio</Link>
-<Link id="a_id_41">Logo Portfolio</Link>
-<Link id="a_id_42">Web Design Portfolio</Link>
-<Link id="a_id_43">Facebook</Link>
-<Link id="a_id_44">Instagram</Link>
-ABN: 29 160 886 356
-QUICK LINKS
-<Link id="a_id_45">Home</Link>
-<Link id="a_id_46">About</Link>
-<Link id="a_id_47">Services</Link>
-<Link id="a_id_48">Testimonials</Link>
-<Link id="a_id_49">Contact</Link>
-<Link id="a_id_50">Privacy Policy</Link>
-Copyright © 2025 Bright Tree Digital
-<Link id="a_id_51">Website Designed by Bright Tree Digital</Link>
+PLEASE NOTE: This website requires JavaScript. Either your browser has JavaScript turned off or it does
+not support JavaScript!
+Pay with a debit or credit card
+All transactions are secure and encrypted
+Card number
+Expiry
+<Input id="a_id_0" use="(a_id_0, 'your text', submit:true)">MM/YY</Input>
+CVN
+Amount due: $
+75.00
+<Button id="a_id_1">Pay</Button>
+25090F3B202510302308 251129214227
+<Link id="a_id_2">Home</Link>
+<Link id="a_id_3">FOI</Link>
+<Link id="a_id_4">Accessibility</Link>
+<Link id="a_id_5">Security</Link>
+<Link id="a_id_6">Privacy</Link>
+<Link id="a_id_7">Copyright</Link>
+<Link id="a_id_8">Disclaimer</Link>
+<Link id="a_id_9">Contact</Link>
+This work is licensed under a
+<Link id="a_id_10">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</Link>
+
+---
+
+## Secure Iframe Elements
+
+*These elements are inside secure cross-origin iframes (e.g., payment forms):*
+
+<Input id="a_id_11" type="text" iframe="true" use="(a_id_11, 'your text', submit:true, iframe:true)">input_0</Input>
+<Input id="a_id_12" type="text" iframe="true" use="(a_id_12, 'your text', submit:true, iframe:true)">Card number</Input>
+<Input id="a_id_13" type="text" iframe="true" use="(a_id_13, 'your text', submit:true, iframe:true)">name</Input>
+<Input id="a_id_14" type="text" iframe="true" use="(a_id_14, 'your text', submit:true, iframe:true)">expirationMonth</Input>
+<Input id="a_id_15" type="text" iframe="true" use="(a_id_15, 'your text', submit:true, iframe:true)">expirationYear</Input>
+<Input id="a_id_16" type="text" iframe="true" use="(a_id_16, 'your text', submit:true, iframe:true)">input_5</Input>
+<Input id="a_id_17" type="text" iframe="true" use="(a_id_17, 'your text', submit:true, iframe:true)">input_0</Input>
+<Input id="a_id_18" type="text" iframe="true" use="(a_id_18, 'your text', submit:true, iframe:true)">Card security code</Input>
+<Input id="a_id_19" type="text" iframe="true" use="(a_id_19, 'your text', submit:true, iframe:true)">input_2</Input>

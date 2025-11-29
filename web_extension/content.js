@@ -24,19 +24,129 @@
     }
     window.omEWebContentScriptLoaded = true;
 
-    // 🛡️ MAIN FRAME SAFETY CHECK - Ensure script only runs in main frame
-    if (window.top !== window.self) {
-        console.log("[Content] 🚫 Script running in iframe, exiting to prevent iframe scanning issues");
-        // Exit early if we're in an iframe
-        return;
+    // 🖼️ IFRAME DETECTION - Run different logic for iframes vs main frame
+    const isInIframe = window.top !== window.self;
+
+    if (isInIframe) {
+        console.log("[Content] 🖼️ Running in IFRAME:", window.location.href);
+
+        // 🎯 IFRAME: Auto-scan and send to SW. SW will assign final IDs and send mapping back.
+        setupIframeHandlers();
+        runIframeScan();
+        return; // Don't run main frame logic
     }
 
     // 🎯 Confirm we're in main frame
     console.log("[Content] ✅ Running in main frame:", {
-        isMainFrame: window.top === window.self,
+        isMainFrame: true,
         currentUrl: window.location.href,
         topUrl: window.top.location.href
     });
+
+    /**
+     * 🖼️ IFRAME: Set up message handler for ID updates from SW
+     */
+    function setupIframeHandlers() {
+        chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+            if (message.type === 'update_iframe_ids') {
+                // SW has assigned final IDs - update our DOM
+                const idMapping = message.idMapping || {};
+                console.log(`[Content] 🖼️ Updating DOM with final IDs:`, idMapping);
+
+                for (const [localId, finalId] of Object.entries(idMapping)) {
+                    const el = document.querySelector(`[data-ome-action-id="${localId}"]`);
+                    if (el) {
+                        el.setAttribute('data-ome-action-id', finalId);
+                        console.log(`[Content] 🖼️ Updated: ${localId} → ${finalId}`);
+                    }
+                }
+                sendResponse({ ok: true, updated: Object.keys(idMapping).length });
+                return true;
+            }
+        });
+    }
+
+    /**
+     * 🖼️ IFRAME: Auto-scan when DOM ready
+     */
+    function runIframeScan() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', performIframeScan);
+        } else {
+            performIframeScan();
+        }
+    }
+
+    /**
+     * 🖼️ IFRAME SCANNER
+     * Extracts elements with LOCAL IDs. SW will assign final IDs and send mapping back.
+     */
+    function performIframeScan() {
+        console.log("[Content] 🖼️ Performing iframe scan...");
+
+        const iframeElements = [];
+        let counter = 0;  // Local counter - SW will remap
+
+        // Find all interactive inputs (not hidden)
+        const inputs = document.querySelectorAll('input:not([type="hidden"]), select, textarea, button');
+
+        inputs.forEach((el) => {
+            // Local ID - SW will assign final ID
+            const localId = `iframe_${counter++}`;
+
+            // Write local ID to DOM (SW will update to final ID)
+            el.setAttribute('data-ome-action-id', localId);
+
+            // Find associated label
+            const labelFor = el.id ? document.querySelector(`label[for="${el.id}"]`) : null;
+            const labelParent = el.closest('label');
+            const labelText = labelFor?.textContent?.trim() || labelParent?.textContent?.trim() || null;
+
+            // Get aria-label or placeholder as fallback
+            const ariaLabel = el.getAttribute('aria-label');
+            const placeholder = el.placeholder;
+
+            // Determine best display name
+            const displayName = labelText || ariaLabel || placeholder || el.name || el.id || `input_${counter - 1}`;
+
+            iframeElements.push({
+                localId: localId,  // Local ID - SW will assign final
+                tag: el.tagName.toLowerCase(),
+                type: el.type || null,
+                domId: el.id || null,
+                name: el.name || null,
+                placeholder: placeholder || null,
+                autocomplete: el.autocomplete || null,
+                label: labelText,
+                ariaLabel: ariaLabel,
+                displayName: displayName,
+                value: el.value || '',
+                buttonText: el.tagName === 'BUTTON' ? el.textContent?.trim() : null
+            });
+        });
+
+        if (iframeElements.length === 0) {
+            console.log("[Content] 🖼️ No interactive elements found in iframe");
+            return;
+        }
+
+        console.log(`[Content] 🖼️ Found ${iframeElements.length} elements in iframe`);
+
+        // Send to SW - it will assign final IDs and send mapping back
+        chrome.runtime.sendMessage({
+            type: 'iframe_intelligence',
+            iframeUrl: window.location.href,
+            iframeOrigin: window.location.origin,
+            elements: iframeElements,
+            timestamp: Date.now()
+        }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.warn("[Content] 🖼️ Failed to send iframe intelligence:", chrome.runtime.lastError);
+            } else {
+                console.log("[Content] 🖼️ Iframe intelligence sent:", response);
+            }
+        });
+    }
 
     /**
      * 🛡️ Establish a persistent keep-alive port so the service worker stays awake.
@@ -143,7 +253,30 @@
             console.log('[Content] ✅ Scan complete (semantic extraction only), sending results...');
 
             // ============================================================================
-            // STEP 3: SEND RESULTS
+            // STEP 3: COUNT CROSS-ORIGIN IFRAMES (for coordinated scanning)
+            // ============================================================================
+            const allIframes = document.querySelectorAll('iframe');
+            let crossOriginIframeCount = 0;
+            const currentOrigin = window.location.origin;
+
+            allIframes.forEach(iframe => {
+                try {
+                    const iframeSrc = iframe.src || '';
+                    if (iframeSrc && iframeSrc.startsWith('http')) {
+                        const iframeOrigin = new URL(iframeSrc).origin;
+                        if (iframeOrigin !== currentOrigin) {
+                            crossOriginIframeCount++;
+                        }
+                    }
+                } catch (e) {
+                    // Invalid URL, skip
+                }
+            });
+
+            console.log(`[Content] 🖼️ Found ${crossOriginIframeCount} cross-origin iframes on page`);
+
+            // ============================================================================
+            // STEP 4: SEND RESULTS
             // ============================================================================
             const intelligenceData = intelligenceEngine.prepareIntelligenceData();
 
@@ -152,7 +285,8 @@
                 pageVersion: currentPageVersion || 1,  // Never send null
                 url: window.location.href,
                 trigger: trigger,
-                intelligenceData: intelligenceData
+                intelligenceData: intelligenceData,
+                expectedIframeCount: crossOriginIframeCount  // 🖼️ SW waits for this many iframe reports
             });
 
         } catch (error) {
@@ -1520,20 +1654,19 @@
             console.log("[Content] ♻️ Service worker scan - recreating engine for fresh start");
             const freshEngine = recreateIntelligenceEngine();
 
-            // 🎯 NEW: Automatic disconnect cycle + comprehensive scan for CSP bypass on page load
-            console.log("[Content] 🔄 Page load: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
-            performAutomaticDisconnectCycle();
+            // 🚫 DISABLED: CSP bypass no longer needed - using native DOM APIs now
+            // This was disconnecting runtime and clearing storage, which broke intelligence updates
+            // console.log("[Content] 🔄 Page load: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
+            // performAutomaticDisconnectCycle();
 
-            // 🎯 NEW: Run comprehensive scan to get 262+ elements - REMOVED
-            console.log("[Content] 🔍 Page load: Comprehensive scan skipped");
-
-            // 🔔 ROUTE TO SW: All scans go through service worker
-            chrome.runtime.sendMessage({
-                type: 'request_scan',
-                url: window.location.href,
-                trigger: 'content_page_load_fallback'
-            });
-            console.log("[Content] 🔔 Scan requested via SW (content_page_load_fallback)");
+            // 🎯 FIX: Actually run the scan now that we have a fresh engine
+            console.log("[Content] 🔍 Page load: Running scan on fresh engine...");
+            if (freshEngine && typeof freshEngine.scanAndRegisterPageElements === 'function') {
+                freshEngine.scanAndRegisterPageElements();
+                console.log("[Content] ✅ Page load scan complete");
+            } else {
+                console.error("[Content] ❌ Fresh engine doesn't have scanAndRegisterPageElements");
+            }
         } else {
             console.error("[Content] ❌ Intelligence engine not available for delayed scan");
         }
@@ -5653,14 +5786,16 @@
                     }
                 }
 
-                return false; // Not interactive for this framework
+                // 🎯 FIX: Don't return false here - fall through to generic logic
+                // Site config selectors are ADDITIONS, not restrictions
+                // If element doesn't match site-specific selectors, check generic ones
             } catch (error) {
                 console.warn('⚠️ Error in framework-specific interactive check:', error);
                 // Fall through to generic logic
             }
         }
 
-        // 🆕 FALLBACK: Generic logic if no site config or error
+        // 🆕 FALLBACK: Generic logic - always check standard interactive elements
         const interactiveTags = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA'];
         const interactiveRoles = ['button', 'link', 'menuitem', 'tab', 'checkbox', 'radio', 'textbox'];
 
@@ -5959,8 +6094,16 @@
             // Buttons (including tab, menuitem, etc.)
             if (tag === 'button' || role === 'button' || role === 'tab' || role === 'menuitem') return 'Button';
 
-            // Links
-            if (tag === 'a' || role === 'link') return 'Link';
+            // Links - but check if anchor is styled as button first
+            if (tag === 'a') {
+                // 🆕 Check for button-like styling (Bootstrap, Tailwind, etc.)
+                const classes = (element.className || '').toLowerCase();
+                const isStyledAsButton = classes.includes('btn') || classes.includes('button') ||
+                                         classes.includes('cta') || role === 'button';
+                if (isStyledAsButton) return 'Button';
+                return 'Link';
+            }
+            if (role === 'link') return 'Link';
 
             // Inputs - handle specific types
             if (tag === 'input') {
@@ -6990,7 +7133,7 @@
 
                 // 🔧 FIX: Use semantic ID from DOM (if exists) instead of generating scan ID
                 const semanticId = linkEl.getAttribute('data-ome-action-id');
-                const idCandidate = semanticId || `a_id_${currentPageVersion}_${this.elementCounter++}`;
+                const idCandidate = semanticId || `a_id_${this.elementCounter++}`;
 
                 const actionRecord = {
                     type: 'action',
@@ -8041,7 +8184,7 @@
         // Otherwise, generate next sequential ID starting from current counter
         let uniqueId = reuseId;
         if (!uniqueId) {
-            uniqueId = `a_id_${currentPageVersion}_${this.elementCounter++}`;
+            uniqueId = `a_id_${this.elementCounter++}`;
         }
         // ❌ REMOVED: No Math.max logic that bumps counter based on old IDs
         // This was causing counter inflation when old DOM markers were found
@@ -8810,9 +8953,14 @@
             if (['textarea', 'input', 'type', 'text', 'enter_text'].includes(lowered)) {
                 action = 'setValue';
                 console.log("[Content] 🔁 Normalized action to 'setValue' for text entry");
-            } else if (['button', 'press', 'toggle', 'menu', 'menuitem', 'tab'].includes(lowered)) {
+            } else if (['button', 'press', 'menu', 'menuitem', 'tab'].includes(lowered)) {
+                // 🆕 NOTE: 'toggle' and 'select' are NOT normalized here - they have their own case handler
                 action = 'click';
                 console.log("[Content] 🔁 Normalized action to 'click' for interactive button-like element");
+            } else if (lowered === 'select') {
+                // 🆕 Radio buttons use 'select' actionType but work same as toggle (element.checked)
+                action = 'toggle';
+                console.log("[Content] 🔁 Normalized 'select' to 'toggle' for radio button");
             } else if (['link'].includes(lowered) && actionableElement.attributes?.href) {
                 action = 'navigate';
                 console.log("[Content] 🔁 Normalized action to 'navigate' for link element");

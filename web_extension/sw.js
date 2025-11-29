@@ -240,6 +240,14 @@ let internalTabState = new Map(); // tabId -> enhanced tab info
 let lastActiveTabId = null;
 let tabCache = new Map(); // tabId -> cached data
 
+// 🖼️ IFRAME INTELLIGENCE: Store iframe elements per tab for merging with main frame
+// Key: tabId, Value: { iframes: Map<iframeUrl, elements[]>, timestamp }
+const iframeIntelligenceCache = new Map();
+
+// 🖼️ PENDING SCAN: Store scan_complete data while waiting for iframes to report
+// Key: tabId, Value: { intelligenceData, expectedIframeCount, receivedIframeCount, timestamp }
+const pendingScanCache = new Map();
+
 // 🆕 NEW: Proactive site config management
 let siteConfigs = {}; // Store site configs locally for immediate access
 
@@ -629,13 +637,106 @@ function handleScanComplete(message, sender) {
         console.log(`[SW] ✅ Scan complete: tab=${tabId}`);
     }
 
-    // Forward intelligence update to server
-    if (message.intelligenceData && ws && ws.readyState === WebSocket.OPEN) {
-        ws.send(JSON.stringify({
-            type: 'intelligence_update',
-            data: message.intelligenceData
-        }));
+    if (!message.intelligenceData) {
+        console.warn(`[SW] ⚠️ Scan complete without intelligenceData`);
+        return;
     }
+
+    const intelligenceData = message.intelligenceData;
+    const expectedIframeCount = message.expectedIframeCount || 0;
+
+    // 🖼️ Clear any old iframe cache for this tab (new scan = fresh start)
+    iframeIntelligenceCache.delete(tabId);
+
+    console.log(`[SW] 🖼️ Expecting ${expectedIframeCount} iframe reports for tab ${tabId}`);
+
+    if (expectedIframeCount === 0) {
+        // No iframes - send immediately
+        sendFinalIntelligence(tabId, intelligenceData);
+    } else {
+        // Store and wait for iframes to report
+        pendingScanCache.set(tabId, {
+            intelligenceData: intelligenceData,
+            expectedIframeCount: expectedIframeCount,
+            receivedIframeCount: 0,
+            timestamp: Date.now()
+        });
+        console.log(`[SW] 🖼️ Waiting for ${expectedIframeCount} iframes to report...`);
+    }
+}
+
+// 🖼️ Send final merged intelligence to server
+async function sendFinalIntelligence(tabId, intelligenceData) {
+    if (!ws || ws.readyState !== WebSocket.OPEN) {
+        console.warn(`[SW] ⚠️ WebSocket not ready, cannot send intelligence`);
+        return;
+    }
+
+    // Get main frame actionables from semanticPageData
+    const mainFrameActionables = intelligenceData.semanticPageData?.actionables || [];
+    const originalCount = mainFrameActionables.length;
+
+    // Merge iframe elements and get ID mappings
+    const { mergedElements, iframeMappings } = mergeIframeIntelligence(
+        mainFrameActionables,
+        tabId
+    );
+    intelligenceData.actionableElements = mergedElements;
+    const mergedCount = mergedElements.length;
+
+    if (mergedCount > originalCount) {
+        console.log(`[SW] 🖼️ Final merge: ${originalCount} main + ${mergedCount - originalCount} iframe = ${mergedCount} total`);
+    }
+
+    // 🆕 Update iframe DOM with final IDs - broadcast to ALL frames, each checks its URL
+    if (iframeMappings.size > 0) {
+        // Convert Map to plain object for injection: { iframeUrl: { localId: finalId, ... }, ... }
+        const allMappings = {};
+        for (const [iframeUrl, { idMapping }] of iframeMappings) {
+            if (Object.keys(idMapping).length > 0) {
+                allMappings[iframeUrl] = idMapping;
+            }
+        }
+
+        if (Object.keys(allMappings).length > 0) {
+            try {
+                await chrome.scripting.executeScript({
+                    target: { tabId: tabId, allFrames: true },
+                    func: (mappings) => {
+                        // Each frame checks if it has a mapping for its URL
+                        const currentUrl = window.location.href;
+                        const mapping = mappings[currentUrl];
+                        if (!mapping) return 0;  // Not an iframe we need to update
+
+                        console.log('[Content] 🖼️ Updating iframe DOM with final IDs:', mapping);
+                        let updated = 0;
+                        for (const [localId, finalId] of Object.entries(mapping)) {
+                            const el = document.querySelector(`[data-ome-action-id="${localId}"]`);
+                            if (el) {
+                                el.setAttribute('data-ome-action-id', finalId);
+                                console.log(`[Content] 🖼️ Updated: ${localId} → ${finalId}`);
+                                updated++;
+                            }
+                        }
+                        return updated;
+                    },
+                    args: [allMappings]
+                });
+                console.log(`[SW] 🖼️ Broadcast ID updates to all frames:`, Object.keys(allMappings));
+            } catch (err) {
+                console.warn(`[SW] 🖼️ Failed to broadcast iframe updates:`, err.message);
+            }
+        }
+    }
+
+    ws.send(JSON.stringify({
+        type: 'intelligence_update',
+        data: intelligenceData
+    }));
+    console.log(`[SW] 📤 Intelligence sent to server (${mergedCount} elements)`);
+
+    // Clear pending cache
+    pendingScanCache.delete(tabId);
 }
 
 // ============================================================================
@@ -1070,6 +1171,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 return true; // Keep channel open for async response
             case 'intelligence_update':
                 handleIntelligenceUpdate(message, sender, sendResponse);
+                break;
+            case 'iframe_intelligence':
+                // 🖼️ Store iframe intelligence for merging with main frame
+                handleIframeIntelligence(message, sender, sendResponse);
                 break;
             case 'scan_complete':
                 handleScanComplete(message, sender);
@@ -1855,11 +1960,154 @@ async function handleNetworkActivity(message, sender) {
 }
 
 /**
+ * 🖼️ Handle iframe intelligence from content script running in iframe
+ *
+ * Stores iframe element data for merging when main frame sends its intelligence update.
+ * This enables capturing inputs from cross-origin iframes (e.g., CyberSource payment forms).
+ *
+ * @param {Object} message - Iframe intelligence message
+ * @param {Object} sender - Message sender info
+ * @param {Function} sendResponse - Response callback
+ */
+function handleIframeIntelligence(message, sender, sendResponse) {
+    try {
+        const tabId = sender?.tab?.id;
+        const frameId = sender?.frameId;
+        if (!tabId) {
+            console.warn("[SW] 🖼️ Iframe intelligence without tab context, ignoring");
+            sendResponse({ ok: false, error: "Missing tab context" });
+            return;
+        }
+
+        const { iframeUrl, iframeOrigin, elements, timestamp } = message;
+        console.log(`[SW] 🖼️ Received iframe intelligence from ${iframeOrigin}:`, {
+            tabId,
+            frameId,
+            iframeUrl,
+            elementCount: elements?.length || 0
+        });
+
+        // Get or create tab's iframe cache
+        if (!iframeIntelligenceCache.has(tabId)) {
+            iframeIntelligenceCache.set(tabId, {
+                iframes: new Map(),
+                timestamp: Date.now()
+            });
+        }
+
+        const tabIframeCache = iframeIntelligenceCache.get(tabId);
+
+        // Store elements keyed by iframe URL (include frameId for sending updates back)
+        tabIframeCache.iframes.set(iframeUrl, {
+            origin: iframeOrigin,
+            frameId: frameId,
+            elements: elements || [],
+            timestamp: timestamp || Date.now()
+        });
+        tabIframeCache.timestamp = Date.now();
+
+        console.log(`[SW] 🖼️ Cached ${elements?.length || 0} iframe elements for tab ${tabId}`);
+
+        // Check if we're waiting for iframes
+        if (pendingScanCache.has(tabId)) {
+            const pending = pendingScanCache.get(tabId);
+            pending.receivedIframeCount++;
+            console.log(`[SW] 🖼️ Iframe ${pending.receivedIframeCount}/${pending.expectedIframeCount} received`);
+
+            // All iframes reported - assign final IDs and send
+            if (pending.receivedIframeCount >= pending.expectedIframeCount) {
+                console.log(`[SW] 🖼️ All ${pending.expectedIframeCount} iframes received, assigning final IDs`);
+                sendFinalIntelligence(tabId, pending.intelligenceData);
+            }
+        }
+
+        sendResponse({ ok: true, cached: elements?.length || 0 });
+
+    } catch (error) {
+        console.error("[SW] 🖼️ Error handling iframe intelligence:", error);
+        sendResponse({ ok: false, error: error.message });
+    }
+}
+
+/**
+ * 🖼️ Merge iframe intelligence into main frame actionable elements
+ *
+ * @param {Array} mainElements - Main frame actionable elements
+ * @param {number} tabId - Tab ID to get iframe cache for
+ * @returns {Array} - Merged elements with iframe inputs added
+ */
+function mergeIframeIntelligence(mainElements, tabId) {
+    if (!iframeIntelligenceCache.has(tabId)) {
+        return { mergedElements: mainElements, iframeMappings: new Map() };
+    }
+
+    const tabIframeCache = iframeIntelligenceCache.get(tabId);
+    const mergedElements = [...mainElements];
+    let iframeElementsAdded = 0;
+
+    // Start IDs after main frame elements
+    let nextActionId = mainElements.length;
+
+    // Track ID mappings per iframe (for sending back to update DOM)
+    const iframeMappings = new Map();  // iframeUrl -> { localId: finalId, ... }
+
+    // Iterate through all iframe caches for this tab
+    for (const [iframeUrl, iframeData] of tabIframeCache.iframes) {
+        const { origin, frameId, elements } = iframeData;
+        const idMapping = {};  // localId -> finalId for this iframe
+
+        for (const el of elements) {
+            // Skip focus helpers and hidden inputs
+            if (el.localId?.includes('focus-helper') || el.type === 'hidden') {
+                continue;
+            }
+
+            // Assign final sequential ID
+            const finalId = `a_id_${nextActionId++}`;
+
+            // Track mapping: localId -> finalId
+            idMapping[el.localId] = finalId;
+
+            // Convert iframe element to actionable element format
+            const actionableElement = {
+                actionId: finalId,
+                localId: el.localId,  // Keep local ID for reference
+                tag: el.tag,
+                type: el.type,
+                text: el.displayName || el.label || el.placeholder || el.buttonText || '',
+                label: el.label,
+                placeholder: el.placeholder,
+                name: el.name,
+                domId: el.domId,
+                autocomplete: el.autocomplete,
+                isIframeElement: true,
+                iframeOrigin: origin,
+                iframeUrl: iframeUrl,
+                actionType: el.tag === 'button' ? 'click' :
+                           el.tag === 'select' ? 'select' : 'setValue'
+            };
+
+            mergedElements.push(actionableElement);
+            iframeElementsAdded++;
+        }
+
+        // Store mapping with frameId for sending update
+        iframeMappings.set(iframeUrl, { frameId, idMapping });
+    }
+
+    if (iframeElementsAdded > 0) {
+        console.log(`[SW] 🖼️ Merged ${iframeElementsAdded} iframe elements (IDs: a_id_${mainElements.length} to a_id_${nextActionId - 1})`);
+    }
+
+    return { mergedElements, iframeMappings };
+}
+
+/**
  * 🧠 Handle intelligence updates from content script
- * 
+ *
  * This function processes intelligence updates and forwards them to the server
  * for LLM consumption and storage.
- * 
+ *
  * @param {Object} message - Intelligence update message
  * @param {Function} sendResponse - Response callback
  */
@@ -1912,9 +2160,56 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
         intelligenceData.tabUrl = sourceTabUrl;
         intelligenceData.tabTitle = sourceTabTitle;
 
-        // 🆕 ENHANCED: Validate required fields
-        if (!intelligenceData.actionableElements || !Array.isArray(intelligenceData.actionableElements)) {
-            console.warn("[SW] ⚠️ Missing or invalid actionableElements in intelligence data");
+        // Get main frame actionables from semanticPageData
+        const mainFrameActionables = intelligenceData.semanticPageData?.actionables || [];
+        const originalCount = mainFrameActionables.length;
+
+        // 🖼️ MERGE IFRAME INTELLIGENCE: Add elements from cross-origin iframes
+        const { mergedElements, iframeMappings } = mergeIframeIntelligence(mainFrameActionables, sourceTabId);
+        intelligenceData.actionableElements = mergedElements;
+        const mergedCount = mergedElements.length;
+
+        if (mergedCount > originalCount) {
+            console.log(`[SW] 🖼️ Iframe merge: ${originalCount} → ${mergedCount} elements`);
+        }
+
+        // 🖼️ Update iframe DOM with final IDs - broadcast to ALL frames
+        if (iframeMappings && iframeMappings.size > 0) {
+            const allMappings = {};
+            for (const [iframeUrl, { idMapping }] of iframeMappings) {
+                if (Object.keys(idMapping).length > 0) {
+                    allMappings[iframeUrl] = idMapping;
+                }
+            }
+
+            if (Object.keys(allMappings).length > 0) {
+                try {
+                    await chrome.scripting.executeScript({
+                        target: { tabId: sourceTabId, allFrames: true },
+                        func: (mappings) => {
+                            const currentUrl = window.location.href;
+                            const mapping = mappings[currentUrl];
+                            if (!mapping) return 0;
+
+                            console.log('[Content] 🖼️ Updating iframe DOM with final IDs:', mapping);
+                            let updated = 0;
+                            for (const [localId, finalId] of Object.entries(mapping)) {
+                                const el = document.querySelector(`[data-ome-action-id="${localId}"]`);
+                                if (el) {
+                                    el.setAttribute('data-ome-action-id', finalId);
+                                    console.log(`[Content] 🖼️ Updated: ${localId} → ${finalId}`);
+                                    updated++;
+                                }
+                            }
+                            return updated;
+                        },
+                        args: [allMappings]
+                    });
+                    console.log(`[SW] 🖼️ Broadcast ID updates to all frames:`, Object.keys(allMappings));
+                } catch (err) {
+                    console.warn(`[SW] 🖼️ Failed to broadcast iframe updates:`, err.message);
+                }
+            }
         }
 
         // Forward intelligence update to server
@@ -1961,6 +2256,7 @@ async function handleExecuteLLMAction(message, sendResponse) {
         console.log("[SW] 🤖 Executing LLM action:", message.data);
 
         const { actionId, actionType, params } = message.data;
+        const isIframeElement = params?.isIframeElement === true;
 
         // 🆕 NEW: Set action in progress flag to prevent content script refresh
         actionInProgress = true;
@@ -1969,12 +2265,75 @@ async function handleExecuteLLMAction(message, sendResponse) {
         // Find the active tab to execute the action
         const activeTab = await findActiveTab();
         if (!activeTab) {
-            actionInProgress = false; // Clear flag on error
+            actionInProgress = false;
             sendResponse({ ok: false, error: "No active tab found" });
             return;
         }
 
-        // Send action execution command to content script
+        // 🖼️ IFRAME ELEMENT: Execute directly in iframes using scripting API
+        if (isIframeElement) {
+            console.log("[SW] 🖼️ Iframe element detected, executing in iframe context");
+            try {
+                const results = await chrome.scripting.executeScript({
+                    target: { tabId: activeTab.id, allFrames: true },
+                    func: (aId, aType, aParams) => {
+                        const el = document.querySelector(`[data-ome-action-id="${aId}"]`);
+                        if (!el) return { found: false };
+
+                        console.log(`[Content] 🖼️ Executing ${aType} on ${aId} in iframe:`, window.location.href);
+
+                        try {
+                            if (aType === 'click') {
+                                el.click();
+                                return { found: true, ok: true, action: 'click' };
+                            } else if (aType === 'setValue') {
+                                const value = aParams?.value || '';
+                                el.focus();
+                                el.value = value;
+                                el.dispatchEvent(new Event('input', { bubbles: true }));
+                                el.dispatchEvent(new Event('change', { bubbles: true }));
+
+                                if (aParams?.submit) {
+                                    const form = el.closest('form');
+                                    if (form) form.submit();
+                                    else el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+                                }
+                                return { found: true, ok: true, action: 'setValue', value: value };
+                            } else if (aType === 'focus') {
+                                el.focus();
+                                return { found: true, ok: true, action: 'focus' };
+                            }
+                            return { found: true, ok: false, error: `Unknown action type: ${aType}` };
+                        } catch (err) {
+                            return { found: true, ok: false, error: err.message };
+                        }
+                    },
+                    args: [actionId, actionType, params]
+                });
+
+                const successResult = results.find(r => r.result?.found && r.result?.ok);
+                if (successResult) {
+                    console.log("[SW] ✅ Iframe action executed successfully:", actionId);
+                    sendResponse({ ok: true, result: successResult.result });
+                    setTimeout(async () => {
+                        await requestScan(activeTab.id, activeTab.url, 'post_action');
+                    }, 1000);
+                    return;
+                }
+
+                actionInProgress = false;
+                sendResponse({ ok: false, error: `Iframe element not found: ${actionId}` });
+                return;
+
+            } catch (scriptError) {
+                console.error("[SW] ❌ Iframe scripting failed:", scriptError);
+                actionInProgress = false;
+                sendResponse({ ok: false, error: scriptError.message });
+                return;
+            }
+        }
+
+        // 🎯 MAIN FRAME: Use original content script message path
         const actionMessage = {
             type: "execute_action",
             data: {
@@ -1986,36 +2345,25 @@ async function handleExecuteLLMAction(message, sendResponse) {
 
         console.log("[SW] 📨 Sending execute_action message to content script:", actionMessage);
 
-        // Execute the action in the content script
         const response = await chrome.tabs.sendMessage(activeTab.id, actionMessage);
 
         if (response && response.ok) {
             console.log("[SW] ✅ LLM action executed successfully:", actionId);
-
             sendResponse({ ok: true, result: response.result });
 
-            // 🆕 NEW: Trigger rescan after action completes (1s delay for DOM changes)
             console.log("[SW] ⏳ Waiting 1 second before triggering post-action scan...");
             setTimeout(async () => {
                 await requestScan(activeTab.id, activeTab.url, 'post_action');
             }, 1000);
         } else {
             console.error("[SW] ❌ LLM action execution failed:", response?.error);
-
-            // 🆕 NEW: Clear action flag on failure
             actionInProgress = false;
-            console.log("[SW] 🔓 Action execution failed - clearing action flag");
-
             sendResponse({ ok: false, error: response?.error || "Action execution failed" });
         }
 
     } catch (error) {
         console.error("[SW] ❌ Error executing LLM action:", error);
-
-        // 🆕 NEW: Clear action flag on exception
         actionInProgress = false;
-        console.log("[SW] 🔓 Action execution exception - clearing action flag");
-
         sendResponse({ ok: false, error: error.message });
     }
 }
@@ -2731,6 +3079,14 @@ chrome.webNavigation.onCompleted.addListener((details) => {
         return;
     }
 
+    // 🖼️ Clear iframe cache on main frame navigation (new page = new iframes)
+    if (iframeIntelligenceCache.has(details.tabId)) {
+        iframeIntelligenceCache.delete(details.tabId);
+        console.log(`[SW] 🖼️ Cleared iframe cache for tab ${details.tabId} navigation`);
+    }
+    // 🖼️ Clear pending scan cache on navigation
+    pendingScanCache.delete(details.tabId);
+
     // Check if this was marked as a refresh by onCommitted
     const state = tabState.get(details.tabId) || {};
     const trigger = state.isRefresh ? "page_refresh" : "url_change";
@@ -2796,6 +3152,13 @@ chrome.tabs.onRemoved.addListener(async (tabId) => {
     console.log("[SW] Tab removed:", tabId);
     tabState.delete(tabId);
     tabScanState.delete(tabId);
+    // 🖼️ Clear iframe intelligence cache for closed tab
+    if (iframeIntelligenceCache.has(tabId)) {
+        iframeIntelligenceCache.delete(tabId);
+        console.log(`[SW] 🖼️ Cleared iframe cache for closed tab ${tabId}`);
+    }
+    // 🖼️ Clear pending scan cache for closed tab
+    pendingScanCache.delete(tabId);
     await sendActiveTabInfo();
     await sendTabsInfo();
     if (keepAlivePorts.size === 0) {

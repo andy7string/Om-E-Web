@@ -1,28 +1,42 @@
 {
-  "timestamp": 1764340256.887532,
+  "timestamp": 1764414751.178653,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 3,
     "active_tab": {
-      "id": 1138026524,
-      "url": "https://brighttreedigital.com.au/",
-      "title": "Local Web Design Adelaide | Bright Tree Digital",
-      "status": "loading"
+      "id": 1138026890,
+      "url": "https://account.ezyreg.sa.gov.au/account/payment-method.htm?payment-type=CREDIT&trolleySource=true",
+      "title": "EzyReg Account",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138026524,
-        "url": "https://brighttreedigital.com.au/",
-        "title": "Local Web Design Adelaide | Bright Tree Digital",
+        "id": 1138026890,
+        "url": "https://account.ezyreg.sa.gov.au/account/payment-method.htm?payment-type=CREDIT&trolleySource=true",
+        "title": "EzyReg Account",
         "active": true,
-        "status": "loading"
+        "status": "complete"
+      },
+      {
+        "id": 1138026894,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138026937,
+        "url": "https://en.wikipedia.org/w/index.php?search=this&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1",
+        "title": "this - Search results - Wikipedia",
+        "active": false,
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 61557.618423333,
+    "last_tabs_update": 49468.306230458,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "url": "https://account.ezyreg.sa.gov.au/account/payment-method.htm?payment-type=CREDIT&trolleySource=true",
+    "title": "EzyReg Account",
     "is_active_tab": true
   },
   "menu_structure": {
@@ -30,7 +44,8 @@
     "summary": {
       "total_menus": 0,
       "total_items": 0,
-      "navigation_links": 0
+      "navigation_links": 0,
+      "toggle_buttons": 0
     }
   },
   "page_state": {},
@@ -38,7 +53,8 @@
   "summary": {
     "total_menus": 0,
     "total_items": 0,
-    "navigation_links": 0
+    "navigation_links": 0,
+    "toggle_buttons": 0
   },
   "intelligence_version": "2.0",
   "transcripts": []

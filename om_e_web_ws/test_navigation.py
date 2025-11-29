@@ -24,10 +24,10 @@ Usage examples:
       python test_navigation.py --command capability --capability ZoomReset
 
   🔗 NAVIGATE: Click links
-      python test_navigation.py --command navigate --action-id a_id_0
+      python test_navigation.py --command navigate --action-id a_id_1
 
   👆 CLICK: Click buttons
-      python test_navigation.py --command click --action-id a_id_3
+      python test_navigation.py --command click --action-id a_id_11
 
   ✅ TOGGLE: Checkbox / Switch (set state directly via DOM API)
       python test_navigation.py --command llm --action-id a_id_2 --action-type toggle --value true
@@ -41,23 +41,25 @@ Usage examples:
       #   ↳ Check text.md for: <Radio id="a_id_X" selected="false" use="(a_id_X, toggle, true)">
 
   🎚️ SLIDER: Set range value
-      python test_navigation.py --command llm --action-id a_id_49 --action-type setValue --value "this is homie ome extension brother"
+      python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "this is homie ome extension brother"
       #   ↳ Sets slider to value (check min/max in text.md)
       #   ↳ Check text.md for: <Slider id="a_id_X" value="0" min="0" max="100" use="(a_id_X, setValue, number)">
 
   📝 INPUT: Type into text fields
       python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "claude"
-
-k for us" --submit
-      python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "claude" --submit
       #   ↳ Check text.md for: <Input id="a_id_X" use="(a_id_X, 'your text', submit:true)">
+
+  🖼️ IFRAME INPUT: Type into inputs inside cross-origin iframes (e.g., payment forms)
+      python test_navigation.py --command llm --action-id a_id_13 --action-type setValue --value "4111111111111111" --iframe
+      #   ↳ Check text.md for: <Input id="a_id_X" iframe="true" use="(a_id_X, 'your text', submit:true, iframe:true)">
+      #   ↳ The --iframe flag routes execution to the iframe context
 
   📋 SELECT: Dropdown selection
       python test_navigation.py --command llm --action-id a_id_5 --action-type setValue --value "Option Name"
       #   ↳ Check text.md for: <Select id="a_id_X" value="current" use="(a_id_X, select, 'option')">
 
   🤖 LLM AUTO: Let extension auto-detect action type
-      python test_navigation.py --command llm --action-id a_id_133
+      python test_navigation.py --command llm --action-id a_id_11
 
   📜 SCROLL: Page-by-page viewport scrolling (two methods)
       # Method 1: Using --command scroll
@@ -288,6 +290,8 @@ async def main():
                         help="Orb theme: kawaii (default), minimal, bliss")
     parser.add_argument("--params", dest="params_json", required=False,
                         help="JSON string of parameters (e.g., '{\"tabId\": 123, \"url\": \"https://example.com\"}')")
+    parser.add_argument("--iframe", dest="iframe", action="store_true",
+                        help="Target element is inside an iframe (routes to iframe execution context)")
 
     # -------- cheat sheet ----------------------------------------------------
     # --command llm (default):
@@ -363,6 +367,11 @@ async def main():
             params["submit"] = True
         elif args.no_submit:
             params["submit"] = False
+
+    # 🖼️ IFRAME: Add isIframeElement flag for iframe element routing
+    if args.iframe:
+        params["isIframeElement"] = True
+        print("🖼️ Iframe mode: action will execute in iframe context")
 
     if command_mode == "capability":
         # 🎯 PREMIUM: Execute a capability action (e.g., RetrieveTranscript)
