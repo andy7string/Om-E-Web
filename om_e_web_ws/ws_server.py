@@ -3229,7 +3229,11 @@ async def handler(ws):
 
                                     # 🖼️ IFRAME ELEMENTS: Append elements from cross-origin iframes
                                     iframe_elements = [el for el in actionable_elements if el.get('isIframeElement')]
+                                    pending_iframe_count = intelligence_data.get('pendingIframeCount', 0)
+                                    iframe_status = intelligence_data.get('iframeStatus', 'none')
+
                                     if iframe_elements:
+                                        # We have iframe elements - write them
                                         f.write("\n\n---\n\n")
                                         f.write("## Secure Iframe Elements\n\n")
                                         f.write("*These elements are inside secure cross-origin iframes (e.g., payment forms):*\n\n")
@@ -3250,6 +3254,14 @@ async def handler(ws):
                                                 f.write(f"<Input id=\"{action_id}\"{type_hint} iframe=\"true\" use=\"({action_id}, 'your text', submit:true, iframe:true)\">{text}</Input>\n")
 
                                         print(f"🖼️ Added {len(iframe_elements)} iframe elements to text.md")
+
+                                    elif pending_iframe_count > 0 and iframe_status == 'loading':
+                                        # 🚀 PROGRESSIVE: Iframes still loading - add placeholder
+                                        f.write("\n\n---\n\n")
+                                        f.write("## Secure Iframe Elements\n\n")
+                                        f.write(f"*⏳ Loading {pending_iframe_count} iframe(s)... (payment forms, embedded content)*\n\n")
+                                        f.write("*Iframe elements will appear here when loaded. Check back shortly.*\n")
+                                        print(f"🖼️ Added placeholder for {pending_iframe_count} pending iframes")
 
                                 print(f"✅ Text content saved to: {text_file_path}")
 
@@ -3305,6 +3317,72 @@ async def handler(ws):
 
                 except Exception as e:
                     print(f"❌ Error processing intelligence update: {e}")
+                    import traceback
+                    traceback.print_exc()
+
+            # 🚀 PROGRESSIVE: IFRAME ELEMENTS UPDATE - Append iframe elements to text.md
+            if msg.get("type") == "iframe_elements_update":
+                print("🖼️ Iframe elements update received")
+                try:
+                    iframe_elements = msg.get("iframeElements", [])
+                    iframe_count = msg.get("iframeCount", 0)
+
+                    if not iframe_elements:
+                        print("🖼️ No iframe elements in update")
+                        continue
+
+                    print(f"🖼️ Received {iframe_count} iframe elements, updating text.md...")
+
+                    # Read existing text.md
+                    text_file_path = os.path.join("@site_structures", "text.md")
+
+                    if not os.path.exists(text_file_path):
+                        print("⚠️ text.md doesn't exist yet, skipping iframe update")
+                        continue
+
+                    with open(text_file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                        content = f.read()
+
+                    # Build iframe section
+                    iframe_section = "\n\n---\n\n## Secure Iframe Elements\n\n"
+                    iframe_section += "*These elements are inside secure cross-origin iframes (e.g., payment forms):*\n\n"
+
+                    for el in iframe_elements:
+                        action_id = el.get('actionId', 'unknown')
+                        tag = el.get('tag', 'input')
+                        text = el.get('text') or el.get('label') or el.get('placeholder') or el.get('name') or 'Unnamed'
+                        el_type = el.get('type', '')
+
+                        if tag == 'button':
+                            iframe_section += f"<Button id=\"{action_id}\" iframe=\"true\">{text}</Button>\n"
+                        elif tag == 'select':
+                            iframe_section += f"<Select id=\"{action_id}\" iframe=\"true\">{text}</Select>\n"
+                        else:
+                            type_hint = f" type=\"{el_type}\"" if el_type else ""
+                            iframe_section += f"<Input id=\"{action_id}\"{type_hint} iframe=\"true\" use=\"({action_id}, 'your text', submit:true, iframe:true)\">{text}</Input>\n"
+
+                    # Check if there's a placeholder to replace
+                    placeholder_marker = "## Secure Iframe Elements"
+                    if placeholder_marker in content:
+                        # Find and replace the entire section (from marker to end or next major section)
+                        import re
+                        # Match from "## Secure Iframe Elements" to next "---" or "##" or end
+                        pattern = r'\n\n---\n\n## Secure Iframe Elements\n\n.*?(?=\n\n---\n\n## |\n\n---\n\n#|\Z)'
+                        content = re.sub(pattern, iframe_section, content, flags=re.DOTALL)
+                        print("🖼️ Replaced placeholder with actual iframe elements")
+                    else:
+                        # No placeholder - append to end
+                        content += iframe_section
+                        print("🖼️ Appended iframe elements to text.md")
+
+                    # Write updated content
+                    with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
+                        f.write(content)
+
+                    print(f"✅ Updated text.md with {iframe_count} iframe elements")
+
+                except Exception as e:
+                    print(f"❌ Error processing iframe elements update: {e}")
                     import traceback
                     traceback.print_exc()
 

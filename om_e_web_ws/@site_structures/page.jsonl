@@ -1,35 +1,28 @@
 {
-  "timestamp": 1764417023.909648,
+  "timestamp": 1764422199.744912,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138026894,
-      "url": "https://www.google.com/search?q=binary+beats+at+7.83+effects&sca_esv=3f36eaa053a30b56&sxsrf=AE3TifPwlPoh5_l_bSHcfjwtAC8CtMkadw%3A1764416977011&source=hp&ei=0N0qae_YO5zY1e8PxtqBoA4&iflsig=AOw8s4IAAAAAaSrr4UmQI0V6H5whZ9FZ3h5lFQS-YP6Z&aep=22&udm=50&ved=0ahUKEwjvgJi5pZeRAxUcbPUHHUZtAOQQteYPCBM&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mstk=AUtExfC6I5LugG3cdPyGIrjD-BwZ2FJTlUESXnVoEcSRm2bAUOlAvnS8A42UNQsL2mzercJoefHDRZ6botHII-J9B4YEma58XDn8kl-63SUnSOFweR1y_JeM3wCnzoqctq6HUcY0SfRU6m3Jr2g1-Rh4TypICKZUvNIanCw6BFcZj3oa9sDC4Eef3KwXRCD__VR3SZpwpQC-AtavQWJF2vz0qo_kmFYaAd1GAFwVSVzkggizpsxMrX3gBpd5_VZ-KFNnOn3_50mG8I6YIYBx2DMZI4lYQ4JwhO0LTlA&csuir=1&mtid=-d0qafulFauTseMPucWx2QU",
-      "title": "binary beats at 7.83 effects - Google Search",
-      "status": "complete"
+      "id": 1138027191,
+      "url": "https://www.google.com/",
+      "title": "Google",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138026894,
-        "url": "https://www.google.com/search?q=binary+beats+at+7.83+effects&sca_esv=3f36eaa053a30b56&sxsrf=AE3TifPwlPoh5_l_bSHcfjwtAC8CtMkadw%3A1764416977011&source=hp&ei=0N0qae_YO5zY1e8PxtqBoA4&iflsig=AOw8s4IAAAAAaSrr4UmQI0V6H5whZ9FZ3h5lFQS-YP6Z&aep=22&udm=50&ved=0ahUKEwjvgJi5pZeRAxUcbPUHHUZtAOQQteYPCBM&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mstk=AUtExfC6I5LugG3cdPyGIrjD-BwZ2FJTlUESXnVoEcSRm2bAUOlAvnS8A42UNQsL2mzercJoefHDRZ6botHII-J9B4YEma58XDn8kl-63SUnSOFweR1y_JeM3wCnzoqctq6HUcY0SfRU6m3Jr2g1-Rh4TypICKZUvNIanCw6BFcZj3oa9sDC4Eef3KwXRCD__VR3SZpwpQC-AtavQWJF2vz0qo_kmFYaAd1GAFwVSVzkggizpsxMrX3gBpd5_VZ-KFNnOn3_50mG8I6YIYBx2DMZI4lYQ4JwhO0LTlA&csuir=1&mtid=-d0qafulFauTseMPucWx2QU",
-        "title": "binary beats at 7.83 effects - Google Search",
+        "id": 1138027191,
+        "url": "https://www.google.com/",
+        "title": "Google",
         "active": true,
-        "status": "complete"
-      },
-      {
-        "id": 1138026963,
-        "url": "https://chatgpt.com/",
-        "title": "ChatGPT",
-        "active": false,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 51742.7170005,
+    "last_tabs_update": 56914.15321875,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/search?q=binary+beats+at+7.83+effects&sca_esv=3f36eaa053a30b56&sxsrf=AE3TifPwlPoh5_l_bSHcfjwtAC8CtMkadw%3A1764416977011&source=hp&ei=0N0qae_YO5zY1e8PxtqBoA4&iflsig=AOw8s4IAAAAAaSrr4UmQI0V6H5whZ9FZ3h5lFQS-YP6Z&aep=22&udm=50&ved=0ahUKEwjvgJi5pZeRAxUcbPUHHUZtAOQQteYPCBM&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mstk=AUtExfC6I5LugG3cdPyGIrjD-BwZ2FJTlUESXnVoEcSRm2bAUOlAvnS8A42UNQsL2mzercJoefHDRZ6botHII-J9B4YEma58XDn8kl-63SUnSOFweR1y_JeM3wCnzoqctq6HUcY0SfRU6m3Jr2g1-Rh4TypICKZUvNIanCw6BFcZj3oa9sDC4Eef3KwXRCD__VR3SZpwpQC-AtavQWJF2vz0qo_kmFYaAd1GAFwVSVzkggizpsxMrX3gBpd5_VZ-KFNnOn3_50mG8I6YIYBx2DMZI4lYQ4JwhO0LTlA&csuir=1&mtid=-d0qafulFauTseMPucWx2QU",
-    "title": "binary beats at 7.83 effects - Google Search",
+    "url": "https://www.google.com/",
+    "title": "Google",
     "is_active_tab": true
   },
   "menu_structure": {

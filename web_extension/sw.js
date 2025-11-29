@@ -307,7 +307,7 @@ async function connectWebSocket() {
                     sendHeartbeat("onopen");
                 } else {
                     console.warn("[SW] WebSocket not ready after delay, retrying…");
-                    setTimeout(connectWebSocket, 500);
+                    setTimeout(connectWebSocket, 50);  // 🚀 Reduced from 500ms to 50ms
                 }
             }, 100); // Small delay to ensure WebSocket is ready
         };
@@ -325,8 +325,8 @@ async function connectWebSocket() {
             });
             isConnected = false;
 
-            // Attempt to reconnect after a delay
-            setTimeout(connectWebSocket, 1000);
+            // 🚀 Reduced reconnect delay from 1000ms to 100ms
+            setTimeout(connectWebSocket, 100);
         };
 
         ws.onerror = (error) => {
@@ -335,8 +335,8 @@ async function connectWebSocket() {
 
     } catch (error) {
         console.error("[SW] Failed to connect:", error);
-        // Retry connection after delay
-        setTimeout(connectWebSocket, 1000);
+        // 🚀 Reduced reconnect delay from 1000ms to 100ms
+        setTimeout(connectWebSocket, 100);
     }
 }
 
@@ -650,18 +650,31 @@ function handleScanComplete(message, sender) {
 
     console.log(`[SW] 🖼️ Expecting ${expectedIframeCount} iframe reports for tab ${tabId}`);
 
-    if (expectedIframeCount === 0) {
-        // No iframes - send immediately
-        sendFinalIntelligence(tabId, intelligenceData);
-    } else {
-        // Store and wait for iframes to report
+    // 🚀 PROGRESSIVE OUTPUT: Always send main frame data immediately
+    // Don't block LLM waiting for iframes - send what we have now
+    sendMainFrameIntelligence(tabId, intelligenceData, expectedIframeCount);
+
+    if (expectedIframeCount > 0) {
+        // Store for iframe merging when they arrive
         pendingScanCache.set(tabId, {
             intelligenceData: intelligenceData,
             expectedIframeCount: expectedIframeCount,
             receivedIframeCount: 0,
-            timestamp: Date.now()
+            timestamp: Date.now(),
+            mainFrameSent: true  // Track that main frame already sent
         });
-        console.log(`[SW] 🖼️ Waiting for ${expectedIframeCount} iframes to report...`);
+        console.log(`[SW] 🖼️ Main frame sent, waiting for ${expectedIframeCount} iframes...`);
+
+        // 🕐 TIMEOUT: Don't wait forever for iframes - send update after 5s regardless
+        setTimeout(() => {
+            if (pendingScanCache.has(tabId)) {
+                const pending = pendingScanCache.get(tabId);
+                if (pending.receivedIframeCount < pending.expectedIframeCount) {
+                    console.log(`[SW] ⏰ Iframe timeout: got ${pending.receivedIframeCount}/${pending.expectedIframeCount}, sending partial`);
+                    sendIframeUpdate(tabId, pending.intelligenceData);
+                }
+            }
+        }, 5000);
     }
 }
 
@@ -734,6 +747,118 @@ async function sendFinalIntelligence(tabId, intelligenceData) {
         data: intelligenceData
     }));
     console.log(`[SW] 📤 Intelligence sent to server (${mergedCount} elements)`);
+
+    // Clear pending cache
+    pendingScanCache.delete(tabId);
+}
+
+/**
+ * 🚀 PROGRESSIVE OUTPUT: Send main frame intelligence immediately
+ * Don't wait for iframes - LLM gets data faster
+ *
+ * @param {number} tabId - Tab ID
+ * @param {Object} intelligenceData - Main frame intelligence data
+ * @param {number} pendingIframeCount - Number of iframes we're still waiting for
+ */
+async function sendMainFrameIntelligence(tabId, intelligenceData, pendingIframeCount) {
+    if (!ws || ws.readyState !== WebSocket.OPEN) {
+        console.warn(`[SW] ⚠️ WebSocket not ready, cannot send main frame intelligence`);
+        return;
+    }
+
+    // Get main frame actionables (no iframe merge yet)
+    const mainFrameActionables = intelligenceData.semanticPageData?.actionables || [];
+    intelligenceData.actionableElements = mainFrameActionables;
+
+    // 🚀 Add pending iframe count so Python knows more data is coming
+    intelligenceData.pendingIframeCount = pendingIframeCount;
+    intelligenceData.iframeStatus = pendingIframeCount > 0 ? 'loading' : 'none';
+
+    ws.send(JSON.stringify({
+        type: 'intelligence_update',
+        data: intelligenceData
+    }));
+    console.log(`[SW] 📤 Main frame sent (${mainFrameActionables.length} elements, ${pendingIframeCount} iframes pending)`);
+}
+
+/**
+ * 🖼️ PROGRESSIVE OUTPUT: Send iframe elements update
+ * Called when iframes report in OR after timeout
+ *
+ * @param {number} tabId - Tab ID
+ * @param {Object} intelligenceData - Original intelligence data (for context)
+ */
+async function sendIframeUpdate(tabId, intelligenceData) {
+    if (!ws || ws.readyState !== WebSocket.OPEN) {
+        console.warn(`[SW] ⚠️ WebSocket not ready, cannot send iframe update`);
+        return;
+    }
+
+    // Get main frame actionables to calculate starting ID
+    const mainFrameActionables = intelligenceData.semanticPageData?.actionables || [];
+
+    // Merge iframe elements and get ID mappings
+    const { mergedElements, iframeMappings } = mergeIframeIntelligence(
+        mainFrameActionables,
+        tabId
+    );
+
+    // Extract just the iframe elements (those added beyond main frame)
+    const iframeElements = mergedElements.slice(mainFrameActionables.length);
+
+    if (iframeElements.length === 0) {
+        console.log(`[SW] 🖼️ No iframe elements to send`);
+        pendingScanCache.delete(tabId);
+        return;
+    }
+
+    // 🆕 Update iframe DOM with final IDs - broadcast to ALL frames
+    if (iframeMappings.size > 0) {
+        const allMappings = {};
+        for (const [iframeUrl, { idMapping }] of iframeMappings) {
+            if (Object.keys(idMapping).length > 0) {
+                allMappings[iframeUrl] = idMapping;
+            }
+        }
+
+        if (Object.keys(allMappings).length > 0) {
+            try {
+                await chrome.scripting.executeScript({
+                    target: { tabId: tabId, allFrames: true },
+                    func: (mappings) => {
+                        const currentUrl = window.location.href;
+                        const mapping = mappings[currentUrl];
+                        if (!mapping) return 0;
+
+                        console.log('[Content] 🖼️ Updating iframe DOM with final IDs:', mapping);
+                        let updated = 0;
+                        for (const [localId, finalId] of Object.entries(mapping)) {
+                            const el = document.querySelector(`[data-ome-action-id="${localId}"]`);
+                            if (el) {
+                                el.setAttribute('data-ome-action-id', finalId);
+                                updated++;
+                            }
+                        }
+                        return updated;
+                    },
+                    args: [allMappings]
+                });
+                console.log(`[SW] 🖼️ Broadcast ID updates to all frames`);
+            } catch (err) {
+                console.warn(`[SW] 🖼️ Failed to broadcast iframe updates:`, err.message);
+            }
+        }
+    }
+
+    // 🚀 Send iframe update message (separate from main intelligence)
+    ws.send(JSON.stringify({
+        type: 'iframe_elements_update',
+        tabId: tabId,
+        iframeElements: iframeElements,
+        iframeCount: iframeElements.length,
+        timestamp: Date.now()
+    }));
+    console.log(`[SW] 📤 Iframe update sent (${iframeElements.length} elements)`);
 
     // Clear pending cache
     pendingScanCache.delete(tabId);
@@ -1175,6 +1300,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             case 'iframe_intelligence':
                 // 🖼️ Store iframe intelligence for merging with main frame
                 handleIframeIntelligence(message, sender, sendResponse);
+                break;
+            case 'dynamic_iframe_detected':
+                // 🖼️ Dynamic iframe added to DOM after initial scan
+                handleDynamicIframeDetected(message, sender, sendResponse);
+                break;
+            case 'dynamic_iframe_loaded':
+                // 🖼️ Dynamic iframe finished loading
+                handleDynamicIframeLoaded(message, sender, sendResponse);
                 break;
             case 'scan_complete':
                 handleScanComplete(message, sender);
@@ -2014,10 +2147,11 @@ function handleIframeIntelligence(message, sender, sendResponse) {
             pending.receivedIframeCount++;
             console.log(`[SW] 🖼️ Iframe ${pending.receivedIframeCount}/${pending.expectedIframeCount} received`);
 
-            // All iframes reported - assign final IDs and send
+            // All iframes reported - send iframe update (main frame already sent)
             if (pending.receivedIframeCount >= pending.expectedIframeCount) {
-                console.log(`[SW] 🖼️ All ${pending.expectedIframeCount} iframes received, assigning final IDs`);
-                sendFinalIntelligence(tabId, pending.intelligenceData);
+                console.log(`[SW] 🖼️ All ${pending.expectedIframeCount} iframes received, sending iframe update`);
+                // 🚀 PROGRESSIVE: Main frame already sent, now send iframe elements
+                sendIframeUpdate(tabId, pending.intelligenceData);
             }
         }
 
@@ -2028,6 +2162,90 @@ function handleIframeIntelligence(message, sender, sendResponse) {
         sendResponse({ ok: false, error: error.message });
     }
 }
+
+/**
+ * 🖼️ Handle dynamic iframe detected after initial scan
+ * CyberSource, Stripe, etc. create iframes via JS after page loads
+ *
+ * @param {Object} message - Message with iframe info
+ * @param {Object} sender - Message sender info
+ * @param {Function} sendResponse - Response callback
+ */
+function handleDynamicIframeDetected(message, sender, sendResponse) {
+    const tabId = sender.tab?.id;
+    if (!tabId) {
+        sendResponse({ ok: false, error: 'No tab context' });
+        return;
+    }
+
+    const { iframeSrc } = message;
+    console.log(`[SW] 🖼️ Dynamic iframe detected in tab ${tabId}:`, iframeSrc);
+
+    // Track dynamic iframes we're expecting
+    if (!dynamicIframeTracking) {
+        dynamicIframeTracking = new Map();
+    }
+
+    if (!dynamicIframeTracking.has(tabId)) {
+        dynamicIframeTracking.set(tabId, {
+            iframes: new Set(),
+            timestamp: Date.now()
+        });
+    }
+
+    const tracking = dynamicIframeTracking.get(tabId);
+    tracking.iframes.add(iframeSrc);
+    tracking.timestamp = Date.now();
+
+    console.log(`[SW] 🖼️ Now tracking ${tracking.iframes.size} dynamic iframe(s) for tab ${tabId}`);
+
+    // Set a timeout to send iframe update if we don't receive intelligence in time
+    setTimeout(() => {
+        if (dynamicIframeTracking.has(tabId)) {
+            const stillTracking = dynamicIframeTracking.get(tabId);
+            if (stillTracking.iframes.has(iframeSrc)) {
+                console.log(`[SW] ⏰ Dynamic iframe timeout for ${iframeSrc}, checking for cached intelligence`);
+                // Check if we have cached iframe intelligence to send
+                if (iframeIntelligenceCache.has(tabId) && pendingScanCache.has(tabId)) {
+                    const pending = pendingScanCache.get(tabId);
+                    sendIframeUpdate(tabId, pending.intelligenceData);
+                }
+            }
+        }
+    }, 5000);
+
+    sendResponse({ ok: true, tracking: true });
+}
+
+/**
+ * 🖼️ Handle dynamic iframe finished loading
+ *
+ * @param {Object} message - Message with iframe info
+ * @param {Object} sender - Message sender info
+ * @param {Function} sendResponse - Response callback
+ */
+function handleDynamicIframeLoaded(message, sender, sendResponse) {
+    const tabId = sender.tab?.id;
+    if (!tabId) {
+        sendResponse({ ok: false, error: 'No tab context' });
+        return;
+    }
+
+    const { iframeSrc } = message;
+    console.log(`[SW] 🖼️ Dynamic iframe loaded in tab ${tabId}:`, iframeSrc);
+
+    // Remove from tracking (it should report its intelligence soon)
+    if (dynamicIframeTracking?.has(tabId)) {
+        const tracking = dynamicIframeTracking.get(tabId);
+        tracking.iframes.delete(iframeSrc);
+        console.log(`[SW] 🖼️ Removed from tracking, ${tracking.iframes.size} iframe(s) remaining`);
+    }
+
+    sendResponse({ ok: true });
+}
+
+// Track dynamically detected iframes
+let dynamicIframeTracking = null;
 
 /**
  * 🖼️ Merge iframe intelligence into main frame actionable elements

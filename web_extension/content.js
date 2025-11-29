@@ -165,13 +165,13 @@
             port.onDisconnect.addListener(() => {
                 console.warn("[Content] ⚠️ Keep-alive port disconnected, retrying…");
                 window.__omeKeepAlivePort = null;
-                setTimeout(ensureKeepAlivePortConnection, 500);
+                setTimeout(ensureKeepAlivePortConnection, 50);  // 🚀 Reduced from 500ms to 50ms
             });
 
             console.log("[Content] 🔌 Keep-alive port established");
         } catch (error) {
             console.error("[Content] ❌ Failed to establish keep-alive port:", error);
-            setTimeout(ensureKeepAlivePortConnection, 1000);
+            setTimeout(ensureKeepAlivePortConnection, 100);  // 🚀 Reduced from 1000ms to 100ms
         }
     }
 
@@ -699,6 +699,80 @@
             scheduleInitialScan('fallback_timeout');
         }
     }, 4000);
+
+    // ============================================================================
+    // 🖼️ DYNAMIC IFRAME DETECTION - Watch for iframes added after initial scan
+    // ============================================================================
+    // CyberSource, Stripe, etc. often create iframes dynamically via JavaScript
+    // AFTER the main scan completes. This observer catches those late additions.
+    const dynamicIframeObserver = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            if (mutation.type !== 'childList') continue;
+
+            for (const node of mutation.addedNodes) {
+                // Check if it's an iframe
+                if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'IFRAME') {
+                    const iframeSrc = node.src || node.getAttribute('src') || '';
+                    const iframeOrigin = iframeSrc ? new URL(iframeSrc, window.location.origin).origin : '';
+
+                    // Skip same-origin iframes (we can access those directly)
+                    if (iframeOrigin && iframeOrigin !== window.location.origin) {
+                        console.log(`[Content] 🖼️ Dynamic cross-origin iframe detected:`, iframeSrc);
+
+                        // Notify SW that a new iframe was added
+                        chrome.runtime.sendMessage({
+                            type: 'dynamic_iframe_detected',
+                            iframeSrc: iframeSrc,
+                            iframeOrigin: iframeOrigin,
+                            timestamp: Date.now()
+                        }, (response) => {
+                            if (chrome.runtime.lastError) {
+                                console.warn('[Content] 🖼️ Failed to notify SW of dynamic iframe:', chrome.runtime.lastError);
+                            } else {
+                                console.log('[Content] 🖼️ SW notified of dynamic iframe:', response);
+                            }
+                        });
+
+                        // Also listen for the iframe's load event
+                        node.addEventListener('load', () => {
+                            console.log(`[Content] 🖼️ Dynamic iframe loaded:`, iframeSrc);
+                            chrome.runtime.sendMessage({
+                                type: 'dynamic_iframe_loaded',
+                                iframeSrc: iframeSrc,
+                                iframeOrigin: iframeOrigin,
+                                timestamp: Date.now()
+                            });
+                        }, { once: true });
+                    }
+                }
+
+                // Also check children of added nodes (for nested additions)
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    const nestedIframes = node.querySelectorAll?.('iframe') || [];
+                    for (const iframe of nestedIframes) {
+                        const src = iframe.src || '';
+                        const origin = src ? new URL(src, window.location.origin).origin : '';
+                        if (origin && origin !== window.location.origin) {
+                            console.log(`[Content] 🖼️ Nested dynamic iframe detected:`, src);
+                            chrome.runtime.sendMessage({
+                                type: 'dynamic_iframe_detected',
+                                iframeSrc: src,
+                                iframeOrigin: origin,
+                                timestamp: Date.now()
+                            });
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Start observing for dynamic iframes
+    dynamicIframeObserver.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+    });
+    console.log('[Content] 🖼️ Dynamic iframe observer started');
 
     // 🆕 NEW: Function to wait for page to settle before scanning
     function scanWhenPageSettles(scanFn, options = {}) {
@@ -12240,32 +12314,27 @@
             .ome-hud-hint { font-size: 12px; color: #4b5563; margin-top: 16px; }
             .ome-hud-hint kbd { display: inline-block; padding: 2px 6px; background: rgba(255,255,255,0.1); border-radius: 4px; font-family: monospace; font-size: 11px; color: #9ca3af; }
 
-            /* ⬆️⬇️⬅️➡️ Scroll Controls (right side of orb, cross pattern) */
+            /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - same size as Z) */
             .ome-scroll-controls {
                 position: absolute;
-                right: -62px;
+                right: -54px;
                 top: 50%;
                 transform: translateY(-50%);
-                display: grid;
-                grid-template-columns: 14px auto 14px;
-                grid-template-rows: 14px auto 14px;
-                gap: 1px;
+                display: flex;
+                flex-direction: column;
                 align-items: center;
-                justify-items: center;
+                gap: 4px;
             }
-            .ome-scroll-up { grid-column: 2; grid-row: 1; }
-            .ome-scroll-left { grid-column: 1; grid-row: 2; }
-            .ome-scroll-label { grid-column: 2; grid-row: 2; }
-            .ome-scroll-right { grid-column: 3; grid-row: 2; }
-            .ome-scroll-down { grid-column: 2; grid-row: 3; }
-            .ome-scroll-label {
-                font-size: 5px;
-                font-weight: 600;
-                letter-spacing: 0.3px;
-                opacity: 0.5;
-                text-transform: uppercase;
-                cursor: default;
-                user-select: none;
+            /* Arrow buttons - 36x36 to match Z visual size */
+            .ome-scroll-controls .ome-ctrl-btn {
+                width: 36px;
+                height: 36px;
+                border-width: 3px;
+            }
+            .ome-scroll-controls .ome-ctrl-btn svg {
+                width: 18px;
+                height: 18px;
+                stroke-width: 3;
             }
             /* 💬 Prompt Button (between orb and zoom) */
             .ome-prompt-btn {
@@ -12295,7 +12364,7 @@
             /* 🔍 Zoom Controls (bottom of orb, below prompt) */
             .ome-zoom-controls {
                 position: absolute;
-                bottom: -42px;
+                bottom: -64px;
                 left: 50%;
                 transform: translateX(-50%);
                 display: flex;
@@ -12321,6 +12390,12 @@
                 color: currentColor;
                 line-height: 1;
             }
+            .ome-zoom-controls .ome-ctrl-btn {
+                width: 28px;
+                height: 28px;
+                border-width: 3px;
+                font-size: 16px;
+            }
             .ome-ctrl-btn:hover { opacity: 1; transform: scale(1.2); }
             .ome-ctrl-btn:active { transform: scale(0.9); }
             .ome-ctrl-btn svg { width: 8px; height: 8px; stroke: currentColor; stroke-width: 2.5; fill: none; }
@@ -12330,15 +12405,22 @@
                 100% { background: transparent; transform: scale(1); }
             }
             .ome-zoom-label {
-                font-size: 6px;
-                font-weight: 600;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 3px solid currentColor;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 700;
                 letter-spacing: 0.5px;
-                opacity: 0.5;
+                opacity: 0.8;
                 cursor: pointer;
-                transition: opacity 0.15s ease;
-                text-transform: uppercase;
+                transition: opacity 0.15s ease, transform 0.15s ease;
+                text-transform: none;
             }
-            .ome-zoom-label:hover { opacity: 1; }
+            .ome-zoom-label:hover { opacity: 1; transform: scale(1.08); }
 
             /* 🎨 Theme Selector */
             .ome-theme-section { margin-top: 24px; width: 100%; max-width: 400px; }
@@ -12541,15 +12623,12 @@
         const scrollHTML = `
             <div class="ome-scroll-controls" style="color: ${theme.color}">
                 <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
-                <button class="ome-ctrl-btn ome-scroll-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
-                <span class="ome-scroll-label">Scroll</span>
-                <button class="ome-ctrl-btn ome-scroll-right"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
                 <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
             </div>`;
         const zoomHTML = `
             <div class="ome-zoom-controls" style="color: ${theme.color}">
                 <button class="ome-ctrl-btn ome-zoom-in">+</button>
-                <span class="ome-zoom-label ome-zoom-reset">Zoom</span>
+                <span class="ome-zoom-label ome-zoom-reset">Z</span>
                 <button class="ome-ctrl-btn ome-zoom-out">−</button>
             </div>`;
 
@@ -12679,15 +12758,12 @@
         const scrollHTML = `
             <div class="ome-scroll-controls" style="color: ${theme.color}">
                 <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
-                <button class="ome-ctrl-btn ome-scroll-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
-                <span class="ome-scroll-label">Scroll</span>
-                <button class="ome-ctrl-btn ome-scroll-right"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
                 <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
             </div>`;
         const zoomHTML = `
             <div class="ome-zoom-controls" style="color: ${theme.color}">
                 <button class="ome-ctrl-btn ome-zoom-in">+</button>
-                <span class="ome-zoom-label ome-zoom-reset">Zoom</span>
+                <span class="ome-zoom-label ome-zoom-reset">Z</span>
                 <button class="ome-ctrl-btn ome-zoom-out">−</button>
             </div>`;
 

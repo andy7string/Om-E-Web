@@ -1,9 +1,9 @@
-# binary beats at 7.83 effects - Google Search
+# Google
 
-**URL:** https://www.google.com/search?q=binary+beats+at+7.83+effects&sca_esv=3f36eaa053a30b56&sxsrf=AE3TifPwlPoh5_l_bSHcfjwtAC8CtMkadw%3A1764416977011&source=hp&ei=0N0qae_YO5zY1e8PxtqBoA4&iflsig=AOw8s4IAAAAAaSrr4UmQI0V6H5whZ9FZ3h5lFQS-YP6Z&aep=22&udm=50&ved=0ahUKEwjvgJi5pZeRAxUcbPUHHUZtAOQQteYPCBM&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz&mstk=AUtExfC6I5LugG3cdPyGIrjD-BwZ2FJTlUESXnVoEcSRm2bAUOlAvnS8A42UNQsL2mzercJoefHDRZ6botHII-J9B4YEma58XDn8kl-63SUnSOFweR1y_JeM3wCnzoqctq6HUcY0SfRU6m3Jr2g1-Rh4TypICKZUvNIanCw6BFcZj3oa9sDC4Eef3KwXRCD__VR3SZpwpQC-AtavQWJF2vz0qo_kmFYaAd1GAFwVSVzkggizpsxMrX3gBpd5_VZ-KFNnOn3_50mG8I6YIYBx2DMZI4lYQ4JwhO0LTlA&csuir=1&mtid=-d0qafulFauTseMPucWx2QU
-**Timestamp:** 2025-11-29 22:20:23
+**URL:** https://www.google.com/
+**Timestamp:** 2025-11-29 23:46:39
 
-**Tabs (2):** Active: #1138026894 "binary beats at 7.83 effects -" www.google.com [complete] | Other: #1138026963 "ChatGPT" chatgpt.com
+**Tabs (1):** Active: #1138027191 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -65,83 +65,223 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<style>table,div,span,p{display:none}</style><meta content="0;url=/httpservice/retry/enablejs?sei=1t0qaemjIfbU1e8P0NObsQQ" http-equiv="refresh"><div style="display:block">Please click <a href="/httpservice/retry/enablejs?sei=1t0qaemjIfbU1e8P0NObsQQ">here</a> if you are not redirected within a few seconds.</div>
-Accessibility links
-<Link id="a_id_0">Skip to main content</Link>
-<Link id="a_id_1">Accessibility help</Link>
-<Link id="a_id_2">Accessibility feedback</Link>
-<Link id="a_id_3">Go to Google Home</Link>
-Filters and topics
-<Link id="a_id_4">AI Mode</Link>
-<Link id="a_id_5">All</Link>
-<Link id="a_id_6">Images</Link>
-<Link id="a_id_7">Videos</Link>
-<Link id="a_id_8">News</Link>
-<Button id="a_id_9">More</Button>
-<Button id="a_id_10">Google apps</Button>
-<Button id="a_id_11">Google Account: Andrew Orsmond
+Google Search homepage
+<Link id="a_id_0">Gmail</Link>
+<Link id="a_id_1">Search for Images</Link>
+<Button id="a_id_2">Google apps</Button>
+<Button id="a_id_3">Google Account: Andrew Orsmond
 (andreworsmond21175@gmail.com)</Button>
-<Button id="a_id_12">Start new search</Button>
-<Button id="a_id_13">Open AI Mode history</Button>
-binary beats at 7.83 effects
-Binaural beats at 7.83 Hz are associated with the Earth's natural resonant frequency, the
-Schumann Resonance
-, and are claimed to induce a variety of physical and psychological benefits by
-promoting brainwave entrainment in the alpha/theta range
-.
-<Button id="a_id_14">View related links</Button>
-🧠 Effects on the Brain and Mind
-Enhanced Relaxation and Reduced Stress:
-This frequency is widely linked to deep relaxation, helping to lower stress and anxiety levels.
-Improved Cognitive Function:
-Users may experience enhanced learning abilities, memory, focus, and mental clarity.
-Meditation and Creativity:
-The 7.83 Hz frequency falls between the alpha (relaxed focus) and theta (meditative/creative states) brainwave ranges, potentially aiding meditation practices and fostering creativity.
-Emotional Balance and Mood:
-Listening to this frequency is suggested to stabilize mood, promote positive emotions, and improve resilience to anxiety.
-<Button id="a_id_15">View related links</Button>
-🧘‍♀️ Physical and Spiritual Well-being
-Grounding and Balance:
-The sound is often used in practices aimed at connecting with nature, promoting a sense of grounding, and harmonizing the body's natural rhythms with the Earth's pulse.
-Improved Sleep:
-This frequency may contribute to better sleep quality and help manage insomnia by promoting a deep state of relaxation.
-Physical Healing and Rejuvenation:
-Some proponents suggest links to cellular regeneration, physical recovery, and improved immune system function.
-<Button id="a_id_16">View related links</Button>
-⚠️ Important Considerations
-Headphones are necessary:
-For the binaural beat effect to work, you must listen with headphones, as slightly different frequencies are played in each ear to create the perceived 7.83 Hz tone in the brain.
-Consult a professional:
-While generally considered safe, individuals with epilepsy or other neurological conditions should consult a doctor before using binaural beats.
-Volume control:
-Ensure the volume is at a comfortable level to prevent potential noise-induced hearing loss from prolonged exposure.
-Scientific basis:
-While many studies suggest positive effects, the field is still emerging, and more research is needed to fully understand the effects.
-<Button id="a_id_17">View related links</Button>
-AI can make mistakes, so double-check responses
-<Button id="a_id_18">Share</Button>
-<Button id="a_id_19">Positive feedback</Button>
-<Button id="a_id_20">Negative feedback</Button>
-<Button id="a_id_21">8 sites</Button>
-<Button id="a_id_22">About this result</Button>
-<Link id="a_id_23">The Overview Effect & Schumann Resonance: What Do They Do to a ...</Link>
-The Overview Effect & Schumann Resonance: What Do They Do to a ...
-His description of the Earth as a “precious little spot” emphasizes the importance of preserving our planet and cherishing its uni...
-www.inspiredperformanceinstitute.com
-<Button id="a_id_24">About this result</Button>
-<Link id="a_id_25">Binaural Beats: Sleep, Therapy, and Meditation - Healthline</Link>
-Binaural Beats: Sleep, Therapy, and Meditation - Healthline
-27 Mar 2023 — What health benefits are binaural beats claimed to have? Binaural beats are claimed to induce the same mental state ass...
-Healthline
-<Button id="a_id_26">About this result</Button>
-<Link id="a_id_27">Schumann Resonance and Its Effect on the Human Body</Link>
-Schumann Resonance and Its Effect on the Human Body
-2 Oct 2025 — At what frequency does the Earth vibrate? The Earth's vibrations occur at an established frequency – approximately 7.83 ...
-www.altimed.net
-<Button id="a_id_28">About this result</Button>
-<Button id="a_id_29">Show all related links</Button>
-<Input id="a_id_30" use="(a_id_30, 'your text', submit:true)">Ask anything</Input>
-<Button id="a_id_31">More input options</Button>
-<Button id="a_id_32">Microphone</Button>
-Search Results
-AI Mode response is ready
+<Select id="a_id_4" value="" use="(a_id_4, select, 'option')">Search</Select>
+<Button id="a_id_5">Search by voice</Button>
+<Button id="a_id_6">Search by image</Button>
+<Button id="a_id_7">AI Mode</Button>
+<Button id="a_id_8">Google Search</Button>
+<Button id="a_id_9">I'm Feeling Lucky</Button>
+Accessibility links
+<Link id="a_id_10">Skip to Discover feed</Link>
+<Link id="a_id_11">Skip to sidebar</Link>
+<Link id="a_id_12">Skip to footer</Link>
+<Link id="a_id_13">Accessibility help</Link>
+<Link id="a_id_14">Accessibility feedback</Link>
+Discover
+<Link id="a_id_15">Earth from Space: Eye of the Sahara
+The Copernicus Sentinel-2 mission captures a spectacular geological wonder in the Sahara Desert of Mauritania: the Richat Structure.
+European Space Agency
+·
+1d</Link>
+<Button id="a_id_16">More options</Button>
+<Link id="a_id_17">Shock data exposes how many homes typical earners can actually afford
+Rate cuts were supposed to make it easier for Aussie homeowners, but new data shows exactly the opposite has happened.
+Real Estate
+·
+1d</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Chinese particle detector tests 'portal to physics beyond the Standard Model' — with outstanding results
+Deep underground in southern China, there is a 20000-ton tank of liquid that can detect neutrinos. Named JUNO, the detector's first results are in — and...
+Live Science
+·
+1d</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">More than 1,000 Amazon workers warn rapid AI rollout threatens jobs and climate
+More than 1,000 Amazon employees have signed an open letter expressing “serious concerns” about AI development, saying that the company's “all-costs...
+The Guardian
+·
+23h</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Before a Soyuz launch Thursday someone forgot to secure a 20-ton service platform
+We are going to learn just how important the ISS is to leadership.”...
+Ars Technica
+·
+20h</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Audi adds some physical controls to its newest models
+Audi is adding a bunch of new features, including a scroll wheel on the steering wheel, to most of its newest models.
+CarExpert
+·
+17h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Samsung Plans New Feature Boost For Galaxy S26 Buyers
+Samsung Bixby on Galaxy S26 will reportedly be powered by Perplexity AI, not Google Gemini. Causing a massive shift in Bixby's abilities for Samsung Galaxy...
+Forbes
+·
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">The Red Rattler is back, with Adelaide’s 1929 Tram reborn for a new era
+Image courtesy of Tramway Museum of St Kilda SA. All aboard — the Red Rattler is back. After years out of service, Adelaide's beloved Tram 351 has...
+Glam Adelaide
+·
+19h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Jetstar flights axed as Airbus radiation bug hits aircraft
+Airline passengers have been left stranded at airports across the country after aerospace manufacturer Airbus reported a software glitch overnight affecting...
+The Australian
+·
+7h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Government's garage size law on ice as Premier calls out Property Council
+The government is yet to get a garage size law over the line, increasing the size of new SA home garages by 50cm and length by 60cm.
+ABC
+·
+1d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Toyota Corolla Cross Hybrid 2026: Next-Gen SUV with Price, Mileage, Specs, Interior & Smart Tech
+The 2026 Toyota Corolla Cross Hybrid is finally here, and it's bigger, smarter, and more efficient than ever. Toyota took the best-selling Corolla name,
+acmesignsandgraphicstx.com
+·
+1h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Beyond the habitable zone: Exoplanet atmospheres are the next clue to finding life on planets orbiting distant stars
+An expert discusses how the habitable zone works and why looking at exoplanet atmospheres as well as the habitable zone can be helpful for the search for...
+Space
+·
+14h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Daimler launches fuel-saving Mercedes-Benz Actros ProCabin
+The ProCabin also benefits from a new five-radar active safety suite that has been introduced as standard across the whole Actros range.
+Big Rigs
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Defence poised to sell prime Brisbane and Sydney real estate
+Brisbane's Victoria Barracks and Spectacle Island on Sydney Harbour are among the sites the government wants to sell after an audit of defence property.
+AFR
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Hedge fund calls for Corporate Travel chair and CEO to resign
+The business travel agent has defended its governance as its accounting scandal deepens, with an admission it owes £80 million ($162 million) to UK...
+AFR
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Tesla faces class action over Powerwall recall that leaves people with bricked batteries
+Tesla's poorly handled Powerwall 2 recall is now turning into a potential class action lawsuit over for leaving people with bricked batteries until Tesla...
+Electrek
+·
+1d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Ford workers told their CEO 'none of the young people want to work here.' So Jim Farley took a page out of the founder's playbook
+Ford CEO Jim Farley learned from older employees that some young workers at the carmaker were taking shifts at Amazon to make ends meet, he said at the...
+Fortune
+·
+18h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Lawyers at fault for Australia’s regulatory red tape burden
+At the risk of being disowned by the legal community, it is worth highlighting that external legal spending by firms has tripled since 2010.
+AFR
+·
+5d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">NASA probe captures stunning photos of Earth and moon on the way to infamous asteroid Apophis
+NASA's OSIRIS-APEX spacecraft captured stunning new images as it whipped past Earth during a high-speed slingshot maneuver, sending the probe on a fast...
+Space
+·
+15h</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">AtSpace Australian-made A01 rocket blasts off
+AtSpace has successfully launched its Australian-made A01 rocket on 27 November 2025. The company is a Brisbane-based rocket manufacturer.
+Australian Defence Magazine
+·
+1d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Ford: Ranger Super Duty V6 is up to the task
+Ranger V6 doesn't have the best rep for reliability, but Ford thinks it's finally nailed the recipe for the Super Duty.
+Carsales
+·
+3d</Link>
+<Button id="a_id_56">More options</Button>
+<Link id="a_id_57">Belgium's 'Little Einstein' Earns PhD in Quantum Physics at Age 15
+A fifteen-year-old dubbed "Belgium's little Einstein" has completed his PhD in quantum physics in what could be record time.
+ScienceAlert
+·
+1d</Link>
+<Button id="a_id_58">More options</Button>
+<Link id="a_id_59">'Supergiant' Gold Deposits Could Be Worth Over US$80 Billion
+Two large gold deposits discovered in China may hold a collective mass of over 2000 metric tons (2200 US tons) of the precious material – the largest ever...
+ScienceAlert
+·
+1d</Link>
+<Button id="a_id_60">More options</Button>
+<Link id="a_id_61">A new low: Trump’s approval rating negative with every major pollster for the first time
+Polls carried out by YouGov, Gallup, Ipsos, R.M.G. Research, Morning Consult and Quinnipiac all show that more U.S. citizens disapprove of Trump than...
+The Independent
+·
+1d</Link>
+<Button id="a_id_62">More options</Button>
+<Link id="a_id_63">Aussie scientists find bizarre construction use for coffee grounds
+RMIT University researchers found that heating coffee grounds to about 350 degrees without oxygen creates biochar, which can be combined with sand to help...
+9News.com.au
+·
+1d</Link>
+<Button id="a_id_64">More options</Button>
+<Link id="a_id_65">Use ChatGPT as Your iPhone's Action Button Assistant
+Apple doesn't currently allow iPhone users to change the Side button's Siri functionality to another assistant, but owners of iPhone 15 Pro...
+MacRumors
+·
+20h</Link>
+<Button id="a_id_66">More options</Button>
+<Link id="a_id_67">Police seize $8.4m in assets after alleged illicit tobacco raids in the NT
+Police have seized about $8.4 million in assets, including two cars and a jet ski, and almost 1 million cigarettes, following an operation targeting the...
+ABC News
+·
+12h</Link>
+<Button id="a_id_68">More options</Button>
+<Link id="a_id_69">Snowy Hydro inks deals to drive renewables expansion
+Contracts to buy wind power and battery capacity should move two major projects in South Australia and Victoria closer to construction.
+AFR
+·
+2d</Link>
+<Button id="a_id_70">More options</Button>
+<Link id="a_id_71">Dairy 'disrupter' who invented spreadable butter in 70s wins science award
+Dairy farmer Geoff Boxsell, 86, has won the 2025 Dairy Science Award for inventing spreadable butter more than 50 years ago.
+ABC News
+·
+1d</Link>
+<Button id="a_id_72">More options</Button>
+<Link id="a_id_73">Australia well behind in R&D funding race
+Our business sector does not value R&D and innovation nearly as much as our international peers.
+AFR
+·
+4d</Link>
+<Button id="a_id_74">More options</Button>
+At a glance
+<Button id="a_id_75">Customise Homestack</Button>
+<Link id="a_id_76">VIX • VIX down 5.00%. Price is 16.35 Today</Link>
+<Link id="a_id_77">Air quality
+Good
+AQC</Link>
+Australia
+<Link id="a_id_78">Advertising</Link>
+<Link id="a_id_79">Business</Link>
+<Link id="a_id_80">How Search works</Link>
+<Link id="a_id_81">Privacy</Link>
+<Link id="a_id_82">Terms</Link>
+<Button id="a_id_83">Settings</Button>
+
+---
+
+## Secure Iframe Elements
+
+*⏳ Loading 2 iframe(s)... (payment forms, embedded content)*
+
+*Iframe elements will appear here when loaded. Check back shortly.*
