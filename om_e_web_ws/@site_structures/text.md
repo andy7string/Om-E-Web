@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-11-30 00:19:51
+**Timestamp:** 2025-11-30 08:44:14
 
-**Tabs (2):** Active: #1138027236 "Google" www.google.com [loading] | Other: #1138027231 "ChatGPT" chatgpt.com
+**Tabs (1):** Active: #1138027398 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -86,127 +86,125 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">Google AI Shot Heard Globally; Another Shoe Is About To Drop
-The AI sphere is abuzz lately with news and rumors that the latest Google TPU, Ironwood, is powering the Gemini3 model, outpacing OpenAI on many metrics...
-Forbes
+<Link id="a_id_17">Australia’s housing shortage reaches 220,000
+This week, Cotality released its housing affordability report for the September quarter of 2025, which reported abysmal affordability across the nation for...
+MacroBusiness
 ·
-3d</Link>
+2d</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Genesis Magma GT set for production with full line-up of Porsche 911-like variants
-When the Magma GT range goes into production, Genesis chiefs have revealed it will feature a 911-like full-line up of variants.
-Drive
-·
-11h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Jetstar services resume after Adelaide Airport chaos
-Jetstar flyers reliant on services in and out of Adelaide on Sunday will find some relief in the return to schedule of flights after a global plane issue...
-The Advertiser
-·
-3h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">BMW F 450 GS feature pictorial as new images released
-Check out a full gallery of images of the new 2026 BMW F 450 GS, a LAMS legal adventure motorcycle that looks to be a winner in the making.
-MCNews
+<Link id="a_id_19">A long-overdue update to Australia’s broken environment laws
+After years of delay, Australia will reform its broken environment laws. The deal brings real improvements, but key risks remain.
+Pearls and Irritations
 ·
 1d</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">“You heard wrong” - users brutually reject Microsoft's "Copilot for work" in Edge and Windows 11
+Angry users are telling Windows giant that they're “not a baby” and don't need a chatbot “shoved” in their face.
+Windows Latest
+·
+1d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Xpeng offers up to $5,000 cashback on G6 electric SUV to clear 2025 stock
+Xpeng has boosted its offers to clear 2025 stock of its G6 electric SUV before the end of the year, lifting the cashback to $5,000 and a lower price for its...
+The Driven
+·
+16h</Link>
 <Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Rising high into Saudi sky: World's new tallest skyscraper progresses
-Saudi Arabia's JEC Tower, set to become the world's tallest skyscraper, has reached a major new construction milestone as work accelerates toward its...
-New Atlas
+<Link id="a_id_25">Wild trend as Bitcoin burns into a heap
+As the diehard crypto advocates rally to “buy the dip” after a catastrophic month, there's another trend emerging as the world goes through the tumble dryer...
+News.com.au
 ·
 1d</Link>
 <Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Ford workers told their CEO 'none of the young people want to work here.' So Jim Farley took a page out of the founder's playbook
-Ford CEO Jim Farley learned from older employees that some young workers at the carmaker were taking shifts at Amazon to make ends meet, he said at the...
-Fortune
-·
-19h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Another wind project nears drought-breaking financial close as Snowy signs long-term contract
-Another wind project nears financial close - and the breaking of Australia's wind investment drought - after government owned Snowy signs long-term deal.
-Renew Economy
+<Link id="a_id_27">Aldi Recall Update: Customers Told Discard Christmas Products ‘Immediately’
+Anyone in possession of the items should discard them or return them to their nearest store for a full refund.
+Newsweek
 ·
 1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Dreame Matrix10 Ultra review: sets a whole new standard for premium robot vacuum cleaners
+The Dreame Matrix10 Ultra is easily the most advanced and user-friendly robot vacuum I've tested, with cutting-edge tech and effortless automation,...
+T3
+·
+4d</Link>
 <Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Belgium's 'Little Einstein' Earns PhD in Quantum Physics at Age 15
-A fifteen-year-old dubbed "Belgium's little Einstein" has completed his PhD in quantum physics in what could be record time. According to reporting from the...
-ScienceAlert
+<Link id="a_id_31">NASA Recruits Mars Perseverance Rover to Monitor Sun’s Activity
+NASA has drafted its Mars rover Perseverance to help monitor the sun's activity. Every day for the next two months, the rover will image the sun with its...
+Scientific American
 ·
 1d</Link>
 <Button id="a_id_32">More options</Button>
-<Link id="a_id_33">After blocked Mayne deal, Australia M&As set for higher reverse break fees
-Foreign bidders for Australian companies could be liable for higher reverse break fees if regulatory approval is not received, in the wake of the failed...
-Reuters
+<Link id="a_id_33">Australian taxpayers subsidise rising specialist fees as spending on Abbott-era Medicare safety net ‘explodes’
+Exclusive: Health department data shows spending on the 2004 extended safety net has nearly tripled, from $324.9m in 2010 to $850.4m in 2024.
+The Guardian
 ·
-2d</Link>
+29m</Link>
 <Button id="a_id_34">More options</Button>
-<Link id="a_id_35">10:41
-Vibe Coding is Ending Software Development As We Know It (And Why That’s Good)
-Try Replit: https://replit.com/sig... 2025 is the year software development splits into two camps—those who code the old way, and those who simply vibe...
-Julia McCoy
-YouTube
+<Link id="a_id_35">The best Amazon Black Friday tech deals 2025, hand-picked by experts
+Why wait for the official Black Friday or Cyber Monday sales when Amazon has already started rolling out hot deals for its Black Friday Week?
+PCWorld
 ·
-22h</Link>
+17h</Link>
 <Button id="a_id_36">More options</Button>
-<Link id="a_id_37">AI search and gadgets drive Black Friday sales shift
-Shoppers are using chatbots more than ever to find Black Friday deals, with AI-powered gadgets and household items at the top of their shopping lists.
-AFR
+<Link id="a_id_37">Science of the People and 3I/ATLAS
+Science of the People and 3I/ATLAS To paraphrase the Declaration of Independence in the context of science: “We hold these truths to be self-evident,...
+Avi Loeb – Medium
 ·
 1d</Link>
 <Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Australia home prices set to rise about 7% in a tight market: Reuters poll
-Australian home prices will rise more than previously expected in 2026, thanks to tight supply and resilient demand, according to a Reuters poll of analysts...
-Reuters
+<Link id="a_id_39">Garmin Venu 4 vs. Forerunner 570: An all-rounder or a running specialist?
+The Venu 4 and Forerunner 570 come with the same (high) price, so which Garmin fitness watch is the one to buy? Here are all the differences.
+Android Central
 ·
-1d</Link>
+2d</Link>
 <Button id="a_id_40">More options</Button>
-<Link id="a_id_41">'Supergiant' Gold Deposits Could Be Worth Over US$80 Billion
-Two large gold deposits discovered in China may hold a collective mass of over 2000 metric tons (2200 US tons) of the precious material – the largest ever...
-ScienceAlert
+<Link id="a_id_41">What will burst the AI bubble?
+Many will argue that there is no AI bubble. The poster child of the bubble, NVDA, is not running away from profits on valuation.
+MacroBusiness
 ·
-1d</Link>
+2d</Link>
 <Button id="a_id_42">More options</Button>
-<Link id="a_id_43">A new low: Trump’s approval rating negative with every major pollster for the first time
-Polls carried out by YouGov, Gallup, Ipsos, R.M.G. Research, Morning Consult and Quinnipiac all show that more U.S. citizens disapprove of Trump than...
-The Independent
+<Link id="a_id_43">This is a very good EV, with bad timing
+If punctuality is the politeness of princes, the Nissan Ariya is the automotive equivalent of a teenager who texts “on my way” while they're still in the...
+News.com.au
 ·
 1d</Link>
 <Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Aussie scientists find bizarre construction use for coffee grounds
-RMIT University researchers found that heating coffee grounds to about 350 degrees without oxygen creates biochar, which can be combined with sand to help...
-9News.com.au
+<Link id="a_id_45">Want a fancy new streaming amplifier to up your audio quality game? Here are the 3 best for all budgets
+Improve your music listening experience with one of these streaming amps.
+T3
 ·
-1d</Link>
+2d</Link>
 <Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Households on track to add five “biggest batteries” in six months, as rebate installs rocket to...
-Federal Labor's Cheaper Home Batteries rebate is expected to have received a whopping 175000 applications by the end of 2025.
-Renew Economy
+<Link id="a_id_47">FIRST LOOK: Freshly baked, “expertly caffeinated” German bakery opens in a 1800s fairytale cottage
+Hahndorf isn't unfamiliar with German bakeries, but Hahndorf Brezelhaus brings culinary stars, perfect coffee, and freshly baked pretzels.
+Glam Adelaide
 ·
 1d</Link>
 <Button id="a_id_48">More options</Button>
-<Link id="a_id_49">How Brown slump, Heimgartner car failure shifted Finals race
-Reigning Adelaide 500 winner the only Finals Driver to start outside top 10 this afternoon.
-Supercars
-·
-3h</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Tim Berners-Lee wants everyone to own their own data – his plan needs state and consumer support to work
-Tim Berners-Lee, the creator of the world wide web, has released an important new book about the problems we face online and how to solve them.
+<Link id="a_id_49">Green transition targets are not realistic – how to decarbonise at the right pace
+While the UK needs to accelerate its energy transition, targets are being missed, projects run into delays, and the public wonders why progress feels so...
 The Conversation
 ·
-3d</Link>
+1d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Dairy 'disrupter' who invented spreadable butter in 70s wins science award
+Dairy farmer Geoff Boxsell, 86, has won the 2025 Dairy Science Award for inventing spreadable butter more than 50 years ago.
+ABC News
+·
+1d</Link>
 <Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Here’s the average Australian superannuation balance at 50
-Let's see if the average 50-year-old has a superannuation balance that sets them up for a comfortable retirement...
-The Motley Fool Australia
+<Link id="a_id_53">After 50 suspensions, Britnie ended up at a school of last resort. Experts say her success should be the norm
+An alternative state school in Melbourne's north that caters to at-risk students is turning lives around and providing a model for early invention outside...
+The Guardian
 ·
-18h</Link>
+3h</Link>
 <Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Woolworths hit with underpayments shareholder class action
-Billionaire property mogul Shaun Bonett's litigation funder is backing a shareholder class action against Woolworths, alleging it misled investors over...
-AFR
+<Link id="a_id_55">Championship Race: How points stand as Adelaide sets up grandstand finish
+Broc Feeney is in the box seat to claim his maiden Repco Supercars Championship after claiming his 14th race win of the year at the bp Adelaide Grand Final.
+Supercars
 ·
-19h</Link>
+15h</Link>
 <Button id="a_id_56">More options</Button>
 At a glance
 <Button id="a_id_57">Customise Homestack</Button>

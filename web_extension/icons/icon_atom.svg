@@ -1,0 +1,38 @@
+<svg width="128" height="128" viewBox="-2 -2 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient id="aNucGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(120,100,180,0.95)"/>
+            <stop offset="50%" stop-color="rgba(80,70,150,0.9)"/>
+            <stop offset="100%" stop-color="rgba(50,45,100,0.85)"/>
+        </radialGradient>
+        <radialGradient id="aNucGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(147,112,219,0.6)"/>
+            <stop offset="100%" stop-color="rgba(80,70,150,0)"/>
+        </radialGradient>
+        <linearGradient id="aOrbitGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%" stop-color="rgba(186,147,255,0.95)"/>
+            <stop offset="50%" stop-color="rgba(80,70,150,0.5)"/>
+            <stop offset="100%" stop-color="rgba(186,147,255,0.95)"/>
+        </linearGradient>
+        <radialGradient id="aBgGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(40,35,60,0.95)"/>
+            <stop offset="100%" stop-color="rgba(25,22,40,0.98)"/>
+        </radialGradient>
+    </defs>
+    <!-- Background circle - tighter fit -->
+    <circle cx="30" cy="30" r="30" fill="url(#aBgGrad)"/>
+    <!-- Orbital rings -->
+    <ellipse cx="30" cy="30" rx="28" ry="11" fill="none" stroke="url(#aOrbitGrad)" stroke-width="2.5"/>
+    <ellipse cx="30" cy="30" rx="28" ry="11" fill="none" stroke="url(#aOrbitGrad)" stroke-width="2.5" transform="rotate(-60 30 30)"/>
+    <ellipse cx="30" cy="30" rx="28" ry="11" fill="none" stroke="url(#aOrbitGrad)" stroke-width="2.5" transform="rotate(60 30 30)"/>
+    <!-- Nucleus glow -->
+    <circle cx="30" cy="30" r="12" fill="url(#aNucGlow)"/>
+    <!-- Nucleus core -->
+    <circle cx="30" cy="30" r="9" fill="url(#aNucGrad)"/>
+    <!-- Nucleus highlight -->
+    <circle cx="27" cy="27" r="2" fill="rgba(186,147,255,0.6)"/>
+    <!-- Electron dots on orbits -->
+    <circle cx="58" cy="30" r="3" fill="rgba(186,147,255,0.9)"/>
+    <circle cx="16" cy="6" r="3" fill="rgba(186,147,255,0.9)"/>
+    <circle cx="16" cy="54" r="3" fill="rgba(186,147,255,0.9)"/>
+</svg>

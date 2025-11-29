@@ -1390,6 +1390,22 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                         orbState.theme = themeName;
                         console.log('[SW] 🐰 Orb theme set from popup:', themeName);
 
+                        // 🎨 Update extension toolbar icon based on theme
+                        // Map theme name to icon file prefix (robot -> ome)
+                        const iconPrefix = themeName === 'robot' ? 'ome' : themeName;
+                        try {
+                            await chrome.action.setIcon({
+                                path: {
+                                    "16": `icons/icon_${iconPrefix}_16.png`,
+                                    "48": `icons/icon_${iconPrefix}_48.png`,
+                                    "128": `icons/icon_${iconPrefix}_128.png`
+                                }
+                            });
+                            console.log('[SW] 🎨 Extension icon updated to:', iconPrefix);
+                        } catch (iconError) {
+                            console.warn('[SW] Could not update extension icon:', iconError.message);
+                        }
+
                         // Forward to active tab's content script
                         const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
                         if (activeTab && activeTab.id) {
@@ -1403,6 +1419,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                                 console.warn('[SW] Could not send theme to tab:', tabError.message);
                             }
                         }
+
+                        // Save theme to storage for persistence
+                        await chrome.storage.local.set({ orbTheme: themeName });
 
                         sendResponse({ ok: true, theme: themeName });
                     } catch (error) {
@@ -3426,6 +3445,27 @@ chrome.runtime.onInstalled.addListener(() => {
 connectWebSocket();
 ensureKeepAlivePort();
 scheduleHeartbeatAlarm();
+
+// 🎨 Restore saved orb theme icon on startup
+(async () => {
+    try {
+        const { orbTheme } = await chrome.storage.local.get('orbTheme');
+        if (orbTheme) {
+            const iconPrefix = orbTheme === 'robot' ? 'ome' : orbTheme;
+            await chrome.action.setIcon({
+                path: {
+                    "16": `icons/icon_${iconPrefix}_16.png`,
+                    "48": `icons/icon_${iconPrefix}_48.png`,
+                    "128": `icons/icon_${iconPrefix}_128.png`
+                }
+            });
+            orbState.theme = orbTheme;
+            console.log('[SW] 🎨 Restored extension icon to:', iconPrefix);
+        }
+    } catch (e) {
+        console.warn('[SW] Could not restore icon on startup:', e.message);
+    }
+})();
 
 // Periodically verify the keep-alive port still exists
 setInterval(() => {
