@@ -2555,18 +2555,20 @@
             return true; // Keep channel open for async response
         }
 
-        // 🔍 GET ORB SCREEN POSITION - Returns orb position as viewport percentage (before zoom)
+        // 🔍 GET ORB SCREEN POSITION - Returns orb position as right/bottom percentages (before zoom)
         if (message && message.type === "get_orb_screen_position") {
             if (!hudState.orb) {
                 sendResponse({ ok: false });
                 return false;
             }
             const rect = hudState.orb.getBoundingClientRect();
-            // Return position as percentage of viewport (0-1)
+            // Return position as RIGHT/BOTTOM percentages (matches how orb is positioned)
+            const rightPct = ((window.innerWidth - rect.right) / window.innerWidth) * 100;
+            const bottomPct = ((window.innerHeight - rect.bottom) / window.innerHeight) * 100;
             sendResponse({
                 ok: true,
-                screenX: rect.left / window.innerWidth,
-                screenY: rect.top / window.innerHeight
+                screenX: rightPct,
+                screenY: bottomPct
             });
             return false;
         }
@@ -12233,8 +12235,8 @@
             /* 🐰 OM-E Orb - positioned relative to our canvas */
             .ome-orb {
                 position: absolute;
-                right: 2%;
-                bottom: 3%;
+                left: 50%;
+                bottom: 200px;
                 width: 50px;
                 height: 78px;
                 background: transparent;
@@ -12248,10 +12250,10 @@
                 transition: transform 0.15s ease, filter 0.15s ease;
                 filter: drop-shadow(0 0 10px rgba(167,139,250,0.5));
                 --ome-zoom-scale: 1;
-                transform: scale(var(--ome-zoom-scale, 1));
-                transform-origin: bottom right;
+                transform: translateX(-50%) scale(var(--ome-zoom-scale, 1));
+                transform-origin: bottom center;
             }
-            .ome-orb:hover { transform: scale(calc(var(--ome-zoom-scale, 1) * 1.1)); filter: drop-shadow(0 0 14px rgba(167,139,250,0.7)); }
+            .ome-orb:hover { transform: translateX(-50%) scale(calc(var(--ome-zoom-scale, 1) * 1.1)); filter: drop-shadow(0 0 14px rgba(167,139,250,0.7)); }
             .ome-orb.holding { cursor: none; }
             .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateX(-50%) translateY(0); }
             .ome-bunny { width: 100%; height: 100%; }

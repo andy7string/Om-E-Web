@@ -2,119 +2,197 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>OM_E_WEB Web Arm</title>
+    <title>OM-E Web</title>
     <style>
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             padding: 16px;
             min-width: 320px;
             margin: 0;
+            background: #212121;
+            color: #e0e0e0;
         }
-        
+
         h3 {
             margin: 0 0 16px 0;
-            color: #333;
+            color: #a5b4fc;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: center;
         }
-        
+
+        h4 {
+            margin: 12px 0 8px 0;
+            color: #6b7280;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
         input {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 12px 14px;
+            border: 1px solid rgba(147, 112, 219, 0.25);
+            border-radius: 10px;
             margin-bottom: 12px;
             box-sizing: border-box;
+            background: rgba(60, 50, 90, 0.4);
+            color: #e0e0e0;
+            font-size: 13px;
         }
-        
+
+        input:focus {
+            outline: none;
+            border-color: rgba(147, 112, 219, 0.5);
+            box-shadow: 0 0 12px rgba(147, 112, 219, 0.15);
+        }
+
+        input::placeholder {
+            color: rgba(160, 160, 180, 0.5);
+        }
+
         button {
             width: 100%;
             padding: 10px;
-            background: #0078d4;
-            color: white;
-            border: none;
-            border-radius: 4px;
+            background: rgba(60, 50, 90, 0.4);
+            color: #c0c0d0;
+            border: 1px solid rgba(100, 100, 140, 0.25);
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 500;
             margin-bottom: 8px;
+            transition: all 0.2s ease;
         }
-        
+
         button:hover {
-            background: #106ebe;
+            background: rgba(80, 65, 110, 0.5);
+            border-color: rgba(147, 112, 219, 0.4);
+            color: #e0e0f0;
         }
-        
-        button.secondary {
-            background: #6c757d;
+
+        button:active {
+            transform: scale(0.98);
         }
-        
-        button.secondary:hover {
-            background: #5a6268;
+
+        button.primary {
+            background: rgba(80, 65, 120, 0.5);
+            border-color: rgba(147, 112, 219, 0.4);
+            color: #d0d0e8;
         }
-        
-        button.danger {
-            background: #dc3545;
+
+        button.primary:hover {
+            background: rgba(100, 80, 140, 0.6);
+            border-color: rgba(147, 112, 219, 0.6);
         }
-        
-        button.danger:hover {
-            background: #c82333;
-        }
-        
+
         #status {
             margin-top: 12px;
-            padding: 8px;
-            border-radius: 4px;
+            padding: 10px 14px;
+            border-radius: 10px;
             text-align: center;
-            font-size: 14px;
+            font-size: 13px;
         }
-        
+
         .success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background: rgba(52, 211, 153, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.2);
         }
-        
+
         .error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background: rgba(248, 113, 113, 0.1);
+            color: #f87171;
+            border: 1px solid rgba(248, 113, 113, 0.2);
         }
-        
+
         .info {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
+            background: rgba(96, 165, 250, 0.1);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.2);
         }
-        
+
         .status-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8px;
             margin: 12px 0;
         }
-        
+
         .status-item {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            padding: 8px;
+            background: rgba(60, 50, 90, 0.35);
+            border: 1px solid rgba(100, 80, 140, 0.2);
+            border-radius: 10px;
+            padding: 10px;
             text-align: center;
+            font-size: 11px;
+        }
+
+        .status-item .label {
+            font-weight: 600;
+            color: #6b7280;
+            letter-spacing: 0.3px;
+        }
+
+        .status-item .value {
+            color: #9ca3af;
+            margin-top: 4px;
             font-size: 12px;
         }
-        
-        .status-item .label {
-            font-weight: bold;
-            color: #495057;
+
+        .status-item .value.connected {
+            color: #34d399;
         }
-        
-        .status-item .value {
-            color: #6c757d;
-            margin-top: 4px;
+
+        .status-item .value.warning {
+            color: #fbbf24;
         }
-        
+
+        .status-item .value.error {
+            color: #f87171;
+        }
+
         .divider {
-            border-top: 1px solid #dee2e6;
+            border-top: 1px solid rgba(60, 60, 90, 0.2);
             margin: 16px 0;
         }
 
-        /* 🐰 Orb Style Selector */
+        /* HUD Toggle Button - Matches orb PROMPT button style */
+        .hud-toggle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(167, 139, 250, 0.25);
+            border: 1px solid rgba(167, 139, 250, 0.5);
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #a5b4fc;
+            opacity: 0.85;
+            margin-bottom: 12px;
+            transition: opacity 0.15s ease, background 0.15s ease, transform 0.15s ease;
+        }
+
+        .hud-toggle-btn:hover {
+            opacity: 1;
+            background: rgba(167, 139, 250, 0.4);
+            transform: scale(1.02);
+        }
+
+        .hud-toggle-btn:active {
+            transform: scale(0.98);
+        }
+
+        .hud-toggle-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Orb Style Selector */
         .orb-style-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -127,57 +205,100 @@
             align-items: center;
             justify-content: center;
             padding: 12px 8px;
-            background: #f8f9fa;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
+            background: rgba(60, 50, 90, 0.35);
+            border: 2px solid rgba(100, 80, 140, 0.25);
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.2s ease;
+            width: auto;
+            margin-bottom: 0;
         }
 
         .orb-btn:hover {
-            background: #e9ecef;
-            border-color: #adb5bd;
+            background: rgba(80, 65, 110, 0.45);
+            border-color: rgba(147, 112, 219, 0.4);
+            transform: translateY(-2px);
         }
 
         .orb-btn.active {
-            background: #e7f1ff;
-            border-color: #0078d4;
+            background: rgba(100, 80, 140, 0.4);
+            border-color: rgba(147, 112, 219, 0.5);
+            box-shadow: 0 0 16px rgba(147, 112, 219, 0.2);
         }
 
         .orb-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             min-height: 40px;
         }
 
         .orb-icon svg {
-            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
         }
 
         .orb-label {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
-            color: #495057;
+            color: #6b7280;
+            letter-spacing: 0.3px;
+        }
+
+        .orb-btn.active .orb-label {
+            color: #a5b4fc;
+        }
+
+        /* Extension Settings Button */
+        .ext-toggle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(60, 50, 90, 0.35);
+            border: 1px solid rgba(100, 80, 140, 0.25);
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        .ext-toggle-btn:hover {
+            background: rgba(80, 65, 110, 0.45);
+            border-color: rgba(147, 112, 219, 0.4);
+            color: #c0c0d0;
+        }
+
+        .ext-toggle-btn svg {
+            width: 14px;
+            height: 14px;
         }
     </style>
 </head>
 <body>
-    <h3>OM_E_WEB Web Arm</h3>
-    
-    <input 
-        id="wsUrl" 
-        type="text" 
+    <h3>OM-E Web</h3>
+
+    <!-- HUD Toggle Button - Big and prominent at top -->
+    <button id="hudToggleBtn" class="hud-toggle-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="9" y1="3" x2="9" y2="21"/>
+        </svg>
+        Toggle HUD Overlay
+    </button>
+
+    <div class="divider"></div>
+
+    <h4>Connection</h4>
+    <input
+        id="wsUrl"
+        type="text"
         placeholder="WebSocket URL"
         value="ws://127.0.0.1:17892"
     />
-    
-    <button id="saveBtn">Save & Reconnect</button>
-    
+    <button id="saveBtn" class="primary">Save & Reconnect</button>
+
     <div class="divider"></div>
-    
-    <h4>Extension Status</h4>
+
+    <h4>Status</h4>
     <div class="status-grid">
         <div class="status-item">
             <div class="label">Connection</div>
@@ -195,7 +316,6 @@
             <div class="label">Cache Status</div>
             <div id="cacheStatus" class="value">-</div>
         </div>
-        <!-- 🆕 NEW: DOM Change Status -->
         <div class="status-item">
             <div class="label">DOM Changes</div>
             <div id="domChanges" class="value">-</div>
@@ -205,84 +325,59 @@
             <div id="recentChanges" class="value">-</div>
         </div>
     </div>
-    
-    <div class="divider"></div>
-    
-    <h4>Actions</h4>
-    <button id="refreshBtn" class="secondary">🔄 Refresh Extension State</button>
-    <button id="clearCacheBtn" class="danger">🧹 Clear All Cache</button>
-    
-    <!-- 🐰 ORB STYLE SELECTOR -->
+
+    <!-- Orb Style Selector -->
     <div class="divider"></div>
     <h4>Orb Style</h4>
     <div class="orb-style-grid">
         <button id="orbKawaii" class="orb-btn" data-theme="kawaii">
             <span class="orb-icon">
-                <!-- Mini Kawaii kitty SVG -->
                 <svg width="36" height="44" viewBox="0 0 60 72" fill="none">
                     <defs>
-                        <!-- Fluffy white body gradient -->
                         <radialGradient id="kFluffy" cx="50%" cy="40%" r="60%">
                             <stop offset="0%" stop-color="#ffffff"/>
                             <stop offset="70%" stop-color="#f8f4ff"/>
                             <stop offset="100%" stop-color="#e8e0f0"/>
                         </radialGradient>
-                        <!-- Pink inner ear -->
                         <linearGradient id="kPinkEar" x1="50%" y1="0%" x2="50%" y2="100%">
                             <stop offset="0%" stop-color="#ffb6c1"/>
                             <stop offset="100%" stop-color="#ff91a4"/>
                         </linearGradient>
-                        <!-- Sparkly blue eye gradient -->
                         <radialGradient id="kEyeBlue" cx="50%" cy="30%" r="50%">
                             <stop offset="0%" stop-color="#7ec8e3"/>
                             <stop offset="50%" stop-color="#4a9eca"/>
                             <stop offset="100%" stop-color="#2d7eb0"/>
                         </radialGradient>
-                        <!-- Cherry gradient -->
                         <radialGradient id="kCherry" cx="30%" cy="30%" r="60%">
                             <stop offset="0%" stop-color="#ff8a9b"/>
                             <stop offset="100%" stop-color="#e05670"/>
                         </radialGradient>
                     </defs>
-                    <!-- Left ear (pointed, cat-style) -->
                     <path d="M12 28 L8 8 L22 22 Z" fill="url(#kFluffy)" stroke="#d0c0e0" stroke-width="1"/>
                     <path d="M13 24 L11 12 L19 21 Z" fill="url(#kPinkEar)"/>
-                    <!-- Right ear -->
                     <path d="M48 28 L52 8 L38 22 Z" fill="url(#kFluffy)" stroke="#d0c0e0" stroke-width="1"/>
                     <path d="M47 24 L49 12 L41 21 Z" fill="url(#kPinkEar)"/>
-                    <!-- Strawberry on top -->
                     <path d="M30 2 Q28 -2 26 0 M30 2 Q32 -2 34 0" stroke="#50a060" stroke-width="1.5" fill="none"/>
                     <ellipse cx="30" cy="10" rx="8" ry="7" fill="url(#kCherry)"/>
                     <ellipse cx="27" cy="7" rx="2" ry="1.2" fill="rgba(255,255,255,0.5)"/>
-                    <!-- Seeds -->
                     <ellipse cx="26" cy="11" rx="0.8" ry="0.5" fill="rgba(255,220,180,0.7)"/>
                     <ellipse cx="34" cy="10" rx="0.8" ry="0.5" fill="rgba(255,220,180,0.7)"/>
-                    <!-- Fluffy head -->
                     <ellipse cx="30" cy="38" rx="24" ry="22" fill="url(#kFluffy)" stroke="#d0c0e0" stroke-width="1"/>
-                    <!-- Fluffy cheek tufts -->
                     <ellipse cx="8" cy="40" rx="6" ry="8" fill="url(#kFluffy)"/>
                     <ellipse cx="52" cy="40" rx="6" ry="8" fill="url(#kFluffy)"/>
-                    <!-- Big sparkly eyes -->
                     <ellipse cx="20" cy="38" rx="7" ry="8" fill="url(#kEyeBlue)" stroke="#2d6090" stroke-width="0.5"/>
                     <ellipse cx="40" cy="38" rx="7" ry="8" fill="url(#kEyeBlue)" stroke="#2d6090" stroke-width="0.5"/>
-                    <!-- Eye highlights (sparkles) -->
                     <circle cx="17" cy="35" r="2.5" fill="white"/>
                     <circle cx="22" cy="33" r="1.2" fill="white"/>
                     <circle cx="37" cy="35" r="2.5" fill="white"/>
                     <circle cx="42" cy="33" r="1.2" fill="white"/>
-                    <!-- Pupils -->
                     <ellipse cx="21" cy="40" rx="2" ry="2.5" fill="#1a3050"/>
                     <ellipse cx="41" cy="40" rx="2" ry="2.5" fill="#1a3050"/>
-                    <!-- Rosy blush -->
                     <ellipse cx="10" cy="44" rx="4" ry="2.5" fill="rgba(255,150,170,0.5)"/>
                     <ellipse cx="50" cy="44" rx="4" ry="2.5" fill="rgba(255,150,170,0.5)"/>
-                    <!-- Cute nose -->
                     <ellipse cx="30" cy="46" rx="2" ry="1.5" fill="#ffb0c0"/>
-                    <!-- Tiny smile -->
                     <path d="M26 50 Q30 54 34 50" stroke="#c090a0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                    <!-- Little body hint -->
                     <ellipse cx="30" cy="64" rx="14" ry="8" fill="url(#kFluffy)" stroke="#d0c0e0" stroke-width="1"/>
-                    <!-- Tiny paws -->
                     <ellipse cx="22" cy="68" rx="4" ry="3" fill="url(#kFluffy)" stroke="#d0c0e0" stroke-width="0.5"/>
                     <ellipse cx="38" cy="68" rx="4" ry="3" fill="url(#kFluffy)" stroke="#d0c0e0" stroke-width="0.5"/>
                 </svg>
@@ -291,7 +386,6 @@
         </button>
         <button id="orbRobot" class="orb-btn" data-theme="robot">
             <span class="orb-icon">
-                <!-- Mini Robot SVG -->
                 <svg width="32" height="36" viewBox="0 14 60 72" fill="none">
                     <defs>
                         <linearGradient id="rBodyGrad" x1="50%" y1="0%" x2="50%" y2="100%">
@@ -308,20 +402,15 @@
                             <stop offset="100%" stop-color="#00e5ff"/>
                         </radialGradient>
                     </defs>
-                    <!-- Ear muffs -->
                     <ellipse cx="6" cy="54" rx="5" ry="7" fill="rgba(66,133,244,0.35)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
                     <ellipse cx="54" cy="54" rx="5" ry="7" fill="rgba(66,133,244,0.35)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
-                    <!-- Dome head -->
                     <path d="M8 58 Q8 32 30 28 Q52 32 52 58 Q52 64 30 66 Q8 64 8 58 Z" fill="url(#rBodyGrad)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
-                    <!-- Goggles -->
                     <ellipse cx="20" cy="34" rx="9" ry="7" fill="url(#rGoggleGrad)" stroke="rgba(147,112,219,0.8)" stroke-width="1.5"/>
                     <ellipse cx="40" cy="34" rx="9" ry="7" fill="url(#rGoggleGrad)" stroke="rgba(147,112,219,0.8)" stroke-width="1.5"/>
                     <ellipse cx="20" cy="34" rx="6" ry="5" fill="rgba(40,40,80,0.7)"/>
                     <ellipse cx="40" cy="34" rx="6" ry="5" fill="rgba(40,40,80,0.7)"/>
                     <rect x="28" y="32" width="4" height="4" rx="1" fill="rgba(147,112,219,0.6)"/>
-                    <!-- Face plate -->
                     <rect x="14" y="46" rx="6" ry="6" width="32" height="16" fill="rgba(30,50,90,0.5)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
-                    <!-- Glowing eyes -->
                     <ellipse cx="23" cy="54" rx="3" ry="5" fill="url(#rGlowEye)"/>
                     <ellipse cx="37" cy="54" rx="3" ry="5" fill="url(#rGlowEye)"/>
                     <ellipse cx="23" cy="54" rx="4" ry="6" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="2"/>
@@ -332,7 +421,6 @@
         </button>
         <button id="orbAtom" class="orb-btn" data-theme="atom">
             <span class="orb-icon">
-                <!-- Mini Atom SVG - Purple Om-E scheme -->
                 <svg width="36" height="36" viewBox="0 0 60 60" fill="none">
                     <defs>
                         <radialGradient id="aNucGrad" cx="50%" cy="50%" r="50%">
@@ -350,11 +438,9 @@
                             <stop offset="100%" stop-color="rgba(186,147,255,0.95)"/>
                         </linearGradient>
                     </defs>
-                    <!-- Orbital rings - purple gradient -->
                     <ellipse cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#aOrbitGrad)" stroke-width="2"/>
                     <ellipse cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#aOrbitGrad)" stroke-width="2" transform="rotate(-60 30 30)"/>
                     <ellipse cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#aOrbitGrad)" stroke-width="2" transform="rotate(60 30 30)"/>
-                    <!-- Nucleus - dark purple -->
                     <circle cx="30" cy="30" r="10" fill="url(#aNucGlow)"/>
                     <circle cx="30" cy="30" r="7" fill="url(#aNucGrad)"/>
                     <circle cx="28" cy="28" r="1.5" fill="rgba(186,147,255,0.6)"/>
@@ -364,16 +450,18 @@
         </button>
     </div>
 
-    <!-- 🆕 NEW: DOM Change Controls -->
+    <!-- Extension Settings -->
     <div class="divider"></div>
-    <h4>DOM Change Detection</h4>
-    <button id="enableDOMBtn" class="secondary">👁️ Enable Detection</button>
-    <button id="disableDOMBtn" class="secondary">🙈 Disable Detection</button>
-    <button id="resetDOMBtn" class="secondary">🔄 Reset Count</button>
+    <h4>Developer</h4>
+    <button id="extPageBtn" class="ext-toggle-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+        Extension Settings
+    </button>
 
     <div id="status"></div>
-    
+
     <script src="popup.js"></script>
 </body>
 </html>
-    

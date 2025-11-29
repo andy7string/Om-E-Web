@@ -2,15 +2,10 @@
 const wsUrlInput = document.getElementById("wsUrl");
 const saveButton = document.getElementById("saveBtn");
 const statusDiv = document.getElementById("status");
-const refreshBtn = document.getElementById("refreshBtn");
-const clearCacheBtn = document.getElementById("clearCacheBtn");
+const extPageBtn = document.getElementById("extPageBtn");
+const hudToggleBtn = document.getElementById("hudToggleBtn");
 
-// 🆕 NEW: DOM Change Control Buttons
-const enableDOMBtn = document.getElementById("enableDOMBtn");
-const disableDOMBtn = document.getElementById("disableDOMBtn");
-const resetDOMBtn = document.getElementById("resetDOMBtn");
-
-// 🐰 Orb Style Buttons
+// Orb Style Buttons
 const orbKawaiiBtn = document.getElementById("orbKawaii");
 const orbRobotBtn = document.getElementById("orbRobot");
 const orbAtomBtn = document.getElementById("orbAtom");
@@ -34,18 +29,18 @@ chrome.storage.local.get(["wsUrl"], (result) => {
 // Handle save button click
 saveButton.addEventListener("click", () => {
     const url = wsUrlInput.value.trim();
-    
+
     if (!url) {
         showStatus("Please enter a WebSocket URL", "error");
         return;
     }
-    
+
     // Validate WebSocket URL format
     if (!url.startsWith("ws://") && !url.startsWith("wss://")) {
         showStatus("Invalid WebSocket URL format", "error");
         return;
     }
-    
+
     // Send message to service worker to update URL
     chrome.runtime.sendMessage({ type: "setWsUrl", url }, (response) => {
         if (response && response.ok) {
@@ -56,123 +51,41 @@ saveButton.addEventListener("click", () => {
     });
 });
 
-// Handle refresh button click
-refreshBtn.addEventListener("click", async () => {
+// Handle extension settings button click - opens chrome://extensions
+extPageBtn.addEventListener("click", () => {
+    chrome.tabs.create({ url: "chrome://extensions" });
+});
+
+// Handle HUD toggle button click - toggles the HUD overlay on active tab
+hudToggleBtn.addEventListener("click", async () => {
     try {
-        showStatus("Refreshing extension state...", "info");
-        
-        // Send message to service worker to force refresh
-        const response = await chrome.runtime.sendMessage({ 
-            type: "forceRefresh" 
-        });
-        
-        if (response && response.ok) {
-            showStatus("Extension state refreshed successfully!", "success");
-            // Update status display
-            setTimeout(updateStatusDisplay, 1000);
-        } else {
-            showStatus("Failed to refresh extension state", "error");
+        // Get the active tab
+        const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        if (!activeTab) {
+            showStatus("No active tab found", "error");
+            return;
         }
+
+        // Send toggle_hud message to the content script
+        chrome.tabs.sendMessage(activeTab.id, { type: "toggle_hud" }, (response) => {
+            if (chrome.runtime.lastError) {
+                showStatus("Could not toggle HUD - reload the page", "error");
+                return;
+            }
+            if (response && response.ok) {
+                showStatus(response.visible ? "HUD visible" : "HUD hidden", "success");
+            }
+        });
     } catch (error) {
-        showStatus("Error refreshing extension state: " + error.message, "error");
+        showStatus("Error toggling HUD: " + error.message, "error");
     }
 });
 
-// Handle clear cache button click
-clearCacheBtn.addEventListener("click", async () => {
-    try {
-        showStatus("Clearing all cache...", "info");
-        
-        // Send message to service worker to clear all cache
-        const response = await chrome.runtime.sendMessage({ 
-            type: "clearAllCache" 
-        });
-        
-        if (response && response.ok) {
-            showStatus("All cache cleared successfully!", "success");
-            // Update status display
-            setTimeout(updateStatusDisplay, 1000);
-        } else {
-            showStatus("Failed to clear cache", "error");
-        }
-    } catch (error) {
-        showStatus("Error clearing cache: " + error.message, "error");
-    }
-});
-
-// 🆕 NEW: DOM Change Control Event Handlers
-
-// Handle enable DOM detection button click
-enableDOMBtn.addEventListener("click", async () => {
-    try {
-        showStatus("Enabling DOM change detection...", "info");
-        
-        // Send message to service worker to enable DOM detection
-        const response = await chrome.runtime.sendMessage({ 
-            type: "enableDOMChangeDetection" 
-        });
-        
-        if (response && response.ok) {
-            showStatus("DOM change detection enabled!", "success");
-            // Update status display
-            setTimeout(updateStatusDisplay, 1000);
-        } else {
-            showStatus("Failed to enable DOM detection", "error");
-        }
-    } catch (error) {
-        showStatus("Error enabling DOM detection: " + error.message, "error");
-    }
-});
-
-// Handle disable DOM detection button click
-disableDOMBtn.addEventListener("click", async () => {
-    try {
-        showStatus("Disabling DOM change detection...", "info");
-        
-        // Send message to service worker to disable DOM detection
-        const response = await chrome.runtime.sendMessage({ 
-            type: "disableDOMChangeDetection" 
-        });
-        
-        if (response && response.ok) {
-            showStatus("DOM change detection disabled!", "success");
-            // Update status display
-            setTimeout(updateStatusDisplay, 1000);
-        } else {
-            showStatus("Failed to disable DOM detection", "error");
-        }
-    } catch (error) {
-        showStatus("Error disabling DOM detection: " + error.message, "error");
-    }
-});
-
-// Handle reset DOM count button click
-resetDOMBtn.addEventListener("click", async () => {
-    try {
-        showStatus("Resetting DOM change count...", "info");
-        
-        // Send message to service worker to reset DOM count
-        const response = await chrome.runtime.sendMessage({ 
-            type: "resetDOMChangeCount" 
-        });
-        
-        if (response && response.ok) {
-            showStatus("DOM change count reset!", "success");
-            // Update status display
-            setTimeout(updateStatusDisplay, 1000);
-        } else {
-            showStatus("Failed to reset DOM count", "error");
-        }
-    } catch (error) {
-        showStatus("Error resetting DOM count: " + error.message, "error");
-    }
-});
-
-// 🐰 Orb Theme Selection Handlers
+// Orb Theme Selection Handlers
 
 /**
  * Set active orb theme button styling
- * @param {string} themeName - Theme key ('kawaii' or 'robot')
+ * @param {string} themeName - Theme key ('kawaii', 'robot', or 'atom')
  */
 function setActiveOrbButton(themeName) {
     orbButtons.forEach(btn => {
@@ -240,37 +153,37 @@ async function updateStatusDisplay() {
         // Get current tabs info
         const tabs = await chrome.tabs.query({});
         const activeTabsCount = tabs.filter(tab => tab.active).length;
-        
+
         // Update active tabs count
         activeTabs.textContent = activeTabsCount;
-        
+
         // Get extension status from service worker
-        const statusResponse = await chrome.runtime.sendMessage({ 
-            type: "getStatus" 
+        const statusResponse = await chrome.runtime.sendMessage({
+            type: "getStatus"
         });
-        
+
         if (statusResponse && statusResponse.ok) {
             const status = statusResponse.result;
-            
-            // Update connection status
+
+            // Update connection status with proper dark theme colors
             connectionStatus.textContent = status.isConnected ? "Connected" : "Disconnected";
-            connectionStatus.style.color = status.isConnected ? "#28a745" : "#dc3545";
-            
+            connectionStatus.className = "value " + (status.isConnected ? "connected" : "error");
+
             // Update content scripts status
             const freshScripts = status.tabsWithFreshScripts || 0;
             const totalTabs = status.totalTabs || 0;
             contentScripts.textContent = `${freshScripts}/${totalTabs}`;
-            
+
             // Update cache status
             const tabsNeedingScan = status.tabsNeedingFreshScan || 0;
             cacheStatus.textContent = tabsNeedingScan > 0 ? `${tabsNeedingScan} need scan` : "All fresh";
-            cacheStatus.style.color = tabsNeedingScan > 0 ? "#ffc107" : "#28a745";
-            
+            cacheStatus.className = "value " + (tabsNeedingScan > 0 ? "warning" : "connected");
+
             // Update DOM change status
             const totalDomChanges = status.totalDomChanges || 0;
             const recentDomChanges = status.recentDomChanges || 0;
             domChanges.textContent = `${totalDomChanges} total, ${recentDomChanges} recent`;
-            domChanges.style.color = totalDomChanges > 0 ? "#ffc107" : "#28a745";
+            domChanges.className = "value " + (totalDomChanges > 0 ? "warning" : "");
 
             // Update recent changes
             recentChanges.textContent = status.recentChanges || "No recent changes";
@@ -282,7 +195,7 @@ async function updateStatusDisplay() {
             domChanges.textContent = "-";
             recentChanges.textContent = "-";
         }
-        
+
     } catch (error) {
         console.error("Error updating status display:", error);
         // Set fallback values
@@ -299,7 +212,7 @@ async function updateStatusDisplay() {
 function showStatus(message, type = "success") {
     statusDiv.textContent = message;
     statusDiv.className = type;
-    
+
     // Clear status after 5 seconds
     setTimeout(() => {
         statusDiv.textContent = "";
@@ -317,7 +230,7 @@ wsUrlInput.addEventListener("keypress", (event) => {
 // Initialize status display when popup opens
 document.addEventListener("DOMContentLoaded", () => {
     updateStatusDisplay();
-    loadCurrentOrbTheme();  // 🐰 Load current orb theme
+    loadCurrentOrbTheme();
 
     // Update status every 2 seconds while popup is open
     const statusInterval = setInterval(updateStatusDisplay, 2000);

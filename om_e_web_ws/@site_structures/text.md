@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-11-29 23:46:39
+**Timestamp:** 2025-11-30 00:19:51
 
-**Tabs (1):** Active: #1138027191 "Google" www.google.com [loading]
+**Tabs (2):** Active: #1138027236 "Google" www.google.com [loading] | Other: #1138027231 "ChatGPT" chatgpt.com
 
 ## Available Actions
 
@@ -66,222 +66,158 @@ The following pre-configured actions are available for this page:
 ---
 
 Google Search homepage
-<Link id="a_id_0">Gmail</Link>
-<Link id="a_id_1">Search for Images</Link>
-<Button id="a_id_2">Google apps</Button>
-<Button id="a_id_3">Google Account: Andrew Orsmond
+<Link id="a_id_0">About</Link>
+<Link id="a_id_1">Store</Link>
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
 (andreworsmond21175@gmail.com)</Button>
-<Select id="a_id_4" value="" use="(a_id_4, select, 'option')">Search</Select>
-<Button id="a_id_5">Search by voice</Button>
-<Button id="a_id_6">Search by image</Button>
-<Button id="a_id_7">AI Mode</Button>
-<Button id="a_id_8">Google Search</Button>
-<Button id="a_id_9">I'm Feeling Lucky</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
 Accessibility links
-<Link id="a_id_10">Skip to Discover feed</Link>
-<Link id="a_id_11">Skip to sidebar</Link>
-<Link id="a_id_12">Skip to footer</Link>
-<Link id="a_id_13">Accessibility help</Link>
-<Link id="a_id_14">Accessibility feedback</Link>
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_15">Earth from Space: Eye of the Sahara
-The Copernicus Sentinel-2 mission captures a spectacular geological wonder in the Sahara Desert of Mauritania: the Richat Structure.
-European Space Agency
-·
-1d</Link>
-<Button id="a_id_16">More options</Button>
-<Link id="a_id_17">Shock data exposes how many homes typical earners can actually afford
-Rate cuts were supposed to make it easier for Aussie homeowners, but new data shows exactly the opposite has happened.
-Real Estate
-·
-1d</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Chinese particle detector tests 'portal to physics beyond the Standard Model' — with outstanding results
-Deep underground in southern China, there is a 20000-ton tank of liquid that can detect neutrinos. Named JUNO, the detector's first results are in — and...
-Live Science
-·
-1d</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">More than 1,000 Amazon workers warn rapid AI rollout threatens jobs and climate
-More than 1,000 Amazon employees have signed an open letter expressing “serious concerns” about AI development, saying that the company's “all-costs...
-The Guardian
-·
-23h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Before a Soyuz launch Thursday someone forgot to secure a 20-ton service platform
-We are going to learn just how important the ISS is to leadership.”...
-Ars Technica
-·
-20h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Audi adds some physical controls to its newest models
-Audi is adding a bunch of new features, including a scroll wheel on the steering wheel, to most of its newest models.
-CarExpert
-·
-17h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Samsung Plans New Feature Boost For Galaxy S26 Buyers
-Samsung Bixby on Galaxy S26 will reportedly be powered by Perplexity AI, not Google Gemini. Causing a massive shift in Bixby's abilities for Samsung Galaxy...
+<Link id="a_id_17">Google AI Shot Heard Globally; Another Shoe Is About To Drop
+The AI sphere is abuzz lately with news and rumors that the latest Google TPU, Ironwood, is powering the Gemini3 model, outpacing OpenAI on many metrics...
 Forbes
 ·
-1d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">The Red Rattler is back, with Adelaide’s 1929 Tram reborn for a new era
-Image courtesy of Tramway Museum of St Kilda SA. All aboard — the Red Rattler is back. After years out of service, Adelaide's beloved Tram 351 has...
-Glam Adelaide
+3d</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Genesis Magma GT set for production with full line-up of Porsche 911-like variants
+When the Magma GT range goes into production, Genesis chiefs have revealed it will feature a 911-like full-line up of variants.
+Drive
 ·
-19h</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Jetstar flights axed as Airbus radiation bug hits aircraft
-Airline passengers have been left stranded at airports across the country after aerospace manufacturer Airbus reported a software glitch overnight affecting...
-The Australian
+11h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Jetstar services resume after Adelaide Airport chaos
+Jetstar flyers reliant on services in and out of Adelaide on Sunday will find some relief in the return to schedule of flights after a global plane issue...
+The Advertiser
 ·
-7h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Government's garage size law on ice as Premier calls out Property Council
-The government is yet to get a garage size law over the line, increasing the size of new SA home garages by 50cm and length by 60cm.
-ABC
-·
-1d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Toyota Corolla Cross Hybrid 2026: Next-Gen SUV with Price, Mileage, Specs, Interior & Smart Tech
-The 2026 Toyota Corolla Cross Hybrid is finally here, and it's bigger, smarter, and more efficient than ever. Toyota took the best-selling Corolla name,
-acmesignsandgraphicstx.com
-·
-1h</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Beyond the habitable zone: Exoplanet atmospheres are the next clue to finding life on planets orbiting distant stars
-An expert discusses how the habitable zone works and why looking at exoplanet atmospheres as well as the habitable zone can be helpful for the search for...
-Space
-·
-14h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Daimler launches fuel-saving Mercedes-Benz Actros ProCabin
-The ProCabin also benefits from a new five-radar active safety suite that has been introduced as standard across the whole Actros range.
-Big Rigs
+3h</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">BMW F 450 GS feature pictorial as new images released
+Check out a full gallery of images of the new 2026 BMW F 450 GS, a LAMS legal adventure motorcycle that looks to be a winner in the making.
+MCNews
 ·
 1d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Defence poised to sell prime Brisbane and Sydney real estate
-Brisbane's Victoria Barracks and Spectacle Island on Sydney Harbour are among the sites the government wants to sell after an audit of defence property.
-AFR
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Rising high into Saudi sky: World's new tallest skyscraper progresses
+Saudi Arabia's JEC Tower, set to become the world's tallest skyscraper, has reached a major new construction milestone as work accelerates toward its...
+New Atlas
 ·
 1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Hedge fund calls for Corporate Travel chair and CEO to resign
-The business travel agent has defended its governance as its accounting scandal deepens, with an admission it owes £80 million ($162 million) to UK...
-AFR
-·
-1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Tesla faces class action over Powerwall recall that leaves people with bricked batteries
-Tesla's poorly handled Powerwall 2 recall is now turning into a potential class action lawsuit over for leaving people with bricked batteries until Tesla...
-Electrek
-·
-1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Ford workers told their CEO 'none of the young people want to work here.' So Jim Farley took a page out of the founder's playbook
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Ford workers told their CEO 'none of the young people want to work here.' So Jim Farley took a page out of the founder's playbook
 Ford CEO Jim Farley learned from older employees that some young workers at the carmaker were taking shifts at Amazon to make ends meet, he said at the...
 Fortune
 ·
-18h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Lawyers at fault for Australia’s regulatory red tape burden
-At the risk of being disowned by the legal community, it is worth highlighting that external legal spending by firms has tripled since 2010.
-AFR
-·
-5d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">NASA probe captures stunning photos of Earth and moon on the way to infamous asteroid Apophis
-NASA's OSIRIS-APEX spacecraft captured stunning new images as it whipped past Earth during a high-speed slingshot maneuver, sending the probe on a fast...
-Space
-·
-15h</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">AtSpace Australian-made A01 rocket blasts off
-AtSpace has successfully launched its Australian-made A01 rocket on 27 November 2025. The company is a Brisbane-based rocket manufacturer.
-Australian Defence Magazine
+19h</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Another wind project nears drought-breaking financial close as Snowy signs long-term contract
+Another wind project nears financial close - and the breaking of Australia's wind investment drought - after government owned Snowy signs long-term deal.
+Renew Economy
 ·
 1d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Ford: Ranger Super Duty V6 is up to the task
-Ranger V6 doesn't have the best rep for reliability, but Ford thinks it's finally nailed the recipe for the Super Duty.
-Carsales
-·
-3d</Link>
-<Button id="a_id_56">More options</Button>
-<Link id="a_id_57">Belgium's 'Little Einstein' Earns PhD in Quantum Physics at Age 15
-A fifteen-year-old dubbed "Belgium's little Einstein" has completed his PhD in quantum physics in what could be record time.
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Belgium's 'Little Einstein' Earns PhD in Quantum Physics at Age 15
+A fifteen-year-old dubbed "Belgium's little Einstein" has completed his PhD in quantum physics in what could be record time. According to reporting from the...
 ScienceAlert
 ·
 1d</Link>
-<Button id="a_id_58">More options</Button>
-<Link id="a_id_59">'Supergiant' Gold Deposits Could Be Worth Over US$80 Billion
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">After blocked Mayne deal, Australia M&As set for higher reverse break fees
+Foreign bidders for Australian companies could be liable for higher reverse break fees if regulatory approval is not received, in the wake of the failed...
+Reuters
+·
+2d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">10:41
+Vibe Coding is Ending Software Development As We Know It (And Why That’s Good)
+Try Replit: https://replit.com/sig... 2025 is the year software development splits into two camps—those who code the old way, and those who simply vibe...
+Julia McCoy
+YouTube
+·
+22h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">AI search and gadgets drive Black Friday sales shift
+Shoppers are using chatbots more than ever to find Black Friday deals, with AI-powered gadgets and household items at the top of their shopping lists.
+AFR
+·
+1d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Australia home prices set to rise about 7% in a tight market: Reuters poll
+Australian home prices will rise more than previously expected in 2026, thanks to tight supply and resilient demand, according to a Reuters poll of analysts...
+Reuters
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">'Supergiant' Gold Deposits Could Be Worth Over US$80 Billion
 Two large gold deposits discovered in China may hold a collective mass of over 2000 metric tons (2200 US tons) of the precious material – the largest ever...
 ScienceAlert
 ·
 1d</Link>
-<Button id="a_id_60">More options</Button>
-<Link id="a_id_61">A new low: Trump’s approval rating negative with every major pollster for the first time
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">A new low: Trump’s approval rating negative with every major pollster for the first time
 Polls carried out by YouGov, Gallup, Ipsos, R.M.G. Research, Morning Consult and Quinnipiac all show that more U.S. citizens disapprove of Trump than...
 The Independent
 ·
 1d</Link>
-<Button id="a_id_62">More options</Button>
-<Link id="a_id_63">Aussie scientists find bizarre construction use for coffee grounds
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Aussie scientists find bizarre construction use for coffee grounds
 RMIT University researchers found that heating coffee grounds to about 350 degrees without oxygen creates biochar, which can be combined with sand to help...
 9News.com.au
 ·
 1d</Link>
-<Button id="a_id_64">More options</Button>
-<Link id="a_id_65">Use ChatGPT as Your iPhone's Action Button Assistant
-Apple doesn't currently allow iPhone users to change the Side button's Siri functionality to another assistant, but owners of iPhone 15 Pro...
-MacRumors
-·
-20h</Link>
-<Button id="a_id_66">More options</Button>
-<Link id="a_id_67">Police seize $8.4m in assets after alleged illicit tobacco raids in the NT
-Police have seized about $8.4 million in assets, including two cars and a jet ski, and almost 1 million cigarettes, following an operation targeting the...
-ABC News
-·
-12h</Link>
-<Button id="a_id_68">More options</Button>
-<Link id="a_id_69">Snowy Hydro inks deals to drive renewables expansion
-Contracts to buy wind power and battery capacity should move two major projects in South Australia and Victoria closer to construction.
-AFR
-·
-2d</Link>
-<Button id="a_id_70">More options</Button>
-<Link id="a_id_71">Dairy 'disrupter' who invented spreadable butter in 70s wins science award
-Dairy farmer Geoff Boxsell, 86, has won the 2025 Dairy Science Award for inventing spreadable butter more than 50 years ago.
-ABC News
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Households on track to add five “biggest batteries” in six months, as rebate installs rocket to...
+Federal Labor's Cheaper Home Batteries rebate is expected to have received a whopping 175000 applications by the end of 2025.
+Renew Economy
 ·
 1d</Link>
-<Button id="a_id_72">More options</Button>
-<Link id="a_id_73">Australia well behind in R&D funding race
-Our business sector does not value R&D and innovation nearly as much as our international peers.
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">How Brown slump, Heimgartner car failure shifted Finals race
+Reigning Adelaide 500 winner the only Finals Driver to start outside top 10 this afternoon.
+Supercars
+·
+3h</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Tim Berners-Lee wants everyone to own their own data – his plan needs state and consumer support to work
+Tim Berners-Lee, the creator of the world wide web, has released an important new book about the problems we face online and how to solve them.
+The Conversation
+·
+3d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Here’s the average Australian superannuation balance at 50
+Let's see if the average 50-year-old has a superannuation balance that sets them up for a comfortable retirement...
+The Motley Fool Australia
+·
+18h</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Woolworths hit with underpayments shareholder class action
+Billionaire property mogul Shaun Bonett's litigation funder is backing a shareholder class action against Woolworths, alleging it misled investors over...
 AFR
 ·
-4d</Link>
-<Button id="a_id_74">More options</Button>
+19h</Link>
+<Button id="a_id_56">More options</Button>
 At a glance
-<Button id="a_id_75">Customise Homestack</Button>
-<Link id="a_id_76">VIX • VIX down 5.00%. Price is 16.35 Today</Link>
-<Link id="a_id_77">Air quality
+<Button id="a_id_57">Customise Homestack</Button>
+<Link id="a_id_58">VIX • VIX down 5.00%. Price is 16.35 Today</Link>
+<Link id="a_id_59">Air quality
 Good
 AQC</Link>
 Australia
-<Link id="a_id_78">Advertising</Link>
-<Link id="a_id_79">Business</Link>
-<Link id="a_id_80">How Search works</Link>
-<Link id="a_id_81">Privacy</Link>
-<Link id="a_id_82">Terms</Link>
-<Button id="a_id_83">Settings</Button>
-
----
-
-## Secure Iframe Elements
-
-*⏳ Loading 2 iframe(s)... (payment forms, embedded content)*
-
-*Iframe elements will appear here when loaded. Check back shortly.*
+<Link id="a_id_60">Advertising</Link>
+<Link id="a_id_61">Business</Link>
+<Link id="a_id_62">How Search works</Link>
+<Link id="a_id_63">Privacy</Link>
+<Link id="a_id_64">Terms</Link>
+<Button id="a_id_65">Settings</Button>
