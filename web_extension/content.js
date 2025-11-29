@@ -12001,6 +12001,131 @@
         }
     }
 
+    // 📐 Save chat panel size (persists across sessions)
+    function saveChatPanelSize(width, height) {
+        try {
+            chrome.runtime.sendMessage({
+                type: 'set_orb_state',
+                chatPanelSize: { width, height }
+            });
+        } catch (e) {
+            console.warn('[Content] Could not save chat panel size:', e);
+        }
+    }
+
+    /**
+     * 📐 Setup resize handlers for chat panel
+     * Enables drag-to-resize on all edges and corners
+     * @param {HTMLElement} chatPanel - The chat panel element
+     */
+    function setupChatPanelResize(chatPanel) {
+        if (!chatPanel) return;
+
+        let isResizing = false;
+        let resizeDir = null;
+        let startX = 0;
+        let startY = 0;
+        let startWidth = 0;
+        let startHeight = 0;
+
+        // Get all resize handles
+        const handles = chatPanel.querySelectorAll('.ome-resize-handle');
+
+        handles.forEach(handle => {
+            handle.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                isResizing = true;
+                resizeDir = handle.dataset.resize;
+                startX = e.clientX;
+                startY = e.clientY;
+
+                const rect = chatPanel.getBoundingClientRect();
+                startWidth = rect.width;
+                startHeight = rect.height;
+
+                chatPanel.classList.add('resizing');
+
+                // Use document listeners so resize works even if mouse leaves panel
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+        });
+
+        function onMouseMove(e) {
+            if (!isResizing) return;
+
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+
+            let newWidth = startWidth;
+            let newHeight = startHeight;
+
+            // Handle width changes
+            if (resizeDir.includes('e')) {
+                // East: decrease width as mouse moves right (panel anchored on right)
+                newWidth = Math.max(200, Math.min(600, startWidth - dx));
+            }
+            if (resizeDir.includes('w')) {
+                // West (left edge): drag left = wider, drag right = narrower
+                newWidth = Math.max(200, Math.min(600, startWidth - dx));
+            }
+
+            // Handle height changes
+            if (resizeDir.includes('n')) {
+                // North: increase height as mouse moves up
+                newHeight = Math.max(150, Math.min(window.innerHeight * 0.8, startHeight - dy));
+            }
+            if (resizeDir.includes('s')) {
+                // South: decrease height as mouse moves down (panel anchored at bottom)
+                newHeight = Math.max(150, Math.min(window.innerHeight * 0.8, startHeight + dy));
+            }
+
+            chatPanel.style.width = `${newWidth}px`;
+            chatPanel.style.height = `${newHeight}px`;
+        }
+
+        function onMouseUp() {
+            if (!isResizing) return;
+
+            isResizing = false;
+            resizeDir = null;
+            chatPanel.classList.remove('resizing');
+
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+
+            // 💾 Save dimensions for persistence
+            const rect = chatPanel.getBoundingClientRect();
+            saveChatPanelSize(rect.width, rect.height);
+        }
+
+        // 💾 Restore saved dimensions
+        restoreChatPanelSize(chatPanel);
+    }
+
+    /**
+     * 📐 Restore chat panel size from saved state
+     * @param {HTMLElement} chatPanel - The chat panel element
+     */
+    function restoreChatPanelSize(chatPanel) {
+        try {
+            chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                if (response?.ok && response.chatPanelSize) {
+                    const { width, height } = response.chatPanelSize;
+                    if (width && height) {
+                        chatPanel.style.width = `${width}px`;
+                        chatPanel.style.height = `${height}px`;
+                        console.log('[Content] 📐 Restored chat panel size:', width, 'x', height);
+                    }
+                }
+            });
+        } catch (e) {
+            console.warn('[Content] Could not restore chat panel size:', e);
+        }
+    }
+
     // ============================================================================
     // 🎨 ORB THEMES REGISTRY - Different visual styles for the floating orb
     // ============================================================================
@@ -12448,13 +12573,17 @@
             .ome-theme-btn span { font-size: 10px; color: #9ca3af; }
             .ome-theme-btn.active span { color: #a5b4fc; }
 
-            /* 💬 Chat Panel (anchored to orb) */
+            /* 💬 Chat Panel (anchored to orb) - RESIZABLE */
             .ome-chat-panel {
                 position: absolute;
                 bottom: 0;
                 right: 70px;
                 width: 320px;
-                max-height: 400px;
+                height: 400px;
+                min-width: 200px;
+                min-height: 150px;
+                max-width: 600px;
+                max-height: 80vh;
                 background: rgba(20,20,28,0.82);
                 backdrop-filter: blur(12px);
                 border: 1px solid rgba(100,120,180,0.2);
@@ -12468,6 +12597,22 @@
             }
             .ome-chat-panel.visible { display: flex; }
 
+            /* 📐 Resize Handles */
+            .ome-resize-handle {
+                position: absolute;
+                background: transparent;
+                z-index: 10;
+            }
+            .ome-resize-n { top: -4px; left: 8px; right: 8px; height: 8px; cursor: n-resize; }
+            .ome-resize-s { bottom: -4px; left: 8px; right: 8px; height: 8px; cursor: s-resize; }
+            .ome-resize-e { top: 8px; right: -4px; bottom: 8px; width: 8px; cursor: e-resize; }
+            .ome-resize-w { top: 8px; left: -4px; bottom: 8px; width: 8px; cursor: w-resize; }
+            .ome-resize-nw { top: -4px; left: -4px; width: 12px; height: 12px; cursor: nw-resize; }
+            .ome-resize-ne { top: -4px; right: -4px; width: 12px; height: 12px; cursor: ne-resize; }
+            .ome-resize-sw { bottom: -4px; left: -4px; width: 12px; height: 12px; cursor: sw-resize; }
+            .ome-resize-se { bottom: -4px; right: -4px; width: 12px; height: 12px; cursor: se-resize; }
+            .ome-chat-panel.resizing { user-select: none; }
+
             /* 💬 Chat Messages Area */
             .ome-chat-messages {
                 flex: 1;
@@ -12476,8 +12621,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
-                min-height: 200px;
-                max-height: 320px;
+                min-height: 80px;
             }
             .ome-chat-messages::-webkit-scrollbar { width: 6px; }
             .ome-chat-messages::-webkit-scrollbar-track { background: transparent; }
@@ -12638,9 +12782,17 @@
         const promptHTML = `
             <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
 
-        // 💬 Chat panel (anchored to orb)
+        // 💬 Chat panel (anchored to orb) - with resize handles
         const chatPanelHTML = `
             <div class="ome-chat-panel">
+                <div class="ome-resize-handle ome-resize-n" data-resize="n"></div>
+                <div class="ome-resize-handle ome-resize-s" data-resize="s"></div>
+                <div class="ome-resize-handle ome-resize-e" data-resize="e"></div>
+                <div class="ome-resize-handle ome-resize-w" data-resize="w"></div>
+                <div class="ome-resize-handle ome-resize-nw" data-resize="nw"></div>
+                <div class="ome-resize-handle ome-resize-ne" data-resize="ne"></div>
+                <div class="ome-resize-handle ome-resize-sw" data-resize="sw"></div>
+                <div class="ome-resize-handle ome-resize-se" data-resize="se"></div>
                 <div class="ome-chat-messages">
                     <div class="ome-chat-bubble typing-preview"></div>
                 </div>
@@ -12732,6 +12884,9 @@
                     saveChatInput(chatInput.value);
                 });
             }
+
+            // 📐 Setup resize handlers for chat panel
+            setupChatPanelResize(chatPanel);
         }
 
         // Update theme selector active state if HUD exists
@@ -12773,9 +12928,17 @@
         const promptHTML = `
             <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
 
-        // 💬 Chat panel (anchored to orb)
+        // 💬 Chat panel (anchored to orb) - with resize handles
         const chatPanelHTML = `
             <div class="ome-chat-panel">
+                <div class="ome-resize-handle ome-resize-n" data-resize="n"></div>
+                <div class="ome-resize-handle ome-resize-s" data-resize="s"></div>
+                <div class="ome-resize-handle ome-resize-e" data-resize="e"></div>
+                <div class="ome-resize-handle ome-resize-w" data-resize="w"></div>
+                <div class="ome-resize-handle ome-resize-nw" data-resize="nw"></div>
+                <div class="ome-resize-handle ome-resize-ne" data-resize="ne"></div>
+                <div class="ome-resize-handle ome-resize-sw" data-resize="sw"></div>
+                <div class="ome-resize-handle ome-resize-se" data-resize="se"></div>
                 <div class="ome-chat-messages">
                     <div class="ome-chat-bubble typing-preview"></div>
                 </div>
@@ -12910,6 +13073,9 @@
                     saveChatInput(chatInput.value);
                 });
             }
+
+            // 📐 Setup resize handlers for chat panel
+            setupChatPanelResize(chatPanel);
         }
 
         // 🐰 Body click: toggle follow mode (but NOT on ears/halo/scroll/zoom/prompt/chat)

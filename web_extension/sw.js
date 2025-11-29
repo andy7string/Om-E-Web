@@ -39,7 +39,8 @@ const orbState = {
     theme: 'robot',       // Current theme name (robot is default)
     position: null,       // { left: number, top: number } or null for default
     chatVisible: false,   // 💬 Chat panel open/closed
-    chatInput: ''         // 💬 Text in input box (persists across nav)
+    chatInput: '',        // 💬 Text in input box (persists across nav)
+    chatPanelSize: null   // 📐 Chat panel dimensions { width, height } or null for default
 };
 
 // ============================================================================
@@ -1373,6 +1374,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 if (message.position !== undefined) orbState.position = message.position;
                 if (message.chatVisible !== undefined) orbState.chatVisible = message.chatVisible;
                 if (message.chatInput !== undefined) orbState.chatInput = message.chatInput;
+                if (message.chatPanelSize !== undefined) {
+                    orbState.chatPanelSize = message.chatPanelSize;
+                    // 📐 Persist chat panel size to storage for browser restart
+                    chrome.storage.local.set({ chatPanelSize: message.chatPanelSize });
+                }
                 console.log('[SW] 🐰 Updated orb state:', orbState);
                 sendResponse({ ok: true });
                 break;
@@ -3446,10 +3452,12 @@ connectWebSocket();
 ensureKeepAlivePort();
 scheduleHeartbeatAlarm();
 
-// 🎨 Restore saved orb theme icon on startup
+// 🎨 Restore saved orb theme and chat panel size on startup
 (async () => {
     try {
-        const { orbTheme } = await chrome.storage.local.get('orbTheme');
+        const { orbTheme, chatPanelSize } = await chrome.storage.local.get(['orbTheme', 'chatPanelSize']);
+
+        // Restore theme/icon
         if (orbTheme) {
             const iconPrefix = orbTheme === 'robot' ? 'ome' : orbTheme;
             await chrome.action.setIcon({
@@ -3462,8 +3470,14 @@ scheduleHeartbeatAlarm();
             orbState.theme = orbTheme;
             console.log('[SW] 🎨 Restored extension icon to:', iconPrefix);
         }
+
+        // Restore chat panel size
+        if (chatPanelSize) {
+            orbState.chatPanelSize = chatPanelSize;
+            console.log('[SW] 📐 Restored chat panel size:', chatPanelSize);
+        }
     } catch (e) {
-        console.warn('[SW] Could not restore icon on startup:', e.message);
+        console.warn('[SW] Could not restore state on startup:', e.message);
     }
 })();
 
