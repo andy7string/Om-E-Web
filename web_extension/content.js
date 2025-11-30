@@ -12441,11 +12441,11 @@
                 gap: 24px;
             }
 
-            /* 💬 HUD Prompt Box - IDENTICAL to .ome-chat-panel with purple glow from orb */
+            /* 💬 HUD Prompt Box - matching HUD background with purple glow */
             .ome-hud-prompt {
                 width: 800px;
                 height: 200px;
-                background: rgba(20,20,28,0.82);
+                background: rgba(33,33,33,0.95);
                 backdrop-filter: blur(12px);
                 border: 1px solid rgba(147,112,219,0.35);
                 border-radius: 12px;
@@ -13329,17 +13329,10 @@
                     ${currentTheme.svg}
                 </div>
 
-                <!-- 🎮 HUD Controls (scroll + zoom) -->
-                <div class="ome-hud-controls">
-                    <div class="ome-hud-scroll">
-                        <button class="ome-hud-ctrl-btn ome-hud-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
-                        <button class="ome-hud-ctrl-btn ome-hud-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    </div>
-                    <div class="ome-hud-zoom">
-                        <button class="ome-hud-ctrl-btn ome-hud-zoom-in">+</button>
-                        <span class="ome-hud-zoom-label ome-hud-zoom-reset">Z</span>
-                        <button class="ome-hud-ctrl-btn ome-hud-zoom-out">−</button>
-                    </div>
+                <!-- 🎮 HUD Scroll Controls (scrolls HUD messages area) -->
+                <div class="ome-hud-scroll">
+                    <button class="ome-hud-ctrl-btn ome-hud-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                    <button class="ome-hud-ctrl-btn ome-hud-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
                 </div>
             </div>
         `;
@@ -13391,20 +13384,6 @@
             if (messagesArea) {
                 messagesArea.scrollBy({ top: 100, behavior: 'smooth' });
             }
-        });
-
-        // 🔍 HUD Zoom controls - same as orb zoom (page zoom)
-        hud.querySelector('.ome-hud-zoom-in')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomIn', params: {} });
-        });
-        hud.querySelector('.ome-hud-zoom-out')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomOut', params: {} });
-        });
-        hud.querySelector('.ome-hud-zoom-reset')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomReset', params: {} });
         });
 
         shadow.appendChild(hud);
