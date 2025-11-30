@@ -1,35 +1,28 @@
 {
-  "timestamp": 1764503690.383175,
+  "timestamp": 1764506011.3248918,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138027562,
-      "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/692c2084-b2bc-8321-af7d-1ac6cb6a2cd7",
-      "title": "ChatGPT - OM-E autonomy",
-      "status": "complete"
+      "id": 1138027651,
+      "url": "https://www.google.com/",
+      "title": "Google",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138027562,
-        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/692c2084-b2bc-8321-af7d-1ac6cb6a2cd7",
-        "title": "ChatGPT - OM-E autonomy",
+        "id": 1138027651,
+        "url": "https://www.google.com/",
+        "title": "Google",
         "active": true,
-        "status": "complete"
-      },
-      {
-        "id": 1138027635,
-        "url": "https://www.youtube.com/",
-        "title": "(16) YouTube",
-        "active": false,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 50574.193562416,
+    "last_tabs_update": 53116.971049,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/692c2084-b2bc-8321-af7d-1ac6cb6a2cd7",
-    "title": "ChatGPT - OM-E autonomy",
+    "url": "https://www.google.com/",
+    "title": "Google",
     "is_active_tab": true
   },
   "content_structure": {},

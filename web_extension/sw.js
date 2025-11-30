@@ -1214,6 +1214,54 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // ================================================================
+        // 💬 CHAT SYSTEM: Forward server ack to content script
+        // ================================================================
+        if (message.type === "chat_append_ack") {
+            console.log("[SW] 💬 Chat append ack received from server:", message);
+
+            // Forward to active tab's content script
+            (async () => {
+                try {
+                    const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+                    if (activeTab && activeTab.id) {
+                        await chrome.tabs.sendMessage(activeTab.id, {
+                            type: 'ui_chat_append_ack',
+                            data: message
+                        });
+                        console.log('[SW] 💬 Chat ack forwarded to tab:', activeTab.id);
+                    } else {
+                        console.warn('[SW] 💬 No active tab to forward chat ack');
+                    }
+                } catch (error) {
+                    console.error('[SW] 💬 Error forwarding chat ack:', error);
+                }
+            })();
+            return;
+        }
+
+        // 💬 CHAT SYSTEM: Forward chat errors to content script
+        if (message.type === "chat_error") {
+            console.log("[SW] 💬 Chat error received from server:", message);
+
+            // Forward to active tab's content script
+            (async () => {
+                try {
+                    const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+                    if (activeTab && activeTab.id) {
+                        await chrome.tabs.sendMessage(activeTab.id, {
+                            type: 'ui_chat_error',
+                            data: message
+                        });
+                        console.log('[SW] 💬 Chat error forwarded to tab:', activeTab.id);
+                    }
+                } catch (error) {
+                    console.error('[SW] 💬 Error forwarding chat error:', error);
+                }
+            })();
+            return;
+        }
+
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);
@@ -1436,6 +1484,48 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     }
                 })();
                 return true; // Keep channel open for async
+
+            // ================================================================
+            // 💬 CHAT SYSTEM: Forward user messages to WebSocket server
+            // ================================================================
+            case 'ui_chat_user_message':
+                (async () => {
+                    try {
+                        const chatId = message.chat_id || null;
+                        const prompt = message.data?.prompt || '';
+                        const pageUrl = message.data?.page_url || '';
+                        const pageTitle = message.data?.page_title || '';
+                        const frontEndContext = message.data?.front_end_context || {};
+
+                        if (!prompt) {
+                            console.warn('[SW] 💬 Chat message missing prompt');
+                            sendResponse({ ok: false, error: 'Missing prompt' });
+                            return;
+                        }
+
+                        // Build WebSocket payload matching ws_server.py expectations
+                        const wsPayload = {
+                            type: 'chat_user_message',
+                            chat_id: chatId,
+                            data: {
+                                prompt: prompt,
+                                page_url: pageUrl,
+                                page_title: pageTitle,
+                                front_end_context: frontEndContext
+                            }
+                        };
+
+                        console.log('[SW] 💬 Sending chat message to server:', wsPayload);
+                        sendToServer(wsPayload);
+                        sendResponse({ ok: true, sent: true });
+
+                    } catch (error) {
+                        console.error('[SW] 💬 Error sending chat message:', error);
+                        sendResponse({ ok: false, error: error.message });
+                    }
+                })();
+                return true; // Keep channel open for async
+
             default:
                 console.warn("[SW] Unknown internal message type:", message.type);
                 sendResponse({ ok: false, error: "Unknown message type" });

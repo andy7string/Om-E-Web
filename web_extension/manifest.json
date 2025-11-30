@@ -38,6 +38,12 @@
       "js": ["content.js"],
       "all_frames": true,
       "run_at": "document_idle"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["chat_test_helper.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
     }
   ],
   

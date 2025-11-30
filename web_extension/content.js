@@ -2584,6 +2584,23 @@
             return false;
         }
 
+        // ================================================================
+        // 💬 CHAT SYSTEM: Handle chat acknowledgements from service worker
+        // ================================================================
+        if (message && message.type === "ui_chat_append_ack") {
+            console.log("[Content] 💬 Chat append ack received:", message.data);
+            handleChatAck(message.data);
+            sendResponse({ ok: true });
+            return false;
+        }
+
+        if (message && message.type === "ui_chat_error") {
+            console.log("[Content] 💬 Chat error received:", message.data);
+            handleChatError(message.data);
+            sendResponse({ ok: true });
+            return false;
+        }
+
         // 🆕 NEW: Check if this is a typed message (LLM action) first
         // LLM actions are handled by a separate listener to avoid conflicts
         // This ensures clean separation between automation commands and AI actions
@@ -12471,6 +12488,31 @@
             .ome-hud-prompt-messages::-webkit-scrollbar { width: 6px; }
             .ome-hud-prompt-messages::-webkit-scrollbar-track { background: transparent; }
             .ome-hud-prompt-messages::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.3); border-radius: 3px; }
+            /* 💬 HUD Message Bubbles */
+            .ome-hud-message {
+                padding: 8px 12px;
+                border-radius: 12px;
+                max-width: 85%;
+                word-wrap: break-word;
+                font-size: 13px;
+                line-height: 1.4;
+            }
+            .ome-hud-message.user {
+                align-self: flex-end;
+                background: rgba(147,112,219,0.4);
+                color: #e0d4f7;
+            }
+            .ome-hud-message.assistant {
+                align-self: flex-start;
+                background: rgba(126,200,227,0.2);
+                color: #7ec8e3;
+            }
+            .ome-hud-message.error {
+                align-self: center;
+                background: rgba(220,38,38,0.3);
+                color: #fca5a5;
+                font-size: 12px;
+            }
             /* 💬 HUD Input Wrapper - with purple tint */
             .ome-hud-prompt-input-wrapper {
                 display: flex;
@@ -13357,13 +13399,27 @@
         // Send button handler
         const sendBtn = hud.querySelector('.ome-hud-send-btn');
         const promptInput = hud.querySelector('.ome-hud-prompt-input');
+        const messagesContainer = hud.querySelector('.ome-hud-prompt-messages');
 
-        sendBtn.addEventListener('click', () => {
+        sendBtn.addEventListener('click', async () => {
             const text = promptInput.value.trim();
-            if (text) {
-                console.log('[Content] 📤 HUD Prompt sent:', text);
-                // TODO: Send prompt to service worker / LLM pipeline
-                promptInput.value = '';
+            if (!text) return;
+
+            console.log('[Content] 📤 HUD Prompt sending:', text);
+
+            // Show user message immediately
+            appendHUDMessage(messagesContainer, 'user', text);
+
+            // Clear input
+            promptInput.value = '';
+
+            // Send through chat pipeline
+            try {
+                const result = await sendChatMessage(text);
+                console.log('[Content] ✅ Chat message sent:', result);
+            } catch (error) {
+                console.error('[Content] ❌ Chat send failed:', error);
+                appendHUDMessage(messagesContainer, 'error', 'Failed to send message');
             }
         });
 
@@ -13733,6 +13789,133 @@
             return true;
         }
     });
+
+    // ========================================================================
+    // 💬 CHAT SYSTEM HELPERS
+    // ========================================================================
+
+    // Chat state tracking (minimal for now)
+    const chatState = {
+        currentChatId: null,
+        lastAck: null
+    };
+
+    /**
+     * 💬 Append a message bubble to the HUD messages container
+     * @param {HTMLElement} container - The messages container element
+     * @param {string} role - 'user', 'assistant', or 'error'
+     * @param {string} text - The message text
+     */
+    function appendHUDMessage(container, role, text) {
+        if (!container) {
+            console.warn('[Content] 💬 No messages container to append to');
+            return;
+        }
+
+        const msgEl = document.createElement('div');
+        msgEl.className = `ome-hud-message ${role}`;
+        msgEl.textContent = text;
+        container.appendChild(msgEl);
+
+        // Auto-scroll to bottom
+        container.scrollTop = container.scrollHeight;
+
+        console.log(`[Content] 💬 HUD message appended: [${role}] ${text.substring(0, 50)}...`);
+    }
+
+    /**
+     * 💬 Handle successful chat message acknowledgement from server
+     * Placeholder for now - will be expanded for UI integration
+     *
+     * @param {Object} data - The chat_append_ack payload from server
+     */
+    function handleChatAck(data) {
+        console.log('[Content] 💬 handleChatAck called with:', data);
+
+        // Store the chat_id for future messages in same conversation
+        if (data.chat_id) {
+            chatState.currentChatId = data.chat_id;
+        }
+
+        // Store the last ack for reference
+        chatState.lastAck = data;
+
+        // Log the message that was appended
+        if (data.message) {
+            console.log(`[Content] 💬 Message ${data.message.id} appended to chat ${data.chat_id}`);
+        }
+
+        // Future: Update HUD UI with the acknowledgement
+        // For now, just log
+    }
+
+    /**
+     * 💬 Handle chat error from server
+     * Placeholder for now - will be expanded for UI integration
+     *
+     * @param {Object} data - The chat_error payload from server
+     */
+    function handleChatError(data) {
+        console.error('[Content] 💬 handleChatError called with:', data);
+
+        // Future: Display error in HUD UI
+        // For now, just log
+    }
+
+    /**
+     * 💬 Send a chat message to the service worker for forwarding to server
+     *
+     * @param {string} prompt - The user's message text
+     * @param {string|null} chatId - Existing chat ID or null for new chat
+     * @param {Object} meta - Optional metadata (page_url, page_title)
+     * @returns {Promise<Object>} - Response from service worker
+     */
+    function sendChatMessage(prompt, chatId = null, meta = {}) {
+        return new Promise((resolve, reject) => {
+            const message = {
+                type: 'ui_chat_user_message',
+                chat_id: chatId || chatState.currentChatId,
+                data: {
+                    prompt: prompt,
+                    page_url: meta.page_url || window.location.href,
+                    page_title: meta.page_title || document.title,
+                    front_end_context: meta.front_end_context || {}
+                }
+            };
+
+            console.log('[Content] 💬 Sending chat message:', message);
+
+            chrome.runtime.sendMessage(message, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error('[Content] 💬 Error sending chat message:', chrome.runtime.lastError);
+                    reject(chrome.runtime.lastError);
+                    return;
+                }
+                console.log('[Content] 💬 Chat message send response:', response);
+                resolve(response);
+            });
+        });
+    }
+
+    // Expose sendChatMessage globally for console testing
+    // Content scripts run in isolated world, so we use postMessage bridge
+    window.omeSendChat = sendChatMessage;
+
+    // Listen for page-context test calls via postMessage
+    window.addEventListener('message', (event) => {
+        if (event.source !== window) return;
+        if (event.data?.type === 'ome_send_chat_test') {
+            const { prompt, chatId, meta } = event.data;
+            sendChatMessage(prompt, chatId, meta)
+                .then(result => {
+                    window.postMessage({ type: 'ome_send_chat_result', result }, '*');
+                })
+                .catch(error => {
+                    window.postMessage({ type: 'ome_send_chat_result', error: error.message }, '*');
+                });
+        }
+    });
+
 
     // 🚀 Auto-init orb on load
     if (document.readyState === 'loading') {
