@@ -12408,21 +12408,15 @@
                 position: fixed;
                 top: 0; left: 0;
                 width: 100vw; height: 100vh;
-                background: rgba(15,15,20,0.92);
-                backdrop-filter: blur(8px);
+                background: #212121;
                 z-index: 2147483645;
                 display: none;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
                 font-family: system-ui, -apple-system, sans-serif;
-                color: #e5e7eb;
+                color: #7ec8e3;
                 opacity: 0;
                 transition: opacity 0.2s ease;
             }
-            .ome-hud.visible { display: flex; opacity: 1; }
-            .ome-hud-header { position: absolute; top: 24px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; }
-            .ome-hud-title { font-size: 18px; font-weight: 600; letter-spacing: 0.5px; color: #a5b4fc; }
+            .ome-hud.visible { display: block; opacity: 1; }
             .ome-hud-close {
                 position: absolute; top: 20px; right: 24px;
                 width: 36px; height: 36px;
@@ -12434,12 +12428,179 @@
                 transition: background 0.15s ease, color 0.15s ease;
             }
             .ome-hud-close:hover { background: rgba(239,68,68,0.2); color: #f87171; }
-            .ome-hud-content { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 600px; padding: 24px; text-align: center; }
-            .ome-hud-status { font-size: 14px; color: #6b7280; }
-            .ome-hud-indicator { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; margin-right: 8px; animation: ome-pulse 2s ease-in-out infinite; }
             @keyframes ome-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
-            .ome-hud-hint { font-size: 12px; color: #4b5563; margin-top: 16px; }
-            .ome-hud-hint kbd { display: inline-block; padding: 2px 6px; background: rgba(255,255,255,0.1); border-radius: 4px; font-family: monospace; font-size: 11px; color: #9ca3af; }
+
+            /* 🎯 HUD Main Container - centered prompt + orb at bottom */
+            .ome-hud-main {
+                position: absolute;
+                bottom: 200px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+
+            /* 💬 HUD Prompt Box - IDENTICAL to .ome-chat-panel with purple glow from orb */
+            .ome-hud-prompt {
+                width: 800px;
+                height: 200px;
+                background: rgba(20,20,28,0.82);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(147,112,219,0.35);
+                border-radius: 12px;
+                display: flex;
+                flex-direction: column;
+                font-family: system-ui, -apple-system, sans-serif;
+                box-shadow: 0 0 12px rgba(147,112,219,0.25), 0 0 25px rgba(167,139,250,0.15), 0 4px 24px rgba(0,0,0,0.3);
+                overflow: hidden;
+                color: #7ec8e3;
+                filter: drop-shadow(0 0 5px rgba(167,139,250,0.3));
+            }
+            /* 💬 HUD Messages Area - IDENTICAL to .ome-chat-messages */
+            .ome-hud-prompt-messages {
+                flex: 1;
+                overflow-y: auto;
+                padding: 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                min-height: 80px;
+            }
+            .ome-hud-prompt-messages::-webkit-scrollbar { width: 6px; }
+            .ome-hud-prompt-messages::-webkit-scrollbar-track { background: transparent; }
+            .ome-hud-prompt-messages::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.3); border-radius: 3px; }
+            /* 💬 HUD Input Wrapper - with purple tint */
+            .ome-hud-prompt-input-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 12px;
+                border-top: 1px solid rgba(147,112,219,0.2);
+                background: rgba(0,0,0,0.25);
+            }
+            /* 💬 HUD Input - with purple border */
+            .ome-hud-prompt-input {
+                flex: 1;
+                background: rgba(40,40,60,0.3);
+                border: 1px solid rgba(147,112,219,0.25);
+                border-radius: 8px;
+                padding: 8px 12px;
+                font-size: 13px;
+                color: inherit;
+                outline: none;
+                transition: border-color 0.15s ease, background 0.15s ease;
+            }
+            .ome-hud-prompt-input::placeholder { color: rgba(126,200,227,0.4); }
+            .ome-hud-prompt-input:focus { border-color: rgba(147,112,219,0.5); background: rgba(40,40,60,0.4); }
+            /* 💬 HUD Send Button - purple like orb */
+            .ome-hud-send-btn {
+                width: 32px;
+                height: 32px;
+                border: none;
+                border-radius: 8px;
+                background: rgba(147,112,219,0.6);
+                color: inherit;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.15s ease;
+            }
+            .ome-hud-send-btn:hover { background: rgba(147,112,219,0.8); }
+            .ome-hud-send-btn:active { transform: scale(0.95); }
+            .ome-hud-send-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+            /* 🎮 HUD Controls Container (scroll + zoom to right of orb) */
+            .ome-hud-controls {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                color: #7ec8e3;
+            }
+            /* ⬆️⬇️ HUD Scroll Controls */
+            .ome-hud-scroll {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+            }
+            .ome-hud-scroll .ome-hud-ctrl-btn {
+                width: 36px;
+                height: 36px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                color: inherit;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.1s ease;
+                opacity: 0.7;
+            }
+            .ome-hud-scroll .ome-hud-ctrl-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+            .ome-hud-scroll .ome-hud-ctrl-btn:active { transform: scale(0.95); }
+            .ome-hud-scroll .ome-hud-ctrl-btn svg {
+                width: 18px;
+                height: 18px;
+                stroke: currentColor;
+                stroke-width: 3;
+                fill: none;
+            }
+            /* 🔍 HUD Zoom Controls */
+            .ome-hud-zoom {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2px;
+            }
+            .ome-hud-zoom .ome-hud-ctrl-btn {
+                width: 28px;
+                height: 28px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                color: inherit;
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.1s ease;
+                opacity: 0.7;
+            }
+            .ome-hud-zoom .ome-hud-ctrl-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+            .ome-hud-zoom .ome-hud-ctrl-btn:active { transform: scale(0.95); }
+            .ome-hud-zoom-label {
+                width: 28px;
+                height: 28px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: 700;
+                opacity: 0.7;
+                cursor: pointer;
+            }
+            .ome-hud-zoom-label:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+
+            /* 🔮 HUD Orb Display */
+            .ome-hud-orb {
+                width: 80px;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: transform 0.2s ease;
+            }
+            .ome-hud-orb:hover { transform: scale(1.05); }
+            .ome-hud-orb svg { width: 80px; height: 80px; }
 
             /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - same size as Z) */
             .ome-scroll-controls {
@@ -12463,7 +12624,7 @@
                 height: 18px;
                 stroke-width: 3;
             }
-            /* 📋 Menu button (M label, same style as Z) */
+            /* 📋 Menu button (HUD label, same style as Z) */
             .ome-menu-btn {
                 width: 36px;
                 height: 36px;
@@ -12471,8 +12632,9 @@
                 border-radius: 50%;
                 background: transparent;
                 color: inherit;
-                font-size: 16px;
+                font-size: 9px;
                 font-weight: 700;
+                letter-spacing: 0.5px;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
@@ -12787,7 +12949,7 @@
         // Build controls HTML - menu + scroll controls (right) + zoom controls (bottom)
         const scrollHTML = `
             <div class="ome-scroll-controls" style="color: ${theme.color}">
-                <button class="ome-menu-btn">M</button>
+                <button class="ome-menu-btn">HUD</button>
                 <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
                 <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
             </div>`;
@@ -12828,19 +12990,10 @@
         hudState.orb.innerHTML = theme.svg + theme.paws + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
         hudState.theme = themeName;
 
-        // Re-attach ear click handlers (with drag-aware logic)
-        hudState.orb.querySelectorAll(theme.earSelector).forEach(ear => {
-            ear.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (hudState.dragging) {
-                    // Just release, don't open HUD
-                    hudState.dragging = false;
-                    hudState.orb.classList.remove('holding');
-                } else {
-                    toggleHUD();
-                }
-            });
-        });
+        // 🔮 Also update HUD orb display if HUD exists
+        if (hudState.hud) {
+            updateHUDOrb(hudState.hud, themeName);
+        }
 
         // Re-attach scroll button handlers (with boundary feedback)
         hudState.orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
@@ -12952,7 +13105,7 @@
         // Build controls HTML - menu + scroll controls (right) + zoom controls (bottom)
         const scrollHTML = `
             <div class="ome-scroll-controls" style="color: ${theme.color}">
-                <button class="ome-menu-btn">M</button>
+                <button class="ome-menu-btn">HUD</button>
                 <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
                 <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
             </div>`;
@@ -13035,20 +13188,6 @@
             };
             document.addEventListener('mousemove', followHandler);
         }
-
-        // 🐰 Ear click opens HUD (only when NOT dragging)
-        orb.querySelectorAll(theme.earSelector).forEach(ear => {
-            ear.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (hudState.dragging) {
-                    // Release only - don't open HUD
-                    releaseOrb();
-                } else {
-                    // Open HUD
-                    toggleHUD();
-                }
-            });
-        });
 
         // ⬆️⬇️⬅️➡️ Scroll button handlers (with boundary feedback)
         orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
@@ -13135,13 +13274,11 @@
             setupChatPanelResize(chatPanel);
         }
 
-        // 🐰 Body click: toggle follow mode (but NOT on ears/halo/scroll/zoom/prompt/chat)
+        // 🐰 Body click: toggle follow mode (ears/goggles now included, but NOT on scroll/zoom/prompt/chat)
         orb.addEventListener('click', (e) => {
             e.stopPropagation();
-            // If click was on interactive element, their handlers already handled it
-            if (e.target.classList.contains('ome-ear') ||
-                e.target.classList.contains('ome-halo') ||
-                e.target.closest('.ome-scroll-controls') ||
+            // If click was on control element, their handlers already handled it
+            if (e.target.closest('.ome-scroll-controls') ||
                 e.target.closest('.ome-zoom-controls') ||
                 e.target.closest('.ome-prompt-btn') ||
                 e.target.closest('.ome-chat-panel')) return;
@@ -13166,46 +13303,126 @@
         const hud = document.createElement('div');
         hud.className = 'ome-hud';
 
-        // Build theme buttons HTML
-        const themeButtons = Object.entries(ORB_THEMES).map(([key, theme]) => {
-            const isActive = key === hudState.theme ? 'active' : '';
-            // Use a simple preview (just the SVG scaled down)
-            return `<button class="ome-theme-btn ${isActive}" data-theme="${key}">${theme.svg}<span>${theme.name}</span></button>`;
-        }).join('');
+        // Get current theme SVG for orb display
+        const currentTheme = ORB_THEMES[hudState.theme] || ORB_THEMES.robot;
 
         hud.innerHTML = `
-            <div class="ome-hud-header"><span class="ome-hud-title">OM-E Web</span></div>
             <button class="ome-hud-close">&times;</button>
-            <div class="ome-hud-content">
-                <div class="ome-hud-status"><span class="ome-hud-indicator"></span>Extension Active</div>
-                <div class="ome-theme-section">
-                    <div class="ome-theme-label">Orb Style</div>
-                    <div class="ome-theme-grid">${themeButtons}</div>
+
+            <!-- 🎯 Main container: prompt + orb -->
+            <div class="ome-hud-main">
+                <!-- 💬 Prompt Box (exact match to orb chat panel) -->
+                <div class="ome-hud-prompt">
+                    <div class="ome-hud-prompt-messages">
+                        <!-- Messages will appear here -->
+                    </div>
+                    <div class="ome-hud-prompt-input-wrapper">
+                        <input type="text" class="ome-hud-prompt-input" placeholder="Ask anything..." />
+                        <button class="ome-hud-send-btn">
+                            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="ome-hud-hint">Click orb ears or use <kbd>--command hud</kbd> to toggle</div>
+
+                <!-- 🔮 Current Orb Display -->
+                <div class="ome-hud-orb" data-theme="${hudState.theme}">
+                    ${currentTheme.svg}
+                </div>
+
+                <!-- 🎮 HUD Controls (scroll + zoom) -->
+                <div class="ome-hud-controls">
+                    <div class="ome-hud-scroll">
+                        <button class="ome-hud-ctrl-btn ome-hud-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                        <button class="ome-hud-ctrl-btn ome-hud-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    </div>
+                    <div class="ome-hud-zoom">
+                        <button class="ome-hud-ctrl-btn ome-hud-zoom-in">+</button>
+                        <span class="ome-hud-zoom-label ome-hud-zoom-reset">Z</span>
+                        <button class="ome-hud-ctrl-btn ome-hud-zoom-out">−</button>
+                    </div>
+                </div>
             </div>
         `;
 
         // Close button handler
         hud.querySelector('.ome-hud-close').addEventListener('click', () => toggleHUD());
 
-        // Click outside to close
-        hud.addEventListener('click', (e) => { if (e.target === hud) toggleHUD(); });
+        // Click outside to close (but not on main content)
+        hud.addEventListener('click', (e) => {
+            if (e.target === hud) toggleHUD();
+        });
 
         // Escape key to close
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hudState.visible) toggleHUD(); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && hudState.visible) toggleHUD();
+        });
 
-        // Theme button handlers
-        hud.querySelectorAll('.ome-theme-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const themeName = btn.dataset.theme;
-                setOrbTheme(themeName);
-            });
+        // Send button handler
+        const sendBtn = hud.querySelector('.ome-hud-send-btn');
+        const promptInput = hud.querySelector('.ome-hud-prompt-input');
+
+        sendBtn.addEventListener('click', () => {
+            const text = promptInput.value.trim();
+            if (text) {
+                console.log('[Content] 📤 HUD Prompt sent:', text);
+                // TODO: Send prompt to service worker / LLM pipeline
+                promptInput.value = '';
+            }
+        });
+
+        // Enter to send (without shift)
+        promptInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendBtn.click();
+            }
+        });
+
+        // 📜 HUD Scroll controls - scroll the messages area
+        const messagesArea = hud.querySelector('.ome-hud-prompt-messages');
+        hud.querySelector('.ome-hud-scroll-up')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (messagesArea) {
+                messagesArea.scrollBy({ top: -100, behavior: 'smooth' });
+            }
+        });
+        hud.querySelector('.ome-hud-scroll-down')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (messagesArea) {
+                messagesArea.scrollBy({ top: 100, behavior: 'smooth' });
+            }
+        });
+
+        // 🔍 HUD Zoom controls - same as orb zoom (page zoom)
+        hud.querySelector('.ome-hud-zoom-in')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomIn', params: {} });
+        });
+        hud.querySelector('.ome-hud-zoom-out')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomOut', params: {} });
+        });
+        hud.querySelector('.ome-hud-zoom-reset')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomReset', params: {} });
         });
 
         shadow.appendChild(hud);
         return hud;
+    }
+
+    /**
+     * 🔮 Update HUD orb display when theme changes
+     * @param {HTMLElement} hud - HUD element
+     * @param {string} themeName - New theme key
+     */
+    function updateHUDOrb(hud, themeName) {
+        const orbContainer = hud.querySelector('.ome-hud-orb');
+        const theme = ORB_THEMES[themeName] || ORB_THEMES.robot;
+        if (orbContainer) {
+            orbContainer.dataset.theme = themeName;
+            orbContainer.innerHTML = theme.svg;
+        }
     }
 
     /**

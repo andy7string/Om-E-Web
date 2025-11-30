@@ -1,28 +1,28 @@
 {
-  "timestamp": 1764464317.58689,
+  "timestamp": 1764467172.6748228,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138027430,
-      "url": "https://www.macrobusiness.com.au/2025/11/what-will-burst-the-ai-bubble/",
-      "title": "What will burst the AI bubble? - MacroBusiness",
+      "id": 1138027484,
+      "url": "https://www.google.com/",
+      "title": "Google",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138027430,
-        "url": "https://www.macrobusiness.com.au/2025/11/what-will-burst-the-ai-bubble/",
-        "title": "What will burst the AI bubble? - MacroBusiness",
+        "id": 1138027484,
+        "url": "https://www.google.com/",
+        "title": "Google",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 11477.960667666,
+    "last_tabs_update": 14266.528258208,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.macrobusiness.com.au/2025/11/what-will-burst-the-ai-bubble/",
-    "title": "What will burst the AI bubble? - MacroBusiness",
+    "url": "https://www.google.com/",
+    "title": "Google",
     "is_active_tab": true
   },
   "menu_structure": {
