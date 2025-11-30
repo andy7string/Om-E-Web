@@ -3718,7 +3718,71 @@ async def handler(ws):
                         "error": f"Error processing instruction: {str(e)}"
                     }
                     await ws.send(json.dumps(response))
-            
+
+            # 💬 CHAT USER MESSAGE: Handle incoming chat messages from extension
+            if msg.get("type") == "chat_user_message":
+                print("💬 Chat user message received")
+                try:
+                    # Extract payload
+                    chat_id = msg.get("chat_id")  # null for new chat
+                    data = msg.get("data", {})
+                    prompt = data.get("prompt", "").strip()
+
+                    # Validate: prompt is required
+                    if not prompt:
+                        await ws.send(json.dumps({
+                            "type": "chat_error",
+                            "error": "Missing prompt",
+                            "detail": "The 'prompt' field is required in data"
+                        }))
+                        continue
+
+                    # Build metadata from payload
+                    meta = {
+                        "page_url": data.get("page_url"),
+                        "page_title": data.get("page_title")
+                    }
+
+                    # New chat or existing?
+                    if not chat_id:
+                        # Generate new chat_id and create chat
+                        now = datetime.utcnow()
+                        chat_id = generate_chat_id_from_prompt(prompt, now)
+                        chat_dict = create_new_chat(chat_id, prompt, meta)
+                        print(f"💬 Created new chat: {chat_id}")
+                    else:
+                        # Load existing chat
+                        chat_dict = load_chat(chat_id)
+                        if not chat_dict:
+                            await ws.send(json.dumps({
+                                "type": "chat_error",
+                                "error": "Chat not found",
+                                "detail": f"No chat exists with id: {chat_id}"
+                            }))
+                            continue
+
+                    # Append user message (always to end)
+                    new_message = append_user_message(chat_dict, prompt)
+
+                    # Save to disk
+                    save_chat(chat_dict)
+
+                    # Send acknowledgement
+                    await ws.send(json.dumps({
+                        "type": "chat_append_ack",
+                        "chat_id": chat_id,
+                        "message": new_message
+                    }))
+                    print(f"✅ Chat message processed: {chat_id}")
+
+                except Exception as e:
+                    print(f"❌ Error processing chat message: {e}")
+                    await ws.send(json.dumps({
+                        "type": "chat_error",
+                        "error": "Processing failed",
+                        "detail": str(e)
+                    }))
+
             # 🔄 COMMAND FORWARDING: Route commands from test clients to extension
             if "command" in msg and "id" in msg:
                 command = msg.get("command")
@@ -4244,6 +4308,212 @@ def resolve_capabilities_for_url(url: str) -> list:
         print(f"❌ Error resolving capabilities for URL: {e}")
         return []
 
+
+# ============================================================================
+# 💬 CHAT STORAGE SYSTEM
+# ============================================================================
+# Append-only chat storage mirroring ChatGPT-style conversation files.
+# Each chat is a single JSON file in ./chats/ directory.
+# Messages are always appended to the end — never inserted or reordered.
+# ============================================================================
+
+CHATS_DIR = "chats"
+
+
+def ensure_chats_dir_exists() -> str:
+    """
+    Create chats directory if it doesn't exist.
+    Returns the absolute path to the chats directory.
+    """
+    chats_path = os.path.join(os.path.dirname(__file__) or ".", CHATS_DIR)
+    if not os.path.exists(chats_path):
+        os.makedirs(chats_path)
+        print(f"📁 Created chats directory: {chats_path}")
+    return chats_path
+
+
+def generate_chat_id_from_prompt(prompt: str, now: datetime) -> str:
+    """
+    Generate a unique chat_id from the first three words of the prompt.
+
+    Format: <three-word-slug>__<timestamp>
+    Example: check-youtube-comments__20251130T211523
+
+    @param prompt: User's initial message
+    @param now: Current datetime (UTC)
+    @return: Unique chat_id string
+    """
+    # Extract first three words
+    words = prompt.strip().split()[:3]
+    slug_text = " ".join(words) if words else "chat"
+
+    # Lowercase and replace non-alphanumeric with hyphens
+    slug = slug_text.lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", slug)
+    slug = re.sub(r"-{2,}", "-", slug)  # Collapse multiple hyphens
+    slug = slug.strip("-")  # Trim leading/trailing hyphens
+
+    if not slug:
+        slug = "chat"
+
+    # Generate timestamp: YYYYMMDDTHHMMSS
+    timestamp = now.strftime("%Y%m%dT%H%M%S")
+
+    return f"{slug}__{timestamp}"
+
+
+def get_chat_filepath(chat_id: str) -> str:
+    """
+    Get the full file path for a chat JSON file.
+
+    @param chat_id: The chat identifier
+    @return: Absolute path to the chat file
+    """
+    chats_path = ensure_chats_dir_exists()
+    return os.path.join(chats_path, f"{chat_id}.json")
+
+
+def load_chat(chat_id: str) -> Optional[Dict[str, Any]]:
+    """
+    Load an existing chat from disk.
+
+    @param chat_id: The chat identifier
+    @return: Chat dictionary or None if not found
+    """
+    filepath = get_chat_filepath(chat_id)
+
+    if not os.path.exists(filepath):
+        print(f"⚠️ Chat file not found: {filepath}")
+        return None
+
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            chat_dict = json.load(f)
+        print(f"📂 Loaded chat: {chat_id} ({len(chat_dict.get('messages', []))} messages)")
+        return chat_dict
+    except Exception as e:
+        print(f"❌ Error loading chat {chat_id}: {e}")
+        return None
+
+
+def save_chat(chat_dict: Dict[str, Any]) -> bool:
+    """
+    Save chat dictionary to disk.
+
+    @param chat_dict: The chat data to save
+    @return: True if successful, False otherwise
+    """
+    chat_id = chat_dict.get("chat_id")
+    if not chat_id:
+        print("❌ Cannot save chat: missing chat_id")
+        return False
+
+    filepath = get_chat_filepath(chat_id)
+
+    try:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(chat_dict, f, ensure_ascii=False, indent=2)
+        print(f"💾 Saved chat: {chat_id}")
+        return True
+    except Exception as e:
+        print(f"❌ Error saving chat {chat_id}: {e}")
+        return False
+
+
+def create_new_chat(chat_id: str, prompt: str, meta: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Create a new chat dictionary with initial metadata.
+
+    @param chat_id: The unique chat identifier
+    @param prompt: The initial user prompt
+    @param meta: Additional metadata (page_url, page_title, etc.)
+    @return: New chat dictionary
+    """
+    now_iso = datetime.utcnow().isoformat() + "Z"
+
+    # Default title from first three words
+    words = prompt.strip().split()[:3]
+    default_title = " ".join(words) if words else "New Chat"
+
+    return {
+        "chat_id": chat_id,
+        "created_at": now_iso,
+        "updated_at": now_iso,
+        "title": default_title,
+        "default_title": default_title.lower(),
+        "meta": {
+            "source": "ome-web",
+            "page_url": meta.get("page_url"),
+            "page_title": meta.get("page_title")
+        },
+        "messages": []
+    }
+
+
+def append_user_message(chat_dict: Dict[str, Any], prompt: str) -> Dict[str, Any]:
+    """
+    Append a user message to the chat. Always appends to end (never inserts).
+
+    @param chat_dict: The chat dictionary to modify
+    @param prompt: The user's message content
+    @return: The newly created message object
+    """
+    messages = chat_dict.get("messages", [])
+
+    # Generate sequential message ID: m_0001, m_0002, etc.
+    next_num = len(messages) + 1
+    message_id = f"m_{next_num:04d}"
+
+    now_iso = datetime.utcnow().isoformat() + "Z"
+
+    new_message = {
+        "id": message_id,
+        "role": "user",
+        "content": prompt,
+        "timestamp": now_iso
+    }
+
+    # Append to end (never insert)
+    messages.append(new_message)
+    chat_dict["messages"] = messages
+    chat_dict["updated_at"] = now_iso
+
+    print(f"💬 Appended message {message_id} to chat {chat_dict.get('chat_id')}")
+
+    return new_message
+
+
+def append_assistant_message(chat_dict: Dict[str, Any], content: str) -> Dict[str, Any]:
+    """
+    Append an assistant (LLM) message to the chat. Always appends to end (never inserts).
+
+    @param chat_dict: The chat dictionary to modify
+    @param content: The assistant's response content
+    @return: The newly created message object
+    """
+    messages = chat_dict.get("messages", [])
+
+    # Generate sequential message ID: m_0001, m_0002, etc.
+    next_num = len(messages) + 1
+    message_id = f"m_{next_num:04d}"
+
+    now_iso = datetime.utcnow().isoformat() + "Z"
+
+    new_message = {
+        "id": message_id,
+        "role": "assistant",
+        "content": content,
+        "timestamp": now_iso
+    }
+
+    # Append to end (never insert)
+    messages.append(new_message)
+    chat_dict["messages"] = messages
+    chat_dict["updated_at"] = now_iso
+
+    print(f"🤖 Appended assistant message {message_id} to chat {chat_dict.get('chat_id')}")
+
+    return new_message
 
 
 async def main():
