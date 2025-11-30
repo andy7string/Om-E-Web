@@ -3783,6 +3783,38 @@ async def handler(ws):
                         "detail": str(e)
                     }))
 
+            # 💬 GET CHAT HISTORY: Return full chat from file
+            if msg.get("type") == "get_chat_history":
+                chat_id = msg.get("chat_id")
+                print(f"💬 Get chat history requested: {chat_id}")
+
+                if not chat_id:
+                    await ws.send(json.dumps({
+                        "type": "chat_history",
+                        "chat_id": None,
+                        "messages": [],
+                        "meta": {}
+                    }))
+                else:
+                    chat_dict = load_chat(chat_id)
+                    if chat_dict:
+                        await ws.send(json.dumps({
+                            "type": "chat_history",
+                            "chat_id": chat_id,
+                            "messages": chat_dict.get("messages", []),
+                            "meta": chat_dict.get("meta", {}),
+                            "title": chat_dict.get("title", "")
+                        }))
+                        print(f"✅ Chat history sent: {len(chat_dict.get('messages', []))} messages")
+                    else:
+                        await ws.send(json.dumps({
+                            "type": "chat_history",
+                            "chat_id": chat_id,
+                            "messages": [],
+                            "meta": {},
+                            "error": "Chat not found"
+                        }))
+
             # 🔄 COMMAND FORWARDING: Route commands from test clients to extension
             if "command" in msg and "id" in msg:
                 command = msg.get("command")

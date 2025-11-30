@@ -1262,6 +1262,28 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // 💬 CHAT SYSTEM: Forward chat history to content script
+        if (message.type === "chat_history") {
+            console.log("[SW] 💬 Chat history received from server:", message.chat_id, message.messages?.length, "messages");
+
+            // Forward to active tab's content script
+            (async () => {
+                try {
+                    const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+                    if (activeTab && activeTab.id) {
+                        await chrome.tabs.sendMessage(activeTab.id, {
+                            type: 'ui_chat_history',
+                            data: message
+                        });
+                        console.log('[SW] 💬 Chat history forwarded to tab:', activeTab.id);
+                    }
+                } catch (error) {
+                    console.error('[SW] 💬 Error forwarding chat history:', error);
+                }
+            })();
+            return;
+        }
+
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);
@@ -1521,6 +1543,30 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
                     } catch (error) {
                         console.error('[SW] 💬 Error sending chat message:', error);
+                        sendResponse({ ok: false, error: error.message });
+                    }
+                })();
+                return true; // Keep channel open for async
+
+            // ================================================================
+            // 💬 CHAT SYSTEM: Request chat history from server
+            // ================================================================
+            case 'ui_get_chat_history':
+                (async () => {
+                    try {
+                        const chatId = message.chat_id || null;
+                        console.log('[SW] 💬 Requesting chat history for:', chatId);
+
+                        const wsPayload = {
+                            type: 'get_chat_history',
+                            chat_id: chatId
+                        };
+
+                        sendToServer(wsPayload);
+                        sendResponse({ ok: true, requested: true });
+
+                    } catch (error) {
+                        console.error('[SW] 💬 Error requesting chat history:', error);
                         sendResponse({ ok: false, error: error.message });
                     }
                 })();

@@ -2601,6 +2601,13 @@
             return false;
         }
 
+        if (message && message.type === "ui_chat_history") {
+            console.log("[Content] 💬 Chat history received:", message.data);
+            handleChatHistory(message.data);
+            sendResponse({ ok: true });
+            return false;
+        }
+
         // 🆕 NEW: Check if this is a typed message (LLM action) first
         // LLM actions are handled by a separate listener to avoid conflicts
         // This ensures clean separation between automation commands and AI actions
@@ -12421,7 +12428,10 @@
             .ome-atom-svg .ome-orbit-2 { animation-delay: 0.8s; }
             .ome-atom-svg .ome-orbit-3 { animation-delay: 1.6s; }
 
+            /* 🎨 Theme color variables */
             .ome-hud {
+                --theme-color: 147,112,219;  /* Default purple (atom) */
+                --theme-accent: #ba93ff;
                 position: fixed;
                 top: 0; left: 0;
                 width: 100vw; height: 100vh;
@@ -12433,6 +12443,18 @@
                 opacity: 0;
                 transition: opacity 0.2s ease;
                 pointer-events: auto;
+            }
+            .ome-hud[data-theme="kawaii"] {
+                --theme-color: 126,200,227;  /* Sparkly blue */
+                --theme-accent: #7ec8e3;
+            }
+            .ome-hud[data-theme="robot"] {
+                --theme-color: 0,229,255;  /* Cyan */
+                --theme-accent: #00e5ff;
+            }
+            .ome-hud[data-theme="atom"] {
+                --theme-color: 147,112,219;  /* Purple */
+                --theme-accent: #ba93ff;
             }
             .ome-hud.visible { display: block; opacity: 1; }
             .ome-hud-close {
@@ -12459,21 +12481,21 @@
                 gap: 24px;
             }
 
-            /* 💬 HUD Prompt Box - matching HUD background with purple glow */
+            /* 💬 HUD Prompt Box - matching HUD background with theme glow */
             .ome-hud-prompt {
                 width: 800px;
                 height: 200px;
                 background: rgba(33,33,33,0.95);
                 backdrop-filter: blur(12px);
-                border: 1px solid rgba(147,112,219,0.35);
+                border: 1px solid rgba(var(--theme-color),0.35);
                 border-radius: 12px;
                 display: flex;
                 flex-direction: column;
                 font-family: system-ui, -apple-system, sans-serif;
-                box-shadow: 0 0 12px rgba(147,112,219,0.25), 0 0 25px rgba(167,139,250,0.15), 0 4px 24px rgba(0,0,0,0.3);
+                box-shadow: 0 0 12px rgba(var(--theme-color),0.25), 0 0 25px rgba(var(--theme-color),0.15), 0 4px 24px rgba(0,0,0,0.3);
                 overflow: hidden;
                 color: #7ec8e3;
-                filter: drop-shadow(0 0 5px rgba(167,139,250,0.3));
+                filter: drop-shadow(0 0 5px rgba(var(--theme-color),0.3));
             }
             /* 💬 HUD Messages Area - IDENTICAL to .ome-chat-messages */
             .ome-hud-prompt-messages {
@@ -12500,8 +12522,9 @@
             .ome-hud-message.user {
                 align-self: flex-start;
                 background: transparent;
-                border: 1px solid rgba(147,112,219,0.3);
-                color: rgba(126,200,227,0.4);
+                border: 1px solid rgba(var(--theme-color),0.3);
+                color: var(--theme-accent);
+                text-align: left;
             }
             .ome-hud-message.assistant {
                 align-self: flex-start;
@@ -12521,11 +12544,11 @@
                 gap: 8px;
                 padding: 10px 12px;
             }
-            /* 💬 HUD Input - with purple border */
+            /* 💬 HUD Input - with theme border */
             .ome-hud-prompt-input {
                 flex: 1;
                 background: rgba(40,40,60,0.3);
-                border: 1px solid rgba(147,112,219,0.25);
+                border: 1px solid rgba(var(--theme-color),0.25);
                 border-radius: 8px;
                 padding: 8px 12px;
                 font-size: 13px;
@@ -12535,17 +12558,17 @@
             }
             .ome-hud-prompt-input::placeholder { color: rgba(126,200,227,0.4); }
             .ome-hud-prompt-input:focus {
-                border-color: rgba(147,112,219,0.5);
+                border-color: rgba(var(--theme-color),0.5);
                 background: rgba(40,40,60,0.4);
                 outline: none;
             }
-            /* 💬 HUD Send Button - purple like orb */
+            /* 💬 HUD Send Button - theme colored */
             .ome-hud-send-btn {
                 width: 32px;
                 height: 32px;
                 border: none;
                 border-radius: 8px;
-                background: rgba(147,112,219,0.6);
+                background: rgba(var(--theme-color),0.6);
                 color: inherit;
                 cursor: pointer;
                 display: flex;
@@ -12553,7 +12576,7 @@
                 justify-content: center;
                 transition: background 0.15s ease, transform 0.15s ease;
             }
-            .ome-hud-send-btn:hover { background: rgba(147,112,219,0.8); }
+            .ome-hud-send-btn:hover { background: rgba(var(--theme-color),0.8); }
             .ome-hud-send-btn:active { transform: scale(0.95); }
             .ome-hud-send-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
 
@@ -12563,7 +12586,7 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 4px;
-                color: #7ec8e3;
+                color: var(--theme-accent);
             }
             .ome-hud-scroll .ome-hud-ctrl-btn {
                 width: 36px;
@@ -12579,7 +12602,7 @@
                 transition: background 0.15s ease, transform 0.1s ease;
                 opacity: 0.7;
             }
-            .ome-hud-scroll .ome-hud-ctrl-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+            .ome-hud-scroll .ome-hud-ctrl-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; }
             .ome-hud-scroll .ome-hud-ctrl-btn:active { transform: scale(0.95); }
             .ome-hud-scroll .ome-hud-ctrl-btn svg {
                 width: 18px;
@@ -12611,10 +12634,10 @@
             /* 🚪 Exit HUD Button */
             .ome-hud-exit-btn {
                 padding: 8px 16px;
-                background: rgba(147,112,219,0.2);
-                border: 1px solid rgba(147,112,219,0.4);
+                background: rgba(var(--theme-color),0.2);
+                border: 1px solid rgba(var(--theme-color),0.4);
                 border-radius: 6px;
-                color: #a78bfa;
+                color: var(--theme-accent);
                 font-size: 12px;
                 font-weight: 600;
                 cursor: pointer;
@@ -12622,8 +12645,8 @@
                 white-space: nowrap;
             }
             .ome-hud-exit-btn:hover {
-                background: rgba(147,112,219,0.35);
-                border-color: rgba(167,139,250,0.6);
+                background: rgba(var(--theme-color),0.35);
+                border-color: rgba(var(--theme-color),0.6);
                 transform: scale(1.02);
             }
             .ome-hud-exit-btn:active { transform: scale(0.98); }
@@ -12848,12 +12871,19 @@
                 background: transparent;
                 border: 1px solid rgba(147,112,219,0.3);
                 color: rgba(126,200,227,0.4);
+                text-align: left;
             }
             .ome-chat-bubble.assistant {
                 align-self: flex-start;
                 background: rgba(60,80,120,0.25);
                 color: inherit;
                 border-bottom-left-radius: 4px;
+            }
+            .ome-chat-bubble.error {
+                align-self: center;
+                background: rgba(220,38,38,0.3);
+                color: #fca5a5;
+                font-size: 12px;
             }
             /* 💬 Typing Preview (live draft as you type) */
             .ome-chat-bubble.typing-preview {
@@ -13000,7 +13030,7 @@
                 <div class="ome-resize-handle ome-resize-sw" data-resize="sw"></div>
                 <div class="ome-resize-handle ome-resize-se" data-resize="se"></div>
                 <div class="ome-chat-messages">
-                    <div class="ome-chat-bubble typing-preview"></div>
+                    <!-- Messages loaded from chat file -->
                 </div>
                 <div class="ome-chat-input-wrapper">
                     <input type="text" class="ome-chat-input" placeholder="Ask anything..." />
@@ -13074,16 +13104,14 @@
                 hudState.orb.querySelector('.ome-prompt-btn')?.classList.add('active');
             }
 
-            // 💬 Live typing preview - updates as you type
+            // 💬 Chat input setup
             const chatInput = chatPanel.querySelector('.ome-chat-input');
-            const typingPreview = chatPanel.querySelector('.typing-preview');
-            if (chatInput && typingPreview) {
+            const chatSendBtn = chatPanel.querySelector('.ome-chat-send');
+            const chatMessagesArea = chatPanel.querySelector('.ome-chat-messages');
+
+            if (chatInput) {
+                // 💾 Save input on change for persistence
                 chatInput.addEventListener('input', () => {
-                    typingPreview.textContent = chatInput.value;
-                    // Auto-scroll messages to bottom to keep preview visible
-                    const messagesArea = chatPanel.querySelector('.ome-chat-messages');
-                    if (messagesArea) messagesArea.scrollTop = messagesArea.scrollHeight;
-                    // 💾 Debounced save to persist across navigation
                     saveChatInput(chatInput.value);
                 });
 
@@ -13092,12 +13120,47 @@
                     chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
                         if (response?.ok && response.chatInput) {
                             chatInput.value = response.chatInput;
-                            typingPreview.textContent = response.chatInput;
                         }
                     });
                 } catch (e) {
                     console.warn('[Content] Could not restore chat input:', e);
                 }
+            }
+
+            // 💬 Send button handler - same pipeline as HUD
+            if (chatSendBtn && chatInput) {
+                const handleOrbSend = async () => {
+                    const text = chatInput.value.trim();
+                    if (!text) return;
+
+                    console.log('[Content] 📤 Orb chat sending:', text);
+
+                    // Add to shared state (renders to both UIs)
+                    addChatMessage('user', text);
+
+                    // Clear input and saved state
+                    chatInput.value = '';
+                    saveChatInput('');
+
+                    // Send through chat pipeline
+                    try {
+                        const result = await sendChatMessage(text);
+                        console.log('[Content] ✅ Orb chat message sent:', result);
+                    } catch (error) {
+                        console.error('[Content] ❌ Orb chat send failed:', error);
+                        addChatMessage('error', 'Failed to send message');
+                    }
+                };
+
+                chatSendBtn.addEventListener('click', handleOrbSend);
+
+                // Enter to send (without shift)
+                chatInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        handleOrbSend();
+                    }
+                });
             }
 
             // 📐 Setup resize handlers for chat panel
@@ -13156,7 +13219,7 @@
                 <div class="ome-resize-handle ome-resize-sw" data-resize="sw"></div>
                 <div class="ome-resize-handle ome-resize-se" data-resize="se"></div>
                 <div class="ome-chat-messages">
-                    <div class="ome-chat-bubble typing-preview"></div>
+                    <!-- Messages loaded from chat file -->
                 </div>
                 <div class="ome-chat-input-wrapper">
                     <input type="text" class="ome-chat-input" placeholder="Ask anything..." />
@@ -13326,6 +13389,7 @@
     function createHUD(shadow) {
         const hud = document.createElement('div');
         hud.className = 'ome-hud';
+        hud.dataset.theme = hudState.theme || 'atom';  // Apply theme colors
 
         // Get current theme SVG for orb display
         const currentTheme = ORB_THEMES[hudState.theme] || ORB_THEMES.robot;
@@ -13396,7 +13460,6 @@
         // Send button handler
         const sendBtn = hud.querySelector('.ome-hud-send-btn');
         const promptInput = hud.querySelector('.ome-hud-prompt-input');
-        const messagesContainer = hud.querySelector('.ome-hud-prompt-messages');
 
         sendBtn.addEventListener('click', async () => {
             const text = promptInput.value.trim();
@@ -13404,8 +13467,8 @@
 
             console.log('[Content] 📤 HUD Prompt sending:', text);
 
-            // Show user message immediately
-            appendHUDMessage(messagesContainer, 'user', text);
+            // Add to shared state (renders to both UIs)
+            addChatMessage('user', text);
 
             // Clear input
             promptInput.value = '';
@@ -13416,7 +13479,7 @@
                 console.log('[Content] ✅ Chat message sent:', result);
             } catch (error) {
                 console.error('[Content] ❌ Chat send failed:', error);
-                appendHUDMessage(messagesContainer, 'error', 'Failed to send message');
+                addChatMessage('error', 'Failed to send message');
             }
         });
 
@@ -13464,11 +13527,15 @@
     }
 
     /**
-     * 🔮 Update HUD orb display when theme changes
+     * 🔮 Update HUD orb display and theme colors when theme changes
      * @param {HTMLElement} hud - HUD element
      * @param {string} themeName - New theme key
      */
     function updateHUDOrb(hud, themeName) {
+        // Update HUD theme colors
+        hud.dataset.theme = themeName;
+
+        // Update orb SVG
         const orbContainer = hud.querySelector('.ome-hud-orb');
         const theme = ORB_THEMES[themeName] || ORB_THEMES.robot;
         if (orbContainer) {
@@ -13709,6 +13776,10 @@
         if (!hudState.hud) initHUD();
         hudState.visible = !hudState.visible;
         hudState.hud.classList.toggle('visible', hudState.visible);
+        // Render from shared state when opening HUD
+        if (hudState.visible) {
+            renderChatMessages();
+        }
         console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
     }
 
@@ -13720,10 +13791,11 @@
         // Toggle active state on prompt button
         const promptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
         if (promptBtn) promptBtn.classList.toggle('active', hudState.chatVisible);
-        // Focus input when opening
+        // Focus input and render from shared state when opening
         if (hudState.chatVisible) {
             const input = hudState.chatPanel.querySelector('.ome-chat-input');
             if (input) input.focus();
+            renderChatMessages();
         }
         // 💾 Persist chat visibility to service worker
         try {
@@ -13791,11 +13863,68 @@
     // 💬 CHAT SYSTEM HELPERS
     // ========================================================================
 
-    // Chat state tracking (minimal for now)
+    // Chat state tracking - single source of truth for both HUD and orb
     const chatState = {
         currentChatId: null,
-        lastAck: null
+        lastAck: null,
+        messages: []  // Shared message array - both UIs render from this
     };
+
+    /**
+     * 💬 Render all messages to both HUD and orb from shared state
+     * Called on toggle and after adding messages
+     */
+    function renderChatMessages() {
+        const messages = chatState.messages;
+
+        // Render to orb chat panel
+        if (hudState.chatPanel) {
+            const orbMessages = hudState.chatPanel.querySelector('.ome-chat-messages');
+            if (orbMessages) {
+                orbMessages.innerHTML = '';
+                messages.forEach(msg => {
+                    const msgEl = document.createElement('div');
+                    msgEl.className = `ome-chat-bubble ${msg.role}`;
+                    msgEl.textContent = msg.content;
+                    orbMessages.appendChild(msgEl);
+                });
+                orbMessages.scrollTop = orbMessages.scrollHeight;
+            }
+        }
+
+        // Render to HUD
+        if (hudState.hud) {
+            const hudMessages = hudState.hud.querySelector('.ome-hud-prompt-messages');
+            if (hudMessages) {
+                hudMessages.innerHTML = '';
+                messages.forEach(msg => {
+                    const msgEl = document.createElement('div');
+                    msgEl.className = `ome-hud-message ${msg.role}`;
+                    msgEl.textContent = msg.content;
+                    hudMessages.appendChild(msgEl);
+                });
+                hudMessages.scrollTop = hudMessages.scrollHeight;
+            }
+        }
+
+        console.log(`[Content] 💬 Rendered ${messages.length} messages to both UIs`);
+    }
+
+    /**
+     * 💬 Add message to shared state and render
+     * @param {string} role - 'user' or 'assistant'
+     * @param {string} content - Message text
+     * @param {string|null} id - Optional message ID from server
+     */
+    function addChatMessage(role, content, id = null) {
+        chatState.messages.push({
+            id: id || `local_${Date.now()}`,
+            role,
+            content,
+            timestamp: new Date().toISOString()
+        });
+        renderChatMessages();
+    }
 
     /**
      * 💬 Append a message bubble to the HUD messages container
@@ -13818,6 +13947,29 @@
         container.scrollTop = container.scrollHeight;
 
         console.log(`[Content] 💬 HUD message appended: [${role}] ${text.substring(0, 50)}...`);
+    }
+
+    /**
+     * 💬 Append a message bubble to the Orb chat messages container
+     * @param {HTMLElement} container - The messages container element
+     * @param {string} role - 'user', 'assistant', or 'error'
+     * @param {string} text - The message text
+     */
+    function appendOrbMessage(container, role, text) {
+        if (!container) {
+            console.warn('[Content] 💬 No orb messages container to append to');
+            return;
+        }
+
+        const msgEl = document.createElement('div');
+        msgEl.className = `ome-chat-bubble ${role}`;
+        msgEl.textContent = text;
+        container.appendChild(msgEl);
+
+        // Auto-scroll to bottom
+        container.scrollTop = container.scrollHeight;
+
+        console.log(`[Content] 💬 Orb message appended: [${role}] ${text.substring(0, 50)}...`);
     }
 
     /**
@@ -13857,6 +14009,55 @@
 
         // Future: Display error in HUD UI
         // For now, just log
+    }
+
+    /**
+     * 💬 Handle chat history from server - populate shared state and render
+     * Called on page load to restore chat from file
+     * @param {Object} data - The chat_history payload from server
+     */
+    function handleChatHistory(data) {
+        console.log('[Content] 💬 handleChatHistory called with:', data);
+
+        if (!data) return;
+
+        // Update chat state
+        if (data.chat_id) {
+            chatState.currentChatId = data.chat_id;
+        }
+
+        // Replace shared messages array with server data
+        chatState.messages = (data.messages || []).map(msg => ({
+            id: msg.id,
+            role: msg.role,
+            content: msg.content,
+            timestamp: msg.timestamp
+        }));
+
+        // Render to both UIs
+        renderChatMessages();
+
+        console.log(`[Content] 💬 Loaded ${chatState.messages.length} messages from chat ${data.chat_id}`);
+    }
+
+    /**
+     * 💬 Request chat history from server
+     * @param {string|null} chatId - The chat ID to load, or null for empty state
+     */
+    function loadChatHistory(chatId = null) {
+        const id = chatId || chatState.currentChatId;
+        console.log('[Content] 💬 Requesting chat history for:', id);
+
+        chrome.runtime.sendMessage({
+            type: 'ui_get_chat_history',
+            chat_id: id
+        }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.error('[Content] 💬 Error requesting chat history:', chrome.runtime.lastError);
+                return;
+            }
+            console.log('[Content] 💬 Chat history request sent:', response);
+        });
     }
 
     /**

@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-11-30 23:16:26
+**Timestamp:** 2025-12-01 00:04:53
 
-**Tabs (3):** Active: #1138027651 "Google" www.google.com [complete] | Other: #1138027658 "OM-E autonomy - Chat" chatgpt.com, #1138027661 "Extensions" extensions
+**Tabs (1):** Active: #1138027661 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -86,132 +86,136 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">2026 Land Rover Defender Dakar D7X-R revealed
-All-new Defender Dakar D7X-R will take on the world's toughest rally-raid in January as part of Defender's first W2RC campaign.
-Carsales
+<Link id="a_id_17">Scientists mapped the shape of a supernova for the first time ever – and it's not what we expected: Space photo of the week
+Astronomers using data from the Very Large Telescope (VLT) have revealed that the initial "breakout" phase of a supernova is elongated, not perfectly...
+Live Science
 ·
-2d</Link>
+2h</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Claude 4.5 Opus' Soul Document
-Summary As far as I understand and uncovered, a document for the character training for Claude is compressed in Claude's weights. The full document c...
-LessWrong
-·
-1d</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">A rare early-season stratospheric warming event is developing in November, and scientists say its intensity could reshape winter forecasts
-Then a climatologist zooms in on a quiet patch of atmosphere 30 kilometers above our heads and the screen turns a strange, glowing red. The numbers jump.
-nunneryplumbingandheating.co.uk
-·
-3h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Here’s what 2026 holds for your super returns
-We should be celebrating another spectacular year in financial markets, but it's all taken place against the backdrop of stalling productivity.
-AFR
-·
-14h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Robot Walks for Three Days Straight, Hotswapping Its Battery Over and Over in New World Record
-An AgiBot A2 has completed a 66-mile, three-day pilgrimage without powering down, breaking previous world records.
-Futurism
-·
-1d</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Labor’s deal with Greens shocks cattle industry, but it should be no surprise
-THE Federal Government yesterday shocked many in the cattle industry when it announced it had done a deal with the Greens to overhaul the country's...
-Beef Central
-·
-1d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Boosting One Protein Reawakens Aging Brain Cells in Mice, Study Shows
-A discovery by researchers from the Baylor College of Medicine in the US could lead to treatments that clear the troublesome aggregations of protein thought...
-ScienceAlert
-·
-15h</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">New boundary-pushing art venue brings gallery and unique bookstore to Adelaide CBD with ambitions to enter the bar scene
-A fresh force in Adelaide's creative scene, FUTUREJUICE brings art, ideas, and culture together in one very cool space.
-Glam Adelaide
-·
-18h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">VIDEO: Landscape around Yunta in outback SA
-An outback landscape near Yunta in South Australia's north, with hills, red earth and a dirt track visible. (ABC News: Guido Salazar).
+<Link id="a_id_19">Forget Wall Street, bitcoin and AI. Here's a real Aussie bubble
+Amid global warnings of impending financial doom, APRA and the Reserve Bank are far more concerned about a home-grown bubble, one that's been taking in...
 ABC News
 ·
+5d</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Hybrid schedules reducing work hours on Fridays
+Remote work and hybrid schedules are reducing U.S. Friday hours, reshaping productivity, work-life balance, and team coordination across industries.
+Finance & Commerce
+·
 1d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Adelaide weather forecast for Sunday November 30th and the days ahead
-Happy Sunday! Here's what to expect from the weather today, and a look at the days coming.
-Glam Adelaide
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Trapped in transition torture: solar, wind investment crash puts renewable target in doubt
+Australia faces its worst year of investment in large-scale solar and wind in a decade, heightening concern the nation will fail to meet its 2030 renewable...
+The Australian
 ·
-15h</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">1:48
-Melbourne Metro grand opening | 7NEWS
-After a decade of construction, the Metro is finally having its grand opening today in Melbourne! This is the biggest upgrade to the city's train network in...
-7NEWS Australia
-YouTube
-·
-14h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">The Beauty Practices of Men and Women in Bronze Age Greece
-The Mycenaeans and Minoans of Bronze Age Greece adopted a variety of beauty practices to enhance their appearances.
-GreekReporter.com
-·
-15h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Blackstone moves to lock down Firmus multibillion-dollar debt package
-Sources close to the talks say Blackstone has exclusivity, and a deal is likely to be signed in the next two weeks.
+3h</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">AI threat slashes billions from the world’s classifieds giants
+Fears that artificial intelligence will disrupt the business model of classifieds businesses has slashed billions of dollars off the value of some of the...
 AFR
 ·
-6h</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Honda Australia opens the door to Pilot SUV, Ridgeline ute, and other global models
-Australia could be in line for previously left-hand-drive-only Honda models like the Ridgeline and Pilot, thanks to a shift in global planning.
-Drive
+8h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Chaz Mostert wins maiden Supercars title in Adelaide
+Chaz Mostert breaks through for a maiden Supercars championship after rival Broc Feeney spins out on the opening lap at the Adelaide grand final.
+ABC News
 ·
-12h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">7 of the Quirkiest Towns in New Zealand
-New Zealand, a land celebrated for its stunning landscapes and rich Maori heritage, is also home to a delightful array of quirky towns, each boasting its...
-WorldAtlas
+5h</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">6 Bedtime Yoga Poses for Deep, Calm Sleep
+If you often toss and turn at night, a short yoga session before bed can help your mind slow down and your body relax. Bedtime yoga is gentle, soothing,...
+essendonapartments.net.au
 ·
-12h</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Wood fastest as four finalists make Sunday Adelaide shootout
-Walkinshaw Andretti United's Ryan Wood topped Sunday morning's qualifying at the BP Adelaide Grand Final to book a Top 10 Shootout berth.
-Speedcafe.com
+9h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Banks, credit funds feast on El Jannah’s takeover financing
+While General Atlantic's dealmakers scarf down a majority stake in popular charcoal chicken chain El Jannah, they've got a few morsels to share with a trio...
+AFR
 ·
-12h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">“We have the best site:” Contracts for Australia’s biggest wind project put out to tender
-Origin says tenders are out for the turbine supply and balance of plant contracts for Australia's biggest wind project, likely to cost around $5 billion.
-Renew Economy
+7h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Venezuela denounces Trump’s airspace remarks as ‘colonialist threat’
+Venezuelan Foreign Ministry slams US president's 'colonialist threat' amid weeks of escalating rhetoric from Washington.
+Al Jazeera
 ·
-4h</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">FIRST LOOK: Popular fish and chip van owners launch The Local, a new sunset-view cafe on the SA coast
-A bright new cafe and community hub with sea views has just opened its doors in the Fleurieu.
-Glam Adelaide
+16h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">South Australia Liberals vow to call time on Indigenous voice
+South Australia's Indigenous voice to parliament would be repealed and replaced with an advisory body under a Liberal plan to wind back the controversial...
+The Australian
 ·
-18h</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Here's what Westpac says the RBA will do with interest rates in December
+11h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Here's what Westpac says the RBA will do with interest rates in December
 Let's see what Westpac Banking Corp (ASX: WBC) is expecting the RBA to do with interest rates next month and in 2026...
 The Motley Fool Australia
 ·
 1d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">SA studio crowned ‘Designer of the Year’ at the 2025 IDEA Awards
-An Adelaide design studio has been crowned Designer of the Year at the 2025 IDEA Awards, standing out in a showcase of Australia's most innovative and...
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">‘Nature’s original engineers’: scientists explore the amazing potential of fungi
+Unique properties of fungi have led to groundbreaking innovations in recent years, from nappies to electronics.
+The Guardian
+·
+23h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Tradie lands dream job to be paid to live alone on remote Aussie island: 'Very lucky'
+Sandy Duthie landed his dream job. Just over a year on, he's still pinching himself.
+Yahoo News Australia
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Sonos Arc Ultra Soundbar Drops to New Record Low, 9.1.4 Surround Sound Budget Bars Will Never Replicate
+Budget soundbars that cost between $100 and $200 make bad TV speakers sound better by adding basic audio enhancements. However, they are still limited by...
+Kotaku
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Bridge to the past: JR to wrap Pont Neuf again, 40 years after artistic forebears
+Exclusive: French artist planning to cover bridge over Seine in tribute to Christo and Jeanne-Claude.
+The Guardian
+·
+1h</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">FIRST LOOK: Agora Greek Cuisine brings an "island taverna" escape with Greek feasts to Rundle Street
+Textured whites, splashes of blue, and colourful flora-covered corners are lit by big sun-seeking windows in this fresh new Greek restaurant.
 Glam Adelaide
+·
+19h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Thousands of genomes reveal the wild wolf genes in most dogs’ DNA
+Dogs were the first of any species that people domesticated, and they have been a constant part of human life for millennia. Domesticated species are the...
+The Conversation
+·
+5d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">CISA Warns iPhone And Android Users — Secure Your Smartphone Now
+As spyware attacks continue, America's Cyber Defense Agency has urged iPhone and Android users to secure their smartphones now. Here's how, step-by-step.
+Forbes
+·
+1d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Conservationists worldwide scrambling for alternative funding after USAID cuts
+Citizen science and AI have never been more important to the environment after White House cuts to USAID are felt beneath the waves, a new report says.
+ABC News
+·
+1d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Amazon's Selling a Sleek Tiny House With Solar Panels and a Surprisingly Spacious Layout—All Under $16K
+Amazon is selling a portable tiny house with solar panels on the roof, two bedrooms, and a spacious front porch. Learn more about this tiny home that's...
+Travel + Leisure
 ·
 1d</Link>
 <Button id="a_id_56">More options</Button>
+At a glance
+<Button id="a_id_57">Customise Homestack</Button>
+<Link id="a_id_58">VIX • VIX down 5.00%. Price is 16.35 Today</Link>
+<Link id="a_id_59">Air quality
+Good
+AQC</Link>
 Australia
-<Link id="a_id_57">Advertising</Link>
-<Link id="a_id_58">Business</Link>
-<Link id="a_id_59">How Search works</Link>
-<Link id="a_id_60">Privacy</Link>
-<Link id="a_id_61">Terms</Link>
-<Button id="a_id_62">Settings</Button>
+<Link id="a_id_60">Advertising</Link>
+<Link id="a_id_61">Business</Link>
+<Link id="a_id_62">How Search works</Link>
+<Link id="a_id_63">Privacy</Link>
+<Link id="a_id_64">Terms</Link>
+<Button id="a_id_65">Settings</Button>
