@@ -12065,11 +12065,11 @@
             // Handle width changes
             if (resizeDir.includes('e')) {
                 // East: decrease width as mouse moves right (panel anchored on right)
-                newWidth = Math.max(200, Math.min(600, startWidth - dx));
+                newWidth = Math.max(200, Math.min(800, startWidth - dx));
             }
             if (resizeDir.includes('w')) {
                 // West (left edge): drag left = wider, drag right = narrower
-                newWidth = Math.max(200, Math.min(600, startWidth - dx));
+                newWidth = Math.max(200, Math.min(800, startWidth - dx));
             }
 
             // Handle height changes
@@ -12463,6 +12463,25 @@
                 height: 18px;
                 stroke-width: 3;
             }
+            /* 📋 Menu button (M label, same style as Z) */
+            .ome-menu-btn {
+                width: 36px;
+                height: 36px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                color: inherit;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.1s ease;
+                opacity: 0.7;
+            }
+            .ome-menu-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+            .ome-menu-btn:active { transform: scale(0.95); }
             /* 💬 Prompt Button (between orb and zoom) */
             .ome-prompt-btn {
                 position: absolute;
@@ -12582,7 +12601,7 @@
                 height: 400px;
                 min-width: 200px;
                 min-height: 150px;
-                max-width: 600px;
+                max-width: 800px;
                 max-height: 80vh;
                 background: rgba(20,20,28,0.82);
                 backdrop-filter: blur(12px);
@@ -12765,9 +12784,10 @@
             hudState.orb.classList.remove('holding');
         }
 
-        // Build controls HTML - scroll controls (right, cross pattern) + zoom controls (bottom)
+        // Build controls HTML - menu + scroll controls (right) + zoom controls (bottom)
         const scrollHTML = `
             <div class="ome-scroll-controls" style="color: ${theme.color}">
+                <button class="ome-menu-btn">M</button>
                 <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
                 <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
             </div>`;
@@ -12838,6 +12858,12 @@
         hudState.orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
             e.stopPropagation();
             scrollWithFeedback('right', e.currentTarget);
+        });
+
+        // 📋 Re-attach menu button handler (toggles HUD)
+        hudState.orb.querySelector('.ome-menu-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHUD();
         });
 
         // Re-attach zoom button handlers
@@ -12923,9 +12949,10 @@
         // 🎨 Use theme system - get SVG from registry
         const theme = ORB_THEMES[hudState.theme] || ORB_THEMES.minimal;
 
-        // Build controls HTML - scroll controls (right, cross pattern) + zoom controls (bottom)
+        // Build controls HTML - menu + scroll controls (right) + zoom controls (bottom)
         const scrollHTML = `
             <div class="ome-scroll-controls" style="color: ${theme.color}">
+                <button class="ome-menu-btn">M</button>
                 <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
                 <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
             </div>`;
@@ -13039,6 +13066,12 @@
         orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
             e.stopPropagation();
             scrollWithFeedback('right', e.currentTarget);
+        });
+
+        // 📋 Menu button handler (toggles HUD)
+        orb.querySelector('.ome-menu-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHUD();
         });
 
         // 🔍 Zoom button handlers (send to service worker)
