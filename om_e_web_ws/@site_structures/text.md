@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-11-30 23:03:31
+**Timestamp:** 2025-11-30 23:13:02
 
-**Tabs (1):** Active: #1138027651 "Google" www.google.com [loading]
+**Tabs (3):** Active: #1138027651 "Google" www.google.com [complete] | Other: #1138027658 "OM-E autonomy - Chat" chatgpt.com, #1138027661 "Extensions" extensions
 
 ## Available Actions
 
@@ -86,121 +86,121 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">Use of AI ‘tech stacks’ driving demand for lawyers
-Lawyers at Allens now have a choice of around half a dozen AI tools to speed up their legal work, but far from cutting the number of staff required,...
-AFR
-·
-6h</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Australian passport system outage causes delays nationwide
-Long queues at international terminals have now cleared after a nationwide system outage affected all inbound and outbound passengers.
-ABC News
-·
-10h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">What is OpenAI? Everything You Need to Know
-OpenAI is the creator of ChatGPT and one of the most influential companies in the world right now, currently valued at $500 billion.
-Beebom
-·
-1d</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Fed-up residents take motorists parking over driveways into their own hands
-Coming out to find someone parked over your driveway can be infuriating; these residents have taken matters into their own hands.
+<Link id="a_id_17">2022-2024 Hyundai Ioniq 6 recalled due to charging door fault
+Hyundai Motor Company Australia has recalled 1191 examples of the 2022-2024 Hyundai Ioniq 6 electric car, citing a potential fault that could cause the...
 Drive
 ·
-17h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Adelaide weather forecast for Sunday November 30th and the days ahead
-Happy Sunday! Here's what to expect from the weather today, and a look at the days coming.
-Glam Adelaide
+2d</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Images of 3I/ATLAS on November 22–24, 2025
+An image of 3I/ATLAS, taken on November 22, 2025 at 19:25 UTC with a 0.5-meter telescope. At that time, 3I/ATLAS was close in projection to the galaxy...
+Avi Loeb – Medium
 ·
-14h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Boosting One Protein Reawakens Aging Brain Cells in Mice, Study Shows
-A discovery by researchers from the Baylor College of Medicine in the US could lead to treatments that clear the troublesome aggregations of protein thought...
-ScienceAlert
-·
-15h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">2026 Ferrari F80 Hypercar: Insane Speed, Hybrid V8 Power, Features and Full Specifications
-The 2026 Ferrari F80 steps into the spotlight as one of the most radical and technologically advanced hypercars ever developed by the Italian brand.
-kingmakeractingschool.com
-·
-11h</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Robot Walks for Three Days Straight, Hotswapping Its Battery Over and Over in New World Record
+4d</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Robot Walks for Three Days Straight, Hotswapping Its Battery Over and Over in New World Record
 An AgiBot A2 has completed a 66-mile, three-day pilgrimage without powering down, breaking previous world records.
 Futurism
 ·
 1d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Here’s what 2026 holds for your super returns
-We should be celebrating another spectacular year in financial markets, but it's all taken place against the backdrop of stalling productivity.
-AFR
-·
-14h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">SA studio crowned ‘Designer of the Year’ at the 2025 IDEA Awards
-An Adelaide design studio has been crowned Designer of the Year at the 2025 IDEA Awards, standing out in a showcase of Australia's most innovative and...
-Glam Adelaide
-·
-1d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">21:16
-Is This The Perfect Car for 2026? (Audi A5 Hybrid Avant 2026 Review)
-The Audi A5 plug-in hybrid is a really appealing car: over 100km electric driving, long petrol range and 270kW of combined power. It feels right for the...
-Chasing Cars
-YouTube
-·
-6h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Labor’s deal with Greens shocks cattle industry, but it should be no surprise
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Labor’s deal with Greens shocks cattle industry, but it should be no surprise
 THE Federal Government yesterday shocked many in the cattle industry when it announced it had done a deal with the Greens to overhaul the country's...
 Beef Central
 ·
 1d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">6 Bedtime Yoga Poses for Deep, Calm Sleep
-If you often toss and turn at night, a short yoga session before bed can help your mind slow down and your body relax. Bedtime yoga is gentle, soothing,...
-essendonapartments.net.au
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Boosting One Protein Reawakens Aging Brain Cells in Mice, Study Shows
+A discovery by researchers from the Baylor College of Medicine in the US could lead to treatments that clear the troublesome aggregations of protein thought...
+ScienceAlert
 ·
-8h</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">7 of the Quirkiest Towns in New Zealand
+15h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Adelaide weather forecast for Sunday November 30th and the days ahead
+Happy Sunday! Here's what to expect from the weather today, and a look at the days coming.
+Glam Adelaide
+·
+14h</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">The Beauty Practices of Men and Women in Bronze Age Greece
+The Mycenaeans and Minoans of Bronze Age Greece adopted a variety of beauty practices to enhance their appearances.
+GreekReporter.com
+·
+15h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">SA studio crowned ‘Designer of the Year’ at the 2025 IDEA Awards
+An Adelaide design studio has been crowned Designer of the Year at the 2025 IDEA Awards, standing out in a showcase of Australia's most innovative and...
+Glam Adelaide
+·
+1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Wood fastest as four finalists make Sunday Adelaide shootout
+Walkinshaw Andretti United's Ryan Wood topped Sunday morning's qualifying at the BP Adelaide Grand Final to book a Top 10 Shootout berth.
+Speedcafe.com
+·
+12h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">7 of the Quirkiest Towns in New Zealand
 New Zealand, a land celebrated for its stunning landscapes and rich Maori heritage, is also home to a delightful array of quirky towns, each boasting its...
 WorldAtlas
 ·
 12h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Starting stargazing? Get the Vespera Pro for out-of-this-world images.
+The Vaonis Vespera Pro is $500 off for Black Friday and is perfect for beginners and astrophotographers.
+Space
+·
+1d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">1:48
+Melbourne Metro grand opening | 7NEWS
+After a decade of construction, the Metro is finally having its grand opening today in Melbourne! This is the biggest upgrade to the city's train network in...
+7NEWS Australia
+YouTube
+·
+14h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Here's what Westpac says the RBA will do with interest rates in December
+Let's see what Westpac Banking Corp (ASX: WBC) is expecting the RBA to do with interest rates next month and in 2026...
+The Motley Fool Australia
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Sergey Brin gifts $1.7b in Alphabet shares after fortune surges
+The world's fourth-richest person also gave away shares to charities in May. The Google co-founder's fortune gained $149 billion this year on the AI rally.
+AFR
+·
+6h</Link>
 <Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Chaz Mostert wins maiden Supercars title in Adelaide
-Chaz Mostert breaks through for a maiden Supercars championship after rival Broc Feeney spins out on the opening lap at the Adelaide grand final.
-ABC News
+<Link id="a_id_45">South Australia Liberals vow to call time on Indigenous voice
+South Australia's Indigenous voice to parliament would be repealed and replaced with an advisory body under a Liberal plan to wind back the controversial...
+The Australian
 ·
-4h</Link>
+10h</Link>
 <Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Diver unaccounted for at Tank Cave near Mount Gambier
-Emergency services are at the Tank Cave near Tantanoola in the state's south-east, following reports a diver is unaccounted for.
-ABC News
-·
-9h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">“We have the best site:” Contracts for Australia’s biggest wind project put out to tender
-Origin says tenders are out for the turbine supply and balance of plant contracts for Australia's biggest wind project, likely to cost around $5 billion.
-Renew Economy
-·
-4h</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Venezuela denounces Trump’s airspace remarks as ‘colonialist threat’
+<Link id="a_id_47">Venezuela denounces Trump’s airspace remarks as ‘colonialist threat’
 Venezuelan Foreign Ministry slams US president's 'colonialist threat' amid weeks of escalating rhetoric from Washington.
 Al Jazeera
 ·
 15h</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">FIRST LOOK: Popular fish and chip van owners launch The Local, a new sunset-view cafe on the SA coast
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">FIRST LOOK: Popular fish and chip van owners launch The Local, a new sunset-view cafe on the SA coast
 A bright new cafe and community hub with sea views has just opened its doors in the Fleurieu.
 Glam Adelaide
 ·
 18h</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">The high-stakes lender who lost a $136m pub bet
+The end of Jon Adgemis' run as Sydney's favourite borrower may have cost Ben Madsen, the boss of distressed debt lender Archibald Capital, $136m and his...
+The Australian
+·
+8h</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">“We have the best site:” Contracts for Australia’s biggest wind project put out to tender
+Origin says tenders are out for the turbine supply and balance of plant contracts for Australia's biggest wind project, likely to cost around $5 billion.
+Renew Economy
+·
+4h</Link>
 <Button id="a_id_54">More options</Button>
 <Link id="a_id_55">New boundary-pushing art venue brings gallery and unique bookstore to Adelaide CBD with ambitions to enter the bar scene
 A fresh force in Adelaide's creative scene, FUTUREJUICE brings art, ideas, and culture together in one very cool space.

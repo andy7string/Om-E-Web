@@ -1,12 +1,12 @@
 {
-  "timestamp": 1764506011.3248918,
+  "timestamp": 1764506582.094473,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 3,
     "active_tab": {
       "id": 1138027651,
       "url": "https://www.google.com/",
       "title": "Google",
-      "status": "loading"
+      "status": "complete"
     },
     "all_tabs": [
       {
@@ -14,10 +14,24 @@
         "url": "https://www.google.com/",
         "title": "Google",
         "active": true,
-        "status": "loading"
+        "status": "complete"
+      },
+      {
+        "id": 1138027658,
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/692c2084-b2bc-8321-af7d-1ac6cb6a2cd7",
+        "title": "OM-E autonomy - Chat session pipeline setup",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138027661,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
+        "active": false,
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 53116.971049,
+    "last_tabs_update": 53705.671189375,
     "extension_connected": true
   },
   "current_page": {

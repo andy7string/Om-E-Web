@@ -12499,8 +12499,9 @@
             }
             .ome-hud-message.user {
                 align-self: flex-end;
-                background: rgba(147,112,219,0.4);
-                color: #e0d4f7;
+                background: transparent;
+                border: 1px solid rgba(147,112,219,0.3);
+                color: rgba(126,200,227,0.4);
             }
             .ome-hud-message.assistant {
                 align-self: flex-start;
@@ -12513,14 +12514,12 @@
                 color: #fca5a5;
                 font-size: 12px;
             }
-            /* 💬 HUD Input Wrapper - with purple tint */
+            /* 💬 HUD Input Wrapper */
             .ome-hud-prompt-input-wrapper {
                 display: flex;
                 align-items: center;
                 gap: 8px;
                 padding: 10px 12px;
-                border-top: 1px solid rgba(147,112,219,0.2);
-                background: rgba(0,0,0,0.25);
             }
             /* 💬 HUD Input - with purple border */
             .ome-hud-prompt-input {
