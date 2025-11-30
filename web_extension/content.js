@@ -12693,7 +12693,7 @@
             }
             .ome-menu-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
             .ome-menu-btn:active { transform: scale(0.95); }
-            /* 💬 Prompt Button (between orb and zoom) */
+            /* 💬 Prompt Button (between orb and zoom) - consistent purple style across all orbs */
             .ome-prompt-btn {
                 position: absolute;
                 bottom: -20px;
@@ -13016,7 +13016,7 @@
 
         // 💬 Prompt button (opens chat panel)
         const promptHTML = `
-            <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
+            <button class="ome-prompt-btn">Prompt</button>`;
 
         // 💬 Chat panel (anchored to orb) - with resize handles
         const chatPanelHTML = `
@@ -13205,7 +13205,7 @@
 
         // 💬 Prompt button (opens chat panel)
         const promptHTML = `
-            <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
+            <button class="ome-prompt-btn">Prompt</button>`;
 
         // 💬 Chat panel (anchored to orb) - with resize handles
         const chatPanelHTML = `
