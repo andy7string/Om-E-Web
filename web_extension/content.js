@@ -12498,7 +12498,7 @@
                 line-height: 1.4;
             }
             .ome-hud-message.user {
-                align-self: flex-end;
+                align-self: flex-start;
                 background: transparent;
                 border: 1px solid rgba(147,112,219,0.3);
                 color: rgba(126,200,227,0.4);
@@ -12844,10 +12844,10 @@
                 word-wrap: break-word;
             }
             .ome-chat-bubble.user {
-                align-self: flex-end;
-                background: rgba(80,100,160,0.18);
-                color: inherit;
-                border-bottom-right-radius: 4px;
+                align-self: flex-start;
+                background: transparent;
+                border: 1px solid rgba(147,112,219,0.3);
+                color: rgba(126,200,227,0.4);
             }
             .ome-chat-bubble.assistant {
                 align-self: flex-start;
@@ -12874,8 +12874,6 @@
                 align-items: center;
                 gap: 8px;
                 padding: 10px 12px;
-                border-top: 1px solid rgba(255,255,255,0.1);
-                background: rgba(0,0,0,0.2);
             }
             .ome-chat-input {
                 flex: 1;
