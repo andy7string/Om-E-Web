@@ -1,9 +1,9 @@
-# Google
+# ChatGPT
 
-**URL:** https://www.google.com/
-**Timestamp:** 2025-11-30 12:21:13
+**URL:** https://chatgpt.com/
+**Timestamp:** 2025-11-30 17:45:03
 
-**Tabs (1):** Active: #1138027499 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138027538 "ChatGPT" chatgpt.com [loading]
 
 ## Available Actions
 
@@ -65,157 +65,64 @@ The following pre-configured actions are available for this page:
 
 ---
 
-Google Search homepage
-<Link id="a_id_0">About</Link>
-<Link id="a_id_1">Store</Link>
-<Link id="a_id_2">Gmail</Link>
-<Link id="a_id_3">Search for Images</Link>
-<Button id="a_id_4">Google apps</Button>
-<Button id="a_id_5">Google Account: Andrew Orsmond
-(andreworsmond21175@gmail.com)</Button>
-<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
-<Button id="a_id_7">Search by voice</Button>
-<Button id="a_id_8">Search by image</Button>
-<Button id="a_id_9">AI Mode</Button>
-<Button id="a_id_10">Google Search</Button>
-<Button id="a_id_11">I'm Feeling Lucky</Button>
-Accessibility links
-<Link id="a_id_12">Skip to Discover feed</Link>
-<Link id="a_id_13">Skip to sidebar</Link>
-<Link id="a_id_14">Skip to footer</Link>
-<Link id="a_id_15">Accessibility help</Link>
-<Link id="a_id_16">Accessibility feedback</Link>
-Discover
-<Link id="a_id_17">America Confronts the Unknown as 3I/ATLAS Nears Earth and Raises New Planetary Defense Questions
-Key Takeaways The images now tell a story that no agency can safely ignore. Our defense posture was built for rocks and radiation, not structured...
-USA Herald
-·
-1d</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Recalled: Hyundai Ioniq 6 EV due to charging door malfunction that poses safety risk
-Hyundai Motor Company Australia has recalled 1191 examples of the 2022-2024 Hyundai Ioniq 6 electric car, citing a potential fault that could cause the...
-Drive
-·
-1d</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">If you think one cash rate rise will be bad, then what about two?
-Brace for the bad news. It's possible that a cash rate rise is coming as early as May. And it gets worse: there could be another some time after that.
-The Australian
-·
-1d</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Rental market making it harder to help young people 'out of crisis homelessness'
-Youth homelessness support services say the pandemic and an associated surge in real estate prices have made it even harder to secure accommodation.
-ABC News
-·
-5d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Wood fastest as four finalists make Sunday Adelaide shootout
-Walkinshaw Andretti United's Ryan Wood topped Sunday morning's qualifying at the BP Adelaide Grand Final to book a Top 10 Shootout berth.
-Speedcafe.com
-·
-1h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Woodside deal shows WA gas scheme is ‘a warning to government’
-Downstream processors are warning the Albanese government not to repeat the mistakes that have allowed energy companies to legally skirt the kinds of...
-AFR
-·
-1d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Black Friday 2025 Sale: Thermomix’s biggest rival Magimix is now $2,000 cheaper
-The Magimix 3200XL can quickly chop, slice, grate, dice, mix, knead and blend, and does it for a bargain price.
-www.taste.com.au
-·
-1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Silver futures hit record high, gold gains, too
-(Kitco News) - Gold and silver prices are higher in early U.S. trading Friday, with silver futures sharply up and hitting a new record high.
-KITCO
-·
-1d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Beyond 30 km altitude? Understanding the high-altitude detection capability of the S-400 defence system
-The system is explicitly engineered to detect and engage high-speed, high-altitude threats such as short- and medium-range ballistic missiles during their...
-WION
-·
-15h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Centrelink alert for Aussies in line for massive $475 million payout: 'Be sure'
-Centrelink is warning Aussies to watch out for scammers trying to take advantage of the new robodebt class action settlement. The federal government has...
-Yahoo Finance Australia
-·
-2d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Sodium-ion battery cell cost could drop to $40/kWh, says IRENA
-A report from the International Renewable Energy Agency (IRENA) notes that while it is still uncertain whether sodium-ion batteries will become a disruptive...
-pv magazine International
-·
-1d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Flinders innovative early career researchers awarded by Australian Research Council
-Flinders University has achieved a strong result in the latest ARC Discovery Early Career Researcher Award (DECRA) round, securing seven projects worth...
-Flinders University
-·
-3d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">3 of the best ASX ETFs for beginners to buy with $1,000
-Here are three ASX ETFs that could be worth considering if you are a beginner investor at the start of your wealth creation journey...
-The Motley Fool Australia
-·
-1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">DFAT asks Westpac to consider PNG sponsorship deal
-Westpac is among a group of Australian companies being urged by the Albanese government to consider sponsoring Papua New Guinea's new NRL team,...
-AFR
-·
-2d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Six more sunscreens recalled over concerns about SPF labelling
-S﻿ix more sunscreens sold throughout Australia have been recalled over concerns about their SPF claims.
-9News.com.au
-·
-2d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">BOM-site debacle shows governments have to rein in costly ICT projects
-Like many Australians, I was confounded by the new Bureau of Meteorology website when it appeared unannounced on our screens....
-Region Canberra
-·
-9h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Axed Flinders Uni algal bloom expert tells true cost of crisis
-A Flinders University algal bloom expert – whose role was scrapped as part of a restructure – has shared his worrying insights into the disaster and blasted...
-InDaily
-·
-4d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Streets of their town: Australian music legends get new laneway honour
-The Seekers have become the latest band to have a street named after them in Melbourne, with the City of Port Phillip christening a small street in St Kilda...
-The Sydney Morning Herald
-·
-1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">This Gen Zer built a software company in his bedroom that’s about to make $1 million. But he’s still committed to getting his college degree
-Many Gen Zers doubt the value of a degree, but Elijah Khasabo is finding it indispensable to his entrepreneurial career.
-Fortune
-·
-2d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Steam Machine Analysis Suggests $699 Price
-YouTuber Linus Tech Tips, who was the one to reveal Valve wouldn't price its upcoming Steam Machine like a console, has made an official prediction for the...
-Dark Horizons
-·
-1d</Link>
-<Button id="a_id_56">More options</Button>
-At a glance
-<Button id="a_id_57">Customise Homestack</Button>
-<Link id="a_id_58">VIX • VIX down 5.00%. Price is 16.35 Today</Link>
-<Link id="a_id_59">Air quality
-Good
-AQC</Link>
-Australia
-<Link id="a_id_60">Advertising</Link>
-<Link id="a_id_61">Business</Link>
-<Link id="a_id_62">How Search works</Link>
-<Link id="a_id_63">Privacy</Link>
-<Link id="a_id_64">Terms</Link>
-<Button id="a_id_65">Settings</Button>
+<Link id="a_id_0">Skip to content</Link>
+Chat history
+<Link id="a_id_1">Home</Link>
+<Button id="a_id_2">Close sidebar</Button>
+<Link id="a_id_3">New chat
+⇧
+⌘
+O</Link>
+Search chats
+<Link id="a_id_4">Library</Link>
+<Link id="a_id_5">Codex</Link>
+<Link id="a_id_6">Atlas</Link>
+<Button id="a_id_7">GPTs</Button>
+<Link id="a_id_8">Explore</Link>
+<Link id="a_id_9">Web Browser</Link>
+<Button id="a_id_10">Projects</Button>
+New project
+<Link id="a_id_11">OM-E autonomy</Link>
+<Link id="a_id_12">Claude</Link>
+<Link id="a_id_13">Pacifier Project</Link>
+<Link id="a_id_14">BinaryBeats</Link>
+<Link id="a_id_15">FPH</Link>
+See more
+<Button id="a_id_16">Your chats</Button>
+<Link id="a_id_17">Spider identification advice</Link>
+<Link id="a_id_18">Homie ome extension</Link>
+<Link id="a_id_19">Homie Om-E extension</Link>
+<Link id="a_id_20">Healthy pasta assessment</Link>
+<Link id="a_id_21">Invite ANZ to PEXA</Link>
+<Link id="a_id_22">Modify bunny design</Link>
+<Link id="a_id_23">Extension conversation</Link>
+<Link id="a_id_24">Om-e extension response</Link>
+<Link id="a_id_25">Gravity Forms email issue</Link>
+<Link id="a_id_26">Nailing it with extension</Link>
+<Link id="a_id_27">Website legitimacy check</Link>
+<Link id="a_id_28">Confident response to Jeff</Link>
+<Link id="a_id_29">Web automation test</Link>
+<Link id="a_id_30">Web automation test</Link>
+<Link id="a_id_31">Claude assistance options</Link>
+<Link id="a_id_32">Claude usage clarification</Link>
+<Link id="a_id_33">Write a poem</Link>
+<Link id="a_id_34">Sort list in Python</Link>
+<Link id="a_id_35">Automation test message</Link>
+<Link id="a_id_36">Confidence boost</Link>
+<Link id="a_id_37">Palm reading analysis</Link>
+<Link id="a_id_38">Emotional reaction reflection</Link>
+<Link id="a_id_39">Calming emotional reactions</Link>
+<Link id="a_id_40">Handling strong language</Link>
+<Link id="a_id_41">Search elements in console</Link>
+<Link id="a_id_42">Guitar request clarification</Link>
+<Link id="a_id_43">New chat</Link>
+<Link id="a_id_44">Guitar assistance offer</Link>
+<Button id="a_id_45">Open profile menu</Button>
+<Button id="a_id_46">Model selector, current model is 5.1</Button>
+<Button id="a_id_47">Start a group chat</Button>
+<Button id="a_id_48">Turn on temporary chat</Button>
+What’s on your mind today?
+<Input id="a_id_49" use="(a_id_49, 'your text', submit:true)">see sadfsdf</Input>
+<Button id="a_id_50">Add files and more</Button>
+<Button id="a_id_51">Dictate button</Button>
+<Button id="a_id_52">Send prompt</Button>

@@ -12415,6 +12415,7 @@
                 color: #7ec8e3;
                 opacity: 0;
                 transition: opacity 0.2s ease;
+                pointer-events: auto;
             }
             .ome-hud.visible { display: block; opacity: 1; }
             .ome-hud-close {
@@ -12492,7 +12493,11 @@
                 transition: border-color 0.15s ease, background 0.15s ease;
             }
             .ome-hud-prompt-input::placeholder { color: rgba(126,200,227,0.4); }
-            .ome-hud-prompt-input:focus { border-color: rgba(147,112,219,0.5); background: rgba(40,40,60,0.4); }
+            .ome-hud-prompt-input:focus {
+                border-color: rgba(147,112,219,0.5);
+                background: rgba(40,40,60,0.4);
+                outline: none;
+            }
             /* 💬 HUD Send Button - purple like orb */
             .ome-hud-send-btn {
                 width: 32px;
@@ -12511,20 +12516,13 @@
             .ome-hud-send-btn:active { transform: scale(0.95); }
             .ome-hud-send-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
 
-            /* 🎮 HUD Controls Container (scroll + zoom to right of orb) */
-            .ome-hud-controls {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
-                color: #7ec8e3;
-            }
-            /* ⬆️⬇️ HUD Scroll Controls */
+            /* ⬆️⬇️ HUD Scroll Controls (vertical, same layout as orb) */
             .ome-hud-scroll {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 4px;
+                color: #7ec8e3;
             }
             .ome-hud-scroll .ome-hud-ctrl-btn {
                 width: 36px;
@@ -12549,46 +12547,14 @@
                 stroke-width: 3;
                 fill: none;
             }
-            /* 🔍 HUD Zoom Controls */
-            .ome-hud-zoom {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 2px;
-            }
-            .ome-hud-zoom .ome-hud-ctrl-btn {
-                width: 28px;
-                height: 28px;
-                border: 2px solid currentColor;
-                border-radius: 50%;
-                background: transparent;
-                color: inherit;
-                font-size: 14px;
-                font-weight: 700;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: background 0.15s ease, transform 0.1s ease;
-                opacity: 0.7;
-            }
-            .ome-hud-zoom .ome-hud-ctrl-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
-            .ome-hud-zoom .ome-hud-ctrl-btn:active { transform: scale(0.95); }
-            .ome-hud-zoom-label {
-                width: 28px;
-                height: 28px;
-                border: 2px solid currentColor;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 14px;
-                font-weight: 700;
-                opacity: 0.7;
-                cursor: pointer;
-            }
-            .ome-hud-zoom-label:hover { background: rgba(126,200,227,0.15); opacity: 1; }
 
+            /* 🔮 HUD Orb Container (orb + exit button) */
+            .ome-hud-orb-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
             /* 🔮 HUD Orb Display */
             .ome-hud-orb {
                 width: 80px;
@@ -12601,6 +12567,25 @@
             }
             .ome-hud-orb:hover { transform: scale(1.05); }
             .ome-hud-orb svg { width: 80px; height: 80px; }
+            /* 🚪 Exit HUD Button */
+            .ome-hud-exit-btn {
+                padding: 8px 16px;
+                background: rgba(147,112,219,0.2);
+                border: 1px solid rgba(147,112,219,0.4);
+                border-radius: 6px;
+                color: #a78bfa;
+                font-size: 12px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.15s ease;
+                white-space: nowrap;
+            }
+            .ome-hud-exit-btn:hover {
+                background: rgba(147,112,219,0.35);
+                border-color: rgba(167,139,250,0.6);
+                transform: scale(1.02);
+            }
+            .ome-hud-exit-btn:active { transform: scale(0.98); }
 
             /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - same size as Z) */
             .ome-scroll-controls {
@@ -13324,9 +13309,12 @@
                     </div>
                 </div>
 
-                <!-- 🔮 Current Orb Display -->
-                <div class="ome-hud-orb" data-theme="${hudState.theme}">
-                    ${currentTheme.svg}
+                <!-- 🔮 Current Orb Display + Exit Button -->
+                <div class="ome-hud-orb-container">
+                    <div class="ome-hud-orb" data-theme="${hudState.theme}">
+                        ${currentTheme.svg}
+                    </div>
+                    <button class="ome-hud-exit-btn">Exit HUD</button>
                 </div>
 
                 <!-- 🎮 HUD Scroll Controls (scrolls HUD messages area) -->
@@ -13337,17 +13325,33 @@
             </div>
         `;
 
-        // Close button handler
-        hud.querySelector('.ome-hud-close').addEventListener('click', () => toggleHUD());
-
-        // Click outside to close (but not on main content)
-        hud.addEventListener('click', (e) => {
-            if (e.target === hud) toggleHUD();
+        // 🛡️ Block events from escaping HUD to underlying page (bubbling phase, NOT capture)
+        ['click', 'mousedown', 'mouseup', 'pointerdown', 'pointerup', 'touchstart', 'touchend'].forEach(eventType => {
+            hud.addEventListener(eventType, (e) => {
+                e.stopPropagation();
+            }, false);  // bubbling phase - lets internal button clicks work first
         });
+
+        // Close button handler
+        hud.querySelector('.ome-hud-close').addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHUD();
+        });
+
+        // NOTE: Removed backdrop click-to-close - only exit via Exit HUD button or orb click
 
         // Escape key to close
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && hudState.visible) toggleHUD();
+        });
+
+        // 🎯 Focus input when HUD prompt is clicked
+        const promptBox = hud.querySelector('.ome-hud-prompt');
+        promptBox?.addEventListener('click', (e) => {
+            const input = hud.querySelector('.ome-hud-prompt-input');
+            if (input && e.target !== input) {
+                input.focus();
+            }
         });
 
         // Send button handler
@@ -13384,6 +13388,22 @@
             if (messagesArea) {
                 messagesArea.scrollBy({ top: 100, behavior: 'smooth' });
             }
+        });
+
+        // 🔮 Click orb to exit HUD (same as toggle_hud message handler)
+        hud.querySelector('.ome-hud-orb')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log('[Content] 🔮 HUD orb clicked - exiting HUD');
+            if (!hudState.host) initHUD();
+            toggleHUD();
+        });
+
+        // 🚪 Exit HUD button handler (same as toggle_hud message handler)
+        hud.querySelector('.ome-hud-exit-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log('[Content] 🚪 Exit HUD button clicked');
+            if (!hudState.host) initHUD();
+            toggleHUD();
         });
 
         shadow.appendChild(hud);
