@@ -12003,15 +12003,17 @@
     // 🎛️ OM-E HUD SYSTEM - Floating orb and overlay interface
     // ============================================================================
 
-    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, visible: boolean, chatVisible: boolean, dragging: boolean, theme: string }} */
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string }} */
     const hudState = {
         host: null,
         shadow: null,
         orb: null,
         hud: null,
         chatPanel: null,      // 💬 Chat panel element
+        sidebar: null,        // 📚 Sidebar element
         visible: false,
         chatVisible: false,   // 💬 Chat panel visibility
+        sidebarOpen: false,   // 📚 Sidebar open state
         dragging: false,
         theme: 'robot'  // Current orb theme (default)
     };
@@ -12473,7 +12475,7 @@
             /* 🎯 HUD Main Container - centered prompt + orb at bottom */
             .ome-hud-main {
                 position: absolute;
-                bottom: 200px;
+                bottom: 400px;
                 left: 50%;
                 transform: translateX(-50%);
                 display: flex;
@@ -12481,10 +12483,11 @@
                 gap: 24px;
             }
 
-            /* 💬 HUD Prompt Box - matching HUD background with theme glow */
+            /* 💬 HUD Prompt Box - Perplexity-style auto-expanding container */
             .ome-hud-prompt {
                 width: 800px;
-                height: 200px;
+                min-height: 100px;
+                max-height: 400px;
                 background: rgba(33,33,33,0.95);
                 backdrop-filter: blur(12px);
                 border: 1px solid rgba(var(--theme-color),0.35);
@@ -12492,82 +12495,58 @@
                 display: flex;
                 flex-direction: column;
                 font-family: system-ui, -apple-system, sans-serif;
-                box-shadow: 0 0 12px rgba(var(--theme-color),0.25), 0 0 25px rgba(var(--theme-color),0.15), 0 4px 24px rgba(0,0,0,0.3);
+                box-shadow: 0 0 6px rgba(var(--theme-color),0.125), 0 0 12px rgba(var(--theme-color),0.075), 0 2px 12px rgba(0,0,0,0.15);
                 overflow: hidden;
                 color: #7ec8e3;
-                filter: drop-shadow(0 0 5px rgba(var(--theme-color),0.3));
+                filter: drop-shadow(0 0 2px rgba(var(--theme-color),0.15));
+                transition: height 0.15s ease;
             }
-            /* 💬 HUD Messages Area - IDENTICAL to .ome-chat-messages */
-            .ome-hud-prompt-messages {
-                flex: 1;
-                overflow-y: auto;
-                padding: 12px;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                min-height: 80px;
-            }
-            .ome-hud-prompt-messages::-webkit-scrollbar { width: 6px; }
-            .ome-hud-prompt-messages::-webkit-scrollbar-track { background: transparent; }
-            .ome-hud-prompt-messages::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.3); border-radius: 3px; }
-            /* 💬 HUD Message Bubbles */
-            .ome-hud-message {
-                padding: 8px 12px;
-                border-radius: 12px;
-                max-width: 85%;
-                word-wrap: break-word;
-                font-size: 13px;
-                line-height: 1.4;
-            }
-            .ome-hud-message.user {
-                align-self: flex-start;
+            /* 💬 HUD Textarea - Perplexity-style auto-expanding input */
+            .ome-hud-prompt-textarea {
+                display: block;
+                box-sizing: border-box;
+                width: calc(100% - 20px);
+                margin: 0 10px;
+                min-height: 40px;
+                max-height: 300px;
                 background: transparent;
-                border: 1px solid rgba(var(--theme-color),0.3);
-                color: var(--theme-accent);
-                text-align: left;
-            }
-            .ome-hud-message.assistant {
-                align-self: flex-start;
-                background: rgba(126,200,227,0.2);
-                color: #7ec8e3;
-            }
-            .ome-hud-message.error {
-                align-self: center;
-                background: rgba(220,38,38,0.3);
-                color: #fca5a5;
-                font-size: 12px;
-            }
-            /* 💬 HUD Input Wrapper */
-            .ome-hud-prompt-input-wrapper {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 10px 12px;
-            }
-            /* 💬 HUD Input - with theme border */
-            .ome-hud-prompt-input {
-                flex: 1;
-                background: rgba(40,40,60,0.3);
-                border: 1px solid rgba(var(--theme-color),0.25);
-                border-radius: 8px;
-                padding: 8px 12px;
-                font-size: 13px;
+                border: none;
+                padding: 16px 6px 8px 6px;
+                font-size: 15px;
+                line-height: 1.5;
                 color: inherit;
                 outline: none;
-                transition: border-color 0.15s ease, background 0.15s ease;
+                resize: none;
+                overflow-y: hidden;
+                overflow-x: hidden;
+                font-family: inherit;
+                word-wrap: break-word;
+                white-space: pre-wrap;
             }
-            .ome-hud-prompt-input::placeholder { color: rgba(126,200,227,0.4); }
-            .ome-hud-prompt-input:focus {
-                border-color: rgba(var(--theme-color),0.5);
-                background: rgba(40,40,60,0.4);
-                outline: none;
+            .ome-hud-prompt-textarea::placeholder {
+                color: rgba(126,200,227,0.5);
+            }
+            .ome-hud-prompt-textarea::-webkit-scrollbar { width: 6px; }
+            .ome-hud-prompt-textarea::-webkit-scrollbar-track { background: transparent; }
+            .ome-hud-prompt-textarea::-webkit-scrollbar-thumb {
+                background: rgba(var(--theme-color),0.3);
+                border-radius: 3px;
+            }
+            /* 💬 HUD Actions Bar - buttons at bottom */
+            .ome-hud-prompt-actions {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 8px;
+                padding: 8px 12px 12px 12px;
+                border-top: 1px solid rgba(var(--theme-color),0.1);
             }
             /* 💬 HUD Send Button - theme colored */
             .ome-hud-send-btn {
-                width: 32px;
-                height: 32px;
+                width: 36px;
+                height: 36px;
                 border: none;
-                border-radius: 8px;
+                border-radius: 10px;
                 background: rgba(var(--theme-color),0.6);
                 color: inherit;
                 cursor: pointer;
@@ -12898,22 +12877,32 @@
             }
             .ome-chat-bubble.typing-preview:empty { display: none; }
 
-            /* 💬 Chat Input Area */
+            /* 💬 Chat Input Area - Perplexity-style auto-expanding */
             .ome-chat-input-wrapper {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 gap: 8px;
                 padding: 10px 12px;
             }
             .ome-chat-input {
                 flex: 1;
+                display: block;
+                box-sizing: border-box;
+                min-height: 36px;
+                max-height: 150px;
                 background: rgba(40,50,80,0.18);
                 border: 1px solid rgba(100,120,180,0.15);
                 border-radius: 8px;
                 padding: 8px 12px;
                 font-size: 13px;
+                line-height: 1.4;
                 color: inherit;
                 outline: none;
+                resize: none;
+                overflow-y: hidden;
+                font-family: inherit;
+                word-wrap: break-word;
+                white-space: pre-wrap;
                 transition: border-color 0.15s ease, background 0.15s ease;
             }
             .ome-chat-input::placeholder { color: rgba(126,200,227,0.4); }
@@ -12934,6 +12923,180 @@
             .ome-chat-send:hover { background: rgba(80,100,160,0.7); }
             .ome-chat-send:active { transform: scale(0.95); }
             .ome-chat-send svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+            /* ═══════════════════════════════════════════════════════════════════
+               📚 SIDEBAR - ChatGPT-style side panel for chat history
+               ═══════════════════════════════════════════════════════════════════ */
+
+            /* 📚 Sidebar Toggle Button (hamburger menu) */
+            .ome-sidebar-toggle {
+                position: absolute;
+                top: 20px;
+                left: 24px;
+                width: 36px;
+                height: 36px;
+                border: none;
+                border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                color: #9ca3af;
+                font-size: 18px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, color 0.15s ease;
+                z-index: 10;
+            }
+            .ome-sidebar-toggle:hover {
+                background: rgba(var(--theme-color),0.2);
+                color: var(--theme-accent);
+            }
+            .ome-sidebar-toggle svg {
+                width: 20px;
+                height: 20px;
+                stroke: currentColor;
+                stroke-width: 2;
+                fill: none;
+            }
+
+            /* 📚 Sidebar Container */
+            .ome-sidebar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 100%;
+                background: rgba(28,28,32,0.98);
+                border-right: 1px solid rgba(var(--theme-color),0.2);
+                display: flex;
+                flex-direction: column;
+                transform: translateX(-100%);
+                transition: transform 0.25s ease;
+                z-index: 5;
+                box-shadow: 4px 0 24px rgba(0,0,0,0.3);
+            }
+            .ome-sidebar.open {
+                transform: translateX(0);
+            }
+
+            /* 📚 Sidebar Header */
+            .ome-sidebar-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px;
+                border-bottom: 1px solid rgba(var(--theme-color),0.15);
+            }
+            .ome-sidebar-new-chat {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 14px;
+                background: transparent;
+                border: 1px solid rgba(var(--theme-color),0.3);
+                border-radius: 8px;
+                color: var(--theme-accent);
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.15s ease;
+            }
+            .ome-sidebar-new-chat:hover {
+                background: rgba(var(--theme-color),0.15);
+                border-color: rgba(var(--theme-color),0.5);
+            }
+            .ome-sidebar-new-chat svg {
+                width: 16px;
+                height: 16px;
+                stroke: currentColor;
+                stroke-width: 2;
+                fill: none;
+            }
+            .ome-sidebar-close {
+                width: 32px;
+                height: 32px;
+                border: none;
+                border-radius: 6px;
+                background: transparent;
+                color: #6b7280;
+                font-size: 18px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, color 0.15s ease;
+            }
+            .ome-sidebar-close:hover {
+                background: rgba(255,255,255,0.08);
+                color: #9ca3af;
+            }
+
+            /* 📚 Sidebar Content (chat list area) */
+            .ome-sidebar-content {
+                flex: 1;
+                overflow-y: auto;
+                padding: 8px;
+            }
+            .ome-sidebar-content::-webkit-scrollbar { width: 6px; }
+            .ome-sidebar-content::-webkit-scrollbar-track { background: transparent; }
+            .ome-sidebar-content::-webkit-scrollbar-thumb {
+                background: rgba(var(--theme-color),0.3);
+                border-radius: 3px;
+            }
+
+            /* 📚 Sidebar Section Label */
+            .ome-sidebar-label {
+                padding: 12px 8px 8px;
+                font-size: 11px;
+                font-weight: 600;
+                color: #6b7280;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            /* 📚 Chat List Items */
+            .ome-chat-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 12px;
+                border-radius: 8px;
+                color: #d1d5db;
+                font-size: 13px;
+                cursor: pointer;
+                transition: background 0.15s ease;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .ome-chat-item:hover {
+                background: rgba(var(--theme-color),0.1);
+            }
+            .ome-chat-item.active {
+                background: rgba(var(--theme-color),0.2);
+                color: var(--theme-accent);
+            }
+            .ome-chat-item-title {
+                flex: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* 📚 Empty State */
+            .ome-sidebar-empty {
+                padding: 24px 16px;
+                text-align: center;
+                color: #6b7280;
+                font-size: 13px;
+            }
+
+            /* 📚 Sidebar Footer */
+            .ome-sidebar-footer {
+                padding: 12px 16px;
+                border-top: 1px solid rgba(var(--theme-color),0.15);
+                font-size: 11px;
+                color: #6b7280;
+            }
         `;
         shadow.appendChild(style);
     }
@@ -13033,7 +13196,7 @@
                     <!-- Messages loaded from chat file -->
                 </div>
                 <div class="ome-chat-input-wrapper">
-                    <input type="text" class="ome-chat-input" placeholder="Ask anything..." />
+                    <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
                     <button class="ome-chat-send">
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
@@ -13104,15 +13267,25 @@
                 hudState.orb.querySelector('.ome-prompt-btn')?.classList.add('active');
             }
 
-            // 💬 Chat input setup
+            // 💬 Chat input setup (textarea with auto-resize)
             const chatInput = chatPanel.querySelector('.ome-chat-input');
             const chatSendBtn = chatPanel.querySelector('.ome-chat-send');
-            const chatMessagesArea = chatPanel.querySelector('.ome-chat-messages');
+
+            // 📐 Auto-resize textarea as user types
+            function autoResizeOrbInput() {
+                if (!chatInput) return;
+                chatInput.style.height = '36px';
+                const scrollH = chatInput.scrollHeight;
+                const newHeight = Math.max(36, Math.min(scrollH, 150));
+                chatInput.style.height = newHeight + 'px';
+                chatInput.style.overflowY = scrollH > 150 ? 'auto' : 'hidden';
+            }
 
             if (chatInput) {
-                // 💾 Save input on change for persistence
+                // 💾 Save input on change + auto-resize
                 chatInput.addEventListener('input', () => {
                     saveChatInput(chatInput.value);
+                    autoResizeOrbInput();
                 });
 
                 // 💬 Restore chat input value after theme change
@@ -13120,11 +13293,15 @@
                     chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
                         if (response?.ok && response.chatInput) {
                             chatInput.value = response.chatInput;
+                            autoResizeOrbInput();
                         }
                     });
                 } catch (e) {
                     console.warn('[Content] Could not restore chat input:', e);
                 }
+
+                // Initial sizing
+                autoResizeOrbInput();
             }
 
             // 💬 Send button handler - same pipeline as HUD
@@ -13138,8 +13315,9 @@
                     // Add to shared state (renders to both UIs)
                     addChatMessage('user', text);
 
-                    // Clear input and saved state
+                    // Clear input, reset size, and saved state
                     chatInput.value = '';
+                    autoResizeOrbInput();
                     saveChatInput('');
 
                     // Send through chat pipeline
@@ -13154,7 +13332,7 @@
 
                 chatSendBtn.addEventListener('click', handleOrbSend);
 
-                // Enter to send (without shift)
+                // Enter to send (Shift+Enter for new line)
                 chatInput.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' && !e.shiftKey) {
                         e.preventDefault();
@@ -13222,7 +13400,7 @@
                     <!-- Messages loaded from chat file -->
                 </div>
                 <div class="ome-chat-input-wrapper">
-                    <input type="text" class="ome-chat-input" placeholder="Ask anything..." />
+                    <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
                     <button class="ome-chat-send">
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
@@ -13395,17 +13573,38 @@
         const currentTheme = ORB_THEMES[hudState.theme] || ORB_THEMES.robot;
 
         hud.innerHTML = `
+            <!-- 📚 Sidebar Toggle Button (hamburger menu) -->
+            <button class="ome-sidebar-toggle">
+                <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+
             <button class="ome-hud-close">&times;</button>
+
+            <!-- 📚 Sidebar Panel -->
+            <div class="ome-sidebar">
+                <div class="ome-sidebar-header">
+                    <button class="ome-sidebar-new-chat">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        New chat
+                    </button>
+                    <button class="ome-sidebar-close">&times;</button>
+                </div>
+                <div class="ome-sidebar-content">
+                    <div class="ome-sidebar-label">Your chats</div>
+                    <!-- Chat items will be populated here -->
+                    <div class="ome-sidebar-empty">No chats yet</div>
+                </div>
+                <div class="ome-sidebar-footer">
+                    Om-E Web
+                </div>
+            </div>
 
             <!-- 🎯 Main container: prompt + orb -->
             <div class="ome-hud-main">
-                <!-- 💬 Prompt Box (exact match to orb chat panel) -->
+                <!-- 💬 Prompt Box - Perplexity-style auto-expanding textarea -->
                 <div class="ome-hud-prompt">
-                    <div class="ome-hud-prompt-messages">
-                        <!-- Messages will appear here -->
-                    </div>
-                    <div class="ome-hud-prompt-input-wrapper">
-                        <input type="text" class="ome-hud-prompt-input" placeholder="Ask anything..." />
+                    <textarea class="ome-hud-prompt-textarea" placeholder="Ask anything..." rows="1"></textarea>
+                    <div class="ome-hud-prompt-actions">
                         <button class="ome-hud-send-btn">
                             <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                         </button>
@@ -13441,6 +13640,29 @@
             toggleHUD();
         });
 
+        // 📚 Sidebar toggle button handler
+        const sidebarToggle = hud.querySelector('.ome-sidebar-toggle');
+        const sidebar = hud.querySelector('.ome-sidebar');
+        hudState.sidebar = sidebar;
+
+        sidebarToggle?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSidebar();
+        });
+
+        // 📚 Sidebar close button handler
+        hud.querySelector('.ome-sidebar-close')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSidebar(false);
+        });
+
+        // 📚 New chat button handler (placeholder for now)
+        hud.querySelector('.ome-sidebar-new-chat')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log('[Content] 📚 New chat clicked');
+            // TODO: Clear current chat and start fresh
+        });
+
         // NOTE: Removed backdrop click-to-close - only exit via Exit HUD button or orb click
 
         // Escape key to close
@@ -13448,21 +13670,38 @@
             if (e.key === 'Escape' && hudState.visible) toggleHUD();
         });
 
-        // 🎯 Focus input when HUD prompt is clicked
+        // 🎯 Focus textarea when HUD prompt box is clicked
         const promptBox = hud.querySelector('.ome-hud-prompt');
+        const promptTextarea = hud.querySelector('.ome-hud-prompt-textarea');
+
         promptBox?.addEventListener('click', (e) => {
-            const input = hud.querySelector('.ome-hud-prompt-input');
-            if (input && e.target !== input) {
-                input.focus();
+            if (promptTextarea && e.target !== promptTextarea) {
+                promptTextarea.focus();
             }
         });
 
+        // 📐 Auto-resize textarea as user types (Perplexity-style)
+        function autoResizeTextarea() {
+            if (!promptTextarea) return;
+            // Set height to minimum first to measure true scrollHeight
+            promptTextarea.style.height = '40px';
+            // Calculate new height (capped at 300px)
+            const scrollH = promptTextarea.scrollHeight;
+            const newHeight = Math.max(40, Math.min(scrollH, 300));
+            promptTextarea.style.height = newHeight + 'px';
+            // Show scrollbar only when at max height
+            promptTextarea.style.overflowY = scrollH > 300 ? 'auto' : 'hidden';
+        }
+
+        promptTextarea?.addEventListener('input', autoResizeTextarea);
+        // Initial sizing
+        if (promptTextarea) autoResizeTextarea();
+
         // Send button handler
         const sendBtn = hud.querySelector('.ome-hud-send-btn');
-        const promptInput = hud.querySelector('.ome-hud-prompt-input');
 
-        sendBtn.addEventListener('click', async () => {
-            const text = promptInput.value.trim();
+        sendBtn?.addEventListener('click', async () => {
+            const text = promptTextarea?.value.trim();
             if (!text) return;
 
             console.log('[Content] 📤 HUD Prompt sending:', text);
@@ -13470,8 +13709,9 @@
             // Add to shared state (renders to both UIs)
             addChatMessage('user', text);
 
-            // Clear input
-            promptInput.value = '';
+            // Clear textarea and reset size
+            promptTextarea.value = '';
+            autoResizeTextarea();
 
             // Send through chat pipeline
             try {
@@ -13483,26 +13723,25 @@
             }
         });
 
-        // Enter to send (without shift)
-        promptInput.addEventListener('keydown', (e) => {
+        // Enter to send (Shift+Enter for new line)
+        promptTextarea?.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
-                sendBtn.click();
+                sendBtn?.click();
             }
         });
 
-        // 📜 HUD Scroll controls - scroll the messages area
-        const messagesArea = hud.querySelector('.ome-hud-prompt-messages');
+        // 📜 HUD Scroll controls - scroll the textarea content
         hud.querySelector('.ome-hud-scroll-up')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (messagesArea) {
-                messagesArea.scrollBy({ top: -100, behavior: 'smooth' });
+            if (promptTextarea) {
+                promptTextarea.scrollBy({ top: -100, behavior: 'smooth' });
             }
         });
         hud.querySelector('.ome-hud-scroll-down')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (messagesArea) {
-                messagesArea.scrollBy({ top: 100, behavior: 'smooth' });
+            if (promptTextarea) {
+                promptTextarea.scrollBy({ top: 100, behavior: 'smooth' });
             }
         });
 
@@ -13759,6 +13998,12 @@
                             console.log('[Content] 💬 Restored chat input from SW');
                         }
                     }
+                    // 📚 Restore sidebar state
+                    if (response.sidebarOpen && hudState.sidebar) {
+                        hudState.sidebarOpen = true;
+                        hudState.sidebar.classList.add('open');
+                        console.log('[Content] 📚 Restored sidebar state from SW');
+                    }
                 }
             });
         } catch (e) {
@@ -13804,6 +14049,33 @@
             console.warn('[Content] Could not persist chat visibility:', e);
         }
         console.log('[Content] 💬 Chat panel:', hudState.chatVisible ? 'visible' : 'hidden');
+    }
+
+    /**
+     * 📚 Toggle Sidebar visibility
+     * @param {boolean} [forceState] - Optional: force open (true) or closed (false)
+     */
+    function toggleSidebar(forceState) {
+        if (!hudState.sidebar) return;
+
+        // Determine new state
+        if (typeof forceState === 'boolean') {
+            hudState.sidebarOpen = forceState;
+        } else {
+            hudState.sidebarOpen = !hudState.sidebarOpen;
+        }
+
+        // Apply state to DOM
+        hudState.sidebar.classList.toggle('open', hudState.sidebarOpen);
+
+        // 💾 Persist sidebar state to service worker
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', sidebarOpen: hudState.sidebarOpen });
+        } catch (e) {
+            console.warn('[Content] Could not persist sidebar state:', e);
+        }
+
+        console.log('[Content] 📚 Sidebar:', hudState.sidebarOpen ? 'open' : 'closed');
     }
 
     // 🎛️ HUD message handler

@@ -10,6 +10,8 @@ The content script is the core intelligence engine of Om_E_Web. It runs in the c
 4. **Command execution** - Handles clicks, input, scrolling, and navigation
 5. **Capability pipeline** - Dynamic element discovery for lazy-loaded content
 6. **Real-time monitoring** - Tracks DOM changes and network activity
+7. **HUD/Orb UI system** - Floating orb interface with chat, prompt input, and theme customization
+8. **Chat integration** - Real-time chat with LLM via WebSocket pipeline
 
 **Key architectural principle**: Event-driven only. No timers except for debouncing. Uses MutationObserver, IntersectionObserver, and requestIdleCallback for all DOM monitoring.
 
@@ -566,7 +568,16 @@ Message: {type: "start_scan", pageVersion: 1, trigger: "page_load"}
 1. **`start_intelligence_scan`** → Schedules initial scan via `scheduleInitialScan()`
 2. **`start_scan`** → Executes scan via `executeScanWithSettle()`
 3. **`execute_action`** → Handled by separate listener (see below)
-4. **Commands**:
+4. **`toggle_hud`** → Toggle HUD overlay via `toggleHUD()`
+5. **`set_orb_theme`** → Set orb theme via `setOrbTheme()`
+6. **`apply_orb_theme`** → Apply theme from popup via `applyOrbTheme()`
+7. **`get_orb_themes`** → Return available themes
+8. **`get_orb_screen_position`** → Return orb position before zoom
+9. **`set_orb_screen_position`** → Restore orb position after zoom via `restoreOrbScreenPosition()`
+10. **`ui_chat_append_ack`** → Handle chat acknowledgement via `handleChatAck()`
+11. **`ui_chat_error`** → Handle chat error via `handleChatError()`
+12. **`ui_chat_history`** → Load chat history via `handleChatHistory()`
+13. **Commands**:
    - `waitFor` → `cmd_waitFor()`
    - `getText` → `cmd_getText()`
    - `click` → `cmd_click()`
@@ -1419,12 +1430,787 @@ Used throughout for robustness. Always have a fallback.
 
 ## File Size & Complexity
 
-- **Total lines**: ~11,708
-- **Main components**: 5 (Scan, IntelligenceEngine, Capability Pipeline, Message Handlers, Element Discovery)
-- **Message handlers**: 3 (main, execute_action, execute_capability)
+- **Total lines**: ~14,125
+- **Main components**: 7 (Scan, IntelligenceEngine, Capability Pipeline, Message Handlers, Element Discovery, HUD/Orb UI, Chat System)
+- **Message handlers**: 6 (main, execute_action, execute_capability, HUD control, chat messages, orb state)
 - **Supported actions**: 8 (click, setValue, toggle, select, scroll, focus, submit, navigate)
 - **Element types**: 8 (input, button, link, checkbox, dropdown, slider, textarea, contenteditable)
 - **Event listeners**: 6 (load, hashchange, popstate, visibilitychange, focus, URL observer)
+- **UI Components**: 3 (Floating Orb, HUD Overlay, Chat Panel)
+- **Orb Themes**: 3 (kawaii, robot, atom)
+- **Chat message types**: 9 (ui_chat_user_message, ui_chat_append_ack, ui_chat_error, ui_chat_history, and 5 orb state messages)
+
+---
+
+## 19. HUD/Orb UI System
+
+### Overview
+
+The Om-E HUD system is a **Shadow DOM-based floating interface** that provides visual control and chat interaction directly in the browser. It consists of:
+
+1. **Floating Orb** - Draggable interface anchor with theme-based avatars (kawaii, robot, atom)
+2. **HUD Overlay** - Full-screen prompt interface with message history
+3. **Chat Panel** - Resizable chat interface anchored to orb
+4. **Theme System** - Three visual themes with distinct orb designs and colors
+5. **Control Buttons** - Scroll, zoom, and HUD toggle controls
+
+**Architecture**: Shadow DOM isolation prevents CSS conflicts with host page. All UI components render inside closed shadow root.
+
+---
+
+### HUD State Management
+
+#### `hudState` Object
+**Purpose**: Single source of truth for HUD/Orb UI state
+
+**Properties**:
+- `host` - Shadow DOM host element
+- `shadow` - ShadowRoot instance
+- `orb` - Floating orb element
+- `hud` - Full-screen HUD overlay
+- `chatPanel` - Chat panel element (anchored to orb)
+- `visible` - HUD overlay visibility (boolean)
+- `chatVisible` - Chat panel visibility (boolean)
+- `dragging` - Orb drag state (boolean)
+- `theme` - Current theme key ('kawaii', 'robot', 'atom')
+
+**Persistence**: Theme, position, chat visibility, and chat input are persisted to service worker storage.
+
+---
+
+### Orb Themes (ORB_THEMES)
+
+**Purpose**: Registry of visual themes for the floating orb
+
+**Structure**:
+```javascript
+{
+  themeName: {
+    name: string,           // Display name
+    color: string,          // Theme accent color (hex)
+    earSelector: string,    // CSS selector for clickable ears/goggles
+    svg: string,            // SVG markup for orb
+    paws: string            // SVG markup for paws (shown when dragging)
+  }
+}
+```
+
+**Available Themes**:
+
+1. **Kawaii** - Fluffy white kitty with cherry and sparkly blue eyes
+   - Color: `#7ec8e3` (sparkly blue)
+   - Ear selector: `.ome-ear`
+   - Features: Pink inner ears, rosy blush, strawberry on top
+
+2. **Robot (Om-E)** - Cute bot with goggles and glowing cyan eyes
+   - Color: `#00e5ff` (cyan)
+   - Ear selector: `.ome-goggle`
+   - Features: Purple goggles, dome helmet, face plate with glowing eyes
+
+3. **Atom** - Glowing orbital rings with purple nucleus
+   - Color: `#ba93ff` (purple glow)
+   - Ear selector: `.ome-atom-click`
+   - Features: Three rotating orbital rings, spinning nucleus, pulsing glow
+
+**CSS Animations**:
+- Floating animation (ome-bunny-float) - 2s ease-in-out when idle
+- Wiggle animation (ome-bunny-wiggle) - 0.3s when dragging
+- Orbit pulse (ome-orbit-pulse) - 2.5s for atom theme
+- Nucleus spin (ome-nucleus-spin) - 6s for atom theme
+
+---
+
+### Core Functions
+
+#### `initHUD()`
+**Purpose**: Initialize HUD system with Shadow DOM isolation
+
+**Workflow**:
+1. Creates host element (`#ome-hud-host`) with `data-ome-ignore` attribute
+2. Attaches closed shadow root
+3. Injects HUD styles via `injectHUDStyles()`
+4. Creates orb via `createOrb()`
+5. Creates HUD overlay via `createHUD()`
+6. Requests saved state from service worker:
+   - Theme (`response.theme`)
+   - Position (`response.position`)
+   - Zoom scale (`response.zoom`)
+   - Chat visibility (`response.chatVisible`)
+   - Chat input text (`response.chatInput`)
+7. Attaches resize listener to clamp orb position
+
+**Called by**:
+- Auto-initialization on DOM load
+- Message handler for `toggle_hud`, `set_orb_theme`, `apply_orb_theme`
+
+**Sets up**: Complete HUD/Orb UI with all event handlers
+
+---
+
+#### `createOrb(shadow)`
+**Purpose**: Create floating orb with drag, controls, and chat panel
+
+**Returns**: HTMLElement (orb)
+
+**Components created**:
+1. **Orb body** - SVG from current theme
+2. **Paws** - SVG shown when dragging (theme-specific)
+3. **Scroll controls** - Up/down/left/right arrows + HUD toggle button
+4. **Prompt button** - Opens chat panel
+5. **Zoom controls** - +/Z/− buttons for zoom in/reset/out
+6. **Chat panel** - Resizable chat interface with:
+   - 8 resize handles (n, s, e, w, nw, ne, sw, se)
+   - Message area (`.ome-chat-messages`)
+   - Input field (`.ome-chat-input`)
+   - Send button (`.ome-chat-send`)
+
+**Event handlers**:
+- **Orb click** - Toggle drag mode (follow cursor) / release
+- **Ears/goggles click** - Same as orb click (theme-specific selectors)
+- **Scroll buttons** - Call `scrollWithFeedback()` with boundary detection
+- **HUD button** - Toggle HUD overlay via `toggleHUD()`
+- **Zoom buttons** - Send capability messages to service worker
+- **Prompt button** - Toggle chat panel via `toggleChatPanel()`
+- **Chat send** - Add message to shared state, send via `sendChatMessage()`
+- **Chat input** - Auto-save via `saveChatInput()`, restore on load
+- **Enter key** - Send message (without shift)
+- **Escape key** - Close chat panel
+
+**Drag behavior**:
+- Click orb → Start following cursor (use left/top during drag)
+- Click again → Release and save position (convert to right/bottom percentages)
+- Position persisted to service worker via `saveOrbPosition()`
+
+**Called by**: `initHUD()`, theme switching
+
+---
+
+#### `createHUD(shadow)`
+**Purpose**: Create full-screen HUD overlay with prompt interface
+
+**Returns**: HTMLElement (hud)
+
+**Components created**:
+1. **Close button** - X button (top-right)
+2. **Main container** (`.ome-hud-main`) - Centered layout with:
+   - **Prompt box** (`.ome-hud-prompt`) - Message area + input + send button
+   - **Orb display** (`.ome-hud-orb`) - Current theme SVG (clickable to exit)
+   - **Exit button** - Text button to close HUD
+   - **Scroll controls** - Up/down for scrolling message area
+
+**Event handlers**:
+- **Close button** - Toggle HUD via `toggleHUD()`
+- **Escape key** - Close HUD
+- **Orb click** - Exit HUD
+- **Exit button** - Close HUD
+- **Send button** - Add message to shared state, send via `sendChatMessage()`
+- **Prompt input Enter** - Send message (without shift)
+- **Scroll buttons** - Scroll message area (not page)
+- **Event blocking** - Stops propagation of all pointer events to prevent page interaction
+
+**Theme integration**:
+- HUD overlay uses `data-theme` attribute to apply theme colors
+- CSS custom property `--theme-color` used for borders/glows/buttons
+- Orb display syncs with floating orb theme
+
+**Called by**: `initHUD()`
+
+---
+
+#### `applyOrbTheme(themeName)`
+**Purpose**: Swap orb SVG and update theme colors
+
+**Parameters**: `themeName` - Key from ORB_THEMES ('kawaii', 'robot', 'atom')
+
+**Workflow**:
+1. Gets theme object from `ORB_THEMES[themeName]`
+2. Rebuilds orb HTML with new SVG + controls
+3. Updates HUD orb display via `updateHUDOrb()`
+4. Re-attaches all event handlers (scroll, zoom, prompt, chat)
+5. Restores chat panel state (visibility, input value, size)
+6. Updates theme selector active state in HUD
+
+**Called by**:
+- `setOrbTheme()` (user-initiated theme change)
+- `initHUD()` (restore saved theme on load)
+
+**Re-attaches handlers for**:
+- Scroll buttons (4 directions with boundary feedback)
+- Zoom buttons (in/out/reset)
+- Menu button (HUD toggle)
+- Prompt button (chat panel toggle)
+- Chat input/send (same pipeline as HUD)
+- Resize handles (chat panel resizing)
+
+---
+
+#### `toggleHUD()`
+**Purpose**: Show/hide full-screen HUD overlay
+
+**Workflow**:
+1. Toggle `hudState.visible` boolean
+2. Add/remove `.visible` class from HUD element
+3. If opening → call `renderChatMessages()` to sync from shared state
+4. Log visibility change
+
+**Called by**:
+- Orb menu button click
+- HUD close button click
+- HUD orb click
+- HUD exit button click
+- Escape key (when HUD visible)
+- Message handler for `toggle_hud` command
+
+**No persistence**: HUD visibility resets on navigation (by design)
+
+---
+
+#### `toggleChatPanel()`
+**Purpose**: Show/hide chat panel (anchored to orb)
+
+**Workflow**:
+1. Toggle `hudState.chatVisible` boolean
+2. Add/remove `.visible` class from chat panel element
+3. Toggle `.active` class on prompt button
+4. If opening → focus input, call `renderChatMessages()`
+5. Persist visibility to service worker via `set_orb_state` message
+6. Log visibility change
+
+**Called by**:
+- Prompt button click (on orb)
+- Escape key (when chat visible)
+
+**Persisted**: Chat panel visibility survives page navigation
+
+---
+
+### Chat System
+
+#### Chat State (`chatState`)
+**Purpose**: Single source of truth for chat messages (shared between HUD and orb)
+
+**Properties**:
+- `currentChatId` - Active chat ID (from server)
+- `lastAck` - Last acknowledgement from server
+- `messages[]` - Array of message objects:
+  ```javascript
+  {
+    id: string,           // Message ID or local_<timestamp>
+    role: string,         // 'user' | 'assistant' | 'error'
+    content: string,      // Message text
+    timestamp: string     // ISO timestamp
+  }
+  ```
+
+**Shared rendering**: Both HUD prompt box and orb chat panel render from this array
+
+---
+
+#### `renderChatMessages()`
+**Purpose**: Render all messages to both UIs from shared state
+
+**Workflow**:
+1. Clears `.ome-chat-messages` (orb chat panel)
+2. Clears `.ome-hud-prompt-messages` (HUD prompt box)
+3. Creates message bubbles for each message in `chatState.messages[]`
+4. Appends to both containers
+5. Auto-scrolls both to bottom
+6. Logs render count
+
+**Called by**:
+- `toggleHUD()` - When opening HUD
+- `toggleChatPanel()` - When opening chat panel
+- `addChatMessage()` - After adding new message
+- `handleChatHistory()` - After loading from server
+
+**Message classes**:
+- `.ome-chat-bubble.user` (orb) / `.ome-hud-message.user` (HUD) - User messages
+- `.ome-chat-bubble.assistant` (orb) / `.ome-hud-message.assistant` (HUD) - LLM responses
+- `.ome-chat-bubble.error` (orb) / `.ome-hud-message.error` (HUD) - Error messages
+
+---
+
+#### `addChatMessage(role, content, id)`
+**Purpose**: Add message to shared state and render to both UIs
+
+**Parameters**:
+- `role` - 'user', 'assistant', or 'error'
+- `content` - Message text
+- `id` - Optional server message ID (defaults to `local_<timestamp>`)
+
+**Workflow**:
+1. Pushes message object to `chatState.messages[]`
+2. Calls `renderChatMessages()` to update both UIs
+3. Auto-scrolls to show new message
+
+**Called by**:
+- Send button handlers (both HUD and orb)
+- Error handlers (on send failure)
+- `handleChatHistory()` (not used - replaces array directly)
+
+---
+
+#### `sendChatMessage(prompt, chatId, meta)`
+**Purpose**: Send user message through WebSocket pipeline
+
+**Parameters**:
+- `prompt` - User's message text
+- `chatId` - Existing chat ID or null for new chat (uses `chatState.currentChatId` if null)
+- `meta` - Optional metadata:
+  - `page_url` (defaults to `window.location.href`)
+  - `page_title` (defaults to `document.title`)
+  - `front_end_context` (defaults to `{}`)
+
+**Returns**: Promise resolving to server response
+
+**Message structure sent to service worker**:
+```javascript
+{
+  type: 'ui_chat_user_message',
+  chat_id: string | null,
+  data: {
+    prompt: string,
+    page_url: string,
+    page_title: string,
+    front_end_context: {}
+  }
+}
+```
+
+**Workflow**:
+1. Builds message with type `ui_chat_user_message`
+2. Includes chat_id (or null for new chat)
+3. Includes page context (URL, title)
+4. Sends via `chrome.runtime.sendMessage()`
+5. Returns promise (resolves with response, rejects on error)
+
+**Called by**:
+- HUD send button handler
+- Orb chat send button handler
+- Console testing via `window.omeSendChat()`
+
+**Service worker forwards to**: `ws_server.py` via WebSocket
+
+---
+
+#### Message Handlers
+
+##### `handleChatAck(data)`
+**Purpose**: Process successful message append acknowledgement from server
+
+**Parameters**: `data` - Object with:
+- `chat_id` - Chat ID from server
+- `message` - Message object that was appended:
+  - `id` - Server-assigned message ID
+  - `role` - 'user' or 'assistant'
+  - `content` - Message text
+  - `timestamp` - ISO timestamp
+
+**Workflow**:
+1. Stores `data.chat_id` in `chatState.currentChatId`
+2. Stores full ack in `chatState.lastAck`
+3. Logs message append confirmation
+
+**Called by**: Message listener for `ui_chat_append_ack` (from service worker)
+
+**Future**: Will update UI with acknowledgement status
+
+---
+
+##### `handleChatError(data)`
+**Purpose**: Handle chat error from server
+
+**Parameters**: `data` - Error object from server
+
+**Workflow**:
+1. Logs error to console
+
+**Called by**: Message listener for `ui_chat_error` (from service worker)
+
+**Future**: Will display error in UI
+
+---
+
+##### `handleChatHistory(data)`
+**Purpose**: Load chat history from server and populate UIs
+
+**Parameters**: `data` - Object with:
+- `chat_id` - Chat ID
+- `messages[]` - Array of message objects
+
+**Workflow**:
+1. Updates `chatState.currentChatId`
+2. Replaces `chatState.messages[]` with server data
+3. Calls `renderChatMessages()` to update both UIs
+4. Logs loaded message count
+
+**Called by**: Message listener for `ui_chat_history` (from service worker)
+
+**Triggered by**: Page load (service worker requests history on navigation)
+
+---
+
+#### `loadChatHistory(chatId)`
+**Purpose**: Request chat history from server
+
+**Parameters**: `chatId` - Chat ID to load (or null for empty state, uses `chatState.currentChatId` if null)
+
+**Workflow**:
+1. Sends `ui_get_chat_history` message to service worker
+2. Service worker forwards to ws_server.py
+3. Server responds with `ui_chat_history` message (handled by `handleChatHistory()`)
+
+**Called by**: Manual calls only (not currently auto-invoked)
+
+**Note**: Service worker automatically requests history on tab navigation
+
+---
+
+### Persistence & State Management
+
+#### Orb State Persistence
+**Persisted via service worker**:
+- `theme` - Current theme key
+- `position` - `{rightPct, bottomPct}` percentages
+- `chatVisible` - Chat panel visibility boolean
+- `chatInput` - Current input text (auto-saved on input)
+- `chatPanelSize` - `{width, height}` in pixels
+- `zoom` - Current zoom level (for inverse scaling)
+
+**Messages**:
+- `set_orb_state` - Save state to service worker
+- `get_orb_state` - Retrieve saved state (on init)
+
+#### Position Management
+
+**Format**: Percentage-based positioning from **right** and **bottom** edges
+
+**Why percentages?**:
+- Viewport-independent (survives window resize)
+- Consistent across zoom levels
+- Matches CSS positioning (orb uses `right` and `bottom` properties)
+
+**Coordinate systems**:
+1. **During drag** - Uses `left`/`top` pixels for smooth cursor tracking
+2. **After release** - Converts to `right`/`bottom` percentages for persistence
+3. **On restore** - Applies percentages directly
+
+**Functions**:
+- `saveOrbPosition(rightPct, bottomPct)` - Persist to service worker
+- `applyOrbPosition(position)` - Restore from saved state (handles legacy formats)
+- `clampOrbToViewport()` - Keep orb visible on resize (1%-90% range)
+- `restoreOrbScreenPosition(rightPct, bottomPct)` - Restore after zoom
+
+**Legacy format handling**:
+- Old format: `{left, top}` or `{right, bottom}` in pixels
+- Auto-converts to percentage format on load
+
+---
+
+#### Zoom Management
+
+**Purpose**: Keep orb same visual size when page zoom changes
+
+**Approach**: Apply inverse CSS scale transform
+
+**Functions**:
+- `applyOrbZoomScale(zoomLevel)` - Sets CSS custom property `--ome-zoom-scale`
+- `restoreOrbScreenPosition()` - Repositions after zoom
+
+**CSS custom property**:
+```css
+.ome-orb {
+  --ome-zoom-scale: 1;
+  transform: translateX(-50%) scale(var(--ome-zoom-scale, 1));
+}
+```
+
+**Scale calculation**:
+- At 100% zoom → scale = 1.0
+- At 150% zoom → scale = 0.667 (1 / 1.5)
+- At 50% zoom → scale = 2.0 (1 / 0.5)
+- Clamped to 0.5x - 2.0x range
+
+**Triggered by**:
+- Zoom capability execution (ZoomIn, ZoomOut, ZoomReset)
+- Service worker sends `set_orb_screen_position` message after zoom
+
+---
+
+#### Chat Panel Resizing
+
+**Resize handles**: 8 directional handles (n, s, e, w, nw, ne, sw, se)
+
+**Setup**: `setupChatPanelResize(chatPanel)`
+
+**Workflow**:
+1. Attach mousedown listeners to resize handles
+2. On drag → Calculate new width/height based on handle direction
+3. Apply constraints:
+   - Min: 200px width, 150px height
+   - Max: 800px width, 80vh height
+4. Update panel dimensions via inline styles
+5. On release → Save dimensions via `saveChatPanelSize(width, height)`
+
+**Restore**: `restoreChatPanelSize(chatPanel)`
+- Retrieves saved size from service worker on init
+- Applies as inline styles
+
+**Edge behavior**:
+- Panel anchored at **bottom-right** (relative to orb)
+- East (e) handle: drag right = narrower
+- North (n) handle: drag up = taller
+- South (s) handle: drag down = shorter
+
+---
+
+### Control Buttons
+
+#### Scroll Controls (Orb)
+**Position**: Right side of orb, vertical stack
+
+**Buttons**:
+- **HUD** - Toggle HUD overlay
+- **↑** - Scroll page up (80% viewport height)
+- **↓** - Scroll page down (80% viewport height)
+
+**Function**: `scrollWithFeedback(direction, button)`
+- Scrolls smoothly with `window.scrollBy()`
+- If at boundary → flashes button with `.ome-boundary` animation
+- Directions: 'up', 'down', 'left', 'right'
+
+---
+
+#### Zoom Controls (Orb)
+**Position**: Bottom of orb, horizontal row
+
+**Buttons**:
+- **+** - Zoom in (send `ZoomIn` capability)
+- **Z** - Reset zoom (send `ZoomReset` capability)
+- **−** - Zoom out (send `ZoomOut` capability)
+
+**Handler**: Sends capability message to service worker:
+```javascript
+chrome.runtime.sendMessage({
+  type: 'execute_capability',
+  action: 'ZoomIn',
+  params: {}
+});
+```
+
+---
+
+#### Prompt Button (Orb)
+**Position**: Between orb and zoom controls
+
+**Label**: "Prompt"
+
+**Behavior**: Toggles chat panel via `toggleChatPanel()`
+
+**Active state**: Purple glow when chat panel open (`.active` class)
+
+---
+
+### Styling & Shadow DOM
+
+#### Shadow DOM Isolation
+**Purpose**: Prevent CSS conflicts with host page
+
+**Implementation**:
+- Closed shadow root (cannot be accessed from outside)
+- All styles scoped to shadow DOM
+- No global CSS leakage
+
+**Host element**:
+```javascript
+const host = document.createElement('div');
+host.id = 'ome-hud-host';
+host.setAttribute('data-ome-ignore', 'true');  // Ignored by DOM scanner
+document.body.appendChild(host);
+const shadow = host.attachShadow({ mode: 'closed' });
+```
+
+---
+
+#### Theme Color System
+**CSS Custom Properties**:
+```css
+.ome-hud {
+  --theme-color: 147,112,219;  /* RGB values for rgba() */
+  --theme-accent: #ba93ff;      /* Hex for direct use */
+}
+```
+
+**Theme-specific values**:
+- Kawaii: `--theme-color: 126,200,227` (sparkly blue)
+- Robot: `--theme-color: 0,229,255` (cyan)
+- Atom: `--theme-color: 147,112,219` (purple)
+
+**Usage**:
+```css
+border: 1px solid rgba(var(--theme-color), 0.35);
+background: rgba(var(--theme-color), 0.6);
+color: var(--theme-accent);
+```
+
+---
+
+#### Z-Index Layering
+**Values**:
+- HUD host: `2147483646` (second-highest possible)
+- HUD overlay: `2147483645` (below host)
+- Orb: Inherits from host (always on top)
+
+**Rationale**: Ensures HUD/orb appear above all page content, including modals
+
+---
+
+### Message Integration
+
+#### Messages Sent (Content → Service Worker)
+
+1. **`set_orb_state`** - Persist orb state
+   ```javascript
+   {
+     type: 'set_orb_state',
+     theme?: string,
+     position?: {rightPct, bottomPct},
+     chatVisible?: boolean,
+     chatInput?: string,
+     chatPanelSize?: {width, height}
+   }
+   ```
+
+2. **`get_orb_state`** - Retrieve saved state
+   ```javascript
+   { type: 'get_orb_state' }
+   ```
+   Response: `{ok: true, theme, position, chatVisible, chatInput, chatPanelSize, zoom}`
+
+3. **`ui_chat_user_message`** - Send chat message
+   ```javascript
+   {
+     type: 'ui_chat_user_message',
+     chat_id: string | null,
+     data: {
+       prompt: string,
+       page_url: string,
+       page_title: string,
+       front_end_context: {}
+     }
+   }
+   ```
+
+4. **`ui_get_chat_history`** - Request chat history
+   ```javascript
+   { type: 'ui_get_chat_history', chat_id: string | null }
+   ```
+
+5. **`execute_capability`** - Execute zoom capability
+   ```javascript
+   {
+     type: 'execute_capability',
+     action: 'ZoomIn' | 'ZoomOut' | 'ZoomReset',
+     params: {}
+   }
+   ```
+
+---
+
+#### Messages Received (Service Worker → Content)
+
+1. **`toggle_hud`** - Toggle HUD visibility
+   ```javascript
+   { type: 'toggle_hud' }
+   ```
+   Response: `{ok: true, visible: boolean}`
+
+2. **`set_orb_theme`** - Set orb theme (from CLI/WebSocket)
+   ```javascript
+   { type: 'set_orb_theme', theme: string }
+   ```
+   Response: `{ok: true, theme: string, available: string[]}` or error
+
+3. **`apply_orb_theme`** - Apply theme (from popup)
+   ```javascript
+   { type: 'apply_orb_theme', theme: string }
+   ```
+   Response: `{ok: true, theme: string}` or error
+
+4. **`get_orb_themes`** - Get available themes
+   ```javascript
+   { type: 'get_orb_themes' }
+   ```
+   Response: `{ok: true, current: string, themes: Array<{key, name}>}`
+
+5. **`ui_chat_append_ack`** - Chat message acknowledged
+   ```javascript
+   {
+     type: 'ui_chat_append_ack',
+     data: {chat_id, message: {id, role, content, timestamp}}
+   }
+   ```
+
+6. **`ui_chat_error`** - Chat error
+   ```javascript
+   { type: 'ui_chat_error', data: {error details} }
+   ```
+
+7. **`ui_chat_history`** - Chat history response
+   ```javascript
+   {
+     type: 'ui_chat_history',
+     data: {chat_id, messages: Array<{id, role, content, timestamp}>}
+   }
+   ```
+
+8. **`get_orb_screen_position`** - Get orb position before zoom
+   ```javascript
+   { type: 'get_orb_screen_position' }
+   ```
+   Response: `{ok: true, screenX: number, screenY: number}`
+
+9. **`set_orb_screen_position`** - Restore orb position after zoom
+   ```javascript
+   {
+     type: 'set_orb_screen_position',
+     screenX: number,
+     screenY: number,
+     newZoom: number
+   }
+   ```
+
+---
+
+### Console Testing
+
+#### Global Function
+**Exposed**: `window.omeSendChat(prompt, chatId, meta)`
+
+**Purpose**: Test chat pipeline from browser console
+
+**Usage**:
+```javascript
+// Direct call in content script context (won't work - isolated world)
+window.omeSendChat('Hello!');
+
+// PostMessage bridge for page context testing
+window.postMessage({
+  type: 'ome_send_chat_test',
+  prompt: 'Hello!',
+  chatId: null,
+  meta: {}
+}, '*');
+
+// Listen for result
+window.addEventListener('message', (e) => {
+  if (e.data?.type === 'ome_send_chat_result') {
+    console.log('Result:', e.data.result || e.data.error);
+  }
+});
+```
+
+**Bridge**: Uses `postMessage` to cross isolated world boundary
 
 ---
 

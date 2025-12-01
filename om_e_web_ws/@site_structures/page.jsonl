@@ -1,28 +1,28 @@
 {
-  "timestamp": 1764510451.727762,
+  "timestamp": 1764562808.2758322,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138027672,
-      "url": "https://mail.google.com/mail/u/0/?ogbl#inbox",
-      "title": "Inbox (5,193) - andreworsmond21175@gmail.com - Gmail",
+      "id": 1138027939,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138027672,
-        "url": "https://mail.google.com/mail/u/0/?ogbl#inbox",
-        "title": "Inbox (5,193) - andreworsmond21175@gmail.com - Gmail",
+        "id": 1138027939,
+        "url": "https://chatgpt.com/",
+        "title": "ChatGPT",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 57441.486713583,
+    "last_tabs_update": 9177.315322541,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://mail.google.com/mail/u/0/?ogbl#inbox",
-    "title": "Inbox (5,193) - andreworsmond21175@gmail.com - Gmail",
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
     "is_active_tab": true
   },
   "menu_structure": {

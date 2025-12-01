@@ -40,7 +40,8 @@ const orbState = {
     position: null,       // { left: number, top: number } or null for default
     chatVisible: false,   // 💬 Chat panel open/closed
     chatInput: '',        // 💬 Text in input box (persists across nav)
-    chatPanelSize: null   // 📐 Chat panel dimensions { width, height } or null for default
+    chatPanelSize: null,  // 📐 Chat panel dimensions { width, height } or null for default
+    sidebarOpen: false    // 📚 Sidebar open/closed
 };
 
 // ============================================================================
@@ -1449,6 +1450,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     // 📐 Persist chat panel size to storage for browser restart
                     chrome.storage.local.set({ chatPanelSize: message.chatPanelSize });
                 }
+                if (message.sidebarOpen !== undefined) orbState.sidebarOpen = message.sidebarOpen;
                 console.log('[SW] 🐰 Updated orb state:', orbState);
                 sendResponse({ ok: true });
                 break;

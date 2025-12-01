@@ -22,6 +22,32 @@ Test Client → ws_server.py (port 17892) → Chrome Extension
 Chrome Extension → ws_server.py → Test Client
 ```
 
+### Chat Pipeline Architecture (NEW)
+
+```
+User types in HUD/orb (content.js)
+    ↓
+UI message to sw.js (ui_chat_user_message)
+    ↓
+Service worker sends to ws_server.py (chat_user_message)
+    ↓
+ws_server.py processes:
+  - Generate/load chat_id
+  - Append user message
+  - Save to ./chats/{chat_id}.json
+    ↓
+ws_server.py sends ack to sw.js (chat_append_ack)
+    ↓
+Service worker forwards to content.js (ui_chat_append_ack)
+    ↓
+Content.js updates HUD with chat_id
+```
+
+**Key integration points:**
+- **content.js**: HUD rendering, user input capture, message display
+- **sw.js**: Message routing between content.js and ws_server.py
+- **ws_server.py**: Chat storage, message persistence, history retrieval
+
 ### Global State Variables
 
 | Variable | Type | Purpose |
@@ -141,7 +167,56 @@ Routes commands from test clients to extension:
   - `getActiveTab` → Returns `CURRENT_ACTIVE_TAB`
 - **Extension commands** forwarded with client tracking
 
-#### 14. **Response Handling** (messages with `id` and `ok`/`error`)
+#### 14. **Chat User Message** (`chat_user_message`) (NEW)
+**Most important new message type** - handles chat from HUD/orb:
+- Receives prompt from extension with page context
+- Generates chat_id if new chat (null chat_id)
+- Appends user message to chat via `append_user_message()`
+- Saves chat to `./chats/{chat_id}.json` via `save_chat()`
+- Sends `chat_append_ack` response with chat_id and message
+- Error handling: Sends `chat_error` if validation fails
+
+**Message format:**
+```json
+{
+  "type": "chat_user_message",
+  "chat_id": null,  // or existing chat_id
+  "data": {
+    "prompt": "User's message",
+    "page_url": "https://...",
+    "page_title": "Page Title"
+  }
+}
+```
+
+#### 15. **Get Chat History** (`get_chat_history`) (NEW)
+Retrieves full chat conversation from disk:
+- Loads chat via `load_chat(chat_id)`
+- Returns all messages, meta, and title
+- Sends empty response if chat_id is null
+- Sends error response if chat not found
+
+**Message format:**
+```json
+{
+  "type": "get_chat_history",
+  "chat_id": "check-youtube-comments__20251130T211523"
+}
+```
+
+**Response format:**
+```json
+{
+  "type": "chat_history",
+  "chat_id": "...",
+  "messages": [...],
+  "meta": {...},
+  "title": "Check YouTube comments",
+  "error": "Chat not found"  // only if error
+}
+```
+
+#### 16. **Response Handling** (messages with `id` and `ok`/`error`)
 Routes responses back to original client:
 1. Checks for text extraction response → Saves to markdown
 2. Checks for pending future in `PENDING` → Resolves future
@@ -476,6 +551,208 @@ Routes responses back to original client:
 
 ---
 
+### Chat Storage System (NEW)
+
+#### `def ensure_chats_dir_exists()`
+**Purpose:** Create chats directory if it doesn't exist
+
+**What it does:**
+- Creates `./chats/` directory in om_e_web_ws/
+- Logs creation message
+- Returns absolute path to chats directory
+
+**Called by:** `get_chat_filepath()`
+
+**Returns:** String path to chats directory
+
+---
+
+#### `def generate_chat_id_from_prompt(prompt, now)`
+**Purpose:** Generate unique chat_id from user's first message
+
+**Parameters:**
+- `prompt`: User's initial message text
+- `now`: Current datetime (UTC)
+
+**What it does:**
+- Extracts first three words from prompt
+- Converts to lowercase slug (replaces non-alphanumeric with hyphens)
+- Collapses multiple hyphens, trims edges
+- Appends timestamp: YYYYMMDDTHHMMSS
+- Format: `<three-word-slug>__<timestamp>`
+
+**Examples:**
+- "Check YouTube comments" → `check-youtube-comments__20251130T211523`
+- "What's this page about?" → `what-s-this__20251130T211523`
+- "" → `chat__20251130T211523`
+
+**Called by:** `handler()` when creating new chat
+
+**Returns:** String chat_id
+
+---
+
+#### `def get_chat_filepath(chat_id)`
+**Purpose:** Get full file path for a chat JSON file
+
+**Parameters:**
+- `chat_id`: The chat identifier
+
+**What it does:**
+- Ensures chats directory exists
+- Constructs path: `./chats/{chat_id}.json`
+
+**Called by:** `load_chat()`, `save_chat()`
+
+**Returns:** Absolute path string
+
+---
+
+#### `def load_chat(chat_id)`
+**Purpose:** Load existing chat from disk
+
+**Parameters:**
+- `chat_id`: The chat identifier
+
+**What it does:**
+- Gets filepath via `get_chat_filepath()`
+- Checks if file exists
+- Loads JSON from file
+- Logs success with message count
+
+**Error handling:**
+- Returns None if file doesn't exist
+- Returns None if JSON parsing fails
+
+**Called by:** `handler()` when appending to existing chat or retrieving history
+
+**Returns:** Dict with chat data or None
+
+---
+
+#### `def save_chat(chat_dict)`
+**Purpose:** Save chat dictionary to disk
+
+**Parameters:**
+- `chat_dict`: Chat data including chat_id, messages, meta
+
+**What it does:**
+- Validates chat_id exists
+- Gets filepath via `get_chat_filepath()`
+- Writes JSON with indent=2 for readability
+- Uses UTF-8 encoding
+- Logs success
+
+**Error handling:**
+- Returns False if chat_id missing
+- Returns False if write fails
+
+**Called by:** `handler()` after appending messages
+
+**Returns:** Boolean success status
+
+---
+
+#### `def create_new_chat(chat_id, prompt, meta)`
+**Purpose:** Create new chat dictionary with initial metadata
+
+**Parameters:**
+- `chat_id`: Unique chat identifier
+- `prompt`: Initial user prompt
+- `meta`: Dict with page_url, page_title
+
+**What it does:**
+- Generates ISO timestamps for created_at, updated_at
+- Creates default title from first three words of prompt
+- Builds chat structure with meta and empty messages array
+
+**Chat structure:**
+```json
+{
+  "chat_id": "check-youtube-comments__20251130T211523",
+  "created_at": "2025-11-30T21:15:23Z",
+  "updated_at": "2025-11-30T21:15:23Z",
+  "title": "Check YouTube comments",
+  "default_title": "check youtube comments",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://youtube.com/watch?v=...",
+    "page_title": "Video Title"
+  },
+  "messages": []
+}
+```
+
+**Called by:** `handler()` when creating new chat
+
+**Returns:** Dict with new chat structure
+
+---
+
+#### `def append_user_message(chat_dict, prompt)`
+**Purpose:** Append user message to chat (always to end)
+
+**Parameters:**
+- `chat_dict`: Chat dictionary to modify
+- `prompt`: User's message content
+
+**What it does:**
+- Generates sequential message ID: m_0001, m_0002, etc.
+- Creates ISO timestamp
+- Builds message object with role="user"
+- Appends to messages array (never inserts)
+- Updates chat's updated_at timestamp
+- Logs message append
+
+**Message structure:**
+```json
+{
+  "id": "m_0001",
+  "role": "user",
+  "content": "Check YouTube comments",
+  "timestamp": "2025-11-30T21:15:23Z"
+}
+```
+
+**Called by:** `handler()` on chat_user_message
+
+**Returns:** The newly created message object
+
+---
+
+#### `def append_assistant_message(chat_dict, content)`
+**Purpose:** Append assistant (LLM) message to chat (always to end)
+
+**Parameters:**
+- `chat_dict`: Chat dictionary to modify
+- `content`: Assistant's response content
+
+**What it does:**
+- Generates sequential message ID: m_0001, m_0002, etc.
+- Creates ISO timestamp
+- Builds message object with role="assistant"
+- Appends to messages array (never inserts)
+- Updates chat's updated_at timestamp
+- Logs assistant message append
+
+**Message structure:**
+```json
+{
+  "id": "m_0002",
+  "role": "assistant",
+  "content": "I found 127 comments on this video...",
+  "timestamp": "2025-11-30T21:15:25Z"
+}
+```
+
+**Called by:** Currently not used (reserved for future LLM integration)
+
+**Returns:** The newly created message object
+
+**Note:** This function is defined but not yet integrated with an LLM. Future enhancement will call this after generating LLM responses.
+
+---
+
 ### Utility Functions
 
 #### `def slugify(value)`
@@ -762,6 +1039,69 @@ Sends response directly to client (no extension involved)
 
 ---
 
+### 10. Chat Message Flow (NEW - HUD/Orb Integration)
+
+```
+User types in HUD/orb → content.js → sw.js → ws_server.py
+    ↓
+Extension: {"type": "chat_user_message", "chat_id": null, "data": {"prompt": "...", "page_url": "...", "page_title": "..."}}
+    ↓
+ws_server handler() receives message
+    ↓
+chat_id is null? (new chat)
+    ↓ Yes
+  1. Generate chat_id via generate_chat_id_from_prompt()
+     Format: <three-word-slug>__<timestamp>
+     Example: "check-youtube-comments__20251130T211523"
+  2. Create new chat dict via create_new_chat()
+     Structure: {chat_id, created_at, title, meta, messages: []}
+    ↓ No
+  1. Load existing chat via load_chat(chat_id)
+  2. If not found → Send chat_error response
+    ↓
+Append user message via append_user_message()
+  - Generate message ID: m_0001, m_0002, etc.
+  - Message: {id, role: "user", content, timestamp}
+    ↓
+Save chat to disk via save_chat()
+  - File: ./chats/{chat_id}.json
+  - Format: JSON with indent=2
+    ↓
+Send acknowledgement to extension
+  Message: {"type": "chat_append_ack", "chat_id": "...", "message": {...}}
+    ↓
+Extension → content.js → HUD updates with chat_id
+```
+
+---
+
+### 11. Chat History Request Flow (NEW)
+
+```
+Extension requests chat history
+    ↓
+Extension → sw.js → ws_server.py
+  Message: {"type": "get_chat_history", "chat_id": "..."}
+    ↓
+ws_server handler() receives message
+    ↓
+chat_id provided?
+    ↓ No
+  Send empty response: {"type": "chat_history", "chat_id": null, "messages": [], "meta": {}}
+    ↓ Yes
+Load chat via load_chat(chat_id)
+    ↓
+Chat found?
+    ↓ Yes
+  Send full chat: {"type": "chat_history", "chat_id": "...", "messages": [...], "meta": {...}, "title": "..."}
+    ↓ No
+  Send error: {"type": "chat_history", "chat_id": "...", "messages": [], "meta": {}, "error": "Chat not found"}
+    ↓
+Extension → content.js → HUD displays conversation
+```
+
+---
+
 ## Message Types Reference
 
 ### Incoming Messages (Client/Extension → Server)
@@ -781,6 +1121,8 @@ Sends response directly to client (no extension involved)
 | `extractPageText` | Test Client | Request text extraction |
 | `llm_instruction` | Test Client | LLM action execution request |
 | `command` with `id` | Test Client | Generic command (navigate, etc.) |
+| `chat_user_message` | Extension | User chat message from HUD/orb |
+| `get_chat_history` | Extension | Request full chat history |
 | Response with `id`, `ok` | Extension | Command/capability response |
 
 ### Outgoing Messages (Server → Client/Extension)
@@ -793,6 +1135,9 @@ Sends response directly to client (no extension involved)
 | `execute_llm_action` | Extension | Forward LLM instruction |
 | `execute_capability` | Extension | Forward capability request |
 | `scroll` command | Extension | Scroll instruction |
+| `chat_append_ack` | Extension | Acknowledge message appended to chat |
+| `chat_history` | Extension | Return full chat conversation |
+| `chat_error` | Extension | Chat operation error |
 | Response with `id`, `ok` | Test Client | Command result |
 
 ---
@@ -808,9 +1153,51 @@ Sends response directly to client (no extension involved)
 | `@site_structures/text.md` | `handler()` intelligence_update | Human-readable page text with frontmatter and capabilities |
 | `@site_structures/transcripts/{date}__{slug}.md` | `save_transcripts()` | Individual transcript files with timestamped segments |
 | `@site_structures/transcripts/video_history.jsonl` | `_append_video_history_entry()` | Append-only transcript history log |
+| `chats/{chat_id}.json` | `save_chat()` | Chat conversation files (NEW) |
 | `@site_structures/llm_actions.json` | `process_actionable_elements_for_llm()` | LLM action mapping (DISABLED) |
 | `@site_structures/{hostname}_page_text.md` | `save_page_text_to_markdown()` | Legacy text extraction (rarely used) |
 | `@site_structures/llm_prompt.md` | `generate_llm_prompt()` | LLM-friendly prompt (DISABLED) |
+
+### Chat File Format (NEW)
+
+Chat files are stored in `./chats/` directory with the format `{chat_id}.json`:
+
+**File structure:**
+```json
+{
+  "chat_id": "check-youtube-comments__20251130T211523",
+  "created_at": "2025-11-30T21:15:23Z",
+  "updated_at": "2025-11-30T21:15:25Z",
+  "title": "Check YouTube comments",
+  "default_title": "check youtube comments",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://youtube.com/watch?v=abc123",
+    "page_title": "Video Title"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "Check YouTube comments",
+      "timestamp": "2025-11-30T21:15:23Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "I found 127 comments...",
+      "timestamp": "2025-11-30T21:15:25Z"
+    }
+  ]
+}
+```
+
+**Key characteristics:**
+- Append-only: Messages are always added to end, never inserted
+- Sequential IDs: m_0001, m_0002, m_0003, etc.
+- Two roles: "user" (from HUD/orb) and "assistant" (from LLM - not yet integrated)
+- Metadata: Captures page context where chat originated
+- Timestamps: ISO 8601 format with Z suffix (UTC)
 
 ---
 
@@ -1037,13 +1424,60 @@ The old functions remain in code for reference but are disabled/commented out.
 
 Potential improvements to the server:
 
-1. **Session management** - Track multiple browser sessions
-2. **Persistent history** - Store all intelligence updates to database
-3. **Real-time LLM integration** - Direct LLM API calls from server
+1. **LLM Integration (NEXT PRIORITY)** - Direct Anthropic Claude API calls from server:
+   - On `chat_user_message`, generate LLM response
+   - Call `append_assistant_message()` with response
+   - Stream responses back to HUD in real-time
+   - Include page intelligence context in prompts
+2. **Session management** - Track multiple browser sessions
+3. **Persistent history** - Store all intelligence updates to database
 4. **REST API layer** - HTTP endpoints alongside WebSocket
 5. **Authentication** - Secure access control for production use
 6. **Metrics dashboard** - Web UI showing server stats
 7. **Replay mode** - Replay historical intelligence updates for testing
+
+---
+
+## Chat System Notes (NEW)
+
+### Current State
+The chat system is **partially implemented**:
+- ✅ Chat storage to disk (append-only JSON files)
+- ✅ Message persistence and retrieval
+- ✅ HUD/orb UI integration
+- ✅ Chat ID generation from prompts
+- ✅ Page context capture
+- ❌ **LLM integration NOT YET IMPLEMENTED**
+
+### Missing: LLM Response Generation
+The `append_assistant_message()` function exists but is not yet called. To complete the chat pipeline:
+
+1. **Add Anthropic SDK:**
+   ```bash
+   pip install anthropic
+   ```
+
+2. **Add LLM handler in ws_server.py:**
+   ```python
+   async def generate_llm_response(chat_dict, user_prompt, page_data):
+       # Build context from page intelligence
+       # Call Anthropic Claude API
+       # Return assistant response
+   ```
+
+3. **Integrate into chat_user_message handler:**
+   ```python
+   # After appending user message:
+   assistant_response = await generate_llm_response(chat_dict, prompt, CURRENT_PAGE_DATA)
+   append_assistant_message(chat_dict, assistant_response)
+   save_chat(chat_dict)
+   # Send updated chat to extension
+   ```
+
+4. **Stream responses to HUD:**
+   - Use Anthropic streaming API
+   - Send incremental updates via WebSocket
+   - Update HUD in real-time
 
 ---
 
