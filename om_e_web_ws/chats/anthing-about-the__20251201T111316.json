@@ -1,0 +1,20 @@
+{
+  "chat_id": "anthing-about-the__20251201T111316",
+  "created_at": "2025-12-01T11:13:16.341436Z",
+  "updated_at": "2025-12-01T11:13:16.341512Z",
+  "title": "anthing about the",
+  "default_title": "anthing about the",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "anthing about the weather on this page",
+      "timestamp": "2025-12-01T11:13:16.341512Z"
+    }
+  ]
+}

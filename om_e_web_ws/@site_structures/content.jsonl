@@ -1,28 +1,35 @@
 {
-  "timestamp": 1764585113.5202188,
+  "timestamp": 1764587694.934129,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138028207,
-      "url": "https://brighttreedigital.com.au/",
-      "title": "Local Web Design Adelaide | Bright Tree Digital",
-      "status": "loading"
+      "id": 1138028272,
+      "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/692c2084-b2bc-8321-af7d-1ac6cb6a2cd7",
+      "title": "OM-E autonomy - Chat session pipeline setup",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138028207,
-        "url": "https://brighttreedigital.com.au/",
-        "title": "Local Web Design Adelaide | Bright Tree Digital",
+        "id": 1138028267,
+        "url": "https://www.google.com/",
+        "title": "Google",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138028272,
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/692c2084-b2bc-8321-af7d-1ac6cb6a2cd7",
+        "title": "OM-E autonomy - Chat session pipeline setup",
         "active": true,
-        "status": "loading"
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 28856.197728958,
+    "last_tabs_update": 34290.254542333,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/692c2084-b2bc-8321-af7d-1ac6cb6a2cd7",
+    "title": "OM-E autonomy - Chat session pipeline setup",
     "is_active_tab": true
   },
   "content_structure": {},

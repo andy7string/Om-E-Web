@@ -12468,8 +12468,8 @@
                 position: absolute;
                 left: 50%;
                 bottom: 200px;
-                width: 60px;
-                height: 94px;
+                width: 66px;
+                height: 103px;
                 background: transparent;
                 cursor: pointer;
                 pointer-events: auto;
@@ -12478,13 +12478,12 @@
                 justify-content: center;
                 user-select: none;
                 touch-action: none;
-                transition: transform 0.15s ease, filter 0.15s ease;
-                filter: drop-shadow(0 0 10px rgba(167,139,250,0.5));
+                transition: transform 0.15s ease;
                 --ome-zoom-scale: 1.21;
                 transform: translateX(-50%) scale(var(--ome-zoom-scale, 1.21));
                 transform-origin: bottom center;
             }
-            .ome-orb:hover { transform: translateX(-50%) scale(calc(var(--ome-zoom-scale, 1.21) * 1.1)); filter: drop-shadow(0 0 14px rgba(167,139,250,0.7)); }
+            .ome-orb:hover { transform: translateX(-50%) scale(calc(var(--ome-zoom-scale, 1.21) * 1.1)); }
             .ome-orb.holding { cursor: none; }
             .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateX(-50%) translateY(0); }
             .ome-bunny { width: 100%; height: 100%; }
@@ -12861,12 +12860,11 @@
                 width: 387px;
                 height: 484px;
                 min-width: 363px;
-                min-height: 182px;
+                min-height: 82px;
                 max-width: 968px;
                 max-height: 80vh;
-                background: rgba(33,33,33,0.80);
-                backdrop-filter: blur(12px);
-                border: 1px solid rgba(var(--theme-color),0.3);
+                background: rgba(33,33,33,0.85);
+                border: 1px solid rgba(var(--theme-color),0.35);
                 border-radius: 12px;
                 display: none;
                 flex-direction: column;
@@ -12874,6 +12872,7 @@
                 box-shadow: 0 0 6px rgba(var(--theme-color),0.125), 0 0 12px rgba(var(--theme-color),0.075), 0 2px 12px rgba(0,0,0,0.15);
                 overflow: hidden;
                 color: var(--theme-accent);
+                filter: drop-shadow(0 0 2px rgba(var(--theme-color),0.15));
             }
             .ome-chat-panel.visible { display: flex; }
             /* 🎨 Chat Panel Theme Colors */
@@ -12898,12 +12897,12 @@
             }
             .ome-resize-n { top: -4px; left: 8px; right: 8px; height: 8px; cursor: n-resize; }
             .ome-resize-s { bottom: -4px; left: 8px; right: 8px; height: 8px; cursor: s-resize; }
-            .ome-resize-e { top: 8px; right: -4px; bottom: 8px; width: 8px; cursor: e-resize; }
+            .ome-resize-e { display: none; }
             .ome-resize-w { top: 8px; left: -4px; bottom: 8px; width: 8px; cursor: w-resize; }
             .ome-resize-nw { top: -4px; left: -4px; width: 12px; height: 12px; cursor: nw-resize; }
-            .ome-resize-ne { top: -4px; right: -4px; width: 12px; height: 12px; cursor: ne-resize; }
+            .ome-resize-ne { display: none; }
             .ome-resize-sw { bottom: -4px; left: -4px; width: 12px; height: 12px; cursor: sw-resize; }
-            .ome-resize-se { bottom: -4px; right: -4px; width: 12px; height: 12px; cursor: se-resize; }
+            .ome-resize-se { display: none; }
             .ome-chat-panel.resizing { user-select: none; }
 
             /* 💬 Chat Messages Area */
@@ -12916,9 +12915,10 @@
                 gap: 8px;
                 min-height: 40px;
             }
-            .ome-chat-messages::-webkit-scrollbar { width: 6px; }
-            .ome-chat-messages::-webkit-scrollbar-track { background: transparent; }
-            .ome-chat-messages::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.3); border-radius: 3px; }
+            .ome-chat-messages::-webkit-scrollbar { width: 12px; }
+            .ome-chat-messages::-webkit-scrollbar-track { background: rgba(30,30,40,0.5); border-radius: 6px; }
+            .ome-chat-messages::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.5); border-radius: 6px; min-height: 40px; }
+            .ome-chat-messages::-webkit-scrollbar-thumb:hover { background: rgba(167,139,250,0.7); }
 
             /* 💬 Message Bubbles */
             .ome-chat-bubble {
@@ -12926,8 +12926,7 @@
                 padding: 10px 14px;
                 border-radius: 14px;
                 font-size: 15px;
-                line-height: 1.4;
-                font-weight: 650;
+                line-height: 1.5;
                 word-wrap: break-word;
             }
             .ome-chat-bubble.user {
@@ -12966,7 +12965,7 @@
                 position: absolute;
                 bottom: 14px;
                 left: 14px;
-                right: 73px;
+                right: 66px;
             }
             .ome-chat-input {
                 width: 100%;
@@ -12979,9 +12978,8 @@
                 border-radius: 10px;
                 padding: 12px 14px;
                 font-size: 15px;
-                line-height: 1.4;
-                font-weight: 650;
-                color: rgba(var(--theme-color),0.8);
+                line-height: 1.5;
+                color: inherit;
                 outline: none;
                 resize: none;
                 overflow-y: hidden;

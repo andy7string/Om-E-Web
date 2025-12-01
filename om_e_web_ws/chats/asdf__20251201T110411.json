@@ -1,0 +1,56 @@
+{
+  "chat_id": "asdf__20251201T110411",
+  "created_at": "2025-12-01T11:04:11.344391Z",
+  "updated_at": "2025-12-01T11:09:42.750471Z",
+  "title": "asdf",
+  "default_title": "asdf",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "asdf",
+      "timestamp": "2025-12-01T11:04:11.344414Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "asdf",
+      "timestamp": "2025-12-01T11:04:20.100106Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "sdff",
+      "timestamp": "2025-12-01T11:04:29.525672Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "sdf",
+      "timestamp": "2025-12-01T11:04:39.435765Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "sdfasdf asf asdf asdf asdf asdf asdf asdf asdf asdf asd fasdf",
+      "timestamp": "2025-12-01T11:08:11.608785Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "j",
+      "timestamp": "2025-12-01T11:09:33.671043Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": ";;",
+      "timestamp": "2025-12-01T11:09:42.750471Z"
+    }
+  ]
+}
