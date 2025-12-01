@@ -12012,7 +12012,7 @@
         chatPanel: null,      // 💬 Chat panel element
         sidebar: null,        // 📚 Sidebar element
         visible: false,
-        chatVisible: false,   // 💬 Chat panel visibility
+        chatVisible: true,    // 💬 Chat panel visibility (open by default)
         sidebarOpen: false,   // 📚 Sidebar open state
         dragging: false,
         theme: 'robot'  // Current orb theme (default)
@@ -12466,8 +12466,8 @@
             /* 🐰 OM-E Orb - positioned relative to our canvas */
             .ome-orb {
                 position: absolute;
-                left: 50%;
-                bottom: 200px;
+                left: calc(50% + 400px);
+                bottom: 228px;
                 width: 66px;
                 height: 103px;
                 background: transparent;
@@ -12857,8 +12857,8 @@
                 position: absolute;
                 bottom: 0;
                 right: 85px;
-                width: 387px;
-                height: 484px;
+                width: 800px;
+                height: 250px;
                 min-width: 363px;
                 min-height: 82px;
                 max-width: 968px;
@@ -13598,6 +13598,11 @@
         const chatPanel = orb.querySelector('.ome-chat-panel');
         if (chatPanel) {
             hudState.chatPanel = chatPanel;
+            // 💬 Open chat panel by default if chatVisible is true
+            if (hudState.chatVisible) {
+                chatPanel.classList.add('visible');
+                orb.querySelector('.ome-prompt-btn')?.classList.add('active');
+            }
             // Prevent clicks inside panel from bubbling to orb
             chatPanel.addEventListener('click', (e) => e.stopPropagation());
             // Close panel on Escape
