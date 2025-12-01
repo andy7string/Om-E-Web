@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-01 16:29:47
+**Timestamp:** 2025-12-01 17:24:52
 
-**Tabs (1):** Active: #1138027974 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138028034 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -86,53 +86,53 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">BYD is working on an even bigger family SUV to surpass the Sealion 8
-With a larger and more luxurious seven-seat SUV coming to slot in above the Sealion 8, BYD's SUV onslaught looks set to continue.
-Drive
+<Link id="a_id_17">More than 200 years before Einstein, astronomer Ole Rømer revolutionised science before his work burned in the flames
+On a chilly Paris evening in 1676, a young Danish astronomer stared at Jupiter and quietly rewrote physics. He was not a celebrity scientist, nor the author...
+nunneryplumbingandheating.co.uk
 ·
-5h</Link>
+1h</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Gold Price Forecast: XAU/USD extends the rally above $4,200 as Fed rate cut bets grow
-Gold price (XAU/USD) trades in positive territory near $4230 during the early Asian trading hours on Monday. The precious metal edges higher amid growing...
-FXStreet
+<Link id="a_id_19">How 2025 Supercars points standings look without Finals Series
+Without the Finals Series, Broc Feeney would have been the 2025 Repco Supercars Championship winner – and by a sizable margin. - Australia's #1 motorsport...
+Speedcafe.com
 ·
-4h</Link>
+7h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Heinrich, Guven Promoted to Porsche Factory Drivers
-Laurin Heinrich and Ayhancan Guven have been promoted to Porsche factory drivers following their success in Porsche 911 GT3 R machinery around the world.
-Sportscar365
+<Link id="a_id_21">AI threat slashes billions from the world’s classifieds giants
+Fears that artificial intelligence will disrupt the business model of classifieds businesses has slashed billions of dollars off the value of some of the...
+AFR
 ·
 1d</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">What’s driving Aussie $77k property jump
-Australian house prices have continued its record breaking run, but economists are tipping the boom could slow over the next 12 months.
-News.com.au
-·
-4h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Insta360 8K 360° Action Cam Drops to All-Time Low After Black Friday, GoPro and DJI Look Overpriced Now
+<Link id="a_id_23">Insta360 8K 360° Action Cam Drops to All-Time Low After Black Friday, GoPro and DJI Look Overpriced Now
 Insta360 came to the action camera party later than GoPro and DJI, but the Chinese brand has been steadily taking their lunch money with cameras that have...
 Kotaku
 ·
 1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">First look: Mega New Balance store opens in Rundle Mall
+New Balance has unveiled its newest and biggest Australian store in Adelaide's Rundle Mall.
+The Advertiser
+·
+5h</Link>
 <Button id="a_id_26">More options</Button>
 <Link id="a_id_27">SA stockbroking powerhouse sold after failed multimillion-dollar deal
 Adelaide stockbroking firm Baker Young has been acquired by global wealth management firm Capital Haus after a previous multimillion-dollar deal with...
 The Advertiser
 ·
-3h</Link>
+5h</Link>
 <Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Why we have to continue with animal testing for medical research | Letters
-Letters: Dr Robin Lovell-Badge and Prof Emma Robinson respond to an editorial on using new technologies to reduce the reliance on animal experiments.
+<Link id="a_id_29">Curtains for long-running Adelaide festival as cars power on
+While Adelaide's Supercars event has been locked in until 2034, one the state's long-running arts festivals has been canned and another will be...
+InDaily
+·
+5h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Power surge: law changes could soon bring balcony solar to millions across US
+Tweaks to state laws mean many Americans will be able to benefit from small, simple plug-in solar panels.
 The Guardian
 ·
-10h</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">SANI Bakehouse is the new 88 O’Connell arrival, baking rule-breaking pastry and Japanese milk buns
-There's a certain trust associated with Japanese and French pastries. They almost never miss. At SANI Bakehouse, the brand-new in-house sister venue to...
-Glam Adelaide
-·
-11h</Link>
+18h</Link>
 <Button id="a_id_32">More options</Button>
 <Link id="a_id_33">Samsung Releases Critical Update For Most Galaxy Users
 Install this update as soon as you can — even if it makes your phone unusable for a while.
@@ -140,73 +140,71 @@ Forbes
 ·
 1d</Link>
 <Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Australia End Of Retirement At 67: What The Shift Means For Workers And Future Retirees
-Australia is entering a transition period that could fundamentally reshape how and when people retire. The long-standing retirement age of 67 is no longer.
-Port Macquarie Art Society
-·
-21h</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">1:50
-A plea to parents not to buy e-bikes this Christmas | 7NEWS
-Subscribe and set » https://7news.link/YTSubscribe | For the latest Australian news and breaking news alerts, connect with 7NEWS online: Visit...
-7NEWS Australia
-YouTube
-·
-2d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Labor to let $15b National Reconstruction Fund make riskier plays
-Taxpayers will be exposed to riskier investments through Labor's signature National Reconstruction Fund under a plan to make it easier to underwrite...
+<Link id="a_id_35">TikTok’s big Australian data centre dream hits Chalmers stonewall
+TikTok has plans to build big data centres around the country, but has failed to get necessary approvals from the Foreign Investment Review Board for more...
 AFR
 ·
-11h</Link>
+17h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Why we have to continue with animal testing for medical research | Letters
+Letters: Dr Robin Lovell-Badge and Prof Emma Robinson respond to an editorial on using new technologies to reduce the reliance on animal experiments.
+The Guardian
+·
+12h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Rental market "extremely tight", no signs of easing
+Last week, Cotality released its housing affordability report for the September quarter of 2025, which revealed that rental affordability has hit its lowest...
+MacroBusiness
+·
+17h</Link>
 <Button id="a_id_40">More options</Button>
-<Link id="a_id_41">2025 Adelaide Hills Wine Show awards unveiled, with Chardonnay reigning supreme and Gamay making history
+<Link id="a_id_41">Aussie firms return to Hong Kong as IPO market booms
+Jason Chang, the Australian Chamber of Commerce in Hong Kong's new chair, says two of the world's biggest IPOs demonstrate the strength of the Hong Kong...
+AFR
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">‘I can feel the neurons shrinking’: Leave me alone, AI
+Considering how fast changing this stuff is, I live in hope that today's tedious intrusions by chatbot helpers will soon fade as people adapt to it.
+AFR
+·
+8h</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">The world’s little-known volcanoes pose the greatest threat
+The next global volcanic disaster is more likely to come from volcanoes that appear dormant and are barely monitored than from the likes of famous volcanoes...
+The Conversation
+·
+5d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">‘Ship has sailed’: More lenders are raising fixed mortgage rates
+Borrowers have been told to expect more increases to fixed rate mortgage offers following rises by a slew of lenders amid speculation the Reserve Bank's...
+The Sydney Morning Herald
+·
+12h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">SANI Bakehouse is the new 88 O’Connell arrival, baking rule-breaking pastry and Japanese milk buns
+There's a certain trust associated with Japanese and French pastries. They almost never miss. At SANI Bakehouse, the brand-new in-house sister venue to...
+Glam Adelaide
+·
+12h</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Israel’s Netanyahu urges president to pardon corruption cases
+Israeli leader is up against three cases of corruption, including receiving hundreds of thousands of dollars in gifts.
+Al Jazeera
+·
+17h</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Microsoft's flagship Surface Pro 13-inch is just $799 for Cyber Monday
+If you're in the market for a new 2-in-1 Windows tablet, the flagship Surface Pro 11 13-inch is hard to pass up, even at $699.
+Windows Central
+·
+11h</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">2025 Adelaide Hills Wine Show awards unveiled, with Chardonnay reigning supreme and Gamay making history
 The 2025 Adelaide Hills Wine Show have revealed their award winners, with Chardonnay remaining and favourite Gamay breaking tradition.
 Glam Adelaide
 ·
 1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Rare Chinese car fail in Australia
-It's not breaking news that Chinese car makers are putting the more established brands to the test in almost every segment of the new car market... but there...
-CarsGuide
-·
-13h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Incoming Australian social media ban leaves children vulnerable to phishing scams, experts say
-As the social media ban comes into effect, experts are worried children and families will be left vulnerable to age verification scams. Here's why.
-ABC News
-·
-10h</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">From Beginner to Backend Developer — With Python | by Vignesh Selvaraj | Nov, 2025
-is published by Vignesh Selvaraj in Python in Plain English.
-Python in Plain English
-·
-1d</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Curtains for long-running Adelaide festival as cars power on
-While Adelaide's Supercars event has been locked in until 2034, one the state's long-running arts festivals has been canned and another will be...
-InDaily
-·
-3h</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">With $200 off this Black Friday, this telescope is our top recommendation
-Want to capture the wonders of the universe? The Celestron Origin Home Observatory makes it super-easy to photograph the deep sky and it's a stellar deal at...
-Space
-·
-3d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Australian banks face biggest test since the 1980s
-Looming rises in interest rates next year will not only hit many mortgage holders but will also have a profound impact on the ASX and bank shares.
-The Australian
-·
-5h</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Bitcoin crashes 5% in ‘Sunday slam’ as liquidations surge
-Bitcoin failed to break key resistance over the weekend and slumped almost 5% in just three hours on Sunday.The asset had spent most of the weekend trading...
-TradingView
-·
-3h</Link>
 <Button id="a_id_56">More options</Button>
 Australia
 <Link id="a_id_57">Advertising</Link>
@@ -215,11 +213,3 @@ Australia
 <Link id="a_id_60">Privacy</Link>
 <Link id="a_id_61">Terms</Link>
 <Button id="a_id_62">Settings</Button>
-
----
-
-## Secure Iframe Elements
-
-*These elements are inside secure cross-origin iframes (e.g., payment forms):*
-
-<Button id="a_id_63" iframe="true">Close</Button>

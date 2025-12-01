@@ -12497,8 +12497,8 @@
                 transition: opacity 0.2s ease, transform 0.2s ease;
                 pointer-events: none;
             }
-            @keyframes ome-bunny-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
-            .ome-orb:not(.holding) { animation: ome-bunny-float 2s ease-in-out infinite; }
+            @keyframes ome-bunny-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+            .ome-orb:not(.holding) { animation: ome-bunny-float 3s ease-in-out infinite; }
             @keyframes ome-bunny-wiggle { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
             .ome-orb.holding { animation: ome-bunny-wiggle 0.3s ease-in-out infinite; }
 
@@ -12560,7 +12560,7 @@
                 right: 10px;
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-end;
                 gap: 24px;
                 transition: left 0.25s ease;
             }
@@ -12624,7 +12624,7 @@
                 align-items: center;
                 justify-content: flex-end;
                 gap: 8px;
-                padding: 8px 12px 12px 12px;
+                padding: 8px 16px 16px 16px;
                 border-top: 1px solid rgba(var(--theme-color),0.1);
             }
             /* 💬 HUD Send Button - theme colored */
@@ -12650,12 +12650,12 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 4px;
+                gap: 8px;
                 color: var(--theme-accent);
             }
             .ome-hud-scroll .ome-hud-ctrl-btn {
-                width: 36px;
-                height: 36px;
+                width: 48px;
+                height: 48px;
                 border: 2px solid currentColor;
                 border-radius: 50%;
                 background: transparent;
@@ -12670,8 +12670,8 @@
             .ome-hud-scroll .ome-hud-ctrl-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; }
             .ome-hud-scroll .ome-hud-ctrl-btn:active { transform: scale(0.95); }
             .ome-hud-scroll .ome-hud-ctrl-btn svg {
-                width: 18px;
-                height: 18px;
+                width: 24px;
+                height: 24px;
                 stroke: currentColor;
                 stroke-width: 3;
                 fill: none;
@@ -12893,11 +12893,11 @@
             .ome-chat-messages {
                 flex: 1;
                 overflow-y: auto;
-                padding: 12px;
+                padding: 12px 12px 70px 12px;
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
-                min-height: 80px;
+                min-height: 40px;
             }
             .ome-chat-messages::-webkit-scrollbar { width: 6px; }
             .ome-chat-messages::-webkit-scrollbar-track { background: transparent; }
@@ -12944,23 +12944,23 @@
             }
             .ome-chat-bubble.typing-preview:empty { display: none; }
 
-            /* 💬 Chat Input Area - Perplexity-style auto-expanding */
+            /* 💬 Chat Input Area - FIXED at bottom, expands upward */
             .ome-chat-input-wrapper {
-                display: flex;
-                align-items: flex-end;
-                gap: 8px;
-                padding: 10px 12px;
+                position: absolute;
+                bottom: 12px;
+                left: 12px;
+                right: 60px;
             }
             .ome-chat-input {
-                flex: 1;
+                width: 100%;
                 display: block;
                 box-sizing: border-box;
-                min-height: 36px;
-                max-height: 150px;
-                background: rgba(40,50,80,0.18);
-                border: 1px solid rgba(100,120,180,0.15);
+                min-height: 40px;
+                max-height: 120px;
+                background: rgba(40,50,80,0.22);
+                border: 1px solid rgba(126,200,227,0.3);
                 border-radius: 8px;
-                padding: 8px 12px;
+                padding: 10px 12px;
                 font-size: 13px;
                 line-height: 1.4;
                 color: inherit;
@@ -12973,21 +12973,27 @@
                 transition: border-color 0.15s ease, background 0.15s ease;
             }
             .ome-chat-input::placeholder { color: rgba(126,200,227,0.4); }
-            .ome-chat-input:focus { border-color: rgba(100,120,180,0.3); background: rgba(40,50,80,0.25); }
+            .ome-chat-input:focus { border-color: rgba(126,200,227,0.5); background: rgba(40,50,80,0.28); }
             .ome-chat-send {
-                width: 32px;
-                height: 32px;
-                border: none;
-                border-radius: 8px;
-                background: rgba(80,100,160,0.5);
-                color: inherit;
+                position: absolute;
+                right: 12px;
+                bottom: 12px;
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
+                border: 1px solid rgba(126,200,227,0.35);
+                border-radius: 10px;
+                background: rgba(80,100,160,0.55);
+                color: #7ec8e3;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s ease, transform 0.15s ease;
+                transition: background 0.15s ease, border-color 0.15s ease;
+                z-index: 5;
             }
-            .ome-chat-send:hover { background: rgba(80,100,160,0.7); }
+            .ome-chat-send:hover { background: rgba(80,100,160,0.75); border-color: rgba(126,200,227,0.55); }
             .ome-chat-send:active { transform: scale(0.95); }
             .ome-chat-send svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
 
@@ -13264,10 +13270,10 @@
                 </div>
                 <div class="ome-chat-input-wrapper">
                     <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
-                    <button class="ome-chat-send">
-                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    </button>
                 </div>
+                <button class="ome-chat-send">
+                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
             </div>`;
 
         // Update orb content (SVG + paws + scroll + prompt + zoom + chat panel)
@@ -13342,11 +13348,11 @@
             // 📐 Auto-resize textarea as user types
             function autoResizeOrbInput() {
                 if (!chatInput) return;
-                chatInput.style.height = '36px';
+                chatInput.style.height = '40px';
                 const scrollH = chatInput.scrollHeight;
-                const newHeight = Math.max(36, Math.min(scrollH, 150));
+                const newHeight = Math.max(40, Math.min(scrollH, 120));
                 chatInput.style.height = newHeight + 'px';
-                chatInput.style.overflowY = scrollH > 150 ? 'auto' : 'hidden';
+                chatInput.style.overflowY = scrollH > 120 ? 'auto' : 'hidden';
             }
 
             if (chatInput) {
@@ -13370,6 +13376,12 @@
 
                 // Initial sizing
                 autoResizeOrbInput();
+
+                // 📐 ResizeObserver to auto-resize when panel width changes
+                const orbResizeObserver = new ResizeObserver(() => {
+                    autoResizeOrbInput();
+                });
+                orbResizeObserver.observe(chatPanel);
             }
 
             // 💬 Send button handler - same pipeline as HUD
@@ -13469,10 +13481,10 @@
                 </div>
                 <div class="ome-chat-input-wrapper">
                     <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
-                    <button class="ome-chat-send">
-                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    </button>
                 </div>
+                <button class="ome-chat-send">
+                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
             </div>`;
 
         orb.innerHTML = theme.svg + theme.paws + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
@@ -13763,6 +13775,16 @@
         promptTextarea?.addEventListener('input', autoResizeTextarea);
         // Initial sizing
         if (promptTextarea) autoResizeTextarea();
+
+        // 📐 ResizeObserver to auto-resize textarea when container width changes
+        // (e.g., sidebar opens/closes, window resizes)
+        const hudPrompt = hud.querySelector('.ome-hud-prompt');
+        if (hudPrompt && promptTextarea) {
+            const resizeObserver = new ResizeObserver(() => {
+                autoResizeTextarea();
+            });
+            resizeObserver.observe(hudPrompt);
+        }
 
         // Send button handler
         const sendBtn = hud.querySelector('.ome-hud-send-btn');

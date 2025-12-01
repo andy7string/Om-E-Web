@@ -1,0 +1,38 @@
+{
+  "chat_id": "asfasdf-af-asdf__20251201T060359",
+  "created_at": "2025-12-01T06:03:59.891446Z",
+  "updated_at": "2025-12-01T06:04:57.283815Z",
+  "title": "asfasdf af asdf",
+  "default_title": "asfasdf af asdf",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "asfasdf af asdf fasdf adsf asd fasdf adf asdf asdf asdf asdf asdf asd fasdf asd fasdf asdf asdf asdf asd fasdf asdf asd fasdf asd fasdf asdf",
+      "timestamp": "2025-12-01T06:03:59.891465Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "dfasfd asasdf as",
+      "timestamp": "2025-12-01T06:04:33.713309Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "asdf sad f",
+      "timestamp": "2025-12-01T06:04:35.804036Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "sdf",
+      "timestamp": "2025-12-01T06:04:57.283815Z"
+    }
+  ]
+}
