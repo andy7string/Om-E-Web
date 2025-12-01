@@ -1,0 +1,26 @@
+{
+  "chat_id": "a-new-prompt__20251201T065705",
+  "created_at": "2025-12-01T06:57:05.377820Z",
+  "updated_at": "2025-12-01T06:57:26.881956Z",
+  "title": "A new prompt",
+  "default_title": "a new prompt",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "A new prompt with some new text to start off a new day",
+      "timestamp": "2025-12-01T06:57:05.377845Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "thats smily and sunshine",
+      "timestamp": "2025-12-01T06:57:26.881956Z"
+    }
+  ]
+}

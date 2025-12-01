@@ -12627,21 +12627,23 @@
                 padding: 8px 16px 16px 16px;
                 border-top: 1px solid rgba(var(--theme-color),0.1);
             }
-            /* 💬 HUD Send Button - theme colored */
+            /* 💬 HUD Send Button - consistent with orb button */
             .ome-hud-send-btn {
-                width: 36px;
-                height: 36px;
-                border: none;
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
+                border: 1px solid rgba(126,200,227,0.35);
                 border-radius: 10px;
-                background: rgba(var(--theme-color),0.6);
-                color: inherit;
+                background: rgba(80,100,160,0.55);
+                color: #7ec8e3;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s ease, transform 0.15s ease;
+                transition: background 0.15s ease, border-color 0.15s ease;
             }
-            .ome-hud-send-btn:hover { background: rgba(var(--theme-color),0.8); }
+            .ome-hud-send-btn:hover { background: rgba(80,100,160,0.75); border-color: rgba(126,200,227,0.55); }
             .ome-hud-send-btn:active { transform: scale(0.95); }
             .ome-hud-send-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
 
