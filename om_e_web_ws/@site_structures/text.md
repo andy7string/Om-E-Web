@@ -1,9 +1,9 @@
-# Google
+# Local Web Design Adelaide | Bright Tree Digital
 
-**URL:** https://www.google.com/
-**Timestamp:** 2025-12-01 22:07:24
+**URL:** https://brighttreedigital.com.au/
+**Timestamp:** 2025-12-02 00:05:10
 
-**Tabs (1):** Active: #1138028301 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138028386 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
 
 ## Available Actions
 
@@ -65,223 +65,116 @@ The following pre-configured actions are available for this page:
 
 ---
 
-Google Search homepage
-<Link id="a_id_0">Gmail</Link>
-<Link id="a_id_1">Search for Images</Link>
-<Button id="a_id_2">Google apps</Button>
-<Button id="a_id_3">Google Account: Andrew Orsmond
-(andreworsmond21175@gmail.com)</Button>
-<Select id="a_id_4" value="" use="(a_id_4, select, 'option')">Search</Select>
-<Button id="a_id_5">Search by voice</Button>
-<Button id="a_id_6">Search by image</Button>
-<Button id="a_id_7">AI Mode</Button>
-<Button id="a_id_8">Google Search</Button>
-<Button id="a_id_9">I'm Feeling Lucky</Button>
-Accessibility links
-<Link id="a_id_10">Skip to Discover feed</Link>
-<Link id="a_id_11">Skip to sidebar</Link>
-<Link id="a_id_12">Skip to footer</Link>
-<Link id="a_id_13">Accessibility help</Link>
-<Link id="a_id_14">Accessibility feedback</Link>
-Discover
-<Link id="a_id_15">Aussie firms return to Hong Kong as IPO market booms
-Jason Chang, the Australian Chamber of Commerce in Hong Kong's new chair, says two of the world's biggest IPOs demonstrate the strength of the Hong Kong...
-AFR
-·
-1d</Link>
-<Button id="a_id_16">More options</Button>
-<Link id="a_id_17">Superannuation warning over surprise tax bill as new laws just months away: 'Sooner than expected'
-Workers trying to play by the rules would be unwittingly stung when the transition to the new laws kicks in next year.
-Yahoo Finance Australia
-·
-14h</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Samsung released new software updates in November Week 4
-Samsung released several new software updates in the fourth week of November 2025. Galaxy phones and tablets grabbed One UI-based.
-Sammy Fans
-·
-2d</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Tradie lands dream job to be paid to live alone on remote Aussie island: 'Very lucky'
-Sandy Duthie landed his dream job. Just over a year on, he's still pinching himself.
-Yahoo News Australia
-·
-2d</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Panasonic's HC-X1200 is so good it almost makes the case for a camcorder comeback
-The Panasonic HC-X1200 is a reliable, compact camcorder with a heat-dissipating design, so you can shoot continually for events or even documentaries.
-TechRadar
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">SANI Bakehouse is the new 88 O’Connell arrival, baking rule-breaking pastry and Japanese milk buns
-There's a certain trust associated with Japanese and French pastries. They almost never miss. At SANI Bakehouse, the brand-new in-house sister venue to...
-Glam Adelaide
-·
-17h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">One of the best action movies of the decade is on TV tonight
-Netflix has just added The Northman, the 2022 Viking movie, which we think is one of the very best action movies of the decade so far.
-JOE.ie
-·
-19h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Gaming-first Linux distro delivers a petabyte of ISOs in one month as users avoid forced updates to Windows 11 — Bazzite distro is another safe haven for Win 10 refugees
-Bazzite devs boast of 'over 1 petabyte of Bazzite ISOs' downloaded in last month.
-Tom's Hardware
-·
-1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Incoming Australian social media ban leaves children vulnerable to phishing scams, experts say
-As the social media ban comes into effect, experts are worried children and families will be left vulnerable to age verification scams. Here's why.
-ABC News
-·
-16h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Customers 'angry' as caravan manufacturer collapses into administration
-Hundreds of Zone RV employees are out of work weeks before Christmas after arriving at work on Monday morning and being told the bad news.
-ABC News
-·
-4h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">The world’s little-known volcanoes pose the greatest threat
-The next global volcanic disaster is more likely to come from volcanoes that appear dormant and are barely monitored than from the likes of famous volcanoes...
-The Conversation
-·
-5d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Writing builds resilience by changing your brain, helping you face everyday challenges
-Ordinary and universal, the act of writing changes the brain. From dashing off a heated text message to composing an op-ed, writing allows you to, at once,...
-The Conversation
-·
-6d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Firefighters slammed for 'potentially deadly' incident at Metro Tunnel
-The union claimed firefighters entered the Metro Tunnel for operational reasons but Fire Rescue Victoria said there were no planned drills or site visits.
-ABC News
-·
-4h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Scientists Discover How To “Hack” Bacterial Conversations To Prevent Gum Disease
-Disrupting the chemical messages that oral bacteria use to coordinate growth may help prevent disease by keeping plaque communities in a healthier state.
-SciTechDaily
-·
-1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Penfolds owner hit with $687m US hangover
-Treasury Wine Estates, the maker of Penfolds, has slashed the value of its American business by $687m, marking another painful misstep in its 25 years in...
-The Australian
-·
-12h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">FIRST LOOK: Agora Greek Cuisine brings an "island taverna" escape with Greek feasts to Rundle Street
-Textured whites, splashes of blue, and colourful flora-covered corners are lit by big sun-seeking windows in this fresh new Greek restaurant.
-Glam Adelaide
-·
-1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Ford’s Moffat tribute stickers available to buy
-THE Allan Moffat tribute stickers carried by every Ford in the Supercars Championship field at the Adelaide Grand Final will be made available for sale to.
-V8 Sleuth
-·
-7h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Solar, wind investment crash puts renewable target in doubt
-Australia faces its worst year of investment in large-scale solar and wind in a decade, heightening concern the nation will fail to meet its 2030 renewable...
-The Australian
-·
-1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">459 Indian-origin truck drivers lose licences in New Zealand
-Official data in New Zealand has confirmed that every one of the 459 commercial truck drivers whose licences were revoked in a nationwide audit on...
-The Indian Express
-·
-1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Anti-abortion activist Joanna Howe claims University of Adelaide gave her immunity from complaints by pro-choice campaigners
-The university, which employs Howe as a law professor, states that it 'considers each matter on its merits'
-The Guardian
-·
-3d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">The Guardian view on the inequality emergency: why a Nobel prize winner’s warning must be heeded | Editorial
-Editorial: Rising economic division is destabilising nations and eroding accountability. Joseph Stiglitz's G20 blueprint offers a way toward global economic...
-The Guardian
-·
-17h</Link>
-<Button id="a_id_56">More options</Button>
-<Link id="a_id_57">New frontrunner to play James Bond revealed
-A fresh frontrunner has entered the James Bond chat — and he's got some seriously starry connections. After years of swirling rumours and a rotating cast of...
-News.com.au
-·
-8h</Link>
-<Button id="a_id_58">More options</Button>
-<Link id="a_id_59">UK vows to pursue Corporate Travel for ‘appalling’ overcharging
-London | Britain's Home Office has launched an urgent investigation into the Australian-owned Corporate Travel Management for its overcharging of taxpayers...
-AFR
-·
-1d</Link>
-<Button id="a_id_60">More options</Button>
-<Link id="a_id_61">James Webb Space Telescope spies mysterious high-energy radiation in star nursery
-Using the James Webb Space Telescope, astronomers have detected unexpected high-energy ultraviolet radiation around five infant stars, or protostars, in the...
-Space
-·
-19h</Link>
-<Button id="a_id_62">More options</Button>
-<Link id="a_id_63">REPORT: ChatGPT testing advertising
-OpenAI is reportedly testing advertising within the next version of ChatGPT's Android app. Reverse engineer Tibor Blaho, posting on X, formerly Twitter,...
-AdNews
-·
-13h</Link>
-<Button id="a_id_64">More options</Button>
-<Link id="a_id_65">The Canadian Museum for Human Rights finally grapples with the Nakba
-Even as it claims to champion the stories of global injustice, the Canadian Museum for Human Rights (CMHR) has struggled, if not refused, to meaningfully...
-The Conversation
-·
-21h</Link>
-<Button id="a_id_66">More options</Button>
-<Link id="a_id_67">Nio Firefly electric car confirmed for Australia, but when is it due?
-The Firefly electric hatch from Chinese car maker Nio has been formally confirmed for an Australian launch, after an example was spotted testing on...
-Drive
-·
-13h</Link>
-<Button id="a_id_68">More options</Button>
-<Link id="a_id_69">Offshore and out of touch? The curly questions confronting Australian universities overseas
-The University of Wollongong's decision to become the first foreign university in Saudi Arabia has raised eyebrows across the sector.
-The Sydney Morning Herald
-·
-1d</Link>
-<Button id="a_id_70">More options</Button>
-<Link id="a_id_71">The dozen blue-chip ASX stocks trading at deep discounts
-A dozen of Australia's 50 biggest companies are trading between 10 and almost 50 per cent down this year after markets have taken an axe to companies with...
-The Australian
-·
-1d</Link>
-<Button id="a_id_72">More options</Button>
-<Link id="a_id_73">Another CBD cafe goes into liquidation
-Another renowned cafe in Adelaide's CBD has gone into liquidation after falling into debt.
-The Advertiser
-·
-3h</Link>
-<Button id="a_id_74">More options</Button>
-At a glance
-<Button id="a_id_75">Customise Homestack</Button>
-<Link id="a_id_76">VIX • VIX up 5.06%. Price is 18.08 Today</Link>
-<Link id="a_id_77">Air quality
-Good
-AQC</Link>
-Australia
-<Link id="a_id_78">Advertising</Link>
-<Link id="a_id_79">Business</Link>
-<Link id="a_id_80">How Search works</Link>
-<Link id="a_id_81">Privacy</Link>
-<Link id="a_id_82">Terms</Link>
-<Button id="a_id_83">Settings</Button>
-
----
-
-## Secure Iframe Elements
-
-*⏳ Loading 2 iframe(s)... (payment forms, embedded content)*
-
-*Iframe elements will appear here when loaded. Check back shortly.*
+<Link id="a_id_0">Skip to content</Link>
+<Link id="a_id_1">Bright Tree Digital</Link>
+<Link id="a_id_2">HOME</Link>
+<Link id="a_id_3">ABOUT</Link>
+<Link id="a_id_4">PORTFOLIO</Link>
+<Link id="a_id_5">SERVICES</Link>
+<Link id="a_id_6">CONTACT</Link>
+<Link id="a_id_7">Facebook</Link>
+<Link id="a_id_8">Instagram</Link>
+Logo Design
+Developing Timeless Logos That Define Your Brand Identity
+<Link id="a_id_9">GET STARTED</Link>
+<Button id="a_id_10">Previous slide</Button>
+<Button id="a_id_11">Next slide</Button>
+Welcome to Bright Tree Digital...
+...where your vision takes digital form and your business’s potential is fully realized. Specializing in
+WordPress web design
+and compelling
+graphic design
+, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
+At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
+Our Services
+<Link id="a_id_12">Website Design</Link>
+Our
+Website Design
+service brings your vision to life. We create beautiful, functional websites that are easy to navigate and look great on any device. Our focus is on making your online presence strong and user-friendly, helping you attract and engage more customers.
+<Button id="a_id_13">View Portfolio</Button>
+<Button id="a_id_14">More Info</Button>
+<Link id="a_id_15">Logo Design</Link>
+Elevate your brand with our custom
+Logo Design
+service. We specialize in creating logos that are not just visually striking but also embody your brand’s story and values. Our goal is to design a distinctive, memorable logo that sets you apart and builds recognition, ensuring it resonates with your audience and enhances brand loyalty.
+<Button id="a_id_16">View Portfolio</Button>
+<Button id="a_id_17">More Info</Button>
+<Link id="a_id_18">Banner Ad Design</Link>
+Boost your online presence with our
+Banner Ad Design
+service at Bright Tree Digital. We create eye-catching, effective banner ads that align with your brand and engage your audience, perfect for enhancing your digital marketing campaigns and social media impact.
+<Button id="a_id_19">View Portfolio</Button>
+<Button id="a_id_20">More Info</Button>
+Start your journey here...
+<Button id="a_id_21">Get in touch today!</Button>
+Our Work
+<Link id="a_id_22">Straker Functional Fitness</Link>
+<Link id="a_id_23">The Syrene Hotel</Link>
+<Link id="a_id_24">African Safari Deals</Link>
+<Link id="a_id_25">Mtambo Chartered Accountants</Link>
+<Link id="a_id_26">Joss Couture</Link>
+<Link id="a_id_27">Flutterbys School</Link>
+<Link id="a_id_28">The Gourmet Cookie Co</Link>
+New Moon Digital
+<Link id="a_id_29">Straker Functional Fitness</Link>
+<Link id="a_id_30">The Syrene Hotel</Link>
+<Link id="a_id_31">African Safari Deals</Link>
+<Link id="a_id_32">Mtambo Chartered Accountants</Link>
+<Link id="a_id_33">Joss Couture</Link>
+<Link id="a_id_34">Flutterbys School</Link>
+<Link id="a_id_35">The Gourmet Cookie Co</Link>
+New Moon Digital
+<Link id="a_id_36">Straker Functional Fitness</Link>
+<Link id="a_id_37">The Syrene Hotel</Link>
+<Link id="a_id_38">African Safari Deals</Link>
+<Link id="a_id_39">Mtambo Chartered Accountants</Link>
+<Button id="a_id_40">1 of 2</Button>
+<Button id="a_id_41">2 of 2</Button>
+<Button id="a_id_42">3 of 2</Button>
+<Button id="a_id_43">4 of 2</Button>
+<Button id="a_id_44">5 of 2</Button>
+<Button id="a_id_45">6 of 2</Button>
+<Button id="a_id_46">7 of 2</Button>
+<Button id="a_id_47">8 of 2</Button>
+What Our Clients Say!
+We are so happy that
+Bright Tree Digital
+designed our Logos and websites for our 2 food businesses.
+Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
+Michelene Rendell
+Owner, The Kitchen
+Highly recommended.
+Bright Tree Digital
+presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
+Daniella Finney
+Owner, The Syrene Boutique Hotel
+Big shoutout to Olivia at
+Bright Tree Digital
+, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
+Natalie Cassar
+Owner, New Moon Digital
+<Button id="a_id_48">Read More Testimonials</Button>
+Ready for a Website Makeover?
+<Button id="a_id_49">Reach Out Now!</Button>
+ABOUT US
+We specialise in
+WordPress web design
+and
+graphic design
+, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
+OUR PORTFOLIO
+<Link id="a_id_50">Banner Portfolio</Link>
+<Link id="a_id_51">Logo Portfolio</Link>
+<Link id="a_id_52">Web Design Portfolio</Link>
+<Link id="a_id_53">Facebook</Link>
+<Link id="a_id_54">Instagram</Link>
+ABN: 29 160 886 356
+QUICK LINKS
+<Link id="a_id_55">Home</Link>
+<Link id="a_id_56">About</Link>
+<Link id="a_id_57">Services</Link>
+<Link id="a_id_58">Testimonials</Link>
+<Link id="a_id_59">Contact</Link>
+<Link id="a_id_60">Privacy Policy</Link>
+Copyright © 2025 Bright Tree Digital
+<Link id="a_id_61">Website Designed by Bright Tree Digital</Link>

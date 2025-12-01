@@ -1,0 +1,26 @@
+{
+  "chat_id": "let-me__20251201T121414",
+  "created_at": "2025-12-01T12:14:14.436971Z",
+  "updated_at": "2025-12-01T12:14:21.809405Z",
+  "title": "⏺ Let me",
+  "default_title": "⏺ let me",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.",
+      "timestamp": "2025-12-01T12:14:14.437025Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.⏺ Let me verify the dynamic input expansion implementation is\n  properly in place by checking the relevant sections of\n  content.js.",
+      "timestamp": "2025-12-01T12:14:21.809405Z"
+    }
+  ]
+}

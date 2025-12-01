@@ -12380,11 +12380,11 @@
                 </svg>`
         },
 
-        // ⚛️ Atom - glowing orbital rings with Om-E purple color scheme
+        // ⚛️ Atom - glowing orbital rings with neon green
         atom: {
             name: 'Atom',
             earSelector: '.ome-atom-click',
-            color: '#ba93ff',  // Purple glow (matching goggles)
+            color: '#3CB371',  // Forest green (Z, HUD buttons)
             svg: `
                 <svg class="ome-bunny ome-atom-svg" viewBox="0 0 60 60" fill="none">
                     <defs>
@@ -12399,27 +12399,27 @@
                             <stop offset="0%" stop-color="rgba(147,112,219,0.6)"/>
                             <stop offset="100%" stop-color="rgba(80,70,150,0)"/>
                         </radialGradient>
-                        <!-- Orbital gradients - dark purple center to light purple (goggle color) at edges -->
+                        <!-- Orbital gradients - neon green rings -->
                         <linearGradient id="atomOrbitGrad1" x1="0%" y1="50%" x2="100%" y2="50%">
-                            <stop offset="0%" stop-color="rgba(186,147,255,0.95)"/>
-                            <stop offset="35%" stop-color="rgba(147,112,219,0.7)"/>
-                            <stop offset="50%" stop-color="rgba(80,70,150,0.5)"/>
-                            <stop offset="65%" stop-color="rgba(147,112,219,0.7)"/>
-                            <stop offset="100%" stop-color="rgba(186,147,255,0.95)"/>
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
                         </linearGradient>
                         <linearGradient id="atomOrbitGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="rgba(186,147,255,0.95)"/>
-                            <stop offset="35%" stop-color="rgba(147,112,219,0.7)"/>
-                            <stop offset="50%" stop-color="rgba(80,70,150,0.5)"/>
-                            <stop offset="65%" stop-color="rgba(147,112,219,0.7)"/>
-                            <stop offset="100%" stop-color="rgba(186,147,255,0.95)"/>
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
                         </linearGradient>
                         <linearGradient id="atomOrbitGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="rgba(186,147,255,0.95)"/>
-                            <stop offset="35%" stop-color="rgba(147,112,219,0.7)"/>
-                            <stop offset="50%" stop-color="rgba(80,70,150,0.5)"/>
-                            <stop offset="65%" stop-color="rgba(147,112,219,0.7)"/>
-                            <stop offset="100%" stop-color="rgba(186,147,255,0.95)"/>
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
                         </linearGradient>
                     </defs>
                     <!-- Clickable area - invisible circle -->
@@ -12537,40 +12537,165 @@
                 --theme-color: 147,112,219;  /* Purple */
                 --theme-accent: #ba93ff;
             }
-            .ome-hud.visible { display: block; opacity: 1; }
-            .ome-hud-close {
-                position: absolute; top: 20px; right: 24px;
-                width: 36px; height: 36px;
-                border: none; border-radius: 8px;
-                background: rgba(255,255,255,0.08);
-                color: #9ca3af; font-size: 20px;
-                cursor: pointer;
-                display: flex; align-items: center; justify-content: center;
-                transition: background 0.15s ease, color 0.15s ease;
-            }
-            .ome-hud-close:hover { background: rgba(239,68,68,0.2); color: #f87171; }
+            .ome-hud.visible { display: flex; opacity: 1; flex-direction: column; }
             @keyframes ome-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
-            /* 🎯 HUD Main Container - centered prompt + orb at bottom */
+            /* 🔝 Top Bar - ChatGPT style header */
+            .ome-hud-topbar {
+                flex: 0 0 auto;
+                height: 56px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 16px;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                background: rgba(33,33,33,0.95);
+                z-index: 10;
+            }
+            .ome-hud-topbar-left {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .ome-hud-topbar-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #e5e5e5;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .ome-hud-topbar-title svg {
+                width: 20px;
+                height: 20px;
+                stroke: var(--theme-accent);
+                fill: none;
+                stroke-width: 2;
+            }
+            .ome-hud-model-select {
+                background: rgba(255,255,255,0.08);
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 8px;
+                padding: 6px 12px;
+                color: #e5e5e5;
+                font-size: 14px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .ome-hud-model-select:hover { background: rgba(255,255,255,0.12); }
+            .ome-hud-topbar-right {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .ome-hud-topbar-btn {
+                width: 36px;
+                height: 36px;
+                border: none;
+                border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                color: #9ca3af;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, color 0.15s ease;
+            }
+            .ome-hud-topbar-btn:hover { background: rgba(255,255,255,0.15); color: #e5e5e5; }
+            .ome-hud-topbar-btn.close:hover { background: rgba(239,68,68,0.2); color: #f87171; }
+            .ome-hud-topbar-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+            /* 🎯 HUD Content Area - full height flex layout */
+            .ome-hud-content {
+                flex: 1 1 auto;
+                display: flex;
+                overflow: hidden;
+                position: relative;
+            }
+
+            /* 🎯 HUD Main Container - ChatGPT centered layout */
             .ome-hud-main {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 24px;
+                width: 100%;
+                transition: margin-left 0.25s ease;
+            }
+            /* 📚 When sidebar is open, shift main content */
+            .ome-hud.sidebar-open .ome-hud-main {
+                margin-left: 280px;
+            }
+
+            /* 💬 HUD Messages Area - ChatGPT style scrollable history */
+            .ome-hud-messages-area {
+                flex: 1 1 auto;
+                overflow-y: auto;
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                max-width: 800px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .ome-hud-messages-area::-webkit-scrollbar { width: 8px; }
+            .ome-hud-messages-area::-webkit-scrollbar-track { background: transparent; }
+            .ome-hud-messages-area::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+            .ome-hud-messages-area::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+            .ome-hud-messages-area:empty::before {
+                content: 'How can I help you today?';
+                color: rgba(255,255,255,0.3);
+                font-size: 24px;
+                font-weight: 500;
+                text-align: center;
+                margin: auto;
+            }
+
+            /* 🛤️ HUD Rail - vertical track for sliding prompt unit */
+            .ome-hud-rail {
                 position: absolute;
+                left: 50%;
+                margin-left: 480px;
+                top: 80px;
+                bottom: 20px;
+                width: 4px;
+                background: rgba(255,255,255,0.06);
+                border-radius: 2px;
+                pointer-events: none;
+                z-index: 1;
+            }
+            .ome-hud.sidebar-open .ome-hud-rail {
+                margin-left: 620px;
+            }
+
+            /* 💬 HUD Input Area - slidable on rail, centered */
+            .ome-hud-input-area {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
                 bottom: 400px;
-                left: 10px;
-                right: 10px;
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
                 gap: 24px;
-                transition: left 0.25s ease;
+                z-index: 2;
             }
-            /* 📚 When sidebar is open, shift main content right */
-            .ome-hud.sidebar-open .ome-hud-main {
-                left: 290px; /* 280px sidebar + 10px margin */
+            .ome-hud-input-area.dragging {
+                cursor: grabbing;
+            }
+            /* 📚 When sidebar open, shift input area right */
+            .ome-hud.sidebar-open .ome-hud-input-area {
+                left: calc(50% + 140px);
             }
 
-            /* 💬 HUD Prompt Box - Perplexity-style auto-expanding container */
+            /* 💬 HUD Prompt Box - OME style (YOUR prompt unit) */
             .ome-hud-prompt {
-                width: min(800px, 100%);
+                width: 800px;
                 min-height: 100px;
                 max-height: 400px;
                 background: rgba(33,33,33,0.95);
@@ -12584,9 +12709,8 @@
                 overflow: hidden;
                 color: #7ec8e3;
                 filter: drop-shadow(0 0 2px rgba(var(--theme-color),0.15));
-                transition: height 0.15s ease;
             }
-            /* 💬 HUD Textarea - Perplexity-style auto-expanding input */
+            /* 💬 HUD Textarea - OME style (YOUR input) */
             .ome-hud-prompt-textarea {
                 display: block;
                 box-sizing: border-box;
@@ -12645,6 +12769,43 @@
             .ome-hud-send-btn:hover { background: rgba(80,100,160,0.75); border-color: rgba(126,200,227,0.55); }
             .ome-hud-send-btn:active { transform: scale(0.95); }
             .ome-hud-send-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+            /* 💬 HUD Message Bubbles - left-aligned, user indented */
+            .ome-hud-message {
+                padding: 12px 14px;
+                font-size: 15px;
+                line-height: 1.6;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+                border-radius: 8px;
+            }
+            .ome-hud-message.user {
+                margin-left: 20px;
+                padding-left: 14px;
+                border-left: 2px solid rgba(var(--theme-color),0.5);
+                background: rgba(255,255,255,0.03);
+                color: rgba(var(--theme-color),0.8);
+            }
+            .ome-hud-message.assistant {
+                margin-left: 0;
+                background: rgba(60,80,120,0.15);
+                color: inherit;
+            }
+            .ome-hud-message.error {
+                margin-left: 0;
+                background: rgba(220,38,38,0.2);
+                color: #fca5a5;
+                font-size: 13px;
+            }
+            /* 💬 HUD Message Images */
+            .ome-hud-message img {
+                max-width: 100%;
+                max-height: 300px;
+                border-radius: 6px;
+                margin-top: 8px;
+                object-fit: contain;
+            }
+            .ome-hud-message img:first-child { margin-top: 0; }
 
             /* ⬆️⬇️ HUD Scroll Controls (vertical, same layout as orb) */
             .ome-hud-scroll {
@@ -12854,15 +13015,16 @@
             .ome-chat-panel {
                 --theme-color: 126,200,227;  /* Default kawaii blue */
                 --theme-accent: #7ec8e3;
+                --text-color: #7ec8e3;  /* Default text color */
                 position: absolute;
                 bottom: 0;
                 right: 85px;
                 width: 800px;
-                height: 250px;
+                height: auto;
                 min-width: 363px;
-                min-height: 82px;
+                min-height: 120px;
                 max-width: 968px;
-                max-height: 80vh;
+                max-height: min(800px, 80vh);
                 background: rgba(33,33,33,0.85);
                 border: 1px solid rgba(var(--theme-color),0.35);
                 border-radius: 12px;
@@ -12879,14 +13041,17 @@
             .ome-chat-panel[data-theme="kawaii"] {
                 --theme-color: 126,200,227;
                 --theme-accent: #7ec8e3;
+                --text-color: #7ec8e3;
             }
             .ome-chat-panel[data-theme="robot"] {
                 --theme-color: 0,229,255;
                 --theme-accent: #00e5ff;
+                --text-color: #00e5ff;
             }
             .ome-chat-panel[data-theme="atom"] {
                 --theme-color: 147,112,219;
                 --theme-accent: #ba93ff;
+                --text-color: #3CB371;  /* Forest green text for atom */
             }
 
             /* 📐 Resize Handles */
@@ -12907,13 +13072,13 @@
 
             /* 💬 Chat Messages Area */
             .ome-chat-messages {
-                flex: 1;
+                flex: 1 1 auto;
                 overflow-y: auto;
-                padding: 12px 12px 70px 12px;
+                padding: 12px;
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
-                min-height: 40px;
+                min-height: 60px;
             }
             .ome-chat-messages::-webkit-scrollbar { width: 12px; }
             .ome-chat-messages::-webkit-scrollbar-track { background: rgba(30,30,40,0.5); border-radius: 6px; }
@@ -12960,40 +13125,44 @@
             }
             .ome-chat-bubble.typing-preview:empty { display: none; }
 
-            /* 💬 Chat Input Area - FIXED at bottom, expands upward */
+            /* 💬 Chat Input Area - flexbox at bottom, expands with content */
+            .ome-chat-input-area {
+                flex: 0 0 auto;
+                display: flex;
+                align-items: flex-end;
+                gap: 8px;
+                padding: 12px 14px;
+                border-top: 1px solid rgba(var(--theme-color),0.15);
+            }
             .ome-chat-input-wrapper {
-                position: absolute;
-                bottom: 14px;
-                left: 14px;
-                right: 66px;
+                flex: 1;
+                position: relative;
             }
             .ome-chat-input {
                 width: 100%;
                 display: block;
                 box-sizing: border-box;
                 min-height: 48px;
-                max-height: 145px;
+                max-height: 400px;
                 background: rgba(40,50,80,0.22);
                 border: 1px solid rgba(var(--theme-color),0.3);
                 border-radius: 10px;
                 padding: 12px 14px;
                 font-size: 15px;
                 line-height: 1.5;
-                color: inherit;
+                color: var(--text-color);
                 outline: none;
                 resize: none;
-                overflow-y: hidden;
+                overflow-y: auto;
                 font-family: inherit;
                 word-wrap: break-word;
                 white-space: pre-wrap;
                 transition: border-color 0.15s ease, background 0.15s ease;
             }
-            .ome-chat-input::placeholder { color: rgba(var(--theme-color),0.4); }
+            .ome-chat-input::placeholder { color: var(--text-color); opacity: 0.5; }
             .ome-chat-input:focus { border-color: rgba(var(--theme-color),0.5); background: rgba(40,50,80,0.28); }
             .ome-chat-send {
-                position: absolute;
-                right: 14px;
-                bottom: 14px;
+                flex: 0 0 auto;
                 width: 48px;
                 height: 48px;
                 min-width: 48px;
@@ -13268,7 +13437,7 @@
 
         // 💬 Prompt button (opens chat panel)
         const promptHTML = `
-            <button class="ome-prompt-btn">Prompt</button>`;
+            <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
 
         // 💬 Chat panel (anchored to orb) - with resize handles and theme
         const chatPanelHTML = `
@@ -13284,12 +13453,14 @@
                 <div class="ome-chat-messages">
                     <!-- Messages loaded from chat file -->
                 </div>
-                <div class="ome-chat-input-wrapper">
-                    <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                <div class="ome-chat-input-area">
+                    <div class="ome-chat-input-wrapper">
+                        <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                    </div>
+                    <button class="ome-chat-send">
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
                 </div>
-                <button class="ome-chat-send">
-                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </button>
             </div>`;
 
         // Update orb content (SVG + paws + scroll + prompt + zoom + chat panel)
@@ -13361,14 +13532,14 @@
             const chatInput = chatPanel.querySelector('.ome-chat-input');
             const chatSendBtn = chatPanel.querySelector('.ome-chat-send');
 
-            // 📐 Auto-resize textarea as user types
+            // 📐 Auto-resize textarea as user types (expands up to 400px)
             function autoResizeOrbInput() {
                 if (!chatInput) return;
-                chatInput.style.height = '40px';
+                chatInput.style.height = '48px';
                 const scrollH = chatInput.scrollHeight;
-                const newHeight = Math.max(40, Math.min(scrollH, 120));
+                const newHeight = Math.max(48, Math.min(scrollH, 400));
                 chatInput.style.height = newHeight + 'px';
-                chatInput.style.overflowY = scrollH > 120 ? 'auto' : 'hidden';
+                chatInput.style.overflowY = scrollH > 400 ? 'auto' : 'hidden';
             }
 
             if (chatInput) {
@@ -13392,6 +13563,9 @@
 
                 // Initial sizing
                 autoResizeOrbInput();
+
+                // 💬 Re-render chat messages after theme change
+                renderChatMessages();
 
                 // 📐 ResizeObserver to auto-resize when panel width changes
                 const orbResizeObserver = new ResizeObserver(() => {
@@ -13479,7 +13653,7 @@
 
         // 💬 Prompt button (opens chat panel)
         const promptHTML = `
-            <button class="ome-prompt-btn">Prompt</button>`;
+            <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
 
         // 💬 Chat panel (anchored to orb) - with resize handles
         const chatPanelHTML = `
@@ -13495,12 +13669,14 @@
                 <div class="ome-chat-messages">
                     <!-- Messages loaded from chat file -->
                 </div>
-                <div class="ome-chat-input-wrapper">
-                    <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                <div class="ome-chat-input-area">
+                    <div class="ome-chat-input-wrapper">
+                        <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                    </div>
+                    <button class="ome-chat-send">
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
                 </div>
-                <button class="ome-chat-send">
-                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </button>
             </div>`;
 
         orb.innerHTML = theme.svg + theme.paws + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
@@ -13674,55 +13850,72 @@
         const currentTheme = ORB_THEMES[hudState.theme] || ORB_THEMES.robot;
 
         hud.innerHTML = `
-            <!-- 📚 Sidebar Toggle Button (hamburger menu) -->
-            <button class="ome-sidebar-toggle">
-                <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            </button>
-
-            <button class="ome-hud-close">&times;</button>
-
-            <!-- 📚 Sidebar Panel -->
-            <div class="ome-sidebar">
-                <div class="ome-sidebar-header">
-                    <button class="ome-sidebar-new-chat">
-                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                        New chat
+            <!-- 🔝 Top Bar - ChatGPT style header -->
+            <div class="ome-hud-topbar">
+                <div class="ome-hud-topbar-left">
+                    <button class="ome-hud-topbar-btn ome-sidebar-toggle">
+                        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                     </button>
-                    <button class="ome-sidebar-close">&times;</button>
+                    <div class="ome-hud-topbar-title">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        Om-E
+                    </div>
                 </div>
-                <div class="ome-sidebar-content">
-                    <div class="ome-sidebar-label">Your chats</div>
-                    <!-- Chat items will be populated here -->
-                    <div class="ome-sidebar-empty">No chats yet</div>
-                </div>
-                <div class="ome-sidebar-footer">
-                    Om-E Web
+                <div class="ome-hud-topbar-right">
+                    <button class="ome-hud-topbar-btn close ome-hud-close">&times;</button>
                 </div>
             </div>
 
-            <!-- 🎯 Main container: prompt + orb -->
-            <div class="ome-hud-main">
-                <!-- 💬 Prompt Box - Perplexity-style auto-expanding textarea -->
-                <div class="ome-hud-prompt">
-                    <textarea class="ome-hud-prompt-textarea" placeholder="Ask anything..." rows="1"></textarea>
-                    <div class="ome-hud-prompt-actions">
-                        <button class="ome-hud-send-btn">
-                            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <!-- 📦 Content Area - sidebar + main -->
+            <div class="ome-hud-content">
+                <!-- 📚 Sidebar Panel -->
+                <div class="ome-sidebar">
+                    <div class="ome-sidebar-header">
+                        <button class="ome-sidebar-new-chat">
+                            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            New chat
                         </button>
+                        <button class="ome-sidebar-close">&times;</button>
                     </div>
+                    <div class="ome-sidebar-content">
+                        <div class="ome-sidebar-label">Your chats</div>
+                        <div class="ome-sidebar-empty">No chats yet</div>
+                    </div>
+                    <div class="ome-sidebar-footer">Om-E Web</div>
                 </div>
 
-                <!-- 🔮 Current Orb Display -->
-                <div class="ome-hud-orb-container">
-                    <div class="ome-hud-orb" data-theme="${hudState.theme}">
-                        ${currentTheme.svg}
-                    </div>
-                </div>
+                <!-- 🎯 Main Area - messages + input -->
+                <div class="ome-hud-main">
+                    <!-- 💬 Messages Area - ChatGPT style scrollable history -->
+                    <div class="ome-hud-messages-area"></div>
 
-                <!-- 🎮 HUD Scroll Controls (scrolls HUD messages area) -->
-                <div class="ome-hud-scroll">
-                    <button class="ome-hud-ctrl-btn ome-hud-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
-                    <button class="ome-hud-ctrl-btn ome-hud-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <!-- 🛤️ Rail - vertical track for sliding -->
+                    <div class="ome-hud-rail"></div>
+
+                    <!-- 💬 Input Area - YOUR OME prompt unit (slidable) -->
+                    <div class="ome-hud-input-area">
+                        <div class="ome-hud-prompt">
+                            <textarea class="ome-hud-prompt-textarea" placeholder="Ask anything..." rows="1"></textarea>
+                            <div class="ome-hud-prompt-actions">
+                                <button class="ome-hud-send-btn">
+                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 🔮 Current Orb Display -->
+                        <div class="ome-hud-orb-container">
+                            <div class="ome-hud-orb" data-theme="${hudState.theme}">
+                                ${currentTheme.svg}
+                            </div>
+                        </div>
+
+                        <!-- 🎮 HUD Scroll Controls -->
+                        <div class="ome-hud-scroll">
+                            <button class="ome-hud-ctrl-btn ome-hud-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                            <button class="ome-hud-ctrl-btn ome-hud-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
@@ -13791,6 +13984,8 @@
             promptTextarea.style.height = newHeight + 'px';
             // Show scrollbar only when at max height
             promptTextarea.style.overflowY = scrollH > 300 ? 'auto' : 'hidden';
+            // Check if HUD needs repositioning
+            checkAndRepositionHUD();
         }
 
         promptTextarea?.addEventListener('input', autoResizeTextarea);
@@ -13803,9 +13998,13 @@
         if (hudPrompt && promptTextarea) {
             const resizeObserver = new ResizeObserver(() => {
                 autoResizeTextarea();
+                checkAndRepositionHUD();
             });
             resizeObserver.observe(hudPrompt);
         }
+
+        // 📍 Window resize listener for HUD repositioning
+        window.addEventListener('resize', checkAndRepositionHUD);
 
         // Send button handler
         const sendBtn = hud.querySelector('.ome-hud-send-btn');
@@ -13841,30 +14040,77 @@
             }
         });
 
-        // 📜 HUD Scroll controls - scroll the textarea content
+        // 📜 HUD Scroll controls - scroll the messages area
+        const hudMessagesArea = hud.querySelector('.ome-hud-messages-area');
         hud.querySelector('.ome-hud-scroll-up')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (promptTextarea) {
-                promptTextarea.scrollBy({ top: -100, behavior: 'smooth' });
+            if (hudMessagesArea) {
+                hudMessagesArea.scrollBy({ top: -100, behavior: 'smooth' });
             }
         });
         hud.querySelector('.ome-hud-scroll-down')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (promptTextarea) {
-                promptTextarea.scrollBy({ top: 100, behavior: 'smooth' });
+            if (hudMessagesArea) {
+                hudMessagesArea.scrollBy({ top: 100, behavior: 'smooth' });
             }
         });
 
-        // 🔮 Click orb to exit HUD (same as toggle_hud message handler)
-        hud.querySelector('.ome-hud-orb')?.addEventListener('click', (e) => {
+        // 🛤️ Rail slider - drag orb to slide prompt unit up/down
+        const inputArea = hud.querySelector('.ome-hud-input-area');
+        const hudOrb = hud.querySelector('.ome-hud-orb');
+        let isSliding = false;
+        let slideStartY = 0;
+        let slideStartBottom = 400;
+
+        hudOrb?.addEventListener('mousedown', (e) => {
             e.stopPropagation();
-            console.log('[Content] 🔮 HUD orb clicked - exiting HUD');
+            e.preventDefault();
+            isSliding = true;
+            slideStartY = e.clientY;
+            slideStartBottom = parseInt(inputArea.style.bottom) || 400;
+            inputArea.classList.add('dragging');
+            document.body.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isSliding || !inputArea) return;
+            const deltaY = slideStartY - e.clientY;
+            const newBottom = Math.max(20, Math.min(window.innerHeight - 150, slideStartBottom + deltaY));
+            inputArea.style.bottom = newBottom + 'px';
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isSliding) {
+                isSliding = false;
+                inputArea?.classList.remove('dragging');
+                document.body.style.cursor = '';
+            }
+        });
+
+        // 🔮 Double-click orb to exit HUD
+        hudOrb?.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
+            console.log('[Content] 🔮 HUD orb double-clicked - exiting HUD');
             if (!hudState.host) initHUD();
             toggleHUD();
         });
 
         shadow.appendChild(hud);
         return hud;
+    }
+
+    /**
+     * 📍 Scroll HUD messages to bottom after new content
+     * ChatGPT-style layout handles sizing automatically via flexbox
+     */
+    function checkAndRepositionHUD() {
+        if (!hudState.hud || !hudState.visible) return;
+
+        // Auto-scroll messages area to bottom
+        const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
+        if (hudMessages) {
+            hudMessages.scrollTop = hudMessages.scrollHeight;
+        }
     }
 
     /**
@@ -14257,6 +14503,30 @@
     };
 
     /**
+     * 💬 Render message content (text + images)
+     * @param {HTMLElement} msgEl - Message element to render into
+     * @param {Object} msg - Message object with content/images
+     */
+    function renderMessageContent(msgEl, msg) {
+        // Text content
+        if (msg.content) {
+            const textEl = document.createElement('span');
+            textEl.textContent = msg.content;
+            msgEl.appendChild(textEl);
+        }
+        // Image support - check for images array or image URLs in content
+        if (msg.images && Array.isArray(msg.images)) {
+            msg.images.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = 'Message image';
+                img.loading = 'lazy';
+                msgEl.appendChild(img);
+            });
+        }
+    }
+
+    /**
      * 💬 Render all messages to both HUD and orb from shared state
      * Called on toggle and after adding messages
      */
@@ -14271,27 +14541,30 @@
                 messages.forEach(msg => {
                     const msgEl = document.createElement('div');
                     msgEl.className = `ome-chat-bubble ${msg.role}`;
-                    msgEl.textContent = msg.content;
+                    renderMessageContent(msgEl, msg);
                     orbMessages.appendChild(msgEl);
                 });
                 orbMessages.scrollTop = orbMessages.scrollHeight;
             }
         }
 
-        // Render to HUD
+        // Render to HUD messages area (ChatGPT style)
         if (hudState.hud) {
-            const hudMessages = hudState.hud.querySelector('.ome-hud-prompt-messages');
+            const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
             if (hudMessages) {
                 hudMessages.innerHTML = '';
                 messages.forEach(msg => {
                     const msgEl = document.createElement('div');
                     msgEl.className = `ome-hud-message ${msg.role}`;
-                    msgEl.textContent = msg.content;
+                    renderMessageContent(msgEl, msg);
                     hudMessages.appendChild(msgEl);
                 });
                 hudMessages.scrollTop = hudMessages.scrollHeight;
             }
         }
+
+        // Check if HUD needs repositioning after content change
+        checkAndRepositionHUD();
 
         console.log(`[Content] 💬 Rendered ${messages.length} messages to both UIs`);
     }
@@ -14300,15 +14573,20 @@
      * 💬 Add message to shared state and render
      * @param {string} role - 'user' or 'assistant'
      * @param {string} content - Message text
-     * @param {string|null} id - Optional message ID from server
+     * @param {Object|null} options - Optional {id, images} for message ID and image URLs
      */
-    function addChatMessage(role, content, id = null) {
-        chatState.messages.push({
-            id: id || `local_${Date.now()}`,
+    function addChatMessage(role, content, options = null) {
+        const msg = {
+            id: options?.id || `local_${Date.now()}`,
             role,
             content,
             timestamp: new Date().toISOString()
-        });
+        };
+        // Add images if provided
+        if (options?.images) {
+            msg.images = options.images;
+        }
+        chatState.messages.push(msg);
         renderChatMessages();
     }
 

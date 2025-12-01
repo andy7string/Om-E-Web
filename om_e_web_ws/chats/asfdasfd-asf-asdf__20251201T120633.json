@@ -1,0 +1,20 @@
+{
+  "chat_id": "asfdasfd-asf-asdf__20251201T120633",
+  "created_at": "2025-12-01T12:06:33.453519Z",
+  "updated_at": "2025-12-01T12:06:33.453535Z",
+  "title": "asfdasfd asf asdf",
+  "default_title": "asfdasfd asf asdf",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(23) YouTube"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "asfdasfd asf asdf as asd fasdf asdf  asdf asdf asdf  asdf asdf",
+      "timestamp": "2025-12-01T12:06:33.453535Z"
+    }
+  ]
+}
