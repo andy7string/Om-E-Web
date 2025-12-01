@@ -1,9 +1,9 @@
 # Local Web Design Adelaide | Bright Tree Digital
 
 **URL:** https://brighttreedigital.com.au/
-**Timestamp:** 2025-12-01 18:58:16
+**Timestamp:** 2025-12-01 21:01:53
 
-**Tabs (1):** Active: #1138028187 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
+**Tabs (1):** Active: #1138028207 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
 
 ## Available Actions
 
@@ -74,8 +74,8 @@ The following pre-configured actions are available for this page:
 <Link id="a_id_6">CONTACT</Link>
 <Link id="a_id_7">Facebook</Link>
 <Link id="a_id_8">Instagram</Link>
-Logo Design
-Developing Timeless Logos That Define Your Brand Identity
+Dynamic Web Design Bringing Your Vision to Life
+Grow Your Brand Online With our Expertise
 <Link id="a_id_9">GET STARTED</Link>
 <Button id="a_id_10">Previous slide</Button>
 <Button id="a_id_11">Next slide</Button>
@@ -108,33 +108,34 @@ service at Bright Tree Digital. We create eye-catching, effective banner ads tha
 Start your journey here...
 <Button id="a_id_21">Get in touch today!</Button>
 Our Work
-<Link id="a_id_22">The Syrene Hotel</Link>
-<Link id="a_id_23">African Safari Deals</Link>
-<Link id="a_id_24">Mtambo Chartered Accountants</Link>
-<Link id="a_id_25">Joss Couture</Link>
-<Link id="a_id_26">Flutterbys School</Link>
-<Link id="a_id_27">The Gourmet Cookie Co</Link>
+<Link id="a_id_22">Straker Functional Fitness</Link>
+<Link id="a_id_23">The Syrene Hotel</Link>
+<Link id="a_id_24">African Safari Deals</Link>
+<Link id="a_id_25">Mtambo Chartered Accountants</Link>
+<Link id="a_id_26">Joss Couture</Link>
+<Link id="a_id_27">Flutterbys School</Link>
+<Link id="a_id_28">The Gourmet Cookie Co</Link>
 New Moon Digital
-<Link id="a_id_28">Straker Functional Fitness</Link>
-<Link id="a_id_29">The Syrene Hotel</Link>
-<Link id="a_id_30">African Safari Deals</Link>
-<Link id="a_id_31">Mtambo Chartered Accountants</Link>
-<Link id="a_id_32">Joss Couture</Link>
-<Link id="a_id_33">Flutterbys School</Link>
-<Link id="a_id_34">The Gourmet Cookie Co</Link>
+<Link id="a_id_29">Straker Functional Fitness</Link>
+<Link id="a_id_30">The Syrene Hotel</Link>
+<Link id="a_id_31">African Safari Deals</Link>
+<Link id="a_id_32">Mtambo Chartered Accountants</Link>
+<Link id="a_id_33">Joss Couture</Link>
+<Link id="a_id_34">Flutterbys School</Link>
+<Link id="a_id_35">The Gourmet Cookie Co</Link>
 New Moon Digital
-<Link id="a_id_35">Straker Functional Fitness</Link>
-<Link id="a_id_36">The Syrene Hotel</Link>
-<Link id="a_id_37">African Safari Deals</Link>
-<Link id="a_id_38">Mtambo Chartered Accountants</Link>
-<Button id="a_id_39">1 of 3</Button>
-<Button id="a_id_40">2 of 3</Button>
-<Button id="a_id_41">3 of 3</Button>
-<Button id="a_id_42">4 of 3</Button>
-<Button id="a_id_43">5 of 3</Button>
-<Button id="a_id_44">6 of 3</Button>
-<Button id="a_id_45">7 of 3</Button>
-<Button id="a_id_46">8 of 3</Button>
+<Link id="a_id_36">Straker Functional Fitness</Link>
+<Link id="a_id_37">The Syrene Hotel</Link>
+<Link id="a_id_38">African Safari Deals</Link>
+<Link id="a_id_39">Mtambo Chartered Accountants</Link>
+<Button id="a_id_40">1 of 2</Button>
+<Button id="a_id_41">2 of 2</Button>
+<Button id="a_id_42">3 of 2</Button>
+<Button id="a_id_43">4 of 2</Button>
+<Button id="a_id_44">5 of 2</Button>
+<Button id="a_id_45">6 of 2</Button>
+<Button id="a_id_46">7 of 2</Button>
+<Button id="a_id_47">8 of 2</Button>
 What Our Clients Say!
 We are so happy that
 Bright Tree Digital
@@ -152,9 +153,9 @@ Bright Tree Digital
 , the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
 Natalie Cassar
 Owner, New Moon Digital
-<Button id="a_id_47">Read More Testimonials</Button>
+<Button id="a_id_48">Read More Testimonials</Button>
 Ready for a Website Makeover?
-<Button id="a_id_48">Reach Out Now!</Button>
+<Button id="a_id_49">Reach Out Now!</Button>
 ABOUT US
 We specialise in
 WordPress web design
@@ -162,19 +163,18 @@ and
 graphic design
 , and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
 OUR PORTFOLIO
-<Link id="a_id_49">Banner Portfolio</Link>
-<Link id="a_id_50">Logo Portfolio</Link>
-<Link id="a_id_51">Web Design Portfolio</Link>
-<Link id="a_id_52">Facebook</Link>
-<Link id="a_id_53">Instagram</Link>
+<Link id="a_id_50">Banner Portfolio</Link>
+<Link id="a_id_51">Logo Portfolio</Link>
+<Link id="a_id_52">Web Design Portfolio</Link>
+<Link id="a_id_53">Facebook</Link>
+<Link id="a_id_54">Instagram</Link>
 ABN: 29 160 886 356
 QUICK LINKS
-<Link id="a_id_54">Home</Link>
-<Link id="a_id_55">About</Link>
-<Link id="a_id_56">Services</Link>
-<Link id="a_id_57">Testimonials</Link>
-<Link id="a_id_58">Contact</Link>
-<Link id="a_id_59">Privacy Policy</Link>
+<Link id="a_id_55">Home</Link>
+<Link id="a_id_56">About</Link>
+<Link id="a_id_57">Services</Link>
+<Link id="a_id_58">Testimonials</Link>
+<Link id="a_id_59">Contact</Link>
+<Link id="a_id_60">Privacy Policy</Link>
 Copyright © 2025 Bright Tree Digital
-<Link id="a_id_60">Website Designed by Bright Tree Digital</Link>
-Scroll to Top
+<Link id="a_id_61">Website Designed by Bright Tree Digital</Link>

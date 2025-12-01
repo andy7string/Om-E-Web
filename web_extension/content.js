@@ -12468,8 +12468,8 @@
                 position: absolute;
                 left: 50%;
                 bottom: 200px;
-                width: 50px;
-                height: 78px;
+                width: 60px;
+                height: 94px;
                 background: transparent;
                 cursor: pointer;
                 pointer-events: auto;
@@ -12480,11 +12480,11 @@
                 touch-action: none;
                 transition: transform 0.15s ease, filter 0.15s ease;
                 filter: drop-shadow(0 0 10px rgba(167,139,250,0.5));
-                --ome-zoom-scale: 1;
-                transform: translateX(-50%) scale(var(--ome-zoom-scale, 1));
+                --ome-zoom-scale: 1.21;
+                transform: translateX(-50%) scale(var(--ome-zoom-scale, 1.21));
                 transform-origin: bottom center;
             }
-            .ome-orb:hover { transform: translateX(-50%) scale(calc(var(--ome-zoom-scale, 1) * 1.1)); filter: drop-shadow(0 0 14px rgba(167,139,250,0.7)); }
+            .ome-orb:hover { transform: translateX(-50%) scale(calc(var(--ome-zoom-scale, 1.21) * 1.1)); filter: drop-shadow(0 0 14px rgba(167,139,250,0.7)); }
             .ome-orb.holding { cursor: none; }
             .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateX(-50%) translateY(0); }
             .ome-bunny { width: 100%; height: 100%; }
@@ -12857,14 +12857,14 @@
                 --theme-accent: #7ec8e3;
                 position: absolute;
                 bottom: 0;
-                right: 70px;
-                width: 320px;
-                height: 400px;
-                min-width: 300px;
-                min-height: 150px;
-                max-width: 800px;
+                right: 85px;
+                width: 387px;
+                height: 484px;
+                min-width: 363px;
+                min-height: 182px;
+                max-width: 968px;
                 max-height: 80vh;
-                background: rgba(33,33,33,0.95);
+                background: rgba(33,33,33,0.80);
                 backdrop-filter: blur(12px);
                 border: 1px solid rgba(var(--theme-color),0.3);
                 border-radius: 12px;
@@ -12923,11 +12923,11 @@
             /* 💬 Message Bubbles */
             .ome-chat-bubble {
                 max-width: 85%;
-                padding: 8px 12px;
-                border-radius: 12px;
-                font-size: 13px;
+                padding: 10px 14px;
+                border-radius: 14px;
+                font-size: 15px;
                 line-height: 1.4;
-                font-weight: 500;
+                font-weight: 650;
                 word-wrap: break-word;
             }
             .ome-chat-bubble.user {
@@ -12964,23 +12964,23 @@
             /* 💬 Chat Input Area - FIXED at bottom, expands upward */
             .ome-chat-input-wrapper {
                 position: absolute;
-                bottom: 12px;
-                left: 12px;
-                right: 60px;
+                bottom: 14px;
+                left: 14px;
+                right: 73px;
             }
             .ome-chat-input {
                 width: 100%;
                 display: block;
                 box-sizing: border-box;
-                min-height: 40px;
-                max-height: 120px;
+                min-height: 48px;
+                max-height: 145px;
                 background: rgba(40,50,80,0.22);
                 border: 1px solid rgba(var(--theme-color),0.3);
-                border-radius: 8px;
-                padding: 10px 12px;
-                font-size: 13px;
+                border-radius: 10px;
+                padding: 12px 14px;
+                font-size: 15px;
                 line-height: 1.4;
-                font-weight: 500;
+                font-weight: 650;
                 color: rgba(var(--theme-color),0.8);
                 outline: none;
                 resize: none;
@@ -12994,14 +12994,14 @@
             .ome-chat-input:focus { border-color: rgba(var(--theme-color),0.5); background: rgba(40,50,80,0.28); }
             .ome-chat-send {
                 position: absolute;
-                right: 12px;
-                bottom: 12px;
-                width: 40px;
-                height: 40px;
-                min-width: 40px;
-                min-height: 40px;
+                right: 14px;
+                bottom: 14px;
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                min-height: 48px;
                 border: 1px solid rgba(var(--theme-color),0.35);
-                border-radius: 10px;
+                border-radius: 12px;
                 background: rgba(80,100,160,0.55);
                 color: var(--theme-accent);
                 cursor: pointer;
@@ -13013,7 +13013,7 @@
             }
             .ome-chat-send:hover { background: rgba(80,100,160,0.75); border-color: rgba(var(--theme-color),0.55); }
             .ome-chat-send:active { transform: scale(0.95); }
-            .ome-chat-send svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+            .ome-chat-send svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; }
 
             /* ═══════════════════════════════════════════════════════════════════
                📚 SIDEBAR - ChatGPT-style side panel for chat history
