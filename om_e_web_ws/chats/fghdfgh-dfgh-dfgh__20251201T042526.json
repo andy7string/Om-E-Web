@@ -1,0 +1,20 @@
+{
+  "chat_id": "fghdfgh-dfgh-dfgh__20251201T042526",
+  "created_at": "2025-12-01T04:25:26.267935Z",
+  "updated_at": "2025-12-01T04:25:26.267962Z",
+  "title": "fghdfgh dfgh dfgh",
+  "default_title": "fghdfgh dfgh dfgh",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "fghdfgh dfgh dfgh dfgh d gh dfgh dgfh dfgh dfgh dgfh dfgh dfgh",
+      "timestamp": "2025-12-01T04:25:26.267962Z"
+    }
+  ]
+}

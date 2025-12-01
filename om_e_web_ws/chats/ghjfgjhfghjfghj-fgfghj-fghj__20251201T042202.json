@@ -1,0 +1,20 @@
+{
+  "chat_id": "ghjfgjhfghjfghj-fgfghj-fghj__20251201T042202",
+  "created_at": "2025-12-01T04:22:02.870127Z",
+  "updated_at": "2025-12-01T04:22:02.870153Z",
+  "title": "ghjfgjhfghjfghj fgfghj fghj",
+  "default_title": "ghjfgjhfghjfghj fgfghj fghj",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "ghjfgjhfghjfghj fgfghj fghj fghj fghj fghj fhj fghjfghj fghj fghj fghjf ghhgfjgfhjfghjfgh jfhjfghjfghj",
+      "timestamp": "2025-12-01T04:22:02.870153Z"
+    }
+  ]
+}
