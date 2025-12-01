@@ -1,9 +1,9 @@
-# Local Web Design Adelaide | Bright Tree Digital
+# (24) YouTube
 
-**URL:** https://brighttreedigital.com.au/
-**Timestamp:** 2025-12-02 00:05:10
+**URL:** https://www.youtube.com/
+**Timestamp:** 2025-12-02 05:54:18
 
-**Tabs (1):** Active: #1138028386 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
+**Tabs (1):** Active: #1138028538 "(24) YouTube" www.youtube.com [complete]
 
 ## Available Actions
 
@@ -65,116 +65,195 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<Link id="a_id_0">Skip to content</Link>
-<Link id="a_id_1">Bright Tree Digital</Link>
-<Link id="a_id_2">HOME</Link>
-<Link id="a_id_3">ABOUT</Link>
-<Link id="a_id_4">PORTFOLIO</Link>
-<Link id="a_id_5">SERVICES</Link>
-<Link id="a_id_6">CONTACT</Link>
-<Link id="a_id_7">Facebook</Link>
-<Link id="a_id_8">Instagram</Link>
-Logo Design
-Developing Timeless Logos That Define Your Brand Identity
-<Link id="a_id_9">GET STARTED</Link>
-<Button id="a_id_10">Previous slide</Button>
-<Button id="a_id_11">Next slide</Button>
-Welcome to Bright Tree Digital...
-...where your vision takes digital form and your business’s potential is fully realized. Specializing in
-WordPress web design
-and compelling
-graphic design
-, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
-Our Services
-<Link id="a_id_12">Website Design</Link>
-Our
-Website Design
-service brings your vision to life. We create beautiful, functional websites that are easy to navigate and look great on any device. Our focus is on making your online presence strong and user-friendly, helping you attract and engage more customers.
-<Button id="a_id_13">View Portfolio</Button>
-<Button id="a_id_14">More Info</Button>
-<Link id="a_id_15">Logo Design</Link>
-Elevate your brand with our custom
-Logo Design
-service. We specialize in creating logos that are not just visually striking but also embody your brand’s story and values. Our goal is to design a distinctive, memorable logo that sets you apart and builds recognition, ensuring it resonates with your audience and enhances brand loyalty.
-<Button id="a_id_16">View Portfolio</Button>
-<Button id="a_id_17">More Info</Button>
-<Link id="a_id_18">Banner Ad Design</Link>
-Boost your online presence with our
-Banner Ad Design
-service at Bright Tree Digital. We create eye-catching, effective banner ads that align with your brand and engage your audience, perfect for enhancing your digital marketing campaigns and social media impact.
-<Button id="a_id_19">View Portfolio</Button>
-<Button id="a_id_20">More Info</Button>
-Start your journey here...
-<Button id="a_id_21">Get in touch today!</Button>
-Our Work
-<Link id="a_id_22">Straker Functional Fitness</Link>
-<Link id="a_id_23">The Syrene Hotel</Link>
-<Link id="a_id_24">African Safari Deals</Link>
-<Link id="a_id_25">Mtambo Chartered Accountants</Link>
-<Link id="a_id_26">Joss Couture</Link>
-<Link id="a_id_27">Flutterbys School</Link>
-<Link id="a_id_28">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_29">Straker Functional Fitness</Link>
-<Link id="a_id_30">The Syrene Hotel</Link>
-<Link id="a_id_31">African Safari Deals</Link>
-<Link id="a_id_32">Mtambo Chartered Accountants</Link>
-<Link id="a_id_33">Joss Couture</Link>
-<Link id="a_id_34">Flutterbys School</Link>
-<Link id="a_id_35">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_36">Straker Functional Fitness</Link>
-<Link id="a_id_37">The Syrene Hotel</Link>
-<Link id="a_id_38">African Safari Deals</Link>
-<Link id="a_id_39">Mtambo Chartered Accountants</Link>
-<Button id="a_id_40">1 of 2</Button>
-<Button id="a_id_41">2 of 2</Button>
-<Button id="a_id_42">3 of 2</Button>
-<Button id="a_id_43">4 of 2</Button>
-<Button id="a_id_44">5 of 2</Button>
-<Button id="a_id_45">6 of 2</Button>
-<Button id="a_id_46">7 of 2</Button>
-<Button id="a_id_47">8 of 2</Button>
-What Our Clients Say!
-We are so happy that
-Bright Tree Digital
-designed our Logos and websites for our 2 food businesses.
-Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
-Michelene Rendell
-Owner, The Kitchen
-Highly recommended.
-Bright Tree Digital
-presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
-Daniella Finney
-Owner, The Syrene Boutique Hotel
-Big shoutout to Olivia at
-Bright Tree Digital
-, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
-Natalie Cassar
-Owner, New Moon Digital
-<Button id="a_id_48">Read More Testimonials</Button>
-Ready for a Website Makeover?
-<Button id="a_id_49">Reach Out Now!</Button>
-ABOUT US
-We specialise in
-WordPress web design
-and
-graphic design
-, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-OUR PORTFOLIO
-<Link id="a_id_50">Banner Portfolio</Link>
-<Link id="a_id_51">Logo Portfolio</Link>
-<Link id="a_id_52">Web Design Portfolio</Link>
-<Link id="a_id_53">Facebook</Link>
-<Link id="a_id_54">Instagram</Link>
-ABN: 29 160 886 356
-QUICK LINKS
-<Link id="a_id_55">Home</Link>
-<Link id="a_id_56">About</Link>
-<Link id="a_id_57">Services</Link>
-<Link id="a_id_58">Testimonials</Link>
-<Link id="a_id_59">Contact</Link>
-<Link id="a_id_60">Privacy Policy</Link>
-Copyright © 2025 Bright Tree Digital
-<Link id="a_id_61">Website Designed by Bright Tree Digital</Link>
+<Button id="a_id_0">Guide</Button>
+<Link id="a_id_1">YouTube Premium Home</Link>
+AU
+<Button id="a_id_2">Skip navigation</Button>
+<Input id="a_id_3" use="(a_id_3, 'your text', submit:true)">Search</Input>
+<Button id="a_id_4">Search</Button>
+<Button id="a_id_5">Search with your voice</Button>
+<Button id="a_id_6">Create</Button>
+<Button id="a_id_7">Notifications</Button>
+<Button id="a_id_8">Account menu</Button>
+<Link id="a_id_9">Home</Link>
+<Link id="a_id_10">Shorts</Link>
+<Link id="a_id_11">Subscriptions</Link>
+<Link id="a_id_12">You</Link>
+<Button id="a_id_13">All</Button>
+<Button id="a_id_14">Podcasts</Button>
+<Button id="a_id_15">AI</Button>
+<Button id="a_id_16">Music</Button>
+<Button id="a_id_17">Musical notes</Button>
+<Button id="a_id_18">News</Button>
+<Button id="a_id_19">Extraterrestrial life</Button>
+<Button id="a_id_20">Guitar solos</Button>
+<Button id="a_id_21">Mixes</Button>
+<Button id="a_id_22">Live</Button>
+<Button id="a_id_23">Physics</Button>
+<Button id="a_id_24">Bodyweight exercises</Button>
+<Button id="a_id_25">Cloud computing</Button>
+<Button id="a_id_26">Marine mammals</Button>
+<Button id="a_id_27">Endurance</Button>
+<Button id="a_id_28">Exercise machines</Button>
+<Button id="a_id_29">Computer Hardware</Button>
+<Button id="a_id_30">Gadgets</Button>
+<Button id="a_id_31">Recently uploaded</Button>
+<Button id="a_id_32">Watched</Button>
+<Button id="a_id_33">New to you</Button>
+<Button id="a_id_34">Next</Button>
+<Link id="a_id_35">13:52</Link>
+<Link id="a_id_36">REVEALED: Sam Altman's OpenAI Is 'MONEY LOSS MACHINE' 13 minutes, 52 seconds</Link>
+<Link id="a_id_37">Breaking Points</Link>
+19K views
+•
+54 minutes ago
+<Link id="a_id_38">10:56</Link>
+<Link id="a_id_39">[Guitar Licks Lesson] Pedal Point Pivot Licks 10 minutes, 56 seconds</Link>
+<Link id="a_id_40">TomHessMusicCorp</Link>
+138 views
+•
+3 hours ago
+<Link id="a_id_41">25:24</Link>
+<Link id="a_id_42">World’s Strongest Man vs High-Rep Bodyweight Squats (Feat. Thor) 25 minutes</Link>
+<Link id="a_id_43">Renaissance Periodization</Link>
+12K views
+•
+2 hours ago
+Shorts
+<Link id="a_id_44">Crowley Meets The Wicked Witch ! Supernatural S09E04 #movie #shorts #supernatural #tvshow</Link>
+1.1M views
+<Link id="a_id_45">Protein Shakes Are the Biggest Scam Ever!?</Link>
+83K views
+<Link id="a_id_46">Руслан и Поля❤️ #ballroomdancesport #dance #dancer #dancevideo #ballroomdance #dancesport</Link>
+481K views
+<Link id="a_id_47">Man develops technology for immortality #shorts #movie</Link>
+679K views
+<Link id="a_id_48">He wants to personally avenge his dead brother.</Link>
+3.5M views
+<Link id="a_id_49">8:18</Link>
+<Link id="a_id_50">My New App Is FINALLY Live 8 minutes, 18 seconds</Link>
+<Link id="a_id_51">Chris Raroque</Link>
+1.7K views
+•
+3 hours ago
+<Link id="a_id_52">11:19</Link>
+<Link id="a_id_53">The Biggest Scam In Fitness? (Electrolytes) 11 minutes, 19 seconds</Link>
+<Link id="a_id_54">MyCoachBenji</Link>
+639 views
+•
+2 days ago
+<Link id="a_id_55">1:40:14</Link>
+<Link id="a_id_56">This is UNPRECEDENTED 💥 Millions at Risk from Solar Activity as 1.9 X-Flare BLASTS OFF 1 hour, 40 minutes</Link>
+<Link id="a_id_57">Stefan Burns</Link>
+302K views
+•
+Streamed 13 hours ago
+Shorts
+<Link id="a_id_58">Celebrities who went from rich to broke #shortvideo #actor #celebrity</Link>
+3.4M views
+<Link id="a_id_59">When everyone at a Bruno Mars concert except the guitarist was late for the show.</Link>
+125K views
+<Link id="a_id_60">AI WON’T ruin lives — if we don’t let it</Link>
+605 views
+<Link id="a_id_61">Daenerys Revenge😡🔥She Burned Them All | Game of Thrones #got #edit #shorts</Link>
+4.1M views
+<Link id="a_id_62">Blade Faces the True Power of the Vampire Nation</Link>
+289K views
+<Link id="a_id_63">15:58</Link>
+<Link id="a_id_64">We Only Have 900 DAYS LEFT — Emad Mostaque on AI 15 minutes</Link>
+<Link id="a_id_65">AI Copium</Link>
+2.3K views
+•
+4 hours ago
+<Link id="a_id_66">5:45</Link>
+<Link id="a_id_67">Should You Consider Lasik After 45 Years Old? 5 minutes, 45 seconds</Link>
+<Link id="a_id_68">Dr. EyeGuy</Link>
+238K views
+•
+8 months ago
+<Link id="a_id_69">9:52</Link>
+<Link id="a_id_70">I believe the world will change dramatically, soon 9 minutes, 52 seconds</Link>
+<Link id="a_id_71">Sabine Hossenfelder</Link>
+584K views
+•
+4 days ago
+<Link id="a_id_72">17:29</Link>
+<Link id="a_id_73">Over 60? These 2 Vitamins Boost Muscle TWICE as Fast as Magnesium | Dr. Rhonda Patrick 17 minutes</Link>
+<Link id="a_id_74">The Health Lab</Link>
+54 views
+•
+1 day ago
+<Link id="a_id_75">39:01</Link>
+<Link id="a_id_76">Does Yorke Peninsula Have the Clearest Water in Australia? 39 minutes</Link>
+<Link id="a_id_77">James and Josie Travel</Link>
+5.8K views
+•
+2 weeks ago
+<Link id="a_id_78">3:23</Link>
+<Link id="a_id_79">Marty Friedman & Ichika Nito - 黒と白 3 minutes, 23 seconds</Link>
+<Link id="a_id_80">Neural DSP</Link>
+74K views
+•
+2 days ago
+<Link id="a_id_81">16:32</Link>
+<Link id="a_id_82">The End of Traditional SEO (And What Replaces It in 2026) 16 minutes</Link>
+<Link id="a_id_83">Julia McCoy</Link>
+1.2K views
+•
+2 hours ago
+<Link id="a_id_84">3:57:04</Link>
+<Link id="a_id_85">NASA Apollo Astronaut Finally Faces Off Against #1 Moon Landing Skeptic 3 hours, 57 minutes</Link>
+<Link id="a_id_86">Danny Jones</Link>
+10K views
+•
+1 hour ago
+<Link id="a_id_87">1:12</Link>
+<Link id="a_id_88">Chatswood is the best suburb in Sydney 🇦🇺 1 minute, 12 seconds</Link>
+<Link id="a_id_89">Jamie Zhu</Link>
+431 views
+•
+7 hours ago
+<Link id="a_id_90">9:06</Link>
+<Link id="a_id_91">How Much Protein Do MEN Over 50 Really Need? 9 minutes, 6 seconds</Link>
+<Link id="a_id_92">Theory of Man</Link>
+58K views
+•
+1 month ago
+<Link id="a_id_93">15:06</Link>
+<Link id="a_id_94">Why Rust Changed the Way I Think About Programming 15 minutes</Link>
+<Link id="a_id_95">ForrestKnight</Link>
+1K views
+•
+1 hour ago
+<Link id="a_id_96">12:35</Link>
+<Link id="a_id_97">AI Is About to Trigger the Biggest Productivity Shock in History w/ Salim Ismail 12 minutes, 35 seconds</Link>
+<Link id="a_id_98">Milk Road AI</Link>
+2.3K views
+•
+1 day ago
+<Link id="a_id_99">17:58</Link>
+<Link id="a_id_100">I Got Sued... 17 minutes</Link>
+<Link id="a_id_101">Gluck's Gym</Link>
+439K views
+•
+11 days ago
+<Link id="a_id_102">1:02</Link>
+<Link id="a_id_103">Solar Guitars VA1.61FR Assassin 1 minute, 2 seconds</Link>
+<Link id="a_id_104">Solar Guitars</Link>
+7.1K views
+•
+2 days ago
+<Link id="a_id_105">14:59</Link>
+<Link id="a_id_106">Steven Bartlett - "They Took My Home, My Money & My Freedom" | Dr. Annette Bosworth 14 minutes, 59 seconds</Link>
+<Link id="a_id_107">The Diary Conversations</Link>
+874 views
+•
+2 days ago
+
+---
+
+## Secure Iframe Elements
+
+*⏳ Loading 1 iframe(s)... (payment forms, embedded content)*
+
+*Iframe elements will appear here when loaded. Check back shortly.*

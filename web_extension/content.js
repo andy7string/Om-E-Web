@@ -12015,7 +12015,7 @@
         chatVisible: true,    // 💬 Chat panel visibility (open by default)
         sidebarOpen: false,   // 📚 Sidebar open state
         dragging: false,
-        theme: 'robot'  // Current orb theme (default)
+        theme: 'robot'        // Current orb theme (default)
     };
 
     // 💬 Save chat input immediately (persists across navigation)
@@ -12153,74 +12153,149 @@
     }
 
     /**
-     * 📐 Constrain chat panel to viewport - ensures panel stays 10px from edges
-     * Strategy: Move orb right first, only shrink panel when orb can't move more
-     * Called on window resize and when chat panel is shown
+     * 📐 Smart orb positioning - keeps orb and all controls within viewport
+     * Handles both open and closed chat panel states:
+     * - Panel open: shrink panel first, then move orb
+     * - Panel closed: just move orb to stay within bounds
+     * Maintains 10px margin from all viewport edges
      */
-    function constrainChatPanelToViewport() {
-        const chatPanel = hudState.chatPanel;
+    function constrainOrbToViewport() {
         const orb = hudState.orb;
-        if (!chatPanel || !orb) return;
+        const chatPanel = hudState.chatPanel;
+        if (!orb) return;
 
         const viewportWidth = window.innerWidth;
-        const margin = 10; // 10px from edges
-        const panelRightOffset = 70; // CSS right: 70px from orb
-        const minPanelWidth = 300;
+        const viewportHeight = window.innerHeight;
+        const margin = 10; // 10px from all edges
 
-        // Get current panel width (use style or default)
-        const panelRect = chatPanel.getBoundingClientRect();
-        const currentPanelWidth = panelRect.width || 320;
-
-        // Calculate where panel's left edge is
+        // Orb dimensions and control offsets
         const orbRect = orb.getBoundingClientRect();
-        const panelLeftEdge = orbRect.right - panelRightOffset - currentPanelWidth;
 
-        // If panel left edge is past the margin, we need to adjust
-        if (panelLeftEdge < margin) {
-            const overflow = margin - panelLeftEdge; // How much we're overflowing
+        // Control offsets from orb
+        const scrollButtonsRight = 90;  // Scroll buttons extend ~90px right of orb left edge (54px + 36px button)
+        const zoomControlsBelow = 50;   // Zoom controls extend ~50px below orb
+        const promptButtonBelow = 25;   // Prompt button extends ~25px below orb
 
-            // First, try to move the orb right
-            const currentOrbRight = viewportWidth - orbRect.right;
-            // Scroll buttons extend ~64px past orb, need 10px margin from viewport edge
-            const scrollButtonsOffset = 74; // 54px position + 10px button edge + 10px margin
-            const availableOrbMove = currentOrbRight - scrollButtonsOffset;
+        // Calculate orb's total footprint (orb + all visible controls)
+        const footprintRight = orbRect.left + scrollButtonsRight;  // Right edge of scroll buttons
+        const footprintBottom = orbRect.bottom + Math.max(zoomControlsBelow, promptButtonBelow);
+        const footprintLeft = orbRect.left;
+        const footprintTop = orbRect.top;
 
-            if (availableOrbMove > 0) {
-                // Move orb right by the needed amount (or max available)
-                const moveAmount = Math.min(overflow, availableOrbMove);
-                const newRightPx = currentOrbRight - moveAmount;
-                const newRightPct = (newRightPx / viewportWidth) * 100;
+        // Current position as percentages (calculate from actual position, not style)
+        let rightPct = ((viewportWidth - orbRect.right) / viewportWidth) * 100;
+        let bottomPct = ((viewportHeight - orbRect.bottom) / viewportHeight) * 100;
+        let positionChanged = false;
 
-                orb.style.right = `${newRightPct}%`;
-                console.log('[Content] 📐 Moved orb right to:', newRightPct.toFixed(1) + '%');
+        // ============================================================
+        // CHAT PANEL OPEN: Handle panel + orb together
+        // ============================================================
+        if (hudState.chatVisible && chatPanel) {
+            const panelRect = chatPanel.getBoundingClientRect();
+            const panelRightOffset = 85;  // Panel is 85px left of orb
+            const minPanelWidth = 300;
+            let currentPanelWidth = panelRect.width || 750;
 
-                // Save new position
-                const bottomPct = parseFloat(orb.style.bottom) || 5;
-                try {
-                    chrome.runtime.sendMessage({ type: 'set_orb_state', position: { rightPct: newRightPct, bottomPct } });
-                } catch (e) { /* ignore */ }
+            // Check LEFT edge overflow (panel extends past left margin)
+            const panelLeftEdge = panelRect.left;
+            if (panelLeftEdge < margin) {
+                const leftOverflow = margin - panelLeftEdge;
 
-                // Recalculate if we still need to shrink
-                const remainingOverflow = overflow - moveAmount;
-                if (remainingOverflow > 0) {
-                    // Shrink panel by remaining overflow
-                    const newWidth = Math.max(minPanelWidth, currentPanelWidth - remainingOverflow);
-                    chatPanel.style.width = `${newWidth}px`;
-                    console.log('[Content] 📐 Shrunk chat panel to:', newWidth);
+                // Strategy 1: Shrink panel first (preferred)
+                if (currentPanelWidth - leftOverflow >= minPanelWidth) {
+                    currentPanelWidth -= leftOverflow;
+                    chatPanel.style.width = `${currentPanelWidth}px`;
+                    console.log('[Content] 📐 Shrunk panel to:', currentPanelWidth);
+                } else {
+                    // Strategy 2: Shrink to min, then move orb right
+                    const shrinkAmount = currentPanelWidth - minPanelWidth;
+                    if (shrinkAmount > 0) {
+                        currentPanelWidth = minPanelWidth;
+                        chatPanel.style.width = `${minPanelWidth}px`;
+                    }
+                    const remainingOverflow = leftOverflow - shrinkAmount;
+                    if (remainingOverflow > 0) {
+                        // Move orb right
+                        const rightPx = (rightPct / 100) * viewportWidth;
+                        const newRightPx = Math.max(scrollButtonsRight + margin, rightPx - remainingOverflow);
+                        rightPct = (newRightPx / viewportWidth) * 100;
+                        positionChanged = true;
+                        console.log('[Content] 📐 Moved orb right to:', rightPct.toFixed(1) + '%');
+                    }
                 }
-            } else {
-                // Can't move orb anymore, just shrink panel
-                const newWidth = Math.max(minPanelWidth, currentPanelWidth - overflow);
-                chatPanel.style.width = `${newWidth}px`;
-                console.log('[Content] 📐 Shrunk chat panel to:', newWidth);
+            }
+
+            // Check RIGHT edge overflow (scroll buttons past right margin)
+            if (footprintRight > viewportWidth - margin) {
+                const rightOverflow = footprintRight - (viewportWidth - margin);
+                const rightPx = (rightPct / 100) * viewportWidth;
+                rightPct = ((rightPx + rightOverflow) / viewportWidth) * 100;
+                positionChanged = true;
+                console.log('[Content] 📐 Moved orb left to:', rightPct.toFixed(1) + '%');
+            }
+
+            // Update max-width constraint for manual resize
+            const orbRightAfter = viewportWidth - orb.getBoundingClientRect().right;
+            const maxAvailableWidth = viewportWidth - orbRightAfter - panelRightOffset - margin;
+            chatPanel.style.maxWidth = `${Math.max(minPanelWidth, maxAvailableWidth)}px`;
+        }
+        // ============================================================
+        // CHAT PANEL CLOSED: Just keep orb within bounds
+        // ============================================================
+        else {
+            // Check RIGHT edge (scroll buttons)
+            if (footprintRight > viewportWidth - margin) {
+                const rightOverflow = footprintRight - (viewportWidth - margin);
+                const rightPx = (rightPct / 100) * viewportWidth;
+                rightPct = ((rightPx + rightOverflow) / viewportWidth) * 100;
+                positionChanged = true;
+            }
+
+            // Check LEFT edge (orb body)
+            if (footprintLeft < margin) {
+                const leftOverflow = margin - footprintLeft;
+                const rightPx = (rightPct / 100) * viewportWidth;
+                rightPct = ((rightPx - leftOverflow) / viewportWidth) * 100;
+                positionChanged = true;
             }
         }
 
-        // Update max-width for manual resize constraints
-        const orbRightAfter = viewportWidth - orb.getBoundingClientRect().right;
-        const maxAvailableWidth = viewportWidth - orbRightAfter - panelRightOffset - margin;
-        chatPanel.style.maxWidth = `${Math.max(minPanelWidth, maxAvailableWidth)}px`;
+        // ============================================================
+        // VERTICAL BOUNDS (same for both states)
+        // ============================================================
+        // Check BOTTOM edge (zoom controls / prompt button)
+        if (footprintBottom > viewportHeight - margin) {
+            const bottomOverflow = footprintBottom - (viewportHeight - margin);
+            const bottomPx = (bottomPct / 100) * viewportHeight;
+            bottomPct = ((bottomPx + bottomOverflow) / viewportHeight) * 100;
+            positionChanged = true;
+        }
+
+        // Check TOP edge (orb body)
+        if (footprintTop < margin) {
+            const topOverflow = margin - footprintTop;
+            const bottomPx = (bottomPct / 100) * viewportHeight;
+            bottomPct = ((bottomPx - topOverflow) / viewportHeight) * 100;
+            positionChanged = true;
+        }
+
+        // Apply position changes
+        if (positionChanged) {
+            // Clamp to sane bounds
+            rightPct = Math.max(1, Math.min(95, rightPct));
+            bottomPct = Math.max(1, Math.min(90, bottomPct));
+
+            orb.style.left = 'auto';
+            orb.style.top = 'auto';
+            orb.style.right = `${rightPct}%`;
+            orb.style.bottom = `${bottomPct}%`;
+            console.log('[Content] 📐 Adjusted orb position:', { right: rightPct.toFixed(1) + '%', bottom: bottomPct.toFixed(1) + '%' });
+            saveOrbPosition(rightPct, bottomPct);
+        }
     }
+
+    // Alias for backwards compatibility
+    const constrainChatPanelToViewport = constrainOrbToViewport;
 
     // 📐 Window resize listener for chat panel viewport constraints
     let resizeTimeout = null;
@@ -12467,7 +12542,7 @@
             .ome-orb {
                 position: absolute;
                 left: calc(50% + 400px);
-                bottom: 228px;
+                bottom: 128px;
                 width: 66px;
                 height: 103px;
                 background: transparent;
@@ -12857,6 +12932,7 @@
                 transition: transform 0.2s ease;
             }
             .ome-hud-orb:hover { transform: scale(1.05); }
+            .ome-hud-orb.holding { transform: scale(1.1); cursor: grabbing; }
             .ome-hud-orb svg { width: 80px; height: 80px; }
 
             /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - same size as Z) */
@@ -13019,7 +13095,7 @@
                 position: absolute;
                 bottom: 0;
                 right: 85px;
-                width: 800px;
+                width: 750px;
                 height: auto;
                 min-width: 363px;
                 min-height: 120px;
@@ -13437,7 +13513,7 @@
 
         // 💬 Prompt button (opens chat panel)
         const promptHTML = `
-            <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
+            <button class="ome-prompt-btn" style="color: ${theme.color}">Open Prompt</button>`;
 
         // 💬 Chat panel (anchored to orb) - with resize handles and theme
         const chatPanelHTML = `
@@ -13524,7 +13600,11 @@
             // Restore visibility state if was open
             if (hudState.chatVisible) {
                 chatPanel.classList.add('visible');
-                hudState.orb.querySelector('.ome-prompt-btn')?.classList.add('active');
+                const promptBtn = hudState.orb.querySelector('.ome-prompt-btn');
+                if (promptBtn) {
+                    promptBtn.classList.add('active');
+                    promptBtn.textContent = 'HIDE PROMPT';
+                }
                 constrainChatPanelToViewport(); // Ensure panel fits viewport
             }
 
@@ -13653,7 +13733,7 @@
 
         // 💬 Prompt button (opens chat panel)
         const promptHTML = `
-            <button class="ome-prompt-btn" style="color: ${theme.color}">Prompt</button>`;
+            <button class="ome-prompt-btn" style="color: ${theme.color}">Open Prompt</button>`;
 
         // 💬 Chat panel (anchored to orb) - with resize handles
         const chatPanelHTML = `
@@ -13705,7 +13785,12 @@
             orb.style.top = 'auto';
             orb.style.right = `${Math.max(0, rightPct)}%`;
             orb.style.bottom = `${Math.max(0, bottomPct)}%`;
+
+            // 💾 Save position to service worker
             saveOrbPosition(Math.max(0, rightPct), Math.max(0, bottomPct));
+
+            // 📐 Ensure orb stays within viewport bounds after release
+            constrainOrbToViewport();
         }
 
         /**
@@ -13777,7 +13862,11 @@
             // 💬 Open chat panel by default if chatVisible is true
             if (hudState.chatVisible) {
                 chatPanel.classList.add('visible');
-                orb.querySelector('.ome-prompt-btn')?.classList.add('active');
+                const promptBtn = orb.querySelector('.ome-prompt-btn');
+                if (promptBtn) {
+                    promptBtn.classList.add('active');
+                    promptBtn.textContent = 'HIDE PROMPT';
+                }
             }
             // Prevent clicks inside panel from bubbling to orb
             chatPanel.addEventListener('click', (e) => e.stopPropagation());
@@ -14056,34 +14145,61 @@
         });
 
         // 🛤️ Rail slider - drag orb to slide prompt unit up/down
+        // Uses click-to-toggle pattern (same as floating orb)
         const inputArea = hud.querySelector('.ome-hud-input-area');
         const hudOrb = hud.querySelector('.ome-hud-orb');
-        let isSliding = false;
-        let slideStartY = 0;
-        let slideStartBottom = 400;
+        let hudSliding = false;
+        let hudSlideHandler = null;
 
-        hudOrb?.addEventListener('mousedown', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            isSliding = true;
-            slideStartY = e.clientY;
-            slideStartBottom = parseInt(inputArea.style.bottom) || 400;
+        /**
+         * Release HUD orb from slide mode
+         */
+        function releaseHudSlide() {
+            if (!hudSliding) return;
+            hudSliding = false;
+            inputArea?.classList.remove('dragging');
+            hudOrb?.classList.remove('holding');
+            document.body.style.cursor = '';
+            if (hudSlideHandler) {
+                document.removeEventListener('mousemove', hudSlideHandler);
+                hudSlideHandler = null;
+            }
+        }
+
+        /**
+         * Start HUD orb slide mode - follows cursor vertically
+         */
+        function startHudSlide() {
+            if (hudSliding || !inputArea) return;
+            hudSliding = true;
             inputArea.classList.add('dragging');
+            hudOrb?.classList.add('holding');
             document.body.style.cursor = 'grabbing';
-        });
 
-        document.addEventListener('mousemove', (e) => {
-            if (!isSliding || !inputArea) return;
-            const deltaY = slideStartY - e.clientY;
-            const newBottom = Math.max(20, Math.min(window.innerHeight - 150, slideStartBottom + deltaY));
-            inputArea.style.bottom = newBottom + 'px';
-        });
+            const startBottom = parseInt(inputArea.style.bottom) || 400;
+            let lastY = null;
 
-        document.addEventListener('mouseup', () => {
-            if (isSliding) {
-                isSliding = false;
-                inputArea?.classList.remove('dragging');
-                document.body.style.cursor = '';
+            hudSlideHandler = (e) => {
+                if (lastY === null) {
+                    lastY = e.clientY;
+                    return;
+                }
+                const deltaY = lastY - e.clientY;
+                lastY = e.clientY;
+                const currentBottom = parseInt(inputArea.style.bottom) || startBottom;
+                const newBottom = Math.max(20, Math.min(window.innerHeight - 150, currentBottom + deltaY));
+                inputArea.style.bottom = newBottom + 'px';
+            };
+            document.addEventListener('mousemove', hudSlideHandler);
+        }
+
+        // Click to toggle slide mode (same pattern as floating orb)
+        hudOrb?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (hudSliding) {
+                releaseHudSlide();
+            } else {
+                startHudSlide();
             }
         });
 
@@ -14152,46 +14268,11 @@
     }
 
     /**
-     * 📐 Clamp orb position to keep it visible within our canvas
-     * Called on window resize to ensure orb doesn't go off-screen
-     * Uses percentage positioning for consistency
-     * Accounts for scroll buttons extending 54px + 36px to the right
+     * 📐 Clamp orb position to keep it visible within viewport
+     * Now uses the comprehensive constrainOrbToViewport function
      */
     function clampOrbToViewport() {
-        if (!hudState.orb || !hudState.host) return;
-
-        // Get positions relative to our canvas
-        const orbRect = hudState.orb.getBoundingClientRect();
-        const hostRect = hudState.host.getBoundingClientRect();
-
-        // Calculate current percentages
-        let rightPct = ((hostRect.right - orbRect.right) / hostRect.width) * 100;
-        let bottomPct = ((hostRect.bottom - orbRect.bottom) / hostRect.height) * 100;
-
-        // Right edge: scroll buttons extend ~54px past orb, need 10px margin
-        // Convert 64px minimum to percentage based on current viewport
-        const scrollButtonsOffset = 64; // 54px position + ~10px for button edge
-        const margin = 10;
-        const minRightPx = scrollButtonsOffset + margin; // 74px minimum from orb right edge to viewport right
-        const minRightPct = (minRightPx / hostRect.width) * 100;
-
-        // Left edge: orb body needs 10px margin
-        const maxRightPct = 90;
-        const maxBottomPct = 85; // Extra space for zoom controls
-        const minBottomPct = 1;
-
-        const clampedRightPct = Math.max(minRightPct, Math.min(rightPct, maxRightPct));
-        const clampedBottomPct = Math.max(minBottomPct, Math.min(bottomPct, maxBottomPct));
-
-        // Only update if clamping was needed
-        if (Math.abs(clampedRightPct - rightPct) > 0.5 || Math.abs(clampedBottomPct - bottomPct) > 0.5) {
-            hudState.orb.style.left = 'auto';
-            hudState.orb.style.top = 'auto';
-            hudState.orb.style.right = `${clampedRightPct}%`;
-            hudState.orb.style.bottom = `${clampedBottomPct}%`;
-            console.log('[Content] 📐 Clamped orb position:', { right: clampedRightPct.toFixed(1) + '%', bottom: clampedBottomPct.toFixed(1) + '%' });
-            saveOrbPosition(clampedRightPct, clampedBottomPct);
-        }
+        constrainOrbToViewport();
     }
 
     /**
@@ -14202,7 +14283,6 @@
     function saveOrbPosition(rightPct, bottomPct) {
         try {
             chrome.runtime.sendMessage({ type: 'set_orb_state', position: { rightPct, bottomPct } });
-            console.log('[Content] 💾 Saved orb position to SW:', { rightPct: rightPct.toFixed(1) + '%', bottomPct: bottomPct.toFixed(1) + '%' });
         } catch (e) {
             console.warn('[Content] Could not save position:', e);
         }
@@ -14245,6 +14325,7 @@
             saveOrbPosition(Math.max(0, rightPct), Math.max(0, bottomPct));
             console.log('[Content] 📍 Converted legacy left/top to percentages');
         }
+
     }
 
     /**
@@ -14337,13 +14418,26 @@
                         applyOrbZoomScale(response.zoom);
                         console.log('[Content] 🔍 Applied zoom scale from SW:', response.zoom);
                     }
-                    // 💬 Restore chat panel visibility
-                    if (response.chatVisible && hudState.chatPanel) {
-                        hudState.chatVisible = true;
-                        hudState.chatPanel.classList.add('visible');
-                        hudState.orb?.querySelector('.ome-prompt-btn')?.classList.add('active');
-                        constrainChatPanelToViewport(); // Ensure panel fits viewport
-                        console.log('[Content] 💬 Restored chat panel visibility from SW');
+                    // 💬 Restore chat panel visibility (handle both true and false)
+                    if (response.chatVisible !== undefined && hudState.chatPanel) {
+                        hudState.chatVisible = response.chatVisible;
+                        const promptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
+                        if (response.chatVisible) {
+                            hudState.chatPanel.classList.add('visible');
+                            if (promptBtn) {
+                                promptBtn.classList.add('active');
+                                promptBtn.textContent = 'HIDE PROMPT';
+                            }
+                            constrainChatPanelToViewport(); // Ensure panel fits viewport
+                            console.log('[Content] 💬 Restored chat panel: OPEN');
+                        } else {
+                            hudState.chatPanel.classList.remove('visible');
+                            if (promptBtn) {
+                                promptBtn.classList.remove('active');
+                                promptBtn.textContent = 'Open Prompt';
+                            }
+                            console.log('[Content] 💬 Restored chat panel: CLOSED');
+                        }
                     }
                     // 💬 Restore chat input text
                     if (response.chatInput && hudState.chatPanel) {
@@ -14362,6 +14456,7 @@
                         hudState.hud?.classList.add('sidebar-open');
                         console.log('[Content] 📚 Restored sidebar state from SW');
                     }
+
                 }
             });
         } catch (e) {
@@ -14391,15 +14486,21 @@
         if (!hudState.chatPanel) return;
         hudState.chatVisible = !hudState.chatVisible;
         hudState.chatPanel.classList.toggle('visible', hudState.chatVisible);
-        // Toggle active state on prompt button
+        // Toggle active state and text on prompt button
         const promptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
-        if (promptBtn) promptBtn.classList.toggle('active', hudState.chatVisible);
+        if (promptBtn) {
+            promptBtn.classList.toggle('active', hudState.chatVisible);
+            promptBtn.textContent = hudState.chatVisible ? 'HIDE PROMPT' : 'Open Prompt';
+        }
         // Focus input and render from shared state when opening
         if (hudState.chatVisible) {
-            constrainChatPanelToViewport(); // Ensure panel fits viewport
+            constrainOrbToViewport(); // Ensure panel + orb fit viewport
             const input = hudState.chatPanel.querySelector('.ome-chat-input');
             if (input) input.focus();
             renderChatMessages();
+        } else {
+            // When closing, ensure orb still fits within viewport
+            constrainOrbToViewport();
         }
         // 💾 Persist chat visibility to service worker
         try {

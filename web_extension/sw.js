@@ -34,15 +34,19 @@ let isConnected = false;
 // Queue for messages when WebSocket isn't ready
 let pendingMessages = [];
 
-// 🐰 ORB STATE - persists across page navigations
+// 🐰 ORB STATE - persists across page navigations within session
 const orbState = {
     theme: 'robot',       // Current theme name (robot is default)
-    position: null,       // { left: number, top: number } or null for default
+    position: null,       // { rightPct, bottomPct } or null for default
     chatVisible: false,   // 💬 Chat panel open/closed
     chatInput: '',        // 💬 Text in input box (persists across nav)
     chatPanelSize: null,  // 📐 Chat panel dimensions { width, height } or null for default
     sidebarOpen: false    // 📚 Sidebar open/closed
 };
+
+// 🚀 SESSION FLAG - tracks if default position has been applied this browser session
+// 0 = not yet applied (use default), 1 = already applied (use saved position)
+let orbDefaultApplied = 0;
 
 // ============================================================================
 // 🗑️ PAGE VERSIONING SYSTEM - COMMENTED OUT FOR TESTING
@@ -1426,15 +1430,30 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 break;
             case 'get_orb_state':
                 // 🐰 Return current orb state to content script (include zoom)
+                // First page of session uses default position, subsequent pages use saved
                 (async () => {
                     try {
                         const activeTab = await findActiveTab();
                         const zoom = activeTab ? await chrome.tabs.getZoom(activeTab.id) : 1.0;
-                        console.log('[SW] 🐰 Returning orb state:', { ...orbState, zoom });
-                        sendResponse({ ok: true, ...orbState, zoom });
+
+                        // Check session flag - first load uses defaults, then remember state
+                        if (orbDefaultApplied === 0) {
+                            // First page of session - use defaults (position: null, chatVisible: true)
+                            orbDefaultApplied = 1;
+                            console.log('[SW] 🚀 First page of session - using defaults (position: null, chatVisible: true)');
+                            sendResponse({ ok: true, ...orbState, position: null, chatVisible: true, zoom });
+                        } else {
+                            // Subsequent pages - use saved position and chatVisible
+                            console.log('[SW] 🐰 Returning saved orb state:', { ...orbState, zoom });
+                            sendResponse({ ok: true, ...orbState, zoom });
+                        }
                     } catch (e) {
-                        console.log('[SW] 🐰 Returning orb state (no zoom):', orbState);
-                        sendResponse({ ok: true, ...orbState, zoom: 1.0 });
+                        if (orbDefaultApplied === 0) {
+                            orbDefaultApplied = 1;
+                            sendResponse({ ok: true, ...orbState, position: null, chatVisible: true, zoom: 1.0 });
+                        } else {
+                            sendResponse({ ok: true, ...orbState, zoom: 1.0 });
+                        }
                     }
                 })();
                 return true; // Keep channel open for async
