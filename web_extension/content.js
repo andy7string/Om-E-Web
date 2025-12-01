@@ -12913,6 +12913,26 @@
                 stroke-width: 3;
                 fill: none;
             }
+            /* 🔮 HUD Menu Button (ORB label, same style as orb's HUD button) */
+            .ome-hud-menu-btn {
+                width: 48px;
+                height: 48px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                color: inherit;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.1s ease;
+                opacity: 0.7;
+            }
+            .ome-hud-menu-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+            .ome-hud-menu-btn:active { transform: scale(0.95); }
 
             /* 🔮 HUD Orb Container (orb + exit button) */
             .ome-hud-orb-container {
@@ -14001,6 +14021,7 @@
 
                         <!-- 🎮 HUD Scroll Controls -->
                         <div class="ome-hud-scroll">
+                            <button class="ome-hud-menu-btn ome-hud-orb-btn">ORB</button>
                             <button class="ome-hud-ctrl-btn ome-hud-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
                             <button class="ome-hud-ctrl-btn ome-hud-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
                         </div>
@@ -14142,6 +14163,12 @@
             if (hudMessagesArea) {
                 hudMessagesArea.scrollBy({ top: 100, behavior: 'smooth' });
             }
+        });
+
+        // 🔮 ORB button - return to orb view
+        hud.querySelector('.ome-hud-orb-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHUD();
         });
 
         // 🛤️ Rail slider - drag orb to slide prompt unit up/down
