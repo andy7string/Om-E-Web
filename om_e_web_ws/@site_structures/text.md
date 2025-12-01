@@ -1,9 +1,9 @@
-# ChatGPT
+# Local Web Design Adelaide | Bright Tree Digital
 
-**URL:** https://chatgpt.com/
-**Timestamp:** 2025-12-01 17:36:25
+**URL:** https://brighttreedigital.com.au/
+**Timestamp:** 2025-12-01 18:58:16
 
-**Tabs (1):** Active: #1138028044 "ChatGPT" chatgpt.com [loading]
+**Tabs (1):** Active: #1138028187 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
 
 ## Available Actions
 
@@ -66,13 +66,115 @@ The following pre-configured actions are available for this page:
 ---
 
 <Link id="a_id_0">Skip to content</Link>
-<Button id="a_id_1">Open sidebar</Button>
-<Button id="a_id_2">Open profile menu</Button>
-<Button id="a_id_3">Model selector, current model is 5.1</Button>
-<Button id="a_id_4">Start a group chat</Button>
-<Button id="a_id_5">Turn on temporary chat</Button>
-Where should we begin?
-<Input id="a_id_6" use="(a_id_6, 'your text', submit:true)">sdf asdf asd fasdf s fasd fasd fasdf asdf asdf asdf as df ads fassdf asdf asdf asdf sad fasd fasdf asdf asdf asdf asdf asdf asdf fg dg sdfg sdfg sdfg sdfg sdfg sdfg sdfg sdf asdf asd fasdf s fasd fasd fasdf asdf asdf asdf as df ads fassdf asdf asdf asdf sad fasd fasdf asdf asdf asdf asdf asdf asdf fg dg sdfg sdfg sdfg sdfg sdfg sdfg sdfg sdf asdf asd fasdf s fasd fasd fasdf asdf asdf asdf as df ads fassdf asdf asdf asdf sad fasd fasdf asdf asdf asdf asdf asdf asdf fg dg sdfg sdfg sdfg sdfg sdfg sdfg sdfg</Input>
-<Button id="a_id_7">Add files and more</Button>
-<Button id="a_id_8">Dictate button</Button>
-<Button id="a_id_9">Send prompt</Button>
+<Link id="a_id_1">Bright Tree Digital</Link>
+<Link id="a_id_2">HOME</Link>
+<Link id="a_id_3">ABOUT</Link>
+<Link id="a_id_4">PORTFOLIO</Link>
+<Link id="a_id_5">SERVICES</Link>
+<Link id="a_id_6">CONTACT</Link>
+<Link id="a_id_7">Facebook</Link>
+<Link id="a_id_8">Instagram</Link>
+Logo Design
+Developing Timeless Logos That Define Your Brand Identity
+<Link id="a_id_9">GET STARTED</Link>
+<Button id="a_id_10">Previous slide</Button>
+<Button id="a_id_11">Next slide</Button>
+Welcome to Bright Tree Digital...
+...where your vision takes digital form and your business’s potential is fully realized. Specializing in
+WordPress web design
+and compelling
+graphic design
+, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
+At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
+Our Services
+<Link id="a_id_12">Website Design</Link>
+Our
+Website Design
+service brings your vision to life. We create beautiful, functional websites that are easy to navigate and look great on any device. Our focus is on making your online presence strong and user-friendly, helping you attract and engage more customers.
+<Button id="a_id_13">View Portfolio</Button>
+<Button id="a_id_14">More Info</Button>
+<Link id="a_id_15">Logo Design</Link>
+Elevate your brand with our custom
+Logo Design
+service. We specialize in creating logos that are not just visually striking but also embody your brand’s story and values. Our goal is to design a distinctive, memorable logo that sets you apart and builds recognition, ensuring it resonates with your audience and enhances brand loyalty.
+<Button id="a_id_16">View Portfolio</Button>
+<Button id="a_id_17">More Info</Button>
+<Link id="a_id_18">Banner Ad Design</Link>
+Boost your online presence with our
+Banner Ad Design
+service at Bright Tree Digital. We create eye-catching, effective banner ads that align with your brand and engage your audience, perfect for enhancing your digital marketing campaigns and social media impact.
+<Button id="a_id_19">View Portfolio</Button>
+<Button id="a_id_20">More Info</Button>
+Start your journey here...
+<Button id="a_id_21">Get in touch today!</Button>
+Our Work
+<Link id="a_id_22">The Syrene Hotel</Link>
+<Link id="a_id_23">African Safari Deals</Link>
+<Link id="a_id_24">Mtambo Chartered Accountants</Link>
+<Link id="a_id_25">Joss Couture</Link>
+<Link id="a_id_26">Flutterbys School</Link>
+<Link id="a_id_27">The Gourmet Cookie Co</Link>
+New Moon Digital
+<Link id="a_id_28">Straker Functional Fitness</Link>
+<Link id="a_id_29">The Syrene Hotel</Link>
+<Link id="a_id_30">African Safari Deals</Link>
+<Link id="a_id_31">Mtambo Chartered Accountants</Link>
+<Link id="a_id_32">Joss Couture</Link>
+<Link id="a_id_33">Flutterbys School</Link>
+<Link id="a_id_34">The Gourmet Cookie Co</Link>
+New Moon Digital
+<Link id="a_id_35">Straker Functional Fitness</Link>
+<Link id="a_id_36">The Syrene Hotel</Link>
+<Link id="a_id_37">African Safari Deals</Link>
+<Link id="a_id_38">Mtambo Chartered Accountants</Link>
+<Button id="a_id_39">1 of 3</Button>
+<Button id="a_id_40">2 of 3</Button>
+<Button id="a_id_41">3 of 3</Button>
+<Button id="a_id_42">4 of 3</Button>
+<Button id="a_id_43">5 of 3</Button>
+<Button id="a_id_44">6 of 3</Button>
+<Button id="a_id_45">7 of 3</Button>
+<Button id="a_id_46">8 of 3</Button>
+What Our Clients Say!
+We are so happy that
+Bright Tree Digital
+designed our Logos and websites for our 2 food businesses.
+Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
+Michelene Rendell
+Owner, The Kitchen
+Highly recommended.
+Bright Tree Digital
+presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
+Daniella Finney
+Owner, The Syrene Boutique Hotel
+Big shoutout to Olivia at
+Bright Tree Digital
+, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
+Natalie Cassar
+Owner, New Moon Digital
+<Button id="a_id_47">Read More Testimonials</Button>
+Ready for a Website Makeover?
+<Button id="a_id_48">Reach Out Now!</Button>
+ABOUT US
+We specialise in
+WordPress web design
+and
+graphic design
+, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
+OUR PORTFOLIO
+<Link id="a_id_49">Banner Portfolio</Link>
+<Link id="a_id_50">Logo Portfolio</Link>
+<Link id="a_id_51">Web Design Portfolio</Link>
+<Link id="a_id_52">Facebook</Link>
+<Link id="a_id_53">Instagram</Link>
+ABN: 29 160 886 356
+QUICK LINKS
+<Link id="a_id_54">Home</Link>
+<Link id="a_id_55">About</Link>
+<Link id="a_id_56">Services</Link>
+<Link id="a_id_57">Testimonials</Link>
+<Link id="a_id_58">Contact</Link>
+<Link id="a_id_59">Privacy Policy</Link>
+Copyright © 2025 Bright Tree Digital
+<Link id="a_id_60">Website Designed by Bright Tree Digital</Link>
+Scroll to Top

@@ -12853,6 +12853,8 @@
 
             /* 💬 Chat Panel (anchored to orb) - RESIZABLE & RESPONSIVE */
             .ome-chat-panel {
+                --theme-color: 126,200,227;  /* Default kawaii blue */
+                --theme-accent: #7ec8e3;
                 position: absolute;
                 bottom: 0;
                 right: 70px;
@@ -12862,18 +12864,31 @@
                 min-height: 150px;
                 max-width: 800px;
                 max-height: 80vh;
-                background: rgba(20,20,28,0.82);
+                background: rgba(33,33,33,0.95);
                 backdrop-filter: blur(12px);
-                border: 1px solid rgba(100,120,180,0.2);
+                border: 1px solid rgba(var(--theme-color),0.3);
                 border-radius: 12px;
                 display: none;
                 flex-direction: column;
                 font-family: system-ui, -apple-system, sans-serif;
-                box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                box-shadow: 0 0 6px rgba(var(--theme-color),0.125), 0 0 12px rgba(var(--theme-color),0.075), 0 2px 12px rgba(0,0,0,0.15);
                 overflow: hidden;
-                color: #7ec8e3;
+                color: var(--theme-accent);
             }
             .ome-chat-panel.visible { display: flex; }
+            /* 🎨 Chat Panel Theme Colors */
+            .ome-chat-panel[data-theme="kawaii"] {
+                --theme-color: 126,200,227;
+                --theme-accent: #7ec8e3;
+            }
+            .ome-chat-panel[data-theme="robot"] {
+                --theme-color: 0,229,255;
+                --theme-accent: #00e5ff;
+            }
+            .ome-chat-panel[data-theme="atom"] {
+                --theme-color: 147,112,219;
+                --theme-accent: #ba93ff;
+            }
 
             /* 📐 Resize Handles */
             .ome-resize-handle {
@@ -12912,13 +12927,14 @@
                 border-radius: 12px;
                 font-size: 13px;
                 line-height: 1.4;
+                font-weight: 500;
                 word-wrap: break-word;
             }
             .ome-chat-bubble.user {
                 align-self: flex-start;
                 background: transparent;
                 border: 1px solid rgba(147,112,219,0.3);
-                color: rgba(126,200,227,0.4);
+                color: rgba(var(--theme-color),0.65);
                 text-align: left;
             }
             .ome-chat-bubble.assistant {
@@ -12937,8 +12953,7 @@
             .ome-chat-bubble.typing-preview {
                 align-self: flex-end;
                 background: rgba(80,100,160,0.12);
-                color: inherit;
-                opacity: 0.85;
+                color: rgba(var(--theme-color),0.75);
                 border: 1px dashed rgba(100,120,180,0.25);
                 border-bottom-right-radius: 4px;
                 max-width: 100%;
@@ -12960,12 +12975,13 @@
                 min-height: 40px;
                 max-height: 120px;
                 background: rgba(40,50,80,0.22);
-                border: 1px solid rgba(126,200,227,0.3);
+                border: 1px solid rgba(var(--theme-color),0.3);
                 border-radius: 8px;
                 padding: 10px 12px;
                 font-size: 13px;
                 line-height: 1.4;
-                color: inherit;
+                font-weight: 500;
+                color: rgba(var(--theme-color),0.8);
                 outline: none;
                 resize: none;
                 overflow-y: hidden;
@@ -12974,8 +12990,8 @@
                 white-space: pre-wrap;
                 transition: border-color 0.15s ease, background 0.15s ease;
             }
-            .ome-chat-input::placeholder { color: rgba(126,200,227,0.4); }
-            .ome-chat-input:focus { border-color: rgba(126,200,227,0.5); background: rgba(40,50,80,0.28); }
+            .ome-chat-input::placeholder { color: rgba(var(--theme-color),0.4); }
+            .ome-chat-input:focus { border-color: rgba(var(--theme-color),0.5); background: rgba(40,50,80,0.28); }
             .ome-chat-send {
                 position: absolute;
                 right: 12px;
@@ -12984,10 +13000,10 @@
                 height: 40px;
                 min-width: 40px;
                 min-height: 40px;
-                border: 1px solid rgba(126,200,227,0.35);
+                border: 1px solid rgba(var(--theme-color),0.35);
                 border-radius: 10px;
                 background: rgba(80,100,160,0.55);
-                color: #7ec8e3;
+                color: var(--theme-accent);
                 cursor: pointer;
                 display: flex;
                 align-items: center;
@@ -12995,7 +13011,7 @@
                 transition: background 0.15s ease, border-color 0.15s ease;
                 z-index: 5;
             }
-            .ome-chat-send:hover { background: rgba(80,100,160,0.75); border-color: rgba(126,200,227,0.55); }
+            .ome-chat-send:hover { background: rgba(80,100,160,0.75); border-color: rgba(var(--theme-color),0.55); }
             .ome-chat-send:active { transform: scale(0.95); }
             .ome-chat-send svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
 
@@ -13256,9 +13272,9 @@
         const promptHTML = `
             <button class="ome-prompt-btn">Prompt</button>`;
 
-        // 💬 Chat panel (anchored to orb) - with resize handles
+        // 💬 Chat panel (anchored to orb) - with resize handles and theme
         const chatPanelHTML = `
-            <div class="ome-chat-panel">
+            <div class="ome-chat-panel" data-theme="${themeName}">
                 <div class="ome-resize-handle ome-resize-n" data-resize="n"></div>
                 <div class="ome-resize-handle ome-resize-s" data-resize="s"></div>
                 <div class="ome-resize-handle ome-resize-e" data-resize="e"></div>
@@ -13469,7 +13485,7 @@
 
         // 💬 Chat panel (anchored to orb) - with resize handles
         const chatPanelHTML = `
-            <div class="ome-chat-panel">
+            <div class="ome-chat-panel" data-theme="${hudState.theme}">
                 <div class="ome-resize-handle ome-resize-n" data-resize="n"></div>
                 <div class="ome-resize-handle ome-resize-s" data-resize="s"></div>
                 <div class="ome-resize-handle ome-resize-e" data-resize="e"></div>

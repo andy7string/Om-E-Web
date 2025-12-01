@@ -1,0 +1,32 @@
+{
+  "chat_id": "d__20251201T082229",
+  "created_at": "2025-12-01T08:22:29.993798Z",
+  "updated_at": "2025-12-01T08:22:54.273316Z",
+  "title": "d",
+  "default_title": "d",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "d",
+      "timestamp": "2025-12-01T08:22:29.993822Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "e",
+      "timestamp": "2025-12-01T08:22:41.626790Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "f",
+      "timestamp": "2025-12-01T08:22:54.273316Z"
+    }
+  ]
+}
