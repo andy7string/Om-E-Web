@@ -1,0 +1,26 @@
+{
+  "chat_id": "gfdhfsghsd-ghfgh-dfgh__20251201T231309",
+  "created_at": "2025-12-01T23:13:09.071000Z",
+  "updated_at": "2025-12-01T23:13:18.977564Z",
+  "title": "gfdhfsghsd ghfgh dfgh",
+  "default_title": "gfdhfsghsd ghfgh dfgh",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "gfdhfsghsd ghfgh dfgh dfgh",
+      "timestamp": "2025-12-01T23:13:09.071030Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "asdfsadf",
+      "timestamp": "2025-12-01T23:13:18.977564Z"
+    }
+  ]
+}

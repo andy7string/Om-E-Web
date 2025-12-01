@@ -12561,10 +12561,64 @@
             .ome-orb:hover { transform: translateX(-50%) scale(calc(var(--ome-zoom-scale, 1.21) * 1.1)); }
             .ome-orb.holding { cursor: none; }
             .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateX(-50%) translateY(0); }
+            /* 🔮 Orb Wrapper (for 4 arrows) */
+            .ome-orb-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            /* ⬆️⬇️⬅️➡️ Drag indicators (4 arrows) */
+            .ome-orb-drag-indicator {
+                position: absolute;
+                width: 18px;
+                height: 18px;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .ome-orb-drag-indicator svg {
+                width: 18px;
+                height: 18px;
+                stroke: currentColor;
+                stroke-width: 2.5;
+                fill: none;
+            }
+            .ome-orb-drag-up { top: -12px; left: 50%; transform: translateX(-50%); }
+            .ome-orb-drag-down { bottom: -12px; left: 50%; transform: translateX(-50%); }
+            .ome-orb-drag-left { left: -12px; top: 50%; transform: translateY(-50%); }
+            .ome-orb-drag-right { right: -12px; top: 50%; transform: translateY(-50%); }
+            /* 🌀 Arrows appear and spin twice ONLY when hovering the orb SVG (bunny/atom/kawaii) */
+            .ome-orb-wrapper .ome-bunny:hover ~ .ome-orb-drag-indicator,
+            .ome-orb-wrapper .ome-atom-svg:hover ~ .ome-orb-drag-indicator,
+            .ome-orb-wrapper .ome-kawaii-svg:hover ~ .ome-orb-drag-indicator,
+            .ome-orb-wrapper .ome-robot-svg:hover ~ .ome-orb-drag-indicator {
+                opacity: 0.7;
+                animation: ome-arrow-spin 0.6s ease-out;
+            }
+            @keyframes ome-arrow-spin {
+                from { transform: translateX(-50%) rotate(0deg); }
+                to { transform: translateX(-50%) rotate(720deg); }
+            }
+            .ome-orb-wrapper .ome-bunny:hover ~ .ome-orb-drag-left,
+            .ome-orb-wrapper .ome-atom-svg:hover ~ .ome-orb-drag-left,
+            .ome-orb-wrapper .ome-kawaii-svg:hover ~ .ome-orb-drag-left,
+            .ome-orb-wrapper .ome-robot-svg:hover ~ .ome-orb-drag-left,
+            .ome-orb-wrapper .ome-bunny:hover ~ .ome-orb-drag-right,
+            .ome-orb-wrapper .ome-atom-svg:hover ~ .ome-orb-drag-right,
+            .ome-orb-wrapper .ome-kawaii-svg:hover ~ .ome-orb-drag-right,
+            .ome-orb-wrapper .ome-robot-svg:hover ~ .ome-orb-drag-right {
+                animation-name: ome-arrow-spin-y;
+            }
+            @keyframes ome-arrow-spin-y {
+                from { transform: translateY(-50%) rotate(0deg); }
+                to { transform: translateY(-50%) rotate(720deg); }
+            }
             .ome-bunny { width: 100%; height: 100%; }
             .ome-bunny-paws {
                 position: absolute;
-                bottom: -8px;
+                bottom: -18px;
                 left: 50%;
                 transform: translateX(-50%) translateY(6px);
                 opacity: 0;
@@ -12887,7 +12941,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 8px;
+                gap: 4px;
                 color: var(--theme-accent);
             }
             .ome-hud-scroll .ome-hud-ctrl-btn {
@@ -12913,14 +12967,15 @@
                 stroke-width: 3;
                 fill: none;
             }
-            /* 🔮 HUD Menu Button (ORB label, same style as orb's HUD button) */
+            /* 🔮 HUD Menu Button (ORB label, purple style with theme-colored outer ring) */
             .ome-hud-menu-btn {
+                position: relative;
                 width: 48px;
                 height: 48px;
-                border: 2px solid currentColor;
+                border: 2px solid rgba(167,139,250,0.5);
                 border-radius: 50%;
-                background: transparent;
-                color: inherit;
+                background: rgba(167,139,250,0.25);
+                color: #a5b4fc;
                 font-size: 11px;
                 font-weight: 700;
                 letter-spacing: 0.5px;
@@ -12928,18 +12983,72 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s ease, transform 0.1s ease;
-                opacity: 0.7;
+                transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+                opacity: 0.85;
             }
-            .ome-hud-menu-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+            /* 🌀 Outer ring - theme colored, spins on hover */
+            .ome-hud-menu-btn::before {
+                content: '';
+                position: absolute;
+                top: -6px;
+                left: -6px;
+                right: -6px;
+                bottom: -6px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                opacity: 0.7;
+                transition: opacity 0.2s ease;
+            }
+            .ome-hud-menu-btn { margin-bottom: 10px; }
+            .ome-hud-menu-btn:hover { background: rgba(167,139,250,0.4); opacity: 1; border-color: #a5b4fc; }
+            .ome-hud-menu-btn:hover::before { opacity: 1; animation: ome-ring-spin 1s linear infinite; }
             .ome-hud-menu-btn:active { transform: scale(0.95); }
 
-            /* 🔮 HUD Orb Container (orb + exit button) */
+            /* 🔮 HUD Orb Container */
             .ome-hud-orb-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 12px;
+            }
+            /* 🔮 HUD Orb Wrapper (for arrows) */
+            .ome-hud-orb-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            .ome-hud-orb-wrapper * { user-select: none; -webkit-user-select: none; }
+            /* ⬆️⬇️ Drag indicators (arrows) */
+            .ome-hud-drag-indicator {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 24px;
+                height: 24px;
+                color: var(--theme-accent);
+                opacity: 0;
+                pointer-events: none;
+            }
+            .ome-hud-drag-indicator svg {
+                width: 24px;
+                height: 24px;
+                stroke: currentColor;
+                stroke-width: 2.5;
+                fill: none;
+            }
+            .ome-hud-drag-up { top: -18px; }
+            .ome-hud-drag-down { bottom: -18px; }
+            /* 🌀 Arrows appear and spin twice ONLY when hovering the HUD orb head */
+            .ome-hud-orb:hover ~ .ome-hud-drag-indicator {
+                opacity: 0.8;
+                animation: ome-hud-arrow-spin 0.6s ease-out;
+            }
+            @keyframes ome-hud-arrow-spin {
+                from { transform: translateX(-50%) rotate(0deg); }
+                to { transform: translateX(-50%) rotate(720deg); }
             }
             /* 🔮 HUD Orb Display */
             .ome-hud-orb {
@@ -12950,10 +13059,12 @@
                 justify-content: center;
                 cursor: pointer;
                 transition: transform 0.2s ease;
+                outline: none;
+                caret-color: transparent;
             }
             .ome-hud-orb:hover { transform: scale(1.05); }
             .ome-hud-orb.holding { transform: scale(1.1); cursor: grabbing; }
-            .ome-hud-orb svg { width: 80px; height: 80px; }
+            .ome-hud-orb svg { width: 80px; height: 80px; pointer-events: none; }
 
             /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - same size as Z) */
             .ome-scroll-controls {
@@ -12977,14 +13088,15 @@
                 height: 18px;
                 stroke-width: 3;
             }
-            /* 📋 Menu button (HUD label, same style as Z) */
+            /* 📋 Menu button (HUD label, purple style with theme-colored outer ring) */
             .ome-menu-btn {
+                position: relative;
                 width: 36px;
                 height: 36px;
-                border: 2px solid currentColor;
+                border: 2px solid rgba(167,139,250,0.5);
                 border-radius: 50%;
-                background: transparent;
-                color: inherit;
+                background: rgba(167,139,250,0.25);
+                color: #a5b4fc;
                 font-size: 9px;
                 font-weight: 700;
                 letter-spacing: 0.5px;
@@ -12992,11 +13104,30 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s ease, transform 0.1s ease;
-                opacity: 0.7;
+                transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+                opacity: 0.85;
             }
-            .ome-menu-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+            /* 🌀 Outer ring - theme colored, spins on hover */
+            .ome-menu-btn::before {
+                content: '';
+                position: absolute;
+                top: -6px;
+                left: -6px;
+                right: -6px;
+                bottom: -6px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                opacity: 0.7;
+                transition: opacity 0.2s ease;
+            }
+            .ome-menu-btn { margin-bottom: 10px; }
+            .ome-menu-btn:hover { background: rgba(167,139,250,0.4); opacity: 1; border-color: #a5b4fc; }
+            .ome-menu-btn:hover::before { opacity: 1; animation: ome-ring-spin 1s linear infinite; }
             .ome-menu-btn:active { transform: scale(0.95); }
+            @keyframes ome-ring-spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
             /* 💬 Prompt Button (between orb and zoom) - consistent purple style across all orbs */
             .ome-prompt-btn {
                 position: absolute;
@@ -13559,8 +13690,18 @@
                 </div>
             </div>`;
 
-        // Update orb content (SVG + paws + scroll + prompt + zoom + chat panel)
-        hudState.orb.innerHTML = theme.svg + theme.paws + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
+        // 🔮 Wrap SVG in drag indicator wrapper with 4 directional arrows (theme colored)
+        const orbWrapperHTML = `
+            <div class="ome-orb-wrapper" style="color: ${theme.color}">
+                ${theme.svg}
+                ${theme.paws}
+                <div class="ome-orb-drag-indicator ome-orb-drag-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-right"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></div>
+            </div>`;
+        // Update orb content (wrapper + scroll + prompt + zoom + chat panel)
+        hudState.orb.innerHTML = orbWrapperHTML + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
         hudState.theme = themeName;
 
         // 🔮 Also update HUD orb display if HUD exists
@@ -13779,7 +13920,17 @@
                 </div>
             </div>`;
 
-        orb.innerHTML = theme.svg + theme.paws + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
+        // 🔮 Wrap SVG in drag indicator wrapper with 4 directional arrows (theme colored)
+        const orbWrapperHTML = `
+            <div class="ome-orb-wrapper" style="color: ${theme.color}">
+                ${theme.svg}
+                ${theme.paws}
+                <div class="ome-orb-drag-indicator ome-orb-drag-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-right"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></div>
+            </div>`;
+        orb.innerHTML = orbWrapperHTML + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
 
         // 🐰 Track holding state (use hudState so all handlers can access)
         let followHandler = null;
@@ -14012,10 +14163,14 @@
                             </div>
                         </div>
 
-                        <!-- 🔮 Current Orb Display -->
+                        <!-- 🔮 Current Orb Display with drag indicators -->
                         <div class="ome-hud-orb-container">
-                            <div class="ome-hud-orb" data-theme="${hudState.theme}">
-                                ${currentTheme.svg}
+                            <div class="ome-hud-orb-wrapper">
+                                <div class="ome-hud-orb" data-theme="${hudState.theme}">
+                                    ${currentTheme.svg}
+                                </div>
+                                <div class="ome-hud-drag-indicator ome-hud-drag-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-drag-indicator ome-hud-drag-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
                             </div>
                         </div>
 

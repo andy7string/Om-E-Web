@@ -1,0 +1,32 @@
+{
+  "chat_id": "this-is-a__20251201T230651",
+  "created_at": "2025-12-01T23:06:51.296250Z",
+  "updated_at": "2025-12-01T23:07:27.174752Z",
+  "title": "this is a",
+  "default_title": "this is a",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "this is a chat",
+      "timestamp": "2025-12-01T23:06:51.296262Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "what do you want to talk about",
+      "timestamp": "2025-12-01T23:07:16.599526Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "i wanna talk about pussy dude",
+      "timestamp": "2025-12-01T23:07:27.174752Z"
+    }
+  ]
+}
