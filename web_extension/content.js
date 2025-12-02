@@ -14593,34 +14593,21 @@
 
         hudOrb?.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (scanModeActive) {
-                // Exit scan mode - visual + stop sliding + clear sweep
-                scanModeActive = false;
-                sweepingActive = false;
-                sweptRegion = { minY: null, maxY: null };
-                hud.classList.remove('scan-mode', 'sweeping');
-                clearSweptHighlights();
-                releaseHudSlide();
-                console.log('[Content] 🔍 Exited scan mode');
-            } else {
-                // Enter scan mode - visual + start sliding
+
+            if (!scanModeActive) {
+                // Click 1: Enter scan mode + start sliding
                 scanModeActive = true;
                 hud.classList.add('scan-mode');
                 startHudSlide();
-                console.log('[Content] 🔍 Entered scan mode - click to begin sweep');
-            }
-        });
-
-        // 🔍 Click in HUD to start/end sweep (when in scan mode)
-        hud.addEventListener('click', (e) => {
-            if (!scanModeActive) return;
-            if (e.target.closest('.ome-hud-orb')) return; // Let orb handle its own clicks
-
-            e.stopPropagation();
-            if (!sweepingActive) {
+                console.log('[Content] 🔍 Click 1: Entered scan mode - click orb to start sweep');
+            } else if (!sweepingActive) {
+                // Click 2: Start sweep
                 startSweep();
+                console.log('[Content] 🔍 Click 2: Sweep started - move to scan, click orb to capture');
             } else {
+                // Click 3: End sweep + capture + exit
                 endSweep();
+                console.log('[Content] 🔍 Click 3: Sweep ended, text captured');
             }
         });
 

@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-02 22:39:22
+**Timestamp:** 2025-12-02 23:01:33
 
-**Tabs (1):** Active: #1138029455 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138029465 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -84,136 +84,138 @@ Accessibility links
 <Link id="a_id_13">Accessibility help</Link>
 <Link id="a_id_14">Accessibility feedback</Link>
 Discover
-<Link id="a_id_15">ASX takes more than 24 hours to identify cause of publishing outage
-Market operator ASX took more than 24 hours to determine the root cause of an hours-long outage that disrupted trading and the posting of company...
-AFR
+<Link id="a_id_15">Toyota Corolla 2026 Launched – 1.8L Hybrid Engine, 140HP Power & 32km/l Mileage Premium Sedan, Book Now!
+Toyota Corolla 2026 Launched :- Toyota has officially launched the Toyota Corolla 2026, a next-generation hybrid sedan that delivers the perfect balance of...
+Manglik Hospital -
 ·
-4h</Link>
+2h</Link>
 <Button id="a_id_16">More options</Button>
-<Link id="a_id_17">Labor’s budget ‘cuts’ bigger than just public service
-The federal government's search for savings has broadened beyond the public service to the Commonwealth's entire $780 billion annual spending budget,...
-AFR
+<Link id="a_id_17">2:52
+‘Looks so much like an ad’: ABC’s priorities raise eyebrows as it spotlights local business
+Sky News host Chris Kenny highlights the ABC for frowning on advertisements on its platform as they spotlight the purchase of fast food 'juggernaut' El...
+Sky News Australia
+YouTube
 ·
-3h</Link>
+1d</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Lisa Wilkinson, Peter Fitzsimons settle on $15m ‘castle’
-Former media power couple Lisa Wilkinson has emerged as the $15m buyers of a “castle” after a dramatic cash loss.
-Real Estate
+<Link id="a_id_19">In 2025, the government faces backlash as plans emerge to relaunch the giant open-pit gold mine abandoned 34 years ago
+In early 2025, leaked documents showed that the government is quietly preparing to relaunch a giant open-pit gold mine that's been sleeping for 34 years.
+nunneryplumbingandheating.co.uk
 ·
-9h</Link>
+7h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">The Award-winning Chord Mojo 2 gets two connection updates, but retains its price and sound quality
-Chord Electronics has given its much-lauded Mojo 2 DAC and headphone amplifier an upgrade with regard to its connections. The portable device now features a...
-What Hi-Fi?
+<Link id="a_id_21">Amazon Goes Full Liquidation on Fitbit Charge 6, Now at Record Low for Cyber Monday
+Enjoy health monitoring, accurate GPS tracking, and six months of premium analytics for nearly 40% off.
+Kotaku
 ·
 1d</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Tesla CEO Elon Musk bats for H-1B visas, says tariffs distort markets
-Tesla CEO raises concerns over Trump's tariff policy and says he does not support closing of the H-1B visa program.
-CNBC
-·
-6h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Report: ‘AI safety’ needs to mean safety from authoritarian abuse
-'AI safety' has become a buzz-phrase in Silicon Valley, where tech companies use it to refer to artificial intelligence systems that reflect human values...
-The Strategist | ASPI's analysis and commentary site
-·
-16h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Renewables ‘fairytale’ a con job sending the nation broke
-We are now seeing the results of a great con, with the claim that only a transition to intermittent renewable energy will save us.
-The Australian
-·
-22h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">NotebookLM is the one app I open 10 times a day, and here’s how it saves me hours every week
-When I first started using NotebookLM, I didn't think much of it. I just needed a place to dump some random notes for a project.
-XDA
-·
-2d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">‘The Chinese will not pause’: Volvo and Polestar bosses urge EU to stick to 2035 petrol car ban
-Exclusive: Swedish carmakers push to retain target as Germany lobbies to help its own industry by softening cutoff date.
+<Link id="a_id_23">AI debt splurge and high valuations threatens financial stability, Bank of England warns; UK banks pass stress tests – business live
+Equity valuations in the US are close to the most stretched they have been since the dot-com bubble, warns Bank of England in Financial Stability Report.
 The Guardian
 ·
-6h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">What would Russia's inability to launch crewed missions mean for ISS?
-Russia's only launch site capable of sending humans to orbit has suffered serious damage that may take two years to fix. Will NASA keep supporting the ISS...
-New Scientist
-·
-16h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Snowy signs up for its second big battery deal: Both will be built and online well before Snowy 2.0
+5h</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Snowy signs up for its second big battery deal: Both will be built and online well before Snowy 2.0
 Snowy signs its second big battery deal in months, this time next to country's biggest wind farm, which is also a customer. Both will be online before Snowy...
 Renew Economy
 ·
 1d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Safety review launched for increasingly busy road
-Sunshine Coast Council is undertaking a safety review of a key road through a local town. Officials are set to assess Lindsay Road, which is used by about...
-Sunshine Coast News
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Unions put holidays, redundancy pay in their sights
+Employers are preparing to fight an ambitious union agenda in the new inquiry following campaigns for increases in annual leave and redundancy pay.
+AFR
 ·
-18h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">EPA urged to ban spraying of antibiotics on US food crops amid resistance fears | Pesticides
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Foo Fighters Set to Announce Australia Tour
+Get ready, Australia – the Foo Fighters are about to announce a headline tour. On Monday (December 1st), Frontier Touring teased “big news incoming” in a...
+Rolling Stone Australia
+·
+1d</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">EPA urged to ban spraying of antibiotics on US food crops amid resistance fears | Pesticides
 Use of 8m pounds of antibiotics and antifungals a year leads to superbugs and damages human health, lawsuit claims.
 The Guardian
 ·
 1d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Landmark fruit n’ veg to be torn down for childcare centre
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">The best graphic novels of 2025
+Alison Bechdel and Joe Sacco return; plus Black Country cowboys, vengeful gods and an angling classic reimagined.
+The Guardian
+·
+3h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">RACQ pauses $300m bank sale
+A sale process by the Royal Automobile Club of Queensland of its bank has been paused, say sources, although this development will not halt progress on its...
+The Australian
+·
+20h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Ivanhoe Mines fires up Africa’s largest copper smelter
+Ivanhoe Mines (TSX: IVN) recently ignited what it touts as the largest and greenest copper smelter in Africa, with first feed of concentrates expected by...
+Mining.com
+·
+19h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Landmark fruit n’ veg to be torn down for childcare centre
 Hawthorndene locals are rallying against a proposal to demolish a much-loved grocery store to build a childcare centre – but the shop's owners are in favour...
 The Advertiser
 ·
 10h</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Age of the ‘scam state’: how an illicit, multibillion-dollar industry has taken root in south-east Asia
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Age of the ‘scam state’: how an illicit, multibillion-dollar industry has taken root in south-east Asia
 Like the narco-state, a 'scam state' refers to countries where an illicit industry has dug its tentacles deep into institutions and transformed the economy.
 The Guardian
 ·
-3h</Link>
+4h</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">2 ASX 200 tech shares to buy following sector sell-off
+Wilsons Advisory says the recent major pullback in ASX 200 tech shares has been overdone, and recommends we buy two stocks right now.
+The Motley Fool Australia
+·
+1d</Link>
 <Button id="a_id_44">More options</Button>
-<Link id="a_id_45">No more scrubbing your stove glass: the small steam gadget changing fireplace cleaning
-Cold evenings call for a glowing fire, not an hour spent fighting blackened glass and stubborn streaks on your stove door. Across Europe and North America,...
-nunneryplumbingandheating.co.uk
+<Link id="a_id_45">Don’t be Brad Banducci, Westpac instructs staff
+The former Woolworths chief executive storming out of an ABC interview has become the stuff of public relations legend.
+AFR
 ·
-1d</Link>
+5h</Link>
 <Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Centrelink One-Time $800 Pension Boost Expected In December 2025: What Older Australians Should Know
-The Australian government is expected to issue a one-time $800 payment for eligible Centrelink pension recipients in December 2025.
-Port Macquarie Art Society
-·
-11h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Toyota Hilux 2025 – What’s New: Price, Specs, Features & Worldwide Review
-The Toyota Hilux continues its legacy as one of the toughest and most reliable pickup trucks globally with the 2025 model.
-pinecreekpictures.com.au
-·
-1w</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Over 143 Flight Cancellations and 776 Delays Disrupt Travel in Australia and New Zealand as Jetstar, Qantas, Air New Zealand, QantasLink Face Travel Turmoil, Leaving Thousands of Travelers Stranded in Perth, Adelaide, Launceston, Auckland, Wellington,
-Over 148 cancellations and 1,175 delays hit Oceania airlines, including Jetstar, Qantas, Air New Zealand, and QantasLink. Major airports like Perth,...
-Travel And Tour World
-·
-3d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">The “Vibe Coding” Trap: A Mentor’s Guide
-I recently reviewed a Pull Request that, at first glance, looked impressive. It was clean, well-typed, and heavily optimized with React.memo and useCallback...
-Level Up Coding
+<Link id="a_id_47">Power failure: What’s causing massive engine recalls
+Five automakers are facing bills for faulty engines. What's causing engines to seize up? Thinner motor oils, experts say, are less tolerant of manufacturing...
+Automotive News
 ·
 1d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Three deaths related to asbestos exposure at former ABC site
+Three former ABC employees have died after they were exposed to asbestos at the broadcaster's former offices in the Melbourne suburb of Elsternwick.
+ABC News
+·
+5h</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Petrol prices set to plunge for Christmas
+Australia is set to experience its lowest unleaded fuel prices in years this Christmas, with major capital cities plummeting to an average price of $1.60 to...
+News.com.au
+·
+10h</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Toyota New Land Cruiser 2025 – 3.3L Twin-Turbo Diesel Engine, 305HP Power & Advanced 4x4 Luxury SUV!
+Toyota New Land Cruiser 2025 :- Toyota has officially launched the New Land Cruiser 2025, the ultimate symbol of power, performance, and prestige in the...
+rnmultispecialityhospital.com
+·
+10h</Link>
 <Button id="a_id_54">More options</Button>
 At a glance
 <Button id="a_id_55">Customise Homestack</Button>
 <Link id="a_id_56">Air quality
 Good
 AQC</Link>
-<Link id="a_id_57">Woodforde
+<Link id="a_id_57">VIX • VIX up 2.75%. Price is 16.80 Today</Link>
+<Link id="a_id_58">Woodforde
 Partly cloudy
 10%
 12°</Link>
-<Link id="a_id_58">VIX • VIX up 2.20%. Price is 16.71 Today</Link>
 Australia
 <Link id="a_id_59">Advertising</Link>
 <Link id="a_id_60">Business</Link>
