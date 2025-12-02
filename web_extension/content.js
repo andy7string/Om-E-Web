@@ -14519,41 +14519,25 @@
             const startBottom = parseInt(inputArea.style.bottom) || 400;
             let lastY = null;
             let lastX = null;
-            let startY = null; // Neutral point for velocity calc
             let scrollAnimationId = null;
+            let scrollDirection = 0; // -1 = up, 0 = stopped, 1 = down
+            let scrollSpeed = 0; // Current locked-in speed
             const scrollUpBtn = hud.querySelector('.ome-hud-scroll-up');
             const scrollDownBtn = hud.querySelector('.ome-hud-scroll-down');
 
-            // 🔍 Continuous velocity-based scroll loop
-            function velocityScrollLoop() {
-                if (!hudSliding || !hudMessagesArea || startY === null || lastY === null) {
+            // 🔍 Continuous infinite scroll loop - keeps going until exit
+            function infiniteScrollLoop() {
+                if (!hudSliding || !hudMessagesArea) {
                     scrollAnimationId = null;
                     return;
                 }
 
-                // Displacement from start position determines speed
-                const displacement = lastY - startY; // positive = moved down, negative = moved up
-                const deadzone = 10; // pixels before scroll engages
-
-                if (Math.abs(displacement) > deadzone) {
-                    // Speed scales with displacement (further = faster)
-                    const speed = (displacement / 50) * 3; // Tune multiplier as needed
-                    hudMessagesArea.scrollTop += speed;
-
-                    // Flash the appropriate button
-                    const activeBtn = displacement > 0 ? scrollDownBtn : scrollUpBtn;
-                    const inactiveBtn = displacement > 0 ? scrollUpBtn : scrollDownBtn;
-                    inactiveBtn?.classList.remove('scroll-active');
-                    if (activeBtn && !activeBtn.classList.contains('scroll-active')) {
-                        activeBtn.classList.add('scroll-active');
-                    }
-                } else {
-                    // In deadzone - stop flashing
-                    scrollUpBtn?.classList.remove('scroll-active');
-                    scrollDownBtn?.classList.remove('scroll-active');
+                // Scroll at locked-in speed and direction
+                if (scrollDirection !== 0 && scrollSpeed > 0) {
+                    hudMessagesArea.scrollTop += scrollDirection * scrollSpeed;
                 }
 
-                scrollAnimationId = requestAnimationFrame(velocityScrollLoop);
+                scrollAnimationId = requestAnimationFrame(infiniteScrollLoop);
             }
 
             hudSlideHandler = (e) => {
@@ -14574,18 +14558,41 @@
 
                 if (lastY === null) {
                     lastY = e.clientY;
-                    startY = e.clientY; // Set neutral point
-                    // Start the velocity scroll loop
+                    // Start the infinite scroll loop
                     if (!scrollAnimationId) {
-                        scrollAnimationId = requestAnimationFrame(velocityScrollLoop);
+                        scrollAnimationId = requestAnimationFrame(infiniteScrollLoop);
                     }
                     return;
                 }
+
                 const deltaY = lastY - e.clientY;
                 lastY = e.clientY;
                 const currentBottom = parseInt(inputArea.style.bottom) || startBottom;
                 const newBottom = Math.max(20, Math.min(window.innerHeight - 150, currentBottom + deltaY));
                 inputArea.style.bottom = newBottom + 'px';
+
+                // 🔍 Lock in scroll direction and speed based on vertical movement
+                if (Math.abs(deltaY) > 2) { // Minimum movement threshold
+                    const newDirection = deltaY > 0 ? -1 : 1; // up movement = scroll up, down = scroll down
+
+                    // Update direction and accumulate speed
+                    if (newDirection !== scrollDirection) {
+                        // Direction change - reset speed
+                        scrollDirection = newDirection;
+                        scrollSpeed = Math.abs(deltaY) * 0.5;
+                    } else {
+                        // Same direction - increase speed (capped)
+                        scrollSpeed = Math.min(scrollSpeed + Math.abs(deltaY) * 0.3, 15);
+                    }
+
+                    // Update button indicators
+                    const activeBtn = scrollDirection > 0 ? scrollDownBtn : scrollUpBtn;
+                    const inactiveBtn = scrollDirection > 0 ? scrollUpBtn : scrollDownBtn;
+                    inactiveBtn?.classList.remove('scroll-active');
+                    if (activeBtn && !activeBtn.classList.contains('scroll-active')) {
+                        activeBtn.classList.add('scroll-active');
+                    }
+                }
             };
             document.addEventListener('mousemove', hudSlideHandler);
 
@@ -14596,6 +14603,8 @@
                     cancelAnimationFrame(scrollAnimationId);
                     scrollAnimationId = null;
                 }
+                scrollDirection = 0;
+                scrollSpeed = 0;
                 scrollUpBtn?.classList.remove('scroll-active');
                 scrollDownBtn?.classList.remove('scroll-active');
                 originalRelease();
