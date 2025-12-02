@@ -1,7 +1,7 @@
 {
   "chat_id": "a__20251202T123029",
   "created_at": "2025-12-02T12:30:29.612505Z",
-  "updated_at": "2025-12-02T12:30:35.350131Z",
+  "updated_at": "2025-12-02T12:37:10.566488Z",
   "title": "a",
   "default_title": "a",
   "meta": {
@@ -39,6 +39,12 @@
       "role": "user",
       "content": "e",
       "timestamp": "2025-12-02T12:30:35.350131Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "e\n\nc\n\nd\n\na\n\nb\n\nc\n\nd\n\ne",
+      "timestamp": "2025-12-02T12:37:10.566488Z"
     }
   ]
 }

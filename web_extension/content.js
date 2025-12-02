@@ -12881,8 +12881,7 @@
             .ome-hud-prompt-actions {
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
-                gap: 8px;
+                justify-content: space-between;
                 padding: 8px 16px;
                 border-top: 1px solid rgba(var(--theme-color),0.1);
             }
@@ -12991,6 +12990,25 @@
             .ome-hud-send-btn:hover { background: rgba(80,100,160,0.75); border-color: rgba(var(--theme-color),0.55); }
             .ome-hud-send-btn:active { transform: scale(0.95); }
             .ome-hud-send-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+            /* 🗑️ HUD Clear Button - alien X style */
+            .ome-hud-clear-btn {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
+                border: 1px solid rgba(var(--theme-color),0.35);
+                border-radius: 10px;
+                background: rgba(80,100,160,0.55);
+                color: var(--text-color);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, border-color 0.15s ease;
+            }
+            .ome-hud-clear-btn:hover { background: rgba(160,80,80,0.75); border-color: rgba(var(--theme-color),0.55); }
+            .ome-hud-clear-btn:active { transform: scale(0.95); }
+            .ome-hud-clear-btn svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2; fill: none; }
 
             /* 💬 HUD Message Bubbles - left-aligned, user indented */
             .ome-hud-message {
@@ -14251,7 +14269,18 @@
                             <div class="ome-hud-prompt">
                                 <textarea class="ome-hud-prompt-textarea" placeholder="Ask anything..." rows="1"></textarea>
                                 <div class="ome-hud-prompt-actions">
-                                    <button class="ome-hud-send-btn">
+                                    <button class="ome-hud-clear-btn" title="Clear prompt">
+                                        <svg viewBox="0 0 24 24">
+                                            <!-- Alien X - angular Annunaki style -->
+                                            <line x1="6" y1="6" x2="18" y2="18"/>
+                                            <line x1="18" y1="6" x2="6" y2="18"/>
+                                            <line x1="12" y1="3" x2="12" y2="7"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                            <line x1="3" y1="12" x2="7" y2="12"/>
+                                            <line x1="17" y1="12" x2="21" y2="12"/>
+                                        </svg>
+                                    </button>
+                                    <button class="ome-hud-send-btn" title="Send">
                                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                                     </button>
                                 </div>
@@ -14379,6 +14408,17 @@
 
         // Send button handler
         const sendBtn = hud.querySelector('.ome-hud-send-btn');
+        const clearBtn = hud.querySelector('.ome-hud-clear-btn');
+
+        // 🗑️ Clear button - clears prompt text
+        clearBtn?.addEventListener('click', () => {
+            if (promptTextarea) {
+                promptTextarea.value = '';
+                promptTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+                promptTextarea.focus();
+                console.log('[Content] 🗑️ Prompt cleared');
+            }
+        });
 
         sendBtn?.addEventListener('click', async () => {
             const text = promptTextarea?.value.trim();
@@ -14456,6 +14496,7 @@
 
         /**
          * Start HUD orb slide mode - follows cursor vertically
+         * Exits if mouse drifts too far horizontally from orb
          */
         function startHudSlide() {
             if (hudSliding || !inputArea) return;
@@ -14466,8 +14507,20 @@
 
             const startBottom = parseInt(inputArea.style.bottom) || 400;
             let lastY = null;
+            const horizontalThreshold = 150; // pixels - how far mouse can drift horizontally
 
             hudSlideHandler = (e) => {
+                // Check if mouse left orb horizontally (left/right only - vertical movement is intentional)
+                const orbRect = hudOrb?.getBoundingClientRect();
+                if (orbRect) {
+                    const isOutsideHorizontally = e.clientX < orbRect.left || e.clientX > orbRect.right;
+                    if (isOutsideHorizontally) {
+                        // Mouse left orb surface horizontally - exit scan mode
+                        exitScanMode();
+                        return;
+                    }
+                }
+
                 if (lastY === null) {
                     lastY = e.clientY;
                     return;
@@ -14479,6 +14532,19 @@
                 inputArea.style.bottom = newBottom + 'px';
             };
             document.addEventListener('mousemove', hudSlideHandler);
+        }
+
+        /**
+         * 🔍 Exit scan mode completely
+         */
+        function exitScanMode() {
+            scanModeActive = false;
+            sweepingActive = false;
+            sweptRegion = { minY: null, maxY: null };
+            hud.classList.remove('scan-mode', 'sweeping');
+            clearSweptHighlights();
+            releaseHudSlide();
+            console.log('[Content] 🔍 Exited scan mode (mouse drift)');
         }
 
         // 🔍 Click to toggle scan mode (visual + slide behavior)
