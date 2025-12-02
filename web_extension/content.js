@@ -13025,11 +13025,13 @@
                 border-left: none;
                 background: rgba(255,255,255,0.03);
                 color: var(--text-color);
+                opacity: 0.6;
             }
             .ome-hud-message.assistant {
                 margin-left: 0;
                 background: rgba(60,80,120,0.15);
-                color: inherit;
+                color: var(--text-color);
+                opacity: 0.6;
             }
             .ome-hud-message.error {
                 margin-left: 0;
@@ -13071,6 +13073,15 @@
             }
             .ome-hud-scroll .ome-hud-ctrl-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; }
             .ome-hud-scroll .ome-hud-ctrl-btn:active { transform: scale(0.95); }
+            /* 🔍 Scan mode scroll indicator - purple flash */
+            @keyframes ome-scroll-flash {
+                0%, 100% { background: transparent; }
+                50% { background: rgba(138, 43, 226, 0.4); }
+            }
+            .ome-hud-scroll .ome-hud-ctrl-btn.scroll-active {
+                animation: ome-scroll-flash 0.3s ease-in-out;
+                opacity: 1;
+            }
             .ome-hud-scroll .ome-hud-ctrl-btn svg {
                 width: 24px;
                 height: 24px;
@@ -14507,22 +14518,67 @@
 
             const startBottom = parseInt(inputArea.style.bottom) || 400;
             let lastY = null;
-            const horizontalThreshold = 150; // pixels - how far mouse can drift horizontally
+            let lastX = null;
+            let startY = null; // Neutral point for velocity calc
+            let scrollAnimationId = null;
+            const scrollUpBtn = hud.querySelector('.ome-hud-scroll-up');
+            const scrollDownBtn = hud.querySelector('.ome-hud-scroll-down');
+
+            // 🔍 Continuous velocity-based scroll loop
+            function velocityScrollLoop() {
+                if (!hudSliding || !hudMessagesArea || startY === null || lastY === null) {
+                    scrollAnimationId = null;
+                    return;
+                }
+
+                // Displacement from start position determines speed
+                const displacement = lastY - startY; // positive = moved down, negative = moved up
+                const deadzone = 10; // pixels before scroll engages
+
+                if (Math.abs(displacement) > deadzone) {
+                    // Speed scales with displacement (further = faster)
+                    const speed = (displacement / 50) * 3; // Tune multiplier as needed
+                    hudMessagesArea.scrollTop += speed;
+
+                    // Flash the appropriate button
+                    const activeBtn = displacement > 0 ? scrollDownBtn : scrollUpBtn;
+                    const inactiveBtn = displacement > 0 ? scrollUpBtn : scrollDownBtn;
+                    inactiveBtn?.classList.remove('scroll-active');
+                    if (activeBtn && !activeBtn.classList.contains('scroll-active')) {
+                        activeBtn.classList.add('scroll-active');
+                    }
+                } else {
+                    // In deadzone - stop flashing
+                    scrollUpBtn?.classList.remove('scroll-active');
+                    scrollDownBtn?.classList.remove('scroll-active');
+                }
+
+                scrollAnimationId = requestAnimationFrame(velocityScrollLoop);
+            }
 
             hudSlideHandler = (e) => {
-                // Check if mouse left orb horizontally (left/right only - vertical movement is intentional)
+                // Only exit on deliberate horizontal movement (not vertical drift)
                 const orbRect = hudOrb?.getBoundingClientRect();
-                if (orbRect) {
+                if (orbRect && lastX !== null && lastY !== null) {
+                    const deltaX = Math.abs(e.clientX - lastX);
+                    const deltaYAbs = Math.abs(e.clientY - lastY);
                     const isOutsideHorizontally = e.clientX < orbRect.left || e.clientX > orbRect.right;
-                    if (isOutsideHorizontally) {
-                        // Mouse left orb surface horizontally - exit scan mode
+
+                    // Only exit if outside horizontally AND movement is more horizontal than vertical
+                    if (isOutsideHorizontally && deltaX > deltaYAbs) {
                         exitScanMode();
                         return;
                     }
                 }
+                lastX = e.clientX;
 
                 if (lastY === null) {
                     lastY = e.clientY;
+                    startY = e.clientY; // Set neutral point
+                    // Start the velocity scroll loop
+                    if (!scrollAnimationId) {
+                        scrollAnimationId = requestAnimationFrame(velocityScrollLoop);
+                    }
                     return;
                 }
                 const deltaY = lastY - e.clientY;
@@ -14532,6 +14588,18 @@
                 inputArea.style.bottom = newBottom + 'px';
             };
             document.addEventListener('mousemove', hudSlideHandler);
+
+            // Cleanup scroll animation on slide release
+            const originalRelease = releaseHudSlide;
+            releaseHudSlide = function() {
+                if (scrollAnimationId) {
+                    cancelAnimationFrame(scrollAnimationId);
+                    scrollAnimationId = null;
+                }
+                scrollUpBtn?.classList.remove('scroll-active');
+                scrollDownBtn?.classList.remove('scroll-active');
+                originalRelease();
+            };
         }
 
         /**
@@ -14544,7 +14612,10 @@
             hud.classList.remove('scan-mode', 'sweeping');
             clearSweptHighlights();
             releaseHudSlide();
-            console.log('[Content] 🔍 Exited scan mode (mouse drift)');
+            // Clear scroll indicator flash
+            hud.querySelector('.ome-hud-scroll-up')?.classList.remove('scroll-active');
+            hud.querySelector('.ome-hud-scroll-down')?.classList.remove('scroll-active');
+            console.log('[Content] 🔍 Exited scan mode');
         }
 
         // 🔍 Click to toggle scan mode (visual + slide behavior)
