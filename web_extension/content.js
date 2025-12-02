@@ -12827,22 +12827,31 @@
                 left: calc(50% + 140px);
             }
 
+            /* 💬 HUD Prompt Wrapper - unified border container for prompt + select pane */
+            .ome-hud-prompt-wrapper {
+                width: 800px;
+                border: 1px solid rgba(var(--theme-color), 0.35);
+                border-radius: 12px;
+                box-shadow: 0 0 6px rgba(var(--theme-color), 0.125),
+                            0 0 12px rgba(var(--theme-color), 0.075),
+                            0 2px 12px rgba(0, 0, 0, 0.15);
+                overflow: hidden;
+                filter: drop-shadow(0 0 2px rgba(var(--theme-color), 0.15));
+                display: flex;
+                flex-direction: column;
+            }
+
             /* 💬 HUD Prompt Box - OME style (YOUR prompt unit) */
             .ome-hud-prompt {
-                width: 800px;
                 min-height: 100px;
                 max-height: 400px;
                 background: rgba(33,33,33,0.95);
                 backdrop-filter: blur(12px);
-                border: 1px solid rgba(var(--theme-color),0.35);
-                border-radius: 12px;
                 display: flex;
                 flex-direction: column;
                 font-family: system-ui, -apple-system, sans-serif;
-                box-shadow: 0 0 6px rgba(var(--theme-color),0.125), 0 0 12px rgba(var(--theme-color),0.075), 0 2px 12px rgba(0,0,0,0.15);
                 overflow: hidden;
                 color: #7ec8e3;
-                filter: drop-shadow(0 0 2px rgba(var(--theme-color),0.15));
             }
             /* 💬 HUD Textarea - OME style (YOUR input) */
             .ome-hud-prompt-textarea {
@@ -12884,6 +12893,13 @@
                 gap: 8px;
                 padding: 8px 16px 16px 16px;
                 border-top: 1px solid rgba(var(--theme-color),0.1);
+            }
+            /* 🔍 HUD Select Pane - transparent scanner window below prompt */
+            .ome-hud-select-pane {
+                height: 44px;
+                background: transparent;
+                border-top: 1px solid rgba(var(--theme-color),0.1);
+                position: relative;
             }
             /* 💬 HUD Send Button - consistent with orb button */
             .ome-hud-send-btn {
@@ -14160,13 +14176,17 @@
 
                     <!-- 💬 Input Area - YOUR OME prompt unit (slidable) -->
                     <div class="ome-hud-input-area">
-                        <div class="ome-hud-prompt">
-                            <textarea class="ome-hud-prompt-textarea" placeholder="Ask anything..." rows="1"></textarea>
-                            <div class="ome-hud-prompt-actions">
-                                <button class="ome-hud-send-btn">
-                                    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                                </button>
+                        <div class="ome-hud-prompt-wrapper">
+                            <div class="ome-hud-prompt">
+                                <textarea class="ome-hud-prompt-textarea" placeholder="Ask anything..." rows="1"></textarea>
+                                <div class="ome-hud-prompt-actions">
+                                    <button class="ome-hud-send-btn">
+                                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                    </button>
+                                </div>
                             </div>
+                            <!-- 🔍 Select Pane - transparent scanner window -->
+                            <div class="ome-hud-select-pane"></div>
                         </div>
 
                         <!-- 🔮 Current Orb Display with drag indicators -->

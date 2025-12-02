@@ -1,0 +1,20 @@
+{
+  "chat_id": "scrolldown-scroll__20251202T061312",
+  "created_at": "2025-12-02T06:13:12.675501Z",
+  "updated_at": "2025-12-02T06:13:12.675560Z",
+  "title": "**ScrollDown** - Scroll",
+  "default_title": "**scrolldown** - scroll",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "**ScrollDown** - Scroll down one page\n  - Scrolls the viewport down by one screen height\n  - Usage: `python3 test_navigation.py --command capability --capability ScrollDown`\n\n**ScrollUp** - Scroll up one page\n  - Scrolls the viewport up by one screen height\n  - Usage: `python3 test_navigation.py --command capability --capability ScrollUp`\n\n**ScrollLeft** - Scroll left one page\n  - Scrolls the viewport left by one screen width\n  - Usage: `python3 test_navigation.py --command capability --capability ScrollLeft`\n\n**ScrollRight** - Scroll right one page\n  - Scrolls the viewport right by one screen width\n  - Usage: `python3 test_navigation.py --command capability --capability ScrollRight`\n\n**ScrollTop** - Scroll to top of page\n  - Scrolls to the very top of the page\n  - Usage: `python3 test_navigation.py --command capability --capability ScrollTop`\n\n**ScrollBottom** - Scroll to bottom of page\n  - Scrolls to the very bottom of the page\n  - Usage: `python3 test_navigation.py --command capability --capability ScrollBottom`\n\n**SwitchTab** - Switch to a tab by ID\n  - Switches to a specific browser tab\n  - Usage: `python3 test_navigation.py --command capability --capability SwitchTab --params '{\"tabId\": TAB_ID}'`\n\n**OpenTab** - Open a new tab\n  - Opens a new browser tab with optional URL\n  - Usage: `python3 test_navigation.py --command capability --capability OpenTab --params '{\"url\": \"https://example.com\"}'`\n\n**CloseTab** - Close a tab by ID\n  - Closes a specific browser tab\n  - Usage: `python3 test_navigation.py --command capability --capability CloseTab --params '{\"tabId\": TAB_ID}'`\n\n**UpdateTabURL** - Navigate a tab to a URL\n  - Updates a tab to navigate to a new URL\n  - Usage: `python3 test_navigation.py --command capability --capability UpdateTabURL --params '{\"tabId\": TAB_ID, \"url\": \"https://example.com\"}'`\n\n**ZoomIn** - Zoom in 15%\n  - Increases page zoom by 15%\n  - Usage: `python3 test_navigation.py --command capability --capability ZoomIn`\n\n**ZoomOut** - Zoom out 15%\n  - Decreases page zoom by 15%\n  - Usage: `python3 test_navigation.py --command capability --capability ZoomOut`\n\n**ZoomReset** - Reset zoom to 100%\n  - Resets page zoom to default (100%)\n  - Usage: `python3 test_navigation.py --command capability --capability ZoomReset`",
+      "timestamp": "2025-12-02T06:13:12.675560Z"
+    }
+  ]
+}
