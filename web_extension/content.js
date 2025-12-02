@@ -12781,14 +12781,6 @@
             .ome-hud-messages-area::-webkit-scrollbar-track { background: transparent; }
             .ome-hud-messages-area::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
             .ome-hud-messages-area::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
-            .ome-hud-messages-area:empty::before {
-                content: 'How can I help you today?';
-                color: rgba(255,255,255,0.3);
-                font-size: 24px;
-                font-weight: 500;
-                text-align: center;
-                margin: auto;
-            }
 
             /* 🛤️ HUD Rail - vertical track for sliding prompt unit */
             .ome-hud-rail {
@@ -12891,7 +12883,7 @@
                 align-items: center;
                 justify-content: flex-end;
                 gap: 8px;
-                padding: 8px 16px 16px 16px;
+                padding: 8px 16px;
                 border-top: 1px solid rgba(var(--theme-color),0.1);
             }
             /* 🔍 HUD Select Pane - transparent scanner window below prompt */
@@ -12900,6 +12892,85 @@
                 background: transparent;
                 border-top: 1px solid rgba(var(--theme-color),0.1);
                 position: relative;
+            }
+            /* 🔍 Scan Mode - subtle pulsing glow on select pane */
+            @keyframes ome-scan-pulse {
+                0%, 100% {
+                    box-shadow: inset 0 0 4px rgba(var(--theme-color),0.03);
+                    border-top-color: rgba(var(--theme-color),0.15);
+                }
+                50% {
+                    box-shadow: inset 0 0 6px rgba(var(--theme-color),0.08);
+                    border-top-color: rgba(var(--theme-color),0.25);
+                }
+            }
+            .ome-hud.scan-mode .ome-hud-select-pane {
+                animation: ome-scan-pulse 1.5s ease-in-out infinite;
+            }
+            /* 🔍 Sweep Mode - highlighted text */
+            .ome-hud-swept {
+                background: rgba(var(--theme-color), 0.25) !important;
+                border-radius: 2px;
+            }
+            /* 🔍 Scan Mode instruction text in select pane */
+            .ome-hud-scan-instruction {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 13px;
+                white-space: nowrap;
+                pointer-events: none;
+                color: var(--text-color);
+                opacity: 0.7;
+                animation: ome-scan-text-pulse 2s ease-in-out infinite;
+            }
+            @keyframes ome-scan-text-pulse {
+                0%, 100% { opacity: 0.5; }
+                50% { opacity: 1; }
+            }
+            .ome-hud.scan-mode .ome-hud-scan-instruction {
+                display: block;
+            }
+            /* 🔍 Scan Mode - 8 converging arrows around orb */
+            .ome-hud-scan-arrow {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .ome-hud-scan-arrow svg {
+                width: 20px;
+                height: 20px;
+                stroke: currentColor;
+                stroke-width: 2.5;
+                fill: none;
+            }
+            /* Position arrows at 8 points around orb (orb is 80px) */
+            .ome-hud-scan-arrow-n  { top: -30px; left: 50%; transform: translateX(-50%) rotate(180deg); }
+            .ome-hud-scan-arrow-ne { top: -15px; right: -15px; transform: rotate(225deg); }
+            .ome-hud-scan-arrow-e  { top: 50%; right: -30px; transform: translateY(-50%) rotate(270deg); }
+            .ome-hud-scan-arrow-se { bottom: -15px; right: -15px; transform: rotate(315deg); }
+            .ome-hud-scan-arrow-s  { bottom: -30px; left: 50%; transform: translateX(-50%); }
+            .ome-hud-scan-arrow-sw { bottom: -15px; left: -15px; transform: rotate(45deg); }
+            .ome-hud-scan-arrow-w  { top: 50%; left: -30px; transform: translateY(-50%) rotate(90deg); }
+            .ome-hud-scan-arrow-nw { top: -15px; left: -15px; transform: rotate(135deg); }
+            /* Animate arrows converging inward during scan mode */
+            .ome-hud.scan-mode .ome-hud-scan-arrow {
+                animation: ome-arrow-converge 1.2s ease-in-out infinite;
+            }
+            .ome-hud.scan-mode .ome-hud-scan-arrow-ne,
+            .ome-hud.scan-mode .ome-hud-scan-arrow-sw { animation-delay: 0.15s; }
+            .ome-hud.scan-mode .ome-hud-scan-arrow-e,
+            .ome-hud.scan-mode .ome-hud-scan-arrow-w { animation-delay: 0.3s; }
+            .ome-hud.scan-mode .ome-hud-scan-arrow-se,
+            .ome-hud.scan-mode .ome-hud-scan-arrow-nw { animation-delay: 0.45s; }
+            @keyframes ome-arrow-converge {
+                0% { opacity: 0.9; }
+                50% { opacity: 0.5; }
+                100% { opacity: 0; }
             }
             /* 💬 HUD Send Button - consistent with orb button */
             .ome-hud-send-btn {
@@ -14186,7 +14257,9 @@
                                 </div>
                             </div>
                             <!-- 🔍 Select Pane - transparent scanner window -->
-                            <div class="ome-hud-select-pane"></div>
+                            <div class="ome-hud-select-pane">
+                                <span class="ome-hud-scan-instruction">SCAN MODE</span>
+                            </div>
                         </div>
 
                         <!-- 🔮 Current Orb Display with drag indicators -->
@@ -14197,6 +14270,13 @@
                                 </div>
                                 <div class="ome-hud-drag-indicator ome-hud-drag-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
                                 <div class="ome-hud-drag-indicator ome-hud-drag-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+                                <!-- 🔍 Scan mode converging arrows (6 directions - no N/S to avoid drag indicator clash) -->
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-ne"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-e"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-se"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-sw"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-w"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-nw"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
                             </div>
                         </div>
 
@@ -14401,13 +14481,146 @@
             document.addEventListener('mousemove', hudSlideHandler);
         }
 
-        // Click to toggle slide mode (same pattern as floating orb)
+        // 🔍 Click to toggle scan mode (visual + slide behavior)
+        let scanModeActive = false;
+        let sweepingActive = false;
+        let sweptRegion = { minY: null, maxY: null };
+        const selectPane = hud.querySelector('.ome-hud-select-pane');
+        const messagesArea = hud.querySelector('.ome-hud-messages-area');
+
+        /**
+         * 🔍 Clear all swept highlights from messages
+         */
+        function clearSweptHighlights() {
+            if (!messagesArea) return;
+            messagesArea.querySelectorAll('.ome-hud-swept').forEach(el => {
+                el.classList.remove('ome-hud-swept');
+            });
+        }
+
+        /**
+         * 🔍 Highlight messages within swept region
+         */
+        function highlightSweptText() {
+            if (!messagesArea || sweptRegion.minY === null) return;
+            const messages = messagesArea.querySelectorAll('.ome-hud-message');
+            messages.forEach(msg => {
+                const rect = msg.getBoundingClientRect();
+                const overlaps = rect.top < sweptRegion.maxY && rect.bottom > sweptRegion.minY;
+                if (overlaps) {
+                    msg.classList.add('ome-hud-swept');
+                } else {
+                    msg.classList.remove('ome-hud-swept');
+                }
+            });
+        }
+
+        /**
+         * 🔍 Update swept region based on current pane position
+         */
+        function updateSweptRegion() {
+            if (!selectPane || !sweepingActive) return;
+            const paneRect = selectPane.getBoundingClientRect();
+            if (sweptRegion.minY === null) {
+                sweptRegion.minY = paneRect.top;
+                sweptRegion.maxY = paneRect.bottom;
+            } else {
+                sweptRegion.minY = Math.min(sweptRegion.minY, paneRect.top);
+                sweptRegion.maxY = Math.max(sweptRegion.maxY, paneRect.bottom);
+            }
+            highlightSweptText();
+        }
+
+        /**
+         * 🔍 Start sweep - click in scan mode
+         */
+        function startSweep() {
+            sweepingActive = true;
+            sweptRegion = { minY: null, maxY: null };
+            hud.classList.add('sweeping');
+            updateSweptRegion();
+            console.log('[Content] 🔍 Sweep started - move to scan, click to capture');
+        }
+
+        /**
+         * 🔍 End sweep - capture text and exit
+         */
+        function endSweep() {
+            if (!sweepingActive) return;
+
+            // Capture swept text
+            const sweptMessages = messagesArea?.querySelectorAll('.ome-hud-swept');
+            const texts = [];
+            sweptMessages?.forEach(msg => {
+                const text = msg.textContent?.trim();
+                if (text) texts.push(text);
+            });
+            const capturedText = texts.join('\n\n');
+
+            if (capturedText && promptTextarea) {
+                const prefix = promptTextarea.value.length > 0 ? '\n\n' : '';
+                promptTextarea.value += prefix + capturedText;
+                promptTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+                console.log('[Content] 🔍 Captured:', capturedText.substring(0, 50) + '...');
+            }
+
+            // Reset sweep state
+            sweepingActive = false;
+            sweptRegion = { minY: null, maxY: null };
+            hud.classList.remove('sweeping');
+            clearSweptHighlights();
+
+            // Exit scan mode too
+            scanModeActive = false;
+            hud.classList.remove('scan-mode');
+            releaseHudSlide();
+            console.log('[Content] 🔍 Sweep ended, exited scan mode');
+        }
+
+        // Modify slide handler to update swept region
+        const originalStartHudSlide = startHudSlide;
+        startHudSlide = function() {
+            originalStartHudSlide();
+            // Patch the mousemove handler to also update sweep
+            const originalHandler = hudSlideHandler;
+            hudSlideHandler = (e) => {
+                originalHandler(e);
+                if (sweepingActive) updateSweptRegion();
+            };
+            document.removeEventListener('mousemove', originalHandler);
+            document.addEventListener('mousemove', hudSlideHandler);
+        };
+
         hudOrb?.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (hudSliding) {
+            if (scanModeActive) {
+                // Exit scan mode - visual + stop sliding + clear sweep
+                scanModeActive = false;
+                sweepingActive = false;
+                sweptRegion = { minY: null, maxY: null };
+                hud.classList.remove('scan-mode', 'sweeping');
+                clearSweptHighlights();
                 releaseHudSlide();
+                console.log('[Content] 🔍 Exited scan mode');
             } else {
+                // Enter scan mode - visual + start sliding
+                scanModeActive = true;
+                hud.classList.add('scan-mode');
                 startHudSlide();
+                console.log('[Content] 🔍 Entered scan mode - click to begin sweep');
+            }
+        });
+
+        // 🔍 Click in HUD to start/end sweep (when in scan mode)
+        hud.addEventListener('click', (e) => {
+            if (!scanModeActive) return;
+            if (e.target.closest('.ome-hud-orb')) return; // Let orb handle its own clicks
+
+            e.stopPropagation();
+            if (!sweepingActive) {
+                startSweep();
+            } else {
+                endSweep();
             }
         });
 
