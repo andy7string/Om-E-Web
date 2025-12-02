@@ -1440,6 +1440,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                         if (orbDefaultApplied === 0) {
                             // First page of session - use defaults (position: null, chatVisible: true)
                             orbDefaultApplied = 1;
+                            orbState.chatVisible = true; // 💬 Also update orbState so it persists to subsequent pages
                             console.log('[SW] 🚀 First page of session - using defaults (position: null, chatVisible: true)');
                             sendResponse({ ok: true, ...orbState, position: null, chatVisible: true, zoom });
                         } else {
@@ -1450,6 +1451,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     } catch (e) {
                         if (orbDefaultApplied === 0) {
                             orbDefaultApplied = 1;
+                            orbState.chatVisible = true; // 💬 Also update orbState so it persists to subsequent pages
                             sendResponse({ ok: true, ...orbState, position: null, chatVisible: true, zoom: 1.0 });
                         } else {
                             sendResponse({ ok: true, ...orbState, zoom: 1.0 });

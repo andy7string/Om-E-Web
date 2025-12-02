@@ -1,28 +1,28 @@
 {
-  "timestamp": 1764630812.756814,
+  "timestamp": 1764634934.620568,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138028718,
-      "url": "https://chatgpt.com/",
-      "title": "ChatGPT",
+      "id": 1138028783,
+      "url": "https://www.google.com/",
+      "title": "Google",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138028718,
-        "url": "https://chatgpt.com/",
-        "title": "ChatGPT",
+        "id": 1138028783,
+        "url": "https://www.google.com/",
+        "title": "Google",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 17320.439578875,
+    "last_tabs_update": 21469.242145166,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/",
-    "title": "ChatGPT",
+    "url": "https://www.google.com/",
+    "title": "Google",
     "is_active_tab": true
   },
   "menu_structure": {

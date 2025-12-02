@@ -12657,14 +12657,17 @@
             .ome-hud[data-theme="kawaii"] {
                 --theme-color: 126,200,227;  /* Sparkly blue */
                 --theme-accent: #7ec8e3;
+                --text-color: #7ec8e3;
             }
             .ome-hud[data-theme="robot"] {
                 --theme-color: 0,229,255;  /* Cyan */
                 --theme-accent: #00e5ff;
+                --text-color: #00e5ff;
             }
             .ome-hud[data-theme="atom"] {
                 --theme-color: 147,112,219;  /* Purple */
                 --theme-accent: #ba93ff;
+                --text-color: #3CB371;  /* Forest green text for atom */
             }
             .ome-hud.visible { display: flex; opacity: 1; flex-direction: column; }
             @keyframes ome-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -12761,16 +12764,18 @@
             }
 
             /* 💬 HUD Messages Area - ChatGPT style scrollable history */
+            /* 📐 Aligned with prompt using same centering + translateX to match input-area offset */
             .ome-hud-messages-area {
                 flex: 1 1 auto;
                 overflow-y: auto;
-                padding: 24px;
+                padding: 24px 0;
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
                 max-width: 800px;
-                margin: 0 auto;
                 width: 100%;
+                margin: 0 auto;
+                transform: translateX(-10%);
             }
             .ome-hud-messages-area::-webkit-scrollbar { width: 8px; }
             .ome-hud-messages-area::-webkit-scrollbar-track { background: transparent; }
@@ -12852,7 +12857,7 @@
                 padding: 16px 6px 8px 6px;
                 font-size: 15px;
                 line-height: 1.5;
-                color: inherit;
+                color: var(--text-color);
                 outline: none;
                 resize: none;
                 overflow-y: hidden;
@@ -12862,7 +12867,8 @@
                 white-space: pre-wrap;
             }
             .ome-hud-prompt-textarea::placeholder {
-                color: rgba(126,200,227,0.5);
+                color: var(--text-color);
+                opacity: 0.5;
             }
             .ome-hud-prompt-textarea::-webkit-scrollbar { width: 6px; }
             .ome-hud-prompt-textarea::-webkit-scrollbar-track { background: transparent; }
@@ -12885,17 +12891,17 @@
                 height: 40px;
                 min-width: 40px;
                 min-height: 40px;
-                border: 1px solid rgba(126,200,227,0.35);
+                border: 1px solid rgba(var(--theme-color),0.35);
                 border-radius: 10px;
                 background: rgba(80,100,160,0.55);
-                color: #7ec8e3;
+                color: var(--text-color);
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 transition: background 0.15s ease, border-color 0.15s ease;
             }
-            .ome-hud-send-btn:hover { background: rgba(80,100,160,0.75); border-color: rgba(126,200,227,0.55); }
+            .ome-hud-send-btn:hover { background: rgba(80,100,160,0.75); border-color: rgba(var(--theme-color),0.55); }
             .ome-hud-send-btn:active { transform: scale(0.95); }
             .ome-hud-send-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
 
@@ -12909,11 +12915,11 @@
                 border-radius: 8px;
             }
             .ome-hud-message.user {
-                margin-left: 20px;
-                padding-left: 14px;
-                border-left: 2px solid rgba(var(--theme-color),0.5);
+                margin-left: 0;
+                padding-left: 0;
+                border-left: none;
                 background: rgba(255,255,255,0.03);
-                color: rgba(var(--theme-color),0.8);
+                color: var(--text-color);
             }
             .ome-hud-message.assistant {
                 margin-left: 0;
@@ -12942,7 +12948,7 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 4px;
-                color: var(--theme-accent);
+                color: var(--text-color);
             }
             .ome-hud-scroll .ome-hud-ctrl-btn {
                 width: 48px;
@@ -12972,10 +12978,10 @@
                 position: relative;
                 width: 48px;
                 height: 48px;
-                border: 2px solid rgba(167,139,250,0.5);
+                border: 2px solid var(--text-color);
                 border-radius: 50%;
-                background: rgba(167,139,250,0.25);
-                color: #a5b4fc;
+                background: transparent;
+                color: var(--text-color);
                 font-size: 11px;
                 font-weight: 700;
                 letter-spacing: 0.5px;
@@ -12984,7 +12990,7 @@
                 align-items: center;
                 justify-content: center;
                 transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
-                opacity: 0.85;
+                opacity: 0.7;
             }
             /* 🌀 Outer ring - theme colored, spins on hover */
             .ome-hud-menu-btn::before {
@@ -12994,13 +13000,13 @@
                 left: -6px;
                 right: -6px;
                 bottom: -6px;
-                border: 2px solid currentColor;
+                border: 2px solid var(--text-color);
                 border-radius: 50%;
-                opacity: 0.7;
+                opacity: 0.5;
                 transition: opacity 0.2s ease;
             }
             .ome-hud-menu-btn { margin-bottom: 10px; }
-            .ome-hud-menu-btn:hover { background: rgba(167,139,250,0.4); opacity: 1; border-color: #a5b4fc; }
+            .ome-hud-menu-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; }
             .ome-hud-menu-btn:hover::before { opacity: 1; animation: ome-ring-spin 1s linear infinite; }
             .ome-hud-menu-btn:active { transform: scale(0.95); }
 
@@ -13028,7 +13034,7 @@
                 transform: translateX(-50%);
                 width: 24px;
                 height: 24px;
-                color: var(--theme-accent);
+                color: var(--text-color);
                 opacity: 0;
                 pointer-events: none;
             }
@@ -13064,7 +13070,7 @@
             }
             .ome-hud-orb:hover { transform: scale(1.05); }
             .ome-hud-orb.holding { transform: scale(1.1); cursor: grabbing; }
-            .ome-hud-orb svg { width: 80px; height: 80px; pointer-events: none; }
+            .ome-hud-orb svg { width: 80px; height: 80px; }
 
             /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - same size as Z) */
             .ome-scroll-controls {
@@ -13093,10 +13099,10 @@
                 position: relative;
                 width: 36px;
                 height: 36px;
-                border: 2px solid rgba(167,139,250,0.5);
+                border: 2px solid currentColor;
                 border-radius: 50%;
-                background: rgba(167,139,250,0.25);
-                color: #a5b4fc;
+                background: transparent;
+                color: inherit;
                 font-size: 9px;
                 font-weight: 700;
                 letter-spacing: 0.5px;
@@ -13105,7 +13111,7 @@
                 align-items: center;
                 justify-content: center;
                 transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
-                opacity: 0.85;
+                opacity: 0.7;
             }
             /* 🌀 Outer ring - theme colored, spins on hover */
             .ome-menu-btn::before {
@@ -13117,11 +13123,11 @@
                 bottom: -6px;
                 border: 2px solid currentColor;
                 border-radius: 50%;
-                opacity: 0.7;
+                opacity: 0.5;
                 transition: opacity 0.2s ease;
             }
             .ome-menu-btn { margin-bottom: 10px; }
-            .ome-menu-btn:hover { background: rgba(167,139,250,0.4); opacity: 1; border-color: #a5b4fc; }
+            .ome-menu-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
             .ome-menu-btn:hover::before { opacity: 1; animation: ome-ring-spin 1s linear infinite; }
             .ome-menu-btn:active { transform: scale(0.95); }
             @keyframes ome-ring-spin {
@@ -13325,7 +13331,7 @@
                 align-self: flex-start;
                 background: transparent;
                 border: 1px solid rgba(147,112,219,0.3);
-                color: rgba(var(--theme-color),0.65);
+                color: var(--text-color);
                 text-align: left;
             }
             .ome-chat-bubble.assistant {
@@ -13397,7 +13403,7 @@
                 border: 1px solid rgba(var(--theme-color),0.35);
                 border-radius: 12px;
                 background: rgba(80,100,160,0.55);
-                color: var(--theme-accent);
+                color: var(--text-color);
                 cursor: pointer;
                 display: flex;
                 align-items: center;
