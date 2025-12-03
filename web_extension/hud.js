@@ -1,0 +1,3447 @@
+// ============================================================================
+// 🎛️ OM-E HUD SYSTEM - Separated for maintainability
+// Floating orb and overlay interface
+// ============================================================================
+
+(() => {
+
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string }} */
+    const hudState = {
+        host: null,
+        shadow: null,
+        orb: null,
+        hud: null,
+        chatPanel: null,      // 💬 Chat panel element
+        sidebar: null,        // 📚 Sidebar element
+        visible: false,
+        chatVisible: true,    // 💬 Chat panel visibility (open by default)
+        sidebarOpen: false,   // 📚 Sidebar open state
+        dragging: false,
+        theme: 'robot'        // Current orb theme (default)
+    };
+
+    // 💬 Save chat input immediately (persists across navigation)
+    function saveChatInput(value) {
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', chatInput: value });
+        } catch (e) {
+            console.warn('[Content] Could not save chat input:', e);
+        }
+    }
+
+    // 📐 Save chat panel size (persists across sessions)
+    function saveChatPanelSize(width, height) {
+        try {
+            chrome.runtime.sendMessage({
+                type: 'set_orb_state',
+                chatPanelSize: { width, height }
+            });
+        } catch (e) {
+            console.warn('[Content] Could not save chat panel size:', e);
+        }
+    }
+
+    /**
+     * 📐 Setup resize handlers for chat panel
+     * Enables drag-to-resize on all edges and corners
+     * @param {HTMLElement} chatPanel - The chat panel element
+     */
+    function setupChatPanelResize(chatPanel) {
+        if (!chatPanel) return;
+
+        let isResizing = false;
+        let resizeDir = null;
+        let startX = 0;
+        let startY = 0;
+        let startWidth = 0;
+        let startHeight = 0;
+
+        // Get all resize handles
+        const handles = chatPanel.querySelectorAll('.ome-resize-handle');
+
+        handles.forEach(handle => {
+            handle.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                isResizing = true;
+                resizeDir = handle.dataset.resize;
+                startX = e.clientX;
+                startY = e.clientY;
+
+                const rect = chatPanel.getBoundingClientRect();
+                startWidth = rect.width;
+                startHeight = rect.height;
+
+                chatPanel.classList.add('resizing');
+
+                // Use document listeners so resize works even if mouse leaves panel
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+        });
+
+        function onMouseMove(e) {
+            if (!isResizing) return;
+
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+
+            let newWidth = startWidth;
+            let newHeight = startHeight;
+
+            // Handle width changes
+            if (resizeDir.includes('e')) {
+                // East: decrease width as mouse moves right (panel anchored on right)
+                newWidth = Math.max(200, Math.min(800, startWidth - dx));
+            }
+            if (resizeDir.includes('w')) {
+                // West (left edge): drag left = wider, drag right = narrower
+                newWidth = Math.max(200, Math.min(800, startWidth - dx));
+            }
+
+            // Handle height changes
+            if (resizeDir.includes('n')) {
+                // North: increase height as mouse moves up
+                newHeight = Math.max(150, Math.min(window.innerHeight * 0.8, startHeight - dy));
+            }
+            if (resizeDir.includes('s')) {
+                // South: decrease height as mouse moves down (panel anchored at bottom)
+                newHeight = Math.max(150, Math.min(window.innerHeight * 0.8, startHeight + dy));
+            }
+
+            chatPanel.style.width = `${newWidth}px`;
+            chatPanel.style.height = `${newHeight}px`;
+        }
+
+        function onMouseUp() {
+            if (!isResizing) return;
+
+            isResizing = false;
+            resizeDir = null;
+            chatPanel.classList.remove('resizing');
+
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+
+            // 💾 Save dimensions for persistence
+            const rect = chatPanel.getBoundingClientRect();
+            saveChatPanelSize(rect.width, rect.height);
+        }
+
+        // 💾 Restore saved dimensions
+        restoreChatPanelSize(chatPanel);
+    }
+
+    /**
+     * 📐 Restore chat panel size from saved state
+     * @param {HTMLElement} chatPanel - The chat panel element
+     */
+    function restoreChatPanelSize(chatPanel) {
+        try {
+            chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                if (response?.ok && response.chatPanelSize) {
+                    const { width, height } = response.chatPanelSize;
+                    if (width && height) {
+                        chatPanel.style.width = `${width}px`;
+                        chatPanel.style.height = `${height}px`;
+                        console.log('[Content] 📐 Restored chat panel size:', width, 'x', height);
+                    }
+                }
+            });
+        } catch (e) {
+            console.warn('[Content] Could not restore chat panel size:', e);
+        }
+    }
+
+    /**
+     * 📐 Smart orb positioning - keeps orb and all controls within viewport
+     * Handles both open and closed chat panel states:
+     * - Panel open: shrink panel first, then move orb
+     * - Panel closed: just move orb to stay within bounds
+     * Maintains 10px margin from all viewport edges
+     */
+    function constrainOrbToViewport() {
+        const orb = hudState.orb;
+        const chatPanel = hudState.chatPanel;
+        if (!orb) return;
+
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const margin = 10; // 10px from all edges
+
+        // Orb dimensions and control offsets
+        const orbRect = orb.getBoundingClientRect();
+
+        // Control offsets from orb
+        const scrollButtonsRight = 90;  // Scroll buttons extend ~90px right of orb left edge (54px + 36px button)
+        const zoomControlsBelow = 50;   // Zoom controls extend ~50px below orb
+        const promptButtonBelow = 25;   // Prompt button extends ~25px below orb
+
+        // Calculate orb's total footprint (orb + all visible controls)
+        const footprintRight = orbRect.left + scrollButtonsRight;  // Right edge of scroll buttons
+        const footprintBottom = orbRect.bottom + Math.max(zoomControlsBelow, promptButtonBelow);
+        const footprintLeft = orbRect.left;
+        const footprintTop = orbRect.top;
+
+        // Current position as percentages (calculate from actual position, not style)
+        let rightPct = ((viewportWidth - orbRect.right) / viewportWidth) * 100;
+        let bottomPct = ((viewportHeight - orbRect.bottom) / viewportHeight) * 100;
+        let positionChanged = false;
+
+        // ============================================================
+        // CHAT PANEL OPEN: Handle panel + orb together
+        // ============================================================
+        if (hudState.chatVisible && chatPanel) {
+            const panelRect = chatPanel.getBoundingClientRect();
+            const panelRightOffset = 85;  // Panel is 85px left of orb
+            const minPanelWidth = 300;
+            let currentPanelWidth = panelRect.width || 750;
+
+            // Check LEFT edge overflow (panel extends past left margin)
+            const panelLeftEdge = panelRect.left;
+            if (panelLeftEdge < margin) {
+                const leftOverflow = margin - panelLeftEdge;
+
+                // Strategy 1: Shrink panel first (preferred)
+                if (currentPanelWidth - leftOverflow >= minPanelWidth) {
+                    currentPanelWidth -= leftOverflow;
+                    chatPanel.style.width = `${currentPanelWidth}px`;
+                    console.log('[Content] 📐 Shrunk panel to:', currentPanelWidth);
+                } else {
+                    // Strategy 2: Shrink to min, then move orb right
+                    const shrinkAmount = currentPanelWidth - minPanelWidth;
+                    if (shrinkAmount > 0) {
+                        currentPanelWidth = minPanelWidth;
+                        chatPanel.style.width = `${minPanelWidth}px`;
+                    }
+                    const remainingOverflow = leftOverflow - shrinkAmount;
+                    if (remainingOverflow > 0) {
+                        // Move orb right
+                        const rightPx = (rightPct / 100) * viewportWidth;
+                        const newRightPx = Math.max(scrollButtonsRight + margin, rightPx - remainingOverflow);
+                        rightPct = (newRightPx / viewportWidth) * 100;
+                        positionChanged = true;
+                        console.log('[Content] 📐 Moved orb right to:', rightPct.toFixed(1) + '%');
+                    }
+                }
+            }
+
+            // Check RIGHT edge overflow (scroll buttons past right margin)
+            if (footprintRight > viewportWidth - margin) {
+                const rightOverflow = footprintRight - (viewportWidth - margin);
+                const rightPx = (rightPct / 100) * viewportWidth;
+                rightPct = ((rightPx + rightOverflow) / viewportWidth) * 100;
+                positionChanged = true;
+                console.log('[Content] 📐 Moved orb left to:', rightPct.toFixed(1) + '%');
+            }
+
+            // Update max-width constraint for manual resize
+            const orbRightAfter = viewportWidth - orb.getBoundingClientRect().right;
+            const maxAvailableWidth = viewportWidth - orbRightAfter - panelRightOffset - margin;
+            chatPanel.style.maxWidth = `${Math.max(minPanelWidth, maxAvailableWidth)}px`;
+        }
+        // ============================================================
+        // CHAT PANEL CLOSED: Just keep orb within bounds
+        // ============================================================
+        else {
+            // Check RIGHT edge (scroll buttons)
+            if (footprintRight > viewportWidth - margin) {
+                const rightOverflow = footprintRight - (viewportWidth - margin);
+                const rightPx = (rightPct / 100) * viewportWidth;
+                rightPct = ((rightPx + rightOverflow) / viewportWidth) * 100;
+                positionChanged = true;
+            }
+
+            // Check LEFT edge (orb body)
+            if (footprintLeft < margin) {
+                const leftOverflow = margin - footprintLeft;
+                const rightPx = (rightPct / 100) * viewportWidth;
+                rightPct = ((rightPx - leftOverflow) / viewportWidth) * 100;
+                positionChanged = true;
+            }
+        }
+
+        // ============================================================
+        // VERTICAL BOUNDS (same for both states)
+        // ============================================================
+        // Check BOTTOM edge (zoom controls / prompt button)
+        if (footprintBottom > viewportHeight - margin) {
+            const bottomOverflow = footprintBottom - (viewportHeight - margin);
+            const bottomPx = (bottomPct / 100) * viewportHeight;
+            bottomPct = ((bottomPx + bottomOverflow) / viewportHeight) * 100;
+            positionChanged = true;
+        }
+
+        // Check TOP edge (orb body)
+        if (footprintTop < margin) {
+            const topOverflow = margin - footprintTop;
+            const bottomPx = (bottomPct / 100) * viewportHeight;
+            bottomPct = ((bottomPx - topOverflow) / viewportHeight) * 100;
+            positionChanged = true;
+        }
+
+        // Apply position changes
+        if (positionChanged) {
+            // Clamp to sane bounds
+            rightPct = Math.max(1, Math.min(95, rightPct));
+            bottomPct = Math.max(1, Math.min(90, bottomPct));
+
+            orb.style.left = 'auto';
+            orb.style.top = 'auto';
+            orb.style.right = `${rightPct}%`;
+            orb.style.bottom = `${bottomPct}%`;
+            console.log('[Content] 📐 Adjusted orb position:', { right: rightPct.toFixed(1) + '%', bottom: bottomPct.toFixed(1) + '%' });
+            saveOrbPosition(rightPct, bottomPct);
+        }
+    }
+
+    // Alias for backwards compatibility
+    const constrainChatPanelToViewport = constrainOrbToViewport;
+
+    // 📐 Window resize listener for chat panel viewport constraints
+    let resizeTimeout = null;
+    window.addEventListener('resize', () => {
+        // Debounce resize events
+        if (resizeTimeout) clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            constrainChatPanelToViewport();
+        }, 100);
+    });
+
+    // ============================================================================
+    // 🎨 ORB THEMES REGISTRY - Different visual styles for the floating orb
+    // ============================================================================
+
+    /**
+     * @typedef {Object} OrbTheme
+     * @property {string} name - Display name
+     * @property {string} svg - SVG markup for the orb
+     * @property {string} paws - SVG markup for paws (shown when holding)
+     * @property {string} earSelector - CSS selector for clickable ears
+     */
+
+    /** @type {Object<string, OrbTheme>} */
+    const ORB_THEMES = {
+        // 🐱 Kawaii - fluffy white kitty with cherry, big sparkly blue eyes
+        kawaii: {
+            name: 'Kawaii',
+            earSelector: '.ome-ear',
+            color: '#7ec8e3',  // Sparkly blue (matching eyes)
+            svg: `
+                <svg class="ome-bunny" viewBox="0 0 60 72" fill="none">
+                    <defs>
+                        <!-- Fluffy white body gradient -->
+                        <radialGradient id="kawaiiFluffyGrad" cx="50%" cy="40%" r="60%">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.95)"/>
+                            <stop offset="70%" stop-color="rgba(248,244,255,0.9)"/>
+                            <stop offset="100%" stop-color="rgba(232,224,240,0.85)"/>
+                        </radialGradient>
+                        <!-- Pink inner ear -->
+                        <linearGradient id="kawaiiPinkEarGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255,182,193,0.8)"/>
+                            <stop offset="100%" stop-color="rgba(255,145,164,0.7)"/>
+                        </linearGradient>
+                        <!-- Sparkly blue eye gradient -->
+                        <radialGradient id="kawaiiEyeBlueGrad" cx="50%" cy="30%" r="50%">
+                            <stop offset="0%" stop-color="#7ec8e3"/>
+                            <stop offset="50%" stop-color="#4a9eca"/>
+                            <stop offset="100%" stop-color="#2d7eb0"/>
+                        </radialGradient>
+                        <!-- Cherry gradient -->
+                        <radialGradient id="kawaiiCherryGrad" cx="30%" cy="30%" r="60%">
+                            <stop offset="0%" stop-color="#ff8a9b"/>
+                            <stop offset="100%" stop-color="#e05670"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- Left ear (pointed, cat-style) - clickable -->
+                    <path class="ome-ear" d="M12 28 L8 8 L22 22 Z" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.8)" stroke-width="1.5" style="cursor:pointer"/>
+                    <path d="M13 24 L11 12 L19 21 Z" fill="url(#kawaiiPinkEarGrad)" style="pointer-events:none"/>
+                    <!-- Right ear - clickable -->
+                    <path class="ome-ear" d="M48 28 L52 8 L38 22 Z" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.8)" stroke-width="1.5" style="cursor:pointer"/>
+                    <path d="M47 24 L49 12 L41 21 Z" fill="url(#kawaiiPinkEarGrad)" style="pointer-events:none"/>
+                    <!-- Strawberry on top - clickable to open HUD -->
+                    <g class="ome-ear" style="cursor:pointer">
+                        <path d="M30 2 Q28 -2 26 0 M30 2 Q32 -2 34 0 M30 2 Q30 -3 30 -1" stroke="#50a060" stroke-width="1.5" fill="none"/>
+                        <ellipse cx="30" cy="10" rx="9" ry="8" fill="url(#kawaiiCherryGrad)"/>
+                        <ellipse cx="27" cy="7" rx="2.5" ry="1.5" fill="rgba(255,255,255,0.5)"/>
+                        <!-- Strawberry seeds -->
+                        <ellipse cx="26" cy="12" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                        <ellipse cx="34" cy="11" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                        <ellipse cx="30" cy="14" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                    </g>
+                    <!-- Fluffy head -->
+                    <ellipse cx="30" cy="38" rx="24" ry="22" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.7)" stroke-width="1.5"/>
+                    <!-- Fluffy cheek tufts -->
+                    <ellipse cx="8" cy="40" rx="6" ry="8" fill="url(#kawaiiFluffyGrad)"/>
+                    <ellipse cx="52" cy="40" rx="6" ry="8" fill="url(#kawaiiFluffyGrad)"/>
+                    <!-- Big sparkly eyes -->
+                    <ellipse cx="20" cy="38" rx="7" ry="8" fill="url(#kawaiiEyeBlueGrad)" stroke="rgba(45,96,144,0.5)" stroke-width="0.5"/>
+                    <ellipse cx="40" cy="38" rx="7" ry="8" fill="url(#kawaiiEyeBlueGrad)" stroke="rgba(45,96,144,0.5)" stroke-width="0.5"/>
+                    <!-- Eye highlights (sparkles) -->
+                    <circle cx="17" cy="35" r="2.5" fill="rgba(255,255,255,0.95)"/>
+                    <circle cx="22" cy="33" r="1.2" fill="rgba(255,255,255,0.9)"/>
+                    <circle cx="37" cy="35" r="2.5" fill="rgba(255,255,255,0.95)"/>
+                    <circle cx="42" cy="33" r="1.2" fill="rgba(255,255,255,0.9)"/>
+                    <!-- Pupils -->
+                    <ellipse cx="21" cy="40" rx="2" ry="2.5" fill="rgba(26,48,80,0.9)"/>
+                    <ellipse cx="41" cy="40" rx="2" ry="2.5" fill="rgba(26,48,80,0.9)"/>
+                    <!-- Rosy blush -->
+                    <ellipse cx="10" cy="44" rx="4" ry="2.5" fill="rgba(255,150,170,0.5)"/>
+                    <ellipse cx="50" cy="44" rx="4" ry="2.5" fill="rgba(255,150,170,0.5)"/>
+                    <!-- Cute nose -->
+                    <ellipse cx="30" cy="46" rx="2.5" ry="2" fill="rgba(255,176,192,0.8)"/>
+                    <!-- Tiny smile -->
+                    <path d="M26 50 Q30 54 34 50" stroke="rgba(192,144,160,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <!-- Little body hint -->
+                    <ellipse cx="30" cy="64" rx="14" ry="8" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.6)" stroke-width="1"/>
+                </svg>`,
+            paws: `
+                <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
+                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(255,255,255,0.4)" stroke="rgba(208,192,224,0.5)" stroke-width="1"/>
+                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(255,255,255,0.4)" stroke="rgba(208,192,224,0.5)" stroke-width="1"/>
+                </svg>`
+        },
+
+        // 🤖 Om-E - cute bot with goggles and glowing eyes
+        robot: {
+            name: 'Om-E',
+            earSelector: '.ome-goggle',
+            color: '#00e5ff',  // Cyan from eyes
+            svg: `
+                <svg class="ome-bunny" viewBox="0 14 60 72" fill="none">
+                    <defs>
+                        <!-- Body gradient: purple top to blue bottom -->
+                        <linearGradient id="robotBodyGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(147,112,219,0.5)"/>
+                            <stop offset="50%" stop-color="rgba(80,100,200,0.4)"/>
+                            <stop offset="100%" stop-color="rgba(66,133,244,0.35)"/>
+                        </linearGradient>
+                        <!-- Goggle gradient -->
+                        <linearGradient id="goggleGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(186,147,255,0.6)"/>
+                            <stop offset="100%" stop-color="rgba(147,112,219,0.5)"/>
+                        </linearGradient>
+                        <!-- Glowing eye gradient -->
+                        <radialGradient id="glowEyeGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#00ffff"/>
+                            <stop offset="100%" stop-color="#00e5ff"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- Ear muffs (sides) - positioned at bottom of dome -->
+                    <ellipse cx="6" cy="54" rx="5" ry="7" fill="rgba(66,133,244,0.35)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <ellipse cx="54" cy="54" rx="5" ry="7" fill="rgba(66,133,244,0.35)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <!-- Wide dome/helmet head shape -->
+                    <path d="M8 58 Q8 32 30 28 Q52 32 52 58 Q52 64 30 66 Q8 64 8 58 Z" fill="url(#robotBodyGrad)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <!-- Goggles on top (clickable) -->
+                    <ellipse class="ome-goggle" cx="20" cy="34" rx="9" ry="7" fill="url(#goggleGrad)" stroke="rgba(147,112,219,0.8)" stroke-width="1.5" style="cursor:pointer"/>
+                    <ellipse class="ome-goggle" cx="40" cy="34" rx="9" ry="7" fill="url(#goggleGrad)" stroke="rgba(147,112,219,0.8)" stroke-width="1.5" style="cursor:pointer"/>
+                    <!-- Goggle lenses (dark) -->
+                    <ellipse cx="20" cy="34" rx="6" ry="5" fill="rgba(40,40,80,0.7)" style="pointer-events:none"/>
+                    <ellipse cx="40" cy="34" rx="6" ry="5" fill="rgba(40,40,80,0.7)" style="pointer-events:none"/>
+                    <!-- Goggle bridge -->
+                    <rect x="28" y="32" width="4" height="4" rx="1" fill="rgba(147,112,219,0.6)" style="pointer-events:none"/>
+                    <!-- Face plate area (rounded rect) -->
+                    <rect x="14" y="46" rx="6" ry="6" width="32" height="16" fill="rgba(30,50,90,0.5)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
+                    <!-- Glowing cyan eyes -->
+                    <ellipse cx="23" cy="54" rx="3" ry="5" fill="url(#glowEyeGrad)"/>
+                    <ellipse cx="37" cy="54" rx="3" ry="5" fill="url(#glowEyeGrad)"/>
+                    <!-- Eye glow effect -->
+                    <ellipse cx="23" cy="54" rx="4" ry="6" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="2"/>
+                    <ellipse cx="37" cy="54" rx="4" ry="6" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="2"/>
+                </svg>`,
+            paws: `
+                <svg class="ome-bunny-paws" width="36" height="14" viewBox="0 0 36 14" fill="none">
+                    <ellipse cx="8" cy="8" rx="6" ry="4" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
+                    <ellipse cx="28" cy="8" rx="6" ry="4" fill="rgba(66,133,244,0.2)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
+                </svg>`
+        },
+
+        // ⚛️ Atom - glowing orbital rings with neon green
+        atom: {
+            name: 'Atom',
+            earSelector: '.ome-atom-click',
+            color: '#3CB371',  // Forest green (Z, HUD buttons)
+            svg: `
+                <svg class="ome-bunny ome-atom-svg" viewBox="0 0 60 60" fill="none">
+                    <defs>
+                        <!-- Nucleus gradient - dark purple like robot head -->
+                        <radialGradient id="atomNucleusGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(120,100,180,0.95)"/>
+                            <stop offset="50%" stop-color="rgba(80,70,150,0.9)"/>
+                            <stop offset="100%" stop-color="rgba(50,45,100,0.85)"/>
+                        </radialGradient>
+                        <!-- Nucleus outer glow - purple -->
+                        <radialGradient id="atomNucleusGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(147,112,219,0.6)"/>
+                            <stop offset="100%" stop-color="rgba(80,70,150,0)"/>
+                        </radialGradient>
+                        <!-- Orbital gradients - neon green rings -->
+                        <linearGradient id="atomOrbitGrad1" x1="0%" y1="50%" x2="100%" y2="50%">
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
+                        </linearGradient>
+                        <linearGradient id="atomOrbitGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
+                        </linearGradient>
+                        <linearGradient id="atomOrbitGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Clickable area - invisible circle -->
+                    <circle class="ome-atom-click" cx="30" cy="30" r="28" fill="transparent" style="cursor:pointer"/>
+                    <!-- Orbital ring 1 - horizontal -->
+                    <ellipse class="ome-orbit ome-orbit-1" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad1)" stroke-width="2"/>
+                    <!-- Orbital ring 2 - tilted left -->
+                    <ellipse class="ome-orbit ome-orbit-2" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad2)" stroke-width="2" transform="rotate(-60 30 30)"/>
+                    <!-- Orbital ring 3 - tilted right -->
+                    <ellipse class="ome-orbit ome-orbit-3" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad3)" stroke-width="2" transform="rotate(60 30 30)"/>
+                    <!-- Nucleus outer glow -->
+                    <circle cx="30" cy="30" r="12" fill="url(#atomNucleusGlow)"/>
+                    <!-- Nucleus core - spinning -->
+                    <g class="ome-nucleus">
+                        <circle cx="30" cy="30" r="7" fill="url(#atomNucleusGrad)"/>
+                        <circle cx="30" cy="30" r="8" fill="none" stroke="rgba(186,147,255,0.4)" stroke-width="1"/>
+                        <!-- Inner swirl details for rotation effect -->
+                        <circle cx="27" cy="28" r="1.5" fill="rgba(186,147,255,0.6)"/>
+                        <circle cx="33" cy="32" r="1.2" fill="rgba(147,112,219,0.5)"/>
+                        <circle cx="29" cy="33" r="1" fill="rgba(186,147,255,0.4)"/>
+                    </g>
+                </svg>`,
+            paws: ``  // No paws for atom
+        }
+    };
+
+    /**
+     * 🎨 Inject HUD styles into Shadow DOM
+     * @param {ShadowRoot} shadow
+     */
+    function injectHUDStyles(shadow) {
+        const style = document.createElement('style');
+        style.textContent = `
+            /* 🎯 HUD Canvas - our coordinate system */
+            :host {
+                position: fixed !important;
+                inset: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                pointer-events: none !important;
+                z-index: 2147483646 !important;
+            }
+
+            /* 🐰 OM-E Orb - positioned relative to our canvas */
+            .ome-orb {
+                position: absolute;
+                left: calc(50% + 400px);
+                bottom: 128px;
+                width: 66px;
+                height: 103px;
+                background: transparent;
+                cursor: pointer;
+                pointer-events: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                user-select: none;
+                touch-action: none;
+                transition: transform 0.15s ease;
+                --ome-zoom-scale: 1.21;
+                transform: translateX(-50%) scale(var(--ome-zoom-scale, 1.21));
+                transform-origin: bottom center;
+            }
+            .ome-orb:hover { transform: translateX(-50%) scale(calc(var(--ome-zoom-scale, 1.21) * 1.1)); }
+            .ome-orb.holding { cursor: none; }
+            .ome-orb.holding .ome-bunny-paws { opacity: 1; transform: translateX(-50%) translateY(0); }
+            /* 🔮 Orb Wrapper (for 4 arrows) */
+            .ome-orb-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            /* ⬆️⬇️⬅️➡️ Drag indicators (4 arrows) */
+            .ome-orb-drag-indicator {
+                position: absolute;
+                width: 18px;
+                height: 18px;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .ome-orb-drag-indicator svg {
+                width: 18px;
+                height: 18px;
+                stroke: currentColor;
+                stroke-width: 2.5;
+                fill: none;
+            }
+            .ome-orb-drag-up { top: -12px; left: 50%; transform: translateX(-50%); }
+            .ome-orb-drag-down { bottom: -12px; left: 50%; transform: translateX(-50%); }
+            .ome-orb-drag-left { left: -12px; top: 50%; transform: translateY(-50%); }
+            .ome-orb-drag-right { right: -12px; top: 50%; transform: translateY(-50%); }
+            /* 🌀 Arrows appear and spin twice ONLY when hovering the orb SVG (bunny/atom/kawaii) */
+            .ome-orb-wrapper .ome-bunny:hover ~ .ome-orb-drag-indicator,
+            .ome-orb-wrapper .ome-atom-svg:hover ~ .ome-orb-drag-indicator,
+            .ome-orb-wrapper .ome-kawaii-svg:hover ~ .ome-orb-drag-indicator,
+            .ome-orb-wrapper .ome-robot-svg:hover ~ .ome-orb-drag-indicator {
+                opacity: 0.7;
+                animation: ome-arrow-spin 0.6s ease-out;
+            }
+            @keyframes ome-arrow-spin {
+                from { transform: translateX(-50%) rotate(0deg); }
+                to { transform: translateX(-50%) rotate(720deg); }
+            }
+            .ome-orb-wrapper .ome-bunny:hover ~ .ome-orb-drag-left,
+            .ome-orb-wrapper .ome-atom-svg:hover ~ .ome-orb-drag-left,
+            .ome-orb-wrapper .ome-kawaii-svg:hover ~ .ome-orb-drag-left,
+            .ome-orb-wrapper .ome-robot-svg:hover ~ .ome-orb-drag-left,
+            .ome-orb-wrapper .ome-bunny:hover ~ .ome-orb-drag-right,
+            .ome-orb-wrapper .ome-atom-svg:hover ~ .ome-orb-drag-right,
+            .ome-orb-wrapper .ome-kawaii-svg:hover ~ .ome-orb-drag-right,
+            .ome-orb-wrapper .ome-robot-svg:hover ~ .ome-orb-drag-right {
+                animation-name: ome-arrow-spin-y;
+            }
+            @keyframes ome-arrow-spin-y {
+                from { transform: translateY(-50%) rotate(0deg); }
+                to { transform: translateY(-50%) rotate(720deg); }
+            }
+            .ome-bunny { width: 100%; height: 100%; }
+            .ome-bunny-paws {
+                position: absolute;
+                bottom: -18px;
+                left: 50%;
+                transform: translateX(-50%) translateY(6px);
+                opacity: 0;
+                transition: opacity 0.2s ease, transform 0.2s ease;
+                pointer-events: none;
+            }
+            @keyframes ome-bunny-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+            .ome-orb:not(.holding) { animation: ome-bunny-float 3s ease-in-out infinite; }
+            @keyframes ome-bunny-wiggle { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+            .ome-orb.holding { animation: ome-bunny-wiggle 0.3s ease-in-out infinite; }
+
+            /* ⚛️ Atom animations */
+            @keyframes ome-nucleus-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+            @keyframes ome-orbit-pulse { 0%,100% { opacity: 0.5; stroke-width: 1.5; } 50% { opacity: 1; stroke-width: 3; } }
+            .ome-atom-svg .ome-nucleus { transform-origin: 30px 30px; animation: ome-nucleus-spin 6s linear infinite; }
+            .ome-atom-svg .ome-orbit { animation: ome-orbit-pulse 2.5s ease-in-out infinite; }
+            .ome-atom-svg .ome-orbit-2 { animation-delay: 0.8s; }
+            .ome-atom-svg .ome-orbit-3 { animation-delay: 1.6s; }
+
+            /* 🎨 Theme color variables */
+            .ome-hud {
+                --theme-color: 147,112,219;  /* Default purple (atom) */
+                --theme-accent: #ba93ff;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100vw; height: 100vh;
+                background: #212121;
+                z-index: 2147483645;
+                display: none;
+                font-family: system-ui, -apple-system, sans-serif;
+                color: #7ec8e3;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+                pointer-events: auto;
+            }
+            .ome-hud[data-theme="kawaii"] {
+                --theme-color: 126,200,227;  /* Sparkly blue */
+                --theme-accent: #7ec8e3;
+                --text-color: #7ec8e3;
+            }
+            .ome-hud[data-theme="robot"] {
+                --theme-color: 0,229,255;  /* Cyan */
+                --theme-accent: #00e5ff;
+                --text-color: #00e5ff;
+            }
+            .ome-hud[data-theme="atom"] {
+                --theme-color: 147,112,219;  /* Purple */
+                --theme-accent: #ba93ff;
+                --text-color: #3CB371;  /* Forest green text for atom */
+            }
+            .ome-hud.visible { display: flex; opacity: 1; flex-direction: column; }
+            @keyframes ome-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+            /* 🔝 Top Bar - ChatGPT style header */
+            .ome-hud-topbar {
+                flex: 0 0 auto;
+                height: 56px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 16px;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                background: rgba(33,33,33,0.95);
+                z-index: 10;
+            }
+            .ome-hud-topbar-left {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .ome-hud-topbar-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: #e5e5e5;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .ome-hud-topbar-title svg {
+                width: 20px;
+                height: 20px;
+                stroke: var(--theme-accent);
+                fill: none;
+                stroke-width: 2;
+            }
+            .ome-hud-model-select {
+                background: rgba(255,255,255,0.08);
+                border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 8px;
+                padding: 6px 12px;
+                color: #e5e5e5;
+                font-size: 14px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .ome-hud-model-select:hover { background: rgba(255,255,255,0.12); }
+            .ome-hud-topbar-right {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .ome-hud-topbar-btn {
+                width: 36px;
+                height: 36px;
+                border: none;
+                border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                color: #9ca3af;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, color 0.15s ease;
+            }
+            .ome-hud-topbar-btn:hover { background: rgba(255,255,255,0.15); color: #e5e5e5; }
+            .ome-hud-topbar-btn.close:hover { background: rgba(239,68,68,0.2); color: #f87171; }
+            .ome-hud-topbar-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+            /* 🎯 HUD Content Area - full height flex layout */
+            .ome-hud-content {
+                flex: 1 1 auto;
+                display: flex;
+                overflow: hidden;
+                position: relative;
+            }
+
+            /* 🎯 HUD Main Container - ChatGPT centered layout */
+            .ome-hud-main {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 24px;
+                width: 100%;
+                transition: margin-left 0.25s ease;
+            }
+            /* 📚 When sidebar is open, shift main content */
+            .ome-hud.sidebar-open .ome-hud-main {
+                margin-left: 280px;
+            }
+
+            /* 💬 HUD Messages Area - ChatGPT style scrollable history */
+            /* 📐 Aligned with prompt using same centering + translateX to match input-area offset */
+            .ome-hud-messages-area {
+                flex: 1 1 auto;
+                overflow-y: auto;
+                padding: 24px 0;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                max-width: 800px;
+                width: 100%;
+                margin: 0 auto;
+                transform: translateX(-10%);
+            }
+            .ome-hud-messages-area::-webkit-scrollbar { width: 8px; }
+            .ome-hud-messages-area::-webkit-scrollbar-track { background: transparent; }
+            .ome-hud-messages-area::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+            .ome-hud-messages-area::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+            /* 🛤️ HUD Rail - vertical track for sliding prompt unit */
+            .ome-hud-rail {
+                position: absolute;
+                left: 50%;
+                margin-left: 480px;
+                top: 80px;
+                bottom: 20px;
+                width: 4px;
+                background: rgba(255,255,255,0.06);
+                border-radius: 2px;
+                pointer-events: none;
+                z-index: 1;
+            }
+            .ome-hud.sidebar-open .ome-hud-rail {
+                margin-left: 620px;
+            }
+
+            /* 💬 HUD Input Area - slidable on rail, centered */
+            .ome-hud-input-area {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 400px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                gap: 24px;
+                z-index: 2;
+            }
+            .ome-hud-input-area.dragging {
+                cursor: grabbing;
+            }
+            /* 📚 When sidebar open, shift input area right */
+            .ome-hud.sidebar-open .ome-hud-input-area {
+                left: calc(50% + 140px);
+            }
+
+            /* 💬 HUD Prompt Wrapper - unified border container for prompt + select pane */
+            .ome-hud-prompt-wrapper {
+                width: 800px;
+                border: 1px solid rgba(var(--theme-color), 0.35);
+                border-radius: 12px;
+                box-shadow: 0 0 6px rgba(var(--theme-color), 0.125),
+                            0 0 12px rgba(var(--theme-color), 0.075),
+                            0 2px 12px rgba(0, 0, 0, 0.15);
+                overflow: hidden;
+                filter: drop-shadow(0 0 2px rgba(var(--theme-color), 0.15));
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* 💬 HUD Prompt Box - OME style (YOUR prompt unit) */
+            .ome-hud-prompt {
+                min-height: 100px;
+                max-height: 400px;
+                background: rgba(33,33,33,0.95);
+                backdrop-filter: blur(12px);
+                display: flex;
+                flex-direction: column;
+                font-family: system-ui, -apple-system, sans-serif;
+                overflow: hidden;
+                color: #7ec8e3;
+            }
+            /* 💬 HUD Textarea - OME style (YOUR input) */
+            .ome-hud-prompt-textarea {
+                display: block;
+                box-sizing: border-box;
+                width: calc(100% - 20px);
+                margin: 0 10px;
+                min-height: 40px;
+                max-height: 300px;
+                background: transparent;
+                border: none;
+                padding: 16px 6px 8px 6px;
+                font-size: 15px;
+                line-height: 1.5;
+                color: var(--text-color);
+                outline: none;
+                resize: none;
+                overflow-y: hidden;
+                overflow-x: hidden;
+                font-family: inherit;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+            .ome-hud-prompt-textarea::placeholder {
+                color: var(--text-color);
+                opacity: 0.5;
+            }
+            .ome-hud-prompt-textarea::-webkit-scrollbar { width: 6px; }
+            .ome-hud-prompt-textarea::-webkit-scrollbar-track { background: transparent; }
+            .ome-hud-prompt-textarea::-webkit-scrollbar-thumb {
+                background: rgba(var(--theme-color),0.3);
+                border-radius: 3px;
+            }
+            /* 💬 HUD Actions Bar - buttons at bottom */
+            .ome-hud-prompt-actions {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 8px 16px;
+                border-top: 1px solid rgba(var(--theme-color),0.1);
+            }
+            /* 🔍 HUD Select Pane - transparent scanner window below prompt */
+            .ome-hud-select-pane {
+                height: 44px;
+                background: transparent;
+                border-top: 1px solid rgba(var(--theme-color),0.1);
+                position: relative;
+            }
+            /* 🔍 Scan Mode - subtle pulsing glow on select pane */
+            @keyframes ome-scan-pulse {
+                0%, 100% {
+                    box-shadow: inset 0 0 4px rgba(var(--theme-color),0.03);
+                    border-top-color: rgba(var(--theme-color),0.15);
+                }
+                50% {
+                    box-shadow: inset 0 0 6px rgba(var(--theme-color),0.08);
+                    border-top-color: rgba(var(--theme-color),0.25);
+                }
+            }
+            .ome-hud.scan-mode .ome-hud-select-pane {
+                animation: ome-scan-pulse 1.5s ease-in-out infinite;
+            }
+            /* 🔍 Sweep Mode - highlighted text */
+            .ome-hud-swept {
+                background: rgba(var(--theme-color), 0.25) !important;
+                border-radius: 2px;
+            }
+            /* 🔍 Scan Mode instruction text in select pane */
+            .ome-hud-scan-instruction {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 13px;
+                white-space: nowrap;
+                pointer-events: none;
+                color: var(--text-color);
+                opacity: 0.7;
+                animation: ome-scan-text-pulse 2s ease-in-out infinite;
+            }
+            @keyframes ome-scan-text-pulse {
+                0%, 100% { opacity: 0.5; }
+                50% { opacity: 1; }
+            }
+            .ome-hud.scan-mode .ome-hud-scan-instruction {
+                display: block;
+            }
+            /* 🔍 Scan Mode - 8 converging arrows around orb */
+            .ome-hud-scan-arrow {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .ome-hud-scan-arrow svg {
+                width: 20px;
+                height: 20px;
+                stroke: currentColor;
+                stroke-width: 2.5;
+                fill: none;
+            }
+            /* Position arrows at 8 points around orb (orb is 80px) */
+            .ome-hud-scan-arrow-n  { top: -30px; left: 50%; transform: translateX(-50%) rotate(180deg); }
+            .ome-hud-scan-arrow-ne { top: -15px; right: -15px; transform: rotate(225deg); }
+            .ome-hud-scan-arrow-e  { top: 50%; right: -30px; transform: translateY(-50%) rotate(270deg); }
+            .ome-hud-scan-arrow-se { bottom: -15px; right: -15px; transform: rotate(315deg); }
+            .ome-hud-scan-arrow-s  { bottom: -30px; left: 50%; transform: translateX(-50%); }
+            .ome-hud-scan-arrow-sw { bottom: -15px; left: -15px; transform: rotate(45deg); }
+            .ome-hud-scan-arrow-w  { top: 50%; left: -30px; transform: translateY(-50%) rotate(90deg); }
+            .ome-hud-scan-arrow-nw { top: -15px; left: -15px; transform: rotate(135deg); }
+            /* Animate arrows converging inward during scan mode */
+            .ome-hud.scan-mode .ome-hud-scan-arrow {
+                animation: ome-arrow-converge 1.2s ease-in-out infinite;
+            }
+            .ome-hud.scan-mode .ome-hud-scan-arrow-ne,
+            .ome-hud.scan-mode .ome-hud-scan-arrow-sw { animation-delay: 0.15s; }
+            .ome-hud.scan-mode .ome-hud-scan-arrow-e,
+            .ome-hud.scan-mode .ome-hud-scan-arrow-w { animation-delay: 0.3s; }
+            .ome-hud.scan-mode .ome-hud-scan-arrow-se,
+            .ome-hud.scan-mode .ome-hud-scan-arrow-nw { animation-delay: 0.45s; }
+            @keyframes ome-arrow-converge {
+                0% { opacity: 0.9; }
+                50% { opacity: 0.5; }
+                100% { opacity: 0; }
+            }
+            /* 💬 HUD Send Button - consistent with orb button */
+            .ome-hud-send-btn {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
+                border: 1px solid rgba(var(--theme-color),0.35);
+                border-radius: 10px;
+                background: rgba(80,100,160,0.55);
+                color: var(--text-color);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, border-color 0.15s ease;
+            }
+            .ome-hud-send-btn:hover { background: rgba(80,100,160,0.75); border-color: rgba(var(--theme-color),0.55); }
+            .ome-hud-send-btn:active { transform: scale(0.95); }
+            .ome-hud-send-btn svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; }
+            /* 🗑️ HUD Clear Button - alien X style */
+            .ome-hud-clear-btn {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                min-height: 40px;
+                border: 1px solid rgba(var(--theme-color),0.35);
+                border-radius: 10px;
+                background: rgba(80,100,160,0.55);
+                color: var(--text-color);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, border-color 0.15s ease;
+            }
+            .ome-hud-clear-btn:hover { background: rgba(160,80,80,0.75); border-color: rgba(var(--theme-color),0.55); }
+            .ome-hud-clear-btn:active { transform: scale(0.95); }
+            .ome-hud-clear-btn svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+            /* 💬 HUD Message Bubbles - left-aligned, user indented */
+            .ome-hud-message {
+                padding: 12px 14px;
+                font-size: 15px;
+                line-height: 1.6;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+                border-radius: 8px;
+            }
+            .ome-hud-message.user {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: none;
+                background: rgba(255,255,255,0.03);
+                color: var(--text-color);
+                opacity: 0.6;
+            }
+            .ome-hud-message.assistant {
+                margin-left: 0;
+                background: rgba(60,80,120,0.15);
+                color: var(--text-color);
+                opacity: 0.6;
+            }
+            .ome-hud-message.error {
+                margin-left: 0;
+                background: rgba(220,38,38,0.2);
+                color: #fca5a5;
+                font-size: 13px;
+            }
+            /* 💬 HUD Message Images */
+            .ome-hud-message img {
+                max-width: 100%;
+                max-height: 300px;
+                border-radius: 6px;
+                margin-top: 8px;
+                object-fit: contain;
+            }
+            .ome-hud-message img:first-child { margin-top: 0; }
+
+            /* ⬆️⬇️ HUD Scroll Controls (vertical, same layout as orb) */
+            .ome-hud-scroll {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                color: var(--text-color);
+            }
+            .ome-hud-scroll .ome-hud-ctrl-btn {
+                width: 48px;
+                height: 48px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                color: inherit;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.1s ease;
+                opacity: 0.7;
+            }
+            .ome-hud-scroll .ome-hud-ctrl-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; }
+            .ome-hud-scroll .ome-hud-ctrl-btn:active { transform: scale(0.95); }
+            /* 🔍 Scan mode scroll indicator - purple flash */
+            @keyframes ome-scroll-flash {
+                0%, 100% { background: transparent; }
+                50% { background: rgba(138, 43, 226, 0.4); }
+            }
+            .ome-hud-scroll .ome-hud-ctrl-btn.scroll-active {
+                animation: ome-scroll-flash 0.3s ease-in-out;
+                opacity: 1;
+            }
+            .ome-hud-scroll .ome-hud-ctrl-btn svg {
+                width: 24px;
+                height: 24px;
+                stroke: currentColor;
+                stroke-width: 3;
+                fill: none;
+            }
+            /* 🔮 HUD Menu Button (ORB label, purple style with theme-colored outer ring) */
+            .ome-hud-menu-btn {
+                position: relative;
+                width: 48px;
+                height: 48px;
+                border: 2px solid var(--text-color);
+                border-radius: 50%;
+                background: transparent;
+                color: var(--text-color);
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+                opacity: 0.7;
+            }
+            /* 🌀 Outer ring - theme colored, spins on hover */
+            .ome-hud-menu-btn::before {
+                content: '';
+                position: absolute;
+                top: -6px;
+                left: -6px;
+                right: -6px;
+                bottom: -6px;
+                border: 2px solid var(--text-color);
+                border-radius: 50%;
+                opacity: 0.5;
+                transition: opacity 0.2s ease;
+            }
+            .ome-hud-menu-btn { margin-bottom: 10px; }
+            .ome-hud-menu-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; }
+            .ome-hud-menu-btn:hover::before { opacity: 1; animation: ome-ring-spin 1s linear infinite; }
+            .ome-hud-menu-btn:active { transform: scale(0.95); }
+
+            /* 🔮 HUD Orb Container */
+            .ome-hud-orb-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            /* 🔮 HUD Orb Wrapper (for arrows) */
+            .ome-hud-orb-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            .ome-hud-orb-wrapper * { user-select: none; -webkit-user-select: none; }
+            /* ⬆️⬇️ Drag indicators (arrows) */
+            .ome-hud-drag-indicator {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 24px;
+                height: 24px;
+                color: var(--text-color);
+                opacity: 0;
+                pointer-events: none;
+            }
+            .ome-hud-drag-indicator svg {
+                width: 24px;
+                height: 24px;
+                stroke: currentColor;
+                stroke-width: 2.5;
+                fill: none;
+            }
+            .ome-hud-drag-up { top: -18px; }
+            .ome-hud-drag-down { bottom: -18px; }
+            /* 🌀 Arrows appear and spin twice ONLY when hovering the HUD orb head */
+            .ome-hud-orb:hover ~ .ome-hud-drag-indicator {
+                opacity: 0.8;
+                animation: ome-hud-arrow-spin 0.6s ease-out;
+            }
+            @keyframes ome-hud-arrow-spin {
+                from { transform: translateX(-50%) rotate(0deg); }
+                to { transform: translateX(-50%) rotate(720deg); }
+            }
+            /* 🔮 HUD Orb Display */
+            .ome-hud-orb {
+                width: 80px;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: transform 0.2s ease;
+                outline: none;
+                caret-color: transparent;
+            }
+            .ome-hud-orb:hover { transform: scale(1.05); }
+            .ome-hud-orb.holding { transform: scale(1.1); cursor: grabbing; }
+            .ome-hud-orb svg { width: 80px; height: 80px; }
+
+            /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - same size as Z) */
+            .ome-scroll-controls {
+                position: absolute;
+                right: -54px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+            }
+            /* Arrow buttons - 36x36 to match Z visual size */
+            .ome-scroll-controls .ome-ctrl-btn {
+                width: 36px;
+                height: 36px;
+                border-width: 3px;
+            }
+            .ome-scroll-controls .ome-ctrl-btn svg {
+                width: 18px;
+                height: 18px;
+                stroke-width: 3;
+            }
+            /* 📋 Menu button (HUD label, purple style with theme-colored outer ring) */
+            .ome-menu-btn {
+                position: relative;
+                width: 36px;
+                height: 36px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                color: inherit;
+                font-size: 9px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+                opacity: 0.7;
+            }
+            /* 🌀 Outer ring - theme colored, spins on hover */
+            .ome-menu-btn::before {
+                content: '';
+                position: absolute;
+                top: -6px;
+                left: -6px;
+                right: -6px;
+                bottom: -6px;
+                border: 2px solid currentColor;
+                border-radius: 50%;
+                opacity: 0.5;
+                transition: opacity 0.2s ease;
+            }
+            .ome-menu-btn { margin-bottom: 10px; }
+            .ome-menu-btn:hover { background: rgba(126,200,227,0.15); opacity: 1; }
+            .ome-menu-btn:hover::before { opacity: 1; animation: ome-ring-spin 1s linear infinite; }
+            .ome-menu-btn:active { transform: scale(0.95); }
+            @keyframes ome-ring-spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            /* 💬 Prompt Button (between orb and zoom) - consistent purple style across all orbs */
+            .ome-prompt-btn {
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 3px 10px;
+                font-size: 9px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #a5b4fc;
+                background: rgba(167,139,250,0.25);
+                border: 1px solid rgba(167,139,250,0.5);
+                border-radius: 10px;
+                cursor: pointer;
+                opacity: 0.85;
+                transition: opacity 0.15s ease, background 0.15s ease, transform 0.15s ease;
+                white-space: nowrap;
+                z-index: 10;
+            }
+            .ome-prompt-btn:hover { opacity: 1; background: rgba(167,139,250,0.4); transform: translateX(-50%) scale(1.08); }
+            .ome-prompt-btn:active { transform: translateX(-50%) scale(0.95); }
+            .ome-prompt-btn.active { opacity: 1; background: rgba(167,139,250,0.5); border-color: #a5b4fc; color: #fff; }
+
+            /* 🔍 Zoom Controls (bottom of orb, below prompt) */
+            .ome-zoom-controls {
+                position: absolute;
+                bottom: -64px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2px;
+            }
+            .ome-ctrl-btn {
+                width: 14px;
+                height: 14px;
+                border: 1.5px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0.5;
+                transition: opacity 0.15s ease, transform 0.15s ease;
+                padding: 0;
+                font-size: 9px;
+                font-weight: bold;
+                color: currentColor;
+                line-height: 1;
+            }
+            .ome-zoom-controls .ome-ctrl-btn {
+                width: 28px;
+                height: 28px;
+                border-width: 3px;
+                font-size: 16px;
+            }
+            .ome-ctrl-btn:hover { opacity: 1; transform: scale(1.2); }
+            .ome-ctrl-btn:active { transform: scale(0.9); }
+            .ome-ctrl-btn svg { width: 8px; height: 8px; stroke: currentColor; stroke-width: 2.5; fill: none; }
+            .ome-ctrl-btn.ome-boundary { animation: ome-boundary-flash 0.3s ease-out; }
+            @keyframes ome-boundary-flash {
+                0% { background: rgba(255, 100, 100, 0.8); transform: scale(1.1); }
+                100% { background: transparent; transform: scale(1); }
+            }
+            .ome-zoom-label {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 3px solid currentColor;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                opacity: 0.8;
+                cursor: pointer;
+                transition: opacity 0.15s ease, transform 0.15s ease;
+                text-transform: none;
+            }
+            .ome-zoom-label:hover { opacity: 1; transform: scale(1.08); }
+
+            /* 🎨 Theme Selector */
+            .ome-theme-section { margin-top: 24px; width: 100%; max-width: 400px; }
+            .ome-theme-label { font-size: 12px; color: #6b7280; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+            .ome-theme-grid { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+            .ome-theme-btn {
+                width: 72px; height: 90px;
+                border: 2px solid rgba(255,255,255,0.1);
+                border-radius: 12px;
+                background: rgba(255,255,255,0.05);
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                transition: all 0.2s ease;
+                padding: 8px;
+            }
+            .ome-theme-btn:hover { border-color: rgba(167,139,250,0.5); background: rgba(167,139,250,0.1); }
+            .ome-theme-btn.active { border-color: #a5b4fc; background: rgba(167,139,250,0.2); }
+            .ome-theme-btn svg { width: 40px; height: 52px; }
+            .ome-theme-btn span { font-size: 10px; color: #9ca3af; }
+            .ome-theme-btn.active span { color: #a5b4fc; }
+
+            /* 💬 Chat Panel (anchored to orb) - RESIZABLE & RESPONSIVE */
+            .ome-chat-panel {
+                --theme-color: 126,200,227;  /* Default kawaii blue */
+                --theme-accent: #7ec8e3;
+                --text-color: #7ec8e3;  /* Default text color */
+                position: absolute;
+                bottom: 0;
+                right: 85px;
+                width: 750px;
+                height: auto;
+                min-width: 363px;
+                min-height: 120px;
+                max-width: 968px;
+                max-height: min(800px, 80vh);
+                background: rgba(33,33,33,0.85);
+                border: 1px solid rgba(var(--theme-color),0.35);
+                border-radius: 12px;
+                display: none;
+                flex-direction: column;
+                font-family: system-ui, -apple-system, sans-serif;
+                box-shadow: 0 0 6px rgba(var(--theme-color),0.125), 0 0 12px rgba(var(--theme-color),0.075), 0 2px 12px rgba(0,0,0,0.15);
+                overflow: hidden;
+                color: var(--theme-accent);
+                filter: drop-shadow(0 0 2px rgba(var(--theme-color),0.15));
+            }
+            .ome-chat-panel.visible { display: flex; }
+            /* 🎨 Chat Panel Theme Colors */
+            .ome-chat-panel[data-theme="kawaii"] {
+                --theme-color: 126,200,227;
+                --theme-accent: #7ec8e3;
+                --text-color: #7ec8e3;
+            }
+            .ome-chat-panel[data-theme="robot"] {
+                --theme-color: 0,229,255;
+                --theme-accent: #00e5ff;
+                --text-color: #00e5ff;
+            }
+            .ome-chat-panel[data-theme="atom"] {
+                --theme-color: 147,112,219;
+                --theme-accent: #ba93ff;
+                --text-color: #3CB371;  /* Forest green text for atom */
+            }
+
+            /* 📐 Resize Handles */
+            .ome-resize-handle {
+                position: absolute;
+                background: transparent;
+                z-index: 10;
+            }
+            .ome-resize-n { top: -4px; left: 8px; right: 8px; height: 8px; cursor: n-resize; }
+            .ome-resize-s { bottom: -4px; left: 8px; right: 8px; height: 8px; cursor: s-resize; }
+            .ome-resize-e { display: none; }
+            .ome-resize-w { top: 8px; left: -4px; bottom: 8px; width: 8px; cursor: w-resize; }
+            .ome-resize-nw { top: -4px; left: -4px; width: 12px; height: 12px; cursor: nw-resize; }
+            .ome-resize-ne { display: none; }
+            .ome-resize-sw { bottom: -4px; left: -4px; width: 12px; height: 12px; cursor: sw-resize; }
+            .ome-resize-se { display: none; }
+            .ome-chat-panel.resizing { user-select: none; }
+
+            /* 💬 Chat Messages Area */
+            .ome-chat-messages {
+                flex: 1 1 auto;
+                overflow-y: auto;
+                padding: 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                min-height: 60px;
+            }
+            .ome-chat-messages::-webkit-scrollbar { width: 12px; }
+            .ome-chat-messages::-webkit-scrollbar-track { background: rgba(30,30,40,0.5); border-radius: 6px; }
+            .ome-chat-messages::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.5); border-radius: 6px; min-height: 40px; }
+            .ome-chat-messages::-webkit-scrollbar-thumb:hover { background: rgba(167,139,250,0.7); }
+
+            /* 💬 Message Bubbles */
+            .ome-chat-bubble {
+                max-width: 85%;
+                padding: 10px 14px;
+                border-radius: 14px;
+                font-size: 15px;
+                line-height: 1.5;
+                word-wrap: break-word;
+            }
+            .ome-chat-bubble.user {
+                align-self: flex-start;
+                background: transparent;
+                border: 1px solid rgba(147,112,219,0.3);
+                color: var(--text-color);
+                text-align: left;
+            }
+            .ome-chat-bubble.assistant {
+                align-self: flex-start;
+                background: rgba(60,80,120,0.25);
+                color: inherit;
+                border-bottom-left-radius: 4px;
+            }
+            .ome-chat-bubble.error {
+                align-self: center;
+                background: rgba(220,38,38,0.3);
+                color: #fca5a5;
+                font-size: 12px;
+            }
+            /* 💬 Typing Preview (live draft as you type) */
+            .ome-chat-bubble.typing-preview {
+                align-self: flex-end;
+                background: rgba(80,100,160,0.12);
+                color: rgba(var(--theme-color),0.75);
+                border: 1px dashed rgba(100,120,180,0.25);
+                border-bottom-right-radius: 4px;
+                max-width: 100%;
+                min-height: 20px;
+            }
+            .ome-chat-bubble.typing-preview:empty { display: none; }
+
+            /* 💬 Chat Input Area - flexbox at bottom, expands with content */
+            .ome-chat-input-area {
+                flex: 0 0 auto;
+                display: flex;
+                align-items: flex-end;
+                gap: 8px;
+                padding: 12px 14px;
+                border-top: 1px solid rgba(var(--theme-color),0.15);
+            }
+            .ome-chat-input-wrapper {
+                flex: 1;
+                position: relative;
+            }
+            .ome-chat-input {
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+                min-height: 48px;
+                max-height: 400px;
+                background: rgba(40,50,80,0.22);
+                border: 1px solid rgba(var(--theme-color),0.3);
+                border-radius: 10px;
+                padding: 12px 14px;
+                font-size: 15px;
+                line-height: 1.5;
+                color: var(--text-color);
+                outline: none;
+                resize: none;
+                overflow-y: auto;
+                font-family: inherit;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+                transition: border-color 0.15s ease, background 0.15s ease;
+            }
+            .ome-chat-input::placeholder { color: var(--text-color); opacity: 0.5; }
+            .ome-chat-input:focus { border-color: rgba(var(--theme-color),0.5); background: rgba(40,50,80,0.28); }
+            .ome-chat-send {
+                flex: 0 0 auto;
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                min-height: 48px;
+                border: 1px solid rgba(var(--theme-color),0.35);
+                border-radius: 12px;
+                background: rgba(80,100,160,0.55);
+                color: var(--text-color);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, border-color 0.15s ease;
+                z-index: 5;
+            }
+            .ome-chat-send:hover { background: rgba(80,100,160,0.75); border-color: rgba(var(--theme-color),0.55); }
+            .ome-chat-send:active { transform: scale(0.95); }
+            .ome-chat-send svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+            /* ═══════════════════════════════════════════════════════════════════
+               📚 SIDEBAR - ChatGPT-style side panel for chat history
+               ═══════════════════════════════════════════════════════════════════ */
+
+            /* 📚 Sidebar Toggle Button (hamburger menu) */
+            .ome-sidebar-toggle {
+                position: absolute;
+                top: 20px;
+                left: 24px;
+                width: 36px;
+                height: 36px;
+                border: none;
+                border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                color: #9ca3af;
+                font-size: 18px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, color 0.15s ease;
+                z-index: 10;
+            }
+            .ome-sidebar-toggle:hover {
+                background: rgba(var(--theme-color),0.2);
+                color: var(--theme-accent);
+            }
+            .ome-sidebar-toggle svg {
+                width: 20px;
+                height: 20px;
+                stroke: currentColor;
+                stroke-width: 2;
+                fill: none;
+            }
+
+            /* 📚 Sidebar Container */
+            .ome-sidebar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 280px;
+                height: 100%;
+                background: rgba(28,28,32,0.98);
+                border-right: 1px solid rgba(var(--theme-color),0.2);
+                display: flex;
+                flex-direction: column;
+                transform: translateX(-100%);
+                transition: transform 0.25s ease;
+                z-index: 5;
+                box-shadow: 4px 0 24px rgba(0,0,0,0.3);
+            }
+            .ome-sidebar.open {
+                transform: translateX(0);
+            }
+
+            /* 📚 Sidebar Header */
+            .ome-sidebar-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px;
+                border-bottom: 1px solid rgba(var(--theme-color),0.15);
+            }
+            .ome-sidebar-new-chat {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 14px;
+                background: transparent;
+                border: 1px solid rgba(var(--theme-color),0.3);
+                border-radius: 8px;
+                color: var(--theme-accent);
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.15s ease;
+            }
+            .ome-sidebar-new-chat:hover {
+                background: rgba(var(--theme-color),0.15);
+                border-color: rgba(var(--theme-color),0.5);
+            }
+            .ome-sidebar-new-chat svg {
+                width: 16px;
+                height: 16px;
+                stroke: currentColor;
+                stroke-width: 2;
+                fill: none;
+            }
+            .ome-sidebar-close {
+                width: 32px;
+                height: 32px;
+                border: none;
+                border-radius: 6px;
+                background: transparent;
+                color: #6b7280;
+                font-size: 18px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, color 0.15s ease;
+            }
+            .ome-sidebar-close:hover {
+                background: rgba(255,255,255,0.08);
+                color: #9ca3af;
+            }
+
+            /* 📚 Sidebar Content (chat list area) */
+            .ome-sidebar-content {
+                flex: 1;
+                overflow-y: auto;
+                padding: 8px;
+            }
+            .ome-sidebar-content::-webkit-scrollbar { width: 6px; }
+            .ome-sidebar-content::-webkit-scrollbar-track { background: transparent; }
+            .ome-sidebar-content::-webkit-scrollbar-thumb {
+                background: rgba(var(--theme-color),0.3);
+                border-radius: 3px;
+            }
+
+            /* 📚 Sidebar Section Label */
+            .ome-sidebar-label {
+                padding: 12px 8px 8px;
+                font-size: 11px;
+                font-weight: 600;
+                color: #6b7280;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            /* 📚 Chat List Items */
+            .ome-chat-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 12px;
+                border-radius: 8px;
+                color: #d1d5db;
+                font-size: 13px;
+                cursor: pointer;
+                transition: background 0.15s ease;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .ome-chat-item:hover {
+                background: rgba(var(--theme-color),0.1);
+            }
+            .ome-chat-item.active {
+                background: rgba(var(--theme-color),0.2);
+                color: var(--theme-accent);
+            }
+            .ome-chat-item-title {
+                flex: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* 📚 Empty State */
+            .ome-sidebar-empty {
+                padding: 24px 16px;
+                text-align: center;
+                color: #6b7280;
+                font-size: 13px;
+            }
+
+            /* 📚 Sidebar Footer */
+            .ome-sidebar-footer {
+                padding: 12px 16px;
+                border-top: 1px solid rgba(var(--theme-color),0.15);
+                font-size: 11px;
+                color: #6b7280;
+            }
+        `;
+        shadow.appendChild(style);
+    }
+
+    /**
+     * 🔄 Scroll with boundary feedback
+     * Shows visual feedback if scroll boundary is reached
+     * @param {string} direction - 'up', 'down', 'left', 'right'
+     * @param {HTMLElement} button - The button element to flash if at boundary
+     */
+    function scrollWithFeedback(direction, button) {
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        const maxScrollX = document.documentElement.scrollWidth - window.innerWidth;
+        const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+
+        // Check if we can scroll in the requested direction
+        let canScroll = false;
+        let scrollOptions = { behavior: 'smooth' };
+
+        switch (direction) {
+            case 'up':
+                canScroll = scrollY > 0;
+                scrollOptions.top = -window.innerHeight * 0.8;
+                break;
+            case 'down':
+                canScroll = scrollY < maxScrollY;
+                scrollOptions.top = window.innerHeight * 0.8;
+                break;
+            case 'left':
+                canScroll = scrollX > 0;
+                scrollOptions.left = -window.innerWidth * 0.8;
+                break;
+            case 'right':
+                canScroll = scrollX < maxScrollX;
+                scrollOptions.left = window.innerWidth * 0.8;
+                break;
+        }
+
+        if (canScroll) {
+            window.scrollBy(scrollOptions);
+        } else if (button) {
+            // Flash the button to indicate boundary
+            button.classList.remove('ome-boundary');
+            // Force reflow to restart animation
+            void button.offsetWidth;
+            button.classList.add('ome-boundary');
+            // Remove class after animation completes
+            setTimeout(() => button.classList.remove('ome-boundary'), 300);
+        }
+    }
+
+    /**
+     * 🎨 Apply theme to orb (swaps SVG content)
+     * @param {string} themeName - Theme key from ORB_THEMES
+     */
+    function applyOrbTheme(themeName) {
+        const theme = ORB_THEMES[themeName] || ORB_THEMES.minimal;
+        if (!hudState.orb) return;
+
+        // Release any active dragging first
+        if (hudState.dragging) {
+            hudState.dragging = false;
+            hudState.orb.classList.remove('holding');
+        }
+
+        // Build controls HTML - menu + scroll controls (right) + zoom controls (bottom)
+        const scrollHTML = `
+            <div class="ome-scroll-controls" style="color: ${theme.color}">
+                <button class="ome-menu-btn">HUD</button>
+                <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </div>`;
+        const zoomHTML = `
+            <div class="ome-zoom-controls" style="color: ${theme.color}">
+                <button class="ome-ctrl-btn ome-zoom-in">+</button>
+                <span class="ome-zoom-label ome-zoom-reset">Z</span>
+                <button class="ome-ctrl-btn ome-zoom-out">−</button>
+            </div>`;
+
+        // 💬 Prompt button (opens chat panel)
+        const promptHTML = `
+            <button class="ome-prompt-btn" style="color: ${theme.color}">Open Prompt</button>`;
+
+        // 💬 Chat panel (anchored to orb) - with resize handles and theme
+        const chatPanelHTML = `
+            <div class="ome-chat-panel" data-theme="${themeName}">
+                <div class="ome-resize-handle ome-resize-n" data-resize="n"></div>
+                <div class="ome-resize-handle ome-resize-s" data-resize="s"></div>
+                <div class="ome-resize-handle ome-resize-e" data-resize="e"></div>
+                <div class="ome-resize-handle ome-resize-w" data-resize="w"></div>
+                <div class="ome-resize-handle ome-resize-nw" data-resize="nw"></div>
+                <div class="ome-resize-handle ome-resize-ne" data-resize="ne"></div>
+                <div class="ome-resize-handle ome-resize-sw" data-resize="sw"></div>
+                <div class="ome-resize-handle ome-resize-se" data-resize="se"></div>
+                <div class="ome-chat-messages">
+                    <!-- Messages loaded from chat file -->
+                </div>
+                <div class="ome-chat-input-area">
+                    <div class="ome-chat-input-wrapper">
+                        <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                    </div>
+                    <button class="ome-chat-send">
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </div>
+            </div>`;
+
+        // 🔮 Wrap SVG in drag indicator wrapper with 4 directional arrows (theme colored)
+        const orbWrapperHTML = `
+            <div class="ome-orb-wrapper" style="color: ${theme.color}">
+                ${theme.svg}
+                ${theme.paws}
+                <div class="ome-orb-drag-indicator ome-orb-drag-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-right"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></div>
+            </div>`;
+        // Update orb content (wrapper + scroll + prompt + zoom + chat panel)
+        hudState.orb.innerHTML = orbWrapperHTML + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
+        hudState.theme = themeName;
+
+        // 🔮 Also update HUD orb display if HUD exists
+        if (hudState.hud) {
+            updateHUDOrb(hudState.hud, themeName);
+        }
+
+        // Re-attach scroll button handlers (with boundary feedback)
+        hudState.orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollWithFeedback('up', e.currentTarget);
+        });
+        hudState.orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollWithFeedback('down', e.currentTarget);
+        });
+        hudState.orb.querySelector('.ome-scroll-left')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollWithFeedback('left', e.currentTarget);
+        });
+        hudState.orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollWithFeedback('right', e.currentTarget);
+        });
+
+        // 📋 Re-attach menu button handler (toggles HUD)
+        hudState.orb.querySelector('.ome-menu-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHUD();
+        });
+
+        // Re-attach zoom button handlers
+        hudState.orb.querySelector('.ome-zoom-in')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomIn', params: {} });
+        });
+        hudState.orb.querySelector('.ome-zoom-out')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomOut', params: {} });
+        });
+        hudState.orb.querySelector('.ome-zoom-reset')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomReset', params: {} });
+        });
+
+        // 💬 Re-attach prompt button handler
+        hudState.orb.querySelector('.ome-prompt-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleChatPanel();
+        });
+
+        // 💬 Re-attach chat panel reference and handlers
+        const chatPanel = hudState.orb.querySelector('.ome-chat-panel');
+        if (chatPanel) {
+            hudState.chatPanel = chatPanel;
+            chatPanel.addEventListener('click', (e) => e.stopPropagation());
+            // Restore visibility state if was open
+            if (hudState.chatVisible) {
+                chatPanel.classList.add('visible');
+                const promptBtn = hudState.orb.querySelector('.ome-prompt-btn');
+                if (promptBtn) {
+                    promptBtn.classList.add('active');
+                    promptBtn.textContent = 'HIDE PROMPT';
+                }
+                constrainChatPanelToViewport(); // Ensure panel fits viewport
+            }
+
+            // 💬 Chat input setup (textarea with auto-resize)
+            const chatInput = chatPanel.querySelector('.ome-chat-input');
+            const chatSendBtn = chatPanel.querySelector('.ome-chat-send');
+
+            // 📐 Auto-resize textarea as user types (expands up to 400px)
+            function autoResizeOrbInput() {
+                if (!chatInput) return;
+                chatInput.style.height = '48px';
+                const scrollH = chatInput.scrollHeight;
+                const newHeight = Math.max(48, Math.min(scrollH, 400));
+                chatInput.style.height = newHeight + 'px';
+                chatInput.style.overflowY = scrollH > 400 ? 'auto' : 'hidden';
+            }
+
+            if (chatInput) {
+                // 💾 Save input on change + auto-resize
+                chatInput.addEventListener('input', () => {
+                    saveChatInput(chatInput.value);
+                    autoResizeOrbInput();
+                });
+
+                // 💬 Restore chat input value after theme change
+                try {
+                    chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                        if (response?.ok && response.chatInput) {
+                            chatInput.value = response.chatInput;
+                            autoResizeOrbInput();
+                        }
+                    });
+                } catch (e) {
+                    console.warn('[Content] Could not restore chat input:', e);
+                }
+
+                // Initial sizing
+                autoResizeOrbInput();
+
+                // 💬 Re-render chat messages after theme change
+                renderChatMessages();
+
+                // 📐 ResizeObserver to auto-resize when panel width changes
+                const orbResizeObserver = new ResizeObserver(() => {
+                    autoResizeOrbInput();
+                });
+                orbResizeObserver.observe(chatPanel);
+            }
+
+            // 💬 Send button handler - same pipeline as HUD
+            if (chatSendBtn && chatInput) {
+                const handleOrbSend = async () => {
+                    const text = chatInput.value.trim();
+                    if (!text) return;
+
+                    console.log('[Content] 📤 Orb chat sending:', text);
+
+                    // Add to shared state (renders to both UIs)
+                    addChatMessage('user', text);
+
+                    // Clear input, reset size, and saved state
+                    chatInput.value = '';
+                    autoResizeOrbInput();
+                    saveChatInput('');
+
+                    // Send through chat pipeline
+                    try {
+                        const result = await sendChatMessage(text);
+                        console.log('[Content] ✅ Orb chat message sent:', result);
+                    } catch (error) {
+                        console.error('[Content] ❌ Orb chat send failed:', error);
+                        addChatMessage('error', 'Failed to send message');
+                    }
+                };
+
+                chatSendBtn.addEventListener('click', handleOrbSend);
+
+                // Enter to send (Shift+Enter for new line)
+                chatInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        handleOrbSend();
+                    }
+                });
+            }
+
+            // 📐 Setup resize handlers for chat panel
+            setupChatPanelResize(chatPanel);
+        }
+
+        // Update theme selector active state if HUD exists
+        if (hudState.hud) {
+            hudState.hud.querySelectorAll('.ome-theme-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.theme === themeName);
+            });
+        }
+
+        console.log(`[Content] 🎨 Orb theme: ${themeName}`);
+    }
+
+    /**
+     * 🔮 Create floating orb
+     * @param {ShadowRoot} shadow
+     * @returns {HTMLElement}
+     */
+    function createOrb(shadow) {
+        const orb = document.createElement('div');
+        orb.className = 'ome-orb';
+
+        // 🎨 Use theme system - get SVG from registry
+        const theme = ORB_THEMES[hudState.theme] || ORB_THEMES.minimal;
+
+        // Build controls HTML - menu + scroll controls (right) + zoom controls (bottom)
+        const scrollHTML = `
+            <div class="ome-scroll-controls" style="color: ${theme.color}">
+                <button class="ome-menu-btn">HUD</button>
+                <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </div>`;
+        const zoomHTML = `
+            <div class="ome-zoom-controls" style="color: ${theme.color}">
+                <button class="ome-ctrl-btn ome-zoom-in">+</button>
+                <span class="ome-zoom-label ome-zoom-reset">Z</span>
+                <button class="ome-ctrl-btn ome-zoom-out">−</button>
+            </div>`;
+
+        // 💬 Prompt button (opens chat panel)
+        const promptHTML = `
+            <button class="ome-prompt-btn" style="color: ${theme.color}">Open Prompt</button>`;
+
+        // 💬 Chat panel (anchored to orb) - with resize handles
+        const chatPanelHTML = `
+            <div class="ome-chat-panel" data-theme="${hudState.theme}">
+                <div class="ome-resize-handle ome-resize-n" data-resize="n"></div>
+                <div class="ome-resize-handle ome-resize-s" data-resize="s"></div>
+                <div class="ome-resize-handle ome-resize-e" data-resize="e"></div>
+                <div class="ome-resize-handle ome-resize-w" data-resize="w"></div>
+                <div class="ome-resize-handle ome-resize-nw" data-resize="nw"></div>
+                <div class="ome-resize-handle ome-resize-ne" data-resize="ne"></div>
+                <div class="ome-resize-handle ome-resize-sw" data-resize="sw"></div>
+                <div class="ome-resize-handle ome-resize-se" data-resize="se"></div>
+                <div class="ome-chat-messages">
+                    <!-- Messages loaded from chat file -->
+                </div>
+                <div class="ome-chat-input-area">
+                    <div class="ome-chat-input-wrapper">
+                        <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                    </div>
+                    <button class="ome-chat-send">
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </div>
+            </div>`;
+
+        // 🔮 Wrap SVG in drag indicator wrapper with 4 directional arrows (theme colored)
+        const orbWrapperHTML = `
+            <div class="ome-orb-wrapper" style="color: ${theme.color}">
+                ${theme.svg}
+                ${theme.paws}
+                <div class="ome-orb-drag-indicator ome-orb-drag-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+                <div class="ome-orb-drag-indicator ome-orb-drag-right"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></div>
+            </div>`;
+        orb.innerHTML = orbWrapperHTML + scrollHTML + promptHTML + zoomHTML + chatPanelHTML;
+
+        // 🐰 Track holding state (use hudState so all handlers can access)
+        let followHandler = null;
+
+        /**
+         * Release the bunny from follow mode and save position
+         */
+        function releaseOrb() {
+            if (!hudState.dragging) return;
+            hudState.dragging = false;
+            orb.classList.remove('holding');
+            document.removeEventListener('mousemove', followHandler);
+            followHandler = null;
+
+            // 💾 Save position when released (convert to percentages)
+            const orbRect = orb.getBoundingClientRect();
+            const hostRect = hudState.host.getBoundingClientRect();
+            // Calculate percentage from right and bottom of our canvas
+            const rightPct = ((hostRect.right - orbRect.right) / hostRect.width) * 100;
+            const bottomPct = ((hostRect.bottom - orbRect.bottom) / hostRect.height) * 100;
+            // Reset to percentage positioning for consistency
+            orb.style.left = 'auto';
+            orb.style.top = 'auto';
+            orb.style.right = `${Math.max(0, rightPct)}%`;
+            orb.style.bottom = `${Math.max(0, bottomPct)}%`;
+
+            // 💾 Save position to service worker
+            saveOrbPosition(Math.max(0, rightPct), Math.max(0, bottomPct));
+
+            // 📐 Ensure orb stays within viewport bounds after release
+            constrainOrbToViewport();
+        }
+
+        /**
+         * Start follow mode - bunny follows cursor
+         * Uses left/top during drag for smooth tracking, converts to right/bottom on release
+         */
+        function startFollowing() {
+            if (hudState.dragging) return;
+            hudState.dragging = true;
+            orb.classList.add('holding');
+            followHandler = (e) => {
+                // Use left/top during active drag for smooth cursor tracking
+                orb.style.right = 'auto';
+                orb.style.bottom = 'auto';
+                orb.style.left = `${e.clientX - 30}px`;
+                orb.style.top = `${e.clientY - 40}px`;
+            };
+            document.addEventListener('mousemove', followHandler);
+        }
+
+        // ⬆️⬇️⬅️➡️ Scroll button handlers (with boundary feedback)
+        orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollWithFeedback('up', e.currentTarget);
+        });
+        orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollWithFeedback('down', e.currentTarget);
+        });
+        orb.querySelector('.ome-scroll-left')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollWithFeedback('left', e.currentTarget);
+        });
+        orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollWithFeedback('right', e.currentTarget);
+        });
+
+        // 📋 Menu button handler (toggles HUD)
+        orb.querySelector('.ome-menu-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHUD();
+        });
+
+        // 🔍 Zoom button handlers (send to service worker)
+        orb.querySelector('.ome-zoom-in')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomIn', params: {} });
+        });
+        orb.querySelector('.ome-zoom-out')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomOut', params: {} });
+        });
+        orb.querySelector('.ome-zoom-reset')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chrome.runtime.sendMessage({ type: 'execute_capability', action: 'ZoomReset', params: {} });
+        });
+
+        // 💬 Prompt button handler (opens chat panel)
+        orb.querySelector('.ome-prompt-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleChatPanel();
+        });
+
+        // 💬 Store chat panel reference and set up its handlers
+        const chatPanel = orb.querySelector('.ome-chat-panel');
+        if (chatPanel) {
+            hudState.chatPanel = chatPanel;
+            // 💬 Open chat panel by default if chatVisible is true
+            if (hudState.chatVisible) {
+                chatPanel.classList.add('visible');
+                const promptBtn = orb.querySelector('.ome-prompt-btn');
+                if (promptBtn) {
+                    promptBtn.classList.add('active');
+                    promptBtn.textContent = 'HIDE PROMPT';
+                }
+            }
+            // Prevent clicks inside panel from bubbling to orb
+            chatPanel.addEventListener('click', (e) => e.stopPropagation());
+            // Close panel on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && hudState.chatVisible) toggleChatPanel();
+            });
+
+            // 💬 Live typing preview - updates as you type
+            const chatInput = chatPanel.querySelector('.ome-chat-input');
+            const typingPreview = chatPanel.querySelector('.typing-preview');
+            if (chatInput && typingPreview) {
+                chatInput.addEventListener('input', () => {
+                    typingPreview.textContent = chatInput.value;
+                    // Auto-scroll messages to bottom to keep preview visible
+                    const messagesArea = chatPanel.querySelector('.ome-chat-messages');
+                    if (messagesArea) messagesArea.scrollTop = messagesArea.scrollHeight;
+                    // 💾 Debounced save to persist across navigation
+                    saveChatInput(chatInput.value);
+                });
+
+                // 💬 Restore chat input value on initial load
+                try {
+                    chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                        if (response?.ok && response.chatInput) {
+                            chatInput.value = response.chatInput;
+                            typingPreview.textContent = response.chatInput;
+                        }
+                    });
+                } catch (e) {
+                    console.warn('[Content] Could not restore chat input:', e);
+                }
+            }
+
+            // 📐 Setup resize handlers for chat panel
+            setupChatPanelResize(chatPanel);
+        }
+
+        // 🐰 Body click: toggle follow mode (ears/goggles now included, but NOT on scroll/zoom/prompt/chat)
+        orb.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // If click was on control element, their handlers already handled it
+            if (e.target.closest('.ome-scroll-controls') ||
+                e.target.closest('.ome-zoom-controls') ||
+                e.target.closest('.ome-prompt-btn') ||
+                e.target.closest('.ome-chat-panel')) return;
+
+            if (hudState.dragging) {
+                releaseOrb();
+            } else {
+                startFollowing();
+            }
+        });
+
+        shadow.appendChild(orb);
+        return orb;
+    }
+
+    /**
+     * 📺 Create HUD overlay
+     * @param {ShadowRoot} shadow
+     * @returns {HTMLElement}
+     */
+    function createHUD(shadow) {
+        const hud = document.createElement('div');
+        hud.className = 'ome-hud';
+        hud.dataset.theme = hudState.theme || 'atom';  // Apply theme colors
+
+        // Get current theme SVG for orb display
+        const currentTheme = ORB_THEMES[hudState.theme] || ORB_THEMES.robot;
+
+        hud.innerHTML = `
+            <!-- 🔝 Top Bar - ChatGPT style header -->
+            <div class="ome-hud-topbar">
+                <div class="ome-hud-topbar-left">
+                    <button class="ome-hud-topbar-btn ome-sidebar-toggle">
+                        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                    <div class="ome-hud-topbar-title">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        Om-E
+                    </div>
+                </div>
+                <div class="ome-hud-topbar-right">
+                    <button class="ome-hud-topbar-btn close ome-hud-close">&times;</button>
+                </div>
+            </div>
+
+            <!-- 📦 Content Area - sidebar + main -->
+            <div class="ome-hud-content">
+                <!-- 📚 Sidebar Panel -->
+                <div class="ome-sidebar">
+                    <div class="ome-sidebar-header">
+                        <button class="ome-sidebar-new-chat">
+                            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            New chat
+                        </button>
+                        <button class="ome-sidebar-close">&times;</button>
+                    </div>
+                    <div class="ome-sidebar-content">
+                        <div class="ome-sidebar-label">Your chats</div>
+                        <div class="ome-sidebar-empty">No chats yet</div>
+                    </div>
+                    <div class="ome-sidebar-footer">Om-E Web</div>
+                </div>
+
+                <!-- 🎯 Main Area - messages + input -->
+                <div class="ome-hud-main">
+                    <!-- 💬 Messages Area - ChatGPT style scrollable history -->
+                    <div class="ome-hud-messages-area"></div>
+
+                    <!-- 🛤️ Rail - vertical track for sliding -->
+                    <div class="ome-hud-rail"></div>
+
+                    <!-- 💬 Input Area - YOUR OME prompt unit (slidable) -->
+                    <div class="ome-hud-input-area">
+                        <div class="ome-hud-prompt-wrapper">
+                            <div class="ome-hud-prompt">
+                                <textarea class="ome-hud-prompt-textarea" placeholder="Ask anything..." rows="1"></textarea>
+                                <div class="ome-hud-prompt-actions">
+                                    <button class="ome-hud-clear-btn" title="Clear prompt">
+                                        <svg viewBox="0 0 24 24">
+                                            <!-- Alien X - angular Annunaki style -->
+                                            <line x1="6" y1="6" x2="18" y2="18"/>
+                                            <line x1="18" y1="6" x2="6" y2="18"/>
+                                            <line x1="12" y1="3" x2="12" y2="7"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                            <line x1="3" y1="12" x2="7" y2="12"/>
+                                            <line x1="17" y1="12" x2="21" y2="12"/>
+                                        </svg>
+                                    </button>
+                                    <button class="ome-hud-send-btn" title="Send">
+                                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- 🔍 Select Pane - transparent scanner window -->
+                            <div class="ome-hud-select-pane">
+                                <span class="ome-hud-scan-instruction">SCAN MODE</span>
+                            </div>
+                        </div>
+
+                        <!-- 🔮 Current Orb Display with drag indicators -->
+                        <div class="ome-hud-orb-container">
+                            <div class="ome-hud-orb-wrapper">
+                                <div class="ome-hud-orb" data-theme="${hudState.theme}">
+                                    ${currentTheme.svg}
+                                </div>
+                                <div class="ome-hud-drag-indicator ome-hud-drag-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-drag-indicator ome-hud-drag-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+                                <!-- 🔍 Scan mode converging arrows (6 directions - no N/S to avoid drag indicator clash) -->
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-ne"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-e"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-se"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-sw"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-w"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                                <div class="ome-hud-scan-arrow ome-hud-scan-arrow-nw"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+                            </div>
+                        </div>
+
+                        <!-- 🎮 HUD Scroll Controls -->
+                        <div class="ome-hud-scroll">
+                            <button class="ome-hud-menu-btn ome-hud-orb-btn">ORB</button>
+                            <button class="ome-hud-ctrl-btn ome-hud-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+                            <button class="ome-hud-ctrl-btn ome-hud-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // 🛡️ Block events from escaping HUD to underlying page (bubbling phase, NOT capture)
+        ['click', 'mousedown', 'mouseup', 'pointerdown', 'pointerup', 'touchstart', 'touchend'].forEach(eventType => {
+            hud.addEventListener(eventType, (e) => {
+                e.stopPropagation();
+            }, false);  // bubbling phase - lets internal button clicks work first
+        });
+
+        // Close button handler
+        hud.querySelector('.ome-hud-close').addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHUD();
+        });
+
+        // 📚 Sidebar toggle button handler
+        const sidebarToggle = hud.querySelector('.ome-sidebar-toggle');
+        const sidebar = hud.querySelector('.ome-sidebar');
+        hudState.sidebar = sidebar;
+
+        sidebarToggle?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSidebar();
+        });
+
+        // 📚 Sidebar close button handler
+        hud.querySelector('.ome-sidebar-close')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSidebar(false);
+        });
+
+        // 📚 New chat button handler (placeholder for now)
+        hud.querySelector('.ome-sidebar-new-chat')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log('[Content] 📚 New chat clicked');
+            // TODO: Clear current chat and start fresh
+        });
+
+        // NOTE: Removed backdrop click-to-close - only exit via Exit HUD button or orb click
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && hudState.visible) toggleHUD();
+        });
+
+        // 🎯 Focus textarea when HUD prompt box is clicked
+        const promptBox = hud.querySelector('.ome-hud-prompt');
+        const promptTextarea = hud.querySelector('.ome-hud-prompt-textarea');
+
+        promptBox?.addEventListener('click', (e) => {
+            if (promptTextarea && e.target !== promptTextarea) {
+                promptTextarea.focus();
+            }
+        });
+
+        // 📐 Auto-resize textarea as user types (Perplexity-style)
+        function autoResizeTextarea() {
+            if (!promptTextarea) return;
+            // Set height to minimum first to measure true scrollHeight
+            promptTextarea.style.height = '40px';
+            // Calculate new height (capped at 300px)
+            const scrollH = promptTextarea.scrollHeight;
+            const newHeight = Math.max(40, Math.min(scrollH, 300));
+            promptTextarea.style.height = newHeight + 'px';
+            // Show scrollbar only when at max height
+            promptTextarea.style.overflowY = scrollH > 300 ? 'auto' : 'hidden';
+            // Check if HUD needs repositioning
+            checkAndRepositionHUD();
+        }
+
+        promptTextarea?.addEventListener('input', autoResizeTextarea);
+        // Initial sizing
+        if (promptTextarea) autoResizeTextarea();
+
+        // 📐 ResizeObserver to auto-resize textarea when container width changes
+        // (e.g., sidebar opens/closes, window resizes)
+        const hudPrompt = hud.querySelector('.ome-hud-prompt');
+        if (hudPrompt && promptTextarea) {
+            const resizeObserver = new ResizeObserver(() => {
+                autoResizeTextarea();
+                checkAndRepositionHUD();
+            });
+            resizeObserver.observe(hudPrompt);
+        }
+
+        // 📍 Window resize listener for HUD repositioning
+        window.addEventListener('resize', checkAndRepositionHUD);
+
+        // Send button handler
+        const sendBtn = hud.querySelector('.ome-hud-send-btn');
+        const clearBtn = hud.querySelector('.ome-hud-clear-btn');
+
+        // 🗑️ Clear button - clears prompt text
+        clearBtn?.addEventListener('click', () => {
+            if (promptTextarea) {
+                promptTextarea.value = '';
+                promptTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+                promptTextarea.focus();
+                console.log('[Content] 🗑️ Prompt cleared');
+            }
+        });
+
+        sendBtn?.addEventListener('click', async () => {
+            const text = promptTextarea?.value.trim();
+            if (!text) return;
+
+            console.log('[Content] 📤 HUD Prompt sending:', text);
+
+            // Add to shared state (renders to both UIs)
+            addChatMessage('user', text);
+
+            // Clear textarea and reset size
+            promptTextarea.value = '';
+            autoResizeTextarea();
+
+            // Send through chat pipeline
+            try {
+                const result = await sendChatMessage(text);
+                console.log('[Content] ✅ Chat message sent:', result);
+            } catch (error) {
+                console.error('[Content] ❌ Chat send failed:', error);
+                addChatMessage('error', 'Failed to send message');
+            }
+        });
+
+        // Enter to send (Shift+Enter for new line)
+        promptTextarea?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendBtn?.click();
+            }
+        });
+
+        // 📜 HUD Scroll controls - scroll the messages area
+        const hudMessagesArea = hud.querySelector('.ome-hud-messages-area');
+        hud.querySelector('.ome-hud-scroll-up')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (hudMessagesArea) {
+                hudMessagesArea.scrollBy({ top: -100, behavior: 'smooth' });
+            }
+        });
+        hud.querySelector('.ome-hud-scroll-down')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (hudMessagesArea) {
+                hudMessagesArea.scrollBy({ top: 100, behavior: 'smooth' });
+            }
+        });
+
+        // 🔮 ORB button - return to orb view
+        hud.querySelector('.ome-hud-orb-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleHUD();
+        });
+
+        // 🛤️ Rail slider - drag orb to slide prompt unit up/down
+        // Uses click-to-toggle pattern (same as floating orb)
+        const inputArea = hud.querySelector('.ome-hud-input-area');
+        const hudOrb = hud.querySelector('.ome-hud-orb');
+        let hudSliding = false;
+        let hudSlideHandler = null;
+
+        /**
+         * Release HUD orb from slide mode
+         */
+        function releaseHudSlide() {
+            if (!hudSliding) return;
+            hudSliding = false;
+            inputArea?.classList.remove('dragging');
+            hudOrb?.classList.remove('holding');
+            document.body.style.cursor = '';
+            if (hudSlideHandler) {
+                document.removeEventListener('mousemove', hudSlideHandler);
+                hudSlideHandler = null;
+            }
+        }
+
+        /**
+         * Start HUD orb slide mode - follows cursor vertically
+         * Exits if mouse drifts too far horizontally from orb
+         */
+        function startHudSlide() {
+            if (hudSliding || !inputArea) return;
+            hudSliding = true;
+            inputArea.classList.add('dragging');
+            hudOrb?.classList.add('holding');
+            document.body.style.cursor = 'grabbing';
+
+            const startBottom = parseInt(inputArea.style.bottom) || 400;
+            let lastY = null;
+            let lastX = null;
+            let scrollAnimationId = null;
+            let scrollDirection = 0; // -1 = up, 0 = stopped, 1 = down
+            let scrollSpeed = 0; // Current locked-in speed
+            const scrollUpBtn = hud.querySelector('.ome-hud-scroll-up');
+            const scrollDownBtn = hud.querySelector('.ome-hud-scroll-down');
+
+            // 🔍 Continuous infinite scroll loop - keeps going until exit
+            function infiniteScrollLoop() {
+                if (!hudSliding || !hudMessagesArea) {
+                    scrollAnimationId = null;
+                    return;
+                }
+
+                // Scroll at locked-in speed and direction
+                if (scrollDirection !== 0 && scrollSpeed > 0) {
+                    hudMessagesArea.scrollTop += scrollDirection * scrollSpeed;
+                }
+
+                scrollAnimationId = requestAnimationFrame(infiniteScrollLoop);
+            }
+
+            hudSlideHandler = (e) => {
+                // Only exit on deliberate horizontal movement (not vertical drift)
+                const orbRect = hudOrb?.getBoundingClientRect();
+                if (orbRect && lastX !== null && lastY !== null) {
+                    const deltaX = Math.abs(e.clientX - lastX);
+                    const deltaYAbs = Math.abs(e.clientY - lastY);
+                    const isOutsideHorizontally = e.clientX < orbRect.left || e.clientX > orbRect.right;
+
+                    // Only exit if outside horizontally AND movement is more horizontal than vertical
+                    if (isOutsideHorizontally && deltaX > deltaYAbs) {
+                        exitScanMode();
+                        return;
+                    }
+                }
+                lastX = e.clientX;
+
+                if (lastY === null) {
+                    lastY = e.clientY;
+                    // Start the infinite scroll loop
+                    if (!scrollAnimationId) {
+                        scrollAnimationId = requestAnimationFrame(infiniteScrollLoop);
+                    }
+                    return;
+                }
+
+                const deltaY = lastY - e.clientY;
+                lastY = e.clientY;
+                const currentBottom = parseInt(inputArea.style.bottom) || startBottom;
+                const newBottom = Math.max(20, Math.min(window.innerHeight - 150, currentBottom + deltaY));
+                inputArea.style.bottom = newBottom + 'px';
+
+                // 🔍 Lock in scroll direction and speed based on vertical movement
+                if (Math.abs(deltaY) > 2) { // Minimum movement threshold
+                    const newDirection = deltaY > 0 ? -1 : 1; // up movement = scroll up, down = scroll down
+
+                    // Update direction and accumulate speed
+                    if (newDirection !== scrollDirection) {
+                        // Direction change - reset speed
+                        scrollDirection = newDirection;
+                        scrollSpeed = Math.abs(deltaY) * 0.5;
+                    } else {
+                        // Same direction - increase speed (capped)
+                        scrollSpeed = Math.min(scrollSpeed + Math.abs(deltaY) * 0.3, 15);
+                    }
+
+                    // Update button indicators
+                    const activeBtn = scrollDirection > 0 ? scrollDownBtn : scrollUpBtn;
+                    const inactiveBtn = scrollDirection > 0 ? scrollUpBtn : scrollDownBtn;
+                    inactiveBtn?.classList.remove('scroll-active');
+                    if (activeBtn && !activeBtn.classList.contains('scroll-active')) {
+                        activeBtn.classList.add('scroll-active');
+                    }
+                }
+            };
+            document.addEventListener('mousemove', hudSlideHandler);
+
+            // Cleanup scroll animation on slide release
+            const originalRelease = releaseHudSlide;
+            releaseHudSlide = function() {
+                if (scrollAnimationId) {
+                    cancelAnimationFrame(scrollAnimationId);
+                    scrollAnimationId = null;
+                }
+                scrollDirection = 0;
+                scrollSpeed = 0;
+                scrollUpBtn?.classList.remove('scroll-active');
+                scrollDownBtn?.classList.remove('scroll-active');
+                originalRelease();
+            };
+        }
+
+        /**
+         * 🔍 Exit scan mode completely
+         */
+        function exitScanMode() {
+            scanModeActive = false;
+            sweepingActive = false;
+            sweptRegion = { minY: null, maxY: null };
+            hud.classList.remove('scan-mode', 'sweeping');
+            clearSweptHighlights();
+            releaseHudSlide();
+            // Clear scroll indicator flash
+            hud.querySelector('.ome-hud-scroll-up')?.classList.remove('scroll-active');
+            hud.querySelector('.ome-hud-scroll-down')?.classList.remove('scroll-active');
+            console.log('[Content] 🔍 Exited scan mode');
+        }
+
+        // 🔍 Click to toggle scan mode (visual + slide behavior)
+        let scanModeActive = false;
+        let sweepingActive = false;
+        let sweptRegion = { minY: null, maxY: null };
+        const selectPane = hud.querySelector('.ome-hud-select-pane');
+        const messagesArea = hud.querySelector('.ome-hud-messages-area');
+
+        /**
+         * 🔍 Clear all swept highlights from messages
+         */
+        function clearSweptHighlights() {
+            if (!messagesArea) return;
+            messagesArea.querySelectorAll('.ome-hud-swept').forEach(el => {
+                el.classList.remove('ome-hud-swept');
+            });
+        }
+
+        /**
+         * 🔍 Highlight messages within swept region
+         */
+        function highlightSweptText() {
+            if (!messagesArea || sweptRegion.minY === null) return;
+            const messages = messagesArea.querySelectorAll('.ome-hud-message');
+            messages.forEach(msg => {
+                const rect = msg.getBoundingClientRect();
+                const overlaps = rect.top < sweptRegion.maxY && rect.bottom > sweptRegion.minY;
+                if (overlaps) {
+                    msg.classList.add('ome-hud-swept');
+                } else {
+                    msg.classList.remove('ome-hud-swept');
+                }
+            });
+        }
+
+        /**
+         * 🔍 Update swept region based on current pane position
+         */
+        function updateSweptRegion() {
+            if (!selectPane || !sweepingActive) return;
+            const paneRect = selectPane.getBoundingClientRect();
+            if (sweptRegion.minY === null) {
+                sweptRegion.minY = paneRect.top;
+                sweptRegion.maxY = paneRect.bottom;
+            } else {
+                sweptRegion.minY = Math.min(sweptRegion.minY, paneRect.top);
+                sweptRegion.maxY = Math.max(sweptRegion.maxY, paneRect.bottom);
+            }
+            highlightSweptText();
+        }
+
+        /**
+         * 🔍 Start sweep - click in scan mode
+         */
+        function startSweep() {
+            sweepingActive = true;
+            sweptRegion = { minY: null, maxY: null };
+            hud.classList.add('sweeping');
+            updateSweptRegion();
+            console.log('[Content] 🔍 Sweep started - move to scan, click to capture');
+        }
+
+        /**
+         * 🔍 End sweep - capture text and exit
+         */
+        function endSweep() {
+            if (!sweepingActive) return;
+
+            // Capture swept text
+            const sweptMessages = messagesArea?.querySelectorAll('.ome-hud-swept');
+            const texts = [];
+            sweptMessages?.forEach(msg => {
+                const text = msg.textContent?.trim();
+                if (text) texts.push(text);
+            });
+            const capturedText = texts.join('\n\n');
+
+            if (capturedText && promptTextarea) {
+                const prefix = promptTextarea.value.length > 0 ? '\n\n' : '';
+                promptTextarea.value += prefix + capturedText;
+                promptTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+                console.log('[Content] 🔍 Captured:', capturedText.substring(0, 50) + '...');
+            }
+
+            // Reset sweep state
+            sweepingActive = false;
+            sweptRegion = { minY: null, maxY: null };
+            hud.classList.remove('sweeping');
+            clearSweptHighlights();
+
+            // Exit scan mode too
+            scanModeActive = false;
+            hud.classList.remove('scan-mode');
+            releaseHudSlide();
+            console.log('[Content] 🔍 Sweep ended, exited scan mode');
+        }
+
+        // Modify slide handler to update swept region
+        const originalStartHudSlide = startHudSlide;
+        startHudSlide = function() {
+            originalStartHudSlide();
+            // Patch the mousemove handler to also update sweep
+            const originalHandler = hudSlideHandler;
+            hudSlideHandler = (e) => {
+                originalHandler(e);
+                if (sweepingActive) updateSweptRegion();
+            };
+            document.removeEventListener('mousemove', originalHandler);
+            document.addEventListener('mousemove', hudSlideHandler);
+        };
+
+        hudOrb?.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            if (!scanModeActive) {
+                // Click 1: Enter scan mode + start sliding
+                scanModeActive = true;
+                hud.classList.add('scan-mode');
+                startHudSlide();
+                console.log('[Content] 🔍 Click 1: Entered scan mode - click orb to start sweep');
+            } else if (!sweepingActive) {
+                // Click 2: Start sweep
+                startSweep();
+                console.log('[Content] 🔍 Click 2: Sweep started - move to scan, click orb to capture');
+            } else {
+                // Click 3: End sweep + capture + exit
+                endSweep();
+                console.log('[Content] 🔍 Click 3: Sweep ended, text captured');
+            }
+        });
+
+        // 🔮 Double-click orb to exit HUD
+        hudOrb?.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
+            console.log('[Content] 🔮 HUD orb double-clicked - exiting HUD');
+            if (!hudState.host) initHUD();
+            toggleHUD();
+        });
+
+        shadow.appendChild(hud);
+        return hud;
+    }
+
+    /**
+     * 📍 Scroll HUD messages to bottom after new content
+     * ChatGPT-style layout handles sizing automatically via flexbox
+     */
+    function checkAndRepositionHUD() {
+        if (!hudState.hud || !hudState.visible) return;
+
+        // Auto-scroll messages area to bottom
+        const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
+        if (hudMessages) {
+            hudMessages.scrollTop = hudMessages.scrollHeight;
+        }
+    }
+
+    /**
+     * 🔮 Update HUD orb display and theme colors when theme changes
+     * @param {HTMLElement} hud - HUD element
+     * @param {string} themeName - New theme key
+     */
+    function updateHUDOrb(hud, themeName) {
+        // Update HUD theme colors
+        hud.dataset.theme = themeName;
+
+        // Update orb SVG
+        const orbContainer = hud.querySelector('.ome-hud-orb');
+        const theme = ORB_THEMES[themeName] || ORB_THEMES.robot;
+        if (orbContainer) {
+            orbContainer.dataset.theme = themeName;
+            orbContainer.innerHTML = theme.svg;
+        }
+    }
+
+    /**
+     * 🎨 Set and persist orb theme
+     * @param {string} themeName - Theme key from ORB_THEMES
+     */
+    function setOrbTheme(themeName) {
+        if (!ORB_THEMES[themeName]) {
+            console.warn(`[Content] Unknown theme: ${themeName}`);
+            return;
+        }
+        applyOrbTheme(themeName);
+
+        // Persist to service worker (async, non-blocking)
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', theme: themeName });
+            console.log('[Content] 💾 Saved theme to SW:', themeName);
+        } catch (e) {
+            console.warn('[Content] Could not persist theme:', e);
+        }
+    }
+
+    /**
+     * 📐 Clamp orb position to keep it visible within viewport
+     * Now uses the comprehensive constrainOrbToViewport function
+     */
+    function clampOrbToViewport() {
+        constrainOrbToViewport();
+    }
+
+    /**
+     * 💾 Save orb position to service worker (using percentages for consistency)
+     * @param {number} rightPct - Right offset as percentage (0-100)
+     * @param {number} bottomPct - Bottom offset as percentage (0-100)
+     */
+    function saveOrbPosition(rightPct, bottomPct) {
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', position: { rightPct, bottomPct } });
+        } catch (e) {
+            console.warn('[Content] Could not save position:', e);
+        }
+    }
+
+    /**
+     * 📍 Apply saved position to orb (using percentages)
+     * @param {{ rightPct: number, bottomPct: number } | { right: number, bottom: number } | { left: number, top: number }} position
+     */
+    function applyOrbPosition(position) {
+        if (!hudState.orb || !position) return;
+
+        // New format: percentages
+        if (position.rightPct !== undefined && position.bottomPct !== undefined) {
+            hudState.orb.style.left = 'auto';
+            hudState.orb.style.top = 'auto';
+            hudState.orb.style.right = `${position.rightPct}%`;
+            hudState.orb.style.bottom = `${position.bottomPct}%`;
+            console.log('[Content] 📍 Applied orb position:', { right: position.rightPct + '%', bottom: position.bottomPct + '%' });
+        }
+        // Legacy format: pixels (right/bottom) - convert to percentages
+        else if (position.right !== undefined && position.bottom !== undefined) {
+            const rightPct = (position.right / window.innerWidth) * 100;
+            const bottomPct = (position.bottom / window.innerHeight) * 100;
+            hudState.orb.style.left = 'auto';
+            hudState.orb.style.top = 'auto';
+            hudState.orb.style.right = `${rightPct}%`;
+            hudState.orb.style.bottom = `${bottomPct}%`;
+            saveOrbPosition(rightPct, bottomPct);
+            console.log('[Content] 📍 Converted pixel position to percentages');
+        }
+        // Legacy format: pixels (left/top) - convert to percentages
+        else if (position.left !== undefined && position.top !== undefined) {
+            const rightPct = ((window.innerWidth - position.left - 50) / window.innerWidth) * 100;
+            const bottomPct = ((window.innerHeight - position.top - 78) / window.innerHeight) * 100;
+            hudState.orb.style.left = 'auto';
+            hudState.orb.style.top = 'auto';
+            hudState.orb.style.right = `${Math.max(0, rightPct)}%`;
+            hudState.orb.style.bottom = `${Math.max(0, bottomPct)}%`;
+            saveOrbPosition(Math.max(0, rightPct), Math.max(0, bottomPct));
+            console.log('[Content] 📍 Converted legacy left/top to percentages');
+        }
+
+    }
+
+    /**
+     * 🔍 Restore orb to same screen position after zoom
+     * Uses percentage positioning for consistency
+     * @param {number} rightPct - Right position as percentage (0-100)
+     * @param {number} bottomPct - Bottom position as percentage (0-100)
+     */
+    function restoreOrbScreenPosition(rightPct, bottomPct) {
+        if (!hudState.orb) return;
+
+        // Clamp to keep orb visible (1% to 90% range)
+        const clampedRightPct = Math.max(1, Math.min(rightPct, 90));
+        const clampedBottomPct = Math.max(1, Math.min(bottomPct, 85));
+
+        // Apply percentage position
+        hudState.orb.style.left = 'auto';
+        hudState.orb.style.top = 'auto';
+        hudState.orb.style.right = `${clampedRightPct}%`;
+        hudState.orb.style.bottom = `${clampedBottomPct}%`;
+
+        // Save to service worker
+        saveOrbPosition(clampedRightPct, clampedBottomPct);
+        console.log(`[Content] 🔍 Restored orb position: right:${clampedRightPct.toFixed(1)}%, bottom:${clampedBottomPct.toFixed(1)}%`);
+    }
+
+    /**
+     * 🔍 Apply zoom scale to keep orb same visual size
+     * Uses CSS custom property so hover states work correctly
+     * @param {number} zoomLevel - Browser zoom level (1.0 = 100%)
+     */
+    function applyOrbZoomScale(zoomLevel) {
+        if (!hudState.orb) return;
+
+        // Validate zoom level
+        if (!zoomLevel || zoomLevel <= 0 || isNaN(zoomLevel)) {
+            console.warn(`[Content] 🔍 Invalid zoom level: ${zoomLevel}, resetting to 1.0`);
+            zoomLevel = 1.0;
+        }
+
+        // Scale inversely to zoom: at 150% zoom, scale to 0.667 to appear same size
+        const scale = 1 / zoomLevel;
+
+        // Clamp scale to reasonable bounds (0.5x to 2x)
+        const clampedScale = Math.max(0.5, Math.min(2.0, scale));
+
+        // Update CSS custom property (CSS handles the actual transform)
+        hudState.orb.style.setProperty('--ome-zoom-scale', clampedScale.toString());
+        hudState.zoomScale = zoomLevel;
+        console.log(`[Content] 🔍 Orb scale: zoom=${Math.round(zoomLevel * 100)}%, scale=${clampedScale.toFixed(3)}`);
+    }
+
+    /** 🎛️ Initialize HUD system */
+    function initHUD() {
+        if (hudState.host) return;
+
+        const host = document.createElement('div');
+        host.id = 'ome-hud-host';
+        host.setAttribute('data-ome-ignore', 'true');
+        document.body.appendChild(host);
+
+        const shadow = host.attachShadow({ mode: 'closed' });
+        injectHUDStyles(shadow);
+        hudState.host = host;
+        hudState.shadow = shadow;
+        hudState.orb = createOrb(shadow);
+        hudState.hud = createHUD(shadow);
+
+        // 🐰 Request orb state from service worker and apply
+        try {
+            chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.warn('[Content] Could not get orb state:', chrome.runtime.lastError);
+                    return;
+                }
+                if (response && response.ok) {
+                    // Apply saved theme
+                    if (response.theme && ORB_THEMES[response.theme]) {
+                        hudState.theme = response.theme;
+                        applyOrbTheme(response.theme);
+                        console.log('[Content] 🎨 Restored theme from SW:', response.theme);
+                    }
+                    // Apply saved position
+                    if (response.position) {
+                        applyOrbPosition(response.position);
+                        console.log('[Content] 📍 Restored position from SW:', response.position);
+                    }
+                    // Apply zoom scale to keep orb same visual size
+                    if (response.zoom && response.zoom !== 1.0) {
+                        applyOrbZoomScale(response.zoom);
+                        console.log('[Content] 🔍 Applied zoom scale from SW:', response.zoom);
+                    }
+                    // 💬 Restore chat panel visibility (handle both true and false)
+                    if (response.chatVisible !== undefined && hudState.chatPanel) {
+                        hudState.chatVisible = response.chatVisible;
+                        const promptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
+                        if (response.chatVisible) {
+                            hudState.chatPanel.classList.add('visible');
+                            if (promptBtn) {
+                                promptBtn.classList.add('active');
+                                promptBtn.textContent = 'HIDE PROMPT';
+                            }
+                            constrainChatPanelToViewport(); // Ensure panel fits viewport
+                            console.log('[Content] 💬 Restored chat panel: OPEN');
+                        } else {
+                            hudState.chatPanel.classList.remove('visible');
+                            if (promptBtn) {
+                                promptBtn.classList.remove('active');
+                                promptBtn.textContent = 'Open Prompt';
+                            }
+                            console.log('[Content] 💬 Restored chat panel: CLOSED');
+                        }
+                    }
+                    // 💬 Restore chat input text
+                    if (response.chatInput && hudState.chatPanel) {
+                        const chatInput = hudState.chatPanel.querySelector('.ome-chat-input');
+                        const typingPreview = hudState.chatPanel.querySelector('.typing-preview');
+                        if (chatInput) {
+                            chatInput.value = response.chatInput;
+                            if (typingPreview) typingPreview.textContent = response.chatInput;
+                            console.log('[Content] 💬 Restored chat input from SW');
+                        }
+                    }
+                    // 📚 Restore sidebar state
+                    if (response.sidebarOpen && hudState.sidebar) {
+                        hudState.sidebarOpen = true;
+                        hudState.sidebar.classList.add('open');
+                        hudState.hud?.classList.add('sidebar-open');
+                        console.log('[Content] 📚 Restored sidebar state from SW');
+                    }
+
+                }
+            });
+        } catch (e) {
+            console.warn('[Content] Error getting orb state:', e);
+        }
+
+        // 📐 Keep orb visible on window resize
+        window.addEventListener('resize', clampOrbToViewport);
+
+        console.log('[Content] 🎛️ HUD initialized');
+    }
+
+    /** 🔄 Toggle HUD visibility */
+    function toggleHUD() {
+        if (!hudState.hud) initHUD();
+        hudState.visible = !hudState.visible;
+        hudState.hud.classList.toggle('visible', hudState.visible);
+        // Render from shared state when opening HUD
+        if (hudState.visible) {
+            renderChatMessages();
+        }
+        console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
+    }
+
+    /** 💬 Toggle Chat Panel visibility */
+    function toggleChatPanel() {
+        if (!hudState.chatPanel) return;
+        hudState.chatVisible = !hudState.chatVisible;
+        hudState.chatPanel.classList.toggle('visible', hudState.chatVisible);
+        // Toggle active state and text on prompt button
+        const promptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
+        if (promptBtn) {
+            promptBtn.classList.toggle('active', hudState.chatVisible);
+            promptBtn.textContent = hudState.chatVisible ? 'HIDE PROMPT' : 'Open Prompt';
+        }
+        // Focus input and render from shared state when opening
+        if (hudState.chatVisible) {
+            constrainOrbToViewport(); // Ensure panel + orb fit viewport
+            const input = hudState.chatPanel.querySelector('.ome-chat-input');
+            if (input) input.focus();
+            renderChatMessages();
+        } else {
+            // When closing, ensure orb still fits within viewport
+            constrainOrbToViewport();
+        }
+        // 💾 Persist chat visibility to service worker
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', chatVisible: hudState.chatVisible });
+        } catch (e) {
+            console.warn('[Content] Could not persist chat visibility:', e);
+        }
+        console.log('[Content] 💬 Chat panel:', hudState.chatVisible ? 'visible' : 'hidden');
+    }
+
+    /**
+     * 📚 Toggle Sidebar visibility
+     * @param {boolean} [forceState] - Optional: force open (true) or closed (false)
+     */
+    function toggleSidebar(forceState) {
+        if (!hudState.sidebar) return;
+
+        // Determine new state
+        if (typeof forceState === 'boolean') {
+            hudState.sidebarOpen = forceState;
+        } else {
+            hudState.sidebarOpen = !hudState.sidebarOpen;
+        }
+
+        // Apply state to DOM
+        hudState.sidebar.classList.toggle('open', hudState.sidebarOpen);
+        hudState.hud?.classList.toggle('sidebar-open', hudState.sidebarOpen);
+
+        // 💾 Persist sidebar state to service worker
+        try {
+            chrome.runtime.sendMessage({ type: 'set_orb_state', sidebarOpen: hudState.sidebarOpen });
+        } catch (e) {
+            console.warn('[Content] Could not persist sidebar state:', e);
+        }
+
+        console.log('[Content] 📚 Sidebar:', hudState.sidebarOpen ? 'open' : 'closed');
+    }
+
+    // 🎛️ HUD message handler
+    chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+        // Toggle HUD visibility
+        if (message.type === 'toggle_hud') {
+            console.log('[Content] 🎛️ toggle_hud received');
+            if (!hudState.host) initHUD();
+            toggleHUD();
+            sendResponse({ ok: true, visible: hudState.visible });
+            return true;
+        }
+
+        // 🎨 Set orb theme via CLI/WebSocket
+        if (message.type === 'set_orb_theme') {
+            const themeName = message.theme;
+            console.log(`[Content] 🎨 set_orb_theme received: ${themeName}`);
+
+            if (!hudState.host) initHUD();
+
+            if (ORB_THEMES[themeName]) {
+                setOrbTheme(themeName);
+                sendResponse({ ok: true, theme: themeName, available: Object.keys(ORB_THEMES) });
+            } else {
+                sendResponse({ ok: false, error: `Unknown theme: ${themeName}`, available: Object.keys(ORB_THEMES) });
+            }
+            return true;
+        }
+
+        // 🎨 Get available themes
+        if (message.type === 'get_orb_themes') {
+            console.log('[Content] 🎨 get_orb_themes received');
+            const themes = Object.entries(ORB_THEMES).map(([key, t]) => ({ key, name: t.name }));
+            sendResponse({ ok: true, current: hudState.theme, themes });
+            return true;
+        }
+
+        // 🐰 Apply orb theme from popup (forwarded via SW)
+        if (message.type === 'apply_orb_theme') {
+            const themeName = message.theme;
+            console.log(`[Content] 🐰 apply_orb_theme from popup: ${themeName}`);
+
+            if (!hudState.host) initHUD();
+
+            if (ORB_THEMES[themeName]) {
+                applyOrbTheme(themeName);
+                hudState.theme = themeName;
+                sendResponse({ ok: true, theme: themeName });
+            } else {
+                sendResponse({ ok: false, error: `Unknown theme: ${themeName}` });
+            }
+            return true;
+        }
+    });
+
+    // ========================================================================
+    // 💬 CHAT SYSTEM HELPERS
+    // ========================================================================
+
+    // Chat state tracking - single source of truth for both HUD and orb
+    const chatState = {
+        currentChatId: null,
+        lastAck: null,
+        messages: []  // Shared message array - both UIs render from this
+    };
+
+    /**
+     * 💬 Render message content (text + images)
+     * @param {HTMLElement} msgEl - Message element to render into
+     * @param {Object} msg - Message object with content/images
+     */
+    function renderMessageContent(msgEl, msg) {
+        // Text content
+        if (msg.content) {
+            const textEl = document.createElement('span');
+            textEl.textContent = msg.content;
+            msgEl.appendChild(textEl);
+        }
+        // Image support - check for images array or image URLs in content
+        if (msg.images && Array.isArray(msg.images)) {
+            msg.images.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = 'Message image';
+                img.loading = 'lazy';
+                msgEl.appendChild(img);
+            });
+        }
+    }
+
+    /**
+     * 💬 Render all messages to both HUD and orb from shared state
+     * Called on toggle and after adding messages
+     */
+    function renderChatMessages() {
+        const messages = chatState.messages;
+
+        // Render to orb chat panel
+        if (hudState.chatPanel) {
+            const orbMessages = hudState.chatPanel.querySelector('.ome-chat-messages');
+            if (orbMessages) {
+                orbMessages.innerHTML = '';
+                messages.forEach(msg => {
+                    const msgEl = document.createElement('div');
+                    msgEl.className = `ome-chat-bubble ${msg.role}`;
+                    renderMessageContent(msgEl, msg);
+                    orbMessages.appendChild(msgEl);
+                });
+                orbMessages.scrollTop = orbMessages.scrollHeight;
+            }
+        }
+
+        // Render to HUD messages area (ChatGPT style)
+        if (hudState.hud) {
+            const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
+            if (hudMessages) {
+                hudMessages.innerHTML = '';
+                messages.forEach(msg => {
+                    const msgEl = document.createElement('div');
+                    msgEl.className = `ome-hud-message ${msg.role}`;
+                    renderMessageContent(msgEl, msg);
+                    hudMessages.appendChild(msgEl);
+                });
+                hudMessages.scrollTop = hudMessages.scrollHeight;
+            }
+        }
+
+        // Check if HUD needs repositioning after content change
+        checkAndRepositionHUD();
+
+        console.log(`[Content] 💬 Rendered ${messages.length} messages to both UIs`);
+    }
+
+    /**
+     * 💬 Add message to shared state and render
+     * @param {string} role - 'user' or 'assistant'
+     * @param {string} content - Message text
+     * @param {Object|null} options - Optional {id, images} for message ID and image URLs
+     */
+    function addChatMessage(role, content, options = null) {
+        const msg = {
+            id: options?.id || `local_${Date.now()}`,
+            role,
+            content,
+            timestamp: new Date().toISOString()
+        };
+        // Add images if provided
+        if (options?.images) {
+            msg.images = options.images;
+        }
+        chatState.messages.push(msg);
+        renderChatMessages();
+    }
+
+    /**
+     * 💬 Append a message bubble to the HUD messages container
+     * @param {HTMLElement} container - The messages container element
+     * @param {string} role - 'user', 'assistant', or 'error'
+     * @param {string} text - The message text
+     */
+    function appendHUDMessage(container, role, text) {
+        if (!container) {
+            console.warn('[Content] 💬 No messages container to append to');
+            return;
+        }
+
+        const msgEl = document.createElement('div');
+        msgEl.className = `ome-hud-message ${role}`;
+        msgEl.textContent = text;
+        container.appendChild(msgEl);
+
+        // Auto-scroll to bottom
+        container.scrollTop = container.scrollHeight;
+
+        console.log(`[Content] 💬 HUD message appended: [${role}] ${text.substring(0, 50)}...`);
+    }
+
+    /**
+     * 💬 Append a message bubble to the Orb chat messages container
+     * @param {HTMLElement} container - The messages container element
+     * @param {string} role - 'user', 'assistant', or 'error'
+     * @param {string} text - The message text
+     */
+    function appendOrbMessage(container, role, text) {
+        if (!container) {
+            console.warn('[Content] 💬 No orb messages container to append to');
+            return;
+        }
+
+        const msgEl = document.createElement('div');
+        msgEl.className = `ome-chat-bubble ${role}`;
+        msgEl.textContent = text;
+        container.appendChild(msgEl);
+
+        // Auto-scroll to bottom
+        container.scrollTop = container.scrollHeight;
+
+        console.log(`[Content] 💬 Orb message appended: [${role}] ${text.substring(0, 50)}...`);
+    }
+
+    /**
+     * 💬 Handle successful chat message acknowledgement from server
+     * Placeholder for now - will be expanded for UI integration
+     *
+     * @param {Object} data - The chat_append_ack payload from server
+     */
+    function handleChatAck(data) {
+        console.log('[Content] 💬 handleChatAck called with:', data);
+
+        // Store the chat_id for future messages in same conversation
+        if (data.chat_id) {
+            chatState.currentChatId = data.chat_id;
+        }
+
+        // Store the last ack for reference
+        chatState.lastAck = data;
+
+        // Log the message that was appended
+        if (data.message) {
+            console.log(`[Content] 💬 Message ${data.message.id} appended to chat ${data.chat_id}`);
+        }
+
+        // Future: Update HUD UI with the acknowledgement
+        // For now, just log
+    }
+
+    /**
+     * 💬 Handle chat error from server
+     * Placeholder for now - will be expanded for UI integration
+     *
+     * @param {Object} data - The chat_error payload from server
+     */
+    function handleChatError(data) {
+        console.error('[Content] 💬 handleChatError called with:', data);
+
+        // Future: Display error in HUD UI
+        // For now, just log
+    }
+
+    /**
+     * 💬 Handle chat history from server - populate shared state and render
+     * Called on page load to restore chat from file
+     * @param {Object} data - The chat_history payload from server
+     */
+    function handleChatHistory(data) {
+        console.log('[Content] 💬 handleChatHistory called with:', data);
+
+        if (!data) return;
+
+        // Update chat state
+        if (data.chat_id) {
+            chatState.currentChatId = data.chat_id;
+        }
+
+        // Replace shared messages array with server data
+        chatState.messages = (data.messages || []).map(msg => ({
+            id: msg.id,
+            role: msg.role,
+            content: msg.content,
+            timestamp: msg.timestamp
+        }));
+
+        // Render to both UIs
+        renderChatMessages();
+
+        console.log(`[Content] 💬 Loaded ${chatState.messages.length} messages from chat ${data.chat_id}`);
+    }
+
+    /**
+     * 💬 Request chat history from server
+     * @param {string|null} chatId - The chat ID to load, or null for empty state
+     */
+    function loadChatHistory(chatId = null) {
+        const id = chatId || chatState.currentChatId;
+        console.log('[Content] 💬 Requesting chat history for:', id);
+
+        chrome.runtime.sendMessage({
+            type: 'ui_get_chat_history',
+            chat_id: id
+        }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.error('[Content] 💬 Error requesting chat history:', chrome.runtime.lastError);
+                return;
+            }
+            console.log('[Content] 💬 Chat history request sent:', response);
+        });
+    }
+
+    /**
+     * 💬 Send a chat message to the service worker for forwarding to server
+     *
+     * @param {string} prompt - The user's message text
+     * @param {string|null} chatId - Existing chat ID or null for new chat
+     * @param {Object} meta - Optional metadata (page_url, page_title)
+     * @returns {Promise<Object>} - Response from service worker
+     */
+    function sendChatMessage(prompt, chatId = null, meta = {}) {
+        return new Promise((resolve, reject) => {
+            const message = {
+                type: 'ui_chat_user_message',
+                chat_id: chatId || chatState.currentChatId,
+                data: {
+                    prompt: prompt,
+                    page_url: meta.page_url || window.location.href,
+                    page_title: meta.page_title || document.title,
+                    front_end_context: meta.front_end_context || {}
+                }
+            };
+
+            console.log('[Content] 💬 Sending chat message:', message);
+
+            chrome.runtime.sendMessage(message, (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error('[Content] 💬 Error sending chat message:', chrome.runtime.lastError);
+                    reject(chrome.runtime.lastError);
+                    return;
+                }
+                console.log('[Content] 💬 Chat message send response:', response);
+                resolve(response);
+            });
+        });
+    }
+
+    // Expose sendChatMessage globally for console testing
+    // Content scripts run in isolated world, so we use postMessage bridge
+    window.omeSendChat = sendChatMessage;
+
+    // Listen for page-context test calls via postMessage
+    window.addEventListener('message', (event) => {
+        if (event.source !== window) return;
+        if (event.data?.type === 'ome_send_chat_test') {
+            const { prompt, chatId, meta } = event.data;
+            sendChatMessage(prompt, chatId, meta)
+                .then(result => {
+                    window.postMessage({ type: 'ome_send_chat_result', result }, '*');
+                })
+                .catch(error => {
+                    window.postMessage({ type: 'ome_send_chat_result', error: error.message }, '*');
+                });
+        }
+    });
+
+
+    // 🚀 Auto-init orb on load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHUD);
+    } else {
+        initHUD();
+    }
+
+})();
+

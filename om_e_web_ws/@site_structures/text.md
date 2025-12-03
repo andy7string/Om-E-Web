@@ -1,9 +1,9 @@
-# Google
+# (27) YouTube
 
-**URL:** https://www.google.com/
-**Timestamp:** 2025-12-02 23:52:17
+**URL:** https://www.youtube.com/
+**Timestamp:** 2025-12-03 17:16:02
 
-**Tabs (1):** Active: #1138029500 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138029876 "(27) YouTube" www.youtube.com [complete]
 
 ## Available Actions
 
@@ -65,159 +65,195 @@ The following pre-configured actions are available for this page:
 
 ---
 
-Google Search homepage
-<Link id="a_id_0">About</Link>
-<Link id="a_id_1">Store</Link>
-<Button id="a_id_2">Google apps</Button>
-<Button id="a_id_3">Google Account: Andrew Orsmond
-(andreworsmond21175@gmail.com)</Button>
-<Select id="a_id_4" value="" use="(a_id_4, select, 'option')">Search</Select>
-<Button id="a_id_5">Search by voice</Button>
-<Button id="a_id_6">Search by image</Button>
-<Button id="a_id_7">AI Mode</Button>
-<Button id="a_id_8">Google Search</Button>
-<Button id="a_id_9">I'm Feeling Lucky</Button>
-Accessibility links
-<Link id="a_id_10">Skip to Discover feed</Link>
-<Link id="a_id_11">Skip to sidebar</Link>
-<Link id="a_id_12">Skip to footer</Link>
-<Link id="a_id_13">Accessibility help</Link>
-<Link id="a_id_14">Accessibility feedback</Link>
-Discover
-<Link id="a_id_15">Plants Stopped Thriving When Earth Warmed 56 Million Years Ago
-Around 56 million years ago, Earth suddenly got much hotter. Over about 5,000 years, the amount of carbon in the atmosphere drastically increased and global...
-ScienceAlert
-·
-13h</Link>
-<Button id="a_id_16">More options</Button>
-<Link id="a_id_17">Australia’s final supermoon of 2025 is rising this week – here’s how to see it
-The Cold Moon will rise in Australia on December 5, marking the finale of 2025's rare trio of supermoons.
-Time Out Worldwide
-·
-1d</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Major UK offshore wind farm wins planning consent
-A major UK offshore wind farm being developed by Danish renewables investor Copenhagen Infrastructure Partners (CIP) has been granted planning consent.
-Recharge News
-·
-19h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Buy copper and sell property: Here are Jun Bei Liu’s trades for 2026
-High-profile stockpicker Jun Bei Liu is kicking off the new year by backing copper miners, while pulling back from ASX property stocks.
-AFR
-·
-8h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Foo Fighters Set to Announce Australia Tour
-Get ready, Australia – the Foo Fighters are about to announce a headline tour. On Monday (December 1st), Frontier Touring teased “big news incoming” in a...
-Rolling Stone Australia
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Age of the ‘scam state’: how an illicit, multibillion-dollar industry has taken root in south-east Asia
-Like the narco-state, a 'scam state' refers to countries where an illicit industry has dug its tentacles deep into institutions and transformed the economy.
-The Guardian
-·
-4h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Australian children moving to new social app Lemon8 but owner expected to restrict users to over-16s
-Australia's under-16s social media ban might take weeks to work but all platforms are on notice, government says.
-The Guardian
-·
-2h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">1,500 years ago the Maya played board games: archaeologists in Guatemala uncover an exceptional and very rare relic of this lost civilization
-In a forgotten Maya city, archaeologists have revealed not just a game board, but a piece of architecture built around play, ritual and status. The find.
-nunneryplumbingandheating.co.uk
-·
-1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Switzerland Joins Sweden, Portugal, France, Norway, Finland, and Others in Skyrocketing Sustainable Tourism in Europe as EU Funding Fuels Eco-Friendly Initiatives in 2025: Everything You Need to Know
-Switzerland, Sweden, Portugal, France, and more boost sustainable tourism in Europe in 2025 with EU funding, promoting greener travel and preserving...
-Travel And Tour World
-·
-2d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Three deaths related to asbestos exposure at former ABC site
-Three former ABC employees have died after they were exposed to asbestos at the broadcaster's former offices in the Melbourne suburb of Elsternwick.
-ABC News
-·
-5h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Top 50 Countries by Life Expectancy in 2100 1. 🇯🇵 Japan - 94.40 years 2. 🇸🇲 San Marino - 93.98 3. 🇰🇷 South Korea - 93.14 4. 🇦🇩 Andorra - 93.01 5. 🇪🇸 Spain - 92.87 6. 🇨🇭 Switzerland - 92.79 7. 🇮🇹 Italy - 92.77 8. 🇸🇬 Singapore - 92.70 9. 🇦🇺 Australia - 92.62 10. 🇲🇹 Malta - 92.32 11. 🇸🇪 Sweden - 92.18 12. 🇫🇷 France - 92.14 13. 🇳🇴 Norway - 92.10 14. 🇮🇸 Iceland - 92.01 15. 🇵🇹 Portugal - 91.87 16. 🇮🇪 Ireland - 91.75 17. 🇨🇦 Canada - 91.75 18. 🇲🇻 Maldives - 91.62 19. 🇦🇪 U. Arab Emirates - 91.56 20. 🇮🇱 Israel - 91.55 21. 🇳🇱 Netherlands - 91.54 22. 🇦🇹 Austria - 91.53 23. 🇧🇪 Belgium - 91.42 24. 🇬🇷 Greece - 91.39 25. 🇨🇾 Cyprus - 91.36 26. 🇫🇮 Finland - 91.27 27. 🇨🇱 Chile - 91.25 28. 🇨🇷 Costa Rica - 91.16 29. 🇱🇺 Luxembourg - 91.14 30. 🇩🇰 Denmark - 91.13 31. 🇸🇮 Slovenia - 91.08 32. 🇳🇿 New Zealand - 90.99 33. 🇶🇦 Qatar - 90.88 34. 🇹🇼 Taiwan - 90.87 35. 🇩🇪 Germany - 90.78 36. 🇰🇼 Kuwait - 90.60 37
-stats_feed
-X
-·
-1d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Simple way Gen Z can retire rich
-With a little encouragement from his father, Phyrell Simpson has cracked the code to retiring a millionaire.
-News.com.au
-·
-2d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">The two key ingredients in Mostert/WAU title recipe
-CHAZ Mostert says there were two things which put he and Walkinshaw Andretti United on the path to a long-awaited Supercars crown. First was a deliberate.
-V8 Sleuth
-·
-1d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Minister won't commit to independent review amid childcare sector scrutiny
-The early childhood education minister is refusing to say whether the federal government will establish an independent review of childcare standards.
-ABC News
-·
-1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Petrol prices set to plunge for Christmas
-Australia is set to experience its lowest unleaded fuel prices in years this Christmas, with major capital cities plummeting to an average price of $1.60 to...
-News.com.au
-·
-11h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Why I recommend the LG C5 OLED over pricier TV models - especially at nearly 50% off now
-The LG C5 OLED offers stunning picture quality and a sleek, minimalist design for a truly immersive experience - and it's heavily discounted for Cyber...
-ZDNET
-·
-1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Watch how a Tesla with Full Self-Driving handles being run off the road
-Wonder how a Tesla with Full Self-Driving would handle a dangerous and aggressive driver trying to run it off the road? Wonder no more.
-CarExpert
-·
-1d</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Power failure: What’s causing massive engine recalls
-Five automakers are facing bills for faulty engines. What's causing engines to seize up? Thinner motor oils, experts say, are less tolerant of manufacturing...
-Automotive News
-·
-1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">GMW-B5000BT-1
-A collection of full-metal descendants of the first-ever G-SHOCK — introducing the GMW-B5000 with a black bezel highlighting their iconic form.
-CASIO
-·
-1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Centrelink Payment Alert — $380 and $1,550 Deposits Landing 10 December 2025 for Eligible Seniors
-Centrelink Payment Alert - The upcoming Centrelink Payment Alert has created significant interest among older Australians, especially with the confirmation...
-FTV Pageants -
-·
-12h</Link>
-<Button id="a_id_54">More options</Button>
-At a glance
-<Button id="a_id_55">Customise Homestack</Button>
-<Link id="a_id_56">Air quality
-Good
-AQC</Link>
-<Link id="a_id_57">Woodforde
-Clear with periodic clouds
-10%
-11°</Link>
-<Link id="a_id_58">VIX • VIX up 2.45%. Price is 16.75 Today</Link>
-Australia
-<Link id="a_id_59">Advertising</Link>
-<Link id="a_id_60">Business</Link>
-<Link id="a_id_61">How Search works</Link>
-<Link id="a_id_62">Privacy</Link>
-<Link id="a_id_63">Terms</Link>
-<Button id="a_id_64">Settings</Button>
+<Button id="a_id_0">Guide</Button>
+<Link id="a_id_1">YouTube Premium Home</Link>
+AU
+<Button id="a_id_2">Skip navigation</Button>
+<Input id="a_id_3" use="(a_id_3, 'your text', submit:true)">Search</Input>
+<Button id="a_id_4">Search</Button>
+<Button id="a_id_5">Search with your voice</Button>
+<Button id="a_id_6">Create</Button>
+<Button id="a_id_7">Notifications</Button>
+<Button id="a_id_8">Account menu</Button>
+<Link id="a_id_9">Home</Link>
+<Link id="a_id_10">Shorts</Link>
+<Link id="a_id_11">Subscriptions</Link>
+<Link id="a_id_12">You</Link>
+<Button id="a_id_13">All</Button>
+<Button id="a_id_14">Podcasts</Button>
+<Button id="a_id_15">Music</Button>
+<Button id="a_id_16">AI</Button>
+<Button id="a_id_17">Mixes</Button>
+<Button id="a_id_18">Music riffs</Button>
+<Button id="a_id_19">Strings</Button>
+<Button id="a_id_20">History</Button>
+<Button id="a_id_21">Astronomy</Button>
+<Button id="a_id_22">News</Button>
+<Button id="a_id_23">Bass guitar</Button>
+<Button id="a_id_24">Alternative Metal</Button>
+<Button id="a_id_25">Biology</Button>
+<Button id="a_id_26">Calisthenics</Button>
+<Button id="a_id_27">Psychology</Button>
+<Button id="a_id_28">Skills</Button>
+<Button id="a_id_29">Live</Button>
+<Button id="a_id_30">Dance-Pop</Button>
+<Button id="a_id_31">Recently uploaded</Button>
+<Button id="a_id_32">Watched</Button>
+<Button id="a_id_33">New to you</Button>
+<Button id="a_id_34">Next</Button>
+<Link id="a_id_35">0:43</Link>
+<Link id="a_id_36">Unprocessed - Die on the Cross of the Martyr Tim Henson's solo part guitar cover 43 seconds</Link>
+<Link id="a_id_37">Peter Park</Link>
+24K views
+•
+1 year ago
+<Link id="a_id_38">8:02</Link>
+<Link id="a_id_39">Japan Just Pulled the TRIGGER - Brace for Impact 8 minutes, 2 seconds</Link>
+<Link id="a_id_40">World Affairs In Context</Link>
+207K views
+•
+17 hours ago
+<Link id="a_id_41">20:27</Link>
+<Link id="a_id_42">Jesus Taught us Two Words to Escape The Trap of The Archons (Say Them Tonight) 20 minutes</Link>
+<Link id="a_id_43">Hidden Wisdom</Link>
+49K views
+•
+12 days ago
+Shorts
+<Link id="a_id_44">Female Celebs Are Thirsty for Chris Hemsworth #chrishemsworth #anyataylor #tessathompson</Link>
+1.2M views
+<Link id="a_id_45">Celebrities imitate Jim Carrey in funny ways #youtube #kpop</Link>
+14M views
+<Link id="a_id_46">I Discovered the REAL SECRET IMMORTALITY in BANNED text #gnostic #alchemy #immortality #occult</Link>
+5.8K views
+<Link id="a_id_47">Genius Girl Skips All Holds 🇫🇷💪🏻 #short #shorts</Link>
+15M views
+<Link id="a_id_48">Shia Labeouf on his Steroid use for his role in the movie Salvable 2025 #shortsfeed #shialabeouf</Link>
+3.4M views
+<Link id="a_id_49">23:42</Link>
+<Link id="a_id_50">AI and the Death of the Career Ladder (And What Replaces It) 23 minutes</Link>
+<Link id="a_id_51">AGI Report</Link>
+660 views
+•
+1 day ago
+<Link id="a_id_52">10:21</Link>
+<Link id="a_id_53">Killer Dominant 7 Sequences! 10 minutes, 21 seconds</Link>
+<Link id="a_id_54">Rick Graham</Link>
+4.9K views
+•
+1 day ago
+<Link id="a_id_55">12:48</Link>
+<Link id="a_id_56">Comet 3I ATLAS – What NASA Didn’t Tell Us - I took a PICTURE 12 minutes, 48 seconds</Link>
+<Link id="a_id_57">Ray's Astrophotography</Link>
+199K views
+•
+1 day ago
+Shorts
+<Link id="a_id_58">🎧🔊👽🤯Robot Dance</Link>
+6M views
+<Link id="a_id_59">She Was Bullied For Her Teeth... Until 5 Years Later This Happened🥹❤️</Link>
+3.1M views
+<Link id="a_id_60">The League of Extraordinary Gentlemen | You Stink of Fear! | Mr Hyde Transforms 😈</Link>
+8M views
+<Link id="a_id_61">Ranking best bicep trend moments!</Link>
+2.4M views
+<Link id="a_id_62">Drummer's Worst Nightmare #artist #music #drums #drummer #drumming #musician #producer</Link>
+4M views
+<Link id="a_id_63">4:03</Link>
+<Link id="a_id_64">I'll Prove The Qur'an Is From God (In 4 Mins) 4 minutes, 3 seconds</Link>
+<Link id="a_id_65">Thom J. Défilet Clips</Link>
+247K views
+•
+2 months ago
+<Link id="a_id_66">8:30</Link>
+<Link id="a_id_67">These Ancient Exercises Transform the Human Body. 8 minutes, 30 seconds</Link>
+<Link id="a_id_68">Strength Side</Link>
+823K views
+•
+1 month ago
+<Link id="a_id_69">17:36</Link>
+<Link id="a_id_70">THE WORLDS BEST HOME GYM? / DANA LINN BAILEY HOME GYM TOUR 17 minutes</Link>
+<Link id="a_id_71">DanaLinnBailey</Link>
+6.3K views
+•
+13 hours ago
+<Link id="a_id_72">15:31</Link>
+<Link id="a_id_73">My $5,000,000 Property Investment Blueprint (Full Guide) 15 minutes</Link>
+<Link id="a_id_74">Opes Partners</Link>
+789 views
+•
+9 hours ago
+<Link id="a_id_75">13:06</Link>
+<Link id="a_id_76">Consumerism is the Perfection of Slavery - Prof Jiang Xueqin 13 minutes, 6 seconds</Link>
+<Link id="a_id_77">Prof. Jiang Clips</Link>
+2.3M views
+•
+5 months ago
+<Link id="a_id_78">0:29</Link>
+<Link id="a_id_79">'Erra - Gungrave' That ONE Riff 29 seconds</Link>
+<Link id="a_id_80">Tobias Von Lanthen</Link>
+60K views
+•
+2 years ago
+<Link id="a_id_81">41:01</Link>
+<Link id="a_id_82">The best free AI image generator is here! 41 minutes</Link>
+<Link id="a_id_83">AI Search</Link>
+68K views
+•
+1 day ago
+<Link id="a_id_84">15:03</Link>
+<Link id="a_id_85">The threats from AI are real | Sen. Bernie Sanders 15 minutes</Link>
+<Link id="a_id_86">Senator Bernie Sanders</Link>
+31K views
+•
+5 hours ago
+<Link id="a_id_87">8:45</Link>
+<Link id="a_id_88">I uninstalled Chrome because of this AI browser. 8 minutes, 45 seconds</Link>
+<Link id="a_id_89">David Ondrej</Link>
+3.2K views
+•
+10 hours ago
+<Link id="a_id_90">38:16</Link>
+<Link id="a_id_91">BONNELL 775 MX: PUSHING IT TO THE LIMIT on Ridiculous Aussie Terrain! 38 minutes</Link>
+<Link id="a_id_92">Jelbuilder</Link>
+3.4K views
+•
+1 month ago
+<Link id="a_id_93">7:15</Link>
+<Link id="a_id_94">Another week, another DeepSeek, and another insane valuation for OpenAI 7 minutes, 15 seconds</Link>
+<Link id="a_id_95">Inside China Business</Link>
+84K views
+•
+1 day ago
+<Link id="a_id_96">17:14</Link>
+<Link id="a_id_97">THE REAL GOAT OF DRUMS. 17 minutes</Link>
+<Link id="a_id_98">El Estepario Siberiano</Link>
+690K views
+•
+5 days ago
+<Link id="a_id_99">4:29</Link>
+<Link id="a_id_100">The Only Food Rule You Need (From NBA Chef) 4 minutes, 29 seconds</Link>
+<Link id="a_id_101">Longevity Kitchen</Link>
+129K views
+•
+1 month ago
+<Link id="a_id_102">16:05</Link>
+<Link id="a_id_103">I Might Get Banned for Saying This About Cortisol & Insulin 16 minutes</Link>
+<Link id="a_id_104">Ben Azadi</Link>
+228K views
+•
+2 days ago
+<Link id="a_id_105">18:11</Link>
+<Link id="a_id_106">95% of n8n Users Have NO IDEA These Features Exist 18 minutes</Link>
+<Link id="a_id_107">Ryan & Matt Data Science</Link>
+1K views
+•
+1 day ago
+
+---
+
+## Secure Iframe Elements
+
+*⏳ Loading 2 iframe(s)... (payment forms, embedded content)*
+
+*Iframe elements will appear here when loaded. Check back shortly.*
