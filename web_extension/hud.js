@@ -2522,36 +2522,64 @@
             let lastY = null;
             let lastX = null;
             let scrollAnimationId = null;
-            let scrollDirection = 0; // -1 = up, 0 = stopped, 1 = down
-            let scrollSpeed = 0; // Current locked-in speed
+            let scrollVelocity = 0; // Current scroll velocity (positive = down, negative = up)
+            let applyFriction = false; // Only apply friction when decelerating
+            let reverseAccumulator = 0; // Accumulated opposite direction movement
+            const FRICTION = 0.94; // Velocity decay per frame when stopping
+            const SENSITIVITY = 0.6; // Mouse movement to velocity multiplier
+            const ACCELERATION = 0.4; // Speed boost when continuing same direction
+            const MAX_VELOCITY = 25; // Cap on scroll speed
+            const MIN_VELOCITY = 0.3; // Stop scrolling below this threshold
+            const REVERSE_THRESHOLD = 8; // Pixels of sustained reverse movement needed to switch direction
             const scrollUpBtn = hud.querySelector('.ome-hud-scroll-up');
             const scrollDownBtn = hud.querySelector('.ome-hud-scroll-down');
 
-            // 🔍 Continuous infinite scroll loop - keeps going until exit
+            // 🔍 Continuous scroll loop - infinite until direction change
             function infiniteScrollLoop() {
                 if (!hudSliding || !hudMessagesArea) {
                     scrollAnimationId = null;
                     return;
                 }
 
-                // Scroll at locked-in speed and direction
-                if (scrollDirection !== 0 && scrollSpeed > 0) {
-                    hudMessagesArea.scrollTop += scrollDirection * scrollSpeed;
+                // Apply scroll velocity
+                if (Math.abs(scrollVelocity) > MIN_VELOCITY) {
+                    hudMessagesArea.scrollTop += scrollVelocity;
+                    // Only apply friction when decelerating (user reversed direction)
+                    if (applyFriction) {
+                        scrollVelocity *= FRICTION;
+                    }
+                } else {
+                    scrollVelocity = 0;
+                    applyFriction = false;
+                }
+
+                // Update button indicators based on current velocity
+                if (scrollVelocity > MIN_VELOCITY) {
+                    scrollDownBtn?.classList.add('scroll-active');
+                    scrollUpBtn?.classList.remove('scroll-active');
+                } else if (scrollVelocity < -MIN_VELOCITY) {
+                    scrollUpBtn?.classList.add('scroll-active');
+                    scrollDownBtn?.classList.remove('scroll-active');
+                } else {
+                    scrollUpBtn?.classList.remove('scroll-active');
+                    scrollDownBtn?.classList.remove('scroll-active');
                 }
 
                 scrollAnimationId = requestAnimationFrame(infiniteScrollLoop);
             }
 
             hudSlideHandler = (e) => {
-                // Only exit on deliberate horizontal movement (not vertical drift)
+                // 🧲 Orb stays centered - only exit if mouse drifts WAY outside horizontally
                 const orbRect = hudOrb?.getBoundingClientRect();
                 if (orbRect && lastX !== null && lastY !== null) {
+                    const orbCenterX = orbRect.left + orbRect.width / 2;
+                    const cursorOffsetX = Math.abs(e.clientX - orbCenterX);
                     const deltaX = Math.abs(e.clientX - lastX);
                     const deltaYAbs = Math.abs(e.clientY - lastY);
-                    const isOutsideHorizontally = e.clientX < orbRect.left || e.clientX > orbRect.right;
+                    const EXIT_THRESHOLD = 150; // Only exit if cursor is far from orb center
 
-                    // Only exit if outside horizontally AND movement is more horizontal than vertical
-                    if (isOutsideHorizontally && deltaX > deltaYAbs) {
+                    // Only exit if WAY outside AND movement is more horizontal than vertical
+                    if (cursorOffsetX > EXIT_THRESHOLD && deltaX > deltaYAbs) {
                         exitScanMode();
                         return;
                     }
@@ -2567,32 +2595,35 @@
                     return;
                 }
 
-                const deltaY = lastY - e.clientY;
+                const deltaY = e.clientY - lastY; // Positive = mouse moved down
                 lastY = e.clientY;
                 const currentBottom = parseInt(inputArea.style.bottom) || startBottom;
-                const newBottom = Math.max(20, Math.min(window.innerHeight - 150, currentBottom + deltaY));
+                const newBottom = Math.max(20, Math.min(window.innerHeight - 150, currentBottom - deltaY));
                 inputArea.style.bottom = newBottom + 'px';
 
-                // 🔍 Lock in scroll direction and speed based on vertical movement
-                if (Math.abs(deltaY) > 2) { // Minimum movement threshold
-                    const newDirection = deltaY > 0 ? -1 : 1; // up movement = scroll up, down = scroll down
+                // 🔍 Hybrid scroll: infinite momentum, direction change = stop first
+                const moveDirection = deltaY > 0 ? 1 : deltaY < 0 ? -1 : 0;
+                const scrollDirection = scrollVelocity > 0 ? 1 : scrollVelocity < 0 ? -1 : 0;
 
-                    // Update direction and accumulate speed
-                    if (newDirection !== scrollDirection) {
-                        // Direction change - reset speed
-                        scrollDirection = newDirection;
-                        scrollSpeed = Math.abs(deltaY) * 0.5;
+                if (moveDirection !== 0) {
+                    if (scrollDirection === 0) {
+                        // Stopped - need sustained movement to start new direction
+                        reverseAccumulator += Math.abs(deltaY);
+                        if (reverseAccumulator >= REVERSE_THRESHOLD) {
+                            scrollVelocity = deltaY * SENSITIVITY;
+                            applyFriction = false;
+                            reverseAccumulator = 0;
+                        }
+                    } else if (moveDirection === scrollDirection) {
+                        // Same direction - accelerate! Add to velocity
+                        const boost = Math.abs(deltaY) * ACCELERATION;
+                        scrollVelocity = Math.min(Math.abs(scrollVelocity) + boost, MAX_VELOCITY) * scrollDirection;
+                        applyFriction = false;
+                        reverseAccumulator = 0;
                     } else {
-                        // Same direction - increase speed (capped)
-                        scrollSpeed = Math.min(scrollSpeed + Math.abs(deltaY) * 0.3, 15);
-                    }
-
-                    // Update button indicators
-                    const activeBtn = scrollDirection > 0 ? scrollDownBtn : scrollUpBtn;
-                    const inactiveBtn = scrollDirection > 0 ? scrollUpBtn : scrollDownBtn;
-                    inactiveBtn?.classList.remove('scroll-active');
-                    if (activeBtn && !activeBtn.classList.contains('scroll-active')) {
-                        activeBtn.classList.add('scroll-active');
+                        // Opposite direction - trigger stop, don't reverse
+                        applyFriction = true;
+                        reverseAccumulator = 0; // Reset - will accumulate after stopped
                     }
                 }
             };
@@ -2605,8 +2636,9 @@
                     cancelAnimationFrame(scrollAnimationId);
                     scrollAnimationId = null;
                 }
-                scrollDirection = 0;
-                scrollSpeed = 0;
+                scrollVelocity = 0;
+                applyFriction = false;
+                reverseAccumulator = 0;
                 scrollUpBtn?.classList.remove('scroll-active');
                 scrollDownBtn?.classList.remove('scroll-active');
                 originalRelease();
