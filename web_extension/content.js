@@ -204,32 +204,8 @@
 
         // Set lock
         scanInProgress = true;
-
-        // 🗑️ CRUFT REMOVAL: Page version system removed - text.md uses simple sequential IDs
-        // // 📌 READ/WRITE pageVersion from/to DOM for persistence
-        // // If pageVersion is provided by sw.js, use it and update DOM
-        // // Otherwise, read from DOM (or default to 1)
-        // if (pageVersion !== null && pageVersion !== undefined) {
-        //     // SW provided a version, store it in DOM
-        //     document.body.dataset.omePageVersion = pageVersion;
-        //     currentPageVersion = pageVersion;
-        //     console.log(`[Content] 📝 Stored pageVersion=${pageVersion} in DOM`);
-        // } else {
-        //     // No version provided, read from DOM
-        //     const domVersion = document.body.dataset.omePageVersion;
-        //     currentPageVersion = domVersion ? parseInt(domVersion, 10) : 1;
-        //     console.log(`[Content] 📖 Read pageVersion=${currentPageVersion} from DOM (or defaulted to 1)`);
-        // }
-        //
-        // // 🔄 RESET COUNTER: Always reset to 0 for full rescan
-        // // Every scan is a complete rescan (clears all DOM markers and rescans everything)
-        // // The pageVersion differentiates between different page states, but within each scan
-        // // we always start from 0
-        // intelligenceEngine.elementCounter = 0;
-        // console.log(`[Content] 🔄 Reset elementCounter to 0 for pageVersion=${currentPageVersion} scan`);
-
-        currentPageVersion = null;  // ✅ SIMPLIFIED: No more page versioning
-        console.log(`[Content] 🚀 Starting scan (no page versioning)`);
+        currentPageVersion = null;
+        console.log(`[Content] 🚀 Starting scan`);
 
         try {
             console.log('[Content] 🕐 Waiting for DOM to settle...');

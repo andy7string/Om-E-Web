@@ -1,9 +1,9 @@
-# (27) YouTube
+# Google
 
-**URL:** https://www.youtube.com/
-**Timestamp:** 2025-12-03 17:16:02
+**URL:** https://www.google.com/
+**Timestamp:** 2025-12-03 19:11:07
 
-**Tabs (1):** Active: #1138029876 "(27) YouTube" www.youtube.com [complete]
+**Tabs (1):** Active: #1138029910 "Google" www.google.com [complete]
 
 ## Available Actions
 
@@ -65,195 +65,161 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<Button id="a_id_0">Guide</Button>
-<Link id="a_id_1">YouTube Premium Home</Link>
-AU
-<Button id="a_id_2">Skip navigation</Button>
-<Input id="a_id_3" use="(a_id_3, 'your text', submit:true)">Search</Input>
-<Button id="a_id_4">Search</Button>
-<Button id="a_id_5">Search with your voice</Button>
-<Button id="a_id_6">Create</Button>
-<Button id="a_id_7">Notifications</Button>
-<Button id="a_id_8">Account menu</Button>
-<Link id="a_id_9">Home</Link>
-<Link id="a_id_10">Shorts</Link>
-<Link id="a_id_11">Subscriptions</Link>
-<Link id="a_id_12">You</Link>
-<Button id="a_id_13">All</Button>
-<Button id="a_id_14">Podcasts</Button>
-<Button id="a_id_15">Music</Button>
-<Button id="a_id_16">AI</Button>
-<Button id="a_id_17">Mixes</Button>
-<Button id="a_id_18">Music riffs</Button>
-<Button id="a_id_19">Strings</Button>
-<Button id="a_id_20">History</Button>
-<Button id="a_id_21">Astronomy</Button>
-<Button id="a_id_22">News</Button>
-<Button id="a_id_23">Bass guitar</Button>
-<Button id="a_id_24">Alternative Metal</Button>
-<Button id="a_id_25">Biology</Button>
-<Button id="a_id_26">Calisthenics</Button>
-<Button id="a_id_27">Psychology</Button>
-<Button id="a_id_28">Skills</Button>
-<Button id="a_id_29">Live</Button>
-<Button id="a_id_30">Dance-Pop</Button>
-<Button id="a_id_31">Recently uploaded</Button>
-<Button id="a_id_32">Watched</Button>
-<Button id="a_id_33">New to you</Button>
-<Button id="a_id_34">Next</Button>
-<Link id="a_id_35">0:43</Link>
-<Link id="a_id_36">Unprocessed - Die on the Cross of the Martyr Tim Henson's solo part guitar cover 43 seconds</Link>
-<Link id="a_id_37">Peter Park</Link>
-24K views
-•
-1 year ago
-<Link id="a_id_38">8:02</Link>
-<Link id="a_id_39">Japan Just Pulled the TRIGGER - Brace for Impact 8 minutes, 2 seconds</Link>
-<Link id="a_id_40">World Affairs In Context</Link>
-207K views
-•
-17 hours ago
-<Link id="a_id_41">20:27</Link>
-<Link id="a_id_42">Jesus Taught us Two Words to Escape The Trap of The Archons (Say Them Tonight) 20 minutes</Link>
-<Link id="a_id_43">Hidden Wisdom</Link>
-49K views
-•
-12 days ago
-Shorts
-<Link id="a_id_44">Female Celebs Are Thirsty for Chris Hemsworth #chrishemsworth #anyataylor #tessathompson</Link>
-1.2M views
-<Link id="a_id_45">Celebrities imitate Jim Carrey in funny ways #youtube #kpop</Link>
-14M views
-<Link id="a_id_46">I Discovered the REAL SECRET IMMORTALITY in BANNED text #gnostic #alchemy #immortality #occult</Link>
-5.8K views
-<Link id="a_id_47">Genius Girl Skips All Holds 🇫🇷💪🏻 #short #shorts</Link>
-15M views
-<Link id="a_id_48">Shia Labeouf on his Steroid use for his role in the movie Salvable 2025 #shortsfeed #shialabeouf</Link>
-3.4M views
-<Link id="a_id_49">23:42</Link>
-<Link id="a_id_50">AI and the Death of the Career Ladder (And What Replaces It) 23 minutes</Link>
-<Link id="a_id_51">AGI Report</Link>
-660 views
-•
-1 day ago
-<Link id="a_id_52">10:21</Link>
-<Link id="a_id_53">Killer Dominant 7 Sequences! 10 minutes, 21 seconds</Link>
-<Link id="a_id_54">Rick Graham</Link>
-4.9K views
-•
-1 day ago
-<Link id="a_id_55">12:48</Link>
-<Link id="a_id_56">Comet 3I ATLAS – What NASA Didn’t Tell Us - I took a PICTURE 12 minutes, 48 seconds</Link>
-<Link id="a_id_57">Ray's Astrophotography</Link>
-199K views
-•
-1 day ago
-Shorts
-<Link id="a_id_58">🎧🔊👽🤯Robot Dance</Link>
-6M views
-<Link id="a_id_59">She Was Bullied For Her Teeth... Until 5 Years Later This Happened🥹❤️</Link>
-3.1M views
-<Link id="a_id_60">The League of Extraordinary Gentlemen | You Stink of Fear! | Mr Hyde Transforms 😈</Link>
-8M views
-<Link id="a_id_61">Ranking best bicep trend moments!</Link>
-2.4M views
-<Link id="a_id_62">Drummer's Worst Nightmare #artist #music #drums #drummer #drumming #musician #producer</Link>
-4M views
-<Link id="a_id_63">4:03</Link>
-<Link id="a_id_64">I'll Prove The Qur'an Is From God (In 4 Mins) 4 minutes, 3 seconds</Link>
-<Link id="a_id_65">Thom J. Défilet Clips</Link>
-247K views
-•
-2 months ago
-<Link id="a_id_66">8:30</Link>
-<Link id="a_id_67">These Ancient Exercises Transform the Human Body. 8 minutes, 30 seconds</Link>
-<Link id="a_id_68">Strength Side</Link>
-823K views
-•
-1 month ago
-<Link id="a_id_69">17:36</Link>
-<Link id="a_id_70">THE WORLDS BEST HOME GYM? / DANA LINN BAILEY HOME GYM TOUR 17 minutes</Link>
-<Link id="a_id_71">DanaLinnBailey</Link>
-6.3K views
-•
-13 hours ago
-<Link id="a_id_72">15:31</Link>
-<Link id="a_id_73">My $5,000,000 Property Investment Blueprint (Full Guide) 15 minutes</Link>
-<Link id="a_id_74">Opes Partners</Link>
-789 views
-•
-9 hours ago
-<Link id="a_id_75">13:06</Link>
-<Link id="a_id_76">Consumerism is the Perfection of Slavery - Prof Jiang Xueqin 13 minutes, 6 seconds</Link>
-<Link id="a_id_77">Prof. Jiang Clips</Link>
-2.3M views
-•
-5 months ago
-<Link id="a_id_78">0:29</Link>
-<Link id="a_id_79">'Erra - Gungrave' That ONE Riff 29 seconds</Link>
-<Link id="a_id_80">Tobias Von Lanthen</Link>
-60K views
-•
-2 years ago
-<Link id="a_id_81">41:01</Link>
-<Link id="a_id_82">The best free AI image generator is here! 41 minutes</Link>
-<Link id="a_id_83">AI Search</Link>
-68K views
-•
-1 day ago
-<Link id="a_id_84">15:03</Link>
-<Link id="a_id_85">The threats from AI are real | Sen. Bernie Sanders 15 minutes</Link>
-<Link id="a_id_86">Senator Bernie Sanders</Link>
-31K views
-•
-5 hours ago
-<Link id="a_id_87">8:45</Link>
-<Link id="a_id_88">I uninstalled Chrome because of this AI browser. 8 minutes, 45 seconds</Link>
-<Link id="a_id_89">David Ondrej</Link>
-3.2K views
-•
-10 hours ago
-<Link id="a_id_90">38:16</Link>
-<Link id="a_id_91">BONNELL 775 MX: PUSHING IT TO THE LIMIT on Ridiculous Aussie Terrain! 38 minutes</Link>
-<Link id="a_id_92">Jelbuilder</Link>
-3.4K views
-•
-1 month ago
-<Link id="a_id_93">7:15</Link>
-<Link id="a_id_94">Another week, another DeepSeek, and another insane valuation for OpenAI 7 minutes, 15 seconds</Link>
-<Link id="a_id_95">Inside China Business</Link>
-84K views
-•
-1 day ago
-<Link id="a_id_96">17:14</Link>
-<Link id="a_id_97">THE REAL GOAT OF DRUMS. 17 minutes</Link>
-<Link id="a_id_98">El Estepario Siberiano</Link>
-690K views
-•
-5 days ago
-<Link id="a_id_99">4:29</Link>
-<Link id="a_id_100">The Only Food Rule You Need (From NBA Chef) 4 minutes, 29 seconds</Link>
-<Link id="a_id_101">Longevity Kitchen</Link>
-129K views
-•
-1 month ago
-<Link id="a_id_102">16:05</Link>
-<Link id="a_id_103">I Might Get Banned for Saying This About Cortisol & Insulin 16 minutes</Link>
-<Link id="a_id_104">Ben Azadi</Link>
-228K views
-•
-2 days ago
-<Link id="a_id_105">18:11</Link>
-<Link id="a_id_106">95% of n8n Users Have NO IDEA These Features Exist 18 minutes</Link>
-<Link id="a_id_107">Ryan & Matt Data Science</Link>
-1K views
-•
-1 day ago
-
----
-
-## Secure Iframe Elements
-
-*⏳ Loading 2 iframe(s)... (payment forms, embedded content)*
-
-*Iframe elements will appear here when loaded. Check back shortly.*
+Google Search homepage
+<Link id="a_id_0">About</Link>
+<Link id="a_id_1">Store</Link>
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
+(andreworsmond21175@gmail.com)</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
+Accessibility links
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
+Discover
+<Link id="a_id_17">Adelaide BMW & Adelaide MINI Garage unveil a next-generation dual-brand destination
+Adelaide BMW & Adelaide MINI Garage have officially opened the doors to their newly reimagined showroom — a next-generation space that blends European...
+Glam Adelaide
+·
+14h</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Australia Economic Growth Disappoints, Easing Rate-Hike Bets
+Australia's economy grew at a surprisingly softer pace last quarter even as the details showed domestic demand held up and labor costs stayed elevated,...
+Bloomberg.com
+·
+3h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">'Cold Supermoon' 2025: Why the final full moon of the year also towers highest
+The Cold Moon, the 12th and final full moon of 2025, will rise on Dec. 4 and reach its highest point in the night sky.
+Live Science
+·
+21h</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">OpenAI in Australian blitz as it woos start-ups, corporates
+OpenAI will offer start-ups backed by the country's three largest venture capital firms free access to its services as it launches a major push into...
+AFR
+·
+23h</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Roborock’s powerful Saros 10 robovac is still at its lowest price ever
+Roborock's Saros 10, one of our favorite robovacs, is still matching the all-time low price we saw during Cyber Monday at multiple retailers.
+The Verge
+·
+12h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Satellite photos reveal Chinese flotilla monitored by ADF has formidable firepower
+A Chinese naval flotilla that is being monitored by the Australian Defence Force has been revealed to have daunting firepower in new satellite imagery.﻿.
+9News.com.au
+·
+8h</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
+The resident has to cough up the fine and also pay for the council's legal fees.
+Yahoo News Australia
+·
+9h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Deloitte partner exits over AI error-riddled report
+The partner responsible for Deloitte's welfare report that was riddled with artificial intelligence-authored errors is leaving the consultancy after the...
+AFR
+·
+5h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Disturbing Japan move has the world on edge
+For decades, the more adventurous of global hedge fund managers tried their hand at what would become known as the Japanese “widow-maker” trade.
+News.com.au
+·
+4h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Off-grid tiny house embraces downsizing, doesn't skimp on comfort
+This recently completed tiny house, by Vagabond Haven, packs a lot of comfort into a compact footprint. Designed to sleep two people, it's fully equipped...
+New Atlas
+·
+1d</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">🚨: Sunward Anti-Tail of 3I/ATLAS May Be a Hidden Swarm Moving With the Interstellar Visitor NASA’s Hubble images captured the same shape months earlier. Rather than behaving like a normal comet tail that blows away from the Sun, this feature extends toward it. Loeb proposes that the simplest explanation may be the most extraordinary: the glow could be caused not by gas or dust, but by a swarm of small objects traveling alongside 3I/ATLAS.
+forallcurious
+X
+·
+16h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Report: Jaguar Fires Design Boss Behind Type 00 Concept
+Long-time designer and executive Gerry McGovern was reportedly fired from JLR earlier this week. Here's what we know.
+Motor1.com
+·
+17h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">‘Taking a lot on faith’: ASIC’s lack of compliance action against ANZ
+That's all from The Australian's rolling coverage of business and markets news for Wednesday, December 3.
+The Australian
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Google Starts Sharing All Your Text Messages With Your Employer
+Warning: What happens on your Android, doesn't stay on your Android — not if it's a work phone.
+Forbes
+·
+23h</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Over 1 Million Bags of Shredded Cheese Recalled—Sold at Walmart, Aldi and More
+A recall on shredded cheese sold in 31 states was just announced, and it affects over 1.5 million bags. Here's what you need to know.
+EatingWell
+·
+12h</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">‘No compromise’ on territory after Ukraine talks with US: Russian official
+Comments come after long meeting between Russian President Vladimir Putin and two senior US officials in Moscow.
+Al Jazeera
+·
+8h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Grand finale for Healthscope’s receivership sale as lenders call meeting
+Lenders, including London's Polus Capital and California's Canyon Partners, will on Tuesday evening cast their votes.
+AFR
+·
+1d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Only Apple CarPlay Maps Gets Full Support in BMW’s Latest iDrive X
+BMW's latest CarPlay setup limits full integration to Apple Maps. Waze, Google Maps, and other apps can't display in Panoramic Vision or the HUD.
+BMW Blog
+·
+6d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">The 7 best smartwatches of 2025 include some surprises
+Find the best smartwatch for Android and Apple users, including the Apple Watch Series 11, Pixel Watch 4, and the new Nothing CMF Watch 3 Pro.
+Mashable
+·
+1d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">ATO $20,000 tax break extended for millions of Aussies: 'Immediate tax relief'
+More than four million Aussies are expected to benefit from the tax relief.
+Yahoo Finance Australia
+·
+9h</Link>
+<Button id="a_id_56">More options</Button>
+At a glance
+<Button id="a_id_57">Customise Homestack</Button>
+<Link id="a_id_58">Air quality
+Good
+AQC</Link>
+<Link id="a_id_59">Woodforde
+Partly cloudy
+10%
+28°</Link>
+<Link id="a_id_60">.IXIC • Nasdaq Composite up 0.59%. Price is 23,413.67 Today</Link>
+Australia
+<Link id="a_id_61">Advertising</Link>
+<Link id="a_id_62">Business</Link>
+<Link id="a_id_63">How Search works</Link>
+<Link id="a_id_64">Privacy</Link>
+<Link id="a_id_65">Terms</Link>
+<Button id="a_id_66">Settings</Button>
