@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-03 19:11:07
+**Timestamp:** 2025-12-03 19:22:07
 
-**Tabs (1):** Active: #1138029910 "Google" www.google.com [complete]
+**Tabs (1):** Active: #1138029930 "Google" www.google.com [complete]
 
 ## Available Actions
 
@@ -86,17 +86,17 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">Adelaide BMW & Adelaide MINI Garage unveil a next-generation dual-brand destination
-Adelaide BMW & Adelaide MINI Garage have officially opened the doors to their newly reimagined showroom — a next-generation space that blends European...
-Glam Adelaide
+<Link id="a_id_17">2026 GAC Aion V review: Quick drive
+The 2026 GAC Aion V is priced from $42,590 before on-road costs for the Premium model, with the Luxury variant just $2000 more.
+CarExpert
 ·
-14h</Link>
+9h</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Australia Economic Growth Disappoints, Easing Rate-Hike Bets
-Australia's economy grew at a surprisingly softer pace last quarter even as the details showed domestic demand held up and labor costs stayed elevated,...
-Bloomberg.com
+<Link id="a_id_19">OpenAI in Australian blitz as it woos start-ups, corporates
+OpenAI will offer start-ups backed by the country's three largest venture capital firms free access to its services as it launches a major push into...
+AFR
 ·
-3h</Link>
+23h</Link>
 <Button id="a_id_20">More options</Button>
 <Link id="a_id_21">'Cold Supermoon' 2025: Why the final full moon of the year also towers highest
 The Cold Moon, the 12th and final full moon of 2025, will rise on Dec. 4 and reach its highest point in the night sky.
@@ -104,101 +104,101 @@ Live Science
 ·
 21h</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">OpenAI in Australian blitz as it woos start-ups, corporates
-OpenAI will offer start-ups backed by the country's three largest venture capital firms free access to its services as it launches a major push into...
-AFR
+<Link id="a_id_23">Webb observes a dance of dwarf galaxies
+For this new ESA/Webb Picture of the Month, the NASA/ESA/CSA James Webb Space Telescope has spied a pair of dwarf galaxies engaged in a gravitational dance.
+European Space Agency
 ·
 23h</Link>
 <Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Roborock’s powerful Saros 10 robovac is still at its lowest price ever
-Roborock's Saros 10, one of our favorite robovacs, is still matching the all-time low price we saw during Cyber Monday at multiple retailers.
-The Verge
+<Link id="a_id_25">Why dark matter is still one of the biggest open problems in science
+We can't see dark matter directly, so studying it pushes the boundaries of our creativity as scientists. How exciting, says Chanda Prescod-Weinstein.
+New Scientist
 ·
-12h</Link>
+6d</Link>
 <Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Satellite photos reveal Chinese flotilla monitored by ADF has formidable firepower
-A Chinese naval flotilla that is being monitored by the Australian Defence Force has been revealed to have daunting firepower in new satellite imagery.﻿.
-9News.com.au
-·
-8h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
-The resident has to cough up the fine and also pay for the council's legal fees.
-Yahoo News Australia
-·
-9h</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Deloitte partner exits over AI error-riddled report
-The partner responsible for Deloitte's welfare report that was riddled with artificial intelligence-authored errors is leaving the consultancy after the...
-AFR
-·
-5h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Disturbing Japan move has the world on edge
-For decades, the more adventurous of global hedge fund managers tried their hand at what would become known as the Japanese “widow-maker” trade.
-News.com.au
-·
-4h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Off-grid tiny house embraces downsizing, doesn't skimp on comfort
+<Link id="a_id_27">Off-grid tiny house embraces downsizing, doesn't skimp on comfort
 This recently completed tiny house, by Vagabond Haven, packs a lot of comfort into a compact footprint. Designed to sleep two people, it's fully equipped...
 New Atlas
 ·
 1d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">🚨: Sunward Anti-Tail of 3I/ATLAS May Be a Hidden Swarm Moving With the Interstellar Visitor NASA’s Hubble images captured the same shape months earlier. Rather than behaving like a normal comet tail that blows away from the Sun, this feature extends toward it. Loeb proposes that the simplest explanation may be the most extraordinary: the glow could be caused not by gas or dust, but by a swarm of small objects traveling alongside 3I/ATLAS.
-forallcurious
-X
-·
-16h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Report: Jaguar Fires Design Boss Behind Type 00 Concept
-Long-time designer and executive Gerry McGovern was reportedly fired from JLR earlier this week. Here's what we know.
-Motor1.com
-·
-17h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">‘Taking a lot on faith’: ASIC’s lack of compliance action against ANZ
-That's all from The Australian's rolling coverage of business and markets news for Wednesday, December 3.
-The Australian
-·
-1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Google Starts Sharing All Your Text Messages With Your Employer
-Warning: What happens on your Android, doesn't stay on your Android — not if it's a work phone.
-Forbes
-·
-23h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Over 1 Million Bags of Shredded Cheese Recalled—Sold at Walmart, Aldi and More
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Over 1 Million Bags of Shredded Cheese Recalled—Sold at Walmart, Aldi and More
 A recall on shredded cheese sold in 31 states was just announced, and it affects over 1.5 million bags. Here's what you need to know.
 EatingWell
 ·
 12h</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">‘No compromise’ on territory after Ukraine talks with US: Russian official
-Comments come after long meeting between Russian President Vladimir Putin and two senior US officials in Moscow.
-Al Jazeera
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">‘Rollercoaster’: ASX moves on GDP figures
+The Australian sharemarket seesawed on Wednesday with the good news for the economy once again seen as bad news for stocks.
+News.com.au
 ·
-8h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Grand finale for Healthscope’s receivership sale as lenders call meeting
+1h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
+The resident has to cough up the fine and also pay for the council's legal fees.
+Yahoo News Australia
+·
+9h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Google-backed fusion group moves to commercialise neutral-beam technology
+A fusion energy company backed by Google and Chevron is establishing a joint venture with the UK government's atomic laboratory as it aims to commercialise...
+Financial Times
+·
+18h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">I watched scientists track interstellar comet 3I/ATLAS leaving the solar system in real-time: 'This is some prime-time science' https://www.space.com/astronomy/comets/scientists-cant-get-enough-of-ancient-comet-3i-atlas-in-real-time
+SPACEdotcom
+X
+·
+19h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Roborock’s powerful Saros 10 robovac is still at its lowest price ever
+Roborock's Saros 10, one of our favorite robovacs, is still matching the all-time low price we saw during Cyber Monday at multiple retailers.
+The Verge
+·
+12h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Nearly 44,000 Australians are owed Centrelink refunds. Some died without knowing
+Services Australia told SBS News they've refunded $2.9 million to just 338 of the 44000 people potentially owed money.
+SBS Australia
+·
+2h</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Collins Foods banks on the Zinger Banh Mi as KFC profits soar
+Collins Foods, the largest operator of KFC restaurants in the country, has lifted its profit forecast for the financial year after growing sales,...
+AFR
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">BMW R 1300 RS Review – Sports-Tourers are back!
+Sports Tourers; Proper Sports Tourers, are a rare thing these days. I'm not talking about Adventure Tourers that have become the go-to category for expected...
+MCNews
+·
+1w</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Grand finale for Healthscope’s receivership sale as lenders call meeting
 Lenders, including London's Polus Capital and California's Canyon Partners, will on Tuesday evening cast their votes.
 AFR
 ·
 1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Only Apple CarPlay Maps Gets Full Support in BMW’s Latest iDrive X
-BMW's latest CarPlay setup limits full integration to Apple Maps. Waze, Google Maps, and other apps can't display in Panoramic Vision or the HUD.
-BMW Blog
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Dicky Bill collapse: Fourth generation farmer that supplies salad and herbs to Coles goes under
+The fourth-generation family farmer has fallen into voluntary administration.
+7NEWS
 ·
-6d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">The 7 best smartwatches of 2025 include some surprises
-Find the best smartwatch for Android and Apple users, including the Apple Watch Series 11, Pixel Watch 4, and the new Nothing CMF Watch 3 Pro.
-Mashable
+2d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Massive underwater mountain taller than Mt Kosciuszko discovered off Queensland coast
+Scientists onboard the CSIRO research vessel Investigator have discovered an underwater mountain taller than Mt Kosciuszko, the highest peak on Australia's...
+Sky News Australia
 ·
 1d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Amazon Has a ‘Seamless’ $80 CarPlay Adapter on Sale for Just $40
+More than a decade has passed since Apple introduced CarPlay, an intuitive software solution that puts car-friendly versions of iPhone apps on your...
+Autoblog
+·
+3d</Link>
 <Button id="a_id_54">More options</Button>
 <Link id="a_id_55">ATO $20,000 tax break extended for millions of Aussies: 'Immediate tax relief'
 More than four million Aussies are expected to benefit from the tax relief.
@@ -214,7 +214,7 @@ AQC</Link>
 <Link id="a_id_59">Woodforde
 Partly cloudy
 10%
-28°</Link>
+27°</Link>
 <Link id="a_id_60">.IXIC • Nasdaq Composite up 0.59%. Price is 23,413.67 Today</Link>
 Australia
 <Link id="a_id_61">Advertising</Link>

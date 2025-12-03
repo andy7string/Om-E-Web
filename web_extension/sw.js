@@ -1287,6 +1287,22 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 }
                 if (message.sidebarOpen !== undefined) orbState.sidebarOpen = message.sidebarOpen;
                 console.log('[SW] 🐰 Updated orb state:', orbState);
+
+                // 🔄 Sync orb position to all OTHER tabs (exclude sender)
+                if (message.position !== undefined) {
+                    const senderTabId = sender.tab?.id;
+                    chrome.tabs.query({}, (tabs) => {
+                        tabs.forEach(tab => {
+                            if (tab.id !== senderTabId) {
+                                chrome.tabs.sendMessage(tab.id, {
+                                    type: 'sync_orb_position',
+                                    position: message.position
+                                }).catch(() => {});
+                            }
+                        });
+                    });
+                }
+
                 sendResponse({ ok: true });
                 break;
             case 'set_orb_theme':

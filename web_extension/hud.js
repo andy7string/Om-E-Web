@@ -3146,6 +3146,14 @@
             }
             return true;
         }
+
+        // 🔄 Sync orb position from another tab
+        if (message.type === 'sync_orb_position') {
+            console.log('[Content] 🔄 sync_orb_position received:', message.position);
+            applyOrbPosition(message.position);
+            sendResponse({ ok: true });
+            return true;
+        }
     });
 
     // ========================================================================
