@@ -682,7 +682,6 @@
                 align-items: center;
                 justify-content: space-between;
                 padding: 0 16px;
-                border-bottom: 1px solid rgba(255,255,255,0.08);
                 background: rgba(33,33,33,0.95);
                 z-index: 10;
             }
@@ -724,21 +723,61 @@
                 align-items: center;
                 gap: 8px;
             }
-            .ome-hud-topbar-btn {
-                width: 36px;
-                height: 36px;
+            /* 🤖 Mini Orb Sidebar Trigger - identical orb just smaller */
+            .ome-sidebar-trigger {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+                background: transparent;
                 border: none;
-                border-radius: 8px;
-                background: rgba(255,255,255,0.08);
-                color: #9ca3af;
+            }
+            .ome-mini-orb-wrapper {
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.2s ease;
+                background: transparent;
+                border: none;
+            }
+            .ome-mini-orb-wrapper .ome-mini-orb {
+                width: 44px;
+                height: 44px;
+                background: transparent;
+            }
+            .ome-sidebar-trigger:hover .ome-mini-orb-wrapper {
+                transform: scale(1.2);
+            }
+            .ome-mini-arrow {
+                width: 16px;
+                height: 16px;
+                opacity: 0.6;
+                transition: opacity 0.15s ease, transform 0.15s ease;
+            }
+            .ome-sidebar-trigger:hover .ome-mini-arrow {
+                opacity: 1;
+                transform: translateX(2px);
+            }
+
+            /* 🔘 Topbar Close Button */
+            .ome-hud-topbar-btn {
+                width: 40px;
+                height: 40px;
+                border: 1px solid rgba(var(--theme-color),0.35);
+                border-radius: 12px;
+                background: rgba(80,100,160,0.55);
+                color: var(--text-color);
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s ease, color 0.15s ease;
+                transition: background 0.15s ease, border-color 0.15s ease;
             }
-            .ome-hud-topbar-btn:hover { background: rgba(255,255,255,0.15); color: #e5e5e5; }
-            .ome-hud-topbar-btn.close:hover { background: rgba(239,68,68,0.2); color: #f87171; }
+            .ome-hud-topbar-btn:hover { background: rgba(80,100,160,0.75); border-color: rgba(var(--theme-color),0.55); }
+            .ome-hud-topbar-btn:active { transform: scale(0.95); }
             .ome-hud-topbar-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
 
             /* 🎯 HUD Content Area - full height flex layout */
@@ -784,21 +823,9 @@
             .ome-hud-messages-area::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
             .ome-hud-messages-area::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
 
-            /* 🛤️ HUD Rail - vertical track for sliding prompt unit */
+            /* 🛤️ HUD Rail - hidden (was for sliding prompt unit) */
             .ome-hud-rail {
-                position: absolute;
-                left: 50%;
-                margin-left: 480px;
-                top: 80px;
-                bottom: 20px;
-                width: 4px;
-                background: rgba(255,255,255,0.06);
-                border-radius: 2px;
-                pointer-events: none;
-                z-index: 1;
-            }
-            .ome-hud.sidebar-open .ome-hud-rail {
-                margin-left: 620px;
+                display: none;
             }
 
             /* 💬 HUD Input Area - pinned to bottom */
@@ -1629,52 +1656,23 @@
                📚 SIDEBAR - ChatGPT-style side panel for chat history
                ═══════════════════════════════════════════════════════════════════ */
 
-            /* 📚 Sidebar Toggle Button (hamburger menu) */
-            .ome-sidebar-toggle {
-                position: absolute;
-                top: 20px;
-                left: 24px;
-                width: 36px;
-                height: 36px;
-                border: none;
-                border-radius: 8px;
-                background: rgba(255,255,255,0.08);
-                color: #9ca3af;
-                font-size: 18px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: background 0.15s ease, color 0.15s ease;
-                z-index: 10;
-            }
-            .ome-sidebar-toggle:hover {
-                background: rgba(var(--theme-color),0.2);
-                color: var(--theme-accent);
-            }
-            .ome-sidebar-toggle svg {
-                width: 20px;
-                height: 20px;
-                stroke: currentColor;
-                stroke-width: 2;
-                fill: none;
-            }
 
-            /* 📚 Sidebar Container */
+            /* 📚 Sidebar Container - matches orb prompt box style */
             .ome-sidebar {
-                position: absolute;
+                position: fixed;
                 top: 0;
                 left: 0;
                 width: 280px;
                 height: 100%;
-                background: rgba(28,28,32,0.98);
-                border-right: 1px solid rgba(var(--theme-color),0.2);
+                background: rgba(40,50,80,0.22);
+                border-right: 1px solid rgba(126,200,227,0.3);
                 display: flex;
                 flex-direction: column;
                 transform: translateX(-100%);
                 transition: transform 0.25s ease;
-                z-index: 5;
-                box-shadow: 4px 0 24px rgba(0,0,0,0.3);
+                z-index: 100001;
+                box-shadow: 4px 0 24px rgba(0,0,0,0.4);
+                backdrop-filter: blur(12px);
             }
             .ome-sidebar.open {
                 transform: translateX(0);
@@ -1686,25 +1684,27 @@
                 align-items: center;
                 justify-content: space-between;
                 padding: 16px;
-                border-bottom: 1px solid rgba(var(--theme-color),0.15);
+                border-bottom: 1px solid rgba(126,200,227,0.15);
             }
             .ome-sidebar-new-chat {
                 display: flex;
                 align-items: center;
                 gap: 8px;
-                padding: 10px 14px;
+                padding: 8px 12px;
                 background: transparent;
-                border: 1px solid rgba(var(--theme-color),0.3);
+                border: none;
                 border-radius: 8px;
-                color: var(--theme-accent);
-                font-size: 13px;
+                color: #7ec8e3;
+                font-size: 14px;
                 font-weight: 500;
                 cursor: pointer;
                 transition: all 0.15s ease;
+                opacity: 0.7;
             }
             .ome-sidebar-new-chat:hover {
-                background: rgba(var(--theme-color),0.15);
-                border-color: rgba(var(--theme-color),0.5);
+                background: rgba(126,200,227,0.1);
+                color: #a5dff0;
+                opacity: 1;
             }
             .ome-sidebar-new-chat svg {
                 width: 16px;
@@ -1719,17 +1719,19 @@
                 border: none;
                 border-radius: 6px;
                 background: transparent;
-                color: #6b7280;
-                font-size: 18px;
+                color: #7ec8e3;
+                font-size: 20px;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s ease, color 0.15s ease;
+                transition: all 0.15s ease;
+                opacity: 0.5;
             }
             .ome-sidebar-close:hover {
-                background: rgba(255,255,255,0.08);
-                color: #9ca3af;
+                background: rgba(126,200,227,0.1);
+                color: #a5dff0;
+                opacity: 1;
             }
 
             /* 📚 Sidebar Content (chat list area) */
@@ -1741,7 +1743,7 @@
             .ome-sidebar-content::-webkit-scrollbar { width: 6px; }
             .ome-sidebar-content::-webkit-scrollbar-track { background: transparent; }
             .ome-sidebar-content::-webkit-scrollbar-thumb {
-                background: rgba(var(--theme-color),0.3);
+                background: rgba(126,200,227,0.3);
                 border-radius: 3px;
             }
 
@@ -1750,7 +1752,7 @@
                 padding: 12px 8px 8px;
                 font-size: 11px;
                 font-weight: 600;
-                color: #6b7280;
+                color: rgba(126,200,227,0.5);
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
             }
@@ -1762,20 +1764,23 @@
                 gap: 10px;
                 padding: 10px 12px;
                 border-radius: 8px;
-                color: #d1d5db;
+                color: #7ec8e3;
                 font-size: 13px;
                 cursor: pointer;
-                transition: background 0.15s ease;
+                transition: all 0.15s ease;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                opacity: 0.7;
             }
             .ome-chat-item:hover {
-                background: rgba(var(--theme-color),0.1);
+                background: rgba(126,200,227,0.1);
+                opacity: 1;
             }
             .ome-chat-item.active {
-                background: rgba(var(--theme-color),0.2);
-                color: var(--theme-accent);
+                background: rgba(126,200,227,0.15);
+                color: #a5dff0;
+                opacity: 1;
             }
             .ome-chat-item-title {
                 flex: 1;
@@ -1787,16 +1792,16 @@
             .ome-sidebar-empty {
                 padding: 24px 16px;
                 text-align: center;
-                color: #6b7280;
+                color: rgba(126,200,227,0.5);
                 font-size: 13px;
             }
 
             /* 📚 Sidebar Footer */
             .ome-sidebar-footer {
                 padding: 12px 16px;
-                border-top: 1px solid rgba(var(--theme-color),0.15);
+                border-top: 1px solid rgba(126,200,227,0.15);
                 font-size: 11px;
-                color: #6b7280;
+                color: rgba(126,200,227,0.5);
             }
         `;
         shadow.appendChild(style);
@@ -2506,16 +2511,19 @@
             <!-- 🔝 Top Bar - ChatGPT style header -->
             <div class="ome-hud-topbar">
                 <div class="ome-hud-topbar-left">
-                    <button class="ome-hud-topbar-btn ome-sidebar-toggle">
-                        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                    </button>
-                    <div class="ome-hud-topbar-title">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                        Om-E
+                    <div class="ome-sidebar-trigger ome-sidebar-toggle">
+                        <div class="ome-mini-orb-wrapper">
+                            ${currentTheme.svg.replace('ome-bunny', 'ome-mini-orb')}
+                        </div>
+                        <svg class="ome-mini-arrow" viewBox="0 0 24 24" fill="none">
+                            <polyline points="9 6 15 12 9 18" stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                 </div>
                 <div class="ome-hud-topbar-right">
-                    <button class="ome-hud-topbar-btn close ome-hud-close">&times;</button>
+                    <button class="ome-hud-topbar-btn ome-hud-close">
+                        <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+                    </button>
                 </div>
             </div>
 
