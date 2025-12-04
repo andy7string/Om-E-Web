@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-03 21:25:22
+**Timestamp:** 2025-12-04 22:45:52
 
-**Tabs (1):** Active: #1138029970 "Google" www.google.com [loading]
+**Tabs (2):** Active: #1138030524 "Google" www.google.com [loading] | Other: #1138030519 "(30) OpenAI declares" www.youtube.com
 
 ## Available Actions
 
@@ -68,156 +68,161 @@ The following pre-configured actions are available for this page:
 Google Search homepage
 <Link id="a_id_0">About</Link>
 <Link id="a_id_1">Store</Link>
-<Button id="a_id_2">Google apps</Button>
-<Button id="a_id_3">Google Account: Andrew Orsmond
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
 (andreworsmond21175@gmail.com)</Button>
-<Select id="a_id_4" value="" use="(a_id_4, select, 'option')">Search</Select>
-<Button id="a_id_5">Search by voice</Button>
-<Button id="a_id_6">Search by image</Button>
-<Button id="a_id_7">AI Mode</Button>
-<Button id="a_id_8">Google Search</Button>
-<Button id="a_id_9">I'm Feeling Lucky</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
 Accessibility links
-<Link id="a_id_10">Skip to Discover feed</Link>
-<Link id="a_id_11">Skip to sidebar</Link>
-<Link id="a_id_12">Skip to footer</Link>
-<Link id="a_id_13">Accessibility help</Link>
-<Link id="a_id_14">Accessibility feedback</Link>
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_15">This smartwatch deal shaves $150 off a Garmin lasting for weeks at a time
-The Garmin Enduro 3 lasts me weeks at a time on a single charge and integrates with my favorite platforms. Now, it's $150 off for a limited time.
-Android Central
+<Link id="a_id_17">2026 Audi Q5 Sportback review: Quick drive
+The Audi Q5 Sportback has been brought back for a sequel, featuring all the latest tech and powertrains from its SUV twin.
+CarExpert
 ·
-3d</Link>
-<Button id="a_id_16">More options</Button>
-<Link id="a_id_17">Australian Dollar continues scaling higher as hawkish RBA offsets softer Q3 GDP
-The Australian Dollar (AUD) builds on its intraday ascent against a broadly weaker US Dollar (USD), pushing the AUD/USD pair to a fresh high since late...
-FXStreet
-·
-5h</Link>
+14h</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Zeekr 8x spied, hints at 400 kW hybrid power and 400 km EV range
-Early Zeekr 8X information points to a 400 kW hybrid system, >400 km electric range and a six-seat layout ahead of its expected 2025 reveal.
-CarNewsChina.com
+<Link id="a_id_19">Video: China firm unveils combat-ready humanoid robot fighter set for field trials
+China's EngineAI reveals the T800 humanoid robot built for combat, set to prove itself in controlled fighting trials later this year.
+Interesting Engineering
 ·
-1w</Link>
+23h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Satellite photos reveal Chinese flotilla monitored by ADF has formidable firepower
-A Chinese naval flotilla that is being monitored by the Australian Defence Force has been revealed to have daunting firepower in new satellite imagery.﻿.
-9News.com.au
+<Link id="a_id_21">Regional lending boss lashes out at Westpac’s bush banker plan
+Westpac chief executive Anthony Miller's proposal to send bankers to local libraries and council chambers to service customers in the bush is tokenistic,...
+AFR
 ·
 10h</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Australia is a global outlier on one key indicator. Changing it will help fix the housing crisis
-If one in four homes in our mainland capital cities became a dual occupancy, it would add close to 1 million new homes, increasing housing supply by 9 per...
-The Sydney Morning Herald
-·
-16h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">SpaceX launches 60th mission of the year from California (video)
-A SpaceX Falcon 9 rocket launched 27 Starlink internet satellites early Tuesday morning (Dec. 2). It was the company's 60th liftoff of 2025 from the Golden...
-Space
+<Link id="a_id_23">NVIDIA and AWS Expand Full-Stack Partnership
+At AWS re:Invent, NVIDIA and AWS expanded their strategic collaboration with new technology integrations across interconnect technology,...
+NVIDIA Blog
 ·
 1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Australia’s most popular suburbs in every capital city in 2025
+The Domain End of Year Wrap has revealed the nation's most popular suburbs that buyers have been circling this year - did your suburb make the cut?
+Domain
+·
+22h</Link>
 <Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Landmark ruling could reset Chemist Warehouse wages, staff costs
-Chemist Warehouse has been forced to negotiate a union agreement for its workforce under Labor's new multi-employer bargaining laws, raising the prospect of...
-AFR
+<Link id="a_id_27">Planned satellite constellations may swamp future orbiting telescopes
+Planned orbital observatories would see satellites cross nearly all of their images.
+Ars Technica
 ·
-2h</Link>
+19h</Link>
 <Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
-The resident has to cough up the fine and also pay for the council's legal fees.
-Yahoo News Australia
-·
-11h</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Google plans to power a new data center with fossil fuels, yet release almost no emissions – here’s how its carbon capture tech works
-To reduce emissions put into the atmosphere, Google is using carbon capture and sequestration. But not all CCS projects are the same.
-The Conversation
-·
-21h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Only Apple CarPlay Maps Gets Full Support in BMW’s Latest iDrive X
-BMW's latest CarPlay setup limits full integration to Apple Maps. Waze, Google Maps, and other apps can't display in Panoramic Vision or the HUD.
-BMW Blog
-·
-6d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Report: Jaguar Fires Design Boss Behind Type 00 Concept
-Long-time designer and executive Gerry McGovern was reportedly fired from JLR earlier this week. Here's what we know.
-Motor1.com
+<Link id="a_id_29">Gold steadies as mixed US data and dovish Fed expectations pressure the Dollar
+Gold (XAU/USD) firms as traders react to the latest US economic releases. At the time of writing, XAU/USD is trading around $4225, edging modestly higher...
+FXStreet
 ·
 20h</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">NZ and US deepen Antarctic science partnership
-New joint research initiatives focused on climate and ecosystem change expand on the long-standing collaboration between New Zealand and the United.
-The National Tribune
-·
-3d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Lower investor tax breaks could cut house prices by 4.5pc: Treasury
-Paring back tax breaks for property investors would lower house prices by a maximum of 4.5 per cent, Treasury said, as it stood by its view that addressing...
-AFR
-·
-4h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Collins Foods banks on the Zinger Banh Mi as KFC profits soar
-Collins Foods, the largest operator of KFC restaurants in the country, has lifted its profit forecast for the financial year after growing sales,...
-AFR
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">OECD warns tariffs, AI will test resilience of the global economy
+The organisation warns that President Donald Trump has put US fiscal policy on an unsustainable trajectory.
+Al Jazeera
 ·
 1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Supercars news: KRE probing Broc Feeney Adelaide engine theory
+GM's Supercars engine supplier Ken McNamara is working to get to the bottom of the issue that plagued Broc Feeney's Camaro at the Adelaide Grand Final.
+Speedcafe.com
+·
+1d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">A triumph for underwater robotics: advanced robotic technology has uncovered an intact 16th-century treasure hidden in the Mediterranean after decades of searching
+For decades, historians, treasure hunters and naval archaeologists have followed rumors, scraps of maps, and half-erased logbooks about a lost 16th‐century...
+nunneryplumbingandheating.co.uk
+·
+23h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">5:06
+Electro-Harmonix ABRAMS100 Guitar Amplifier Head
+The Electro-Harmonix ABRAMS100 is a guitar amplifier boasting a full 100 watts in a compact head chassis that weighs in at a mere 2.5lbs.
+EHX
+YouTube
+·
+1d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Today is International Day of Persons with Disabilities #IDPwD. ESA keeps moving forward the conversation to break down barriers and make space and science accessible to all. #EveryoneIncluded #AccessibleWorld
+esa
+X
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">YouTube says it will comply with Australia’s under-16s social media ban, with Lemon8 to also restrict access
+Australia's under-16s social media ban might take weeks to work but all platforms are on notice, government says.
+The Guardian
+·
+2d</Link>
 <Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Egg shortage becomes egg oversupply with farmers unable to sell product
-The industry was plagued by bird flu 12 months ago, but some producers are now struggling to sell their product due to a faster-than-expected recovery.
-ABC News
+<Link id="a_id_43">4:59
+OpenAI declares "code red" as Google threatens its artificial intelligence lead, WSJ reports
+CBS News
+YouTube
 ·
 1d</Link>
 <Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Future Fund spent $20,000 to send CEO’s executive assistant on business class trip to scope hotels in US
-Government also reveals it spent nearly $100000 sending minister Anika Wells and two others to US during UN general assembly.
-The Guardian
+<Link id="a_id_45">Slow boat to China for Rio’s maiden Simandou delivery
+Iron ore giant Simandou could be in for a slow awakening as the vessel being loaded with maiden tonnes from the closely-watched Rio Tinto venture ticks into...
+The West Australian
 ·
-4h</Link>
+2d</Link>
 <Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Rinehart-backed Vulcan lands $3.9bn for EU battery hub
-ASX-listed Vulcan Energy's Lionheart critical minerals project in Germany, backed by Gina Rinehart's Hancock Prospecting, has secured a $3.9bn financing...
-The Australian
+<Link id="a_id_47">Sharon AI poised to launch $100m pre-IPO round; eyes March IPO
+Take a seat Firmus, there's another neo-cloud operator in town. Street Talk understands Sharon AI is pressing ahead with its pre-IPO funding round,...
+AFR
 ·
-9h</Link>
+5h</Link>
 <Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Banks, online shops big movers in Australia's most trusted, distrusted brands
-T﻿he latest polling has revealed some major shifts in how Aussies look at big brands - but one stands above...
-9News.com.au
-·
-14h</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Strong Flare Erupts From Sun
-The Sun emitted a strong solar flare, peaking at 9:49 p.m. ET on Nov. 30, 2025. NASA's Solar Dynamics Observatory, which watches the Sun constantly,...
-NASA Science (.gov)
+<Link id="a_id_49">Qantas unites domestic airline with QantasLink, shuffles management
+Qantas will bring its domestic airline and regional subsidiary QantasLink under the one executive as part of changes revealed by chief executive Vanessa...
+AFR
 ·
 1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">ASX swings as economic news spooks investors
-The Australian sharemarket seesawed on Wednesday with the good news for the economy once again seen as bad news for stocks.
-News.com.au
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">BGH Capital bets on $200m childcare business, defying sector jitters
+TheirCare founder Michael Abela is not selling down and is said to be keen to grow the eight-year-old business further with BGH Capital.
+AFR
 ·
-3h</Link>
+4h</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">2026 Mazda CX-5: Fresh Design, Punchier Turbo Power & Expected Price Under $30,000
+2026 Mazda CX-5: Mazda is getting ready to shake up the compact SUV segment again with the 2026 Mazda CX-5, and American buyers are already paying attention...
+ILLWELL -
+·
+23h</Link>
 <Button id="a_id_54">More options</Button>
+<Link id="a_id_55">We found a cache of rare Aboriginal artefacts, telling a story of trade and ingenuity
+The tools reveal how Aboriginal ancestors survived and thrived in the continent's interior more than 100 years ago.
+The Conversation
+·
+6d</Link>
+<Button id="a_id_56">More options</Button>
 At a glance
-<Button id="a_id_55">Customise Homestack</Button>
-<Link id="a_id_56">Air quality
+<Button id="a_id_57">Customise Homestack</Button>
+<Link id="a_id_58">Air quality
 Good
 AQC</Link>
-<Link id="a_id_57">Woodforde
-Clear with periodic clouds
-10%
-23°</Link>
-<Link id="a_id_58">.IXIC • Nasdaq Composite up 0.59%. Price is 23,413.67 Today</Link>
+<Link id="a_id_59">Woodforde
+Mostly cloudy
+5%
+17°</Link>
+<Link id="a_id_60">RUT • Russell 2000 Index up 1.91%. Price is 2,512.14 Today</Link>
 Australia
-<Link id="a_id_59">Advertising</Link>
-<Link id="a_id_60">Business</Link>
-<Link id="a_id_61">How Search works</Link>
-<Link id="a_id_62">Privacy</Link>
-<Link id="a_id_63">Terms</Link>
-<Button id="a_id_64">Settings</Button>
+<Link id="a_id_61">Advertising</Link>
+<Link id="a_id_62">Business</Link>
+<Link id="a_id_63">How Search works</Link>
+<Link id="a_id_64">Privacy</Link>
+<Link id="a_id_65">Terms</Link>
+<Button id="a_id_66">Settings</Button>

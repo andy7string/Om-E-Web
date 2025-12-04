@@ -801,12 +801,12 @@
                 margin-left: 620px;
             }
 
-            /* 💬 HUD Input Area - slidable on rail, centered */
+            /* 💬 HUD Input Area - pinned to bottom */
             .ome-hud-input-area {
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
-                bottom: 400px;
+                bottom: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
@@ -1051,18 +1051,18 @@
             }
             .ome-hud-message img:first-child { margin-top: 0; }
 
-            /* ⬆️⬇️ HUD Scroll Controls (vertical, same layout as orb) */
+            /* ⬆️⬇️ HUD Scroll Controls (vertical, mirrors orb gear stick layout) */
             .ome-hud-scroll {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 4px;
+                gap: 2px;
                 color: var(--text-color);
             }
             .ome-hud-scroll .ome-hud-ctrl-btn {
-                width: 48px;
-                height: 48px;
-                border: 2px solid currentColor;
+                width: 28px;
+                height: 28px;
+                border: 3px solid currentColor;
                 border-radius: 50%;
                 background: transparent;
                 color: inherit;
@@ -1070,26 +1070,59 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: background 0.15s ease, transform 0.1s ease;
-                opacity: 0.7;
+                transition: background 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
+                opacity: 0.5;
             }
-            .ome-hud-scroll .ome-hud-ctrl-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; }
-            .ome-hud-scroll .ome-hud-ctrl-btn:active { transform: scale(0.95); }
-            /* 🔍 Scan mode scroll indicator - purple flash */
-            @keyframes ome-scroll-flash {
-                0%, 100% { background: transparent; }
-                50% { background: rgba(138, 43, 226, 0.4); }
-            }
-            .ome-hud-scroll .ome-hud-ctrl-btn.scroll-active {
-                animation: ome-scroll-flash 0.3s ease-in-out;
-                opacity: 1;
-            }
+            .ome-hud-scroll .ome-hud-ctrl-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; transform: scale(1.2); }
+            .ome-hud-scroll .ome-hud-ctrl-btn:active { transform: scale(0.9); }
             .ome-hud-scroll .ome-hud-ctrl-btn svg {
-                width: 24px;
-                height: 24px;
+                width: 12px;
+                height: 12px;
                 stroke: currentColor;
                 stroke-width: 3;
                 fill: none;
+            }
+            /* ⚙️ HUD Gear Button - gold metallic, identical to orb */
+            .ome-hud-gear-btn {
+                width: 32px;
+                height: 32px;
+                border: 3px solid #d4a84b;
+                border-radius: 50%;
+                background: linear-gradient(145deg, #ffd700 0%, #b8860b 50%, #d4a84b 100%);
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0.8;
+                transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+                padding: 0;
+            }
+            .ome-hud-gear-btn svg {
+                width: 18px;
+                height: 18px;
+                stroke: #2a2a2a;
+                stroke-width: 2.5;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .ome-hud-gear-btn:hover { opacity: 1; transform: scale(1.08); }
+            .ome-hud-gear-btn.engaged {
+                opacity: 1;
+                transform: scale(1.1);
+                box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+                border-color: #ffd700;
+            }
+            .ome-hud-gear-btn.scrolling-up { box-shadow: 0 -3px 6px rgba(255, 215, 0, 0.4); }
+            .ome-hud-gear-btn.scrolling-down { box-shadow: 0 3px 6px rgba(255, 215, 0, 0.4); }
+            .ome-hud-gear-btn.boundary { animation: ome-hud-gear-boundary 0.3s ease-out; }
+            @keyframes ome-hud-gear-boundary {
+                0% { background: linear-gradient(145deg, #ff6b6b 0%, #cc4444 100%); border-color: #ff6b6b; }
+                100% { background: linear-gradient(145deg, #ffd700 0%, #b8860b 50%, #d4a84b 100%); border-color: #d4a84b; }
+            }
+            /* 🌀 Arrows spin when hovering gear */
+            .ome-hud-scroll:has(.ome-hud-gear-btn:hover) .ome-hud-ctrl-btn svg {
+                animation: ome-arrow-spin-scroll 0.6s ease-out;
             }
             /* 🔮 HUD Menu Button (ORB label, purple style with theme-colored outer ring) */
             .ome-hud-menu-btn {
@@ -1165,15 +1198,8 @@
             }
             .ome-hud-drag-up { top: -18px; }
             .ome-hud-drag-down { bottom: -18px; }
-            /* 🌀 Arrows appear and spin twice ONLY when hovering the HUD orb head */
-            .ome-hud-orb:hover ~ .ome-hud-drag-indicator {
-                opacity: 0.8;
-                animation: ome-hud-arrow-spin 0.6s ease-out;
-            }
-            @keyframes ome-hud-arrow-spin {
-                from { transform: translateX(-50%) rotate(0deg); }
-                to { transform: translateX(-50%) rotate(720deg); }
-            }
+            /* HUD orb doesn't drag - hide the drag indicators */
+            .ome-hud-drag-indicator { display: none; }
             /* 🔮 HUD Orb Display */
             .ome-hud-orb {
                 width: 80px;
@@ -1190,7 +1216,7 @@
             .ome-hud-orb.holding { transform: scale(1.1); cursor: grabbing; }
             .ome-hud-orb svg { width: 80px; height: 80px; }
 
-            /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - same size as Z) */
+            /* ⬆️⬇️ Scroll Controls (right side of orb, vertical - mirrors zoom layout) */
             .ome-scroll-controls {
                 position: absolute;
                 right: -54px;
@@ -1199,18 +1225,84 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 4px;
+                gap: 2px;
             }
-            /* Arrow buttons - 36x36 to match Z visual size */
+            /* ⬆️⬇️ Scroll control buttons - match zoom button sizing */
             .ome-scroll-controls .ome-ctrl-btn {
-                width: 36px;
-                height: 36px;
+                width: 28px;
+                height: 28px;
                 border-width: 3px;
             }
             .ome-scroll-controls .ome-ctrl-btn svg {
+                width: 12px;
+                height: 12px;
+                stroke-width: 3;
+            }
+            /* ⚙️ Gear Button - gold metallic, identical to Z label (32px + 3px border) */
+            .ome-gear-btn {
+                width: 32px;
+                height: 32px;
+                border: 3px solid #d4a84b;
+                border-radius: 50%;
+                background: linear-gradient(145deg, #ffd700 0%, #b8860b 50%, #d4a84b 100%);
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0.8;
+                transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+                padding: 0;
+            }
+            .ome-gear-btn svg {
                 width: 18px;
                 height: 18px;
-                stroke-width: 3;
+                stroke: #2a2a2a;
+                stroke-width: 2.5;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .ome-gear-btn:hover {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+            /* 🌀 Arrows spin twice when hovering gear */
+            .ome-gear-btn:hover ~ .ome-scroll-top svg,
+            .ome-gear-btn:hover ~ .ome-scroll-bottom svg,
+            .ome-gear-btn:hover + .ome-scroll-bottom svg,
+            .ome-scroll-top:has(~ .ome-gear-btn:hover) svg {
+                animation: ome-arrow-spin-scroll 0.6s ease-out;
+            }
+            @keyframes ome-arrow-spin-scroll {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(720deg); }
+            }
+            /* Fallback: spin arrows when gear is hovered (parent selector approach) */
+            .ome-scroll-controls:has(.ome-gear-btn:hover) .ome-ctrl-btn svg {
+                animation: ome-arrow-spin-scroll 0.6s ease-out;
+            }
+            /* 🔒 Engaged state - gear is active */
+            .ome-gear-btn.engaged {
+                opacity: 1;
+                transform: scale(1.1);
+                box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+                border-color: #ffd700;
+            }
+            /* ⬆️ Scrolling up indicator */
+            .ome-gear-btn.scrolling-up {
+                box-shadow: 0 -3px 6px rgba(255, 215, 0, 0.4);
+            }
+            /* ⬇️ Scrolling down indicator */
+            .ome-gear-btn.scrolling-down {
+                box-shadow: 0 3px 6px rgba(255, 215, 0, 0.4);
+            }
+            /* 🚫 Boundary flash */
+            .ome-gear-btn.boundary {
+                animation: ome-gear-boundary 0.3s ease-out;
+            }
+            @keyframes ome-gear-boundary {
+                0% { background: linear-gradient(145deg, #ff6b6b 0%, #cc4444 100%); border-color: #ff6b6b; }
+                100% { background: linear-gradient(145deg, #ffd700 0%, #b8860b 50%, #d4a84b 100%); border-color: #d4a84b; }
             }
             /* 📋 Menu button (HUD label, purple style with theme-colored outer ring) */
             .ome-menu-btn {
@@ -1772,12 +1864,20 @@
             hudState.orb.classList.remove('holding');
         }
 
-        // Build controls HTML - menu + scroll controls (right) + zoom controls (bottom)
+        // Build controls HTML - menu + scroll gearstick (right) + zoom controls (bottom)
+        // 🎚️ Scroll gear: top/bottom jump buttons + centre gear for variable scroll
         const scrollHTML = `
             <div class="ome-scroll-controls" style="color: ${theme.color}">
                 <button class="ome-menu-btn">HUD</button>
-                <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
-                <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                <button class="ome-ctrl-btn ome-scroll-top" title="Scroll to top">
+                    <svg viewBox="0 0 24 24"><polyline points="18 11 12 5 6 11"/><polyline points="18 19 12 13 6 19"/></svg>
+                </button>
+                <button class="ome-gear-btn" title="Drag to scroll">
+                    <svg viewBox="0 0 24 24"><polyline points="17 8 12 3 7 8"/><polyline points="7 16 12 21 17 16"/></svg>
+                </button>
+                <button class="ome-ctrl-btn ome-scroll-bottom" title="Scroll to bottom">
+                    <svg viewBox="0 0 24 24"><polyline points="6 5 12 11 18 5"/><polyline points="6 13 12 19 18 13"/></svg>
+                </button>
             </div>`;
         const zoomHTML = `
             <div class="ome-zoom-controls" style="color: ${theme.color}">
@@ -1833,23 +1933,102 @@
             updateHUDOrb(hudState.hud, themeName);
         }
 
-        // Re-attach scroll button handlers (with boundary feedback)
-        hudState.orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
+        // ⬆️⬇️ Re-attach scroll top/bottom button handlers
+        hudState.orb.querySelector('.ome-scroll-top')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            scrollWithFeedback('up', e.currentTarget);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        hudState.orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
+        hudState.orb.querySelector('.ome-scroll-bottom')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            scrollWithFeedback('down', e.currentTarget);
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
         });
-        hudState.orb.querySelector('.ome-scroll-left')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            scrollWithFeedback('left', e.currentTarget);
-        });
-        hudState.orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            scrollWithFeedback('right', e.currentTarget);
-        });
+
+        // ⚙️ Re-attach gear button handlers
+        const gearBtn = hudState.orb.querySelector('.ome-gear-btn');
+        if (gearBtn) {
+            let gearEngaged = false;
+            let engageY = 0;
+            let engageX = 0;
+            let scrollAnimationId = null;
+            let currentOffset = 0;
+
+            const SENSITIVITY = 0.2;
+            const DISENGAGE_X = 50;
+
+            function scrollLoop() {
+                if (!gearEngaged) {
+                    scrollAnimationId = null;
+                    return;
+                }
+                if (Math.abs(currentOffset) > 2) {
+                    const scrollSpeed = currentOffset * SENSITIVITY;
+                    const scrollY = window.scrollY;
+                    const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+                    const atTop = scrollY <= 0 && scrollSpeed < 0;
+                    const atBottom = scrollY >= maxScrollY && scrollSpeed > 0;
+                    if (atTop || atBottom) {
+                        gearBtn.classList.add('boundary');
+                        setTimeout(() => gearBtn.classList.remove('boundary'), 300);
+                    } else {
+                        window.scrollBy(0, scrollSpeed);
+                    }
+                }
+                scrollAnimationId = requestAnimationFrame(scrollLoop);
+            }
+
+            function engageGear(e) {
+                if (gearEngaged) {
+                    disengageGear();
+                    return;
+                }
+                gearEngaged = true;
+                engageY = e.clientY;
+                engageX = e.clientX;
+                currentOffset = 0;
+                gearBtn.classList.add('engaged');
+                if (!scrollAnimationId) {
+                    scrollAnimationId = requestAnimationFrame(scrollLoop);
+                }
+                document.addEventListener('mousemove', handleGearMove);
+                // Any click anywhere disengages
+                setTimeout(() => document.addEventListener('click', handleGearClick, true), 0);
+            }
+
+            function handleGearClick() {
+                disengageGear();
+            }
+
+            function disengageGear() {
+                if (!gearEngaged) return;
+                gearEngaged = false;
+                currentOffset = 0;
+                gearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
+                document.removeEventListener('click', handleGearClick, true);
+                if (scrollAnimationId) {
+                    cancelAnimationFrame(scrollAnimationId);
+                    scrollAnimationId = null;
+                }
+                document.removeEventListener('mousemove', handleGearMove);
+            }
+
+            function handleGearMove(e) {
+                if (!gearEngaged) return;
+                const deltaX = Math.abs(e.clientX - engageX);
+                if (deltaX > DISENGAGE_X) {
+                    disengageGear();
+                    return;
+                }
+                const deltaY = e.clientY - engageY;
+                currentOffset = Math.max(-60, Math.min(60, deltaY));
+                gearBtn.classList.toggle('scrolling-up', currentOffset < -5);
+                gearBtn.classList.toggle('scrolling-down', currentOffset > 5);
+            }
+
+            gearBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                engageGear(e);
+            });
+        }
 
         // 📋 Re-attach menu button handler (toggles HUD)
         hudState.orb.querySelector('.ome-menu-btn')?.addEventListener('click', (e) => {
@@ -2002,12 +2181,20 @@
         // 🎨 Use theme system - get SVG from registry
         const theme = ORB_THEMES[hudState.theme] || ORB_THEMES.minimal;
 
-        // Build controls HTML - menu + scroll controls (right) + zoom controls (bottom)
+        // Build controls HTML - menu + scroll gearstick (right) + zoom controls (bottom)
+        // 🎚️ Scroll gear: top/bottom jump buttons + centre gear for variable scroll
         const scrollHTML = `
             <div class="ome-scroll-controls" style="color: ${theme.color}">
                 <button class="ome-menu-btn">HUD</button>
-                <button class="ome-ctrl-btn ome-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
-                <button class="ome-ctrl-btn ome-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                <button class="ome-ctrl-btn ome-scroll-top" title="Scroll to top">
+                    <svg viewBox="0 0 24 24"><polyline points="18 11 12 5 6 11"/><polyline points="18 19 12 13 6 19"/></svg>
+                </button>
+                <button class="ome-gear-btn" title="Drag to scroll">
+                    <svg viewBox="0 0 24 24"><polyline points="17 8 12 3 7 8"/><polyline points="7 16 12 21 17 16"/></svg>
+                </button>
+                <button class="ome-ctrl-btn ome-scroll-bottom" title="Scroll to bottom">
+                    <svg viewBox="0 0 24 24"><polyline points="6 5 12 11 18 5"/><polyline points="6 13 12 19 18 13"/></svg>
+                </button>
             </div>`;
         const zoomHTML = `
             <div class="ome-zoom-controls" style="color: ${theme.color}">
@@ -2106,23 +2293,105 @@
             document.addEventListener('mousemove', followHandler);
         }
 
-        // ⬆️⬇️⬅️➡️ Scroll button handlers (with boundary feedback)
-        orb.querySelector('.ome-scroll-up')?.addEventListener('click', (e) => {
+        // ⬆️⬇️ Scroll top/bottom buttons (instant jump)
+        orb.querySelector('.ome-scroll-top')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            scrollWithFeedback('up', e.currentTarget);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        orb.querySelector('.ome-scroll-down')?.addEventListener('click', (e) => {
+        orb.querySelector('.ome-scroll-bottom')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            scrollWithFeedback('down', e.currentTarget);
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
         });
-        orb.querySelector('.ome-scroll-left')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            scrollWithFeedback('left', e.currentTarget);
-        });
-        orb.querySelector('.ome-scroll-right')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            scrollWithFeedback('right', e.currentTarget);
-        });
+
+        // ⚙️ Gear button - click to engage, vertical movement = scroll speed
+        const gearBtn = orb.querySelector('.ome-gear-btn');
+        if (gearBtn) {
+            let gearEngaged = false;
+            let engageY = 0;
+            let engageX = 0;
+            let scrollAnimationId = null;
+            let currentOffset = 0;
+
+            const SENSITIVITY = 0.2;
+            const DISENGAGE_X = 50;
+
+            function scrollLoop() {
+                if (!gearEngaged) {
+                    scrollAnimationId = null;
+                    return;
+                }
+                if (Math.abs(currentOffset) > 2) {
+                    const scrollSpeed = currentOffset * SENSITIVITY;
+                    const scrollY = window.scrollY;
+                    const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+                    const atTop = scrollY <= 0 && scrollSpeed < 0;
+                    const atBottom = scrollY >= maxScrollY && scrollSpeed > 0;
+                    if (atTop || atBottom) {
+                        gearBtn.classList.add('boundary');
+                        setTimeout(() => gearBtn.classList.remove('boundary'), 300);
+                    } else {
+                        window.scrollBy(0, scrollSpeed);
+                    }
+                }
+                scrollAnimationId = requestAnimationFrame(scrollLoop);
+            }
+
+            function engageGear(e) {
+                if (gearEngaged) {
+                    disengageGear();
+                    return;
+                }
+                gearEngaged = true;
+                engageY = e.clientY;
+                engageX = e.clientX;
+                currentOffset = 0;
+                gearBtn.classList.add('engaged');
+                if (!scrollAnimationId) {
+                    scrollAnimationId = requestAnimationFrame(scrollLoop);
+                }
+                document.addEventListener('mousemove', handleGearMove);
+                // Any click anywhere disengages
+                setTimeout(() => document.addEventListener('click', handleGearClick, true), 0);
+                console.log('[HUD] ⚙️ Gear engaged');
+            }
+
+            function disengageGear() {
+                if (!gearEngaged) return;
+                gearEngaged = false;
+                currentOffset = 0;
+                gearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
+                if (scrollAnimationId) {
+                    cancelAnimationFrame(scrollAnimationId);
+                    scrollAnimationId = null;
+                }
+                document.removeEventListener('mousemove', handleGearMove);
+                document.removeEventListener('click', handleGearClick, true);
+                console.log('[HUD] ⚙️ Gear disengaged');
+            }
+
+            function handleGearClick() {
+                // Any click disengages (except the initial engage click handled by setTimeout)
+                disengageGear();
+            }
+
+            function handleGearMove(e) {
+                if (!gearEngaged) return;
+                const deltaX = Math.abs(e.clientX - engageX);
+                if (deltaX > DISENGAGE_X) {
+                    disengageGear();
+                    return;
+                }
+                const deltaY = e.clientY - engageY;
+                currentOffset = Math.max(-60, Math.min(60, deltaY));
+                gearBtn.classList.toggle('scrolling-up', currentOffset < -5);
+                gearBtn.classList.toggle('scrolling-down', currentOffset > 5);
+            }
+
+            gearBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                engageGear(e);
+            });
+        }
 
         // 📋 Menu button handler (toggles HUD)
         orb.querySelector('.ome-menu-btn')?.addEventListener('click', (e) => {
@@ -2322,11 +2591,18 @@
                             </div>
                         </div>
 
-                        <!-- 🎮 HUD Scroll Controls -->
+                        <!-- 🎮 HUD Scroll Controls - gear stick for messages -->
                         <div class="ome-hud-scroll">
                             <button class="ome-hud-menu-btn ome-hud-orb-btn">ORB</button>
-                            <button class="ome-hud-ctrl-btn ome-hud-scroll-up"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
-                            <button class="ome-hud-ctrl-btn ome-hud-scroll-down"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                            <button class="ome-hud-ctrl-btn ome-hud-scroll-top" title="Scroll to top">
+                                <svg viewBox="0 0 24 24"><polyline points="18 11 12 5 6 11"/><polyline points="18 19 12 13 6 19"/></svg>
+                            </button>
+                            <button class="ome-hud-gear-btn" title="Drag to scroll">
+                                <svg viewBox="0 0 24 24"><polyline points="17 8 12 3 7 8"/><polyline points="7 16 12 21 17 16"/></svg>
+                            </button>
+                            <button class="ome-hud-ctrl-btn ome-hud-scroll-bottom" title="Scroll to bottom">
+                                <svg viewBox="0 0 24 24"><polyline points="6 5 12 11 18 5"/><polyline points="6 13 12 19 18 13"/></svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2464,20 +2740,111 @@
             }
         });
 
-        // 📜 HUD Scroll controls - scroll the messages area
+        // 📜 HUD Scroll controls - gear stick for messages area
         const hudMessagesArea = hud.querySelector('.ome-hud-messages-area');
-        hud.querySelector('.ome-hud-scroll-up')?.addEventListener('click', (e) => {
+
+        // ⬆️⬇️ Scroll top/bottom buttons (instant jump)
+        hud.querySelector('.ome-hud-scroll-top')?.addEventListener('click', (e) => {
             e.stopPropagation();
             if (hudMessagesArea) {
-                hudMessagesArea.scrollBy({ top: -100, behavior: 'smooth' });
+                hudMessagesArea.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
-        hud.querySelector('.ome-hud-scroll-down')?.addEventListener('click', (e) => {
+        hud.querySelector('.ome-hud-scroll-bottom')?.addEventListener('click', (e) => {
             e.stopPropagation();
             if (hudMessagesArea) {
-                hudMessagesArea.scrollBy({ top: 100, behavior: 'smooth' });
+                hudMessagesArea.scrollTo({ top: hudMessagesArea.scrollHeight, behavior: 'smooth' });
             }
         });
+
+        // ⚙️ HUD Gear button - click to engage, vertical movement = scroll speed
+        const hudGearBtn = hud.querySelector('.ome-hud-gear-btn');
+        if (hudGearBtn && hudMessagesArea) {
+            let gearEngaged = false;
+            let engageY = 0;
+            let engageX = 0;
+            let scrollAnimationId = null;
+            let currentOffset = 0;
+
+            const SENSITIVITY = 0.25;
+            const DISENGAGE_X = 50;
+
+            function scrollLoop() {
+                if (!gearEngaged) {
+                    scrollAnimationId = null;
+                    return;
+                }
+                if (Math.abs(currentOffset) > 2) {
+                    const scrollSpeed = currentOffset * SENSITIVITY;
+                    const scrollTop = hudMessagesArea.scrollTop;
+                    const maxScroll = hudMessagesArea.scrollHeight - hudMessagesArea.clientHeight;
+                    const atTop = scrollTop <= 0 && scrollSpeed < 0;
+                    const atBottom = scrollTop >= maxScroll && scrollSpeed > 0;
+                    if (atTop || atBottom) {
+                        hudGearBtn.classList.add('boundary');
+                        setTimeout(() => hudGearBtn.classList.remove('boundary'), 300);
+                    } else {
+                        hudMessagesArea.scrollTop += scrollSpeed;
+                    }
+                }
+                scrollAnimationId = requestAnimationFrame(scrollLoop);
+            }
+
+            function engageGear(e) {
+                if (gearEngaged) {
+                    disengageGear();
+                    return;
+                }
+                gearEngaged = true;
+                engageY = e.clientY;
+                engageX = e.clientX;
+                currentOffset = 0;
+                hudGearBtn.classList.add('engaged');
+                if (!scrollAnimationId) {
+                    scrollAnimationId = requestAnimationFrame(scrollLoop);
+                }
+                document.addEventListener('mousemove', handleGearMove);
+                // Any click anywhere disengages
+                setTimeout(() => document.addEventListener('click', handleGearClick, true), 0);
+                console.log('[HUD] ⚙️ HUD Gear engaged');
+            }
+
+            function disengageGear() {
+                if (!gearEngaged) return;
+                gearEngaged = false;
+                currentOffset = 0;
+                hudGearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
+                if (scrollAnimationId) {
+                    cancelAnimationFrame(scrollAnimationId);
+                    scrollAnimationId = null;
+                }
+                document.removeEventListener('mousemove', handleGearMove);
+                document.removeEventListener('click', handleGearClick, true);
+                console.log('[HUD] ⚙️ HUD Gear disengaged');
+            }
+
+            function handleGearClick() {
+                disengageGear();
+            }
+
+            function handleGearMove(e) {
+                if (!gearEngaged) return;
+                const deltaX = Math.abs(e.clientX - engageX);
+                if (deltaX > DISENGAGE_X) {
+                    disengageGear();
+                    return;
+                }
+                const deltaY = e.clientY - engageY;
+                currentOffset = Math.max(-60, Math.min(60, deltaY));
+                hudGearBtn.classList.toggle('scrolling-up', currentOffset < -5);
+                hudGearBtn.classList.toggle('scrolling-down', currentOffset > 5);
+            }
+
+            hudGearBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                engageGear(e);
+            });
+        }
 
         // 🔮 ORB button - return to orb view
         hud.querySelector('.ome-hud-orb-btn')?.addEventListener('click', (e) => {
@@ -2530,9 +2897,8 @@
             const ACCELERATION = 0.4; // Speed boost when continuing same direction
             const MAX_VELOCITY = 25; // Cap on scroll speed
             const MIN_VELOCITY = 0.3; // Stop scrolling below this threshold
-            const REVERSE_THRESHOLD = 8; // Pixels of sustained reverse movement needed to switch direction
-            const scrollUpBtn = hud.querySelector('.ome-hud-scroll-up');
-            const scrollDownBtn = hud.querySelector('.ome-hud-scroll-down');
+            const REVERSE_THRESHOLD = 30; // Pixels of sustained movement needed after stop before activating scroll
+            const hudGearBtnRef = hud.querySelector('.ome-hud-gear-btn');
 
             // 🔍 Continuous scroll loop - infinite until direction change
             function infiniteScrollLoop() {
@@ -2553,16 +2919,15 @@
                     applyFriction = false;
                 }
 
-                // Update button indicators based on current velocity
+                // Update gear button indicators based on current velocity
                 if (scrollVelocity > MIN_VELOCITY) {
-                    scrollDownBtn?.classList.add('scroll-active');
-                    scrollUpBtn?.classList.remove('scroll-active');
+                    hudGearBtnRef?.classList.add('scrolling-down');
+                    hudGearBtnRef?.classList.remove('scrolling-up');
                 } else if (scrollVelocity < -MIN_VELOCITY) {
-                    scrollUpBtn?.classList.add('scroll-active');
-                    scrollDownBtn?.classList.remove('scroll-active');
+                    hudGearBtnRef?.classList.add('scrolling-up');
+                    hudGearBtnRef?.classList.remove('scrolling-down');
                 } else {
-                    scrollUpBtn?.classList.remove('scroll-active');
-                    scrollDownBtn?.classList.remove('scroll-active');
+                    hudGearBtnRef?.classList.remove('scrolling-up', 'scrolling-down');
                 }
 
                 scrollAnimationId = requestAnimationFrame(infiniteScrollLoop);
@@ -2576,7 +2941,7 @@
                     const cursorOffsetX = Math.abs(e.clientX - orbCenterX);
                     const deltaX = Math.abs(e.clientX - lastX);
                     const deltaYAbs = Math.abs(e.clientY - lastY);
-                    const EXIT_THRESHOLD = 150; // Only exit if cursor is far from orb center
+                    const EXIT_THRESHOLD = 50; // Only exit if cursor is ~50px from orb center horizontally
 
                     // Only exit if WAY outside AND movement is more horizontal than vertical
                     if (cursorOffsetX > EXIT_THRESHOLD && deltaX > deltaYAbs) {
@@ -2639,8 +3004,7 @@
                 scrollVelocity = 0;
                 applyFriction = false;
                 reverseAccumulator = 0;
-                scrollUpBtn?.classList.remove('scroll-active');
-                scrollDownBtn?.classList.remove('scroll-active');
+                hudGearBtnRef?.classList.remove('scrolling-up', 'scrolling-down');
                 originalRelease();
             };
         }
@@ -2656,8 +3020,7 @@
             clearSweptHighlights();
             releaseHudSlide();
             // Clear scroll indicator flash
-            hud.querySelector('.ome-hud-scroll-up')?.classList.remove('scroll-active');
-            hud.querySelector('.ome-hud-scroll-down')?.classList.remove('scroll-active');
+            hud.querySelector('.ome-hud-gear-btn')?.classList.remove('scrolling-up', 'scrolling-down');
             console.log('[Content] 🔍 Exited scan mode');
         }
 
@@ -2773,7 +3136,9 @@
 
         hudOrb?.addEventListener('click', (e) => {
             e.stopPropagation();
-
+            // 🔒 DISABLED: Scan mode movement - keeping code for future flare
+            // TODO: Maybe add bounce animation on prompt submit
+            /*
             if (!scanModeActive) {
                 // Click 1: Enter scan mode + start sliding
                 scanModeActive = true;
@@ -2789,6 +3154,7 @@
                 endSweep();
                 console.log('[Content] 🔍 Click 3: Sweep ended, text captured');
             }
+            */
         });
 
         // 🔮 Double-click orb to exit HUD

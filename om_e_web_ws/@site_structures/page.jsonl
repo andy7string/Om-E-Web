@@ -1,23 +1,30 @@
 {
-  "timestamp": 1764759322.522283,
+  "timestamp": 1764850552.6652281,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138029970,
+      "id": 1138030524,
       "url": "https://www.google.com/",
       "title": "Google",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138029970,
+        "id": 1138030519,
+        "url": "https://www.youtube.com/watch?v=ZheT7hQIf08",
+        "title": "(30) OpenAI declares \"code red\" as Google threatens its artificial intelligence lead, WSJ reports - YouTube",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138030524,
         "url": "https://www.google.com/",
         "title": "Google",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 51864.568825291,
+    "last_tabs_update": 24133.608153416,
     "extension_connected": true
   },
   "current_page": {
