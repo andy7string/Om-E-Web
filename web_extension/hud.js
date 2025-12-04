@@ -803,6 +803,10 @@
             .ome-hud.sidebar-open .ome-hud-main {
                 margin-left: 280px;
             }
+            /* 📚 When sidebar is open, hide topbar mini orb (sidebar has its own) */
+            .ome-hud.sidebar-open .ome-sidebar-trigger {
+                display: none;
+            }
 
             /* 💬 HUD Messages Area - ChatGPT style scrollable history */
             /* 📐 Aligned with prompt using same centering + translateX to match input-area offset */
@@ -1672,7 +1676,6 @@
                 transition: transform 0.25s ease;
                 z-index: 100001;
                 box-shadow: 4px 0 24px rgba(0,0,0,0.4);
-                backdrop-filter: blur(12px);
             }
             .ome-sidebar.open {
                 transform: translateX(0);
@@ -1682,56 +1685,48 @@
             .ome-sidebar-header {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
-                padding: 16px;
+                justify-content: flex-start;
+                padding: 12px 16px;
                 border-bottom: 1px solid rgba(126,200,227,0.15);
             }
-            .ome-sidebar-new-chat {
+            /* 🐰 Sidebar Orb Trigger - arrow + orb to close sidebar */
+            .ome-sidebar-orb-trigger {
                 display: flex;
+                flex-direction: row;
                 align-items: center;
-                gap: 8px;
-                padding: 8px 12px;
+                gap: 4px;
+                cursor: pointer;
                 background: transparent;
                 border: none;
-                border-radius: 8px;
-                color: #7ec8e3;
-                font-size: 14px;
-                font-weight: 500;
-                cursor: pointer;
-                transition: all 0.15s ease;
-                opacity: 0.7;
+                padding: 0;
             }
-            .ome-sidebar-new-chat:hover {
-                background: rgba(126,200,227,0.1);
-                color: #a5dff0;
-                opacity: 1;
-            }
-            .ome-sidebar-new-chat svg {
-                width: 16px;
-                height: 16px;
-                stroke: currentColor;
-                stroke-width: 2;
-                fill: none;
-            }
-            .ome-sidebar-close {
-                width: 32px;
-                height: 32px;
-                border: none;
-                border-radius: 6px;
-                background: transparent;
-                color: #7ec8e3;
-                font-size: 20px;
-                cursor: pointer;
+            .ome-sidebar-orb-wrapper {
+                width: 44px;
+                height: 44px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: all 0.15s ease;
-                opacity: 0.5;
+                transition: transform 0.2s ease;
+                background: transparent;
+                border: none;
             }
-            .ome-sidebar-close:hover {
-                background: rgba(126,200,227,0.1);
-                color: #a5dff0;
+            .ome-sidebar-orb-wrapper .ome-sidebar-orb {
+                width: 44px;
+                height: 44px;
+                background: transparent;
+            }
+            .ome-sidebar-orb-trigger:hover .ome-sidebar-orb-wrapper {
+                transform: scale(1.15);
+            }
+            .ome-sidebar-arrow {
+                width: 16px;
+                height: 16px;
+                opacity: 0.6;
+                transition: opacity 0.15s ease, transform 0.15s ease;
+            }
+            .ome-sidebar-orb-trigger:hover .ome-sidebar-arrow {
                 opacity: 1;
+                transform: translateX(-2px);
             }
 
             /* 📚 Sidebar Content (chat list area) */
@@ -2532,11 +2527,14 @@
                 <!-- 📚 Sidebar Panel -->
                 <div class="ome-sidebar">
                     <div class="ome-sidebar-header">
-                        <button class="ome-sidebar-new-chat">
-                            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                            New chat
-                        </button>
-                        <button class="ome-sidebar-close">&times;</button>
+                        <div class="ome-sidebar-orb-trigger ome-sidebar-close">
+                            <svg class="ome-sidebar-arrow" viewBox="0 0 24 24" fill="none">
+                                <polyline points="15 6 9 12 15 18" stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="ome-sidebar-orb-wrapper">
+                                ${currentTheme.svg.replace('ome-bunny', 'ome-sidebar-orb')}
+                            </div>
+                        </div>
                     </div>
                     <div class="ome-sidebar-content">
                         <div class="ome-sidebar-label">Your chats</div>
@@ -2640,17 +2638,10 @@
             toggleSidebar();
         });
 
-        // 📚 Sidebar close button handler
+        // 📚 Sidebar close button handler (orb trigger in sidebar header)
         hud.querySelector('.ome-sidebar-close')?.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleSidebar(false);
-        });
-
-        // 📚 New chat button handler (placeholder for now)
-        hud.querySelector('.ome-sidebar-new-chat')?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            console.log('[Content] 📚 New chat clicked');
-            // TODO: Clear current chat and start fresh
         });
 
         // NOTE: Removed backdrop click-to-close - only exit via Exit HUD button or orb click
@@ -3144,25 +3135,8 @@
 
         hudOrb?.addEventListener('click', (e) => {
             e.stopPropagation();
-            // 🔒 DISABLED: Scan mode movement - keeping code for future flare
-            // TODO: Maybe add bounce animation on prompt submit
-            /*
-            if (!scanModeActive) {
-                // Click 1: Enter scan mode + start sliding
-                scanModeActive = true;
-                hud.classList.add('scan-mode');
-                startHudSlide();
-                console.log('[Content] 🔍 Click 1: Entered scan mode - click orb to start sweep');
-            } else if (!sweepingActive) {
-                // Click 2: Start sweep
-                startSweep();
-                console.log('[Content] 🔍 Click 2: Sweep started - move to scan, click orb to capture');
-            } else {
-                // Click 3: End sweep + capture + exit
-                endSweep();
-                console.log('[Content] 🔍 Click 3: Sweep ended, text captured');
-            }
-            */
+            // 📚 Toggle sidebar on orb click
+            toggleSidebar();
         });
 
         // 🔮 Double-click orb to exit HUD
@@ -3200,12 +3174,25 @@
         // Update HUD theme colors
         hud.dataset.theme = themeName;
 
-        // Update orb SVG
-        const orbContainer = hud.querySelector('.ome-hud-orb');
         const theme = ORB_THEMES[themeName] || ORB_THEMES.robot;
+
+        // Update main orb SVG in prompt area
+        const orbContainer = hud.querySelector('.ome-hud-orb');
         if (orbContainer) {
             orbContainer.dataset.theme = themeName;
             orbContainer.innerHTML = theme.svg;
+        }
+
+        // Update mini orb in topbar trigger (top-left header)
+        const miniOrbWrapper = hud.querySelector('.ome-mini-orb-wrapper');
+        if (miniOrbWrapper) {
+            miniOrbWrapper.innerHTML = theme.svg.replace('ome-bunny', 'ome-mini-orb');
+        }
+
+        // Update sidebar orb (inside expanded sidebar header)
+        const sidebarOrbWrapper = hud.querySelector('.ome-sidebar-orb-wrapper');
+        if (sidebarOrbWrapper) {
+            sidebarOrbWrapper.innerHTML = theme.svg.replace('ome-bunny', 'ome-sidebar-orb');
         }
     }
 

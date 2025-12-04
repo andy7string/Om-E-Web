@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-04 23:38:27
+**Timestamp:** 2025-12-05 09:52:24
 
-**Tabs (1):** Active: #1138030699 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138031095 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -86,128 +86,123 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">Hands-On Session: Teach Module in Copilot (available for all educators)
-Join us on Wednesday, December 10th, 2025 @ 8am Pacific Time for an in-depth professional development webinar on the new AI-powered "Teach" module in...
-Microsoft Community Hub
+<Link id="a_id_17">'Hubble tension' is back again as a new cosmic map deepens the puzzle
+The final data from the Atacama Cosmology Telescope (ACT) has created a cosmic map that cements "Hubble tension," laying out a clear pathway for the future...
+Space
 ·
-1d</Link>
+1h</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Bendigo Bank’s quiet jobs cull shows banking’s long winter is here
-In a little over three months, it has slashed 3.6 per cent of its workforce. Logic says there's more to come, or its return target won't be reached.
-AFR
+<Link id="a_id_19">$4000 cashback offer announced by BYD, for a limited time only with Sealion 7 EV
+For its Sealion 7 electric medium SUV, BYD has added a limited-time cashback offer.
+Drive
 ·
-13h</Link>
+2h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Supercars news: KRE probing Broc Feeney Adelaide engine theory
-GM's Supercars engine supplier Ken McNamara is working to get to the bottom of the issue that plagued Broc Feeney's Camaro at the Adelaide Grand Final.
-Speedcafe.com
+<Link id="a_id_21">Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
+What 1250 professionals told us about working with AI.
+Anthropic
 ·
-1d</Link>
+6h</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Gold steadies as mixed US data and dovish Fed expectations pressure the Dollar
-Gold (XAU/USD) firms as traders react to the latest US economic releases. At the time of writing, XAU/USD is trading around $4225, edging modestly higher...
-FXStreet
-·
-21h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">How Australia's world-leading social media ban will be enforced
-Later this month, Australia will implement a world-first ban on social media for children, barring anyone aged under 16 from accessing certain websites and...
-9News.com.au
-·
-18h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Software startup deploys Singapore’s first quantum computer for commercial use
-Singapore-based software firm Horizon Quantum Computing has become the first private firm to deploy a quantum computer for commercial use in the city-state.
-CNBC
-·
-8h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">4:59
-OpenAI declares "code red" as Google threatens its artificial intelligence lead, WSJ reports
-CBS News
-YouTube
+<Link id="a_id_23">Gemini gets web redesign with new dark theme, ‘My Stuff’ folder
+Following Android and iOS last month, the Gemini web app is getting its redesign, with Google aiming for a “clean, modern look.”
+9to5Google
 ·
 1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Australia hailed 'model for the world' after $20 million coastline transformation
+The United Nations World Restoration Flagship program has recognised the incredible Australian project. Find out more.
+Yahoo News Australia
+·
+20h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Rupee cracks below 90 to the dollar, hit by tariffs, capital outflows
+The Indian rupee fell past a key psychological level of 90 to an all-time low against the dollar on Wednesday, extending an eight-month decline as weak...
+Reuters
+·
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Pentagon review flags ‘critical’ AUKUS deadlines ahead of key meeting
+Washington: The Pentagon's review of the AUKUS defence pact has affirmed the deal's existing timeline, but warns that all three countries must meet...
+The Sydney Morning Herald
+·
+4h</Link>
 <Button id="a_id_30">More options</Button>
-<Link id="a_id_31">15:31
-Alternatives to The Big Bang, Theia Impact Place, Telescope Images | Q&A 376
-[Q&A+] No YT ads. Bonus Question. For FREE https://www.patreon.com/collection/116942 [Overtime] Even more Q&A https://www.patreon.com/collection/1720060...
-Fraser Cain
-YouTube
+<Link id="a_id_31">Amazon adds news tab to Prime Video in user expansion push
+Amazon.com said on Wednesday it is rolling out a dedicated news tab on its Prime Video streaming service, which will become available to all U.S. customers...
+Reuters
 ·
 1d</Link>
 <Button id="a_id_32">More options</Button>
-<Link id="a_id_33">2026 Mazda CX-5: Fresh Design, Punchier Turbo Power & Expected Price Under $30,000
-2026 Mazda CX-5: Mazda is getting ready to shake up the compact SUV segment again with the 2026 Mazda CX-5, and American buyers are already paying attention...
-ILLWELL -
+<Link id="a_id_33">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
+The resident has to cough up the fine and also pay for the council's legal fees.
+Yahoo News Australia
 ·
-1d</Link>
+2d</Link>
 <Button id="a_id_34">More options</Button>
-<Link id="a_id_35">We found a cache of rare Aboriginal artefacts, telling a story of trade and ingenuity
-The tools reveal how Aboriginal ancestors survived and thrived in the continent's interior more than 100 years ago.
-The Conversation
-·
-6d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">8:24
-First Drive Of BMW's EV Future | 2026 BMW iX3 Review
-carsales.com.au
-YouTube
-·
-14h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">4:55
-The $15-billion Metro Tunnel opens for passengers | 7NEWS
-7NEWS Australia
-YouTube
-·
-4d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Nearly 44,000 Australians are owed Centrelink refunds. Some died without knowing
-Services Australia told SBS News they've refunded $2.9 million to just 338 of the 44000 people potentially owed money.
-SBS Australia
-·
-1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">31/ATLAS, Jupiter, and Perihelion: Scientists Race to Decode Interstellar “Heartbeat” Ahead of Its Close Approach
-The mysterious interstellar object 3I/ATLAS — referred to in recent discussions as 31/ATLAS — is drawing global attention as it speeds toward its closest...
-USA Herald
-·
-1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Gina Rinehart-backed lithium play wins EU funding for $3.9b project
-Gina Rinehart-backed lithium developer Vulcan Energy has secured the final pieces of funding to construct its $3.9 billion project in Germany after the...
+<Link id="a_id_35">Leah Weckert puts Coles ahead of Woolies for first time in decades
+The retailer's first female boss, a former McKinsey strategist and loyalty executive, has cracked the grocery code, outpacing Woolworths' sales two years...
 AFR
 ·
 1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">What to do in SA this weekend
-This weekend, shop 'til you drop at the Meander Market, or test your endurance in the Victor Harbor Half Marathon.
-InDaily
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Should families be buying people movers instead of large SUVs? Nissan thinks MPVs makes more sense
+Nissan is forging ahead with the Elgrand people mover because Large SUVs make little sense in countries like Japan.
+Drive
 ·
-10h</Link>
+17h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Software startup deploys Singapore’s first quantum computer for commercial use
+Singapore-based software firm Horizon Quantum Computing has become the first private firm to deploy a quantum computer for commercial use in the city-state.
+CNBC
+·
+18h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Near neighbours of Australia’s likely newest wind project get inflation-based boost on payments
+Neighbour and community benefits at a wind project first proposed more than a decade ago have been lifted, and compare well with other recent offers.
+Renew Economy
+·
+20h</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Don't miss the last full moon of 2025 as the 'Cold Supermoon' takes to the autumn sky on Dec. 4
+Get ready stargazers, the final full moon of 2025 rises tonight! Here's what to expect when the "Cold Supermoon" looms large over the eastern horizon at...
+Space
+·
+12h</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">High-speed rail moves millions throughout the world every day – but in the US, high cost and low use make its future bumpy
+Although some high-speed rail has been built in the northeastern US, the rest of the country has almost none.
+The Conversation
+·
+2d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">South Australia unites to launch 'Breakfast Juice' wine, raising $14,000 for child hunger initiative
+South Aussies came together to craft the Breakfast Juice Grenache, raising $14000 for KickStart for Kids and significantly impacting local efforts against...
+Glam Adelaide
+·
+1d</Link>
 <Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Tesla scored a win in China just as its biggest rival stumbled
-Elon Musk's EV maker is having a difficult year, but its biggest Chinese rival has also hit some serious speed bumps in recent months.
-Business Insider
+<Link id="a_id_49">Boxing robots, a mass wedding and a home as art: photos of the day – Wednesday
+Robots demonstrate their boxing ability in front of a crowd at an exhibition in Tokyo, Japan. Photograph: Greg Baker/AFP/Getty Images.
+The Guardian
 ·
 1d</Link>
 <Button id="a_id_50">More options</Button>
-<Link id="a_id_51">350 Australians a day: What happens to those on the edge of a housing crisis
-More Australians at risk of homelessness are being turned away as frontline services buckle under worsening housing and safety pressures.
-SBS Australia
+<Link id="a_id_51">Cassette tapes are making a comeback. Yes, really
+For a supposedly obsolete music format, audio cassette sales seem to be set on fast forward at the moment. Cassettes are fragile, inconvenient and...
+The Conversation
 ·
-18h</Link>
+20h</Link>
 <Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Essential Intune reading list: MVP community content for 2025 - Microsoft Intune Blog
-Recommended videos and articles from the Intune MVP community.
-Microsoft Community Hub
+<Link id="a_id_53">Household spending splurge rings RBA alarm bell
+Wednesday's Q3 national accounts release from the Australian Bureau of Statistics (ABS) reported fairly modest real per capita household consumption growth...
+MacroBusiness
 ·
-2d</Link>
+22h</Link>
 <Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Pound Sterling outperforms US Dollar ahead of US ADP Employment data
-The Pound Sterling (GBP) trades 0.5% higher to near 1.3280 against the US Dollar (USD) during the European trading session on Wednesday.
-FXStreet
+<Link id="a_id_55">Solicitor, 2 counsel referred to regulator for AI use
+A South Australian solicitor and two Victoria-based counsel have been referred to their respective legal regulators for relying on material that was...
+Lawyers Weekly
 ·
 1d</Link>
 <Button id="a_id_56">More options</Button>
@@ -217,10 +212,10 @@ At a glance
 Good
 AQC</Link>
 <Link id="a_id_59">Woodforde
-Partly cloudy
-5%
-16°</Link>
-<Link id="a_id_60">RUT • Russell 2000 Index up 1.91%. Price is 2,512.14 Today</Link>
+Sunny
+10%
+23°</Link>
+<Link id="a_id_60">RUT • Russell 2000 Index up 0.76%. Price is 2,531.16 Today</Link>
 Australia
 <Link id="a_id_61">Advertising</Link>
 <Link id="a_id_62">Business</Link>
