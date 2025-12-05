@@ -2560,30 +2560,6 @@
             return false;
         }
 
-        // ================================================================
-        // 💬 CHAT SYSTEM: Handle chat acknowledgements from service worker
-        // ================================================================
-        if (message && message.type === "ui_chat_append_ack") {
-            console.log("[Content] 💬 Chat append ack received:", message.data);
-            handleChatAck(message.data);
-            sendResponse({ ok: true });
-            return false;
-        }
-
-        if (message && message.type === "ui_chat_error") {
-            console.log("[Content] 💬 Chat error received:", message.data);
-            handleChatError(message.data);
-            sendResponse({ ok: true });
-            return false;
-        }
-
-        if (message && message.type === "ui_chat_history") {
-            console.log("[Content] 💬 Chat history received:", message.data);
-            handleChatHistory(message.data);
-            sendResponse({ ok: true });
-            return false;
-        }
-
         // 🆕 NEW: Check if this is a typed message (LLM action) first
         // LLM actions are handled by a separate listener to avoid conflicts
         // This ensures clean separation between automation commands and AI actions

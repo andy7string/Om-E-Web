@@ -1,9 +1,9 @@
-# Local Web Design Adelaide | Bright Tree Digital
+# Google
 
-**URL:** https://brighttreedigital.com.au/
-**Timestamp:** 2025-12-05 18:10:49
+**URL:** https://www.google.com/
+**Timestamp:** 2025-12-05 21:26:31
 
-**Tabs (2):** Active: #1138033565 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading] | Other: #1138033570 "Google" www.google.com
+**Tabs (1):** Active: #1138033827 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -62,105 +62,178 @@ The following pre-configured actions are available for this page:
   - Usage: `python3 test_navigation.py --command capability --capability ZoomReset`
 
 **GetChatList** - List all saved chats
-  - Returns list of all chats with id, title, message_count, created_at
+  - Returns list of chats with id, title, date_short, message_count
   - Usage: `python3 test_navigation.py --command capability --capability GetChatList`
 
----
+**LoadChat** - Load a chat by ID
+  - Returns full chat content including all messages
+  - Usage: `python3 test_navigation.py --command capability --capability LoadChat`
+
+**CreateChat** - Create a new chat
+  - Creates a new chat file and returns the chat_id
+  - Usage: `python3 test_navigation.py --command capability --capability CreateChat`
+
+**AppendMessage** - Append a message to a chat
+  - Appends a user or assistant message to a chat. Creates chat if chat_id is null.
+  - Usage: `python3 test_navigation.py --command capability --capability AppendMessage`
+
+**RenameChat** - Rename a chat
+  - Updates the title of an existing chat
+  - Usage: `python3 test_navigation.py --command capability --capability RenameChat`
+
+**DeleteChat** - Delete a chat
+  - Permanently deletes a chat file
+  - Usage: `python3 test_navigation.py --command capability --capability DeleteChat`
 
 ---
 
-<Link id="a_id_0">Skip to content</Link>
-<Link id="a_id_1">Bright Tree Digital</Link>
-<Link id="a_id_2">HOME</Link>
-<Link id="a_id_3">ABOUT</Link>
-<Link id="a_id_4">PORTFOLIO</Link>
-<Link id="a_id_5">SERVICES</Link>
-<Link id="a_id_6">CONTACT</Link>
-<Link id="a_id_7">Facebook</Link>
-<Link id="a_id_8">Instagram</Link>
-Dynamic Web Design Bringing Your Vision to Life
-Grow Your Brand Online With our Expertise
-<Link id="a_id_9">GET STARTED</Link>
-<Button id="a_id_10">Previous slide</Button>
-<Button id="a_id_11">Next slide</Button>
-Welcome to Bright Tree Digital...
-...where your vision takes digital form and your business’s potential is fully realized. Specializing in
-WordPress web design
-and compelling
-graphic design
-, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
-Our Services
-Start your journey here...
-<Button id="a_id_12">Get in touch today!</Button>
-Our Work
-<Link id="a_id_13">Straker Functional Fitness</Link>
-<Link id="a_id_14">The Syrene Hotel</Link>
-<Link id="a_id_15">African Safari Deals</Link>
-<Link id="a_id_16">Mtambo Chartered Accountants</Link>
-<Link id="a_id_17">Joss Couture</Link>
-<Link id="a_id_18">Flutterbys School</Link>
-<Link id="a_id_19">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_20">Straker Functional Fitness</Link>
-<Link id="a_id_21">The Syrene Hotel</Link>
-<Link id="a_id_22">African Safari Deals</Link>
-<Link id="a_id_23">Mtambo Chartered Accountants</Link>
-<Link id="a_id_24">Joss Couture</Link>
-<Link id="a_id_25">Flutterbys School</Link>
-<Link id="a_id_26">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_27">Straker Functional Fitness</Link>
-<Link id="a_id_28">The Syrene Hotel</Link>
-<Link id="a_id_29">African Safari Deals</Link>
-<Link id="a_id_30">Mtambo Chartered Accountants</Link>
-<Button id="a_id_31">1 of 2</Button>
-<Button id="a_id_32">2 of 2</Button>
-<Button id="a_id_33">3 of 2</Button>
-<Button id="a_id_34">4 of 2</Button>
-<Button id="a_id_35">5 of 2</Button>
-<Button id="a_id_36">6 of 2</Button>
-<Button id="a_id_37">7 of 2</Button>
-<Button id="a_id_38">8 of 2</Button>
-What Our Clients Say!
-We are so happy that
-Bright Tree Digital
-designed our Logos and websites for our 2 food businesses.
-Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
-Michelene Rendell
-Owner, The Kitchen
-Highly recommended.
-Bright Tree Digital
-presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
-Daniella Finney
-Owner, The Syrene Boutique Hotel
-Big shoutout to Olivia at
-Bright Tree Digital
-, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
-Natalie Cassar
-Owner, New Moon Digital
-<Button id="a_id_39">Read More Testimonials</Button>
-Ready for a Website Makeover?
-<Button id="a_id_40">Reach Out Now!</Button>
-ABOUT US
-We specialise in
-WordPress web design
-and
-graphic design
-, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-OUR PORTFOLIO
-<Link id="a_id_41">Banner Portfolio</Link>
-<Link id="a_id_42">Logo Portfolio</Link>
-<Link id="a_id_43">Web Design Portfolio</Link>
-<Link id="a_id_44">Facebook</Link>
-<Link id="a_id_45">Instagram</Link>
-ABN: 29 160 886 356
-QUICK LINKS
-<Link id="a_id_46">Home</Link>
-<Link id="a_id_47">About</Link>
-<Link id="a_id_48">Services</Link>
-<Link id="a_id_49">Testimonials</Link>
-<Link id="a_id_50">Contact</Link>
-<Link id="a_id_51">Privacy Policy</Link>
-Copyright © 2025 Bright Tree Digital
-<Link id="a_id_52">Website Designed by Bright Tree Digital</Link>
+---
+
+Google Search homepage
+<Link id="a_id_0">About</Link>
+<Link id="a_id_1">Store</Link>
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
+(andreworsmond21175@gmail.com)</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
+Accessibility links
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
+Discover
+<Link id="a_id_17">Storms in the Southern Ocean are producing more rain – and the consequences could be global
+The Southern Ocean is the engine room of global heat and carbon uptake – and it's changing faster and more dramatically than we thought.
+The Conversation
+·
+11h</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">The 11 Best New Australian Hotels of 2025
+From international chains making their Australian debuts to boutique accommodation opening above sublime local restaurants, the best new hotels of 2025 all...
+Broadsheet
+·
+5h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Bigger Toyota deal prompts Haas rebrand for F1 2026
+The Haas Formula 1 team will rebrand slightly for 2026 to mark an expanded partnership with Toyota. Haas and Toyota began a technical partnership in October...
+The Race
+·
+1d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">AI’s safety features can be circumvented with poetry, research finds
+Poems containing prompts for harmful content prove effective at duping large language models.
+The Guardian
+·
+4d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Commercial truck manufacturer shuts down, no bankruptcy yet
+The commercial truck manufacturer, which makes electric trucks, closed down all operations facing financial difficulties.
+TheStreet
+·
+23h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Why our physical bodies may be a core part of conscious experience – new research
+Most of us go through the day without thinking much about our bodies – until something goes wrong. Yet beneath that apparent simplicity lies a remarkable...
+The Conversation
+·
+22h</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">A Startup Says It Has Found a Hidden Source of Geothermal Energy
+Zanskar uses AI to identify hidden geothermal systems—and claims it has found one that could fuel a power plant, the first such discovery by industry in...
+WIRED
+·
+21h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">What to do in SA this weekend
+This weekend, shop 'til you drop at the Meander Market, or test your endurance in the Victor Harbor Half Marathon.
+InDaily
+·
+1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">‘Spartacus: House Of Ashur’ Has A Double-Take Rotten Tomatoes Score
+Spartacus is back with House of Ashur, and its Rotten Tomatoes score is not what I would have expected at all.
+Forbes
+·
+1d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Australia's first Mormon warned others of Adelaide's wickedness
+It's been 185 years this month since 17-year-old William Barratt, Australia's first Mormon, stepped ashore on Kaurna land at Port Adelaide.
+Australian Broadcasting Corporation
+·
+5d</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">What do Russian nationals, analysts make of US-led Ukraine peace talks?
+While some in Russia believe Ukraine is standing in the way of peace, other analysts say Putin has maximalist ambitions.
+Al Jazeera
+·
+20h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Aldi Is Selling Whimsical Lego Sets That Make the Perfect Stocking Stuffers
+Aldi is selling a whimsical 278-piece Lego set that would make a great stocking stuffer. Check it out here.
+Parade Magazine
+·
+18h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">High Court agrees to hear teens' challenge to social media ban
+The High Court of Australia agrees to hear a special case brought by two teenagers challenging the federal government's upcoming social media ban for...
+Australian Broadcasting Corporation
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">“I want to feel strong as I get older and make sure I stay injury-free”—a trainer shares the weekly workout routine she follows to build functional strength
+Welcome to Workout Diaries, a series where we ask expert trainers to talk us through what a week of exercise looks like for them, helping you figure out how...
+Fit&Well
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Macquarie names 3 top dividend-paying ASX 200 shares to buy today
+Looking to buy a few dividend-paying S&P/ASX 200 Index (ASX: XJO) shares tipped to outperform in 2026? You'll want to read this!
+The Motley Fool Australia
+·
+14h</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Solar Superstorm Gannon crushed Earth’s plasmasphere to a record low
+A massive solar storm in May 2024 gave scientists an unprecedented look at how Earth's protective plasma layer collapses under intense space weather.
+ScienceDaily
+·
+1w</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Portrait; Signaporean Indie Watchmaker Tristan Ho And His Loth1
+Coming from the bustling city of Singapore, Tristan Ho is ready to build his own brand with the hand-finished LOTH1.
+Monochrome Watches
+·
+1d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Sad change coming to traditional Aussie fish and chips
+The Cook Government has conceded the price of fish and chips will likely go up, as Opposition MPs warn small businesses will go bust as a result of new bans...
+PerthNow
+·
+1d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">NZ police recover Fabergé egg six days after suspect allegedly swallowed it
+New Zealand police have retrieved a James Bond-inspired Fabergé pendant after a man was accused of swallowing it in a jewellery store.
+Australian Broadcasting Corporation
+·
+2h</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Volcanic activity worldwide 4 Dec 2025: Santiaguito volcano, Fuego, Popocatépetl, Barren Island, So...
+Kusatsu-Shirane (Honshu): The Japan Meteorological Agency (JMA) reported that unrest continued at Kusatsu-Shiranesan between 1 December 2025 (local) and 3...
+Volcano Discovery
+·
+13h</Link>
+<Button id="a_id_56">More options</Button>
+Australia
+<Link id="a_id_57">Advertising</Link>
+<Link id="a_id_58">Business</Link>
+<Link id="a_id_59">How Search works</Link>
+<Link id="a_id_60">Privacy</Link>
+<Link id="a_id_61">Terms</Link>
+<Button id="a_id_62">Settings</Button>

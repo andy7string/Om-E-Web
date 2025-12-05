@@ -1965,15 +1965,27 @@
                 text-overflow: ellipsis;
             }
 
-            /* 📚 Chat Item - clickable row in sidebar */
+            /* 📚 New Chat link */
+            .ome-sidebar-new-chat {
+                padding: 12px 12px 8px;
+                font-size: 13px;
+                color: rgba(var(--theme-color, 126,200,227), 0.8);
+                cursor: pointer;
+                transition: color 0.15s;
+            }
+            .ome-sidebar-new-chat:hover {
+                color: rgba(var(--theme-color, 126,200,227), 1);
+            }
+
+            /* 📚 Chat Item - row in sidebar */
             .ome-sidebar-chat {
                 display: flex;
                 align-items: center;
                 padding: 10px 12px;
                 margin: 4px 0;
                 border-radius: 8px;
-                cursor: pointer;
                 transition: background 0.15s;
+                position: relative;
             }
             .ome-sidebar-chat:hover {
                 background: rgba(var(--theme-color, 126,200,227), 0.1);
@@ -1984,6 +1996,7 @@
             .ome-sidebar-chat-info {
                 flex: 1;
                 min-width: 0;
+                cursor: pointer;
             }
             .ome-sidebar-chat-title {
                 font-size: 13px;
@@ -1996,6 +2009,68 @@
                 font-size: 11px;
                 color: rgba(var(--theme-color, 126,200,227), 0.5);
                 margin-top: 2px;
+            }
+
+            /* 📚 Three-dot menu button - hidden by default, shown on hover */
+            .ome-sidebar-chat-menu {
+                opacity: 0;
+                padding: 4px 6px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: opacity 0.15s, background 0.15s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .ome-sidebar-chat:hover .ome-sidebar-chat-menu {
+                opacity: 1;
+            }
+            .ome-sidebar-chat-menu:hover {
+                background: rgba(var(--theme-color, 126,200,227), 0.2);
+            }
+            .ome-sidebar-chat-menu svg {
+                width: 16px;
+                height: 16px;
+                fill: rgba(var(--theme-color, 126,200,227), 0.7);
+            }
+
+            /* 📚 Dropdown menu */
+            .ome-sidebar-dropdown {
+                position: absolute;
+                right: 8px;
+                top: 100%;
+                background: rgba(30, 30, 35, 0.98);
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
+                border-radius: 8px;
+                padding: 4px 0;
+                min-width: 120px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 1000;
+                display: none;
+            }
+            .ome-sidebar-dropdown.open {
+                display: block;
+            }
+            .ome-sidebar-dropdown-item {
+                padding: 8px 12px;
+                font-size: 13px;
+                color: rgba(var(--theme-color, 126,200,227), 0.9);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: background 0.15s;
+            }
+            .ome-sidebar-dropdown-item:hover {
+                background: rgba(var(--theme-color, 126,200,227), 0.1);
+            }
+            .ome-sidebar-dropdown-item.delete {
+                color: #ff6b6b;
+            }
+            .ome-sidebar-dropdown-item svg {
+                width: 14px;
+                height: 14px;
+                fill: currentColor;
             }
 
             /* 📚 Empty State - uses theme color */
@@ -2760,6 +2835,7 @@
                         </div>
                     </div>
                     <div class="ome-sidebar-content">
+                        <div class="ome-sidebar-new-chat">+ New Chat</div>
                         <div class="ome-sidebar-label">Your chats</div>
                         <div class="ome-sidebar-empty">No chats yet</div>
                     </div>
@@ -2870,6 +2946,12 @@
         hud.querySelector('.ome-sidebar-close')?.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleSidebar(false);
+        });
+
+        // 📚 New Chat link handler
+        hud.querySelector('.ome-sidebar-new-chat')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            startNewChat();
         });
 
         // NOTE: Removed backdrop click-to-close - only exit via Exit HUD button or orb click
@@ -3839,9 +3921,11 @@
         const content = hudState.sidebar?.querySelector('.ome-sidebar-content');
         if (!content) return;
 
-        // Keep the label, replace everything else
+        // Keep the + New Chat and label, replace everything else
+        const newChatLink = content.querySelector('.ome-sidebar-new-chat');
         const label = content.querySelector('.ome-sidebar-label');
         content.innerHTML = '';
+        if (newChatLink) content.appendChild(newChatLink);
         if (label) content.appendChild(label);
 
         if (chats.length === 0) {
@@ -3863,16 +3947,223 @@
                     <div class="ome-sidebar-chat-title">${escapeHtml(chat.title)}</div>
                     <div class="ome-sidebar-chat-meta">${chat.date_short} · ${chat.message_count} msgs</div>
                 </div>
+                <button class="ome-sidebar-chat-menu" title="Options">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                </button>
+                <div class="ome-sidebar-dropdown">
+                    <div class="ome-sidebar-dropdown-item rename" data-action="rename">
+                        <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                        Rename
+                    </div>
+                    <div class="ome-sidebar-dropdown-item delete" data-action="delete">
+                        <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                        Delete
+                    </div>
+                </div>
             `;
 
-            // Click to load chat (future: LoadChat capability)
-            item.addEventListener('click', () => {
+            // Click on chat info to load chat
+            const chatInfo = item.querySelector('.ome-sidebar-chat-info');
+            chatInfo.addEventListener('click', () => {
                 console.log('[Content] 📚 Chat clicked:', chat.chat_id);
-                // TODO: Call LoadChat capability to fetch full chat
+                loadChat(chat.chat_id);
+            });
+
+            // Three-dot menu button - toggle dropdown
+            const menuBtn = item.querySelector('.ome-sidebar-chat-menu');
+            const dropdown = item.querySelector('.ome-sidebar-dropdown');
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close any other open dropdowns
+                document.querySelectorAll('.ome-sidebar-dropdown.open').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('open');
+                });
+                dropdown.classList.toggle('open');
+            });
+
+            // Rename action
+            item.querySelector('.ome-sidebar-dropdown-item.rename').addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.remove('open');
+                renameChat(chat.chat_id, chat.title);
+            });
+
+            // Delete action
+            item.querySelector('.ome-sidebar-dropdown-item.delete').addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.remove('open');
+                deleteChat(chat.chat_id, chat.title);
             });
 
             content.appendChild(item);
         });
+
+        // Close dropdowns when clicking elsewhere
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.ome-sidebar-dropdown.open').forEach(d => d.classList.remove('open'));
+        }, { once: true });
+    }
+
+    /**
+     * 📚 Load a chat by ID and display its messages
+     * @param {string} chatId - The chat ID to load
+     */
+    function loadChat(chatId) {
+        console.log('[Content] 📚 Loading chat:', chatId);
+
+        chrome.runtime.sendMessage(
+            { type: 'execute_capability', action: 'LoadChat', params: { chat_id: chatId } },
+            (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error('[Content] 📚 Failed to load chat:', chrome.runtime.lastError);
+                    return;
+                }
+
+                if (!response?.ok || !response?.result?.chat) {
+                    console.error('[Content] 📚 Invalid response:', response);
+                    return;
+                }
+
+                const chat = response.result.chat;
+                console.log('[Content] 📚 Loaded chat:', chat.chat_id, chat.messages?.length, 'messages');
+
+                // Store active chat ID in service worker
+                chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: chatId });
+
+                // Update chatState with loaded messages (existing system)
+                chatState.currentChatId = chatId;
+                chatState.messages = (chat.messages || []).map(m => ({
+                    role: m.role,
+                    content: m.content,
+                    id: m.id
+                }));
+
+                // Mark active chat in sidebar
+                markActiveChatInSidebar(chatId);
+
+                // Render using existing function (renders to both orb and HUD)
+                renderChatMessages();
+            }
+        );
+    }
+
+    /**
+     * 📚 Start a new chat (clean slate)
+     * Clears messages and resets active chat ID
+     */
+    function startNewChat() {
+        console.log('[Content] 📚 Starting new chat');
+
+        // Clear chat state
+        chatState.currentChatId = null;
+        chatState.messages = [];
+
+        // Clear active chat ID in service worker
+        chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: null });
+
+        // Remove active class from all sidebar chats
+        hudState.sidebar?.querySelectorAll('.ome-sidebar-chat').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        // Re-render (clears messages)
+        renderChatMessages();
+
+        // Close sidebar to focus on new chat
+        toggleSidebar(false);
+    }
+
+    /**
+     * 📚 Rename a chat
+     * @param {string} chatId - The chat ID to rename
+     * @param {string} currentTitle - Current title for prompt default
+     */
+    function renameChat(chatId, currentTitle) {
+        console.log('[Content] 📚 Rename requested for:', chatId, 'current title:', currentTitle);
+        const newTitle = prompt('Rename chat:', currentTitle);
+        console.log('[Content] 📚 User entered:', newTitle);
+        if (!newTitle || newTitle === currentTitle) {
+            console.log('[Content] 📚 Rename cancelled (no change or empty)');
+            return;
+        }
+
+        console.log('[Content] 📚 Renaming chat:', chatId, 'to', newTitle);
+
+        chrome.runtime.sendMessage(
+            { type: 'execute_capability', action: 'RenameChat', params: { chat_id: chatId, title: newTitle } },
+            (response) => {
+                console.log('[Content] 📚 RenameChat response:', response);
+                if (chrome.runtime.lastError) {
+                    console.error('[Content] 📚 Failed to rename chat:', chrome.runtime.lastError);
+                    return;
+                }
+
+                if (!response?.ok) {
+                    console.error('[Content] 📚 Rename failed:', response?.error);
+                    return;
+                }
+
+                console.log('[Content] 📚 Chat renamed successfully');
+                // Refresh sidebar chat list
+                loadSidebarChats();
+            }
+        );
+    }
+
+    /**
+     * 📚 Delete a chat
+     * @param {string} chatId - The chat ID to delete
+     * @param {string} title - Chat title for confirmation
+     */
+    function deleteChat(chatId, title) {
+        if (!confirm(`Delete "${title}"?\n\nThis cannot be undone.`)) return;
+
+        console.log('[Content] 📚 Deleting chat:', chatId);
+
+        chrome.runtime.sendMessage(
+            { type: 'execute_capability', action: 'DeleteChat', params: { chat_id: chatId } },
+            (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error('[Content] 📚 Failed to delete chat:', chrome.runtime.lastError);
+                    return;
+                }
+
+                if (!response?.ok) {
+                    console.error('[Content] 📚 Delete failed:', response?.error);
+                    return;
+                }
+
+                console.log('[Content] 📚 Chat deleted successfully');
+
+                // If this was the active chat, clear it
+                if (chatState.currentChatId === chatId) {
+                    startNewChat();
+                }
+
+                // Refresh sidebar chat list
+                loadSidebarChats();
+            }
+        );
+    }
+
+    /**
+     * 📚 Mark the active chat in sidebar
+     * @param {string} chatId - The active chat ID
+     */
+    function markActiveChatInSidebar(chatId) {
+        const sidebar = hudState.sidebar;
+        if (!sidebar) return;
+
+        // Remove active class from all
+        sidebar.querySelectorAll('.ome-sidebar-chat').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        // Add active class to selected
+        const active = sidebar.querySelector(`[data-chat-id="${chatId}"]`);
+        if (active) {
+            active.classList.add('active');
+        }
     }
 
     /**
@@ -4076,62 +4367,6 @@
             return true;
         }
 
-        // 💬 Handle chat append acknowledgement from server (via SW)
-        if (message.type === 'ui_chat_append_ack') {
-            console.log('[Content] 💬 ui_chat_append_ack received:', message);
-            console.log('[Content] 💬 message.data:', message.data);
-            const data = message.data || {};
-            console.log('[Content] 💬 data.chat_id:', data.chat_id);
-            // Store the chat_id for future messages in same conversation
-            if (data.chat_id) {
-                chatState.currentChatId = data.chat_id;
-                console.log('[Content] 💬 Saving activeChatId to SW:', data.chat_id);
-                // 🔄 Sync active chat to service worker for cross-tab sync
-                chrome.runtime.sendMessage({
-                    type: 'set_orb_state',
-                    activeChatId: data.chat_id
-                }, (response) => {
-                    console.log('[Content] 💬 set_orb_state response:', response);
-                });
-            }
-            chatState.lastAck = data;
-            if (data.message) {
-                console.log(`[Content] 💬 Message ${data.message.id} appended to chat ${data.chat_id}`);
-            }
-            sendResponse({ ok: true });
-            return true;
-        }
-
-        // 💬 Handle chat error from server (via SW)
-        if (message.type === 'ui_chat_error') {
-            console.error('[Content] 💬 ui_chat_error received:', message.data);
-            // Future: Show error in UI
-            sendResponse({ ok: true });
-            return true;
-        }
-
-        // 💬 Handle chat history from server (via SW)
-        // NOTE: This is just loading data, NOT changing active chat - don't trigger sync here
-        if (message.type === 'ui_chat_history') {
-            console.log('[Content] 💬 ui_chat_history received:', message.data);
-            const data = message.data || {};
-            // Update local chat state only (no sync - that causes infinite loop)
-            if (data.chat_id) {
-                chatState.currentChatId = data.chat_id;
-            }
-            // Replace shared messages array with server data
-            chatState.messages = (data.messages || []).map(msg => ({
-                id: msg.id,
-                role: msg.role,
-                content: msg.content,
-                timestamp: msg.timestamp
-            }));
-            // Render to both UIs
-            renderChatMessages();
-            console.log(`[Content] 💬 Loaded ${chatState.messages.length} messages from chat ${data.chat_id}`);
-            sendResponse({ ok: true });
-            return true;
-        }
     });
 
     // ========================================================================
@@ -4238,141 +4473,7 @@
     }
 
     /**
-     * 💬 Append a message bubble to the HUD messages container
-     * @param {HTMLElement} container - The messages container element
-     * @param {string} role - 'user', 'assistant', or 'error'
-     * @param {string} text - The message text
-     */
-    function appendHUDMessage(container, role, text) {
-        if (!container) {
-            console.warn('[Content] 💬 No messages container to append to');
-            return;
-        }
-
-        const msgEl = document.createElement('div');
-        msgEl.className = `ome-hud-message ${role}`;
-        msgEl.textContent = text;
-        container.appendChild(msgEl);
-
-        // Auto-scroll to bottom
-        container.scrollTop = container.scrollHeight;
-
-        console.log(`[Content] 💬 HUD message appended: [${role}] ${text.substring(0, 50)}...`);
-    }
-
-    /**
-     * 💬 Append a message bubble to the Orb chat messages container
-     * @param {HTMLElement} container - The messages container element
-     * @param {string} role - 'user', 'assistant', or 'error'
-     * @param {string} text - The message text
-     */
-    function appendOrbMessage(container, role, text) {
-        if (!container) {
-            console.warn('[Content] 💬 No orb messages container to append to');
-            return;
-        }
-
-        const msgEl = document.createElement('div');
-        msgEl.className = `ome-chat-bubble ${role}`;
-        msgEl.textContent = text;
-        container.appendChild(msgEl);
-
-        // Auto-scroll to bottom
-        container.scrollTop = container.scrollHeight;
-
-        console.log(`[Content] 💬 Orb message appended: [${role}] ${text.substring(0, 50)}...`);
-    }
-
-    /**
-     * 💬 Handle successful chat message acknowledgement from server
-     * Placeholder for now - will be expanded for UI integration
-     *
-     * @param {Object} data - The chat_append_ack payload from server
-     */
-    function handleChatAck(data) {
-        console.log('[Content] 💬 handleChatAck called with:', data);
-
-        // Store the chat_id for future messages in same conversation
-        if (data.chat_id) {
-            chatState.currentChatId = data.chat_id;
-        }
-
-        // Store the last ack for reference
-        chatState.lastAck = data;
-
-        // Log the message that was appended
-        if (data.message) {
-            console.log(`[Content] 💬 Message ${data.message.id} appended to chat ${data.chat_id}`);
-        }
-
-        // Future: Update HUD UI with the acknowledgement
-        // For now, just log
-    }
-
-    /**
-     * 💬 Handle chat error from server
-     * Placeholder for now - will be expanded for UI integration
-     *
-     * @param {Object} data - The chat_error payload from server
-     */
-    function handleChatError(data) {
-        console.error('[Content] 💬 handleChatError called with:', data);
-
-        // Future: Display error in HUD UI
-        // For now, just log
-    }
-
-    /**
-     * 💬 Handle chat history from server - populate shared state and render
-     * Called on page load to restore chat from file
-     * @param {Object} data - The chat_history payload from server
-     */
-    function handleChatHistory(data) {
-        console.log('[Content] 💬 handleChatHistory called with:', data);
-
-        if (!data) return;
-
-        // Update chat state
-        if (data.chat_id) {
-            chatState.currentChatId = data.chat_id;
-        }
-
-        // Replace shared messages array with server data
-        chatState.messages = (data.messages || []).map(msg => ({
-            id: msg.id,
-            role: msg.role,
-            content: msg.content,
-            timestamp: msg.timestamp
-        }));
-
-        // Render to both UIs
-        renderChatMessages();
-
-        console.log(`[Content] 💬 Loaded ${chatState.messages.length} messages from chat ${data.chat_id}`);
-    }
-
-    /**
-     * 💬 Request chat history from server
-     * @param {string|null} chatId - The chat ID to load, or null for empty state
-     */
-    function loadChatHistory(chatId = null) {
-        const id = chatId || chatState.currentChatId;
-        console.log('[Content] 💬 Requesting chat history for:', id);
-
-        chrome.runtime.sendMessage({
-            type: 'ui_get_chat_history',
-            chat_id: id
-        }, (response) => {
-            if (chrome.runtime.lastError) {
-                console.error('[Content] 💬 Error requesting chat history:', chrome.runtime.lastError);
-                return;
-            }
-            console.log('[Content] 💬 Chat history request sent:', response);
-        });
-    }
-
-    /**
-     * 💬 Send a chat message to the service worker for forwarding to server
+     * 💬 Send a chat message via AppendMessage capability
      *
      * @param {string} prompt - The user's message text
      * @param {string|null} chatId - Existing chat ID or null for new chat
@@ -4381,28 +4482,45 @@
      */
     function sendChatMessage(prompt, chatId = null, meta = {}) {
         return new Promise((resolve, reject) => {
-            const message = {
-                type: 'ui_chat_user_message',
-                chat_id: chatId || chatState.currentChatId,
-                data: {
-                    prompt: prompt,
-                    page_url: meta.page_url || window.location.href,
-                    page_title: meta.page_title || document.title,
-                    front_end_context: meta.front_end_context || {}
-                }
+            // 🔧 Use capability pipeline for consistent architecture
+            const params = {
+                chat_id: chatId || chatState.currentChatId || null,
+                role: 'user',
+                content: prompt,
+                page_url: meta.page_url || window.location.href,
+                page_title: meta.page_title || document.title
             };
 
-            console.log('[Content] 💬 Sending chat message:', message);
+            console.log('[Content] 💬 Sending via AppendMessage capability:', params);
 
-            chrome.runtime.sendMessage(message, (response) => {
-                if (chrome.runtime.lastError) {
-                    console.error('[Content] 💬 Error sending chat message:', chrome.runtime.lastError);
-                    reject(chrome.runtime.lastError);
-                    return;
+            chrome.runtime.sendMessage(
+                { type: 'execute_capability', action: 'AppendMessage', params },
+                (response) => {
+                    if (chrome.runtime.lastError) {
+                        console.error('[Content] 💬 AppendMessage error:', chrome.runtime.lastError);
+                        reject(chrome.runtime.lastError);
+                        return;
+                    }
+
+                    if (!response?.ok) {
+                        console.error('[Content] 💬 AppendMessage failed:', response);
+                        reject(new Error(response?.error || 'Unknown error'));
+                        return;
+                    }
+
+                    const result = response.result;
+                    console.log('[Content] 💬 AppendMessage success:', result);
+
+                    // Store chat_id if new chat was created
+                    if (result?.chat_id && !chatState.currentChatId) {
+                        chatState.currentChatId = result.chat_id;
+                        chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: result.chat_id });
+                        console.log('[Content] 💬 New chat created:', result.chat_id);
+                    }
+
+                    resolve(result);
                 }
-                console.log('[Content] 💬 Chat message send response:', response);
-                resolve(response);
-            });
+            );
         });
     }
 

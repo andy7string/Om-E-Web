@@ -166,6 +166,127 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         chats = list_chats(project_id=project_id)
         return {"chats": chats}
 
+    elif action == "LoadChat":
+        # Load full chat content by ID
+        chat_id = params.get("chat_id")
+        if not chat_id:
+            return {"error": "Missing chat_id parameter"}
+        chat = load_chat(chat_id)
+        if chat is None:
+            return {"error": f"Chat not found: {chat_id}"}
+        return {"chat": chat}
+
+    elif action == "CreateChat":
+        # Create a new chat file
+        from datetime import datetime
+        title = params.get("title", "New Chat")
+        page_url = params.get("page_url", "")
+        page_title = params.get("page_title", "")
+
+        # Generate chat_id from title
+        now = datetime.utcnow()
+        chat_id = generate_chat_id_from_prompt(title, now)
+
+        # Create chat dict
+        meta = {"page_url": page_url, "page_title": page_title}
+        chat_dict = create_new_chat(chat_id, title, meta)
+
+        # Save to disk
+        if save_chat(chat_dict):
+            return {"chat_id": chat_id, "chat": chat_dict}
+        else:
+            return {"error": "Failed to save chat"}
+
+    elif action == "AppendMessage":
+        # Append message to chat (creates chat if needed)
+        from datetime import datetime
+        chat_id = params.get("chat_id")
+        role = params.get("role", "user")
+        content = params.get("content", "")
+
+        if not content:
+            return {"error": "Missing content parameter"}
+
+        now = datetime.utcnow()
+
+        # Load or create chat
+        if chat_id:
+            chat_dict = load_chat(chat_id)
+            if chat_dict is None:
+                return {"error": f"Chat not found: {chat_id}"}
+        else:
+            # Create new chat - use first words of content as title
+            title = params.get("title") or content
+            page_url = params.get("page_url", "")
+            page_title = params.get("page_title", "")
+            chat_id = generate_chat_id_from_prompt(title, now)
+            meta = {"page_url": page_url, "page_title": page_title}
+            chat_dict = create_new_chat(chat_id, title, meta)
+
+        # Append message
+        if role == "user":
+            new_message = append_user_message(chat_dict, content)
+        else:
+            new_message = append_assistant_message(chat_dict, content)
+
+        # Save
+        if save_chat(chat_dict):
+            return {
+                "chat_id": chat_id,
+                "message": new_message,
+                "message_count": len(chat_dict.get("messages", []))
+            }
+        else:
+            return {"error": "Failed to save chat"}
+
+    elif action == "RenameChat":
+        # Rename an existing chat
+        chat_id = params.get("chat_id")
+        new_title = params.get("title")
+        print(f"📝 RenameChat: chat_id={chat_id}, new_title={new_title}")
+
+        if not chat_id:
+            print("❌ RenameChat: Missing chat_id")
+            return {"error": "Missing chat_id parameter"}
+        if not new_title:
+            print("❌ RenameChat: Missing title")
+            return {"error": "Missing title parameter"}
+
+        chat_dict = load_chat(chat_id)
+        if chat_dict is None:
+            print(f"❌ RenameChat: Chat not found: {chat_id}")
+            return {"error": f"Chat not found: {chat_id}"}
+
+        # Update title
+        print(f"📝 RenameChat: Updating title from '{chat_dict.get('title')}' to '{new_title}'")
+        chat_dict["title"] = new_title
+        chat_dict["updated_at"] = datetime.utcnow().isoformat() + "Z"
+
+        if save_chat(chat_dict):
+            print(f"✅ RenameChat: Success")
+            return {"chat_id": chat_id, "title": new_title}
+        else:
+            print(f"❌ RenameChat: Failed to save")
+            return {"error": "Failed to save chat"}
+
+    elif action == "DeleteChat":
+        # Delete a chat file
+        chat_id = params.get("chat_id")
+
+        if not chat_id:
+            return {"error": "Missing chat_id parameter"}
+
+        filepath = get_chat_filepath(chat_id)
+        if not os.path.exists(filepath):
+            return {"error": f"Chat not found: {chat_id}"}
+
+        try:
+            os.remove(filepath)
+            print(f"🗑️ Deleted chat: {chat_id}")
+            return {"chat_id": chat_id, "deleted": True}
+        except Exception as e:
+            return {"error": f"Failed to delete chat: {str(e)}"}
+
     else:
         return {"error": f"Unknown internal capability: {action}"}
 
@@ -3502,11 +3623,14 @@ async def handler(ws):
                     if action in internal_caps:
                         print(f"🔧 Routing internal capability: {action}")
                         result = execute_internal_capability(action, params)
+                        # Check if result contains an error
+                        has_error = isinstance(result, dict) and "error" in result
                         response = {
                             "type": "capability_result",
                             "action": action,
-                            "ok": True,
-                            "result": result
+                            "ok": not has_error,
+                            "result": result if not has_error else None,
+                            "error": result.get("error") if has_error else None
                         }
                         # 🔧 Echo back request ID for callback matching (HUD frontend needs this)
                         if request_id:
@@ -3799,105 +3923,6 @@ async def handler(ws):
                         "error": f"Error processing instruction: {str(e)}"
                     }
                     await ws.send(json.dumps(response))
-
-            # 💬 CHAT USER MESSAGE: Handle incoming chat messages from extension
-            if msg.get("type") == "chat_user_message":
-                print("💬 Chat user message received")
-                try:
-                    # Extract payload
-                    chat_id = msg.get("chat_id")  # null for new chat
-                    data = msg.get("data", {})
-                    prompt = data.get("prompt", "").strip()
-
-                    # Validate: prompt is required
-                    if not prompt:
-                        await ws.send(json.dumps({
-                            "type": "chat_error",
-                            "error": "Missing prompt",
-                            "detail": "The 'prompt' field is required in data"
-                        }))
-                        continue
-
-                    # Build metadata from payload
-                    meta = {
-                        "page_url": data.get("page_url"),
-                        "page_title": data.get("page_title")
-                    }
-
-                    # New chat or existing?
-                    if not chat_id:
-                        # Generate new chat_id and create chat
-                        now = datetime.utcnow()
-                        chat_id = generate_chat_id_from_prompt(prompt, now)
-                        chat_dict = create_new_chat(chat_id, prompt, meta)
-                        print(f"💬 Created new chat: {chat_id}")
-                    else:
-                        # Try to load existing chat
-                        chat_dict = load_chat(chat_id)
-                        if not chat_dict:
-                            # Chat file doesn't exist - create new chat with fresh ID
-                            # This handles deleted files or fresh installs
-                            print(f"⚠️ Chat {chat_id} not found, creating new chat")
-                            now = datetime.utcnow()
-                            chat_id = generate_chat_id_from_prompt(prompt, now)
-                            chat_dict = create_new_chat(chat_id, prompt, meta)
-                            print(f"💬 Created replacement chat: {chat_id}")
-
-                    # Append user message (always to end)
-                    new_message = append_user_message(chat_dict, prompt)
-
-                    # Save to disk
-                    save_result = save_chat(chat_dict)
-                    if not save_result:
-                        print(f"⚠️ Warning: Failed to save chat {chat_id} to disk!")
-
-                    # Send acknowledgement
-                    await ws.send(json.dumps({
-                        "type": "chat_append_ack",
-                        "chat_id": chat_id,
-                        "message": new_message
-                    }))
-                    print(f"✅ Chat message processed: {chat_id} (saved={save_result})")
-
-                except Exception as e:
-                    print(f"❌ Error processing chat message: {e}")
-                    await ws.send(json.dumps({
-                        "type": "chat_error",
-                        "error": "Processing failed",
-                        "detail": str(e)
-                    }))
-
-            # 💬 GET CHAT HISTORY: Return full chat from file
-            if msg.get("type") == "get_chat_history":
-                chat_id = msg.get("chat_id")
-                print(f"💬 Get chat history requested: {chat_id}")
-
-                if not chat_id:
-                    await ws.send(json.dumps({
-                        "type": "chat_history",
-                        "chat_id": None,
-                        "messages": [],
-                        "meta": {}
-                    }))
-                else:
-                    chat_dict = load_chat(chat_id)
-                    if chat_dict:
-                        await ws.send(json.dumps({
-                            "type": "chat_history",
-                            "chat_id": chat_id,
-                            "messages": chat_dict.get("messages", []),
-                            "meta": chat_dict.get("meta", {}),
-                            "title": chat_dict.get("title", "")
-                        }))
-                        print(f"✅ Chat history sent: {len(chat_dict.get('messages', []))} messages")
-                    else:
-                        await ws.send(json.dumps({
-                            "type": "chat_history",
-                            "chat_id": chat_id,
-                            "messages": [],
-                            "meta": {},
-                            "error": "Chat not found"
-                        }))
 
             # 🔄 COMMAND FORWARDING: Route commands from test clients to extension
             if "command" in msg and "id" in msg:

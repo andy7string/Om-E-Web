@@ -3,8 +3,58 @@
     "GetChatList": {
       "action": "GetChatList",
       "label": "List all saved chats",
-      "description": "Returns list of all chats with id, title, message_count, created_at",
-      "params": {}
+      "description": "Returns list of chats with id, title, date_short, message_count",
+      "params": {
+        "project_id": "Optional filter by project (use 'default' for unassigned)"
+      }
+    },
+    "LoadChat": {
+      "action": "LoadChat",
+      "label": "Load a chat by ID",
+      "description": "Returns full chat content including all messages",
+      "params": {
+        "chat_id": "Required - the chat ID to load"
+      }
+    },
+    "CreateChat": {
+      "action": "CreateChat",
+      "label": "Create a new chat",
+      "description": "Creates a new chat file and returns the chat_id",
+      "params": {
+        "title": "Optional title for the chat",
+        "page_url": "Optional page URL for metadata",
+        "page_title": "Optional page title for metadata"
+      }
+    },
+    "AppendMessage": {
+      "action": "AppendMessage",
+      "label": "Append a message to a chat",
+      "description": "Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
+      "params": {
+        "chat_id": "Chat ID (null to create new chat)",
+        "role": "Message role: user or assistant",
+        "content": "Message content",
+        "title": "Optional title for new chat",
+        "page_url": "Optional page URL for new chat metadata",
+        "page_title": "Optional page title for new chat metadata"
+      }
+    },
+    "RenameChat": {
+      "action": "RenameChat",
+      "label": "Rename a chat",
+      "description": "Updates the title of an existing chat",
+      "params": {
+        "chat_id": "Required - the chat ID to rename",
+        "title": "Required - the new title"
+      }
+    },
+    "DeleteChat": {
+      "action": "DeleteChat",
+      "label": "Delete a chat",
+      "description": "Permanently deletes a chat file",
+      "params": {
+        "chat_id": "Required - the chat ID to delete"
+      }
     }
   }
 }
