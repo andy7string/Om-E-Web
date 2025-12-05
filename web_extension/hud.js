@@ -943,7 +943,7 @@
             .ome-hud-messages-area {
                 position: absolute;
                 top: 60px;  /* Below topbar */
-                bottom: 160px;  /* Above input area */
+                bottom: 115px;  /* Above input area (reduced - removed select pane) */
                 left: 80px;   /* SAME as input-area */
                 right: 10px;  /* Extended to edge for scrollbar */
                 overflow-y: auto;
@@ -1010,10 +1010,10 @@
                 position: absolute;
                 left: 80px;   /* space for sidebar trigger */
                 right: 18px;  /* 10px visual gap + 8px for ORB button outer ring */
-                bottom: 20px;
+                bottom: 16px;
                 display: flex;
                 justify-content: center;  /* centre prompt unit when space available */
-                align-items: flex-end;
+                align-items: center;      /* 🎯 vertically centre prompt to orb */
                 gap: 4px;     /* tight spacing to maximize prompt space */
                 z-index: 2;
                 transition: left 0.25s ease;
@@ -1109,52 +1109,10 @@
                 padding: 8px 16px;
                 border-top: 1px solid rgba(var(--theme-color),0.1);
             }
-            /* 🔍 HUD Select Pane - transparent scanner window below prompt */
-            .ome-hud-select-pane {
-                height: 44px;
-                background: transparent;
-                border-top: 1px solid rgba(var(--theme-color),0.1);
-                position: relative;
-            }
-            /* 🔍 Scan Mode - subtle pulsing glow on select pane */
-            @keyframes ome-scan-pulse {
-                0%, 100% {
-                    box-shadow: inset 0 0 4px rgba(var(--theme-color),0.03);
-                    border-top-color: rgba(var(--theme-color),0.15);
-                }
-                50% {
-                    box-shadow: inset 0 0 6px rgba(var(--theme-color),0.08);
-                    border-top-color: rgba(var(--theme-color),0.25);
-                }
-            }
-            .ome-hud.scan-mode .ome-hud-select-pane {
-                animation: ome-scan-pulse 1.5s ease-in-out infinite;
-            }
             /* 🔍 Sweep Mode - highlighted text */
             .ome-hud-swept {
                 background: rgba(var(--theme-color), 0.25) !important;
                 border-radius: 2px;
-            }
-            /* 🔍 Scan Mode instruction text in select pane */
-            .ome-hud-scan-instruction {
-                display: none;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 13px;
-                white-space: nowrap;
-                pointer-events: none;
-                color: var(--text-color);
-                opacity: 0.7;
-                animation: ome-scan-text-pulse 2s ease-in-out infinite;
-            }
-            @keyframes ome-scan-text-pulse {
-                0%, 100% { opacity: 0.5; }
-                50% { opacity: 1; }
-            }
-            .ome-hud.scan-mode .ome-hud-scan-instruction {
-                display: block;
             }
             /* 🔍 Scan Mode - 8 converging arrows around orb */
             .ome-hud-scan-arrow {
@@ -2782,10 +2740,6 @@
                                     </button>
                                 </div>
                             </div>
-                            <!-- 🔍 Select Pane - transparent scanner window -->
-                            <div class="ome-hud-select-pane">
-                                <span class="ome-hud-scan-instruction">SCAN MODE</span>
-                            </div>
                         </div>
 
                         <!-- 🔮 Current Orb Display with drag indicators -->
@@ -3233,10 +3187,8 @@
         }
 
         // 🔍 Click to toggle scan mode (visual + slide behavior)
-        let scanModeActive = false;
         let sweepingActive = false;
         let sweptRegion = { minY: null, maxY: null };
-        const selectPane = hud.querySelector('.ome-hud-select-pane');
         const messagesArea = hud.querySelector('.ome-hud-messages-area');
 
         /**
@@ -3267,19 +3219,10 @@
         }
 
         /**
-         * 🔍 Update swept region based on current pane position
+         * 🔍 Update swept region (disabled - select pane removed)
          */
         function updateSweptRegion() {
-            if (!selectPane || !sweepingActive) return;
-            const paneRect = selectPane.getBoundingClientRect();
-            if (sweptRegion.minY === null) {
-                sweptRegion.minY = paneRect.top;
-                sweptRegion.maxY = paneRect.bottom;
-            } else {
-                sweptRegion.minY = Math.min(sweptRegion.minY, paneRect.top);
-                sweptRegion.maxY = Math.max(sweptRegion.maxY, paneRect.bottom);
-            }
-            highlightSweptText();
+            // Sweep functionality disabled - select pane removed
         }
 
         /**
