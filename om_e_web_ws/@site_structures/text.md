@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 09:52:24
+**Timestamp:** 2025-12-05 10:29:49
 
-**Tabs (1):** Active: #1138031095 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138031358 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -86,140 +86,134 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">'Hubble tension' is back again as a new cosmic map deepens the puzzle
-The final data from the Atacama Cosmology Telescope (ACT) has created a cosmic map that cements "Hubble tension," laying out a clear pathway for the future...
-Space
+<Link id="a_id_17">December’s supermoon peaks this week. Here’s what to know
+Keep your eyes high in the sky this week to see the last supermoon of the year. December's full supermoon, also called the cold moon, will be at its fullest...
+CNN
 ·
-1h</Link>
+1d</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">$4000 cashback offer announced by BYD, for a limited time only with Sealion 7 EV
-For its Sealion 7 electric medium SUV, BYD has added a limited-time cashback offer.
-Drive
+<Link id="a_id_19">The AI boom is heralding a new gold rush in the American west
+Once home to gold and prospectors, the Nevada desert is now the site of a new kind of expansion: tech datacenters.
+The Guardian
 ·
-2h</Link>
+3h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
-What 1250 professionals told us about working with AI.
-Anthropic
-·
-6h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Gemini gets web redesign with new dark theme, ‘My Stuff’ folder
-Following Android and iOS last month, the Gemini web app is getting its redesign, with Google aiming for a “clean, modern look.”
-9to5Google
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Australia hailed 'model for the world' after $20 million coastline transformation
-The United Nations World Restoration Flagship program has recognised the incredible Australian project. Find out more.
-Yahoo News Australia
-·
-20h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Rupee cracks below 90 to the dollar, hit by tariffs, capital outflows
-The Indian rupee fell past a key psychological level of 90 to an all-time low against the dollar on Wednesday, extending an eight-month decline as weak...
-Reuters
-·
-1d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Pentagon review flags ‘critical’ AUKUS deadlines ahead of key meeting
-Washington: The Pentagon's review of the AUKUS defence pact has affirmed the deal's existing timeline, but warns that all three countries must meet...
-The Sydney Morning Herald
-·
-4h</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Amazon adds news tab to Prime Video in user expansion push
-Amazon.com said on Wednesday it is rolling out a dedicated news tab on its Prime Video streaming service, which will become available to all U.S. customers...
-Reuters
-·
-1d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
-The resident has to cough up the fine and also pay for the council's legal fees.
-Yahoo News Australia
-·
-2d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Leah Weckert puts Coles ahead of Woolies for first time in decades
+<Link id="a_id_21">Leah Weckert puts Coles ahead of Woolies for first time in decades
 The retailer's first female boss, a former McKinsey strategist and loyalty executive, has cracked the grocery code, outpacing Woolworths' sales two years...
 AFR
 ·
 1d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Should families be buying people movers instead of large SUVs? Nissan thinks MPVs makes more sense
-Nissan is forging ahead with the Elgrand people mover because Large SUVs make little sense in countries like Japan.
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">2026 Mazda CX-60 G40e Pure review
+Mazda has updated the CX-60 with lower prices – including this new base grade – and a revised driving experience. Is it finally fixed?
 Drive
 ·
-17h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Software startup deploys Singapore’s first quantum computer for commercial use
-Singapore-based software firm Horizon Quantum Computing has become the first private firm to deploy a quantum computer for commercial use in the city-state.
-CNBC
-·
-18h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Near neighbours of Australia’s likely newest wind project get inflation-based boost on payments
-Neighbour and community benefits at a wind project first proposed more than a decade ago have been lifted, and compare well with other recent offers.
-Renew Economy
-·
-20h</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Don't miss the last full moon of 2025 as the 'Cold Supermoon' takes to the autumn sky on Dec. 4
-Get ready stargazers, the final full moon of 2025 rises tonight! Here's what to expect when the "Cold Supermoon" looms large over the eastern horizon at...
-Space
-·
-12h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">High-speed rail moves millions throughout the world every day – but in the US, high cost and low use make its future bumpy
-Although some high-speed rail has been built in the northeastern US, the rest of the country has almost none.
-The Conversation
+2d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
+The resident has to cough up the fine and also pay for the council's legal fees.
+Yahoo News Australia
 ·
 2d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">South Australia unites to launch 'Breakfast Juice' wine, raising $14,000 for child hunger initiative
-South Aussies came together to craft the Breakfast Juice Grenache, raising $14000 for KickStart for Kids and significantly impacting local efforts against...
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">How Australia's world-leading social media ban will be enforced
+Later this month, Australia will implement a world-first ban on social media for children, barring anyone a...
+9News.com.au
+·
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">6:59
+15 Year-Old Just Finished his PhD in Quantum Physics. I had a look at his thesis.
+Go to https://melscience.com/sBgA/ and use code SABINE70 to get 70% off your first month until December 17th. A 15-year-old Belgian boy just finished his...
+Sabine Hossenfelder
+YouTube
+·
+1d</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Supercars facing ‘huge challenge’ at US wind tunnel test
+A 30-strong contingent including Supercars staff and team personnel have jetted to the United States for critical wind tunnel testing ahead of the 2026...
+Speedcafe.com
+·
+1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">New strategic plan charts the next decade for Outback South Australia
+The plan outlines a coordinated vision for arts, culture, heritage, innovation, services, and community wellbeing.
 Glam Adelaide
 ·
-1d</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Boxing robots, a mass wedding and a home as art: photos of the day – Wednesday
-Robots demonstrate their boxing ability in front of a crowd at an exhibition in Tokyo, Japan. Photograph: Greg Baker/AFP/Getty Images.
-The Guardian
-·
-1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Cassette tapes are making a comeback. Yes, really
-For a supposedly obsolete music format, audio cassette sales seem to be set on fast forward at the moment. Cassettes are fragile, inconvenient and...
-The Conversation
+3h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Own CBA shares? Here are the dividend dates for 2026
+Commonwealth Bank of Australia shares have dropped 0.74% this year after peaking in June at $192, while other major banks have hit record highs.
+The Motley Fool Australia
 ·
 20h</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Household spending splurge rings RBA alarm bell
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">2:43
+Customers paying for caravans hours before company collapses | 7NEWS
+Subscribe and set » https://7news.link/YTSubscribe | For the latest Australian news and breaking news alerts, connect with 7NEWS online: Visit...
+7NEWS Australia
+YouTube
+·
+2d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Work starts on giant Tomago battery as Bowen confirms CEFC and Snowy Hydro in talks to save troubled smelter
+Federal energy minister confirms talks to keep Australia's biggest aluminium smelter afloat with supply of firmed renewables, potentially backed by Snowy...
+Renew Economy
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Kim Jong Un's Su-25 fighters have a new weapon, and it looks a lot like a Western cruise missile with a 300-mile range
+Pyongyang paraded a new air-launched weapon that shares visual features similar to the Taurus, a cruise missile used by Seoul with a 300-mile range.
+Business Insider
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">VIDEO: A declining birth rate will be costly in the long run, says Peter Costello
+Australia's fertility rate is at a record low. Former Treasurer and architect behind the baby bonus, Peter Costello wants the government to address the...
+ABC News
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">10 unexpected collabs that take luxury watches to a new level
+From Lenny Kravitz and Michael Jordan to Astro Boy and Datsun, these match-ups are taking brands out of their usual comfort zone.
+AFR
+·
+1d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Google’s AI model is getting really good at spoofing phone photos
+Nano Banana Pro mimics the look and feel of iPhone photos and adds watermarks without being prompted for an extra dose of realism.
+The Verge
+·
+5h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Black Death's Carnage Traced to a Volcanic Eruption Half a World Away
+A major volcanic cataclysm may have been ultimately responsible for the spread of the Black Death across Europe in the 1340s.
+ScienceAlert
+·
+7h</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Household spending splurge rings RBA alarm bell
 Wednesday's Q3 national accounts release from the Australian Bureau of Statistics (ABS) reported fairly modest real per capita household consumption growth...
 MacroBusiness
 ·
 22h</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Solicitor, 2 counsel referred to regulator for AI use
-A South Australian solicitor and two Victoria-based counsel have been referred to their respective legal regulators for relying on material that was...
-Lawyers Weekly
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Iconic Adelaide garden bar Roxie’s to reopen alongside popular West End pub
+Roxies is set for a summer comeback as the much-loved garden bar takes up residence in Adelaide's West End.
+Glam Adelaide
 ·
 1d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Fishers say WA ban will bring an end to 'decent fish and chips'
+New fishing rules come into effect in Western Australia next month, significantly reducing the amount of local fish available in the state.
+ABC News
+·
+2h</Link>
 <Button id="a_id_56">More options</Button>
-At a glance
-<Button id="a_id_57">Customise Homestack</Button>
-<Link id="a_id_58">Air quality
-Good
-AQC</Link>
-<Link id="a_id_59">Woodforde
-Sunny
-10%
-23°</Link>
-<Link id="a_id_60">RUT • Russell 2000 Index up 0.76%. Price is 2,531.16 Today</Link>
 Australia
-<Link id="a_id_61">Advertising</Link>
-<Link id="a_id_62">Business</Link>
-<Link id="a_id_63">How Search works</Link>
-<Link id="a_id_64">Privacy</Link>
-<Link id="a_id_65">Terms</Link>
-<Button id="a_id_66">Settings</Button>
+<Link id="a_id_57">Advertising</Link>
+<Link id="a_id_58">Business</Link>
+<Link id="a_id_59">How Search works</Link>
+<Link id="a_id_60">Privacy</Link>
+<Link id="a_id_61">Terms</Link>
+<Button id="a_id_62">Settings</Button>

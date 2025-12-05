@@ -832,29 +832,31 @@
                 display: none;
             }
 
-            /* 💬 HUD Input Area - pinned to bottom */
+            /* 💬 HUD Input Area - pinned to bottom, constrained by edges */
             .ome-hud-input-area {
                 position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
+                left: 80px;   /* space for sidebar trigger */
+                right: 45px;  /* accounts for ORB button width (~35px) + 10px gap from window edge */
                 bottom: 20px;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-end;  /* push controls to right edge */
                 align-items: flex-end;
                 gap: 24px;
                 z-index: 2;
+                transition: left 0.25s ease;
             }
             .ome-hud-input-area.dragging {
                 cursor: grabbing;
             }
-            /* 📚 When sidebar open, shift input area right */
+            /* 📚 When sidebar open, adjust left edge (sidebar 280px + 4px gap) */
             .ome-hud.sidebar-open .ome-hud-input-area {
-                left: calc(50% + 140px);
+                left: 284px;
             }
 
-            /* 💬 HUD Prompt Wrapper - unified border container for prompt + select pane */
+            /* 💬 HUD Prompt Wrapper - flexible width, shrinks when sidebar opens */
             .ome-hud-prompt-wrapper {
-                width: 800px;
+                flex: 0 1 800px;  /* don't grow, can shrink, ideal 800px */
+                min-width: 300px; /* minimum usable width */
                 border: 1px solid rgba(var(--theme-color), 0.35);
                 border-radius: 12px;
                 box-shadow: 0 0 6px rgba(var(--theme-color), 0.125),
@@ -864,6 +866,7 @@
                 filter: drop-shadow(0 0 2px rgba(var(--theme-color), 0.15));
                 display: flex;
                 flex-direction: column;
+                transition: flex-basis 0.25s ease;
             }
 
             /* 💬 HUD Prompt Box - OME style (YOUR prompt unit) */
@@ -1082,8 +1085,9 @@
             }
             .ome-hud-message img:first-child { margin-top: 0; }
 
-            /* ⬆️⬇️ HUD Scroll Controls (vertical, mirrors orb gear stick layout) */
+            /* ⬆️⬇️ HUD Scroll Controls (vertical, mirrors orb gear stick layout) - fixed, never shrinks */
             .ome-hud-scroll {
+                flex-shrink: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -1192,8 +1196,9 @@
             .ome-hud-menu-btn:hover::before { opacity: 1; animation: ome-ring-spin 1s linear infinite; }
             .ome-hud-menu-btn:active { transform: scale(0.95); }
 
-            /* 🔮 HUD Orb Container */
+            /* 🔮 HUD Orb Container - fixed size, never shrinks */
             .ome-hud-orb-container {
+                flex-shrink: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
