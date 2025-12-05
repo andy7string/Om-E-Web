@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 13:43:11
+**Timestamp:** 2025-12-05 15:39:59
 
-**Tabs (2):** Active: #1138032660 "Google" www.google.com [complete] | Other: #1138032655 "Google" www.google.com
+**Tabs (1):** Active: #1138033243 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -86,141 +86,205 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">2026 Toyota RAV4: Why the former Edge flagship is now one of the cheapest grades
-The RAV4 Edge is the only new variant to receive a price cut looks to follow demand from customers for a tougher look at a lower price.
-Drive
+<Link id="a_id_17">New Vivo V29 5G Launched – Snapdragon 8 Gen 3, 250MP Sony Camera, 2K Curved AMOLED & Wireless Charging at ₹11,999!
+New Vivo V29 5G Launched : The smartphone market has witnessed yet another massive shake-up with the official launch of the Vivo V29 5G, a device that...
+kkdentalclinic.com
 ·
-3h</Link>
+4m</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Australian company produces another million-dollar classic Porsche 911 restomod
-The Zeigler/Bailey Z/B 4.4 is fastidiously redesigned G-series Porsche 911 with a handmade 4.4-litre air-cooled flat six and a new platform.
-CarExpert
-·
-3h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Morning Wrap: ASX 200 to edge higher, S&P 500 flat, RBA now priced to hike in 2026
-ASX 200 futures are up 10pts (+0.11%) as of 8:30 am AEDT.
-Market Index
-·
-5h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">watchOS 26.2 has four changes for Apple Watch, here’s everything new
-watchOS 26.2 is almost here, and thanks to Apple's official release notes, we know exactly what's changing. Here's everything new coming to Apple Watch in...
-9to5mac.my
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Day set to turn into night: the longest solar eclipse of the century now has an official date: and its duration will be remarkable
-For a few minutes, in the middle of the day, the world will look wrong. Streets will dim as if someone turned down a giant light dimmer in the sky. Birds.
-proplumb365.co.uk
-·
-2d</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Near neighbours of Australia's likely newest wind project get inflation-based boost on payments
-Neighbour and community benefits at a wind project first proposed more than a decade ago have been lifted, and compare well with other recent offers.
-Renew Economy
-·
-1d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Leah Weckert puts Coles ahead of Woolies for first time in decades
-The retailer's first female boss, a former McKinsey strategist and loyalty executive, has cracked the grocery code, outpacing Woolworths' sales two years...
-AFR
-·
-1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Jane Street’s Trading Haul Juiced by Surging Bet on Anthropic
+<Link id="a_id_19">Jane Street’s Trading Haul Juiced by Surging Bet on Anthropic
 Jane Street Group's record haul this year has been boosted by savvy bets on the artificial intelligence boom that are showing up as big gains in its trading...
 Bloomberg.com
 ·
-7h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Interstellar comet updates ☄️ On Nov. 30, the @NASAHubble space telescope captured a new look at comet 3I/ATLAS: http://go.nasa.gov/3MlLfbB Our #MissionToPsyche asteroid explorer also joined the effort to track the comet’s path: go.nasa.gov/3Y8yB2h
-NASASolarSystem
-X
+9h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">New 1.5 gigawatt wind project, backed by local farmers and with big battery in tow, hits EPBC queue
+A new 1.5 gigawatt project, backed and hosted by local farmers who held a tender for the facility, has hit the EPBC queue with a big battery in tow.
+Renew Economy
 ·
-4h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Emirates New A350 Lands for First Time to This Australian Airport
-Adelaide Airport (ADL) welcomed Airbus A350 aircraft operated by Emirates Airline (EK) on its scheduled service from Dubai (DXB).
-Aviation A2Z
+2d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Peter Cooper seeks $260m for elite fund in pivot away from super
+Up until a year ago Peter Cooper, famed for his stock picking as much as his meditation practices, wasn't seen in the office much.
+The Australian
 ·
-1d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">5:22
-Australia's under-16 social media ban begins | 7NEWS
+21h</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Lucy Spacecraft Captured 1st Ever Close-Up Views Of Asteroid Donaldjohanson
+NASA's Lucy spacecraft has captured the first-ever view of asteroid Donaldjohanson. It was reported by NASA the spacecraft's closest approach distance was...
+Yahoo
+·
+3d</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">2:04
+Aussie airports gearing up for record-setting summer, top tips to keep your holiday on track | 7NEWS
 7NEWS Australia
 YouTube
 ·
-3h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">India revokes order to preload cyber security app on smartphones
-India's government scrapped an order to smartphone makers to preload a state-run cyber security app on all new devices after an outcry from politicians,...
-iTnews
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">‘Terrific’: Australian budget airline boosts Gold Coast-NZ flights
+The Gold Coast's trans-Tasman love affair has hit new heights as Jetstar adds extra flights to New Zealand following extraordinary 90 per cent booking...
+Gold Coast Bulletin
+·
+7h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">How to see the last supermoon of the year from your city
+The final supermoon of the year is set to delight stargazers tonight. Here's how to spot it.
+Australian Broadcasting Corporation
+·
+9h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Hamilton suggests Ferrari personnel changes needed for 2026
+Lewis Hamilton has suggested that he and Ferrari may need to look at making changes to personnel ahead of 2026, with the seven-time World Champion admitting...
+Formula 1
+·
+9h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">9:22
+BMW M Hybrid V8: The Hypercar Machinery from Munich 🇩🇪 I WEC ICONS
+Step inside the world of BMW M Motorsport as WEC Icons returns with a deep dive into the BMW M Hybrid V8 — one of the most intriguing machines on the...
+FIA World Endurance Championship
+YouTube
 ·
 1d</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Glencore's Copper Promises Demand Blind Faith From Investors
+The ranks, past and present, of Glencore Plc are full of billionaires and multimillionaires. They clearly know how to make money for themselves.
+Bloomberg.com
+·
+1d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Australian house prices accelerate and decelerate
+Cotality has released its daily dwelling values index for 30 November, which measures value changes across the five major Australian capital city markets.
+MacroBusiness
+·
+5d</Link>
 <Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Australia’s first six gigawatt hour battery to be built as part of massive multi-tech “grid res...
-Exclusivity deal signed for massive gas and energy storage hub that promises to host Australia's biggest eight-hour battery, sized at more than 6000 MWh.
-Renew Economy
+<Link id="a_id_41">WiseTech dismisses customer concerns over price increases
+WiseTech Global chief executive Zubin Appoo has dismissed customer criticism of the company's new billing model, while working behind the scenes to explain...
+AFR
 ·
 1d</Link>
 <Button id="a_id_42">More options</Button>
-<Link id="a_id_43">VIDEO: A declining birth rate will be costly in the long run, says Peter Costello
-Australia's fertility rate is at a record low. Former Treasurer and architect behind the baby bonus, Peter Costello wants the government to address the...
+<Link id="a_id_43">Impossible translations: why we struggle to translate words when we don’t experience the concept
+If you are fluent in any language other than English, you have probably noticed that some things are impossible to translate exactly.
+The Conversation
+·
+10h</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Cassette tapes are making a comeback. Yes, really
+For a supposedly obsolete music format, audio cassette sales seem to be set on fast forward at the moment. Cassettes are fragile, inconvenient and...
+The Conversation
+·
+1d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">How an Australian board maker influenced 70s surf culture in the UK and Europe
+Now living in a quiet, idyllic seaside town in Queensland, board shaper Bruce Palmer has been credited with influencing 1970s surf culture in the United...
+Australian Broadcasting Corporation
+·
+5d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Ukraine is running out of cash. Can Europe seize Russian money to help?
+There are $270 billion of frozen Russian assets held in Europe. They could be used to give the European Union a voice in settlement of the war.
+The Sydney Morning Herald
+·
+1d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Global drug syndicate leader sentenced after 'unusual' deal struck
+An international drug kingpin once described as "Asia's El Chapo" is sentenced after an "unusual" deal between a former Australian attorney-general and...
 Australian Broadcasting Corporation
 ·
 1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Chatbots can sway political opinions but are ‘substantially’ inaccurate, study finds
-'Information-dense' AI responses are most persuasive but these tend to be less accurate, says security report.
-The Guardian
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Granite Island’s iconic horse tram on the brink
+Victor Harbor's famous horse-drawn tram is seeking an urgent bailout after it posted financial results revealing $320000 in deficits, reflecting the algal...
+The Advertiser
 ·
-8h</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">"Everything you loved about Roxie's" DJs & garden vibes, the iconic bar lives on in the west end
-Roxies is set for a summer comeback as the much-loved garden bar takes up residence in Adelaide's West End.
+22h</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">“We’re hurting” Adelaide’s Big Shed Brewing forced to shut doors as lease terminated
+The team broke the news on Facebook this afternoon, and the SA community were quick to show love and support.
 Glam Adelaide
 ·
-23h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Ranger Super Duty won’t end F-150, yet
-Ford said its massive investment to beef-up the Ranger into the Super Duty won't be the death knell...
-Blue Mountains Gazette
-·
-4d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Blue-chip companies used security firm facing massive tax, workplace probes
-MA Services is part of a web of companies subject to separate investigations, including by the Tax Office and liquidators, over suspected involvement in a...
-The Age
+1d</Link>
+<Button id="a_id_56">More options</Button>
+<Link id="a_id_57">0:48
+Die Hard officially not a Christmas movie | 7NEWS
+The British Board of Film Classification has surveyed the public and determined that Die Hard does not qualify as a Christmas movie.
+7NEWS Australia
+YouTube
 ·
 1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Geminids 2025: The year's best meteor shower is coming, with a second shower hot on its tail
-The Geminid meteor shower has begun. The Geminids peak overnight on Dec. 13 and 14, when up to 150 "shooting stars" per hour will rain down on Earth in a...
-Live Science
+<Button id="a_id_58">More options</Button>
+<Link id="a_id_59">Chery’s tough new ute spotted
+China's Chery will launch another dual-cab ute. Leaked imagery of the so-called Jetour Zongheng F700 has surfaced online thanks to Autohome and Car News...
+CarsGuide
 ·
-7h</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Macquarie raises target price on APA Group shares following joint-venture announcement
-APA Group shares have jumped 30% higher this year.
-The Motley Fool Australia
+3d</Link>
+<Button id="a_id_60">More options</Button>
+<Link id="a_id_61">Council launch 'major crackdown' over 'escalating' roadside issue: 'Can be fined'
+The street activity is raising questions about food safety and ethics.
+Yahoo News Australia
 ·
-2d</Link>
-<Button id="a_id_56">More options</Button>
+1d</Link>
+<Button id="a_id_62">More options</Button>
+<Link id="a_id_63">Black Death's Carnage Traced to a Volcanic Eruption Half a World Away
+A major volcanic cataclysm may have been ultimately responsible for the spread of the Black Death across Europe in the 1340s.
+ScienceAlert
+·
+13h</Link>
+<Button id="a_id_64">More options</Button>
+<Link id="a_id_65">Why are some people extremely competitive while others are so chill?
+If you've ever been on the sidelines at an under-12's team sport, you will know that some children are fiercely competitive, while others are there simply...
+The Conversation
+·
+1d</Link>
+<Button id="a_id_66">More options</Button>
+<Link id="a_id_67">Independent MP Bec Thomas in tears as Tasmanian parliament gives green light to new AFL stadium
+'I really hope that in time you can come to understand the reasons behind my decision.'
+7NEWS
+·
+1d</Link>
+<Button id="a_id_68">More options</Button>
+<Link id="a_id_69">Australia's best supermarket Christmas ham has been crowned
+Australia's best supermarket Christmas ham has been crowned.﻿ Choice experts blind tasted 12 Christmas hams...
+9honey Kitchen
+·
+1d</Link>
+<Button id="a_id_70">More options</Button>
+<Link id="a_id_71">Sunspot 10x bigger than Earth could trigger solar flares soon | On Dec 1, a flare from another sunspot was seen | Inshorts
+nasa has spotted a massive sunspot over 10 times the size of earth on the suns surface named ar 429496 researchers say it could lead to several strong solar...
+Inshorts
+·
+1d</Link>
+<Button id="a_id_72">More options</Button>
+<Link id="a_id_73">Why are so many Aussie caravan manufacturers failing?
+Australia's caravan manufacturing sector faces a crisis, with Zone RV the latest casualty and insiders warning cheap Chinese imports are destroying local...
+The Courier Mail
+·
+1d</Link>
+<Button id="a_id_74">More options</Button>
+<Link id="a_id_75">Sad change coming to traditional Aussie fish and chips
+The Cook Government has conceded the price of fish and chips will likely go up, as Opposition MPs warn small businesses will go bust as a result of new bans...
+PerthNow
+·
+19h</Link>
+<Button id="a_id_76">More options</Button>
 At a glance
-<Button id="a_id_57">Customise Homestack</Button>
-<Link id="a_id_58">Air quality
+<Button id="a_id_77">Customise Homestack</Button>
+<Link id="a_id_78">Air quality
 Good
 AQC</Link>
-<Link id="a_id_59">Woodforde
+<Link id="a_id_79">Woodforde
 Cloudy
 15%
 27°</Link>
-<Link id="a_id_60">.IXIC • Nasdaq Composite up 0.22%. Price is 23,505.14 Today</Link>
+<Link id="a_id_80">.IXIC • Nasdaq Composite up 0.22%. Price is 23,505.14 Today</Link>
 Australia
-<Link id="a_id_61">Advertising</Link>
-<Link id="a_id_62">Business</Link>
-<Link id="a_id_63">How Search works</Link>
-<Link id="a_id_64">Privacy</Link>
-<Link id="a_id_65">Terms</Link>
-<Button id="a_id_66">Settings</Button>
+<Link id="a_id_81">Advertising</Link>
+<Link id="a_id_82">Business</Link>
+<Link id="a_id_83">How Search works</Link>
+<Link id="a_id_84">Privacy</Link>
+<Link id="a_id_85">Terms</Link>
+<Button id="a_id_86">Settings</Button>

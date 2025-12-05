@@ -41,7 +41,8 @@ const orbState = {
     chatVisible: false,   // 💬 Chat panel open/closed
     chatInput: '',        // 💬 Text in input box (persists across nav)
     chatPanelSize: null,  // 📐 Chat panel dimensions { width, height } or null for default
-    sidebarOpen: false    // 📚 Sidebar open/closed
+    sidebarOpen: false,   // 📚 Sidebar open/closed
+    activeChatId: null    // 💬 Active chat file ID (from chats/*.json)
 };
 
 // 🚀 SESSION FLAG - tracks if default position has been applied this browser session
@@ -1256,10 +1257,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                             orbDefaultApplied = 1;
                             orbState.chatVisible = true; // 💬 Also update orbState so it persists to subsequent pages
                             console.log('[SW] 🚀 First page of session - using defaults (position: null, chatVisible: true)');
+                            console.log('[SW] 💬 activeChatId in response:', orbState.activeChatId);
                             sendResponse({ ok: true, ...orbState, position: null, chatVisible: true, zoom });
                         } else {
                             // Subsequent pages - use saved position and chatVisible
                             console.log('[SW] 🐰 Returning saved orb state:', { ...orbState, zoom });
+                            console.log('[SW] 💬 activeChatId in response:', orbState.activeChatId);
                             sendResponse({ ok: true, ...orbState, zoom });
                         }
                     } catch (e) {
@@ -1286,6 +1289,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     chrome.storage.local.set({ chatPanelSize: message.chatPanelSize });
                 }
                 if (message.sidebarOpen !== undefined) orbState.sidebarOpen = message.sidebarOpen;
+                // 💬 Handle active chat ID changes
+                if (message.activeChatId !== undefined) {
+                    console.log('[SW] 💬 Received activeChatId:', message.activeChatId);
+                    orbState.activeChatId = message.activeChatId;
+                    // Persist to storage for browser restart
+                    chrome.storage.local.set({ activeChatId: message.activeChatId });
+                    console.log('[SW] 💬 Saved activeChatId to storage');
+                }
                 console.log('[SW] 🐰 Updated orb state:', orbState);
 
                 // 🔄 Sync orb position to all OTHER tabs (exclude sender)
@@ -1328,6 +1339,25 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                                     type: 'sync_panel_size',
                                     chatPanelSize: message.chatPanelSize
                                 }).catch(() => {});
+                            }
+                        });
+                    });
+                }
+
+                // 💬 Sync active chat ID to all OTHER tabs (exclude sender)
+                if (message.activeChatId !== undefined) {
+                    const senderTabId = sender.tab?.id;
+                    console.log('[SW] 💬 Broadcasting sync_active_chat to other tabs, sender:', senderTabId);
+                    chrome.tabs.query({}, (tabs) => {
+                        tabs.forEach(tab => {
+                            if (tab.id !== senderTabId) {
+                                console.log('[SW] 💬 Sending sync_active_chat to tab:', tab.id);
+                                chrome.tabs.sendMessage(tab.id, {
+                                    type: 'sync_active_chat',
+                                    activeChatId: message.activeChatId
+                                }).catch((e) => {
+                                    console.log('[SW] 💬 Tab', tab.id, 'not reachable:', e.message);
+                                });
                             }
                         });
                     });
@@ -3471,10 +3501,10 @@ connectWebSocket();
 ensureKeepAlivePort();
 scheduleHeartbeatAlarm();
 
-// 🎨 Restore saved orb theme and chat panel size on startup
+// 🎨 Restore saved orb theme, chat panel size, and active chat on startup
 (async () => {
     try {
-        const { orbTheme, chatPanelSize } = await chrome.storage.local.get(['orbTheme', 'chatPanelSize']);
+        const { orbTheme, chatPanelSize, activeChatId } = await chrome.storage.local.get(['orbTheme', 'chatPanelSize', 'activeChatId']);
 
         // Restore theme/icon
         if (orbTheme) {
@@ -3494,6 +3524,12 @@ scheduleHeartbeatAlarm();
         if (chatPanelSize) {
             orbState.chatPanelSize = chatPanelSize;
             console.log('[SW] 📐 Restored chat panel size:', chatPanelSize);
+        }
+
+        // 💬 Restore active chat ID
+        if (activeChatId) {
+            orbState.activeChatId = activeChatId;
+            console.log('[SW] 💬 Restored active chat ID:', activeChatId);
         }
     } catch (e) {
         console.warn('[SW] Could not restore state on startup:', e.message);

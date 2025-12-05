@@ -16,6 +16,7 @@
         visible: false,
         chatVisible: true,    // 💬 Chat panel visibility (open by default)
         sidebarOpen: false,   // 📚 Sidebar open state
+        sidebarForcedNarrow: false,  // 📚 User chose to open sidebar in narrow viewport
         dragging: false,
         theme: 'robot',       // Current orb theme (default)
         panelManuallyResized: false,  // 📐 Track if user has resized panel
@@ -783,6 +784,8 @@
                 opacity: 0;
                 transition: opacity 0.2s ease;
                 pointer-events: auto;
+                overflow: hidden;  /* Prevent HUD from scrolling */
+                overscroll-behavior: contain;  /* Prevent scroll chaining to window */
             }
             .ome-hud[data-theme="kawaii"] {
                 --theme-color: 126,200,227;  /* Sparkly blue */
@@ -795,9 +798,9 @@
                 --text-color: #00e5ff;
             }
             .ome-hud[data-theme="atom"] {
-                --theme-color: 147,112,219;  /* Purple */
-                --theme-accent: #ba93ff;
-                --text-color: #3CB371;  /* Forest green text for atom */
+                --theme-color: 60,179,113;  /* Forest green RGB */
+                --theme-accent: #3CB371;    /* Forest green */
+                --text-color: #3CB371;      /* Forest green text */
             }
             .ome-hud.visible { display: flex; opacity: 1; flex-direction: column; }
             @keyframes ome-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -936,24 +939,21 @@
                 display: none;
             }
 
-            /* 💬 HUD Messages Area - ChatGPT style scrollable history */
-            /* 📐 Extends to right edge for scrollbar, content aligned via padding */
+            /* 💬 HUD Messages Area - IDENTICAL structure to input-area */
             .ome-hud-messages-area {
                 position: absolute;
                 top: 60px;  /* Below topbar */
                 bottom: 160px;  /* Above input area */
-                left: 80px;  /* Left edge matches input-area */
-                right: 10px;  /* Scrollbar at far right edge */
-                overflow-y: auto;
+                left: 80px;   /* SAME as input-area */
+                right: 18px;  /* SAME as input-area */
                 display: flex;
-                flex-direction: column;
-                gap: 24px;
-                padding: 24px 0;
-                /* Content padding set dynamically by JS to align with prompt */
-                padding-right: var(--messages-right-padding, 70px);
+                justify-content: center;  /* SAME as input-area */
+                gap: 4px;     /* SAME as input-area */
+                overflow: hidden;
+                overscroll-behavior: contain;
                 transition: opacity 0.2s ease, visibility 0.2s ease, left 0.25s ease;
             }
-            /* 📚 When sidebar open, shift left edge */
+            /* 📚 When sidebar open, shift left edge (SAME as input-area) */
             .ome-hud.sidebar-open .ome-hud-messages-area {
                 left: 284px;
             }
@@ -963,10 +963,38 @@
                 visibility: hidden;
                 pointer-events: none;
             }
-            .ome-hud-messages-area::-webkit-scrollbar { width: 8px; }
-            .ome-hud-messages-area::-webkit-scrollbar-track { background: transparent; }
-            .ome-hud-messages-area::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
-            .ome-hud-messages-area::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+            /* 💬 Messages Scroll Container - wraps content + spacer, handles scroll */
+            .ome-hud-messages-scroll {
+                flex: 0 1 800px;  /* SAME as prompt-wrapper */
+                min-width: 240px; /* SAME as prompt-wrapper */
+                overflow-y: auto;
+                overflow-x: hidden;
+                overscroll-behavior: contain;
+                display: flex;
+                flex-direction: column;
+                transition: flex-basis 0.25s ease;  /* SAME transition as prompt-wrapper */
+            }
+            .ome-hud-messages-scroll::-webkit-scrollbar { width: 8px; }
+            .ome-hud-messages-scroll::-webkit-scrollbar-track { background: transparent; }
+            .ome-hud-messages-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+            .ome-hud-messages-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+            /* 💬 Messages Content - inside scroll container */
+            .ome-hud-messages-content {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                padding: 24px 12px;
+            }
+
+            /* 📐 Messages Spacers - mirror the orb-wrapper + scroll structure exactly */
+            .ome-hud-messages-spacer-orb {
+                flex: 0 0 80px;  /* Match orb-wrapper (character) width */
+            }
+            .ome-hud-messages-spacer-scroll {
+                flex: 0 0 48px;  /* Match ome-hud-scroll (ORB button) width */
+            }
 
             /* 🛤️ HUD Rail - hidden (was for sliding prompt unit) */
             .ome-hud-rail {
@@ -1830,7 +1858,7 @@
                 width: 280px;
                 height: 100%;
                 background: rgba(40,50,80,0.22);
-                border-right: 1px solid rgba(126,200,227,0.3);
+                border-right: 1px solid rgba(var(--theme-color, 126,200,227), 0.3);
                 display: flex;
                 flex-direction: column;
                 transform: translateX(-100%);
@@ -1848,7 +1876,7 @@
                 align-items: center;
                 justify-content: flex-start;
                 padding: 12px 16px;
-                border-bottom: 1px solid rgba(126,200,227,0.15);
+                border-bottom: 1px solid rgba(var(--theme-color, 126,200,227), 0.15);
             }
             /* 🐰 Sidebar Orb Trigger - arrow + orb to close sidebar */
             .ome-sidebar-orb-trigger {
@@ -1899,28 +1927,28 @@
             .ome-sidebar-content::-webkit-scrollbar { width: 6px; }
             .ome-sidebar-content::-webkit-scrollbar-track { background: transparent; }
             .ome-sidebar-content::-webkit-scrollbar-thumb {
-                background: rgba(126,200,227,0.3);
+                background: rgba(var(--theme-color, 126,200,227), 0.3);
                 border-radius: 3px;
             }
 
-            /* 📚 Sidebar Section Label */
+            /* 📚 Sidebar Section Label - uses theme color */
             .ome-sidebar-label {
                 padding: 12px 8px 8px;
                 font-size: 11px;
                 font-weight: 600;
-                color: rgba(126,200,227,0.5);
+                color: rgba(var(--theme-color, 126,200,227), 0.6);
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
             }
 
-            /* 📚 Chat List Items */
+            /* 📚 Chat List Items - uses theme color */
             .ome-chat-item {
                 display: flex;
                 align-items: center;
                 gap: 10px;
                 padding: 10px 12px;
                 border-radius: 8px;
-                color: #7ec8e3;
+                color: var(--theme-accent, #7ec8e3);
                 font-size: 13px;
                 cursor: pointer;
                 transition: all 0.15s ease;
@@ -1930,12 +1958,12 @@
                 opacity: 0.7;
             }
             .ome-chat-item:hover {
-                background: rgba(126,200,227,0.1);
+                background: rgba(var(--theme-color, 126,200,227), 0.1);
                 opacity: 1;
             }
             .ome-chat-item.active {
-                background: rgba(126,200,227,0.15);
-                color: #a5dff0;
+                background: rgba(var(--theme-color, 126,200,227), 0.15);
+                color: var(--theme-accent, #a5dff0);
                 opacity: 1;
             }
             .ome-chat-item-title {
@@ -1944,20 +1972,20 @@
                 text-overflow: ellipsis;
             }
 
-            /* 📚 Empty State */
+            /* 📚 Empty State - uses theme color */
             .ome-sidebar-empty {
                 padding: 24px 16px;
                 text-align: center;
-                color: rgba(126,200,227,0.5);
+                color: rgba(var(--theme-color, 126,200,227), 0.5);
                 font-size: 13px;
             }
 
-            /* 📚 Sidebar Footer */
+            /* 📚 Sidebar Footer - uses theme color */
             .ome-sidebar-footer {
                 padding: 12px 16px;
-                border-top: 1px solid rgba(126,200,227,0.15);
+                border-top: 1px solid rgba(var(--theme-color, 126,200,227), 0.15);
                 font-size: 11px;
-                color: rgba(126,200,227,0.5);
+                color: rgba(var(--theme-color, 126,200,227), 0.5);
             }
         `;
         shadow.appendChild(style);
@@ -2613,12 +2641,20 @@
                     saveChatInput(chatInput.value);
                 });
 
-                // 💬 Restore chat input value on initial load
+                // 💬 Restore chat input value and active chat on initial load
                 try {
                     chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
-                        if (response?.ok && response.chatInput) {
-                            chatInput.value = response.chatInput;
-                            typingPreview.textContent = response.chatInput;
+                        if (response?.ok) {
+                            // Restore input value
+                            if (response.chatInput) {
+                                chatInput.value = response.chatInput;
+                                typingPreview.textContent = response.chatInput;
+                            }
+                            // 💬 Load active chat if one exists and different from current
+                            if (response.activeChatId && response.activeChatId !== chatState.currentChatId) {
+                                chatState.currentChatId = response.activeChatId;
+                                loadChatHistory(response.activeChatId);
+                            }
                         }
                     });
                 } catch (e) {
@@ -2706,8 +2742,14 @@
 
                 <!-- 🎯 Main Area - messages + input -->
                 <div class="ome-hud-main">
-                    <!-- 💬 Messages Area - ChatGPT style scrollable history -->
-                    <div class="ome-hud-messages-area"></div>
+                    <!-- 💬 Messages Area - IDENTICAL structure to input-area -->
+                    <div class="ome-hud-messages-area">
+                        <div class="ome-hud-messages-scroll">
+                            <div class="ome-hud-messages-content"></div>
+                        </div>
+                        <div class="ome-hud-messages-spacer-orb"></div>
+                        <div class="ome-hud-messages-spacer-scroll"></div>
+                    </div>
 
                     <!-- 🛤️ Rail - vertical track for sliding -->
                     <div class="ome-hud-rail"></div>
@@ -3322,11 +3364,8 @@
         // 🙈 Check if prompt should be hidden/shown based on viewport + sidebar state
         checkHudPromptVisibility();
 
-        // 📐 Sync messages area position with prompt box
-        syncMessagesWithPrompt();
-
-        // Auto-scroll messages area to bottom
-        const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
+        // Auto-scroll messages scroll container to bottom
+        const hudMessages = hudState.hud.querySelector('.ome-hud-messages-scroll');
         if (hudMessages) {
             hudMessages.scrollTop = hudMessages.scrollHeight;
         }
@@ -3578,6 +3617,16 @@
                         calculateOptimalPanelWidth(hudState.chatPanel);
                     }
 
+                    // 💬 Load active chat if one exists
+                    console.log('[Content] 💬 initHUD checking activeChatId:', response.activeChatId, 'current:', chatState.currentChatId);
+                    if (response.activeChatId && response.activeChatId !== chatState.currentChatId) {
+                        chatState.currentChatId = response.activeChatId;
+                        console.log('[Content] 💬 Loading active chat from SW:', response.activeChatId);
+                        loadChatHistory(response.activeChatId);
+                    } else {
+                        console.log('[Content] 💬 No active chat to load or same as current');
+                    }
+
                 }
             });
         } catch (e) {
@@ -3586,6 +3635,19 @@
 
         // 📐 Keep orb visible on window resize
         window.addEventListener('resize', clampOrbToViewport);
+
+        // 🛑 Prevent wheel events on HUD from scrolling the underlying page
+        hudState.hud.addEventListener('wheel', (e) => {
+            e.stopPropagation();
+        }, { passive: true });
+
+        // 💬 Reload chat when tab becomes visible (user switches back to tab)
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible' && chatState.currentChatId) {
+                console.log('[Content] 💬 Tab visible, reloading chat:', chatState.currentChatId);
+                loadChatHistory(chatState.currentChatId);
+            }
+        });
 
         console.log('[Content] 🎛️ HUD initialized');
     }
@@ -3598,8 +3660,6 @@
         // Render from shared state when opening HUD
         if (hudState.visible) {
             renderChatMessages();
-            // 📐 Sync messages position with prompt box after a frame
-            requestAnimationFrame(() => syncMessagesWithPrompt());
         }
         console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
     }
@@ -3652,12 +3712,17 @@
             hudState.sidebarOpen = !hudState.sidebarOpen;
         }
 
+        // Reset forced-narrow flag when sidebar is closed
+        if (!hudState.sidebarOpen) {
+            hudState.sidebarForcedNarrow = false;
+        }
+
         // Apply state to DOM
         hudState.sidebar.classList.toggle('open', hudState.sidebarOpen);
         hudState.hud?.classList.toggle('sidebar-open', hudState.sidebarOpen);
 
-        // 🙈 Check if prompt needs to be hidden due to narrow viewport
-        checkHudPromptVisibility();
+        // 🙈 Check if prompt needs to be hidden due to narrow viewport (manual toggle)
+        checkHudPromptVisibility(true);
 
         // 💾 Persist sidebar state to service worker
         try {
@@ -3671,9 +3736,14 @@
 
     /**
      * 🙈 Check if HUD prompt should be hidden due to narrow viewport with sidebar open
-     * Hides prompt if viewport too narrow for sidebar (280px) + prompt (240px min) + controls (~90px)
+     * @param {boolean} isManualToggle - True if called from manual sidebar toggle, false if from resize
+     *
+     * Behavior:
+     * - Resize makes viewport narrow while sidebar open → auto-close sidebar (unless user forced it open)
+     * - Manual sidebar open when narrow → hide prompt, set forcedNarrow flag
+     * - User can re-open sidebar after auto-close; forcedNarrow flag prevents re-auto-close
      */
-    function checkHudPromptVisibility() {
+    function checkHudPromptVisibility(isManualToggle = false) {
         if (!hudState.hud) return;
 
         const promptWrapper = hudState.hud.querySelector('.ome-hud-prompt-wrapper');
@@ -3683,48 +3753,36 @@
 
         // Minimum space needed: sidebar (284px with gap) + prompt min (240px) + right controls (~90px)
         const minWidthNeeded = 284 + 240 + 90; // 614px
+        const isNarrow = window.innerWidth < minWidthNeeded;
 
-        if (hudState.sidebarOpen && window.innerWidth < minWidthNeeded) {
-            // Too narrow - hide prompt, messages, and move orb left
+        if (hudState.sidebarOpen && isNarrow) {
+            if (!isManualToggle && !hudState.sidebarForcedNarrow) {
+                // Resize made it narrow and user hasn't forced it open - auto-close sidebar
+                console.log('[Content] 📐 Viewport too narrow - auto-closing sidebar');
+                toggleSidebar(false);
+                return;
+            }
+            // Manual toggle OR user previously forced it open - hide prompt, keep sidebar
+            if (isManualToggle) {
+                hudState.sidebarForcedNarrow = true;
+                console.log('[Content] 📚 Sidebar forced open in narrow viewport');
+            }
             promptWrapper.classList.add('hidden-for-sidebar');
             inputArea.classList.add('prompt-hidden');
             messagesArea?.classList.add('hidden-for-sidebar');
             console.log('[Content] 🙈 Prompt hidden - viewport too narrow for sidebar + prompt');
         } else {
-            // Enough space - show prompt/messages and centre layout
+            // Enough space OR sidebar closed - show prompt/messages and centre layout
             promptWrapper.classList.remove('hidden-for-sidebar');
             inputArea.classList.remove('prompt-hidden');
             messagesArea?.classList.remove('hidden-for-sidebar');
-            // Sync messages position with prompt box
-            syncMessagesWithPrompt();
+
+            // Reset forced flag when viewport becomes wide enough
+            if (!isNarrow && hudState.sidebarForcedNarrow) {
+                hudState.sidebarForcedNarrow = false;
+                console.log('[Content] 📚 Viewport wide enough - reset forcedNarrow flag');
+            }
         }
-    }
-
-    /**
-     * 📐 Sync HUD messages area content alignment with prompt wrapper
-     * Messages area extends to right edge (for scrollbar), content aligned via padding
-     */
-    function syncMessagesWithPrompt() {
-        if (!hudState.hud) return;
-
-        const promptWrapper = hudState.hud.querySelector('.ome-hud-prompt-wrapper');
-        const messagesArea = hudState.hud.querySelector('.ome-hud-messages-area');
-        if (!promptWrapper || !messagesArea) return;
-
-        // Get prompt wrapper's position relative to viewport
-        const promptRect = promptWrapper.getBoundingClientRect();
-        const viewportWidth = window.innerWidth;
-
-        // Calculate right padding needed to align content with prompt right edge
-        // Messages area right edge is at (viewportWidth - 10px)
-        // Prompt right edge is at promptRect.right
-        // Padding needed = messagesAreaRightEdge - promptRect.right
-        const rightPadding = (viewportWidth - 10) - promptRect.right;
-
-        // Set left position to match prompt left edge
-        messagesArea.style.left = `${promptRect.left}px`;
-        // Set right padding to align content with prompt right edge
-        messagesArea.style.setProperty('--messages-right-padding', `${Math.max(10, rightPadding)}px`);
     }
 
     // 🎛️ HUD message handler
@@ -3822,6 +3880,83 @@
             sendResponse({ ok: true });
             return true;
         }
+
+        // 💬 Sync active chat from another tab
+        if (message.type === 'sync_active_chat') {
+            console.log('[Content] 💬 sync_active_chat received:', message.activeChatId, 'current:', chatState.currentChatId);
+            if (!hudState.host) initHUD();
+            // Always reload - either new chat ID or same chat with new messages
+            if (message.activeChatId) {
+                chatState.currentChatId = message.activeChatId;
+                // Request fresh chat history from server
+                console.log('[Content] 💬 Reloading chat history for:', message.activeChatId);
+                loadChatHistory(message.activeChatId);
+            } else {
+                // Clear messages if no active chat
+                chatState.currentChatId = null;
+                chatState.messages = [];
+                renderChatMessages();
+            }
+            sendResponse({ ok: true });
+            return true;
+        }
+
+        // 💬 Handle chat append acknowledgement from server (via SW)
+        if (message.type === 'ui_chat_append_ack') {
+            console.log('[Content] 💬 ui_chat_append_ack received:', message);
+            console.log('[Content] 💬 message.data:', message.data);
+            const data = message.data || {};
+            console.log('[Content] 💬 data.chat_id:', data.chat_id);
+            // Store the chat_id for future messages in same conversation
+            if (data.chat_id) {
+                chatState.currentChatId = data.chat_id;
+                console.log('[Content] 💬 Saving activeChatId to SW:', data.chat_id);
+                // 🔄 Sync active chat to service worker for cross-tab sync
+                chrome.runtime.sendMessage({
+                    type: 'set_orb_state',
+                    activeChatId: data.chat_id
+                }, (response) => {
+                    console.log('[Content] 💬 set_orb_state response:', response);
+                });
+            }
+            chatState.lastAck = data;
+            if (data.message) {
+                console.log(`[Content] 💬 Message ${data.message.id} appended to chat ${data.chat_id}`);
+            }
+            sendResponse({ ok: true });
+            return true;
+        }
+
+        // 💬 Handle chat error from server (via SW)
+        if (message.type === 'ui_chat_error') {
+            console.error('[Content] 💬 ui_chat_error received:', message.data);
+            // Future: Show error in UI
+            sendResponse({ ok: true });
+            return true;
+        }
+
+        // 💬 Handle chat history from server (via SW)
+        // NOTE: This is just loading data, NOT changing active chat - don't trigger sync here
+        if (message.type === 'ui_chat_history') {
+            console.log('[Content] 💬 ui_chat_history received:', message.data);
+            const data = message.data || {};
+            // Update local chat state only (no sync - that causes infinite loop)
+            if (data.chat_id) {
+                chatState.currentChatId = data.chat_id;
+            }
+            // Replace shared messages array with server data
+            chatState.messages = (data.messages || []).map(msg => ({
+                id: msg.id,
+                role: msg.role,
+                content: msg.content,
+                timestamp: msg.timestamp
+            }));
+            // Render to both UIs
+            renderChatMessages();
+            console.log(`[Content] 💬 Loaded ${chatState.messages.length} messages from chat ${data.chat_id}`);
+            sendResponse({ ok: true });
+            return true;
+        }
     });
 
     // ========================================================================
@@ -3883,16 +4018,20 @@
 
         // Render to HUD messages area (ChatGPT style)
         if (hudState.hud) {
-            const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
-            if (hudMessages) {
-                hudMessages.innerHTML = '';
+            const hudMessagesContent = hudState.hud.querySelector('.ome-hud-messages-content');
+            const hudMessagesScroll = hudState.hud.querySelector('.ome-hud-messages-scroll');
+            if (hudMessagesContent) {
+                hudMessagesContent.innerHTML = '';
                 messages.forEach(msg => {
                     const msgEl = document.createElement('div');
                     msgEl.className = `ome-hud-message ${msg.role}`;
                     renderMessageContent(msgEl, msg);
-                    hudMessages.appendChild(msgEl);
+                    hudMessagesContent.appendChild(msgEl);
                 });
-                hudMessages.scrollTop = hudMessages.scrollHeight;
+                // Scroll the scroll container
+                if (hudMessagesScroll) {
+                    hudMessagesScroll.scrollTop = hudMessagesScroll.scrollHeight;
+                }
             }
         }
 

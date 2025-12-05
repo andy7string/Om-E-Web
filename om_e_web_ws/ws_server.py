@@ -3751,21 +3751,24 @@ async def handler(ws):
                         chat_dict = create_new_chat(chat_id, prompt, meta)
                         print(f"💬 Created new chat: {chat_id}")
                     else:
-                        # Load existing chat
+                        # Try to load existing chat
                         chat_dict = load_chat(chat_id)
                         if not chat_dict:
-                            await ws.send(json.dumps({
-                                "type": "chat_error",
-                                "error": "Chat not found",
-                                "detail": f"No chat exists with id: {chat_id}"
-                            }))
-                            continue
+                            # Chat file doesn't exist - create new chat with fresh ID
+                            # This handles deleted files or fresh installs
+                            print(f"⚠️ Chat {chat_id} not found, creating new chat")
+                            now = datetime.utcnow()
+                            chat_id = generate_chat_id_from_prompt(prompt, now)
+                            chat_dict = create_new_chat(chat_id, prompt, meta)
+                            print(f"💬 Created replacement chat: {chat_id}")
 
                     # Append user message (always to end)
                     new_message = append_user_message(chat_dict, prompt)
 
                     # Save to disk
-                    save_chat(chat_dict)
+                    save_result = save_chat(chat_dict)
+                    if not save_result:
+                        print(f"⚠️ Warning: Failed to save chat {chat_id} to disk!")
 
                     # Send acknowledgement
                     await ws.send(json.dumps({
@@ -3773,7 +3776,7 @@ async def handler(ws):
                         "chat_id": chat_id,
                         "message": new_message
                     }))
-                    print(f"✅ Chat message processed: {chat_id}")
+                    print(f"✅ Chat message processed: {chat_id} (saved={save_result})")
 
                 except Exception as e:
                     print(f"❌ Error processing chat message: {e}")
@@ -4438,9 +4441,11 @@ def save_chat(chat_dict: Dict[str, Any]) -> bool:
     chat_id = chat_dict.get("chat_id")
     if not chat_id:
         print("❌ Cannot save chat: missing chat_id")
+        print(f"❌ chat_dict keys: {list(chat_dict.keys())}")
         return False
 
     filepath = get_chat_filepath(chat_id)
+    print(f"📁 Attempting to save chat to: {filepath}")
 
     try:
         with open(filepath, 'w', encoding='utf-8') as f:
@@ -4449,6 +4454,8 @@ def save_chat(chat_dict: Dict[str, Any]) -> bool:
         return True
     except Exception as e:
         print(f"❌ Error saving chat {chat_id}: {e}")
+        import traceback
+        traceback.print_exc()
         return False
 
 
