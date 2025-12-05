@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 23:01:22
+**Timestamp:** 2025-12-05 23:21:01
 
-**Tabs (3):** Active: #1138033931 "Google" www.google.com [loading] | Other: #1138033896 "OM-E autonomy - Tiny" chatgpt.com, #1138033927 "Google" www.google.com
+**Tabs (2):** Active: #1138033947 "Google" www.google.com [complete] | Other: #1138033896 "OM-E autonomy - Tiny" chatgpt.com
 
 ## Available Actions
 
@@ -110,119 +110,121 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">Toyota's New GT3 Racer Skips the Road Car's Hybrid, Goes Pure V-8
-Toyota is preparing to replace the ancient Lexus RF GT3 with a new Gazoo Racing machine featuring a side-exhaust and aggressive bodywork.
+<Link id="a_id_17">Thirsty work: how the rise of massive datacentres strains Australia’s drinking water supply
+The demand for use in cooling in Sydney alone is expected to exceed the volume of Canberra's total drinking water within the next decade.
+The Guardian
+·
+12h</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">This Toyota Tundra Rock Warrior Build Is OEM-Plus Perfected. We Talked to the Owner
+Before Toyota figured out how to print money with its TRD Pro line, dealer lots were blessed with a Tundra dubbed the Rock Warrior.
 Motor1.com
 ·
 3h</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">The hidden expense of owning a rental property and how to make it work for you: 'Gradually losing value'
-Owning a rental property can be one of the most effective ways to build wealth and secure your financial future. But while many landlords understand how to...
-Yahoo Finance Australia
-·
-5d</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Australian Drama Production Hits Record $1.7 Billion, Driven by International Activity
-Drama production expenditure in Australia reached an unprecedented $1.78 billion in 2024/25, marking a 43% increase over the previous year.
-Variety
-·
-1d</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Stock market today: S&P 500, Nasdaq futures rise as Fed-favored PCE inflation data looms
-US stock futures mostly moved higher on Friday as Wall Street looked ahead to a fresh reading on inflation that though delayed, could shape expectations for...
-Yahoo Finance
-·
-47m</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Aussie renter calls for major landlord change amid national shift: 'Doesn't make sense'
-Data suggests that just over a third of Australian households currently rent, and this number is increasing.
-Yahoo News Australia
-·
-5h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Putin, Modi discuss trade, peace at India summit amid US sanctions, tariffs
-Russian President Vladimir Putin and Indian Prime Minister Narendra Modi have kicked off a daylong summit in the capital of India, where trade and Western...
-Al Jazeera
-·
-18m</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Macquarie leads race for stake in Maple Infrastructure Trust
-Mumbai: Global infrastructure investor Macquarie Asset Management has emerged as the frontrunner for acquiring a significant minority stake in Maple...
-The Economic Times
-·
-1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">All Monopiles In Place at Iberdrola’s New Offshore Wind Farm in Germany
-All 21 monopile foundations at the Windanker offshore wind farm in the German Baltic Sea have been installed, according to a social media update posted by...
-offshoreWIND.biz
-·
-1d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Incredible close-up of spider silk wins science photo prize
+<Link id="a_id_21">Incredible close-up of spider silk wins science photo prize
 Duelling prairie chickens, a snake-mimicking moth and a once-a-year sunrise at the South Pole feature in the best images from the Royal Society Publishing...
 New Scientist
 ·
 1d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">BGH Capital bets on $200m childcare business, defying sector jitters
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Putin, Modi discuss trade, peace at India summit amid US sanctions, tariffs
+Russian President Vladimir Putin and Indian Prime Minister Narendra Modi have kicked off a daylong summit in the capital of India, where trade and Western...
+Al Jazeera
+·
+41m</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">1:40
+Aussie dollar rises to 16-month high against Japanese yen | Finance Report | ABC NEWS
+The Australian dollar has had a strong year against the US greenback and Japanese yen. It's partly because of expectations the Reserve Bank of Australia...
+ABC News (Australia)
+YouTube
+·
+4h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">All Monopiles In Place at Iberdrola’s New Offshore Wind Farm in Germany
+All 21 monopile foundations at the Windanker offshore wind farm in the German Baltic Sea have been installed, according to a social media update posted by...
+offshoreWIND.biz
+·
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">BGH Capital bets on $200m childcare business, defying sector jitters
 TheirCare founder Michael Abela is not selling down and is said to be keen to grow the eight-year-old business further with BGH Capital.
 AFR
 ·
 1d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Air force and Olympians team up for special Christmas exercise
-With Olympians on board and a cargo of presents, the Royal Australian Air Force is getting a head start on Santa with Exercise Christmas Hop.
-Australian Broadcasting Corporation
-·
-2d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Five of the best science fiction books of 2025
-An eco-masterpiece, icy intrigue, cyberpunkish cyborgs, memory-eating aliens and super-fast travel sends the world spinning out of control.
-The Guardian
-·
-1h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">High Court agrees to hear teens' challenge to social media ban
-The High Court of Australia agrees to hear a special case brought by two teenagers challenging the federal government's upcoming social media ban for...
-Australian Broadcasting Corporation
-·
-1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">LNG giants make last ditch concessions to avert export controls
-Santos' GLNG venture has offered to cut purchases of gas from the domestic market and trim shipments as it attempts to head off far more onerous...
-AFR
-·
-18h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">23:29
-The CAGED System for Guitar – Unlock the Entire Fretboard
-Want to unlock the entire guitar fretboard? This lesson breaks down the CAGED system for guitar — one of the most powerful tools for mastering chords,...
-Marty Music
-YouTube
-·
-1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Another Cloudflare outage takes down websites including LinkedIn and Zoom
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Another Cloudflare outage takes down websites including LinkedIn and Zoom
 Web infrastructure provider says it has implemented a fix after users had seen 'a large number of empty pages'
 The Guardian
 ·
 1h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">New CEOs for Mitsubishi, mining lobby
-Mitsubishi Motors has chosen a veteran insider to lead its Australian operations from Adelaide after the departure of Shaun Westcott, while SA's peak mining...
-The Advertiser
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">High Court agrees to hear teens' challenge to social media ban
+The High Court of Australia agrees to hear a special case brought by two teenagers challenging the federal government's upcoming social media ban for...
+Australian Broadcasting Corporation
 ·
-4d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">What to do in SA this weekend
+1d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Five of the best science fiction books of 2025
+An eco-masterpiece, icy intrigue, cyberpunkish cyborgs, memory-eating aliens and super-fast travel sends the world spinning out of control.
+The Guardian
+·
+1h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">12:08
+Microsoft Foundry - Everything you need to build AI apps & agents
+It's never been easier to build, optimize, and govern AI apps and agents that understand your business context and deliver business impact.
+Microsoft Mechanics
+YouTube
+·
+1d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Beautiful Tencent paper. Shows a language model that keeps improving itself using only 1% to 5% human labeled questions while reaching the level of systems trained on about 20 times more data. Earlier self play systems let a model write and solve its own questions, but over time it drifts, repeats narrow patterns, and can even perform worse. Their method runs a challenger copy that generates questions and a solver copy that answers them, turning training into a question answer game between 2 agents. When the challenger writes, it sometimes sees a few real human question answer pairs, which pull its synthetic questions toward realistic tasks instead of strange, off topic puzzles. For each question, the solver tries several answers, the system estimates its success rate, and training keeps mainly mid difficulty questions where the solver is uncertain but not lost. Because both human and synthetic questions pass this filter, the solver trains on focused, non trivial problems,
+rohanpaul_ai
+X
+·
+21h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Portrait; Signaporean Indie Watchmaker Tristan Ho And His Loth1
+Coming from the bustling city of Singapore, Tristan Ho is ready to build his own brand with the hand-finished LOTH1.
+Monochrome Watches
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">What to do in SA this weekend
 This weekend, shop 'til you drop at the Meander Market, or test your endurance in the Victor Harbor Half Marathon.
 InDaily
 ·
 1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Sad change coming to traditional Aussie fish and chips
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">YouTube debuts new Recap feature. Here’s how to get your 2025 viewing insights
+Video platform has offered a music recap similar to Spotify Wrapped for the past three years. But it's now revamped the feature to include much more.
+The Independent
+·
+1d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">FDA scrutiny of WHOOP signals challenges for niche wearable device makers
+Niche fitness-tracking firms such as WHOOP are coming under increased regulatory scrutiny as technological advances blur the lines between wearable and...
+Reuters
+·
+1d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Stolen James Bond-inspired Fabergé pendant swallowed, recovered after six days
+New Zealand police have retrieved a James Bond-inspired Fabergé pendant after a man was accused of swallowing it in a jewellery store.
+Australian Broadcasting Corporation
+·
+4h</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Sad change coming to traditional Aussie fish and chips
 The Cook Government has conceded the price of fish and chips will likely go up, as Opposition MPs warn small businesses will go bust as a result of new bans...
 PerthNow
+·
+1d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Blue-chip companies used security firm facing massive tax, workplace probes
+MA Services is part of a web of companies subject to separate investigations, including by the Tax Office and liquidators, over suspected involvement in a...
+The Age
 ·
 1d</Link>
 <Button id="a_id_54">More options</Button>

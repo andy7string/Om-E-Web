@@ -1837,6 +1837,25 @@
             .ome-chat-send:hover { background: rgba(80,100,160,0.75); border-color: rgba(var(--theme-color),0.55); }
             .ome-chat-send:active { transform: scale(0.95); }
             .ome-chat-send svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; }
+            /* 🗑️ Clear prompt button */
+            .ome-chat-clear {
+                flex: 0 0 auto;
+                width: 36px;
+                height: 48px;
+                min-width: 36px;
+                border: none;
+                border-radius: 8px;
+                background: transparent;
+                color: rgba(var(--theme-color), 0.5);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: color 0.15s ease, background 0.15s ease;
+            }
+            .ome-chat-clear:hover { color: #ff6b6b; background: rgba(255, 100, 100, 0.15); }
+            .ome-chat-clear:active { transform: scale(0.9); }
+            .ome-chat-clear svg { width: 18px; height: 18px; fill: currentColor; }
 
             /* ═══════════════════════════════════════════════════════════════════
                📚 SIDEBAR - ChatGPT-style side panel for chat history
@@ -2218,37 +2237,61 @@
                 fill: #ff6b6b;
             }
 
-            /* 📚 Confirm Delete popup */
+            /* 📚 Confirm Delete - inline icon buttons */
             .ome-confirm-delete {
-                position: absolute;
-                right: 8px;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(40, 20, 20, 0.95);
-                border: 1px solid rgba(255, 100, 100, 0.5);
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .ome-confirm-delete-btn {
+                width: 28px;
+                height: 28px;
                 border-radius: 6px;
-                padding: 6px 12px;
                 cursor: pointer;
-                font-size: 12px;
-                color: #ff6b6b;
-                animation: blink-red 0.8s ease-in-out infinite;
-                z-index: 10;
-                white-space: nowrap;
-                user-select: none;
+                border: 1px solid;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
             }
-            .ome-confirm-delete:hover {
-                background: rgba(255, 100, 100, 0.3);
-                color: #ff8888;
+            .ome-confirm-delete-btn:hover {
+                transform: scale(1.1);
             }
-            @keyframes blink-red {
-                0%, 100% {
-                    opacity: 1;
-                    box-shadow: 0 0 8px rgba(255, 100, 100, 0.4);
-                }
-                50% {
-                    opacity: 0.7;
-                    box-shadow: 0 0 12px rgba(255, 100, 100, 0.7);
-                }
+            .ome-confirm-delete-btn:active {
+                transform: scale(0.95);
+            }
+            .ome-confirm-delete-btn svg {
+                width: 14px;
+                height: 14px;
+                stroke-width: 2.5;
+                fill: none;
+            }
+            .ome-confirm-delete-btn.yes {
+                background: rgba(255, 80, 80, 0.25);
+                border-color: rgba(255, 100, 100, 0.5);
+                animation: pulse-red 0.8s ease-in-out infinite;
+            }
+            .ome-confirm-delete-btn.yes svg {
+                stroke: #ff6b6b;
+            }
+            .ome-confirm-delete-btn.yes:hover {
+                background: rgba(255, 80, 80, 0.4);
+                box-shadow: 0 0 10px rgba(255, 100, 100, 0.5);
+            }
+            .ome-confirm-delete-btn.no {
+                background: rgba(var(--theme-color, 126,200,227), 0.15);
+                border-color: rgba(var(--theme-color, 126,200,227), 0.4);
+            }
+            .ome-confirm-delete-btn.no svg {
+                stroke: rgba(var(--theme-color, 126,200,227), 0.9);
+            }
+            .ome-confirm-delete-btn.no:hover {
+                background: rgba(var(--theme-color, 126,200,227), 0.3);
+                box-shadow: 0 0 10px rgba(var(--theme-color, 126,200,227), 0.4);
+            }
+            @keyframes pulse-red {
+                0%, 100% { box-shadow: 0 0 6px rgba(255, 100, 100, 0.3); }
+                50% { box-shadow: 0 0 12px rgba(255, 100, 100, 0.6); }
             }
 
             /* 📚 Dropdown menu (legacy - keeping for reference) */
@@ -2416,7 +2459,10 @@
                     <div class="ome-chat-input-wrapper">
                         <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
                     </div>
-                    <button class="ome-chat-send">
+                    <button class="ome-chat-clear" title="Clear prompt">
+                        <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                    </button>
+                    <button class="ome-chat-send" title="Send message">
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
                 </div>
@@ -2583,6 +2629,7 @@
             // 💬 Chat input setup (textarea with auto-resize)
             const chatInput = chatPanel.querySelector('.ome-chat-input');
             const chatSendBtn = chatPanel.querySelector('.ome-chat-send');
+            const chatClearBtn = chatPanel.querySelector('.ome-chat-clear');
 
             // 📐 Auto-resize textarea as user types (expands up to 400px)
             function autoResizeOrbInput() {
@@ -2733,7 +2780,10 @@
                     <div class="ome-chat-input-wrapper">
                         <textarea class="ome-chat-input" placeholder="Ask anything..." rows="1"></textarea>
                     </div>
-                    <button class="ome-chat-send">
+                    <button class="ome-chat-clear" title="Clear prompt">
+                        <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                    </button>
+                    <button class="ome-chat-send" title="Send message">
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
                 </div>
@@ -4486,13 +4536,85 @@
     }
 
     /**
-     * 📚 Delete a chat
+     * 📚 Show confirm delete popup on chat item
+     * @param {HTMLElement} chatItem - The chat item element
      * @param {string} chatId - The chat ID to delete
-     * @param {string} title - Chat title for confirmation
+     * @param {string} title - Chat title for display
+     */
+    function showDeleteConfirm(chatItem, chatId, title) {
+        // Guard: if this item already has confirm buttons, don't add more
+        if (chatItem.querySelector('.ome-confirm-delete')) return;
+
+        // Remove any existing confirm popups from OTHER items (and restore their pens)
+        document.querySelectorAll('.ome-confirm-delete').forEach(el => {
+            const otherItem = el.closest('.ome-sidebar-chat');
+            if (otherItem) {
+                const otherPen = otherItem.querySelector('.ome-action-rename');
+                if (otherPen) otherPen.style.display = '';
+            }
+            el.remove();
+        });
+
+        // Hide just the pen (keep trash visible)
+        const penBtn = chatItem.querySelector('.ome-action-rename');
+        if (penBtn) penBtn.style.display = 'none';
+
+        // Create confirm buttons (tick + X) - insert before the trash
+        const popup = document.createElement('div');
+        popup.className = 'ome-confirm-delete';
+        popup.innerHTML = `
+            <button class="ome-confirm-delete-btn yes" title="Confirm delete">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button class="ome-confirm-delete-btn no" title="Cancel">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        `;
+
+        // Restore on dismiss
+        const restore = () => {
+            popup.remove();
+            if (penBtn) penBtn.style.display = '';
+            document.removeEventListener('click', clickOutside);
+        };
+
+        // Tick - confirm delete
+        popup.querySelector('.yes').addEventListener('click', (e) => {
+            e.stopPropagation();
+            restore();
+            deleteChat(chatId, title);
+        });
+
+        // X - cancel
+        popup.querySelector('.no').addEventListener('click', (e) => {
+            e.stopPropagation();
+            restore();
+        });
+
+        // Click outside to dismiss
+        const clickOutside = (e) => {
+            if (!popup.contains(e.target)) {
+                restore();
+            }
+        };
+        setTimeout(() => document.addEventListener('click', clickOutside), 10);
+
+        // Insert into actions div (before trash)
+        const actionsDiv = chatItem.querySelector('.ome-sidebar-chat-actions');
+        const trashBtn = chatItem.querySelector('.ome-action-delete');
+        if (actionsDiv && trashBtn) {
+            actionsDiv.insertBefore(popup, trashBtn);
+        } else {
+            chatItem.appendChild(popup);
+        }
+    }
+
+    /**
+     * 📚 Delete a chat (called after confirmation)
+     * @param {string} chatId - The chat ID to delete
+     * @param {string} title - Chat title for logging
      */
     function deleteChat(chatId, title) {
-        if (!confirm(`Delete "${title}"?\n\nThis cannot be undone.`)) return;
-
         console.log('[Content] 📚 Deleting chat:', chatId);
 
         chrome.runtime.sendMessage(
