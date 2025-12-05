@@ -170,24 +170,26 @@
         const viewportHeight = window.innerHeight;
         const margin = 10; // 10px from all edges
 
-        // Orb dimensions and control offsets
-        const orbRect = orb.getBoundingClientRect();
+        // Fixed minimum right position in pixels (same pattern as HUD view)
+        // Controls at right: -54px from orb, plus 10px gap + 8px for button outer ring = 72px
+        const minRightPx = 72;
 
-        // Control offsets from orb
-        const scrollButtonsRight = 90;  // Scroll buttons extend ~90px right of orb left edge (54px + 36px button)
+        // Orb dimensions
+        const orbRect = orb.getBoundingClientRect();
         const zoomControlsBelow = 50;   // Zoom controls extend ~50px below orb
         const promptButtonBelow = 25;   // Prompt button extends ~25px below orb
 
-        // Calculate orb's total footprint (orb + all visible controls)
-        const footprintRight = orbRect.left + scrollButtonsRight;  // Right edge of scroll buttons
+        // Calculate orb's total footprint
         const footprintBottom = orbRect.bottom + Math.max(zoomControlsBelow, promptButtonBelow);
         const footprintLeft = orbRect.left;
         const footprintTop = orbRect.top;
 
         // Current position as percentages (calculate from actual position, not style)
-        let rightPct = ((viewportWidth - orbRect.right) / viewportWidth) * 100;
+        let rightPx = viewportWidth - orbRect.right;  // Current right position in pixels
+        const originalRightPx = rightPx;  // Track original to detect actual horizontal changes
+        let rightPct = (rightPx / viewportWidth) * 100;
         let bottomPct = ((viewportHeight - orbRect.bottom) / viewportHeight) * 100;
-        let positionChanged = false;
+        const originalBottomPct = bottomPct;  // Track original to detect actual vertical changes
 
         // ============================================================
         // CHAT PANEL OPEN: Handle panel + orb together
@@ -195,13 +197,17 @@
         if (hudState.chatVisible && chatPanel) {
             const panelRect = chatPanel.getBoundingClientRect();
             const panelRightOffset = 85;  // Panel is 85px left of orb
-            const minPanelWidth = 300;
+            const minPanelWidth = 220;
             let currentPanelWidth = panelRect.width || 750;
 
-            // Check LEFT edge overflow (panel extends past left margin)
-            const panelLeftEdge = panelRect.left;
-            if (panelLeftEdge < margin) {
-                const leftOverflow = margin - panelLeftEdge;
+            // Calculate theoretical panel position (not clipped by viewport)
+            // Panel right edge is positioned relative to orb's left edge
+            const panelTheoreticalRight = orbRect.left - panelRightOffset;
+            const panelTheoreticalLeft = panelTheoreticalRight - currentPanelWidth;
+
+            // Check LEFT edge overflow using theoretical position
+            if (panelTheoreticalLeft < margin) {
+                const leftOverflow = margin - panelTheoreticalLeft;
 
                 // Strategy 1: Shrink panel first (preferred)
                 if (currentPanelWidth - leftOverflow >= minPanelWidth) {
@@ -215,25 +221,30 @@
                         currentPanelWidth = minPanelWidth;
                         chatPanel.style.width = `${minPanelWidth}px`;
                     }
-                    const remainingOverflow = leftOverflow - shrinkAmount;
+                    const remainingOverflow = leftOverflow - Math.max(0, shrinkAmount);
                     if (remainingOverflow > 0) {
-                        // Move orb right
-                        const rightPx = (rightPct / 100) * viewportWidth;
-                        const newRightPx = Math.max(scrollButtonsRight + margin, rightPx - remainingOverflow);
-                        rightPct = (newRightPx / viewportWidth) * 100;
-                        positionChanged = true;
-                        console.log('[Content] 📐 Moved orb right to:', rightPct.toFixed(1) + '%');
+                        // Move orb right - decrease rightPx to shift orb toward right edge
+                        rightPx = Math.max(minRightPx, rightPx - remainingOverflow);
+                        rightPct = (rightPx / viewportWidth) * 100;
+                        console.log('[Content] 📐 Moved orb right to:', rightPx + 'px');
                     }
                 }
             }
 
-            // Check RIGHT edge overflow (scroll buttons past right margin)
-            if (footprintRight > viewportWidth - margin) {
-                const rightOverflow = footprintRight - (viewportWidth - margin);
-                const rightPx = (rightPct / 100) * viewportWidth;
-                rightPct = ((rightPx + rightOverflow) / viewportWidth) * 100;
-                positionChanged = true;
-                console.log('[Content] 📐 Moved orb left to:', rightPct.toFixed(1) + '%');
+            // Check RIGHT edge - ensure orb is at least minRightPx from right edge
+            if (rightPx < minRightPx) {
+                rightPx = minRightPx;
+                rightPct = (rightPx / viewportWidth) * 100;
+                console.log('[Content] 📐 Enforced min right distance:', minRightPx + 'px');
+            }
+
+            // Check TOP edge - ensure panel top stays within viewport
+            const panelTop = panelRect.top;
+            if (panelTop < margin) {
+                const topOverflow = margin - panelTop;
+                const bottomPx = (bottomPct / 100) * viewportHeight;
+                bottomPct = ((bottomPx - topOverflow) / viewportHeight) * 100;
+                console.log('[Content] 📐 Moved orb down for panel top:', topOverflow + 'px');
             }
 
             // Update max-width constraint for manual resize
@@ -245,20 +256,17 @@
         // CHAT PANEL CLOSED: Just keep orb within bounds
         // ============================================================
         else {
-            // Check RIGHT edge (scroll buttons)
-            if (footprintRight > viewportWidth - margin) {
-                const rightOverflow = footprintRight - (viewportWidth - margin);
-                const rightPx = (rightPct / 100) * viewportWidth;
-                rightPct = ((rightPx + rightOverflow) / viewportWidth) * 100;
-                positionChanged = true;
+            // Check RIGHT edge - ensure orb is at least minRightPx from right edge (same as HUD view pattern)
+            if (rightPx < minRightPx) {
+                rightPx = minRightPx;
+                rightPct = (rightPx / viewportWidth) * 100;
             }
 
             // Check LEFT edge (orb body)
             if (footprintLeft < margin) {
                 const leftOverflow = margin - footprintLeft;
-                const rightPx = (rightPct / 100) * viewportWidth;
-                rightPct = ((rightPx - leftOverflow) / viewportWidth) * 100;
-                positionChanged = true;
+                rightPx = rightPx - leftOverflow;
+                rightPct = (rightPx / viewportWidth) * 100;
             }
         }
 
@@ -270,7 +278,6 @@
             const bottomOverflow = footprintBottom - (viewportHeight - margin);
             const bottomPx = (bottomPct / 100) * viewportHeight;
             bottomPct = ((bottomPx + bottomOverflow) / viewportHeight) * 100;
-            positionChanged = true;
         }
 
         // Check TOP edge (orb body)
@@ -278,21 +285,39 @@
             const topOverflow = margin - footprintTop;
             const bottomPx = (bottomPct / 100) * viewportHeight;
             bottomPct = ((bottomPx - topOverflow) / viewportHeight) * 100;
-            positionChanged = true;
         }
 
-        // Apply position changes
-        if (positionChanged) {
-            // Clamp to sane bounds
-            rightPct = Math.max(1, Math.min(95, rightPct));
+        // Determine what actually changed (separate horizontal from vertical)
+        const horizontalChanged = Math.abs(rightPx - originalRightPx) > 1;
+        const verticalChanged = Math.abs(bottomPct - originalBottomPct) > 0.1;
+
+        // Apply position changes only if something actually changed
+        if (horizontalChanged || verticalChanged) {
+            // Clamp values to sane bounds
+            const minRightPct = (minRightPx / viewportWidth) * 100;
+            rightPct = Math.max(minRightPct, Math.min(95, rightPct));
             bottomPct = Math.max(1, Math.min(90, bottomPct));
 
             orb.style.left = 'auto';
             orb.style.top = 'auto';
-            orb.style.right = `${rightPct}%`;
-            orb.style.bottom = `${bottomPct}%`;
-            console.log('[Content] 📐 Adjusted orb position:', { right: rightPct.toFixed(1) + '%', bottom: bottomPct.toFixed(1) + '%' });
-            saveOrbPosition(rightPct, bottomPct);
+
+            // Only update the axis that actually changed (prevents drift)
+            if (horizontalChanged) {
+                orb.style.right = `${rightPct}%`;
+            }
+            if (verticalChanged) {
+                orb.style.bottom = `${bottomPct}%`;
+            }
+
+            console.log('[Content] 📐 Adjusted orb position:', {
+                right: horizontalChanged ? rightPct.toFixed(1) + '%' : '(unchanged)',
+                bottom: verticalChanged ? bottomPct.toFixed(1) + '%' : '(unchanged)'
+            });
+
+            // Only save if position actually changed
+            if (horizontalChanged || verticalChanged) {
+                saveOrbPosition(rightPct, bottomPct);
+            }
         }
     }
 
@@ -836,12 +861,12 @@
             .ome-hud-input-area {
                 position: absolute;
                 left: 80px;   /* space for sidebar trigger */
-                right: 45px;  /* accounts for ORB button width (~35px) + 10px gap from window edge */
+                right: 18px;  /* 10px visual gap + 8px for ORB button outer ring */
                 bottom: 20px;
                 display: flex;
                 justify-content: flex-end;  /* push controls to right edge */
                 align-items: flex-end;
-                gap: 24px;
+                gap: 4px;     /* tight spacing to maximize prompt space */
                 z-index: 2;
                 transition: left 0.25s ease;
             }

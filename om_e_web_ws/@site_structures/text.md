@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 10:29:49
+**Timestamp:** 2025-12-05 11:06:19
 
-**Tabs (1):** Active: #1138031358 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138031412 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -86,129 +86,126 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">December’s supermoon peaks this week. Here’s what to know
-Keep your eyes high in the sky this week to see the last supermoon of the year. December's full supermoon, also called the cold moon, will be at its fullest...
-CNN
+<Link id="a_id_17">OpenAI’s GPT-5.1-Codex-Max is now in public preview for GitHub Copilot
+GPT-5.1-Codex-Max is now rolling out in public preview in GitHub Copilot. Availability in GitHub Copilot. OpenAI's GPT-5.1-Codex-Max will be available to...
+The GitHub Blog
+·
+7h</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">NASA Completes Nancy Grace Roman Space Telescope Construction
+NASA's next big eye on the cosmos is now fully assembled. On Nov. 25, technicians joined the inner and outer portions of the Nancy Grace Roman Space...
+NASA (.gov)
+·
+9h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Morning Wrap: ASX 200 to edge higher, S&P 500 flat, RBA now priced to hike in 2026
+ASX 200 futures are up 10pts (+0.11%) as of 8:30 am AEDT.
+Market Index
+·
+2h</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Volcanic eruption triggered 'butterfly effect' that led to the Black Death, researchers find
+A volcanic eruption in 1345 may have kicked off a series of events that led to the Black Death sweeping through medieval Europe.
+Live Science
+·
+8h</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Australia must make the most of the US’s critical-minerals pivot
+The signals from Washington on critical minerals are no longer ambiguous; they are decisive, strategic and aligned with Australia's long-term interests.
+The Strategist | ASPI's analysis and commentary site
 ·
 1d</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">The AI boom is heralding a new gold rush in the American west
-Once home to gold and prospectors, the Nevada desert is now the site of a new kind of expansion: tech datacenters.
-The Guardian
-·
-3h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Leah Weckert puts Coles ahead of Woolies for first time in decades
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Leah Weckert puts Coles ahead of Woolies for first time in decades
 The retailer's first female boss, a former McKinsey strategist and loyalty executive, has cracked the grocery code, outpacing Woolworths' sales two years...
 AFR
 ·
 1d</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">2026 Mazda CX-60 G40e Pure review
-Mazda has updated the CX-60 with lower prices – including this new base grade – and a revised driving experience. Is it finally fixed?
-Drive
-·
-2d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
-The resident has to cough up the fine and also pay for the council's legal fees.
-Yahoo News Australia
-·
-2d</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">How Australia's world-leading social media ban will be enforced
-Later this month, Australia will implement a world-first ban on social media for children, barring anyone a...
-9News.com.au
-·
-1d</Link>
 <Button id="a_id_28">More options</Button>
-<Link id="a_id_29">6:59
-15 Year-Old Just Finished his PhD in Quantum Physics. I had a look at his thesis.
-Go to https://melscience.com/sBgA/ and use code SABINE70 to get 70% off your first month until December 17th. A 15-year-old Belgian boy just finished his...
-Sabine Hossenfelder
-YouTube
-·
-1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Supercars facing ‘huge challenge’ at US wind tunnel test
+<Link id="a_id_29">Supercars facing ‘huge challenge’ at US wind tunnel test
 A 30-strong contingent including Supercars staff and team personnel have jetted to the United States for critical wind tunnel testing ahead of the 2026...
 Speedcafe.com
 ·
 1d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">New strategic plan charts the next decade for Outback South Australia
-The plan outlines a coordinated vision for arts, culture, heritage, innovation, services, and community wellbeing.
-Glam Adelaide
-·
-3h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Own CBA shares? Here are the dividend dates for 2026
-Commonwealth Bank of Australia shares have dropped 0.74% this year after peaking in June at $192, while other major banks have hit record highs.
-The Motley Fool Australia
-·
-20h</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">2:43
-Customers paying for caravans hours before company collapses | 7NEWS
-Subscribe and set » https://7news.link/YTSubscribe | For the latest Australian news and breaking news alerts, connect with 7NEWS online: Visit...
-7NEWS Australia
-YouTube
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">2026 Mazda CX-60 G40e Pure review
+Mazda has updated the CX-60 with lower prices – including this new base grade – and a revised driving experience. Is it finally fixed?
+Drive
 ·
 2d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Work starts on giant Tomago battery as Bowen confirms CEFC and Snowy Hydro in talks to save troubled smelter
-Federal energy minister confirms talks to keep Australia's biggest aluminium smelter afloat with supply of firmed renewables, potentially backed by Snowy...
-Renew Economy
-·
-1d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Kim Jong Un's Su-25 fighters have a new weapon, and it looks a lot like a Western cruise missile with a 300-mile range
-Pyongyang paraded a new air-launched weapon that shares visual features similar to the Taurus, a cruise missile used by Seoul with a 300-mile range.
-Business Insider
-·
-1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">VIDEO: A declining birth rate will be costly in the long run, says Peter Costello
-Australia's fertility rate is at a record low. Former Treasurer and architect behind the baby bonus, Peter Costello wants the government to address the...
-ABC News
-·
-1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">10 unexpected collabs that take luxury watches to a new level
-From Lenny Kravitz and Michael Jordan to Astro Boy and Datsun, these match-ups are taking brands out of their usual comfort zone.
-AFR
-·
-1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Google’s AI model is getting really good at spoofing phone photos
-Nano Banana Pro mimics the look and feel of iPhone photos and adds watermarks without being prompted for an extra dose of realism.
-The Verge
-·
-5h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Black Death's Carnage Traced to a Volcanic Eruption Half a World Away
-A major volcanic cataclysm may have been ultimately responsible for the spread of the Black Death across Europe in the 1340s.
-ScienceAlert
-·
-7h</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Household spending splurge rings RBA alarm bell
-Wednesday's Q3 national accounts release from the Australian Bureau of Statistics (ABS) reported fairly modest real per capita household consumption growth...
-MacroBusiness
-·
-22h</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Iconic Adelaide garden bar Roxie’s to reopen alongside popular West End pub
-Roxies is set for a summer comeback as the much-loved garden bar takes up residence in Adelaide's West End.
-Glam Adelaide
-·
-1d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Fishers say WA ban will bring an end to 'decent fish and chips'
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Fishers say WA ban will bring an end to 'decent fish and chips'
 New fishing rules come into effect in Western Australia next month, significantly reducing the amount of local fish available in the state.
 ABC News
 ·
 2h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">New strategic plan charts the next decade for Outback South Australia
+The plan outlines a coordinated vision for arts, culture, heritage, innovation, services, and community wellbeing.
+Glam Adelaide
+·
+4h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">8:49
+Sydney to swelter through heatwave conditions; Adelaide police manhunt | 9 News Australia
+9 News Australia
+YouTube
+·
+5h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">VIDEO: A declining birth rate will be costly in the long run, says Peter Costello
+Australia's fertility rate is at a record low. Former Treasurer and architect behind the baby bonus, Peter Costello wants the government to address the...
+ABC News
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
+The resident has to cough up the fine and also pay for the council's legal fees.
+Yahoo News Australia
+·
+2d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">macOS Tahoe 26.2 RC rolling out to developers and public beta
+macOS developers can now install macOS Tahoe 26.2 beta 4, ahead of the official release in the coming weeks. Here's what to expect.
+9to5Mac
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Google’s AI Nano Banana Pro accused of generating racialised ‘white saviour’ visuals
+Research finds tool depicts white women surrounded by black children when prompted about humanitarian aid in Africa.
+The Guardian
+·
+4h</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">WiseTech dismisses customer concerns over price increases
+WiseTech Global chief executive Zubin Appoo has dismissed customer criticism of the company's new billing model, while working behind the scenes to explain...
+AFR
+·
+1d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Global drug syndicate leader sentenced after 'unusual' deal struck
+An international drug kingpin once described as "Asia's El Chapo" is sentenced after an "unusual" deal between a former Australian attorney-general and...
+ABC News
+·
+22h</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Building boom: 15 developers transforming Adelaide
+From high rise apartment and student accommodation towers in the city and suburbs to high end hotels and hospitals, Adelaide is undergoing a record boom in...
+The Advertiser
+·
+6h</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Ranger Super Duty won’t end F-150, yet
+Ford said its massive investment to beef-up the Ranger into the Super Duty won't be the death knell...
+Blue Mountains Gazette
+·
+4d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Macquarie raises target price on APA Group shares following joint-venture announcement
+APA Group shares have jumped 30% higher this year.
+The Motley Fool Australia
+·
+1d</Link>
 <Button id="a_id_56">More options</Button>
 Australia
 <Link id="a_id_57">Advertising</Link>
