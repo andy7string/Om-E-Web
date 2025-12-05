@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 11:06:19
+**Timestamp:** 2025-12-05 11:10:26
 
-**Tabs (1):** Active: #1138031412 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138031417 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -86,72 +86,72 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">OpenAI’s GPT-5.1-Codex-Max is now in public preview for GitHub Copilot
-GPT-5.1-Codex-Max is now rolling out in public preview in GitHub Copilot. Availability in GitHub Copilot. OpenAI's GPT-5.1-Codex-Max will be available to...
-The GitHub Blog
-·
-7h</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">NASA Completes Nancy Grace Roman Space Telescope Construction
-NASA's next big eye on the cosmos is now fully assembled. On Nov. 25, technicians joined the inner and outer portions of the Nancy Grace Roman Space...
-NASA (.gov)
-·
-9h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Morning Wrap: ASX 200 to edge higher, S&P 500 flat, RBA now priced to hike in 2026
-ASX 200 futures are up 10pts (+0.11%) as of 8:30 am AEDT.
-Market Index
+<Link id="a_id_17">Cadillac Lyriq deals: Luxury electric SUV slides under $100,000
+The Cadillac Lyriq electric SUV is being offered with discounts as big as $25173 until the end of February.
+CarExpert
 ·
 2h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Volcanic eruption triggered 'butterfly effect' that led to the Black Death, researchers find
-A volcanic eruption in 1345 may have kicked off a series of events that led to the Black Death sweeping through medieval Europe.
-Live Science
-·
-8h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Australia must make the most of the US’s critical-minerals pivot
-The signals from Washington on critical minerals are no longer ambiguous; they are decisive, strategic and aligned with Australia's long-term interests.
-The Strategist | ASPI's analysis and commentary site
-·
-1d</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Leah Weckert puts Coles ahead of Woolies for first time in decades
-The retailer's first female boss, a former McKinsey strategist and loyalty executive, has cracked the grocery code, outpacing Woolworths' sales two years...
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Happy birthday, ChatGPT. Thanks for nothing (yet)
+AI has transformed capital markets and the way we think about work, but this is still a tech revolution built on anticipation, rather than reality.
 AFR
 ·
-1d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Supercars facing ‘huge challenge’ at US wind tunnel test
+1h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Supercars facing ‘huge challenge’ at US wind tunnel test
 A 30-strong contingent including Supercars staff and team personnel have jetted to the United States for critical wind tunnel testing ahead of the 2026...
 Speedcafe.com
 ·
 1d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Leah Weckert puts Coles ahead of Woolies for first time in decades
+The retailer's first female boss, a former McKinsey strategist and loyalty executive, has cracked the grocery code, outpacing Woolworths' sales two years...
+AFR
+·
+1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Interstellar comet updates ☄️ On Nov. 30, the @NASAHubble space telescope captured a new look at comet 3I/ATLAS: http://go.nasa.gov/3MlLfbB Our #MissionToPsyche asteroid explorer also joined the effort to track the comet’s path: go.nasa.gov/3Y8yB2h
+NASASolarSystem
+X
+·
+1h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">OpenAI’s GPT-5.1-Codex-Max is now in public preview for GitHub Copilot
+GPT-5.1-Codex-Max is now rolling out in public preview in GitHub Copilot. Availability in GitHub Copilot. OpenAI's GPT-5.1-Codex-Max will be available to...
+The GitHub Blog
+·
+7h</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Westpac customer calls out bank saying he had to 'beg' for $25,000 cash withdrawal: 'Felt like a criminal'
+Andrew Fam says he was 'interrogated' when trying to withdraw cash at the bank.
+Yahoo Finance Australia
+·
+5h</Link>
 <Button id="a_id_30">More options</Button>
-<Link id="a_id_31">2026 Mazda CX-60 G40e Pure review
-Mazda has updated the CX-60 with lower prices – including this new base grade – and a revised driving experience. Is it finally fixed?
-Drive
+<Link id="a_id_31">James Cameron’s Next Movie May Not Be Avatar 4 but a Sci-Fi Reboot
+Whispers of James Cameron's next move are beginning to surface, hinting at a return to one of his earliest cinematic worlds. While Avatar: Fire and Ash...
+ComingSoon.net
+·
+1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
+The resident has to cough up the fine and also pay for the council's legal fees.
+Yahoo News Australia
 ·
 2d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Fishers say WA ban will bring an end to 'decent fish and chips'
-New fishing rules come into effect in Western Australia next month, significantly reducing the amount of local fish available in the state.
-ABC News
-·
-2h</Link>
 <Button id="a_id_34">More options</Button>
-<Link id="a_id_35">New strategic plan charts the next decade for Outback South Australia
-The plan outlines a coordinated vision for arts, culture, heritage, innovation, services, and community wellbeing.
-Glam Adelaide
-·
-4h</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">8:49
+<Link id="a_id_35">8:49
 Sydney to swelter through heatwave conditions; Adelaide police manhunt | 9 News Australia
 9 News Australia
 YouTube
 ·
 5h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">2026 Mahindra Scorpio price and specs: Off-road SUV gets major safety upgrade
+The Mahindra Scorpio is more expensive for 2026, but the seven-seat SUV has gained a swag of extra equipment including key safety tech.
+CarExpert
+·
+20h</Link>
 <Button id="a_id_38">More options</Button>
 <Link id="a_id_39">VIDEO: A declining birth rate will be costly in the long run, says Peter Costello
 Australia's fertility rate is at a record low. Former Treasurer and architect behind the baby bonus, Peter Costello wants the government to address the...
@@ -159,53 +159,53 @@ ABC News
 ·
 1d</Link>
 <Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Homeowner fined $17,000 for destructive backyard act as Aussie mayor sends 'clear message' to residents
-The resident has to cough up the fine and also pay for the council's legal fees.
-Yahoo News Australia
+<Link id="a_id_41">'Disappointing': YouTube finally agrees to adhere to new laws ahead of Australia's social media ban
+YouTube has confirmed it will adhere to Australia's upcoming social media ban and remove the accounts of Au...
+9News.com.au
 ·
 2d</Link>
 <Button id="a_id_42">More options</Button>
-<Link id="a_id_43">macOS Tahoe 26.2 RC rolling out to developers and public beta
-macOS developers can now install macOS Tahoe 26.2 beta 4, ahead of the official release in the coming weeks. Here's what to expect.
-9to5Mac
+<Link id="a_id_43">Eurovision heavyweights to boycott after Israel allowed to perform
+The Eurovision Song Contest faces the prospect of mass withdrawals after organisers opt not to vote on Israel's future participation, allowing it to take...
+ABC News
 ·
-1d</Link>
+6h</Link>
 <Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Google’s AI Nano Banana Pro accused of generating racialised ‘white saviour’ visuals
-Research finds tool depicts white women surrounded by black children when prompted about humanitarian aid in Africa.
-The Guardian
+<Link id="a_id_45">New strategic plan charts the next decade for Outback South Australia
+The plan outlines a coordinated vision for arts, culture, heritage, innovation, services, and community wellbeing.
+Glam Adelaide
 ·
 4h</Link>
 <Button id="a_id_46">More options</Button>
-<Link id="a_id_47">WiseTech dismisses customer concerns over price increases
-WiseTech Global chief executive Zubin Appoo has dismissed customer criticism of the company's new billing model, while working behind the scenes to explain...
-AFR
-·
-1d</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Global drug syndicate leader sentenced after 'unusual' deal struck
-An international drug kingpin once described as "Asia's El Chapo" is sentenced after an "unusual" deal between a former Australian attorney-general and...
+<Link id="a_id_47">Fishers say WA ban will bring an end to 'decent fish and chips'
+New fishing rules come into effect in Western Australia next month, significantly reducing the amount of local fish available in the state.
 ABC News
 ·
-22h</Link>
+3h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Budget airlines plan Ukraine return
+Ryanair, Wizz Air and easyJet predict a boom in travel including 'catastrophe tourism' once a peace deal is signed.
+Financial Times
+·
+19h</Link>
 <Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Building boom: 15 developers transforming Adelaide
-From high rise apartment and student accommodation towers in the city and suburbs to high end hotels and hospitals, Adelaide is undergoing a record boom in...
-The Advertiser
+<Link id="a_id_51">Household spending splurge rings RBA alarm bell
+Wednesday's Q3 national accounts release from the Australian Bureau of Statistics (ABS) reported fairly modest real per capita household consumption growth...
+MacroBusiness
 ·
-6h</Link>
+23h</Link>
 <Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Ranger Super Duty won’t end F-150, yet
-Ford said its massive investment to beef-up the Ranger into the Super Duty won't be the death knell...
-Blue Mountains Gazette
-·
-4d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Macquarie raises target price on APA Group shares following joint-venture announcement
+<Link id="a_id_53">Macquarie raises target price on APA Group shares following joint-venture announcement
 APA Group shares have jumped 30% higher this year.
 The Motley Fool Australia
 ·
 1d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">The Apple Watch SE 3 is still at its Cyber Monday low
+The Apple Watch SE 3 was one of the best smartwatches we tested in 2025, and you can still pick up the 40mm GPS model for its Cyber Monday price of $199...
+The Verge
+·
+9h</Link>
 <Button id="a_id_56">More options</Button>
 Australia
 <Link id="a_id_57">Advertising</Link>

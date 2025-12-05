@@ -198,7 +198,9 @@
             const panelRect = chatPanel.getBoundingClientRect();
             const panelRightOffset = 85;  // Panel is 85px left of orb
             const minPanelWidth = 220;
+            const minPanelHeight = 150;   // Minimum panel height before it can't shrink more
             let currentPanelWidth = panelRect.width || 750;
+            let currentPanelHeight = panelRect.height || 400;
 
             // Calculate theoretical panel position (not clipped by viewport)
             // Panel right edge is positioned relative to orb's left edge
@@ -213,7 +215,7 @@
                 if (currentPanelWidth - leftOverflow >= minPanelWidth) {
                     currentPanelWidth -= leftOverflow;
                     chatPanel.style.width = `${currentPanelWidth}px`;
-                    console.log('[Content] 📐 Shrunk panel to:', currentPanelWidth);
+                    console.log('[Content] 📐 Shrunk panel width to:', currentPanelWidth);
                 } else {
                     // Strategy 2: Shrink to min, then move orb right
                     const shrinkAmount = currentPanelWidth - minPanelWidth;
@@ -239,12 +241,38 @@
             }
 
             // Check TOP edge - ensure panel top stays within viewport
+            // Strategy: First move orb down, then shrink panel height if orb can't move more
             const panelTop = panelRect.top;
             if (panelTop < margin) {
                 const topOverflow = margin - panelTop;
-                const bottomPx = (bottomPct / 100) * viewportHeight;
-                bottomPct = ((bottomPx - topOverflow) / viewportHeight) * 100;
-                console.log('[Content] 📐 Moved orb down for panel top:', topOverflow + 'px');
+
+                // Calculate how much room orb has to move down (before hitting bottom constraint)
+                const currentBottomPx = (bottomPct / 100) * viewportHeight;
+                const roomToMoveDown = Math.max(0, currentBottomPx - (margin + 10)); // Keep some margin from bottom
+
+                // Strategy 1: Move orb down first (preferred)
+                if (roomToMoveDown >= topOverflow) {
+                    // Enough room - just move orb down
+                    bottomPct = ((currentBottomPx - topOverflow) / viewportHeight) * 100;
+                    console.log('[Content] 📐 Moved orb down for panel top:', topOverflow + 'px');
+                } else {
+                    // Strategy 2: Move orb down as much as possible, then shrink panel height
+                    if (roomToMoveDown > 0) {
+                        bottomPct = ((currentBottomPx - roomToMoveDown) / viewportHeight) * 100;
+                        console.log('[Content] 📐 Moved orb down max:', roomToMoveDown + 'px');
+                    }
+                    const remainingOverflow = topOverflow - roomToMoveDown;
+                    if (remainingOverflow > 0 && currentPanelHeight - remainingOverflow >= minPanelHeight) {
+                        // Shrink panel height
+                        currentPanelHeight -= remainingOverflow;
+                        chatPanel.style.height = `${currentPanelHeight}px`;
+                        console.log('[Content] 📐 Shrunk panel height to:', currentPanelHeight);
+                    } else if (remainingOverflow > 0) {
+                        // Shrink to minimum height
+                        chatPanel.style.height = `${minPanelHeight}px`;
+                        console.log('[Content] 📐 Panel at min height:', minPanelHeight);
+                    }
+                }
             }
 
             // Update max-width constraint for manual resize
