@@ -939,17 +939,15 @@
                 display: none;
             }
 
-            /* 💬 HUD Messages Area - IDENTICAL structure to input-area */
+            /* 💬 HUD Messages Area - scrollable container with scrollbar at far right */
             .ome-hud-messages-area {
                 position: absolute;
                 top: 60px;  /* Below topbar */
                 bottom: 160px;  /* Above input area */
                 left: 80px;   /* SAME as input-area */
-                right: 18px;  /* SAME as input-area */
-                display: flex;
-                justify-content: center;  /* SAME as input-area */
-                gap: 4px;     /* SAME as input-area */
-                overflow: hidden;
+                right: 10px;  /* Extended to edge for scrollbar */
+                overflow-y: auto;
+                overflow-x: hidden;
                 overscroll-behavior: contain;
                 transition: opacity 0.2s ease, visibility 0.2s ease, left 0.25s ease;
             }
@@ -963,22 +961,28 @@
                 visibility: hidden;
                 pointer-events: none;
             }
+            .ome-hud-messages-area::-webkit-scrollbar { width: 8px; }
+            .ome-hud-messages-area::-webkit-scrollbar-track { background: transparent; }
+            .ome-hud-messages-area::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+            .ome-hud-messages-area::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
 
-            /* 💬 Messages Scroll Container - wraps content + spacer, handles scroll */
+            /* 💬 Messages Flex - centering wrapper inside scroll area */
+            .ome-hud-messages-flex {
+                display: flex;
+                justify-content: center;  /* SAME as input-area */
+                gap: 4px;     /* SAME as input-area */
+                min-height: 100%;
+                padding-right: 8px;  /* Account for extended right edge (18px - 10px) */
+            }
+
+            /* 💬 Messages Scroll Container - matches prompt-wrapper width */
             .ome-hud-messages-scroll {
                 flex: 0 1 800px;  /* SAME as prompt-wrapper */
                 min-width: 240px; /* SAME as prompt-wrapper */
-                overflow-y: auto;
-                overflow-x: hidden;
-                overscroll-behavior: contain;
                 display: flex;
                 flex-direction: column;
                 transition: flex-basis 0.25s ease;  /* SAME transition as prompt-wrapper */
             }
-            .ome-hud-messages-scroll::-webkit-scrollbar { width: 8px; }
-            .ome-hud-messages-scroll::-webkit-scrollbar-track { background: transparent; }
-            .ome-hud-messages-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
-            .ome-hud-messages-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
 
             /* 💬 Messages Content - inside scroll container */
             .ome-hud-messages-content {
@@ -2742,13 +2746,15 @@
 
                 <!-- 🎯 Main Area - messages + input -->
                 <div class="ome-hud-main">
-                    <!-- 💬 Messages Area - IDENTICAL structure to input-area -->
+                    <!-- 💬 Messages Area - scrollbar at far right, content centered -->
                     <div class="ome-hud-messages-area">
-                        <div class="ome-hud-messages-scroll">
-                            <div class="ome-hud-messages-content"></div>
+                        <div class="ome-hud-messages-flex">
+                            <div class="ome-hud-messages-scroll">
+                                <div class="ome-hud-messages-content"></div>
+                            </div>
+                            <div class="ome-hud-messages-spacer-orb"></div>
+                            <div class="ome-hud-messages-spacer-scroll"></div>
                         </div>
-                        <div class="ome-hud-messages-spacer-orb"></div>
-                        <div class="ome-hud-messages-spacer-scroll"></div>
                     </div>
 
                     <!-- 🛤️ Rail - vertical track for sliding -->
@@ -3364,8 +3370,8 @@
         // 🙈 Check if prompt should be hidden/shown based on viewport + sidebar state
         checkHudPromptVisibility();
 
-        // Auto-scroll messages scroll container to bottom
-        const hudMessages = hudState.hud.querySelector('.ome-hud-messages-scroll');
+        // Auto-scroll messages area to bottom
+        const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
         if (hudMessages) {
             hudMessages.scrollTop = hudMessages.scrollHeight;
         }
@@ -3657,6 +3663,8 @@
         if (!hudState.hud) initHUD();
         hudState.visible = !hudState.visible;
         hudState.hud.classList.toggle('visible', hudState.visible);
+        // 🔒 Lock page scroll when HUD visible so wheel works for messages/sidebar only
+        document.body.style.overflow = hudState.visible ? 'hidden' : '';
         // Render from shared state when opening HUD
         if (hudState.visible) {
             renderChatMessages();
@@ -4019,7 +4027,7 @@
         // Render to HUD messages area (ChatGPT style)
         if (hudState.hud) {
             const hudMessagesContent = hudState.hud.querySelector('.ome-hud-messages-content');
-            const hudMessagesScroll = hudState.hud.querySelector('.ome-hud-messages-scroll');
+            const hudMessagesArea = hudState.hud.querySelector('.ome-hud-messages-area');
             if (hudMessagesContent) {
                 hudMessagesContent.innerHTML = '';
                 messages.forEach(msg => {
@@ -4028,9 +4036,9 @@
                     renderMessageContent(msgEl, msg);
                     hudMessagesContent.appendChild(msgEl);
                 });
-                // Scroll the scroll container
-                if (hudMessagesScroll) {
-                    hudMessagesScroll.scrollTop = hudMessagesScroll.scrollHeight;
+                // Scroll the messages area (scrollbar at far right)
+                if (hudMessagesArea) {
+                    hudMessagesArea.scrollTop = hudMessagesArea.scrollHeight;
                 }
             }
         }
