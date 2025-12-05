@@ -5,7 +5,7 @@
 
 (() => {
 
-    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string }} */
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string, panelManuallyResized: boolean, panelTargetWidth: number|null }} */
     const hudState = {
         host: null,
         shadow: null,
@@ -17,7 +17,9 @@
         chatVisible: true,    // 💬 Chat panel visibility (open by default)
         sidebarOpen: false,   // 📚 Sidebar open state
         dragging: false,
-        theme: 'robot'        // Current orb theme (default)
+        theme: 'robot',       // Current orb theme (default)
+        panelManuallyResized: false,  // 📐 Track if user has resized panel
+        panelTargetWidth: null        // 📐 Target width to restore on resize (user-set or optimal)
     };
 
     // 💬 Save chat input immediately (persists across navigation)
@@ -31,6 +33,8 @@
 
     // 📐 Save chat panel size (persists across sessions)
     function saveChatPanelSize(width, height) {
+        hudState.panelManuallyResized = true;  // 📐 User resized - skip auto-expand
+        hudState.panelTargetWidth = width;     // 📐 Track user's preferred width
         try {
             chrome.runtime.sendMessage({
                 type: 'set_orb_state',
@@ -135,6 +139,7 @@
 
     /**
      * 📐 Restore chat panel size from saved state
+     * Note: Optimal width calculation is now done in initHUD after position is restored
      * @param {HTMLElement} chatPanel - The chat panel element
      */
     function restoreChatPanelSize(chatPanel) {
@@ -145,13 +150,41 @@
                     if (width && height) {
                         chatPanel.style.width = `${width}px`;
                         chatPanel.style.height = `${height}px`;
+                        hudState.panelManuallyResized = true;  // 📐 Has saved size - skip auto-expand
+                        hudState.panelTargetWidth = width;     // 📐 Track user's preferred width
                         console.log('[Content] 📐 Restored chat panel size:', width, 'x', height);
                     }
                 }
+                // Note: If no saved size, optimal width is calculated in initHUD after orb position is set
             });
         } catch (e) {
             console.warn('[Content] Could not restore chat panel size:', e);
         }
+    }
+
+    /**
+     * 📐 Calculate and set optimal panel width based on available viewport space
+     * Panel extends as far left as possible while respecting min/max constraints
+     * @param {HTMLElement} chatPanel - The chat panel element
+     */
+    function calculateOptimalPanelWidth(chatPanel) {
+        if (!chatPanel || !hudState.orb) return;
+
+        const margin = 10;          // 10px from left edge
+        const panelGap = 85;        // Panel is 85px left of orb right edge
+        const minWidth = 363;       // CSS min-width
+        const maxWidth = 968;       // CSS max-width
+
+        // Get orb position
+        const orbRect = hudState.orb.getBoundingClientRect();
+        // Available width = space from left margin to where panel ends (orb left - gap)
+        const availableWidth = orbRect.left - panelGap - margin;
+
+        // Calculate optimal width: as big as possible within constraints
+        const optimalWidth = Math.max(minWidth, Math.min(maxWidth, availableWidth));
+
+        chatPanel.style.width = `${optimalWidth}px`;
+        console.log('[Content] 📐 Calculated optimal panel width:', optimalWidth, 'px (available:', availableWidth, 'px)');
     }
 
     /**
@@ -352,10 +385,51 @@
     // Alias for backwards compatibility
     const constrainChatPanelToViewport = constrainOrbToViewport;
 
-    // 📐 Window resize listener for chat panel viewport constraints
+    /**
+     * 📐 Try to restore panel width toward target after constraints shrink it
+     * Called after window resize to expand panel back if space is available
+     */
+    function tryRestorePanelWidth() {
+        const chatPanel = hudState.chatPanel;
+        if (!chatPanel || !hudState.orb || !hudState.chatVisible) return;
+
+        const margin = 10;
+        const panelGap = 85;
+        const minWidth = 363;
+        const maxWidth = 968;
+
+        // Get current and available dimensions
+        const orbRect = hudState.orb.getBoundingClientRect();
+        const currentWidth = chatPanel.getBoundingClientRect().width;
+        const availableWidth = orbRect.left - panelGap - margin;
+
+        // Determine target: user-set width, or optimal (max available within constraints)
+        let targetWidth;
+        if (hudState.panelManuallyResized && hudState.panelTargetWidth) {
+            // User has set a preferred width - try to restore to that
+            targetWidth = hudState.panelTargetWidth;
+        } else {
+            // No user preference - target is optimal (as big as possible)
+            targetWidth = Math.min(maxWidth, availableWidth);
+        }
+
+        // Clamp target to valid range
+        targetWidth = Math.max(minWidth, Math.min(maxWidth, targetWidth));
+
+        // Only expand if current is smaller than target AND space allows
+        const expandableTo = Math.min(targetWidth, availableWidth);
+        if (currentWidth < expandableTo) {
+            chatPanel.style.width = `${expandableTo}px`;
+            console.log('[Content] 📐 Restored panel width to:', expandableTo, 'px (target:', targetWidth, 'px)');
+        }
+    }
+
+    // 📐 Window resize listener for orb chat panel viewport constraints
     let resizeTimeout = null;
     window.addEventListener('resize', () => {
-        // Debounce resize events
+        // Immediate: try to restore panel width (smooth, like HUD view)
+        tryRestorePanelWidth();
+        // Debounced: constraint checks (heavier operation)
         if (resizeTimeout) clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             constrainChatPanelToViewport();
@@ -892,7 +966,7 @@
                 right: 18px;  /* 10px visual gap + 8px for ORB button outer ring */
                 bottom: 20px;
                 display: flex;
-                justify-content: flex-end;  /* push controls to right edge */
+                justify-content: center;  /* centre prompt unit when space available */
                 align-items: flex-end;
                 gap: 4px;     /* tight spacing to maximize prompt space */
                 z-index: 2;
@@ -3464,6 +3538,11 @@
                         console.log('[Content] 📚 Restored sidebar state from SW');
                     }
 
+                    // 📐 Calculate optimal panel width AFTER position is restored (if no saved size)
+                    if (!response.chatPanelSize && hudState.chatPanel && !hudState.panelManuallyResized) {
+                        calculateOptimalPanelWidth(hudState.chatPanel);
+                    }
+
                 }
             });
         } catch (e) {
@@ -3501,6 +3580,10 @@
         }
         // Focus input and render from shared state when opening
         if (hudState.chatVisible) {
+            // 📐 Recalculate optimal width if not manually resized (ensures max size for current viewport)
+            if (!hudState.panelManuallyResized) {
+                calculateOptimalPanelWidth(hudState.chatPanel);
+            }
             constrainOrbToViewport(); // Ensure panel + orb fit viewport
             const input = hudState.chatPanel.querySelector('.ome-chat-input');
             if (input) input.focus();
@@ -3601,7 +3684,43 @@
         // 🔄 Sync orb position from another tab
         if (message.type === 'sync_orb_position') {
             console.log('[Content] 🔄 sync_orb_position received:', message.position);
+            // Ensure orb exists before applying position
+            if (!hudState.host) initHUD();
             applyOrbPosition(message.position);
+            sendResponse({ ok: true });
+            return true;
+        }
+
+        // 💬 Sync chat visibility from another tab
+        if (message.type === 'sync_chat_visible') {
+            console.log('[Content] 💬 sync_chat_visible received:', message.chatVisible);
+            // Ensure orb exists before applying
+            if (!hudState.host) initHUD();
+            if (hudState.chatPanel) {
+                hudState.chatVisible = message.chatVisible;
+                hudState.chatPanel.classList.toggle('visible', message.chatVisible);
+                const promptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
+                if (promptBtn) {
+                    promptBtn.classList.toggle('active', message.chatVisible);
+                    promptBtn.textContent = message.chatVisible ? 'HIDE PROMPT' : 'Open Prompt';
+                }
+            }
+            sendResponse({ ok: true });
+            return true;
+        }
+
+        // 📐 Sync chat panel size from another tab
+        if (message.type === 'sync_panel_size') {
+            console.log('[Content] 📐 sync_panel_size received:', message.chatPanelSize);
+            // Ensure orb exists before applying
+            if (!hudState.host) initHUD();
+            if (hudState.chatPanel && message.chatPanelSize) {
+                const { width, height } = message.chatPanelSize;
+                if (width) hudState.chatPanel.style.width = `${width}px`;
+                if (height) hudState.chatPanel.style.height = `${height}px`;
+                hudState.panelManuallyResized = true;
+                hudState.panelTargetWidth = width;
+            }
             sendResponse({ ok: true });
             return true;
         }
