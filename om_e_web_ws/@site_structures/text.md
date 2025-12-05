@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 21:48:41
+**Timestamp:** 2025-12-05 22:25:35
 
-**Tabs (1):** Active: #1138033855 "Google" www.google.com [loading]
+**Tabs (2):** Active: #1138033900 "Google" www.google.com [loading] | Other: #1138033896 "OM-E autonomy - Tiny" chatgpt.com
 
 ## Available Actions
 
@@ -110,140 +110,130 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">“Slim fits in my garage”: Why EV owners are turning to Anker’s new ultra-thin battery
-As EV owners look to charge cheaply from solar, the Anker SOLIX X1 is fast becoming the go-to energy hub for the electric garage. slim, integration-ready,...
-The Driven
-·
-5h</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Kia concedes Tasman ute isn't hitting "ambitious" sales projections
-The new Kia Tasman is well away from achieving its goal of 20000 annual sales, and the brand's executives say they have some work to do.
-CarExpert
-·
-5h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">At home and at school, AI is transforming childhood
-It brings many benefits, but also hidden dangers | Briefing.
-The Economist
-·
-23h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Almost All Space Telescope Images Could Soon Be Contaminated, NASA Warns
-Light from the half a million satellites that humanity is planning to launch into Earth's orbit in the coming years could contaminate almost all the images...
-ScienceAlert
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">WAU Toyota junior lands Porsche seat
-LINCOLN Taylor will swap Toyota single-make racing for Porsche single-make racing in 2026. The 17-year-old represented Walkinshaw Andretti United in the.
-V8 Sleuth
-·
-8h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Iran’s record drought and cheap fuel have sparked an air pollution crisis – but the real causes run much deeper
-Air pollution is the latest environmental crisis causing havoc across Iran. Large parts of the country are already suffering from a drought, one of the...
-The Conversation
-·
-18h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Trump said he’s looking into an Australian-style retirement program for America. Here’s how it works
+<Link id="a_id_17">Trump said he’s looking into an Australian-style retirement program for America. Here’s how it works
 The Trump administration is looking Down Under for inspiration on how to improve the United States' retirement savings system.
 CNN
 ·
 1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Cloudflare outage hits major web services including X, LinkedIn and Zoom – business live
-Cloudflare reports it is investigating issues with Cloudflare Dashboard and related APIs.
-The Guardian
-·
-35m</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">News Corp sells its entire stake in ARN
-News Corp offloaded its entire 13% stake in ARN Media after trading closed on Wednesday night, selling 40.8m shares at 44c each. In a statement published in...
-Mumbrella
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Coles, Woolworths or Aldi: The best Christmas ham revealed
+As Aussie families enjoy Christmas traditions including fruit covered pavlovas or a last-minute dash to the fish markets, many households will be trying to...
+7NEWS
 ·
 1d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">High Court agrees to hear teens' challenge to social media ban
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Google Photos’ 2025 Recap turns to Gemini to find your highlights
+The Google Photos Recap will use Gemini's AI to find your memorable moments throughout the year, and adds new metrics, like a 'selfie' count.
+TechCrunch
+·
+1d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">High Court agrees to hear teens' challenge to social media ban
 The High Court of Australia agrees to hear a special case brought by two teenagers challenging the federal government's upcoming social media ban for...
 Australian Broadcasting Corporation
 ·
 1d</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Beautiful Tencent paper. Shows a language model that keeps improving itself using only 1% to 5% human labeled questions while reaching the level of systems trained on about 20 times more data. Earlier self play systems let a model write and solve its own questions, but over time it drifts, repeats narrow patterns, and can even perform worse. Their method runs a challenger copy that generates questions and a solver copy that answers them, turning training into a question answer game between 2 agents. When the challenger writes, it sometimes sees a few real human question answer pairs, which pull its synthetic questions toward realistic tasks instead of strange, off topic puzzles. For each question, the solver tries several answers, the system estimates its success rate, and training keeps mainly mid difficulty questions where the solver is uncertain but not lost. Because both human and synthetic questions pass this filter, the solver trains on focused, non trivial problems,
-rohanpaul_ai
-X
-·
-20h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">NZ police recover Fabergé egg six days after suspect allegedly swallowed it
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">NZ police recover Fabergé egg six days after suspect allegedly swallowed it
 New Zealand police have retrieved a James Bond-inspired Fabergé pendant after a man was accused of swallowing it in a jewellery store.
 Australian Broadcasting Corporation
 ·
-2h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">All Monopiles In Place at Iberdrola’s New Offshore Wind Farm in Germany
-All 21 monopile foundations at the Windanker offshore wind farm in the German Baltic Sea have been installed, according to a social media update posted by...
-offshoreWIND.biz
-·
-1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">‘Spartacus: House Of Ashur’ Has A Double-Take Rotten Tomatoes Score
-Spartacus is back with House of Ashur, and its Rotten Tomatoes score is not what I would have expected at all.
-Forbes
-·
-1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">What do Russian nationals, analysts make of US-led Ukraine peace talks?
-While some in Russia believe Ukraine is standing in the way of peace, other analysts say Putin has maximalist ambitions.
-Al Jazeera
-·
-20h</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Volcanic activity worldwide 4 Dec 2025: Santiaguito volcano, Fuego, Popocatépetl, Barren Island, So...
+3h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Volcanic activity worldwide 4 Dec 2025: Santiaguito volcano, Fuego, Popocatépetl, Barren Island, So...
 Kusatsu-Shirane (Honshu): The Japan Meteorological Agency (JMA) reported that unrest continued at Kusatsu-Shiranesan between 1 December 2025 (local) and 3...
 Volcano Discovery
 ·
 14h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Most NDIS participants will lose external avenue to appeal funding amounts under new system, Senate estimates told
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Beautiful Tencent paper. Shows a language model that keeps improving itself using only 1% to 5% human labeled questions while reaching the level of systems trained on about 20 times more data. Earlier self play systems let a model write and solve its own questions, but over time it drifts, repeats narrow patterns, and can even perform worse. Their method runs a challenger copy that generates questions and a solver copy that answers them, turning training into a question answer game between 2 agents. When the challenger writes, it sometimes sees a few real human question answer pairs, which pull its synthetic questions toward realistic tasks instead of strange, off topic puzzles. For each question, the solver tries several answers, the system estimates its success rate, and training keeps mainly mid difficulty questions where the solver is uncertain but not lost. Because both human and synthetic questions pass this filter, the solver trains on focused, non trivial problems,
+rohanpaul_ai
+X
+·
+20h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Budget airlines plan Ukraine return
+Ryanair, Wizz Air and easyJet predict a boom in travel including 'catastrophe tourism' once a peace deal is signed.
+Financial Times
+·
+1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">‘Spartacus: House Of Ashur’ Has A Double-Take Rotten Tomatoes Score
+Spartacus is back with House of Ashur, and its Rotten Tomatoes score is not what I would have expected at all.
+Forbes
+·
+1d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Thirsty work: how the rise of massive datacentres strains Australia’s drinking water supply
+The demand for use in cooling in Sydney alone is expected to exceed the volume of Canberra's total drinking water within the next decade.
+The Guardian
+·
+11h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">The tallest mountain in the solar system, Olympus Mons on Mars. It has a height of 25 km, Mount Everest is 'only' 8.8 km tall. NASA
+konstructivizm
+X
+·
+2d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">What to do in SA this weekend
+This weekend, shop 'til you drop at the Meander Market, or test your endurance in the Victor Harbor Half Marathon.
+InDaily
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Most NDIS participants will lose external avenue to appeal funding amounts under new system, Senate estimates told
 Administrative review tribunal no longer authorised to alter a person's plan or reinstate funding, agency confirms.
 The Guardian
 ·
 1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">YouTube debuts new Recap feature. Here’s how to get your 2025 viewing insights
-Video platform has offered a music recap similar to Spotify Wrapped for the past three years. But it's now revamped the feature to include much more.
-The Independent
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">BYD 'Baby Shark' ute spotted in South America
+BYD is, no doubt, hoping for Pinkfong levels of popularity with its new monocoque PHEV ute that will slot in underneath the Shark 6.
+CarExpert
 ·
-1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">LNG giants make last ditch concessions to avert export controls
+16h</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">LNG giants make last ditch concessions to avert export controls
 Santos' GLNG venture has offered to cut purchases of gas from the domestic market and trim shipments as it attempts to head off far more onerous...
 AFR
 ·
 17h</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Adelaide Fringe CEO drops final program before departure
-Outgoing Adelaide Fringe CEO Heather Croall has unveiled next year's program – but who will be running the festival come opening night is still up in the...
-InDaily
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Sad change coming to traditional Aussie fish and chips
+The Cook Government has conceded the price of fish and chips will likely go up, as Opposition MPs warn small businesses will go bust as a result of new bans...
+PerthNow
 ·
-10h</Link>
+1d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">'A lofty white' has been named as colour of the year
+The colour of the year has been decided by the Pantone Colour Institute, which has described it as a "lofty white that serves as a symbol of calming...
+Australian Broadcasting Corporation
+·
+5h</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">‘The dinosaurs didn’t know what was coming, but we do’: Marina Silva on what needs to follow Cop30
+Exclusive: Brazil's environment minister talks about climate inaction and the course we have to plot to save ourselves and the planet.
+The Guardian
+·
+2d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Blue-chip companies used security firm facing massive tax, workplace probes
+MA Services is part of a web of companies subject to separate investigations, including by the Tax Office and liquidators, over suspected involvement in a...
+The Age
+·
+1d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">New Tool Transforms Soil Data Into Visual Insights
+Australia's national science agency, CSIRO, together with its Australian National Soil Information System (ANSIS) partners, has launched a new online tool...
+Mirage News
+·
+1d</Link>
 <Button id="a_id_56">More options</Button>
-At a glance
-<Button id="a_id_57">Customise Homestack</Button>
-<Link id="a_id_58">Air quality
-Good
-AQC</Link>
-<Link id="a_id_59">Woodforde
-Mostly cloudy
-15%
-17°</Link>
-<Link id="a_id_60">XAO • All Ordinaries up 0.22%. Price is 8,926.10 Today</Link>
 Australia
-<Link id="a_id_61">Advertising</Link>
-<Link id="a_id_62">Business</Link>
-<Link id="a_id_63">How Search works</Link>
-<Link id="a_id_64">Privacy</Link>
-<Link id="a_id_65">Terms</Link>
-<Button id="a_id_66">Settings</Button>
+<Link id="a_id_57">Advertising</Link>
+<Link id="a_id_58">Business</Link>
+<Link id="a_id_59">How Search works</Link>
+<Link id="a_id_60">Privacy</Link>
+<Link id="a_id_61">Terms</Link>
+<Button id="a_id_62">Settings</Button>

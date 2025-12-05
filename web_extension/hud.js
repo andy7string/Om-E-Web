@@ -1924,14 +1924,71 @@
                 border-radius: 3px;
             }
 
-            /* 📚 Sidebar Section Label - uses theme color */
+            /* 📚 Sidebar Section Label - collapsible toggle */
             .ome-sidebar-label {
                 padding: 12px 8px 8px;
-                font-size: 11px;
-                font-weight: 600;
-                color: rgba(var(--theme-color, 126,200,227), 0.6);
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
+                font-size: 14px;
+                color: rgba(var(--theme-color, 126,200,227), 0.5);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                user-select: none;
+                transition: color 0.15s;
+            }
+            .ome-sidebar-label:hover {
+                color: rgba(var(--theme-color, 126,200,227), 0.9);
+            }
+            .ome-sidebar-label .arrow {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 14px;
+                height: 14px;
+            }
+            .ome-sidebar-label .arrow svg {
+                width: 14px;
+                height: 14px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: transform 0.4s ease;
+            }
+            .ome-sidebar-label .arrow-left svg {
+                transform: rotate(0deg);
+            }
+            .ome-sidebar-label .arrow-right svg {
+                transform: rotate(180deg);
+            }
+            .ome-sidebar-label.expanded .arrow-left svg {
+                transform: rotate(-450deg);
+            }
+            .ome-sidebar-label.expanded .arrow-right svg {
+                transform: rotate(-270deg);
+            }
+            .ome-sidebar-label .label-text-collapsed,
+            .ome-sidebar-label .label-text-expanded {
+                transition: opacity 0.2s;
+            }
+            .ome-sidebar-label .label-text-expanded {
+                display: none;
+            }
+            .ome-sidebar-label.expanded .label-text-collapsed {
+                display: none;
+            }
+            .ome-sidebar-label.expanded .label-text-expanded {
+                display: inline;
+            }
+            .ome-sidebar-chat-list {
+                overflow: hidden;
+                transition: max-height 0.25s ease;
+                max-height: 1000px;
+            }
+            .ome-sidebar-chat-list.collapsed {
+                max-height: 0;
             }
 
             /* 📚 Chat List Items - uses theme color */
@@ -1968,13 +2025,40 @@
             /* 📚 New Chat link */
             .ome-sidebar-new-chat {
                 padding: 12px 12px 8px;
-                font-size: 13px;
+                font-size: 14px;
                 color: rgba(var(--theme-color, 126,200,227), 0.8);
                 cursor: pointer;
                 transition: color 0.15s;
+                display: flex;
+                align-items: center;
+                gap: 8px;
             }
             .ome-sidebar-new-chat:hover {
                 color: rgba(var(--theme-color, 126,200,227), 1);
+            }
+            .ome-sidebar-new-chat .plus {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 18px;
+                height: 18px;
+            }
+            .ome-sidebar-new-chat .plus svg {
+                width: 18px;
+                height: 18px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 2.5;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: transform 0.1s;
+            }
+            .ome-sidebar-new-chat .plus.spinning svg {
+                animation: spin-plus 0.6s ease-out;
+            }
+            @keyframes spin-plus {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(720deg); }
             }
 
             /* 📚 Chat Item - row in sidebar */
@@ -1992,6 +2076,12 @@
             }
             .ome-sidebar-chat.active {
                 background: rgba(var(--theme-color, 126,200,227), 0.15);
+            }
+            .ome-sidebar-chat.new-chat {
+                opacity: 0.7;
+            }
+            .ome-sidebar-chat.new-chat .ome-sidebar-chat-title {
+                font-style: italic;
             }
             .ome-sidebar-chat-info {
                 flex: 1;
@@ -2847,9 +2937,12 @@
                         </div>
                     </div>
                     <div class="ome-sidebar-content">
-                        <div class="ome-sidebar-new-chat">+ New Chat</div>
-                        <div class="ome-sidebar-label">Your chats</div>
-                        <div class="ome-sidebar-empty">No chats yet</div>
+                        <div class="ome-sidebar-new-chat"><span class="plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>New Chat</div>
+                        <div class="ome-sidebar-new-chat-placeholder"></div>
+                        <div class="ome-sidebar-label expanded"><span class="arrow arrow-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span><span class="label-text-collapsed">Your Chats</span><span class="label-text-expanded">Hide Chats</span><span class="arrow arrow-right"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span></div>
+                        <div class="ome-sidebar-chat-list">
+                            <div class="ome-sidebar-empty">No chats yet</div>
+                        </div>
                     </div>
                     <div class="ome-sidebar-footer">Om-E Web</div>
                 </div>
@@ -2963,7 +3056,25 @@
         // 📚 New Chat link handler
         hud.querySelector('.ome-sidebar-new-chat')?.addEventListener('click', (e) => {
             e.stopPropagation();
+            // Spin the + sign
+            const plus = e.currentTarget.querySelector('.plus');
+            if (plus) {
+                plus.classList.remove('spinning');
+                void plus.offsetWidth; // Force reflow to restart animation
+                plus.classList.add('spinning');
+            }
             startNewChat();
+        });
+
+        // 📚 Your Chats label toggle handler
+        hud.querySelector('.ome-sidebar-label')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const label = e.currentTarget;
+            const chatList = hud.querySelector('.ome-sidebar-chat-list');
+            if (label && chatList) {
+                label.classList.toggle('expanded');
+                chatList.classList.toggle('collapsed');
+            }
         });
 
         // NOTE: Removed backdrop click-to-close - only exit via Exit HUD button or orb click
@@ -3930,21 +4041,25 @@
      * @param {Array} chats - Array of {chat_id, title, date_short, message_count}
      */
     function renderSidebarChats(chats) {
-        const content = hudState.sidebar?.querySelector('.ome-sidebar-content');
-        if (!content) return;
+        const chatList = hudState.sidebar?.querySelector('.ome-sidebar-chat-list');
+        if (!chatList) return;
 
-        // Keep the + New Chat and label, replace everything else
-        const newChatLink = content.querySelector('.ome-sidebar-new-chat');
-        const label = content.querySelector('.ome-sidebar-label');
-        content.innerHTML = '';
-        if (newChatLink) content.appendChild(newChatLink);
-        if (label) content.appendChild(label);
+        // Clear chat list but preserve collapsed state
+        const wasCollapsed = chatList.classList.contains('collapsed');
+        chatList.innerHTML = '';
+        if (wasCollapsed) chatList.classList.add('collapsed');
+
+        // Show new chat placeholder above the chat list if no chat is selected
+        if (!chatState.currentChatId) {
+            showNewChatPlaceholder();
+        }
 
         if (chats.length === 0) {
+            // No saved chats yet
             const empty = document.createElement('div');
             empty.className = 'ome-sidebar-empty';
             empty.textContent = 'No chats yet';
-            content.appendChild(empty);
+            chatList.appendChild(empty);
             return;
         }
 
@@ -4007,7 +4122,7 @@
                 deleteChat(chat.chat_id, chat.title);
             });
 
-            content.appendChild(item);
+            chatList.appendChild(item);
         });
 
         // Close dropdowns when clicking elsewhere
@@ -4050,6 +4165,9 @@
                     id: m.id
                 }));
 
+                // Remove new chat placeholder if present
+                removeNewChatPlaceholder();
+
                 // Mark active chat in sidebar
                 markActiveChatInSidebar(chatId);
 
@@ -4069,6 +4187,7 @@
         // Clear chat state
         chatState.currentChatId = null;
         chatState.messages = [];
+        chatState.pendingTitle = null;
 
         // Clear active chat ID in service worker
         chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: null });
@@ -4078,11 +4197,135 @@
             el.classList.remove('active');
         });
 
+        // Show new chat placeholder in sidebar
+        showNewChatPlaceholder();
+
         // Re-render (clears messages)
         renderChatMessages();
+    }
 
-        // Close sidebar to focus on new chat
-        toggleSidebar(false);
+    /**
+     * 📚 Show a "New Chat" placeholder in the sidebar
+     * Displayed until first message is sent or chat is renamed
+     */
+    function showNewChatPlaceholder() {
+        const placeholderContainer = hudState.sidebar?.querySelector('.ome-sidebar-new-chat-placeholder');
+        if (!placeholderContainer) return;
+
+        // Remove any existing placeholder
+        placeholderContainer.innerHTML = '';
+
+        // Use pending title if set
+        const title = chatState.pendingTitle || 'New Chat';
+
+        // Create placeholder
+        const placeholder = document.createElement('div');
+        placeholder.className = 'ome-sidebar-chat new-chat active';
+        placeholder.innerHTML = `
+            <div class="ome-sidebar-chat-info">
+                <div class="ome-sidebar-chat-title">${escapeHtml(title)}</div>
+                <div class="ome-sidebar-chat-meta">Unsaved</div>
+            </div>
+            <button class="ome-sidebar-chat-menu" title="Options">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </button>
+            <div class="ome-sidebar-dropdown">
+                <div class="ome-sidebar-dropdown-item rename" data-action="rename">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                    Rename
+                </div>
+            </div>
+        `;
+
+        // Three-dot menu button - toggle dropdown
+        const menuBtn = placeholder.querySelector('.ome-sidebar-chat-menu');
+        const dropdown = placeholder.querySelector('.ome-sidebar-dropdown');
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.ome-sidebar-dropdown.open').forEach(d => {
+                if (d !== dropdown) d.classList.remove('open');
+            });
+            dropdown.classList.toggle('open');
+        });
+
+        // Rename action - inline edit for pending title
+        placeholder.querySelector('.ome-sidebar-dropdown-item.rename').addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.remove('open');
+            renameNewChat();
+        });
+
+        // Insert into placeholder container (above Your Chats)
+        placeholderContainer.appendChild(placeholder);
+    }
+
+    /**
+     * 📚 Rename the new chat placeholder (sets pending title)
+     */
+    function renameNewChat() {
+        const placeholder = hudState.sidebar?.querySelector('.ome-sidebar-new-chat-placeholder .ome-sidebar-chat.new-chat');
+        if (!placeholder) return;
+
+        const titleEl = placeholder.querySelector('.ome-sidebar-chat-title');
+        if (!titleEl) return;
+
+        const currentTitle = chatState.pendingTitle || 'New Chat';
+
+        // Make it editable
+        titleEl.contentEditable = 'true';
+        titleEl.classList.add('editing');
+        titleEl.focus();
+
+        // Select all text
+        const range = document.createRange();
+        range.selectNodeContents(titleEl);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+
+        // Save function
+        const saveTitle = () => {
+            const newTitle = titleEl.textContent.trim();
+            titleEl.contentEditable = 'false';
+            titleEl.classList.remove('editing');
+
+            if (newTitle && newTitle !== 'New Chat') {
+                chatState.pendingTitle = newTitle;
+                console.log('[Content] 📚 Pending title set:', newTitle);
+            } else {
+                chatState.pendingTitle = null;
+                titleEl.textContent = 'New Chat';
+            }
+        };
+
+        // Cancel function
+        const cancelEdit = () => {
+            titleEl.contentEditable = 'false';
+            titleEl.classList.remove('editing');
+            titleEl.textContent = currentTitle;
+        };
+
+        // Handle keyboard
+        titleEl.onkeydown = (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                saveTitle();
+            } else if (e.key === 'Escape') {
+                e.preventDefault();
+                cancelEdit();
+            }
+        };
+
+        // Save on blur
+        titleEl.onblur = saveTitle;
+    }
+
+    /**
+     * 📚 Remove the new chat placeholder from sidebar
+     */
+    function removeNewChatPlaceholder() {
+        const container = hudState.sidebar?.querySelector('.ome-sidebar-new-chat-placeholder');
+        if (container) container.innerHTML = '';
     }
 
     /**
@@ -4427,7 +4670,8 @@
     const chatState = {
         currentChatId: null,
         lastAck: null,
-        messages: []  // Shared message array - both UIs render from this
+        messages: [],  // Shared message array - both UIs render from this
+        pendingTitle: null  // Title set before first message (for new chats)
     };
 
     /**
@@ -4537,6 +4781,7 @@
                 chat_id: chatId || chatState.currentChatId || null,
                 role: 'user',
                 content: prompt,
+                title: chatState.pendingTitle || null,  // Use pending title if set
                 page_url: meta.page_url || window.location.href,
                 page_title: meta.page_title || document.title
             };
@@ -4564,8 +4809,13 @@
                     // Store chat_id if new chat was created
                     if (result?.chat_id && !chatState.currentChatId) {
                         chatState.currentChatId = result.chat_id;
+                        chatState.pendingTitle = null;  // Clear pending title
                         chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: result.chat_id });
                         console.log('[Content] 💬 New chat created:', result.chat_id);
+
+                        // Remove placeholder and refresh sidebar to show the new chat
+                        removeNewChatPlaceholder();
+                        loadSidebarChats();
                     }
 
                     resolve(result);

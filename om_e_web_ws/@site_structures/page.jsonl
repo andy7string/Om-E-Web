@@ -1,23 +1,30 @@
 {
-  "timestamp": 1764933521.97186,
+  "timestamp": 1764935735.693822,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138033855,
+      "id": 1138033900,
       "url": "https://www.google.com/",
       "title": "Google",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138033855,
+        "id": 1138033896,
+        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69328b28-1298-8321-8b6c-76d6ecf7e08a",
+        "title": "OM-E autonomy - Tiny Recursive Model details",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138033900,
         "url": "https://www.google.com/",
         "title": "Google",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 48007.242322583,
+    "last_tabs_update": 50254.566985291,
     "extension_connected": true
   },
   "current_page": {
