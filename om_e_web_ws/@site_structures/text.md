@@ -1,9 +1,9 @@
-# Google
+# Local Web Design Adelaide | Bright Tree Digital
 
-**URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 15:54:14
+**URL:** https://brighttreedigital.com.au/
+**Timestamp:** 2025-12-05 16:21:15
 
-**Tabs (1):** Active: #1138033258 "Google" www.google.com [loading]
+**Tabs (2):** Active: #1138033311 "Local Web Design Adelaide | Br" brighttreedigital.com.au [complete] | Other: #1138033305 "Google" www.google.com
 
 ## Available Actions
 
@@ -65,151 +65,98 @@ The following pre-configured actions are available for this page:
 
 ---
 
-Google Search homepage
-<Link id="a_id_0">About</Link>
-<Link id="a_id_1">Store</Link>
-<Link id="a_id_2">Gmail</Link>
-<Link id="a_id_3">Search for Images</Link>
-<Button id="a_id_4">Google apps</Button>
-<Button id="a_id_5">Google Account: Andrew Orsmond
-(andreworsmond21175@gmail.com)</Button>
-<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
-<Button id="a_id_7">Search by voice</Button>
-<Button id="a_id_8">Search by image</Button>
-<Button id="a_id_9">AI Mode</Button>
-<Button id="a_id_10">Google Search</Button>
-<Button id="a_id_11">I'm Feeling Lucky</Button>
-Accessibility links
-<Link id="a_id_12">Skip to Discover feed</Link>
-<Link id="a_id_13">Skip to sidebar</Link>
-<Link id="a_id_14">Skip to footer</Link>
-<Link id="a_id_15">Accessibility help</Link>
-<Link id="a_id_16">Accessibility feedback</Link>
-Discover
-<Link id="a_id_17">3I/ATLAS: Harvard astrophysicist spots unusual objects surrounding interstellar visitor's 'Sunward Anti-Tail' - Are they rocky fragments or something else?
-An astrophysicist has observed a peculiar 'Sunward Anti-Tail' around interstellar visitor 3I/ATLAS, potentially a swarm of objects.
-The Economic Times
-·
-2d</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">SA homes under $300k sit unsold despite Adelaide prices soaring
-Many cash-strapped buyers are being forced to abandon homeownership dreams yet there are well-presented properties under $300000 beyond the city limits.
-Real Estate
-·
-1d</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">The Deprecation of K1 Mode
-As the next step in the evolution of K2 mode, we are officially deprecating its predecessor, K1 mode.
-The JetBrains Blog
-·
-19h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Day 3 of the 2025 Space Telescope Advent Calendar: A Galactic Cluster
-Day 3 of the 2025 Space Telescope Advent Calendar: A Galactic Cluster. More than 100 galaxies can be seen in Galaxy Cluster Abell 209, situated about 2.8...
-The Atlantic
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Irish authorities asked to investigate Microsoft over alleged unlawful data processing by IDF
-Move follows Guardian revelations of Israel's mass surveillance of Palestinians using Microsoft cloud.
-The Guardian
-·
-14h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Australia relying on luck over strategy, mining veteran says
-Jake Klein warns Australia will fail in its attempt to be a critical minerals leader without serious vision and reform.
-Mining.com
-·
-12h</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Eurovision heavyweights to boycott after Israel allowed to perform
-The Eurovision Song Contest faces the prospect of mass withdrawals after organisers opt not to vote on Israel's future participation, allowing it to take...
-Australian Broadcasting Corporation
-·
-11h</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">“Does it sound like a J-45? No. Instead, you get the impression that the instrument has been reimagined through the lens of a master craftsman”: Bourgeois Slope D Standard T/S review
-The latest in Bourgeois' Touchstone range has shades of Gibson's J-45. Will it live up to expectations and carve a legendary niche all its own?
-Guitar World
-·
-17h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">No more appeals: New laws put public and community housing on faster track
-Public and community housing projects have been placed on a faster track to development after new laws mean they can no longer be held up by appeals to the...
-Region Canberra
-·
-2h</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Aldi’s Cozy and Soothing $20 Gadget Is a Must-Have for Dry Winter Air
-Shoppers are racing to Aldi for this must-have winter essential. Perfect for keeping your home cozy and combating dry winter air.
-Parade Magazine
-·
-8h</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">High Court agrees to hear teens' challenge to social media ban
-The High Court has agreed to hear a special case from two teenagers challenging the federal government's new social media ban for people under 16.
-Australian Broadcasting Corporation
-·
-21h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Introducing: A Tarantino Tribute on the Wrist: Awake’s The Deadly Watch
-Following the Jurassic Watch, Awake is back with its second tribute to cinema with a watch inspired by Quentin Tarantino's Kill Bill Vol. 1.
-Monochrome Watches
-·
-16h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Simple kitchen waste product makes plants grow taller and stronger, outperforming fertilizers
-According to a new study, banana peel-based fertilizer outperforms chemical products and produces taller, healthier plants and crops.
-Earth.com
-·
-2d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Trump said he’s looking into an Australian-style retirement program for America. Here’s how it works
-The Trump administration is looking Down Under for inspiration on how to improve the United States' retirement savings system.
-CNN
-·
-1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">2026 Mazda CX-60 G40e Pure review
-Mazda has updated the CX-60 with lower prices – including this new base grade – and a revised driving experience. Is it finally fixed?
-Drive
-·
-2d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Putin says Russia ready to take Ukraine’s eastern Donbas region ‘by force’
-Comments to Indian media seem to contradict Trump report that negotiators got the impression he wanted to 'make a deal'.
-Al Jazeera
-·
-17h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">VIDEO: A declining birth rate will be costly in the long run, says Peter Costello
-Australia's fertility rate is at a record low. Former Treasurer and architect behind the baby bonus, Peter Costello wants the government to address the...
-Australian Broadcasting Corporation
-·
-1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Trio of 'black mesas' leftover from Paleozoic era spawn rare sand dunes in the Sahara — Earth from space
-A 2023 astronaut photo shows three dark hills, or mesas, towering above part of the Sahara desert in southern Mauritania. The structures are remnants of a...
-Live Science
-·
-2d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Blue-chip companies used security firm facing massive tax, workplace probes
-MA Services is part of a web of companies subject to separate investigations, including by the Tax Office and liquidators, over suspected involvement in a...
-The Age
-·
-1d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Former child star joins blockbuster series
-The video-game inspired series Fallout is one of Prime Video's most successful shows, clocking up a cool 100 million views since Season 1 premiered in April...
-News.com.au
-·
-1d</Link>
-<Button id="a_id_56">More options</Button>
-Australia
-<Link id="a_id_57">Advertising</Link>
-<Link id="a_id_58">Business</Link>
-<Link id="a_id_59">How Search works</Link>
-<Link id="a_id_60">Privacy</Link>
-<Link id="a_id_61">Terms</Link>
-<Button id="a_id_62">Settings</Button>
+<Link id="a_id_0">Skip to content</Link>
+<Link id="a_id_1">Bright Tree Digital</Link>
+<Link id="a_id_2">HOME</Link>
+<Link id="a_id_3">ABOUT</Link>
+<Link id="a_id_4">PORTFOLIO</Link>
+<Link id="a_id_5">SERVICES</Link>
+<Link id="a_id_6">CONTACT</Link>
+<Link id="a_id_7">Facebook</Link>
+<Link id="a_id_8">Instagram</Link>
+Logo Design
+Developing Timeless Logos That Define Your Brand Identity
+<Link id="a_id_9">GET STARTED</Link>
+<Button id="a_id_10">Previous slide</Button>
+<Button id="a_id_11">Next slide</Button>
+Welcome to Bright Tree Digital...
+...where your vision takes digital form and your business’s potential is fully realized. Specializing in
+WordPress web design
+and compelling
+graphic design
+, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
+At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
+Our Services
+Start your journey here...
+<Button id="a_id_12">Get in touch today!</Button>
+Our Work
+<Link id="a_id_13">Straker Functional Fitness</Link>
+<Link id="a_id_14">The Syrene Hotel</Link>
+<Link id="a_id_15">African Safari Deals</Link>
+<Link id="a_id_16">Mtambo Chartered Accountants</Link>
+<Link id="a_id_17">Joss Couture</Link>
+<Link id="a_id_18">Flutterbys School</Link>
+<Link id="a_id_19">The Gourmet Cookie Co</Link>
+New Moon Digital
+<Link id="a_id_20">Straker Functional Fitness</Link>
+<Link id="a_id_21">The Syrene Hotel</Link>
+<Link id="a_id_22">African Safari Deals</Link>
+<Link id="a_id_23">Mtambo Chartered Accountants</Link>
+<Link id="a_id_24">Joss Couture</Link>
+<Link id="a_id_25">Flutterbys School</Link>
+<Link id="a_id_26">The Gourmet Cookie Co</Link>
+New Moon Digital
+<Link id="a_id_27">Straker Functional Fitness</Link>
+<Link id="a_id_28">The Syrene Hotel</Link>
+<Link id="a_id_29">African Safari Deals</Link>
+<Link id="a_id_30">Mtambo Chartered Accountants</Link>
+<Button id="a_id_31">1 of 2</Button>
+<Button id="a_id_32">2 of 2</Button>
+<Button id="a_id_33">3 of 2</Button>
+<Button id="a_id_34">4 of 2</Button>
+<Button id="a_id_35">5 of 2</Button>
+<Button id="a_id_36">6 of 2</Button>
+<Button id="a_id_37">7 of 2</Button>
+<Button id="a_id_38">8 of 2</Button>
+What Our Clients Say!
+We are so happy that
+Bright Tree Digital
+designed our Logos and websites for our 2 food businesses.
+Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
+Michelene Rendell
+Owner, The Kitchen
+Highly recommended.
+Bright Tree Digital
+presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
+Daniella Finney
+Owner, The Syrene Boutique Hotel
+Big shoutout to Olivia at
+Bright Tree Digital
+, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
+Natalie Cassar
+Owner, New Moon Digital
+<Button id="a_id_39">Read More Testimonials</Button>
+Ready for a Website Makeover?
+<Button id="a_id_40">Reach Out Now!</Button>
+ABOUT US
+We specialise in
+WordPress web design
+and
+graphic design
+, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
+OUR PORTFOLIO
+<Link id="a_id_41">Banner Portfolio</Link>
+<Link id="a_id_42">Logo Portfolio</Link>
+<Link id="a_id_43">Web Design Portfolio</Link>
+<Link id="a_id_44">Facebook</Link>
+<Link id="a_id_45">Instagram</Link>
+ABN: 29 160 886 356
+QUICK LINKS
+<Link id="a_id_46">Home</Link>
+<Link id="a_id_47">About</Link>
+<Link id="a_id_48">Services</Link>
+<Link id="a_id_49">Testimonials</Link>
+<Link id="a_id_50">Contact</Link>
+<Link id="a_id_51">Privacy Policy</Link>
+Copyright © 2025 Bright Tree Digital
+<Link id="a_id_52">Website Designed by Bright Tree Digital</Link>

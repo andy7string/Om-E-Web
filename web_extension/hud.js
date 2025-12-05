@@ -942,8 +942,8 @@
             /* 💬 HUD Messages Area - scrollable container with scrollbar at far right */
             .ome-hud-messages-area {
                 position: absolute;
-                top: 60px;  /* Below topbar */
-                bottom: 115px;  /* Above input area (reduced - removed select pane) */
+                top: 10px;  /* Near top of page */
+                bottom: 115px;  /* Just above input area */
                 left: 80px;   /* SAME as input-area */
                 right: 10px;  /* Extended to edge for scrollbar */
                 overflow-y: auto;
@@ -1050,6 +1050,18 @@
                 min-width: 0;
                 flex-basis: 0;
                 overflow: hidden;
+            }
+            /* 🙈 Hide prompt when toggled via button */
+            .ome-hud-prompt-wrapper.hidden-by-user {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                height: 0;
+                overflow: hidden;
+            }
+            /* 📐 Expand messages when prompt hidden */
+            .ome-hud.prompt-hidden .ome-hud-messages-area {
+                bottom: 20px;
             }
             /* 🙈 When prompt hidden, move orb/controls to left (after sidebar) */
             .ome-hud-input-area.prompt-hidden {
@@ -1348,8 +1360,27 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 12px;
+                gap: 8px;
             }
+            /* 💬 HUD Prompt Button - toggle prompt visibility */
+            .ome-hud-prompt-btn {
+                padding: 3px 10px;
+                font-size: 9px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                color: #a5b4fc;
+                background: rgba(167,139,250,0.25);
+                border: 1px solid rgba(167,139,250,0.5);
+                border-radius: 10px;
+                cursor: pointer;
+                opacity: 0.85;
+                transition: opacity 0.15s ease, background 0.15s ease, transform 0.15s ease;
+                white-space: nowrap;
+            }
+            .ome-hud-prompt-btn:hover { opacity: 1; background: rgba(167,139,250,0.4); transform: scale(1.08); }
+            .ome-hud-prompt-btn:active { transform: scale(0.95); }
+            .ome-hud-prompt-btn.active { opacity: 1; background: rgba(167,139,250,0.5); border-color: #a5b4fc; color: #fff; }
             /* 🔮 HUD Orb Wrapper (for arrows) */
             .ome-hud-orb-wrapper {
                 position: relative;
@@ -2758,6 +2789,7 @@
                                 <div class="ome-hud-scan-arrow ome-hud-scan-arrow-w"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
                                 <div class="ome-hud-scan-arrow ome-hud-scan-arrow-nw"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
                             </div>
+                            <button class="ome-hud-prompt-btn active" style="color: ${currentTheme.color}">HIDE PROMPT</button>
                         </div>
 
                         <!-- 🎮 HUD Scroll Controls - gear stick for messages -->
@@ -3012,6 +3044,28 @@
         hud.querySelector('.ome-hud-orb-btn')?.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleHUD();
+        });
+
+        // 💬 HUD Prompt toggle button - show/hide prompt for more reading space
+        const hudPromptBtn = hud.querySelector('.ome-hud-prompt-btn');
+        hudPromptBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Toggle shared state (syncs with orb view)
+            hudState.chatVisible = !hudState.chatVisible;
+            updateHUDPromptVisibility();
+            // Also update orb view prompt button if exists
+            const orbPromptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
+            if (orbPromptBtn) {
+                orbPromptBtn.classList.toggle('active', hudState.chatVisible);
+                orbPromptBtn.textContent = hudState.chatVisible ? 'HIDE PROMPT' : 'Open Prompt';
+            }
+            // Update orb chat panel visibility
+            hudState.chatPanel?.classList.toggle('visible', hudState.chatVisible);
+            // Persist to service worker
+            try {
+                chrome.runtime.sendMessage({ type: 'set_orb_state', chatVisible: hudState.chatVisible });
+            } catch (e) { /* ignore */ }
+            console.log('[Content] 💬 Prompt:', hudState.chatVisible ? 'visible' : 'hidden');
         });
 
         // 🛤️ Rail slider - drag orb to slide prompt unit up/down
@@ -3349,6 +3403,12 @@
         if (sidebarOrbWrapper) {
             sidebarOrbWrapper.innerHTML = theme.svg.replace('ome-bunny', 'ome-sidebar-orb');
         }
+
+        // Update HUD prompt button color
+        const hudPromptBtn = hud.querySelector('.ome-hud-prompt-btn');
+        if (hudPromptBtn) {
+            hudPromptBtn.style.color = theme.color;
+        }
     }
 
     /**
@@ -3611,8 +3671,26 @@
         // Render from shared state when opening HUD
         if (hudState.visible) {
             renderChatMessages();
+            updateHUDPromptVisibility();  // Sync prompt state from orb view
         }
         console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
+    }
+
+    /**
+     * 💬 Update HUD prompt visibility based on shared hudState.chatVisible
+     */
+    function updateHUDPromptVisibility() {
+        if (!hudState.hud) return;
+        const promptWrapper = hudState.hud.querySelector('.ome-hud-prompt-wrapper');
+        const promptBtn = hudState.hud.querySelector('.ome-hud-prompt-btn');
+        if (promptWrapper) {
+            promptWrapper.classList.toggle('hidden-by-user', !hudState.chatVisible);
+        }
+        hudState.hud.classList.toggle('prompt-hidden', !hudState.chatVisible);
+        if (promptBtn) {
+            promptBtn.classList.toggle('active', hudState.chatVisible);
+            promptBtn.textContent = hudState.chatVisible ? 'HIDE PROMPT' : 'Show Prompt';
+        }
     }
 
     /** 💬 Toggle Chat Panel visibility */
@@ -3640,6 +3718,8 @@
             // When closing, ensure orb still fits within viewport
             constrainOrbToViewport();
         }
+        // 🔄 Sync HUD prompt visibility
+        updateHUDPromptVisibility();
         // 💾 Persist chat visibility to service worker
         try {
             chrome.runtime.sendMessage({ type: 'set_orb_state', chatVisible: hudState.chatVisible });
@@ -3803,8 +3883,9 @@
             console.log('[Content] 💬 sync_chat_visible received:', message.chatVisible);
             // Ensure orb exists before applying
             if (!hudState.host) initHUD();
+            hudState.chatVisible = message.chatVisible;
+            // Update orb view
             if (hudState.chatPanel) {
-                hudState.chatVisible = message.chatVisible;
                 hudState.chatPanel.classList.toggle('visible', message.chatVisible);
                 const promptBtn = hudState.orb?.querySelector('.ome-prompt-btn');
                 if (promptBtn) {
@@ -3812,6 +3893,8 @@
                     promptBtn.textContent = message.chatVisible ? 'HIDE PROMPT' : 'Open Prompt';
                 }
             }
+            // Update HUD view
+            updateHUDPromptVisibility();
             sendResponse({ ok: true });
             return true;
         }
