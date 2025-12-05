@@ -1,0 +1,21 @@
+{
+  "chat_id": "dasdfasdfasfasdasdf__20251205T210538",
+  "project_id": "default",
+  "created_at": "2025-12-05T21:05:38.710608Z",
+  "updated_at": "2025-12-05T21:05:38.710619Z",
+  "title": "dasdfasdfasfasdasdf",
+  "default_title": "dasdfasdfasfasdasdf",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "asdf",
+      "timestamp": "2025-12-05T21:05:38.710619Z"
+    }
+  ]
+}

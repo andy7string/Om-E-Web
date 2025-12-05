@@ -3962,6 +3962,46 @@
         hudState.orb = createOrb(shadow);
         hudState.hud = createHUD(shadow);
 
+        // 🛡️ GLOBAL CATCH: Block clicks to page when HUD visible
+        // Capture phase on document - fires BEFORE any page handlers
+        document.addEventListener('click', (e) => {
+            if (!hudState.visible) return;
+            // If click target is our host (Shadow DOM), let it through
+            if (e.target === host || e.target.closest('#ome-hud-host')) return;
+            // Block clicks to underlying page
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            e.preventDefault();
+        }, true);
+
+        document.addEventListener('mousedown', (e) => {
+            if (!hudState.visible) return;
+            if (e.target === host || e.target.closest('#ome-hud-host')) return;
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            e.preventDefault();
+        }, true);
+
+        // Block ALL keyboard events to document when HUD visible
+        // Shadow DOM handles its own keyboard events internally
+        document.addEventListener('keydown', (e) => {
+            if (!hudState.visible) return;
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+        }, true);
+
+        document.addEventListener('keyup', (e) => {
+            if (!hudState.visible) return;
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+        }, true);
+
+        document.addEventListener('keypress', (e) => {
+            if (!hudState.visible) return;
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+        }, true);
+
         // 🐰 Request orb state from service worker and apply
         try {
             chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {

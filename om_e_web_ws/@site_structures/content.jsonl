@@ -1,35 +1,28 @@
 {
-  "timestamp": 1764939061.5035589,
+  "timestamp": 1764968815.787982,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138033947,
-      "url": "https://www.google.com/",
-      "title": "Google",
-      "status": "complete"
+      "id": 1138034675,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138033896,
-        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69328b28-1298-8321-8b6c-76d6ecf7e08a",
-        "title": "OM-E autonomy - Tiny Recursive Model details",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138033947,
-        "url": "https://www.google.com/",
-        "title": "Google",
+        "id": 1138034675,
+        "url": "https://chatgpt.com/",
+        "title": "ChatGPT",
         "active": true,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 53571.723146,
+    "last_tabs_update": 3928.658678208,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/",
-    "title": "Google",
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
     "is_active_tab": true
   },
   "content_structure": {},
