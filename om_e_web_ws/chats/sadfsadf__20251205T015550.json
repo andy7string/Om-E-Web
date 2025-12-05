@@ -1,0 +1,20 @@
+{
+  "chat_id": "sadfsadf__20251205T015550",
+  "created_at": "2025-12-05T01:55:50.912900Z",
+  "updated_at": "2025-12-05T01:55:50.912932Z",
+  "title": "sadfsadf",
+  "default_title": "sadfsadf",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "sadfsadf",
+      "timestamp": "2025-12-05T01:55:50.912932Z"
+    }
+  ]
+}

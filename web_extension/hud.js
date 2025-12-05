@@ -175,10 +175,11 @@
         const minWidth = 363;       // CSS min-width
         const maxWidth = 968;       // CSS max-width
 
-        // Get orb position
+        // Get orb position - panel is positioned right:85px from orb, so use orb's RIGHT edge
         const orbRect = hudState.orb.getBoundingClientRect();
-        // Available width = space from left margin to where panel ends (orb left - gap)
-        const availableWidth = orbRect.left - panelGap - margin;
+        // Available width = orb right edge - gap - margin from left
+        // Panel right edge is at (orbRect.right - panelGap), panel extends leftward
+        const availableWidth = orbRect.right - panelGap - margin;
 
         // Calculate optimal width: as big as possible within constraints
         const optimalWidth = Math.max(minWidth, Math.min(maxWidth, availableWidth));
@@ -398,10 +399,10 @@
         const minWidth = 363;
         const maxWidth = 968;
 
-        // Get current and available dimensions
+        // Get current and available dimensions - use orb's RIGHT edge (panel is positioned right:85px)
         const orbRect = hudState.orb.getBoundingClientRect();
         const currentWidth = chatPanel.getBoundingClientRect().width;
-        const availableWidth = orbRect.left - panelGap - margin;
+        const availableWidth = orbRect.right - panelGap - margin;
 
         // Determine target: user-set width, or optimal (max available within constraints)
         let targetWidth;
@@ -983,7 +984,7 @@
             /* 💬 HUD Prompt Wrapper - flexible width, shrinks when sidebar opens */
             .ome-hud-prompt-wrapper {
                 flex: 0 1 800px;  /* don't grow, can shrink, ideal 800px */
-                min-width: 300px; /* minimum usable width */
+                min-width: 240px; /* minimum usable width */
                 border: 1px solid rgba(var(--theme-color), 0.35);
                 border-radius: 12px;
                 box-shadow: 0 0 6px rgba(var(--theme-color), 0.125),
@@ -993,7 +994,21 @@
                 filter: drop-shadow(0 0 2px rgba(var(--theme-color), 0.15));
                 display: flex;
                 flex-direction: column;
-                transition: flex-basis 0.25s ease;
+                transition: opacity 0.2s ease, visibility 0.2s ease, flex-basis 0.25s ease;
+            }
+            /* 🙈 Hide prompt when sidebar causes overflow (narrow viewport) */
+            .ome-hud-prompt-wrapper.hidden-for-sidebar {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                width: 0;
+                min-width: 0;
+                flex-basis: 0;
+                overflow: hidden;
+            }
+            /* 🙈 When prompt hidden, move orb/controls to left (after sidebar) */
+            .ome-hud-input-area.prompt-hidden {
+                justify-content: flex-start;
             }
 
             /* 💬 HUD Prompt Box - OME style (YOUR prompt unit) */
@@ -1002,6 +1017,7 @@
                 max-height: 400px;
                 background: rgba(33,33,33,0.95);
                 backdrop-filter: blur(12px);
+                border-radius: 12px;  /* Match wrapper border-radius */
                 display: flex;
                 flex-direction: column;
                 font-family: system-ui, -apple-system, sans-serif;
@@ -3290,6 +3306,9 @@
     function checkAndRepositionHUD() {
         if (!hudState.hud || !hudState.visible) return;
 
+        // 🙈 Check if prompt should be hidden/shown based on viewport + sidebar state
+        checkHudPromptVisibility();
+
         // Auto-scroll messages area to bottom
         const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
         if (hudMessages) {
@@ -3619,6 +3638,9 @@
         hudState.sidebar.classList.toggle('open', hudState.sidebarOpen);
         hudState.hud?.classList.toggle('sidebar-open', hudState.sidebarOpen);
 
+        // 🙈 Check if prompt needs to be hidden due to narrow viewport
+        checkHudPromptVisibility();
+
         // 💾 Persist sidebar state to service worker
         try {
             chrome.runtime.sendMessage({ type: 'set_orb_state', sidebarOpen: hudState.sidebarOpen });
@@ -3627,6 +3649,32 @@
         }
 
         console.log('[Content] 📚 Sidebar:', hudState.sidebarOpen ? 'open' : 'closed');
+    }
+
+    /**
+     * 🙈 Check if HUD prompt should be hidden due to narrow viewport with sidebar open
+     * Hides prompt if viewport too narrow for sidebar (280px) + prompt (240px min) + controls (~90px)
+     */
+    function checkHudPromptVisibility() {
+        if (!hudState.hud) return;
+
+        const promptWrapper = hudState.hud.querySelector('.ome-hud-prompt-wrapper');
+        const inputArea = hudState.hud.querySelector('.ome-hud-input-area');
+        if (!promptWrapper || !inputArea) return;
+
+        // Minimum space needed: sidebar (284px with gap) + prompt min (240px) + right controls (~90px)
+        const minWidthNeeded = 284 + 240 + 90; // 614px
+
+        if (hudState.sidebarOpen && window.innerWidth < minWidthNeeded) {
+            // Too narrow - hide prompt and move orb left
+            promptWrapper.classList.add('hidden-for-sidebar');
+            inputArea.classList.add('prompt-hidden');
+            console.log('[Content] 🙈 Prompt hidden - viewport too narrow for sidebar + prompt');
+        } else {
+            // Enough space - show prompt and centre layout
+            promptWrapper.classList.remove('hidden-for-sidebar');
+            inputArea.classList.remove('prompt-hidden');
+        }
     }
 
     // 🎛️ HUD message handler

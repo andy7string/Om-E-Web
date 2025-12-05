@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 12:24:58
+**Timestamp:** 2025-12-05 12:42:21
 
-**Tabs (2):** Active: #1138032391 "Google" www.google.com [complete] | Other: #1138032397 "Local Web Design Ade" brighttreedigital.com.au
+**Tabs (1):** Active: #1138032589 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -66,164 +66,160 @@ The following pre-configured actions are available for this page:
 ---
 
 Google Search homepage
-<Link id="a_id_0">Gmail</Link>
-<Link id="a_id_1">Search for Images</Link>
-<Button id="a_id_2">Google apps</Button>
-<Button id="a_id_3">Google Account: Andrew Orsmond
+<Link id="a_id_0">About</Link>
+<Link id="a_id_1">Store</Link>
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
 (andreworsmond21175@gmail.com)</Button>
-<Select id="a_id_4" value="" use="(a_id_4, select, 'option')">Search</Select>
-<Button id="a_id_5">Search by voice</Button>
-<Button id="a_id_6">Search by image</Button>
-<Button id="a_id_7">AI Mode</Button>
-<Button id="a_id_8">Google Search</Button>
-<Button id="a_id_9">I'm Feeling Lucky</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
 Accessibility links
-<Link id="a_id_10">Skip to Discover feed</Link>
-<Link id="a_id_11">Skip to sidebar</Link>
-<Link id="a_id_12">Skip to footer</Link>
-<Link id="a_id_13">Accessibility help</Link>
-<Link id="a_id_14">Accessibility feedback</Link>
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_15">4:29
-Robosen's Transformers Soundwave Robot - Official Trailer
-Get a look at the Robosen's Transformers Soundwave robot trailer for the latest Transformers robot from the team at Robosen in collaboration with Hasbro.
-IGN
-YouTube
+<Link id="a_id_17">Joint modelling of brain and behaviour dynamics with artificial intelligence
+Artificial intelligence has created tremendous advances for many scientific and engineering applications. In this Review, we synthesize recent advances in...
+Nature
 ·
-4h</Link>
-<Button id="a_id_16">More options</Button>
-<Link id="a_id_17">‘We miss having a dog but it’s the price you pay’: the village that banned pets to save wildlife
-Bill Smart has never heard the word “solarpunk”. But the softly spoken 77-year-old lights up when given the definition from Wikipedia: a literary,...
-The Guardian
-·
-9h</Link>
+1d</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Japan Inflation Expectations Point to Risk of More Yen Weakness
-Bets on rising consumer prices in Japan are keeping a lid on bond yields when adjusted for inflation, in turn reducing their ability to support the yen.
-Bloomberg.com
+<Link id="a_id_19">A Tiny Red Dot in Deep Space May Be a New Kind of Cosmic Monster
+A newly proposed type of supermassive black hole surrounded by a dense gas shell may account for the small red dots seen in images captured by the James...
+SciTechDaily
 ·
-1d</Link>
+1w</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">The AI boom is heralding a new gold rush in the American west
-Once home to gold and prospectors, the Nevada desert is now the site of a new kind of expansion: tech datacenters.
-The Guardian
+<Link id="a_id_21">Qantas aircraft out of storage after six years
+Qantas' final superjumbo A380 will return to the skies after nearly six years in storage, enabling daily flights on the airline's Sydney to Dallas route.
+News.com.au
 ·
-5h</Link>
+46m</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Supercars facing ‘huge challenge’ at US wind tunnel test
-A 30-strong contingent including Supercars staff and team personnel have jetted to the United States for critical wind tunnel testing ahead of the 2026...
-Speedcafe.com
+<Link id="a_id_23">The Deprecation of K1 Mode
+As the next step in the evolution of K2 mode, we are officially deprecating its predecessor, K1 mode.
+The JetBrains Blog
 ·
-1d</Link>
+16h</Link>
 <Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Building boom: 15 developers transforming Adelaide
-From high rise apartment and student accommodation towers in the city and suburbs to high end hotels and hospitals, Adelaide is undergoing a record boom in...
-The Advertiser
+<Link id="a_id_25">Ayers Rock Resort operation being sold to US company
+A deal for the sale of operations at Ayers Rock Resort, near Uluru, and the Mossman Gorge Cultural Centre, in Far North Queensland, is one step closer after...
+Australian Broadcasting Corporation
 ·
-7h</Link>
+9m</Link>
 <Button id="a_id_26">More options</Button>
-<Link id="a_id_27">NASA Rover Detects Electric Sparks in Mars Dust Devils, Storms
-Perseverance confirmed a long-suspected phenomenon in which electrical discharges and their associated shock waves can be born within Red Planet...
-NASA (.gov)
+<Link id="a_id_27">New Murchison shines at Crown Prince
+New Murchison Gold's Crown Prince operation posts strong early production, delivering significant ore sales to Westgold.
+Australian Mining
 ·
 1d</Link>
 <Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Microsoft sharpens the blocking axe for Exchange Web Services
-Microsoft is getting serious about the end of Exchange Web Services (EWS) and has announced that, starting in March 2026, it will begin blocking EWS access...
-The Register
+<Link id="a_id_29">To halt their decline, VW and others are turning Chinese
+Foreign carmakers are localising their operations in the country | Business.
+The Economist
 ·
-1d</Link>
+11h</Link>
 <Button id="a_id_30">More options</Button>
-<Link id="a_id_31">1:22
-Aussie homes with solar panels see fall in energy retailer payments | 9 News Australia
-There's no doubt the number of Australian homes with solar panels is on the rise, but the price they receive from retailers for the extra energy they feed...
-9 News Australia
-YouTube
+<Link id="a_id_31">Trump Jr-backed rare earth start-up scores $940m Pentagon deal
+Washington | A little-known rare earths start-up with about 30 employees has won a blockbuster funding deal from the Pentagon, three months after Donald...
+AFR
 ·
 1d</Link>
 <Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Decades-old palm trees in Rio de Janeiro flower for the first — and only — time
-RIO DE JANEIRO (AP) — Towering talipot palms in a Rio de Janeiro park are flowering for the first and only time in their lives, decades after famed...
-Stuff
+<Link id="a_id_33">Supercars news: KRE probing Broc Feeney Adelaide engine theory
+GM's Supercars engine supplier Ken McNamara is working to get to the bottom of the issue that plagued Broc Feeney's Camaro at the Adelaide Grand Final.
+Speedcafe.com
 ·
-3h</Link>
+1d</Link>
 <Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Value of private health insurance 'eroding' as doctors urge reform
-A new report from Australia's peak doctors' body says private health insurance is increasingly failing to deliver value to the roughly 15 million...
-Australian Broadcasting Corporation
+<Link id="a_id_35">Australia's first six gigawatt hour battery to be built as part of massive multi-tech "grid resiliency" hub
+Exclusivity deal signed for massive gas and energy storage hub that promises to host Australia's biggest eight-hour battery, sized at more than 6000 MWh.
+Renew Economy
 ·
-12h</Link>
+1d</Link>
 <Button id="a_id_36">More options</Button>
-<Link id="a_id_37">La Niña is here for the summer – but it may not bring what Australians expect
-Expert says the weather pattern, which typically brings wetter and cooler conditions, may be weakened by global heating.
+<Link id="a_id_37">Having a dog can boost teenagers’ mental health, say scientists
+Researchers find children who own dogs score lower for social problems, aggressive behaviour and delinquency.
 The Guardian
 ·
-5h</Link>
+1d</Link>
 <Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Fishers say WA ban will bring an end to 'decent fish and chips'
-New fishing rules come into effect in Western Australia next month, significantly reducing the amount of local fish available in the state.
-ABC News
+<Link id="a_id_39">Leah Weckert puts Coles ahead of Woolies for first time in decades
+The retailer's first female boss, a former McKinsey strategist and loyalty executive, has cracked the grocery code, outpacing Woolworths' sales two years...
+AFR
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">India revokes order to preload smartphones with state-owned security app
+Tech companies including Apple and Google made it clear they would not comply due to privacy concerns.
+The Guardian
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">“This is the best full-body exercise if you can only do one thing a day”—an expert trainer on the most underrated move for improving strength and fitness
+If there's one move that people roll their eyes at when they see it in a workout program, it's the burpee. But as someone interested in functional,...
+Fit&Well
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">US schools face big price swings for basics under Amazon’s ‘dynamic pricing’, report claims
+School districts and local governments across the country appear to be overpaying for basic supplies because of Amazon contracts that bind them to dynamic...
+The Guardian
 ·
 4h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">BMW X3 Rugged Edition: off-road upgrades, price, specs
-BMW X3 Rugged Edition: off-road kit, adaptive suspension, 18-inch Grabber tires, 570L boot. Diesel 20d xDrive, 197 hp mild hybrid, 0–100 in 7.7 s,...
-SpeedMe.ru
-·
-8h</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Solar Superstorm Gannon crushed Earth’s plasmasphere to a record low
-A massive solar storm in May 2024 gave scientists an unprecedented look at how Earth's protective plasma layer collapses under intense space weather.
-ScienceDaily
-·
-1w</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Evaluating Deep Agents: Our Learnings
-Over the past month at LangChain, we shipped four applications on top of the Deep Agents harness: DeepAgents CLI: a coding agent; LangSmith Assist: an...
-LangChain Blog
-·
-1d</Link>
 <Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Macquarie raises target price on APA Group shares following joint-venture announcement
-APA Group shares have jumped 30% higher this year.
-The Motley Fool Australia
-·
-2d</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">23:29
-The CAGED System for Guitar – Unlock the Entire Fretboard
-Want to unlock the entire guitar fretboard? This lesson breaks down the CAGED system for guitar — one of the most powerful tools for mastering chords,...
-Marty Music
-YouTube
-·
-1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Emirates New A350 Lands for First Time to This Australian Airport
+<Link id="a_id_47">Emirates New A350 Lands for First Time to This Australian Airport
 Adelaide Airport (ADL) welcomed Airbus A350 aircraft operated by Emirates Airline (EK) on its scheduled service from Dubai (DXB).
 Aviation A2Z
 ·
 1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Ranger Super Duty won’t end F-150, yet
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Universities cry poor as international student numbers boom
+Australia has the highest concentration of international students among major advanced nations. International student concentration.
+MacroBusiness
+·
+1d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Ranger Super Duty won’t end F-150, yet
 Ford said its massive investment to beef-up the Ranger into the Super Duty won't be the death knell...
 Blue Mountains Gazette
 ·
 4d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">New strategic plan charts the next decade for Outback South Australia
+The plan outlines a coordinated vision for arts, culture, heritage, innovation, services, and community wellbeing.
+Glam Adelaide
+·
+6h</Link>
 <Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Macquarie raises target price on APA Group shares following joint-venture announcement
+APA Group shares have jumped 30% higher this year.
+The Motley Fool Australia
+·
+2d</Link>
+<Button id="a_id_56">More options</Button>
 At a glance
-<Button id="a_id_55">Customise Homestack</Button>
-<Link id="a_id_56">Air quality
+<Button id="a_id_57">Customise Homestack</Button>
+<Link id="a_id_58">Air quality
 Good
 AQC</Link>
-<Link id="a_id_57">Woodforde
-Mostly sunny
+<Link id="a_id_59">Woodforde
+Partly cloudy
 15%
 25°</Link>
-<Link id="a_id_58">.IXIC • Nasdaq Composite up 0.22%. Price is 23,505.14 Today</Link>
+<Link id="a_id_60">.IXIC • Nasdaq Composite up 0.22%. Price is 23,505.14 Today</Link>
 Australia
-<Link id="a_id_59">Advertising</Link>
-<Link id="a_id_60">Business</Link>
-<Link id="a_id_61">How Search works</Link>
-<Link id="a_id_62">Privacy</Link>
-<Link id="a_id_63">Terms</Link>
-<Button id="a_id_64">Settings</Button>
+<Link id="a_id_61">Advertising</Link>
+<Link id="a_id_62">Business</Link>
+<Link id="a_id_63">How Search works</Link>
+<Link id="a_id_64">Privacy</Link>
+<Link id="a_id_65">Terms</Link>
+<Button id="a_id_66">Settings</Button>
