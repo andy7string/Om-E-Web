@@ -937,18 +937,26 @@
             }
 
             /* 💬 HUD Messages Area - ChatGPT style scrollable history */
-            /* 📐 Aligned with prompt using same centering + translateX to match input-area offset */
+            /* 📐 Positioned to match prompt-wrapper exactly via JS sync */
             .ome-hud-messages-area {
-                flex: 1 1 auto;
+                position: absolute;
+                top: 60px;  /* Below topbar */
+                bottom: 160px;  /* Above input area */
+                /* left/right set dynamically by JS to match prompt-wrapper */
+                left: 80px;
+                right: 18px;
                 overflow-y: auto;
-                padding: 24px 0;
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
-                max-width: 800px;
-                width: 100%;
-                margin: 0 auto;
-                transform: translateX(-10%);
+                padding: 24px 0;
+                transition: opacity 0.2s ease, visibility 0.2s ease;
+            }
+            /* 🙈 Hide messages when prompt is hidden */
+            .ome-hud-messages-area.hidden-for-sidebar {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
             }
             .ome-hud-messages-area::-webkit-scrollbar { width: 8px; }
             .ome-hud-messages-area::-webkit-scrollbar-track { background: transparent; }
@@ -3309,6 +3317,9 @@
         // 🙈 Check if prompt should be hidden/shown based on viewport + sidebar state
         checkHudPromptVisibility();
 
+        // 📐 Sync messages area position with prompt box
+        syncMessagesWithPrompt();
+
         // Auto-scroll messages area to bottom
         const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
         if (hudMessages) {
@@ -3582,6 +3593,8 @@
         // Render from shared state when opening HUD
         if (hudState.visible) {
             renderChatMessages();
+            // 📐 Sync messages position with prompt box after a frame
+            requestAnimationFrame(() => syncMessagesWithPrompt());
         }
         console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
     }
@@ -3660,21 +3673,46 @@
 
         const promptWrapper = hudState.hud.querySelector('.ome-hud-prompt-wrapper');
         const inputArea = hudState.hud.querySelector('.ome-hud-input-area');
+        const messagesArea = hudState.hud.querySelector('.ome-hud-messages-area');
         if (!promptWrapper || !inputArea) return;
 
         // Minimum space needed: sidebar (284px with gap) + prompt min (240px) + right controls (~90px)
         const minWidthNeeded = 284 + 240 + 90; // 614px
 
         if (hudState.sidebarOpen && window.innerWidth < minWidthNeeded) {
-            // Too narrow - hide prompt and move orb left
+            // Too narrow - hide prompt, messages, and move orb left
             promptWrapper.classList.add('hidden-for-sidebar');
             inputArea.classList.add('prompt-hidden');
+            messagesArea?.classList.add('hidden-for-sidebar');
             console.log('[Content] 🙈 Prompt hidden - viewport too narrow for sidebar + prompt');
         } else {
-            // Enough space - show prompt and centre layout
+            // Enough space - show prompt/messages and centre layout
             promptWrapper.classList.remove('hidden-for-sidebar');
             inputArea.classList.remove('prompt-hidden');
+            messagesArea?.classList.remove('hidden-for-sidebar');
+            // Sync messages position with prompt box
+            syncMessagesWithPrompt();
         }
+    }
+
+    /**
+     * 📐 Sync HUD messages area position with prompt wrapper
+     * Makes messages align exactly with the prompt box edges
+     */
+    function syncMessagesWithPrompt() {
+        if (!hudState.hud) return;
+
+        const promptWrapper = hudState.hud.querySelector('.ome-hud-prompt-wrapper');
+        const messagesArea = hudState.hud.querySelector('.ome-hud-messages-area');
+        if (!promptWrapper || !messagesArea) return;
+
+        // Get prompt wrapper's position relative to viewport
+        const promptRect = promptWrapper.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+
+        // Set messages area to match prompt box position
+        messagesArea.style.left = `${promptRect.left}px`;
+        messagesArea.style.right = `${viewportWidth - promptRect.right}px`;
     }
 
     // 🎛️ HUD message handler
