@@ -1,0 +1,21 @@
+{
+  "chat_id": "classy-af-bru__20251205T120823",
+  "project_id": "default",
+  "created_at": "2025-12-05T12:08:23.641732Z",
+  "updated_at": "2025-12-05T12:08:23.641742Z",
+  "title": "classy af bru",
+  "default_title": "classy af bru",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "now that is a classy interface my man",
+      "timestamp": "2025-12-05T12:08:23.641742Z"
+    }
+  ]
+}

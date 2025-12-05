@@ -2097,11 +2097,18 @@
                 margin: -2px -4px;
             }
             .ome-sidebar-chat-title.editing {
-                background: rgba(var(--theme-color, 126,200,227), 0.15);
-                outline: 1px solid rgba(var(--theme-color, 126,200,227), 0.4);
                 white-space: normal;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                animation: text-heartbeat 1s ease-in-out infinite;
+            }
+            @keyframes text-heartbeat {
+                0%, 100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                50% {
+                    opacity: 0.7;
+                    transform: scale(1.02);
+                }
             }
             .ome-sidebar-chat-meta {
                 font-size: 11px;
@@ -2136,8 +2143,75 @@
                 box-shadow: 0 0 6px rgba(var(--theme-color, 126,200,227), 0.8);
             }
 
-            /* 📚 Dropdown menu */
+            /* 📚 Edit hint pen icon - shown on new chat hover */
+            .ome-sidebar-edit-hint {
+                opacity: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 8px;
+                transition: opacity 0.15s;
+            }
+            .ome-sidebar-edit-hint svg {
+                width: 14px;
+                height: 14px;
+                fill: rgba(var(--theme-color, 126,200,227), 0.7);
+            }
+            .ome-sidebar-chat.new-chat:hover .ome-sidebar-edit-hint {
+                opacity: 1;
+                animation: pen-flash 0.6s ease-out;
+            }
+            @keyframes pen-flash {
+                0%, 100% { opacity: 1; }
+                25% { opacity: 0.3; }
+                50% { opacity: 1; }
+                75% { opacity: 0.3; }
+            }
+
+            /* 📚 Inline action buttons (pen + trash) - shown on hover */
+            .ome-sidebar-chat-actions {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                opacity: 0;
+                transform: scale(0.8);
+                transition: opacity 0.15s, transform 0.15s;
+            }
+            .ome-sidebar-chat:hover .ome-sidebar-chat-actions {
+                opacity: 1;
+                transform: scale(1);
+            }
+            .ome-sidebar-action-btn {
+                width: 28px;
+                height: 28px;
+                border: none;
+                border-radius: 6px;
+                background: rgba(var(--theme-color, 126,200,227), 0.15);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s, transform 0.15s;
+            }
+            .ome-sidebar-action-btn:hover {
+                background: rgba(var(--theme-color, 126,200,227), 0.3);
+                transform: scale(1.1);
+            }
+            .ome-sidebar-action-btn svg {
+                width: 14px;
+                height: 14px;
+                fill: rgba(var(--theme-color, 126,200,227), 0.8);
+            }
+            .ome-sidebar-action-btn.ome-action-delete:hover {
+                background: rgba(255, 100, 100, 0.3);
+            }
+            .ome-sidebar-action-btn.ome-action-delete:hover svg {
+                fill: #ff6b6b;
+            }
+
+            /* 📚 Dropdown menu (legacy - keeping for reference) */
             .ome-sidebar-dropdown {
+                display: none;
                 position: absolute;
                 right: 8px;
                 top: 100%;
@@ -4049,10 +4123,8 @@
         chatList.innerHTML = '';
         if (wasCollapsed) chatList.classList.add('collapsed');
 
-        // Show new chat placeholder above the chat list if no chat is selected
-        if (!chatState.currentChatId) {
-            showNewChatPlaceholder();
-        }
+        // Note: New chat placeholder only shown when user clicks "+ New Chat"
+        // Not shown automatically on page load
 
         if (chats.length === 0) {
             // No saved chats yet
@@ -4074,18 +4146,13 @@
                     <div class="ome-sidebar-chat-title">${escapeHtml(chat.title)}</div>
                     <div class="ome-sidebar-chat-meta">${chat.date_short} · ${chat.message_count} msgs</div>
                 </div>
-                <button class="ome-sidebar-chat-menu" title="Options">
-                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                </button>
-                <div class="ome-sidebar-dropdown">
-                    <div class="ome-sidebar-dropdown-item rename" data-action="rename">
+                <div class="ome-sidebar-chat-actions">
+                    <button class="ome-sidebar-action-btn ome-action-rename" title="Rename">
                         <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                        Rename
-                    </div>
-                    <div class="ome-sidebar-dropdown-item delete" data-action="delete">
+                    </button>
+                    <button class="ome-sidebar-action-btn ome-action-delete" title="Delete">
                         <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
-                        Delete
-                    </div>
+                    </button>
                 </div>
             `;
 
@@ -4096,39 +4163,20 @@
                 loadChat(chat.chat_id);
             });
 
-            // Three-dot menu button - toggle dropdown
-            const menuBtn = item.querySelector('.ome-sidebar-chat-menu');
-            const dropdown = item.querySelector('.ome-sidebar-dropdown');
-            menuBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                // Close any other open dropdowns
-                document.querySelectorAll('.ome-sidebar-dropdown.open').forEach(d => {
-                    if (d !== dropdown) d.classList.remove('open');
-                });
-                dropdown.classList.toggle('open');
-            });
-
             // Rename action
-            item.querySelector('.ome-sidebar-dropdown-item.rename').addEventListener('click', (e) => {
+            item.querySelector('.ome-action-rename').addEventListener('click', (e) => {
                 e.stopPropagation();
-                dropdown.classList.remove('open');
                 renameChat(chat.chat_id, chat.title);
             });
 
             // Delete action
-            item.querySelector('.ome-sidebar-dropdown-item.delete').addEventListener('click', (e) => {
+            item.querySelector('.ome-action-delete').addEventListener('click', (e) => {
                 e.stopPropagation();
-                dropdown.classList.remove('open');
                 deleteChat(chat.chat_id, chat.title);
             });
 
             chatList.appendChild(item);
         });
-
-        // Close dropdowns when clicking elsewhere
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.ome-sidebar-dropdown.open').forEach(d => d.classList.remove('open'));
-        }, { once: true });
     }
 
     /**
@@ -4226,32 +4274,16 @@
                 <div class="ome-sidebar-chat-title">${escapeHtml(title)}</div>
                 <div class="ome-sidebar-chat-meta">Unsaved</div>
             </div>
-            <button class="ome-sidebar-chat-menu" title="Options">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            </button>
-            <div class="ome-sidebar-dropdown">
-                <div class="ome-sidebar-dropdown-item rename" data-action="rename">
+            <div class="ome-sidebar-chat-actions">
+                <button class="ome-sidebar-action-btn ome-action-rename" title="Rename">
                     <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                    Rename
-                </div>
+                </button>
             </div>
         `;
 
-        // Three-dot menu button - toggle dropdown
-        const menuBtn = placeholder.querySelector('.ome-sidebar-chat-menu');
-        const dropdown = placeholder.querySelector('.ome-sidebar-dropdown');
-        menuBtn.addEventListener('click', (e) => {
+        // Rename action - click pen to edit
+        placeholder.querySelector('.ome-action-rename').addEventListener('click', (e) => {
             e.stopPropagation();
-            document.querySelectorAll('.ome-sidebar-dropdown.open').forEach(d => {
-                if (d !== dropdown) d.classList.remove('open');
-            });
-            dropdown.classList.toggle('open');
-        });
-
-        // Rename action - inline edit for pending title
-        placeholder.querySelector('.ome-sidebar-dropdown-item.rename').addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.remove('open');
             renameNewChat();
         });
 
