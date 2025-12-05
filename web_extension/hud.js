@@ -2027,6 +2027,7 @@
                 padding: 12px 12px 8px;
                 font-size: 14px;
                 color: rgba(var(--theme-color, 126,200,227), 0.8);
+                user-select: none;
                 cursor: pointer;
                 transition: color 0.15s;
                 display: flex;
@@ -2114,6 +2115,14 @@
                 font-size: 11px;
                 color: rgba(var(--theme-color, 126,200,227), 0.5);
                 margin-top: 2px;
+                user-select: none;
+                pointer-events: none;
+            }
+            .ome-sidebar-chat-title {
+                user-select: none;
+            }
+            .ome-sidebar-chat-title.editing {
+                user-select: text;
             }
 
             /* 📚 Three-dot menu - hidden by default, shown on hover */
@@ -2207,6 +2216,39 @@
             }
             .ome-sidebar-action-btn.ome-action-delete:hover svg {
                 fill: #ff6b6b;
+            }
+
+            /* 📚 Confirm Delete popup */
+            .ome-confirm-delete {
+                position: absolute;
+                right: 8px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(40, 20, 20, 0.95);
+                border: 1px solid rgba(255, 100, 100, 0.5);
+                border-radius: 6px;
+                padding: 6px 12px;
+                cursor: pointer;
+                font-size: 12px;
+                color: #ff6b6b;
+                animation: blink-red 0.8s ease-in-out infinite;
+                z-index: 10;
+                white-space: nowrap;
+                user-select: none;
+            }
+            .ome-confirm-delete:hover {
+                background: rgba(255, 100, 100, 0.3);
+                color: #ff8888;
+            }
+            @keyframes blink-red {
+                0%, 100% {
+                    opacity: 1;
+                    box-shadow: 0 0 8px rgba(255, 100, 100, 0.4);
+                }
+                50% {
+                    opacity: 0.7;
+                    box-shadow: 0 0 12px rgba(255, 100, 100, 0.7);
+                }
             }
 
             /* 📚 Dropdown menu (legacy - keeping for reference) */
@@ -4169,10 +4211,10 @@
                 renameChat(chat.chat_id, chat.title);
             });
 
-            // Delete action
+            // Delete action - show confirm popup
             item.querySelector('.ome-action-delete').addEventListener('click', (e) => {
                 e.stopPropagation();
-                deleteChat(chat.chat_id, chat.title);
+                showDeleteConfirm(item, chat.chat_id, chat.title);
             });
 
             chatList.appendChild(item);
@@ -4320,6 +4362,8 @@
             const newTitle = titleEl.textContent.trim();
             titleEl.contentEditable = 'false';
             titleEl.classList.remove('editing');
+            titleEl.blur();
+            window.getSelection()?.removeAllRanges();
 
             if (newTitle && newTitle !== 'New Chat') {
                 chatState.pendingTitle = newTitle;
@@ -4334,6 +4378,8 @@
         const cancelEdit = () => {
             titleEl.contentEditable = 'false';
             titleEl.classList.remove('editing');
+            titleEl.blur();
+            window.getSelection()?.removeAllRanges();
             titleEl.textContent = currentTitle;
         };
 
@@ -4392,6 +4438,8 @@
             const newTitle = titleEl.textContent.trim();
             titleEl.contentEditable = 'false';
             titleEl.classList.remove('editing');
+            titleEl.blur();
+            window.getSelection()?.removeAllRanges();
 
             if (!newTitle || newTitle === currentTitle) {
                 titleEl.textContent = currentTitle; // Restore original
@@ -4417,6 +4465,8 @@
         const cancelRename = () => {
             titleEl.contentEditable = 'false';
             titleEl.classList.remove('editing');
+            titleEl.blur();
+            window.getSelection()?.removeAllRanges();
             titleEl.textContent = currentTitle;
         };
 

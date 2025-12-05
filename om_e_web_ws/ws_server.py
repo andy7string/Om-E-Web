@@ -4548,7 +4548,7 @@ def load_chat(chat_id: str) -> Optional[Dict[str, Any]]:
         return None
 
 
-def list_chats(project_id: str = None) -> List[Dict[str, Any]]:
+def list_chats(project_id: Optional[str] = None) -> List[Dict[str, Any]]:
     """
     List chats from the chats directory with summary info.
 
