@@ -1,0 +1,10 @@
+{
+  "capabilities": {
+    "GetChatList": {
+      "action": "GetChatList",
+      "label": "List all saved chats",
+      "description": "Returns list of all chats with id, title, message_count, created_at",
+      "params": {}
+    }
+  }
+}

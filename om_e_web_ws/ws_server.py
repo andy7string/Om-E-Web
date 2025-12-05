@@ -107,6 +107,69 @@ def get_all_site_configs():
         print(f"❌ Error loading site configs: {e}")
         return {}
 
+
+# 🔧 INTERNAL: Internal capabilities (server-side operations like chat management)
+INTERNAL_CAPABILITIES = {}
+
+
+def load_internal_capabilities() -> dict:
+    """
+    Load internal_capabilities.json for server-side capabilities.
+
+    Returns:
+        dict: Internal capabilities keyed by action name, or empty dict if load fails
+    """
+    global INTERNAL_CAPABILITIES
+
+    if INTERNAL_CAPABILITIES:
+        return INTERNAL_CAPABILITIES
+
+    try:
+        config_path = os.path.join("..", "web_extension", "internal_capabilities.json")
+
+        if not os.path.exists(config_path):
+            print(f"⚠️ Internal capabilities not found at: {config_path}")
+            return {}
+
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+
+        # Index by action name for fast lookup
+        capabilities = config.get("capabilities", {})
+        INTERNAL_CAPABILITIES = {
+            cap.get("action"): cap
+            for cap in capabilities.values()
+            if cap.get("action")
+        }
+
+        print(f"✅ Loaded internal capabilities: {list(INTERNAL_CAPABILITIES.keys())}")
+        return INTERNAL_CAPABILITIES
+
+    except Exception as e:
+        print(f"❌ Error loading internal capabilities: {e}")
+        return {}
+
+
+def execute_internal_capability(action: str, params: dict) -> dict:
+    """
+    Execute an internal (server-side) capability.
+
+    @param action: The capability action name (e.g., 'GetChatList')
+    @param params: Parameters for the capability
+    @return: Result dictionary
+    """
+    print(f"🔧 Executing internal capability: {action} with params: {params}")
+
+    if action == "GetChatList":
+        # Pass project_id filter if provided (use "default" for sidebar unassigned chats)
+        project_id = params.get("project_id")
+        chats = list_chats(project_id=project_id)
+        return {"chats": chats}
+
+    else:
+        return {"error": f"Unknown internal capability: {action}"}
+
+
 # 📁 Site map storage configuration
 SITE_STRUCTURES_DIR = "@site_structures"
 
@@ -3392,6 +3455,7 @@ async def handler(ws):
                 try:
                     action = msg.get("action")
                     params = msg.get("params", {})
+                    request_id = msg.get("id")  # 🔧 Capture request ID for response matching
 
                     if not action:
                         await ws.send(json.dumps({"ok": False, "error": "Missing capability action"}))
@@ -3431,6 +3495,23 @@ async def handler(ws):
                                 "ok": False,
                                 "error": "Extension not connected"
                             }))
+                        continue
+
+                    # 🔧 INTERNAL CAPABILITIES: Handle server-side capabilities directly
+                    internal_caps = load_internal_capabilities()
+                    if action in internal_caps:
+                        print(f"🔧 Routing internal capability: {action}")
+                        result = execute_internal_capability(action, params)
+                        response = {
+                            "type": "capability_result",
+                            "action": action,
+                            "ok": True,
+                            "result": result
+                        }
+                        # 🔧 Echo back request ID for callback matching (HUD frontend needs this)
+                        if request_id:
+                            response["id"] = request_id
+                        await ws.send(json.dumps(response))
                         continue
 
                     # 🎯 UNIFIED CAPABILITY ROUTING: All capabilities go through execute_capability
@@ -4337,6 +4418,19 @@ def resolve_capabilities_for_url(url: str) -> list:
         matching_capabilities.extend(universal_capabilities)
         print(f"📜 Added {len(universal_capabilities)} universal capabilities (scroll + tab + zoom)")
 
+        # 🔧 INTERNAL CAPABILITIES: Add server-side capabilities (chat, etc.)
+        internal_caps = load_internal_capabilities()
+        for action_name, cap in internal_caps.items():
+            matching_capabilities.append({
+                'id': action_name.lower(),
+                'action': cap.get('action', action_name),
+                'label': cap.get('label', ''),
+                'description': cap.get('description', ''),
+                'domain': 'internal'
+            })
+        if internal_caps:
+            print(f"🔧 Added {len(internal_caps)} internal capabilities")
+
         return matching_capabilities
 
     except Exception as e:
@@ -4431,6 +4525,71 @@ def load_chat(chat_id: str) -> Optional[Dict[str, Any]]:
         return None
 
 
+def list_chats(project_id: str = None) -> List[Dict[str, Any]]:
+    """
+    List chats from the chats directory with summary info.
+
+    @param project_id: Optional filter - only return chats with this project_id.
+                       Use "default" to get unassigned chats for sidebar.
+
+    Returns a list of chat summaries sorted by created_at (newest first).
+    Each summary contains: chat_id, title, date_short, message_count
+    """
+    from datetime import datetime
+
+    chats_path = ensure_chats_dir_exists()
+    chat_summaries = []
+
+    try:
+        for filename in os.listdir(chats_path):
+            if not filename.endswith(".json"):
+                continue
+
+            chat_id = filename[:-5]  # Remove .json extension
+            filepath = os.path.join(chats_path, filename)
+
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    chat_dict = json.load(f)
+
+                # Filter by project_id if specified
+                chat_project = chat_dict.get("project_id", "default")
+                if project_id is not None and chat_project != project_id:
+                    continue
+
+                # Format date as dd/mmm (e.g., "05/Dec")
+                created_at = chat_dict.get("created_at", "")
+                date_short = ""
+                if created_at:
+                    try:
+                        dt = datetime.fromisoformat(created_at.replace('Z', '+00:00'))
+                        date_short = dt.strftime("%d/%b")  # e.g., "05/Dec"
+                    except:
+                        date_short = ""
+
+                # Extract lightweight summary info
+                summary = {
+                    "chat_id": chat_id,
+                    "title": chat_dict.get("title", "Untitled"),
+                    "date_short": date_short,
+                    "message_count": len(chat_dict.get("messages", []))
+                }
+                chat_summaries.append(summary)
+
+            except Exception as e:
+                print(f"⚠️ Error reading chat {filename}: {e}")
+                continue
+
+        # Sort by created_at descending (newest first)
+        chat_summaries.sort(key=lambda x: x.get("date_short", ""), reverse=True)
+        print(f"📋 Listed {len(chat_summaries)} chats (project_id={project_id})")
+
+    except Exception as e:
+        print(f"❌ Error listing chats: {e}")
+
+    return chat_summaries
+
+
 def save_chat(chat_dict: Dict[str, Any]) -> bool:
     """
     Save chat dictionary to disk.
@@ -4476,6 +4635,7 @@ def create_new_chat(chat_id: str, prompt: str, meta: Dict[str, Any]) -> Dict[str
 
     return {
         "chat_id": chat_id,
+        "project_id": "default",  # "default" = unassigned, otherwise user project ID
         "created_at": now_iso,
         "updated_at": now_iso,
         "title": default_title,

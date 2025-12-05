@@ -72,6 +72,9 @@ const pendingScanCache = new Map();
 // 🆕 NEW: Proactive site config management
 let siteConfigs = {}; // Store site configs locally for immediate access
 
+// 🔧 INTERNAL CAPABILITIES: Pending callbacks for server-side capabilities
+let pendingCapabilityCallbacks = {};
+
 // 🛡️ Keep-alive configuration to prevent Chrome from suspending the service worker
 const KEEP_ALIVE_PORT_NAME = "ome_keep_alive";
 const KEEP_ALIVE_CHECK_INTERVAL_MS = 30 * 1000;
@@ -1101,6 +1104,43 @@ function handleServerMessage(messageData) {
                     console.error('[SW] 💬 Error forwarding chat history:', error);
                 }
             })();
+            return;
+        }
+
+        // 🔧 INTERNAL CAPABILITIES: Handle capability results from server
+        if (message.type === "capability_result") {
+            console.log("[SW] 🔧 Capability result received:", message);
+
+            // Check for pending callback (content script waiting for response)
+            const requestId = message.id;
+            if (requestId && pendingCapabilityCallbacks[requestId]) {
+                console.log("[SW] 🔧 Resolving pending callback for:", requestId);
+                const callback = pendingCapabilityCallbacks[requestId];
+                delete pendingCapabilityCallbacks[requestId];
+                callback({
+                    ok: message.ok,
+                    action: message.action,
+                    result: message.result,
+                    error: message.error
+                });
+            } else {
+                // No pending callback - forward to active tab's content script
+                console.log("[SW] 🔧 No callback found, forwarding to content script");
+                (async () => {
+                    try {
+                        const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+                        if (activeTab && activeTab.id) {
+                            await chrome.tabs.sendMessage(activeTab.id, {
+                                type: 'ui_capability_result',
+                                data: message
+                            });
+                            console.log('[SW] 🔧 Capability result forwarded to tab:', activeTab.id);
+                        }
+                    } catch (error) {
+                        console.error('[SW] 🔧 Error forwarding capability result:', error);
+                    }
+                })();
+            }
             return;
         }
 
@@ -2927,8 +2967,27 @@ async function handleExecuteCapabilityFromContent(message, sendResponse) {
             await handleZoomCapabilityDirect(action);
             sendResponse({ ok: true, action });
         } else {
-            console.warn("[SW] 🎮 Unknown capability from content:", action);
-            sendResponse({ ok: false, error: `Unknown capability: ${action}` });
+            // Forward to server (internal capabilities like GetChatList)
+            console.log("[SW] 🎮 Forwarding capability to server:", action);
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                const requestId = `cap_content_${action}_${Date.now()}`;
+
+                // Store callback for response (uses global pendingCapabilityCallbacks)
+                pendingCapabilityCallbacks[requestId] = sendResponse;
+
+                sendToServer({
+                    type: 'execute_capability',
+                    id: requestId,
+                    action: action,
+                    params: params || {}
+                });
+
+                // Response will come back via handleServerMessage
+                // Return true to keep message channel open handled by caller
+            } else {
+                console.warn("[SW] 🎮 WebSocket not connected, cannot forward capability");
+                sendResponse({ ok: false, error: "WebSocket not connected" });
+            }
         }
     } catch (error) {
         console.error("[SW] 🎮 Capability error:", error);

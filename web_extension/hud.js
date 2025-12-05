@@ -1965,6 +1965,39 @@
                 text-overflow: ellipsis;
             }
 
+            /* 📚 Chat Item - clickable row in sidebar */
+            .ome-sidebar-chat {
+                display: flex;
+                align-items: center;
+                padding: 10px 12px;
+                margin: 4px 0;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.15s;
+            }
+            .ome-sidebar-chat:hover {
+                background: rgba(var(--theme-color, 126,200,227), 0.1);
+            }
+            .ome-sidebar-chat.active {
+                background: rgba(var(--theme-color, 126,200,227), 0.15);
+            }
+            .ome-sidebar-chat-info {
+                flex: 1;
+                min-width: 0;
+            }
+            .ome-sidebar-chat-title {
+                font-size: 13px;
+                color: rgba(var(--theme-color, 126,200,227), 0.9);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .ome-sidebar-chat-meta {
+                font-size: 11px;
+                color: rgba(var(--theme-color, 126,200,227), 0.5);
+                margin-top: 2px;
+            }
+
             /* 📚 Empty State - uses theme color */
             .ome-sidebar-empty {
                 padding: 24px 16px;
@@ -3619,6 +3652,7 @@
                         hudState.sidebar.classList.add('open');
                         hudState.hud?.classList.add('sidebar-open');
                         console.log('[Content] 📚 Restored sidebar state from SW');
+                        loadSidebarChats();  // Load chats on restore
                     }
 
                     // 📐 Calculate optimal panel width AFTER position is restored (if no saved size)
@@ -3763,6 +3797,93 @@
         }
 
         console.log('[Content] 📚 Sidebar:', hudState.sidebarOpen ? 'open' : 'closed');
+
+        // 📚 Load chats when sidebar opens
+        if (hudState.sidebarOpen) {
+            loadSidebarChats();
+        }
+    }
+
+    /**
+     * 📚 Load chat list into sidebar via GetChatList capability
+     * Fetches lightweight chat summaries (project_id="default") and renders them
+     */
+    function loadSidebarChats() {
+        console.log('[Content] 📚 Loading sidebar chats...');
+
+        chrome.runtime.sendMessage(
+            { type: 'execute_capability', action: 'GetChatList', params: { project_id: 'default' } },
+            (response) => {
+                if (chrome.runtime.lastError) {
+                    console.error('[Content] 📚 Failed to load chats:', chrome.runtime.lastError);
+                    return;
+                }
+
+                if (!response?.ok || !response?.result?.chats) {
+                    console.error('[Content] 📚 Invalid response:', response);
+                    return;
+                }
+
+                const chats = response.result.chats;
+                console.log('[Content] 📚 Loaded', chats.length, 'chats');
+                renderSidebarChats(chats);
+            }
+        );
+    }
+
+    /**
+     * 📚 Render chat list in sidebar
+     * @param {Array} chats - Array of {chat_id, title, date_short, message_count}
+     */
+    function renderSidebarChats(chats) {
+        const content = hudState.sidebar?.querySelector('.ome-sidebar-content');
+        if (!content) return;
+
+        // Keep the label, replace everything else
+        const label = content.querySelector('.ome-sidebar-label');
+        content.innerHTML = '';
+        if (label) content.appendChild(label);
+
+        if (chats.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'ome-sidebar-empty';
+            empty.textContent = 'No chats yet';
+            content.appendChild(empty);
+            return;
+        }
+
+        // Render chat items
+        chats.forEach(chat => {
+            const item = document.createElement('div');
+            item.className = 'ome-sidebar-chat';
+            item.dataset.chatId = chat.chat_id;
+
+            item.innerHTML = `
+                <div class="ome-sidebar-chat-info">
+                    <div class="ome-sidebar-chat-title">${escapeHtml(chat.title)}</div>
+                    <div class="ome-sidebar-chat-meta">${chat.date_short} · ${chat.message_count} msgs</div>
+                </div>
+            `;
+
+            // Click to load chat (future: LoadChat capability)
+            item.addEventListener('click', () => {
+                console.log('[Content] 📚 Chat clicked:', chat.chat_id);
+                // TODO: Call LoadChat capability to fetch full chat
+            });
+
+            content.appendChild(item);
+        });
+    }
+
+    /**
+     * 🔒 Escape HTML to prevent XSS
+     * @param {string} str - Raw string
+     * @returns {string} Escaped string
+     */
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
     }
 
     /**

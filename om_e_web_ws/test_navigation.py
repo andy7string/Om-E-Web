@@ -16,7 +16,7 @@ CLICK - Buttons and clickable elements
     python test_navigation.py --command click --action-id a_id_2
 
 LINK - Navigate via anchor links
-    python test_navigation.py --command navigate --action-id a_id_3
+    python test_navigation.py --command navigate --action-id a_id_6
 
 INPUT - Type into text fields
     python test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "hello world"
@@ -114,7 +114,14 @@ FACEBOOK:
     python test_navigation.py --command capability --capability OpenMap
 
 ================================================================================
-7. UI CONTROLS
+7. INTERNAL CAPABILITIES (server-side operations)
+================================================================================
+
+GET CHAT LIST - Returns all saved chats with id, title, message_count
+    python test_navigation.py --command capability --capability GetChatList
+
+================================================================================
+8. UI CONTROLS
 ================================================================================
 
 TOGGLE HUD
