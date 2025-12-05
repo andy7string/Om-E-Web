@@ -3859,8 +3859,8 @@
             if (!hudState.host) initHUD();
 
             if (ORB_THEMES[themeName]) {
-                applyOrbTheme(themeName);
-                hudState.theme = themeName;
+                // Use setOrbTheme to persist and broadcast to other tabs
+                setOrbTheme(themeName);
                 sendResponse({ ok: true, theme: themeName });
             } else {
                 sendResponse({ ok: false, error: `Unknown theme: ${themeName}` });
@@ -3874,6 +3874,26 @@
             // Ensure orb exists before applying position
             if (!hudState.host) initHUD();
             applyOrbPosition(message.position);
+            sendResponse({ ok: true });
+            return true;
+        }
+
+        // 🎨 Sync orb theme from another tab
+        if (message.type === 'sync_orb_theme') {
+            console.log('[Content] 🎨 sync_orb_theme received:', message.theme);
+            if (!hudState.host) initHUD();
+            // Update state first (same pattern as chatVisible)
+            if (ORB_THEMES[message.theme]) {
+                hudState.theme = message.theme;
+                // Update orb view if exists
+                if (hudState.orb) {
+                    applyOrbTheme(message.theme);
+                }
+                // Update HUD view if exists
+                if (hudState.hud) {
+                    updateHUDOrb(hudState.hud, message.theme);
+                }
+            }
             sendResponse({ ok: true });
             return true;
         }

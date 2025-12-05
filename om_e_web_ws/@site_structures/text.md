@@ -1,9 +1,9 @@
-# Local Web Design Adelaide | Bright Tree Digital
+# Google
 
-**URL:** https://brighttreedigital.com.au/
-**Timestamp:** 2025-12-05 16:21:15
+**URL:** https://www.google.com/
+**Timestamp:** 2025-12-05 16:34:17
 
-**Tabs (2):** Active: #1138033311 "Local Web Design Adelaide | Br" brighttreedigital.com.au [complete] | Other: #1138033305 "Google" www.google.com
+**Tabs (3):** Active: #1138033488 "Google" www.google.com [complete] | Other: #1138033479 "Google" www.google.com, #1138033485 "Google" www.google.com
 
 ## Available Actions
 
@@ -65,98 +65,161 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<Link id="a_id_0">Skip to content</Link>
-<Link id="a_id_1">Bright Tree Digital</Link>
-<Link id="a_id_2">HOME</Link>
-<Link id="a_id_3">ABOUT</Link>
-<Link id="a_id_4">PORTFOLIO</Link>
-<Link id="a_id_5">SERVICES</Link>
-<Link id="a_id_6">CONTACT</Link>
-<Link id="a_id_7">Facebook</Link>
-<Link id="a_id_8">Instagram</Link>
-Logo Design
-Developing Timeless Logos That Define Your Brand Identity
-<Link id="a_id_9">GET STARTED</Link>
-<Button id="a_id_10">Previous slide</Button>
-<Button id="a_id_11">Next slide</Button>
-Welcome to Bright Tree Digital...
-...where your vision takes digital form and your business’s potential is fully realized. Specializing in
-WordPress web design
-and compelling
-graphic design
-, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
-Our Services
-Start your journey here...
-<Button id="a_id_12">Get in touch today!</Button>
-Our Work
-<Link id="a_id_13">Straker Functional Fitness</Link>
-<Link id="a_id_14">The Syrene Hotel</Link>
-<Link id="a_id_15">African Safari Deals</Link>
-<Link id="a_id_16">Mtambo Chartered Accountants</Link>
-<Link id="a_id_17">Joss Couture</Link>
-<Link id="a_id_18">Flutterbys School</Link>
-<Link id="a_id_19">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_20">Straker Functional Fitness</Link>
-<Link id="a_id_21">The Syrene Hotel</Link>
-<Link id="a_id_22">African Safari Deals</Link>
-<Link id="a_id_23">Mtambo Chartered Accountants</Link>
-<Link id="a_id_24">Joss Couture</Link>
-<Link id="a_id_25">Flutterbys School</Link>
-<Link id="a_id_26">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_27">Straker Functional Fitness</Link>
-<Link id="a_id_28">The Syrene Hotel</Link>
-<Link id="a_id_29">African Safari Deals</Link>
-<Link id="a_id_30">Mtambo Chartered Accountants</Link>
-<Button id="a_id_31">1 of 2</Button>
-<Button id="a_id_32">2 of 2</Button>
-<Button id="a_id_33">3 of 2</Button>
-<Button id="a_id_34">4 of 2</Button>
-<Button id="a_id_35">5 of 2</Button>
-<Button id="a_id_36">6 of 2</Button>
-<Button id="a_id_37">7 of 2</Button>
-<Button id="a_id_38">8 of 2</Button>
-What Our Clients Say!
-We are so happy that
-Bright Tree Digital
-designed our Logos and websites for our 2 food businesses.
-Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
-Michelene Rendell
-Owner, The Kitchen
-Highly recommended.
-Bright Tree Digital
-presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
-Daniella Finney
-Owner, The Syrene Boutique Hotel
-Big shoutout to Olivia at
-Bright Tree Digital
-, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
-Natalie Cassar
-Owner, New Moon Digital
-<Button id="a_id_39">Read More Testimonials</Button>
-Ready for a Website Makeover?
-<Button id="a_id_40">Reach Out Now!</Button>
-ABOUT US
-We specialise in
-WordPress web design
-and
-graphic design
-, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-OUR PORTFOLIO
-<Link id="a_id_41">Banner Portfolio</Link>
-<Link id="a_id_42">Logo Portfolio</Link>
-<Link id="a_id_43">Web Design Portfolio</Link>
-<Link id="a_id_44">Facebook</Link>
-<Link id="a_id_45">Instagram</Link>
-ABN: 29 160 886 356
-QUICK LINKS
-<Link id="a_id_46">Home</Link>
-<Link id="a_id_47">About</Link>
-<Link id="a_id_48">Services</Link>
-<Link id="a_id_49">Testimonials</Link>
-<Link id="a_id_50">Contact</Link>
-<Link id="a_id_51">Privacy Policy</Link>
-Copyright © 2025 Bright Tree Digital
-<Link id="a_id_52">Website Designed by Bright Tree Digital</Link>
+Google Search homepage
+<Link id="a_id_0">About</Link>
+<Link id="a_id_1">Store</Link>
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
+(andreworsmond21175@gmail.com)</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
+Accessibility links
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
+Discover
+<Link id="a_id_17">From coal to solar: a new manufacturing bet in the Hunter
+_A company headed up by one of the legends of Australian solar research and development has won more than $150 million in federal Solar Sunshot funding to...
+Pearls and Irritations
+·
+1d</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">5 Stories Of Developers Using JetBrains Rider to Create, Collaborate, and Have Fun
+A year ago, we introduced a free non-commercial use license option for JetBrains Rider, hoping to remove barriers for developers who code with no financial...
+The JetBrains Blog
+·
+1d</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">2026 Mazda CX-60 G40e Pure review
+Mazda has updated the CX-60 with lower prices – including this new base grade – and a revised driving experience. Is it finally fixed?
+Drive
+·
+2d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">High Court agrees to hear teens' challenge to social media ban
+The High Court has agreed to hear a special case from two teenagers challenging the federal government's new social media ban for people under 16.
+Australian Broadcasting Corporation
+·
+21h</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Blue-chip companies used security firm facing massive tax, workplace probes
+MA Services is part of a web of companies subject to separate investigations, including by the Tax Office and liquidators, over suspected involvement in a...
+The Age
+·
+1d</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Google Photos’ 2025 Recap turns to Gemini to find your highlights
+The Google Photos Recap will use Gemini's AI to find your memorable moments throughout the year, and adds new metrics, like a 'selfie' count.
+TechCrunch
+·
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">‘Putin perfectly understands that Ukraine is running out of time’
+While some in Russia believe Ukraine is standing in the way of peace, other analysts say Putin has maximalist ambitions.
+Al Jazeera
+·
+15h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Introducing: A Tarantino Tribute on the Wrist: Awake’s The Deadly Watch
+Following the Jurassic Watch, Awake is back with its second tribute to cinema with a watch inspired by Quentin Tarantino's Kill Bill Vol. 1.
+Monochrome Watches
+·
+17h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">'Not fair’ - Russell criticises McLaren’s Abu Dhabi team order stance
+George Russell believes McLaren's Abu Dhabi team order stance isn't “acceptable or reasonable”, as Oscar Piastri could be moved aside to help Lando Norris's...
+The Race
+·
+18h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Will the government’s new gas reservation plan bring down prices? Yes, if it works properly
+The Australian government is poised to introduce a new domestic gas reservation policy on the east coast. The plan is meant to tackle growing concerns...
+The Conversation
+·
+1d</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">The Art of Scaling Test-Time Compute for LLMs This is a large-scale study of test-time scaling (TTS). It also provides a practical recipe for selecting the best test-time scaling strategy. (bookmark it) My takeaways: Test-time compute scaling works - Allocating more computation during inference (not training) can significantly boost LLM performance on complex reasoning tasks. Strategic allocation matters - Not all extra compute is equally beneficial; how you spend the additional resources is as important as how much you spend. Different strategies for different tasks - Certain test-time scaling approaches outperform others depending on the characteristics of the task. No retraining required - LLMs can be made more capable by intelligently using additional computation at inference time, without modifying model weights. The paper evaluates various reasoning verification and refinement techniques, plus methods for deciding when/how to use extra computation. The research
+omarsar0
+X
+·
+2d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Why Cheap EVs From China Aren’t The Only Thing Automakers Should Worry About
+Amid the electric vehicle push at the start of the decade, automakers (and then countries) grew increasingly concerned about the long-anticipated surge of...
+Gizmodo
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Court hears Maurene Comey was fired as retaliation against ex-FBI chief father
+Maurene Comey, the federal prosecutor who helmed criminal cases against Jeffrey Epstein and Ghislaine Maxwell, appeared at Manhattan federal court on...
+The Guardian
+·
+6h</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Former child star joins blockbuster series
+The video-game inspired series Fallout is one of Prime Video's most successful shows, clocking up a cool 100 million views since Season 1 premiered in April...
+News.com.au
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Glenn McGrath offered Ashes broadcast role after radio ban for Aussie legend
+It comes after the Aussie cricket legend was removed from the ABC's Ashes coverage. Details here.
+Yahoo News Australia
+·
+1d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Terri Hall takes national role as TRA reshapes leadership
+TRA promotes Sydney managing partner Terri Hall to the newly created role of managing partner, Australia. The move signals a leadership reshuffle to support...
+Marketing-Interactive
+·
+1w</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">“We’re hurting” Adelaide’s Big Shed Brewing forced to shut doors as lease terminated
+The team broke the news on Facebook this afternoon, and the SA community were quick to show love and support.
+Glam Adelaide
+·
+1d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Rare images reveal active sunspots minutes before they unleashed powerful X-flares that caused November 2025's stunning auroras
+Using the GREGOR solar telescope at the Teide Observatory in Tenerife, Spain, researchers observed the sunspots behind two X-class solar flares in active...
+Space
+·
+13h</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Value of private health insurance 'eroding' as doctors urge reform
+A new report from Australia's peak doctors' body says private health insurance is increasingly failing to deliver value to the roughly 15 million...
+Australian Broadcasting Corporation
+·
+17h</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Trump said he’s looking into an Australian-style retirement program for America. Here’s how it works
+The Trump administration is looking Down Under for inspiration on how to improve the United States' retirement savings system.
+CNN
+·
+1d</Link>
+<Button id="a_id_56">More options</Button>
+At a glance
+<Button id="a_id_57">Customise Homestack</Button>
+<Link id="a_id_58">Air quality
+Good
+AQC</Link>
+<Link id="a_id_59">Woodforde
+Cloudy
+15%
+27°</Link>
+<Link id="a_id_60">XAO • All Ordinaries up 0.22%. Price is 8,926.10 Today</Link>
+Australia
+<Link id="a_id_61">Advertising</Link>
+<Link id="a_id_62">Business</Link>
+<Link id="a_id_63">How Search works</Link>
+<Link id="a_id_64">Privacy</Link>
+<Link id="a_id_65">Terms</Link>
+<Button id="a_id_66">Settings</Button>

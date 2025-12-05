@@ -1314,6 +1314,21 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     });
                 }
 
+                // 🎨 Sync theme to all OTHER tabs (exclude sender)
+                if (message.theme !== undefined) {
+                    const senderTabId = sender.tab?.id;
+                    chrome.tabs.query({}, (tabs) => {
+                        tabs.forEach(tab => {
+                            if (tab.id !== senderTabId) {
+                                chrome.tabs.sendMessage(tab.id, {
+                                    type: 'sync_orb_theme',
+                                    theme: message.theme
+                                }).catch(() => {});
+                            }
+                        });
+                    });
+                }
+
                 // 💬 Sync chat visibility to all OTHER tabs (exclude sender)
                 if (message.chatVisible !== undefined) {
                     const senderTabId = sender.tab?.id;
