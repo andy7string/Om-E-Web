@@ -937,20 +937,25 @@
             }
 
             /* 💬 HUD Messages Area - ChatGPT style scrollable history */
-            /* 📐 Positioned to match prompt-wrapper exactly via JS sync */
+            /* 📐 Extends to right edge for scrollbar, content aligned via padding */
             .ome-hud-messages-area {
                 position: absolute;
                 top: 60px;  /* Below topbar */
                 bottom: 160px;  /* Above input area */
-                /* left/right set dynamically by JS to match prompt-wrapper */
-                left: 80px;
-                right: 18px;
+                left: 80px;  /* Left edge matches input-area */
+                right: 10px;  /* Scrollbar at far right edge */
                 overflow-y: auto;
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
                 padding: 24px 0;
-                transition: opacity 0.2s ease, visibility 0.2s ease;
+                /* Content padding set dynamically by JS to align with prompt */
+                padding-right: var(--messages-right-padding, 70px);
+                transition: opacity 0.2s ease, visibility 0.2s ease, left 0.25s ease;
+            }
+            /* 📚 When sidebar open, shift left edge */
+            .ome-hud.sidebar-open .ome-hud-messages-area {
+                left: 284px;
             }
             /* 🙈 Hide messages when prompt is hidden */
             .ome-hud-messages-area.hidden-for-sidebar {
@@ -3696,8 +3701,8 @@
     }
 
     /**
-     * 📐 Sync HUD messages area position with prompt wrapper
-     * Makes messages align exactly with the prompt box edges
+     * 📐 Sync HUD messages area content alignment with prompt wrapper
+     * Messages area extends to right edge (for scrollbar), content aligned via padding
      */
     function syncMessagesWithPrompt() {
         if (!hudState.hud) return;
@@ -3710,9 +3715,16 @@
         const promptRect = promptWrapper.getBoundingClientRect();
         const viewportWidth = window.innerWidth;
 
-        // Set messages area to match prompt box position
+        // Calculate right padding needed to align content with prompt right edge
+        // Messages area right edge is at (viewportWidth - 10px)
+        // Prompt right edge is at promptRect.right
+        // Padding needed = messagesAreaRightEdge - promptRect.right
+        const rightPadding = (viewportWidth - 10) - promptRect.right;
+
+        // Set left position to match prompt left edge
         messagesArea.style.left = `${promptRect.left}px`;
-        messagesArea.style.right = `${viewportWidth - promptRect.right}px`;
+        // Set right padding to align content with prompt right edge
+        messagesArea.style.setProperty('--messages-right-padding', `${Math.max(10, rightPadding)}px`);
     }
 
     // 🎛️ HUD message handler

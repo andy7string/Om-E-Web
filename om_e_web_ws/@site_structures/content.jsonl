@@ -1,28 +1,35 @@
 {
-  "timestamp": 1764903099.47006,
+  "timestamp": 1764904391.779535,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138032647,
-      "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69316f54-e07c-8324-a857-9625639a091a",
-      "title": "OM-E autonomy - How ChatGPT reads files",
+      "id": 1138032660,
+      "url": "https://www.google.com/",
+      "title": "Google",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138032647,
-        "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69316f54-e07c-8324-a857-9625639a091a",
-        "title": "OM-E autonomy - How ChatGPT reads files",
+        "id": 1138032655,
+        "url": "https://www.google.com/",
+        "title": "Google",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138032660,
+        "url": "https://www.google.com/",
+        "title": "Google",
         "active": true,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 17629.103787166,
+    "last_tabs_update": 18961.245793416,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69316f54-e07c-8324-a857-9625639a091a",
-    "title": "OM-E autonomy - How ChatGPT reads files",
+    "url": "https://www.google.com/",
+    "title": "Google",
     "is_active_tab": true
   },
   "content_structure": {},

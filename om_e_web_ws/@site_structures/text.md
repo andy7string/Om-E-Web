@@ -1,9 +1,9 @@
-# OM-E autonomy - How ChatGPT reads files
+# Google
 
-**URL:** https://chatgpt.com/g/g-p-682d3e1451208191b78768784885a64f-om-e-autonomy/c/69316f54-e07c-8324-a857-9625639a091a
-**Timestamp:** 2025-12-05 13:21:39
+**URL:** https://www.google.com/
+**Timestamp:** 2025-12-05 13:43:11
 
-**Tabs (1):** Active: #1138032647 "OM-E autonomy - How ChatGPT re" chatgpt.com [complete]
+**Tabs (2):** Active: #1138032660 "Google" www.google.com [complete] | Other: #1138032655 "Google" www.google.com
 
 ## Available Actions
 
@@ -65,105 +65,162 @@ The following pre-configured actions are available for this page:
 
 ---
 
-<Link id="a_id_0">Skip to content</Link>
-Chat history
-<Link id="a_id_1">Home</Link>
-<Button id="a_id_2">Close sidebar</Button>
-<Link id="a_id_3">New chat
-⇧
-⌘
-O</Link>
-Search chats
-<Link id="a_id_4">Library</Link>
-<Link id="a_id_5">Codex</Link>
-<Link id="a_id_6">Atlas</Link>
-<Button id="a_id_7">GPTs</Button>
-<Link id="a_id_8">Explore</Link>
-<Link id="a_id_9">Web Browser</Link>
-<Button id="a_id_10">Projects</Button>
-New project
-<Link id="a_id_11">OM-E autonomy</Link>
-<Link id="a_id_12">How ChatGPT reads files</Link>
-<Link id="a_id_13">Chat session pipeline setup</Link>
-<Link id="a_id_14">System packaging advice</Link>
-<Link id="a_id_15">Om-E orb design</Link>
-<Link id="a_id_16">Logo design example</Link>
-<Link id="a_id_17">See All</Link>
-<Link id="a_id_18">Claude</Link>
-<Link id="a_id_19">Pacifier Project</Link>
-<Link id="a_id_20">BinaryBeats</Link>
-<Link id="a_id_21">FPH</Link>
-See more
-<Button id="a_id_22">Your chats</Button>
-<Link id="a_id_23">Finding lot number</Link>
-<Link id="a_id_24">Setup first order coupon</Link>
-<Link id="a_id_25">Rewrite request response</Link>
-<Link id="a_id_26">ScrollDown capability doc</Link>
-<Link id="a_id_27">Redraw with satin tiles</Link>
-<Link id="a_id_28">Nonsense input response</Link>
-<Link id="a_id_29">Modify bunny design</Link>
-<Link id="a_id_30">Web automation test</Link>
-<Link id="a_id_31">Web automation test</Link>
-<Link id="a_id_32">Claude assistance options</Link>
-<Link id="a_id_33">Claude usage clarification</Link>
-<Link id="a_id_34">Write a poem</Link>
-<Link id="a_id_35">Sort list in Python</Link>
-<Link id="a_id_36">Automation test message</Link>
-<Link id="a_id_37">Confidence boost</Link>
-<Link id="a_id_38">Palm reading analysis</Link>
-<Link id="a_id_39">Emotional reaction reflection</Link>
-<Link id="a_id_40">Calming emotional reactions</Link>
-<Link id="a_id_41">Handling strong language</Link>
-<Link id="a_id_42">Search elements in console</Link>
-<Link id="a_id_43">Guitar request clarification</Link>
-<Link id="a_id_44">New chat</Link>
-<Link id="a_id_45">Guitar assistance offer</Link>
-<Link id="a_id_46">Next steps discussion</Link>
-<Link id="a_id_47">Conversation transcript</Link>
-<Link id="a_id_48">Contact form not received</Link>
-<Link id="a_id_49">New chat</Link>
-<Link id="a_id_50">Conveyancer process Adelaide</Link>
-<Button id="a_id_51">Open profile menu</Button>
-<Link id="a_id_52">Open OM-E autonomy project</Link>
-<Button id="a_id_53">Model selector, current model is 5.1</Button>
-<Button id="a_id_54">Share</Button>
-<Button id="a_id_55">Open conversation options</Button>
-You said:
-how does chat gbt know about what is in my project files i upload to a project in the chat gbt project under add files, it is able to answer questions about it
-ChatGPT said:
-Om-e, short and direct for you, mate.
-How ChatGPT knows what’s in your uploaded project files is dead simple:
-When you add files to a ChatGPT
-Project
-, those files become part of the project’s
-active context window
-.
-That means:
-The files are stored on OpenAI’s servers as part of the project.
-Whenever you ask a question, ChatGPT is allowed to
-read and reference the contents of those files
-.
-It parses and indexes them at query time, not magically—it's literally searching and pattern-matching the text you uploaded.
-It does
-not
-run your code. It just treats the files like documents it can read.
-It’s basically like uploading a folder to another developer who then reads it and answers based on those contents.
-✔️
-It only knows what’s inside because you uploaded the files.
-✔️
-It can’t see anything outside the project unless you paste or upload it.
-✔️
-It re-reads whatever is relevant each time you ask a question.
-Your project files—like the big README you added—are now part of the context, which is why I can cite sources like this one:
-README
-Confidence: 96%
-<Button id="a_id_56">Copy</Button>
-<Button id="a_id_57">Good response</Button>
-<Button id="a_id_58">Bad response</Button>
-<Button id="a_id_59">Switch model</Button>
-<Button id="a_id_60">More actions</Button>
-<Input id="a_id_61" use="(a_id_61, 'your text', submit:true)">d</Input>
-<Button id="a_id_62">Add files and more</Button>
-<Button id="a_id_63">Dictate button</Button>
-<Button id="a_id_64">Send prompt</Button>
-ChatGPT can make mistakes. Check important info.
+Google Search homepage
+<Link id="a_id_0">About</Link>
+<Link id="a_id_1">Store</Link>
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
+(andreworsmond21175@gmail.com)</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
+Accessibility links
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
+Discover
+<Link id="a_id_17">2026 Toyota RAV4: Why the former Edge flagship is now one of the cheapest grades
+The RAV4 Edge is the only new variant to receive a price cut looks to follow demand from customers for a tougher look at a lower price.
+Drive
+·
+3h</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Australian company produces another million-dollar classic Porsche 911 restomod
+The Zeigler/Bailey Z/B 4.4 is fastidiously redesigned G-series Porsche 911 with a handmade 4.4-litre air-cooled flat six and a new platform.
+CarExpert
+·
+3h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Morning Wrap: ASX 200 to edge higher, S&P 500 flat, RBA now priced to hike in 2026
+ASX 200 futures are up 10pts (+0.11%) as of 8:30 am AEDT.
+Market Index
+·
+5h</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">watchOS 26.2 has four changes for Apple Watch, here’s everything new
+watchOS 26.2 is almost here, and thanks to Apple's official release notes, we know exactly what's changing. Here's everything new coming to Apple Watch in...
+9to5mac.my
+·
+1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Day set to turn into night: the longest solar eclipse of the century now has an official date: and its duration will be remarkable
+For a few minutes, in the middle of the day, the world will look wrong. Streets will dim as if someone turned down a giant light dimmer in the sky. Birds.
+proplumb365.co.uk
+·
+2d</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Near neighbours of Australia's likely newest wind project get inflation-based boost on payments
+Neighbour and community benefits at a wind project first proposed more than a decade ago have been lifted, and compare well with other recent offers.
+Renew Economy
+·
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Leah Weckert puts Coles ahead of Woolies for first time in decades
+The retailer's first female boss, a former McKinsey strategist and loyalty executive, has cracked the grocery code, outpacing Woolworths' sales two years...
+AFR
+·
+1d</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Jane Street’s Trading Haul Juiced by Surging Bet on Anthropic
+Jane Street Group's record haul this year has been boosted by savvy bets on the artificial intelligence boom that are showing up as big gains in its trading...
+Bloomberg.com
+·
+7h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Interstellar comet updates ☄️ On Nov. 30, the @NASAHubble space telescope captured a new look at comet 3I/ATLAS: http://go.nasa.gov/3MlLfbB Our #MissionToPsyche asteroid explorer also joined the effort to track the comet’s path: go.nasa.gov/3Y8yB2h
+NASASolarSystem
+X
+·
+4h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Emirates New A350 Lands for First Time to This Australian Airport
+Adelaide Airport (ADL) welcomed Airbus A350 aircraft operated by Emirates Airline (EK) on its scheduled service from Dubai (DXB).
+Aviation A2Z
+·
+1d</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">5:22
+Australia's under-16 social media ban begins | 7NEWS
+7NEWS Australia
+YouTube
+·
+3h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">India revokes order to preload cyber security app on smartphones
+India's government scrapped an order to smartphone makers to preload a state-run cyber security app on all new devices after an outcry from politicians,...
+iTnews
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Australia’s first six gigawatt hour battery to be built as part of massive multi-tech “grid res...
+Exclusivity deal signed for massive gas and energy storage hub that promises to host Australia's biggest eight-hour battery, sized at more than 6000 MWh.
+Renew Economy
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">VIDEO: A declining birth rate will be costly in the long run, says Peter Costello
+Australia's fertility rate is at a record low. Former Treasurer and architect behind the baby bonus, Peter Costello wants the government to address the...
+Australian Broadcasting Corporation
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Chatbots can sway political opinions but are ‘substantially’ inaccurate, study finds
+'Information-dense' AI responses are most persuasive but these tend to be less accurate, says security report.
+The Guardian
+·
+8h</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">"Everything you loved about Roxie's" DJs & garden vibes, the iconic bar lives on in the west end
+Roxies is set for a summer comeback as the much-loved garden bar takes up residence in Adelaide's West End.
+Glam Adelaide
+·
+23h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Ranger Super Duty won’t end F-150, yet
+Ford said its massive investment to beef-up the Ranger into the Super Duty won't be the death knell...
+Blue Mountains Gazette
+·
+4d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Blue-chip companies used security firm facing massive tax, workplace probes
+MA Services is part of a web of companies subject to separate investigations, including by the Tax Office and liquidators, over suspected involvement in a...
+The Age
+·
+1d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Geminids 2025: The year's best meteor shower is coming, with a second shower hot on its tail
+The Geminid meteor shower has begun. The Geminids peak overnight on Dec. 13 and 14, when up to 150 "shooting stars" per hour will rain down on Earth in a...
+Live Science
+·
+7h</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Macquarie raises target price on APA Group shares following joint-venture announcement
+APA Group shares have jumped 30% higher this year.
+The Motley Fool Australia
+·
+2d</Link>
+<Button id="a_id_56">More options</Button>
+At a glance
+<Button id="a_id_57">Customise Homestack</Button>
+<Link id="a_id_58">Air quality
+Good
+AQC</Link>
+<Link id="a_id_59">Woodforde
+Cloudy
+15%
+27°</Link>
+<Link id="a_id_60">.IXIC • Nasdaq Composite up 0.22%. Price is 23,505.14 Today</Link>
+Australia
+<Link id="a_id_61">Advertising</Link>
+<Link id="a_id_62">Business</Link>
+<Link id="a_id_63">How Search works</Link>
+<Link id="a_id_64">Privacy</Link>
+<Link id="a_id_65">Terms</Link>
+<Button id="a_id_66">Settings</Button>
