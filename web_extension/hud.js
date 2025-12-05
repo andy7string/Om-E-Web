@@ -2002,6 +2002,14 @@
                 font-size: 13px;
                 color: rgba(var(--theme-color, 126,200,227), 0.9);
                 white-space: nowrap;
+                border-radius: 4px;
+                padding: 2px 4px;
+                margin: -2px -4px;
+            }
+            .ome-sidebar-chat-title.editing {
+                background: rgba(var(--theme-color, 126,200,227), 0.15);
+                outline: 1px solid rgba(var(--theme-color, 126,200,227), 0.4);
+                white-space: normal;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
@@ -2011,27 +2019,31 @@
                 margin-top: 2px;
             }
 
-            /* 📚 Three-dot menu button - hidden by default, shown on hover */
+            /* 📚 Three-dot menu - hidden by default, shown on hover */
             .ome-sidebar-chat-menu {
                 opacity: 0;
-                padding: 4px 6px;
-                border-radius: 4px;
+                padding: 4px 8px;
                 cursor: pointer;
-                transition: opacity 0.15s, background 0.15s;
+                transition: opacity 0.15s;
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                gap: 3px;
+                background: none;
+                border: none;
             }
             .ome-sidebar-chat:hover .ome-sidebar-chat-menu {
                 opacity: 1;
             }
-            .ome-sidebar-chat-menu:hover {
-                background: rgba(var(--theme-color, 126,200,227), 0.2);
+            .ome-sidebar-chat-menu .dot {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: rgba(var(--theme-color, 126,200,227), 0.5);
+                transition: background 0.15s, box-shadow 0.15s;
             }
-            .ome-sidebar-chat-menu svg {
-                width: 16px;
-                height: 16px;
-                fill: rgba(var(--theme-color, 126,200,227), 0.7);
+            .ome-sidebar-chat-menu:hover .dot {
+                background: rgba(var(--theme-color, 126,200,227), 1);
+                box-shadow: 0 0 6px rgba(var(--theme-color, 126,200,227), 0.8);
             }
 
             /* 📚 Dropdown menu */
@@ -3948,7 +3960,7 @@
                     <div class="ome-sidebar-chat-meta">${chat.date_short} · ${chat.message_count} msgs</div>
                 </div>
                 <button class="ome-sidebar-chat-menu" title="Options">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
                 </button>
                 <div class="ome-sidebar-dropdown">
                     <div class="ome-sidebar-dropdown-item rename" data-action="rename">
@@ -4080,34 +4092,72 @@
      */
     function renameChat(chatId, currentTitle) {
         console.log('[Content] 📚 Rename requested for:', chatId, 'current title:', currentTitle);
-        const newTitle = prompt('Rename chat:', currentTitle);
-        console.log('[Content] 📚 User entered:', newTitle);
-        if (!newTitle || newTitle === currentTitle) {
-            console.log('[Content] 📚 Rename cancelled (no change or empty)');
-            return;
-        }
 
-        console.log('[Content] 📚 Renaming chat:', chatId, 'to', newTitle);
+        // Find the chat item and title element
+        const chatItem = hudState.sidebar?.querySelector(`.ome-sidebar-chat[data-chat-id="${chatId}"]`);
+        if (!chatItem) return;
 
-        chrome.runtime.sendMessage(
-            { type: 'execute_capability', action: 'RenameChat', params: { chat_id: chatId, title: newTitle } },
-            (response) => {
-                console.log('[Content] 📚 RenameChat response:', response);
-                if (chrome.runtime.lastError) {
-                    console.error('[Content] 📚 Failed to rename chat:', chrome.runtime.lastError);
-                    return;
-                }
+        const titleEl = chatItem.querySelector('.ome-sidebar-chat-title');
+        if (!titleEl) return;
 
-                if (!response?.ok) {
-                    console.error('[Content] 📚 Rename failed:', response?.error);
-                    return;
-                }
+        // Make it editable
+        titleEl.contentEditable = 'true';
+        titleEl.classList.add('editing');
+        titleEl.focus();
 
-                console.log('[Content] 📚 Chat renamed successfully');
-                // Refresh sidebar chat list
-                loadSidebarChats();
+        // Select all text
+        const range = document.createRange();
+        range.selectNodeContents(titleEl);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+
+        // Save function
+        const saveRename = () => {
+            const newTitle = titleEl.textContent.trim();
+            titleEl.contentEditable = 'false';
+            titleEl.classList.remove('editing');
+
+            if (!newTitle || newTitle === currentTitle) {
+                titleEl.textContent = currentTitle; // Restore original
+                return;
             }
-        );
+
+            console.log('[Content] 📚 Renaming chat:', chatId, 'to', newTitle);
+
+            chrome.runtime.sendMessage(
+                { type: 'execute_capability', action: 'RenameChat', params: { chat_id: chatId, title: newTitle } },
+                (response) => {
+                    if (chrome.runtime.lastError || !response?.ok) {
+                        console.error('[Content] 📚 Rename failed:', response?.error || chrome.runtime.lastError);
+                        titleEl.textContent = currentTitle; // Restore on error
+                        return;
+                    }
+                    console.log('[Content] 📚 Chat renamed successfully');
+                }
+            );
+        };
+
+        // Cancel function
+        const cancelRename = () => {
+            titleEl.contentEditable = 'false';
+            titleEl.classList.remove('editing');
+            titleEl.textContent = currentTitle;
+        };
+
+        // Handle keyboard
+        titleEl.onkeydown = (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                saveRename();
+            } else if (e.key === 'Escape') {
+                e.preventDefault();
+                cancelRename();
+            }
+        };
+
+        // Save on blur
+        titleEl.onblur = saveRename;
     }
 
     /**

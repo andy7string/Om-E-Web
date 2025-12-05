@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-05 21:34:32
+**Timestamp:** 2025-12-05 21:48:41
 
-**Tabs (1):** Active: #1138033840 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138033855 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -110,41 +110,41 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">2026 Kia EV4 Fastback will arrive in January to take on Tesla Model 3
-Kia's new EV4 Fastback lands next month to take on Tesla and BYD, with over 600km of range and a likely starting price under $50000.
-CarExpert
+<Link id="a_id_17">“Slim fits in my garage”: Why EV owners are turning to Anker’s new ultra-thin battery
+As EV owners look to charge cheaply from solar, the Anker SOLIX X1 is fast becoming the go-to energy hub for the electric garage. slim, integration-ready,...
+The Driven
 ·
 5h</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Dyson V16 Piston Animal Submarine review
-Dyson's latest stick vacuum has a new cleaning head that adjusts both brush bar speed and suction depending on whether it's on hard floors or carpet.
-CHOICE
+<Link id="a_id_19">Kia concedes Tasman ute isn't hitting "ambitious" sales projections
+The new Kia Tasman is well away from achieving its goal of 20000 annual sales, and the brand's executives say they have some work to do.
+CarExpert
 ·
-1d</Link>
+5h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">New Chinese brand could be bigger than BYD!
-One newcomer Chinese brand is planning a multi-model takeover of Australia's new car market, leaning on its global partnership with Toyota to launch into 10...
-CarsGuide
+<Link id="a_id_21">At home and at school, AI is transforming childhood
+It brings many benefits, but also hidden dangers | Briefing.
+The Economist
 ·
-1d</Link>
+23h</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Home loan surge: 5 per cent home deposits spark buying frenzy
-First home buyers are splurging following October's changes to the federal government's Home Guarantee Scheme which included the introduction of five per...
-Daily Telegraph
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">A Startup Says It Has Found a Hidden Source of Geothermal Energy
-Zanskar uses AI to identify hidden geothermal systems—and claims it has found one that could fuel a power plant, the first such discovery by industry in...
-WIRED
-·
-22h</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Almost All Space Telescope Images Could Soon Be Contaminated, NASA Warns
+<Link id="a_id_23">Almost All Space Telescope Images Could Soon Be Contaminated, NASA Warns
 Light from the half a million satellites that humanity is planning to launch into Earth's orbit in the coming years could contaminate almost all the images...
 ScienceAlert
 ·
 1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">WAU Toyota junior lands Porsche seat
+LINCOLN Taylor will swap Toyota single-make racing for Porsche single-make racing in 2026. The 17-year-old represented Walkinshaw Andretti United in the.
+V8 Sleuth
+·
+8h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Iran’s record drought and cheap fuel have sparked an air pollution crisis – but the real causes run much deeper
+Air pollution is the latest environmental crisis causing havoc across Iran. Large parts of the country are already suffering from a drought, one of the...
+The Conversation
+·
+18h</Link>
 <Button id="a_id_28">More options</Button>
 <Link id="a_id_29">Trump said he’s looking into an Australian-style retirement program for America. Here’s how it works
 The Trump administration is looking Down Under for inspiration on how to improve the United States' retirement savings system.
@@ -152,17 +152,17 @@ CNN
 ·
 1d</Link>
 <Button id="a_id_30">More options</Button>
-<Link id="a_id_31">NextDC shares jump 11% on major OpenAI deal
-NextDC shares are on the rise following the news that OpenAI will be the anchor tenant in its $7 billion data centre, set to become the largest in the...
-The Motley Fool Australia
+<Link id="a_id_31">Cloudflare outage hits major web services including X, LinkedIn and Zoom – business live
+Cloudflare reports it is investigating issues with Cloudflare Dashboard and related APIs.
+The Guardian
 ·
-11h</Link>
+35m</Link>
 <Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Volcanic activity worldwide 4 Dec 2025: Santiaguito volcano, Fuego, Popocatépetl, Barren Island, So...
-Kusatsu-Shirane (Honshu): The Japan Meteorological Agency (JMA) reported that unrest continued at Kusatsu-Shiranesan between 1 December 2025 (local) and 3...
-Volcano Discovery
+<Link id="a_id_33">News Corp sells its entire stake in ARN
+News Corp offloaded its entire 13% stake in ARN Media after trading closed on Wednesday night, selling 40.8m shares at 44c each. In a statement published in...
+Mumbrella
 ·
-14h</Link>
+1d</Link>
 <Button id="a_id_34">More options</Button>
 <Link id="a_id_35">High Court agrees to hear teens' challenge to social media ban
 The High Court of Australia agrees to hear a special case brought by two teenagers challenging the federal government's upcoming social media ban for...
@@ -170,41 +170,41 @@ Australian Broadcasting Corporation
 ·
 1d</Link>
 <Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Commercial truck manufacturer shuts down, no bankruptcy yet
-The commercial truck manufacturer, which makes electric trucks, closed down all operations facing financial difficulties.
-TheStreet
-·
-23h</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Aldi Is Selling Whimsical Lego Sets That Make the Perfect Stocking Stuffers
-Aldi is selling a whimsical 278-piece Lego set that would make a great stocking stuffer. Check it out here.
-Parade Magazine
-·
-18h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">What do Russian nationals, analysts make of US-led Ukraine peace talks?
-While some in Russia believe Ukraine is standing in the way of peace, other analysts say Putin has maximalist ambitions.
-Al Jazeera
+<Link id="a_id_37">Beautiful Tencent paper. Shows a language model that keeps improving itself using only 1% to 5% human labeled questions while reaching the level of systems trained on about 20 times more data. Earlier self play systems let a model write and solve its own questions, but over time it drifts, repeats narrow patterns, and can even perform worse. Their method runs a challenger copy that generates questions and a solver copy that answers them, turning training into a question answer game between 2 agents. When the challenger writes, it sometimes sees a few real human question answer pairs, which pull its synthetic questions toward realistic tasks instead of strange, off topic puzzles. For each question, the solver tries several answers, the system estimates its success rate, and training keeps mainly mid difficulty questions where the solver is uncertain but not lost. Because both human and synthetic questions pass this filter, the solver trains on focused, non trivial problems,
+rohanpaul_ai
+X
 ·
 20h</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Adelaide Fringe CEO drops final program before departure
-Outgoing Adelaide Fringe CEO Heather Croall has unveiled next year's program – but who will be running the festival come opening night is still up in the...
-InDaily
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">NZ police recover Fabergé egg six days after suspect allegedly swallowed it
+New Zealand police have retrieved a James Bond-inspired Fabergé pendant after a man was accused of swallowing it in a jewellery store.
+Australian Broadcasting Corporation
 ·
-10h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">‘Spartacus: House Of Ashur’ Has A Double-Take Rotten Tomatoes Score
+2h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">All Monopiles In Place at Iberdrola’s New Offshore Wind Farm in Germany
+All 21 monopile foundations at the Windanker offshore wind farm in the German Baltic Sea have been installed, according to a social media update posted by...
+offshoreWIND.biz
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">‘Spartacus: House Of Ashur’ Has A Double-Take Rotten Tomatoes Score
 Spartacus is back with House of Ashur, and its Rotten Tomatoes score is not what I would have expected at all.
 Forbes
 ·
 1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Google’s AI model is getting really good at spoofing phone photos
-Nano Banana Pro mimics the look and feel of iPhone photos and adds watermarks without being prompted for an extra dose of realism.
-The Verge
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">What do Russian nationals, analysts make of US-led Ukraine peace talks?
+While some in Russia believe Ukraine is standing in the way of peace, other analysts say Putin has maximalist ambitions.
+Al Jazeera
 ·
-16h</Link>
+20h</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Volcanic activity worldwide 4 Dec 2025: Santiaguito volcano, Fuego, Popocatépetl, Barren Island, So...
+Kusatsu-Shirane (Honshu): The Japan Meteorological Agency (JMA) reported that unrest continued at Kusatsu-Shiranesan between 1 December 2025 (local) and 3...
+Volcano Discovery
+·
+14h</Link>
 <Button id="a_id_48">More options</Button>
 <Link id="a_id_49">Most NDIS participants will lose external avenue to appeal funding amounts under new system, Senate estimates told
 Administrative review tribunal no longer authorised to alter a person's plan or reinstate funding, agency confirms.
@@ -212,23 +212,23 @@ The Guardian
 ·
 1d</Link>
 <Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Sad change coming to traditional Aussie fish and chips
-The Cook Government has conceded the price of fish and chips will likely go up, as Opposition MPs warn small businesses will go bust as a result of new bans...
-PerthNow
-·
-1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">YouTube debuts new Recap feature. Here’s how to get your 2025 viewing insights
+<Link id="a_id_51">YouTube debuts new Recap feature. Here’s how to get your 2025 viewing insights
 Video platform has offered a music recap similar to Spotify Wrapped for the past three years. But it's now revamped the feature to include much more.
 The Independent
 ·
 1d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Blue-chip companies used security firm facing massive tax, workplace probes
-MA Services is part of a web of companies subject to separate investigations, including by the Tax Office and liquidators, over suspected involvement in a...
-The Age
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">LNG giants make last ditch concessions to avert export controls
+Santos' GLNG venture has offered to cut purchases of gas from the domestic market and trim shipments as it attempts to head off far more onerous...
+AFR
 ·
-1d</Link>
+17h</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Adelaide Fringe CEO drops final program before departure
+Outgoing Adelaide Fringe CEO Heather Croall has unveiled next year's program – but who will be running the festival come opening night is still up in the...
+InDaily
+·
+10h</Link>
 <Button id="a_id_56">More options</Button>
 At a glance
 <Button id="a_id_57">Customise Homestack</Button>
@@ -236,7 +236,7 @@ At a glance
 Good
 AQC</Link>
 <Link id="a_id_59">Woodforde
-Cloudy
+Mostly cloudy
 15%
 17°</Link>
 <Link id="a_id_60">XAO • All Ordinaries up 0.22%. Price is 8,926.10 Today</Link>
