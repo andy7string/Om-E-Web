@@ -1,23 +1,23 @@
 {
-  "timestamp": 1764932191.7271302,
+  "timestamp": 1764932672.6423821,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138033827,
+      "id": 1138033840,
       "url": "https://www.google.com/",
       "title": "Google",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138033827,
+        "id": 1138033840,
         "url": "https://www.google.com/",
         "title": "Google",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 46718.460627875,
+    "last_tabs_update": 47146.258645333,
     "extension_connected": true
   },
   "current_page": {

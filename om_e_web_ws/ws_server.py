@@ -178,7 +178,6 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
     elif action == "CreateChat":
         # Create a new chat file
-        from datetime import datetime
         title = params.get("title", "New Chat")
         page_url = params.get("page_url", "")
         page_title = params.get("page_title", "")
@@ -199,7 +198,6 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
     elif action == "AppendMessage":
         # Append message to chat (creates chat if needed)
-        from datetime import datetime
         chat_id = params.get("chat_id")
         role = params.get("role", "user")
         content = params.get("content", "")
