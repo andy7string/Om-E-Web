@@ -2,8 +2,8 @@
   "chat_id": "this-part-of__20251206T025312",
   "project_id": "default",
   "created_at": "2025-12-06T02:53:12.760380Z",
-  "updated_at": "2025-12-06T02:56:59.022834Z",
-  "title": "This part of reality",
+  "updated_at": "2025-12-06T03:02:03.791083Z",
+  "title": "this is all working",
   "default_title": "this part of",
   "meta": {
     "source": "ome-web",
@@ -34,6 +34,24 @@
       "role": "user",
       "content": "ddfgdfg",
       "timestamp": "2025-12-06T02:54:21.440885Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "asd",
+      "timestamp": "2025-12-06T03:01:45.406671Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "asdfsdf",
+      "timestamp": "2025-12-06T03:01:47.255319Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "asdf",
+      "timestamp": "2025-12-06T03:01:54.200075Z"
     }
   ]
 }

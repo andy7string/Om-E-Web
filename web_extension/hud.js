@@ -3962,7 +3962,7 @@
         hudState.orb = createOrb(shadow);
         hudState.hud = createHUD(shadow);
 
-        // 🛡️ Block line breaks in .editing elements and HUD prompt (on shadow root)
+        // 🛡️ Block line breaks in .editing elements and prompt inputs (on shadow root)
         // Note: hudState.shiftHeld is set by document keydown handler before this fires
         shadow.addEventListener('beforeinput', (e) => {
             if (e.inputType === 'insertLineBreak' || e.inputType === 'insertParagraph') {
@@ -3971,8 +3971,10 @@
                 if (target?.classList?.contains('editing')) {
                     e.preventDefault();
                 }
-                // Block in HUD prompt unless Shift is held (Shift+Enter for new line)
-                if (target?.classList?.contains('ome-hud-prompt-textarea') && !hudState.shiftHeld) {
+                // Block in prompt inputs unless Shift is held (Shift+Enter for new line)
+                const isPromptInput = target?.classList?.contains('ome-hud-prompt-textarea') ||
+                                      target?.classList?.contains('ome-chat-input');
+                if (isPromptInput && !hudState.shiftHeld) {
                     e.preventDefault();
                 }
             }
@@ -3998,22 +4000,32 @@
             e.preventDefault();
         }, true);
 
-        // Block keyboard events to document when HUD visible
+        // Block keyboard events to document when HUD visible or shadow DOM has focus
         // Handle Enter/Escape for editing elements and chat input before blocking
         document.addEventListener('keydown', (e) => {
             // Track shift state for beforeinput handler (InputEvent doesn't have shiftKey)
             hudState.shiftHeld = e.shiftKey;
 
-            if (!hudState.visible) return;
-
             // Check focused element in shadow DOM (closed shadow requires activeElement check)
             const activeEl = hudState.shadow?.activeElement;
 
-            // Handle HUD prompt: Enter to send (Shift+Enter for new line), Escape to clear/blur
-            if (activeEl?.classList?.contains('ome-hud-prompt-textarea')) {
+            // Block if HUD visible OR if shadow DOM element has focus (e.g., orb chat input)
+            if (!hudState.visible && !activeEl) return;
+
+            // Handle prompt inputs: Enter to send (Shift+Enter for new line), Escape to clear/blur
+            const isHudPrompt = activeEl?.classList?.contains('ome-hud-prompt-textarea');
+            const isOrbChat = activeEl?.classList?.contains('ome-chat-input');
+            if (isHudPrompt || isOrbChat) {
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
-                    const sendBtn = hudState.hud?.querySelector('.ome-hud-send-btn');
+                    // Find send button (different selectors for HUD prompt vs orb chat)
+                    let sendBtn;
+                    if (isHudPrompt) {
+                        sendBtn = hudState.hud?.querySelector('.ome-hud-send-btn');
+                    } else {
+                        const inputArea = activeEl.closest('.ome-chat-input-area');
+                        sendBtn = inputArea?.querySelector('.ome-chat-send');
+                    }
                     sendBtn?.click();
                 } else if (e.key === 'Escape') {
                     e.preventDefault();
@@ -4041,13 +4053,15 @@
         }, true);
 
         document.addEventListener('keyup', (e) => {
-            if (!hudState.visible) return;
+            const activeEl = hudState.shadow?.activeElement;
+            if (!hudState.visible && !activeEl) return;
             e.stopPropagation();
             e.stopImmediatePropagation();
         }, true);
 
         document.addEventListener('keypress', (e) => {
-            if (!hudState.visible) return;
+            const activeEl = hudState.shadow?.activeElement;
+            if (!hudState.visible && !activeEl) return;
             e.stopPropagation();
             e.stopImmediatePropagation();
         }, true);
