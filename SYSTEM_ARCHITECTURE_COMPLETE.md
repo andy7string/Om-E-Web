@@ -2334,6 +2334,100 @@ content.js (Lines 11709-11974)
 4. **Non-intrusive** - `data-ome-ignore="true"` prevents self-scanning
 5. **Instant feedback** - Response includes current visibility state
 
+### Keyboard Event Handling in Shadow DOM
+
+The HUD blocks all keyboard events from reaching the underlying page when visible, but must still handle Enter/Escape for contentEditable elements (e.g., chat name editing). This requires a multi-layer approach:
+
+**Problem:** Closed shadow DOM prevents `composedPath()` from exposing internal elements at the document level. Document-level keyboard blockers intercept events before they reach shadow DOM elements.
+
+**Solution:** Three-layer event handling:
+
+```
+┌─ LAYER 1: Document-Level Keyboard Blocker (capture phase) ──────────────────┐
+│                                                                              │
+│  document.addEventListener('keydown', (e) => {                              │
+│    if (!hudState.visible) return;                                           │
+│                                                                              │
+│    // Check if focused element in shadow DOM is editing                     │
+│    const editingEl = hudState.shadow?.activeElement;                        │
+│    if (editingEl?.classList?.contains('editing')) {                         │
+│      if (e.key === 'Enter') {                                               │
+│        e.preventDefault();                                                  │
+│        editingEl.blur();  // Triggers onblur save handler                   │
+│      } else if (e.key === 'Escape') {                                       │
+│        e.preventDefault();                                                  │
+│        editingEl.textContent = editingEl.dataset.originalTitle;            │
+│        editingEl.blur();                                                    │
+│      }                                                                       │
+│    }                                                                         │
+│                                                                              │
+│    e.stopPropagation();           // Block from underlying page             │
+│    e.stopImmediatePropagation();                                            │
+│  }, true);                                                                   │
+│                                                                              │
+│  KEY INSIGHT: hudState.shadow.activeElement gives focused element           │
+│  inside closed shadow DOM (composedPath() doesn't work for closed shadow)   │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ LAYER 2: Shadow Root beforeinput Handler (capture phase) ──────────────────┐
+│                                                                              │
+│  shadow.addEventListener('beforeinput', (e) => {                            │
+│    if (e.inputType === 'insertLineBreak' ||                                 │
+│        e.inputType === 'insertParagraph') {                                 │
+│      if (e.target?.classList?.contains('editing')) {                        │
+│        e.preventDefault();  // Block line breaks in contentEditable        │
+│      }                                                                       │
+│    }                                                                         │
+│  }, true);                                                                   │
+│                                                                              │
+│  KEY INSIGHT: beforeinput fires AFTER keydown but BEFORE text insertion.    │
+│  This catches Enter key's default line break behaviour in contentEditable.  │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌─ LAYER 3: Data Attribute for Original Value ────────────────────────────────┐
+│                                                                              │
+│  When editing starts:                                                        │
+│    titleEl.dataset.originalTitle = currentTitle;                            │
+│    titleEl.contentEditable = 'true';                                        │
+│    titleEl.classList.add('editing');                                        │
+│                                                                              │
+│  This enables Escape to restore original value without accessing            │
+│  closure variables from the rename function.                                │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Event Flow for Enter Key:**
+```
+1. User presses Enter in contentEditable .editing element
+2. Document keydown handler (capture) fires FIRST
+3. Handler checks hudState.shadow.activeElement for .editing class
+4. Calls editingEl.blur() → triggers existing onblur save handler
+5. Shadow root beforeinput handler catches insertLineBreak → preventDefault()
+6. stopPropagation() blocks event from reaching underlying page
+7. Result: Title saved, no line break inserted, page protected
+```
+
+**Event Flow for Escape Key:**
+```
+1. User presses Escape in contentEditable .editing element
+2. Document keydown handler (capture) fires
+3. Handler checks hudState.shadow.activeElement for .editing class
+4. Restores original title from dataset.originalTitle
+5. Calls editingEl.blur() → triggers onblur (saves restored value)
+6. stopPropagation() blocks event from reaching underlying page
+7. Result: Original title restored, page protected
+```
+
+**Why This Approach:**
+- `composedPath()` doesn't expose closed shadow DOM internals at document level
+- `hudState.shadow.activeElement` gives direct access to focused element
+- `beforeinput` on shadow root catches line breaks that `keydown.preventDefault()` misses
+- Data attribute stores original value for Escape without closure access
+- All keyboard events still blocked from underlying page
+
 ### Orb Themes System (NEW)
 
 The orb supports multiple visual themes stored in `orbThemes` registry:

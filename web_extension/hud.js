@@ -3962,6 +3962,16 @@
         hudState.orb = createOrb(shadow);
         hudState.hud = createHUD(shadow);
 
+        // 🛡️ Block line breaks in contentEditable .editing elements (on shadow root)
+        shadow.addEventListener('beforeinput', (e) => {
+            if (e.inputType === 'insertLineBreak' || e.inputType === 'insertParagraph') {
+                const target = e.target;
+                if (target?.classList?.contains('editing')) {
+                    e.preventDefault();
+                }
+            }
+        }, true);
+
         // 🛡️ GLOBAL CATCH: Block clicks to page when HUD visible
         // Capture phase on document - fires BEFORE any page handlers
         document.addEventListener('click', (e) => {
@@ -3982,10 +3992,27 @@
             e.preventDefault();
         }, true);
 
-        // Block ALL keyboard events to document when HUD visible
-        // Shadow DOM handles its own keyboard events internally
+        // Block keyboard events to document when HUD visible
+        // Handle Enter/Escape for editing elements before blocking
         document.addEventListener('keydown', (e) => {
             if (!hudState.visible) return;
+
+            // Check if focused element in shadow DOM is editing (closed shadow requires activeElement check)
+            const editingEl = hudState.shadow?.activeElement;
+            if (editingEl?.classList?.contains('editing')) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    editingEl.blur(); // Triggers onblur save handler
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    // Restore original and blur (onblur will save original back)
+                    if (editingEl.dataset.originalTitle !== undefined) {
+                        editingEl.textContent = editingEl.dataset.originalTitle;
+                    }
+                    editingEl.blur();
+                }
+            }
+
             e.stopPropagation();
             e.stopImmediatePropagation();
         }, true);
@@ -4435,7 +4462,8 @@
 
         const currentTitle = chatState.pendingTitle || 'New Chat';
 
-        // Make it editable
+        // Make it editable - store original for escape handling
+        titleEl.dataset.originalTitle = currentTitle;
         titleEl.contentEditable = 'true';
         titleEl.classList.add('editing');
         titleEl.focus();
@@ -4511,7 +4539,8 @@
         const titleEl = chatItem.querySelector('.ome-sidebar-chat-title');
         if (!titleEl) return;
 
-        // Make it editable
+        // Make it editable - store original for escape handling
+        titleEl.dataset.originalTitle = currentTitle;
         titleEl.contentEditable = 'true';
         titleEl.classList.add('editing');
         titleEl.focus();
