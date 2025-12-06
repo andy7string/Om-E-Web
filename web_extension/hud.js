@@ -2143,6 +2143,10 @@
             .ome-sidebar-chat-title.editing {
                 user-select: text;
             }
+            /* 🎨 Remove pink text selection highlight */
+            ::selection {
+                background: transparent;
+            }
 
             /* 📚 Three-dot menu - hidden by default, shown on hover */
             .ome-sidebar-chat-menu {

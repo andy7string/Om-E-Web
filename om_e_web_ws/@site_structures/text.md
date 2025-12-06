@@ -1,9 +1,9 @@
 # Local Web Design Adelaide | Bright Tree Digital
 
 **URL:** https://brighttreedigital.com.au/
-**Timestamp:** 2025-12-06 16:35:19
+**Timestamp:** 2025-12-06 16:53:23
 
-**Tabs (1):** Active: #1138035129 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
+**Tabs (1):** Active: #1138035134 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
 
 ## Available Actions
 
@@ -111,37 +111,55 @@ graphic design
 , we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
 At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
 Our Services
+<Link id="a_id_12">Website Design</Link>
+Our
+Website Design
+service brings your vision to life. We create beautiful, functional websites that are easy to navigate and look great on any device. Our focus is on making your online presence strong and user-friendly, helping you attract and engage more customers.
+<Button id="a_id_13">View Portfolio</Button>
+<Button id="a_id_14">More Info</Button>
+<Link id="a_id_15">Logo Design</Link>
+Elevate your brand with our custom
+Logo Design
+service. We specialize in creating logos that are not just visually striking but also embody your brand’s story and values. Our goal is to design a distinctive, memorable logo that sets you apart and builds recognition, ensuring it resonates with your audience and enhances brand loyalty.
+<Button id="a_id_16">View Portfolio</Button>
+<Button id="a_id_17">More Info</Button>
+<Link id="a_id_18">Banner Ad Design</Link>
+Boost your online presence with our
+Banner Ad Design
+service at Bright Tree Digital. We create eye-catching, effective banner ads that align with your brand and engage your audience, perfect for enhancing your digital marketing campaigns and social media impact.
+<Button id="a_id_19">View Portfolio</Button>
+<Button id="a_id_20">More Info</Button>
 Start your journey here...
-<Button id="a_id_12">Get in touch today!</Button>
+<Button id="a_id_21">Get in touch today!</Button>
 Our Work
-<Link id="a_id_13">Straker Functional Fitness</Link>
-<Link id="a_id_14">The Syrene Hotel</Link>
-<Link id="a_id_15">African Safari Deals</Link>
-<Link id="a_id_16">Mtambo Chartered Accountants</Link>
-<Link id="a_id_17">Joss Couture</Link>
-<Link id="a_id_18">Flutterbys School</Link>
-<Link id="a_id_19">The Gourmet Cookie Co</Link>
+<Link id="a_id_22">Straker Functional Fitness</Link>
+<Link id="a_id_23">The Syrene Hotel</Link>
+<Link id="a_id_24">African Safari Deals</Link>
+<Link id="a_id_25">Mtambo Chartered Accountants</Link>
+<Link id="a_id_26">Joss Couture</Link>
+<Link id="a_id_27">Flutterbys School</Link>
+<Link id="a_id_28">The Gourmet Cookie Co</Link>
 New Moon Digital
-<Link id="a_id_20">Straker Functional Fitness</Link>
-<Link id="a_id_21">The Syrene Hotel</Link>
-<Link id="a_id_22">African Safari Deals</Link>
-<Link id="a_id_23">Mtambo Chartered Accountants</Link>
-<Link id="a_id_24">Joss Couture</Link>
-<Link id="a_id_25">Flutterbys School</Link>
-<Link id="a_id_26">The Gourmet Cookie Co</Link>
+<Link id="a_id_29">Straker Functional Fitness</Link>
+<Link id="a_id_30">The Syrene Hotel</Link>
+<Link id="a_id_31">African Safari Deals</Link>
+<Link id="a_id_32">Mtambo Chartered Accountants</Link>
+<Link id="a_id_33">Joss Couture</Link>
+<Link id="a_id_34">Flutterbys School</Link>
+<Link id="a_id_35">The Gourmet Cookie Co</Link>
 New Moon Digital
-<Link id="a_id_27">Straker Functional Fitness</Link>
-<Link id="a_id_28">The Syrene Hotel</Link>
-<Link id="a_id_29">African Safari Deals</Link>
-<Link id="a_id_30">Mtambo Chartered Accountants</Link>
-<Button id="a_id_31">1 of 2</Button>
-<Button id="a_id_32">2 of 2</Button>
-<Button id="a_id_33">3 of 2</Button>
-<Button id="a_id_34">4 of 2</Button>
-<Button id="a_id_35">5 of 2</Button>
-<Button id="a_id_36">6 of 2</Button>
-<Button id="a_id_37">7 of 2</Button>
-<Button id="a_id_38">8 of 2</Button>
+<Link id="a_id_36">Straker Functional Fitness</Link>
+<Link id="a_id_37">The Syrene Hotel</Link>
+<Link id="a_id_38">African Safari Deals</Link>
+<Link id="a_id_39">Mtambo Chartered Accountants</Link>
+<Button id="a_id_40">1 of 2</Button>
+<Button id="a_id_41">2 of 2</Button>
+<Button id="a_id_42">3 of 2</Button>
+<Button id="a_id_43">4 of 2</Button>
+<Button id="a_id_44">5 of 2</Button>
+<Button id="a_id_45">6 of 2</Button>
+<Button id="a_id_46">7 of 2</Button>
+<Button id="a_id_47">8 of 2</Button>
 What Our Clients Say!
 We are so happy that
 Bright Tree Digital
@@ -159,9 +177,9 @@ Bright Tree Digital
 , the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
 Natalie Cassar
 Owner, New Moon Digital
-<Button id="a_id_39">Read More Testimonials</Button>
+<Button id="a_id_48">Read More Testimonials</Button>
 Ready for a Website Makeover?
-<Button id="a_id_40">Reach Out Now!</Button>
+<Button id="a_id_49">Reach Out Now!</Button>
 ABOUT US
 We specialise in
 WordPress web design
@@ -169,18 +187,18 @@ and
 graphic design
 , and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
 OUR PORTFOLIO
-<Link id="a_id_41">Banner Portfolio</Link>
-<Link id="a_id_42">Logo Portfolio</Link>
-<Link id="a_id_43">Web Design Portfolio</Link>
-<Link id="a_id_44">Facebook</Link>
-<Link id="a_id_45">Instagram</Link>
+<Link id="a_id_50">Banner Portfolio</Link>
+<Link id="a_id_51">Logo Portfolio</Link>
+<Link id="a_id_52">Web Design Portfolio</Link>
+<Link id="a_id_53">Facebook</Link>
+<Link id="a_id_54">Instagram</Link>
 ABN: 29 160 886 356
 QUICK LINKS
-<Link id="a_id_46">Home</Link>
-<Link id="a_id_47">About</Link>
-<Link id="a_id_48">Services</Link>
-<Link id="a_id_49">Testimonials</Link>
-<Link id="a_id_50">Contact</Link>
-<Link id="a_id_51">Privacy Policy</Link>
+<Link id="a_id_55">Home</Link>
+<Link id="a_id_56">About</Link>
+<Link id="a_id_57">Services</Link>
+<Link id="a_id_58">Testimonials</Link>
+<Link id="a_id_59">Contact</Link>
+<Link id="a_id_60">Privacy Policy</Link>
 Copyright © 2025 Bright Tree Digital
-<Link id="a_id_52">Website Designed by Bright Tree Digital</Link>
+<Link id="a_id_61">Website Designed by Bright Tree Digital</Link>
