@@ -1,9 +1,9 @@
-# ChatGPT
+# Local Web Design Adelaide | Bright Tree Digital
 
-**URL:** https://chatgpt.com/
-**Timestamp:** 2025-12-06 13:34:56
+**URL:** https://brighttreedigital.com.au/
+**Timestamp:** 2025-12-06 16:35:19
 
-**Tabs (2):** Active: #1138034995 "ChatGPT" chatgpt.com [loading] | Other: #1138034990 "ChatGPT" chatgpt.com
+**Tabs (1):** Active: #1138035129 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
 
 ## Available Actions
 
@@ -90,65 +90,97 @@ The following pre-configured actions are available for this page:
 ---
 
 <Link id="a_id_0">Skip to content</Link>
-Chat history
-<Link id="a_id_1">Home</Link>
-<Button id="a_id_2">Close sidebar</Button>
-<Link id="a_id_3">New chat
-⇧
-⌘
-O</Link>
-Search chats
-<Link id="a_id_4">Library</Link>
-<Link id="a_id_5">Codex</Link>
-<Link id="a_id_6">Atlas</Link>
-<Button id="a_id_7">GPTs</Button>
-<Link id="a_id_8">Explore</Link>
-<Link id="a_id_9">Web Browser</Link>
-<Button id="a_id_10">Projects</Button>
-New project
-<Link id="a_id_11">OM-E autonomy</Link>
-<Link id="a_id_12">Claude</Link>
-<Link id="a_id_13">Pacifier Project</Link>
-<Link id="a_id_14">BinaryBeats</Link>
-<Link id="a_id_15">FPH</Link>
-See more
-<Button id="a_id_16">Your chats</Button>
-<Link id="a_id_17">New starter prompt</Link>
-<Link id="a_id_18">Finding lot number</Link>
-<Link id="a_id_19">Setup first order coupon</Link>
-<Link id="a_id_20">Rewrite request response</Link>
-<Link id="a_id_21">ScrollDown capability doc</Link>
-<Link id="a_id_22">Redraw with satin tiles</Link>
-<Link id="a_id_23">Nonsense input response</Link>
-<Link id="a_id_24">Modify bunny design</Link>
-<Link id="a_id_25">Web automation test</Link>
-<Link id="a_id_26">Web automation test</Link>
-<Link id="a_id_27">Claude assistance options</Link>
-<Link id="a_id_28">Claude usage clarification</Link>
-<Link id="a_id_29">Write a poem</Link>
-<Link id="a_id_30">Sort list in Python</Link>
-<Link id="a_id_31">Automation test message</Link>
-<Link id="a_id_32">Confidence boost</Link>
-<Link id="a_id_33">Palm reading analysis</Link>
-<Link id="a_id_34">Emotional reaction reflection</Link>
-<Link id="a_id_35">Calming emotional reactions</Link>
-<Link id="a_id_36">Handling strong language</Link>
-<Link id="a_id_37">Search elements in console</Link>
-<Link id="a_id_38">Guitar request clarification</Link>
-<Link id="a_id_39">New chat</Link>
-<Link id="a_id_40">Guitar assistance offer</Link>
-<Link id="a_id_41">Next steps discussion</Link>
-<Link id="a_id_42">Conversation transcript</Link>
-<Link id="a_id_43">Contact form not received</Link>
-<Link id="a_id_44">New chat</Link>
-<Button id="a_id_45">Open profile menu</Button>
-<Button id="a_id_46">Model selector, current model is 5.1</Button>
-<Button id="a_id_47">Start a group chat</Button>
-<Button id="a_id_48">Turn on temporary chat</Button>
-Good to see you,
-<Button id="a_id_49">ome</Button>
-.
-<Input id="a_id_50" use="(a_id_50, 'your text', submit:true)">Ask anything</Input>
-<Button id="a_id_51">Add files and more</Button>
-<Button id="a_id_52">Dictate button</Button>
-<Button id="a_id_53">Start voice mode</Button>
+<Link id="a_id_1">Bright Tree Digital</Link>
+<Link id="a_id_2">HOME</Link>
+<Link id="a_id_3">ABOUT</Link>
+<Link id="a_id_4">PORTFOLIO</Link>
+<Link id="a_id_5">SERVICES</Link>
+<Link id="a_id_6">CONTACT</Link>
+<Link id="a_id_7">Facebook</Link>
+<Link id="a_id_8">Instagram</Link>
+Logo Design
+Developing Timeless Logos That Define Your Brand Identity
+<Link id="a_id_9">GET STARTED</Link>
+<Button id="a_id_10">Previous slide</Button>
+<Button id="a_id_11">Next slide</Button>
+Welcome to Bright Tree Digital...
+...where your vision takes digital form and your business’s potential is fully realized. Specializing in
+WordPress web design
+and compelling
+graphic design
+, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
+At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
+Our Services
+Start your journey here...
+<Button id="a_id_12">Get in touch today!</Button>
+Our Work
+<Link id="a_id_13">Straker Functional Fitness</Link>
+<Link id="a_id_14">The Syrene Hotel</Link>
+<Link id="a_id_15">African Safari Deals</Link>
+<Link id="a_id_16">Mtambo Chartered Accountants</Link>
+<Link id="a_id_17">Joss Couture</Link>
+<Link id="a_id_18">Flutterbys School</Link>
+<Link id="a_id_19">The Gourmet Cookie Co</Link>
+New Moon Digital
+<Link id="a_id_20">Straker Functional Fitness</Link>
+<Link id="a_id_21">The Syrene Hotel</Link>
+<Link id="a_id_22">African Safari Deals</Link>
+<Link id="a_id_23">Mtambo Chartered Accountants</Link>
+<Link id="a_id_24">Joss Couture</Link>
+<Link id="a_id_25">Flutterbys School</Link>
+<Link id="a_id_26">The Gourmet Cookie Co</Link>
+New Moon Digital
+<Link id="a_id_27">Straker Functional Fitness</Link>
+<Link id="a_id_28">The Syrene Hotel</Link>
+<Link id="a_id_29">African Safari Deals</Link>
+<Link id="a_id_30">Mtambo Chartered Accountants</Link>
+<Button id="a_id_31">1 of 2</Button>
+<Button id="a_id_32">2 of 2</Button>
+<Button id="a_id_33">3 of 2</Button>
+<Button id="a_id_34">4 of 2</Button>
+<Button id="a_id_35">5 of 2</Button>
+<Button id="a_id_36">6 of 2</Button>
+<Button id="a_id_37">7 of 2</Button>
+<Button id="a_id_38">8 of 2</Button>
+What Our Clients Say!
+We are so happy that
+Bright Tree Digital
+designed our Logos and websites for our 2 food businesses.
+Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
+Michelene Rendell
+Owner, The Kitchen
+Highly recommended.
+Bright Tree Digital
+presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
+Daniella Finney
+Owner, The Syrene Boutique Hotel
+Big shoutout to Olivia at
+Bright Tree Digital
+, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
+Natalie Cassar
+Owner, New Moon Digital
+<Button id="a_id_39">Read More Testimonials</Button>
+Ready for a Website Makeover?
+<Button id="a_id_40">Reach Out Now!</Button>
+ABOUT US
+We specialise in
+WordPress web design
+and
+graphic design
+, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
+OUR PORTFOLIO
+<Link id="a_id_41">Banner Portfolio</Link>
+<Link id="a_id_42">Logo Portfolio</Link>
+<Link id="a_id_43">Web Design Portfolio</Link>
+<Link id="a_id_44">Facebook</Link>
+<Link id="a_id_45">Instagram</Link>
+ABN: 29 160 886 356
+QUICK LINKS
+<Link id="a_id_46">Home</Link>
+<Link id="a_id_47">About</Link>
+<Link id="a_id_48">Services</Link>
+<Link id="a_id_49">Testimonials</Link>
+<Link id="a_id_50">Contact</Link>
+<Link id="a_id_51">Privacy Policy</Link>
+Copyright © 2025 Bright Tree Digital
+<Link id="a_id_52">Website Designed by Bright Tree Digital</Link>

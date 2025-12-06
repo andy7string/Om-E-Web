@@ -1,35 +1,28 @@
 {
-  "timestamp": 1764990296.153228,
+  "timestamp": 1765001119.2904162,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138034995,
-      "url": "https://chatgpt.com/",
-      "title": "ChatGPT",
+      "id": 1138035129,
+      "url": "https://brighttreedigital.com.au/",
+      "title": "Local Web Design Adelaide | Bright Tree Digital",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138034990,
-        "url": "https://chatgpt.com/",
-        "title": "ChatGPT",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138034995,
-        "url": "https://chatgpt.com/",
-        "title": "ChatGPT",
+        "id": 1138035129,
+        "url": "https://brighttreedigital.com.au/",
+        "title": "Local Web Design Adelaide | Bright Tree Digital",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 25504.43777525,
+    "last_tabs_update": 36260.910500833,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://chatgpt.com/",
-    "title": "ChatGPT",
+    "url": "https://brighttreedigital.com.au/",
+    "title": "Local Web Design Adelaide | Bright Tree Digital",
     "is_active_tab": true
   },
   "menu_structure": {

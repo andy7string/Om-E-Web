@@ -19,10 +19,10 @@ LINK - Navigate via anchor links
     python test_navigation.py --command navigate --action-id a_id_6
 
 INPUT - Type into text fields
-    python test_navigation.py --command llm --action-id a_id_1 --action-type setValue --value "hello world"
+    python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "hello world"
 
 INPUT + SUBMIT - Type and submit (press Enter)
-    python test_navigation.py --command llm --action-id a_id_19 --action-type setValue --value "binary beats at 7.83 effects" --submit
+    python test_navigation.py --command llm --action-id a_id_6 --action-type setValue --value "binary beats at 7.83 effects" --submit
 
 SELECT - Choose dropdown option
     python test_navigation.py --command llm --action-id a_id_5 --action-type setValue --value "Option Text"

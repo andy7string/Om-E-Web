@@ -3269,9 +3269,25 @@
             checkAndRepositionHUD();
         }
 
-        promptTextarea?.addEventListener('input', autoResizeTextarea);
-        // Initial sizing
-        if (promptTextarea) autoResizeTextarea();
+        promptTextarea?.addEventListener('input', () => {
+            autoResizeTextarea();
+            saveChatInput(promptTextarea.value); // Sync with orb chat input
+        });
+        // Initial sizing and restore saved input
+        if (promptTextarea) {
+            autoResizeTextarea();
+            // Restore chat input from service worker
+            try {
+                chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                    if (response?.ok && response.chatInput) {
+                        promptTextarea.value = response.chatInput;
+                        autoResizeTextarea();
+                    }
+                });
+            } catch (e) {
+                console.warn('[Content] Could not restore HUD prompt input:', e);
+            }
+        }
 
         // 📐 ResizeObserver to auto-resize textarea when container width changes
         // (e.g., sidebar opens/closes, window resizes)
@@ -3310,9 +3326,10 @@
             // Add to shared state (renders to both UIs)
             addChatMessage('user', text);
 
-            // Clear textarea and reset size
+            // Clear textarea, reset size, and save empty state
             promptTextarea.value = '';
             autoResizeTextarea();
+            saveChatInput(''); // Clear shared state so orb input stays in sync
 
             // Send through chat pipeline
             try {
@@ -4175,6 +4192,11 @@
         if (hudState.visible) {
             renderChatMessages();
             updateHUDPromptVisibility();  // Sync prompt state from orb view
+            // Sync chat input text from orb
+            syncHUDPromptInput();
+        } else {
+            // Sync orb chat input when closing HUD (in case HUD prompt was edited)
+            syncOrbChatInput();
         }
         console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
     }
@@ -4193,6 +4215,44 @@
         if (promptBtn) {
             promptBtn.classList.toggle('active', hudState.chatVisible);
             promptBtn.textContent = hudState.chatVisible ? 'HIDE PROMPT' : 'Show Prompt';
+        }
+    }
+
+    /**
+     * 💬 Sync HUD prompt input from service worker (shared with orb chat input)
+     */
+    function syncHUDPromptInput() {
+        const promptTextarea = hudState.hud?.querySelector('.ome-hud-prompt-textarea');
+        if (!promptTextarea) return;
+        try {
+            chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                if (response?.ok && response.chatInput !== undefined) {
+                    promptTextarea.value = response.chatInput;
+                    // Trigger resize
+                    promptTextarea.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            });
+        } catch (e) {
+            console.warn('[Content] Could not sync HUD prompt input:', e);
+        }
+    }
+
+    /**
+     * 💬 Sync orb chat input from service worker (shared with HUD prompt)
+     */
+    function syncOrbChatInput() {
+        const orbInput = hudState.chatPanel?.querySelector('.ome-chat-input');
+        if (!orbInput) return;
+        try {
+            chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                if (response?.ok && response.chatInput !== undefined) {
+                    orbInput.value = response.chatInput;
+                    // Trigger resize via input event
+                    orbInput.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            });
+        } catch (e) {
+            console.warn('[Content] Could not sync orb chat input:', e);
         }
     }
 
@@ -4215,7 +4275,20 @@
             }
             constrainOrbToViewport(); // Ensure panel + orb fit viewport
             const input = hudState.chatPanel.querySelector('.ome-chat-input');
-            if (input) input.focus();
+            // Sync input text from service worker (shared with HUD prompt)
+            if (input) {
+                try {
+                    chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                        if (response?.ok && response.chatInput !== undefined) {
+                            input.value = response.chatInput;
+                            input.dispatchEvent(new Event('input', { bubbles: true }));
+                        }
+                        input.focus();
+                    });
+                } catch (e) {
+                    input.focus();
+                }
+            }
             renderChatMessages();
         } else {
             // When closing, ensure orb still fits within viewport
