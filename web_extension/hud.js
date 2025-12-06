@@ -3962,11 +3962,17 @@
         hudState.orb = createOrb(shadow);
         hudState.hud = createHUD(shadow);
 
-        // 🛡️ Block line breaks in contentEditable .editing elements (on shadow root)
+        // 🛡️ Block line breaks in .editing elements and HUD prompt (on shadow root)
+        // Note: hudState.shiftHeld is set by document keydown handler before this fires
         shadow.addEventListener('beforeinput', (e) => {
             if (e.inputType === 'insertLineBreak' || e.inputType === 'insertParagraph') {
                 const target = e.target;
+                // Always block in contentEditable .editing elements (chat name rename)
                 if (target?.classList?.contains('editing')) {
+                    e.preventDefault();
+                }
+                // Block in HUD prompt unless Shift is held (Shift+Enter for new line)
+                if (target?.classList?.contains('ome-hud-prompt-textarea') && !hudState.shiftHeld) {
                     e.preventDefault();
                 }
             }
@@ -3993,23 +3999,40 @@
         }, true);
 
         // Block keyboard events to document when HUD visible
-        // Handle Enter/Escape for editing elements before blocking
+        // Handle Enter/Escape for editing elements and chat input before blocking
         document.addEventListener('keydown', (e) => {
+            // Track shift state for beforeinput handler (InputEvent doesn't have shiftKey)
+            hudState.shiftHeld = e.shiftKey;
+
             if (!hudState.visible) return;
 
-            // Check if focused element in shadow DOM is editing (closed shadow requires activeElement check)
-            const editingEl = hudState.shadow?.activeElement;
-            if (editingEl?.classList?.contains('editing')) {
+            // Check focused element in shadow DOM (closed shadow requires activeElement check)
+            const activeEl = hudState.shadow?.activeElement;
+
+            // Handle HUD prompt: Enter to send (Shift+Enter for new line), Escape to clear/blur
+            if (activeEl?.classList?.contains('ome-hud-prompt-textarea')) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    const sendBtn = hudState.hud?.querySelector('.ome-hud-send-btn');
+                    sendBtn?.click();
+                } else if (e.key === 'Escape') {
+                    e.preventDefault();
+                    activeEl.value = '';
+                    activeEl.blur();
+                }
+            }
+            // Handle contentEditable .editing elements (chat name rename)
+            else if (activeEl?.classList?.contains('editing')) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    editingEl.blur(); // Triggers onblur save handler
+                    activeEl.blur(); // Triggers onblur save handler
                 } else if (e.key === 'Escape') {
                     e.preventDefault();
                     // Restore original and blur (onblur will save original back)
-                    if (editingEl.dataset.originalTitle !== undefined) {
-                        editingEl.textContent = editingEl.dataset.originalTitle;
+                    if (activeEl.dataset.originalTitle !== undefined) {
+                        activeEl.textContent = activeEl.dataset.originalTitle;
                     }
-                    editingEl.blur();
+                    activeEl.blur();
                 }
             }
 

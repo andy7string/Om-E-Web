@@ -1,23 +1,23 @@
 {
-  "timestamp": 1764988359.701225,
+  "timestamp": 1764989772.259679,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138034950,
+      "id": 1138034980,
       "url": "https://chatgpt.com/",
       "title": "ChatGPT",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138034950,
+        "id": 1138034980,
         "url": "https://chatgpt.com/",
         "title": "ChatGPT",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 23569.266459875,
+    "last_tabs_update": 24980.62163975,
     "extension_connected": true
   },
   "current_page": {

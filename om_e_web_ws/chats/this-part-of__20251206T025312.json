@@ -1,0 +1,39 @@
+{
+  "chat_id": "this-part-of__20251206T025312",
+  "project_id": "default",
+  "created_at": "2025-12-06T02:53:12.760380Z",
+  "updated_at": "2025-12-06T02:56:59.022834Z",
+  "title": "This part of reality",
+  "default_title": "this part of",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://chatgpt.com/",
+    "page_title": "ChatGPT"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "asdf",
+      "timestamp": "2025-12-06T02:53:12.760392Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "will this effect underlying objects",
+      "timestamp": "2025-12-06T02:53:43.141109Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "dd",
+      "timestamp": "2025-12-06T02:54:19.396222Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "ddfgdfg",
+      "timestamp": "2025-12-06T02:54:21.440885Z"
+    }
+  ]
+}
