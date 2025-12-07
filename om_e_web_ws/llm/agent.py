@@ -11,7 +11,10 @@ Usage:
 """
 
 from typing import List, Dict, Optional
-from .client import LLMClient
+try:
+    from .client import LLMClient
+except ImportError:
+    from client import LLMClient
 
 
 # Default system prompt for Om-E
