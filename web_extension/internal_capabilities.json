@@ -55,6 +55,38 @@
       "params": {
         "chat_id": "Required - the chat ID to delete"
       }
+    },
+    "AppendUserMessage": {
+      "action": "AppendUserMessage",
+      "label": "Append a user message to the current chat",
+      "description": "Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.",
+      "params": {
+        "content": "Required - message content",
+        "page_url": "Optional page URL for new chat metadata",
+        "page_title": "Optional page title for new chat metadata"
+      }
+    },
+    "AppendAssistantMessage": {
+      "action": "AppendAssistantMessage",
+      "label": "Append an assistant message to the current chat",
+      "description": "Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.",
+      "params": {
+        "content": "Required - message content"
+      }
+    },
+    "GetCurrentChat": {
+      "action": "GetCurrentChat",
+      "label": "Get the current active chat",
+      "description": "Returns the current chat ID and chat data",
+      "params": {}
+    },
+    "SetCurrentChat": {
+      "action": "SetCurrentChat",
+      "label": "Set the current active chat",
+      "description": "Sets which chat is the current active chat",
+      "params": {
+        "chat_id": "Required - the chat ID to make current"
+      }
     }
   }
 }

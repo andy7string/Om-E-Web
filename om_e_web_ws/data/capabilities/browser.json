@@ -1,0 +1,93 @@
+{
+  "group": "browser",
+  "description": "Chrome browser control capabilities",
+  "capabilities": {
+    "ScrollDown": {
+      "category": "browser.scroll",
+      "label": "Scroll down one viewport",
+      "handler": "extension",
+      "route": "sw.scroll"
+    },
+    "ScrollUp": {
+      "category": "browser.scroll",
+      "label": "Scroll up one viewport",
+      "handler": "extension",
+      "route": "sw.scroll"
+    },
+    "ScrollTop": {
+      "category": "browser.scroll",
+      "label": "Go to page top",
+      "handler": "extension",
+      "route": "sw.scroll"
+    },
+    "ScrollBottom": {
+      "category": "browser.scroll",
+      "label": "Go to page bottom",
+      "handler": "extension",
+      "route": "sw.scroll"
+    },
+    "ZoomIn": {
+      "category": "browser.zoom",
+      "label": "Zoom in 15%",
+      "handler": "extension",
+      "route": "sw.zoom"
+    },
+    "ZoomOut": {
+      "category": "browser.zoom",
+      "label": "Zoom out 15%",
+      "handler": "extension",
+      "route": "sw.zoom"
+    },
+    "ZoomReset": {
+      "category": "browser.zoom",
+      "label": "Reset zoom to 100%",
+      "handler": "extension",
+      "route": "sw.zoom"
+    },
+    "OpenTab": {
+      "category": "browser.tabs",
+      "label": "Open new browser tab",
+      "handler": "extension",
+      "route": "sw.tabs",
+      "params": {
+        "url": {"type": "string", "required": false, "description": "URL to open"}
+      }
+    },
+    "CloseTab": {
+      "category": "browser.tabs",
+      "label": "Close a browser tab",
+      "handler": "extension",
+      "route": "sw.tabs",
+      "params": {
+        "tabId": {"type": "number", "required": true}
+      }
+    },
+    "SwitchTab": {
+      "category": "browser.tabs",
+      "label": "Switch to a tab",
+      "handler": "extension",
+      "route": "sw.tabs",
+      "params": {
+        "tabId": {"type": "number", "required": true}
+      }
+    },
+    "GoBack": {
+      "category": "browser.nav",
+      "label": "Go back in history",
+      "handler": "extension",
+      "route": "sw.nav"
+    },
+    "GoForward": {
+      "category": "browser.nav",
+      "label": "Go forward in history",
+      "handler": "extension",
+      "route": "sw.nav"
+    },
+    "Refresh": {
+      "category": "browser.nav",
+      "label": "Refresh the page",
+      "handler": "extension",
+      "route": "sw.nav"
+    }
+  }
+}

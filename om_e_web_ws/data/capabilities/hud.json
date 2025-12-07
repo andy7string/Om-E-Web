@@ -1,0 +1,71 @@
+{
+  "group": "hud",
+  "description": "HUD interface control capabilities",
+  "capabilities": {
+    "TypeInPrompt": {
+      "category": "hud.input",
+      "label": "Type text into the HUD prompt field",
+      "handler": "extension",
+      "route": "content.hud",
+      "params": {
+        "text": {"type": "string", "required": true, "description": "Text to type into prompt"},
+        "append": {"type": "boolean", "required": false, "default": false, "description": "Append to existing text"}
+      }
+    },
+    "ClearPrompt": {
+      "category": "hud.input",
+      "label": "Clear the HUD prompt field",
+      "handler": "extension",
+      "route": "content.hud"
+    },
+    "SubmitPrompt": {
+      "category": "hud.input",
+      "label": "Submit the current prompt",
+      "handler": "extension",
+      "route": "content.hud"
+    },
+    "DisplayMessage": {
+      "category": "hud.display",
+      "label": "Display a message in the HUD chat panel",
+      "handler": "extension",
+      "route": "content.hud",
+      "params": {
+        "content": {"type": "string", "required": true},
+        "role": {"type": "string", "required": false, "enum": ["user", "assistant", "system"], "default": "assistant"}
+      }
+    },
+    "ToggleHUD": {
+      "category": "hud.visibility",
+      "label": "Show or hide the HUD",
+      "handler": "extension",
+      "route": "content.hud"
+    },
+    "MinimizeHUD": {
+      "category": "hud.visibility",
+      "label": "Minimize HUD to orb",
+      "handler": "extension",
+      "route": "content.hud"
+    },
+    "MaximizeHUD": {
+      "category": "hud.visibility",
+      "label": "Expand HUD to full panel",
+      "handler": "extension",
+      "route": "content.hud"
+    },
+    "SetTheme": {
+      "category": "hud.theme",
+      "label": "Change HUD theme",
+      "handler": "extension",
+      "route": "content.hud",
+      "params": {
+        "theme": {"type": "string", "required": true, "enum": ["robot", "kawaii", "atom"]}
+      }
+    },
+    "ListThemes": {
+      "category": "hud.theme",
+      "label": "List available themes",
+      "handler": "extension",
+      "route": "content.hud"
+    }
+  }
+}

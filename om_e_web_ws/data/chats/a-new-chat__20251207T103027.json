@@ -1,0 +1,21 @@
+{
+  "chat_id": "a-new-chat__20251207T103027",
+  "project_id": "default",
+  "created_at": "2025-12-07T10:30:27.870419Z",
+  "updated_at": "2025-12-07T10:30:27.870430Z",
+  "title": "A new chat",
+  "default_title": "a new chat",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "A new chat from the ORB",
+      "timestamp": "2025-12-07T10:30:27.870430Z"
+    }
+  ]
+}

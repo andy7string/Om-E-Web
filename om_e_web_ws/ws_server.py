@@ -35,6 +35,16 @@ from typing import Optional, List, Dict, Any
 from urllib.parse import urlparse
 from site_config_manager import get_site_config, start_site_config_polling, get_all_site_configs
 
+# LLM Dispatcher - routes LLM actions through existing pipelines
+from llm.dispatcher import (
+    parse_llm_response,
+    validate_action,
+    dispatch as llm_dispatch,
+    load_capabilities as llm_load_capabilities,
+    get_capabilities_for_prompt,
+    format_result_for_llm,
+)
+
 
 
 # Global state for managing WebSocket connections and command routing
@@ -50,6 +60,9 @@ CURRENT_ACTIVE_TAB = None          # Current active tab information
 
 # 🎯 PREMIUM: Site configs loaded from extension's site_configs.json
 SITE_CONFIGS = {}                  # Loaded site configurations with capabilities
+
+# 💬 Current chat state for LLM conversations
+CURRENT_CHAT_ID = None             # Active chat ID (auto-created on first message)
 
 def get_all_site_configs():
     """
@@ -158,6 +171,7 @@ def execute_internal_capability(action: str, params: dict) -> dict:
     @param params: Parameters for the capability
     @return: Result dictionary
     """
+    global CURRENT_CHAT_ID
     print(f"🔧 Executing internal capability: {action} with params: {params}")
 
     if action == "GetChatList":
@@ -198,6 +212,7 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
     elif action == "AppendMessage":
         # Append message to chat (creates chat if needed)
+        # Also updates CURRENT_CHAT_ID so LLM responses go to same chat
         chat_id = params.get("chat_id")
         role = params.get("role", "user")
         content = params.get("content", "")
@@ -221,6 +236,10 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             meta = {"page_url": page_url, "page_title": page_title}
             chat_dict = create_new_chat(chat_id, title, meta)
 
+        # Update CURRENT_CHAT_ID so dispatcher routes LLM responses here
+        CURRENT_CHAT_ID = chat_id
+        print(f"💬 CURRENT_CHAT_ID set to: {chat_id}")
+
         # Append message
         if role == "user":
             new_message = append_user_message(chat_dict, content)
@@ -232,7 +251,8 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {
                 "chat_id": chat_id,
                 "message": new_message,
-                "message_count": len(chat_dict.get("messages", []))
+                "message_count": len(chat_dict.get("messages", [])),
+                "_notify_chat_id": chat_id  # Signal to push sync_active_chat
             }
         else:
             return {"error": "Failed to save chat"}
@@ -284,6 +304,111 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"chat_id": chat_id, "deleted": True}
         except Exception as e:
             return {"error": f"Failed to delete chat: {str(e)}"}
+
+    elif action == "AppendUserMessage":
+        # Append a user message (convenience wrapper for AppendMessage)
+        content = params.get("content", "")
+        if not content:
+            return {"error": "Missing content parameter"}
+
+        # Use current chat or create new one
+        now = datetime.utcnow()
+        chat_dict = None
+
+        # Try to load existing chat
+        if CURRENT_CHAT_ID:
+            chat_dict = load_chat(CURRENT_CHAT_ID)
+            if chat_dict is None:
+                # Current chat was deleted
+                CURRENT_CHAT_ID = None
+
+        # Create new chat if needed
+        if chat_dict is None:
+            chat_id = generate_chat_id_from_prompt(content, now)
+            page_url = params.get("page_url", "")
+            page_title = params.get("page_title", "")
+            meta = {"page_url": page_url, "page_title": page_title}
+            chat_dict = create_new_chat(chat_id, content, meta)
+            CURRENT_CHAT_ID = chat_id
+            print(f"💬 Created new chat: {chat_id}")
+
+        # Append user message
+        new_message = append_user_message(chat_dict, content)
+
+        if save_chat(chat_dict):
+            return {
+                "chat_id": CURRENT_CHAT_ID,
+                "message": new_message,
+                "message_count": len(chat_dict.get("messages", [])),
+                "_notify_chat_id": CURRENT_CHAT_ID  # Signal to push sync_active_chat
+            }
+        else:
+            return {"error": "Failed to save chat"}
+
+    elif action == "AppendAssistantMessage":
+        # Append an assistant message (convenience wrapper for AppendMessage)
+        content = params.get("content", "")
+        if not content:
+            return {"error": "Missing content parameter"}
+
+        # Use current chat or create new one
+        now = datetime.utcnow()
+        chat_dict = None
+
+        # Try to load existing chat
+        if CURRENT_CHAT_ID:
+            chat_dict = load_chat(CURRENT_CHAT_ID)
+            if chat_dict is None:
+                # Current chat was deleted
+                CURRENT_CHAT_ID = None
+
+        # Create new chat if needed
+        if chat_dict is None:
+            chat_id = generate_chat_id_from_prompt("assistant-response", now)
+            meta = {}
+            chat_dict = create_new_chat(chat_id, "Chat", meta)
+            CURRENT_CHAT_ID = chat_id
+            print(f"💬 Created new chat for assistant: {chat_id}")
+
+        # Append assistant message
+        new_message = append_assistant_message(chat_dict, content)
+
+        if save_chat(chat_dict):
+            return {
+                "chat_id": CURRENT_CHAT_ID,
+                "message": new_message,
+                "message_count": len(chat_dict.get("messages", [])),
+                "_notify_chat_id": CURRENT_CHAT_ID  # Signal to push sync_active_chat
+            }
+        else:
+            return {"error": "Failed to save chat"}
+
+    elif action == "GetCurrentChat":
+        # Get current active chat info
+        if not CURRENT_CHAT_ID:
+            return {"chat_id": None, "chat": None}
+
+        chat_dict = load_chat(CURRENT_CHAT_ID)
+        if chat_dict is None:
+            CURRENT_CHAT_ID = None
+            return {"chat_id": None, "chat": None}
+
+        return {"chat_id": CURRENT_CHAT_ID, "chat": chat_dict}
+
+    elif action == "SetCurrentChat":
+        # Set the active chat
+        chat_id = params.get("chat_id")
+        if not chat_id:
+            return {"error": "Missing chat_id parameter"}
+
+        # Verify chat exists
+        chat_dict = load_chat(chat_id)
+        if chat_dict is None:
+            return {"error": f"Chat not found: {chat_id}"}
+
+        CURRENT_CHAT_ID = chat_id
+        print(f"💬 Set current chat: {chat_id}")
+        return {"chat_id": chat_id}
 
     else:
         return {"error": f"Unknown internal capability: {action}"}
@@ -3623,6 +3748,20 @@ async def handler(ws):
                         result = execute_internal_capability(action, params)
                         # Check if result contains an error
                         has_error = isinstance(result, dict) and "error" in result
+
+                        # 💬 Push sync_active_chat to extension if chat was created/updated
+                        notify_chat_id = result.get("_notify_chat_id") if isinstance(result, dict) else None
+                        if notify_chat_id and EXTENSION_WS:
+                            sync_msg = {
+                                "type": "sync_active_chat",
+                                "activeChatId": notify_chat_id
+                            }
+                            await EXTENSION_WS.send(json.dumps(sync_msg))
+                            print(f"💬 Pushed sync_active_chat: {notify_chat_id}")
+                            # Remove internal flag from result
+                            if "_notify_chat_id" in result:
+                                del result["_notify_chat_id"]
+
                         response = {
                             "type": "capability_result",
                             "action": action,
@@ -3921,6 +4060,28 @@ async def handler(ws):
                         "error": f"Error processing instruction: {str(e)}"
                     }
                     await ws.send(json.dumps(response))
+
+            # 🧪 TEST DISPATCH: Test LLM dispatcher routing
+            if msg.get("type") == "test_dispatch":
+                print("🧪 Test dispatch request received")
+                try:
+                    action = msg.get("action", {})
+                    print(f"🧪 Dispatching action: {json.dumps(action)}")
+
+                    # Route through the dispatcher
+                    result = await dispatch_llm_action(action)
+
+                    print(f"🧪 Dispatch result: {json.dumps(result)}")
+                    await ws.send(json.dumps(result))
+
+                except Exception as e:
+                    print(f"❌ Error in test dispatch: {e}")
+                    import traceback
+                    traceback.print_exc()
+                    await ws.send(json.dumps({
+                        "ok": False,
+                        "error": str(e)
+                    }))
 
             # 🔄 COMMAND FORWARDING: Route commands from test clients to extension
             if "command" in msg and "id" in msg:
@@ -4465,11 +4626,11 @@ def resolve_capabilities_for_url(url: str) -> list:
 # 💬 CHAT STORAGE SYSTEM
 # ============================================================================
 # Append-only chat storage mirroring ChatGPT-style conversation files.
-# Each chat is a single JSON file in ./chats/ directory.
+# Each chat is a single JSON file in ./data/chats/ directory.
 # Messages are always appended to the end — never inserted or reordered.
 # ============================================================================
 
-CHATS_DIR = "chats"
+CHATS_DIR = "data/chats"
 
 
 def ensure_chats_dir_exists() -> str:
@@ -4738,6 +4899,203 @@ def append_assistant_message(chat_dict: Dict[str, Any], content: str) -> Dict[st
     return new_message
 
 
+# ============================================================================
+# 🤖 LLM DISPATCHER INTEGRATION
+# ============================================================================
+# These functions bridge the LLM dispatcher to the existing execution pipeline.
+# The dispatcher parses LLM JSON responses and routes them here.
+# ============================================================================
+
+async def send_element_action(action_id: str, action_type: str, params: dict, timeout: float = 10.0) -> dict:
+    """
+    Send element action to extension and wait for result.
+
+    Used by LLM dispatcher for click, setValue, navigate actions.
+    Routes through the existing llm_instruction pipeline.
+
+    Args:
+        action_id: Element action ID (e.g., "a_id_0")
+        action_type: Action type (click, setValue, navigate)
+        params: Action parameters (e.g., {"value": "hello", "submit": True})
+        timeout: Max seconds to wait for response
+
+    Returns:
+        dict with ok=True/False and result data or error
+    """
+    if not EXTENSION_WS:
+        return {"ok": False, "error": "Extension not connected"}
+
+    request_id = f"llm-{uuid.uuid4().hex[:8]}"
+    msg = {
+        "type": "execute_llm_action",
+        "id": request_id,
+        "data": {
+            "actionId": action_id,
+            "actionType": action_type,
+            "params": params
+        }
+    }
+
+    print(f"🤖 send_element_action: {action_type} on {action_id}")
+
+    # Create future for response
+    fut = asyncio.get_event_loop().create_future()
+    PENDING[request_id] = fut
+
+    try:
+        await EXTENSION_WS.send(json.dumps(msg))
+        result = await asyncio.wait_for(fut, timeout=timeout)
+        print(f"✅ element_action result: {result.get('ok', False)}")
+        return result
+    except asyncio.TimeoutError:
+        PENDING.pop(request_id, None)
+        print(f"⏰ element_action timeout: {action_id}")
+        return {"ok": False, "error": f"Timeout waiting for {action_type} on {action_id}"}
+    except Exception as e:
+        PENDING.pop(request_id, None)
+        print(f"❌ element_action error: {e}")
+        return {"ok": False, "error": str(e)}
+
+
+async def send_capability_action(action: str, params: dict, timeout: float = 10.0) -> dict:
+    """
+    Send capability action to extension and wait for result.
+
+    Used by LLM dispatcher for scroll, zoom, tab operations.
+    Routes through the existing execute_capability pipeline.
+
+    Args:
+        action: Capability name (e.g., "ScrollDown", "ZoomIn", "SwitchTab")
+        params: Capability parameters (e.g., {"tabId": 123})
+        timeout: Max seconds to wait for response
+
+    Returns:
+        dict with ok=True/False and result data or error
+    """
+    # 🔧 INTERNAL CAPABILITIES: Handle server-side capabilities directly
+    internal_caps = load_internal_capabilities()
+    if action in internal_caps:
+        print(f"🔧 send_capability_action: routing internal cap {action}")
+        result = execute_internal_capability(action, params)
+        has_error = isinstance(result, dict) and "error" in result
+
+        # 💬 Push sync_active_chat to extension if chat was created/updated
+        notify_chat_id = result.get("_notify_chat_id") if isinstance(result, dict) else None
+        if notify_chat_id and EXTENSION_WS:
+            sync_msg = {
+                "type": "sync_active_chat",
+                "activeChatId": notify_chat_id
+            }
+            await EXTENSION_WS.send(json.dumps(sync_msg))
+            print(f"💬 Pushed sync_active_chat: {notify_chat_id}")
+            # Remove internal flag from result
+            if "_notify_chat_id" in result:
+                del result["_notify_chat_id"]
+
+        return {
+            "ok": not has_error,
+            "result": result if not has_error else None,
+            "error": result.get("error") if has_error else None
+        }
+
+    if not EXTENSION_WS:
+        return {"ok": False, "error": "Extension not connected"}
+
+    # Handle scroll capabilities specially (they use scroll command)
+    scroll_actions = {
+        'ScrollDown': 'down',
+        'ScrollUp': 'up',
+        'ScrollLeft': 'left',
+        'ScrollRight': 'right',
+        'ScrollTop': 'top',
+        'ScrollBottom': 'bottom'
+    }
+
+    if action in scroll_actions:
+        direction = scroll_actions[action]
+        scroll_command = {
+            "command": "scroll",
+            "id": f"scroll_{int(time.time() * 1000)}",
+            "params": {"direction": direction}
+        }
+        try:
+            await EXTENSION_WS.send(json.dumps(scroll_command))
+            print(f"📜 Scroll {direction} sent")
+            return {"ok": True, "action": action, "direction": direction}
+        except Exception as e:
+            return {"ok": False, "error": str(e)}
+
+    # Other capabilities go through execute_capability
+    request_id = f"cap_{action}_{int(time.time() * 1000)}"
+    capability_command = {
+        "type": "execute_capability",
+        "id": request_id,
+        "action": action,
+        "params": params
+    }
+
+    print(f"🎯 send_capability_action: {action}")
+
+    # Create future for response
+    fut = asyncio.get_event_loop().create_future()
+    PENDING[request_id] = fut
+
+    try:
+        await EXTENSION_WS.send(json.dumps(capability_command))
+        result = await asyncio.wait_for(fut, timeout=timeout)
+        print(f"✅ capability_action result: {result.get('ok', False)}")
+        return result
+    except asyncio.TimeoutError:
+        PENDING.pop(request_id, None)
+        print(f"⏰ capability_action timeout: {action}")
+        return {"ok": False, "error": f"Timeout waiting for {action}"}
+    except Exception as e:
+        PENDING.pop(request_id, None)
+        print(f"❌ capability_action error: {e}")
+        return {"ok": False, "error": str(e)}
+
+
+async def dispatch_llm_action(action: dict) -> dict:
+    """
+    Main entry point for LLM action dispatch.
+
+    Takes a parsed LLM action dict and routes it through the appropriate pipeline.
+    This is the function that the orchestrator will call.
+
+    Args:
+        action: Parsed action dict with act/cap/msg keys
+
+    Returns:
+        Result dict with ok, result/error, and optional msg
+    """
+    return await llm_dispatch(
+        action=action,
+        send_instruction=send_element_action,
+        send_capability=send_capability_action,
+        execute_internal=execute_internal_capability
+    )
+
+
+def init_llm_dispatcher():
+    """
+    Initialize LLM dispatcher on server startup.
+    Pre-loads capabilities and validates configuration.
+    """
+    print("🤖 Initializing LLM Dispatcher...")
+
+    # Pre-load capabilities
+    caps = llm_load_capabilities()
+    print(f"📋 Loaded {len(caps)} capabilities for LLM")
+
+    # Log available capability groups
+    groups = set()
+    for cap_info in caps.values():
+        groups.add(cap_info.get("_group", "unknown"))
+    print(f"📦 Capability groups: {', '.join(sorted(groups))}")
+
+    print("✅ LLM Dispatcher ready")
+
+
 async def main():
     """
     🚀 Main server function - starts WebSocket server on port 17892
@@ -4750,6 +5108,9 @@ async def main():
     """
     # 🎯 PREMIUM: Load site configs on startup (Polling Mode)
     await start_site_config_polling()
+
+    # 🤖 Initialize LLM Dispatcher
+    init_llm_dispatcher()
 
     async with websockets.serve(
         handler,

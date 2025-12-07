@@ -1,28 +1,35 @@
 {
-  "timestamp": 1765002203.7317052,
+  "timestamp": 1765104303.4449432,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138035134,
-      "url": "https://brighttreedigital.com.au/",
-      "title": "Local Web Design Adelaide | Bright Tree Digital",
-      "status": "loading"
+      "id": 1138036190,
+      "url": "https://www.google.com/",
+      "title": "Google",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138035134,
-        "url": "https://brighttreedigital.com.au/",
-        "title": "Local Web Design Adelaide | Bright Tree Digital",
+        "id": 1138036190,
+        "url": "https://www.google.com/",
+        "title": "Google",
         "active": true,
-        "status": "loading"
+        "status": "complete"
+      },
+      {
+        "id": 1138036197,
+        "url": "https://www.google.com/",
+        "title": "Google",
+        "active": false,
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 37335.190975416,
+    "last_tabs_update": 42846.823033458,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://brighttreedigital.com.au/",
-    "title": "Local Web Design Adelaide | Bright Tree Digital",
+    "url": "https://www.google.com/",
+    "title": "Google",
     "is_active_tab": true
   },
   "content_structure": {},

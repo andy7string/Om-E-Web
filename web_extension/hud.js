@@ -3020,7 +3020,7 @@
                             // 💬 Load active chat if one exists and different from current
                             if (response.activeChatId && response.activeChatId !== chatState.currentChatId) {
                                 chatState.currentChatId = response.activeChatId;
-                                loadChatHistory(response.activeChatId);
+                                loadChat(response.activeChatId);
                             }
                         }
                     });
@@ -4154,8 +4154,9 @@
                     console.log('[Content] 💬 initHUD checking activeChatId:', response.activeChatId, 'current:', chatState.currentChatId);
                     if (response.activeChatId && response.activeChatId !== chatState.currentChatId) {
                         chatState.currentChatId = response.activeChatId;
+                        // skipBroadcast=true: new tab syncing, don't trigger reload on other tabs
                         console.log('[Content] 💬 Loading active chat from SW:', response.activeChatId);
-                        loadChatHistory(response.activeChatId);
+                        loadChat(response.activeChatId, true);
                     } else {
                         console.log('[Content] 💬 No active chat to load or same as current');
                     }
@@ -4174,11 +4175,17 @@
             e.stopPropagation();
         }, { passive: true });
 
-        // 💬 Reload chat when tab becomes visible (user switches back to tab)
+        // 💬 Sync state when tab becomes visible (user switches back to tab)
         document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible' && chatState.currentChatId) {
-                console.log('[Content] 💬 Tab visible, reloading chat:', chatState.currentChatId);
-                loadChatHistory(chatState.currentChatId);
+            if (document.visibilityState === 'visible') {
+                console.log('[Content] 💬 Tab visible, syncing state');
+                // Sync chat messages if we have an active chat
+                if (chatState.currentChatId) {
+                    loadChat(chatState.currentChatId, true);  // skipBroadcast
+                }
+                // Sync input text from other tabs
+                syncHUDPromptInput();
+                syncOrbChatInput();
             }
         });
 
@@ -4449,9 +4456,10 @@
     /**
      * 📚 Load a chat by ID and display its messages
      * @param {string} chatId - The chat ID to load
+     * @param {boolean} skipBroadcast - If true, don't notify SW (prevents loops when syncing)
      */
-    function loadChat(chatId) {
-        console.log('[Content] 📚 Loading chat:', chatId);
+    function loadChat(chatId, skipBroadcast = false) {
+        console.log('[Content] 📚 Loading chat:', chatId, skipBroadcast ? '(sync)' : '');
 
         chrome.runtime.sendMessage(
             { type: 'execute_capability', action: 'LoadChat', params: { chat_id: chatId } },
@@ -4462,15 +4470,26 @@
                 }
 
                 if (!response?.ok || !response?.result?.chat) {
-                    console.error('[Content] 📚 Invalid response:', response);
+                    console.log('[Content] 📚 Chat not found, starting fresh:', chatId);
+                    // Chat was deleted or doesn't exist - start fresh
+                    chatState.currentChatId = null;
+                    chatState.messages = [];
+                    if (!skipBroadcast) {
+                        chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: null });
+                    }
+                    renderChatMessages();
+                    // Refresh sidebar to remove stale entry
+                    loadSidebarChats();
                     return;
                 }
 
                 const chat = response.result.chat;
                 console.log('[Content] 📚 Loaded chat:', chat.chat_id, chat.messages?.length, 'messages');
 
-                // Store active chat ID in service worker
-                chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: chatId });
+                // Store active chat ID in service worker (skip if syncing to prevent loops)
+                if (!skipBroadcast) {
+                    chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: chatId });
+                }
 
                 // Update chatState with loaded messages (existing system)
                 chatState.currentChatId = chatId;
@@ -5028,9 +5047,9 @@
             // Always reload - either new chat ID or same chat with new messages
             if (message.activeChatId) {
                 chatState.currentChatId = message.activeChatId;
-                // Request fresh chat history from server
+                // Request fresh chat history from server (skipBroadcast=true to prevent loop)
                 console.log('[Content] 💬 Reloading chat history for:', message.activeChatId);
-                loadChatHistory(message.activeChatId);
+                loadChat(message.activeChatId, true);
             } else {
                 // Clear messages if no active chat
                 chatState.currentChatId = null;

@@ -1,9 +1,9 @@
-# Local Web Design Adelaide | Bright Tree Digital
+# Google
 
-**URL:** https://brighttreedigital.com.au/
-**Timestamp:** 2025-12-06 16:53:23
+**URL:** https://www.google.com/
+**Timestamp:** 2025-12-07 21:15:03
 
-**Tabs (1):** Active: #1138035134 "Local Web Design Adelaide | Br" brighttreedigital.com.au [loading]
+**Tabs (2):** Active: #1138036190 "Google" www.google.com [complete] | Other: #1138036197 "Google" www.google.com
 
 ## Available Actions
 
@@ -85,120 +85,183 @@ The following pre-configured actions are available for this page:
   - Permanently deletes a chat file
   - Usage: `python3 test_navigation.py --command capability --capability DeleteChat`
 
----
+**AppendUserMessage** - Append a user message to the current chat
+  - Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.
+  - Usage: `python3 test_navigation.py --command capability --capability AppendUserMessage`
+
+**AppendAssistantMessage** - Append an assistant message to the current chat
+  - Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.
+  - Usage: `python3 test_navigation.py --command capability --capability AppendAssistantMessage`
+
+**GetCurrentChat** - Get the current active chat
+  - Returns the current chat ID and chat data
+  - Usage: `python3 test_navigation.py --command capability --capability GetCurrentChat`
+
+**SetCurrentChat** - Set the current active chat
+  - Sets which chat is the current active chat
+  - Usage: `python3 test_navigation.py --command capability --capability SetCurrentChat`
 
 ---
 
-<Link id="a_id_0">Skip to content</Link>
-<Link id="a_id_1">Bright Tree Digital</Link>
-<Link id="a_id_2">HOME</Link>
-<Link id="a_id_3">ABOUT</Link>
-<Link id="a_id_4">PORTFOLIO</Link>
-<Link id="a_id_5">SERVICES</Link>
-<Link id="a_id_6">CONTACT</Link>
-<Link id="a_id_7">Facebook</Link>
-<Link id="a_id_8">Instagram</Link>
-Logo Design
-Developing Timeless Logos That Define Your Brand Identity
-<Link id="a_id_9">GET STARTED</Link>
-<Button id="a_id_10">Previous slide</Button>
-<Button id="a_id_11">Next slide</Button>
-Welcome to Bright Tree Digital...
-...where your vision takes digital form and your business’s potential is fully realized. Specializing in
-WordPress web design
-and compelling
-graphic design
-, we are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-At the heart of our approach is a deep commitment to understanding and bringing to life your unique story, ensuring every pixel and every line of code not only looks exceptional but also aligns perfectly with your business goals. Join us on a journey to transform your ideas into an impactful online presence, where every interaction is an opportunity for growth and success in the digital world.
-Our Services
-<Link id="a_id_12">Website Design</Link>
-Our
-Website Design
-service brings your vision to life. We create beautiful, functional websites that are easy to navigate and look great on any device. Our focus is on making your online presence strong and user-friendly, helping you attract and engage more customers.
-<Button id="a_id_13">View Portfolio</Button>
-<Button id="a_id_14">More Info</Button>
-<Link id="a_id_15">Logo Design</Link>
-Elevate your brand with our custom
-Logo Design
-service. We specialize in creating logos that are not just visually striking but also embody your brand’s story and values. Our goal is to design a distinctive, memorable logo that sets you apart and builds recognition, ensuring it resonates with your audience and enhances brand loyalty.
-<Button id="a_id_16">View Portfolio</Button>
-<Button id="a_id_17">More Info</Button>
-<Link id="a_id_18">Banner Ad Design</Link>
-Boost your online presence with our
-Banner Ad Design
-service at Bright Tree Digital. We create eye-catching, effective banner ads that align with your brand and engage your audience, perfect for enhancing your digital marketing campaigns and social media impact.
-<Button id="a_id_19">View Portfolio</Button>
-<Button id="a_id_20">More Info</Button>
-Start your journey here...
-<Button id="a_id_21">Get in touch today!</Button>
-Our Work
-<Link id="a_id_22">Straker Functional Fitness</Link>
-<Link id="a_id_23">The Syrene Hotel</Link>
-<Link id="a_id_24">African Safari Deals</Link>
-<Link id="a_id_25">Mtambo Chartered Accountants</Link>
-<Link id="a_id_26">Joss Couture</Link>
-<Link id="a_id_27">Flutterbys School</Link>
-<Link id="a_id_28">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_29">Straker Functional Fitness</Link>
-<Link id="a_id_30">The Syrene Hotel</Link>
-<Link id="a_id_31">African Safari Deals</Link>
-<Link id="a_id_32">Mtambo Chartered Accountants</Link>
-<Link id="a_id_33">Joss Couture</Link>
-<Link id="a_id_34">Flutterbys School</Link>
-<Link id="a_id_35">The Gourmet Cookie Co</Link>
-New Moon Digital
-<Link id="a_id_36">Straker Functional Fitness</Link>
-<Link id="a_id_37">The Syrene Hotel</Link>
-<Link id="a_id_38">African Safari Deals</Link>
-<Link id="a_id_39">Mtambo Chartered Accountants</Link>
-<Button id="a_id_40">1 of 2</Button>
-<Button id="a_id_41">2 of 2</Button>
-<Button id="a_id_42">3 of 2</Button>
-<Button id="a_id_43">4 of 2</Button>
-<Button id="a_id_44">5 of 2</Button>
-<Button id="a_id_45">6 of 2</Button>
-<Button id="a_id_46">7 of 2</Button>
-<Button id="a_id_47">8 of 2</Button>
-What Our Clients Say!
-We are so happy that
-Bright Tree Digital
-designed our Logos and websites for our 2 food businesses.
-Olivia understood our vision and requirements perfectly and is always a pleasure to deal with. Having worked with Bright Tree Digital over the last 7 years and 2 websites, we really appreciate their attention to detail and prompt responses to changes and updates. Highly recommend
-Michelene Rendell
-Owner, The Kitchen
-Highly recommended.
-Bright Tree Digital
-presented excellent design services with design and build of our company website. Their creative input was invaluable, and service was organised and efficient. I would certainly recommend Bright Tree Digital.
-Daniella Finney
-Owner, The Syrene Boutique Hotel
-Big shoutout to Olivia at
-Bright Tree Digital
-, the creative genius behind my website magic. From crafting a killer logo to building a site that’s both sleek and functional, she’s nailed it. The monlthy website management was no sweat for her! If you’re on the lookout for a design wizard who brings ideas to life, Olivia is your go-to. Seriously could’t be happier with what she added to my online space.
-Natalie Cassar
-Owner, New Moon Digital
-<Button id="a_id_48">Read More Testimonials</Button>
-Ready for a Website Makeover?
-<Button id="a_id_49">Reach Out Now!</Button>
-ABOUT US
-We specialise in
-WordPress web design
-and
-graphic design
-, and are dedicated to crafting not just websites, but digital experiences that resonate with your audience.
-OUR PORTFOLIO
-<Link id="a_id_50">Banner Portfolio</Link>
-<Link id="a_id_51">Logo Portfolio</Link>
-<Link id="a_id_52">Web Design Portfolio</Link>
-<Link id="a_id_53">Facebook</Link>
-<Link id="a_id_54">Instagram</Link>
-ABN: 29 160 886 356
-QUICK LINKS
-<Link id="a_id_55">Home</Link>
-<Link id="a_id_56">About</Link>
-<Link id="a_id_57">Services</Link>
-<Link id="a_id_58">Testimonials</Link>
-<Link id="a_id_59">Contact</Link>
-<Link id="a_id_60">Privacy Policy</Link>
-Copyright © 2025 Bright Tree Digital
-<Link id="a_id_61">Website Designed by Bright Tree Digital</Link>
+---
+
+Google Search homepage
+<Link id="a_id_0">About</Link>
+<Link id="a_id_1">Store</Link>
+<Link id="a_id_2">Gmail</Link>
+<Link id="a_id_3">Search for Images</Link>
+<Button id="a_id_4">Google apps</Button>
+<Button id="a_id_5">Google Account: Andrew Orsmond
+(andreworsmond21175@gmail.com)</Button>
+<Select id="a_id_6" value="" use="(a_id_6, select, 'option')">Search</Select>
+<Button id="a_id_7">Search by voice</Button>
+<Button id="a_id_8">Search by image</Button>
+<Button id="a_id_9">AI Mode</Button>
+<Button id="a_id_10">Google Search</Button>
+<Button id="a_id_11">I'm Feeling Lucky</Button>
+Accessibility links
+<Link id="a_id_12">Skip to Discover feed</Link>
+<Link id="a_id_13">Skip to sidebar</Link>
+<Link id="a_id_14">Skip to footer</Link>
+<Link id="a_id_15">Accessibility help</Link>
+<Link id="a_id_16">Accessibility feedback</Link>
+Discover
+<Link id="a_id_17">2:31
+NEW CONTENT // Porsche 911 Cup (992.2)
+The Porsche 911 Cup (992.2) will be arriving in the 2026 Season 1 update! One of the world's most iconic single-make customer racing platforms receives a...
+iRacing
+YouTube
+·
+19h</Link>
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">Toyota's tiny, barebones IKEA pickup could be its most versatile ever
+One of the most interesting concepts revealed at this year's Japan Mobility Show was also one of the simplest. The barebones Toyota IMV Origin concept is...
+New Atlas
+·
+2d</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Children interviewed about ex-principal's school camp photos
+Parents at a South Australian school say they have been left in the dark about photos taken by a principal during a school camp.
+Australian Broadcasting Corporation
+·
+3d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Cockle Train’s cool new era rolls in as SteamRanger unveils new air-conditioned tourist fleet
+Choo Choo! South Australia's beloved Cockle Train line has just received a fresh new upgrade as it prepares to step into a new, much cooler (literally) era.
+Glam Adelaide
+·
+1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Aldi Is Selling Whimsical Lego Sets That Make the Perfect Stocking Stuffers
+Aldi is selling a whimsical 278-piece Lego set that would make a great stocking stuffer. Check it out here.
+Parade Magazine
+·
+2d</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Canadian dollar rises to 10-week high as jobs data beats estimates for third month
+The Canadian dollar strengthened by the most in six months against its U.S. counterpart on Friday and bond yields jumped, as stronger-than-expected domestic...
+Reuters
+·
+1d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Amazon Offloads TP-Link Tapo Solar Security Camera at Its Lowest Price of the Year, Works With Alexa
+The Tapo TP-Link SolarCam C402 Kit offers the benefit of a solar-powered outdoor security video camera that, together with the solar panel, reduces the need...
+Gizmodo
+·
+1d</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Fir or faux: which Christmas tree is best for the environment?
+Using an already existing artificial tree until its bedraggled end will be more environmentally friendly than buying a felled pine every year,...
+The Guardian
+·
+1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Council demands grandmother rip up beloved garden
+For 40 years, Aleida tended to her front garden. Every flower, stone and blade of grass was treated with care. Her neighbours love it and she loves it.
+9Now
+·
+2d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">“Whoever makes me the best one, that’s who I'll work with”: Steve Vai says no guitar company delivered anything “remotely close” to what he wanted at first – “not even Ibanez”
+Steve Vai has revisited the origin story of his long partnership with Ibanez – and the years before it, when no guitar maker, including Ibanez themselves,...
+Guitar.com
+·
+1d</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">NEWS: Tesla has launched the Model Y Standard in the UK, starting at £41,990 (vs £48,990 for the Model Y Premium RWD). Deliveries begin in January 2026, with first test drives available next month.
+SawyerMerritt
+X
+·
+2d</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Netflix Breaks Its Silence, Sends Clear Message to Customers
+Netflix sends a message to customers after announcing its acquisition of Warner Bros. Discovery, Inc. and HBO Max.
+Men's Journal
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">‘Everyone will miss the socialising – but it’s also a relief’: five young teens on Australia’s social media ban
+As the under-16s social media ban looms, Guardian Australia speaks to five 13 to 15-year-olds about what they will miss, and what government should be doing...
+The Guardian
+·
+20h</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Vertu Meta Ring arrives with a twist no other smart ring offers – and it doesn’t need a subscription
+The luxury brand's new smart ring combines premium design with always-on wellness support.
+T3
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">'Intelligence comes at a price, and for many species, the benefits just aren't worth it': A neuroscientist's take on how human intellect evolved
+In his book "One Hand Clapping," Nikolay Kukushkin explores explanations for how consciousness evolved, and ultimately, what makes us human.
+Live Science
+·
+1d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
+The Japanese defense ministry on Saturday reportedly claimed spotting the aircraft carrier Liaoning of the Chinese People's Liberation Army (PLA) Navy near...
+Global Times
+·
+20h</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">SA Police Commissioner launches major review of country policing
+South Australia Police Commissioner Grant Stevens has ordered a major review of country policing.
+The Advertiser
+·
+1d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Time to check your old Assistant speaker — more third-party models are getting Gemini
+Gemini is unexpectedly replacing Google Assistant on old, third-party smart speakers and displays from Insignia and Lenovo.
+Android Authority
+·
+1d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Over 50 Passengers Missing: Qantas Boeing 737 Took Off With Incorrect Weight Calculations
+A Qantas Boeing 737-800 aircraft departed from Canberra using take-off performance numbers based on an incorrect loadsheet after the aircraft diverted from...
+Simple Flying
+·
+15h</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">With job market’s glass half full, don’t expect interest rate relief
+Inflation, which is worryingly “sticky”, is likely to win the arm-wrestle against employment for the Reserve Bank's attention this month.
+AFR
+·
+16h</Link>
+<Button id="a_id_56">More options</Button>
+At a glance
+<Button id="a_id_57">Customise Homestack</Button>
+<Link id="a_id_58">Woodforde
+Cloudy
+10%
+14°</Link>
+<Link id="a_id_59">XAO • All Ordinaries up 0.22%. Price is 8,926.10 Today</Link>
+<Link id="a_id_60">Air quality
+Good
+AQC</Link>
+Australia
+<Link id="a_id_61">Advertising</Link>
+<Link id="a_id_62">Business</Link>
+<Link id="a_id_63">How Search works</Link>
+<Link id="a_id_64">Privacy</Link>
+<Link id="a_id_65">Terms</Link>
+<Button id="a_id_66">Settings</Button>
