@@ -14,7 +14,17 @@
       "handler": "server",
       "route": "internal",
       "params": {
-        "provider": {"type": "string", "required": true, "enum": ["openai", "anthropic", "lm_studio"]}
+        "provider": {"type": "string", "required": true, "description": "Provider key: openai, anthropic, lm_studio"}
+      }
+    },
+    "SetLLMEndpoint": {
+      "category": "config.llm",
+      "label": "Set LLM endpoint URL",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "provider": {"type": "string", "required": true, "description": "Provider to update"},
+        "endpoint": {"type": "string", "required": true, "description": "Full endpoint URL"}
       }
     },
     "SetLLMModel": {
@@ -23,7 +33,18 @@
       "handler": "server",
       "route": "internal",
       "params": {
-        "model": {"type": "string", "required": true}
+        "provider": {"type": "string", "required": false, "description": "Provider to update (default: active)"},
+        "model": {"type": "string", "required": true, "description": "Model name/ID"}
+      }
+    },
+    "SetLLMAPIKey": {
+      "category": "config.llm",
+      "label": "Set API key for provider",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "provider": {"type": "string", "required": true, "description": "Provider to update"},
+        "api_key": {"type": "string", "required": true, "description": "API key (use $ENV_VAR for env reference)"}
       }
     },
     "SetTemperature": {
@@ -33,6 +54,38 @@
       "route": "internal",
       "params": {
         "temperature": {"type": "number", "required": true, "description": "0.0 to 2.0"}
+      }
+    },
+    "SetMaxTokens": {
+      "category": "config.llm",
+      "label": "Set max tokens",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "max_tokens": {"type": "number", "required": true, "description": "Maximum response tokens"}
+      }
+    },
+    "AddLLMProvider": {
+      "category": "config.llm",
+      "label": "Add a new LLM provider",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "key": {"type": "string", "required": true, "description": "Unique provider key"},
+        "name": {"type": "string", "required": true, "description": "Display name"},
+        "type": {"type": "string", "required": true, "description": "openai, anthropic, or openai_compatible"},
+        "endpoint": {"type": "string", "required": true, "description": "API endpoint URL"},
+        "model": {"type": "string", "required": true, "description": "Default model"},
+        "api_key": {"type": "string", "required": false, "description": "API key or $ENV_VAR"}
+      }
+    },
+    "RemoveLLMProvider": {
+      "category": "config.llm",
+      "label": "Remove an LLM provider",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "provider": {"type": "string", "required": true, "description": "Provider key to remove"}
       }
     },
     "ListCapabilities": {

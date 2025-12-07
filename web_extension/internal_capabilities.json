@@ -144,6 +144,84 @@
       "label": "Collapse the orb chat panel",
       "description": "Closes the orb chat panel",
       "params": {}
+    },
+    "GetLLMConfig": {
+      "action": "GetLLMConfig",
+      "label": "Get LLM configuration",
+      "description": "Returns current LLM config including providers and settings",
+      "params": {}
+    },
+    "SetLLMProvider": {
+      "action": "SetLLMProvider",
+      "label": "Switch active LLM provider",
+      "description": "Changes which provider is used for LLM calls",
+      "params": {
+        "provider": "Required - provider key (openai, anthropic, lm_studio)"
+      }
+    },
+    "SetLLMEndpoint": {
+      "action": "SetLLMEndpoint",
+      "label": "Set LLM endpoint URL",
+      "description": "Updates the API endpoint for a provider",
+      "params": {
+        "provider": "Required - provider to update",
+        "endpoint": "Required - full endpoint URL"
+      }
+    },
+    "SetLLMModel": {
+      "action": "SetLLMModel",
+      "label": "Set LLM model",
+      "description": "Changes the model for a provider",
+      "params": {
+        "provider": "Optional - provider to update (default: active)",
+        "model": "Required - model name/ID"
+      }
+    },
+    "SetLLMAPIKey": {
+      "action": "SetLLMAPIKey",
+      "label": "Set API key",
+      "description": "Sets the API key for a provider",
+      "params": {
+        "provider": "Required - provider to update",
+        "api_key": "Required - API key or $ENV_VAR reference"
+      }
+    },
+    "SetTemperature": {
+      "action": "SetTemperature",
+      "label": "Set temperature",
+      "description": "Adjusts LLM temperature (0.0-2.0)",
+      "params": {
+        "temperature": "Required - temperature value"
+      }
+    },
+    "SetMaxTokens": {
+      "action": "SetMaxTokens",
+      "label": "Set max tokens",
+      "description": "Sets maximum response tokens",
+      "params": {
+        "max_tokens": "Required - max tokens"
+      }
+    },
+    "AddLLMProvider": {
+      "action": "AddLLMProvider",
+      "label": "Add new LLM provider",
+      "description": "Adds a new provider configuration",
+      "params": {
+        "key": "Required - unique provider key",
+        "name": "Required - display name",
+        "type": "Required - openai, anthropic, or openai_compatible",
+        "endpoint": "Required - API endpoint URL",
+        "model": "Required - default model",
+        "api_key": "Optional - API key or $ENV_VAR"
+      }
+    },
+    "RemoveLLMProvider": {
+      "action": "RemoveLLMProvider",
+      "label": "Remove LLM provider",
+      "description": "Removes a provider from config",
+      "params": {
+        "provider": "Required - provider key to remove"
+      }
     }
   }
 }
