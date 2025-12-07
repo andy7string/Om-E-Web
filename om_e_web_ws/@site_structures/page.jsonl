@@ -1,28 +1,35 @@
 {
-  "timestamp": 1765111796.981358,
+  "timestamp": 1765112690.156266,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
       "id": 1138036308,
-      "url": "https://www.google.com/",
-      "title": "Google",
-      "status": "loading"
+      "url": "https://www.perplexity.ai/search/how-do-i-access-chatgbt-5-thro-1_KroS.EQRyOYe9dnqqmVw",
+      "title": "how do i access chatgbt 5 through an api call , i seem to only be able to hit 4",
+      "status": "complete"
     },
     "all_tabs": [
       {
         "id": 1138036308,
-        "url": "https://www.google.com/",
-        "title": "Google",
+        "url": "https://www.perplexity.ai/search/how-do-i-access-chatgbt-5-thro-1_KroS.EQRyOYe9dnqqmVw",
+        "title": "how do i access chatgbt 5 through an api call , i seem to only be able to hit 4",
         "active": true,
-        "status": "loading"
+        "status": "complete"
+      },
+      {
+        "id": 1138036313,
+        "url": "https://platform.openai.com/docs/models/gpt-5.1",
+        "title": "Model - OpenAI API",
+        "active": false,
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 50336.495058083,
+    "last_tabs_update": 51225.199722625,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/",
-    "title": "Google",
+    "url": "https://www.perplexity.ai/search/how-do-i-access-chatgbt-5-thro-1_KroS.EQRyOYe9dnqqmVw",
+    "title": "how do i access chatgbt 5 through an api call , i seem to only be able to hit 4",
     "is_active_tab": true
   },
   "menu_structure": {
