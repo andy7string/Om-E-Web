@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-07 23:15:27
+**Timestamp:** 2025-12-07 23:19:56
 
-**Tabs (1):** Active: #1138036303 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138036308 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -198,65 +198,65 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">Updated BYD M6 minivan was seen in China with a redesigned interior
-The updated BYD M6 minivan was seen in China during road tests with a redesigned interior. It is a new energy MPV for global markets. The BYD M6 was...
-CarNewsChina.com
+<Link id="a_id_17">2026 Mazda 3 review
+There's still plenty to like about cheaper versions of the Mazda 3, although it's not the most frugal small car going around.
+CarExpert
 ·
-3d</Link>
+6d</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Saturday Citations: Cancer therapy breakthrough; Sumatran tigers thrive; frogs eat what, now?
-This week, JPL scientists reported that glaciers speed up and slow down at predictable intervals. CERN's ATLAS experiment detected evidence for the decay of...
-Phys.org
+<Link id="a_id_19">We need a real AI strategy. That starts with an AI identity
+Australia's National AI Plan is all about what we don't want to be and not enough about what we do. If we don't set a clear path, one will be chosen for us.
+AFR
 ·
-22h</Link>
+18h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">3 high-quality ASX ETFs to buy in December
-These ASX ETFs give investors easy exposure to some of the best stocks in the world. Here's what they offer...
-The Motley Fool Australia
-·
-1d</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Stop Charging Your Android Watch Daily. Here Are 7 Tips for Longer Battery Life
-Nothing kills the motivation of a midday workout faster than raising your wrist and seeing a dead, black watch screen. Honestly, did you even work out if...
-CNET
-·
-23h</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">High-blood pressure medication voluntarily recalled: FDA
+<Link id="a_id_21">High-blood pressure medication voluntarily recalled: FDA
 A New Jersey drug maker has voluntarily recalled thousands of bottles of a combination high blood pressure medication over concerns the product could be...
 The Hill
 ·
 23h</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Judge finalizes remedies in Google antitrust case
+A U.S. judge on Friday finalized his decision for the consequences Google will face for its search monopoly ruling, adding new details to the decided...
+CNBC
+·
+1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Vertu Meta Ring arrives with a twist no other smart ring offers – and it doesn’t need a subscription
+The luxury brand's new smart ring combines premium design with always-on wellness support.
+T3
+·
+1d</Link>
 <Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Wood-burning stoves face new restrictions – but a loophole from Britain’s smog years is fuelling the problem
-Wood-burning stoves are booming in the UK, a cosy response to high energy prices and cost of living pressures. But this comes with a hidden cost.
-The Conversation
+<Link id="a_id_27">3 high-quality ASX ETFs to buy in December
+These ASX ETFs give investors easy exposure to some of the best stocks in the world. Here's what they offer...
+The Motley Fool Australia
 ·
 1d</Link>
 <Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Tall poppies and complacency curtailing our entrepreneurial spirit
-There is a national tendency to cut down tall poppies, which has sometimes prevented the country from embracing a vigorous, creative entrepreneurial...
-AFR
-·
-4d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Netflix Breaks Its Silence, Sends Clear Message to Customers
+<Link id="a_id_29">Netflix Breaks Its Silence, Sends Clear Message to Customers
 Netflix sends a message to customers after announcing its acquisition of Warner Bros. Discovery, Inc. and HBO Max.
 Men's Journal
 ·
 1d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Fir or faux: which Christmas tree is best for the environment?
-Using an already existing artificial tree until its bedraggled end will be more environmentally friendly than buying a felled pine every year,...
-The Guardian
-·
-1d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
 The Japanese defense ministry on Saturday reportedly claimed spotting the aircraft carrier Liaoning of the Chinese People's Liberation Army (PLA) Navy near...
 Global Times
 ·
 22h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">USD/CAD slides to a two-month low after Canada’s jobs beat; eyes on US PCE
+The Canadian Dollar (CAD) strengthens against the US Dollar (USD) on Friday as a stronger-than-expected Labour Force Survey boosts sentiment around the...
+FXStreet
+·
+1d</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Nothing but blue skies for Qantas’ plans for western hub
+Qantas' ambition to turn Perth into a western hub connecting Australia with the world already appears to be paying dividends, with the airline seeing demand...
+The West Australian
+·
+1d</Link>
 <Button id="a_id_36">More options</Button>
 <Link id="a_id_37">NEWS: Tesla has launched the Model Y Standard in the UK, starting at £41,990 (vs £48,990 for the Model Y Premium RWD). Deliveries begin in January 2026, with first test drives available next month.
 SawyerMerritt
@@ -264,9 +264,9 @@ X
 ·
 2d</Link>
 <Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Cost of a comfortable retirement rises to record high: ASFA
-Australia's Retirement Standard has just been updated. Find out the cost of a comfortable and modest retirement for homeowners and renters.
-The Motley Fool Australia
+<Link id="a_id_39">Science history: Female chemist initially barred from research helps helps develop drug for remarkable-but-short-lived recovery in children with leukemia — Dec. 6, 1954
+In December 1954, Gertrude Elion and colleagues described a new compound they had developed that sent children with leukemia into remission.
+Live Science
 ·
 1d</Link>
 <Button id="a_id_40">More options</Button>
@@ -276,47 +276,47 @@ Glam Adelaide
 ·
 1d</Link>
 <Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Nothing but blue skies for Qantas’ plans for western hub
-Qantas' ambition to turn Perth into a western hub connecting Australia with the world already appears to be paying dividends, with the airline seeing demand...
-The West Australian
-·
-1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">basecamp/fizzy: Kanban as it should be. Not as it has been.
-If you'd like to run Fizzy on your own server, we recommend deploying it with Kamal. Kamal makes it easier to set up a bare server, copy the application to...
-GitHub
-·
-1h</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Microsoft Confirms New Upgrade Decision For All Windows Users
+<Link id="a_id_43">Microsoft Confirms New Upgrade Decision For All Windows Users
 How to get Microsoft's new upgrade on your PC — it's the simplest Windows upgrade ever.
 Forbes
 ·
 1d</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">ABC documentary pulled from broadcast over editorial
-ABC documentary Songs Inside was pulled from schedule at the last minute last Monday over an editorial decision. Produced by Cocoon Films the film follows...
-TV Tonight | Australia's Leading TV Blog
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">A Watch That Works as Well on Earth as It Did in Space
+Omega's Speedmaster, worn by Buzz Aldrin and Neil Armstrong on their 1969 journey to the moon, gets an update.
+The New York Times
 ·
-18h</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">The way Australia produces food is unique. Our updated dietary guidelines have to recognise this
-Australia's dietary guidelines will soon consider environmental impacts. We need locally relevant indicators to support more sustainable food production.
-The Conversation
-·
-4d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Singapore’s Sembcorp nears deal for Alinta
-Singapore-listed energy major Sembcorp is poised to clinch a deal as early as this week to acquire Australia's fourth-largest electricity and gas retailer,...
-The Australian
-·
-4h</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">South Australian bus ads misled public by claiming gas is ‘clean and green’, regulator finds
+1d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">South Australian bus ads misled public by claiming gas is ‘clean and green’, regulator finds
 Ads to be removed from Adelaide Metro buses after advertising regulator rules they breach its environmental claims code.
 The Guardian
 ·
 1d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Amazon’s new color Kindle Scribe launches on December 10th
+Amazon has finally given a release date for its new Kindle Scribe Colorsoft and Kindle Scribe: They'll be available to purchase starting on December 10th,...
+The Verge
+·
+2d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">How To Tame Your Hedgehog: A Simple Framework For A Better Career (And Life)
+Borrowed from the discipline of strategy, here is a simple, powerful career framework to help you identify what you're great at, love doing, and can be paid...
+Forbes
+·
+6d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Australia’s business leaders share the secrets to their 2025 success
+The leaders, builders, pioneers and stirrers shaping Australia's business landscape reveal what went right in 2025 and what they want to see in 2026.
+AFR
+·
+3d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">The way Australia produces food is unique. Our updated dietary guidelines have to recognise this
+Australia's dietary guidelines will soon consider environmental impacts. We need locally relevant indicators to support more sustainable food production.
+The Conversation
+·
+4d</Link>
 <Button id="a_id_56">More options</Button>
 At a glance
 <Button id="a_id_57">Customise Homestack</Button>

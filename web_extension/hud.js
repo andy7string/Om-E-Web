@@ -2489,25 +2489,28 @@
                 justify-content: flex-start;
             }
 
-            /* 🎛️ Settings Orb - spinning Chrome-style vibe */
+            /* 🎛️ Settings Orb - spinning Chrome-style, same size as main orbs */
             .ome-settings-orb-container {
                 position: relative;
-                width: 32px;
-                height: 32px;
+                width: 42px;
+                height: 42px;
                 cursor: pointer;
-            }
-
-            .ome-settings-orb {
-                width: 32px;
-                height: 32px;
-                position: relative;
-                animation: ome-settings-spin 24s linear infinite;
                 transition: transform 0.3s ease;
             }
 
-            .ome-settings-orb-container:hover .ome-settings-orb {
-                animation-duration: 8s;
+            .ome-settings-orb-container:hover {
                 transform: scale(1.15);
+            }
+
+            .ome-settings-orb {
+                width: 42px;
+                height: 42px;
+                position: relative;
+                animation: ome-settings-spin 24s linear infinite;
+            }
+
+            .ome-settings-orb-container:hover .ome-settings-orb {
+                animation-duration: 6s;
             }
 
             .ome-settings-orb svg {
@@ -2518,7 +2521,7 @@
             /* Chrome-style segments */
             .ome-settings-orb .segment {
                 fill: none;
-                stroke-width: 4;
+                stroke-width: 5;
                 stroke-linecap: round;
             }
             .ome-settings-orb .seg1 { stroke: rgba(var(--theme-color, 126,200,227), 0.9); }
@@ -2531,32 +2534,6 @@
             @keyframes ome-settings-spin {
                 from { transform: rotate(0deg); }
                 to { transform: rotate(360deg); }
-            }
-
-            /* Curved "Settings" text on hover - tight arc hugging orb */
-            .ome-settings-text {
-                position: absolute;
-                width: 44px;
-                height: 44px;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                pointer-events: none;
-                opacity: 0;
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
-
-            .ome-settings-orb-container:hover .ome-settings-text {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1.15);
-            }
-
-            .ome-settings-text text {
-                fill: rgba(var(--theme-color, 126,200,227), 0.9);
-                font-size: 4.5px;
-                font-weight: 700;
-                letter-spacing: 1.5px;
-                text-transform: uppercase;
             }
 
             /* Settings panel styles - matches new chat input styling */
@@ -3460,13 +3437,6 @@
                                     <circle class="center-dot" cx="16" cy="16" r="4"/>
                                 </svg>
                             </div>
-                            <!-- Curved "Settings" text on hover - tight arc hugging orb -->
-                            <svg class="ome-settings-text" viewBox="0 0 44 44">
-                                <defs>
-                                    <path id="settingsArc" d="M 5,22 A 17,17 0 0,1 39,22"/>
-                                </defs>
-                                <text><textPath href="#settingsArc" startOffset="50%" text-anchor="middle">SETTINGS</textPath></text>
-                            </svg>
                         </div>
                         <!-- Settings Panel -->
                         <div class="ome-settings-panel">
