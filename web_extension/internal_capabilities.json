@@ -222,6 +222,16 @@
       "params": {
         "provider": "Required - provider key to remove"
       }
+    },
+    "LLMChat": {
+      "action": "LLMChat",
+      "label": "Send message to LLM",
+      "description": "Send a chat message to the configured LLM and get a response",
+      "params": {
+        "message": "Required - the message to send",
+        "chat_id": "Optional - chat ID to associate response with",
+        "clear_history": "Optional - reset agent conversation history"
+      }
     }
   }
 }

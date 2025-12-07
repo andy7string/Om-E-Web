@@ -45,6 +45,9 @@ from llm.dispatcher import (
     format_result_for_llm,
 )
 
+# LLM Agent - conversational AI with history
+from llm.agent import OmEAgent
+
 
 
 # Global state for managing WebSocket connections and command routing
@@ -63,6 +66,9 @@ SITE_CONFIGS = {}                  # Loaded site configurations with capabilitie
 
 # 💬 Current chat state for LLM conversations
 CURRENT_CHAT_ID = None             # Active chat ID (auto-created on first message)
+
+# 🤖 LLM Agent instance for chat conversations
+LLM_AGENT = None                   # OmEAgent instance (created on first chat)
 
 def get_all_site_configs():
     """
@@ -4048,6 +4054,77 @@ async def handler(ws):
                             await ws.send(json.dumps({
                                 "ok": False,
                                 "error": "Extension not connected"
+                            }))
+                        continue
+
+                    # 🤖 LLM CHAT: Special async handler for LLM conversations
+                    if action == "LLMChat":
+                        global LLM_AGENT, CURRENT_CHAT_ID
+                        message = params.get("message", "")
+                        chat_id = params.get("chat_id")
+                        clear_history = params.get("clear_history", False)
+
+                        if not message:
+                            await ws.send(json.dumps({
+                                "type": "capability_result",
+                                "action": action,
+                                "ok": False,
+                                "error": "Missing message parameter",
+                                "id": request_id
+                            }))
+                            continue
+
+                        # Create or reset agent if needed
+                        if LLM_AGENT is None or clear_history:
+                            if LLM_AGENT:
+                                await LLM_AGENT.close()
+                            LLM_AGENT = OmEAgent()
+                            print("🤖 Created new LLM agent")
+
+                        try:
+                            print(f"🤖 LLMChat: Sending message to agent")
+                            response_text = await LLM_AGENT.chat(message)
+
+                            # Save to chat history
+                            if CURRENT_CHAT_ID:
+                                chat_dict = load_chat(CURRENT_CHAT_ID)
+                                if chat_dict:
+                                    append_assistant_message(chat_dict, response_text)
+                                    save_chat(chat_dict)
+
+                            result = {
+                                "response": response_text,
+                                "history_length": LLM_AGENT.get_history_length()
+                            }
+
+                            # Push response to HUD
+                            hud_action = {
+                                "type": "llm_response",
+                                "response": response_text,
+                                "chat_id": CURRENT_CHAT_ID
+                            }
+                            if EXTENSION_WS:
+                                await EXTENSION_WS.send(json.dumps({
+                                    "type": "hud_action",
+                                    "action": hud_action
+                                }))
+
+                            await ws.send(json.dumps({
+                                "type": "capability_result",
+                                "action": action,
+                                "ok": True,
+                                "result": result,
+                                "id": request_id
+                            }))
+
+                        except Exception as e:
+                            print(f"🤖 LLMChat error: {e}")
+                            await ws.send(json.dumps({
+                                "type": "capability_result",
+                                "action": action,
+                                "ok": False,
+                                "error": str(e),
+                                "id": request_id
                             }))
                         continue
 
