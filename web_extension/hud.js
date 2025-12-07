@@ -2091,6 +2091,75 @@
                 transform: rotate(45deg);
             }
 
+            /* 🔍 Search Chats link */
+            .ome-sidebar-search {
+                padding: 8px 12px;
+                font-size: 14px;
+                color: rgba(var(--theme-color, 126,200,227), 0.6);
+                user-select: none;
+                cursor: pointer;
+                transition: color 0.15s;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .ome-sidebar-search:hover {
+                color: rgba(var(--theme-color, 126,200,227), 0.9);
+            }
+            .ome-sidebar-search .icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 16px;
+                height: 16px;
+            }
+            .ome-sidebar-search .icon svg {
+                width: 16px;
+                height: 16px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .ome-sidebar-search.active {
+                color: rgba(200, 150, 100, 0.9);
+            }
+            .ome-sidebar-search.active:hover {
+                color: rgba(200, 150, 100, 1);
+            }
+            /* 🔍 Search box */
+            .ome-sidebar-search-box {
+                padding: 0 12px 0 12px;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.2s ease, padding 0.2s ease;
+                box-sizing: border-box;
+            }
+            .ome-sidebar-search-box.expanded {
+                max-height: 50px;
+                padding: 4px 12px 8px 12px;
+            }
+            .ome-sidebar-search-input {
+                width: 100%;
+                padding: 8px 12px;
+                font-size: 13px;
+                color: rgba(var(--theme-color, 126,200,227), 0.9);
+                background: rgba(var(--theme-color, 126,200,227), 0.1);
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
+                border-radius: 6px;
+                outline: none;
+                transition: border-color 0.15s, background 0.15s;
+                box-sizing: border-box;
+            }
+            .ome-sidebar-search-input:focus {
+                border-color: rgba(var(--theme-color, 126,200,227), 0.5);
+                background: rgba(var(--theme-color, 126,200,227), 0.15);
+            }
+            .ome-sidebar-search-input::placeholder {
+                color: rgba(var(--theme-color, 126,200,227), 0.4);
+            }
+
             /* 📚 Chat Item - row in sidebar */
             .ome-sidebar-chat {
                 display: flex;
@@ -3166,6 +3235,8 @@
                     <div class="ome-sidebar-content">
                         <div class="ome-sidebar-new-chat"><span class="plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span class="text">New Chat</span></div>
                         <div class="ome-sidebar-new-chat-placeholder"></div>
+                        <div class="ome-sidebar-search"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><span class="text">Search Chats</span></div>
+                        <div class="ome-sidebar-search-box"></div>
                         <div class="ome-sidebar-label expanded"><span class="arrow arrow-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span><span class="label-text-collapsed">Your Chats</span><span class="label-text-expanded">Hide Chats</span><span class="arrow arrow-right"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span></div>
                         <div class="ome-sidebar-chat-list">
                             <div class="ome-sidebar-empty">No chats yet</div>
@@ -3304,8 +3375,51 @@
                     plus.classList.add('spinning');
                 }
                 btn.classList.add('active');
-                if (textSpan) textSpan.textContent = 'Close';
+                if (textSpan) textSpan.textContent = 'Close New Chat';
                 startNewChat();
+            }
+        });
+
+        // 🔍 Search Chats toggle handler
+        hud.querySelector('.ome-sidebar-search')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const searchBtn = e.currentTarget;
+            const textSpan = searchBtn.querySelector('.text');
+            const searchBox = hud.querySelector('.ome-sidebar-search-box');
+            const isExpanded = searchBox?.classList.contains('expanded');
+
+            if (isExpanded) {
+                // Close search
+                searchBox.classList.remove('expanded');
+                searchBtn.classList.remove('active');
+                if (textSpan) textSpan.textContent = 'Search Chats';
+                searchBox.innerHTML = '';
+                filterSidebarChats(''); // Reset filter
+            } else {
+                // Open search - create input
+                searchBtn.classList.add('active');
+                if (textSpan) textSpan.textContent = 'Close Search Chats';
+                searchBox.classList.add('expanded');
+                searchBox.innerHTML = `<input type="text" class="ome-sidebar-search-input" placeholder="Search chats..." />`;
+                const input = searchBox.querySelector('.ome-sidebar-search-input');
+                input?.focus();
+
+                // Handle search input
+                input?.addEventListener('input', (ev) => {
+                    const query = ev.target.value.trim().toLowerCase();
+                    filterSidebarChats(query);
+                });
+
+                // Close on Escape
+                input?.addEventListener('keydown', (ev) => {
+                    if (ev.key === 'Escape') {
+                        searchBox.classList.remove('expanded');
+                        searchBtn.classList.remove('active');
+                        if (textSpan) textSpan.textContent = 'Search Chats';
+                        searchBox.innerHTML = '';
+                        filterSidebarChats(''); // Reset filter
+                    }
+                });
             }
         });
 
@@ -4479,12 +4593,14 @@
         // Note: New chat placeholder only shown when user clicks "+ New Chat"
         // Not shown automatically on page load
 
+        // Always add empty message element (for filtering "no results")
+        const empty = document.createElement('div');
+        empty.className = 'ome-sidebar-empty';
+        empty.textContent = chats.length === 0 ? 'No chats yet' : '';
+        empty.style.display = chats.length === 0 ? '' : 'none';
+        chatList.appendChild(empty);
+
         if (chats.length === 0) {
-            // No saved chats yet
-            const empty = document.createElement('div');
-            empty.className = 'ome-sidebar-empty';
-            empty.textContent = 'No chats yet';
-            chatList.appendChild(empty);
             return;
         }
 
@@ -4530,6 +4646,40 @@
 
             chatList.appendChild(item);
         });
+    }
+
+    /**
+     * 🔍 Filter sidebar chats by search query (client-side filter)
+     * @param {string} query - Search query to filter by
+     */
+    function filterSidebarChats(query) {
+        const chatList = hudState.sidebar?.querySelector('.ome-sidebar-chat-list');
+        if (!chatList) return;
+
+        const items = chatList.querySelectorAll('.ome-sidebar-chat');
+        items.forEach(item => {
+            const title = item.querySelector('.ome-sidebar-chat-title')?.textContent?.toLowerCase() || '';
+            if (!query || title.includes(query)) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Show/hide empty message
+        const visibleItems = chatList.querySelectorAll('.ome-sidebar-chat:not([style*="display: none"])');
+        const emptyMsg = chatList.querySelector('.ome-sidebar-empty');
+        if (emptyMsg) {
+            if (visibleItems.length === 0 && query) {
+                emptyMsg.textContent = 'No matching chats';
+                emptyMsg.style.display = '';
+            } else if (visibleItems.length === 0) {
+                emptyMsg.textContent = 'No chats yet';
+                emptyMsg.style.display = '';
+            } else {
+                emptyMsg.style.display = 'none';
+            }
+        }
     }
 
     /**

@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-07 21:34:16
+**Timestamp:** 2025-12-07 21:45:52
 
-**Tabs (1):** Active: #1138036223 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138036240 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -126,35 +126,35 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">Tougher tailpipe emissions rules for new cars in Australia now in force
-Future models introduced in Australia will need to meet much stricter emissions rules that could see new-car prices rise.
+<Link id="a_id_17">Honda believes its new Prelude will surpass the Civic Type R in sales, but supply plays a pivotal part in figures
+Availability of the hot hatch will play a major role, but there could be more Honda Preludes on Australian roads than Civic Type Rs.
 Drive
 ·
-4d</Link>
+15h</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">“A tighter, louder and gutsier tone from an already stellar-sounding amp”: Bad Cat Mod Shop Black Cat 30 review
-Remixed and refreshed by the late, great amp-guru Mark Sampson, this Black Cat has two more tubes, 10 more watts and a whole new voice.
-Guitar World
+<Link id="a_id_19">Farmers feel 'forgotten' as environment, land clearing laws tightened
+Queensland producers say a blanket approach to environmental laws will restrict their ability to manage land sustainably and responsibly.
+Australian Broadcasting Corporation
 ·
-22h</Link>
+12h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Council demands grandmother rip up beloved garden
-For 40 years, Aleida tended to her front garden. Every flower, stone and blade of grass was treated with care. Her neighbours love it and she loves it.
-9Now
+<Link id="a_id_21">1,800-year-old 'piggy banks' full of Roman-era coins unearthed in French village
+Archaeologists in France have discovered three ancient storage jars brimming with tens of thousands of Roman coins. The vessels were buried in pits 1,700...
+Live Science
 ·
-2d</Link>
+23h</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">SA Police Commissioner launches major review of country policing
-South Australia Police Commissioner Grant Stevens has ordered a major review of country policing.
-The Advertiser
+<Link id="a_id_23">Amazon Offloads TP-Link Tapo Solar Security Camera at Its Lowest Price of the Year, Works With Alexa
+The Tapo TP-Link SolarCam C402 Kit offers the benefit of a solar-powered outdoor security video camera that, together with the solar panel, reduces the need...
+Gizmodo
 ·
 1d</Link>
 <Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Biggest battery to date on Australia’s main grid officially opened, in time for summer
-The largest fully operating battery on Australia's main grid has been officially opened on budget, with the $1.2 billion project delivered on time and...
-Renew Economy
+<Link id="a_id_25">Militant union makes big power play for whole of NSW
+One of the country's most militant unions is making a landmark push for a multi-employer agreement covering the whole of NSW and the ACT that would deliver...
+AFR
 ·
-14h</Link>
+3d</Link>
 <Button id="a_id_26">More options</Button>
 <Link id="a_id_27">Pentagon confirms it's moving ahead with AUKUS nuclear submarine deal
 T﻿he Pentagon has finished its review of the AUKUS defence pact between Australia, the US and UK, confirming it aims to proceed with the agreement.
@@ -162,29 +162,29 @@ T﻿he Pentagon has finished its review of the AUKUS defence pact between Austra
 ·
 2d</Link>
 <Button id="a_id_28">More options</Button>
-<Link id="a_id_29">We need a real AI strategy. That starts with an AI identity
-Australia's National AI Plan is all about what we don't want to be and not enough about what we do. If we don't set a clear path, one will be chosen for us.
-AFR
+<Link id="a_id_29">Microsoft Confirms New Upgrade Decision For All Windows Users
+How to get Microsoft's new upgrade on your PC — it's the simplest Windows upgrade ever.
+Forbes
 ·
-17h</Link>
+46m</Link>
 <Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Class action lawyers circle CTM scandal
-Litigation funders are examining the Corporate Travel Management overcharging scandal, with any legal claim likely to involve allegations of misleading or...
-The Australian
+<Link id="a_id_31">Artificial intelligence research has a slop problem, academics say: ‘It’s a mess’
+AI research in question as author claims to have written over 100 papers on AI that one expert calls a 'disaster'
+The Guardian
 ·
-6h</Link>
+20h</Link>
 <Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Militant union makes big power play for whole of NSW
-One of the country's most militant unions is making a landmark push for a multi-employer agreement covering the whole of NSW and the ACT that would deliver...
-AFR
+<Link id="a_id_33">Aldi Is Selling Whimsical Lego Sets That Make the Perfect Stocking Stuffers
+Aldi is selling a whimsical 278-piece Lego set that would make a great stocking stuffer. Check it out here.
+Parade Magazine
 ·
-3d</Link>
+2d</Link>
 <Button id="a_id_34">More options</Button>
-<Link id="a_id_35">Why Mahindra races Porsche and Jaguar in Formula E
-SPONSORED: The Indian automaker is using the all-electric motorsport series to help fast-track its next generation of EVs.
-CarExpert
+<Link id="a_id_35">High-blood pressure medication voluntarily recalled: FDA
+A New Jersey drug maker has voluntarily recalled thousands of bottles of a combination high blood pressure medication over concerns the product could be...
+The Hill
 ·
-1d</Link>
+22h</Link>
 <Button id="a_id_36">More options</Button>
 <Link id="a_id_37">NEWS: Tesla has launched the Model Y Standard in the UK, starting at £41,990 (vs £48,990 for the Model Y Premium RWD). Deliveries begin in January 2026, with first test drives available next month.
 SawyerMerritt
@@ -192,59 +192,59 @@ X
 ·
 2d</Link>
 <Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
+<Link id="a_id_39">Stop Charging Your Android Watch Daily. Here Are 7 Tips for Longer Battery Life
+Nothing kills the motivation of a midday workout faster than raising your wrist and seeing a dead, black watch screen. Honestly, did you even work out if...
+CNET
+·
+22h</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
 The Japanese defense ministry on Saturday reportedly claimed spotting the aircraft carrier Liaoning of the Chinese People's Liberation Army (PLA) Navy near...
 Global Times
 ·
 20h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Netflix Breaks Its Silence, Sends Clear Message to Customers
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">A Qantas A380 turned around between Australia and Antartica
+Qantas flight from Sydney to Johannesburg turned around and diverted to Melbourne.
+airlive
+·
+23h</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Netflix Breaks Its Silence, Sends Clear Message to Customers
 Netflix sends a message to customers after announcing its acquisition of Warner Bros. Discovery, Inc. and HBO Max.
 Men's Journal
 ·
 1d</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Aldi Is Selling Whimsical Lego Sets That Make the Perfect Stocking Stuffers
-Aldi is selling a whimsical 278-piece Lego set that would make a great stocking stuffer. Check it out here.
-Parade Magazine
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Fir or faux: which Christmas tree is best for the environment?
+Using an already existing artificial tree until its bedraggled end will be more environmentally friendly than buying a felled pine every year,...
+The Guardian
 ·
-2d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Android may soon auto-adjust device settings to make bus or train rides go smoother
-Google is working on a new Android feature that automatically optimizes device settings while you're on a bus or train for smoother rides.
+1d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Time to check your old Assistant speaker — more third-party models are getting Gemini
+Gemini is unexpectedly replacing Google Assistant on old, third-party smart speakers and displays from Insignia and Lenovo.
 Android Authority
 ·
-21h</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Tall poppies and complacency curtailing our entrepreneurial spirit
-There is a national tendency to cut down tall poppies, which has sometimes prevented the country from embracing a vigorous, creative entrepreneurial...
-AFR
-·
-4d</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Alleged Sydney uni hacker charged with additional cyber crimes
-A former Western Sydney University student already charged with hacking into the institution's servers allegedly continued a campaign against the university...
-Australian Broadcasting Corporation
-·
-2d</Link>
+1d</Link>
 <Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Fish returning to some parts of SA's coast, divers say
-Open water divers say underwater visibility has improved and marine life is returning to some areas off South Australia's coast. Experts say it's a positive...
-Australian Broadcasting Corporation
+<Link id="a_id_51">COMING SOON: Lux galeteria Gelato Messina to open new Adelaide beachside location this December
+Gelato Messina is about to open its second Adelaide store, this time right by the beach.
+Glam Adelaide
 ·
-14h</Link>
+1d</Link>
 <Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Adviser numbers see steep drop in first week of December
+<Link id="a_id_53">How To Tame Your Hedgehog: A Simple Framework For A Better Career (And Life)
+Borrowed from the discipline of strategy, here is a simple, powerful career framework to help you identify what you're great at, love doing, and can be paid...
+Forbes
+·
+6d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Adviser numbers see steep drop in first week of December
 The week ending 4 December saw a net loss of 32 advisers after two months of almost exclusively single-digit shifts, bringing the total number of advisers...
 ifa
 ·
 2d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Wood-burning stoves face new restrictions – but a loophole from Britain’s smog years is fuelling the problem
-Wood-burning stoves are booming in the UK, a cosy response to high energy prices and cost of living pressures. But this comes with a hidden cost.
-The Conversation
-·
-1d</Link>
 <Button id="a_id_56">More options</Button>
 At a glance
 <Button id="a_id_57">Customise Homestack</Button>
