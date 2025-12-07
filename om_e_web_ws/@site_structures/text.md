@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-07 21:45:52
+**Timestamp:** 2025-12-07 22:07:00
 
-**Tabs (1):** Active: #1138036240 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138036260 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -101,6 +101,42 @@ The following pre-configured actions are available for this page:
   - Sets which chat is the current active chat
   - Usage: `python3 test_navigation.py --command capability --capability SetCurrentChat`
 
+**SearchChats** - Search chats by title or message content
+  - Searches all chats and returns matching results
+  - Usage: `python3 test_navigation.py --command capability --capability SearchChats`
+
+**ShowHUD** - Show the HUD interface
+  - Opens the full HUD overlay view
+  - Usage: `python3 test_navigation.py --command capability --capability ShowHUD`
+
+**HideHUD** - Hide the HUD interface
+  - Closes the HUD overlay, returns to orb view
+  - Usage: `python3 test_navigation.py --command capability --capability HideHUD`
+
+**ToggleHUD** - Toggle HUD visibility
+  - Switches between HUD and orb view
+  - Usage: `python3 test_navigation.py --command capability --capability ToggleHUD`
+
+**ShowSidebar** - Show the sidebar
+  - Opens the chat sidebar in HUD
+  - Usage: `python3 test_navigation.py --command capability --capability ShowSidebar`
+
+**HideSidebar** - Hide the sidebar
+  - Closes the chat sidebar in HUD
+  - Usage: `python3 test_navigation.py --command capability --capability HideSidebar`
+
+**ToggleSidebar** - Toggle sidebar visibility
+  - Opens or closes the chat sidebar
+  - Usage: `python3 test_navigation.py --command capability --capability ToggleSidebar`
+
+**ExpandOrb** - Expand the orb chat panel
+  - Opens the chat panel from the orb
+  - Usage: `python3 test_navigation.py --command capability --capability ExpandOrb`
+
+**CollapseOrb** - Collapse the orb chat panel
+  - Closes the orb chat panel
+  - Usage: `python3 test_navigation.py --command capability --capability CollapseOrb`
+
 ---
 
 ---
@@ -126,132 +162,132 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">Honda believes its new Prelude will surpass the Civic Type R in sales, but supply plays a pivotal part in figures
-Availability of the hot hatch will play a major role, but there could be more Honda Preludes on Australian roads than Civic Type Rs.
-Drive
-·
-15h</Link>
-<Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Farmers feel 'forgotten' as environment, land clearing laws tightened
-Queensland producers say a blanket approach to environmental laws will restrict their ability to manage land sustainably and responsibly.
-Australian Broadcasting Corporation
-·
-12h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">1,800-year-old 'piggy banks' full of Roman-era coins unearthed in French village
-Archaeologists in France have discovered three ancient storage jars brimming with tens of thousands of Roman coins. The vessels were buried in pits 1,700...
-Live Science
-·
-23h</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Amazon Offloads TP-Link Tapo Solar Security Camera at Its Lowest Price of the Year, Works With Alexa
-The Tapo TP-Link SolarCam C402 Kit offers the benefit of a solar-powered outdoor security video camera that, together with the solar panel, reduces the need...
-Gizmodo
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Militant union makes big power play for whole of NSW
-One of the country's most militant unions is making a landmark push for a multi-employer agreement covering the whole of NSW and the ACT that would deliver...
-AFR
-·
-3d</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Pentagon confirms it's moving ahead with AUKUS nuclear submarine deal
-T﻿he Pentagon has finished its review of the AUKUS defence pact between Australia, the US and UK, confirming it aims to proceed with the agreement.
-9News.com.au
+<Link id="a_id_17">First Look: The Marine Blue Tesla Model Y Hits UK Shores
+The United Kingdom's electric vehicle landscape just got a fresh splash of color. Customer deliveries of the Tesla Model Y in the new, striking Marine Blue...
+Tesla Mag
 ·
 2d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Microsoft Confirms New Upgrade Decision For All Windows Users
-How to get Microsoft's new upgrade on your PC — it's the simplest Windows upgrade ever.
-Forbes
+<Button id="a_id_18">More options</Button>
+<Link id="a_id_19">5 ASX ETFs for beginner investors in 2026 and beyond
+Let's see why these ASX ETFs could be top picks for beginner investors in 2026 and the years that follow...
+The Motley Fool Australia
 ·
-46m</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Artificial intelligence research has a slop problem, academics say: ‘It’s a mess’
+14h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">Artificial intelligence research has a slop problem, academics say: ‘It’s a mess’
 AI research in question as author claims to have written over 100 papers on AI that one expert calls a 'disaster'
 The Guardian
 ·
 20h</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Aldi Is Selling Whimsical Lego Sets That Make the Perfect Stocking Stuffers
-Aldi is selling a whimsical 278-piece Lego set that would make a great stocking stuffer. Check it out here.
-Parade Magazine
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">Researchers found an ancient Roman stairway. It’s revealing the ‘lost Pompeii’
+Clues from a digital reconstruction of a lavish ancient home are changing how researchers understand Pompeii's elite.
+CNN
 ·
-2d</Link>
-<Button id="a_id_34">More options</Button>
-<Link id="a_id_35">High-blood pressure medication voluntarily recalled: FDA
-A New Jersey drug maker has voluntarily recalled thousands of bottles of a combination high blood pressure medication over concerns the product could be...
-The Hill
-·
-22h</Link>
-<Button id="a_id_36">More options</Button>
-<Link id="a_id_37">NEWS: Tesla has launched the Model Y Standard in the UK, starting at £41,990 (vs £48,990 for the Model Y Premium RWD). Deliveries begin in January 2026, with first test drives available next month.
-SawyerMerritt
-X
-·
-2d</Link>
-<Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Stop Charging Your Android Watch Daily. Here Are 7 Tips for Longer Battery Life
-Nothing kills the motivation of a midday workout faster than raising your wrist and seeing a dead, black watch screen. Honestly, did you even work out if...
-CNET
-·
-22h</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
-The Japanese defense ministry on Saturday reportedly claimed spotting the aircraft carrier Liaoning of the Chinese People's Liberation Army (PLA) Navy near...
-Global Times
-·
-20h</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">A Qantas A380 turned around between Australia and Antartica
-Qantas flight from Sydney to Johannesburg turned around and diverted to Melbourne.
-airlive
-·
-23h</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Netflix Breaks Its Silence, Sends Clear Message to Customers
-Netflix sends a message to customers after announcing its acquisition of Warner Bros. Discovery, Inc. and HBO Max.
-Men's Journal
-·
-1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Fir or faux: which Christmas tree is best for the environment?
+35m</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Fir or faux: which Christmas tree is best for the environment?
 Using an already existing artificial tree until its bedraggled end will be more environmentally friendly than buying a felled pine every year,...
 The Guardian
 ·
 1d</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Time to check your old Assistant speaker — more third-party models are getting Gemini
-Gemini is unexpectedly replacing Google Assistant on old, third-party smart speakers and displays from Insignia and Lenovo.
-Android Authority
-·
-1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">COMING SOON: Lux galeteria Gelato Messina to open new Adelaide beachside location this December
-Gelato Messina is about to open its second Adelaide store, this time right by the beach.
-Glam Adelaide
-·
-1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">How To Tame Your Hedgehog: A Simple Framework For A Better Career (And Life)
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">How To Tame Your Hedgehog: A Simple Framework For A Better Career (And Life)
 Borrowed from the discipline of strategy, here is a simple, powerful career framework to help you identify what you're great at, love doing, and can be paid...
 Forbes
 ·
 6d</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">Adviser numbers see steep drop in first week of December
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">Netflix Breaks Its Silence, Sends Clear Message to Customers
+Netflix sends a message to customers after announcing its acquisition of Warner Bros. Discovery, Inc. and HBO Max.
+Men's Journal
+·
+1d</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Time to check your old Assistant speaker — more third-party models are getting Gemini
+Gemini is unexpectedly replacing Google Assistant on old, third-party smart speakers and displays from Insignia and Lenovo.
+Android Authority
+·
+1d</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">High-blood pressure medication voluntarily recalled: FDA
+A New Jersey drug maker has voluntarily recalled thousands of bottles of a combination high blood pressure medication over concerns the product could be...
+The Hill
+·
+22h</Link>
+<Button id="a_id_34">More options</Button>
+<Link id="a_id_35">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
+The Japanese defense ministry on Saturday reportedly claimed spotting the aircraft carrier Liaoning of the Chinese People's Liberation Army (PLA) Navy near...
+Global Times
+·
+21h</Link>
+<Button id="a_id_36">More options</Button>
+<Link id="a_id_37">Over 50 Passengers Missing: Qantas Boeing 737 Took Off With Incorrect Weight Calculations
+A Qantas Boeing 737-800 aircraft departed from Canberra using take-off performance numbers based on an incorrect loadsheet after the aircraft diverted from...
+Simple Flying
+·
+16h</Link>
+<Button id="a_id_38">More options</Button>
+<Link id="a_id_39">Nature recovery plan in England hit by clause allowing contracts to end with a year’s notice
+Conservationists say changes, coupled with underfunding, will curb take-up and leave less land protected for nature.
+The Guardian
+·
+1d</Link>
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">COMING SOON: Lux galeteria Gelato Messina to open new Adelaide beachside location this December
+Gelato Messina is about to open its second Adelaide store, this time right by the beach.
+Glam Adelaide
+·
+1d</Link>
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Microsoft Confirms New Upgrade Decision For All Windows Users
+How to get Microsoft's new upgrade on your PC — it's the simplest Windows upgrade ever.
+Forbes
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Iran-targeted deli’s pleas for financial aid ignored
+The family behind a kosher deli firebombed by Iranian terrorists say their business is on the brink of insolvency and the Albanese government has refused...
+The Australian
+·
+3d</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Amazon’s new color Kindle Scribe launches on December 10th
+Amazon has finally given a release date for its new Kindle Scribe Colorsoft and Kindle Scribe: They'll be available to purchase starting on December 10th,...
+The Verge
+·
+2d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Australia’s business leaders share the secrets to their 2025 success
+The leaders, builders, pioneers and stirrers shaping Australia's business landscape reveal what went right in 2025 and what they want to see in 2026.
+AFR
+·
+3d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Adviser numbers see steep drop in first week of December
 The week ending 4 December saw a net loss of 32 advisers after two months of almost exclusively single-digit shifts, bringing the total number of advisers...
 ifa
 ·
 2d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">The way Australia produces food is unique. Our updated dietary guidelines have to recognise this
+Australia's dietary guidelines will soon consider environmental impacts. We need locally relevant indicators to support more sustainable food production.
+The Conversation
+·
+4d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">South Australian bus ads misled public by claiming gas is ‘clean and green’, regulator finds
+Ads to be removed from Adelaide Metro buses after advertising regulator rules they breach its environmental claims code.
+The Guardian
+·
+1d</Link>
 <Button id="a_id_56">More options</Button>
 At a glance
 <Button id="a_id_57">Customise Homestack</Button>
 <Link id="a_id_58">Woodforde
 Cloudy
 10%
-14°</Link>
+13°</Link>
 <Link id="a_id_59">XAO • All Ordinaries up 0.22%. Price is 8,926.10 Today</Link>
 <Link id="a_id_60">Air quality
 Good

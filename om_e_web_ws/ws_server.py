@@ -188,7 +188,10 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         chat = load_chat(chat_id)
         if chat is None:
             return {"error": f"Chat not found: {chat_id}"}
-        return {"chat": chat}
+        return {
+            "chat": chat,
+            "_hud_action": {"type": "load_chat", "chat_id": chat_id, "chat": chat}
+        }
 
     elif action == "CreateChat":
         # Create a new chat file
@@ -206,7 +209,11 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
         # Save to disk
         if save_chat(chat_dict):
-            return {"chat_id": chat_id, "chat": chat_dict}
+            return {
+                "chat_id": chat_id,
+                "chat": chat_dict,
+                "_hud_action": {"type": "create_chat", "chat_id": chat_id, "chat": chat_dict}
+            }
         else:
             return {"error": "Failed to save chat"}
 
@@ -252,7 +259,7 @@ def execute_internal_capability(action: str, params: dict) -> dict:
                 "chat_id": chat_id,
                 "message": new_message,
                 "message_count": len(chat_dict.get("messages", [])),
-                "_notify_chat_id": chat_id  # Signal to push sync_active_chat
+                "_hud_action": {"type": "append_message", "chat_id": chat_id, "message": new_message}
             }
         else:
             return {"error": "Failed to save chat"}
@@ -282,7 +289,11 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
         if save_chat(chat_dict):
             print(f"✅ RenameChat: Success")
-            return {"chat_id": chat_id, "title": new_title}
+            return {
+                "chat_id": chat_id,
+                "title": new_title,
+                "_hud_action": {"type": "rename_chat", "chat_id": chat_id, "title": new_title}
+            }
         else:
             print(f"❌ RenameChat: Failed to save")
             return {"error": "Failed to save chat"}
@@ -301,7 +312,11 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         try:
             os.remove(filepath)
             print(f"🗑️ Deleted chat: {chat_id}")
-            return {"chat_id": chat_id, "deleted": True}
+            return {
+                "chat_id": chat_id,
+                "deleted": True,
+                "_hud_action": {"type": "delete_chat", "chat_id": chat_id}
+            }
         except Exception as e:
             return {"error": f"Failed to delete chat: {str(e)}"}
 
@@ -340,7 +355,7 @@ def execute_internal_capability(action: str, params: dict) -> dict:
                 "chat_id": CURRENT_CHAT_ID,
                 "message": new_message,
                 "message_count": len(chat_dict.get("messages", [])),
-                "_notify_chat_id": CURRENT_CHAT_ID  # Signal to push sync_active_chat
+                "_hud_action": {"type": "append_message", "chat_id": CURRENT_CHAT_ID, "message": new_message}
             }
         else:
             return {"error": "Failed to save chat"}
@@ -378,7 +393,7 @@ def execute_internal_capability(action: str, params: dict) -> dict:
                 "chat_id": CURRENT_CHAT_ID,
                 "message": new_message,
                 "message_count": len(chat_dict.get("messages", [])),
-                "_notify_chat_id": CURRENT_CHAT_ID  # Signal to push sync_active_chat
+                "_hud_action": {"type": "append_message", "chat_id": CURRENT_CHAT_ID, "message": new_message}
             }
         else:
             return {"error": "Failed to save chat"}
@@ -408,7 +423,80 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
         CURRENT_CHAT_ID = chat_id
         print(f"💬 Set current chat: {chat_id}")
-        return {"chat_id": chat_id}
+        return {
+            "chat_id": chat_id,
+            "_hud_action": {"type": "load_chat", "chat_id": chat_id, "chat": chat_dict}
+        }
+
+    elif action == "SearchChats":
+        # Search chats by title or message content
+        query = params.get("query", "").lower().strip()
+        limit = params.get("limit", 20)
+
+        if not query:
+            return {"error": "Missing query parameter"}
+
+        # Get all chats
+        all_chats = list_chats()
+        results = []
+
+        for chat_meta in all_chats:
+            # Check title match
+            title_match = query in chat_meta.get("title", "").lower()
+
+            # Check message content match
+            content_match = False
+            chat_data = load_chat(chat_meta["chat_id"])
+            if chat_data:
+                for msg in chat_data.get("messages", []):
+                    if query in msg.get("content", "").lower():
+                        content_match = True
+                        break
+
+            if title_match or content_match:
+                results.append({
+                    "chat_id": chat_meta["chat_id"],
+                    "title": chat_meta.get("title", "Untitled"),
+                    "date_short": chat_meta.get("date_short", ""),
+                    "message_count": chat_meta.get("message_count", 0),
+                    "match_type": "title" if title_match else "content"
+                })
+
+            if len(results) >= limit:
+                break
+
+        print(f"🔍 SearchChats: '{query}' found {len(results)} results")
+        return {
+            "query": query,
+            "results": results,
+            "count": len(results),
+            "_hud_action": {"type": "search_results", "query": query, "results": results}
+        }
+
+    # 🎛️ UI CONTROL CAPABILITIES
+    elif action == "ShowHUD":
+        return {"_hud_action": {"type": "show_hud"}}
+
+    elif action == "HideHUD":
+        return {"_hud_action": {"type": "hide_hud"}}
+
+    elif action == "ToggleHUD":
+        return {"_hud_action": {"type": "toggle_hud"}}
+
+    elif action == "ShowSidebar":
+        return {"_hud_action": {"type": "show_sidebar"}}
+
+    elif action == "HideSidebar":
+        return {"_hud_action": {"type": "hide_sidebar"}}
+
+    elif action == "ToggleSidebar":
+        return {"_hud_action": {"type": "toggle_sidebar"}}
+
+    elif action == "ExpandOrb":
+        return {"_hud_action": {"type": "expand_orb"}}
+
+    elif action == "CollapseOrb":
+        return {"_hud_action": {"type": "collapse_orb"}}
 
     else:
         return {"error": f"Unknown internal capability: {action}"}
@@ -3749,18 +3837,18 @@ async def handler(ws):
                         # Check if result contains an error
                         has_error = isinstance(result, dict) and "error" in result
 
-                        # 💬 Push sync_active_chat to extension if chat was created/updated
-                        notify_chat_id = result.get("_notify_chat_id") if isinstance(result, dict) else None
-                        if notify_chat_id and EXTENSION_WS:
-                            sync_msg = {
-                                "type": "sync_active_chat",
-                                "activeChatId": notify_chat_id
+                        # 🎛️ Push HUD action to extension if capability wants to drive UI
+                        hud_action = result.get("_hud_action") if isinstance(result, dict) else None
+                        if hud_action and EXTENSION_WS:
+                            hud_msg = {
+                                "type": "hud_action",
+                                "action": hud_action
                             }
-                            await EXTENSION_WS.send(json.dumps(sync_msg))
-                            print(f"💬 Pushed sync_active_chat: {notify_chat_id}")
+                            await EXTENSION_WS.send(json.dumps(hud_msg))
+                            print(f"🎛️ Pushed hud_action: {hud_action.get('type')}")
                             # Remove internal flag from result
-                            if "_notify_chat_id" in result:
-                                del result["_notify_chat_id"]
+                            if "_hud_action" in result:
+                                del result["_hud_action"]
 
                         response = {
                             "type": "capability_result",
@@ -4979,18 +5067,18 @@ async def send_capability_action(action: str, params: dict, timeout: float = 10.
         result = execute_internal_capability(action, params)
         has_error = isinstance(result, dict) and "error" in result
 
-        # 💬 Push sync_active_chat to extension if chat was created/updated
-        notify_chat_id = result.get("_notify_chat_id") if isinstance(result, dict) else None
-        if notify_chat_id and EXTENSION_WS:
-            sync_msg = {
-                "type": "sync_active_chat",
-                "activeChatId": notify_chat_id
+        # 🎛️ Push HUD action to extension if capability wants to drive UI
+        hud_action = result.get("_hud_action") if isinstance(result, dict) else None
+        if hud_action and EXTENSION_WS:
+            hud_msg = {
+                "type": "hud_action",
+                "action": hud_action
             }
-            await EXTENSION_WS.send(json.dumps(sync_msg))
-            print(f"💬 Pushed sync_active_chat: {notify_chat_id}")
+            await EXTENSION_WS.send(json.dumps(hud_msg))
+            print(f"🎛️ Pushed hud_action: {hud_action.get('type')}")
             # Remove internal flag from result
-            if "_notify_chat_id" in result:
-                del result["_notify_chat_id"]
+            if "_hud_action" in result:
+                del result["_hud_action"]
 
         return {
             "ok": not has_error,

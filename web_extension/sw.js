@@ -1101,6 +1101,30 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // 🎛️ HUD ACTION: Server pushes UI actions to all tabs
+        if (message.type === "hud_action") {
+            console.log("[SW] 🎛️ hud_action from server:", message.action?.type);
+
+            // Forward to all tabs
+            (async () => {
+                try {
+                    const tabs = await chrome.tabs.query({});
+                    for (const tab of tabs) {
+                        if (tab.id) {
+                            chrome.tabs.sendMessage(tab.id, {
+                                type: 'hud_action',
+                                action: message.action
+                            }).catch(() => {});
+                        }
+                    }
+                    console.log('[SW] 🎛️ hud_action forwarded to', tabs.length, 'tabs');
+                } catch (error) {
+                    console.error('[SW] 🎛️ Error forwarding hud_action:', error);
+                }
+            })();
+            return;
+        }
+
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);

@@ -87,6 +87,63 @@
       "params": {
         "chat_id": "Required - the chat ID to make current"
       }
+    },
+    "SearchChats": {
+      "action": "SearchChats",
+      "label": "Search chats by title or message content",
+      "description": "Searches all chats and returns matching results",
+      "params": {
+        "query": "Required - search query string",
+        "limit": "Optional - max results (default 20)"
+      }
+    },
+    "ShowHUD": {
+      "action": "ShowHUD",
+      "label": "Show the HUD interface",
+      "description": "Opens the full HUD overlay view",
+      "params": {}
+    },
+    "HideHUD": {
+      "action": "HideHUD",
+      "label": "Hide the HUD interface",
+      "description": "Closes the HUD overlay, returns to orb view",
+      "params": {}
+    },
+    "ToggleHUD": {
+      "action": "ToggleHUD",
+      "label": "Toggle HUD visibility",
+      "description": "Switches between HUD and orb view",
+      "params": {}
+    },
+    "ShowSidebar": {
+      "action": "ShowSidebar",
+      "label": "Show the sidebar",
+      "description": "Opens the chat sidebar in HUD",
+      "params": {}
+    },
+    "HideSidebar": {
+      "action": "HideSidebar",
+      "label": "Hide the sidebar",
+      "description": "Closes the chat sidebar in HUD",
+      "params": {}
+    },
+    "ToggleSidebar": {
+      "action": "ToggleSidebar",
+      "label": "Toggle sidebar visibility",
+      "description": "Opens or closes the chat sidebar",
+      "params": {}
+    },
+    "ExpandOrb": {
+      "action": "ExpandOrb",
+      "label": "Expand the orb chat panel",
+      "description": "Opens the chat panel from the orb",
+      "params": {}
+    },
+    "CollapseOrb": {
+      "action": "CollapseOrb",
+      "label": "Collapse the orb chat panel",
+      "description": "Closes the orb chat panel",
+      "params": {}
     }
   }
 }
