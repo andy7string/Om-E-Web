@@ -163,6 +163,57 @@ def load_internal_capabilities() -> dict:
         return {}
 
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🤖 LLM CONFIG HELPERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+LLM_CONFIG_PATH = os.path.join(os.path.dirname(__file__), "data", "llm_config.json")
+
+
+def load_llm_config() -> dict:
+    """Load LLM configuration from data/llm_config.json"""
+    try:
+        if os.path.exists(LLM_CONFIG_PATH):
+            with open(LLM_CONFIG_PATH, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        else:
+            # Return default config if file doesn't exist
+            return {
+                "active_provider": "lm_studio",
+                "providers": {
+                    "lm_studio": {
+                        "name": "LM Studio",
+                        "type": "openai_compatible",
+                        "endpoint": "http://localhost:1234/v1/chat/completions",
+                        "model": "local-model",
+                        "api_key": None
+                    }
+                },
+                "settings": {
+                    "temperature": 0.7,
+                    "max_tokens": 1024,
+                    "timeout_seconds": 30
+                }
+            }
+    except Exception as e:
+        print(f"❌ Error loading LLM config: {e}")
+        return {}
+
+
+def save_llm_config(config: dict) -> bool:
+    """Save LLM configuration to data/llm_config.json"""
+    try:
+        # Ensure data directory exists
+        os.makedirs(os.path.dirname(LLM_CONFIG_PATH), exist_ok=True)
+        with open(LLM_CONFIG_PATH, 'w', encoding='utf-8') as f:
+            json.dump(config, f, indent=2)
+        print(f"💾 Saved LLM config")
+        return True
+    except Exception as e:
+        print(f"❌ Error saving LLM config: {e}")
+        return False
+
+
 def execute_internal_capability(action: str, params: dict) -> dict:
     """
     Execute an internal (server-side) capability.
@@ -497,6 +548,177 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
     elif action == "CollapseOrb":
         return {"_hud_action": {"type": "collapse_orb"}}
+
+    # ═══════════════════════════════════════════════════════════════════════════
+    # 🤖 LLM CONFIG CAPABILITIES
+    # ═══════════════════════════════════════════════════════════════════════════
+
+    elif action == "GetLLMConfig":
+        # Return full LLM configuration
+        config = load_llm_config()
+        # Mask API keys for security (show only last 4 chars)
+        safe_config = json.loads(json.dumps(config))  # Deep copy
+        for provider_key, provider in safe_config.get("providers", {}).items():
+            api_key = provider.get("api_key")
+            if api_key and not api_key.startswith("$") and len(api_key) > 8:
+                provider["api_key"] = f"***{api_key[-4:]}"
+        return {"config": safe_config}
+
+    elif action == "SetLLMProvider":
+        # Switch active provider
+        provider = params.get("provider")
+        if not provider:
+            return {"error": "Missing provider parameter"}
+
+        config = load_llm_config()
+        if provider not in config.get("providers", {}):
+            return {"error": f"Unknown provider: {provider}. Available: {list(config.get('providers', {}).keys())}"}
+
+        config["active_provider"] = provider
+        if save_llm_config(config):
+            return {"active_provider": provider, "provider_name": config["providers"][provider].get("name")}
+        return {"error": "Failed to save config"}
+
+    elif action == "SetLLMEndpoint":
+        # Set endpoint URL for a provider
+        provider = params.get("provider")
+        endpoint = params.get("endpoint")
+        if not provider or not endpoint:
+            return {"error": "Missing provider or endpoint parameter"}
+
+        config = load_llm_config()
+        if provider not in config.get("providers", {}):
+            return {"error": f"Unknown provider: {provider}"}
+
+        config["providers"][provider]["endpoint"] = endpoint
+        if save_llm_config(config):
+            return {"provider": provider, "endpoint": endpoint}
+        return {"error": "Failed to save config"}
+
+    elif action == "SetLLMModel":
+        # Set model for a provider (or active provider if not specified)
+        provider = params.get("provider")
+        model = params.get("model")
+        if not model:
+            return {"error": "Missing model parameter"}
+
+        config = load_llm_config()
+        provider = provider or config.get("active_provider")
+        if provider not in config.get("providers", {}):
+            return {"error": f"Unknown provider: {provider}"}
+
+        config["providers"][provider]["model"] = model
+        if save_llm_config(config):
+            return {"provider": provider, "model": model}
+        return {"error": "Failed to save config"}
+
+    elif action == "SetLLMAPIKey":
+        # Set API key for a provider
+        provider = params.get("provider")
+        api_key = params.get("api_key")
+        if not provider or not api_key:
+            return {"error": "Missing provider or api_key parameter"}
+
+        config = load_llm_config()
+        if provider not in config.get("providers", {}):
+            return {"error": f"Unknown provider: {provider}"}
+
+        config["providers"][provider]["api_key"] = api_key
+        if save_llm_config(config):
+            # Return masked key for confirmation
+            masked = f"***{api_key[-4:]}" if len(api_key) > 8 and not api_key.startswith("$") else api_key
+            return {"provider": provider, "api_key": masked}
+        return {"error": "Failed to save config"}
+
+    elif action == "SetTemperature":
+        # Set temperature setting
+        temperature = params.get("temperature")
+        if temperature is None:
+            return {"error": "Missing temperature parameter"}
+
+        try:
+            temp_val = float(temperature)
+            if temp_val < 0.0 or temp_val > 2.0:
+                return {"error": "Temperature must be between 0.0 and 2.0"}
+        except ValueError:
+            return {"error": "Temperature must be a number"}
+
+        config = load_llm_config()
+        if "settings" not in config:
+            config["settings"] = {}
+        config["settings"]["temperature"] = temp_val
+        if save_llm_config(config):
+            return {"temperature": temp_val}
+        return {"error": "Failed to save config"}
+
+    elif action == "SetMaxTokens":
+        # Set max tokens setting
+        max_tokens = params.get("max_tokens")
+        if max_tokens is None:
+            return {"error": "Missing max_tokens parameter"}
+
+        try:
+            tokens_val = int(max_tokens)
+            if tokens_val < 1 or tokens_val > 128000:
+                return {"error": "max_tokens must be between 1 and 128000"}
+        except ValueError:
+            return {"error": "max_tokens must be an integer"}
+
+        config = load_llm_config()
+        if "settings" not in config:
+            config["settings"] = {}
+        config["settings"]["max_tokens"] = tokens_val
+        if save_llm_config(config):
+            return {"max_tokens": tokens_val}
+        return {"error": "Failed to save config"}
+
+    elif action == "AddLLMProvider":
+        # Add a new provider
+        key = params.get("key")
+        name = params.get("name")
+        ptype = params.get("type")
+        endpoint = params.get("endpoint")
+        model = params.get("model")
+        api_key = params.get("api_key")
+
+        if not all([key, name, ptype, endpoint, model]):
+            return {"error": "Missing required parameters: key, name, type, endpoint, model"}
+
+        if ptype not in ["openai", "anthropic", "openai_compatible"]:
+            return {"error": f"Invalid type: {ptype}. Must be openai, anthropic, or openai_compatible"}
+
+        config = load_llm_config()
+        if key in config.get("providers", {}):
+            return {"error": f"Provider already exists: {key}"}
+
+        config["providers"][key] = {
+            "name": name,
+            "type": ptype,
+            "endpoint": endpoint,
+            "model": model,
+            "api_key": api_key
+        }
+        if save_llm_config(config):
+            return {"added": key, "provider": config["providers"][key]}
+        return {"error": "Failed to save config"}
+
+    elif action == "RemoveLLMProvider":
+        # Remove a provider
+        provider = params.get("provider")
+        if not provider:
+            return {"error": "Missing provider parameter"}
+
+        config = load_llm_config()
+        if provider not in config.get("providers", {}):
+            return {"error": f"Unknown provider: {provider}"}
+
+        if config.get("active_provider") == provider:
+            return {"error": f"Cannot remove active provider. Switch to another provider first."}
+
+        del config["providers"][provider]
+        if save_llm_config(config):
+            return {"removed": provider}
+        return {"error": "Failed to save config"}
 
     else:
         return {"error": f"Unknown internal capability: {action}"}

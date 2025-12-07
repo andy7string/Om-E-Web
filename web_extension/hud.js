@@ -2484,6 +2484,212 @@
                 border-top: 1px solid rgba(var(--theme-color, 126,200,227), 0.15);
                 font-size: 11px;
                 color: rgba(var(--theme-color, 126,200,227), 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
+            /* 🎛️ Settings Orb - spinning Chrome-style vibe */
+            .ome-settings-orb-container {
+                position: relative;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+            }
+
+            .ome-settings-orb {
+                width: 32px;
+                height: 32px;
+                position: relative;
+                animation: ome-settings-spin 24s linear infinite;
+                transition: transform 0.3s ease;
+            }
+
+            .ome-settings-orb-container:hover .ome-settings-orb {
+                animation-duration: 8s;
+                transform: scale(1.15);
+            }
+
+            .ome-settings-orb svg {
+                width: 100%;
+                height: 100%;
+            }
+
+            /* Chrome-style segments */
+            .ome-settings-orb .segment {
+                fill: none;
+                stroke-width: 4;
+                stroke-linecap: round;
+            }
+            .ome-settings-orb .seg1 { stroke: rgba(var(--theme-color, 126,200,227), 0.9); }
+            .ome-settings-orb .seg2 { stroke: rgba(var(--theme-color, 126,200,227), 0.6); }
+            .ome-settings-orb .seg3 { stroke: rgba(var(--theme-color, 126,200,227), 0.3); }
+            .ome-settings-orb .center-dot {
+                fill: rgba(var(--theme-color, 126,200,227), 1);
+            }
+
+            @keyframes ome-settings-spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+
+            /* Curved "Settings" text on hover - tight arc hugging orb */
+            .ome-settings-text {
+                position: absolute;
+                width: 44px;
+                height: 44px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            .ome-settings-orb-container:hover .ome-settings-text {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.15);
+            }
+
+            .ome-settings-text text {
+                fill: rgba(var(--theme-color, 126,200,227), 0.9);
+                font-size: 4.5px;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+            }
+
+            /* Settings panel styles - matches new chat input styling */
+            .ome-settings-panel {
+                display: none;
+                position: absolute;
+                bottom: 50px;
+                left: 8px;
+                right: 8px;
+                background: rgb(32, 33, 36);
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.2);
+                border-radius: 10px;
+                padding: 14px;
+                z-index: 100;
+                max-height: 400px;
+                overflow-y: auto;
+            }
+
+            .ome-settings-panel.open {
+                display: block;
+            }
+
+            /* Title - faded like "Unsaved" label */
+            .ome-settings-panel h3 {
+                margin: 0 0 14px 0;
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba(255,255,255,0.35);
+                letter-spacing: 0.3px;
+            }
+
+            .ome-settings-group {
+                margin-bottom: 14px;
+            }
+
+            /* Labels - faded gray, uppercase */
+            .ome-settings-group label {
+                display: block;
+                font-size: 10px;
+                color: rgba(255,255,255,0.35);
+                margin-bottom: 6px;
+                text-transform: uppercase;
+                letter-spacing: 0.8px;
+            }
+
+            /* Throb animation for focused inputs */
+            @keyframes ome-settings-throb {
+                0%, 100% { border-color: rgba(var(--theme-color, 126,200,227), 0.35); }
+                50% { border-color: rgba(var(--theme-color, 126,200,227), 0.6); }
+            }
+
+            /* Inputs - match New Chat input style with theme border + theme text */
+            .ome-settings-group select,
+            .ome-settings-group input {
+                width: 100%;
+                padding: 10px 12px;
+                background: transparent;
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.3);
+                border-radius: 6px;
+                color: rgba(var(--theme-color, 126,200,227), 0.9);
+                font-size: 13px;
+                box-sizing: border-box;
+                transition: all 0.2s ease;
+            }
+
+            .ome-settings-group select {
+                appearance: none;
+                -webkit-appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(126,200,227,0.5)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                background-size: 14px;
+                padding-right: 34px;
+                cursor: pointer;
+            }
+
+            .ome-settings-group select option {
+                background: rgba(30, 30, 35, 0.98);
+                color: rgba(255,255,255,0.85);
+                padding: 8px;
+            }
+
+            .ome-settings-group select:hover,
+            .ome-settings-group input:hover {
+                border-color: rgba(var(--theme-color, 126,200,227), 0.45);
+            }
+
+            .ome-settings-group select:focus,
+            .ome-settings-group input:focus {
+                outline: none;
+                border-color: rgba(var(--theme-color, 126,200,227), 0.5);
+                animation: ome-settings-throb 1.5s ease-in-out infinite;
+            }
+
+            .ome-settings-group input::placeholder {
+                color: rgba(255,255,255,0.25);
+                font-style: italic;
+            }
+
+            .ome-settings-row {
+                display: flex;
+                gap: 10px;
+            }
+
+            .ome-settings-row .ome-settings-group {
+                flex: 1;
+            }
+
+            /* Save button - theme colored border like inputs */
+            .ome-settings-save {
+                width: 100%;
+                padding: 10px;
+                margin-top: 4px;
+                background: transparent;
+                border: 1px solid rgba(var(--theme-color, 126,200,227), 0.3);
+                border-radius: 6px;
+                color: rgba(var(--theme-color, 126,200,227), 0.7);
+                font-size: 13px;
+                font-weight: 400;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .ome-settings-save:hover {
+                border-color: rgba(var(--theme-color, 126,200,227), 0.5);
+                color: rgba(var(--theme-color, 126,200,227), 0.9);
+            }
+
+            .ome-settings-status {
+                margin-top: 10px;
+                font-size: 11px;
+                text-align: center;
+                color: rgba(100, 200, 100, 0.6);
             }
         `;
         shadow.appendChild(style);
@@ -3242,7 +3448,63 @@
                             <div class="ome-sidebar-empty">No chats yet</div>
                         </div>
                     </div>
-                    <div class="ome-sidebar-footer">Om-E Web</div>
+                    <div class="ome-sidebar-footer">
+                        <div class="ome-settings-orb-container">
+                            <div class="ome-settings-orb">
+                                <svg viewBox="0 0 32 32">
+                                    <!-- Chrome-style spinning segments -->
+                                    <circle class="segment seg1" cx="16" cy="16" r="12" stroke-dasharray="19 57" stroke-dashoffset="0"/>
+                                    <circle class="segment seg2" cx="16" cy="16" r="12" stroke-dasharray="19 57" stroke-dashoffset="-25"/>
+                                    <circle class="segment seg3" cx="16" cy="16" r="12" stroke-dasharray="19 57" stroke-dashoffset="-50"/>
+                                    <!-- Center dot -->
+                                    <circle class="center-dot" cx="16" cy="16" r="4"/>
+                                </svg>
+                            </div>
+                            <!-- Curved "Settings" text on hover - tight arc hugging orb -->
+                            <svg class="ome-settings-text" viewBox="0 0 44 44">
+                                <defs>
+                                    <path id="settingsArc" d="M 5,22 A 17,17 0 0,1 39,22"/>
+                                </defs>
+                                <text><textPath href="#settingsArc" startOffset="50%" text-anchor="middle">SETTINGS</textPath></text>
+                            </svg>
+                        </div>
+                        <!-- Settings Panel -->
+                        <div class="ome-settings-panel">
+                            <h3>LLM Settings</h3>
+                            <div class="ome-settings-group">
+                                <label>Provider</label>
+                                <select class="ome-settings-provider">
+                                    <option value="lm_studio">LM Studio (Local)</option>
+                                    <option value="openai">OpenAI</option>
+                                    <option value="anthropic">Anthropic</option>
+                                </select>
+                            </div>
+                            <div class="ome-settings-group">
+                                <label>Endpoint</label>
+                                <input type="text" class="ome-settings-endpoint" placeholder="http://localhost:1234/v1/chat/completions">
+                            </div>
+                            <div class="ome-settings-group">
+                                <label>Model</label>
+                                <input type="text" class="ome-settings-model" placeholder="gpt-4o-mini">
+                            </div>
+                            <div class="ome-settings-group">
+                                <label>API Key</label>
+                                <input type="password" class="ome-settings-apikey" placeholder="sk-... or $ENV_VAR">
+                            </div>
+                            <div class="ome-settings-row">
+                                <div class="ome-settings-group">
+                                    <label>Temperature</label>
+                                    <input type="number" class="ome-settings-temperature" min="0" max="2" step="0.1" value="0.7">
+                                </div>
+                                <div class="ome-settings-group">
+                                    <label>Max Tokens</label>
+                                    <input type="number" class="ome-settings-max-tokens" min="1" max="128000" value="2048">
+                                </div>
+                            </div>
+                            <button class="ome-settings-save">Save Settings</button>
+                            <div class="ome-settings-status"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 🎯 Main Area - messages + input -->
@@ -3431,6 +3693,192 @@
             if (label && chatList) {
                 label.classList.toggle('expanded');
                 chatList.classList.toggle('collapsed');
+            }
+        });
+
+        // 🎛️ Settings Orb - click to toggle settings panel
+        const settingsOrb = hud.querySelector('.ome-settings-orb-container');
+        const settingsPanel = hud.querySelector('.ome-settings-panel');
+
+        settingsOrb?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = settingsPanel?.classList.toggle('open');
+            if (isOpen) {
+                // Load current config when opening
+                loadSettingsIntoPanel();
+            }
+        });
+
+        // Close settings panel when clicking outside
+        hud.addEventListener('click', (e) => {
+            if (settingsPanel?.classList.contains('open') &&
+                !settingsPanel.contains(e.target) &&
+                !settingsOrb.contains(e.target)) {
+                settingsPanel.classList.remove('open');
+            }
+        });
+
+        /**
+         * 🎛️ Load current LLM config into settings panel
+         */
+        async function loadSettingsIntoPanel() {
+            try {
+                const response = await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'GetLLMConfig',
+                        params: {}
+                    }, resolve);
+                });
+
+                if (response?.result?.config) {
+                    const config = response.result.config;
+                    const activeProvider = config.active_provider;
+                    const provider = config.providers?.[activeProvider] || {};
+                    const settings = config.settings || {};
+
+                    // Update form fields
+                    const providerSelect = hud.querySelector('.ome-settings-provider');
+                    const endpointInput = hud.querySelector('.ome-settings-endpoint');
+                    const modelInput = hud.querySelector('.ome-settings-model');
+                    const apikeyInput = hud.querySelector('.ome-settings-apikey');
+                    const tempInput = hud.querySelector('.ome-settings-temperature');
+                    const tokensInput = hud.querySelector('.ome-settings-max-tokens');
+
+                    // Populate provider dropdown with all available providers
+                    if (providerSelect) {
+                        providerSelect.innerHTML = '';
+                        for (const [key, prov] of Object.entries(config.providers || {})) {
+                            const option = document.createElement('option');
+                            option.value = key;
+                            option.textContent = prov.name || key;
+                            if (key === activeProvider) option.selected = true;
+                            providerSelect.appendChild(option);
+                        }
+                    }
+
+                    if (endpointInput) endpointInput.value = provider.endpoint || '';
+                    if (modelInput) modelInput.value = provider.model || '';
+                    if (apikeyInput) apikeyInput.value = provider.api_key || '';
+                    if (tempInput) tempInput.value = settings.temperature ?? 0.7;
+                    if (tokensInput) tokensInput.value = settings.max_tokens ?? 2048;
+
+                    console.log('[HUD] 🎛️ Settings loaded:', activeProvider);
+                }
+            } catch (err) {
+                console.error('[HUD] 🎛️ Error loading settings:', err);
+            }
+        }
+
+        // Provider dropdown change - load that provider's settings
+        hud.querySelector('.ome-settings-provider')?.addEventListener('change', async (e) => {
+            const provider = e.target.value;
+            try {
+                const response = await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'GetLLMConfig',
+                        params: {}
+                    }, resolve);
+                });
+
+                if (response?.result?.config) {
+                    const providerConfig = response.result.config.providers?.[provider] || {};
+                    const endpointInput = hud.querySelector('.ome-settings-endpoint');
+                    const modelInput = hud.querySelector('.ome-settings-model');
+                    const apikeyInput = hud.querySelector('.ome-settings-apikey');
+
+                    if (endpointInput) endpointInput.value = providerConfig.endpoint || '';
+                    if (modelInput) modelInput.value = providerConfig.model || '';
+                    if (apikeyInput) apikeyInput.value = providerConfig.api_key || '';
+                }
+            } catch (err) {
+                console.error('[HUD] 🎛️ Error switching provider:', err);
+            }
+        });
+
+        // Save Settings button
+        hud.querySelector('.ome-settings-save')?.addEventListener('click', async () => {
+            const statusEl = hud.querySelector('.ome-settings-status');
+            const provider = hud.querySelector('.ome-settings-provider')?.value;
+            const endpoint = hud.querySelector('.ome-settings-endpoint')?.value;
+            const model = hud.querySelector('.ome-settings-model')?.value;
+            const apikey = hud.querySelector('.ome-settings-apikey')?.value;
+            const temperature = parseFloat(hud.querySelector('.ome-settings-temperature')?.value || '0.7');
+            const maxTokens = parseInt(hud.querySelector('.ome-settings-max-tokens')?.value || '2048');
+
+            if (statusEl) statusEl.textContent = 'Saving...';
+
+            try {
+                // Set active provider
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'SetLLMProvider',
+                        params: { provider }
+                    }, resolve);
+                });
+
+                // Set endpoint
+                if (endpoint) {
+                    await new Promise((resolve) => {
+                        chrome.runtime.sendMessage({
+                            type: 'execute_capability',
+                            action: 'SetLLMEndpoint',
+                            params: { provider, endpoint }
+                        }, resolve);
+                    });
+                }
+
+                // Set model
+                if (model) {
+                    await new Promise((resolve) => {
+                        chrome.runtime.sendMessage({
+                            type: 'execute_capability',
+                            action: 'SetLLMModel',
+                            params: { provider, model }
+                        }, resolve);
+                    });
+                }
+
+                // Set API key (if provided and not masked)
+                if (apikey && !apikey.startsWith('***')) {
+                    await new Promise((resolve) => {
+                        chrome.runtime.sendMessage({
+                            type: 'execute_capability',
+                            action: 'SetLLMAPIKey',
+                            params: { provider, api_key: apikey }
+                        }, resolve);
+                    });
+                }
+
+                // Set temperature
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'SetTemperature',
+                        params: { temperature }
+                    }, resolve);
+                });
+
+                // Set max tokens
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'SetMaxTokens',
+                        params: { max_tokens: maxTokens }
+                    }, resolve);
+                });
+
+                if (statusEl) {
+                    statusEl.textContent = '✓ Settings saved!';
+                    setTimeout(() => { statusEl.textContent = ''; }, 2000);
+                }
+                console.log('[HUD] 🎛️ Settings saved successfully');
+
+            } catch (err) {
+                console.error('[HUD] 🎛️ Error saving settings:', err);
+                if (statusEl) statusEl.textContent = '✗ Error saving settings';
             }
         });
 

@@ -1,9 +1,9 @@
 # Om-E LLM Integration Plan
 
-**Version:** 5.0
+**Version:** 5.1
 **Created:** 2025-12-06
 **Updated:** 2025-12-07
-**Status:** Ready for Implementation
+**Status:** Ready for Implementation (Phase 8: Multi-LLM Routing added)
 
 ---
 
@@ -1319,8 +1319,10 @@ python-dotenv>=1.0.0
 Phase 1-2: Can agent CHAT? (basic LLM round-trip)
 Phase 3-4: Can agent SEE? (page context)
 Phase 5-6: Can agent ACT? (dispatcher execution)
-Phase 7-8: Can agent LEARN? (RAG for capabilities)
-Phase 9+:  Can agent REMEMBER? (memory, projects)
+Phase 7:   Can agent LEARN? (RAG for capabilities)
+Phase 8:   Can agent ROUTE? (multi-LLM: local vs API)
+Phase 9:   Can agent INTEGRATE? (HUD settings panel)
+Phase 10+: Can agent REMEMBER? (memory, projects)
 ```
 
 ---
@@ -1513,20 +1515,154 @@ Returns: RetrieveTranscript, GetVideoTitle (top 2)
 
 ---
 
-### Phase 8: Additional Providers
+### Phase 8: Multi-LLM Routing
 
-**Goal:** Support Anthropic, LM Studio, Ollama.
+**Goal:** Intelligently route tasks between local and API LLMs for cost, speed, and quality optimization.
+
+**Why This Matters:**
+- Local LLMs are fast and free but less capable
+- API LLMs are powerful but cost money and have latency
+- Simple actions don't need GPT-4, complex reasoning does
+- Privacy-sensitive tasks stay local
+
+**Architecture:**
+
+```
+User Request
+     ↓
+[Task Classifier]
+     ↓
+┌────────────────────────────────────────┐
+│            ROUTING DECISION             │
+├────────────────┬───────────────────────┤
+│   LOCAL LLM    │       API LLM         │
+├────────────────┼───────────────────────┤
+│ • Scroll/Click │ • Multi-step planning │
+│ • Form filling │ • Content analysis    │
+│ • Simple nav   │ • Summarization       │
+│ • Quick Q&A    │ • Code generation     │
+│ • HUD control  │ • Complex reasoning   │
+└────────────────┴───────────────────────┘
+```
+
+**Config Structure:**
+
+```json
+{
+  "providers": {
+    "local": {
+      "name": "LM Studio",
+      "type": "openai_compatible",
+      "endpoint": "http://localhost:1234/v1/chat/completions",
+      "model": "llama-3.2-3b",
+      "api_key": null
+    },
+    "api": {
+      "name": "OpenAI",
+      "type": "openai",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "model": "gpt-4o-mini",
+      "api_key": "$OPENAI_API_KEY"
+    },
+    "api_premium": {
+      "name": "Anthropic",
+      "type": "anthropic",
+      "endpoint": "https://api.anthropic.com/v1/messages",
+      "model": "claude-sonnet-4-20250514",
+      "api_key": "$ANTHROPIC_API_KEY"
+    }
+  },
+  "routing": {
+    "mode": "smart",
+    "default_provider": "local",
+    "escalate_to": "api",
+    "task_rules": {
+      "browser.scroll": "local",
+      "browser.zoom": "local",
+      "browser.tabs": "local",
+      "hud.*": "local",
+      "chat.simple": "local",
+      "chat.analysis": "api",
+      "planning.multi_step": "api",
+      "content.summarize": "api",
+      "content.extract": "api"
+    },
+    "fallback": {
+      "on_local_failure": "escalate",
+      "on_api_failure": "local",
+      "max_retries": 2
+    }
+  }
+}
+```
+
+**Routing Modes:**
+
+| Mode | Behavior |
+|------|----------|
+| `local_only` | Always use local LLM |
+| `api_only` | Always use API LLM |
+| `smart` | Route based on task_rules |
+| `cascade` | Try local first, escalate if needed |
+| `cost_optimized` | Minimize API calls |
+| `quality_optimized` | Use API for anything complex |
 
 **Steps:**
-1. Add `_anthropic()` method to LLMClient
-2. Test with Claude
-3. Verify LM Studio/Ollama work (OpenAI-compatible)
-4. Add provider switching in config
+1. Update `llm_config.json` schema to support multiple providers
+2. Add `TaskClassifier` to categorize user requests
+3. Implement routing logic in `LLMClient.route()`
+4. Add escalation detection (local confidence too low)
+5. Add HUD settings for routing mode selection
+6. Track usage stats per provider (calls, tokens, cost estimate)
+
+**Task Classification Heuristics:**
+
+```python
+def classify_task(user_message: str, page_context: str) -> str:
+    """Classify task complexity for routing."""
+
+    # Simple action keywords → local
+    simple_patterns = [
+        r"scroll (up|down|top|bottom)",
+        r"click (the|on|this)",
+        r"zoom (in|out)",
+        r"go (back|forward)",
+        r"open tab",
+        r"close (hud|sidebar|panel)"
+    ]
+
+    # Complex task keywords → api
+    complex_patterns = [
+        r"summarize",
+        r"analyze",
+        r"explain",
+        r"compare",
+        r"write (code|script)",
+        r"plan",
+        r"step.?by.?step",
+        r"find all",
+        r"extract"
+    ]
+
+    # Check patterns
+    for pattern in simple_patterns:
+        if re.search(pattern, user_message, re.I):
+            return "simple"
+
+    for pattern in complex_patterns:
+        if re.search(pattern, user_message, re.I):
+            return "complex"
+
+    # Default based on message length
+    return "complex" if len(user_message) > 100 else "simple"
+```
 
 **What works after this phase:**
-- User can use any provider
-- Same agent loop for all
-- Drop-in API key and go
+- Simple actions use fast free local LLM
+- Complex tasks automatically escalate to API
+- User can override routing mode in settings
+- Cost tracking shows API usage
+- Fallback ensures resilience
 
 ---
 
@@ -1685,6 +1821,14 @@ LLM: {"msg": "Form submitted!"}
 | `llm/rag/embeddings.py` | Sentence transformer wrapper |
 | `llm/rag/vector_store.py` | FAISS index manager |
 | `data/vectors/capabilities.faiss` | Capability vector index |
+
+### Phase 8: Multi-LLM Routing
+| File | Purpose |
+|------|---------|
+| `llm/router.py` | Task classifier and LLM routing logic |
+| `llm/stats.py` | Usage tracking per provider (calls, tokens, cost) |
+| Update `data/llm_config.json` | Multi-provider + routing config |
+| Update `hud.js` | Settings panel for routing mode |
 
 ---
 

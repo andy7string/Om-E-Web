@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-07 22:07:00
+**Timestamp:** 2025-12-07 23:15:27
 
-**Tabs (1):** Active: #1138036260 "Google" www.google.com [loading]
+**Tabs (1):** Active: #1138036303 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -137,6 +137,42 @@ The following pre-configured actions are available for this page:
   - Closes the orb chat panel
   - Usage: `python3 test_navigation.py --command capability --capability CollapseOrb`
 
+**GetLLMConfig** - Get LLM configuration
+  - Returns current LLM config including providers and settings
+  - Usage: `python3 test_navigation.py --command capability --capability GetLLMConfig`
+
+**SetLLMProvider** - Switch active LLM provider
+  - Changes which provider is used for LLM calls
+  - Usage: `python3 test_navigation.py --command capability --capability SetLLMProvider`
+
+**SetLLMEndpoint** - Set LLM endpoint URL
+  - Updates the API endpoint for a provider
+  - Usage: `python3 test_navigation.py --command capability --capability SetLLMEndpoint`
+
+**SetLLMModel** - Set LLM model
+  - Changes the model for a provider
+  - Usage: `python3 test_navigation.py --command capability --capability SetLLMModel`
+
+**SetLLMAPIKey** - Set API key
+  - Sets the API key for a provider
+  - Usage: `python3 test_navigation.py --command capability --capability SetLLMAPIKey`
+
+**SetTemperature** - Set temperature
+  - Adjusts LLM temperature (0.0-2.0)
+  - Usage: `python3 test_navigation.py --command capability --capability SetTemperature`
+
+**SetMaxTokens** - Set max tokens
+  - Sets maximum response tokens
+  - Usage: `python3 test_navigation.py --command capability --capability SetMaxTokens`
+
+**AddLLMProvider** - Add new LLM provider
+  - Adds a new provider configuration
+  - Usage: `python3 test_navigation.py --command capability --capability AddLLMProvider`
+
+**RemoveLLMProvider** - Remove LLM provider
+  - Removes a provider from config
+  - Usage: `python3 test_navigation.py --command capability --capability RemoveLLMProvider`
+
 ---
 
 ---
@@ -162,75 +198,75 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">First Look: The Marine Blue Tesla Model Y Hits UK Shores
-The United Kingdom's electric vehicle landscape just got a fresh splash of color. Customer deliveries of the Tesla Model Y in the new, striking Marine Blue...
-Tesla Mag
+<Link id="a_id_17">Updated BYD M6 minivan was seen in China with a redesigned interior
+The updated BYD M6 minivan was seen in China during road tests with a redesigned interior. It is a new energy MPV for global markets. The BYD M6 was...
+CarNewsChina.com
 ·
-2d</Link>
+3d</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">5 ASX ETFs for beginner investors in 2026 and beyond
-Let's see why these ASX ETFs could be top picks for beginner investors in 2026 and the years that follow...
+<Link id="a_id_19">Saturday Citations: Cancer therapy breakthrough; Sumatran tigers thrive; frogs eat what, now?
+This week, JPL scientists reported that glaciers speed up and slow down at predictable intervals. CERN's ATLAS experiment detected evidence for the decay of...
+Phys.org
+·
+22h</Link>
+<Button id="a_id_20">More options</Button>
+<Link id="a_id_21">3 high-quality ASX ETFs to buy in December
+These ASX ETFs give investors easy exposure to some of the best stocks in the world. Here's what they offer...
 The Motley Fool Australia
 ·
-14h</Link>
-<Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Artificial intelligence research has a slop problem, academics say: ‘It’s a mess’
-AI research in question as author claims to have written over 100 papers on AI that one expert calls a 'disaster'
-The Guardian
-·
-20h</Link>
+1d</Link>
 <Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Researchers found an ancient Roman stairway. It’s revealing the ‘lost Pompeii’
-Clues from a digital reconstruction of a lavish ancient home are changing how researchers understand Pompeii's elite.
-CNN
+<Link id="a_id_23">Stop Charging Your Android Watch Daily. Here Are 7 Tips for Longer Battery Life
+Nothing kills the motivation of a midday workout faster than raising your wrist and seeing a dead, black watch screen. Honestly, did you even work out if...
+CNET
 ·
-35m</Link>
+23h</Link>
 <Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Fir or faux: which Christmas tree is best for the environment?
-Using an already existing artificial tree until its bedraggled end will be more environmentally friendly than buying a felled pine every year,...
-The Guardian
+<Link id="a_id_25">High-blood pressure medication voluntarily recalled: FDA
+A New Jersey drug maker has voluntarily recalled thousands of bottles of a combination high blood pressure medication over concerns the product could be...
+The Hill
+·
+23h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Wood-burning stoves face new restrictions – but a loophole from Britain’s smog years is fuelling the problem
+Wood-burning stoves are booming in the UK, a cosy response to high energy prices and cost of living pressures. But this comes with a hidden cost.
+The Conversation
 ·
 1d</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">How To Tame Your Hedgehog: A Simple Framework For A Better Career (And Life)
-Borrowed from the discipline of strategy, here is a simple, powerful career framework to help you identify what you're great at, love doing, and can be paid...
-Forbes
-·
-6d</Link>
 <Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Netflix Breaks Its Silence, Sends Clear Message to Customers
+<Link id="a_id_29">Tall poppies and complacency curtailing our entrepreneurial spirit
+There is a national tendency to cut down tall poppies, which has sometimes prevented the country from embracing a vigorous, creative entrepreneurial...
+AFR
+·
+4d</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Netflix Breaks Its Silence, Sends Clear Message to Customers
 Netflix sends a message to customers after announcing its acquisition of Warner Bros. Discovery, Inc. and HBO Max.
 Men's Journal
 ·
 1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Time to check your old Assistant speaker — more third-party models are getting Gemini
-Gemini is unexpectedly replacing Google Assistant on old, third-party smart speakers and displays from Insignia and Lenovo.
-Android Authority
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Fir or faux: which Christmas tree is best for the environment?
+Using an already existing artificial tree until its bedraggled end will be more environmentally friendly than buying a felled pine every year,...
+The Guardian
 ·
 1d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">High-blood pressure medication voluntarily recalled: FDA
-A New Jersey drug maker has voluntarily recalled thousands of bottles of a combination high blood pressure medication over concerns the product could be...
-The Hill
-·
-22h</Link>
 <Button id="a_id_34">More options</Button>
 <Link id="a_id_35">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
 The Japanese defense ministry on Saturday reportedly claimed spotting the aircraft carrier Liaoning of the Chinese People's Liberation Army (PLA) Navy near...
 Global Times
 ·
-21h</Link>
+22h</Link>
 <Button id="a_id_36">More options</Button>
-<Link id="a_id_37">Over 50 Passengers Missing: Qantas Boeing 737 Took Off With Incorrect Weight Calculations
-A Qantas Boeing 737-800 aircraft departed from Canberra using take-off performance numbers based on an incorrect loadsheet after the aircraft diverted from...
-Simple Flying
+<Link id="a_id_37">NEWS: Tesla has launched the Model Y Standard in the UK, starting at £41,990 (vs £48,990 for the Model Y Premium RWD). Deliveries begin in January 2026, with first test drives available next month.
+SawyerMerritt
+X
 ·
-16h</Link>
+2d</Link>
 <Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Nature recovery plan in England hit by clause allowing contracts to end with a year’s notice
-Conservationists say changes, coupled with underfunding, will curb take-up and leave less land protected for nature.
-The Guardian
+<Link id="a_id_39">Cost of a comfortable retirement rises to record high: ASFA
+Australia's Retirement Standard has just been updated. Find out the cost of a comfortable and modest retirement for homeowners and renters.
+The Motley Fool Australia
 ·
 1d</Link>
 <Button id="a_id_40">More options</Button>
@@ -240,41 +276,41 @@ Glam Adelaide
 ·
 1d</Link>
 <Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Microsoft Confirms New Upgrade Decision For All Windows Users
+<Link id="a_id_43">Nothing but blue skies for Qantas’ plans for western hub
+Qantas' ambition to turn Perth into a western hub connecting Australia with the world already appears to be paying dividends, with the airline seeing demand...
+The West Australian
+·
+1d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">basecamp/fizzy: Kanban as it should be. Not as it has been.
+If you'd like to run Fizzy on your own server, we recommend deploying it with Kamal. Kamal makes it easier to set up a bare server, copy the application to...
+GitHub
+·
+1h</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Microsoft Confirms New Upgrade Decision For All Windows Users
 How to get Microsoft's new upgrade on your PC — it's the simplest Windows upgrade ever.
 Forbes
 ·
 1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">Iran-targeted deli’s pleas for financial aid ignored
-The family behind a kosher deli firebombed by Iranian terrorists say their business is on the brink of insolvency and the Albanese government has refused...
-The Australian
-·
-3d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Amazon’s new color Kindle Scribe launches on December 10th
-Amazon has finally given a release date for its new Kindle Scribe Colorsoft and Kindle Scribe: They'll be available to purchase starting on December 10th,...
-The Verge
-·
-2d</Link>
 <Button id="a_id_48">More options</Button>
-<Link id="a_id_49">Australia’s business leaders share the secrets to their 2025 success
-The leaders, builders, pioneers and stirrers shaping Australia's business landscape reveal what went right in 2025 and what they want to see in 2026.
-AFR
+<Link id="a_id_49">ABC documentary pulled from broadcast over editorial
+ABC documentary Songs Inside was pulled from schedule at the last minute last Monday over an editorial decision. Produced by Cocoon Films the film follows...
+TV Tonight | Australia's Leading TV Blog
 ·
-3d</Link>
+18h</Link>
 <Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Adviser numbers see steep drop in first week of December
-The week ending 4 December saw a net loss of 32 advisers after two months of almost exclusively single-digit shifts, bringing the total number of advisers...
-ifa
-·
-2d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">The way Australia produces food is unique. Our updated dietary guidelines have to recognise this
+<Link id="a_id_51">The way Australia produces food is unique. Our updated dietary guidelines have to recognise this
 Australia's dietary guidelines will soon consider environmental impacts. We need locally relevant indicators to support more sustainable food production.
 The Conversation
 ·
 4d</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Singapore’s Sembcorp nears deal for Alinta
+Singapore-listed energy major Sembcorp is poised to clinch a deal as early as this week to acquire Australia's fourth-largest electricity and gas retailer,...
+The Australian
+·
+4h</Link>
 <Button id="a_id_54">More options</Button>
 <Link id="a_id_55">South Australian bus ads misled public by claiming gas is ‘clean and green’, regulator finds
 Ads to be removed from Adelaide Metro buses after advertising regulator rules they breach its environmental claims code.
@@ -287,8 +323,8 @@ At a glance
 <Link id="a_id_58">Woodforde
 Cloudy
 10%
-13°</Link>
-<Link id="a_id_59">XAO • All Ordinaries up 0.22%. Price is 8,926.10 Today</Link>
+12°</Link>
+<Link id="a_id_59">.DJI • Dow Jones Industrial Average up 0.22%. Price is 47,954.99 Today</Link>
 <Link id="a_id_60">Air quality
 Good
 AQC</Link>
