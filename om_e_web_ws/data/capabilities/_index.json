@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "description": "Master capability index - loads all capability files",
+  "files": [
+    "browser.json",
+    "hud.json",
+    "chat.json",
+    "config.json"
+  ]
+}

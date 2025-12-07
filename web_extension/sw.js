@@ -1074,6 +1074,33 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // 💬 SYNC ACTIVE CHAT: Server pushes chat ID to all tabs
+        if (message.type === "sync_active_chat") {
+            console.log("[SW] 💬 sync_active_chat from server:", message.activeChatId);
+
+            // Update orbState
+            orbState.activeChatId = message.activeChatId;
+
+            // Forward to all tabs
+            (async () => {
+                try {
+                    const tabs = await chrome.tabs.query({});
+                    for (const tab of tabs) {
+                        if (tab.id) {
+                            chrome.tabs.sendMessage(tab.id, {
+                                type: 'sync_active_chat',
+                                activeChatId: message.activeChatId
+                            }).catch(() => {});
+                        }
+                    }
+                    console.log('[SW] 💬 sync_active_chat forwarded to', tabs.length, 'tabs');
+                } catch (error) {
+                    console.error('[SW] 💬 Error forwarding sync_active_chat:', error);
+                }
+            })();
+            return;
+        }
+
         // Check if this is a command message
         if (message.command && message.id) {
             console.log("[SW] Processing command:", message.command, "with id:", message.id, "and params:", message.params);

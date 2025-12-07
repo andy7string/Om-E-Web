@@ -1,0 +1,84 @@
+{
+  "group": "chat",
+  "description": "Chat management and messaging capabilities",
+  "capabilities": {
+    "AppendUserMessage": {
+      "category": "chat.message",
+      "label": "Append a user message to the chat",
+      "handler": "server",
+      "route": "internal",
+      "auto_create_chat": true,
+      "params": {
+        "content": {"type": "string", "required": true, "description": "User message content"}
+      }
+    },
+    "AppendAssistantMessage": {
+      "category": "chat.message",
+      "label": "Append an assistant message to the chat",
+      "handler": "server",
+      "route": "internal",
+      "auto_create_chat": true,
+      "params": {
+        "content": {"type": "string", "required": true, "description": "Assistant message content"}
+      }
+    },
+    "ListChats": {
+      "category": "chat.management",
+      "label": "List all saved chats",
+      "handler": "server",
+      "route": "internal"
+    },
+    "CreateChat": {
+      "category": "chat.management",
+      "label": "Create new chat",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "title": {"type": "string", "required": false, "description": "Chat title (auto-generated if not provided)"}
+      }
+    },
+    "LoadChat": {
+      "category": "chat.management",
+      "label": "Load a chat by ID",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "chat_id": {"type": "string", "required": true}
+      }
+    },
+    "RenameChat": {
+      "category": "chat.management",
+      "label": "Rename a chat",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "chat_id": {"type": "string", "required": true},
+        "title": {"type": "string", "required": true}
+      }
+    },
+    "DeleteChat": {
+      "category": "chat.management",
+      "label": "Delete a chat",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "chat_id": {"type": "string", "required": true}
+      }
+    },
+    "GetCurrentChat": {
+      "category": "chat.management",
+      "label": "Get the current active chat ID and info",
+      "handler": "server",
+      "route": "internal"
+    },
+    "SetCurrentChat": {
+      "category": "chat.management",
+      "label": "Set the active chat",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "chat_id": {"type": "string", "required": true}
+      }
+    }
+  }
+}
