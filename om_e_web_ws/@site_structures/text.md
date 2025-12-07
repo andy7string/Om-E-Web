@@ -1,9 +1,9 @@
 # Google
 
 **URL:** https://www.google.com/
-**Timestamp:** 2025-12-07 21:15:03
+**Timestamp:** 2025-12-07 21:34:16
 
-**Tabs (2):** Active: #1138036190 "Google" www.google.com [complete] | Other: #1138036197 "Google" www.google.com
+**Tabs (1):** Active: #1138036223 "Google" www.google.com [loading]
 
 ## Available Actions
 
@@ -126,65 +126,63 @@ Accessibility links
 <Link id="a_id_15">Accessibility help</Link>
 <Link id="a_id_16">Accessibility feedback</Link>
 Discover
-<Link id="a_id_17">2:31
-NEW CONTENT // Porsche 911 Cup (992.2)
-The Porsche 911 Cup (992.2) will be arriving in the 2026 Season 1 update! One of the world's most iconic single-make customer racing platforms receives a...
-iRacing
-YouTube
+<Link id="a_id_17">Tougher tailpipe emissions rules for new cars in Australia now in force
+Future models introduced in Australia will need to meet much stricter emissions rules that could see new-car prices rise.
+Drive
 ·
-19h</Link>
+4d</Link>
 <Button id="a_id_18">More options</Button>
-<Link id="a_id_19">Toyota's tiny, barebones IKEA pickup could be its most versatile ever
-One of the most interesting concepts revealed at this year's Japan Mobility Show was also one of the simplest. The barebones Toyota IMV Origin concept is...
-New Atlas
+<Link id="a_id_19">“A tighter, louder and gutsier tone from an already stellar-sounding amp”: Bad Cat Mod Shop Black Cat 30 review
+Remixed and refreshed by the late, great amp-guru Mark Sampson, this Black Cat has two more tubes, 10 more watts and a whole new voice.
+Guitar World
 ·
-2d</Link>
+22h</Link>
 <Button id="a_id_20">More options</Button>
-<Link id="a_id_21">Children interviewed about ex-principal's school camp photos
-Parents at a South Australian school say they have been left in the dark about photos taken by a principal during a school camp.
-Australian Broadcasting Corporation
-·
-3d</Link>
-<Button id="a_id_22">More options</Button>
-<Link id="a_id_23">Cockle Train’s cool new era rolls in as SteamRanger unveils new air-conditioned tourist fleet
-Choo Choo! South Australia's beloved Cockle Train line has just received a fresh new upgrade as it prepares to step into a new, much cooler (literally) era.
-Glam Adelaide
-·
-1d</Link>
-<Button id="a_id_24">More options</Button>
-<Link id="a_id_25">Aldi Is Selling Whimsical Lego Sets That Make the Perfect Stocking Stuffers
-Aldi is selling a whimsical 278-piece Lego set that would make a great stocking stuffer. Check it out here.
-Parade Magazine
-·
-2d</Link>
-<Button id="a_id_26">More options</Button>
-<Link id="a_id_27">Canadian dollar rises to 10-week high as jobs data beats estimates for third month
-The Canadian dollar strengthened by the most in six months against its U.S. counterpart on Friday and bond yields jumped, as stronger-than-expected domestic...
-Reuters
-·
-1d</Link>
-<Button id="a_id_28">More options</Button>
-<Link id="a_id_29">Amazon Offloads TP-Link Tapo Solar Security Camera at Its Lowest Price of the Year, Works With Alexa
-The Tapo TP-Link SolarCam C402 Kit offers the benefit of a solar-powered outdoor security video camera that, together with the solar panel, reduces the need...
-Gizmodo
-·
-1d</Link>
-<Button id="a_id_30">More options</Button>
-<Link id="a_id_31">Fir or faux: which Christmas tree is best for the environment?
-Using an already existing artificial tree until its bedraggled end will be more environmentally friendly than buying a felled pine every year,...
-The Guardian
-·
-1d</Link>
-<Button id="a_id_32">More options</Button>
-<Link id="a_id_33">Council demands grandmother rip up beloved garden
+<Link id="a_id_21">Council demands grandmother rip up beloved garden
 For 40 years, Aleida tended to her front garden. Every flower, stone and blade of grass was treated with care. Her neighbours love it and she loves it.
 9Now
 ·
 2d</Link>
+<Button id="a_id_22">More options</Button>
+<Link id="a_id_23">SA Police Commissioner launches major review of country policing
+South Australia Police Commissioner Grant Stevens has ordered a major review of country policing.
+The Advertiser
+·
+1d</Link>
+<Button id="a_id_24">More options</Button>
+<Link id="a_id_25">Biggest battery to date on Australia’s main grid officially opened, in time for summer
+The largest fully operating battery on Australia's main grid has been officially opened on budget, with the $1.2 billion project delivered on time and...
+Renew Economy
+·
+14h</Link>
+<Button id="a_id_26">More options</Button>
+<Link id="a_id_27">Pentagon confirms it's moving ahead with AUKUS nuclear submarine deal
+T﻿he Pentagon has finished its review of the AUKUS defence pact between Australia, the US and UK, confirming it aims to proceed with the agreement.
+9News.com.au
+·
+2d</Link>
+<Button id="a_id_28">More options</Button>
+<Link id="a_id_29">We need a real AI strategy. That starts with an AI identity
+Australia's National AI Plan is all about what we don't want to be and not enough about what we do. If we don't set a clear path, one will be chosen for us.
+AFR
+·
+17h</Link>
+<Button id="a_id_30">More options</Button>
+<Link id="a_id_31">Class action lawyers circle CTM scandal
+Litigation funders are examining the Corporate Travel Management overcharging scandal, with any legal claim likely to involve allegations of misleading or...
+The Australian
+·
+6h</Link>
+<Button id="a_id_32">More options</Button>
+<Link id="a_id_33">Militant union makes big power play for whole of NSW
+One of the country's most militant unions is making a landmark push for a multi-employer agreement covering the whole of NSW and the ACT that would deliver...
+AFR
+·
+3d</Link>
 <Button id="a_id_34">More options</Button>
-<Link id="a_id_35">“Whoever makes me the best one, that’s who I'll work with”: Steve Vai says no guitar company delivered anything “remotely close” to what he wanted at first – “not even Ibanez”
-Steve Vai has revisited the origin story of his long partnership with Ibanez – and the years before it, when no guitar maker, including Ibanez themselves,...
-Guitar.com
+<Link id="a_id_35">Why Mahindra races Porsche and Jaguar in Formula E
+SPONSORED: The Indian automaker is using the all-electric motorsport series to help fast-track its next generation of EVs.
+CarExpert
 ·
 1d</Link>
 <Button id="a_id_36">More options</Button>
@@ -194,59 +192,59 @@ X
 ·
 2d</Link>
 <Button id="a_id_38">More options</Button>
-<Link id="a_id_39">Netflix Breaks Its Silence, Sends Clear Message to Customers
-Netflix sends a message to customers after announcing its acquisition of Warner Bros. Discovery, Inc. and HBO Max.
-Men's Journal
-·
-1d</Link>
-<Button id="a_id_40">More options</Button>
-<Link id="a_id_41">‘Everyone will miss the socialising – but it’s also a relief’: five young teens on Australia’s social media ban
-As the under-16s social media ban looms, Guardian Australia speaks to five 13 to 15-year-olds about what they will miss, and what government should be doing...
-The Guardian
-·
-20h</Link>
-<Button id="a_id_42">More options</Button>
-<Link id="a_id_43">Vertu Meta Ring arrives with a twist no other smart ring offers – and it doesn’t need a subscription
-The luxury brand's new smart ring combines premium design with always-on wellness support.
-T3
-·
-1d</Link>
-<Button id="a_id_44">More options</Button>
-<Link id="a_id_45">'Intelligence comes at a price, and for many species, the benefits just aren't worth it': A neuroscientist's take on how human intellect evolved
-In his book "One Hand Clapping," Nikolay Kukushkin explores explanations for how consciousness evolved, and ultimately, what makes us human.
-Live Science
-·
-1d</Link>
-<Button id="a_id_46">More options</Button>
-<Link id="a_id_47">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
+<Link id="a_id_39">Japanese defense ministry claims spotting aircraft carrier Liaoning near Japan; 'Why wouldn’t Japan hype US military activities? ' expert asks
 The Japanese defense ministry on Saturday reportedly claimed spotting the aircraft carrier Liaoning of the Chinese People's Liberation Army (PLA) Navy near...
 Global Times
 ·
 20h</Link>
-<Button id="a_id_48">More options</Button>
-<Link id="a_id_49">SA Police Commissioner launches major review of country policing
-South Australia Police Commissioner Grant Stevens has ordered a major review of country policing.
-The Advertiser
+<Button id="a_id_40">More options</Button>
+<Link id="a_id_41">Netflix Breaks Its Silence, Sends Clear Message to Customers
+Netflix sends a message to customers after announcing its acquisition of Warner Bros. Discovery, Inc. and HBO Max.
+Men's Journal
 ·
 1d</Link>
-<Button id="a_id_50">More options</Button>
-<Link id="a_id_51">Time to check your old Assistant speaker — more third-party models are getting Gemini
-Gemini is unexpectedly replacing Google Assistant on old, third-party smart speakers and displays from Insignia and Lenovo.
+<Button id="a_id_42">More options</Button>
+<Link id="a_id_43">Aldi Is Selling Whimsical Lego Sets That Make the Perfect Stocking Stuffers
+Aldi is selling a whimsical 278-piece Lego set that would make a great stocking stuffer. Check it out here.
+Parade Magazine
+·
+2d</Link>
+<Button id="a_id_44">More options</Button>
+<Link id="a_id_45">Android may soon auto-adjust device settings to make bus or train rides go smoother
+Google is working on a new Android feature that automatically optimizes device settings while you're on a bus or train for smoother rides.
 Android Authority
 ·
-1d</Link>
-<Button id="a_id_52">More options</Button>
-<Link id="a_id_53">Over 50 Passengers Missing: Qantas Boeing 737 Took Off With Incorrect Weight Calculations
-A Qantas Boeing 737-800 aircraft departed from Canberra using take-off performance numbers based on an incorrect loadsheet after the aircraft diverted from...
-Simple Flying
-·
-15h</Link>
-<Button id="a_id_54">More options</Button>
-<Link id="a_id_55">With job market’s glass half full, don’t expect interest rate relief
-Inflation, which is worryingly “sticky”, is likely to win the arm-wrestle against employment for the Reserve Bank's attention this month.
+21h</Link>
+<Button id="a_id_46">More options</Button>
+<Link id="a_id_47">Tall poppies and complacency curtailing our entrepreneurial spirit
+There is a national tendency to cut down tall poppies, which has sometimes prevented the country from embracing a vigorous, creative entrepreneurial...
 AFR
 ·
-16h</Link>
+4d</Link>
+<Button id="a_id_48">More options</Button>
+<Link id="a_id_49">Alleged Sydney uni hacker charged with additional cyber crimes
+A former Western Sydney University student already charged with hacking into the institution's servers allegedly continued a campaign against the university...
+Australian Broadcasting Corporation
+·
+2d</Link>
+<Button id="a_id_50">More options</Button>
+<Link id="a_id_51">Fish returning to some parts of SA's coast, divers say
+Open water divers say underwater visibility has improved and marine life is returning to some areas off South Australia's coast. Experts say it's a positive...
+Australian Broadcasting Corporation
+·
+14h</Link>
+<Button id="a_id_52">More options</Button>
+<Link id="a_id_53">Adviser numbers see steep drop in first week of December
+The week ending 4 December saw a net loss of 32 advisers after two months of almost exclusively single-digit shifts, bringing the total number of advisers...
+ifa
+·
+2d</Link>
+<Button id="a_id_54">More options</Button>
+<Link id="a_id_55">Wood-burning stoves face new restrictions – but a loophole from Britain’s smog years is fuelling the problem
+Wood-burning stoves are booming in the UK, a cosy response to high energy prices and cost of living pressures. But this comes with a hidden cost.
+The Conversation
+·
+1d</Link>
 <Button id="a_id_56">More options</Button>
 At a glance
 <Button id="a_id_57">Customise Homestack</Button>
