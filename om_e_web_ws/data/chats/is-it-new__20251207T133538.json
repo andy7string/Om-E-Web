@@ -1,0 +1,27 @@
+{
+  "chat_id": "is-it-new__20251207T133538",
+  "project_id": "default",
+  "created_at": "2025-12-07T13:35:38.558062Z",
+  "updated_at": "2025-12-07T13:35:55.932548Z",
+  "title": "Is it new",
+  "default_title": "is it new",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "",
+    "page_title": ""
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "if this is a new chat, do you remember the old one we just had",
+      "timestamp": "2025-12-07T13:35:53.881989Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "I don’t retain memory between chats, so I can’t recall our previous conversation once a new chat starts. Each session is independent to keep your information private and secure. If you want to continue from before, just remind me what we were discussing!",
+      "timestamp": "2025-12-07T13:35:55.932548Z"
+    }
+  ]
+}

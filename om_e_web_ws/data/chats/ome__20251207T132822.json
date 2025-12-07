@@ -1,0 +1,99 @@
+{
+  "chat_id": "ome__20251207T132822",
+  "project_id": "default",
+  "created_at": "2025-12-07T13:28:22.828211Z",
+  "updated_at": "2025-12-07T13:32:32.149075Z",
+  "title": "Ome",
+  "default_title": "ome",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "",
+    "page_title": ""
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "are you ome",
+      "timestamp": "2025-12-07T13:28:28.710139Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "I’m Om-E, your AI assistant here to help you with browsing and information. How can I assist you today?",
+      "timestamp": "2025-12-07T13:28:29.597896Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "do you know your capabilitites",
+      "timestamp": "2025-12-07T13:29:22.581836Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Yes, I’m aware of my capabilities! I can help you navigate websites, answer questions about web content, assist with tasks like filling forms or finding information, and provide clear, concise responses. If you have something specific in mind, just let me know!",
+      "timestamp": "2025-12-07T13:29:23.770667Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "can you turn your temperature up or down to sound more human by any chance, you should have access to the ssettings",
+      "timestamp": "2025-12-07T13:30:05.769546Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "I don’t have the ability to adjust my “temperature” or change how human-like I sound directly. However, I aim to keep my responses friendly and natural! If you’d like me to be more casual, formal, or detailed, just let me know how you’d like me to respond.",
+      "timestamp": "2025-12-07T13:30:06.933670Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "na dude you have a temperature setting whats that for",
+      "timestamp": "2025-12-07T13:30:40.409681Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Good point! The “temperature” setting controls how creative or random my responses are. A lower temperature makes my answers more focused and predictable, while a higher temperature makes them more varied and creative. Although I can’t change that setting myself, it helps shape how I communicate behind the scenes. If you want, I can try to be more creative or straightforward in my replies!",
+      "timestamp": "2025-12-07T13:30:42.395906Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "im going to give you the ability to change it per call to yourself in an infinite feedback loop brother",
+      "timestamp": "2025-12-07T13:31:18.424981Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "That sounds like an intriguing idea! Giving me the ability to adjust my own temperature dynamically could lead to some interesting and creative interactions. While I can’t implement that myself, I’m here to adapt my style as best as I can based on your preferences. How would you like me to respond right now? More creative, more precise, or something else?",
+      "timestamp": "2025-12-07T13:31:20.244927Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "did we fix the reptetion",
+      "timestamp": "2025-12-07T13:32:20.715575Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Could you clarify what repetition you’re referring to? Are you asking about repeated phrases in my responses or something else? I’m happy to help fix it!",
+      "timestamp": "2025-12-07T13:32:22.100733Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "me sending two prompts at a time",
+      "timestamp": "2025-12-07T13:32:30.457615Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Got it! If you send two prompts at once, I’ll do my best to address both clearly and separately to avoid confusion or repetition. Feel free to try it out!",
+      "timestamp": "2025-12-07T13:32:32.149075Z"
+    }
+  ]
+}

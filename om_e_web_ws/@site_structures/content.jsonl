@@ -1,35 +1,35 @@
 {
-  "timestamp": 1765112690.156539,
+  "timestamp": 1765114767.437943,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138036308,
-      "url": "https://www.perplexity.ai/search/how-do-i-access-chatgbt-5-thro-1_KroS.EQRyOYe9dnqqmVw",
-      "title": "how do i access chatgbt 5 through an api call , i seem to only be able to hit 4",
-      "status": "complete"
+      "id": 1138036330,
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138036308,
-        "url": "https://www.perplexity.ai/search/how-do-i-access-chatgbt-5-thro-1_KroS.EQRyOYe9dnqqmVw",
-        "title": "how do i access chatgbt 5 through an api call , i seem to only be able to hit 4",
+        "id": 1138036330,
+        "url": "https://chatgpt.com/",
+        "title": "ChatGPT",
         "active": true,
-        "status": "complete"
+        "status": "loading"
       },
       {
-        "id": 1138036313,
-        "url": "https://platform.openai.com/docs/models/gpt-5.1",
-        "title": "Model - OpenAI API",
+        "id": 1138036334,
+        "url": "https://www.google.com/?zx=1765114685958&no_sw_cr=1",
+        "title": "Google",
         "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 51225.199722625,
+    "last_tabs_update": 53249.329679,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.perplexity.ai/search/how-do-i-access-chatgbt-5-thro-1_KroS.EQRyOYe9dnqqmVw",
-    "title": "how do i access chatgbt 5 through an api call , i seem to only be able to hit 4",
+    "url": "https://chatgpt.com/",
+    "title": "ChatGPT",
     "is_active_tab": true
   },
   "content_structure": {},
