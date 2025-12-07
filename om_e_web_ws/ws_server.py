@@ -4085,29 +4085,34 @@ async def handler(ws):
                             print(f"🤖 LLMChat: Sending message to agent")
                             response_text = await LLM_AGENT.chat(message)
 
-                            # Save to chat history
+                            # Save to chat history and get message object
+                            new_message = None
                             if CURRENT_CHAT_ID:
                                 chat_dict = load_chat(CURRENT_CHAT_ID)
                                 if chat_dict:
-                                    append_assistant_message(chat_dict, response_text)
+                                    new_message = append_assistant_message(chat_dict, response_text)
                                     save_chat(chat_dict)
+                                    print(f"🤖 LLMChat: Saved to chat {CURRENT_CHAT_ID}")
 
                             result = {
                                 "response": response_text,
-                                "history_length": LLM_AGENT.get_history_length()
+                                "history_length": LLM_AGENT.get_history_length(),
+                                "chat_id": CURRENT_CHAT_ID,
+                                "message": new_message
                             }
 
-                            # Push response to HUD
-                            hud_action = {
-                                "type": "llm_response",
-                                "response": response_text,
-                                "chat_id": CURRENT_CHAT_ID
-                            }
-                            if EXTENSION_WS:
+                            # Push response to HUD using append_message format
+                            if new_message and EXTENSION_WS:
+                                hud_action = {
+                                    "type": "append_message",
+                                    "chat_id": CURRENT_CHAT_ID,
+                                    "message": new_message
+                                }
                                 await EXTENSION_WS.send(json.dumps({
                                     "type": "hud_action",
                                     "action": hud_action
                                 }))
+                                print(f"🤖 LLMChat: Pushed hud_action append_message")
 
                             await ws.send(json.dumps({
                                 "type": "capability_result",

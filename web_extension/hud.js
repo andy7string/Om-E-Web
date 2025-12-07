@@ -2997,9 +2997,6 @@
 
                     console.log('[Content] 📤 Orb chat sending:', text);
 
-                    // Add to shared state (renders to both UIs)
-                    addChatMessage('user', text);
-
                     // Clear input, reset size, and saved state
                     chatInput.value = '';
                     autoResizeOrbInput();
@@ -3007,8 +3004,15 @@
 
                     // Send through chat pipeline
                     try {
+                        // 1. Save user message to chat
                         const result = await sendChatMessage(text);
                         console.log('[Content] ✅ Orb chat message sent:', result);
+
+                        // 2. Send to LLM for response (response comes via hud_action)
+                        console.log('[Content] 🤖 Sending to LLM...');
+                        await sendLLMChat(text);
+                        console.log('[Content] 🤖 LLM response received');
+
                     } catch (error) {
                         console.error('[Content] ❌ Orb chat send failed:', error);
                         addChatMessage('error', 'Failed to send message');
@@ -3938,9 +3942,6 @@
 
             console.log('[Content] 📤 HUD Prompt sending:', text);
 
-            // Add to shared state (renders to both UIs)
-            addChatMessage('user', text);
-
             // Clear textarea, reset size, and save empty state
             promptTextarea.value = '';
             autoResizeTextarea();
@@ -3948,8 +3949,15 @@
 
             // Send through chat pipeline
             try {
+                // 1. Save user message to chat
                 const result = await sendChatMessage(text);
                 console.log('[Content] ✅ Chat message sent:', result);
+
+                // 2. Send to LLM for response (response comes via hud_action)
+                console.log('[Content] 🤖 Sending to LLM...');
+                await sendLLMChat(text);
+                console.log('[Content] 🤖 LLM response received');
+
             } catch (error) {
                 console.error('[Content] ❌ Chat send failed:', error);
                 addChatMessage('error', 'Failed to send message');
@@ -5816,12 +5824,30 @@
                 case 'append_message':
                     // New message added - reload the chat if it's active
                     if (action.chat_id === chatState.currentChatId && action.message) {
-                        chatState.messages.push({
-                            role: action.message.role,
-                            content: action.message.content,
-                            id: action.message.id
-                        });
-                        renderChatMessages();
+                        // Check if message already exists (avoid duplicates from local add + server response)
+                        // Local messages have IDs like "local_1234567890"
+                        const msgExists = chatState.messages.some(m =>
+                            m.id === action.message.id ||
+                            (m.content === action.message.content && m.role === action.message.role)
+                        );
+                        if (!msgExists) {
+                            chatState.messages.push({
+                                role: action.message.role,
+                                content: action.message.content,
+                                id: action.message.id
+                            });
+                            renderChatMessages();
+                        } else {
+                            // Update the existing local message with the server ID
+                            const existing = chatState.messages.find(m =>
+                                m.content === action.message.content &&
+                                m.role === action.message.role &&
+                                m.id?.startsWith('local_')
+                            );
+                            if (existing) {
+                                existing.id = action.message.id;
+                            }
+                        }
                     } else if (action.chat_id) {
                         // Different chat - just refresh sidebar
                         loadSidebarChats();
@@ -6096,9 +6122,50 @@
         });
     }
 
-    // Expose sendChatMessage globally for console testing
+    /**
+     * 🤖 Send a message to the LLM and get a response
+     * Response flows back via hud_action append_message
+     *
+     * @param {string} message - The user's message text
+     * @param {boolean} clearHistory - Reset agent conversation history
+     * @returns {Promise<Object>} - LLM response result
+     */
+    function sendLLMChat(message, clearHistory = false) {
+        return new Promise((resolve, reject) => {
+            const params = {
+                message: message,
+                chat_id: chatState.currentChatId || null,
+                clear_history: clearHistory
+            };
+
+            console.log('[Content] 🤖 Sending via LLMChat capability:', params);
+
+            chrome.runtime.sendMessage(
+                { type: 'execute_capability', action: 'LLMChat', params },
+                (response) => {
+                    if (chrome.runtime.lastError) {
+                        console.error('[Content] 🤖 LLMChat error:', chrome.runtime.lastError);
+                        reject(chrome.runtime.lastError);
+                        return;
+                    }
+
+                    if (!response?.ok) {
+                        console.error('[Content] 🤖 LLMChat failed:', response);
+                        reject(new Error(response?.error || 'LLM request failed'));
+                        return;
+                    }
+
+                    console.log('[Content] 🤖 LLMChat success:', response.result);
+                    resolve(response.result);
+                }
+            );
+        });
+    }
+
+    // Expose functions globally for console testing
     // Content scripts run in isolated world, so we use postMessage bridge
     window.omeSendChat = sendChatMessage;
+    window.omeLLMChat = sendLLMChat;
 
     // Listen for page-context test calls via postMessage
     window.addEventListener('message', (event) => {
