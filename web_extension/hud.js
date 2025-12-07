@@ -2080,6 +2080,16 @@
                 0% { transform: rotate(0deg); }
                 100% { transform: rotate(720deg); }
             }
+            /* 📚 New Chat active/close state */
+            .ome-sidebar-new-chat.active {
+                color: rgba(200, 150, 100, 0.9);
+            }
+            .ome-sidebar-new-chat.active:hover {
+                color: rgba(200, 150, 100, 1);
+            }
+            .ome-sidebar-new-chat.active .plus svg {
+                transform: rotate(45deg);
+            }
 
             /* 📚 Chat Item - row in sidebar */
             .ome-sidebar-chat {
@@ -2106,6 +2116,7 @@
             .ome-sidebar-chat-info {
                 flex: 1;
                 min-width: 0;
+                margin-right: 10px;
                 cursor: pointer;
             }
             .ome-sidebar-chat-title {
@@ -2296,6 +2307,58 @@
             @keyframes pulse-red {
                 0%, 100% { box-shadow: 0 0 6px rgba(255, 100, 100, 0.3); }
                 50% { box-shadow: 0 0 12px rgba(255, 100, 100, 0.6); }
+            }
+
+            /* 📚 Confirm Edit - inline icon buttons (tick/cross for rename) */
+            .ome-confirm-edit {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .ome-confirm-edit-btn {
+                width: 28px;
+                height: 28px;
+                border-radius: 6px;
+                cursor: pointer;
+                border: 1px solid;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+            }
+            .ome-confirm-edit-btn:hover {
+                transform: scale(1.1);
+            }
+            .ome-confirm-edit-btn:active {
+                transform: scale(0.95);
+            }
+            .ome-confirm-edit-btn svg {
+                width: 14px;
+                height: 14px;
+                stroke-width: 2.5;
+                fill: none;
+            }
+            .ome-confirm-edit-btn.yes {
+                background: rgba(100, 200, 100, 0.25);
+                border-color: rgba(100, 200, 100, 0.5);
+            }
+            .ome-confirm-edit-btn.yes svg {
+                stroke: #6bd66b;
+            }
+            .ome-confirm-edit-btn.yes:hover {
+                background: rgba(100, 200, 100, 0.4);
+                box-shadow: 0 0 10px rgba(100, 200, 100, 0.5);
+            }
+            .ome-confirm-edit-btn.no {
+                background: rgba(200, 150, 100, 0.15);
+                border-color: rgba(200, 150, 100, 0.4);
+            }
+            .ome-confirm-edit-btn.no svg {
+                stroke: rgba(200, 150, 100, 0.9);
+            }
+            .ome-confirm-edit-btn.no:hover {
+                background: rgba(200, 150, 100, 0.3);
+                box-shadow: 0 0 10px rgba(200, 150, 100, 0.4);
             }
 
             /* 📚 Dropdown menu (legacy - keeping for reference) */
@@ -3101,7 +3164,7 @@
                         </div>
                     </div>
                     <div class="ome-sidebar-content">
-                        <div class="ome-sidebar-new-chat"><span class="plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>New Chat</div>
+                        <div class="ome-sidebar-new-chat"><span class="plus"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span class="text">New Chat</span></div>
                         <div class="ome-sidebar-new-chat-placeholder"></div>
                         <div class="ome-sidebar-label expanded"><span class="arrow arrow-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span><span class="label-text-collapsed">Your Chats</span><span class="label-text-expanded">Hide Chats</span><span class="arrow arrow-right"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span></div>
                         <div class="ome-sidebar-chat-list">
@@ -3217,17 +3280,33 @@
             toggleSidebar(false);
         });
 
-        // 📚 New Chat link handler
+        // 📚 New Chat link handler (toggle behavior)
         hud.querySelector('.ome-sidebar-new-chat')?.addEventListener('click', (e) => {
             e.stopPropagation();
-            // Spin the + sign
-            const plus = e.currentTarget.querySelector('.plus');
-            if (plus) {
-                plus.classList.remove('spinning');
-                void plus.offsetWidth; // Force reflow to restart animation
-                plus.classList.add('spinning');
+            const btn = e.currentTarget;
+            const textSpan = btn.querySelector('.text');
+            const placeholderContainer = hud.querySelector('.ome-sidebar-new-chat-placeholder');
+            const hasPlaceholder = placeholderContainer?.children.length > 0;
+
+            if (hasPlaceholder) {
+                // Close: remove placeholder and reset button
+                removeNewChatPlaceholder();
+                btn.classList.remove('active');
+                if (textSpan) textSpan.textContent = 'New Chat';
+                // Clear pending state
+                chatState.pendingTitle = null;
+            } else {
+                // Open: spin the + sign and start new chat
+                const plus = btn.querySelector('.plus');
+                if (plus) {
+                    plus.classList.remove('spinning');
+                    void plus.offsetWidth; // Force reflow to restart animation
+                    plus.classList.add('spinning');
+                }
+                btn.classList.add('active');
+                if (textSpan) textSpan.textContent = 'Close';
+                startNewChat();
             }
-            startNewChat();
         });
 
         // 📚 Your Chats label toggle handler
@@ -4567,8 +4646,9 @@
             </div>
         `;
 
-        // Rename action - click pen to edit
-        placeholder.querySelector('.ome-action-rename').addEventListener('click', (e) => {
+        // Rename action - click anywhere on placeholder to edit
+        placeholder.style.cursor = 'pointer';
+        placeholder.addEventListener('click', (e) => {
             e.stopPropagation();
             renameNewChat();
         });
@@ -4578,18 +4658,38 @@
     }
 
     /**
-     * 📚 Rename the new chat placeholder (sets pending title)
+     * 📚 Rename the new chat placeholder (shows tick/cross, creates chat on confirm)
      */
     function renameNewChat() {
         const placeholder = hudState.sidebar?.querySelector('.ome-sidebar-new-chat-placeholder .ome-sidebar-chat.new-chat');
         if (!placeholder) return;
 
         const titleEl = placeholder.querySelector('.ome-sidebar-chat-title');
-        if (!titleEl) return;
+        const actionsDiv = placeholder.querySelector('.ome-sidebar-chat-actions');
+        if (!titleEl || !actionsDiv) return;
+
+        // Already editing? Don't reinit
+        if (titleEl.contentEditable === 'true') return;
 
         const currentTitle = chatState.pendingTitle || 'New Chat';
+        const penBtn = actionsDiv.querySelector('.ome-action-rename');
 
-        // Make it editable - store original for escape handling
+        // Hide pen button, show tick/cross
+        if (penBtn) penBtn.style.display = 'none';
+
+        const confirmPopup = document.createElement('div');
+        confirmPopup.className = 'ome-confirm-edit';
+        confirmPopup.innerHTML = `
+            <button class="ome-confirm-edit-btn yes" title="Create chat">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button class="ome-confirm-edit-btn no" title="Cancel">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        `;
+        actionsDiv.appendChild(confirmPopup);
+
+        // Make title editable
         titleEl.dataset.originalTitle = currentTitle;
         titleEl.contentEditable = 'true';
         titleEl.classList.add('editing');
@@ -4602,53 +4702,104 @@
         sel.removeAllRanges();
         sel.addRange(range);
 
-        // Save function
-        const saveTitle = () => {
-            const newTitle = titleEl.textContent.trim();
+        // Cleanup function - restore UI state
+        const cleanup = () => {
             titleEl.contentEditable = 'false';
             titleEl.classList.remove('editing');
-            titleEl.blur();
+            titleEl.onkeydown = null;
+            titleEl.onblur = null;
             window.getSelection()?.removeAllRanges();
+            confirmPopup.remove();
+            if (penBtn) penBtn.style.display = '';
+        };
+
+        // Save function - create chat and load it
+        const saveAndCreate = () => {
+            const newTitle = titleEl.textContent.trim();
+            cleanup();
 
             if (newTitle && newTitle !== 'New Chat') {
-                chatState.pendingTitle = newTitle;
-                console.log('[Content] 📚 Pending title set:', newTitle);
+                console.log('[Content] 📚 Creating chat with title:', newTitle);
+                // Create the chat file via capability
+                chrome.runtime.sendMessage(
+                    { type: 'execute_capability', action: 'CreateChat', params: { title: newTitle } },
+                    (response) => {
+                        if (chrome.runtime.lastError) {
+                            console.error('[Content] 📚 Failed to create chat:', chrome.runtime.lastError);
+                            return;
+                        }
+                        if (response?.ok && response?.result?.chat_id) {
+                            console.log('[Content] 📚 Chat created:', response.result.chat_id);
+                            // Load the new chat (removes placeholder, updates sidebar)
+                            loadChat(response.result.chat_id);
+                            loadSidebarChats();
+                        } else {
+                            console.error('[Content] 📚 CreateChat failed:', response);
+                        }
+                    }
+                );
             } else {
+                // No valid title - just update display
                 chatState.pendingTitle = null;
                 titleEl.textContent = 'New Chat';
             }
         };
 
-        // Cancel function
+        // Cancel function - restore original
         const cancelEdit = () => {
-            titleEl.contentEditable = 'false';
-            titleEl.classList.remove('editing');
-            titleEl.blur();
-            window.getSelection()?.removeAllRanges();
+            cleanup();
             titleEl.textContent = currentTitle;
         };
+
+        // Tick button - save and create
+        confirmPopup.querySelector('.yes').addEventListener('click', (e) => {
+            e.stopPropagation();
+            saveAndCreate();
+        });
+
+        // Cross button - cancel
+        confirmPopup.querySelector('.no').addEventListener('click', (e) => {
+            e.stopPropagation();
+            cancelEdit();
+        });
 
         // Handle keyboard
         titleEl.onkeydown = (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                saveTitle();
+                saveAndCreate();
             } else if (e.key === 'Escape') {
                 e.preventDefault();
                 cancelEdit();
             }
         };
 
-        // Save on blur
-        titleEl.onblur = saveTitle;
+        // Blur also saves (like clicking away)
+        titleEl.onblur = (e) => {
+            // Small delay to allow button clicks to register first
+            setTimeout(() => {
+                if (titleEl.contentEditable === 'true') {
+                    saveAndCreate();
+                }
+            }, 100);
+        };
     }
 
     /**
      * 📚 Remove the new chat placeholder from sidebar
+     * Also resets the "New Chat" button to its default state
      */
     function removeNewChatPlaceholder() {
         const container = hudState.sidebar?.querySelector('.ome-sidebar-new-chat-placeholder');
         if (container) container.innerHTML = '';
+
+        // Reset the New Chat button state
+        const newChatBtn = hudState.sidebar?.querySelector('.ome-sidebar-new-chat');
+        if (newChatBtn) {
+            newChatBtn.classList.remove('active');
+            const textSpan = newChatBtn.querySelector('.text');
+            if (textSpan) textSpan.textContent = 'New Chat';
+        }
     }
 
     /**

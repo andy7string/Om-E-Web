@@ -1,30 +1,23 @@
 {
-  "timestamp": 1765104303.444542,
+  "timestamp": 1765105456.0165849,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138036190,
+      "id": 1138036223,
       "url": "https://www.google.com/",
       "title": "Google",
-      "status": "complete"
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138036190,
+        "id": 1138036223,
         "url": "https://www.google.com/",
         "title": "Google",
         "active": true,
-        "status": "complete"
-      },
-      {
-        "id": 1138036197,
-        "url": "https://www.google.com/",
-        "title": "Google",
-        "active": false,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 42846.823033458,
+    "last_tabs_update": 43995.585878083,
     "extension_connected": true
   },
   "current_page": {
