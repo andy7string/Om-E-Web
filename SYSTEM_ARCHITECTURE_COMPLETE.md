@@ -1,8 +1,8 @@
 # 🏗️ Om-E-Web Complete System Architecture
 
-**Version:** 2.0
-**Last Updated:** 2025-12-01
-**Status:** Complete End-to-End Analysis (Updated with Chat/Orb Pipeline)
+**Version:** 2.1
+**Last Updated:** 2025-12-07
+**Status:** Complete End-to-End Analysis (Updated with HUD Action Pipeline)
 **Based On:** contentdiscover.md, swdiscover.md, wsdiscover.md, test_navigationdiscover.md, 01_sw.md, 02_content.md, 03_ws_server.md
 
 ---
@@ -31,6 +31,7 @@ Test Client / LLM System (Python)
 3. **Iframe Pipeline** - Cross-origin iframe element interaction
 4. **HUD/Orb Pipeline** - Floating UI with orb themes, chat panel, and user interaction
 5. **Chat Pipeline** - Bidirectional messaging between HUD and LLM via WebSocket
+6. **HUD Action Pipeline** - LLM-driven UI control via `_hud_action` capability responses
 
 **Current Status:** Functionally complete with full HUD/Chat integration. Known coordination issues:
 - **Duplicate element ID assignment** (8 overlapping scan triggers)
@@ -2810,6 +2811,234 @@ with client.messages.stream(...) as stream:
 
 ---
 
+## 8.7 HUD Action Pipeline Architecture (NEW)
+
+### Overview
+
+The **HUD Action Pipeline** enables the LLM to fully drive the HUD interface through capabilities. When a capability executes, it can return a `_hud_action` object that triggers UI changes across all browser tabs.
+
+**Key Features:**
+- Server-driven UI control via capability responses
+- Unified pattern for all HUD-affecting capabilities
+- Broadcast to all tabs via WebSocket → Service Worker → Content Scripts
+- Decoupled architecture: capabilities define *what* to do, HUD handles *how*
+
+### The `_hud_action` Pattern
+
+Every capability that affects the HUD includes a `_hud_action` field in its response:
+
+```python
+# In ws_server.py capability handler
+elif action == "ShowHUD":
+    return {"_hud_action": {"type": "show_hud"}}
+
+elif action == "LoadChat":
+    chat = load_chat(chat_id)
+    return {
+        "chat": chat,
+        "_hud_action": {
+            "type": "load_chat",
+            "chat_id": chat_id,
+            "chat": chat
+        }
+    }
+```
+
+The server extracts `_hud_action` and pushes it to the extension before returning the capability result:
+
+```python
+# After capability execution in ws_server.py
+hud_action = result.get("_hud_action") if isinstance(result, dict) else None
+if hud_action and EXTENSION_WS:
+    await EXTENSION_WS.send(json.dumps({
+        "type": "hud_action",
+        "action": hud_action
+    }))
+    del result["_hud_action"]  # Don't include in response
+```
+
+### Complete Message Flow
+
+```
+┌─ CAPABILITY TRIGGER (test_navigation.py or LLM)
+│
+├─ Sends: execute_capability { action: "ShowHUD" }
+│
+└─ Message goes to WebSocket Server
+                    ↓
+┌─ WEBSOCKET SERVER (ws_server.py)
+│
+├─ Executes capability handler
+├─ Handler returns: { "_hud_action": { "type": "show_hud" } }
+│
+├─ Extracts _hud_action, sends to extension:
+│  {
+│    "type": "hud_action",
+│    "action": { "type": "show_hud" }
+│  }
+│
+├─ Returns capability result (without _hud_action)
+│
+└─ HUD action flows to Service Worker
+                    ↓
+┌─ SERVICE WORKER (sw.js)
+│
+├─ handleServerMessage() catches hud_action
+│
+├─ Broadcasts to ALL tabs:
+│  for (const tab of await chrome.tabs.query({})) {
+│    chrome.tabs.sendMessage(tab.id, {
+│      type: 'hud_action',
+│      action: message.action
+│    })
+│  }
+│
+└─ Message goes to all Content Scripts
+                    ↓
+┌─ CONTENT SCRIPT (hud.js)
+│
+├─ Message listener catches hud_action
+│
+├─ Switch on action.type:
+│  case 'show_hud': toggleHUD() if not visible
+│  case 'hide_hud': toggleHUD() if visible
+│  case 'toggle_sidebar': toggleSidebar()
+│  case 'load_chat': loadAndDisplayChat(chat_id)
+│  case 'search_results': filterSidebar(results)
+│  ... etc
+│
+└─ UI updates in all tabs simultaneously
+```
+
+### Available HUD Action Capabilities
+
+#### UI View Control
+
+| Capability | Action Type | Effect |
+|------------|-------------|--------|
+| `ShowHUD` | `show_hud` | Opens HUD overlay if closed |
+| `HideHUD` | `hide_hud` | Closes HUD overlay if open |
+| `ToggleHUD` | `toggle_hud` | Toggles HUD visibility |
+| `ShowSidebar` | `show_sidebar` | Opens chat sidebar |
+| `HideSidebar` | `hide_sidebar` | Closes chat sidebar |
+| `ToggleSidebar` | `toggle_sidebar` | Toggles sidebar visibility |
+| `ExpandOrb` | `expand_orb` | Opens orb chat panel |
+| `CollapseOrb` | `collapse_orb` | Closes orb chat panel |
+
+#### Chat Management
+
+| Capability | Action Type | Payload | Effect |
+|------------|-------------|---------|--------|
+| `LoadChat` | `load_chat` | `{chat_id, chat}` | Loads chat in HUD, updates sidebar |
+| `CreateChat` | `create_chat` | `{chat_id, chat}` | Creates new chat, updates sidebar |
+| `AppendMessage` | `append_message` | `{chat_id, message}` | Adds message to active chat |
+| `RenameChat` | `rename_chat` | `{chat_id, title}` | Updates title in sidebar |
+| `DeleteChat` | `delete_chat` | `{chat_id}` | Removes from sidebar, clears if active |
+| `SearchChats` | `search_results` | `{query, results}` | Filters sidebar, opens search UI |
+
+### HUD Action Handler (hud.js)
+
+```javascript
+// In chrome.runtime.onMessage listener
+if (message.type === 'hud_action') {
+    const action = message.action;
+    switch (action?.type) {
+        // View control
+        case 'show_hud':
+            if (!hudState.visible) toggleHUD();
+            break;
+        case 'hide_hud':
+            if (hudState.visible) toggleHUD();
+            break;
+        case 'toggle_hud':
+            toggleHUD();
+            break;
+        case 'show_sidebar':
+            if (!hudState.sidebarVisible) toggleSidebar(true);
+            break;
+        case 'hide_sidebar':
+            if (hudState.sidebarVisible) toggleSidebar(false);
+            break;
+        case 'toggle_sidebar':
+            toggleSidebar();
+            break;
+        case 'expand_orb':
+            if (!orbState.chatExpanded) toggleOrbChat();
+            break;
+        case 'collapse_orb':
+            if (orbState.chatExpanded) toggleOrbChat();
+            break;
+
+        // Chat management
+        case 'load_chat':
+            CURRENT_CHAT_ID = action.chat_id;
+            displayChatInHUD(action.chat);
+            highlightActiveChatInSidebar(action.chat_id);
+            break;
+        case 'create_chat':
+            CURRENT_CHAT_ID = action.chat_id;
+            refreshSidebarChatList();
+            break;
+        case 'search_results':
+            filterSidebarByResults(action.results);
+            openSearchUI();
+            break;
+        // ... etc
+    }
+}
+```
+
+### Testing HUD Actions
+
+```bash
+# Show HUD
+python3 test_navigation.py --command capability --capability ShowHUD
+
+# Toggle sidebar
+python3 test_navigation.py --command capability --capability ToggleSidebar
+
+# Search chats (triggers search_results action)
+python3 test_navigation.py --command capability --capability SearchChats \
+    --params '{"query": "youtube"}'
+
+# Load specific chat
+python3 test_navigation.py --command capability --capability LoadChat \
+    --params '{"chat_id": "my-chat-id__20251207T120000"}'
+
+# Create new chat
+python3 test_navigation.py --command capability --capability CreateChat \
+    --params '{"title": "New Conversation"}'
+```
+
+### Integration Points
+
+```
+test_navigation.py / LLM
+       ↓ execute_capability
+ws_server.py
+├─ Capability handlers return _hud_action
+├─ Server pushes hud_action to EXTENSION_WS
+└─ Returns capability result to caller
+       ↓ hud_action message
+sw.js
+├─ Catches hud_action from server
+└─ Broadcasts to all tabs
+       ↓ hud_action message
+hud.js (all tabs)
+├─ Switch on action.type
+└─ Execute UI changes
+```
+
+### Architecture Benefits
+
+1. **Decoupled** - Capabilities don't know about UI implementation
+2. **Consistent** - Same pattern for all HUD-affecting operations
+3. **Multi-tab** - All tabs update simultaneously
+4. **Testable** - CLI can trigger any UI state
+5. **Extensible** - Add new action types without changing pipeline
+
+---
+
 ## 9. Conclusion: Where We Are
 
 ### ✅ What Works Well
@@ -2820,10 +3049,12 @@ with client.messages.stream(...) as stream:
 4. **File-based persistence** - Easy to inspect @site_structures/
 5. **Smart resolution chain** - Multiple fallback strategies for clicks
 6. **Change detection** - Good MutationObserver integration
-7. **HUD/Orb UI System** - Shadow DOM isolated UI with themes (NEW)
-8. **Chat Pipeline** - Bidirectional messaging with history persistence (NEW)
-9. **Orb State Persistence** - UI state survives page navigation (NEW)
-10. **Multiple Orb Themes** - Kawaii, Robot, Atom with easy extensibility (NEW)
+7. **HUD/Orb UI System** - Shadow DOM isolated UI with themes
+8. **Chat Pipeline** - Bidirectional messaging with history persistence
+9. **Orb State Persistence** - UI state survives page navigation
+10. **Multiple Orb Themes** - Kawaii, Robot, Atom with easy extensibility
+11. **HUD Action Pipeline** - LLM can fully drive UI via capabilities (NEW)
+12. **Multi-tab Sync** - Chat state and UI sync across all browser tabs (NEW)
 
 ### 🔴 What's Broken
 
@@ -2847,6 +3078,8 @@ with client.messages.stream(...) as stream:
 - **3 orb themes** (kawaii, robot, atom)
 - **9 chat message types** (bidirectional pipeline)
 - **6 persisted orb state properties** (theme, position, chat visibility, input, panel size, zoom)
+- **14 HUD action capabilities** (UI control + chat management)
+- **13 hud_action types** (show_hud, hide_hud, toggle_hud, show_sidebar, hide_sidebar, toggle_sidebar, expand_orb, collapse_orb, load_chat, create_chat, append_message, rename_chat, delete_chat, search_results)
 
 ---
 

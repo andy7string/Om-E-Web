@@ -79,6 +79,16 @@
       "params": {
         "chat_id": {"type": "string", "required": true}
       }
+    },
+    "SearchChats": {
+      "category": "chat.management",
+      "label": "Search chats by title or message content",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "query": {"type": "string", "required": true, "description": "Search query (searches titles and message content)"},
+        "limit": {"type": "number", "required": false, "description": "Max results to return (default 20)"}
+      }
     }
   }
 }

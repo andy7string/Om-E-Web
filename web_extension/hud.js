@@ -5361,6 +5361,159 @@
             return true;
         }
 
+        // 🎛️ HUD ACTION: Server pushes UI actions (LLM driving the HUD)
+        if (message.type === 'hud_action') {
+            const action = message.action;
+            console.log('[Content] 🎛️ hud_action received:', action?.type);
+
+            if (!hudState.host) initHUD();
+
+            switch (action?.type) {
+                case 'load_chat':
+                    // Load and display a chat
+                    if (action.chat_id && action.chat) {
+                        chatState.currentChatId = action.chat_id;
+                        chatState.messages = (action.chat.messages || []).map(m => ({
+                            role: m.role,
+                            content: m.content,
+                            id: m.id
+                        }));
+                        removeNewChatPlaceholder();
+                        markActiveChatInSidebar(action.chat_id);
+                        renderChatMessages();
+                    }
+                    break;
+
+                case 'create_chat':
+                    // New chat created - load it and refresh sidebar
+                    if (action.chat_id && action.chat) {
+                        chatState.currentChatId = action.chat_id;
+                        chatState.messages = [];
+                        removeNewChatPlaceholder();
+                        loadSidebarChats();
+                        renderChatMessages();
+                    }
+                    break;
+
+                case 'append_message':
+                    // New message added - reload the chat if it's active
+                    if (action.chat_id === chatState.currentChatId && action.message) {
+                        chatState.messages.push({
+                            role: action.message.role,
+                            content: action.message.content,
+                            id: action.message.id
+                        });
+                        renderChatMessages();
+                    } else if (action.chat_id) {
+                        // Different chat - just refresh sidebar
+                        loadSidebarChats();
+                    }
+                    break;
+
+                case 'rename_chat':
+                    // Chat renamed - update sidebar
+                    if (action.chat_id) {
+                        const chatItem = hudState.sidebar?.querySelector(`.ome-sidebar-chat[data-chat-id="${action.chat_id}"]`);
+                        if (chatItem) {
+                            const titleEl = chatItem.querySelector('.ome-sidebar-chat-title');
+                            if (titleEl) titleEl.textContent = action.title;
+                        }
+                    }
+                    break;
+
+                case 'delete_chat':
+                    // Chat deleted - clear if active, refresh sidebar
+                    if (action.chat_id === chatState.currentChatId) {
+                        chatState.currentChatId = null;
+                        chatState.messages = [];
+                        renderChatMessages();
+                    }
+                    loadSidebarChats();
+                    break;
+
+                case 'search_results':
+                    // Search results from LLM - filter sidebar to show matches
+                    if (action.results) {
+                        const matchingIds = action.results.map(r => r.chat_id);
+                        const chatList = hudState.sidebar?.querySelector('.ome-sidebar-chat-list');
+                        if (chatList) {
+                            const items = chatList.querySelectorAll('.ome-sidebar-chat');
+                            items.forEach(item => {
+                                const chatId = item.dataset.chatId;
+                                item.style.display = matchingIds.includes(chatId) ? '' : 'none';
+                            });
+                            // Show "no results" if empty
+                            const emptyMsg = chatList.querySelector('.ome-sidebar-empty');
+                            if (emptyMsg) {
+                                if (matchingIds.length === 0) {
+                                    emptyMsg.textContent = `No chats matching "${action.query}"`;
+                                    emptyMsg.style.display = '';
+                                } else {
+                                    emptyMsg.style.display = 'none';
+                                }
+                            }
+                        }
+                        // Open search UI and populate query
+                        const searchBtn = hudState.sidebar?.querySelector('.ome-sidebar-search');
+                        const searchBox = hudState.sidebar?.querySelector('.ome-sidebar-search-box');
+                        if (searchBtn && searchBox && !searchBox.classList.contains('expanded')) {
+                            searchBtn.classList.add('active');
+                            const textSpan = searchBtn.querySelector('.text');
+                            if (textSpan) textSpan.textContent = 'Close Search Chats';
+                            searchBox.classList.add('expanded');
+                            searchBox.innerHTML = `<input type="text" class="ome-sidebar-search-input" placeholder="Search chats..." value="${action.query || ''}" />`;
+                        } else if (searchBox) {
+                            const input = searchBox.querySelector('.ome-sidebar-search-input');
+                            if (input) input.value = action.query || '';
+                        }
+                    }
+                    break;
+
+                // 🎛️ UI CONTROL ACTIONS
+                case 'show_hud':
+                    if (!hudState.visible) toggleHUD();
+                    break;
+
+                case 'hide_hud':
+                    if (hudState.visible) toggleHUD();
+                    break;
+
+                case 'toggle_hud':
+                    toggleHUD();
+                    break;
+
+                case 'show_sidebar':
+                    if (!hudState.sidebarVisible) toggleSidebar(true);
+                    break;
+
+                case 'hide_sidebar':
+                    if (hudState.sidebarVisible) toggleSidebar(false);
+                    break;
+
+                case 'toggle_sidebar':
+                    toggleSidebar();
+                    break;
+
+                case 'expand_orb':
+                    if (hudState.chatPanel && !hudState.chatPanel.classList.contains('visible')) {
+                        hudState.chatPanel.classList.add('visible');
+                    }
+                    break;
+
+                case 'collapse_orb':
+                    if (hudState.chatPanel && hudState.chatPanel.classList.contains('visible')) {
+                        hudState.chatPanel.classList.remove('visible');
+                    }
+                    break;
+
+                default:
+                    console.warn('[Content] 🎛️ Unknown hud_action type:', action?.type);
+            }
+
+            sendResponse({ ok: true });
+            return true;
+        }
+
     });
 
     // ========================================================================
