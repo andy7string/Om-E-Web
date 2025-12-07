@@ -47,6 +47,8 @@ from llm.dispatcher import (
 
 # LLM Agent - conversational AI with history
 from llm.agent import OmEAgent
+from llm.executor import parse_capability_calls, has_capability_calls, format_capability_for_display, format_execution_result
+from llm.prompt import add_action_to_history
 
 
 
@@ -4085,7 +4087,7 @@ async def handler(ws):
                             print(f"🤖 LLMChat: Sending message to agent")
                             response_text = await LLM_AGENT.chat(message)
 
-                            # Save to chat history and get message object
+                            # Save LLM response to chat history
                             new_message = None
                             if CURRENT_CHAT_ID:
                                 chat_dict = load_chat(CURRENT_CHAT_ID)
@@ -4094,25 +4096,136 @@ async def handler(ws):
                                     save_chat(chat_dict)
                                     print(f"🤖 LLMChat: Saved to chat {CURRENT_CHAT_ID}")
 
+                            # Push LLM response to HUD
+                            if new_message and EXTENSION_WS:
+                                await EXTENSION_WS.send(json.dumps({
+                                    "type": "hud_action",
+                                    "action": {
+                                        "type": "append_message",
+                                        "chat_id": CURRENT_CHAT_ID,
+                                        "message": new_message
+                                    }
+                                }))
+                                print(f"🤖 LLMChat: Pushed LLM response to HUD")
+
+                            # Parse and execute any capability calls
+                            capability_results = []
+                            if has_capability_calls(response_text):
+                                calls = parse_capability_calls(response_text)
+                                print(f"🤖 LLMChat: Found {len(calls)} capability calls")
+
+                                # Browser capabilities that route to extension
+                                scroll_actions = {
+                                    'ScrollDown': 'down', 'ScrollUp': 'up',
+                                    'ScrollLeft': 'left', 'ScrollRight': 'right',
+                                    'ScrollTop': 'top', 'ScrollBottom': 'bottom'
+                                }
+                                zoom_actions = ['ZoomIn', 'ZoomOut', 'ZoomReset']
+                                tab_actions = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL']
+                                dom_actions = ['click', 'setValue', 'focus', 'hover']  # Actions on DOM elements
+
+                                for call in calls:
+                                    cap_action = call.get("action")
+                                    cap_params = call.get("params", {})
+                                    cap_result = {"ok": False, "error": "Unknown capability"}
+
+                                    if cap_action:
+                                        # Normalize action name for comparison
+                                        cap_action_lower = cap_action.lower()
+                                        print(f"🤖 Executing capability: {cap_action}")
+
+                                        # Route DOM actions (click, setValue) via llm_instruction
+                                        if cap_action_lower in dom_actions and EXTENSION_WS:
+                                            action_id = cap_params.get("actionId")
+                                            if action_id:
+                                                instruction = {
+                                                    "type": "llm_instruction",
+                                                    "data": {
+                                                        "actionId": action_id,
+                                                        "actionType": cap_action_lower,
+                                                        "value": cap_params.get("value"),
+                                                        "submit": cap_params.get("submit", False)
+                                                    }
+                                                }
+                                                await EXTENSION_WS.send(json.dumps(instruction))
+                                                cap_result = {"ok": True}
+                                                print(f"🤖 Sent llm_instruction: {cap_action} on {action_id}")
+                                            else:
+                                                cap_result = {"ok": False, "error": "Missing actionId"}
+
+                                        # Route scroll to extension
+                                        elif cap_action in scroll_actions and EXTENSION_WS:
+                                            direction = scroll_actions[cap_action]
+                                            await EXTENSION_WS.send(json.dumps({
+                                                "command": "scroll",
+                                                "id": f"scroll_{int(time.time() * 1000)}",
+                                                "params": {"direction": direction}
+                                            }))
+                                            cap_result = {"ok": True}
+                                            print(f"🤖 Sent scroll {direction} to extension")
+
+                                        # Route zoom to extension
+                                        elif cap_action in zoom_actions and EXTENSION_WS:
+                                            await EXTENSION_WS.send(json.dumps({
+                                                "type": "execute_capability",
+                                                "action": cap_action,
+                                                "params": cap_params
+                                            }))
+                                            cap_result = {"ok": True}
+                                            print(f"🤖 Sent {cap_action} to extension")
+
+                                        # Route tab actions to extension
+                                        elif cap_action in tab_actions and EXTENSION_WS:
+                                            await EXTENSION_WS.send(json.dumps({
+                                                "type": "execute_capability",
+                                                "action": cap_action,
+                                                "params": cap_params
+                                            }))
+                                            cap_result = {"ok": True}
+                                            print(f"🤖 Sent {cap_action} to extension")
+
+                                        # Internal capabilities
+                                        else:
+                                            cap_result = execute_internal_capability(cap_action, cap_params)
+
+                                        add_action_to_history(cap_action, cap_params, {"ok": "error" not in cap_result})
+
+                                        # Format result for display
+                                        result_text = format_execution_result(cap_action, {"ok": "error" not in cap_result, "error": cap_result.get("error")})
+                                        capability_results.append(result_text)
+
+                                        # Save execution result to chat
+                                        if CURRENT_CHAT_ID:
+                                            chat_dict = load_chat(CURRENT_CHAT_ID)
+                                            if chat_dict:
+                                                exec_msg = append_assistant_message(chat_dict, result_text)
+                                                save_chat(chat_dict)
+
+                                                # Push to HUD
+                                                if EXTENSION_WS:
+                                                    await EXTENSION_WS.send(json.dumps({
+                                                        "type": "hud_action",
+                                                        "action": {
+                                                            "type": "append_message",
+                                                            "chat_id": CURRENT_CHAT_ID,
+                                                            "message": exec_msg
+                                                        }
+                                                    }))
+
+                                        # Handle HUD actions from capability
+                                        if "_hud_action" in cap_result and EXTENSION_WS:
+                                            await EXTENSION_WS.send(json.dumps({
+                                                "type": "hud_action",
+                                                "action": cap_result["_hud_action"]
+                                            }))
+
                             result = {
                                 "response": response_text,
                                 "history_length": LLM_AGENT.get_history_length(),
                                 "chat_id": CURRENT_CHAT_ID,
-                                "message": new_message
+                                "message": new_message,
+                                "capability_results": capability_results
                             }
-
-                            # Push response to HUD using append_message format
-                            if new_message and EXTENSION_WS:
-                                hud_action = {
-                                    "type": "append_message",
-                                    "chat_id": CURRENT_CHAT_ID,
-                                    "message": new_message
-                                }
-                                await EXTENSION_WS.send(json.dumps({
-                                    "type": "hud_action",
-                                    "action": hud_action
-                                }))
-                                print(f"🤖 LLMChat: Pushed hud_action append_message")
 
                             await ws.send(json.dumps({
                                 "type": "capability_result",

@@ -1,52 +1,39 @@
 """
 Om-E Agent
 ==========
-Conversational agent with history management.
+Conversational agent with history management and page context.
 
 Usage:
     agent = OmEAgent()
     response = await agent.chat("Hello!")
-    response = await agent.chat("What did I just say?")  # Has context
+    response = await agent.chat("What's on this page?")  # Has page context
     agent.clear_history()
 """
 
 from typing import List, Dict, Optional
 try:
     from .client import LLMClient
+    from .prompt import build_system_prompt, clear_action_history
 except ImportError:
     from client import LLMClient
-
-
-# Default system prompt for Om-E
-DEFAULT_SYSTEM_PROMPT = """You are Om-E, a helpful AI assistant integrated into a browser extension.
-
-Your role:
-- Help users navigate and interact with web pages
-- Answer questions about page content
-- Assist with tasks and provide clear, concise responses
-
-Style:
-- Be friendly but professional
-- Keep responses brief unless detail is requested
-- Use Australian English spelling when applicable
-"""
+    from prompt import build_system_prompt, clear_action_history
 
 
 class OmEAgent:
     """
-    Conversational agent with message history.
+    Conversational agent with message history and page context.
 
-    Maintains conversation context across multiple exchanges.
+    Builds dynamic system prompt with current page context on each call.
     """
 
-    def __init__(self, system_prompt: Optional[str] = None):
+    def __init__(self, include_page_context: bool = True):
         """
         Initialize agent.
 
         Args:
-            system_prompt: Custom system prompt (uses default if None)
+            include_page_context: Include text.md page context in prompt
         """
-        self.system_prompt = system_prompt or DEFAULT_SYSTEM_PROMPT
+        self.include_page_context = include_page_context
         self.history: List[Dict[str, str]] = []
         self._client = LLMClient()
 
@@ -54,6 +41,7 @@ class OmEAgent:
         """
         Send a message and get a response.
 
+        Builds fresh system prompt with current page context.
         Maintains conversation history for context.
 
         Args:
@@ -66,9 +54,14 @@ class OmEAgent:
         self.history.append({"role": "user", "content": message})
 
         try:
+            # Build dynamic system prompt with current page context
+            system_prompt = build_system_prompt(
+                include_page_context=self.include_page_context
+            )
+
             # Get response from LLM
             response = await self._client.chat(
-                system_prompt=self.system_prompt,
+                system_prompt=system_prompt,
                 messages=self.history
             )
 
@@ -83,12 +76,13 @@ class OmEAgent:
             raise e
 
     def clear_history(self):
-        """Clear conversation history"""
+        """Clear conversation history and action history"""
         self.history = []
+        clear_action_history()
 
-    def set_system_prompt(self, prompt: str):
-        """Update system prompt (doesn't clear history)"""
-        self.system_prompt = prompt
+    def set_page_context(self, enabled: bool):
+        """Enable/disable page context in prompts"""
+        self.include_page_context = enabled
 
     def get_history(self) -> List[Dict[str, str]]:
         """Get copy of conversation history"""
@@ -108,9 +102,9 @@ class OmEAgent:
 
 
 # Convenience function for one-off agent sessions
-async def quick_agent_chat(message: str, system_prompt: Optional[str] = None) -> str:
+async def quick_agent_chat(message: str, include_page_context: bool = True) -> str:
     """Quick one-off chat without managing agent lifecycle"""
-    agent = OmEAgent(system_prompt)
+    agent = OmEAgent(include_page_context=include_page_context)
     try:
         return await agent.chat(message)
     finally:

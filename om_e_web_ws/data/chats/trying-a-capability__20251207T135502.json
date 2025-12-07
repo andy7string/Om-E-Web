@@ -1,0 +1,57 @@
+{
+  "chat_id": "trying-a-capability__20251207T135502",
+  "project_id": "default",
+  "created_at": "2025-12-07T13:55:02.414634Z",
+  "updated_at": "2025-12-07T13:55:48.738039Z",
+  "title": "trying a capability",
+  "default_title": "trying a capability",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "",
+    "page_title": ""
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "should we see what you know about this browser",
+      "timestamp": "2025-12-07T13:55:17.947076Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Sure! You can ask me any questions about this browser or what I can do with it. How would you like to start?",
+      "timestamp": "2025-12-07T13:55:19.212205Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "what can you do with it",
+      "timestamp": "2025-12-07T13:55:27.275147Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "I can help you navigate and interact with this browser in many ways, such as:\n\n- Scrolling up, down, left, right, or to the top or bottom of the page\n- Opening, closing, or switching between tabs\n- Updating a tab's URL to navigate to a new page\n- Zooming in, out, or resetting the zoom level\n- Clicking buttons or links identified by action IDs\n- Typing text into input fields and submitting them\n- Managing chats (creating, loading, renaming, deleting, searching)\n- Controlling the chat HUD and sidebar visibility\n- Adjusting settings for language models if integrated\n\nJust tell me what you'd like to do, and I can perform the action for you.",
+      "timestamp": "2025-12-07T13:55:30.148844Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "can you go to the bottom of the page nwo",
+      "timestamp": "2025-12-07T13:55:46.942712Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "```capability\n{\"action\": \"ScrollBottom\", \"params\": {}}\n```",
+      "timestamp": "2025-12-07T13:55:48.737520Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "❌ ScrollBottom: Unknown internal capability: ScrollBottom",
+      "timestamp": "2025-12-07T13:55:48.738039Z"
+    }
+  ]
+}
