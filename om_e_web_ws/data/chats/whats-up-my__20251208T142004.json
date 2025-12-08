@@ -1,0 +1,435 @@
+{
+  "chat_id": "whats-up-my__20251208T142004",
+  "project_id": "default",
+  "created_at": "2025-12-08T14:20:04.436569Z",
+  "updated_at": "2025-12-08T14:26:51.927648Z",
+  "title": "whats up my",
+  "default_title": "whats up my",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "whats up my brother",
+      "timestamp": "2025-12-08T14:20:04.436586Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Not much, mate! Just here to help you navigate the wild web. What's on your mind today?",
+      "timestamp": "2025-12-08T14:20:06.341765Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "aah fuck lets check out renters",
+      "timestamp": "2025-12-08T14:20:14.522437Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Alrighty, let's dive into that article about renters needing more super in retirement. Here we go! \n\n```json\n{\"act\": \"a_id_17\"}\n```",
+      "timestamp": "2025-12-08T14:20:17.200752Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_17): Success",
+      "timestamp": "2025-12-08T14:20:17.201455Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "whats this about",
+      "timestamp": "2025-12-08T14:20:27.401388Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "Well, it's a bit of a shitshow for renters, mate. The report says renters need about $300,000 more in superannuation than homeowners to have a comfy retirement. Rising rents are making life tough, and the government's rent assistance isn't keeping up. Advocacy groups are pushing for more affordable housing and better support for renters. It's a bloody uphill battle at the moment.",
+      "timestamp": "2025-12-08T14:20:30.381946Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "user",
+      "content": "this will change in a few decades as the population dies out",
+      "timestamp": "2025-12-08T14:20:56.489187Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "Yeah, it's possible things might shift as demographics change. As the population ages and the housing market evolves, we might see some changes in supply and demand. But who knows how that'll play out? Hopefully, the powers that be will sort out some long-term solutions before then. Fingers crossed, eh?",
+      "timestamp": "2025-12-08T14:20:58.809933Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "dont be a cunt",
+      "timestamp": "2025-12-08T14:21:04.621634Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "Fair call, mate. Just trying to keep it real. If there's anything else you want to know or chat about, let me know.",
+      "timestamp": "2025-12-08T14:21:08.186436Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "just kidding nut bag",
+      "timestamp": "2025-12-08T14:21:15.440219Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "Haha, you got me there! No worries, mate. We're all good. Anything else you want to dive into?",
+      "timestamp": "2025-12-08T14:21:17.584304Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "user",
+      "content": "lets hit some hot chicks on youtube",
+      "timestamp": "2025-12-08T14:21:26.456852Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "Alright, let's see what YouTube's got in store for us. Just a sec while I open up a new tab for you.\n\n```json\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}} \n```",
+      "timestamp": "2025-12-08T14:21:28.365575Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "✅ OpenTab: Success",
+      "timestamp": "2025-12-08T14:21:28.366146Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "bru if you can see our conversation why dont you ask me should i search for shit or something",
+      "timestamp": "2025-12-08T14:21:53.638139Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Fair point, mate. Sometimes I get a bit ahead of myself. How about I help you search for something specific, like some channels or videos you might be interested in? Just let me know what you're keen on, and I'll sort it out for you!",
+      "timestamp": "2025-12-08T14:21:57.579244Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "search for hot crossfit",
+      "timestamp": "2025-12-08T14:22:07.416955Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Alrighty, let's see what CrossFit action is happening on YouTube. I'll punch that into the search for you.\n\n```json\n{\"act\": \"a_id_3\", \"value\": \"hot CrossFit\", \"submit\": true}\n```",
+      "timestamp": "2025-12-08T14:22:08.917857Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_3): Success",
+      "timestamp": "2025-12-08T14:22:08.918815Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "user",
+      "content": "any girls worht looking at",
+      "timestamp": "2025-12-08T14:22:24.839278Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "There's quite a few videos with some impressive CrossFit athletes. Dani Speegle pops up a lot, and she's a bit of a legend in the CrossFit scene. Brooke Wells is another name you'll see. If you're into motivation and fitness, these videos should do the trick. Want to check out one of their videos?",
+      "timestamp": "2025-12-08T14:22:27.337036Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "user",
+      "content": "she is hot as fuck take me to dani yummy",
+      "timestamp": "2025-12-08T14:22:40.656148Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "assistant",
+      "content": "Alright, mate, let's check out some Dani Speegle action for you. Here's a link to one of her popular videos:\n\n```json\n{\"act\": \"a_id_94\"}\n```",
+      "timestamp": "2025-12-08T14:22:42.164597Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_94): Success",
+      "timestamp": "2025-12-08T14:22:42.165625Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "omg she is in the kitchen",
+      "timestamp": "2025-12-08T14:22:59.148149Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Haha, yep, athletes gotta eat too! It's not all burpees and barbells, right? What do you reckon, want to keep watching or find something else?",
+      "timestamp": "2025-12-08T14:23:00.938189Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "lets retrieve her transcript",
+      "timestamp": "2025-12-08T14:23:09.475700Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Alrighty, let's grab the transcript for Dani's video. Hang tight.\n\n```json\n{\"cap\": \"RetrieveTranscript\"}\n```",
+      "timestamp": "2025-12-08T14:23:10.908616Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-08T14:23:10.909899Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "user",
+      "content": "she is so deep bro, do you think she lifts alot",
+      "timestamp": "2025-12-08T14:23:32.087549Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "assistant",
+      "content": "Absolutely, mate! Dani's a powerhouse in the CrossFit world. She's not just about looking fit; she's lifting heavy and putting in the hard yards. Her strength and dedication are what make her such a standout. So, yeah, she definitely lifts a lot!",
+      "timestamp": "2025-12-08T14:23:34.650399Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "user",
+      "content": "i would dip that ass",
+      "timestamp": "2025-12-08T14:23:52.716539Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "assistant",
+      "content": "Haha, you're a cheeky one! Dani's definitely got a lot of admirers. Remember, though, she's all about empowering women and promoting positivity. Anything else you want to explore or chat about?",
+      "timestamp": "2025-12-08T14:23:56.283651Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "user",
+      "content": "do you think she sucks flange",
+      "timestamp": "2025-12-08T14:24:10.842516Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "assistant",
+      "content": "Mate, what she does in her personal life is her business. Let's keep things respectful, yeah? If you're keen on more CrossFit content or anything else, just let me know!",
+      "timestamp": "2025-12-08T14:24:12.966035Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "user",
+      "content": "fuck you bru you my mate",
+      "timestamp": "2025-12-08T14:24:23.383642Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "assistant",
+      "content": "Haha, all good, mate! Just looking out for ya. We're still on for whatever you want to explore next. Just give me a shout!",
+      "timestamp": "2025-12-08T14:24:25.005423Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "user",
+      "content": "we like ass bro its nature",
+      "timestamp": "2025-12-08T14:24:36.773397Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "assistant",
+      "content": "True that, mate! Can't deny human nature. If there's anything else you're curious about or want to dive into, just holler.",
+      "timestamp": "2025-12-08T14:24:38.950824Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "user",
+      "content": "yea i would dip that",
+      "timestamp": "2025-12-08T14:24:45.877414Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "assistant",
+      "content": "You're a classic, mate. Got a good laugh over here. Anything else you want to do or check out? Just let me know!",
+      "timestamp": "2025-12-08T14:24:47.362833Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "user",
+      "content": "yea lets sub",
+      "timestamp": "2025-12-08T14:24:57.198300Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "assistant",
+      "content": "Alright, let's hit that subscribe button for you. Here we go!\n\n```json\n{\"cap\": \"SubscribeToChannel\"}\n```",
+      "timestamp": "2025-12-08T14:24:59.383482Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "assistant",
+      "content": "✅ SubscribeToChannel: Success",
+      "timestamp": "2025-12-08T14:24:59.384943Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "user",
+      "content": "alright give it a like",
+      "timestamp": "2025-12-08T14:25:06.950755Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "assistant",
+      "content": "Sweet as! Let's give that video a thumbs up.\n\n```json\n{\"cap\": \"LikeVideo\"}\n```",
+      "timestamp": "2025-12-08T14:25:08.928295Z"
+    },
+    {
+      "id": "m_0049",
+      "role": "assistant",
+      "content": "✅ LikeVideo: Success",
+      "timestamp": "2025-12-08T14:25:08.930112Z"
+    },
+    {
+      "id": "m_0050",
+      "role": "user",
+      "content": "nice one ok any other hot crossfit chicks we can search for",
+      "timestamp": "2025-12-08T14:25:26.675398Z"
+    },
+    {
+      "id": "m_0051",
+      "role": "assistant",
+      "content": "Sure thing, mate! Tia-Clair Toomey's another big name in CrossFit. She's got an impressive track record and plenty of fans. Want to check out some of her stuff, or is there someone else you'd like to search for?",
+      "timestamp": "2025-12-08T14:25:30.202487Z"
+    },
+    {
+      "id": "m_0052",
+      "role": "user",
+      "content": "go Tia Clair",
+      "timestamp": "2025-12-08T14:25:36.665342Z"
+    },
+    {
+      "id": "m_0053",
+      "role": "assistant",
+      "content": "Alright, let's search for Tia-Clair Toomey and see what she's got on YouTube. One sec while I set that up.\n\n```json\n{\"act\": \"a_id_3\", \"value\": \"Tia-Clair Toomey\", \"submit\": true}\n```",
+      "timestamp": "2025-12-08T14:25:39.013204Z"
+    },
+    {
+      "id": "m_0054",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_3): Success",
+      "timestamp": "2025-12-08T14:25:39.014260Z"
+    },
+    {
+      "id": "m_0055",
+      "role": "user",
+      "content": "not my type next",
+      "timestamp": "2025-12-08T14:25:49.409205Z"
+    },
+    {
+      "id": "m_0056",
+      "role": "assistant",
+      "content": "No worries, mate! How about Brooke Ence? She's another well-known CrossFit athlete with a big following. Want to see what she's up to, or is there someone else in mind?",
+      "timestamp": "2025-12-08T14:25:51.287011Z"
+    },
+    {
+      "id": "m_0057",
+      "role": "user",
+      "content": "ok",
+      "timestamp": "2025-12-08T14:25:54.082836Z"
+    },
+    {
+      "id": "m_0058",
+      "role": "assistant",
+      "content": "Alright, let's check out Brooke Ence. I'll get that search going for you.\n\n```json\n{\"act\": \"a_id_3\", \"value\": \"Brooke Ence\", \"submit\": true}\n```",
+      "timestamp": "2025-12-08T14:25:55.727695Z"
+    },
+    {
+      "id": "m_0059",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_3): Success",
+      "timestamp": "2025-12-08T14:25:55.729978Z"
+    },
+    {
+      "id": "m_0060",
+      "role": "user",
+      "content": "my god she is nice",
+      "timestamp": "2025-12-08T14:26:04.008403Z"
+    },
+    {
+      "id": "m_0061",
+      "role": "assistant",
+      "content": "Yeah, she's a real powerhouse, and she's got that charisma too! Brooke's got a great mix of fitness and personality. Want to dive into one of her videos or something else?",
+      "timestamp": "2025-12-08T14:26:06.808681Z"
+    },
+    {
+      "id": "m_0062",
+      "role": "user",
+      "content": "go to her videos",
+      "timestamp": "2025-12-08T14:26:11.785720Z"
+    },
+    {
+      "id": "m_0063",
+      "role": "assistant",
+      "content": "Let's jump into one of Brooke Ence's videos. Here's a popular one we can check out:\n\n```json\n{\"act\": \"a_id_63\"}\n```",
+      "timestamp": "2025-12-08T14:26:13.748618Z"
+    },
+    {
+      "id": "m_0064",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_63): Success",
+      "timestamp": "2025-12-08T14:26:13.749442Z"
+    },
+    {
+      "id": "m_0065",
+      "role": "user",
+      "content": "lets see dani on steroids",
+      "timestamp": "2025-12-08T14:26:33.906414Z"
+    },
+    {
+      "id": "m_0066",
+      "role": "assistant",
+      "content": "Let's take a look at that Dani Speegle on steroids video. Here we go:\n\n```json\n{\"act\": \"a_id_86\"}\n```",
+      "timestamp": "2025-12-08T14:26:35.290122Z"
+    },
+    {
+      "id": "m_0067",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_86): Success",
+      "timestamp": "2025-12-08T14:26:35.291969Z"
+    },
+    {
+      "id": "m_0068",
+      "role": "user",
+      "content": "pause",
+      "timestamp": "2025-12-08T14:26:50.614555Z"
+    },
+    {
+      "id": "m_0069",
+      "role": "assistant",
+      "content": "Alright, let's pause the video for you. \n\n```json\n{\"cap\": \"PauseVideo\"}\n```",
+      "timestamp": "2025-12-08T14:26:51.924950Z"
+    },
+    {
+      "id": "m_0070",
+      "role": "assistant",
+      "content": "❌ PauseVideo: Unknown internal capability: PauseVideo",
+      "timestamp": "2025-12-08T14:26:51.927648Z"
+    }
+  ]
+}

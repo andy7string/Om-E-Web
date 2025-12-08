@@ -5,7 +5,7 @@
       "name": "OpenAI",
       "type": "openai",
       "endpoint": "https://api.openai.com/v1/chat/completions",
-      "model": "gpt-4.1-mini",
+      "model": "gpt-4o",
       "api_key": "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"
     },
     "anthropic": {
