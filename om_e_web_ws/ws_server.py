@@ -4270,7 +4270,17 @@ async def handler(ws):
                                             cap_result = {"ok": True}
                                             print(f"🤖 Sent {cap_action} to extension")
 
-                                        # Internal capabilities
+                                        # 🎯 SITE CONFIG CAPABILITIES: Route to extension for DOM execution
+                                        elif is_site_config_capability(cap_action) and EXTENSION_WS:
+                                            await EXTENSION_WS.send(json.dumps({
+                                                "type": "execute_capability",
+                                                "action": cap_action,
+                                                "params": cap_params
+                                            }))
+                                            cap_result = {"ok": True}
+                                            print(f"🎯 Sent site config capability {cap_action} to extension")
+
+                                        # Internal capabilities (server-side only)
                                         else:
                                             cap_result = execute_internal_capability(cap_action, cap_params)
 
@@ -5068,105 +5078,71 @@ def resolve_capabilities_for_url(url: str) -> list:
             for cap in matching_capabilities:
                 print(f"  - {cap['action']}: {cap['label']}")
 
-        # 📜 UNIVERSAL CAPABILITIES: Always available on all domains
-        # Note: No params needed - server auto-routes by action name
-        universal_capabilities = [
-            {
-                'id': 'scroll_down',
-                'action': 'ScrollDown',
-                'label': 'Scroll down one page',
-                'domain': 'universal'
-            },
-            {
-                'id': 'scroll_up',
-                'action': 'ScrollUp',
-                'label': 'Scroll up one page',
-                'domain': 'universal'
-            },
-            {
-                'id': 'scroll_left',
-                'action': 'ScrollLeft',
-                'label': 'Scroll left one page',
-                'domain': 'universal'
-            },
-            {
-                'id': 'scroll_right',
-                'action': 'ScrollRight',
-                'label': 'Scroll right one page',
-                'domain': 'universal'
-            },
-            {
-                'id': 'scroll_top',
-                'action': 'ScrollTop',
-                'label': 'Scroll to top of page',
-                'domain': 'universal'
-            },
-            {
-                'id': 'scroll_bottom',
-                'action': 'ScrollBottom',
-                'label': 'Scroll to bottom of page',
-                'domain': 'universal'
-            },
-            # 🗂️ TAB CONTROL CAPABILITIES: Browser tab management
-            {
-                'id': 'switch_tab',
-                'action': 'SwitchTab',
-                'label': 'Switch to tab',
-                'params': {'tabId': 'number'},
-                'domain': 'universal'
-            },
-            {
-                'id': 'open_tab',
-                'action': 'OpenTab',
-                'label': 'Open new tab',
-                'params': {'url': 'string'},
-                'domain': 'universal'
-            },
-            {
-                'id': 'close_tab',
-                'action': 'CloseTab',
-                'label': 'Close tab',
-                'params': {'tabId': 'number'},
-                'domain': 'universal'
-            },
-            {
-                'id': 'update_tab_url',
-                'action': 'UpdateTabURL',
-                'label': 'Navigate tab to URL',
-                'params': {'tabId': 'number', 'url': 'string'},
-                'domain': 'universal'
-            },
-            # 🔍 ZOOM CAPABILITIES: No params needed
-            {
-                'id': 'zoom_in',
-                'action': 'ZoomIn',
-                'label': 'Zoom in 15%',
-                'domain': 'universal'
-            },
-            {
-                'id': 'zoom_out',
-                'action': 'ZoomOut',
-                'label': 'Zoom out 15%',
-                'domain': 'universal'
-            },
-            {
-                'id': 'zoom_reset',
-                'action': 'ZoomReset',
-                'label': 'Reset zoom to 100%',
-                'domain': 'universal'
-            }
-        ]
+        return matching_capabilities
 
-        # Append universal capabilities
+    except Exception as e:
+        print(f"❌ Error resolving capabilities for URL {url}: {e}")
+        return []
+
+
+def is_site_config_capability(action: str, url: str = None) -> bool:
+    """
+    🎯 Check if an action is a site config capability (needs DOM execution).
+
+    If no URL provided, uses CURRENT_ACTIVE_TAB.
+    Returns True if the action is defined in site configs for the current page.
+    """
+    if not url:
+        if CURRENT_ACTIVE_TAB:
+            url = CURRENT_ACTIVE_TAB.get("url", "")
+        else:
+            return False
+
+    if not url:
+        return False
+
+    # Get capabilities for this URL
+    capabilities = resolve_capabilities_for_url(url)
+
+    # Check if action matches any site config capability
+    for cap in capabilities:
+        if cap.get("action") == action:
+            print(f"🎯 {action} is a site config capability for {url}")
+            return True
+
+    return False
+
+
+def get_capabilities_for_prompt_with_universal(url: str) -> list:
+    """
+    🎯 Get all capabilities for a URL including universal ones.
+    Used by prompt building. Combines site config + universal + internal caps.
+    """
+    try:
+        matching_capabilities = resolve_capabilities_for_url(url) if url else []
+
+        # 📜 UNIVERSAL CAPABILITIES: Always available on all domains
+        universal_capabilities = [
+            {'id': 'scroll_down', 'action': 'ScrollDown', 'label': 'Scroll down one page', 'domain': 'universal'},
+            {'id': 'scroll_up', 'action': 'ScrollUp', 'label': 'Scroll up one page', 'domain': 'universal'},
+            {'id': 'scroll_left', 'action': 'ScrollLeft', 'label': 'Scroll left one page', 'domain': 'universal'},
+            {'id': 'scroll_right', 'action': 'ScrollRight', 'label': 'Scroll right one page', 'domain': 'universal'},
+            {'id': 'scroll_top', 'action': 'ScrollTop', 'label': 'Scroll to top of page', 'domain': 'universal'},
+            {'id': 'scroll_bottom', 'action': 'ScrollBottom', 'label': 'Scroll to bottom of page', 'domain': 'universal'},
+            {'id': 'switch_tab', 'action': 'SwitchTab', 'label': 'Switch to tab', 'params': {'tabId': 'number'}, 'domain': 'universal'},
+            {'id': 'open_tab', 'action': 'OpenTab', 'label': 'Open new tab', 'params': {'url': 'string'}, 'domain': 'universal'},
+            {'id': 'close_tab', 'action': 'CloseTab', 'label': 'Close tab', 'params': {'tabId': 'number'}, 'domain': 'universal'},
+            {'id': 'update_tab_url', 'action': 'UpdateTabURL', 'label': 'Navigate tab to URL', 'params': {'tabId': 'number', 'url': 'string'}, 'domain': 'universal'},
+            {'id': 'zoom_in', 'action': 'ZoomIn', 'label': 'Zoom in 15%', 'domain': 'universal'},
+            {'id': 'zoom_out', 'action': 'ZoomOut', 'label': 'Zoom out 15%', 'domain': 'universal'},
+            {'id': 'zoom_reset', 'action': 'ZoomReset', 'label': 'Reset zoom to 100%', 'domain': 'universal'}
+        ]
         matching_capabilities.extend(universal_capabilities)
-        print(f"📜 Added {len(universal_capabilities)} universal capabilities (scroll + tab + zoom)")
 
         # 🔧 INTERNAL CAPABILITIES: Add server-side capabilities (chat, etc.)
         internal_caps = load_internal_capabilities()
         for action_name, cap in internal_caps.items():
-            # Convert param descriptions to simple key list for LLM display
             cap_params = cap.get('params', {})
-            # Filter out empty params
             params_with_values = {k: v for k, v in cap_params.items() if v}
             matching_capabilities.append({
                 'id': action_name.lower(),
@@ -5175,13 +5151,11 @@ def resolve_capabilities_for_url(url: str) -> list:
                 'params': params_with_values if params_with_values else None,
                 'domain': 'internal'
             })
-        if internal_caps:
-            print(f"🔧 Added {len(internal_caps)} internal capabilities")
 
         return matching_capabilities
 
     except Exception as e:
-        print(f"❌ Error resolving capabilities for URL: {e}")
+        print(f"❌ Error getting capabilities for prompt: {e}")
         return []
 
 

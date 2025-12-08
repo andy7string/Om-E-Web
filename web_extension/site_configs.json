@@ -1,4 +1,6 @@
 {
+  "linkedin.com": "site_configs/linkedin.json",
+  "*.linkedin.com": "site_configs/linkedin.json",
   "google.com": "site_configs/google.json",
   "google.*": "site_configs/google.json",
   "*.google.com": "site_configs/google.json",

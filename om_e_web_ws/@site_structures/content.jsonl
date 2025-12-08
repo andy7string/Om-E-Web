@@ -1,35 +1,28 @@
 {
-  "timestamp": 1765184515.35136,
+  "timestamp": 1765201546.8228989,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138036913,
-      "url": "https://www.google.com/?zx=1765184485588&no_sw_cr=1",
-      "title": "Google",
-      "status": "loading"
+      "id": 1138037545,
+      "url": "https://www.youtube.com/watch?v=4QLWlcneJig&t=155s",
+      "title": "(34) Passive Income Expert: How To Make 10k Per Month In 90 Days! - YouTube",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138036884,
-        "url": "https://legacy.mesaboogie.com/#",
-        "title": "MESA/Boogie®",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138036913,
-        "url": "https://www.google.com/?zx=1765184485588&no_sw_cr=1",
-        "title": "Google",
+        "id": 1138037545,
+        "url": "https://www.youtube.com/watch?v=4QLWlcneJig&t=155s",
+        "title": "(34) Passive Income Expert: How To Make 10k Per Month In 90 Days! - YouTube",
         "active": true,
-        "status": "loading"
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 14719.2879945,
+    "last_tabs_update": 31759.333267208,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/?zx=1765184485588&no_sw_cr=1",
-    "title": "Google",
+    "url": "https://www.youtube.com/watch?v=4QLWlcneJig&t=155s",
+    "title": "(34) Passive Income Expert: How To Make 10k Per Month In 90 Days! - YouTube",
     "is_active_tab": true
   },
   "content_structure": {},

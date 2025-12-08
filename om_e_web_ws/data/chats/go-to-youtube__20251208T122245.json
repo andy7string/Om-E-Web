@@ -1,0 +1,33 @@
+{
+  "chat_id": "go-to-youtube__20251208T122245",
+  "project_id": "default",
+  "created_at": "2025-12-08T12:22:45.042099Z",
+  "updated_at": "2025-12-08T12:22:47.331359Z",
+  "title": "go to youtube",
+  "default_title": "go to youtube",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765196546539&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "go to youtube same tab",
+      "timestamp": "2025-12-08T12:22:45.042124Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "{\"cap\": \"UpdateTabURL\", \"params\": {\"tabId\": 1138037225, \"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-08T12:22:47.330415Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ UpdateTabURL: Success",
+      "timestamp": "2025-12-08T12:22:47.331359Z"
+    }
+  ]
+}

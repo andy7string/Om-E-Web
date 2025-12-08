@@ -145,6 +145,12 @@
       "description": "Closes the orb chat panel",
       "params": {}
     },
+    "FocusOrbInput": {
+      "action": "FocusOrbInput",
+      "label": "Focus the orb chat input",
+      "description": "Sets focus to the orb input with a guard that restores focus until user clicks elsewhere",
+      "params": {}
+    },
     "GetLLMConfig": {
       "action": "GetLLMConfig",
       "label": "Get LLM configuration",

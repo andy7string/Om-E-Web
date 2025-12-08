@@ -3434,6 +3434,8 @@ chrome.tabs.onRemoved.addListener(async (tabId) => {
     console.log("[SW] Tab removed:", tabId);
     tabState.delete(tabId);
     tabScanState.delete(tabId);
+    internalTabState.delete(tabId);
+    tabCache.delete(tabId);
     // 🖼️ Clear iframe intelligence cache for closed tab
     if (iframeIntelligenceCache.has(tabId)) {
         iframeIntelligenceCache.delete(tabId);
@@ -3516,11 +3518,10 @@ scheduleHeartbeatAlarm();
             console.log('[SW] 📐 Restored chat panel size:', chatPanelSize);
         }
 
-        // 💬 Restore active chat ID
-        if (activeChatId) {
-            orbState.activeChatId = activeChatId;
-            console.log('[SW] 💬 Restored active chat ID:', activeChatId);
-        }
+        // 💬 DON'T restore active chat ID - browser startup always starts with new chat
+        // activeChatId is saved to storage for potential future use, but we intentionally
+        // skip restoration so users get a fresh chat on browser launch
+        console.log('[SW] 💬 Browser startup - starting with fresh chat (ignoring saved:', activeChatId, ')');
     } catch (e) {
         console.warn('[SW] Could not restore state on startup:', e.message);
     }
