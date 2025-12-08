@@ -1,0 +1,54 @@
+{
+  "framework": "linkedin",
+  "scan_strategy": "generic",
+  "url_patterns": [
+    "linkedin.com",
+    "*.linkedin.com"
+  ],
+  "focus_targets": [
+    "input[data-testid='typeahead-input']",
+    "input[componentkey='jobSearchBox']",
+    "input[aria-label*='Search']",
+    "input[type='search']"
+  ],
+  "forceIncludeSelectors": [
+    "input[data-testid='typeahead-input']",
+    "input[componentkey='jobSearchBox']",
+    "input[aria-label*='Search']",
+    "button[aria-label*='Search']"
+  ],
+  "selectors": {
+    "navigation": [
+      "nav:not([hidden])",
+      "[role='navigation']",
+      "header[role='banner']"
+    ],
+    "buttons": [
+      "button",
+      "[role='button']",
+      "div[role='button']"
+    ],
+    "text_inputs": [
+      "input[data-testid='typeahead-input']",
+      "input[type='text']",
+      "input[type='search']",
+      "textarea"
+    ]
+  },
+  "inputPatterns": {
+    "jobSearch": {
+      "description": "LinkedIn job search input",
+      "container": "[componentkey='jobSearchBox']",
+      "forceBubbles": true,
+      "forceSubmitSelector": true,
+      "submitSelector": "button[aria-label*='Search' i], button[type='submit'], form button"
+    },
+    "globalSearch": {
+      "description": "LinkedIn global search input",
+      "container": "[data-testid='typeahead-input']",
+      "forceBubbles": true,
+      "forceSubmitSelector": true,
+      "submitSelector": "button[aria-label*='Search' i], button[type='submit']"
+    }
+  }
+}

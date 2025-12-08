@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/microsoft/pyright/main/packages/pyright/schema/pyrightconfig.schema.json",
   "include": [
     "om_e_web_ws",
     "web_extension"
@@ -8,9 +7,7 @@
   "venv": ".venv",
   "executionEnvironments": [
     {
-      "root": "om_e_web_ws",
-      "venvPath": ".",
-      "venv": ".venv"
+      "root": "om_e_web_ws"
     }
   ]
 }

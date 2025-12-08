@@ -6000,6 +6000,14 @@
             console.warn('[Content] ⚠️ Error cleaning old semantic IDs:', err);
         }
 
+        // 🧹 CRITICAL: Clear actionable element Maps before fresh extraction
+        // Without this, stale element references persist and cause navigate failures
+        const prevMapSize = this.actionableElements.size;
+        this.actionableElements.clear();
+        this.actionableElementNodes.clear();
+        this.elementCounter = 0; // Reset counter for consistent IDs
+        console.log(`[Content] 🧹 Cleared actionableElements Map (was ${prevMapSize} entries), reset counter`);
+
         // Helper: Check if element is visible (same logic as innerText)
         // 🆕 Exception: Elements with aria-labelledby are kept even if hidden (accessible form controls)
         const isVisible = (element) => {
@@ -6910,6 +6918,9 @@
                         reject(new Error("Service worker not available"));
                     } else {
                         console.log("[Content] ✅ Intelligence update sent to service worker");
+                        // 🎯 FOCUS: Trigger orb input focus after scan/text.md write completes
+                        // Use custom event since content.js and hud.js are same page context
+                        window.dispatchEvent(new CustomEvent('ome-focus-orb-input'));
                         resolve(response);
                     }
                 });
@@ -7891,10 +7902,32 @@
         // If not found in Map, query DOM for semantic extraction IDs
         if (!element) {
             try {
-                const domElement = document.querySelector(`[data-ome-action-id="${actionId}"]`);
-                if (domElement) {
-                    console.log("[Content] ✅ Found element via semantic extraction ID:", actionId);
+                // 🔍 Use querySelectorAll and find VISIBLE element (Google creates hidden tracking clones)
+                const candidates = document.querySelectorAll(`[data-ome-action-id="${actionId}"]`);
+                let domElement = null;
 
+                for (const candidate of candidates) {
+                    // Check if visible (not display:none, has dimensions, or is an <a> with href)
+                    const style = window.getComputedStyle(candidate);
+                    const isHidden = style.display === 'none' || style.visibility === 'hidden';
+                    const rect = candidate.getBoundingClientRect();
+                    const hasSize = rect.width > 0 || rect.height > 0;
+                    const isLink = candidate.tagName === 'A' && candidate.href;
+
+                    if (!isHidden && (hasSize || isLink)) {
+                        domElement = candidate;
+                        console.log("[Content] ✅ Found visible element via semantic ID:", actionId, candidate.tagName);
+                        break;
+                    }
+                }
+
+                // Fallback to first candidate if no visible one found
+                if (!domElement && candidates.length > 0) {
+                    domElement = candidates[0];
+                    console.log("[Content] ⚠️ No visible element found, using first candidate:", actionId);
+                }
+
+                if (domElement) {
                     // Build a minimal descriptor from the DOM element
                     element = {
                         id: actionId,
@@ -8376,8 +8409,68 @@
                             }
                         };
                     } else {
-                        console.error("[Content] ❌ No href attribute found for navigation element");
-                        result = { success: false, error: "No href attribute found for navigation" };
+                        // 🔍 No stored href - find what interactive element this text belongs to
+                        console.log("[Content] ⚠️ No stored href, finding interactive parent...");
+
+                        // Check if element itself is interactive
+                        const isButton = element.tagName === 'BUTTON' ||
+                                        element.getAttribute('role') === 'button';
+                        const isLink = element.tagName === 'A' && element.href;
+
+                        if (isLink) {
+                            console.log("[Content] 🧭 Element is a link, navigating:", element.href);
+                            window.location.href = element.href;
+                            result = {
+                                success: true,
+                                action: 'navigate',
+                                elementId: actionId,
+                                message: 'Navigation executed successfully',
+                                href: element.href,
+                                hrefSource: 'element'
+                            };
+                        } else if (isButton) {
+                            // Click buttons - they have JS handlers
+                            console.log("[Content] 🔘 Element is a button, clicking");
+                            element.click();
+                            result = {
+                                success: true,
+                                action: 'navigate',
+                                elementId: actionId,
+                                message: 'Button clicked (navigate action on button)',
+                                fallback: 'click'
+                            };
+                        } else {
+                            // Element is div/span/text - find interactive parent
+                            const parentLink = element.closest('a[href]');
+                            const parentButton = element.closest('button, [role="button"]');
+
+                            if (parentLink) {
+                                const href = parentLink.href || parentLink.getAttribute('href');
+                                console.log("[Content] 🧭 Found parent <a>, navigating:", href);
+                                window.location.href = href;
+                                result = {
+                                    success: true,
+                                    action: 'navigate',
+                                    elementId: actionId,
+                                    message: 'Navigation executed successfully',
+                                    href: href,
+                                    hrefSource: 'parent <a>'
+                                };
+                            } else if (parentButton) {
+                                console.log("[Content] 🔘 Found parent button, clicking");
+                                parentButton.click();
+                                result = {
+                                    success: true,
+                                    action: 'navigate',
+                                    elementId: actionId,
+                                    message: 'Parent button clicked (navigate action)',
+                                    fallback: 'parent button click'
+                                };
+                            } else {
+                                console.error("[Content] ❌ No href or interactive parent found for navigation");
+                                result = { success: false, error: "No href or interactive parent found for navigation" };
+                            }
+                        }
                     }
                     break;
 
@@ -8641,6 +8734,11 @@
                                             }
 
                                             // Method 2: Create very realistic keyboard events with all properties
+                                            // 🎯 CONFIG: forceBubbles in inputPattern enables bubbling for sites like Facebook/LinkedIn
+                                            const shouldBubble = matchedInputPattern && matchedInputPattern.forceBubbles;
+                                            if (shouldBubble) {
+                                                console.log('[Content] 🫧 forceBubbles enabled via inputPattern config');
+                                            }
                                             const enterKeyOptions = {
                                                 key: 'Enter',
                                                 code: 'Enter',
@@ -8648,7 +8746,7 @@
                                                 which: 13,
                                                 charCode: 13,
                                                 keyIdentifier: 'Enter',
-                                                bubbles: false, // 🎯 FIX: Don't bubble to prevent parent form submission
+                                                bubbles: shouldBubble, // 🎯 Config-driven: forceBubbles enables event bubbling
                                                 cancelable: true,
                                                 view: window,
                                                 composed: true,
@@ -8946,7 +9044,9 @@
                                 // 🎯 GENERIC: Look for submit buttons as fallback
                                 // Skip for search inputs with autocomplete (Enter key handles it)
                                 // But do look for textarea submit buttons (Enter creates new line, not submit)
-                                const shouldLookForSubmitButton = !hasAutocomplete || isTextarea;
+                                // Also check if inputPattern forces submitSelector (for JS-based search like LinkedIn)
+                                const shouldLookForSubmitButton = !hasAutocomplete || isTextarea ||
+                                    (matchedInputPattern && matchedInputPattern.forceSubmitSelector);
 
                                 if (shouldLookForSubmitButton && params && params.submit) {
                                     const buttonPollDelay = hasAutocomplete ? 500 : 200;

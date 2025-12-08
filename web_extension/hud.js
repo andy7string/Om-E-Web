@@ -5,7 +5,13 @@
 
 (() => {
 
-    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string, panelManuallyResized: boolean, panelTargetWidth: number|null }} */
+    // 🖼️ IFRAME GUARD - Only run HUD in main frame, not iframes
+    if (window.top !== window.self) {
+        console.log("[HUD] 🖼️ Skipping HUD injection in iframe:", window.location.href);
+        return;
+    }
+
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string, panelManuallyResized: boolean, panelTargetWidth: number|null, focusGuardCleanup: (() => void)|null, userBlurRequested: boolean }} */
     const hudState = {
         host: null,
         shadow: null,
@@ -20,7 +26,9 @@
         dragging: false,
         theme: 'robot',       // Current orb theme (default)
         panelManuallyResized: false,  // 📐 Track if user has resized panel
-        panelTargetWidth: null        // 📐 Target width to restore on resize (user-set or optimal)
+        panelTargetWidth: null,        // 📐 Target width to restore on resize (user-set or optimal)
+        focusGuardCleanup: null,       // 🎯 Active focus guard disposer
+        userBlurRequested: false       // 🎯 Tracks if user intentionally blurred orb input
     };
 
     // 💬 Save chat input immediately (persists across navigation)
@@ -2964,6 +2972,15 @@
                     autoResizeOrbInput();
                 });
 
+                // 🎯 Keep guard in sync with user actions
+                chatInput.addEventListener('focusin', () => {
+                    hudState.userBlurRequested = false;
+                    focusOrbInputGuard(true);
+                });
+                chatPanel.addEventListener('pointerdown', () => {
+                    hudState.userBlurRequested = false;
+                }, true);
+
                 // 💬 Restore chat input value after theme change
                 try {
                     chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
@@ -3341,6 +3358,7 @@
                                 chatState.currentChatId = response.activeChatId;
                                 loadChat(response.activeChatId);
                             }
+                            // 🎯 FOCUS: Handled by 'ome-focus-orb-input' event after scan completes
                         }
                     });
                 } catch (e) {
@@ -4853,6 +4871,72 @@
     }
 
     /**
+     * 🎯 Stop any active orb input focus guard
+     */
+    function stopOrbInputFocusGuard() {
+        if (hudState.focusGuardCleanup) {
+            hudState.focusGuardCleanup();
+            hudState.focusGuardCleanup = null;
+        }
+    }
+
+    /**
+     * 🎯 Focus orb chat input with guard against focus-stealing scripts
+     * @param {boolean} [force=false] - ignore user-requested blur once
+     */
+    function focusOrbInputGuard(force = false) {
+        const chatPanel = hudState.chatPanel;
+        if (!chatPanel || !hudState.chatVisible) return;
+        if (hudState.userBlurRequested && !force) return;
+
+        const input = chatPanel.querySelector('.ome-chat-input');
+        if (!input) return;
+
+        stopOrbInputFocusGuard();
+
+        const requestFocus = () => {
+            if (!hudState.chatVisible || hudState.userBlurRequested) return;
+            if (input.disabled || input.getAttribute('aria-disabled') === 'true') return;
+            if (input.offsetParent === null) return; // hidden
+            if (input.tabIndex < 0) input.tabIndex = 0;
+            input.focus({ preventScroll: true });
+            const len = input.value?.length || 0;
+            try {
+                input.setSelectionRange(len, len);
+            } catch (e) {
+                console.warn('[Content] Could not set selection on orb input:', e);
+            }
+        };
+
+        const onPointerDown = (event) => {
+            if (!chatPanel.contains(event.target)) {
+                hudState.userBlurRequested = true; // user clicked away
+                stopOrbInputFocusGuard();
+            }
+        };
+
+        const onFocusOut = () => {
+            if (hudState.userBlurRequested || !hudState.chatVisible) {
+                stopOrbInputFocusGuard();
+                return;
+            }
+            requestFocus();
+        };
+
+        hudState.userBlurRequested = false;
+        input.addEventListener('focusout', onFocusOut);
+        document.addEventListener('pointerdown', onPointerDown, true);
+
+        hudState.focusGuardCleanup = () => {
+            input.removeEventListener('focusout', onFocusOut);
+            document.removeEventListener('pointerdown', onPointerDown, true);
+            hudState.focusGuardCleanup = null;
+        };
+
+        requestFocus();
+    }
+
+    /**
      * 💬 Sync HUD prompt input from service worker (shared with orb chat input)
      */
     function syncHUDPromptInput() {
@@ -4917,16 +5001,19 @@
                             input.value = response.chatInput;
                             input.dispatchEvent(new Event('input', { bubbles: true }));
                         }
-                        input.focus();
+                        hudState.userBlurRequested = false;
+                        focusOrbInputGuard(true);
                     });
                 } catch (e) {
-                    input.focus();
+                    hudState.userBlurRequested = false;
+                    focusOrbInputGuard(true);
                 }
             }
             renderChatMessages();
         } else {
             // When closing, ensure orb still fits within viewport
             constrainOrbToViewport();
+            stopOrbInputFocusGuard();
         }
         // 🔄 Sync HUD prompt visibility
         updateHUDPromptVisibility();
@@ -5841,6 +5928,8 @@
                                 id: action.message.id
                             });
                             renderChatMessages();
+                            hudState.userBlurRequested = false;
+                            focusOrbInputGuard(true);
                         } else {
                             // Update the existing local message with the server ID
                             const existing = chatState.messages.find(m =>
@@ -5954,6 +6043,11 @@
                     }
                     break;
 
+                case 'focus_orb_input':
+                    hudState.userBlurRequested = false;
+                    focusOrbInputGuard(true);
+                    break;
+
                 default:
                     console.warn('[Content] 🎛️ Unknown hud_action type:', action?.type);
             }
@@ -5962,6 +6056,13 @@
             return true;
         }
 
+    });
+
+    // 🎯 FOCUS: Listen for custom event from content.js after scan completes
+    window.addEventListener('ome-focus-orb-input', () => {
+        hudState.userBlurRequested = false;
+        focusOrbInputGuard(true);
+        console.log('[HUD] 🎯 Focus guard activated after scan');
     });
 
     // ========================================================================
