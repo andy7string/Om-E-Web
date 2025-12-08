@@ -1,28 +1,28 @@
 {
-  "timestamp": 1765116726.011004,
+  "timestamp": 1765182173.735447,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138036353,
-      "url": "https://www.google.com/?zx=1765116515070&no_sw_cr=1",
-      "title": "Google",
+      "id": 1138036884,
+      "url": "https://www.google.com/search?q=mesa+amps%0D%0A&sca_esv=0e6f6e2963ac54c7&sxsrf=AE3TifPh1uDrOjNBwolml5TuiS9rm1AyZA%3A1765181981792&ei=HYo2aY6LMIPj1e8PzbTu-Ag",
+      "title": "mesa amps - Google Search",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138036353,
-        "url": "https://www.google.com/?zx=1765116515070&no_sw_cr=1",
-        "title": "Google",
+        "id": 1138036884,
+        "url": "https://www.google.com/search?q=mesa+amps%0D%0A&sca_esv=0e6f6e2963ac54c7&sxsrf=AE3TifPh1uDrOjNBwolml5TuiS9rm1AyZA%3A1765181981792&ei=HYo2aY6LMIPj1e8PzbTu-Ag",
+        "title": "mesa amps - Google Search",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 55058.71028975,
+    "last_tabs_update": 12405.163214125,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/?zx=1765116515070&no_sw_cr=1",
-    "title": "Google",
+    "url": "https://www.google.com/search?q=mesa+amps%0D%0A&sca_esv=0e6f6e2963ac54c7&sxsrf=AE3TifPh1uDrOjNBwolml5TuiS9rm1AyZA%3A1765181981792&ei=HYo2aY6LMIPj1e8PzbTu-Ag",
+    "title": "mesa amps - Google Search",
     "is_active_tab": true
   },
   "menu_structure": {
