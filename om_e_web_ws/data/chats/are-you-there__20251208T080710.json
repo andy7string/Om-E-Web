@@ -1,0 +1,111 @@
+{
+  "chat_id": "are-you-there__20251208T080710",
+  "project_id": "default",
+  "created_at": "2025-12-08T08:07:10.168387Z",
+  "updated_at": "2025-12-08T08:08:56.100466Z",
+  "title": "are you there",
+  "default_title": "are you there",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765181222574&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "are you there",
+      "timestamp": "2025-12-08T08:07:10.168397Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Yes, I'm here. How can I assist you today?",
+      "timestamp": "2025-12-08T08:07:12.370671Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "what page are we on",
+      "timestamp": "2025-12-08T08:07:17.959287Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "We are on the Google homepage at https://www.google.com/?zx=1765181222574&no_sw_cr=1.",
+      "timestamp": "2025-12-08T08:07:19.032363Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "can you scroll down",
+      "timestamp": "2025-12-08T08:07:28.920028Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollDown\"}",
+      "timestamp": "2025-12-08T08:07:29.879098Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "navigate to the aws devops thing",
+      "timestamp": "2025-12-08T08:07:53.584963Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "{\"act\": \"a_id_20\"}",
+      "timestamp": "2025-12-08T08:07:54.412331Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "search google for claude ai",
+      "timestamp": "2025-12-08T08:08:15.471941Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "{\"act\": \"a_id_6\", \"value\": \"claude ai\", \"submit\": true}",
+      "timestamp": "2025-12-08T08:08:16.618401Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "click that ai button",
+      "timestamp": "2025-12-08T08:08:39.057209Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "{\"act\": \"a_id_9\"}",
+      "timestamp": "2025-12-08T08:08:40.026071Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "do you see my mail",
+      "timestamp": "2025-12-08T08:08:49.384741Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "We are currently on the Google search page, not Gmail. If you want to check your mail, I can navigate to Gmail for you. Would you like me to do that?",
+      "timestamp": "2025-12-08T08:08:50.755693Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "ok",
+      "timestamp": "2025-12-08T08:08:55.240944Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "{\"act\": \"a_id_2\"}",
+      "timestamp": "2025-12-08T08:08:56.100466Z"
+    }
+  ]
+}

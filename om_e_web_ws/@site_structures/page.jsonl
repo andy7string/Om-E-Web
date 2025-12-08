@@ -1,28 +1,35 @@
 {
-  "timestamp": 1765182173.735447,
+  "timestamp": 1765184515.351022,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138036884,
-      "url": "https://www.google.com/search?q=mesa+amps%0D%0A&sca_esv=0e6f6e2963ac54c7&sxsrf=AE3TifPh1uDrOjNBwolml5TuiS9rm1AyZA%3A1765181981792&ei=HYo2aY6LMIPj1e8PzbTu-Ag",
-      "title": "mesa amps - Google Search",
+      "id": 1138036913,
+      "url": "https://www.google.com/?zx=1765184485588&no_sw_cr=1",
+      "title": "Google",
       "status": "loading"
     },
     "all_tabs": [
       {
         "id": 1138036884,
-        "url": "https://www.google.com/search?q=mesa+amps%0D%0A&sca_esv=0e6f6e2963ac54c7&sxsrf=AE3TifPh1uDrOjNBwolml5TuiS9rm1AyZA%3A1765181981792&ei=HYo2aY6LMIPj1e8PzbTu-Ag",
-        "title": "mesa amps - Google Search",
+        "url": "https://legacy.mesaboogie.com/#",
+        "title": "MESA/Boogie®",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138036913,
+        "url": "https://www.google.com/?zx=1765184485588&no_sw_cr=1",
+        "title": "Google",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 12405.163214125,
+    "last_tabs_update": 14719.2879945,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/search?q=mesa+amps%0D%0A&sca_esv=0e6f6e2963ac54c7&sxsrf=AE3TifPh1uDrOjNBwolml5TuiS9rm1AyZA%3A1765181981792&ei=HYo2aY6LMIPj1e8PzbTu-Ag",
-    "title": "mesa amps - Google Search",
+    "url": "https://www.google.com/?zx=1765184485588&no_sw_cr=1",
+    "title": "Google",
     "is_active_tab": true
   },
   "menu_structure": {

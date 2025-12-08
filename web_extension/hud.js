@@ -4769,15 +4769,19 @@
                         calculateOptimalPanelWidth(hudState.chatPanel);
                     }
 
-                    // 💬 Load active chat if one exists
+                    // 💬 Load active chat if one exists, otherwise start fresh
                     console.log('[Content] 💬 initHUD checking activeChatId:', response.activeChatId, 'current:', chatState.currentChatId);
                     if (response.activeChatId && response.activeChatId !== chatState.currentChatId) {
                         chatState.currentChatId = response.activeChatId;
                         // skipBroadcast=true: new tab syncing, don't trigger reload on other tabs
                         console.log('[Content] 💬 Loading active chat from SW:', response.activeChatId);
                         loadChat(response.activeChatId, true);
+                    } else if (!response.activeChatId) {
+                        // 📚 No active chat - start with a clean slate by default
+                        console.log('[Content] 💬 No active chat, starting new chat');
+                        startNewChat();
                     } else {
-                        console.log('[Content] 💬 No active chat to load or same as current');
+                        console.log('[Content] 💬 Same chat as current, skipping load');
                     }
 
                 }
