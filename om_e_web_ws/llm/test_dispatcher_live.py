@@ -105,7 +105,7 @@ async def test_element_input(action_id: str, value: str, submit: bool = False):
     print("\n" + "=" * 50)
     print(f"🧪 Testing setValue on {action_id}")
     print("=" * 50)
-    action = {"act": action_id, "value": value}
+    action: dict[str, str | bool] = {"act": action_id, "value": value}
     if submit:
         action["submit"] = True
     result = await send_dispatch_test(action)

@@ -112,6 +112,8 @@ class LLMClient:
 
         if not endpoint:
             raise ValueError("No endpoint configured for provider")
+        if not model:
+            raise ValueError("No model configured for provider")
 
         # Route to appropriate handler
         if provider_type == "anthropic":
