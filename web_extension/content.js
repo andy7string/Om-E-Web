@@ -2568,6 +2568,12 @@
             return false; // Don't handle this message in this listener
         }
 
+        // 🎯 CAPABILITY EXECUTION: Let the dedicated capability listener handle these
+        // The capability listener at line ~10841 handles execute_capability messages
+        if (message.type === "execute_capability") {
+            return false; // Don't handle this message in this listener
+        }
+
         // 🎯 COMMAND EXECUTION SECTION - Handle all automation commands
         // Execute command asynchronously and send response
         // This allows for long-running operations without blocking the message handler
@@ -9570,7 +9576,10 @@
         const transcripts = [];
         const youtubeTranscript = this.extractYoutubeTranscriptData();
         if (youtubeTranscript) {
+            console.log(`[Content] 📜 Transcript extracted: ${youtubeTranscript.segmentCount} segments for "${youtubeTranscript.title}"`);
             transcripts.push(youtubeTranscript);
+        } else {
+            console.log("[Content] 📜 No transcript data found in DOM");
         }
         return transcripts;
     };
@@ -9584,25 +9593,42 @@
             return null;
         }
 
+        // 🔍 DEBUG: Check for transcript panel elements
         const transcriptRoot = document.querySelector('ytd-transcript-segment-list-renderer');
         if (!transcriptRoot) {
+            // Try alternative selectors
+            const altRoot = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"]');
+            console.log("[Content] 📜 DEBUG: transcriptRoot not found. Alt panel:", altRoot ? "FOUND" : "NOT FOUND");
             return null;
         }
+        console.log("[Content] 📜 DEBUG: transcriptRoot FOUND");
 
         const segmentsContainer = transcriptRoot.querySelector('#segments-container');
-        if (!segmentsContainer || !segmentsContainer.querySelector('ytd-transcript-segment-renderer')) {
+        if (!segmentsContainer) {
+            console.log("[Content] 📜 DEBUG: #segments-container NOT FOUND");
+            return null;
+        }
+        if (!segmentsContainer.querySelector('ytd-transcript-segment-renderer')) {
+            console.log("[Content] 📜 DEBUG: No ytd-transcript-segment-renderer in container");
             return null;
         }
 
         // Skip if panel is hidden/collapsed
-        if (transcriptRoot.hasAttribute('hidden') || (typeof transcriptRoot.checkVisibility === 'function' && !transcriptRoot.checkVisibility())) {
+        if (transcriptRoot.hasAttribute('hidden')) {
+            console.log("[Content] 📜 DEBUG: Panel has hidden attribute");
+            return null;
+        }
+        if (typeof transcriptRoot.checkVisibility === 'function' && !transcriptRoot.checkVisibility()) {
+            console.log("[Content] 📜 DEBUG: Panel not visible (checkVisibility)");
             return null;
         }
 
         const segmentNodes = Array.from(segmentsContainer.querySelectorAll('ytd-transcript-segment-renderer'));
         if (!segmentNodes.length) {
+            console.log("[Content] 📜 DEBUG: No segment nodes found");
             return null;
         }
+        console.log(`[Content] 📜 DEBUG: Found ${segmentNodes.length} segment nodes`);
 
         const segments = segmentNodes.map(node => {
             const timestampText = node.querySelector('.segment-timestamp')?.textContent?.trim() || null;
@@ -9619,13 +9645,17 @@
         }).filter(Boolean);
 
         if (!segments.length) {
+            console.log("[Content] 📜 DEBUG: No valid segments after extraction");
             return null;
         }
+        console.log(`[Content] 📜 DEBUG: Extracted ${segments.length} valid segments`);
 
         const signature = this.buildTranscriptSignature(segments);
         if (signature && signature === this.lastTranscriptSignature) {
+            console.log("[Content] 📜 DEBUG: Duplicate transcript (same signature), skipping");
             return null;
         }
+        console.log("[Content] 📜 DEBUG: New transcript signature, proceeding to save");
 
         this.lastTranscriptSignature = signature;
 

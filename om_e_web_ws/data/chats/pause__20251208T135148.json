@@ -1,0 +1,141 @@
+{
+  "chat_id": "pause__20251208T135148",
+  "project_id": "default",
+  "created_at": "2025-12-08T13:51:48.933442Z",
+  "updated_at": "2025-12-08T13:53:31.249050Z",
+  "title": "pause",
+  "default_title": "pause",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.youtube.com/watch?v=nRaSvwRemko",
+    "page_title": "(34) Are oceans havens for UFOs? New Ross Coulthart special investigates | Elizabeth Vargas Reports - YouTube"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "pause",
+      "timestamp": "2025-12-08T13:51:48.933459Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "{\"cap\": \"TogglePlayPause\"}",
+      "timestamp": "2025-12-08T13:51:51.272890Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ TogglePlayPause: Success",
+      "timestamp": "2025-12-08T13:51:51.273648Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "retrieve transcript",
+      "timestamp": "2025-12-08T13:52:06.756784Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-08T13:52:07.656764Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-08T13:52:07.657632Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "nice lets go back home please",
+      "timestamp": "2025-12-08T13:52:27.410925Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "{\"act\": \"a_id_1\"}",
+      "timestamp": "2025-12-08T13:52:29.063405Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_1): Success",
+      "timestamp": "2025-12-08T13:52:29.063979Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "please look in my history",
+      "timestamp": "2025-12-08T13:52:39.986184Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "{\"act\": \"a_id_21\"}",
+      "timestamp": "2025-12-08T13:52:40.934769Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_21): Success",
+      "timestamp": "2025-12-08T13:52:40.935268Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "open that joe rogan one",
+      "timestamp": "2025-12-08T13:52:52.521865Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "{\"act\": \"a_id_61\"}",
+      "timestamp": "2025-12-08T13:52:55.067456Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_61): Success",
+      "timestamp": "2025-12-08T13:52:55.068012Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "user",
+      "content": "lets take this transcript",
+      "timestamp": "2025-12-08T13:53:10.618176Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "assistant",
+      "content": "{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-08T13:53:11.980929Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-08T13:53:11.982084Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "i meant retreive it",
+      "timestamp": "2025-12-08T13:53:30.098379Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-08T13:53:31.248237Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-08T13:53:31.249050Z"
+    }
+  ]
+}
