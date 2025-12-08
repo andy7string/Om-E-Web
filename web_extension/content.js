@@ -5971,12 +5971,12 @@
      * 🆕 NEW: Extract semantic text with inline action IDs
      *
      * Walks the DOM like innerText does (only visible elements),
-     * but tags interactive elements with their action IDs.
+     * but tags interactive elements with their action IDs and JSON hints.
      *
      * Example output:
-     *   <Button id="a_id_0">Skip navigation</Button>
-     *   <Input id="a_id_1">Search</Input>
-     *   <Link id="a_id_2">Guthrie Govan acoustic solo</Link>
+     *   Button: Skip navigation → {"act": "a_id_0"}
+     *   Input: Search → {"act": "a_id_1", "value": "...", "submit": true}
+     *   Link: Guthrie Govan acoustic solo → {"act": "a_id_2"}
      *   Regular text here
      *
      * Returns: { text: string, actionables: Array }
@@ -6324,33 +6324,33 @@
                             selector: this.generateSimpleSelector(targetElement)
                         });
 
-                        // Add semantic tag to text (with usage hints for interactive elements)
+                        // Add element with action hint (Option B format: Type: label → {"act": "id", ...})
                         if (elementType === 'Input') {
-                            textParts.push(`<${elementType} id="${actionId}" use="(${actionId}, 'your text', submit:true)">${label}</${elementType}>`);
+                            textParts.push(`Input: ${label} → {"act": "${actionId}", "value": "...", "submit": true}`);
                         } else if (elementType === 'Checkbox') {
-                            // 🆕 Checkbox: Show state and toggle hint with true/false
                             const isChecked = targetElement.checked || targetElement.getAttribute('aria-checked') === 'true';
-                            textParts.push(`<${elementType} id="${actionId}" checked="${isChecked}" use="(${actionId}, toggle, true|false)">${label}</${elementType}>`);
+                            const state = isChecked ? '[✓]' : '[ ]';
+                            textParts.push(`Checkbox: ${label} ${state} → {"act": "${actionId}", "value": ${!isChecked}}`);
                         } else if (elementType === 'Radio') {
-                            // 🆕 Radio: Show state and toggle hint with true/false
                             const isSelected = targetElement.checked || targetElement.getAttribute('aria-checked') === 'true';
-                            textParts.push(`<${elementType} id="${actionId}" selected="${isSelected}" use="(${actionId}, toggle, true)">${label}</${elementType}>`);
+                            const state = isSelected ? '[●]' : '[○]';
+                            textParts.push(`Radio: ${label} ${state} → {"act": "${actionId}", "value": true}`);
                         } else if (elementType === 'Slider') {
-                            // 🆕 Slider/Range: Show value and set hint
                             const value = targetElement.value || targetElement.getAttribute('aria-valuenow') || '0';
                             const min = targetElement.min || targetElement.getAttribute('aria-valuemin') || '0';
                             const max = targetElement.max || targetElement.getAttribute('aria-valuemax') || '100';
-                            textParts.push(`<${elementType} id="${actionId}" value="${value}" min="${min}" max="${max}" use="(${actionId}, setValue, number)">${label}</${elementType}>`);
+                            textParts.push(`Slider: ${label} (${value}/${min}-${max}) → {"act": "${actionId}", "value": N}`);
                         } else if (elementType === 'Switch') {
-                            // 🆕 Switch: Show state and toggle hint with true/false
                             const isOn = targetElement.checked || targetElement.getAttribute('aria-checked') === 'true';
-                            textParts.push(`<${elementType} id="${actionId}" on="${isOn}" use="(${actionId}, toggle, true|false)">${label}</${elementType}>`);
+                            const state = isOn ? '[ON]' : '[OFF]';
+                            textParts.push(`Switch: ${label} ${state} → {"act": "${actionId}", "value": ${!isOn}}`);
                         } else if (elementType === 'Select') {
-                            // 🆕 Select/Dropdown: Show current value
                             const currentValue = targetElement.value || targetElement.selectedOptions?.[0]?.text || '';
-                            textParts.push(`<${elementType} id="${actionId}" value="${currentValue}" use="(${actionId}, select, 'option')">${label}</${elementType}>`);
+                            const valueHint = currentValue ? ` (${currentValue})` : '';
+                            textParts.push(`Select: ${label}${valueHint} → {"act": "${actionId}", "value": "option"}`);
                         } else {
-                            textParts.push(`<${elementType} id="${actionId}">${label}</${elementType}>`);
+                            // Link, Button - simple click/navigate
+                            textParts.push(`${elementType}: ${label} → {"act": "${actionId}"}`);
                         }
 
                         // Mark as processed

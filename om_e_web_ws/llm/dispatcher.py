@@ -24,6 +24,59 @@ import os
 from typing import Any, Callable, Awaitable, Optional
 
 # -----------------------------------------------------------------------------
+# Element Registry Resolver (set by ws_server.py to avoid circular imports)
+# -----------------------------------------------------------------------------
+
+_element_resolver: Optional[Callable[[str], Optional[dict]]] = None
+
+
+def set_element_resolver(resolver: Callable[[str], Optional[dict]]):
+    """Set the element resolver function (called by ws_server.py at startup)."""
+    global _element_resolver
+    _element_resolver = resolver
+
+
+def resolve_action_type(action_id: str, has_value: bool = False) -> str:
+    """
+    Auto-resolve action type from element registry.
+
+    Resolution rules (from content.js getElementType):
+        Link     → navigate
+        Button   → click
+        Input    → setValue (covers textarea, contenteditable, text inputs)
+        Select   → select
+        Option   → click (selecting an option)
+        Checkbox → toggle
+        Radio    → toggle
+        Switch   → toggle
+        Slider   → setValue
+
+    Falls back to: setValue if value provided, else click
+    """
+    if _element_resolver:
+        el_info = _element_resolver(action_id)
+        if el_info:
+            el_type = el_info.get("type", "").lower()
+            if el_type == "link":
+                return "navigate"
+            elif el_type == "button":
+                return "click"
+            elif el_type == "input":
+                return "setValue" if has_value else "click"
+            elif el_type == "select":
+                return "setValue" if has_value else "select"
+            elif el_type == "option":
+                return "click"
+            elif el_type in ("checkbox", "radio", "switch"):
+                return "toggle"
+            elif el_type == "slider":
+                return "setValue"
+
+    # Fallback: value means setValue, no value means click
+    return "setValue" if has_value else "click"
+
+
+# -----------------------------------------------------------------------------
 # Capability Loading
 # -----------------------------------------------------------------------------
 
@@ -224,11 +277,8 @@ async def dispatch(
             if submit:
                 params["submit"] = True
 
-            # Determine action type based on params
-            if value is not None:
-                action_type = "setValue"
-            else:
-                action_type = "click"  # Default for no value
+            # 🎯 Auto-resolve action type from element registry
+            action_type = resolve_action_type(action_id, has_value=(value is not None))
 
             print(f"🎯 Dispatching act: {action_id} ({action_type})")
             result = await send_instruction(action_id, action_type, params)

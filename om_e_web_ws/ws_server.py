@@ -43,6 +43,8 @@ from llm.dispatcher import (
     load_capabilities as llm_load_capabilities,
     get_capabilities_for_prompt,
     format_result_for_llm,
+    set_element_resolver,
+    resolve_action_type,
 )
 
 # LLM Agent - conversational AI with history
@@ -71,6 +73,21 @@ CURRENT_CHAT_ID = None             # Active chat ID (auto-created on first messa
 
 # 🤖 LLM Agent instance for chat conversations
 LLM_AGENT = None                   # OmEAgent instance (created on first chat)
+
+# 🎯 Element Registry - maps action IDs to element metadata for auto-resolution
+# Populated from semanticPageData.actionables on each intelligence update
+# Structure: { "a_id_0": {"type": "Link", "tag": "a", "href": "...", "label": "..."}, ... }
+ELEMENT_REGISTRY = {}
+
+
+def get_element_info(action_id: str) -> Optional[dict]:
+    """
+    Get element metadata from registry for action type resolution.
+
+    Returns: {"type": "Link|Button|Input|Select", "tag": "a|button|...", "label": "...", "href": "...", "iframe": bool}
+    Or None if not found.
+    """
+    return ELEMENT_REGISTRY.get(action_id)
 
 def get_all_site_configs():
     """
@@ -3773,6 +3790,20 @@ async def handler(ws):
                             page_text = semantic_data.get("text", "")
                             actionables = semantic_data.get("actionables", [])
                             print(f"✅ Using semantic text with {len(actionables)} tagged elements")
+
+                            # 🎯 Populate ELEMENT_REGISTRY for action type resolution
+                            global ELEMENT_REGISTRY
+                            ELEMENT_REGISTRY = {}  # Clear on new page/update
+                            for el in actionables:
+                                el_id = el.get("id")
+                                if el_id:
+                                    ELEMENT_REGISTRY[el_id] = {
+                                        "type": el.get("type"),      # Link, Button, Input, Select
+                                        "tag": el.get("tag"),        # a, button, input, select
+                                        "label": el.get("label"),    # Display text
+                                        "href": el.get("href"),      # For links
+                                    }
+                            print(f"🎯 Element registry updated: {len(ELEMENT_REGISTRY)} elements")
                         else:
                             page_text = intelligence_data.get("pageText", "")
                             print("⚠️ Semantic data not available, using plain text")
@@ -3810,44 +3841,37 @@ async def handler(ws):
                                         except:
                                             active_domain = 'unknown'
 
-                                        # Build compact tab line
-                                        tab_parts = [f"**Tabs ({total_tabs}):** Active: #{active_id} \"{active_title}\" {active_domain} [{active_status}]"]
+                                        # Build tab info with clear tabId for capability usage
+                                        f.write(f"**Active Tab:** tabId: {active_id} \"{active_title}\" ({active_domain})\n")
 
-                                        # Add other tabs (non-active)
+                                        # Add other tabs with tabIds for SwitchTab/CloseTab capabilities
                                         other_tabs = [t for t in CURRENT_TABS_INFO if not t.get('active', False)]
                                         if other_tabs:
                                             other_strs = []
-                                            for t in other_tabs[:3]:  # Limit to 3 other tabs
+                                            for t in other_tabs[:5]:
                                                 t_id = t.get('id', '?')
-                                                t_title = t.get('title', 'Unknown')[:20]
-                                                t_url = t.get('url', '')
-                                                try:
-                                                    t_domain = urlparse(t_url).hostname or '?'
-                                                except:
-                                                    t_domain = '?'
-                                                other_strs.append(f"#{t_id} \"{t_title}\" {t_domain}")
-                                            if other_strs:
-                                                tab_parts.append(" | Other: " + ", ".join(other_strs))
-                                            if len(other_tabs) > 3:
-                                                tab_parts.append(f" (+{len(other_tabs) - 3} more)")
-
-                                        f.write("".join(tab_parts) + "\n\n")
+                                                t_title = t.get('title', 'Unknown')[:25]
+                                                other_strs.append(f"tabId: {t_id} \"{t_title}\"")
+                                            f.write(f"**Other Tabs ({len(other_tabs)}):** " + " | ".join(other_strs))
+                                            if len(other_tabs) > 5:
+                                                f.write(f" (+{len(other_tabs) - 5} more)")
+                                            f.write("\n")
+                                        f.write("\n")
 
                                     # 🎯 CAPABILITIES SECTION: Show domain-specific + universal actions
                                     # Universal scroll capabilities are automatically included via resolve_capabilities_for_url()
                                     if capabilities:
-                                        f.write("## Available Actions\n\n")
-                                        f.write("The following pre-configured actions are available for this page:\n\n")
+                                        f.write("## Capabilities\n\n")
                                         for cap in capabilities:
-                                            f.write(f"**{cap['action']}** - {cap['label']}\n")
-                                            f.write(f"  - {cap['description']}\n")
-                                            # Use usage_example if provided, otherwise basic command
-                                            base_cmd = f"python3 test_navigation.py --command capability --capability {cap['action']}"
-                                            if cap.get('usage_example'):
-                                                f.write(f"  - Usage: `{base_cmd} {cap['usage_example']}`\n\n")
+                                            cap_name = cap['action']
+                                            params = cap.get('params', {})
+                                            if params:
+                                                # Show example with params
+                                                param_example = ", ".join([f'"{k}": ...' for k in params.keys()])
+                                                f.write(f"- **{cap_name}** - {cap['label']} → `{{\"cap\": \"{cap_name}\", \"params\": {{{param_example}}}}}`\n")
                                             else:
-                                                f.write(f"  - Usage: `{base_cmd}`\n\n")
-                                        f.write("---\n\n")
+                                                f.write(f"- **{cap_name}** - {cap['label']} → `{{\"cap\": \"{cap_name}\"}}`\n")
+                                        f.write("\n---\n\n")
 
                                     f.write("---\n\n")
                                     f.write(page_text)
@@ -3868,17 +3892,28 @@ async def handler(ws):
                                             text = el.get('text') or el.get('label') or el.get('placeholder') or el.get('name') or 'Unnamed'
                                             el_type = el.get('type', '')
 
-                                            # Format based on tag type - include iframe="true" for routing
+                                            # Format using Option B style with JSON hints (iframe elements)
                                             if tag == 'button':
-                                                f.write(f"<Button id=\"{action_id}\" iframe=\"true\">{text}</Button>\n")
+                                                f.write(f"Button: {text} [iframe] → {{\"act\": \"{action_id}\"}}\n")
+                                                reg_type = "Button"
                                             elif tag == 'select':
-                                                f.write(f"<Select id=\"{action_id}\" iframe=\"true\">{text}</Select>\n")
+                                                f.write(f"Select: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"option\"}}\n")
+                                                reg_type = "Select"
                                             else:
                                                 # Input elements
-                                                type_hint = f" type=\"{el_type}\"" if el_type else ""
-                                                f.write(f"<Input id=\"{action_id}\"{type_hint} iframe=\"true\" use=\"({action_id}, 'your text', submit:true, iframe:true)\">{text}</Input>\n")
+                                                f.write(f"Input: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"...\", \"submit\": true}}\n")
+                                                reg_type = "Input"
 
-                                        print(f"🖼️ Added {len(iframe_elements)} iframe elements to text.md")
+                                            # 🎯 Add iframe element to registry
+                                            ELEMENT_REGISTRY[action_id] = {
+                                                "type": reg_type,
+                                                "tag": tag,
+                                                "label": text,
+                                                "href": None,
+                                                "iframe": True,
+                                            }
+
+                                        print(f"🖼️ Added {len(iframe_elements)} iframe elements to text.md and registry")
 
                                     elif pending_iframe_count > 0 and iframe_status == 'loading':
                                         # 🚀 PROGRESSIVE: Iframes still loading - add placeholder
@@ -3978,13 +4013,27 @@ async def handler(ws):
                         text = el.get('text') or el.get('label') or el.get('placeholder') or el.get('name') or 'Unnamed'
                         el_type = el.get('type', '')
 
+                        # Format using Option B style with JSON hints (iframe elements)
                         if tag == 'button':
-                            iframe_section += f"<Button id=\"{action_id}\" iframe=\"true\">{text}</Button>\n"
+                            iframe_section += f"Button: {text} [iframe] → {{\"act\": \"{action_id}\"}}\n"
+                            reg_type = "Button"
                         elif tag == 'select':
-                            iframe_section += f"<Select id=\"{action_id}\" iframe=\"true\">{text}</Select>\n"
+                            iframe_section += f"Select: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"option\"}}\n"
+                            reg_type = "Select"
                         else:
-                            type_hint = f" type=\"{el_type}\"" if el_type else ""
-                            iframe_section += f"<Input id=\"{action_id}\"{type_hint} iframe=\"true\" use=\"({action_id}, 'your text', submit:true, iframe:true)\">{text}</Input>\n"
+                            iframe_section += f"Input: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"...\", \"submit\": true}}\n"
+                            reg_type = "Input"
+
+                        # 🎯 Add iframe element to registry
+                        ELEMENT_REGISTRY[action_id] = {
+                            "type": reg_type,
+                            "tag": tag,
+                            "label": text,
+                            "href": None,
+                            "iframe": True,
+                        }
+
+                    print(f"🎯 Added {len(iframe_elements)} iframe elements to registry")
 
                     # Check if there's a placeholder to replace
                     placeholder_marker = "## Secure Iframe Elements"
@@ -4125,36 +4174,73 @@ async def handler(ws):
                                 dom_actions = ['click', 'setValue', 'focus', 'hover']  # Actions on DOM elements
 
                                 for call in calls:
+                                    call_type = call.get("type")  # "element" or "capability"
+                                    cap_result = {"ok": False, "error": "Unknown action"}
+
+                                    # 🎯 ELEMENT ACTIONS: {"act": "a_id_X", "value": ..., "submit": ...}
+                                    if call_type == "element" and EXTENSION_WS:
+                                        action_id = call.get("action_id")
+                                        value = call.get("value")
+                                        submit = call.get("submit", False)
+
+                                        if action_id:
+                                            # Auto-resolve action type from ELEMENT_REGISTRY
+                                            has_value = value is not None
+                                            action_type = resolve_action_type(action_id, has_value=has_value)
+                                            print(f"🎯 Element action: {action_id} → {action_type} (value={value}, submit={submit})")
+
+                                            instruction = {
+                                                "type": "execute_llm_action",
+                                                "data": {
+                                                    "actionId": action_id,
+                                                    "actionType": action_type,
+                                                    "params": {
+                                                        "value": value,
+                                                        "submit": submit
+                                                    }
+                                                }
+                                            }
+                                            await EXTENSION_WS.send(json.dumps(instruction))
+                                            cap_result = {"ok": True}
+                                            print(f"🤖 Sent execute_llm_action: {action_type} on {action_id}")
+
+                                            # Track in history
+                                            add_action_to_history(f"Element:{action_type}", {"action_id": action_id, "value": value}, cap_result)
+
+                                            # Format result for display
+                                            result_text = format_execution_result(f"{action_type}({action_id})", cap_result)
+                                            capability_results.append(result_text)
+
+                                            # Save execution result to chat
+                                            if CURRENT_CHAT_ID:
+                                                chat_dict = load_chat(CURRENT_CHAT_ID)
+                                                if chat_dict:
+                                                    exec_msg = append_assistant_message(chat_dict, result_text)
+                                                    save_chat(chat_dict)
+                                                    if EXTENSION_WS:
+                                                        await EXTENSION_WS.send(json.dumps({
+                                                            "type": "hud_action",
+                                                            "action": {
+                                                                "type": "append_message",
+                                                                "chat_id": CURRENT_CHAT_ID,
+                                                                "message": exec_msg
+                                                            }
+                                                        }))
+                                        else:
+                                            cap_result = {"ok": False, "error": "Missing action_id"}
+                                        continue
+
+                                    # 🔧 CAPABILITY ACTIONS: {"cap": "CapName", "params": {...}}
                                     cap_action = call.get("action")
                                     cap_params = call.get("params", {})
-                                    cap_result = {"ok": False, "error": "Unknown capability"}
 
                                     if cap_action:
                                         # Normalize action name for comparison
                                         cap_action_lower = cap_action.lower()
                                         print(f"🤖 Executing capability: {cap_action}")
 
-                                        # Route DOM actions (click, setValue) via llm_instruction
-                                        if cap_action_lower in dom_actions and EXTENSION_WS:
-                                            action_id = cap_params.get("actionId")
-                                            if action_id:
-                                                instruction = {
-                                                    "type": "llm_instruction",
-                                                    "data": {
-                                                        "actionId": action_id,
-                                                        "actionType": cap_action_lower,
-                                                        "value": cap_params.get("value"),
-                                                        "submit": cap_params.get("submit", False)
-                                                    }
-                                                }
-                                                await EXTENSION_WS.send(json.dumps(instruction))
-                                                cap_result = {"ok": True}
-                                                print(f"🤖 Sent llm_instruction: {cap_action} on {action_id}")
-                                            else:
-                                                cap_result = {"ok": False, "error": "Missing actionId"}
-
                                         # Route scroll to extension
-                                        elif cap_action in scroll_actions and EXTENSION_WS:
+                                        if cap_action in scroll_actions and EXTENSION_WS:
                                             direction = scroll_actions[cap_action]
                                             await EXTENSION_WS.send(json.dumps({
                                                 "command": "scroll",
@@ -4520,7 +4606,13 @@ async def handler(ws):
                     action_id = instruction_data.get("actionId")
                     action_type = instruction_data.get("actionType")
                     action_params = instruction_data.get("params", {})
-                    
+
+                    # 🎯 AUTO-RESOLVE action type from ELEMENT_REGISTRY if not provided
+                    if action_type is None and action_id:
+                        has_value = "value" in action_params
+                        action_type = resolve_action_type(action_id, has_value=has_value)
+                        print(f"🎯 Auto-resolved action type: {action_type} (has_value={has_value})")
+
                     print(f"🤖 LLM Instruction: {action_type} on {action_id}")
                     
                     # Forward LLM instruction to extension for execution
@@ -4977,128 +5069,90 @@ def resolve_capabilities_for_url(url: str) -> list:
                 print(f"  - {cap['action']}: {cap['label']}")
 
         # 📜 UNIVERSAL CAPABILITIES: Always available on all domains
+        # Note: No params needed - server auto-routes by action name
         universal_capabilities = [
             {
                 'id': 'scroll_down',
                 'action': 'ScrollDown',
                 'label': 'Scroll down one page',
-                'description': 'Scrolls the viewport down by one screen height',
-                'command': 'scroll',
-                'params': {'direction': 'down'},
                 'domain': 'universal'
             },
             {
                 'id': 'scroll_up',
                 'action': 'ScrollUp',
                 'label': 'Scroll up one page',
-                'description': 'Scrolls the viewport up by one screen height',
-                'command': 'scroll',
-                'params': {'direction': 'up'},
                 'domain': 'universal'
             },
             {
                 'id': 'scroll_left',
                 'action': 'ScrollLeft',
                 'label': 'Scroll left one page',
-                'description': 'Scrolls the viewport left by one screen width',
-                'command': 'scroll',
-                'params': {'direction': 'left'},
                 'domain': 'universal'
             },
             {
                 'id': 'scroll_right',
                 'action': 'ScrollRight',
                 'label': 'Scroll right one page',
-                'description': 'Scrolls the viewport right by one screen width',
-                'command': 'scroll',
-                'params': {'direction': 'right'},
                 'domain': 'universal'
             },
             {
                 'id': 'scroll_top',
                 'action': 'ScrollTop',
                 'label': 'Scroll to top of page',
-                'description': 'Scrolls to the very top of the page',
-                'command': 'scroll',
-                'params': {'direction': 'top'},
                 'domain': 'universal'
             },
             {
                 'id': 'scroll_bottom',
                 'action': 'ScrollBottom',
                 'label': 'Scroll to bottom of page',
-                'description': 'Scrolls to the very bottom of the page',
-                'command': 'scroll',
-                'params': {'direction': 'bottom'},
                 'domain': 'universal'
             },
             # 🗂️ TAB CONTROL CAPABILITIES: Browser tab management
             {
                 'id': 'switch_tab',
                 'action': 'SwitchTab',
-                'label': 'Switch to a tab by ID',
-                'description': 'Switches to a specific browser tab',
-                'command': 'switchTab',
-                'params': {},
-                'domain': 'universal',
-                'usage_example': "--params '{\"tabId\": TAB_ID}'"
+                'label': 'Switch to tab',
+                'params': {'tabId': 'number'},
+                'domain': 'universal'
             },
             {
                 'id': 'open_tab',
                 'action': 'OpenTab',
-                'label': 'Open a new tab',
-                'description': 'Opens a new browser tab with optional URL',
-                'command': 'openTab',
-                'params': {},
-                'domain': 'universal',
-                'usage_example': "--params '{\"url\": \"https://example.com\"}'"
+                'label': 'Open new tab',
+                'params': {'url': 'string'},
+                'domain': 'universal'
             },
             {
                 'id': 'close_tab',
                 'action': 'CloseTab',
-                'label': 'Close a tab by ID',
-                'description': 'Closes a specific browser tab',
-                'command': 'closeTab',
-                'params': {},
-                'domain': 'universal',
-                'usage_example': "--params '{\"tabId\": TAB_ID}'"
+                'label': 'Close tab',
+                'params': {'tabId': 'number'},
+                'domain': 'universal'
             },
             {
                 'id': 'update_tab_url',
                 'action': 'UpdateTabURL',
-                'label': 'Navigate a tab to a URL',
-                'description': 'Updates a tab to navigate to a new URL',
-                'command': 'updateTabUrl',
-                'params': {},
-                'domain': 'universal',
-                'usage_example': "--params '{\"tabId\": TAB_ID, \"url\": \"https://example.com\"}'"
+                'label': 'Navigate tab to URL',
+                'params': {'tabId': 'number', 'url': 'string'},
+                'domain': 'universal'
             },
-            # 🔍 ZOOM CAPABILITIES: Browser zoom control (15% increments)
+            # 🔍 ZOOM CAPABILITIES: No params needed
             {
                 'id': 'zoom_in',
                 'action': 'ZoomIn',
                 'label': 'Zoom in 15%',
-                'description': 'Increases page zoom by 15%',
-                'command': 'zoomIn',
-                'params': {},
                 'domain': 'universal'
             },
             {
                 'id': 'zoom_out',
                 'action': 'ZoomOut',
                 'label': 'Zoom out 15%',
-                'description': 'Decreases page zoom by 15%',
-                'command': 'zoomOut',
-                'params': {},
                 'domain': 'universal'
             },
             {
                 'id': 'zoom_reset',
                 'action': 'ZoomReset',
                 'label': 'Reset zoom to 100%',
-                'description': 'Resets page zoom to default (100%)',
-                'command': 'zoomReset',
-                'params': {},
                 'domain': 'universal'
             }
         ]
@@ -5110,11 +5164,15 @@ def resolve_capabilities_for_url(url: str) -> list:
         # 🔧 INTERNAL CAPABILITIES: Add server-side capabilities (chat, etc.)
         internal_caps = load_internal_capabilities()
         for action_name, cap in internal_caps.items():
+            # Convert param descriptions to simple key list for LLM display
+            cap_params = cap.get('params', {})
+            # Filter out empty params
+            params_with_values = {k: v for k, v in cap_params.items() if v}
             matching_capabilities.append({
                 'id': action_name.lower(),
                 'action': cap.get('action', action_name),
                 'label': cap.get('label', ''),
-                'description': cap.get('description', ''),
+                'params': params_with_values if params_with_values else None,
                 'domain': 'internal'
             })
         if internal_caps:
@@ -5597,6 +5655,10 @@ def init_llm_dispatcher():
     for cap_info in caps.values():
         groups.add(cap_info.get("_group", "unknown"))
     print(f"📦 Capability groups: {', '.join(sorted(groups))}")
+
+    # 🎯 Wire up element resolver for action type auto-resolution
+    set_element_resolver(get_element_info)
+    print("🎯 Element resolver connected to dispatcher")
 
     print("✅ LLM Dispatcher ready")
 
