@@ -12,57 +12,120 @@ from typing import Optional, Dict, List, Tuple
 
 def parse_capability_calls(response: str) -> List[Dict]:
     """
-    Parse LLM response for actions - SMART PARSING.
+    Parse LLM response for actions - RESILIENT PARSING.
 
-    Handles two formats:
-    1. Element actions: {"act": "a_id_X", "value": "...", "submit": true}
-    2. Capabilities: {"cap": "CapName", "params": {...}}
-
-    Also handles legacy format with "action" key.
+    Handles multiple formats LLMs might return:
+    1. JSON on its own line (preferred): {"cap": "...", "params": {...}}
+    2. Single backticks: `{"cap": "..."}`
+    3. Code blocks: ```json {"cap": "..."} ```
+    4. Inline JSON: some text {"cap": "..."} more text
+    5. Element actions: {"act": "a_id_X", "value": "...", "submit": true}
 
     Returns list of parsed calls with normalized structure.
     """
     calls = []
     print(f"🔍 PARSE: Input response: {response[:200]}...")
 
-    # Try to find JSON objects in the response
-    # First, try entire response as JSON
+    # Strategy 1: Try entire response as JSON (pure JSON response)
     call = _try_parse_json(response.strip())
     if call:
         print(f"🔍 PARSE: Parsed as full JSON: {call}")
         normalized = _normalize_call(call)
         if normalized:
-            print(f"🔍 PARSE: Normalized call: {normalized}")
             calls.append(normalized)
             return calls
 
-    # Look for JSON in code blocks
+    # Strategy 2: Look for JSON on its own line (preferred format)
+    for line in response.split('\n'):
+        line = line.strip()
+        if line.startswith('{') and line.endswith('}'):
+            call = _try_parse_json(line)
+            if call:
+                normalized = _normalize_call(call)
+                if normalized:
+                    print(f"🔍 PARSE: Found JSON on own line: {normalized}")
+                    calls.append(normalized)
+
+    if calls:
+        return calls
+
+    # Strategy 3: JSON in code blocks (```json or ```)
     block_pattern = r'```(?:json|capability)?\s*\n?(.*?)\n?```'
-    matches = re.findall(block_pattern, response, re.DOTALL)
-    for match in matches:
+    for match in re.findall(block_pattern, response, re.DOTALL):
         call = _try_parse_json(match.strip())
         if call:
             normalized = _normalize_call(call)
             if normalized:
+                print(f"🔍 PARSE: Found JSON in code block: {normalized}")
                 calls.append(normalized)
 
     if calls:
         return calls
 
-    # Find inline JSON objects with act, cap, or action keys
-    json_obj_pattern = r'\{[^{}]*(?:"act"|"cap"|"action")\s*:\s*"[^"]+[^{}]*\}'
-    obj_matches = re.findall(json_obj_pattern, response)
-    print(f"🔍 PARSE: Found {len(obj_matches)} inline JSON matches: {obj_matches}")
-    for match in obj_matches:
+    # Strategy 4: JSON wrapped in single backticks: `{...}`
+    backtick_pattern = r'`(\{[^`]+\})`'
+    for match in re.findall(backtick_pattern, response):
         call = _try_parse_json(match)
         if call:
             normalized = _normalize_call(call)
             if normalized:
-                print(f"🔍 PARSE: Normalized inline call: {normalized}")
+                print(f"🔍 PARSE: Found JSON in backticks: {normalized}")
                 calls.append(normalized)
+
+    if calls:
+        return calls
+
+    # Strategy 5: Extract balanced JSON anywhere in response (handles nested objects)
+    for match in re.finditer(r'\{', response):
+        json_str = _extract_balanced_json(response, match.start())
+        if json_str:
+            call = _try_parse_json(json_str)
+            if call:
+                normalized = _normalize_call(call)
+                if normalized:
+                    print(f"🔍 PARSE: Found balanced JSON: {normalized}")
+                    calls.append(normalized)
+                    break  # Only take first valid match
 
     print(f"🔍 PARSE: Final calls count: {len(calls)}")
     return calls
+
+
+def _extract_balanced_json(text: str, start: int) -> Optional[str]:
+    """Extract a balanced JSON object starting from given position."""
+    if start >= len(text) or text[start] != '{':
+        return None
+
+    depth = 0
+    in_string = False
+    escape_next = False
+
+    for i in range(start, len(text)):
+        char = text[i]
+
+        if escape_next:
+            escape_next = False
+            continue
+
+        if char == '\\' and in_string:
+            escape_next = True
+            continue
+
+        if char == '"' and not escape_next:
+            in_string = not in_string
+            continue
+
+        if in_string:
+            continue
+
+        if char == '{':
+            depth += 1
+        elif char == '}':
+            depth -= 1
+            if depth == 0:
+                return text[start:i + 1]
+
+    return None
 
 
 def _normalize_call(call: dict) -> Optional[Dict]:

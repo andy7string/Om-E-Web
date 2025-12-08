@@ -33,6 +33,9 @@ import hashlib
 from datetime import datetime
 from typing import Optional, List, Dict, Any
 from urllib.parse import urlparse
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+from functools import partial
+import threading
 from site_config_manager import get_site_config, start_site_config_polling, get_all_site_configs
 
 # LLM Dispatcher - routes LLM actions through existing pipelines
@@ -4260,15 +4263,27 @@ async def handler(ws):
                                             cap_result = {"ok": True}
                                             print(f"🤖 Sent {cap_action} to extension")
 
-                                        # Route tab actions to extension
+                                        # Route tab actions to extension (with proper response waiting)
                                         elif cap_action in tab_actions and EXTENSION_WS:
+                                            request_id = f"cap_{cap_action}_{int(time.time() * 1000)}"
+                                            fut = asyncio.get_event_loop().create_future()
+                                            PENDING[request_id] = fut
+
                                             await EXTENSION_WS.send(json.dumps({
                                                 "type": "execute_capability",
+                                                "id": request_id,
                                                 "action": cap_action,
                                                 "params": cap_params
                                             }))
-                                            cap_result = {"ok": True}
-                                            print(f"🤖 Sent {cap_action} to extension")
+                                            print(f"🤖 Sent {cap_action} to extension, waiting for response...")
+
+                                            try:
+                                                cap_result = await asyncio.wait_for(fut, timeout=10.0)
+                                                print(f"🤖 {cap_action} result: {cap_result}")
+                                            except asyncio.TimeoutError:
+                                                PENDING.pop(request_id, None)
+                                                cap_result = {"ok": False, "error": f"Timeout waiting for {cap_action}"}
+                                                print(f"⏰ {cap_action} timeout")
 
                                         # 🎯 SITE CONFIG CAPABILITIES: Route to extension for DOM execution
                                         elif is_site_config_capability(cap_action) and EXTENSION_WS:
@@ -5637,6 +5652,422 @@ def init_llm_dispatcher():
     print("✅ LLM Dispatcher ready")
 
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🌐 HTTP SERVER - Local Web Page with Floating Orb (Port 8080)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def generate_orb_page_html() -> str:
+    """
+    🎨 Generate the HTML page with floating orb and theme selector.
+
+    Features:
+    - Black background matching HUD (#212121)
+    - Giant floating orb in centre
+    - Theme selector (Kawaii, Om-E, Atom)
+    - Smooth animations and transitions
+    """
+    return '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om-E Web - Orb Playground</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #212121;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #e5e5e5;
+            overflow: hidden;
+        }
+
+        /* 🎛️ Theme Selector */
+        .theme-selector {
+            position: fixed;
+            top: 24px;
+            display: flex;
+            gap: 16px;
+            z-index: 100;
+        }
+
+        .theme-btn {
+            padding: 12px 24px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            color: #e5e5e5;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.4);
+            transform: scale(1.05);
+        }
+
+        .theme-btn.active {
+            border-color: var(--theme-color);
+            background: rgba(var(--theme-rgb), 0.2);
+            color: var(--theme-color);
+        }
+
+        .theme-btn[data-theme="kawaii"] {
+            --theme-color: #7ec8e3;
+            --theme-rgb: 126,200,227;
+        }
+        .theme-btn[data-theme="robot"] {
+            --theme-color: #00e5ff;
+            --theme-rgb: 0,229,255;
+        }
+        .theme-btn[data-theme="atom"] {
+            --theme-color: #3CB371;
+            --theme-rgb: 60,179,113;
+        }
+
+        /* 🔮 Orb Container */
+        .orb-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            height: 500px;
+            position: relative;
+        }
+
+        .orb {
+            width: 300px;
+            height: 400px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: orb-float 3s ease-in-out infinite;
+        }
+
+        .orb:hover {
+            transform: scale(1.1);
+        }
+
+        .orb svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes orb-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* ⚛️ Atom animations */
+        @keyframes nucleus-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes orbit-pulse {
+            0%, 100% { opacity: 0.5; stroke-width: 2; }
+            50% { opacity: 1; stroke-width: 4; }
+        }
+
+        .ome-nucleus {
+            transform-origin: 30px 30px;
+            animation: nucleus-spin 6s linear infinite;
+        }
+
+        .ome-orbit {
+            animation: orbit-pulse 2.5s ease-in-out infinite;
+        }
+
+        .ome-orbit-2 { animation-delay: 0.8s; }
+        .ome-orbit-3 { animation-delay: 1.6s; }
+
+        /* 📝 Title */
+        .title {
+            position: fixed;
+            bottom: 40px;
+            font-size: 24px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.1em;
+        }
+
+        .title span {
+            color: var(--active-theme-color, #7ec8e3);
+            font-weight: 600;
+        }
+
+        /* 🌟 Background glow effect */
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--glow-color, rgba(126,200,227,0.15)) 0%, transparent 70%);
+            pointer-events: none;
+            transition: background 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-btn active" data-theme="kawaii">🐱 Kawaii</button>
+        <button class="theme-btn" data-theme="robot">🤖 Om-E</button>
+        <button class="theme-btn" data-theme="atom">⚛️ Atom</button>
+    </div>
+
+    <!-- Background Glow -->
+    <div class="glow"></div>
+
+    <!-- Orb Container -->
+    <div class="orb-container">
+        <div class="orb" id="orb"></div>
+    </div>
+
+    <!-- Title -->
+    <div class="title">Om-E Web — <span id="theme-name">Kawaii</span></div>
+
+    <script>
+        // 🎨 Orb Theme SVGs
+        const ORB_THEMES = {
+            kawaii: {
+                name: 'Kawaii',
+                color: '#7ec8e3',
+                glow: 'rgba(126,200,227,0.15)',
+                svg: `<svg viewBox="0 0 60 72" fill="none">
+                    <defs>
+                        <radialGradient id="kawaiiFluffyGrad" cx="50%" cy="40%" r="60%">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.95)"/>
+                            <stop offset="70%" stop-color="rgba(248,244,255,0.9)"/>
+                            <stop offset="100%" stop-color="rgba(232,224,240,0.85)"/>
+                        </radialGradient>
+                        <linearGradient id="kawaiiPinkEarGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255,182,193,0.8)"/>
+                            <stop offset="100%" stop-color="rgba(255,145,164,0.7)"/>
+                        </linearGradient>
+                        <radialGradient id="kawaiiEyeBlueGrad" cx="50%" cy="30%" r="50%">
+                            <stop offset="0%" stop-color="#7ec8e3"/>
+                            <stop offset="50%" stop-color="#4a9eca"/>
+                            <stop offset="100%" stop-color="#2d7eb0"/>
+                        </radialGradient>
+                        <radialGradient id="kawaiiCherryGrad" cx="30%" cy="30%" r="60%">
+                            <stop offset="0%" stop-color="#ff8a9b"/>
+                            <stop offset="100%" stop-color="#e05670"/>
+                        </radialGradient>
+                    </defs>
+                    <path d="M12 28 L8 8 L22 22 Z" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.8)" stroke-width="1.5"/>
+                    <path d="M13 24 L11 12 L19 21 Z" fill="url(#kawaiiPinkEarGrad)"/>
+                    <path d="M48 28 L52 8 L38 22 Z" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.8)" stroke-width="1.5"/>
+                    <path d="M47 24 L49 12 L41 21 Z" fill="url(#kawaiiPinkEarGrad)"/>
+                    <g>
+                        <path d="M30 2 Q28 -2 26 0 M30 2 Q32 -2 34 0 M30 2 Q30 -3 30 -1" stroke="#50a060" stroke-width="1.5" fill="none"/>
+                        <ellipse cx="30" cy="10" rx="9" ry="8" fill="url(#kawaiiCherryGrad)"/>
+                        <ellipse cx="27" cy="7" rx="2.5" ry="1.5" fill="rgba(255,255,255,0.5)"/>
+                        <ellipse cx="26" cy="12" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                        <ellipse cx="34" cy="11" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                        <ellipse cx="30" cy="14" rx="1" ry="0.7" fill="rgba(255,220,180,0.7)"/>
+                    </g>
+                    <ellipse cx="30" cy="38" rx="24" ry="22" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.7)" stroke-width="1.5"/>
+                    <ellipse cx="8" cy="40" rx="6" ry="8" fill="url(#kawaiiFluffyGrad)"/>
+                    <ellipse cx="52" cy="40" rx="6" ry="8" fill="url(#kawaiiFluffyGrad)"/>
+                    <ellipse cx="20" cy="38" rx="7" ry="8" fill="url(#kawaiiEyeBlueGrad)" stroke="rgba(45,96,144,0.5)" stroke-width="0.5"/>
+                    <ellipse cx="40" cy="38" rx="7" ry="8" fill="url(#kawaiiEyeBlueGrad)" stroke="rgba(45,96,144,0.5)" stroke-width="0.5"/>
+                    <circle cx="17" cy="35" r="2.5" fill="rgba(255,255,255,0.95)"/>
+                    <circle cx="22" cy="33" r="1.2" fill="rgba(255,255,255,0.9)"/>
+                    <circle cx="37" cy="35" r="2.5" fill="rgba(255,255,255,0.95)"/>
+                    <circle cx="42" cy="33" r="1.2" fill="rgba(255,255,255,0.9)"/>
+                    <ellipse cx="21" cy="40" rx="2" ry="2.5" fill="rgba(26,48,80,0.9)"/>
+                    <ellipse cx="41" cy="40" rx="2" ry="2.5" fill="rgba(26,48,80,0.9)"/>
+                    <ellipse cx="10" cy="44" rx="4" ry="2.5" fill="rgba(255,150,170,0.5)"/>
+                    <ellipse cx="50" cy="44" rx="4" ry="2.5" fill="rgba(255,150,170,0.5)"/>
+                    <ellipse cx="30" cy="46" rx="2.5" ry="2" fill="rgba(255,176,192,0.8)"/>
+                    <path d="M26 50 Q30 54 34 50" stroke="rgba(192,144,160,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <ellipse cx="30" cy="64" rx="14" ry="8" fill="url(#kawaiiFluffyGrad)" stroke="rgba(208,192,224,0.6)" stroke-width="1"/>
+                </svg>`
+            },
+            robot: {
+                name: 'Om-E',
+                color: '#00e5ff',
+                glow: 'rgba(0,229,255,0.15)',
+                svg: `<svg viewBox="0 14 60 72" fill="none">
+                    <defs>
+                        <linearGradient id="robotBodyGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(147,112,219,0.5)"/>
+                            <stop offset="50%" stop-color="rgba(80,100,200,0.4)"/>
+                            <stop offset="100%" stop-color="rgba(66,133,244,0.35)"/>
+                        </linearGradient>
+                        <linearGradient id="goggleGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(186,147,255,0.6)"/>
+                            <stop offset="100%" stop-color="rgba(147,112,219,0.5)"/>
+                        </linearGradient>
+                        <radialGradient id="glowEyeGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#00ffff"/>
+                            <stop offset="100%" stop-color="#00e5ff"/>
+                        </radialGradient>
+                    </defs>
+                    <ellipse cx="6" cy="54" rx="5" ry="7" fill="rgba(66,133,244,0.35)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <ellipse cx="54" cy="54" rx="5" ry="7" fill="rgba(66,133,244,0.35)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <path d="M8 58 Q8 32 30 28 Q52 32 52 58 Q52 64 30 66 Q8 64 8 58 Z" fill="url(#robotBodyGrad)" stroke="rgba(66,133,244,0.6)" stroke-width="1.5"/>
+                    <ellipse cx="20" cy="34" rx="9" ry="7" fill="url(#goggleGrad)" stroke="rgba(147,112,219,0.8)" stroke-width="1.5"/>
+                    <ellipse cx="40" cy="34" rx="9" ry="7" fill="url(#goggleGrad)" stroke="rgba(147,112,219,0.8)" stroke-width="1.5"/>
+                    <ellipse cx="20" cy="34" rx="6" ry="5" fill="rgba(40,40,80,0.7)"/>
+                    <ellipse cx="40" cy="34" rx="6" ry="5" fill="rgba(40,40,80,0.7)"/>
+                    <rect x="28" y="32" width="4" height="4" rx="1" fill="rgba(147,112,219,0.6)"/>
+                    <rect x="14" y="46" rx="6" ry="6" width="32" height="16" fill="rgba(30,50,90,0.5)" stroke="rgba(66,133,244,0.5)" stroke-width="1"/>
+                    <ellipse cx="23" cy="54" rx="3" ry="5" fill="url(#glowEyeGrad)"/>
+                    <ellipse cx="37" cy="54" rx="3" ry="5" fill="url(#glowEyeGrad)"/>
+                    <ellipse cx="23" cy="54" rx="4" ry="6" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="2"/>
+                    <ellipse cx="37" cy="54" rx="4" ry="6" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="2"/>
+                </svg>`
+            },
+            atom: {
+                name: 'Atom',
+                color: '#3CB371',
+                glow: 'rgba(60,179,113,0.15)',
+                svg: `<svg viewBox="0 0 60 60" fill="none">
+                    <defs>
+                        <radialGradient id="atomNucleusGrad" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(120,100,180,0.95)"/>
+                            <stop offset="50%" stop-color="rgba(80,70,150,0.9)"/>
+                            <stop offset="100%" stop-color="rgba(50,45,100,0.85)"/>
+                        </radialGradient>
+                        <radialGradient id="atomNucleusGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(147,112,219,0.6)"/>
+                            <stop offset="100%" stop-color="rgba(80,70,150,0)"/>
+                        </radialGradient>
+                        <linearGradient id="atomOrbitGrad1" x1="0%" y1="50%" x2="100%" y2="50%">
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
+                        </linearGradient>
+                        <linearGradient id="atomOrbitGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
+                        </linearGradient>
+                        <linearGradient id="atomOrbitGrad3" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(57,255,20,0.95)"/>
+                            <stop offset="35%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="50%" stop-color="rgba(40,120,30,0.5)"/>
+                            <stop offset="65%" stop-color="rgba(80,220,60,0.7)"/>
+                            <stop offset="100%" stop-color="rgba(57,255,20,0.95)"/>
+                        </linearGradient>
+                    </defs>
+                    <ellipse class="ome-orbit ome-orbit-1" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad1)" stroke-width="3"/>
+                    <ellipse class="ome-orbit ome-orbit-2" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad2)" stroke-width="3" transform="rotate(-60 30 30)"/>
+                    <ellipse class="ome-orbit ome-orbit-3" cx="30" cy="30" rx="26" ry="10" fill="none" stroke="url(#atomOrbitGrad3)" stroke-width="3" transform="rotate(60 30 30)"/>
+                    <circle cx="30" cy="30" r="12" fill="url(#atomNucleusGlow)"/>
+                    <g class="ome-nucleus">
+                        <circle cx="30" cy="30" r="7" fill="url(#atomNucleusGrad)"/>
+                        <circle cx="30" cy="30" r="8" fill="none" stroke="rgba(186,147,255,0.4)" stroke-width="1"/>
+                        <circle cx="27" cy="28" r="1.5" fill="rgba(186,147,255,0.6)"/>
+                        <circle cx="33" cy="32" r="1.2" fill="rgba(147,112,219,0.5)"/>
+                        <circle cx="29" cy="33" r="1" fill="rgba(186,147,255,0.4)"/>
+                    </g>
+                </svg>`
+            }
+        };
+
+        // 🎯 DOM Elements
+        const orbEl = document.getElementById('orb');
+        const themeNameEl = document.getElementById('theme-name');
+        const glowEl = document.querySelector('.glow');
+        const themeBtns = document.querySelectorAll('.theme-btn');
+
+        // 🎨 Apply theme
+        function applyTheme(themeName) {
+            const theme = ORB_THEMES[themeName];
+            if (!theme) return;
+
+            // Update orb SVG
+            orbEl.innerHTML = theme.svg;
+
+            // Update theme name
+            themeNameEl.textContent = theme.name;
+            themeNameEl.style.color = theme.color;
+
+            // Update glow
+            glowEl.style.background = `radial-gradient(circle, ${theme.glow} 0%, transparent 70%)`;
+
+            // Update active button
+            themeBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.theme === themeName);
+            });
+
+            // Store preference
+            localStorage.setItem('ome-orb-theme', themeName);
+        }
+
+        // 🎛️ Theme button click handlers
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => applyTheme(btn.dataset.theme));
+        });
+
+        // 🚀 Initialize with saved or default theme
+        const savedTheme = localStorage.getItem('ome-orb-theme') || 'kawaii';
+        applyTheme(savedTheme);
+
+        // 🔮 Orb click - cycle themes
+        orbEl.addEventListener('click', () => {
+            const themes = Object.keys(ORB_THEMES);
+            const currentBtn = document.querySelector('.theme-btn.active');
+            const currentIndex = themes.indexOf(currentBtn?.dataset.theme || 'kawaii');
+            const nextIndex = (currentIndex + 1) % themes.length;
+            applyTheme(themes[nextIndex]);
+        });
+    </script>
+</body>
+</html>'''
+
+
+class OrbPageHandler(SimpleHTTPRequestHandler):
+    """
+    🌐 HTTP request handler for the orb playground page.
+    """
+
+    def do_GET(self):
+        """Serve the orb page for any request."""
+        self.send_response(200)
+        self.send_header('Content-Type', 'text/html; charset=utf-8')
+        self.send_header('Cache-Control', 'no-cache')
+        self.end_headers()
+        self.wfile.write(generate_orb_page_html().encode('utf-8'))
+
+    def log_message(self, format, *args):
+        """Custom logging to match our style."""
+        print(f"🌐 HTTP: {args[0]}")
+
+
+def start_http_server(port: int = 8080):
+    """
+    🚀 Start HTTP server on specified port in a background thread.
+
+    @param port: Port number (default 8080)
+    """
+    try:
+        server = HTTPServer(('127.0.0.1', port), OrbPageHandler)
+        print(f"🌐 HTTP server listening on http://127.0.0.1:{port}")
+        print(f"🔮 Open http://localhost:{port} in your browser for the Orb Playground")
+        server.serve_forever()
+    except Exception as e:
+        print(f"❌ HTTP server error: {e}")
+
+
 async def main():
     """
     🚀 Main server function - starts WebSocket server on port 17892
@@ -5652,6 +6083,10 @@ async def main():
 
     # 🤖 Initialize LLM Dispatcher
     init_llm_dispatcher()
+
+    # 🌐 Start HTTP server in background thread (port 8080)
+    http_thread = threading.Thread(target=start_http_server, args=(8080,), daemon=True)
+    http_thread.start()
 
     async with websockets.serve(
         handler,

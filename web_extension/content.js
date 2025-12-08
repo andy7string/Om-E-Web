@@ -2311,11 +2311,66 @@
     }
 
     /**
+     * 🔍 Find the main scrollable container on the page
+     *
+     * Looks for elements with overflow-y: scroll/auto that are actually scrollable.
+     * Prioritizes larger containers that take up most of the viewport.
+     *
+     * @returns {Element|null} - The scrollable container or null (use window)
+     */
+    function findScrollableContainer() {
+        // Check all elements with overflow scroll/auto
+        const candidates = [];
+        const allElements = document.querySelectorAll('*');
+
+        for (const el of allElements) {
+            // Skip our own UI
+            if (el.closest('#ome-hud-root')) continue;
+
+            const style = window.getComputedStyle(el);
+            const overflowY = style.overflowY;
+
+            // Check if element has scrollable overflow
+            if (overflowY === 'scroll' || overflowY === 'auto') {
+                // Check if actually scrollable (content overflows)
+                if (el.scrollHeight > el.clientHeight + 10) {
+                    const rect = el.getBoundingClientRect();
+                    // Calculate how much of viewport this element covers
+                    const coverage = (rect.width * rect.height) / (window.innerWidth * window.innerHeight);
+
+                    // Only consider elements covering at least 20% of viewport
+                    if (coverage > 0.2) {
+                        candidates.push({
+                            element: el,
+                            coverage,
+                            scrollableHeight: el.scrollHeight - el.clientHeight
+                        });
+                    }
+                }
+            }
+        }
+
+        // Sort by coverage (prefer larger containers)
+        candidates.sort((a, b) => b.coverage - a.coverage);
+
+        if (candidates.length > 0) {
+            console.log("[Content] 📜 Found scrollable container:", candidates[0].element.tagName,
+                candidates[0].element.id || candidates[0].element.className.slice(0, 50));
+            return candidates[0].element;
+        }
+
+        return null;
+    }
+
+    /**
      * 📜 SCROLL COMMAND - Page-by-page scrolling for LLM navigation
      *
      * Scrolls the page so that the end of the current viewport becomes
      * the beginning of the next viewport. Uses smooth scrolling for
      * better visual feedback.
+     *
+     * 🎯 SMART SCROLL: Detects nested scrollable containers and scrolls them
+     * instead of window when appropriate.
      *
      * @param {Object} params - Scroll parameters
      * @param {string} params.direction - 'down', 'up', 'left', 'right', 'top', 'bottom' (default: 'down')
@@ -2324,12 +2379,21 @@
     async function cmd_scroll({ direction = 'down' } = {}) {
         console.log("[Content] scroll: Starting scroll with direction:", direction);
 
-        const startX = window.scrollX;
-        const startY = window.scrollY;
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        const maxScrollX = document.documentElement.scrollWidth - viewportWidth;
-        const maxScrollY = document.documentElement.scrollHeight - viewportHeight;
+        // 🎯 SMART SCROLL: Find scrollable container or use window
+        const scrollContainer = findScrollableContainer();
+        const useContainer = scrollContainer !== null;
+
+        // Get scroll metrics from container or window
+        const startX = useContainer ? scrollContainer.scrollLeft : window.scrollX;
+        const startY = useContainer ? scrollContainer.scrollTop : window.scrollY;
+        const viewportWidth = useContainer ? scrollContainer.clientWidth : window.innerWidth;
+        const viewportHeight = useContainer ? scrollContainer.clientHeight : window.innerHeight;
+        const maxScrollX = useContainer
+            ? scrollContainer.scrollWidth - scrollContainer.clientWidth
+            : document.documentElement.scrollWidth - window.innerWidth;
+        const maxScrollY = useContainer
+            ? scrollContainer.scrollHeight - scrollContainer.clientHeight
+            : document.documentElement.scrollHeight - window.innerHeight;
 
         let targetX = startX;
         let targetY = startY;
@@ -2366,18 +2430,26 @@
         }
 
         // Execute the scroll with smooth behavior
-        window.scrollTo({
-            left: targetX,
-            top: targetY,
-            behavior: 'smooth'
-        });
+        if (useContainer) {
+            scrollContainer.scrollTo({
+                left: targetX,
+                top: targetY,
+                behavior: 'smooth'
+            });
+        } else {
+            window.scrollTo({
+                left: targetX,
+                top: targetY,
+                behavior: 'smooth'
+            });
+        }
 
         // 🎯 SCROLL-END DETECTION: Wait for scroll position to stabilise
         // Uses a scroll event listener that resolves when position stops changing
-        await waitForScrollEnd(targetY);
+        await waitForScrollEnd(targetY, 1000, useContainer ? scrollContainer : null);
 
-        const endX = window.scrollX;
-        const endY = window.scrollY;
+        const endX = useContainer ? scrollContainer.scrollLeft : window.scrollX;
+        const endY = useContainer ? scrollContainer.scrollTop : window.scrollY;
         const atTop = endY === 0;
         const atBottom = endY >= maxScrollY - 1; // -1 for rounding tolerance
         const atLeft = endX === 0;
@@ -2385,6 +2457,7 @@
 
         console.log("[Content] scroll: Scroll complete:", {
             direction,
+            useContainer,
             startX, startY,
             endX, endY,
             scrolledX: endX - startX,
@@ -2401,7 +2474,8 @@
             scrolledY: endY - startY,
             viewportWidth, viewportHeight,
             maxScrollX, maxScrollY,
-            atTop, atBottom, atLeft, atRight
+            atTop, atBottom, atLeft, atRight,
+            usedContainer: useContainer
         };
     }
 
@@ -2413,11 +2487,13 @@
      *
      * @param {number} targetY - Target scroll position
      * @param {number} maxWait - Maximum wait time in ms (default: 1000)
+     * @param {Element|null} container - Scrollable container or null for window
      * @returns {Promise} - Resolves when scroll is complete
      */
-    function waitForScrollEnd(targetY, maxWait = 1000) {
+    function waitForScrollEnd(targetY, maxWait = 1000, container = null) {
         return new Promise((resolve) => {
-            let lastScrollY = window.scrollY;
+            const getScrollY = () => container ? container.scrollTop : window.scrollY;
+            let lastScrollY = getScrollY();
             let stableCount = 0;
             let checkInterval;
             let timeoutId;
@@ -2429,7 +2505,7 @@
 
             // Check every 50ms if scroll position has stabilised
             checkInterval = setInterval(() => {
-                const currentY = window.scrollY;
+                const currentY = getScrollY();
 
                 if (currentY === lastScrollY) {
                     stableCount++;
