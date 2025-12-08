@@ -1,28 +1,28 @@
 {
-  "timestamp": 1765201546.8228989,
+  "timestamp": 1765202537.3435829,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138037545,
-      "url": "https://www.youtube.com/watch?v=4QLWlcneJig&t=155s",
-      "title": "(34) Passive Income Expert: How To Make 10k Per Month In 90 Days! - YouTube",
-      "status": "complete"
+      "id": 1138037569,
+      "url": "https://www.youtube.com/@JuliaMcCoy",
+      "title": "(34) Julia McCoy - YouTube",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138037545,
-        "url": "https://www.youtube.com/watch?v=4QLWlcneJig&t=155s",
-        "title": "(34) Passive Income Expert: How To Make 10k Per Month In 90 Days! - YouTube",
+        "id": 1138037569,
+        "url": "https://www.youtube.com/@JuliaMcCoy",
+        "title": "(34) Julia McCoy - YouTube",
         "active": true,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 31759.333267208,
+    "last_tabs_update": 32730.428749541,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/watch?v=4QLWlcneJig&t=155s",
-    "title": "(34) Passive Income Expert: How To Make 10k Per Month In 90 Days! - YouTube",
+    "url": "https://www.youtube.com/@JuliaMcCoy",
+    "title": "(34) Julia McCoy - YouTube",
     "is_active_tab": true
   },
   "content_structure": {},
