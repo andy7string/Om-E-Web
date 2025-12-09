@@ -1,0 +1,33 @@
+{
+  "chat_id": "ask-grok-if__20251209T113409",
+  "project_id": "default",
+  "created_at": "2025-12-09T11:34:09.112767Z",
+  "updated_at": "2025-12-09T11:34:10.226727Z",
+  "title": "ask grok if",
+  "default_title": "ask grok if",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://x.com/i/grok",
+    "page_title": "Grok / X"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "ask grok if it likes perplexity",
+      "timestamp": "2025-12-09T11:34:09.112782Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Asking Grok if it likes Perplexity now.\n\n{\"act\": \"a_id_21\", \"value\": \"Do you like Perplexity?\", \"submit\": true}",
+      "timestamp": "2025-12-09T11:34:10.225619Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_21): Success",
+      "timestamp": "2025-12-09T11:34:10.226727Z"
+    }
+  ]
+}
