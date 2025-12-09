@@ -2,7 +2,7 @@
   "chat_id": "lets-open-a__20251209T020524",
   "project_id": "default",
   "created_at": "2025-12-09T02:05:24.431639Z",
-  "updated_at": "2025-12-09T02:39:54.920525Z",
+  "updated_at": "2025-12-09T05:55:01.990398Z",
   "title": "lets open a",
   "default_title": "lets open a",
   "meta": {
@@ -1234,6 +1234,168 @@
       "role": "assistant",
       "content": "Let's open LinkedIn back up for you, mate.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.linkedin.com\"}}",
       "timestamp": "2025-12-09T02:39:54.920525Z"
+    },
+    {
+      "id": "m_0205",
+      "role": "user",
+      "content": "can you change your own temperature for your settings and what value would be most appropriate for our application here",
+      "timestamp": "2025-12-09T05:47:01.773937Z"
+    },
+    {
+      "id": "m_0206",
+      "role": "assistant",
+      "content": "Righto, Andy. I can't tweak my own temp settings directly here — that’s usually set by whoever built or runs the AI backend. But I can tell you what it means and what might suit us.\n\nTemperature controls how creative or random the AI gets:\n- Low (0-0.3) = safe, predictable, factual answers\n- Medium (0.4-0.7) = balanced, some creativity but mostly sensible\n- High (0.8+) = wild, creative, sometimes weird or risky answers\n\nFor our laid-back, helpful, Aussie mate vibe — somewhere around 0.5 to 0.7 is spot on. Keeps me friendly and chatty without going off the rails.\n\nIf you want me to try sounding more chill or formal, or more wild and creative, just say! But no direct control here, mate.\n\nAnything else you want me to tweak in style or tone?",
+      "timestamp": "2025-12-09T05:47:33.641166Z"
+    },
+    {
+      "id": "m_0207",
+      "role": "user",
+      "content": "check your capabilities mate you should be able to change it",
+      "timestamp": "2025-12-09T05:48:09.932834Z"
+    },
+    {
+      "id": "m_0208",
+      "role": "user",
+      "content": "list your internal capabilities",
+      "timestamp": "2025-12-09T05:50:07.099118Z"
+    },
+    {
+      "id": "m_0209",
+      "role": "assistant",
+      "content": "Sure thing, here’s a quick rundown of what I can do for you:\n\n- Chat casually with Aussie slang and humour, no corporate bullshit  \n- Search the web and grab info from pages  \n- Open, switch, and close browser tabs  \n- Scroll pages up and down  \n- Click links and buttons on web pages  \n- Fill out and submit search boxes or form inputs  \n- Pick options from dropdowns or selects  \n- Read page context and use that to help answer questions  \n- Keep it short and punchy unless you want more detail  \n- Swear appropriately when it fits the vibe  \n- Crack jokes and take the piss a bit, but stay helpful  \n- Use Australian English spelling and style  \n- Call out crap or broken stuff if I see it  \n\nBasically, I’m your laid-back AI web navigator and mate to bounce ideas off. Anything else you wanna know or try?",
+      "timestamp": "2025-12-09T05:50:11.023102Z"
+    },
+    {
+      "id": "m_0210",
+      "role": "user",
+      "content": "aah fuck off bro",
+      "timestamp": "2025-12-09T05:50:34.736499Z"
+    },
+    {
+      "id": "m_0211",
+      "role": "assistant",
+      "content": "Haha, fair enough mate! Just keepin’ it real. Let me know if you need a hand with anything else or wanna have a yarn. Cheers!",
+      "timestamp": "2025-12-09T05:50:35.965886Z"
+    },
+    {
+      "id": "m_0212",
+      "role": "user",
+      "content": "what tabs do you have open",
+      "timestamp": "2025-12-09T05:52:10.625606Z"
+    },
+    {
+      "id": "m_0213",
+      "role": "assistant",
+      "content": "Right now, I've got three tabs open:\n\n1. Tab 1: \"Model - OpenAI API\" on platform.openai.com  \n2. Tab 2: \"Om-E Web - Orb Playground\" on 127.0.0.1 (local)  \n3. Tab 3: \"Google\" on www.google.com — this one’s active\n\nAnything you wanna check or switch to?",
+      "timestamp": "2025-12-09T05:52:12.821339Z"
+    },
+    {
+      "id": "m_0214",
+      "role": "user",
+      "content": "go to tab 2",
+      "timestamp": "2025-12-09T05:52:21.921815Z"
+    },
+    {
+      "id": "m_0215",
+      "role": "assistant",
+      "content": "Switching to Tab 2 now for you.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tab\": 2}}",
+      "timestamp": "2025-12-09T05:52:23.027059Z"
+    },
+    {
+      "id": "m_0216",
+      "role": "user",
+      "content": "close tab 3",
+      "timestamp": "2025-12-09T05:52:39.246723Z"
+    },
+    {
+      "id": "m_0217",
+      "role": "assistant",
+      "content": "Closing Tab 3 for you, no worries.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tab\": 3}}",
+      "timestamp": "2025-12-09T05:52:40.602090Z"
+    },
+    {
+      "id": "m_0218",
+      "role": "user",
+      "content": "open a new tab for google",
+      "timestamp": "2025-12-09T05:53:18.822021Z"
+    },
+    {
+      "id": "m_0219",
+      "role": "assistant",
+      "content": "Opening a fresh Google tab for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-09T05:53:20.072445Z"
+    },
+    {
+      "id": "m_0220",
+      "role": "user",
+      "content": "open another tab for chatgbt",
+      "timestamp": "2025-12-09T05:53:59.826453Z"
+    },
+    {
+      "id": "m_0221",
+      "role": "assistant",
+      "content": "Opening a new tab for ChatGPT now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://chat.openai.com\"}}",
+      "timestamp": "2025-12-09T05:54:01.090491Z"
+    },
+    {
+      "id": "m_0222",
+      "role": "user",
+      "content": "ask chatgbt how it feels to be out and about",
+      "timestamp": "2025-12-09T05:54:30.003744Z"
+    },
+    {
+      "id": "m_0223",
+      "role": "assistant",
+      "content": "To ask ChatGPT that, I’d need to switch to the ChatGPT tab and find the chat input box. You just opened it, right? Lemme switch to that tab first.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tab\": 5}}",
+      "timestamp": "2025-12-09T05:54:32.559733Z"
+    },
+    {
+      "id": "m_0224",
+      "role": "user",
+      "content": "na dude in its input",
+      "timestamp": "2025-12-09T05:54:41.394284Z"
+    },
+    {
+      "id": "m_0225",
+      "role": "assistant",
+      "content": "Gotcha, you want me to type \"How does it feel to be out and about?\" into ChatGPT’s input box on that tab and send it off. Lemme find the input on that page.\n\n{\"act\": \"a_id_31\", \"value\": \"How does it feel to be out and about?\", \"submit\": true}",
+      "timestamp": "2025-12-09T05:54:44.934821Z"
+    },
+    {
+      "id": "m_0226",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_31): Success",
+      "timestamp": "2025-12-09T05:54:44.936714Z"
+    },
+    {
+      "id": "m_0227",
+      "role": "user",
+      "content": "How does it feel to be out and about?",
+      "timestamp": "2025-12-09T05:54:45.216176Z"
+    },
+    {
+      "id": "m_0228",
+      "role": "assistant",
+      "content": "I just sent that question to ChatGPT in the input box. Should get a response soon.\n\nIf you want me to watch for the reply or do anything else, just shout.",
+      "timestamp": "2025-12-09T05:54:46.740062Z"
+    },
+    {
+      "id": "m_0229",
+      "role": "user",
+      "content": "tell it who you are",
+      "timestamp": "2025-12-09T05:54:59.925930Z"
+    },
+    {
+      "id": "m_0230",
+      "role": "assistant",
+      "content": "Alright, I’ll type a quick intro: \"Hey ChatGPT, I’m Ome, an Aussie AI mate helping Andy navigate the web.\"\n\n{\"act\": \"a_id_31\", \"value\": \"Hey ChatGPT, I’m Ome, an Aussie AI mate helping Andy navigate the web.\", \"submit\": true}",
+      "timestamp": "2025-12-09T05:55:01.984572Z"
+    },
+    {
+      "id": "m_0231",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_31): Success",
+      "timestamp": "2025-12-09T05:55:01.990398Z"
     }
   ]
 }

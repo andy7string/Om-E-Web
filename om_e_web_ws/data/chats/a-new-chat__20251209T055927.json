@@ -1,0 +1,165 @@
+{
+  "chat_id": "a-new-chat__20251209T055927",
+  "project_id": "default",
+  "created_at": "2025-12-09T05:59:27.047824Z",
+  "updated_at": "2025-12-09T06:01:59.717458Z",
+  "title": "a new chat",
+  "default_title": "a new chat",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "Om-E Web - Orb Playground"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "a new chat",
+      "timestamp": "2025-12-09T05:59:27.047836Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Starting fresh chat, mate! What’s on your mind?",
+      "timestamp": "2025-12-09T05:59:28.060508Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "youtube",
+      "timestamp": "2025-12-09T05:59:34.321775Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "You wanna hit up YouTube? Opening it for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-09T05:59:35.800273Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "wow who is the guy with the muscles thats exposed",
+      "timestamp": "2025-12-09T05:59:53.246429Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "You mean the one in the video titled \"Greg EXPOSES Mike O’Hearn: He’s On EVERYTHING!\"? Looks like some juicy drama about Mike O’Hearn, the muscle dude.\n\nWant me to open that vid for you?\n\n{\"act\": \"a_id_85\"}",
+      "timestamp": "2025-12-09T05:59:54.698437Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_85): Success",
+      "timestamp": "2025-12-09T05:59:54.699374Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "user",
+      "content": "lets go home",
+      "timestamp": "2025-12-09T06:00:30.412925Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "Heading back to the YouTube home page for ya.\n\n{\"act\": \"a_id_9\"}",
+      "timestamp": "2025-12-09T06:00:31.685093Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_9): Success",
+      "timestamp": "2025-12-09T06:00:31.687005Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "lets see that girl dancing",
+      "timestamp": "2025-12-09T06:00:46.296193Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "There’s a viral Chinese dancer video titled “​VIRAL CHINESE DANCER SHOCKS CROWD at Local Restaurant!” Looks like a good one to check out.\n\nOpening that for you.\n\n{\"act\": \"a_id_99\"}",
+      "timestamp": "2025-12-09T06:00:48.598507Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_99): Success",
+      "timestamp": "2025-12-09T06:00:48.599314Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "user",
+      "content": "na bru go home",
+      "timestamp": "2025-12-09T06:01:09.999479Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "Righto, back to YouTube home for ya.\n\n{\"act\": \"a_id_9\"}",
+      "timestamp": "2025-12-09T06:01:11.282532Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_9): Success",
+      "timestamp": "2025-12-09T06:01:11.283072Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "lets see that video with danny jones",
+      "timestamp": "2025-12-09T06:01:32.945840Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Found a video with Danny Jones, 157K views, 3 days ago. Opening it now.\n\n{\"act\": \"a_id_132\"}",
+      "timestamp": "2025-12-09T06:01:34.118831Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_132): Success",
+      "timestamp": "2025-12-09T06:01:34.119427Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "user",
+      "content": "ya go to videos",
+      "timestamp": "2025-12-09T06:01:46.280129Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "Switching to the Videos tab on Danny Jones’ channel.\n\n{\"act\": \"a_id_56\"}",
+      "timestamp": "2025-12-09T06:01:48.556529Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "✅ click(a_id_56): Success",
+      "timestamp": "2025-12-09T06:01:48.557303Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "Harvard guy",
+      "timestamp": "2025-12-09T06:01:57.981228Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Found a video titled \"Harvard Physicist Warns What is Actually Happening with 3i/Atlas | Avi Loeb\" from 3 hours ago with 111K views.\n\nOpening that one for ya.\n\n{\"act\": \"a_id_67\"}",
+      "timestamp": "2025-12-09T06:01:59.716780Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_67): Success",
+      "timestamp": "2025-12-09T06:01:59.717458Z"
+    }
+  ]
+}

@@ -1399,6 +1399,13 @@
                 -webkit-user-select: none;
             }
             .ome-hud-orb-wrapper * { user-select: none; -webkit-user-select: none; }
+            /* Allow text selection in messages */
+            .ome-chat-bubble, .ome-chat-bubble *,
+            .ome-hud-message, .ome-hud-message * {
+                user-select: text;
+                -webkit-user-select: text;
+            }
+            .ome-copy-btn { user-select: none; -webkit-user-select: none; }
             /* ⬆️⬇️ Drag indicators (arrows) */
             .ome-hud-drag-indicator {
                 position: absolute;
@@ -1840,6 +1847,38 @@
             }
             strong { font-weight: 600; color: #f1f5f9; }
             em { font-style: italic; color: rgba(255,255,255,0.85); }
+
+            /* 📋 Copy Button (appears on message hover) */
+            .ome-chat-bubble, .ome-hud-message { position: relative; }
+            .ome-copy-btn {
+                position: absolute;
+                top: 6px;
+                right: 6px;
+                width: 28px;
+                height: 28px;
+                padding: 0;
+                border: none;
+                border-radius: 6px;
+                background: rgba(30,41,59,0.8);
+                color: rgba(255,255,255,0.6);
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.15s, background 0.15s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .ome-chat-bubble:hover .ome-copy-btn,
+            .ome-hud-message:hover .ome-copy-btn { opacity: 1; }
+            .ome-copy-btn:hover {
+                background: rgba(59,130,246,0.5);
+                color: #fff;
+            }
+            .ome-copy-btn.copied {
+                background: rgba(34,197,94,0.5);
+                color: #fff;
+            }
+            .ome-copy-btn svg { width: 16px; height: 16px; }
 
             /* 💬 Typing Preview (live draft as you type) */
             .ome-chat-bubble.typing-preview {
@@ -6206,7 +6245,7 @@
     }
 
     /**
-     * 💬 Render message content (text + images)
+     * 💬 Render message content (text + images + copy button)
      * @param {HTMLElement} msgEl - Message element to render into
      * @param {Object} msg - Message object with content/images
      */
@@ -6228,6 +6267,35 @@
                 msgEl.appendChild(img);
             });
         }
+
+        // 📋 Copy button (appears on hover)
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'ome-copy-btn';
+        copyBtn.title = 'Copy to clipboard';
+        copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+        </svg>`;
+        copyBtn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            try {
+                await navigator.clipboard.writeText(msg.content || '');
+                copyBtn.classList.add('copied');
+                copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>`;
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    copyBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                    </svg>`;
+                }, 1500);
+            } catch (err) {
+                console.warn('[HUD] Copy failed:', err);
+            }
+        });
+        msgEl.appendChild(copyBtn);
     }
 
     /**
