@@ -1,0 +1,306 @@
+<!-- signature: oM9KrgjQX9k:295:293ad5f1f9c61537498f1ffd532fbbc0088ba677a9daef6d3ee02a365a0fd337 -->
+# Google DeepMind CEO Just Changed How I See AI
+
+**Video URL:** https://www.youtube.com/watch?v=oM9KrgjQX9k
+**Video ID:** oM9KrgjQX9k
+**Language:** en
+**Collected At:** 1765254014775
+**Segments:** 295
+
+---
+
+- [0:00] There are just a few people at the very
+- [0:02] top of the AI game. Elon Musk and Sam
+- [0:05] Olman to name a few. But here we're
+- [0:07] going to get some huge predictions from
+- [0:10] Google's DeepMind CEO. He for sure is
+- [0:13] one of a handful at the very very top.
+- [0:16] So we're going to talk about the blunt
+- [0:18] state of AI. And what I'm going to ask
+- [0:20] from you is given the known knowns
+- [0:22] today, be blunt, clinical, no hype, no
+- [0:26] soft selling. Can we do that?
+- [0:28] I'll do my best.
+- [0:28] All right. Um what does the next 12
+- [0:33] months of progress look like? What do
+- [0:35] you believe that if we sit here a year
+- [0:37] from today and I would love to uh what
+- [0:39] will have changed in the world?
+- [0:41] Um I think the things that that we're
+- [0:43] we're pressing hard on are um uh the
+- [0:46] convergence of modalities. So you Gemini
+- [0:50] which is our main foundation model has
+- [0:52] always been multimodal from the
+- [0:53] beginning. It takes images, video, uh
+- [0:55] text, audio, and then can produce now
+- [0:58] increasingly produce those uh uh types
+- [1:00] of outputs as well. Um and I think we're
+- [1:03] getting some really interesting uh
+- [1:05] cross-pollination by being multimodal.
+- [1:08] One the best example of that is our
+- [1:10] latest image model, Nano Banana Pro,
+- [1:12] which um I think shows some astonishing
+- [1:14] sort of understanding of visuals and it
+- [1:17] can kind of, you know, create
+- [1:18] infographics that are really accurate
+- [1:19] and so on. So I think over the next year
+- [1:21] you're going to see that uh uh progress
+- [1:23] a lot and I think for example in video
+- [1:26] when that converges with the language
+- [1:28] models you're going to be see some very
+- [1:30] interesting combinations of capabilities
+- [1:31] there. I think the other things we're
+- [1:33] going to see over the next year and I'm
+- [1:34] personally working on is world models.
+- [1:36] So uh we have this um uh system called
+- [1:39] Genie Genie 3 which is like an
+- [1:41] interactive video model you can think
+- [1:43] about. you can sort of generate a video
+- [1:45] but then you can start walking around it
+- [1:47] like you're in a game or simulation and
+- [1:48] it stays coherent for a minute. I think
+- [1:50] that's very exciting. Um and then uh you
+- [1:54] know maybe the other thing is a agent
+- [1:56] based systems. So we I think the field's
+- [1:58] been talking a lot about agents but then
+- [2:00] they're not reliable yet enough to do
+- [2:02] full tasks but I think over the next
+- [2:03] we've heard a lot about that today here
+- [2:05] on the Axia stage. What would you say a
+- [2:07] year from now? How will agents have
+- [2:09] progressed? What's an example of how it
+- [2:11] will work in everyday life a year from
+- [2:13] now?
+- [2:14] Well, look, I we we have this concept of
+- [2:16] a universal assistant that we want
+- [2:17] Gemini eventually to become. Uh I think
+- [2:20] this is also you're going to see from us
+- [2:22] over the next year. This will be on on
+- [2:23] on more devices as well. By universal,
+- [2:26] we mean it's not just on your computer
+- [2:28] or your laptop or your or your phone,
+- [2:30] but maybe comes around with you on
+- [2:31] glasses or other devices. And um I think
+- [2:35] it needs you know we want to create
+- [2:37] something that is useful to you in your
+- [2:39] everyday life that you consult many
+- [2:42] times a day. It becomes a part of the
+- [2:43] fabric of your life and it just improves
+- [2:45] your productivity but also your personal
+- [2:47] life. You know recommendations for books
+- [2:49] and films and other or activities that
+- [2:51] you'd like and but yeah so but agents at
+- [2:54] the moment they can't you can't delegate
+- [2:56] to them uh a whole task and be sure
+- [2:59] they're going to complete that entire
+- [3:01] task. uh uh completely reliably
+- [3:04] but a year from now you think they will
+- [3:05] I think a year from now we'll start
+- [3:07] having agents that uh are close uh to
+- [3:10] doing that
+- [3:11] and bull case barecase what is the best
+- [3:16] case for what AI can do for the world
+- [3:18] and what do you fear most
+- [3:21] well look the the the the the best case
+- [3:24] scenario that that I've always dreamed
+- [3:25] about and why I wor my whole life on on
+- [3:27] on AI and you know getting closer to
+- [3:29] this moment we've been working towards
+- [3:31] for decad decades now many of us is um
+- [3:35] uh a kind of I somes call it radical
+- [3:37] abundance. So this idea we solved a lot
+- [3:39] of the biggest issues confronting uh
+- [3:42] society and humanity today. So whether
+- [3:44] that's free uh uh renewable clean energy
+- [3:48] maybe we solve fusion or better battery
+- [3:50] optimal batteries and and solar uh
+- [3:53] materials semiconductors you know
+- [3:55] material science we've solved a lot of
+- [3:57] diseases. So then we're in a situation
+- [3:59] where, you know, we're in this new era,
+- [4:01] post scarcity era, and we're
+- [4:04] potentially, you know, humanity's is is
+- [4:07] flourishing and traveling to the stars
+- [4:09] and spreading consciousness to the to
+- [4:10] the galaxy.
+- [4:11] And what do you fear most?
+- [4:14] Well, even that utopian kind of view has
+- [4:18] some questions around it about what will
+- [4:20] be um our purpose as humans if there are
+- [4:23] these technologies and that are out
+- [4:25] there that are solving all these
+- [4:26] problems. all be left to solve. You
+- [4:28] know, I worry about that as a scientist
+- [4:29] and you know, the scientific method
+- [4:31] even. So, there's that, but there's also
+- [4:33] obviously the the well-known uh down
+- [4:36] challenges and risks with AI of well,
+- [4:38] twofold. One is bad actors um uh using
+- [4:41] AI for harmful ends um or the AI itself
+- [4:45] as it gets closer to AGI and becomes
+- [4:47] more gentic um it goes off the rails in
+- [4:49] some way that harms humanity. AI that
+- [4:52] can understand pictures, video, sound,
+- [4:54] and text at the same time will make the
+- [4:57] technology easier for everyone to use.
+- [4:59] Researchers have shown that models
+- [5:01] trained on many types of data learn more
+- [5:04] stable and grounded reasoning skills
+- [5:06] than texton models. Multimodal AI is
+- [5:09] like giving AI sensors. Right now, AI
+- [5:12] mostly reads the world through text,
+- [5:14] which is like trying to understand life
+- [5:15] through only books. Words miss a lot.
+- [5:18] Pictures show details you cannot
+- [5:20] describe easily. Videos show movement
+- [5:22] and timing. Audio shows tone and
+- [5:24] emotion. When AI learns from all these
+- [5:26] together, it builds a more complete
+- [5:28] picture of what is going on. Another
+- [5:30] important change is context. Today, if
+- [5:33] you describe a problem, you have to find
+- [5:35] the words. But life isn't neatly written
+- [5:38] out. You might need help with a broken
+- [5:40] device, a confusing dashboard, a maths
+- [5:42] problem on a page, or a strange option
+- [5:45] on your car screen. It's much easier to
+- [5:47] take a photo and say, "What's this?"
+- [5:50] Multimodal AI can handle that. It cuts
+- [5:52] out the frustration of trying to explain
+- [5:54] something that could be understood
+- [5:56] instantly by sight. There's also a trust
+- [5:58] angle. Texton AI often gives confident
+- [6:01] answers that are wrong because it has no
+- [6:04] grounding in the physical world. But
+- [6:06] when a model learns from photos and
+- [6:08] videos, it becomes less likely to
+- [6:10] hallucinate. It has more evidence to
+- [6:12] work with. Researchers have already
+- [6:14] found that models with visual grounding
+- [6:16] make fewer madeup claims because they
+- [6:18] rely on real signals, not guesses. This
+- [6:21] makes AI safer and more predictable for
+- [6:23] everyday use, especially in areas where
+- [6:26] accuracy matters. Another benefit is
+- [6:28] teaching and learning. If AI can see
+- [6:31] what you are doing, it can guide you
+- [6:33] step by step. Imagine fixing a bike,
+- [6:35] cooking a new recipe, working on a
+- [6:37] school project, or repairing something
+- [6:39] at home. Instead of reading long text
+- [6:41] instructions, which we all hate, you can
+- [6:43] show the AI the object and ask what to
+- [6:45] do next. On the business side, most work
+- [6:48] happens through images, recordings, and
+- [6:50] screens. Workers take photos of
+- [6:52] equipment, track inventory with cameras,
+- [6:54] record meetings, take screenshots, and
+- [6:57] share slides. Multimodal AI can plug
+- [6:59] into these real workflows. It can
+- [7:01] understand a sales chart, a building
+- [7:04] plan, a product photo, or a shipment
+- [7:06] label without you converting it into
+- [7:08] text. Another overlooked area is
+- [7:10] accessibility. Multimodal AI helps
+- [7:13] people who struggle with reading,
+- [7:15] writing, hearing, or seeing. Someone
+- [7:17] who's visually impaired can take a photo
+- [7:19] and get a spoken description. That's
+- [7:21] pretty mind-blowing. Someone who has
+- [7:22] trouble writing can speak and show
+- [7:24] visuals. Someone with hearing issues can
+- [7:27] use captions and image help. This makes
+- [7:30] AI usable for far more people. Finally,
+- [7:34] multimodality is the stepping stone for
+- [7:36] what comes next. things like agents,
+- [7:38] robotics, and world models. A system
+- [7:41] cannot act reliably in the real world if
+- [7:43] it only understands text. It needs
+- [7:45] visual grounding, sound cues, and the
+- [7:47] ability to interpret real environments.
+- [7:50] Multimodal training is how you give AI
+- [7:52] that foundation. Over the next year, it
+- [7:55] will feel like AI is becoming more
+- [7:56] natural, more obvious, and more
+- [7:58] practical for everyday life. Demis then
+- [8:01] talks about AI that can model the world
+- [8:03] itself and that opens a whole new world
+- [8:07] quite literally. World models help AI
+- [8:09] understand how things change over time
+- [8:11] which is key for building agents that
+- [8:14] can complete tasks on their own. This is
+- [8:16] super important for the development and
+- [8:18] improved performance of robotics video
+- [8:21] prediction and decision making tasks. A
+- [8:24] world model is basically an AI learning
+- [8:26] how the world works. It builds an
+- [8:28] internal map of cause and effect. It
+- [8:30] learns that if you move something, it
+- [8:32] changes position. If you pour water, it
+- [8:35] flows. If you turn a wheel, it rotates.
+- [8:37] This seems simple to us, but models
+- [8:40] today often don't understand these
+- [8:42] basics. They only know patterns in
+- [8:44] language. While models are different,
+- [8:46] they help AI move from guessing the next
+- [8:48] word to understanding events. Real tasks
+- [8:51] are not one-step problems. You don't
+- [8:53] clean a kitchen with one instruction.
+- [8:56] You don't plan a trip with one line. You
+- [8:58] don't run a business with a single
+- [9:00] command. Tasks have stages, deadlines,
+- [9:03] steps, and updates. A world model can
+- [9:06] hold all of that together. Another
+- [9:08] useful part of world models is
+- [9:09] predictive ability. These models can
+- [9:12] imagine what will probably happen next.
+- [9:14] For example, if you show a model someone
+- [9:16] pushing a box, it can predict the box
+- [9:18] will slide. If you show a person
+- [9:20] reaching for a cup, it predicts they
+- [9:22] will grab it. Prediction is the
+- [9:24] foundation of planning. Without
+- [9:25] prediction, an agent is guessing. With
+- [9:28] prediction, it can organize tasks in a
+- [9:30] smart order. Let's take Genie, the
+- [9:32] interactive video system Demis mentions
+- [9:35] as an example. Besides it being fun, the
+- [9:37] real importance is that the scene stays
+- [9:39] stable. That means the model understands
+- [9:41] objects, positions, and movement well
+- [9:44] enough to keep everything consistent.
+- [9:46] That is early evidence of understanding
+- [9:48] rules, not just images. When you combine
+- [9:50] world models with agents, things start
+- [9:52] to change. An agent with a world model
+- [9:54] can remember what it's doing, figure out
+- [9:56] what should happen next, and adjust
+- [9:58] plans when things change. This is very
+- [10:00] different from today's agents. In
+- [10:02] everyday life, this could show up in a
+- [10:04] simple way first. An agent could handle
+- [10:06] a school project, manage a weekly
+- [10:08] schedule, keep track of bills, organize
+- [10:10] photos, or manage to do lists that
+- [10:13] update automatically. It won't be
+- [10:14] perfect, but it will follow the logic of
+- [10:17] tasks more closely than AI today. In
+- [10:20] workplaces, early agents might manage
+- [10:22] customer requests, prepare reports,
+- [10:24] track orders, or schedule meetings
+- [10:26] across time zones. They won't replace
+- [10:28] people, but they will reduce busy work,
+- [10:31] the parts of the job that drain time.
+- [10:33] However, as Deis points out, this also
+- [10:36] raises concerns. If AI becomes more able
+- [10:39] to plan, then mistakes become more
+- [10:41] serious. A wrong assumption at step one
+- [10:44] could lead to a chain of wrong actions.
+- [10:46] YouTube isn't just entertainment. It's
+- [10:48] one of the best client acquisition tools
+- [10:50] because it builds trust at scale. We've
+- [10:53] helped businesses grow from scratch to a
+- [10:55] $100,000 month just by launching them a
+- [10:58] YouTube channel. Book a call with me
+- [10:59] below and let's see how YouTube could
+- [11:01] help your business scale.

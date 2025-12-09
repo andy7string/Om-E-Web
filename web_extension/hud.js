@@ -1757,6 +1757,7 @@
                 font-size: 15px;
                 line-height: 1.5;
                 word-wrap: break-word;
+                white-space: pre-wrap;
             }
             .ome-chat-bubble.user {
                 align-self: flex-start;
@@ -1777,6 +1778,69 @@
                 color: #fca5a5;
                 font-size: 12px;
             }
+            /* 💬 Chat Bubble Images */
+            .ome-chat-bubble img {
+                max-width: 100%;
+                max-height: 300px;
+                border-radius: 6px;
+                margin-top: 8px;
+                object-fit: contain;
+            }
+            .ome-chat-bubble img:first-child { margin-top: 0; }
+
+            /* 📝 Markdown Styles (shared by chat bubbles and HUD messages) */
+            .md-content { line-height: 1.6; }
+            .md-header { margin: 12px 0 6px 0; font-weight: 600; color: #a5b4fc; }
+            h3.md-header { font-size: 1.2em; }
+            h4.md-header { font-size: 1.1em; }
+            h5.md-header { font-size: 1em; }
+            .md-inline-code {
+                background: rgba(139,92,246,0.2);
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-family: 'SF Mono', Monaco, Consolas, monospace;
+                font-size: 0.9em;
+                color: #c4b5fd;
+            }
+            .md-code-block {
+                background: rgba(15,23,42,0.6);
+                border: 1px solid rgba(139,92,246,0.3);
+                border-radius: 8px;
+                padding: 12px;
+                margin: 10px 0;
+                overflow-x: auto;
+                font-family: 'SF Mono', Monaco, Consolas, monospace;
+                font-size: 0.85em;
+                line-height: 1.5;
+                color: #e2e8f0;
+            }
+            .md-code-block code { background: none; padding: 0; color: inherit; }
+            .md-link {
+                color: #93c5fd;
+                text-decoration: none;
+                border-bottom: 1px dotted rgba(147,197,253,0.5);
+            }
+            .md-link:hover { color: #bfdbfe; border-bottom-color: #bfdbfe; }
+            .md-blockquote {
+                border-left: 3px solid rgba(139,92,246,0.5);
+                padding-left: 12px;
+                margin: 8px 0;
+                color: rgba(255,255,255,0.7);
+                font-style: italic;
+            }
+            .md-list {
+                margin: 8px 0;
+                padding-left: 24px;
+            }
+            .md-list li { margin: 4px 0; }
+            .md-hr {
+                border: none;
+                border-top: 1px solid rgba(139,92,246,0.3);
+                margin: 12px 0;
+            }
+            strong { font-weight: 600; color: #f1f5f9; }
+            em { font-style: italic; color: rgba(255,255,255,0.85); }
+
             /* 💬 Typing Preview (live draft as you type) */
             .ome-chat-bubble.typing-preview {
                 align-self: flex-end;
@@ -6078,15 +6142,80 @@
     };
 
     /**
+     * 📝 Parse markdown to HTML (lightweight, safe)
+     * Supports: headers, bold, italic, code, links, lists, blockquotes
+     * @param {string} text - Raw markdown text
+     * @returns {string} - HTML string
+     */
+    function parseMarkdown(text) {
+        if (!text) return '';
+
+        // Escape HTML to prevent XSS
+        let html = text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+
+        // Code blocks (``` ... ```) - must be first to protect content
+        html = html.replace(/```(\w*)\n?([\s\S]*?)```/g, (_, lang, code) => {
+            return `<pre class="md-code-block${lang ? ` lang-${lang}` : ''}"><code>${code.trim()}</code></pre>`;
+        });
+
+        // Inline code (`code`)
+        html = html.replace(/`([^`]+)`/g, '<code class="md-inline-code">$1</code>');
+
+        // Headers (# ## ###)
+        html = html.replace(/^### (.+)$/gm, '<h5 class="md-header">$1</h5>');
+        html = html.replace(/^## (.+)$/gm, '<h4 class="md-header">$1</h4>');
+        html = html.replace(/^# (.+)$/gm, '<h3 class="md-header">$1</h3>');
+
+        // Bold (**text** or __text__)
+        html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+
+        // Italic (*text* or _text_) - careful not to match inside words
+        html = html.replace(/(?<!\w)\*([^*]+)\*(?!\w)/g, '<em>$1</em>');
+        html = html.replace(/(?<!\w)_([^_]+)_(?!\w)/g, '<em>$1</em>');
+
+        // Links [text](url)
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="md-link">$1</a>');
+
+        // Auto-link URLs (not already in href)
+        html = html.replace(/(?<!href="|">)(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" class="md-link">$1</a>');
+
+        // Blockquotes (> text)
+        html = html.replace(/^&gt; (.+)$/gm, '<blockquote class="md-blockquote">$1</blockquote>');
+
+        // Unordered lists (- item)
+        html = html.replace(/^- (.+)$/gm, '<li class="md-list-item">$1</li>');
+        html = html.replace(/(<li class="md-list-item">.*<\/li>\n?)+/g, '<ul class="md-list">$&</ul>');
+
+        // Ordered lists (1. item)
+        html = html.replace(/^\d+\. (.+)$/gm, '<li class="md-list-item-num">$1</li>');
+        html = html.replace(/(<li class="md-list-item-num">.*<\/li>\n?)+/g, '<ol class="md-list">$&</ol>');
+
+        // Horizontal rule (--- or ***)
+        html = html.replace(/^(---|\*\*\*)$/gm, '<hr class="md-hr">');
+
+        // Convert remaining newlines to <br> (but not inside pre/code)
+        // Only convert double newlines to preserve paragraphs
+        html = html.replace(/\n\n/g, '<br><br>');
+        html = html.replace(/\n/g, '<br>');
+
+        return html;
+    }
+
+    /**
      * 💬 Render message content (text + images)
      * @param {HTMLElement} msgEl - Message element to render into
      * @param {Object} msg - Message object with content/images
      */
     function renderMessageContent(msgEl, msg) {
-        // Text content
+        // Text content with markdown parsing
         if (msg.content) {
-            const textEl = document.createElement('span');
-            textEl.textContent = msg.content;
+            const textEl = document.createElement('div');
+            textEl.className = 'md-content';
+            textEl.innerHTML = parseMarkdown(msg.content);
             msgEl.appendChild(textEl);
         }
         // Image support - check for images array or image URLs in content

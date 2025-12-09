@@ -1,0 +1,572 @@
+<!-- signature: tkxKnPklJhY:561:faf60c2ad2f77994875222d0caa1ac6b739267632b8fbcba92d3c1d739cb155a -->
+# Stop learning n8n? Build NEW AI Systems in 2026
+
+**Video URL:** https://www.youtube.com/watch?v=tkxKnPklJhY
+**Video ID:** tkxKnPklJhY
+**Language:** en
+**Collected At:** 1765248279823
+**Segments:** 561
+
+---
+
+- [0:00] Is learning nitan or make.com still
+- [0:02] worth your time? The biggest leap in AI
+- [0:04] just happened. And thanks to Gemini 3.0
+- [0:07] and claude code, it is now possible to
+- [0:09] build fully automated AI systems in
+- [0:12] minutes instead of hours. For those of
+- [0:14] you who don't know, I'm Jack Roberts. I
+- [0:16] built and sold a top 100 UK startup and
+- [0:19] got that to 60,000 customers. And now I
+- [0:21] run a 7igure AI automation business. And
+- [0:24] in this video, I'm going to show you
+- [0:25] exactly what's new, which tools really
+- [0:28] matter going into 2026, and how you can
+- [0:30] use them to save time and make more
+- [0:32] profit regardless of your skill level,
+- [0:34] so you're not wasting any of your time
+- [0:36] going into 2026. So, after building AI
+- [0:39] successfully for years with make.com,
+- [0:42] natan, lovable, bot, how we're building
+- [0:45] these AI systems is fundamentally
+- [0:47] changing right now. There is a huge
+- [0:50] shift. Now you can now automate
+- [0:53] essentially with words. Let's take a
+- [0:55] live example. Let's say that you wanted
+- [0:56] to scrape the number one AI newsletter
+- [0:58] by subscribers in the world, which at
+- [1:01] the moment is this one called the AI
+- [1:02] rundown. How do you most easily
+- [1:05] accomplish that? Maybe you want ideas
+- [1:07] for your social media content. Maybe you
+- [1:08] just want to get the information. We
+- [1:10] used to just build workflows. We load it
+- [1:12] up. We grab our coffee, which by the
+- [1:14] way, if you haven't had, grab that
+- [1:15] coffee cuz we're going to lock in and
+- [1:16] kick some butt right now. We'd normally
+- [1:18] build workflows on make.com on nan and
+- [1:20] then labor through it and make it happen
+- [1:21] or use a template. And this requires
+- [1:24] skill and time, but now you can
+- [1:28] essentially just type and build, not
+- [1:30] just front ends, but full AI systems
+- [1:33] that just build and do the thing that
+- [1:34] you want. And you can build these
+- [1:35] amazing AI systems. This right here is
+- [1:37] an exact example of what I just said.
+- [1:39] And literally, guys, I built this
+- [1:40] yesterday. I'm going to show you in this
+- [1:41] video how you do things like this. This
+- [1:43] is that scraper. I click on newsletters.
+- [1:45] I click on refresh newsletters. And this
+- [1:47] just pulls down and bear in mind I
+- [1:49] didn't touch any coding platform for
+- [1:50] this. I just had a conversation with the
+- [1:52] model. It will refresh it. 32 articles
+- [1:55] processing and then I'm going to get
+- [1:56] full access. Look at this. Look how
+- [2:00] crazy this is. And guys, this has the
+- [2:02] intelligence to go into the actual
+- [2:04] article itself and extract everything
+- [2:07] from it. Like it really is insane. And
+- [2:09] I've got all this stuff. I can save
+- [2:11] this. I can come back to it later and do
+- [2:13] anything that I want to. You see, these
+- [2:15] platforms are amazing and I've spent
+- [2:17] years with them and I freaking love
+- [2:18] them. They are integrators. They
+- [2:21] basically connect things to other
+- [2:24] things. That one is a writer downer.
+- [2:26] That one is almost prophetic in its
+- [2:28] poetry in a way in its pros. But then
+- [2:30] you have Claude and Gemini, right? Which
+- [2:32] are executors at the code level. Said
+- [2:34] another way, these connect things and
+- [2:36] these do things. And that is very cool.
+- [2:39] But the thing is these platforms here
+- [2:42] are not dead. They actually become more
+- [2:45] powerful. You just need to know how to
+- [2:47] build AI systems and when to actually
+- [2:50] use them. And I'm going to show you in
+- [2:52] this video how you can actually save
+- [2:53] hours of time and build profit using
+- [2:55] those systems. Regardless of your
+- [2:56] experience level, I'm going to show you
+- [2:58] how you can deploy these AI systems
+- [2:59] across three levels of difficulty. So if
+- [3:02] you've never coded before or you're very
+- [3:04] experienced, there's going to be
+- [3:04] something super valuable for you. Now,
+- [3:06] in my last tech startup, I remember very
+- [3:08] distinctly, I was drinking some
+- [3:09] delicious coffee. I spoke to my CTO and
+- [3:11] I said, "I need to get an admin level
+- [3:13] dashboard of the software we had cuz we
+- [3:15] had so many customers. We wanted to see
+- [3:16] what was working." He said, "Great. We
+- [3:18] need to do that in a few months."
+- [3:20] Yesterday, I published a video on
+- [3:22] YouTube. I showed you how you can get a
+- [3:23] full admin dashboard built in under an
+- [3:26] hour. Now, that is crazy. So, the game
+- [3:29] has completely changed. So I want to
+- [3:30] just I can't home enough but this
+- [3:33] technology is getting crazy and the
+- [3:34] things that you can do with it is wild.
+- [3:36] So system one we're going to begin with
+- [3:38] something called Lindy AI. Lindy AI if
+- [3:41] you think about it is a really good
+- [3:42] example how you can very quickly stand
+- [3:44] up many pre-developed AI systems. So for
+- [3:47] example if you check out we're now at
+- [3:49] the point where you can basically browse
+- [3:51] and deploy systems in seamless ways and
+- [3:53] there's many different platforms to do
+- [3:54] this nitan make lindy ar there's lots
+- [3:58] but let's say that I want to remove the
+- [3:59] need of whenever I have an email with
+- [4:01] somebody that I just want someone to
+- [4:02] schedule it for me and I don't want to
+- [4:04] hire a personal assistant well we have a
+- [4:06] system for that so if you check out on
+- [4:07] the left say I want to come down to
+- [4:09] emails I click on emails and this shows
+- [4:11] me all of the templates that exist for
+- [4:13] emails I can if I want to click on this
+- [4:15] meeting scheduleuler this has actually
+- [4:17] going to blow your mind. These are the
+- [4:18] apps that it uses. Google Calendar, Lend
+- [4:20] utilities, Forms, Lend Mail. I click on
+- [4:22] add. This is freaking wild. This is
+- [4:24] where we're at now with these AI
+- [4:25] systems. You're going to connect it to
+- [4:26] your email inbox. You can click on
+- [4:28] continue. Now, if you're a business
+- [4:30] owner wanting to deploy this, this is
+- [4:31] one of the best platforms to get agent
+- [4:35] systems, email responder systems, like
+- [4:37] anything from the bazillions of
+- [4:38] different things they've got set up,
+- [4:40] ready to rock and roll. So, you can be
+- [4:41] down here by adding a Meetup link that
+- [4:43] you want to schedule. So, we're going to
+- [4:44] enter in a meeting link that we're happy
+- [4:46] with. We click on continue. If you
+- [4:47] haven't connected Google Calendar, that
+- [4:49] will do it pretty easily. And look at
+- [4:50] this guys. So the way this is going to
+- [4:52] work now is I copy this. I click on
+- [4:53] continue. And anytime I CC in, I love
+- [4:56] the good bit of confetti that email
+- [4:58] address into any conversation. That AI
+- [5:01] will then continue the conversation for
+- [5:02] us and book the meeting, which is crazy.
+- [5:05] And you can even see the flow editor.
+- [5:06] But did you notice at no point did we
+- [5:08] actually have to design any of the
+- [5:10] stuff? It just did it for us
+- [5:11] instantaneously, which is crazy. So for
+- [5:13] example, this is a message I sent
+- [5:15] yesterday. I sent an email to myself. I
+- [5:17] said, "It sounds great. Let's find some
+- [5:18] time next Tuesday to talk about the
+- [5:20] McMillan merger. Everyone knows one of
+- [5:22] the biggest mergers on the planet." And
+- [5:23] I CCD in that link that it gave me. Then
+- [5:25] if I come over to my second inbox, this
+- [5:27] AI has basically gone out and said,
+- [5:28] "Great, let's now do this." And it will
+- [5:30] organize that automatically for us and
+- [5:32] set something up. Again, completely out
+- [5:33] of the block system that you can deploy
+- [5:35] right now. And the point I'm making here
+- [5:36] is that the skill of these systems is
+- [5:38] only getting stronger. So if I come over
+- [5:40] to home, I can actually tell it to build
+- [5:42] apps. So, what if I said something like,
+- [5:43] "Hey, I want you to build for me a
+- [5:45] scraper. I want you to scrape for me 20
+- [5:47] dentists in leads. I want to know their
+- [5:50] email address. I want to know their
+- [5:51] phone number. And I would like you to
+- [5:52] write for me a personalized one-s
+- [5:55] sentence outliner for my agency that is
+- [5:57] unique." Okay, something really freaking
+- [5:59] simple like that. And I hit enter. We're
+- [6:00] at the point where we can build these
+- [6:02] apps by very, very simple prompts. This
+- [6:04] work for us in the background. And you
+- [6:05] can see this building in the background,
+- [6:06] which is really cool. So the way that it
+- [6:08] works on Lindy is that you have the text
+- [6:11] terminal on the left hand side and then
+- [6:12] the browser on the right and then it
+- [6:14] will go through everything. It will give
+- [6:15] you a bit of an update and then you'll
+- [6:16] be able to chat with this to see exactly
+- [6:19] how it works. And you can see as this is
+- [6:21] going through guys, it's doing a couple
+- [6:22] of things. So it's waiting for the page
+- [6:23] to load. It's deploying code. You can
+- [6:25] see everything that it's doing here in
+- [6:26] the terminal. It's actually searching
+- [6:28] the internet. So it's going online for
+- [6:30] us now to grab this stuff and bring it
+- [6:32] in an app. So the way that I like to
+- [6:34] think about this is it's sort of like
+- [6:37] instead of you doing all the manual
+- [6:38] scraping and things you just chat to it
+- [6:40] and it does it. So traditionally if you
+- [6:41] wanted to systematize it you would go
+- [6:43] ahead and you'd build out you can build
+- [6:44] out the full system. Of course you can
+- [6:45] do this in many platforms. You go on to
+- [6:47] appy. This is a really easy simple entry
+- [6:50] way to get in and start scraping and
+- [6:52] doing great things by just saying tell
+- [6:53] it what you want it to do and then it
+- [6:55] goes ahead and actually builds the
+- [6:56] thing. And just like that guys Lindy has
+- [6:58] completed. So we've got the full
+- [6:59] overview. We've got 20 dentists. We've
+- [7:01] got 13 that have been found with emails
+- [7:02] and 20 with phone numbers. We've got 16
+- [7:05] websites cataloged your agency's
+- [7:07] oneliner. We help dental practice 3x
+- [7:09] more qualified patients. Key statistics,
+- [7:12] phones, practices, private practice,
+- [7:13] email success rate 65%. And then it's
+- [7:15] given us a CSV. And actually, if you
+- [7:17] scroll down, uh, we've got it here. So
+- [7:19] now we could do whatever we wanted to
+- [7:20] with that system. And the point is with
+- [7:22] these apps, you can build anything. And
+- [7:24] again, you just go through the library
+- [7:26] of things. It's probably the easiest way
+- [7:28] to get something built and get it
+- [7:30] started as a complete beginner. Level
+- [7:32] two is NA10. I'm going to show you two
+- [7:34] really important things that you have to
+- [7:36] understand about NA10. Now, roughly a
+- [7:38] few weeks ago to month ago, we had this
+- [7:40] feature released here which is build
+- [7:41] with AI. Now, when it came out, it was
+- [7:43] exceptional and we loved it. Something's
+- [7:46] happened over the past, I don't know,
+- [7:47] week or so. But basically, it has gotten
+- [7:49] to the point where you pretty like it's
+- [7:52] insane. You still want to learn how to
+- [7:54] build workflows, guys. But how good this
+- [7:56] has gotten is actually crazy. And I want
+- [7:58] to show you right now. So, if I click on
+- [8:00] this and I said something like, "Hey, I
+- [8:02] would like you to create me a Reddit
+- [8:05] scraper, okay? And I'd like you to
+- [8:07] scrape the top 20 posts from the NHN
+- [8:11] subreddit. And then I want AI to analyze
+- [8:14] those posts. And I want you to give me
+- [8:16] five best posts that would be relevant
+- [8:18] for my channel, which talks about how to
+- [8:20] turn AI automations into income and my
+- [8:23] school community, which is about
+- [8:24] building AI systems and monetizing it
+- [8:26] with no faf. And I want that output to
+- [8:28] be article 1 2 3 4 5 with a hook on each
+- [8:31] of them. Okay, how cool is that?
+- [8:33] Beautiful. So, we're going to send this
+- [8:34] one off, which is great. And then the
+- [8:36] editor is going to build those for us in
+- [8:37] the background. Now, this edi editor in
+- [8:39] NA10 is kind of like magic. It isn't
+- [8:42] perfect. For example, if it's a really
+- [8:44] big complex flow, it does have
+- [8:46] limitations, which is where level three
+- [8:48] comes in, which I really want to show
+- [8:49] you, which is exciting. But for building
+- [8:51] certain flows, guys, it has got to the
+- [8:54] point where it's exceptional. So the
+- [8:55] question is, does this mean then that we
+- [8:57] shouldn't be learning NAM? Well, the
+- [8:59] truth is no. You should be learning NAM.
+- [9:02] And if I show you actually just I've set
+- [9:04] it out this way because this I believe
+- [9:05] is the best way to do it. If you think
+- [9:07] about your AI journey, the first thing
+- [9:09] that you really want to do is learn the
+- [9:11] foundations, right? Foundations are
+- [9:13] things like what is prompt engineering?
+- [9:15] What is, if I come down and show you
+- [9:17] here, AI safety? What is retrieval
+- [9:19] augmented generation? You want to get a
+- [9:21] good broad core overview of everything
+- [9:24] that you're doing. And then when it
+- [9:25] comes to automations, you want to learn
+- [9:27] how to build because you need to know
+- [9:28] how these things connect together. Now,
+- [9:30] the great news for you is the fact that
+- [9:33] building these systems has never gone
+- [9:35] easier. And whilst this is essentially
+- [9:37] magic in the workflow that it's building
+- [9:39] here, and look at this, it's crazy. It's
+- [9:40] absolutely crazy. And we're going to run
+- [9:42] this in a second. There's still going to
+- [9:43] be times where this reaches a limit
+- [9:45] where your ability to code and
+- [9:46] understand how it works is going to help
+- [9:48] you. So let's actually test this out
+- [9:50] right now. I'm going to come down to
+- [9:51] execute and refine. And the cool thing
+- [9:53] is, and look at this, it's done. Look,
+- [9:54] authorization failed. So we just need to
+- [9:56] change the model, which is fine. So
+- [9:58] we're going to stop this real quick. I'm
+- [9:59] going to show you how you debug this.
+- [10:01] I'm going to get rid of this. Add in a
+- [10:02] chat model like so. Come down to OpenAI.
+- [10:05] Beautiful. And then let's just add in
+- [10:07] our API key. Make sure we've got the
+- [10:09] right one here. Fantastic. And then once
+- [10:11] we've updated that API key, you can see
+- [10:12] it's now working in the background. And
+- [10:14] guys, look at this. I've got all the
+- [10:15] stuff on the right hand side now with
+- [10:17] everything here. The NA10 sub. And you
+- [10:19] can actually specify what you want it to
+- [10:21] be. And it's added all this stuff in
+- [10:22] automatically. Now, you'll need to
+- [10:24] connect to Reddit by creating an account
+- [10:26] and get an API. This has done it for me
+- [10:27] automatically because I had the actual
+- [10:30] credential in it. So, you'll need to do
+- [10:31] this. But then the content analyzer
+- [10:33] finished and we've got one output. So if
+- [10:34] I come down here, I can check out what
+- [10:35] it is. And then it's given me exactly
+- [10:38] what I wanted. And we just did that with
+- [10:40] text. We used the beautiful phenomenal
+- [10:42] glider to do this, which is our
+- [10:44] fantastic text to speech startup that's
+- [10:46] kicking butt and rocking worlds and
+- [10:47] saves us hours a day. But fundamentally
+- [10:50] guys, that's exactly what we've done.
+- [10:51] We've just built something completely
+- [10:53] bespoke and unique just by giving it a
+- [10:55] simple command. And level three is going
+- [10:57] to be using Gemini and claude code to
+- [10:59] build apps that can do effectively
+- [11:01] anything that we want to. So instead of
+- [11:02] using any and crank scenarios, which is
+- [11:05] still amazing and that's still really
+- [11:06] important, what we can do now is just
+- [11:08] say to the model, what do I want? And it
+- [11:11] will physically build it for us. Now,
+- [11:12] there's still going to need to be a
+- [11:13] little bit of back and forth to these
+- [11:14] things cuz they're not what we call
+- [11:16] oneshot. As they just say, and it
+- [11:17] happens, but the capabilities for this
+- [11:20] are literally crazy. Another way that I
+- [11:22] typically start these pressures off is I
+- [11:23] begin it in AI Studio.google. google.com
+- [11:26] and I'll give it a prompt. The first
+- [11:28] step that I usually make is I'll get a
+- [11:30] different model like Claude or ChatgPT
+- [11:32] to create for me an SOP, a big prompt.
+- [11:35] Then I throw it into Gemini. Once we've
+- [11:37] done that, we end up with something
+- [11:38] really cool. As you'll see in my last
+- [11:39] video, this dashboard here, which is
+- [11:43] flipping code for amazing, and it can
+- [11:45] build essentially anything that you
+- [11:47] want. You can go over to websites like
+- [11:49] uh dribble.com where we can find the
+- [11:51] most gorgeous sexy designs you could
+- [11:52] imagine for anything we want. So if I
+- [11:54] wanted a dashboard, I could type in
+- [11:55] dashboard data, whatever the thing is.
+- [11:58] We can take a screenshot of that, give
+- [12:00] it to the model and get it to build
+- [12:02] anything in this particular style. You
+- [12:04] can also grab the HTML text behind any
+- [12:08] website and know exactly what to do. So
+- [12:09] this is a really cool one. Again, we got
+- [12:11] dashboards. We got different settings.
+- [12:12] You can effectively create anything you
+- [12:14] want to. And then when you've done that,
+- [12:16] you can then download it. And when you
+- [12:17] download it, you can put it into what we
+- [12:20] call a CLI or something like this. So
+- [12:23] there are a few different things that
+- [12:24] you can use for this. You can use claude
+- [12:26] code the app. You can use VS Code. You
+- [12:28] can use cursor. You can use
+- [12:30] anti-gravity. There's lots of different
+- [12:32] things. I am showing you right here.
+- [12:33] Cursor. Now let me show you something I
+- [12:35] built earlier. So I'm going to type in
+- [12:36] claude into the terminal. And don't
+- [12:38] worry if this doesn't make sense. It'll
+- [12:40] make perfect sense to him. This is going
+- [12:41] to activate Claude code. So I tend to
+- [12:44] use a combination of it. Now check this
+- [12:45] out. This is something that I built in
+- [12:48] my last video. And I said build it for
+- [12:50] me. If I say, "Hey dude, open up the app
+- [12:52] for me." Okay, boom. It basically what's
+- [12:55] going to happen now is it's going to
+- [12:56] give me the local host where this app is
+- [12:58] hosted. And you're going to see exactly
+- [12:59] how this works. And then the really
+- [13:01] interesting thing with this is all of
+- [13:03] the building and development is now done
+- [13:05] on the laptop. And all I'm effectively
+- [13:07] doing is giving it a prompt and it just
+- [13:09] does the rest. And there we go. This is
+- [13:10] the content feed. Now bear in mind, we
+- [13:12] can connect this to Superbase. We can
+- [13:14] connect this to Appify. Pretty much
+- [13:15] anything you want to just through having
+- [13:17] conversations. So before I test this, I
+- [13:19] want to show you something over here
+- [13:20] which is the rundown AI newsletter which
+- [13:23] is great an example of a good
+- [13:25] newsletter. Now when I gave it this
+- [13:27] prompt I was like look this is the
+- [13:28] website actually when you land in for
+- [13:30] the first time it asks you to sign up.
+- [13:32] What you can do is come over to this and
+- [13:34] basically say something along the lines
+- [13:36] of this which is I would like you to
+- [13:38] create a strategy for scraping the
+- [13:39] articles from this page. What I want is
+- [13:42] a unique card interface with the image
+- [13:45] scraped, the title of the article, and
+- [13:47] then some information underneath it. And
+- [13:48] then I want an AI summary of the thing,
+- [13:50] whatever. And you can give it the URL.
+- [13:52] Give it a prompt like this. And then hit
+- [13:54] shift and tab and put it into think
+- [13:58] mode. Plan mode for Claude, if you're
+- [14:00] not familiar, basically just lets it
+- [14:01] plan out and create a big, beautiful,
+- [14:02] big brain strategy, as we say, to do it.
+- [14:04] And that's exactly what I did to this
+- [14:06] one. Because if you look at it, guys,
+- [14:08] we've got all this interesting stuff.
+- [14:09] You can click on the articles, you can
+- [14:10] go into it and see there's loads of
+- [14:12] different interesting things. And I want
+- [14:13] to grab all that stuff. And that's all I
+- [14:15] did. I gave it that prompt, a little bit
+- [14:17] of back and forth. And if I come over to
+- [14:19] newsletters and I click on refresh
+- [14:21] newsletters, what this will do is go
+- [14:23] ahead and scrape that. And again, you
+- [14:24] can do this from any newsletters you
+- [14:26] want to. I just gave it this one as an
+- [14:28] example. And you'll see this will
+- [14:29] populate for us as soon as it's grabbed
+- [14:31] the information. And bam, look at this
+- [14:34] guys. Open AI trains model to confess
+- [14:36] when they cheat. I come back over and is
+- [14:38] that true? Now what's really interesting
+- [14:41] here is that usually what it would do
+- [14:43] like typically speaking is just give you
+- [14:46] if I come back here this service level
+- [14:48] information. So the scraper guys is
+- [14:50] clicking into it and it has already
+- [14:52] determined what the sections are. It
+- [14:55] knows that this is a H1. It knows that
+- [14:56] this is an image and this is text. It
+- [14:58] did all that passing work for us. So all
+- [15:00] I get when I'm thinking of my content
+- [15:02] right now is a beautiful breakdown from
+- [15:04] this great, you know, great series of
+- [15:06] things. And again, we've got Reddit,
+- [15:07] we've got YouTube, we've got Twitter,
+- [15:08] we've got like everything in one place.
+- [15:11] Then I can just simply save this if I
+- [15:13] want to. It goes into my save file. It's
+- [15:15] not saving because I've just
+- [15:15] disconnected it from Superbase. But the
+- [15:17] point is it will all go into my saved
+- [15:18] file and then I can review that, make my
+- [15:20] content, and just kick butt. Like it's
+- [15:22] saved me like a crazy amount of money.
+- [15:24] It's so so effective. And so with all
+- [15:26] that in mind, what is the thing that you
+- [15:27] should be doing next? Because what I'm
+- [15:28] doing and how I'm building workflows is
+- [15:30] changing. So if you are a beginner, it
+- [15:32] is still really important that you learn
+- [15:35] the makes and the NA10s to know how to
+- [15:37] workflow build. There's still a very
+- [15:39] strong future where you're going to need
+- [15:41] those skills because even though we're
+- [15:42] getting to the point where we can give
+- [15:44] prompts now to things like Gemini and
+- [15:47] Claude and it can build it, you're still
+- [15:49] going to want that finer level of
+- [15:50] granularity and fine-tuning to make the
+- [15:53] models do what they want to do. So there
+- [15:55] are still scenarios where I would 100%
+- [15:57] use NA10 and I wouldn't use Gemini. So,
+- [15:59] it's different tools for different
+- [16:01] purposes. All this is really saying is
+- [16:04] that Gemini and Claude have come,
+- [16:06] they've kind of blown a lot of the vibe
+- [16:08] coding stuff out of the water to be
+- [16:10] honest with you because they're just
+- [16:11] that proficient. And what it's done is
+- [16:13] taken a small number of circumstances or
+- [16:15] probably a medium-sized number of
+- [16:17] circumstances and meant that it is now
+- [16:19] the go-to tool to do it. That said, when
+- [16:22] I'm building workflows and automations
+- [16:24] for my clients and my business, I'm
+- [16:26] still using NA10 in many different
+- [16:28] scenarios. So, you still need to learn
+- [16:31] if if you want to be great and develop
+- [16:32] the world's most valuable skill set. I'm
+- [16:34] even hitting this u this pro way to
+- [16:36] learn that sort of stuff. Now, if you
+- [16:38] are a business, I I think it's most
+- [16:40] important that you implement something
+- [16:42] into your business that is easy using a
+- [16:44] tool like Lindy AI or building a
+- [16:46] workflow so you can start to get and
+- [16:48] understand what your bottlenecks are and
+- [16:50] deploy against that. And for everybody
+- [16:52] else who's looking at the future who's a
+- [16:53] little bit more advanced, my honest take
+- [16:55] on this stuff is that the technology is
+- [16:57] moving extremely quickly. The delta, the
+- [17:01] difference between you having an idea
+- [17:03] and then that idea becoming a reality is
+- [17:06] getting increasingly short. And if we
+- [17:09] look at the data, that trend is only
+- [17:11] heading in one direction and that is up.
+- [17:13] So it's going to be easier than ever to
+- [17:16] build the app. So the only real key
+- [17:17] differentiator becomes a couple of
+- [17:19] things. Number one is how quickly you
+- [17:21] can build it and secondly what you
+- [17:24] build. But in addition to that, it's
+- [17:26] other things like understanding your
+- [17:27] prompt engineering, understanding
+- [17:29] different architecture and building the
+- [17:31] skills so that when you do get something
+- [17:33] that like actually changes the game, you
+- [17:35] have enough context and understanding
+- [17:37] and knowledge to leverage it to crush
+- [17:40] it. This is a really exciting time and
+- [17:42] I'm pretty much focused only on showing
+- [17:44] you the AI tech that will actually help
+- [17:46] you move forward in your business and
+- [17:49] crush it. But now you understand exactly
+- [17:50] how to build this in three levels of
+- [17:52] difficulty. The next thing you need to
+- [17:54] look at doing is learning how to build
+- [17:56] these AI systems from scratch using
+- [17:59] these tools that I shared.
