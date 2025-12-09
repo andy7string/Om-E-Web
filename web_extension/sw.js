@@ -1549,19 +1549,16 @@ async function handleSwitchTabCommand(message) {
         await chrome.tabs.update(parseInt(tabId), { active: true });
         console.log("[SW] 🗂️ Switched to tab:", tabId);
 
-        // Get the tab info to return
-        const tab = await chrome.tabs.get(parseInt(tabId));
+        // Get updated tabs for response
+        const tabs = await chrome.tabs.query({});
+        const tabsInfo = tabs.map(tab => ({
+            id: tab.id, url: tab.url, title: tab.title, active: tab.active, status: tab.status
+        }));
 
-        // Send updated tab info to server
-        await sendActiveTabInfo();
-        await sendTabsInfo();
-
-        // Send success response
+        // Send success response WITH tabs
         sendSuccessResponse(message.id, {
-            tabId: tab.id,
-            url: tab.url,
-            title: tab.title,
-            active: tab.active
+            switchedToTabId: parseInt(tabId),
+            tabs: tabsInfo
         });
 
     } catch (error) {
@@ -1592,16 +1589,16 @@ async function handleOpenTabCommand(message) {
         const newTab = await chrome.tabs.create(createOptions);
         console.log("[SW] 🗂️ Opened new tab:", newTab.id, "url:", newTab.url || "new tab page");
 
-        // Send updated tab info to server
-        await sendActiveTabInfo();
-        await sendTabsInfo();
+        // Get updated tabs for response
+        const tabs = await chrome.tabs.query({});
+        const tabsInfo = tabs.map(tab => ({
+            id: tab.id, url: tab.url, title: tab.title, active: tab.active, status: tab.status
+        }));
 
-        // Send success response
+        // Send success response WITH tabs
         sendSuccessResponse(message.id, {
-            tabId: newTab.id,
-            url: newTab.url,
-            title: newTab.title,
-            active: newTab.active
+            newTabId: newTab.id,
+            tabs: tabsInfo
         });
 
     } catch (error) {
@@ -1632,14 +1629,16 @@ async function handleCloseTabCommand(message) {
         await chrome.tabs.remove(parseInt(tabId));
         console.log("[SW] 🗂️ Closed tab:", tabId);
 
-        // Send updated tab info to server
-        await sendActiveTabInfo();
-        await sendTabsInfo();
+        // Get updated tabs for response
+        const tabs = await chrome.tabs.query({});
+        const tabsInfo = tabs.map(tab => ({
+            id: tab.id, url: tab.url, title: tab.title, active: tab.active, status: tab.status
+        }));
 
-        // Send success response
+        // Send success response WITH tabs included
         sendSuccessResponse(message.id, {
             closedTabId: parseInt(tabId),
-            message: `Tab ${tabId} closed successfully`
+            tabs: tabsInfo
         });
 
     } catch (error) {

@@ -1,0 +1,195 @@
+{
+  "chat_id": "hello__20251209T032146",
+  "project_id": "default",
+  "created_at": "2025-12-09T03:21:46.558043Z",
+  "updated_at": "2025-12-09T03:25:31.851603Z",
+  "title": "hello",
+  "default_title": "hello",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "Om-E Web - Orb Playground"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-12-09T03:21:46.558074Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "G'day mate! What’s the plan? Need a hand with something or just here for a chinwag?",
+      "timestamp": "2025-12-09T03:21:48.001423Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "what is your specific model name",
+      "timestamp": "2025-12-09T03:21:57.972102Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "I’m Ome, your Aussie AI mate, but under the hood I’m rockin’ OpenAI’s GPT-4 model. So, smart as hell but with a laid-back vibe. What’s up?",
+      "timestamp": "2025-12-09T03:21:59.711122Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "are you not 4.1 mini",
+      "timestamp": "2025-12-09T03:22:06.893334Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Nah, I’m just the regular GPT-4 flavour with an Aussie twist, not some mini or 4.1 thing. But hey, if there’s a 4.1 mini out there, sounds like a cheeky little upgrade! What made you ask?",
+      "timestamp": "2025-12-09T03:22:08.060939Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "ok open google",
+      "timestamp": "2025-12-09T03:22:23.957463Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "On it, mate. Opening Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-09T03:22:24.877150Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "lets search for chinas economy",
+      "timestamp": "2025-12-09T03:22:44.423506Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Searching for China’s economy now.\n\n{\"act\": \"a_id_1\", \"value\": \"chinas economy\", \"submit\": true}",
+      "timestamp": "2025-12-09T03:22:45.463171Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_1): Success",
+      "timestamp": "2025-12-09T03:22:45.466720Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "dude what are you doing, Search is a_id 6",
+      "timestamp": "2025-12-09T03:23:29.136198Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "Ah, my bad, mate! Let’s do it proper this time.\n\n{\"act\": \"a_id_6\", \"value\": \"chinas economy\", \"submit\": true}",
+      "timestamp": "2025-12-09T03:23:30.401085Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_6): Success",
+      "timestamp": "2025-12-09T03:23:30.404718Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "lets open a new tab",
+      "timestamp": "2025-12-09T03:23:42.447709Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Righto, opening a fresh tab for ya.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"about:blank\"}}",
+      "timestamp": "2025-12-09T03:23:43.382494Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "can you make that blank tab google",
+      "timestamp": "2025-12-09T03:23:57.185020Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "No worries, changing that blank tab to Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-09T03:23:58.354798Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "lets search for cats",
+      "timestamp": "2025-12-09T03:24:08.390579Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Which tab are we on for the search? The new Google tab or the original one?",
+      "timestamp": "2025-12-09T03:24:09.080877Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "this one",
+      "timestamp": "2025-12-09T03:24:12.792750Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Alright, searching “cats” on the current Google tab.\n\n{\"act\": \"a_id_6\", \"value\": \"cats\", \"submit\": true}",
+      "timestamp": "2025-12-09T03:24:13.717140Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_6): Success",
+      "timestamp": "2025-12-09T03:24:13.725947Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "user",
+      "content": "lets see what wikipedia says",
+      "timestamp": "2025-12-09T03:24:28.474676Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "assistant",
+      "content": "Opening the Wikipedia link for cats now.\n\n{\"act\": \"a_id_27\"}",
+      "timestamp": "2025-12-09T03:24:29.500708Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_27): Success",
+      "timestamp": "2025-12-09T03:24:29.501785Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "wow, close that blank tab",
+      "timestamp": "2025-12-09T03:24:41.423578Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Sure thing, closing that blank tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tab\": 3}}",
+      "timestamp": "2025-12-09T03:24:48.658634Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "can you close all tabs except the orb playground",
+      "timestamp": "2025-12-09T03:25:26.158500Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Gotcha, closing Tabs 2 and 3, leaving just the Orb Playground.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tab\": 2}}\n{\"cap\": \"CloseTab\", \"params\": {\"tab\": 3}}",
+      "timestamp": "2025-12-09T03:25:31.851603Z"
+    }
+  ]
+}

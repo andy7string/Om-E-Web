@@ -1,0 +1,45 @@
+{
+  "chat_id": "hey-open-google__20251209T033317",
+  "project_id": "default",
+  "created_at": "2025-12-09T03:33:17.289343Z",
+  "updated_at": "2025-12-09T03:33:32.948454Z",
+  "title": "hey open google",
+  "default_title": "hey open google",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "Om-E Web - Orb Playground"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey open google",
+      "timestamp": "2025-12-09T03:33:17.289358Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Sure thing, mate! Opening Google now.  \n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-09T03:33:18.468074Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "lets search for home loans",
+      "timestamp": "2025-12-09T03:33:31.125368Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Alright, searching for home loans...  \n{\"act\": \"a_id_1\", \"value\": \"home loans\", \"submit\": true}",
+      "timestamp": "2025-12-09T03:33:32.947857Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_1): Success",
+      "timestamp": "2025-12-09T03:33:32.948454Z"
+    }
+  ]
+}

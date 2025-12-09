@@ -67,6 +67,7 @@ COMMAND_CLIENTS = {}              # Command ID → Client mapping for response r
 CURRENT_TABS_INFO = None           # Latest tabs_info from extension
 LAST_TABS_UPDATE = None            # Timestamp of last update
 CURRENT_ACTIVE_TAB = None          # Current active tab information
+TAB_NUMBER_MAP = {}                # Simple tab numbers (1,2,3) → real tabIds mapping
 
 # 🎯 PREMIUM: Site configs loaded from extension's site_configs.json
 SITE_CONFIGS = {}                  # Loaded site configurations with capabilities
@@ -767,6 +768,9 @@ LAST_CONTENT_UPDATE = None
 TRANSCRIPTS_DIR = os.path.join(SITE_STRUCTURES_DIR, "transcripts")
 CURRENT_TRANSCRIPTS_INFO = []
 VIDEO_HISTORY_JSONL = os.path.join(TRANSCRIPTS_DIR, "video_history.jsonl")
+
+# 🔄 Stored data for quick text.md regeneration on tab changes
+LAST_TEXT_MD_DATA = None  # Stores {title, url, page_text, capabilities, elements, iframes}
 
 SERVER_HEARTBEAT_INTERVAL = 20  # seconds
 
@@ -2216,6 +2220,149 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
     except Exception as e:
         print(f"⚠️ Error generating llm_prompt.md: {e}")
         return None
+
+
+def update_tabs_in_text_md():
+    """
+    🗂️ Update ONLY the tabs section in text.md without touching page content.
+    Called when tabs change (SwitchTab, CloseTab, OpenTab, tabs_info).
+    Preserves the current action IDs in the file.
+    """
+    global TAB_NUMBER_MAP
+
+    text_file_path = os.path.join("@site_structures", "text.md")
+
+    if not os.path.exists(text_file_path) or not CURRENT_TABS_INFO:
+        return False
+
+    try:
+        # Read existing file
+        with open(text_file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            content = f.read()
+
+        # Build new tabs section
+        sorted_tabs = sorted(CURRENT_TABS_INFO, key=lambda t: t.get('id', 0))
+        TAB_NUMBER_MAP = {}
+        tabs_lines = ["**Tabs:**\n"]
+        for idx, tab in enumerate(sorted_tabs[:8], start=1):
+            tab_id = tab.get('id')
+            tab_title = tab.get('title', 'Unknown')[:40]
+            tab_url = tab.get('url', '')
+            is_active = tab.get('active', False)
+            try:
+                tab_domain = urlparse(tab_url).hostname or 'unknown'
+            except:
+                tab_domain = 'unknown'
+            TAB_NUMBER_MAP[idx] = tab_id
+            active_marker = " -- ACTIVE TAB" if is_active else ""
+            tabs_lines.append(f"- Tab {idx}: \"{tab_title}\" ({tab_domain}){active_marker}\n")
+        if len(sorted_tabs) > 8:
+            tabs_lines.append(f"- (+{len(sorted_tabs) - 8} more tabs)\n")
+        new_tabs_section = "".join(tabs_lines)
+
+        # Find and replace tabs section (between **Tabs:** and the next blank line or ---)
+        import re
+        # Pattern: **Tabs:** followed by lines starting with "- Tab" until blank line or ---
+        tabs_pattern = r'\*\*Tabs:\*\*\n(?:- Tab[^\n]*\n|[^\n]*more tabs[^\n]*\n)*'
+        if re.search(tabs_pattern, content):
+            content = re.sub(tabs_pattern, new_tabs_section, content)
+        else:
+            # No tabs section found, insert after timestamp line
+            timestamp_pattern = r'(\*\*Timestamp:\*\*[^\n]*\n)\n'
+            content = re.sub(timestamp_pattern, f'\\1\n{new_tabs_section}\n', content)
+
+        # Write back
+        with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
+            f.write(content)
+
+        print(f"🗂️ Tabs updated in text.md ({len(sorted_tabs)} tabs)")
+        return True
+    except Exception as e:
+        print(f"⚠️ Failed to update tabs in text.md: {e}")
+        return False
+
+
+def write_text_md():
+    """
+    🔄 Write/regenerate text.md using stored page data + current tabs.
+    Called on intelligence_update ONLY (not on tab changes).
+    """
+    global LAST_TEXT_MD_DATA, TAB_NUMBER_MAP
+
+    if not LAST_TEXT_MD_DATA:
+        return False
+
+    try:
+        data = LAST_TEXT_MD_DATA
+        text_file_path = os.path.join("@site_structures", "text.md")
+
+        with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
+            # Frontmatter
+            f.write(f"# {data['title']}\n\n")
+            f.write(f"**URL:** {data['url']}\n")
+            f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
+
+            # 🗂️ TABS: Stable order by tabId
+            if CURRENT_TABS_INFO:
+                sorted_tabs = sorted(CURRENT_TABS_INFO, key=lambda t: t.get('id', 0))
+                TAB_NUMBER_MAP = {}
+                f.write("**Tabs:**\n")
+                for idx, tab in enumerate(sorted_tabs[:8], start=1):
+                    tab_id = tab.get('id')
+                    tab_title = tab.get('title', 'Unknown')[:40]
+                    tab_url = tab.get('url', '')
+                    is_active = tab.get('active', False)
+                    try:
+                        tab_domain = urlparse(tab_url).hostname or 'unknown'
+                    except:
+                        tab_domain = 'unknown'
+                    TAB_NUMBER_MAP[idx] = tab_id
+                    active_marker = " -- ACTIVE TAB" if is_active else ""
+                    f.write(f"- Tab {idx}: \"{tab_title}\" ({tab_domain}){active_marker}\n")
+                if len(sorted_tabs) > 8:
+                    f.write(f"- (+{len(sorted_tabs) - 8} more tabs)\n")
+                f.write("\n")
+
+            # Capabilities
+            if data.get('capabilities'):
+                f.write("## Capabilities\n\n")
+                for cap in data['capabilities']:
+                    cap_name = cap['action']
+                    params = cap.get('params', {})
+                    if params:
+                        param_example = ", ".join([f'"{k}": ...' for k in params.keys()])
+                        f.write(f"- **{cap_name}** - {cap['label']} → `{{\"cap\": \"{cap_name}\", \"params\": {{{param_example}}}}}`\n")
+                    else:
+                        f.write(f"- **{cap_name}** - {cap['label']} → `{{\"cap\": \"{cap_name}\"}}`\n")
+                f.write("\n---\n\n")
+
+            f.write("---\n\n")
+            f.write(data.get('page_text', ''))
+
+            # Iframe elements
+            if data.get('iframe_elements'):
+                f.write("\n\n---\n\n## Secure Iframe Elements\n\n")
+                f.write("*These elements are inside secure cross-origin iframes:*\n\n")
+                for el in data['iframe_elements']:
+                    action_id = el.get('actionId', 'unknown')
+                    tag = el.get('tag', 'input')
+                    text = el.get('text') or el.get('label') or el.get('placeholder') or 'Unnamed'
+                    if tag == 'button':
+                        f.write(f"Button: {text} [iframe] → {{\"act\": \"{action_id}\"}}\n")
+                    elif tag == 'select':
+                        f.write(f"Select: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"option\"}}\n")
+                    else:
+                        f.write(f"Input: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"...\", \"submit\": true}}\n")
+            elif data.get('pending_iframes', 0) > 0:
+                f.write("\n\n---\n\n## Secure Iframe Elements\n\n")
+                f.write(f"*⏳ Loading {data['pending_iframes']} iframe(s)...*\n")
+
+        print(f"🔄 text.md regenerated")
+        return True
+    except Exception as e:
+        print(f"⚠️ Error writing text.md: {e}")
+        return False
+
 
 def get_current_tabs_info():
     """
@@ -3732,7 +3879,9 @@ async def handler(ws):
                 global CURRENT_TABS_INFO, LAST_TABS_UPDATE
                 CURRENT_TABS_INFO = msg.get("tabs", [])
                 LAST_TABS_UPDATE = asyncio.get_event_loop().time()
-                print(f"📊 Tab info updated and stored - {len(CURRENT_TABS_INFO)} tabs available")
+                print(f"📊 Tab info updated - {len(CURRENT_TABS_INFO)} tabs")
+                # 🗂️ Update tabs section only (preserve action IDs)
+                update_tabs_in_text_md()
             
             # 🎯 ACTIVE TAB INFORMATION: Display active tab info in terminal
             if msg.get("type") == "active_tab_info":
@@ -3812,124 +3961,34 @@ async def handler(ws):
                             print("⚠️ Semantic data not available, using plain text")
 
                         if page_text:
-                            # 🎯 NEW: Save to single text.md file (overwrites previous content)
-                            try:
-                                # Create the text.md file path in the same directory as other files
-                                text_file_path = os.path.join("@site_structures", "text.md")
+                            # 🔄 Store data for text.md regeneration (used when tabs change)
+                            global LAST_TEXT_MD_DATA
+                            capabilities = resolve_capabilities_for_url(page_url) if page_url else []
+                            iframe_elements = [el for el in actionable_elements if el.get('isIframeElement')]
+                            pending_iframe_count = intelligence_data.get('pendingIframeCount', 0)
 
-                                # Resolve capabilities for this URL
-                                capabilities = resolve_capabilities_for_url(page_url) if page_url else []
+                            # Register iframe elements
+                            for el in iframe_elements:
+                                action_id = el.get('actionId', 'unknown')
+                                tag = el.get('tag', 'input')
+                                text = el.get('text') or el.get('label') or el.get('placeholder') or 'Unnamed'
+                                reg_type = "Button" if tag == 'button' else ("Select" if tag == 'select' else "Input")
+                                ELEMENT_REGISTRY[action_id] = {"type": reg_type, "tag": tag, "label": text, "href": None, "iframe": True}
 
-                                # Write the markdown content directly
-                                with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
-                                    # Frontmatter
-                                    f.write(f"# {page_title}\n\n")
-                                    f.write(f"**URL:** {page_url}\n")
-                                    f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
+                            LAST_TEXT_MD_DATA = {
+                                'title': page_title,
+                                'url': page_url,
+                                'page_text': page_text,
+                                'capabilities': capabilities,
+                                'iframe_elements': iframe_elements,
+                                'pending_iframes': pending_iframe_count
+                            }
 
-                                    # 🗂️ BROWSER TABS: Compact tab info for LLM context
-                                    if CURRENT_TABS_INFO:
-                                        total_tabs = len(CURRENT_TABS_INFO)
-                                        active_tab = CURRENT_ACTIVE_TAB or {}
-
-                                        # Format active tab info
-                                        active_id = active_tab.get('id', '?')
-                                        active_title = active_tab.get('title', 'Unknown')[:30]
-                                        active_url = active_tab.get('url', '')
-                                        active_status = active_tab.get('status', 'unknown')
-
-                                        # Extract domain from URL
-                                        try:
-                                            active_domain = urlparse(active_url).hostname or 'unknown'
-                                        except:
-                                            active_domain = 'unknown'
-
-                                        # Build tab info with clear tabId for capability usage
-                                        f.write(f"**Active Tab:** tabId: {active_id} \"{active_title}\" ({active_domain})\n")
-
-                                        # Add other tabs with tabIds for SwitchTab/CloseTab capabilities
-                                        other_tabs = [t for t in CURRENT_TABS_INFO if not t.get('active', False)]
-                                        if other_tabs:
-                                            other_strs = []
-                                            for t in other_tabs[:5]:
-                                                t_id = t.get('id', '?')
-                                                t_title = t.get('title', 'Unknown')[:25]
-                                                other_strs.append(f"tabId: {t_id} \"{t_title}\"")
-                                            f.write(f"**Other Tabs ({len(other_tabs)}):** " + " | ".join(other_strs))
-                                            if len(other_tabs) > 5:
-                                                f.write(f" (+{len(other_tabs) - 5} more)")
-                                            f.write("\n")
-                                        f.write("\n")
-
-                                    # 🎯 CAPABILITIES SECTION: Show domain-specific + universal actions
-                                    # Universal scroll capabilities are automatically included via resolve_capabilities_for_url()
-                                    if capabilities:
-                                        f.write("## Capabilities\n\n")
-                                        for cap in capabilities:
-                                            cap_name = cap['action']
-                                            params = cap.get('params', {})
-                                            if params:
-                                                # Show example with params
-                                                param_example = ", ".join([f'"{k}": ...' for k in params.keys()])
-                                                f.write(f"- **{cap_name}** - {cap['label']} → `{{\"cap\": \"{cap_name}\", \"params\": {{{param_example}}}}}`\n")
-                                            else:
-                                                f.write(f"- **{cap_name}** - {cap['label']} → `{{\"cap\": \"{cap_name}\"}}`\n")
-                                        f.write("\n---\n\n")
-
-                                    f.write("---\n\n")
-                                    f.write(page_text)
-
-                                    # 🖼️ IFRAME ELEMENTS: Append elements from cross-origin iframes
-                                    iframe_elements = [el for el in actionable_elements if el.get('isIframeElement')]
-                                    pending_iframe_count = intelligence_data.get('pendingIframeCount', 0)
-                                    iframe_status = intelligence_data.get('iframeStatus', 'none')
-
-                                    if iframe_elements:
-                                        # We have iframe elements - write them
-                                        f.write("\n\n---\n\n")
-                                        f.write("## Secure Iframe Elements\n\n")
-                                        f.write("*These elements are inside secure cross-origin iframes (e.g., payment forms):*\n\n")
-                                        for el in iframe_elements:
-                                            action_id = el.get('actionId', 'unknown')
-                                            tag = el.get('tag', 'input')
-                                            text = el.get('text') or el.get('label') or el.get('placeholder') or el.get('name') or 'Unnamed'
-                                            el_type = el.get('type', '')
-
-                                            # Format using Option B style with JSON hints (iframe elements)
-                                            if tag == 'button':
-                                                f.write(f"Button: {text} [iframe] → {{\"act\": \"{action_id}\"}}\n")
-                                                reg_type = "Button"
-                                            elif tag == 'select':
-                                                f.write(f"Select: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"option\"}}\n")
-                                                reg_type = "Select"
-                                            else:
-                                                # Input elements
-                                                f.write(f"Input: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"...\", \"submit\": true}}\n")
-                                                reg_type = "Input"
-
-                                            # 🎯 Add iframe element to registry
-                                            ELEMENT_REGISTRY[action_id] = {
-                                                "type": reg_type,
-                                                "tag": tag,
-                                                "label": text,
-                                                "href": None,
-                                                "iframe": True,
-                                            }
-
-                                        print(f"🖼️ Added {len(iframe_elements)} iframe elements to text.md and registry")
-
-                                    elif pending_iframe_count > 0 and iframe_status == 'loading':
-                                        # 🚀 PROGRESSIVE: Iframes still loading - add placeholder
-                                        f.write("\n\n---\n\n")
-                                        f.write("## Secure Iframe Elements\n\n")
-                                        f.write(f"*⏳ Loading {pending_iframe_count} iframe(s)... (payment forms, embedded content)*\n\n")
-                                        f.write("*Iframe elements will appear here when loaded. Check back shortly.*\n")
-                                        print(f"🖼️ Added placeholder for {pending_iframe_count} pending iframes")
-
-                                print(f"✅ Text content saved to: {text_file_path}")
-
-                            except Exception as write_error:
-                                print(f"⚠️ Error writing to text.md: {write_error}")
+                            # Write text.md using the helper function
+                            if write_text_md():
+                                print(f"✅ Text content saved to text.md")
+                            else:
+                                print(f"⚠️ Failed to write text.md")
                         else:
                             print("⚠️ No page text available for markdown generation")
 
@@ -4265,6 +4324,19 @@ async def handler(ws):
 
                                         # Route tab actions to extension (with proper response waiting)
                                         elif cap_action in tab_actions and EXTENSION_WS:
+                                            # 🔢 Translate simple tab number to real tabId
+                                            translated_params = cap_params.copy() if cap_params else {}
+                                            if "tab" in translated_params:
+                                                tab_num = translated_params.pop("tab")
+                                                real_tab_id = TAB_NUMBER_MAP.get(int(tab_num))
+                                                if real_tab_id:
+                                                    translated_params["tabId"] = real_tab_id
+                                                    print(f"🔢 Translated Tab {tab_num} → tabId {real_tab_id}")
+                                                else:
+                                                    cap_result = {"ok": False, "error": f"Tab {tab_num} not found"}
+                                                    print(f"❌ Tab {tab_num} not in TAB_NUMBER_MAP: {TAB_NUMBER_MAP}")
+                                                    continue
+
                                             request_id = f"cap_{cap_action}_{int(time.time() * 1000)}"
                                             fut = asyncio.get_event_loop().create_future()
                                             PENDING[request_id] = fut
@@ -4273,13 +4345,25 @@ async def handler(ws):
                                                 "type": "execute_capability",
                                                 "id": request_id,
                                                 "action": cap_action,
-                                                "params": cap_params
+                                                "params": translated_params
                                             }))
                                             print(f"🤖 Sent {cap_action} to extension, waiting for response...")
 
                                             try:
                                                 cap_result = await asyncio.wait_for(fut, timeout=10.0)
                                                 print(f"🤖 {cap_action} result: {cap_result}")
+
+                                                # 🔄 Tab action succeeded - update tabs and regenerate text.md immediately
+                                                if cap_result.get("ok"):
+                                                    # Update tabs from the response (tabs is in result.tabs)
+                                                    result_data = cap_result.get("result", {})
+                                                    if result_data and "tabs" in result_data:
+                                                        CURRENT_TABS_INFO = result_data["tabs"]
+                                                        print(f"🔄 Updated CURRENT_TABS_INFO from response: {len(CURRENT_TABS_INFO)} tabs")
+                                                    # 🗂️ Update tabs section only (preserve action IDs)
+                                                    update_tabs_in_text_md()
+                                                    print(f"🗂️ Tabs updated after {cap_action}")
+
                                             except asyncio.TimeoutError:
                                                 PENDING.pop(request_id, None)
                                                 cap_result = {"ok": False, "error": f"Timeout waiting for {cap_action}"}
@@ -4299,20 +4383,21 @@ async def handler(ws):
                                         else:
                                             cap_result = execute_internal_capability(cap_action, cap_params)
 
-                                        add_action_to_history(cap_action, cap_params, {"ok": "error" not in cap_result})
+                                        add_action_to_history(cap_action, cap_params, {"ok": cap_result.get("ok", False)})
 
                                         # Format result for display
-                                        result_text = format_execution_result(cap_action, {"ok": "error" not in cap_result, "error": cap_result.get("error")})
+                                        result_text = format_execution_result(cap_action, {"ok": cap_result.get("ok", False), "error": cap_result.get("error")})
                                         capability_results.append(result_text)
 
-                                        # Save execution result to chat
-                                        if CURRENT_CHAT_ID:
+                                        # Only push SUCCESS results to HUD (skip error messages)
+                                        # Errors still logged to console for debugging
+                                        if cap_result.get("ok", False) and CURRENT_CHAT_ID:
                                             chat_dict = load_chat(CURRENT_CHAT_ID)
                                             if chat_dict:
                                                 exec_msg = append_assistant_message(chat_dict, result_text)
                                                 save_chat(chat_dict)
 
-                                                # Push to HUD
+                                                # Push success to HUD
                                                 if EXTENSION_WS:
                                                     await EXTENSION_WS.send(json.dumps({
                                                         "type": "hud_action",

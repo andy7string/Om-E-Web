@@ -1,0 +1,303 @@
+{
+  "chat_id": "im-worred-about__20251209T015014",
+  "project_id": "default",
+  "created_at": "2025-12-09T01:50:14.185584Z",
+  "updated_at": "2025-12-09T01:56:32.872512Z",
+  "title": "im worred about",
+  "default_title": "im worred about",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "Om-E Web - Orb Playground"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "im worred about the rate of unemployement in australia, can you tell me what websites have info on this",
+      "timestamp": "2025-12-09T01:50:14.185630Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "No worries, mate. You can check out a few places:\n\n1. **Australian Bureau of Statistics (ABS)** - They have official unemployment stats.\n2. **Trading Economics** - Offers charts and forecasts on unemployment rates.\n3. **Seek or Indeed** - They occasionally release reports on job market trends.\n4. **Government websites** like Department of Employment and Workplace Relations can be handy too.\n\nIf you want to check any of these out, just let me know, and I'll open the site for you!",
+      "timestamp": "2025-12-09T01:50:17.175766Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "lets go to the abs",
+      "timestamp": "2025-12-09T01:50:25.718623Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Sure thing, mate! I'll take you to the Australian Bureau of Statistics website now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.abs.gov.au/\"}}\n",
+      "timestamp": "2025-12-09T01:50:27.245536Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-09T01:50:37.247881Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "thats cool, can you go back to your home page",
+      "timestamp": "2025-12-09T01:50:56.220337Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "Alrighty, let's head back to the home page of the Australian Bureau of Statistics.\n\n{\"act\": \"a_id_1\"}",
+      "timestamp": "2025-12-09T01:50:57.968344Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_1): Success",
+      "timestamp": "2025-12-09T01:50:57.969623Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "na dude the tab",
+      "timestamp": "2025-12-09T01:51:04.418873Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Ah, gotcha! Let's switch back to the Om-E Web - Orb Playground tab.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1138038003}}",
+      "timestamp": "2025-12-09T01:51:06.500644Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "❌ SwitchTab: Timeout waiting for SwitchTab",
+      "timestamp": "2025-12-09T01:51:16.503340Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "ok lets go back to the abs",
+      "timestamp": "2025-12-09T01:51:18.904293Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "Alright, switching back to the Australian Bureau of Statistics tab for you.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1138038010}}",
+      "timestamp": "2025-12-09T01:51:19.869465Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "❌ SwitchTab: Timeout waiting for SwitchTab",
+      "timestamp": "2025-12-09T01:51:29.872948Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "so where will we find employment stuff here",
+      "timestamp": "2025-12-09T01:51:37.613177Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "You'll want to check out the \"Labour Force, Australia\" section for unemployment details. They've got reports and stats on employment rates. You can find it in the \"Latest releases\" or search for it using the site search feature. \n\nIf you want, I can click on the “Labour Force, Australia” link for you. Just give me a shout!",
+      "timestamp": "2025-12-09T01:51:40.667629Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "ok go",
+      "timestamp": "2025-12-09T01:51:48.025508Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Alright, let's check out the \"Labour Force, Australia\" details.\n\n{\"act\": \"a_id_26\"}",
+      "timestamp": "2025-12-09T01:51:48.962410Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_26): Success",
+      "timestamp": "2025-12-09T01:51:48.964289Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "user",
+      "content": "what does it say",
+      "timestamp": "2025-12-09T01:52:01.562847Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "Here's the lowdown for October 2025:\n\n- **Unemployment Rate**: It's sitting at 4.4% in trend terms, but seasonally adjusted, it dropped to 4.3%.\n- **Participation Rate**: Went up a bit to 67.0%.\n- **Employment**: Increased to 14,678,400 in trend terms and 14,683,200 when seasonally adjusted.\n- **Hours Worked**: Monthly hours worked bumped up to 1,993 million in trend terms and 1,999 million when seasonally adjusted.\n\nIf you need more details or want to download any data, just holler!",
+      "timestamp": "2025-12-09T01:52:04.833716Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "user",
+      "content": "bru is this good or bad",
+      "timestamp": "2025-12-09T01:52:25.899165Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "Well, mate, it's a bit of both, depending on how you look at it:\n\n- **Good News**: The unemployment rate has decreased a bit in the seasonally adjusted figures, which is a win. More people are participating in the workforce too.\n- **Not So Flash**: The unemployment rate isn't changing much in trend terms, and underemployment is still a thing.\n\nOverall, it's better than going in the wrong direction, but there's always room for improvement. Keep an eye on those trends!",
+      "timestamp": "2025-12-09T01:52:30.235123Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "user",
+      "content": "nice, what about america",
+      "timestamp": "2025-12-09T01:52:48.077401Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "assistant",
+      "content": "For the US, you'll want to check out these places:\n\n1. **U.S. Bureau of Labor Statistics (BLS)** - The go-to for official unemployment figures.\n2. **Federal Reserve Economic Data (FRED)** - They have loads of economic data, including employment stats.\n3. **Trading Economics** - They cover global data, including the US job market.\n4. **ADP National Employment Report** - Offers insights into private sector employment.\n\nLet me know if you want to explore any of these, and I'll sort it out for you!",
+      "timestamp": "2025-12-09T01:52:51.935258Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "user",
+      "content": "go for it you can use this tab just change the url",
+      "timestamp": "2025-12-09T01:53:05.267068Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "assistant",
+      "content": "Alright, mate! Let's head over to the U.S. Bureau of Labor Statistics website for some American employment stats.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.bls.gov/\"}}\n",
+      "timestamp": "2025-12-09T01:53:08.467372Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-09T01:53:18.470363Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "na dude close this tab",
+      "timestamp": "2025-12-09T01:53:25.536369Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Got it, let's close this tab.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1138038010}\"}\n",
+      "timestamp": "2025-12-09T01:53:27.326512Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "ok close it",
+      "timestamp": "2025-12-09T01:54:12.246714Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Alright, let's close that tab for you.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1138038010}}",
+      "timestamp": "2025-12-09T01:54:14.425038Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "assistant",
+      "content": "❌ CloseTab: Timeout waiting for CloseTab",
+      "timestamp": "2025-12-09T01:54:24.429388Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "user",
+      "content": "try close again",
+      "timestamp": "2025-12-09T01:54:43.438777Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "assistant",
+      "content": "Let's give it another go and close that tab.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1138038010}}",
+      "timestamp": "2025-12-09T01:54:45.143169Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "❌ CloseTab: Timeout waiting for CloseTab",
+      "timestamp": "2025-12-09T01:54:55.146443Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "close the tab dude",
+      "timestamp": "2025-12-09T01:55:31.977096Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "Alrighty, let's make sure that tab is closed.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1138038013}}",
+      "timestamp": "2025-12-09T01:55:33.136135Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "assistant",
+      "content": "❌ CloseTab: Timeout waiting for CloseTab",
+      "timestamp": "2025-12-09T01:55:43.138978Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "user",
+      "content": "you closed all of them now, can you open the american one again",
+      "timestamp": "2025-12-09T01:55:53.229423Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "assistant",
+      "content": "No worries, mate. Let's open up the U.S. Bureau of Labor Statistics website again.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.bls.gov/\"}}",
+      "timestamp": "2025-12-09T01:55:54.201602Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-09T01:56:04.208981Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "user",
+      "content": "and the australian one to please",
+      "timestamp": "2025-12-09T01:56:08.143302Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "assistant",
+      "content": "Sure thing, let's get the Australian Bureau of Statistics website back up.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.abs.gov.au/\"}}",
+      "timestamp": "2025-12-09T01:56:09.376704Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-09T01:56:19.384845Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "user",
+      "content": "ok lets look at the american one",
+      "timestamp": "2025-12-09T01:56:21.634924Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "assistant",
+      "content": "Alright, switching over to the U.S. Bureau of Labor Statistics tab for you.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1138038030}}",
+      "timestamp": "2025-12-09T01:56:22.869316Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "assistant",
+      "content": "❌ SwitchTab: Timeout waiting for SwitchTab",
+      "timestamp": "2025-12-09T01:56:32.872512Z"
+    }
+  ]
+}

@@ -1,35 +1,28 @@
 {
-  "timestamp": 1765231906.227186,
+  "timestamp": 1765255602.4522738,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138037993,
-      "url": "https://www.google.com/search?q=RBA+news&sca_esv=ec9d3b8357a6f1a1&sxsrf=AE3TifO_xymwXahpNworOUH6OQrOCVIwwQ%3A1765231849743&source=hp&ei=6Uw3afjAK5qVseMPyaToqQM&iflsig=AOw8s4IAAAAAaTda-VdQMxf0eLbePo8m8zwnMVeGHbu3",
-      "title": "RBA news - Google Search",
-      "status": "loading"
+      "id": 1138038807,
+      "url": "http://127.0.0.1:8080/",
+      "title": "Om-E Web - Orb Playground",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138037988,
+        "id": 1138038807,
         "url": "http://127.0.0.1:8080/",
         "title": "Om-E Web - Orb Playground",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138037993,
-        "url": "https://www.google.com/search?q=RBA+news&sca_esv=ec9d3b8357a6f1a1&sxsrf=AE3TifO_xymwXahpNworOUH6OQrOCVIwwQ%3A1765231849743&source=hp&ei=6Uw3afjAK5qVseMPyaToqQM&iflsig=AOw8s4IAAAAAaTda-VdQMxf0eLbePo8m8zwnMVeGHbu3",
-        "title": "RBA news - Google Search",
         "active": true,
-        "status": "loading"
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 3014.358287375,
+    "last_tabs_update": 26711.437837166,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/search?q=RBA+news&sca_esv=ec9d3b8357a6f1a1&sxsrf=AE3TifO_xymwXahpNworOUH6OQrOCVIwwQ%3A1765231849743&source=hp&ei=6Uw3afjAK5qVseMPyaToqQM&iflsig=AOw8s4IAAAAAaTda-VdQMxf0eLbePo8m8zwnMVeGHbu3",
-    "title": "RBA news - Google Search",
+    "url": "http://127.0.0.1:8080/",
+    "title": "Om-E Web - Orb Playground",
     "is_active_tab": true
   },
   "menu_structure": {

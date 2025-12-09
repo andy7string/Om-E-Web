@@ -8702,6 +8702,18 @@
                             // Dispatch input/change for regular inputs
                             element.dispatchEvent(new Event('input', { bubbles: true }));
                             element.dispatchEvent(new Event('change', { bubbles: true }));
+
+                            // 🎯 Dispatch keyboard events for frameworks that listen to keyup/keydown (Knockout.js, etc.)
+                            const lastChar = valueToSet.slice(-1) || ' ';
+                            const keyboardEventInit = {
+                                key: lastChar,
+                                code: lastChar === ' ' ? 'Space' : `Key${lastChar.toUpperCase()}`,
+                                bubbles: true,
+                                cancelable: true
+                            };
+                            element.dispatchEvent(new KeyboardEvent('keydown', keyboardEventInit));
+                            element.dispatchEvent(new KeyboardEvent('keypress', keyboardEventInit));
+                            element.dispatchEvent(new KeyboardEvent('keyup', keyboardEventInit));
                         } else if (isContentEditable) {
                             // 🆕 LEXICAL/RICH TEXT EDITOR FIX: Simulate proper typing for frameworks like Lexical, ProseMirror, etc.
                             // Setting textContent directly causes the framework to clear it during state reconciliation
