@@ -34,25 +34,20 @@ from datetime import datetime
 from typing import Optional, List, Dict, Any
 from urllib.parse import urlparse
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-from functools import partial
 import threading
-from site_config_manager import get_site_config, start_site_config_polling, get_all_site_configs
+from site_config_manager import get_site_config, start_site_config_polling
 
 # LLM Dispatcher - routes LLM actions through existing pipelines
 from llm.dispatcher import (
-    parse_llm_response,
-    validate_action,
     dispatch as llm_dispatch,
     load_capabilities as llm_load_capabilities,
-    get_capabilities_for_prompt,
-    format_result_for_llm,
     set_element_resolver,
     resolve_action_type,
 )
 
 # LLM Agent - conversational AI with history
 from llm.agent import OmEAgent
-from llm.executor import parse_capability_calls, has_capability_calls, format_capability_for_display, format_execution_result
+from llm.executor import parse_capability_calls, has_capability_calls, format_execution_result
 from llm.prompt import add_action_to_history
 
 
@@ -268,7 +263,7 @@ def save_llm_config(config: dict) -> bool:
         os.makedirs(os.path.dirname(LLM_CONFIG_PATH), exist_ok=True)
         with open(LLM_CONFIG_PATH, 'w', encoding='utf-8') as f:
             json.dump(config, f, indent=2)
-        print(f"💾 Saved LLM config")
+        print("💾 Saved LLM config")
         return True
     except Exception as e:
         print(f"❌ Error saving LLM config: {e}")
@@ -400,14 +395,14 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         chat_dict["updated_at"] = datetime.utcnow().isoformat() + "Z"
 
         if save_chat(chat_dict):
-            print(f"✅ RenameChat: Success")
+            print("✅ RenameChat: Success")
             return {
                 "chat_id": chat_id,
                 "title": new_title,
                 "_hud_action": {"type": "rename_chat", "chat_id": chat_id, "title": new_title}
             }
         else:
-            print(f"❌ RenameChat: Failed to save")
+            print("❌ RenameChat: Failed to save")
             return {"error": "Failed to save chat"}
 
     elif action == "DeleteChat":
@@ -774,7 +769,7 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"error": f"Unknown provider: {provider}"}
 
         if config.get("active_provider") == provider:
-            return {"error": f"Cannot remove active provider. Switch to another provider first."}
+            return {"error": "Cannot remove active provider. Switch to another provider first."}
 
         del config["providers"][provider]
         if save_llm_config(config):
@@ -1338,7 +1333,7 @@ def _collect_existing_transcript_signatures() -> Dict[str, Optional[str]]:
         # Fallback for legacy files without embedded signature
         video_id_match = re.search(r"\*\*Video ID:\*\* (.+)", content)
         segments_match = re.search(r"\*\*Segments:\*\* (\d+)", content)
-        lines = [l.strip() for l in content.split("\n") if l.strip().startswith("- [")]
+        lines = [line.strip() for line in content.split("\n") if line.strip().startswith("- [")]
         head_sample = "|".join(lines[:3])
         tail_sample = "|".join(lines[-3:])
         video_id = video_id_match.group(1).strip() if video_id_match else "unknown"
@@ -1967,7 +1962,7 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
             try:
                 parsed = urlparse(url)
                 return parsed.netloc.lower()
-            except:
+            except Exception:
                 return ""
 
         def _smart_categorize_actions(records: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
@@ -2283,7 +2278,7 @@ def update_tabs_in_text_md():
             is_active = tab.get('active', False)
             try:
                 tab_domain = urlparse(tab_url).hostname or 'unknown'
-            except:
+            except Exception:
                 tab_domain = 'unknown'
             TAB_NUMBER_MAP[idx] = tab_id
             active_marker = " -- ACTIVE TAB" if is_active else ""
@@ -2346,7 +2341,7 @@ def write_text_md():
                     is_active = tab.get('active', False)
                     try:
                         tab_domain = urlparse(tab_url).hostname or 'unknown'
-                    except:
+                    except Exception:
                         tab_domain = 'unknown'
                     TAB_NUMBER_MAP[idx] = tab_id
                     active_marker = " -- ACTIVE TAB" if is_active else ""
@@ -2389,7 +2384,7 @@ def write_text_md():
                 f.write("\n\n---\n\n## Secure Iframe Elements\n\n")
                 f.write(f"*⏳ Loading {data['pending_iframes']} iframe(s)...*\n")
 
-        print(f"🔄 text.md regenerated")
+        print("🔄 text.md regenerated")
         return True
     except Exception as e:
         print(f"⚠️ Error writing text.md: {e}")
@@ -4018,9 +4013,9 @@ async def handler(ws):
 
                             # Write text.md using the helper function
                             if write_text_md():
-                                print(f"✅ Text content saved to text.md")
+                                print("✅ Text content saved to text.md")
                             else:
-                                print(f"⚠️ Failed to write text.md")
+                                print("⚠️ Failed to write text.md")
                         else:
                             print("⚠️ No page text available for markdown generation")
 
@@ -4105,7 +4100,6 @@ async def handler(ws):
                         action_id = el.get('actionId', 'unknown')
                         tag = el.get('tag', 'input')
                         text = el.get('text') or el.get('label') or el.get('placeholder') or el.get('name') or 'Unnamed'
-                        el_type = el.get('type', '')
 
                         # Format using Option B style with JSON hints (iframe elements)
                         if tag == 'button':
@@ -4206,7 +4200,8 @@ async def handler(ws):
                     if action == "LLMChat":
                         global LLM_AGENT, CURRENT_CHAT_ID
                         message = params.get("message", "")
-                        chat_id = params.get("chat_id")
+                        # chat_id from params is reserved for future use
+                        _ = params.get("chat_id")
                         clear_history = params.get("clear_history", False)
 
                         if not message:
@@ -4227,7 +4222,7 @@ async def handler(ws):
                             print("🤖 Created new LLM agent")
 
                         try:
-                            print(f"🤖 LLMChat: Sending message to agent")
+                            print("🤖 LLMChat: Sending message to agent")
                             response_text = await LLM_AGENT.chat(message)
 
                             # Save LLM response to chat history
@@ -4249,7 +4244,7 @@ async def handler(ws):
                                         "message": new_message
                                     }
                                 }))
-                                print(f"🤖 LLMChat: Pushed LLM response to HUD")
+                                print("🤖 LLMChat: Pushed LLM response to HUD")
 
                             # Parse and execute any capability calls
                             capability_results = []
@@ -4265,7 +4260,7 @@ async def handler(ws):
                                 }
                                 zoom_actions = ['ZoomIn', 'ZoomOut', 'ZoomReset']
                                 tab_actions = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL']
-                                dom_actions = ['click', 'setValue', 'focus', 'hover']  # Actions on DOM elements
+                                # DOM actions (click, setValue, focus, hover) handled via element registry
 
                                 for call in calls:
                                     call_type = call.get("type")  # "element" or "capability"
@@ -4329,8 +4324,6 @@ async def handler(ws):
                                     cap_params = call.get("params", {})
 
                                     if cap_action:
-                                        # Normalize action name for comparison
-                                        cap_action_lower = cap_action.lower()
                                         print(f"🤖 Executing capability: {cap_action}")
 
                                         # Route scroll to extension
@@ -5505,7 +5498,7 @@ def list_chats(project_id: Optional[str] = None) -> List[Dict[str, Any]]:
                     try:
                         dt = datetime.fromisoformat(created_at.replace('Z', '+00:00'))
                         date_short = dt.strftime("%d/%b")  # e.g., "05/Dec"
-                    except:
+                    except ValueError:
                         date_short = ""
 
                 # Extract lightweight summary info
