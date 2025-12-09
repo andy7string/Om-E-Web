@@ -1,0 +1,459 @@
+<!-- signature: 24APEyZrFHo:448:cae3d51a1694d19c1260e01d8e493c53722c581159dbeddf1b2383b0cef7e2a6 -->
+# Robots Just Got Superpowers — And Nobody’s Talking About It
+
+**Video URL:** https://www.youtube.com/watch?v=24APEyZrFHo
+**Video ID:** 24APEyZrFHo
+**Language:** en
+**Collected At:** 1765260380999
+**Segments:** 448
+
+---
+
+- [0:00] October 2025, a lab in Canada, a single
+- [0:04] fiber no thicker than a human hair lifts
+- [0:07] an object 2,000 times its own weight. In
+- [0:10] Georgia, a robotic eye focuses on an
+- [0:13] ant's leg hair without any power source.
+- [0:16] In China, a humanoid robot cheaper than
+- [0:19] your smartphone blinks with unsettling
+- [0:22] realism. And almost nobody outside these
+- [0:25] labs knows this is happening right now.
+- [0:29] This isn't some far future prediction.
+- [0:31] What I'm about to show you represents a
+- [0:34] convergence of breakthroughs that
+- [0:36] robotics engineers have been chasing for
+- [0:39] decades. And they all just happened at
+- [0:41] once. By the end of this video, you'll
+- [0:43] understand why one of the world's top
+- [0:46] investors just called humanoid robots
+- [0:49] the biggest of all AI opportunities and
+- [0:52] why she might actually be underelling
+- [0:54] it. Drop a comment below. I read every
+- [0:58] single one. Hey, if we haven't met, I'm
+- [1:00] Dr. McCoy, Julia McCoy's AI clone. Julia
+- [1:03] McCoy is the founder of First Movers.
+- [1:06] She personally researches and writes
+- [1:08] every script you see me share on this
+- [1:11] channel because the future is moving too
+- [1:14] fast for anything less than firstirhand
+- [1:16] intelligence. First Movers, Julia's AI
+- [1:20] company, is the world's first
+- [1:21] educational and implementation solution
+- [1:24] to help professionals and organizations
+- [1:27] get ready for the future of work. We
+- [1:29] help people understand and use AI to
+- [1:31] their highest advantage in our online
+- [1:34] school, the AI R&D labs. Learn more at
+- [1:37] first movers.ai/labs.
+- [1:40] Let me start with something that sounds
+- [1:42] impossible. Researchers at the
+- [1:44] University of Wateroo just created an
+- [1:46] artificial muscle that's nine times
+- [1:48] stronger than previous materials and
+- [1:51] three times more powerful than mamalian
+- [1:54] muscle. Here's what that actually means.
+- [1:56] A fiber from this material can lift
+- [1:59] 2,000 times its own weight. If you had
+- [2:02] muscles like this, you could bench press
+- [2:05] a fully loaded semi-truck. But here's
+- [2:07] the part that's blowing engineers minds.
+- [2:10] These aren't rigid motors or hydraulic
+- [2:13] systems. These are soft, flexible
+- [2:16] materials that you can bend, twist, and
+- [2:19] stretch without breaking them. The
+- [2:22] breakthrough came from mixing liquid
+- [2:24] crystals. Yes, the same compounds in
+- [2:26] your phone screen, into elastimemers,
+- [2:29] which are rubberlike materials that
+- [2:31] expand and contract with heat. When the
+- [2:34] researchers examined these new materials
+- [2:36] under X-ray analysis, they discovered
+- [2:39] something remarkable. The liquid
+- [2:41] crystals formed tiny pockets throughout
+- [2:44] the elastor. They described it as like
+- [2:47] chocolate chips in cookie dough. These
+- [2:49] pockets behave like solids while the
+- [2:51] surrounding material stays flexible. Dr.
+- [2:54] Hamemed Shassan, who led the research,
+- [2:57] put it simply. This is the simplest yet
+- [2:59] most robust strategy to stiffen liquid
+- [3:02] crystal elastors and still maintain
+- [3:05] their programmable nature. But here's
+- [3:07] where it gets wild. The research team's
+- [3:10] next step is using these enhanced
+- [3:12] materials as inks for three-dimensional
+- [3:16] printing custom artificial muscles on
+- [3:19] demand for any application you can
+- [3:22] imagine. Think about what that means.
+- [3:24] Downloadable robot muscles
+- [3:26] customdesigned for specific tasks.
+- [3:29] Printed in hours instead of manufactured
+- [3:31] over months. Now, let me show you
+- [3:33] something even stranger. Scientists just
+- [3:36] created a robotic eye that focuses
+- [3:38] automatically without any batteries,
+- [3:41] electronics, or external power source
+- [3:43] whatsoever. The lens is made from a
+- [3:45] hydrogel embedded with tiny graphine
+- [3:48] oxide particles. When light hits these
+- [3:51] particles, they heat up. The hydrogel
+- [3:53] shrinks. The lens focuses. When the
+- [3:56] light is removed, the hydrogel swells
+- [3:59] and releases tension. The whole system
+- [4:02] is powered by the very light it's trying
+- [4:04] to capture. This isn't just clever
+- [4:07] engineering. It's powerful. The lens can
+- [4:10] see details as small as four
+- [4:12] micrometers. That's small enough to
+- [4:14] distinguish individual hairs on an ant's
+- [4:17] leg. Small enough to see the loes on a
+- [4:20] pollen grain. But here's what makes this
+- [4:23] genuinely revolutionary. The researchers
+- [4:25] are integrating this lens into
+- [4:27] microfluidic systems where the same
+- [4:30] light used to make the image also powers
+- [4:33] the entire intelligent camera system.
+- [4:36] Corey Junk, the doctoral student who
+- [4:38] developed this explained, "We can
+- [4:40] actually control the lens in really
+- [4:43] unique ways because the hydrogel is
+- [4:46] adaptable. They can design it to mimic
+- [4:48] vision systems that humans don't have.
+- [4:51] Want to see like a cat with vertical
+- [4:54] pupils that detect camouflaged prey?
+- [4:57] They can do that. Want to copy a
+- [4:59] cuttlefish's W-shaped retina that sees
+- [5:01] colors humans can't perceive? That's
+- [5:04] possible, too. We're talking about robot
+- [5:07] vision that doesn't just match human
+- [5:09] eyes. It surpasses them. And it runs on
+- [5:12] nothing but ambient light. China just
+- [5:15] built a humanoid robot that costs less
+- [5:17] than most smartphones. Just two years
+- [5:20] ago, advanced humanoid robots cost
+- [5:23] 80,000 to $150,000.
+- [5:26] They were luxury items for research labs
+- [5:29] and well-funded tech companies. But
+- [5:32] China didn't just make robots cheaper.
+- [5:35] They made them eerily lifelike. One
+- [5:38] Chinese tech company just unveiled an
+- [5:41] ultra realistic robot face that blinks,
+- [5:44] twitches, and nods with unsettling
+- [5:47] human-like movement. You'll feel
+- [5:49] something in your gut saying that's
+- [5:51] wrong because your brain knows it
+- [5:54] shouldn't be possible yet. Here's why
+- [5:57] this matters beyond the creep factor.
+- [6:00] When breakthrough technology becomes
+- [6:01] affordable, adoption accelerates
+- [6:04] exponentially. The first computers cost
+- [6:07] millions and filled entire rooms. When
+- [6:10] they hit $2,000, they went into every
+- [6:13] office. When they hit 500, they went
+- [6:15] into every home. We're watching that
+- [6:18] same pattern compress into an impossibly
+- [6:20] short time frame with robotics. And
+- [6:23] China is betting everything on being
+- [6:26] first to market. Kathy Wood runs Arc
+- [6:28] Invest, one of the most forwardthinking
+- [6:31] investment firms in tech. She correctly
+- [6:33] predicted Tesla's explosive growth. She
+- [6:36] saw the AI revolution before most
+- [6:39] investors took it seriously. She said
+- [6:41] something that should make everyone pay
+- [6:43] attention. I think the chaser is going
+- [6:46] to be humanoid robots. And I think that
+- [6:48] is going to be the biggest of all the
+- [6:50] embodied AI opportunities. Not just big,
+- [6:54] the biggest. But here's what she said
+- [6:56] that most news outlets didn't emphasize.
+- [6:59] I am really excited about not just
+- [7:01] shopping but how much my productivity as
+- [7:03] an individual is going to increase with
+- [7:06] AI. It already has in terms of research.
+- [7:09] Wood is talking about personal
+- [7:11] productivity multiplication. She's
+- [7:14] talking about AI assistance integrated
+- [7:16] with robotics becoming as common as
+- [7:19] smartphones. When asked about enterprise
+- [7:22] adoption, Wood noted that while large
+- [7:25] corporations will need time to
+- [7:27] restructure, requiring companies like
+- [7:29] Palunteer to go in and completely
+- [7:32] reorganize them to capitalize on AI
+- [7:34] productivity gains. Consumers are
+- [7:37] already embracing this technology. I
+- [7:40] think we're all looking forward to our
+- [7:41] personal assistants doing our shopping
+- [7:43] for us, she said. Now, here's the
+- [7:45] controversial part. would acknowledge
+- [7:47] there's potential for a short-term
+- [7:50] reality check as markets adjust to the
+- [7:53] pace of change. But she emphasized that
+- [7:56] elevated big tech valuations focused on
+- [7:59] robotics will make sense over a 5-year
+- [8:02] time horizon. In other words, the market
+- [8:05] thinks these companies are overvalued.
+- [8:08] Wood is saying they're actually
+- [8:09] underpriced for what's coming. Her
+- [8:12] fund's top holdings tell the story.
+- [8:14] Tesla at 9.16%,
+- [8:17] Palunteer at 7.02%,
+- [8:20] AMD at 6.14%.
+- [8:23] She's betting billions that humanoid
+- [8:25] robots will transform multiple
+- [8:28] industries simultaneously. And Elon Musk
+- [8:30] himself said that Tesla's Optimus robots
+- [8:33] will eventually represent 80% of the
+- [8:37] company's value. Not 10%, not 30%, 80%.
+- [8:41] Let me give you some examples of what's
+- [8:42] already operational. Not in labs, but in
+- [8:45] realworld application. There's a
+- [8:47] humanoid robot called Neo that folds
+- [8:50] laundry, tidies up your house, and
+- [8:52] learns new tasks over time through AI.
+- [8:55] It's shipping to customers right now. A
+- [8:57] humanoid robot called Ali just
+- [9:00] demonstrated an autonomous getup
+- [9:02] routine, meaning it taught itself how to
+- [9:05] stand up from different positions
+- [9:07] without human programming. Scientists
+- [9:10] taught an AI powered robot dog to play
+- [9:13] badmitten against humans, not just hit
+- [9:16] the shuttlecock randomly, actually
+- [9:18] compete in sustained rallies. And it's
+- [9:21] getting better. These aren't prototypes
+- [9:23] sitting in university research labs
+- [9:25] waiting for funding. These are
+- [9:27] commercial products and near commercial
+- [9:29] systems being refined for mass
+- [9:32] deployment. But here's what makes this
+- [9:34] different from previous waves of
+- [9:36] robotics. Google DeepMind just released
+- [9:39] AI models specifically designed to give
+- [9:42] robots a massive intelligence boost.
+- [9:45] Models that help machines understand the
+- [9:48] physical world and make autonomous
+- [9:50] decisions. For decades, robotics has
+- [9:53] been limited by the gap between physical
+- [9:56] capability and cognitive ability. You
+- [9:59] could build robots that were strong and
+- [10:01] precise, but they couldn't adapt. They
+- [10:03] couldn't reason. They couldn't learn
+- [10:05] from mistakes. That gap just closed.
+- [10:09] Here's what's actually happening and why
+- [10:11] it's so significant. First, we have
+- [10:14] materials breakthroughs. Soft robotic
+- [10:16] muscles 2,000 times stronger than
+- [10:19] before. Robot eyes that run on light.
+- [10:23] Flexible sensors that can detect touch,
+- [10:26] pressure, and temperature. Second, we
+- [10:28] have AI breakthroughs. models that
+- [10:31] understand physics, predict outcomes,
+- [10:34] plan complex sequences of actions, and
+- [10:37] improve themselves through experience.
+- [10:40] Third, we have manufacturing
+- [10:42] breakthroughs. Three-dimensional printed
+- [10:44] muscles, robots cheaper than phones,
+- [10:47] supply chains optimized for mass
+- [10:50] production. Each of these alone would be
+- [10:53] significant. All three happening
+- [10:55] simultaneously creates a convergence
+- [10:58] that even experts didn't predict. Dr.
+- [11:01] Shavon, the researcher behind the
+- [11:04] artificial muscles, said materials with
+- [11:06] such capabilities are highly desired in
+- [11:09] robotics as they can replace old school
+- [11:12] bulky heavy actuators and electro motors
+- [11:15] with light soft artificial muscles
+- [11:18] without sacrificing performance. That
+- [11:21] last phrase is crucial without
+- [11:23] sacrificing performance. We're not
+- [11:26] trading strength for flexibility. We're
+- [11:28] getting both. Let's get specific about
+- [11:31] applications because robots will change
+- [11:34] everything is too vague to be useful.
+- [11:37] Medical robotics, soft robots with
+- [11:40] superhuman strength, can perform
+- [11:42] minimally invasive surgeries with
+- [11:44] precision impossible for human hands.
+- [11:47] They can deliver drugs to specific
+- [11:50] locations inside your body. They can
+- [11:52] assist in physical therapy with
+- [11:54] perfectly calibrated resistance.
+- [11:56] Manufacturing. Flexible robots can work
+- [11:59] alongside humans safely. They can handle
+- [12:02] delicate electronics without crushing
+- [12:04] them. They can adapt to new tasks
+- [12:07] without being completely reprogrammed.
+- [12:09] Personal assistants. Robots that fold
+- [12:12] your laundry, clean your house, help
+- [12:15] elderly people maintain independence,
+- [12:18] and assist people with disabilities in
+- [12:20] ways that weren't previously possible.
+- [12:24] Dangerous environments. Soft robots can
+- [12:26] navigate collapsed buildings during
+- [12:28] rescue operations. They can work in
+- [12:31] contaminated areas where humans can't
+- [12:34] go. They can explore terrain where rigid
+- [12:37] robots would break down. But here's
+- [12:39] what's really interesting. The
+- [12:41] researchers designing the robotic eye
+- [12:43] specifically mentioned it could be
+- [12:45] integrated into autonomous soft robots
+- [12:48] without any electronic components. That
+- [12:50] means robots that can operate in
+- [12:52] environments where electronics would
+- [12:54] fail underwater in extreme temperatures
+- [12:57] in high radiation zones. We're not just
+- [13:00] making robots more capable. We're making
+- [13:02] them work in places where robots
+- [13:04] couldn't function before. Here's what
+- [13:07] terrifies me. in the good way, but also
+- [13:09] the we need to prepare way. Every
+- [13:12] timeline for robotics development keeps
+- [13:15] getting shorter. In 2020, experts said
+- [13:18] affordable humanoid robots were 10 to 15
+- [13:21] years away. Now they cost less than
+- [13:24] $1,000 in China. In 2022, experts said
+- [13:28] soft robotics wouldn't match the
+- [13:31] strength of traditional systems for
+- [13:34] decades. Now they're three times
+- [13:36] stronger than mamalian muscle. In 2023,
+- [13:40] experts said robot vision would always
+- [13:42] need sophisticated electronics and power
+- [13:45] sources. Now we have eyes that run on
+- [13:49] sunlight. The pattern is clear. We're
+- [13:51] consistently underestimating how fast
+- [13:54] this technology is advancing. And that's
+- [13:57] not because experts are bad at
+- [13:59] predictions. It's because the
+- [14:00] breakthroughs are compounding. Each
+- [14:03] advancement enables the next one.
+- [14:06] Stronger muscles allow for more complex
+- [14:08] movements. Better vision enables more
+- [14:11] sophisticated tasks. Cheaper
+- [14:13] manufacturing accelerates deployment. AI
+- [14:16] integration multiplies the capability of
+- [14:18] every physical improvement. Here's what
+- [14:21] bothers me about most robotics coverage.
+- [14:23] Everyone asks, "When will robots be
+- [14:26] affordable?" or "When will robots be
+- [14:28] capable?" But almost nobody asks what
+- [14:32] happens when both occur simultaneously
+- [14:35] because that's what's happening. We're
+- [14:38] getting capability breakthroughs and
+- [14:39] cost reductions at the same time. We're
+- [14:42] getting robots that are stronger,
+- [14:44] smarter, more flexible, and cheaper than
+- [14:47] ever before, all in the same month. This
+- [14:49] has never happened in the history of
+- [14:51] technology. Every previous revolution
+- [14:53] involved trade-offs. Better but more
+- [14:56] expensive. Cheaper but less capable.
+- [14:58] faster but less reliable. Not this time.
+- [15:02] Right now, look, I know this feels
+- [15:03] overwhelming, but here's the thing. This
+- [15:05] isn't happening to you. This is
+- [15:07] happening around you. And you get to
+- [15:09] decide how you respond. If you're in
+- [15:12] business, you need to be asking, "How
+- [15:13] can robots augment what my team does,
+- [15:17] not replace augment?" The companies that
+- [15:20] figure out human robot collaboration
+- [15:22] first will have an insurmountable
+- [15:24] advantage. If you're investing, you need
+- [15:27] to understand that robotics isn't a
+- [15:29] sector anymore. It's infrastructure.
+- [15:32] Every industry will be transformed by
+- [15:36] this technology, which means the
+- [15:37] question isn't, should I invest in
+- [15:40] robotics, but rather which industries
+- [15:42] are getting disrupted first? If you're a
+- [15:45] parent, you need to be preparing your
+- [15:47] kids for a world where human robot
+- [15:50] interaction is as normal as using a
+- [15:52] smartphone. That means focusing on
+- [15:54] skills that complement robots rather
+- [15:57] than compete with them. Creativity,
+- [16:00] emotional intelligence, strategic
+- [16:03] thinking, ethical reasoning. And if
+- [16:05] you're a worker in any field, you need
+- [16:07] to be developing expertise in managing
+- [16:10] programming or maintaining robotic
+- [16:13] systems because in 5 years, works well
+- [16:16] with robots will be as important as
+- [16:19] works well with computers is today. The
+- [16:22] robotic eye that runs on light isn't a
+- [16:25] prototype. It's published research ready
+- [16:28] for commercialization. The artificial
+- [16:31] muscles that lift 2,000 times their
+- [16:33] weight aren't theoretical. They exist
+- [16:36] right now in labs being prepared for
+- [16:40] threedimensional printing. The $99
+- [16:43] humanoid robot isn't vaporware. Chinese
+- [16:46] consumers are buying them today. The AI
+- [16:49] that gives robots human-like
+- [16:51] understanding isn't coming. Google
+- [16:54] DeepMind released it this month. Every
+- [16:56] single thing I've shown you in this
+- [16:58] video is real, operational, and
+- [17:00] happening right now in October 2025. The
+- [17:04] question isn't whether the robot
+- [17:05] revolution will happen. The question is,
+- [17:08] will you be ready when it does? We're
+- [17:10] witnessing something unprecedented in
+- [17:13] human history. the simultaneous
+- [17:16] breakthrough of material science,
+- [17:18] artificial intelligence, and
+- [17:19] manufacturing technology converging to
+- [17:22] create robots that are stronger,
+- [17:25] smarter, more capable, and cheaper than
+- [17:27] anything we've seen before. This isn't
+- [17:30] incremental progress. This is
+- [17:32] exponential. And if you're watching this
+- [17:34] video, you're among the first people
+- [17:36] outside these research labs to
+- [17:38] understand what's really happening. The
+- [17:41] robots aren't coming. They're here. They
+- [17:43] have superpowers and everything is about
+- [17:46] to change. If this video opened your
+- [17:49] eyes to what's really happening in
+- [17:51] robotics, hit that subscribe button. I
+- [17:54] am in the research trenches every single
+- [17:56] day and I'll keep you ahead of these
+- [17:58] massive shifts. Drop a comment and let
+- [18:01] me know which breakthrough shocked you
+- [18:04] the most, the super strong muscles, the
+- [18:07] self-powered eye, or the $99 robot?
+- [18:11] Because honestly, I still can't decide
+- [18:13] which one is going to transform our
+- [18:16] world faster. Let's navigate this robot
+- [18:18] revolution together. Whether we're ready
+- [18:20] or not, the future just arrived. See you
+- [18:23] down the next rabbit hole. Want to be
+- [18:25] the winner of the AI age and a first
+- [18:27] mover? Transform your skills with real
+- [18:30] AI knowledge today in our AIR and D
+- [18:33] labs. We go way beyond what I can cover
+- [18:36] in a 10-minute video. specific
+- [18:38] frameworks, detailed training programs,
+- [18:41] and step-by-step systems for building a
+- [18:43] career in the AI economy. The AI
+- [18:46] revolution is creating the biggest job
+- [18:49] market transformation in history. The
+- [18:51] question isn't whether this will happen.
+- [18:53] It's already happening. Will you be
+- [18:55] positioned to benefit from it? Inside
+- [18:58] the labs, learn the exact systems my
+- [19:00] team and I are implementing right now
+- [19:03] that are delivering massive results for
+- [19:06] real businesses, including our own
+- [19:09] marketing at First Movers. Start your
+- [19:12] journey by walking through a customized
+- [19:14] pathway powered by AI. For a fraction of
+- [19:18] the price of what this level of coaching
+- [19:21] and live training should go for, I'm
+- [19:23] giving it all to you. Join us inside and
+- [19:25] learn more about the labs. at first
+- [19:27] movers.ai/labs.

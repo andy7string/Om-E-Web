@@ -1,0 +1,591 @@
+{
+  "chat_id": "anewerchat__20251209T060241",
+  "project_id": "default",
+  "created_at": "2025-12-09T06:02:41.829512Z",
+  "updated_at": "2025-12-09T06:14:12.608458Z",
+  "title": "anewerchat",
+  "default_title": "anewerchat",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.youtube.com/watch?v=UCXE6KdMYaE&t=96s",
+    "page_title": "(36) Harvard Physicist Warns What is Actually Happening with 3i/Atlas | Avi Loeb - YouTube"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "anewerchat",
+      "timestamp": "2025-12-09T06:02:41.829523Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Starting a new chat for you, mate. What do you want to dive into now?",
+      "timestamp": "2025-12-09T06:02:42.989859Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "lets take this transcript",
+      "timestamp": "2025-12-09T06:03:17.986614Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "You want me to grab the transcript for the Harvard Physicist video? No worries, fetching it now.\n\n{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-09T06:03:19.110392Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-09T06:03:19.111099Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "retrieve transcript",
+      "timestamp": "2025-12-09T06:03:33.146625Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "Already on it, pulling the transcript for that Harvard Physicist video now.\n\n{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-09T06:03:34.947912Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-09T06:03:34.950698Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-09T06:03:50.409026Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "No dramas, fetching the transcript again for you.\n\n{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-09T06:03:54.752788Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-09T06:03:54.753920Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "retrieve transcript",
+      "timestamp": "2025-12-09T06:04:11.370364Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "Gotcha, grabbing the transcript one more time.\n\n{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-09T06:04:12.272214Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-09T06:04:12.272763Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "can you retrieve the transcript for this video",
+      "timestamp": "2025-12-09T06:04:42.034031Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Which video are you after a transcript for? Just point me to it and I’ll grab it for you.",
+      "timestamp": "2025-12-09T06:04:43.320934Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "the one on this page",
+      "timestamp": "2025-12-09T06:04:48.721597Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Alright, I’ll pull the transcript for the video on this page (“How I Build Beautiful $5,000+ Websites in Minutes with AI”).\n\nFetching it now.\n\n{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-09T06:04:49.976426Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-09T06:04:49.977017Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "user",
+      "content": "ok go home",
+      "timestamp": "2025-12-09T06:05:01.251447Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "Heading back to the YouTube home page for you.\n\n{\"act\": \"a_id_1\"}",
+      "timestamp": "2025-12-09T06:05:02.703597Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_1): Success",
+      "timestamp": "2025-12-09T06:05:02.706577Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "history",
+      "timestamp": "2025-12-09T06:05:09.816793Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Opening your YouTube watch history now.\n\n{\"act\": \"a_id_21\"}",
+      "timestamp": "2025-12-09T06:05:11.223159Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_21): Success",
+      "timestamp": "2025-12-09T06:05:11.224332Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "user",
+      "content": "scroll down",
+      "timestamp": "2025-12-09T06:05:18.131266Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "assistant",
+      "content": "Scrolling down through your watch history.\n\n{\"cap\": \"ScrollDown\"}",
+      "timestamp": "2025-12-09T06:05:19.652707Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "✅ ScrollDown: Success",
+      "timestamp": "2025-12-09T06:05:19.654323Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "hit that harvard video",
+      "timestamp": "2025-12-09T06:05:27.680535Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Opening that Harvard Physicist video for you.\n\n{\"act\": \"a_id_62\"}",
+      "timestamp": "2025-12-09T06:05:29.834364Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_62): Success",
+      "timestamp": "2025-12-09T06:05:29.836327Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "user",
+      "content": "what is that robots just got superpowers",
+      "timestamp": "2025-12-09T06:06:07.088836Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "assistant",
+      "content": "That one’s a video titled “Robots Just Got Superpowers — And Nobody’s Talking About It” by Julia McCoy. Looks like it’s about some new crazy robot tech.\n\nWant me to open it and have a squiz?\n\n{\"act\": \"a_id_52\"}",
+      "timestamp": "2025-12-09T06:06:08.588949Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_52): Success",
+      "timestamp": "2025-12-09T06:06:08.589992Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "i want the transcript",
+      "timestamp": "2025-12-09T06:06:18.888415Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Gotcha, pulling the transcript for “Robots Just Got Superpowers — And Nobody’s Talking About It” now.\n\n{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-09T06:06:20.036618Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-09T06:06:20.038863Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "user",
+      "content": "like this video",
+      "timestamp": "2025-12-09T06:06:39.920814Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "assistant",
+      "content": "Giving that video a thumbs up for you.\n\n{\"cap\": \"LikeVideo\"}",
+      "timestamp": "2025-12-09T06:06:41.415107Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "✅ LikeVideo: Success",
+      "timestamp": "2025-12-09T06:06:41.416486Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "user",
+      "content": "change to hud view",
+      "timestamp": "2025-12-09T06:06:52.752420Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "assistant",
+      "content": "Sorry mate, I can’t change to HUD view here. But I can help with other stuff on this page if you want.",
+      "timestamp": "2025-12-09T06:06:55.764892Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "user",
+      "content": "toggle hud",
+      "timestamp": "2025-12-09T06:06:59.384042Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "assistant",
+      "content": "No worries, but toggling HUD isn't something I can do on this YouTube page. Anything else you want me to do?\n\n",
+      "timestamp": "2025-12-09T06:07:00.360533Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "user",
+      "content": "pause",
+      "timestamp": "2025-12-09T06:07:11.023825Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "assistant",
+      "content": "Pausing the video for you now.\n\n{\"cap\": \"TogglePlayPause\"}",
+      "timestamp": "2025-12-09T06:07:12.314232Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "assistant",
+      "content": "✅ TogglePlayPause: Success",
+      "timestamp": "2025-12-09T06:07:12.315175Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "user",
+      "content": "close tab",
+      "timestamp": "2025-12-09T06:07:18.983075Z"
+    },
+    {
+      "id": "m_0049",
+      "role": "assistant",
+      "content": "Closing this YouTube tab for you.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tab\": 2}}",
+      "timestamp": "2025-12-09T06:07:20.633393Z"
+    },
+    {
+      "id": "m_0050",
+      "role": "user",
+      "content": "go to perplexity",
+      "timestamp": "2025-12-09T06:10:02.119188Z"
+    },
+    {
+      "id": "m_0051",
+      "role": "assistant",
+      "content": "Opening Perplexity AI for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.perplexity.ai\"}}",
+      "timestamp": "2025-12-09T06:10:03.374013Z"
+    },
+    {
+      "id": "m_0052",
+      "role": "user",
+      "content": "lets search for latest ai opportunities for bus in adelaide",
+      "timestamp": "2025-12-09T06:10:26.751140Z"
+    },
+    {
+      "id": "m_0053",
+      "role": "assistant",
+      "content": "Searching Perplexity for latest AI opportunities for business in Adelaide.\n\n{\"act\": \"a_id_7\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:10:28.022445Z"
+    },
+    {
+      "id": "m_0054",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_7): Success",
+      "timestamp": "2025-12-09T06:10:28.023428Z"
+    },
+    {
+      "id": "m_0055",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:10:28.190997Z"
+    },
+    {
+      "id": "m_0056",
+      "role": "assistant",
+      "content": "Searching for the latest AI opportunities for businesses in Adelaide now.\n\n{\"act\": \"a_id_7\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:10:29.475204Z"
+    },
+    {
+      "id": "m_0057",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_7): Success",
+      "timestamp": "2025-12-09T06:10:29.476682Z"
+    },
+    {
+      "id": "m_0058",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:10:29.647380Z"
+    },
+    {
+      "id": "m_0059",
+      "role": "assistant",
+      "content": "Searching again for the latest AI opportunities for businesses in Adelaide.\n\n{\"act\": \"a_id_7\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:10:30.884715Z"
+    },
+    {
+      "id": "m_0060",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_7): Success",
+      "timestamp": "2025-12-09T06:10:30.886130Z"
+    },
+    {
+      "id": "m_0061",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:10:31.056738Z"
+    },
+    {
+      "id": "m_0062",
+      "role": "assistant",
+      "content": "Alright mate, firing up that search again for AI opportunities in Adelaide business.\n\n{\"act\": \"a_id_7\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:10:32.422658Z"
+    },
+    {
+      "id": "m_0063",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_7): Success",
+      "timestamp": "2025-12-09T06:10:32.424038Z"
+    },
+    {
+      "id": "m_0064",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:10:32.590629Z"
+    },
+    {
+      "id": "m_0065",
+      "role": "assistant",
+      "content": "Looks like we’re stuck in a loop, mate. I’ve tried searching the same thing a few times now. Want me to try a different approach or help you with something else?",
+      "timestamp": "2025-12-09T06:10:34.048446Z"
+    },
+    {
+      "id": "m_0066",
+      "role": "user",
+      "content": "try it again",
+      "timestamp": "2025-12-09T06:10:59.059633Z"
+    },
+    {
+      "id": "m_0067",
+      "role": "assistant",
+      "content": "Alright, giving it another crack. Searching for latest AI opportunities for businesses in Adelaide.\n\n{\"act\": \"a_id_7\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:11:00.965987Z"
+    },
+    {
+      "id": "m_0068",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_7): Success",
+      "timestamp": "2025-12-09T06:11:00.966985Z"
+    },
+    {
+      "id": "m_0069",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:11:01.142585Z"
+    },
+    {
+      "id": "m_0070",
+      "role": "assistant",
+      "content": "One more round of searching for AI opportunities in Adelaide business coming up.\n\n{\"act\": \"a_id_7\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:11:02.222219Z"
+    },
+    {
+      "id": "m_0071",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_7): Success",
+      "timestamp": "2025-12-09T06:11:02.226130Z"
+    },
+    {
+      "id": "m_0072",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:11:02.393122Z"
+    },
+    {
+      "id": "m_0073",
+      "role": "assistant",
+      "content": "Still on it, searching for latest AI business opportunities in Adelaide.\n\n{\"act\": \"a_id_7\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:11:03.440665Z"
+    },
+    {
+      "id": "m_0074",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_7): Success",
+      "timestamp": "2025-12-09T06:11:03.441771Z"
+    },
+    {
+      "id": "m_0075",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:11:03.611505Z"
+    },
+    {
+      "id": "m_0076",
+      "role": "assistant",
+      "content": "Alright mate, searching again for latest AI opportunities for businesses in Adelaide.\n\n{\"act\": \"a_id_7\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:11:04.853725Z"
+    },
+    {
+      "id": "m_0077",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_7): Success",
+      "timestamp": "2025-12-09T06:11:04.855583Z"
+    },
+    {
+      "id": "m_0078",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:11:05.025943Z"
+    },
+    {
+      "id": "m_0079",
+      "role": "assistant",
+      "content": "We’re spinning in circles here, mate. The search’s not changing. How about I switch it up and grab some news or reports on AI in Adelaide instead?",
+      "timestamp": "2025-12-09T06:11:06.124179Z"
+    },
+    {
+      "id": "m_0080",
+      "role": "user",
+      "content": "try chatgbt",
+      "timestamp": "2025-12-09T06:13:13.618510Z"
+    },
+    {
+      "id": "m_0081",
+      "role": "assistant",
+      "content": "I can’t switch to ChatGBT directly here, but I can help you search or answer AI questions right here. What exactly do you want to know or find about AI in Adelaide business?",
+      "timestamp": "2025-12-09T06:13:16.565986Z"
+    },
+    {
+      "id": "m_0082",
+      "role": "user",
+      "content": "ok",
+      "timestamp": "2025-12-09T06:13:18.875326Z"
+    },
+    {
+      "id": "m_0083",
+      "role": "assistant",
+      "content": "Sweet as. Just let me know what you want to dig into next!",
+      "timestamp": "2025-12-09T06:13:20.190804Z"
+    },
+    {
+      "id": "m_0084",
+      "role": "user",
+      "content": "nav there new url",
+      "timestamp": "2025-12-09T06:13:28.162945Z"
+    },
+    {
+      "id": "m_0085",
+      "role": "assistant",
+      "content": "Can you give me the new URL you want me to navigate to? I’ll get you there quick smart.",
+      "timestamp": "2025-12-09T06:13:31.052329Z"
+    },
+    {
+      "id": "m_0086",
+      "role": "user",
+      "content": "chatgbt dude",
+      "timestamp": "2025-12-09T06:13:35.822078Z"
+    },
+    {
+      "id": "m_0087",
+      "role": "assistant",
+      "content": "If you mean ChatGPT, here you go, mate — opening the official ChatGPT page now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://chat.openai.com\"}}",
+      "timestamp": "2025-12-09T06:13:37.087369Z"
+    },
+    {
+      "id": "m_0088",
+      "role": "user",
+      "content": "lets try that same search here",
+      "timestamp": "2025-12-09T06:14:00.538675Z"
+    },
+    {
+      "id": "m_0089",
+      "role": "assistant",
+      "content": "Searching ChatGPT for latest AI opportunities for business in Adelaide now.\n\n{\"act\": \"a_id_31\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:14:01.827053Z"
+    },
+    {
+      "id": "m_0090",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_31): Success",
+      "timestamp": "2025-12-09T06:14:01.828194Z"
+    },
+    {
+      "id": "m_0091",
+      "role": "user",
+      "content": "latest AI opportunities for business in Adelaide",
+      "timestamp": "2025-12-09T06:14:02.019098Z"
+    },
+    {
+      "id": "m_0092",
+      "role": "assistant",
+      "content": "Searching ChatGPT again for latest AI opportunities for business in Adelaide.\n\n{\"act\": \"a_id_31\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:14:03.158113Z"
+    },
+    {
+      "id": "m_0093",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_31): Success",
+      "timestamp": "2025-12-09T06:14:03.159583Z"
+    },
+    {
+      "id": "m_0094",
+      "role": "user",
+      "content": "mm do it again",
+      "timestamp": "2025-12-09T06:14:11.338824Z"
+    },
+    {
+      "id": "m_0095",
+      "role": "assistant",
+      "content": "Righto, searching ChatGPT once more for latest AI opportunities in Adelaide business.\n\n{\"act\": \"a_id_31\", \"value\": \"latest AI opportunities for business in Adelaide\", \"submit\": true}",
+      "timestamp": "2025-12-09T06:14:12.607017Z"
+    },
+    {
+      "id": "m_0096",
+      "role": "assistant",
+      "content": "✅ click(a_id_31): Success",
+      "timestamp": "2025-12-09T06:14:12.608458Z"
+    }
+  ]
+}

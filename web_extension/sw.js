@@ -1037,6 +1037,23 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // 🎨 Get current orb style (for playground sync)
+        if (message.type === "get_orb_style") {
+            console.log("[SW] 🎨 Getting current orb style");
+            (async () => {
+                try {
+                    const data = await chrome.storage.local.get('omeOrbStyle');
+                    const style = data.omeOrbStyle || 'kawaii';
+                    console.log("[SW] 🎨 Current orb style:", style);
+                    sendToServer({ type: "orb_style", style: style });
+                } catch (e) {
+                    console.error("[SW] ❌ Failed to get orb style:", e);
+                    sendToServer({ type: "orb_style", style: "kawaii" });
+                }
+            })();
+            return;
+        }
+
         // 🔧 INTERNAL CAPABILITIES: Handle capability results from server
         if (message.type === "capability_result") {
             console.log("[SW] 🔧 Capability result received:", message);
@@ -1300,7 +1317,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             // break intentionally removed - return true above handles async
             case 'set_orb_state':
                 // 🐰 Update orb state from content script
-                if (message.theme !== undefined) orbState.theme = message.theme;
+                if (message.theme !== undefined) {
+                    orbState.theme = message.theme;
+                    // 🔄 Notify server so playground page can sync
+                    sendToServer({ type: 'orb_style', style: message.theme });
+                    // Also persist to storage
+                    chrome.storage.local.set({ omeOrbStyle: message.theme });
+                }
                 if (message.position !== undefined) orbState.position = message.position;
                 if (message.chatVisible !== undefined) orbState.chatVisible = message.chatVisible;
                 if (message.chatInput !== undefined) orbState.chatInput = message.chatInput;
@@ -1446,7 +1469,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                         }
 
                         // Save theme to storage for persistence
-                        await chrome.storage.local.set({ orbTheme: themeName });
+                        await chrome.storage.local.set({ omeOrbStyle: themeName });
+
+                        // 🔄 Notify server so playground page can sync
+                        sendToServer({ type: 'orb_style', style: themeName });
 
                         sendResponse({ ok: true, theme: themeName });
                     } catch (error) {

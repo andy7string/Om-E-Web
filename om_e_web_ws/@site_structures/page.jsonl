@@ -1,28 +1,49 @@
 {
-  "timestamp": 1765255602.4522738,
+  "timestamp": 1765275659.158915,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 4,
     "active_tab": {
-      "id": 1138038807,
-      "url": "http://127.0.0.1:8080/",
-      "title": "Om-E Web - Orb Playground",
-      "status": "complete"
+      "id": 1138039359,
+      "url": "https://www.facebook.com/olivia.orsmond",
+      "title": "(17) Facebook",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138038807,
+        "id": 1138039346,
         "url": "http://127.0.0.1:8080/",
-        "title": "Om-E Web - Orb Playground",
-        "active": true,
+        "title": "OM-E Web",
+        "active": false,
         "status": "complete"
+      },
+      {
+        "id": 1138039353,
+        "url": "https://www.google.com/search?q=vw&sca_esv=5a21cf7e0cf15b69&sxsrf=AE3TifNeh8Y4uJsvtR9M8kFpOTHeEgXzAA%3A1765272091566&source=hp&ei=G-o3aeTzH4agseMPj82TsQs&iflsig=AOw8s4IAAAAAaTf4K7nR5zhgmn_GTflXm8n7wuieTp4n",
+        "title": "vw - Google Search",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138039356,
+        "url": "https://www.youtube.com/results?search_query=x+european+union",
+        "title": "(36) x european union - YouTube",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138039359,
+        "url": "https://www.facebook.com/olivia.orsmond",
+        "title": "(17) Facebook",
+        "active": true,
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 26711.437837166,
+    "last_tabs_update": 46764.092340041,
     "extension_connected": true
   },
   "current_page": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "Om-E Web - Orb Playground",
+    "url": "https://www.facebook.com/olivia.orsmond",
+    "title": "(17) Facebook",
     "is_active_tab": true
   },
   "menu_structure": {

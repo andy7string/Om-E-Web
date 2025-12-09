@@ -62,6 +62,7 @@ CLIENTS = set()                    # All connected WebSocket clients
 PENDING = {}                       # Command ID → Future mapping for response routing
 EXTENSION_WS = None               # Reference to the Chrome extension client
 COMMAND_CLIENTS = {}              # Command ID → Client mapping for response routing
+WEB_DASHBOARD_CLIENTS = set()      # Web dashboard clients (for broadcast sync)
 
 # 📊 Tab information storage for external access
 CURRENT_TABS_INFO = None           # Latest tabs_info from extension
@@ -82,6 +83,37 @@ LLM_AGENT = None                   # OmEAgent instance (created on first chat)
 # Populated from semanticPageData.actionables on each intelligence update
 # Structure: { "a_id_0": {"type": "Link", "tag": "a", "href": "...", "label": "..."}, ... }
 ELEMENT_REGISTRY = {}
+
+# 🎨 Current orb theme (synced across all clients)
+CURRENT_ORB_THEME = 'robot'
+
+
+async def broadcast_to_web_dashboards(message: dict, exclude_ws=None):
+    """
+    📡 Broadcast message to all connected web dashboard clients.
+
+    Used to sync state changes (theme, HUD, status) across all web UIs.
+
+    @param message: Message dict to broadcast
+    @param exclude_ws: Optional WebSocket to exclude (the sender)
+    """
+    if not WEB_DASHBOARD_CLIENTS:
+        return
+
+    msg_str = json.dumps(message)
+    disconnected = []
+
+    for client in WEB_DASHBOARD_CLIENTS:
+        if client == exclude_ws:
+            continue
+        try:
+            await client.send(msg_str)
+        except Exception:
+            disconnected.append(client)
+
+    # Clean up disconnected clients
+    for client in disconnected:
+        WEB_DASHBOARD_CLIENTS.discard(client)
 
 
 def get_element_info(action_id: str) -> Optional[dict]:
@@ -3775,7 +3807,7 @@ async def handler(ws):
     - Responses from extension → Routed back to test clients
     - Tab updates from extension → Logged for debugging
     """
-    global EXTENSION_WS
+    global EXTENSION_WS, CURRENT_ORB_THEME
     print(f"🔌 Client connected! Total clients: {len(CLIENTS) + 1}")
     CLIENTS.add(ws)
     
@@ -4543,6 +4575,59 @@ async def handler(ws):
                     print(f"❌ Error executing scroll: {e}")
                     await ws.send(json.dumps({"ok": False, "error": str(e)}))
 
+            # 🌐 WEB DASHBOARD: Identify as web dashboard client
+            if msg.get("type") == "identify" and msg.get("client") == "web_dashboard":
+                print("🌐 Web dashboard client connected")
+                WEB_DASHBOARD_CLIENTS.add(ws)
+                continue
+
+            # 🌐 WEB DASHBOARD: Get extension status
+            if msg.get("type") == "getStatus":
+                print("📊 Status request from web dashboard")
+                try:
+                    # Build status from server state
+                    status = {
+                        "isConnected": EXTENSION_WS is not None,
+                        "totalTabs": len(CURRENT_TABS_INFO.get("tabs", [])) if CURRENT_TABS_INFO else 0,
+                        "tabsWithFreshScripts": 0,
+                        "tabsNeedingFreshScan": 0,
+                        "totalDomChanges": 0,
+                        "recentDomChanges": 0,
+                        "recentChanges": "Status via server"
+                    }
+
+                    # Try to get more detailed info from extension
+                    if CURRENT_TABS_INFO:
+                        tabs = CURRENT_TABS_INFO.get("tabs", [])
+                        status["totalTabs"] = len(tabs)
+                        # Count tabs with content scripts
+                        status["tabsWithFreshScripts"] = len([t for t in tabs if t.get("hasContentScript")])
+
+                    response = {
+                        "ok": True,
+                        "result": status
+                    }
+                    if msg.get("_requestId"):
+                        response["_requestId"] = msg["_requestId"]
+                    await ws.send(json.dumps(response))
+                except Exception as e:
+                    print(f"❌ Error getting status: {e}")
+                    response = {"ok": False, "error": str(e)}
+                    if msg.get("_requestId"):
+                        response["_requestId"] = msg["_requestId"]
+                    await ws.send(json.dumps(response))
+
+            # 🌐 WEB DASHBOARD: Get current orb state
+            if msg.get("type") == "get_orb_state":
+                print("🎨 Get orb state request")
+                response = {
+                    "ok": True,
+                    "theme": CURRENT_ORB_THEME
+                }
+                if msg.get("_requestId"):
+                    response["_requestId"] = msg["_requestId"]
+                await ws.send(json.dumps(response))
+
             # 🎛️ HUD: Toggle overlay interface
             if msg.get("type") == "toggle_hud":
                 print("🎛️ HUD toggle request received")
@@ -4555,19 +4640,34 @@ async def handler(ws):
                         await EXTENSION_WS.send(json.dumps(hud_command))
                         print("📤 Sent HUD toggle command to extension")
 
-                        await ws.send(json.dumps({
+                        response = {
                             "ok": True,
                             "message": "HUD toggle initiated"
-                        }))
+                        }
+                        if msg.get("_requestId"):
+                            response["_requestId"] = msg["_requestId"]
+                        await ws.send(json.dumps(response))
+
+                        # Broadcast HUD toggle to other web dashboard clients
+                        await broadcast_to_web_dashboards({
+                            "type": "hud_toggled",
+                            "visible": True  # We don't know actual state, just that it toggled
+                        }, exclude_ws=ws)
                     else:
-                        await ws.send(json.dumps({
+                        response = {
                             "ok": False,
                             "error": "Extension not connected"
-                        }))
+                        }
+                        if msg.get("_requestId"):
+                            response["_requestId"] = msg["_requestId"]
+                        await ws.send(json.dumps(response))
 
                 except Exception as e:
                     print(f"❌ Error toggling HUD: {e}")
-                    await ws.send(json.dumps({"ok": False, "error": str(e)}))
+                    response = {"ok": False, "error": str(e)}
+                    if msg.get("_requestId"):
+                        response["_requestId"] = msg["_requestId"]
+                    await ws.send(json.dumps(response))
 
             # 🎨 ORB THEME: Set orb theme
             if msg.get("type") == "set_orb_theme":
@@ -4583,19 +4683,38 @@ async def handler(ws):
                         await EXTENSION_WS.send(json.dumps(theme_command))
                         print(f"📤 Sent set_orb_theme command to extension: {theme_name}")
 
-                        await ws.send(json.dumps({
+                        # Update global state
+                        CURRENT_ORB_THEME = theme_name
+
+                        # Respond with request ID if provided
+                        response = {
                             "ok": True,
                             "message": f"Orb theme set to: {theme_name}"
-                        }))
+                        }
+                        if msg.get("_requestId"):
+                            response["_requestId"] = msg["_requestId"]
+                        await ws.send(json.dumps(response))
+
+                        # Broadcast to other web dashboard clients
+                        await broadcast_to_web_dashboards({
+                            "type": "orb_theme_changed",
+                            "theme": theme_name
+                        }, exclude_ws=ws)
                     else:
-                        await ws.send(json.dumps({
+                        response = {
                             "ok": False,
                             "error": "Extension not connected"
-                        }))
+                        }
+                        if msg.get("_requestId"):
+                            response["_requestId"] = msg["_requestId"]
+                        await ws.send(json.dumps(response))
 
                 except Exception as e:
                     print(f"❌ Error setting orb theme: {e}")
-                    await ws.send(json.dumps({"ok": False, "error": str(e)}))
+                    response = {"ok": False, "error": str(e)}
+                    if msg.get("_requestId"):
+                        response["_requestId"] = msg["_requestId"]
+                    await ws.send(json.dumps(response))
 
             # 🎨 ORB THEME: Get available themes
             if msg.get("type") == "get_orb_themes":
@@ -5014,16 +5133,17 @@ async def handler(ws):
     finally:
         # Clean up when client disconnects
         CLIENTS.discard(ws)
+        WEB_DASHBOARD_CLIENTS.discard(ws)  # Also remove from web dashboard clients
         if ws == EXTENSION_WS:
             EXTENSION_WS = None
             print("🎯 Extension client disconnected")
-        
+
         # Clean up any tracked commands from this client
         commands_to_remove = [cmd_id for cmd_id, client in COMMAND_CLIENTS.items() if client == ws]
         for cmd_id in commands_to_remove:
             COMMAND_CLIENTS.pop(cmd_id, None)
             print(f"🧹 Cleaned up tracked command {cmd_id} from disconnected client")
-        
+
         print(f"🔌 Client disconnected! Total clients: {len(CLIENTS)}")
 
 async def send_command(command, params=None, timeout=8.0):
@@ -6122,16 +6242,82 @@ def generate_orb_page_html() -> str:
 
 class OrbPageHandler(SimpleHTTPRequestHandler):
     """
-    🌐 HTTP request handler for the orb playground page.
+    🌐 HTTP request handler for OM-E Web dashboard and orb playground.
+
+    Routes:
+    - / or /dashboard: Popup dashboard (extension control panel)
+    - /orb: Orb playground page
+    - /popup_web.js: Web-compatible popup JavaScript
     """
 
+    # Path to web_extension directory (relative to om_e_web_ws)
+    WEB_EXT_DIR = os.path.join(os.path.dirname(__file__), '..', 'web_extension')
+
     def do_GET(self):
-        """Serve the orb page for any request."""
+        """Route requests to appropriate handlers."""
+        path = self.path.split('?')[0]  # Strip query params
+
+        if path == '/' or path == '/dashboard':
+            self._serve_dashboard()
+        elif path == '/orb':
+            self._serve_orb_page()
+        elif path == '/popup_web.js':
+            self._serve_file('popup_web.js', 'application/javascript')
+        else:
+            # Fallback to dashboard
+            self._serve_dashboard()
+
+    def _serve_dashboard(self):
+        """Serve the popup dashboard HTML with web-compatible JS."""
+        try:
+            # Read popup.html
+            html_path = os.path.join(self.WEB_EXT_DIR, 'popup.html')
+            with open(html_path, 'r', encoding='utf-8') as f:
+                html = f.read()
+
+            # Replace popup.js with popup_web.js for web context
+            html = html.replace('popup.js', 'popup_web.js')
+
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/html; charset=utf-8')
+            self.send_header('Cache-Control', 'no-cache')
+            self.end_headers()
+            self.wfile.write(html.encode('utf-8'))
+        except Exception as e:
+            print(f"❌ Error serving dashboard: {e}")
+            self._serve_error(500, f"Error loading dashboard: {e}")
+
+    def _serve_orb_page(self):
+        """Serve the orb playground page."""
         self.send_response(200)
         self.send_header('Content-Type', 'text/html; charset=utf-8')
         self.send_header('Cache-Control', 'no-cache')
         self.end_headers()
         self.wfile.write(generate_orb_page_html().encode('utf-8'))
+
+    def _serve_file(self, filename: str, content_type: str):
+        """Serve a file from web_extension directory."""
+        try:
+            file_path = os.path.join(self.WEB_EXT_DIR, filename)
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            self.send_response(200)
+            self.send_header('Content-Type', f'{content_type}; charset=utf-8')
+            self.send_header('Cache-Control', 'no-cache')
+            self.end_headers()
+            self.wfile.write(content.encode('utf-8'))
+        except FileNotFoundError:
+            self._serve_error(404, f"File not found: {filename}")
+        except Exception as e:
+            self._serve_error(500, f"Error serving {filename}: {e}")
+
+    def _serve_error(self, code: int, message: str):
+        """Serve an error response."""
+        self.send_response(code)
+        self.send_header('Content-Type', 'text/plain; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(message.encode('utf-8'))
 
     def log_message(self, format, *args):
         """Custom logging to match our style."""
@@ -6147,7 +6333,8 @@ def start_http_server(port: int = 8080):
     try:
         server = HTTPServer(('127.0.0.1', port), OrbPageHandler)
         print(f"🌐 HTTP server listening on http://127.0.0.1:{port}")
-        print(f"🔮 Open http://localhost:{port} in your browser for the Orb Playground")
+        print(f"📊 Dashboard: http://localhost:{port}/ (extension control panel)")
+        print(f"🔮 Orb Playground: http://localhost:{port}/orb")
         server.serve_forever()
     except Exception as e:
         print(f"❌ HTTP server error: {e}")
