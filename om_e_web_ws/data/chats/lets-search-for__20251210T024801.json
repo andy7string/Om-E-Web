@@ -1,0 +1,117 @@
+{
+  "chat_id": "lets-search-for__20251210T024801",
+  "project_id": "default",
+  "created_at": "2025-12-10T02:48:01.046758Z",
+  "updated_at": "2025-12-10T02:49:52.070291Z",
+  "title": "lets search for",
+  "default_title": "lets search for",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(38) YouTube"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "lets search for claude ai",
+      "timestamp": "2025-12-10T02:48:01.046786Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Gotcha, typing \"claude ai\" into the search bar now.\n\n{\"act\": \"a_id_10\", \"value\": \"claude ai\", \"submit\": true}",
+      "timestamp": "2025-12-10T02:48:02.947432Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_10): Success",
+      "timestamp": "2025-12-10T02:48:02.948675Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "search facebook for janice",
+      "timestamp": "2025-12-10T02:48:24.799377Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Alright, searching Facebook for \"janice\" now.\n\n{\"act\": \"a_id_1\", \"value\": \"janice\", \"submit\": true}",
+      "timestamp": "2025-12-10T02:48:25.779204Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_1): Success",
+      "timestamp": "2025-12-10T02:48:25.780667Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "search for cats",
+      "timestamp": "2025-12-10T02:48:37.737491Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Sure thing, searching for \"cats\" now.\n\n{\"act\": \"a_id_10\", \"value\": \"cats\", \"submit\": true}",
+      "timestamp": "2025-12-10T02:48:38.758725Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_10): Success",
+      "timestamp": "2025-12-10T02:48:38.759942Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "search for cats",
+      "timestamp": "2025-12-10T02:48:51.793849Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "Already on it, mate! Typing \"cats\" in the search bar.\n\n{\"act\": \"a_id_3\", \"value\": \"cats\", \"submit\": true}",
+      "timestamp": "2025-12-10T02:48:53.479139Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_3): Success",
+      "timestamp": "2025-12-10T02:48:53.481300Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "go to wikipedia",
+      "timestamp": "2025-12-10T02:49:39.637751Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Heading over to Wikipedia for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.wikipedia.org\"}}",
+      "timestamp": "2025-12-10T02:49:40.855479Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "search for fender",
+      "timestamp": "2025-12-10T02:49:50.884604Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Typing \"fender\" into Wikipedia's search bar now.\n\n{\"act\": \"a_id_10\", \"value\": \"fender\", \"submit\": true}",
+      "timestamp": "2025-12-10T02:49:52.069726Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_10): Success",
+      "timestamp": "2025-12-10T02:49:52.070291Z"
+    }
+  ]
+}

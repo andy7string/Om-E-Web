@@ -8992,11 +8992,30 @@
                             const form = element.closest('form');
 
                             // 🎯 AUTOCOMPLETE DROPDOWN: Use MutationObserver to detect and click dropdown
-                            // Check if config enables this mode (event-driven, no hardcoded delays)
-                            const useDropdownMode = matchedInputPattern?.useAutocompleteDropdown === true;
+                            // Auto-detect based on ARIA attributes OR explicit config
+                            const isAriaCombobox = element.getAttribute('role') === 'combobox';
+                            const hasAriaAutocomplete = element.getAttribute('aria-autocomplete') === 'list' ||
+                                                        element.getAttribute('aria-autocomplete') === 'both';
+                            const hasAriaControls = !!element.getAttribute('aria-controls');
+                            const hasListboxPopup = element.getAttribute('aria-haspopup') === 'listbox';
+
+                            // Auto-detect: use dropdown mode if input has combobox ARIA attributes
+                            const autoDetectedDropdown = isAriaCombobox || hasListboxPopup || (hasAriaAutocomplete && hasAriaControls);
+
+                            // Config can explicitly enable (true) or disable (false) dropdown mode
+                            // If config says false, it overrides auto-detection
+                            const configDropdown = matchedInputPattern?.useAutocompleteDropdown;
+                            const useDropdownMode = configDropdown === true ||
+                                (configDropdown !== false && autoDetectedDropdown);
 
                             if (useDropdownMode) {
-                                console.log('[Content] 🎯 Using autocomplete dropdown mode (MutationObserver)');
+                                console.log('[Content] 🎯 Using autocomplete dropdown mode (MutationObserver)', {
+                                    configEnabled: configDropdown,
+                                    autoDetected: autoDetectedDropdown,
+                                    isAriaCombobox,
+                                    hasAriaAutocomplete,
+                                    hasAriaControls
+                                });
 
                                 // Start watching for dropdown - will click first option when it appears
                                 watchForAutocompleteDropdown(element, valueToSet, matchedInputPattern.autocompleteConfig || {})
