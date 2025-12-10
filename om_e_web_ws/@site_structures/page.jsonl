@@ -1,35 +1,35 @@
 {
-  "timestamp": 1765328190.256278,
+  "timestamp": 1765334111.4974442,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138039999,
-      "url": "https://www.perplexity.ai/finance/crypto",
-      "title": "Perplexity Finance",
+      "id": 1138040307,
+      "url": "https://www.google.com/search?q=gibson&sca_esv=73e86a78892c9231&sxsrf=AE3TifMdtMK4gLKKh94OAED4MszVJUBfqA%3A1765334005245&source=hp&ei=9ds4acntDICiseMPi-nr8QQ&iflsig=AOw8s4IAAAAAaTjqBbVm3Q8BLf6-jTEhrHc3tt3Y9Dr8",
+      "title": "gibson - Google Search",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138039999,
-        "url": "https://www.perplexity.ai/finance/crypto",
-        "title": "Perplexity Finance",
-        "active": true,
+        "id": 1138040302,
+        "url": "https://www.facebook.com/marketplace/adelaide/search?query=gibson",
+        "title": "(17) Facebook",
+        "active": false,
         "status": "complete"
       },
       {
-        "id": 1138040008,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
+        "id": 1138040307,
+        "url": "https://www.google.com/search?q=gibson&sca_esv=73e86a78892c9231&sxsrf=AE3TifMdtMK4gLKKh94OAED4MszVJUBfqA%3A1765334005245&source=hp&ei=9ds4acntDICiseMPi-nr8QQ&iflsig=AOw8s4IAAAAAaTjqBbVm3Q8BLf6-jTEhrHc3tt3Y9Dr8",
+        "title": "gibson - Google Search",
+        "active": true,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 12785.688406541,
+    "last_tabs_update": 18708.73868125,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.perplexity.ai/finance/crypto",
-    "title": "Perplexity Finance",
+    "url": "https://www.google.com/search?q=gibson&sca_esv=73e86a78892c9231&sxsrf=AE3TifMdtMK4gLKKh94OAED4MszVJUBfqA%3A1765334005245&source=hp&ei=9ds4acntDICiseMPi-nr8QQ&iflsig=AOw8s4IAAAAAaTjqBbVm3Q8BLf6-jTEhrHc3tt3Y9Dr8",
+    "title": "gibson - Google Search",
     "is_active_tab": true
   },
   "menu_structure": {

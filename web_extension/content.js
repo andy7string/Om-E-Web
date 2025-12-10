@@ -662,6 +662,163 @@
         return api;
     })();
 
+    // ============================================================================
+    // 🎯 AUTOCOMPLETE DROPDOWN HANDLER
+    // Event-driven detection using MutationObserver - no hardcoded delays.
+    // Watches for dropdown to appear and clicks first matching option.
+    // ============================================================================
+
+    /**
+     * Watch for autocomplete dropdown to appear and click first option.
+     * Uses MutationObserver - truly event-driven, no polling/timers.
+     * @param {HTMLElement} inputElement - The input that triggered the dropdown
+     * @param {string} searchValue - The typed value (for logging)
+     * @param {Object} config - Optional config from site_configs
+     * @returns {Promise} - Resolves when option clicked or timeout
+     */
+    function watchForAutocompleteDropdown(inputElement, searchValue, config = {}) {
+        return new Promise((resolve) => {
+            console.log('[Content] 👁️ Starting autocomplete dropdown watch for:', searchValue);
+
+            // Selectors from config or defaults (ARIA standard)
+            const containerSelectors = config.containerSelectors || [
+                '[role="listbox"]',
+                'ul[role="listbox"]',
+                '[role="menu"]'
+            ];
+
+            const optionSelectors = config.optionSelectors || [
+                '[role="option"]',
+                'li[role="option"]',
+                '[role="menuitem"]'
+            ];
+
+            const maxWaitMs = config.maxWait || 5000;
+            let resolved = false;
+            let observer = null;
+            let timeoutId = null;
+
+            // Cleanup function
+            const cleanup = () => {
+                if (observer) {
+                    observer.disconnect();
+                    observer = null;
+                }
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                    timeoutId = null;
+                }
+            };
+
+            // Try to find and click dropdown option
+            const tryClickDropdownOption = () => {
+                if (resolved) return false;
+
+                // Search for dropdown container
+                for (const containerSel of containerSelectors) {
+                    const containers = document.querySelectorAll(containerSel);
+
+                    for (const container of containers) {
+                        // Skip if not visible
+                        if (container.offsetParent === null && !container.closest('[aria-hidden="false"]')) {
+                            continue;
+                        }
+
+                        console.log('[Content] 🔍 Found potential dropdown:', containerSel, container);
+
+                        // Find options inside
+                        for (const optionSel of optionSelectors) {
+                            const options = container.querySelectorAll(optionSel);
+
+                            if (options.length > 0) {
+                                // Find first visible option
+                                for (const option of options) {
+                                    // Check visibility
+                                    const isVisible = option.offsetParent !== null ||
+                                                     option.closest('[aria-hidden="false"]') ||
+                                                     getComputedStyle(option).display !== 'none';
+
+                                    if (isVisible) {
+                                        resolved = true;
+                                        cleanup();
+
+                                        // Find the actual clickable element inside the option
+                                        // Priority: <a> link > div with tabindex > div with role > the option itself
+                                        const link = option.querySelector('a[href]');
+                                        const clickableDiv = option.querySelector('div[tabindex], div[role="none"][tabindex], div[aria-describedby]');
+                                        const clickTarget = link || clickableDiv || option;
+
+                                        console.log('[Content] ✅ Clicking dropdown option:', {
+                                            text: option.textContent?.substring(0, 50),
+                                            hasLink: !!link,
+                                            hasClickableDiv: !!clickableDiv,
+                                            clickTargetTag: clickTarget.tagName
+                                        });
+
+                                        clickTarget.click();
+                                        resolve({ success: true, clicked: option.textContent?.substring(0, 50) });
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return false;
+            };
+
+            // Initial check - dropdown might already exist
+            if (tryClickDropdownOption()) {
+                return;
+            }
+
+            // Set up MutationObserver on document.body (catches portals)
+            observer = new MutationObserver((mutations) => {
+                // Check if new nodes were added
+                let hasNewNodes = false;
+                for (const mutation of mutations) {
+                    if (mutation.addedNodes.length > 0) {
+                        hasNewNodes = true;
+                        break;
+                    }
+                    // Also check attribute changes (aria-expanded, etc.)
+                    if (mutation.type === 'attributes') {
+                        hasNewNodes = true;
+                        break;
+                    }
+                }
+
+                if (hasNewNodes) {
+                    tryClickDropdownOption();
+                }
+            });
+
+            // CRITICAL: Observe document.body to catch dropdowns rendered anywhere (portals)
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['aria-expanded', 'aria-hidden', 'hidden', 'class', 'style']
+            });
+
+            console.log('[Content] 👁️ MutationObserver active on document.body');
+
+            // Fail-safe timeout
+            timeoutId = setTimeout(() => {
+                if (!resolved) {
+                    resolved = true;
+                    cleanup();
+                    console.log('[Content] ⏱️ Autocomplete watch timeout after', maxWaitMs, 'ms');
+                    resolve({ success: false, reason: 'timeout' });
+                }
+            }, maxWaitMs);
+        });
+    }
+
+    // Expose for debugging
+    window.watchForAutocompleteDropdown = watchForAutocompleteDropdown;
+
     function scheduleInitialScan(reason = 'unspecified', options = {}) {
         scanTrace.log(`scheduleInitialScan(${reason})`);
 
@@ -8834,6 +8991,51 @@
                                 element.getAttribute('role') === 'combobox';
                             const form = element.closest('form');
 
+                            // 🎯 AUTOCOMPLETE DROPDOWN: Use MutationObserver to detect and click dropdown
+                            // Check if config enables this mode (event-driven, no hardcoded delays)
+                            const useDropdownMode = matchedInputPattern?.useAutocompleteDropdown === true;
+
+                            if (useDropdownMode) {
+                                console.log('[Content] 🎯 Using autocomplete dropdown mode (MutationObserver)');
+
+                                // Start watching for dropdown - will click first option when it appears
+                                watchForAutocompleteDropdown(element, valueToSet, matchedInputPattern.autocompleteConfig || {})
+                                    .then((dropdownResult) => {
+                                        if (dropdownResult.success) {
+                                            console.log('[Content] ✅ Dropdown selection complete:', dropdownResult.clicked);
+                                            // Request rescan after navigation
+                                            chrome.runtime.sendMessage({
+                                                type: 'request_scan',
+                                                url: window.location.href,
+                                                trigger: 'autocomplete_selection'
+                                            });
+                                        } else {
+                                            console.log('[Content] ⚠️ Dropdown not found, falling back to Enter key');
+                                            // Fallback: dispatch Enter key
+                                            element.focus();
+                                            element.dispatchEvent(new KeyboardEvent('keydown', {
+                                                key: 'Enter', code: 'Enter', keyCode: 13, which: 13,
+                                                bubbles: true, cancelable: true
+                                            }));
+                                            element.dispatchEvent(new KeyboardEvent('keyup', {
+                                                key: 'Enter', code: 'Enter', keyCode: 13, which: 13,
+                                                bubbles: true, cancelable: true
+                                            }));
+                                        }
+                                    });
+
+                                // Return success - dropdown handler manages the rest
+                                result = {
+                                    success: true,
+                                    action: 'setValue',
+                                    elementId: actionId,
+                                    value: valueToSet,
+                                    selector: selector,
+                                    mode: 'autocomplete_dropdown'
+                                };
+                                break;
+                            }
+
                             // For search inputs with autocomplete, wait longer for dropdown to appear before submitting
                             const submitDelay = hasAutocomplete ? 300 : 100;
 
@@ -9109,6 +9311,17 @@
                                 // Note: dispatchEnterKey is now async, so we call it and let it run
                                 dispatchEnterKey();
                                 const enterWorked = true; // Assume it will work, actual result handled async
+
+                                // 🎯 DOUBLE ENTER: Some sites (Facebook, etc.) need Enter twice
+                                // First Enter opens autocomplete dropdown, second Enter submits search
+                                if (matchedInputPattern && matchedInputPattern.doubleEnter) {
+                                    const delay = matchedInputPattern.doubleEnterDelay || 300;
+                                    console.log(`[Content] ⌨️ doubleEnter mode - sending second Enter after ${delay}ms`);
+                                    setTimeout(() => {
+                                        console.log('[Content] ⌨️ Dispatching second Enter key for doubleEnter mode');
+                                        dispatchEnterKey();
+                                    }, delay);
+                                }
 
                                 // 🎯 GENERIC: For search inputs with autocomplete, try dropdown actions only when no form exists
                                 // 🚫 DISABLED: Generic URL construction removed - it constructs wrong URLs for most sites

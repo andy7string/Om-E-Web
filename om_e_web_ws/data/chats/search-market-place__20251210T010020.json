@@ -1,0 +1,123 @@
+{
+  "chat_id": "search-market-place__20251210T010020",
+  "project_id": "default",
+  "created_at": "2025-12-10T01:00:20.995717Z",
+  "updated_at": "2025-12-10T01:08:23.078255Z",
+  "title": "search market place",
+  "default_title": "search market place",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.facebook.com/marketplace/?ref=bookmark",
+    "page_title": "(17) Facebook Marketplace | Facebook"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "search market place for gibson guitars",
+      "timestamp": "2025-12-10T01:00:20.995752Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Searching Marketplace for Gibson guitars now.\n{\"act\": \"a_id_14\", \"value\": \"Gibson guitar\", \"submit\": true}",
+      "timestamp": "2025-12-10T01:00:22.127402Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_14): Success",
+      "timestamp": "2025-12-10T01:00:22.128534Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "search market place for brown horse",
+      "timestamp": "2025-12-10T01:00:44.514162Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Searching Marketplace for brown horse.\n{\"act\": \"a_id_14\", \"value\": \"brown horse\", \"submit\": true}",
+      "timestamp": "2025-12-10T01:00:47.556068Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_14): Success",
+      "timestamp": "2025-12-10T01:00:47.557144Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "take me home",
+      "timestamp": "2025-12-10T01:01:09.560792Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Heading back to your Facebook home.\n{\"act\": \"a_id_2\"}",
+      "timestamp": "2025-12-10T01:01:10.701162Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_2): Success",
+      "timestamp": "2025-12-10T01:01:10.703149Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "got to market place",
+      "timestamp": "2025-12-10T01:01:24.120385Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "Opening Marketplace for you.\n{\"act\": \"a_id_4\"}",
+      "timestamp": "2025-12-10T01:01:24.814619Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_4): Success",
+      "timestamp": "2025-12-10T01:01:24.816318Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "search for brown horse",
+      "timestamp": "2025-12-10T01:01:36.785350Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Searching Marketplace for brown horse again.\n{\"act\": \"a_id_14\", \"value\": \"brown horse\", \"submit\": true}",
+      "timestamp": "2025-12-10T01:01:37.984493Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_14): Success",
+      "timestamp": "2025-12-10T01:01:37.987194Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "user",
+      "content": "search market place for mesa boogie",
+      "timestamp": "2025-12-10T01:08:21.672292Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "assistant",
+      "content": "Searching Marketplace for Mesa Boogie amps or gear.\n{\"act\": \"a_id_14\", \"value\": \"Mesa Boogie\", \"submit\": true}",
+      "timestamp": "2025-12-10T01:08:23.070952Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_14): Success",
+      "timestamp": "2025-12-10T01:08:23.078255Z"
+    }
+  ]
+}
