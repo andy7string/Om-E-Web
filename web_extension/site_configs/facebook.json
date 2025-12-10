@@ -119,15 +119,15 @@
       "description": "Facebook Marketplace search input",
       "container": "input[aria-label='Search Marketplace'], input[type='search'][placeholder*='Marketplace' i]",
       "forceBubbles": true,
-      "forceSubmitSelector": true,
-      "submitSelector": "[aria-label='Search'][role='button'], div[aria-label='Search'][role='button'], [aria-label*='Search' i][role='button'], [role='button'] svg[aria-label*='search' i], form button[type='submit'], div[role='button'][tabindex='0']"
+      "enterOnly": true,
+      "_comment": "Marketplace search triggers on Enter key - no submit button needed"
     },
     "globalSearch": {
       "description": "Facebook global search input",
       "container": "input[aria-label='Search Facebook']",
       "forceBubbles": true,
-      "forceSubmitSelector": true,
-      "submitSelector": "[aria-label*='Search' i][role='button'], form button[type='submit']"
+      "enterOnly": true,
+      "_comment": "Global search triggers on Enter key - no submit button needed"
     }
   }
 }

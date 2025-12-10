@@ -4822,8 +4822,10 @@
         }, true);
 
         // 🐰 Request orb state from service worker and apply
+        hudTrace.log('requesting get_orb_state from SW');
         try {
             chrome.runtime.sendMessage({ type: 'get_orb_state' }, (response) => {
+                hudTrace.log('get_orb_state response received');
                 if (chrome.runtime.lastError) {
                     console.warn('[Content] Could not get orb state:', chrome.runtime.lastError);
                     return;
@@ -4891,18 +4893,16 @@
                     }
 
                     // 💬 Load active chat if one exists, otherwise start fresh
-                    console.log('[Content] 💬 initHUD checking activeChatId:', response.activeChatId, 'current:', chatState.currentChatId);
+                    hudTrace.log(`activeChatId from SW: ${response.activeChatId || 'none'}`);
                     if (response.activeChatId && response.activeChatId !== chatState.currentChatId) {
                         chatState.currentChatId = response.activeChatId;
-                        // skipBroadcast=true: new tab syncing, don't trigger reload on other tabs
-                        console.log('[Content] 💬 Loading active chat from SW:', response.activeChatId);
+                        hudTrace.log('calling loadChat');
                         loadChat(response.activeChatId, true);
                     } else if (!response.activeChatId) {
-                        // 📚 No active chat - start with a clean slate by default
-                        console.log('[Content] 💬 No active chat, starting new chat');
+                        hudTrace.log('no active chat - starting new');
                         startNewChat();
                     } else {
-                        console.log('[Content] 💬 Same chat as current, skipping load');
+                        hudTrace.log('same chat as current - skipping');
                     }
 
                 }
@@ -5303,18 +5303,17 @@
     }
 
     /**
-     * 📚 Load a chat by ID and display its messages
-     * @param {string} chatId - The chat ID to load
-     * @param {boolean} skipBroadcast - If true, don't notify SW (prevents loops when syncing)
+     * 📚 Load chat by ID with optional tail limit
      */
-    function loadChat(chatId, skipBroadcast = false) {
-        console.log('[Content] 📚 Loading chat:', chatId, skipBroadcast ? '(sync)' : '');
+    function loadChat(chatId, skipBroadcast = false, tail = 10) {
+        hudTrace.log(`loadChat(${chatId}) START`);
 
         chrome.runtime.sendMessage(
-            { type: 'execute_capability', action: 'LoadChat', params: { chat_id: chatId } },
+            { type: 'execute_capability', action: 'LoadChat', params: { chat_id: chatId, tail } },
             (response) => {
+                hudTrace.log('loadChat response received');
                 if (chrome.runtime.lastError) {
-                    console.error('[Content] 📚 Failed to load chat:', chrome.runtime.lastError);
+                    hudTrace.log(`loadChat ERROR: ${chrome.runtime.lastError.message}`);
                     return;
                 }
 
@@ -5323,6 +5322,8 @@
                     // Chat was deleted or doesn't exist - start fresh
                     chatState.currentChatId = null;
                     chatState.messages = [];
+                    chatState.hasMoreMessages = false;
+                    chatState.totalMessages = 0;
                     if (!skipBroadcast) {
                         chrome.runtime.sendMessage({ type: 'set_orb_state', activeChatId: null });
                     }
@@ -5333,7 +5334,14 @@
                 }
 
                 const chat = response.result.chat;
-                console.log('[Content] 📚 Loaded chat:', chat.chat_id, chat.messages?.length, 'messages');
+                const truncated = chat._truncated || false;
+                const totalMessages = chat._total_messages || chat.messages?.length || 0;
+                const hasMore = chat._has_more || false;
+
+                console.log('[Content] 📚 Loaded chat:', chat.chat_id,
+                    `${chat.messages?.length}/${totalMessages} messages`,
+                    truncated ? '(truncated)' : '(full)',
+                    hasMore ? '[has more]' : '');
 
                 // Store active chat ID in service worker (skip if syncing to prevent loops)
                 if (!skipBroadcast) {
@@ -5347,6 +5355,8 @@
                     content: m.content,
                     id: m.id
                 }));
+                chatState.hasMoreMessages = hasMore;
+                chatState.totalMessages = totalMessages;
 
                 // Remove new chat placeholder if present
                 removeNewChatPlaceholder();
@@ -5355,9 +5365,20 @@
                 markActiveChatInSidebar(chatId);
 
                 // Render using existing function (renders to both orb and HUD)
+                hudTrace.log('rendering chat messages');
                 renderChatMessages();
+                hudTrace.log('loadChat() DONE');
             }
         );
+    }
+
+    /**
+     * 📚 Load full chat history (all messages)
+     * Used when LLM needs full context or user scrolls up
+     */
+    function loadFullChatHistory(chatId) {
+        console.log('[Content] 📚 Loading FULL chat history:', chatId);
+        loadChat(chatId, true, null);  // tail=null means all messages
     }
 
     /**
@@ -6177,7 +6198,9 @@
         currentChatId: null,
         lastAck: null,
         messages: [],  // Shared message array - both UIs render from this
-        pendingTitle: null  // Title set before first message (for new chats)
+        pendingTitle: null,  // Title set before first message (for new chats)
+        hasMoreMessages: false,  // True if chat has older messages not yet loaded
+        totalMessages: 0  // Total message count in full chat
     };
 
     /**
@@ -6485,12 +6508,29 @@
     });
 
 
-    // 🚀 Auto-init orb on load
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initHUD);
-    } else {
-        initHUD();
+    // ⏱️ HUD TRACE
+    const hudTrace = {
+        start: performance.now(),
+        log(step) {
+            const elapsed = (performance.now() - this.start).toFixed(1);
+            console.log(`⏱️ [HUD-TRACE] +${elapsed}ms ${step}`);
+        }
+    };
+    window.hudTrace = hudTrace;
+    hudTrace.log('hud.js loaded');
+
+    // 🚀 Auto-init orb IMMEDIATELY - don't wait for page content
+    function initWhenBodyReady() {
+        if (document.body) {
+            hudTrace.log('body ready - calling initHUD');
+            initHUD();
+            hudTrace.log('initHUD returned');
+        } else {
+            requestAnimationFrame(initWhenBodyReady);
+        }
     }
+
+    initWhenBodyReady();
 
 })();
 

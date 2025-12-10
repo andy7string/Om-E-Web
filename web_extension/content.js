@@ -24,6 +24,34 @@
     }
     window.omEWebContentScriptLoaded = true;
 
+    // ⏱️ SCAN TRACE - Track timing through entire scan pipeline
+    const SCAN_TRACE_START = performance.now();
+    const scanTrace = {
+        start: SCAN_TRACE_START,
+        events: [],
+        log(step) {
+            const elapsed = (performance.now() - this.start).toFixed(1);
+            const delta = this.events.length > 0
+                ? (performance.now() - this.events[this.events.length - 1].time).toFixed(1)
+                : '0.0';
+            this.events.push({ step, time: performance.now(), elapsed, delta });
+            console.log(`⏱️ [TRACE] +${elapsed}ms (Δ${delta}ms) ${step}`);
+        },
+        summary() {
+            console.log('⏱️ ═══════════════════════════════════════════════');
+            console.log('⏱️ SCAN TRACE SUMMARY');
+            console.log('⏱️ ═══════════════════════════════════════════════');
+            this.events.forEach(e => {
+                console.log(`⏱️  +${e.elapsed}ms (Δ${e.delta}ms) ${e.step}`);
+            });
+            console.log(`⏱️ ═══════════════════════════════════════════════`);
+            console.log(`⏱️ TOTAL: ${(performance.now() - this.start).toFixed(1)}ms`);
+            console.log('⏱️ ═══════════════════════════════════════════════');
+        }
+    };
+    window.scanTrace = scanTrace; // Expose globally for debugging
+    scanTrace.log('content.js loaded');
+
     // 🖼️ IFRAME DETECTION - Run different logic for iframes vs main frame
     const isInIframe = window.top !== window.self;
 
@@ -208,17 +236,12 @@
         console.log(`[Content] 🚀 Starting scan`);
 
         try {
-            console.log('[Content] 🕐 Waiting for DOM to settle...');
-
             // ============================================================================
-            // STEP 1: WAIT FOR DOM TO SETTLE
+            // 🚀 INSTANT SCAN - No more waiting for DOM settle
             // ============================================================================
-            await waitForDOMSettle({
-                maxWait: 5000,      // Failsafe: 5s max
-                quietWindow: 200    // No mutations for 200ms = settled
-            });
-
-            console.log('[Content] ✅ DOM settled, starting scan...');
+            // The page has already loaded (document_idle or later). Scan NOW.
+            // Dynamic content will trigger rescan via MutationObserver.
+            console.log('[Content] 🚀 Starting scan immediately (no settle wait)...');
 
             // ============================================================================
             // STEP 2: RUN ACTUAL SCAN
@@ -639,42 +662,37 @@
         return api;
     })();
 
-    function scheduleInitialScan(reason = 'unspecified', options = { maxWait: 12000 }) {
+    function scheduleInitialScan(reason = 'unspecified', options = {}) {
+        scanTrace.log(`scheduleInitialScan(${reason})`);
+
         if (initialScanScheduled) {
-            console.log("[Content] ⏭️ Initial scan already scheduled (reason:", initialScanReason, ")");
+            scanTrace.log('scan already scheduled - skipping');
             return;
         }
 
         initialScanScheduled = true;
         initialScanReason = reason;
 
-        const startScan = async () => {
-            const waitBudget = options?.maxWait;
-            console.log(`[Content] 🔍 Scheduling initial scan (${reason}) using idle detection (maxWait ${waitBudget ?? '∞'}ms)`);
-            try {
-                await pageIdleMonitor.waitForIdle({ maxWait: waitBudget, quietWindow: 200 });
-            } catch (error) {
-                console.warn("[Content] ⚠️ Idle wait failed, running scan anyway:", error?.message || error);
-            }
-            runScanAfterPageLoad();
-        };
+        // 🚀 INSTANT SCAN: content.js runs at document_idle, page is already loaded
+        scanTrace.log('scheduling requestIdleCallback');
 
-        if (document.readyState === 'complete') {
-            startScan();
+        if (typeof requestIdleCallback === 'function') {
+            requestIdleCallback(() => {
+                scanTrace.log('requestIdleCallback fired');
+                runScanAfterPageLoad();
+            }, { timeout: 100 });
         } else {
-            console.log("[Content] 🔄 Page still loading, deferring initial scan until load event...");
-            window.addEventListener('load', () => {
-                startScan();
-            }, { once: true });
+            setTimeout(() => {
+                scanTrace.log('setTimeout(0) fired');
+                runScanAfterPageLoad();
+            }, 0);
         }
     }
 
-    setTimeout(() => {
-        if (!initialScanScheduled) {
-            console.log("[Content] ⏳ Service worker trigger not received; scheduling fallback scan");
-            scheduleInitialScan('fallback_timeout');
-        }
-    }, 4000);
+    // 🚀 IMMEDIATE SCAN: Don't wait for SW - scan now
+    // content.js runs at document_idle, page is ready
+    scanTrace.log('triggering immediate scan');
+    scheduleInitialScan('immediate');
 
     // ============================================================================
     // 🖼️ DYNAMIC IFRAME DETECTION - Watch for iframes added after initial scan
@@ -1697,29 +1715,25 @@
 
     // 🆕 NEW: Function to run scan after page is fully loaded
     function runScanAfterPageLoad() {
-        console.log("[Content] 🔍 Page fully loaded - now running scan...");
+        scanTrace.log('runScanAfterPageLoad() START');
 
         if (intelligenceEngine) {
-            // ♻️ DESTROY & RECREATE: Ensure completely fresh start (like browser refresh)
-            console.log("[Content] ♻️ Service worker scan - recreating engine for fresh start");
+            scanTrace.log('recreating intelligence engine');
             const freshEngine = recreateIntelligenceEngine();
+            scanTrace.log('engine recreated');
 
-            // 🚫 DISABLED: CSP bypass no longer needed - using native DOM APIs now
-            // This was disconnecting runtime and clearing storage, which broke intelligence updates
-            // console.log("[Content] 🔄 Page load: Performing automatic disconnect cycle + comprehensive scan for CSP bypass...");
-            // performAutomaticDisconnectCycle();
-
-            // 🎯 FIX: Actually run the scan now that we have a fresh engine
-            console.log("[Content] 🔍 Page load: Running scan on fresh engine...");
             if (freshEngine && typeof freshEngine.scanAndRegisterPageElements === 'function') {
+                scanTrace.log('calling scanAndRegisterPageElements()');
                 freshEngine.scanAndRegisterPageElements();
-                console.log("[Content] ✅ Page load scan complete");
+                scanTrace.log('scanAndRegisterPageElements() DONE');
             } else {
-                console.error("[Content] ❌ Fresh engine doesn't have scanAndRegisterPageElements");
+                scanTrace.log('ERROR: no scanAndRegisterPageElements method');
             }
         } else {
-            console.error("[Content] ❌ Intelligence engine not available for delayed scan");
+            scanTrace.log('ERROR: no intelligenceEngine');
         }
+
+        scanTrace.log('runScanAfterPageLoad() END');
     }
 
     // Utility function for async delays
@@ -2579,13 +2593,9 @@
             return true;
         }
 
-        console.log("[Content] Message received from service worker:", message);
-
         if (message && message.type === "start_intelligence_scan") {
-            scheduleInitialScan('service_worker', {
-                quietPeriod: 200,
-                maxWait: 12000
-            });
+            scanTrace.log('SW message: start_intelligence_scan');
+            scheduleInitialScan('service_worker', {});
 
             if (typeof sendResponse === 'function') {
                 sendResponse({ ok: true });
@@ -6833,24 +6843,23 @@
      * 🆕 NEW: Queue intelligence update for processing
      */
     IntelligenceEngine.prototype.queueIntelligenceUpdate = function (priority = 'normal') {
+        scanTrace.log('queueIntelligenceUpdate() - preparing data');
         const updateItem = {
             id: Date.now() + Math.random(),
-            priority: priority, // 'high', 'normal', 'low'
+            priority: priority,
             timestamp: Date.now(),
             data: this.prepareIntelligenceData()
         };
+        scanTrace.log('queueIntelligenceUpdate() - data prepared');
 
-        // Add to queue based on priority
         if (priority === 'high') {
-            this.updateQueue.unshift(updateItem); // Add to front
+            this.updateQueue.unshift(updateItem);
         } else {
-            this.updateQueue.push(updateItem); // Add to back
+            this.updateQueue.push(updateItem);
         }
 
-        // 🆕 NEW: Don't log individual queue details - just track silently
-
-        // Process queue if not already processing
         if (!this.isProcessingQueue) {
+            scanTrace.log('starting queue processing');
             this.processUpdateQueue();
         }
     };
@@ -6864,32 +6873,30 @@
         }
 
         this.isProcessingQueue = true;
-        // 🆕 NEW: Simplified queue processing - only log errors and completion
+        scanTrace.log('processUpdateQueue() START');
+
         while (this.updateQueue.length > 0) {
             const updateItem = this.updateQueue.shift();
 
             try {
-                // 🆕 NEW: Check if intelligence engine is ready before sending
                 if (!this.isEngineReady()) {
-                    // Re-queue with lower priority if engine not ready
+                    scanTrace.log('engine not ready - requeuing');
                     if (updateItem.priority !== 'low') {
                         updateItem.priority = 'low';
                         this.updateQueue.push(updateItem);
                     }
-                    // Wait a bit before processing next item to avoid infinite loop
                     await this.sleep(100);
                     continue;
                 }
 
-                // Send update to service worker
+                scanTrace.log('sending to SW');
                 await this.sendIntelligenceUpdateToServiceWorker(updateItem.data);
+                scanTrace.log('sent to SW');
 
                 this.lastUpdateTime = Date.now();
 
             } catch (error) {
-                console.error("[Content] ❌ Error processing queued update:", updateItem.id, error);
-
-                // Re-queue failed updates with lower priority (unless it's already low)
+                scanTrace.log(`ERROR: ${error.message}`);
                 if (updateItem.priority !== 'low') {
                     updateItem.priority = 'low';
                     this.updateQueue.push(updateItem);
@@ -6898,7 +6905,7 @@
         }
 
         this.isProcessingQueue = false;
-        console.log("[Content] ✅ Intelligence update queue processing complete");
+        scanTrace.log('processUpdateQueue() DONE');
     };
 
     /**
@@ -7055,11 +7062,9 @@
             return false;
         }
 
-        // 🆕 NEW: Check if we have actionable elements
-        if (this.actionableElements.size === 0) {
-            console.log("[Content] ⚠️ No actionable elements found after scan");
-            return false;
-        }
+        // NOTE: Don't check actionableElements.size here!
+        // extractSemanticTextWithIds() clears the Map during prepareIntelligenceData()
+        // which is called BEFORE isEngineReady() during queue processing
 
         // 🎯 Add frame detection to regular scanning
         const frameInfo = {
@@ -8715,69 +8720,101 @@
                             element.dispatchEvent(new KeyboardEvent('keypress', keyboardEventInit));
                             element.dispatchEvent(new KeyboardEvent('keyup', keyboardEventInit));
                         } else if (isContentEditable) {
-                            // 🆕 LEXICAL/RICH TEXT EDITOR FIX: Simulate proper typing for frameworks like Lexical, ProseMirror, etc.
-                            // Setting textContent directly causes the framework to clear it during state reconciliation
-                            console.log('[Content] 🔤 Simulating typing for contenteditable element (Lexical/rich text framework)');
+                            // 🆕 LEXICAL/RICH TEXT EDITOR FIX: Use clipboard paste for modern editors
+                            // Lexical, ProseMirror, Slate, etc. don't respond to execCommand or direct textContent
+                            // but they DO respond to paste events. Auto-detects editor type.
+                            console.log('[Content] 🔤 Setting value in contenteditable element');
 
-                            // Clear existing content first using proper events
-                            if (element.textContent.length > 0) {
-                                const selectAllRange = document.createRange();
-                                selectAllRange.selectNodeContents(element);
-                                const selection = window.getSelection();
-                                selection.removeAllRanges();
-                                selection.addRange(selectAllRange);
+                            // Focus the element first
+                            element.focus();
 
-                                // Delete existing content with beforeinput event
-                                const deleteEvent = new InputEvent('beforeinput', {
+                            // Auto-detect editor type
+                            const isLexical = element.hasAttribute('data-lexical-editor') ||
+                                              element.closest('[data-lexical-editor]') !== null;
+                            const isProseMirror = element.classList.contains('ProseMirror') ||
+                                                  element.closest('.ProseMirror') !== null;
+                            const isModernEditor = isLexical || isProseMirror;
+
+                            if (isModernEditor) {
+                                console.log('[Content] 🎯 Detected modern editor:', isLexical ? 'Lexical' : 'ProseMirror');
+                            }
+
+                            let insertSuccess = false;
+
+                            // 🎯 METHOD 1: Clipboard paste (works with Lexical, ProseMirror, Slate)
+                            try {
+                                // Clear existing content first by selecting all
+                                if (element.textContent.length > 0) {
+                                    const selectAllRange = document.createRange();
+                                    selectAllRange.selectNodeContents(element);
+                                    const selection = window.getSelection();
+                                    selection.removeAllRanges();
+                                    selection.addRange(selectAllRange);
+
+                                    // Delete via keyboard event
+                                    element.dispatchEvent(new KeyboardEvent('keydown', {
+                                        key: 'Backspace', code: 'Backspace', keyCode: 8,
+                                        bubbles: true, cancelable: true
+                                    }));
+                                }
+
+                                // Create clipboard data and simulate paste
+                                const dt = new DataTransfer();
+                                dt.setData('text/plain', valueToSet);
+                                const pasteEvent = new ClipboardEvent('paste', {
+                                    clipboardData: dt,
                                     bubbles: true,
-                                    cancelable: true,
-                                    inputType: 'deleteContentBackward',
-                                    data: null
+                                    cancelable: true
                                 });
-                                element.dispatchEvent(deleteEvent);
-                                element.textContent = '';
+                                element.dispatchEvent(pasteEvent);
+
+                                // Check if paste worked (synchronous check - Lexical handles paste in same tick)
+                                if (element.textContent.includes(valueToSet.substring(0, Math.min(10, valueToSet.length)))) {
+                                    insertSuccess = true;
+                                    console.log('[Content] ✅ Clipboard paste successful');
+                                }
+                            } catch (e) {
+                                console.log('[Content] ⚠️ Clipboard paste failed:', e.message);
                             }
 
-                            // Insert text using beforeinput + input events that Lexical listens to
-                            const beforeInputEvent = new InputEvent('beforeinput', {
-                                bubbles: true,
-                                cancelable: true,
-                                inputType: 'insertText',
-                                data: valueToSet
-                            });
-                            element.dispatchEvent(beforeInputEvent);
-
-                            // Set the actual content
-                            if (!beforeInputEvent.defaultPrevented) {
-                                // Try execCommand first (some frameworks listen to this)
-                                let execCommandWorked = false;
+                            // 🎯 METHOD 2: execCommand insertText (fallback for older editors)
+                            if (!insertSuccess) {
                                 try {
-                                    execCommandWorked = document.execCommand('insertText', false, valueToSet);
+                                    element.focus();
+                                    document.execCommand('selectAll', false, null);
+                                    document.execCommand('delete', false, null);
+                                    const worked = document.execCommand('insertText', false, valueToSet);
+                                    if (worked && element.textContent.includes(valueToSet.substring(0, Math.min(10, valueToSet.length)))) {
+                                        insertSuccess = true;
+                                        console.log('[Content] ✅ execCommand insertText successful');
+                                    }
                                 } catch (e) {
-                                    execCommandWorked = false;
-                                }
-
-                                // Only use textContent fallback if execCommand failed or didn't insert the text
-                                if (!execCommandWorked || element.textContent.trim() !== valueToSet) {
-                                    element.textContent = valueToSet;
+                                    console.log('[Content] ⚠️ execCommand failed:', e.message);
                                 }
                             }
 
-                            // Dispatch input event to notify framework that text was inserted
-                            // 🎯 FIX: Don't include data in input event - text is already inserted
-                            // Including data causes Lexical to insert the text again
-                            const inputEvent = new InputEvent('input', {
-                                bubbles: true,
-                                cancelable: false,
-                                inputType: 'insertText',
-                                data: null
-                            });
-                            element.dispatchEvent(inputEvent);
+                            // 🎯 METHOD 3: Direct content set (last resort)
+                            if (!insertSuccess) {
+                                try {
+                                    if (isLexical) {
+                                        // Lexical expects content in <p> tags
+                                        element.innerHTML = `<p dir="ltr"><span data-lexical-text="true">${valueToSet}</span></p>`;
+                                    } else {
+                                        element.textContent = valueToSet;
+                                    }
+                                    element.dispatchEvent(new InputEvent('input', {
+                                        bubbles: true, cancelable: false, inputType: 'insertText', data: valueToSet
+                                    }));
+                                    insertSuccess = true;
+                                    console.log('[Content] ✅ Direct content set (fallback)');
+                                } catch (e) {
+                                    console.log('[Content] ❌ All methods failed:', e.message);
+                                }
+                            }
 
-                            // Additional change event for compatibility
+                            // Final change event for compatibility
                             element.dispatchEvent(new Event('change', { bubbles: true }));
-
-                            console.log('[Content] ✅ Typing simulation complete for contenteditable element');
+                            console.log('[Content] ✅ Contenteditable setValue complete, success:', insertSuccess);
                         } else if (element.value !== undefined) {
                             element.value = valueToSet;
                             // Dispatch input/change for elements with value property
@@ -9139,8 +9176,13 @@
                                 // Skip for search inputs with autocomplete (Enter key handles it)
                                 // But do look for textarea submit buttons (Enter creates new line, not submit)
                                 // Also check if inputPattern forces submitSelector (for JS-based search like LinkedIn)
-                                const shouldLookForSubmitButton = !hasAutocomplete || isTextarea ||
-                                    (matchedInputPattern && matchedInputPattern.forceSubmitSelector);
+                                // enterOnly: true in inputPattern means ONLY use Enter key, never look for submit button
+                                const enterOnlyMode = matchedInputPattern && matchedInputPattern.enterOnly;
+                                if (enterOnlyMode) {
+                                    console.log('[Content] ⌨️ enterOnly mode - relying solely on Enter key for submit');
+                                }
+                                const shouldLookForSubmitButton = !enterOnlyMode && (!hasAutocomplete || isTextarea ||
+                                    (matchedInputPattern && matchedInputPattern.forceSubmitSelector));
 
                                 if (shouldLookForSubmitButton && params && params.submit) {
                                     const buttonPollDelay = hasAutocomplete ? 500 : 200;
@@ -10154,9 +10196,11 @@
      * 🆕 NEW: Scan page and register all existing interactive elements
      */
     IntelligenceEngine.prototype.scanAndRegisterPageElements = function () {
+        scanTrace.log('scanAndRegisterPageElements() ENTRY');
+
         // 🔒 SCAN LOCK: Prevent concurrent scans from causing ID collisions
         if (this._scanInProgress) {
-            console.warn("[Content] ⚠️ Scan already in progress, skipping concurrent scan request");
+            scanTrace.log('BLOCKED: scan already in progress');
             return {
                 success: false,
                 message: "Scan already in progress",
@@ -10165,9 +10209,9 @@
         }
 
         this._scanInProgress = true;
+        scanTrace.log('scan lock acquired');
 
         try {
-            console.log("[Content] 🔍 Scanning page for interactive elements...");
 
             // 🆕 CSP bypass already handled during page initialization - no need to repeat
 
@@ -10218,10 +10262,12 @@
             this.lastTranscriptSignature = null;
 
             // 🎯 Framework-specific scanning (site configs only)
+            scanTrace.log('starting framework selector scan');
             let frameworkElements = [];
             if (typeof scanWithFrameworkSelectors === 'function') {
                 frameworkElements = scanWithFrameworkSelectors();
             }
+            scanTrace.log(`framework scan done: ${frameworkElements.length} elements`);
 
             // Process framework elements only
             const allElements = frameworkElements.map(fe => fe.element);
@@ -10342,14 +10388,14 @@
             // applyConfiguredFocus('initial_scan');
 
             // 🎯 NEW: Send intelligence update AFTER filtering is complete (not during scan)
-            console.log("[Content] 📤 Filtering complete, sending intelligence update with filtered results...");
+            scanTrace.log('sending intelligence update');
 
             // ✅ ENSURE: Only send update if we have filtered results
             if (this.actionableElements.size > 0 && this.queueIntelligenceUpdate) {
-                console.log(`[Content] 📤 Sending intelligence update with ${this.actionableElements.size} filtered actionable elements`);
                 this.queueIntelligenceUpdate('high', 'scan_complete');
+                scanTrace.log('intelligence update queued');
             } else {
-                console.log("[Content] ⚠️ No actionable elements after filtering, skipping intelligence update");
+                scanTrace.log('no actionable elements - skipping update');
             }
 
             const result = {
@@ -10361,10 +10407,12 @@
                 message: `Successfully registered ${this.actionableElements.size} actionable elements and ${this.contentElements.size} content elements`
             };
 
-            console.log("[Content] ✅ Page scan complete:", result);
+            scanTrace.log('scan complete - releasing lock');
 
             // 🔓 RELEASE SCAN LOCK: Allow next scan to proceed
             this._scanInProgress = false;
+            scanTrace.log('scanAndRegisterPageElements() EXIT');
+            scanTrace.summary();
 
             // 🔄 CHECK FOR QUEUED RESCAN: If mutations happened during scan, trigger rescan now
             // ♻️ Use queueFullRescan() to ensure engine is recreated for queued rescan too

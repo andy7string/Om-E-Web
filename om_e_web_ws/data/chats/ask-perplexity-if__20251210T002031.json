@@ -1,0 +1,105 @@
+{
+  "chat_id": "ask-perplexity-if__20251210T002031",
+  "project_id": "default",
+  "created_at": "2025-12-10T00:20:31.733183Z",
+  "updated_at": "2025-12-10T00:28:20.314480Z",
+  "title": "ask perplexity if",
+  "default_title": "ask perplexity if",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.perplexity.ai/?login-source=floatingSignup",
+    "page_title": "Perplexity"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "ask perplexity if it likes openai",
+      "timestamp": "2025-12-10T00:20:31.733217Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Alright, I'll ask Perplexity if it likes OpenAI for you.\n\n{\"act\": \"a_id_6\", \"value\": \"Do you like OpenAI?\", \"submit\": true}",
+      "timestamp": "2025-12-10T00:20:33.629754Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_6): Success",
+      "timestamp": "2025-12-10T00:20:33.631041Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "lets see whats in the library",
+      "timestamp": "2025-12-10T00:23:39.166989Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Checking out the Library now.\n\n{\"act\": \"a_id_1\"}",
+      "timestamp": "2025-12-10T00:23:40.097370Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "✅ click(a_id_1): Success",
+      "timestamp": "2025-12-10T00:23:40.098466Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "click finance",
+      "timestamp": "2025-12-10T00:26:48.240689Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Clicking on Finance for you.\n\n{\"act\": \"a_id_4\"}",
+      "timestamp": "2025-12-10T00:26:49.283738Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "✅ click(a_id_4): Success",
+      "timestamp": "2025-12-10T00:26:49.284546Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "lets search for cats",
+      "timestamp": "2025-12-10T00:27:23.331912Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "Searching for cats now.\n\n{\"act\": \"a_id_6\", \"value\": \"cats\", \"submit\": true}",
+      "timestamp": "2025-12-10T00:27:24.306475Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_6): Success",
+      "timestamp": "2025-12-10T00:27:24.307738Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "lest look at the new toyota",
+      "timestamp": "2025-12-10T00:28:19.482274Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Looking up the new Toyota for you.\n\n{\"act\": \"a_id_6\", \"value\": \"new Toyota\", \"submit\": true}",
+      "timestamp": "2025-12-10T00:28:20.313030Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_6): Success",
+      "timestamp": "2025-12-10T00:28:20.314480Z"
+    }
+  ]
+}
