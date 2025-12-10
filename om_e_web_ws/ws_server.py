@@ -4307,6 +4307,32 @@ async def handler(ws):
                             }))
                         continue
 
+                    # 🧭 NAV CAPABILITIES: Route to service worker (uses chrome.tabs API)
+                    nav_actions = ['GoBack', 'GoForward', 'Refresh']
+
+                    if action in nav_actions:
+                        print(f"🧭 Routing nav capability: {action}")
+
+                        if EXTENSION_WS:
+                            await EXTENSION_WS.send(json.dumps({
+                                "type": "execute_capability",
+                                "id": f"nav_{int(time.time() * 1000)}",
+                                "action": action,
+                                "params": params or {}
+                            }))
+                            print(f"📤 Sent nav capability to extension: {action}")
+
+                            await ws.send(json.dumps({
+                                "ok": True,
+                                "message": f"Navigation {action} initiated"
+                            }))
+                        else:
+                            await ws.send(json.dumps({
+                                "ok": False,
+                                "error": "Extension not connected"
+                            }))
+                        continue
+
                     # 🤖 LLM CHAT: Special async handler for LLM conversations
                     if action == "LLMChat":
                         global LLM_AGENT, CURRENT_CHAT_ID
@@ -4371,6 +4397,7 @@ async def handler(ws):
                                 }
                                 zoom_actions = ['ZoomIn', 'ZoomOut', 'ZoomReset']
                                 tab_actions = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL']
+                                nav_actions = ['GoBack', 'GoForward', 'Refresh']
                                 # DOM actions (click, setValue, focus, hover) handled via element registry
 
                                 for call in calls:
@@ -4498,6 +4525,17 @@ async def handler(ws):
                                                 PENDING.pop(request_id, None)
                                                 cap_result = {"ok": False, "error": f"Timeout waiting for {cap_action}"}
                                                 print(f"⏰ {cap_action} timeout")
+
+                                        # 🧭 NAV CAPABILITIES: Route to service worker (uses chrome.tabs API)
+                                        elif cap_action in nav_actions and EXTENSION_WS:
+                                            await EXTENSION_WS.send(json.dumps({
+                                                "type": "execute_capability",
+                                                "id": f"nav_{int(time.time() * 1000)}",
+                                                "action": cap_action,
+                                                "params": cap_params or {}
+                                            }))
+                                            cap_result = {"ok": True}
+                                            print(f"🧭 Sent nav capability {cap_action} to extension")
 
                                         # 🎯 SITE CONFIG CAPABILITIES: Route to extension for DOM execution
                                         elif is_site_config_capability(cap_action) and EXTENSION_WS:
@@ -5463,9 +5501,7 @@ def get_capabilities_for_prompt_with_universal(url: str) -> list:
             {'id': 'update_tab_url', 'action': 'UpdateTabURL', 'label': 'Navigate tab to URL', 'params': {'tabId': 'number', 'url': 'string'}, 'domain': 'universal'},
             {'id': 'zoom_in', 'action': 'ZoomIn', 'label': 'Zoom in 15%', 'domain': 'universal'},
             {'id': 'zoom_out', 'action': 'ZoomOut', 'label': 'Zoom out 15%', 'domain': 'universal'},
-            {'id': 'zoom_reset', 'action': 'ZoomReset', 'label': 'Reset zoom to 100%', 'domain': 'universal'},
-            {'id': 'go_back', 'action': 'GoBack', 'label': 'Go back in browser history', 'domain': 'universal'},
-            {'id': 'go_forward', 'action': 'GoForward', 'label': 'Go forward in browser history', 'domain': 'universal'}
+            {'id': 'zoom_reset', 'action': 'ZoomReset', 'label': 'Reset zoom to 100%', 'domain': 'universal'}
         ]
         matching_capabilities.extend(universal_capabilities)
 

@@ -2684,6 +2684,14 @@ async function handleExecuteCapability(message) {
             return;
         }
 
+        // 🧭 NAV CAPABILITIES: Browser navigation (uses chrome.tabs API)
+        const navCapabilities = ['GoBack', 'GoForward', 'Refresh'];
+        if (navCapabilities.includes(action)) {
+            console.log("[SW] 🧭 Routing to nav capability handler:", action, "requestId:", requestId);
+            await handleNavCapability(action, params || {}, requestId);
+            return;
+        }
+
         // 🎯 DOM CAPABILITY: Route to content script (page-level operations)
         console.log("[SW] 🎯 Routing to DOM capability handler:", action, "requestId:", requestId);
         await handleDOMCapability(action, params || {}, requestId);
@@ -3054,6 +3062,61 @@ async function handleZoomCapability(action, params, requestId) {
     } catch (error) {
         console.error("[SW] 🔍 Zoom capability execution failed:", error);
         sendErrorResponse(requestId, "ZOOM_CAPABILITY_ERROR", error.message);
+    }
+}
+
+/**
+ * 🧭 Handle navigation capabilities
+ *
+ * Uses chrome.tabs API for browser-level navigation control.
+ * - GoBack: chrome.tabs.goBack()
+ * - GoForward: chrome.tabs.goForward()
+ * - Refresh: chrome.tabs.reload()
+ *
+ * @param {string} action - Capability action name (GoBack, GoForward, Refresh)
+ * @param {Object} params - Parameters (unused for navigation)
+ * @param {string} requestId - Request ID for response matching
+ */
+async function handleNavCapability(action, params, requestId) {
+    console.log("[SW] 🧭 Handling nav capability:", action, "requestId:", requestId);
+
+    try {
+        // Find the active tab
+        const activeTab = await findActiveTab();
+        if (!activeTab) {
+            console.error("[SW] 🧭 No active tab found for navigation");
+            sendErrorResponse(requestId, "NO_ACTIVE_TAB", "No active tab found for navigation");
+            return;
+        }
+
+        switch (action) {
+            case 'GoBack':
+                await chrome.tabs.goBack(activeTab.id);
+                console.log("[SW] 🧭 Navigated back on tab:", activeTab.id);
+                break;
+            case 'GoForward':
+                await chrome.tabs.goForward(activeTab.id);
+                console.log("[SW] 🧭 Navigated forward on tab:", activeTab.id);
+                break;
+            case 'Refresh':
+                await chrome.tabs.reload(activeTab.id);
+                console.log("[SW] 🧭 Refreshed tab:", activeTab.id);
+                break;
+            default:
+                console.error("[SW] 🧭 Unknown nav action:", action);
+                sendErrorResponse(requestId, "UNKNOWN_NAV_ACTION", `Unknown nav action: ${action}`);
+                return;
+        }
+
+        // Send success response
+        sendSuccessResponse(requestId, {
+            action: action,
+            tabId: activeTab.id
+        });
+
+    } catch (error) {
+        console.error("[SW] 🧭 Nav capability execution failed:", error);
+        sendErrorResponse(requestId, "NAV_CAPABILITY_ERROR", error.message);
     }
 }
 

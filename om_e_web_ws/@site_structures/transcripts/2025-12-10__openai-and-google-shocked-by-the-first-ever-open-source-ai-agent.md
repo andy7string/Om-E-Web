@@ -1,0 +1,361 @@
+<!-- signature: hMTdA8TAL1s:350:82e690e00683270a56db22fa37235688a4217f0267fa4ab28608376054905808 -->
+# OpenAI and Google Shocked by the First EVER Open Source AI Agent
+
+**Video URL:** https://www.youtube.com/watch?v=hMTdA8TAL1s
+**Video ID:** hMTdA8TAL1s
+**Language:** en
+**Collected At:** 1765346385467
+**Segments:** 350
+
+---
+
+- [0:02] All right. So, the whole thing around
+- [0:04] GLM 4.6V basically exploded overnight.
+- [0:08] And once you look at what Zepuai
+- [0:09] actually shipped, it becomes clear why
+- [0:11] everyone suddenly stopped scrolling and
+- [0:13] went, "Okay, this changes things." The
+- [0:15] simplest way to put it is that this is
+- [0:17] the first open-source multimodal model
+- [0:19] that treats images, videos, screenshots,
+- [0:23] and even full web pages as real inputs
+- [0:25] for tool calling, not as some secondary
+- [0:27] thing that has to be squeezed into text
+- [0:29] first. And that open- source part is the
+- [0:31] reason people are shocked because until
+- [0:33] now, this level of multimodal capability
+- [0:35] existed only behind closed labs. Now,
+- [0:38] anyone can download it, run it locally,
+- [0:40] or build on top of it with no
+- [0:41] restrictions. That alone completely
+- [0:43] shifts how agents work because now you
+- [0:45] get a model that does not just read
+- [0:47] visuals, it actually uses them as part
+- [0:49] of its action loop. And that is
+- [0:50] happening inside a model that also
+- [0:52] stretches its training context to
+- [0:54] 128,000 tokens, which means it can
+- [0:57] process around 150 pages of dense
+- [0:59] documents, 200 slides, or an entire hour
+- [1:02] of video in one go. Nothing hacked
+- [1:04] together, no pipeline of 15 conversion
+- [1:06] steps, just direct multimodal reasoning
+- [1:08] from start to finish. So, JEIPU dropped
+- [1:11] two versions of this thing. The big GLM
+- [1:13] 4.6V with 106 billion parameters for
+- [1:17] cloud setups and high performance
+- [1:18] clusters and the flash version with only
+- [1:21] 9 billion parameters that is tuned for
+- [1:23] local devices and low latency tasks. The
+- [1:26] crazy part is that the flash variant is
+- [1:28] free to use and both models are MIT
+- [1:30] licensed so companies can deploy them
+- [1:32] wherever they want without worrying
+- [1:34] about opening their code or paying
+- [1:35] enterprise level fees. The larger 106B
+- [1:38] version runs at $0.3 per million input
+- [1:41] tokens and 0.9 per million output
+- [1:44] tokens, which makes it shockingly cheap
+- [1:47] compared to every other vision capable
+- [1:48] model of this scale. GPT 5.1 sits at
+- [1:52] $1.25 per million input plus output.
+- [1:54] Gemini 3 Pro goes even higher and Claude
+- [1:57] Opus shoots into the $90 per million
+- [1:59] range. GLM4.6V
+- [2:01] lands at $1.2 $2 total and somehow it
+- [2:04] delivers benchmark scores that beat
+- [2:06] models way above its size on long
+- [2:08] context tasks, video summarization, and
+- [2:11] multimodal reasoning. The most
+- [2:12] impressive breakthrough is this native
+- [2:14] multimodal tool calling system.
+- [2:16] Traditional LLM tool use works through
+- [2:18] text. Even if you send an image, the
+- [2:20] model has to describe it, send that
+- [2:22] description as a function argument, and
+- [2:24] wait for a textual response. That is
+- [2:26] slow, lossy, and honestly kind of
+- [2:29] outdated at this point. GLM 4.6V 6V
+- [2:31] skips all of that by using visual data
+- [2:33] directly as parameters. A screenshot, a
+- [2:36] page from a PDF, a frame from a video,
+- [2:38] those pass straight into the tool
+- [2:40] without being converted into text first.
+- [2:42] And the tools themselves can return
+- [2:43] visual outputs like search result grids,
+- [2:46] charts, or rendered web pages. The model
+- [2:48] then continues reasoning using those
+- [2:50] images alongside text in the same chain.
+- [2:52] That is the part that got researchers
+- [2:54] excited because it finally closes the
+- [2:56] loop between perception, understanding,
+- [2:58] and action, which is exactly the missing
+- [3:00] piece for real multimodal agents. And to
+- [3:03] make that whole workflow smooth, they
+- [3:05] extended the model context protocol to
+- [3:07] support URLs that represent images or
+- [3:10] frames that avoids file size limits and
+- [3:12] lets the model target specific visuals
+- [3:14] inside larger documents. So instead of
+- [3:16] struggling with giant PDFs or slides,
+- [3:19] the model hops between references and
+- [3:21] decides which images to crop, audit, or
+- [3:24] pull back into the conversation. It is
+- [3:26] basically a vision native execution
+- [3:28] layer, which is something even most
+- [3:29] closed source models do not really have
+- [3:31] right now. Quick pause. We just hit
+- [3:34] 500,000 subscribers, half a million
+- [3:36] people. So first, seriously, thank you.
+- [3:38] And hitting that milestone made us
+- [3:40] realize something. This community isn't
+- [3:42] just watching AI happen. It's filled
+- [3:44] with people who want to stay ahead of
+- [3:46] it. And that leads right into the
+- [3:48] question a lot of you keep asking. How
+- [3:50] do you guys create so much content so
+- [3:52] fast? Look, in 2025 alone, this channel
+- [3:56] pulled in 32 million views. That's not
+- [3:58] luck. That's not grinding harder. It's
+- [4:01] because every time a new AI breakthrough
+- [4:03] drops, we plug it straight into our
+- [4:05] workflow. Most people watch AI news and
+- [4:07] move on. We use it immediately. So, we
+- [4:10] decided to release something we've never
+- [4:11] shared before. The 2026 AI playbook.
+- [4:14] 1,000 prompts to dominate the AI era.
+- [4:17] This is how you go from just consuming
+- [4:19] AI content to actually using AI to build
+- [4:22] real unfair advantages for yourself. Get
+- [4:25] your proposals done in 20 minutes
+- [4:26] instead of 4 hours. Launch that side
+- [4:29] business you keep putting off. Become
+- [4:31] the person in your company who gets
+- [4:32] twice as much done in half the time.
+- [4:34] Founding member access opens soon. Join
+- [4:37] the wait list in the description. All
+- [4:39] right, back to the video. Once you get
+- [4:41] into the actual capabilities, things get
+- [4:43] even more interesting. The model shines
+- [4:46] in these mixed scenarios where it has to
+- [4:48] understand charts, tables, math
+- [4:50] formulas, long documents, and scattered
+- [4:53] visuals. It can take in a research
+- [4:55] paper, read the text, parse every
+- [4:57] figure, understand the math, crop
+- [4:59] visuals it finds important, retrieve
+- [5:01] external images through a search tool,
+- [5:03] run a visual audit on them to filter out
+- [5:05] low-quality ones, and then assemble a
+- [5:08] full structured article with everything
+- [5:09] placed exactly where it should be. And
+- [5:11] it does that in one continuous pass
+- [5:13] without needing separate pipelines. This
+- [5:15] type of structured interle text, image,
+- [5:18] text, image has usually been messy with
+- [5:20] multimodal models, but GLM 4.6V 6V was
+- [5:24] trained on massive interled corpora, so
+- [5:26] it treats mixed content as normal. They
+- [5:28] used compression alignment tricks from
+- [5:30] Glyph, so the visual tokens carry dense
+- [5:32] info and still align cleanly with
+- [5:34] language tokens, which is part of why
+- [5:36] this thing handles long context visuals
+- [5:38] much better than previous GLM versions.
+- [5:40] Where the internet really went wild was
+- [5:42] the visual web search workflow. The
+- [5:44] model detects what you are trying to do,
+- [5:46] decides which search actions to trigger,
+- [5:48] and then uses both text to image search
+- [5:50] and image to text search depending on
+- [5:52] what the task needs. It reviews every
+- [5:54] return chart, image, snippet, or
+- [5:56] caption, aligns them, picks the relevant
+- [5:59] evidence, and merges everything into a
+- [6:01] structured explanation. So, if you ask
+- [6:03] for a comparison of products, locations,
+- [6:06] or design options, the model literally
+- [6:07] pulls the visuals from the web and
+- [6:09] reasons with them mid-process. It
+- [6:11] transforms the search results into part
+- [6:13] of its cognition, not just a pile of
+- [6:15] screenshots. That kind of integrated
+- [6:17] chain is what people have been hoping to
+- [6:19] see from closed source systems. And now
+- [6:21] it shows up in an MIT licensed
+- [6:23] open-source model. Another area where
+- [6:25] GLM4.6V surprise developers is front-end
+- [6:28] automation. When Zepu says pixel
+- [6:30] accurate replication, they are not
+- [6:32] exaggerating. You give it a screenshot
+- [6:34] of an app or website and it reconstructs
+- [6:37] the full layout as clean HTML, CSS, and
+- [6:40] JavaScript. the color schemes, component
+- [6:42] positions, spacing, it all lines up.
+- [6:44] Then you can circle an area on that
+- [6:46] screenshot and give a simple instruction
+- [6:48] like shifting a button or changing a
+- [6:50] background. And the model maps that
+- [6:52] region back to the code and edits the
+- [6:54] snippet. It even uses a visual feedback
+- [6:56] loop similar to their UI2 code end work
+- [6:58] where it renders the updated version and
+- [7:00] checks if the change was applied
+- [7:02] correctly before sending the final
+- [7:03] output. That sort of closed loop
+- [7:05] verification is rare in open source
+- [7:07] models. Even many enterprise tools do
+- [7:09] not do that type of self-correction with
+- [7:11] visual context. But the long context
+- [7:14] part is just as important. A 128k
+- [7:17] context window for a multimodal model
+- [7:19] means you finally get a system that can
+- [7:20] handle mixed documents at scale. Jepu
+- [7:23] reported cases where GLM 4.6V summarized
+- [7:26] financial reports from four public
+- [7:28] companies at once, extracted the core
+- [7:29] metrics, compared them, and built a
+- [7:31] clean table all in a single pass. Not
+- [7:34] multiple chunks stitched together, but
+- [7:36] true global awareness across all
+- [7:38] documents. And for video, one hour of
+- [7:40] footage fits into the same window. So
+- [7:42] the model can summarize the whole match,
+- [7:44] highlight key moments, and still answer
+- [7:46] questions about timestamps or goal
+- [7:48] sequences afterward. That is possible
+- [7:50] because the model treats frames as
+- [7:51] visual tokens with temporal encoding
+- [7:54] using 3D convolutions and timestamp
+- [7:56] markers during pre-processing. Then
+- [7:58] there's how they trained it, which is
+- [8:00] honestly just as impressive. JEIPU used
+- [8:02] a multi-stage setup. First, massive
+- [8:04] pre-training, then fine-tuning, and
+- [8:06] finally reinforcement learning. But
+- [8:08] their RL system isn't the usual RHF
+- [8:11] style that depends on people rating
+- [8:12] answers. Instead, it learns from
+- [8:14] verifiable tasks, things with clear
+- [8:17] right or wrong answers like math
+- [8:18] problems, chart reading, coding
+- [8:20] interfaces, spatial reasoning, and video
+- [8:23] question answering. They even use
+- [8:24] something called curriculum sampling,
+- [8:26] which means the model gets progressively
+- [8:28] harder examples as it gets smarter. On
+- [8:30] top of that, tool usage is built right
+- [8:32] into the reward system. So, it literally
+- [8:34] learns when to call tools, how to plan
+- [8:36] the next step, and how to keep its
+- [8:38] outputs clean and structured. And since
+- [8:40] some penalty systems can mess up
+- [8:42] imageheavy reasoning, they skip those
+- [8:44] entirely, which help the model stay
+- [8:46] stable when dealing with visuals.
+- [8:48] Architecturally, it's based on a vision
+- [8:50] transformer called AIM V2 huge, which
+- [8:53] basically helps it see and understand
+- [8:55] images at a deeper level. There's also
+- [8:57] an MLP projector that connects what it
+- [9:00] sees to what it writes. It can handle
+- [9:02] almost any image size or shape, even
+- [9:04] those super wide panoramic shots with
+- [9:06] aspect ratios up to 200 to1, something
+- [9:09] most vision language models struggle
+- [9:11] with. For encoding, it uses 2D OP
+- [9:14] positioning and interpolation tricks to
+- [9:16] stay precise, while video inputs get
+- [9:18] compressed over time so they don't
+- [9:20] overload the system. And because of its
+- [9:22] extended tokenizer setup, it can format
+- [9:24] its responses in a structured way that
+- [9:26] fits perfectly with APIs and agents
+- [9:28] using tags like think or begin of box to
+- [9:31] keep reasoning and answers neatly
+- [9:33] separated. When Jepu dropped the
+- [9:34] benchmark results, it became obvious why
+- [9:37] people were hyped. On Math Vista, GLM
+- [9:40] 4.6V scored 88.2, beating the previous
+- [9:43] 4.5V's 84.6 and Quen 3 VL8B's 81.4. On
+- [9:49] Web Voyager, it hit 81 while Quen stayed
+- [9:52] at 68.4. On Ref Coco and Treebench, it
+- [9:56] either matched or set new
+- [9:57] state-of-the-art results. And the
+- [9:58] smaller flash model outperformed other
+- [10:00] light models like Quen 3, VL8B, and GLM
+- [10:03] 4.1V almost across the board, which is
+- [10:06] crazy since it's meant to run locally.
+- [10:08] But the long context ability is what
+- [10:10] really separates it from the rest. Even
+- [10:12] massive models like step 3 with 321B
+- [10:15] parameters or Quinn3 VL235B
+- [10:18] can't keep consistency when working with
+- [10:19] huge mixed inputs. While GLM 4.6V
+- [10:22] handles them smoothly because its vision
+- [10:24] system and language brain are perfectly
+- [10:26] synced for long complex reasoning. The
+- [10:29] more people dug into the ecosystem side
+- [10:30] of this, the more the hype escalated
+- [10:33] because this is not just a model drop.
+- [10:35] It is a shift in how open-source
+- [10:37] multimodal systems will be built going
+- [10:39] forward. A lot of vision language models
+- [10:41] over the past year felt powerful but
+- [10:43] disconnected. They could parse images,
+- [10:45] but they did not do much with them
+- [10:47] beyond answering questions. They lacked
+- [10:48] the final step, taking visual
+- [10:50] understanding and turning it into
+- [10:52] executable action with real tools. GLM
+- [10:55] 4.6V closes that gap. It positions
+- [10:58] itself as the backbone for agent
+- [11:00] frameworks that need to actually
+- [11:01] observe, plan, and act, not just
+- [11:04] describe what they are seeing. And when
+- [11:05] you combine that with an MIT license, a
+- [11:08] free lightweight version, and pricing
+- [11:10] that undercuts nearly every major
+- [11:12] closed- source competitor, it suddenly
+- [11:14] becomes an enterprise ready system that
+- [11:15] startups and big companies can adopt
+- [11:17] without friction. The timing also
+- [11:19] amplified the impact. ZepO came off the
+- [11:21] GLM 4.5 wave where they already proved
+- [11:23] themselves as a major open- source
+- [11:25] contender with models that supported
+- [11:27] dual reasoning modes, strong coding
+- [11:29] performance, and those crazy features
+- [11:31] where you could generate full PowerPoint
+- [11:33] decks from a single prompt. The 4.6V
+- [11:36] release feels like the next step in that
+- [11:37] arc. More grounded, more agent focused,
+- [11:40] and far more ambitious on the multimodal
+- [11:42] side. It turns out that when you give
+- [11:44] developers a model that can handle giant
+- [11:46] inputs, call tools visually, reconstruct
+- [11:49] frontends, verify its own output, and
+- [11:51] still beat benchmarks at this scale, the
+- [11:53] community reacts pretty fast. So, while
+- [11:55] a lot of AI updates come and go, this
+- [11:58] one stuck because it is the first time
+- [11:59] in a while where an open- source model
+- [12:01] genuinely feels like it unlocks new
+- [12:03] workflows, not just incremental
+- [12:05] improvements. And the fact that you can
+- [12:07] download the weights right now from
+- [12:08] hugging face, run the flash variant
+- [12:10] locally, hit the API through an open AI
+- [12:12] compatible interface or even try the
+- [12:14] desktop assistant app on hugging face
+- [12:16] spaces makes it even more accessible. It
+- [12:18] is the combination of power, price,
+- [12:20] licensing, and actual utility that
+- [12:22] created the buzz. All right, that is
+- [12:24] where I will leave it. If you are
+- [12:25] watching developments in multimodal
+- [12:27] agents, this release definitely marks a
+- [12:29] turning point and it will be interesting
+- [12:30] to see how everyone else responds.
+- [12:33] Thanks for watching and I'll catch you
+- [12:34] in the next one.

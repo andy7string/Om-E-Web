@@ -1,0 +1,117 @@
+{
+  "chat_id": "got-to-google__20251210T044742",
+  "project_id": "default",
+  "created_at": "2025-12-10T04:47:42.681364Z",
+  "updated_at": "2025-12-10T04:48:23.735406Z",
+  "title": "got to google",
+  "default_title": "got to google",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://brighttreedigital.com.au/",
+    "page_title": "Local Web Design Adelaide | Bright Tree Digital"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "got to google",
+      "timestamp": "2025-12-10T04:47:42.681392Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "On it, mate. Heading to Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-10T04:47:44.920119Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "search for dogs",
+      "timestamp": "2025-12-10T04:47:54.969929Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Alright, searching for dogs on Google now.\n\n{\"act\": \"a_id_6\", \"value\": \"dogs\", \"submit\": true}",
+      "timestamp": "2025-12-10T04:47:56.933521Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_6): Success",
+      "timestamp": "2025-12-10T04:47:56.941717Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "go bakc",
+      "timestamp": "2025-12-10T04:48:00.332313Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "Going back for you.\n\n{\"cap\": \"GoBack\"}",
+      "timestamp": "2025-12-10T04:48:01.369416Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "✅ GoBack: Success",
+      "timestamp": "2025-12-10T04:48:01.370664Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "go back",
+      "timestamp": "2025-12-10T04:48:08.449639Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Back one step it is.\n\n{\"cap\": \"GoBack\"}",
+      "timestamp": "2025-12-10T04:48:09.218572Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "✅ GoBack: Success",
+      "timestamp": "2025-12-10T04:48:09.222432Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "search for cats",
+      "timestamp": "2025-12-10T04:48:16.690328Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "Searching cats now, mate.\n\n{\"act\": \"a_id_4\", \"value\": \"cats\", \"submit\": true}",
+      "timestamp": "2025-12-10T04:48:18.470374Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_4): Success",
+      "timestamp": "2025-12-10T04:48:18.471629Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "go back",
+      "timestamp": "2025-12-10T04:48:22.392859Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Going back again for you.\n\n{\"cap\": \"GoBack\"}",
+      "timestamp": "2025-12-10T04:48:23.730003Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "assistant",
+      "content": "✅ GoBack: Success",
+      "timestamp": "2025-12-10T04:48:23.735406Z"
+    }
+  ]
+}
