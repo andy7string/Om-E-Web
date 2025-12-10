@@ -7091,7 +7091,41 @@
             // actionMapping: this.generateActionMapping(),  // ❌ REMOVED: Not needed
             // contentElements: this.getContentElementsSummary(),  // ❌ REMOVED: Not needed
             // pageText: this.extractCleanPageText(),  // ❌ REMOVED: Redundant with semantic text
-            semanticPageData: this.extractSemanticTextWithIds(), // ✅ KEEP: This generates text.md!
+            semanticPageData: (() => {
+                // 🔧 FIX: Extract semantic data AND repopulate actionableElements Map
+                const semanticData = this.extractSemanticTextWithIds();
+
+                // Repopulate Map from actionables array using DOM attributes
+                this.actionableElements.clear();
+                if (semanticData.actionables && Array.isArray(semanticData.actionables)) {
+                    for (const actionable of semanticData.actionables) {
+                        const domElement = document.querySelector(`[data-ome-action-id="${actionable.id}"]`);
+                        if (domElement) {
+                            // Store in format compatible with executeAction expectations
+                            this.actionableElements.set(actionable.id, {
+                                id: actionable.id,
+                                tagName: actionable.tag,
+                                actionType: actionable.type?.toLowerCase() === 'link' ? 'navigate' :
+                                           actionable.type?.toLowerCase() === 'input' ? 'setValue' :
+                                           actionable.type?.toLowerCase() === 'button' ? 'click' : 'click',
+                                textContent: actionable.label || '',
+                                attributes: {
+                                    href: actionable.href || null,
+                                    'aria-label': domElement.getAttribute('aria-label') || null
+                                },
+                                selectors: actionable.selector ?
+                                    [`[data-ome-action-id="${actionable.id}"]`, actionable.selector] :
+                                    [`[data-ome-action-id="${actionable.id}"]`]
+                            });
+                            // Also store DOM node reference
+                            this.actionableElementNodes.set(actionable.id, domElement);
+                        }
+                    }
+                    console.log(`[Content] ✅ Repopulated actionableElements Map: ${this.actionableElements.size} elements`);
+                }
+
+                return semanticData;
+            })(), // ✅ KEEP: This generates text.md AND populates Map!
             // normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true }),  // ❌ REMOVED: For llm_prompt.md which we don't use
             transcripts,  // ✅ KEEP: For YouTube transcripts
             capabilities  // ✅ KEEP: For site-specific capabilities
