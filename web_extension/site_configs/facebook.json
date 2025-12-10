@@ -119,15 +119,25 @@
       "description": "Facebook Marketplace search input",
       "container": "input[aria-label='Search Marketplace'], input[type='search'][placeholder*='Marketplace' i]",
       "forceBubbles": true,
-      "enterOnly": true,
-      "_comment": "Marketplace search triggers on Enter key - no submit button needed"
+      "useAutocompleteDropdown": true,
+      "autocompleteConfig": {
+        "containerSelectors": ["[role='listbox']", "ul[role='listbox']"],
+        "optionSelectors": ["[role='option']", "li[role='option']"],
+        "maxWait": 5000
+      },
+      "_comment": "Uses MutationObserver to detect dropdown and click first option - event-driven, no delays"
     },
     "globalSearch": {
       "description": "Facebook global search input",
       "container": "input[aria-label='Search Facebook']",
       "forceBubbles": true,
-      "enterOnly": true,
-      "_comment": "Global search triggers on Enter key - no submit button needed"
+      "useAutocompleteDropdown": true,
+      "autocompleteConfig": {
+        "containerSelectors": ["[role='listbox']", "ul[role='listbox']"],
+        "optionSelectors": ["[role='option']", "li[role='option']"],
+        "maxWait": 5000
+      },
+      "_comment": "Uses MutationObserver to detect dropdown and click first option - event-driven, no delays"
     }
   }
 }
