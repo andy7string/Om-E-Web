@@ -28,6 +28,17 @@
 // WebSocket connection to the server
 let ws = null;
 
+// ⏱️ SW TRACE - Track timing through service worker
+const swTrace = {
+    start: null,
+    log(step) {
+        if (!this.start) this.start = performance.now();
+        const elapsed = (performance.now() - this.start).toFixed(1);
+        console.log(`⏱️ [SW-TRACE] +${elapsed}ms ${step}`);
+    },
+    reset() { this.start = performance.now(); }
+};
+
 // Track connection status
 let isConnected = false;
 
@@ -2400,12 +2411,11 @@ function mergeIframeIntelligence(mainElements, tabId) {
  * @param {Function} sendResponse - Response callback
  */
 async function handleIntelligenceUpdate(message, sender, sendResponse) {
-    try {
-        console.log("[SW] 🧠 Processing intelligence update from content script");
+    swTrace.reset();
+    swTrace.log('handleIntelligenceUpdate START');
 
-        // 🆕 ENHANCED: Better data validation
+    try {
         if (!message || !message.data) {
-            console.error("[SW] ❌ Invalid intelligence update message:", message);
             sendResponse({ ok: false, error: "Invalid message format" });
             return;
         }
@@ -2415,33 +2425,22 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
         const sourceTabTitle = sender?.tab?.title || 'Unknown';
 
         if (!sourceTabId) {
-            console.warn('[SW] ⚠️ Intelligence update without tab context, ignoring');
             sendResponse({ ok: false, error: 'Missing tab context' });
             return;
         }
 
-        // Ensure this update is for the currently active tab
+        swTrace.log('checking active tab');
         const activeTab = await findActiveTab();
+        swTrace.log('active tab check done');
+
         if (!activeTab || activeTab.id !== sourceTabId) {
-            console.log('[SW] ⏸️ Skipping intelligence update from inactive tab', {
-                sourceTabId,
-                sourceTabUrl,
-                activeTabId: activeTab?.id,
-                reason: 'inactive_tab'
-            });
+            swTrace.log('SKIPPED - inactive tab');
             sendResponse({ ok: true, skipped: true, reason: 'inactive_tab' });
             return;
         }
 
         const intelligenceData = message.data;
-        console.log("[SW] 🧠 Intelligence data received:", {
-            hasPageState: !!intelligenceData.pageState,
-            actionableElementsCount: intelligenceData.actionableElements?.length || 0,
-            insightsCount: intelligenceData.recentInsights?.length || 0,
-            totalEvents: intelligenceData.totalEvents || 0,
-            hasActionMapping: !!intelligenceData.actionMapping,
-            timestamp: intelligenceData.timestamp
-        });
+        swTrace.log('processing intelligence data');
 
         // Attach tab metadata to intelligence payload
         intelligenceData.tabId = sourceTabId;
@@ -2501,6 +2500,7 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
         }
 
         // Forward intelligence update to server
+        swTrace.log('sending to WS server');
         if (ws && ws.readyState === WebSocket.OPEN) {
             const serverMessage = {
                 type: "intelligence_update",
@@ -2511,21 +2511,17 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
             };
 
             ws.send(JSON.stringify(serverMessage));
-            console.log("[SW] 📤 Intelligence update sent to server");
+            swTrace.log('sent to WS server');
 
             sendResponse({ ok: true, message: "Intelligence update sent to server" });
         } else {
-            console.warn("[SW] ⚠️ WebSocket not available for intelligence update");
+            swTrace.log('WS not available');
             sendResponse({ ok: false, error: "WebSocket not available" });
         }
+        swTrace.log('handleIntelligenceUpdate END');
 
     } catch (error) {
-        console.error("[SW] ❌ Error handling intelligence update:", error);
-        console.error("[SW] ❌ Error details:", {
-            message: message,
-            error: error.message,
-            stack: error.stack
-        });
+        swTrace.log(`ERROR: ${error.message}`);
         sendResponse({ ok: false, error: error.message });
     }
 }

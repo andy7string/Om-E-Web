@@ -15,12 +15,25 @@ Usage:
 
 import os
 import json
+import asyncio
+import time
+from datetime import datetime
 import httpx
 from typing import Optional, List, Dict, Any
+import tiktoken
 
 
 # Path to config file
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "llm_config.json")
+
+# Path to debug log file
+DEBUG_LOG_PATH = os.path.join(os.path.dirname(__file__), "..", "llm_debug.md")
+
+# Global request counter (persists across client instances)
+_request_count = 0
+
+# Global token counter (cumulative for session)
+_total_tokens = 0
 
 
 def load_config() -> dict:
@@ -43,6 +56,118 @@ def resolve_api_key(key: Optional[str]) -> Optional[str]:
     return key
 
 
+def count_tokens(messages: List[Dict], model: str = "gpt-4") -> dict:
+    """Count tokens in messages using tiktoken"""
+    try:
+        # Use cl100k_base for GPT-4 and GPT-3.5-turbo models
+        encoding = tiktoken.get_encoding("cl100k_base")
+
+        system_tokens = 0
+        user_tokens = 0
+        assistant_tokens = 0
+
+        for msg in messages:
+            role = msg.get("role", "")
+            content = msg.get("content", "")
+            tokens = len(encoding.encode(content))
+
+            if role == "system":
+                system_tokens += tokens
+            elif role == "user":
+                user_tokens += tokens
+            elif role == "assistant":
+                assistant_tokens += tokens
+
+        # Add overhead for message formatting (~4 tokens per message)
+        overhead = len(messages) * 4
+        total = system_tokens + user_tokens + assistant_tokens + overhead
+
+        return {
+            "system": system_tokens,
+            "user": user_tokens,
+            "assistant": assistant_tokens,
+            "overhead": overhead,
+            "total": total
+        }
+    except Exception as e:
+        return {"error": str(e), "total": 0}
+
+
+def log_request(endpoint: str, model: str, payload: dict, provider: str):
+    """Log API request to debug markdown file - formatted for readability"""
+    global _request_count, _total_tokens
+    _request_count += 1
+
+    # Count tokens
+    messages = payload.get("messages", [])
+    tokens = count_tokens(messages, model)
+    _total_tokens += tokens.get("total", 0)
+
+    # Context window sizes by model (in k) - ordered longest match first
+    context_windows = [
+        ("gpt-4.1-mini", 1047),
+        ("gpt-4.1", 1047),
+        ("gpt-4o-mini", 128),
+        ("gpt-4o", 128),
+        ("gpt-4-turbo", 128),
+        ("gpt-4-32k", 32),
+        ("gpt-4", 8),
+        ("gpt-3.5-turbo", 16),
+        ("claude-sonnet", 200),
+        ("claude-opus", 200),
+        ("claude-3", 200),
+    ]
+
+    # Get context window for this model
+    model_name = payload.get('model', '').lower()
+    context_k = 128  # Default assumption
+    for key, val in context_windows:
+        if key in model_name:
+            context_k = val
+            break
+
+    total_tokens = tokens.get('total', 0)
+    context_used_k = total_tokens / 1000
+    context_pct = (total_tokens / (context_k * 1000)) * 100
+
+    # Build readable format
+    lines = [
+        f"# LLM Request #{_request_count}",
+        f"",
+        f"**Model:** {payload.get('model')}",
+        f"**Temperature:** {payload.get('temperature')}",
+        f"**Max Tokens:** {payload.get('max_tokens')}",
+        f"**Request Tokens:** {tokens.get('total', 0):,}",
+        f"**Context:** {context_used_k:.1f}k / {context_k}k ({context_pct:.1f}%)",
+        f"**Session Tokens:** {_total_tokens:,}",
+        f"",
+        f"---",
+        f"",
+    ]
+
+    # Format each message
+    for i, msg in enumerate(messages):
+        role = msg.get("role", "unknown").upper()
+        content = msg.get("content", "")
+        token_count = len(tiktoken.get_encoding("cl100k_base").encode(content))
+
+        lines.append(f"## {role} ({token_count:,} tokens)")
+        lines.append("")
+        lines.append(content)  # Actual content with real newlines
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+
+    # Write formatted output
+    try:
+        with open(DEBUG_LOG_PATH, 'w', encoding='utf-8') as f:
+            f.write("\n".join(lines))
+
+        print(f"[LLM Client] Request #{_request_count} | {tokens.get('total', 0):,} tokens | Session: {_total_tokens:,}")
+    except Exception as e:
+        print(f"[LLM Client] Failed to log request: {e}")
+
+
 class LLMClient:
     """
     Async LLM client with multi-provider support.
@@ -53,6 +178,8 @@ class LLMClient:
     def __init__(self):
         self.config = load_config()
         self._client = None
+        self._last_request_time = 0.0  # Track last request for throttling
+        self._min_interval = 1.0       # Minimum 1 second between requests
 
     def _get_client(self) -> httpx.AsyncClient:
         """Get or create async HTTP client"""
@@ -60,6 +187,16 @@ class LLMClient:
             timeout = self.config.get("settings", {}).get("timeout_seconds", 30)
             self._client = httpx.AsyncClient(timeout=timeout)
         return self._client
+
+    async def _throttle(self):
+        """Ensure minimum interval between requests (1 req/sec)"""
+        now = time.time()
+        elapsed = now - self._last_request_time
+        if elapsed < self._min_interval:
+            wait_time = self._min_interval - elapsed
+            print(f"[LLM Client] Throttling: waiting {wait_time:.2f}s")
+            await asyncio.sleep(wait_time)
+        self._last_request_time = time.time()
 
     async def close(self):
         """Close the HTTP client"""
@@ -152,6 +289,12 @@ class LLMClient:
 
         print(f"[LLM Client] Calling {endpoint} with model {model}")
 
+        # Log request to debug file
+        log_request(endpoint, model, payload, "OpenAI")
+
+        # Throttle to 1 request per second
+        await self._throttle()
+
         response = await client.post(endpoint, headers=headers, json=payload)
         response.raise_for_status()
 
@@ -187,6 +330,12 @@ class LLMClient:
         }
 
         print(f"[LLM Client] Calling Anthropic with model {model}")
+
+        # Log request to debug file
+        log_request(endpoint, model, payload, "Anthropic")
+
+        # Throttle to 1 request per second
+        await self._throttle()
 
         response = await client.post(endpoint, headers=headers, json=payload)
         response.raise_for_status()

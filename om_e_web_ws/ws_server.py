@@ -71,6 +71,11 @@ SITE_CONFIGS = {}                  # Loaded site configurations with capabilitie
 # 💬 Current chat state for LLM conversations
 CURRENT_CHAT_ID = None             # Active chat ID (auto-created on first message)
 
+# 📋 Chat index cache - avoids reading all chat files for list operations
+# Structure: { "chat_id": {"title": "...", "date_short": "...", "message_count": N, "project_id": "..."} }
+CHAT_INDEX_CACHE = {}              # Populated on startup, updated on save/delete
+CHAT_INDEX_LOADED = False          # Flag to track initial load
+
 # 🤖 LLM Agent instance for chat conversations
 LLM_AGENT = None                   # OmEAgent instance (created on first chat)
 
@@ -288,16 +293,51 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         return {"chats": chats}
 
     elif action == "LoadChat":
-        # Load full chat content by ID
+        # Load chat content by ID
+        # Optional params:
+        #   tail: int - only return last N messages (default: all)
+        #   offset: int - skip last N messages before tail (for pagination)
         chat_id = params.get("chat_id")
+        tail = params.get("tail")  # None = all messages
+        offset = params.get("offset", 0)  # For "load more" pagination
+
         if not chat_id:
             return {"error": "Missing chat_id parameter"}
         chat = load_chat(chat_id)
         if chat is None:
             return {"error": f"Chat not found: {chat_id}"}
+
+        # Build response with optional message truncation
+        total_messages = len(chat.get("messages", []))
+
+        if tail is not None:
+            # Return only last N messages (after offset)
+            messages = chat.get("messages", [])
+            if offset > 0:
+                messages = messages[:-offset] if offset < len(messages) else []
+            if tail > 0 and len(messages) > tail:
+                messages = messages[-tail:]
+                has_more = True
+            else:
+                has_more = offset > 0 or len(chat.get("messages", [])) > len(messages)
+
+            # Create truncated chat response
+            chat_response = {
+                **chat,
+                "messages": messages,
+                "_truncated": True,
+                "_total_messages": total_messages,
+                "_showing": len(messages),
+                "_has_more": has_more
+            }
+        else:
+            chat_response = chat
+            chat_response["_truncated"] = False
+            chat_response["_total_messages"] = total_messages
+
         return {
-            "chat": chat,
-            "_hud_action": {"type": "load_chat", "chat_id": chat_id, "chat": chat}
+            "chat": chat_response,
+            "_hud_action": {"type": "load_chat", "chat_id": chat_id, "chat": chat_response}
         }
 
     elif action == "CreateChat":
@@ -418,6 +458,8 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
         try:
             os.remove(filepath)
+            # Remove from in-memory index
+            _remove_from_chat_index(chat_id)
             print(f"🗑️ Deleted chat: {chat_id}")
             return {
                 "chat_id": chat_id,
@@ -516,6 +558,26 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"chat_id": None, "chat": None}
 
         return {"chat_id": CURRENT_CHAT_ID, "chat": chat_dict}
+
+    elif action == "GetFullHistory":
+        # Get full chat history (all messages) - used when LLM needs more context
+        chat_id = params.get("chat_id") or CURRENT_CHAT_ID
+        if not chat_id:
+            return {"error": "No chat specified and no current chat active"}
+
+        chat_dict = load_chat(chat_id)
+        if chat_dict is None:
+            return {"error": f"Chat not found: {chat_id}"}
+
+        messages = chat_dict.get("messages", [])
+        print(f"📜 GetFullHistory: Returning {len(messages)} messages from {chat_id}")
+
+        return {
+            "chat_id": chat_id,
+            "messages": messages,
+            "total_messages": len(messages),
+            "title": chat_dict.get("title", "Untitled")
+        }
 
     elif action == "SetCurrentChat":
         # Set the active chat
@@ -4579,9 +4641,11 @@ async def handler(ws):
                 print("📊 Status request from web dashboard")
                 try:
                     # Build status from server state
+                    # Note: CURRENT_TABS_INFO is a list (not a dict with "tabs" key)
+                    tabs = CURRENT_TABS_INFO if CURRENT_TABS_INFO else []
                     status = {
                         "isConnected": EXTENSION_WS is not None,
-                        "totalTabs": len(CURRENT_TABS_INFO.get("tabs", [])) if CURRENT_TABS_INFO else 0,
+                        "totalTabs": len(tabs),
                         "tabsWithFreshScripts": 0,
                         "tabsNeedingFreshScan": 0,
                         "totalDomChanges": 0,
@@ -4590,8 +4654,7 @@ async def handler(ws):
                     }
 
                     # Try to get more detailed info from extension
-                    if CURRENT_TABS_INFO:
-                        tabs = CURRENT_TABS_INFO.get("tabs", [])
+                    if tabs:
                         status["totalTabs"] = len(tabs)
                         # Count tabs with content scripts
                         status["tabsWithFreshScripts"] = len([t for t in tabs if t.get("hasContentScript")])
@@ -5459,20 +5522,16 @@ def load_chat(chat_id: str) -> Optional[Dict[str, Any]]:
         return None
 
 
-def list_chats(project_id: Optional[str] = None) -> List[Dict[str, Any]]:
+def _build_chat_index():
     """
-    List chats from the chats directory with summary info.
-
-    @param project_id: Optional filter - only return chats with this project_id.
-                       Use "default" to get unassigned chats for sidebar.
-
-    Returns a list of chat summaries sorted by created_at (newest first).
-    Each summary contains: chat_id, title, date_short, message_count
+    Build the in-memory chat index from disk (called once on startup).
+    Reads all chat files to populate CHAT_INDEX_CACHE.
     """
+    global CHAT_INDEX_CACHE, CHAT_INDEX_LOADED
     from datetime import datetime
 
     chats_path = ensure_chats_dir_exists()
-    chat_summaries = []
+    CHAT_INDEX_CACHE = {}
 
     try:
         for filename in os.listdir(chats_path):
@@ -5486,11 +5545,6 @@ def list_chats(project_id: Optional[str] = None) -> List[Dict[str, Any]]:
                 with open(filepath, 'r', encoding='utf-8') as f:
                     chat_dict = json.load(f)
 
-                # Filter by project_id if specified
-                chat_project = chat_dict.get("project_id", "default")
-                if project_id is not None and chat_project != project_id:
-                    continue
-
                 # Format date as dd/mmm (e.g., "05/Dec")
                 created_at = chat_dict.get("created_at", "")
                 date_short = ""
@@ -5501,25 +5555,92 @@ def list_chats(project_id: Optional[str] = None) -> List[Dict[str, Any]]:
                     except ValueError:
                         date_short = ""
 
-                # Extract lightweight summary info
-                summary = {
-                    "chat_id": chat_id,
+                CHAT_INDEX_CACHE[chat_id] = {
                     "title": chat_dict.get("title", "Untitled"),
                     "date_short": date_short,
-                    "message_count": len(chat_dict.get("messages", []))
+                    "message_count": len(chat_dict.get("messages", [])),
+                    "project_id": chat_dict.get("project_id", "default"),
+                    "created_at": created_at
                 }
-                chat_summaries.append(summary)
 
             except Exception as e:
-                print(f"⚠️ Error reading chat {filename}: {e}")
+                print(f"⚠️ Error indexing chat {filename}: {e}")
                 continue
 
-        # Sort by created_at descending (newest first)
-        chat_summaries.sort(key=lambda x: x.get("date_short", ""), reverse=True)
-        print(f"📋 Listed {len(chat_summaries)} chats (project_id={project_id})")
+        CHAT_INDEX_LOADED = True
+        print(f"📋 Chat index built: {len(CHAT_INDEX_CACHE)} chats")
 
     except Exception as e:
-        print(f"❌ Error listing chats: {e}")
+        print(f"❌ Error building chat index: {e}")
+
+
+def _update_chat_index(chat_id: str, chat_dict: Dict[str, Any]):
+    """
+    Update the in-memory index for a single chat after save.
+
+    @param chat_id: The chat ID to update
+    @param chat_dict: The full chat dictionary
+    """
+    global CHAT_INDEX_CACHE
+    from datetime import datetime
+
+    created_at = chat_dict.get("created_at", "")
+    date_short = ""
+    if created_at:
+        try:
+            dt = datetime.fromisoformat(created_at.replace('Z', '+00:00'))
+            date_short = dt.strftime("%d/%b")
+        except ValueError:
+            date_short = ""
+
+    CHAT_INDEX_CACHE[chat_id] = {
+        "title": chat_dict.get("title", "Untitled"),
+        "date_short": date_short,
+        "message_count": len(chat_dict.get("messages", [])),
+        "project_id": chat_dict.get("project_id", "default"),
+        "created_at": created_at
+    }
+
+
+def _remove_from_chat_index(chat_id: str):
+    """Remove a chat from the in-memory index after deletion."""
+    global CHAT_INDEX_CACHE
+    CHAT_INDEX_CACHE.pop(chat_id, None)
+
+
+def list_chats(project_id: Optional[str] = None) -> List[Dict[str, Any]]:
+    """
+    List chats using the in-memory index (fast).
+
+    @param project_id: Optional filter - only return chats with this project_id.
+                       Use "default" to get unassigned chats for sidebar.
+
+    Returns a list of chat summaries sorted by created_at (newest first).
+    Each summary contains: chat_id, title, date_short, message_count
+    """
+    global CHAT_INDEX_LOADED
+
+    # Build index on first call (lazy initialization)
+    if not CHAT_INDEX_LOADED:
+        _build_chat_index()
+
+    chat_summaries = []
+
+    for chat_id, info in CHAT_INDEX_CACHE.items():
+        # Filter by project_id if specified
+        if project_id is not None and info.get("project_id", "default") != project_id:
+            continue
+
+        chat_summaries.append({
+            "chat_id": chat_id,
+            "title": info.get("title", "Untitled"),
+            "date_short": info.get("date_short", ""),
+            "message_count": info.get("message_count", 0)
+        })
+
+    # Sort by created_at descending (newest first)
+    chat_summaries.sort(key=lambda x: CHAT_INDEX_CACHE.get(x["chat_id"], {}).get("created_at", ""), reverse=True)
+    print(f"📋 Listed {len(chat_summaries)} chats (project_id={project_id}) [cached]")
 
     return chat_summaries
 
@@ -5544,6 +5665,8 @@ def save_chat(chat_dict: Dict[str, Any]) -> bool:
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(chat_dict, f, ensure_ascii=False, indent=2)
         print(f"💾 Saved chat: {chat_id}")
+        # Update in-memory index for fast list operations
+        _update_chat_index(chat_id, chat_dict)
         return True
     except Exception as e:
         print(f"❌ Error saving chat {chat_id}: {e}")
@@ -6005,6 +6128,42 @@ def generate_orb_page_html() -> str:
             font-weight: 600;
         }
 
+        /* ⚙️ Settings Button */
+        .settings-btn {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .settings-btn:hover {
+            background: rgba(255,255,255,0.15);
+            transform: scale(1.1);
+        }
+
+        .settings-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: rgba(255,255,255,0.6);
+            stroke-width: 2;
+            transition: stroke 0.3s ease;
+        }
+
+        .settings-btn:hover svg {
+            stroke: var(--active-theme-color, #7ec8e3);
+        }
+
         /* 🌟 Background glow effect */
         .glow {
             position: fixed;
@@ -6035,6 +6194,22 @@ def generate_orb_page_html() -> str:
 
     <!-- Title -->
     <div class="title">Om-E Web — <span id="theme-name">Kawaii</span></div>
+
+    <!-- Settings Button (bottom left) -->
+    <button class="settings-btn" id="settings-btn" title="Settings">
+        <svg viewBox="0 0 60 72" fill="none">
+            <!-- Simplified orb icon for settings -->
+            <defs>
+                <radialGradient id="settingsOrbGrad" cx="50%" cy="40%" r="60%">
+                    <stop offset="0%" stop-color="rgba(126,200,227,0.9)"/>
+                    <stop offset="100%" stop-color="rgba(74,158,202,0.7)"/>
+                </radialGradient>
+            </defs>
+            <ellipse cx="30" cy="36" rx="18" ry="16" fill="url(#settingsOrbGrad)"/>
+            <circle cx="30" cy="36" r="6" fill="rgba(255,255,255,0.3)"/>
+            <ellipse cx="26" cy="32" rx="3" ry="2" fill="rgba(255,255,255,0.5)"/>
+        </svg>
+    </button>
 
     <script>
         // 🎨 Orb Theme SVGs
@@ -6227,6 +6402,11 @@ def generate_orb_page_html() -> str:
             const currentIndex = themes.indexOf(currentBtn?.dataset.theme || 'kawaii');
             const nextIndex = (currentIndex + 1) % themes.length;
             applyTheme(themes[nextIndex]);
+        });
+
+        // ⚙️ Settings button - navigate to dashboard
+        document.getElementById('settings-btn').addEventListener('click', () => {
+            window.location.href = '/dashboard';
         });
     </script>
 </body>

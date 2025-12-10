@@ -1,0 +1,57 @@
+{
+  "chat_id": "hi__20251209T230152",
+  "project_id": "default",
+  "created_at": "2025-12-09T23:01:52.168259Z",
+  "updated_at": "2025-12-09T23:06:19.175586Z",
+  "title": "hi",
+  "default_title": "hi",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2025-12-09T23:01:52.168275Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "G’day! What can I do for ya today, mate?",
+      "timestamp": "2025-12-09T23:01:53.861078Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "can you toggle hud view please",
+      "timestamp": "2025-12-09T23:03:11.331048Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "On it, toggling the HUD overlay now.\n\n{\"act\": \"a_id_0\"}",
+      "timestamp": "2025-12-09T23:03:12.329224Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "✅ click(a_id_0): Success",
+      "timestamp": "2025-12-09T23:03:12.331745Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "can you rename this message to one",
+      "timestamp": "2025-12-09T23:06:16.778766Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "I don’t see any rename option or input for messages here. Could you point me to where exactly you want to rename “this message” to “one”? Or what interface you’re using?",
+      "timestamp": "2025-12-09T23:06:19.175586Z"
+    }
+  ]
+}

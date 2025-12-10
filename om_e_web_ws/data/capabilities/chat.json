@@ -39,11 +39,23 @@
     },
     "LoadChat": {
       "category": "chat.management",
-      "label": "Load a chat by ID",
+      "label": "Load a chat by ID (recent messages by default)",
       "handler": "server",
       "route": "internal",
       "params": {
-        "chat_id": {"type": "string", "required": true}
+        "chat_id": {"type": "string", "required": true},
+        "tail": {"type": "number", "required": false, "description": "Only return last N messages (default: 10, null for all)"},
+        "offset": {"type": "number", "required": false, "description": "Skip last N messages before tail (for pagination)"}
+      }
+    },
+    "GetFullHistory": {
+      "category": "chat.context",
+      "label": "Get full chat history when more context is needed",
+      "description": "Use this when you need to recall earlier parts of the conversation to understand context",
+      "handler": "server",
+      "route": "internal",
+      "params": {
+        "chat_id": {"type": "string", "required": false, "description": "Chat ID (uses current chat if not specified)"}
       }
     },
     "RenameChat": {

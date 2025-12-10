@@ -1,0 +1,27 @@
+{
+  "chat_id": "try-a-new__20251209T122429",
+  "project_id": "default",
+  "created_at": "2025-12-09T12:24:29.284719Z",
+  "updated_at": "2025-12-09T12:24:31.233385Z",
+  "title": "try a new",
+  "default_title": "try a new",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "try a new tab for google",
+      "timestamp": "2025-12-09T12:24:29.284737Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening a fresh tab for Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-09T12:24:31.233385Z"
+    }
+  ]
+}
