@@ -1,70 +1,49 @@
 {
-  "timestamp": 1765335264.340914,
+  "timestamp": 1765340132.2568982,
   "browser_state": {
-    "total_tabs": 7,
+    "total_tabs": 4,
     "active_tab": {
-      "id": 1138040444,
-      "url": "https://gemini.google.com/app/62c21cefe93aa9ef?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=aigoogle_autosubmit&utm_source=aigoogle&utm_medium=owned&utm_campaign=aigoogle_autosubmit&pt=9008&mt=8&ct=web-aigoogle-aigoogle",
-      "title": "Google Gemini",
+      "id": 1138040908,
+      "url": "https://www.youtube.com/watch?v=Cti1p7mlvcM",
+      "title": "(38) Scientists Just Broke Physics: The Wire That Defies Reality - YouTube",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138040423,
-        "url": "https://www.youtube.com/results?search_query=cats",
-        "title": "(38) cats - YouTube",
+        "id": 1138040853,
+        "url": "https://www.google.com/search?q=cars&sca_esv=73e86a78892c9231&sxsrf=AE3TifN1RPaEacY7EXoZbVVIyFGi0VPovw%3A1765339655759&source=hp&ei=B_I4aZCuLOWsseMPu-i-oAM&iflsig=AOw8s4IAAAAAaTkAFym2MKtreje5rmSuoBGIGalagXJk",
+        "title": "cars - Google Search",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138040429,
-        "url": "https://www.facebook.com/marketplace/adelaide/search?query=gibson%20guitars",
-        "title": "(17) Facebook",
+        "id": 1138040905,
+        "url": "https://www.facebook.com/marketplace/item/1600640511292173/?ref=search&referral_code=null&referral_story_type=post&tracking=browse_serp%3A021dbd98-8193-4f9b-b39f-39bb70821ec6",
+        "title": "(17) Marketplace – Norco Fluid FS2 2021 | Facebook",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138040432,
-        "url": "https://www.perplexity.ai/",
-        "title": "Perplexity",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138040435,
-        "url": "https://claude.ai/chat/6da82044-63b0-487e-9b74-aceda611b5bb",
-        "title": "Code assistance - Claude",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138040438,
-        "url": "https://ai.google/",
-        "title": "Google AI - How we're making AI helpful for everyone - Google AI",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138040441,
-        "url": "https://gemini.google.com/app/9a525be9b7ae3914?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=aigoogle_autosubmit&utm_source=aigoogle&utm_medium=owned&utm_campaign=aigoogle_autosubmit&pt=9008&mt=8&ct=web-aigoogle-aigoogle",
-        "title": "Google Gemini",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138040444,
-        "url": "https://gemini.google.com/app/62c21cefe93aa9ef?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=aigoogle_autosubmit&utm_source=aigoogle&utm_medium=owned&utm_campaign=aigoogle_autosubmit&pt=9008&mt=8&ct=web-aigoogle-aigoogle",
-        "title": "Google Gemini",
+        "id": 1138040908,
+        "url": "https://www.youtube.com/watch?v=Cti1p7mlvcM",
+        "title": "(38) Scientists Just Broke Physics: The Wire That Defies Reality - YouTube",
         "active": true,
+        "status": "complete"
+      },
+      {
+        "id": 1138040911,
+        "url": "chrome://extensions/",
+        "title": "Extensions",
+        "active": false,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 19860.296528916,
+    "last_tabs_update": 24453.081242916,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://gemini.google.com/app/62c21cefe93aa9ef?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=aigoogle_autosubmit&utm_source=aigoogle&utm_medium=owned&utm_campaign=aigoogle_autosubmit&pt=9008&mt=8&ct=web-aigoogle-aigoogle",
-    "title": "Google Gemini",
+    "url": "https://www.youtube.com/watch?v=Cti1p7mlvcM",
+    "title": "(38) Scientists Just Broke Physics: The Wire That Defies Reality - YouTube",
     "is_active_tab": true
   },
   "content_structure": {},

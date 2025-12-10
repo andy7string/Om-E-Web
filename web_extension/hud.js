@@ -3069,9 +3069,8 @@
             }
 
             if (chatInput) {
-                // 💾 Save input on change + auto-resize
+                // 💾 Auto-resize on input (save only on blur to reduce overhead)
                 chatInput.addEventListener('input', () => {
-                    saveChatInput(chatInput.value);
                     autoResizeOrbInput();
                 });
 
@@ -3079,6 +3078,11 @@
                 chatInput.addEventListener('focusin', () => {
                     hudState.userBlurRequested = false;
                     focusOrbInputGuard(true);
+                });
+
+                // 💾 Save input on blur only (persists across navigation)
+                chatInput.addEventListener('blur', () => {
+                    saveChatInput(chatInput.value);
                 });
                 chatPanel.addEventListener('pointerdown', () => {
                     hudState.userBlurRequested = false;
@@ -3443,7 +3447,10 @@
                     // Auto-scroll messages to bottom to keep preview visible
                     const messagesArea = chatPanel.querySelector('.ome-chat-messages');
                     if (messagesArea) messagesArea.scrollTop = messagesArea.scrollHeight;
-                    // 💾 Debounced save to persist across navigation
+                });
+
+                // 💾 Save input on blur only (persists across navigation)
+                chatInput.addEventListener('blur', () => {
                     saveChatInput(chatInput.value);
                 });
 
@@ -4011,7 +4018,11 @@
 
         promptTextarea?.addEventListener('input', () => {
             autoResizeTextarea();
-            saveChatInput(promptTextarea.value); // Sync with orb chat input
+        });
+
+        // 💾 Save input on blur only (persists across navigation)
+        promptTextarea?.addEventListener('blur', () => {
+            saveChatInput(promptTextarea.value);
         });
         // Initial sizing and restore saved input
         if (promptTextarea) {
