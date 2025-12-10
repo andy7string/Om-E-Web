@@ -125,6 +125,55 @@ def get_element_info(action_id: str) -> Optional[dict]:
     """
     return ELEMENT_REGISTRY.get(action_id)
 
+
+def translate_tab_params(params: dict) -> tuple[dict, str]:
+    """
+    🔢 Translate display tab numbers (1-8) to real Chrome tab IDs.
+
+    LLM sees tabs as "Tab 1", "Tab 2", etc. but Chrome uses internal IDs.
+    TAB_NUMBER_MAP tracks the mapping: {1: 123456789, 2: 987654321, ...}
+
+    Checks both "tab" and "tabId" params. Only translates if value is 1-8 range
+    (display numbers). Larger values assumed to be real Chrome tab IDs.
+
+    @param params: Original params dict (may contain tab or tabId)
+    @return: (translated_params, error_message) - error is None on success
+    """
+    if not params:
+        return {}, None
+
+    translated = params.copy()
+
+    # Check "tab" param (some older code uses this)
+    if "tab" in translated:
+        tab_num = translated.pop("tab")
+        try:
+            tab_num = int(tab_num)
+            real_tab_id = TAB_NUMBER_MAP.get(tab_num)
+            if real_tab_id:
+                translated["tabId"] = real_tab_id
+                print(f"🔢 Translated Tab {tab_num} → tabId {real_tab_id}")
+            else:
+                return translated, f"Tab {tab_num} not found in TAB_NUMBER_MAP"
+        except (ValueError, TypeError):
+            return translated, f"Invalid tab number: {tab_num}"
+
+    # Check "tabId" param (LLM typically uses this)
+    elif "tabId" in translated:
+        tab_num = translated.get("tabId")
+        # Only translate if it looks like a display number (1-8 range)
+        if isinstance(tab_num, int) and 1 <= tab_num <= 8:
+            real_tab_id = TAB_NUMBER_MAP.get(tab_num)
+            if real_tab_id:
+                translated["tabId"] = real_tab_id
+                print(f"🔢 Translated tabId {tab_num} → real tabId {real_tab_id}")
+            else:
+                return translated, f"Tab {tab_num} not found in TAB_NUMBER_MAP"
+        # Else: assume it's already a real Chrome tab ID, pass through
+
+    return translated, None
+
+
 def get_all_site_configs():
     """
     Load site_configs.json index and individual domain config files
@@ -4412,17 +4461,11 @@ async def handler(ws):
                                         # Route tab actions to extension (with proper response waiting)
                                         elif cap_action in tab_actions and EXTENSION_WS:
                                             # 🔢 Translate simple tab number to real tabId
-                                            translated_params = cap_params.copy() if cap_params else {}
-                                            if "tab" in translated_params:
-                                                tab_num = translated_params.pop("tab")
-                                                real_tab_id = TAB_NUMBER_MAP.get(int(tab_num))
-                                                if real_tab_id:
-                                                    translated_params["tabId"] = real_tab_id
-                                                    print(f"🔢 Translated Tab {tab_num} → tabId {real_tab_id}")
-                                                else:
-                                                    cap_result = {"ok": False, "error": f"Tab {tab_num} not found"}
-                                                    print(f"❌ Tab {tab_num} not in TAB_NUMBER_MAP: {TAB_NUMBER_MAP}")
-                                                    continue
+                                            translated_params, tab_error = translate_tab_params(cap_params)
+                                            if tab_error:
+                                                cap_result = {"ok": False, "error": tab_error}
+                                                print(f"❌ {tab_error}")
+                                                continue
 
                                             request_id = f"cap_{cap_action}_{int(time.time() * 1000)}"
                                             fut = asyncio.get_event_loop().create_future()
@@ -4572,11 +4615,20 @@ async def handler(ws):
                         # Generate unique request ID for response matching
                         request_id = f"cap_{action}_{int(time.time() * 1000)}"
 
+                        # 🔢 Translate tab numbers for tab capabilities
+                        tab_actions = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL']
+                        translated_params = params
+                        if action in tab_actions:
+                            translated_params, tab_error = translate_tab_params(params)
+                            if tab_error:
+                                await ws.send(json.dumps({"ok": False, "error": tab_error}))
+                                continue
+
                         capability_command = {
                             "type": "execute_capability",
                             "id": request_id,
                             "action": action,
-                            "params": params
+                            "params": translated_params
                         }
 
                         # Store client for response routing
@@ -5411,7 +5463,9 @@ def get_capabilities_for_prompt_with_universal(url: str) -> list:
             {'id': 'update_tab_url', 'action': 'UpdateTabURL', 'label': 'Navigate tab to URL', 'params': {'tabId': 'number', 'url': 'string'}, 'domain': 'universal'},
             {'id': 'zoom_in', 'action': 'ZoomIn', 'label': 'Zoom in 15%', 'domain': 'universal'},
             {'id': 'zoom_out', 'action': 'ZoomOut', 'label': 'Zoom out 15%', 'domain': 'universal'},
-            {'id': 'zoom_reset', 'action': 'ZoomReset', 'label': 'Reset zoom to 100%', 'domain': 'universal'}
+            {'id': 'zoom_reset', 'action': 'ZoomReset', 'label': 'Reset zoom to 100%', 'domain': 'universal'},
+            {'id': 'go_back', 'action': 'GoBack', 'label': 'Go back in browser history', 'domain': 'universal'},
+            {'id': 'go_forward', 'action': 'GoForward', 'label': 'Go forward in browser history', 'domain': 'universal'}
         ]
         matching_capabilities.extend(universal_capabilities)
 

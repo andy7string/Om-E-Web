@@ -160,5 +160,14 @@
     "google_framework": true,
     "search_suggestions": true,
     "app_drawer": true
+  },
+  "inputPatterns": {
+    "search": {
+      "description": "Google search input",
+      "container": "textarea[name='q'], input[name='q'], textarea.gLFyf, input.gLFyf, #APjFqb",
+      "useAutocompleteDropdown": false,
+      "enterOnly": true,
+      "_comment": "Google search works with Enter key - disable dropdown auto-detection"
+    }
   }
 }

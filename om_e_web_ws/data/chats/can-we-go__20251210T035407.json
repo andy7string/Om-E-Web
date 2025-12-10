@@ -1,0 +1,195 @@
+{
+  "chat_id": "can-we-go__20251210T035407",
+  "project_id": "default",
+  "created_at": "2025-12-10T03:54:07.970628Z",
+  "updated_at": "2025-12-10T03:59:22.894894Z",
+  "title": "can we go",
+  "default_title": "can we go",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765338768682&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "can we go to youtube",
+      "timestamp": "2025-12-10T03:54:07.970654Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Sure thing, mate. Opening YouTube for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-10T03:54:09.931404Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "search its my life",
+      "timestamp": "2025-12-10T03:54:19.964868Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Gotcha, searching \"its my life\" on YouTube now.\n\n{\"act\": \"a_id_3\", \"value\": \"its my life\", \"submit\": true}",
+      "timestamp": "2025-12-10T03:54:22.175291Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_3): Success",
+      "timestamp": "2025-12-10T03:54:22.176634Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "yea play the bon jovi",
+      "timestamp": "2025-12-10T03:54:29.219273Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "On it, playing Bon Jovi - It's My Life official music video.\n\n{\"act\": \"a_id_24\"}",
+      "timestamp": "2025-12-10T03:54:30.798861Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_24): Success",
+      "timestamp": "2025-12-10T03:54:30.800144Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "pause",
+      "timestamp": "2025-12-10T03:55:36.833214Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Pausing the video now.\n\n{\"cap\": \"TogglePlayPause\"}",
+      "timestamp": "2025-12-10T03:55:38.229377Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "✅ TogglePlayPause: Success",
+      "timestamp": "2025-12-10T03:55:38.232521Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "wow who is this dude singing",
+      "timestamp": "2025-12-10T03:55:59.274989Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "That’s Jon Bon Jovi, the lead singer and frontman of the band Bon Jovi. Rock legend from the US, been around since the 80s, still smashing it. Classic voice, mate.",
+      "timestamp": "2025-12-10T03:56:02.389586Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "user",
+      "content": "play",
+      "timestamp": "2025-12-10T03:56:04.129610Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "Alright, resuming the music for you.\n\n{\"cap\": \"TogglePlayPause\"}",
+      "timestamp": "2025-12-10T03:56:05.973187Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "✅ TogglePlayPause: Success",
+      "timestamp": "2025-12-10T03:56:05.974664Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "lets go to google and look him up",
+      "timestamp": "2025-12-10T03:56:16.130501Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Switching over to Google for a proper Jon Bon Jovi look-up.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-10T03:56:17.647465Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "bon jovi dude",
+      "timestamp": "2025-12-10T03:56:27.693856Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Typing \"Bon Jovi\" into Google's search bar now.\n\n{\"act\": \"a_id_6\", \"value\": \"Bon Jovi\", \"submit\": true}",
+      "timestamp": "2025-12-10T03:56:29.821454Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_6): Success",
+      "timestamp": "2025-12-10T03:56:29.827143Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "user",
+      "content": "um google did not search",
+      "timestamp": "2025-12-10T03:56:40.182542Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "Looks like I grabbed the wrong input ID for the Google search box. Let me find the right one and try again.\n\n{\"act\": \"a_id_3\", \"value\": \"Bon Jovi\", \"submit\": true}",
+      "timestamp": "2025-12-10T03:56:42.428413Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_3): Success",
+      "timestamp": "2025-12-10T03:56:42.430252Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "mmm, close this tab",
+      "timestamp": "2025-12-10T03:56:48.974090Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Closing the current Google tab for you.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 4}}",
+      "timestamp": "2025-12-10T03:56:50.519456Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "close this active tab",
+      "timestamp": "2025-12-10T03:57:56.960451Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Closing the active tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 4}}",
+      "timestamp": "2025-12-10T03:57:58.194987Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "go to the youtube tab",
+      "timestamp": "2025-12-10T03:59:21.848210Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Switching to your YouTube tab now.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 3}}",
+      "timestamp": "2025-12-10T03:59:22.894894Z"
+    }
+  ]
+}
