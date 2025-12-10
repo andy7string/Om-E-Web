@@ -1,35 +1,70 @@
 {
-  "timestamp": 1765334111.497916,
+  "timestamp": 1765335264.340914,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 7,
     "active_tab": {
-      "id": 1138040307,
-      "url": "https://www.google.com/search?q=gibson&sca_esv=73e86a78892c9231&sxsrf=AE3TifMdtMK4gLKKh94OAED4MszVJUBfqA%3A1765334005245&source=hp&ei=9ds4acntDICiseMPi-nr8QQ&iflsig=AOw8s4IAAAAAaTjqBbVm3Q8BLf6-jTEhrHc3tt3Y9Dr8",
-      "title": "gibson - Google Search",
+      "id": 1138040444,
+      "url": "https://gemini.google.com/app/62c21cefe93aa9ef?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=aigoogle_autosubmit&utm_source=aigoogle&utm_medium=owned&utm_campaign=aigoogle_autosubmit&pt=9008&mt=8&ct=web-aigoogle-aigoogle",
+      "title": "Google Gemini",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138040302,
-        "url": "https://www.facebook.com/marketplace/adelaide/search?query=gibson",
+        "id": 1138040423,
+        "url": "https://www.youtube.com/results?search_query=cats",
+        "title": "(38) cats - YouTube",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138040429,
+        "url": "https://www.facebook.com/marketplace/adelaide/search?query=gibson%20guitars",
         "title": "(17) Facebook",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138040307,
-        "url": "https://www.google.com/search?q=gibson&sca_esv=73e86a78892c9231&sxsrf=AE3TifMdtMK4gLKKh94OAED4MszVJUBfqA%3A1765334005245&source=hp&ei=9ds4acntDICiseMPi-nr8QQ&iflsig=AOw8s4IAAAAAaTjqBbVm3Q8BLf6-jTEhrHc3tt3Y9Dr8",
-        "title": "gibson - Google Search",
+        "id": 1138040432,
+        "url": "https://www.perplexity.ai/",
+        "title": "Perplexity",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138040435,
+        "url": "https://claude.ai/chat/6da82044-63b0-487e-9b74-aceda611b5bb",
+        "title": "Code assistance - Claude",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138040438,
+        "url": "https://ai.google/",
+        "title": "Google AI - How we're making AI helpful for everyone - Google AI",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138040441,
+        "url": "https://gemini.google.com/app/9a525be9b7ae3914?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=aigoogle_autosubmit&utm_source=aigoogle&utm_medium=owned&utm_campaign=aigoogle_autosubmit&pt=9008&mt=8&ct=web-aigoogle-aigoogle",
+        "title": "Google Gemini",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138040444,
+        "url": "https://gemini.google.com/app/62c21cefe93aa9ef?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=aigoogle_autosubmit&utm_source=aigoogle&utm_medium=owned&utm_campaign=aigoogle_autosubmit&pt=9008&mt=8&ct=web-aigoogle-aigoogle",
+        "title": "Google Gemini",
         "active": true,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 18708.73868125,
+    "last_tabs_update": 19860.296528916,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/search?q=gibson&sca_esv=73e86a78892c9231&sxsrf=AE3TifMdtMK4gLKKh94OAED4MszVJUBfqA%3A1765334005245&source=hp&ei=9ds4acntDICiseMPi-nr8QQ&iflsig=AOw8s4IAAAAAaTjqBbVm3Q8BLf6-jTEhrHc3tt3Y9Dr8",
-    "title": "gibson - Google Search",
+    "url": "https://gemini.google.com/app/62c21cefe93aa9ef?android-min-version=301356232&ios-min-version=322.0&is_sa=1&campaign_id=aigoogle_autosubmit&utm_source=aigoogle&utm_medium=owned&utm_campaign=aigoogle_autosubmit&pt=9008&mt=8&ct=web-aigoogle-aigoogle",
+    "title": "Google Gemini",
     "is_active_tab": true
   },
   "content_structure": {},

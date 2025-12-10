@@ -216,6 +216,13 @@
     }
   },
   "inputPatterns": {
+    "search": {
+      "description": "YouTube search input",
+      "container": "input#search, input[name='search_query'], .ytSearchboxComponentInput input",
+      "useAutocompleteDropdown": false,
+      "enterOnly": true,
+      "_comment": "YouTube search works with Enter key - disable dropdown auto-detection"
+    },
     "comment": {
       "description": "YouTube main comment input",
       "placeholder": "#simplebox-placeholder[role='textbox']",
