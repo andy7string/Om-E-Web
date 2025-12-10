@@ -1,0 +1,99 @@
+{
+  "chat_id": "go-to-gmail__20251210T073518",
+  "project_id": "default",
+  "created_at": "2025-12-10T07:35:18.985476Z",
+  "updated_at": "2025-12-10T07:36:18.095721Z",
+  "title": "go to gmail",
+  "default_title": "go to gmail",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765352113832&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "go to gmail",
+      "timestamp": "2025-12-10T07:35:18.985504Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "On it, mate. Heading to Gmail now.\n\n{\"act\": \"a_id_2\"}",
+      "timestamp": "2025-12-10T07:35:21.107962Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_2): Success",
+      "timestamp": "2025-12-10T07:35:21.110307Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "lets read that mail with olivia",
+      "timestamp": "2025-12-10T07:35:35.393482Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Alright, found the mail from Olivia. Clicking it open now.\n\n{\"act\": \"a_id_49\"}",
+      "timestamp": "2025-12-10T07:35:37.046392Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_49): Success",
+      "timestamp": "2025-12-10T07:35:37.047691Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "roshibas mail please open it",
+      "timestamp": "2025-12-10T07:35:52.959109Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Gotcha, opening the mail from Roshiba now.\n\n{\"act\": \"a_id_41\"}",
+      "timestamp": "2025-12-10T07:35:55.370592Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_41): Success",
+      "timestamp": "2025-12-10T07:35:55.372359Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "go to google",
+      "timestamp": "2025-12-10T07:36:05.136889Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "Heading to Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-10T07:36:06.554684Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "open the tesla thing",
+      "timestamp": "2025-12-10T07:36:16.584014Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "Clicking the Tesla article link now.\n\n{\"act\": \"a_id_18\"}",
+      "timestamp": "2025-12-10T07:36:18.088081Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_18): Success",
+      "timestamp": "2025-12-10T07:36:18.095721Z"
+    }
+  ]
+}

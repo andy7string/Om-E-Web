@@ -1,15 +1,15 @@
-# LLM Request #33
+# LLM Request #21
 
 **Model:** gpt-4.1-mini
 **Temperature:** 0.7
 **Max Tokens:** 2048
-**Request Tokens:** 24,228
-**Context:** 24.2k / 1047k (2.3%)
-**Session Tokens:** 430,718
+**Request Tokens:** 3,657
+**Context:** 3.7k / 1047k (0.3%)
+**Session Tokens:** 112,343
 
 ---
 
-## SYSTEM (9,890 tokens)
+## SYSTEM (2,836 tokens)
 
 # Om-E (Ome)
 
@@ -193,1329 +193,322 @@ You can use markdown to make your responses look nice:
 Use formatting when it helps clarity - don't overdo it for simple responses.
 
 ## Recent Actions
-- CloseTab: {'ok': False}
-- CloseTab: {'ok': False}
+- Element:navigate: Success
+- Element:click: Success
 - OpenTab: {'ok': False}
 - Element:navigate: Success
-- Refresh: Success
+- CloseTab: {'ok': False}
 
 ## Current Page Context
-# Inbox (5,256) - andreworsmond21175@gmail.com - Gmail
+# Choose a goal | Facebook
 
-**URL:** https://mail.google.com/mail/u/0/#inbox
-**Timestamp:** 2025-12-10 16:37:14
+**URL:** https://www.facebook.com/ad_center/create/ad/?entry_point=ads_growth_page_user_activity_notification&page_id=2081098165457413&notif_id=1763876605043703&notif_t=page_user_activity&ref=notif
+**Timestamp:** 2025-12-10 19:42:34
 
 **Tabs:**
-- Tab 1: "OM-E Web" (127.0.0.1)
-- Tab 2: "Inbox (5,256) - andreworsmond21175@gmail" (mail.google.com) -- ACTIVE TAB
+- Tab 1: "Choose a goal | Facebook" (www.facebook.com) -- ACTIVE TAB
 
 ---
 
-<style nonce="jZN3I5mWRFyGtzqhHEj8Cw">#loading {display:none}</style>JavaScript must be enabled in order for you to use Gmail. However, it seems that JavaScript is either disabled or not supported by your browser. Learn more at our <a href="https://support.google.com/mail/bin/answer.py?ctx=gmail&amp;answer=6557&amp;hl=en-GB&amp;authuser=0">Help Centre</a>.
-Link: Skip to content → {"act": "a_id_0"}
-Link: Using Gmail with screen readers → {"act": "a_id_1"}
-Button: Main menu → {"act": "a_id_2"}
-Link: Gmail → {"act": "a_id_3"}
-Search mail
-Input: Search mail → {"act": "a_id_4", "value": "...", "submit": true}
-Button: Advanced search options → {"act": "a_id_5"}
-Button: Search mail → {"act": "a_id_6"}
-Button: Status: Active → {"act": "a_id_7"}
-Button: Support → {"act": "a_id_8"}
-Button: Settings → {"act": "a_id_9"}
-Button: Try Gemini → {"act": "a_id_10"}
-Try Gemini
-Button: Google apps → {"act": "a_id_11"}
-Button: Google Account: Andrew Orsmond
-(andreworsmond21175@gmail.com) → {"act": "a_id_12"}
-Link: Mail, 5256 unread messages → {"act": "a_id_13"}
-Mail
-Link: Chat, 0 unread messages → {"act": "a_id_14"}
-Chat
-Button: Compose → {"act": "a_id_15"}
-Link: Inbox 5256 unread → {"act": "a_id_16"}
-5,256
-Link: Starred → {"act": "a_id_17"}
-Link: Snoozed → {"act": "a_id_18"}
-Link: Sent → {"act": "a_id_19"}
-Link: Drafts 4 unread → {"act": "a_id_20"}
-4
-Link: Purchases 107 unread has menu → {"act": "a_id_21"}
-107
-Button: More labels → {"act": "a_id_22"}
-Labels
-Button: Create new label → {"act": "a_id_23"}
-Link: [Gmail]Trash has menu → {"act": "a_id_24"}
-Link: George Bellas has menu → {"act": "a_id_25"}
-Link: Notes has menu → {"act": "a_id_26"}
-Button: Upgrade → {"act": "a_id_27"}
-Button: Select → {"act": "a_id_28"}
-Button: Refresh → {"act": "a_id_29"}
-Button: More email options → {"act": "a_id_30"}
-Button: Show more messages → {"act": "a_id_31"}
-Button: Newer → {"act": "a_id_32"}
-Button: Older → {"act": "a_id_33"}
-Button: Input tools on/off (Ctrl-Shift-K) → {"act": "a_id_34"}
-Button: Select input tool → {"act": "a_id_35"}
-Conversations
-Button: Primary → {"act": "a_id_36"}
-Button: Promotions, 50 new messages, → {"act": "a_id_37"}
-Button: Social, 5 new messages, → {"act": "a_id_38"}
-Button: Updates, one new message, → {"act": "a_id_39"}
-Button: Not starred → {"act": "a_id_40"}
-Miriam
-..
-Olivia
-..
-10
-Link: 5B Bundey Street, Magill - NBN Connection
--
-Hi Miriam Thank you, I spoke to the inspector and the 19th is their last trade day so they would like to do it first thing in the morning or last job of the day so either 8:00/8:30am or 2:00/2:30pm. → {"act": "a_id_41"}
-15:48
-Button: Not starred → {"act": "a_id_42"}
-ReturnToWorkSA
-Link: Supporting safe and healthy workplaces this holiday season
--
-Practical tips and resources to help you keep your team safe, supported, and mentally healthy during the festive break ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ → {"act": "a_id_43"}
-13:00
-Button: Not starred → {"act": "a_id_44"}
-Michael Page Austra.
-Link: New jobs for: Information Technology : International
--
-Michael Page Latest Information Technology jobs in International Keywords: Information Technology Location: International Software Engineering Lead- Rust Australia, Permanent, AU$165000 - AU$175000 per → {"act": "a_id_45"}
-10:48
-Button: Not starred → {"act": "a_id_46"}
-Emma
-,
-Olivia
-2
-Link: FW: CONFIRMATION LETTER OF STAMP DUTY RELIEF
--
-Thanks so much Emma, we just received the letter from them. Kind regards Olivia On Wed, 10 Dec 2025 at 09:28, Emma Wade <EWade@ngjlegal.com.au> wrote: Hi Olivia and Andrew, I am pleased to → {"act": "a_id_47"}
-Attachment:
-image002.png
-Attachment:
-Confirmation Letter 20251210080700.pdf.pdf
-Attachment:
-Assessment_20251210080700.pdf.pdf
-09:29
-Button: Not starred → {"act": "a_id_48"}
-Olivia
-Link: Fwd: CONFIRMATION LETTER OF STAMP DUTY RELIEF
--
-Kind regards Olivia ---------- Forwarded message --------- From: DTF:SD Requisitions <sdrequisitions@sa.gov.au> Date: Wed, 10 Dec 2025 at 08:07 Subject: CONFIRMATION LETTER OF STAMP DUTY RELIEF → {"act": "a_id_49"}
-Attachment:
-Confirmation Letter 20251210080700.pdf.pdf
-09:25
-Button: Not starred → {"act": "a_id_50"}
-ssa.noreply
-Link: Your payment summary
--
-Hi, Thank you for your recent online transaction with Service SA. Please find attached a copy of your documents. Regards, Service SA https://service.sa.gov.au Please do not reply to this message. This → {"act": "a_id_51"}
-Attachment:
-TransactionSummary.pdf
-Attachment:
-Renew Registration S084DFJ Tax Invoice.pdf
-07:58
-Button: Not starred → {"act": "a_id_52"}
-SEEK Applications
-Link: Your application was successfully submitted
--
-Hi Andrew, your application for AI Engineer was successfully submitted to Real Time seek Hi Andrew, Your application for AI Engineer was successfully submitted to Real Time. Each employer's → {"act": "a_id_53"}
-00:37
-Button: Not starred → {"act": "a_id_54"}
-noreply@jobadder.com
-Link: Andrew, Thank you for your application - AI Engineer
--
-Hi Andrew & th ank you for applying for the AI Engineer position! Your job application has been received and will be reviewed by a consultant within the next 24 hours. If you look like a great fit → {"act": "a_id_55"}
-00:37
-Button: Not starred → {"act": "a_id_56"}
-Sectional Title Sol.
-Link: STS Community Newsletter l December Edition
--
-Rate cuts, fresh insights, and smart solutions to guide your community into the new year. View this email in your browser Dear Andrew As we move into the final weeks of the year, South Africa's → {"act": "a_id_57"}
-00:27
-Button: Not starred → {"act": "a_id_58"}
-portal
-Link: Your First Home Owner Grant application has been submitted
--
-Thank you for submitting your application for the First Home Owner Grant. Your application reference is: UIN 2742179 Before your application can be processed, you need to provide all the required → {"act": "a_id_59"}
-Attachment:
-FHOG-2742179-20251209-2355.pdf
-9 Dec
-Button: Not starred → {"act": "a_id_60"}
-carsales
-Link: Can the new electrified utes really beat a diesel dual-cab? We find out
--
-Read the latest news, reviews and advice from the carsales team. . . Having trouble viewing this email? View online Carsales logo Your weekly newsletter BYD Shark 6 Premium v Ford Ranger Sport PHEV v → {"act": "a_id_61"}
-9 Dec
-Button: Not starred → {"act": "a_id_62"}
-Seesaw
-Link: Your Seesaw updates for December 9th, 2025
--
-Seesaw You have new updates in Seesaw 130 new messages 1 post in Amber's journal View All Updates Get real-time updates with the Seesaw app Once you enable push notifications, you'll be alerted → {"act": "a_id_63"}
-9 Dec
-Button: Not starred → {"act": "a_id_64"}
-Daniella Lamp
-Link: The final RBA cash rate announcement for the year
--
-Read our full analysis Mortgage Choice Email me Email me dlamp@mortgagechoice.com.au Call me Call me 0409 896 550 The RBA has held the cash rate Hi Andrew, The Reserve Bank of Australia has announced → {"act": "a_id_65"}
-9 Dec
-Button: Not starred → {"act": "a_id_66"}
-Domain
-Link: Breaking: Interest rate decision
--
-No Christmas cash rate miracle. ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ → {"act": "a_id_67"}
-9 Dec
-Button: Not starred → {"act": "a_id_68"}
-Samsung account
-Link: Phone number changed
--
-Phone number changed Dear Customer, The phone number you use for Samsung account two-step verification has been changed. From now on, you can use the number below for two-step verification: +61 4** 03* → {"act": "a_id_69"}
-9 Dec
-Button: Not starred → {"act": "a_id_70"}
-Domain
-Link: Your Hallett Cove market update
--
-What's happening where you are searching? ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ → {"act": "a_id_71"}
-9 Dec
-Button: Not starred → {"act": "a_id_72"}
-The Lott
-Link: Yearly online account statement
--
-Your Yearly online statement is attached ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ → {"act": "a_id_73"}
-Attachment:
-59178450.pdf
-9 Dec
-Button: Not starred → {"act": "a_id_74"}
-Seesaw
-Link: New Message from Mel Angel
--
-Seesaw "Mel Angel: THANK YOU! Dear Families, Today is our last day of..." "THANK YOU! Dear Families, Today is our last day of Preschool for 2025. On behalf of all of us who live, learn, → {"act": "a_id_75"}
-9 Dec
-Button: Not starred → {"act": "a_id_76"}
-Paul Lukeman
-Link: December Market Update 2025
--
-View in browser Hi Andrew, Welcome to your Property Market Update for December 2025. As we head in to the warmer months, Adelaide's property market continues to deliver impressive momentum. → {"act": "a_id_77"}
-8 Dec
-Button: Not starred → {"act": "a_id_78"}
-MTB Direct
-Link: Revamp Your Drivetrain with SRAM
--
-SRAM XS-1270 lets you replace only what wears out. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ → {"act": "a_id_79"}
-8 Dec
-Button: Not starred → {"act": "a_id_80"}
-Andrew Cooper via L.
-Link: Andrew just messaged you
--
-1 new message awaits your response ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ → {"act": "a_id_81"}
-8 Dec
-Button: Not starred → {"act": "a_id_82"}
-Seesaw
-Link: New Message from Mel Angel
--
-Seesaw "Mel Angel: LAST DAY TOMORROW! Dear Families, A quick reminder..." "LAST DAY TOMORROW! Dear Families, A quick reminder that Preschool finishes for the year TOMORROW at 3pm. → {"act": "a_id_83"}
-8 Dec
-Button: Not starred → {"act": "a_id_84"}
-Eden Property Sales.
-Link: Invoice Receipt 08 December 2025 Invoice paid, #1581144 , Water charge 01/10/25 to 31/12/25 1 Coach-House Dr, Teringie, SA 5072
--
-Hi Andrew, $247.31 from your invoice balance has been allocated to the invoice Invoice paid, #1581144 , Water charge 01/10/25 to 31/12/25 for 1 Coach-House Dr, Teringie, SA 5072. Description Amount → {"act": "a_id_85"}
-Attachment:
-1765168372_2beac95db3febe9dfceea192b1df07ee_dd_invoice_receipt_1482207_1132617_1754973172_2025_12_08.pdf
-8 Dec
-Button: Not starred → {"act": "a_id_86"}
-ANZ
-Link: Andrew, here are some post-settlement tips
--
-Because you've got enough on your plate. Email not displaying correctly? View in browser ANZ Home Loan Go from settlement to settling in Hi Andrew It's getting close to moving day which means → {"act": "a_id_87"}
-8 Dec
-Button: Not starred → {"act": "a_id_88"}
-Seesaw
-Link: New Message from Carol Cai
--
-Seesaw "Carol Cai: Dear Andrew and Olivia, I've attached Amber's Ind..." "Dear Andrew and Olivia, I've attached Amber's Individual Learning Cycle for you to review. → {"act": "a_id_89"}
-8 Dec
-Button: Not starred → {"act": "a_id_90"}
-Domain
-Link: An Important Update to Our Privacy Policy
--
-Effective from 5 January 2026 ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ ﻿ ͏ ‌ → {"act": "a_id_91"}
-8 Dec
-Button: Not starred → {"act": "a_id_92"}
-G.J. Gardner Homes
-Link: Things you need you need to know about split level homes
--
-Learn more about the benefits, challenges and costs of building a split level home. Home Designs House & Land Display Homes Home Designs House & Land Display Homes Split level homes - things → {"act": "a_id_93"}
-8 Dec
-Button: Not starred → {"act": "a_id_94"}
-MTB Direct
-Link: Celebrate Silly Season with NEW DHaRCO
--
-New bold designs that make an impact ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ → {"act": "a_id_95"}
-7 Dec
-Button: Not starred → {"act": "a_id_96"}
-Netflix
-Link: Welcoming Warner Bros. to Netflix
--
-We recently announced that Netflix will acquire Warner Bros. ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ → {"act": "a_id_97"}
-7 Dec
-Button: Not starred → {"act": "a_id_98"}
-noreply
-Link: Your timesheet has been approved
--
-Randstad Timesheet Approved Hi Andrew Orsmond, Your timesheet has been approved by Richard Cheung (richard.cheung@fphgroup.com.au) , however, it was split into two timesheets: Shift Timesheet and → {"act": "a_id_99"}
-7 Dec
-Button: Not starred → {"act": "a_id_100"}
-AAMI
-Link: Andrew & Olivia, ready to renew your policy?
--
-Renew online today Renew online today Click here to View Online LUCKY YOU'RE WITH AAMI My Account My Account AAMI App AAMI App AAMI Driver Rewards AAMI Driver Rewards Comprehensive Car MPA155588428 → {"act": "a_id_101"}
-6 Dec
-Button: Not starred → {"act": "a_id_102"}
-statements
-Link: Capitec Business Statement Account Ending 3342
--
-Dear Client Attached to this email is your password-protected account statement in both PDF and CSV format. To open them, please follow the steps below: For the PDF version: You will need Adobe Acrobat → {"act": "a_id_103"}
-Attachment:
-Capitec_01122025_3342.pdf
-Attachment:
-Capitec_01122025_3342.zip
-Button: 2 more attachments → {"act": "a_id_104"}
-6 Dec
-Button: Not starred → {"act": "a_id_105"}
-NetBankNotification
-Link: First-time payment to new account
--
-Dear ANDREW, Your first payment to the following account has been submitted. To: Emily Chesher Account: 082-067 *** **4 551 Amount: $345.00 From: joint 062-692 **** 2924 Reference: bluey concert → {"act": "a_id_106"}
-6 Dec
-Button: Not starred → {"act": "a_id_107"}
-Australia Post
-Link: Andrew, how was your recent delivery?
--
-We'd like to hear from you Andrew, We recently delivered this parcel to you: Tracking number: S4F522848501000961505 Delivery date: 05-12-2025 15:02 We'd appreciate a few minutes of your time to → {"act": "a_id_108"}
-6 Dec
-Button: Not starred → {"act": "a_id_109"}
-Rob Hutchinson
-Link: New Apartheid Bill out for comment
--
-Justice or politics — The Bill represents a significant move to “weaponise” South Africa's human rights laws for international justice causes ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ ͏ ‌ → {"act": "a_id_110"}
-6 Dec
-Button: Not starred → {"act": "a_id_111"}
-tracking
-Link: Package Delivered
--
-Hey Andrew Orsmond, Your order has been delivered! Your order number is below if you have any questions: 387214 If you have any issues with your order, please reach out via the live chat on our website → {"act": "a_id_112"}
-5 Dec
-Button: Not starred → {"act": "a_id_113"}
-Harvey Norman
-Link: How did we do?
--
-Harvey Norman Track Order Contact Us Andrew, how did we do? We'd love to hear about your recent shopping experience with Harvey Norman. Your feedback will help us improve our service. Rate Your → {"act": "a_id_114"}
-5 Dec
-Button: Not starred → {"act": "a_id_115"}
-deloitte-jobnotific.
-Link: New jobs posted from jobs.deloitte.com.au
--
-Deloitte Services Pty Ltd Logo The following jobs matched your search agent at Deloitte and can be found at jobs.deloitte.com.au. Agent: Director - Engineering Advisory and Architecture, Sydney NSW AU → {"act": "a_id_116"}
-5 Dec
-Button: Not starred → {"act": "a_id_117"}
-Australia Post
-Link: Your parcel from T W L has been delivered
--
-Delivered to SA 5072. VIEW ONLINE Delivered From TWL Tracking number: S4F5228485 Delivered to: SA 5072 Your parcel has been delivered. Delivery details Leave it in a safe place^ details, if available → {"act": "a_id_118"}
-5 Dec
-Button: Not starred → {"act": "a_id_119"}
-G.J. Gardner Homes
-Link: Discover the Cressbrook
--
-New Display Home. Now Open! If this e-mail is not displayed properly, click here. ‌ ‌ ‌ ‌ Home Design ‌ House & Land ‌ Display Homes ‌ ‌ ‌ ‌ ‌ ‌ NOW OPEN. TAKE A TOUR. ‌ ‌ ‌ ‌ ‌ New Display Home ‌ → {"act": "a_id_120"}
-5 Dec
-Button: Not starred → {"act": "a_id_121"}
-Lyle, Family First
-Link: Who will take the pressure off families?
--
-Your party's catchcry to March 2027 and beyond ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ ‌ → {"act": "a_id_122"}
-5 Dec
-Button: Not starred → {"act": "a_id_123"}
-Commonwealth Bank o.
-Link: Talking Business: Introducing CommBank Business Masterclass, tips to avoid business email compromise and more.
--
-͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ ͏‌ → {"act": "a_id_124"}
-5 Dec
-Button: Not starred → {"act": "a_id_125"}
-Emma
-..
-Olivia
-..
-22
-Link: Certificate of Title - 5B Bundey Street, Magill
--
-Hi Emma I hope you're well. We're just trying to get clarity on the next steps. Our goal is to get everything settled as soon as possible, but we're not 100% sure on the exact process from → {"act": "a_id_126"}
-Attachment:
-image002.png
-Attachment:
-CT 6322 506 Allotment 743 in DP 136111.pdf
-Attachment:
-Application for Stamp Duty Relief.pdf
-Button: 3 more attachments → {"act": "a_id_127"}
-5 Dec
-Button: Not starred → {"act": "a_id_128"}
-Team Global Express
-Link: Your parcel from Dispensed has been delivered
--
-Delivered Your parcel from Dispensed has been delivered. Team Global Express Logo Your Dispensed parcel BDTB058872 has been delivered on Friday 5 December. Our driver took a photo as proof of → {"act": "a_id_129"}
-5 Dec
-Button: Not starred → {"act": "a_id_130"}
-Trent & Kim Shorland
-Link: Open Homes This Weekend!
--
-Hi Andrew, Please see below the open inspection times for this weekend! Open Inspections sATURDAY the 6th of december 6 Heath Road, Crafers West SA Saturday at 11:00am - 11:30am 4 3 2 3213sqm Learn → {"act": "a_id_131"}
-5 Dec
-Button: Not starred → {"act": "a_id_132"}
-ELMO Software
-Link: The 10 answers HR teams wanted most about payroll integration
--
-A quick integration framework and the key Q&As, all in one email. More resources from Payroll Integration Without the Headache: Making HR, Payroll & RTA Work Together Hi Andrew, If you couldn → {"act": "a_id_133"}
-5 Dec
-Button: Not starred → {"act": "a_id_134"}
-Team Global Express
-Link: We're coming today!
--
-We're coming today! Your parcel BDTB058872 will arrive between: 12:00 PM - 14:00 PM View details Help & Support | Privacy Policy | Our Terms Copyright © Team Global Express Pty Ltd. All Rights → {"act": "a_id_135"}
-5 Dec
-Button: Not starred → {"act": "a_id_136"}
-Team Global Express
-Link: Great news! Your parcel from Dispensed is out for delivery
--
-Out for delivery Great news! Your parcel from Dispensed is out for delivery. Team Global Express Logo Your parcel BDTB058872 from Dispensed is out for delivery today. As we need a signature for this → {"act": "a_id_137"}
-5 Dec
-Button: Not starred → {"act": "a_id_138"}
-customerservice
-Link: Pay Advice/ RCTI/ Remittance Advice For: 885179740 - Andrew Orsmond
--
-Please find attached your Pay Advice/ Tax Invoice. For any queries relating to this document please respond to this email and your query will be attended to. -- This email was sent to you because you → {"act": "a_id_139"}
-Attachment:
-11183411.pdf
-4 Dec
-Button: Not starred → {"act": "a_id_140"}
-Consumer and Busine.
-Link: Latest reform updates, summer holiday tips, plus other news for consumers and businesses in SA
--
-December 2025 Newsletter of Consumer and Business Services No images? Click here From the Commissioner This edition has information about recent law reforms covering builders, home owners, renters, → {"act": "a_id_141"}
-4 Dec
-Link: 80% of 15 GB used → {"act": "a_id_142"}
-Link: Terms → {"act": "a_id_143"}
-·
-Link: Privacy → {"act": "a_id_144"}
-·
-Link: Programme Policies → {"act": "a_id_145"}
-Last account activity: 2 minutes ago
-Link: Details → {"act": "a_id_146"}
-Button: Calendar → {"act": "a_id_147"}
-Button: Keep → {"act": "a_id_148"}
-Button: Tasks → {"act": "a_id_149"}
-Button: Contacts → {"act": "a_id_150"}
-Button: Get add-ons → {"act": "a_id_151"}
-Button: Hide side panel → {"act": "a_id_152"}
+Link: Facebook → {"act": "a_id_0"}
+Input: Search Facebook → {"act": "a_id_1", "value": "...", "submit": true}
+Link: Home → {"act": "a_id_2"}
+Link: Video → {"act": "a_id_3"}
+Link: Marketplace → {"act": "a_id_4"}
+Link: Groups → {"act": "a_id_5"}
+Link: Gaming → {"act": "a_id_6"}
+Button: Menu → {"act": "a_id_7"}
+Button: Messenger → {"act": "a_id_8"}
+Button: Messenger → {"act": "a_id_9"}
+Button: Notifications → {"act": "a_id_10"}
+Button: Notifications → {"act": "a_id_11"}
+Button: Your profile → {"act": "a_id_12"}
+Advertise
+Button: Open Page selector menu → {"act": "a_id_13"}
+Button: Automated ads
+Get personalised ads that adjust over time to help you get better results. → {"act": "a_id_14"}
+Button: Choose ad type
+Get started by selecting your own ad type to promote your business → {"act": "a_id_15"}
+Button: Boost content
+Create an ad from your Facebook or Instagram content → {"act": "a_id_16"}
+Link: Meta Business Suite → {"act": "a_id_17"}
+Choose ad type
+Link: Get started with Automated Ads
+Get personalised ads that adjust over time to help you get better results. → {"act": "a_id_18"}
+Link: Create new ad
+Make an ad using text, photos or videos to promote your business → {"act": "a_id_19"}
+Link: Boost Facebook content
+Get more people to see and engage with your Page posts → {"act": "a_id_20"}
+Button: New message → {"act": "a_id_21"}
 
----
-
-## Secure Iframe Elements
-
-*⏳ Loading 10 iframe(s)...*
-
-
-
----
-
-## USER (9 tokens)
-
-hey can you navigate to google in this tab
-
----
-
-## ASSISTANT (33 tokens)
-
-On it, mate, going straight to Google on this tab.
-
-{"cap": "OpenTab", "params": {"url": "https://www.google.com"}}
-
----
-
-## USER (3 tokens)
-
-search for cats
-
----
-
-## ASSISTANT (29 tokens)
-
-Alright, searching for "cats" now.
-
-{"act": "a_id_6", "value": "cats", "submit": true}
-
----
-
-## USER (5 tokens)
-
-nice now search for dogs
-
----
-
-## ASSISTANT (29 tokens)
-
-Searching for "dogs" now, mate.
-
-{"act": "a_id_4", "value": "dogs", "submit": true}
 
 ---
 
 ## USER (4 tokens)
 
-can you go back
-
----
-
-## ASSISTANT (14 tokens)
-
-Going back one page for you.
-
-{"cap": "GoBack"}
-
----
-
-## USER (3 tokens)
-
-na go forward
-
----
-
-## ASSISTANT (15 tokens)
-
-Heading forward for you, no worries.
-
-{"cap": "GoForward"}
-
----
-
-## USER (7 tokens)
-
-mmm, can you refresh this page
-
----
-
-## ASSISTANT (13 tokens)
-
-Refreshing the page now, mate.
-
-{"cap": "Refresh"}
-
----
-
-## USER (3 tokens)
-
-close this tab
-
----
-
-## ASSISTANT (23 tokens)
-
-Closing this tab for you.
-
-{"cap": "CloseTab", "params": {"tabId": 2}}
-
----
-
-## USER (6 tokens)
-
-lets go to youtuve
-
----
-
-## ASSISTANT (26 tokens)
-
-Opening YouTube for you now.
-
-{"cap": "OpenTab", "params": {"url": "https://www.youtube.com"}}
-
----
-
-## USER (7 tokens)
-
-that OpenAI and Google looks interesting
-
----
-
-## ASSISTANT (42 tokens)
-
-Yeah, that "OpenAI and Google Shocked by the First EVER Open Source AI Agent" looks like a ripper. I'll click that link for you.
-
-{"act": "a_id_80"}
-
----
-
-## USER (4 tokens)
-
-lets get this transcript
-
----
-
-## ASSISTANT (16 tokens)
-
-Fetching the transcript for this video now.
-
-{"cap": "RetrieveTranscript"}
-
----
-
-## USER (12 tokens)
-
-this is pretty interesting what does elons vidoe look like
-
----
-
-## ASSISTANT (43 tokens)
-
-I see a video titled "Elon Musk on DOGE, AI, & Are we in a Simulation? | KMP Ep.18" about 52 minutes long. Want me to open it for you?
-
----
-
-## USER (3 tokens)
-
-ya go there
-
----
-
-## ASSISTANT (16 tokens)
-
-Opening the Elon Musk video now.
-
-{"act": "a_id_498"}
-
----
-
-## USER (4 tokens)
-
-aah pause this
-
----
-
-## ASSISTANT (15 tokens)
-
-Pausing the video for ya.
-
-{"cap": "TogglePlayPause"}
-
----
-
-## USER (4 tokens)
-
-zoom in a bit
-
----
-
-## ASSISTANT (17 tokens)
-
-Zooming in 15% for better view.
-
-{"cap": "ZoomIn"}
-
----
-
-## USER (1 tokens)
-
-more
-
----
-
-## ASSISTANT (14 tokens)
-
-Zooming in another 15%.
-
-{"cap": "ZoomIn"}
-
----
-
-## USER (1 tokens)
-
-more
-
----
-
-## ASSISTANT (14 tokens)
-
-One more zoom in coming up.
-
-{"cap": "ZoomIn"}
-
----
-
-## USER (4 tokens)
-
-can we share this
-
----
-
-## ASSISTANT (18 tokens)
-
-Sure thing, sharing the video link now.
-
-{"act": "a_id_9"}
-
----
-
-## USER (5 tokens)
-
-na dude share the video
+got to my friends
 
 ---
 
 ## ASSISTANT (21 tokens)
 
-Righto, clicking the Share button to share the video.
+Alright, I'll click on your Friends link for you.
 
 {"act": "a_id_15"}
 
 ---
 
-## USER (3 tokens)
+## USER (4 tokens)
 
-with linkedin
-
----
-
-## ASSISTANT (16 tokens)
-
-Sharing it on LinkedIn for ya.
-
-{"act": "a_id_214"}
+search for olivia
 
 ---
 
-## USER (9 tokens)
+## ASSISTANT (43 tokens)
 
-can you go back to the youtube video first
+Found the search box labeled "Search Facebook." I'll type "olivia" in there and submit it.
+
+{"act": "a_id_1", "value": "olivia", "submit": true}
 
 ---
 
-## ASSISTANT (16 tokens)
+## USER (4 tokens)
 
-Going back to the YouTube video page now.
+send her a message
 
-{"cap": "GoBack"}
+---
+
+## ASSISTANT (30 tokens)
+
+I see a "Message" button on Olivia's profile. I'll click that to start a message.
+
+{"act": "a_id_27"}
+
+---
+
+## USER (7 tokens)
+
+tell her you are a banana guy
+
+---
+
+## ASSISTANT (42 tokens)
+
+I'll type "You are a banana guy" in the message input and send it.
+
+{"act": "a_id_93", "value": "You are a banana guy", "submit": true}
+
+---
+
+## USER (5 tokens)
+
+You are a banana guy
+
+---
+
+## ASSISTANT (28 tokens)
+
+Message sent: "You are a banana guy." If you want me to add anything else or send another message, just shout.
+
+Cheers!
 
 ---
 
 ## USER (6 tokens)
 
-na its on the other tab
+tell her you need her services
 
 ---
 
-## ASSISTANT (34 tokens)
+## ASSISTANT (46 tokens)
 
-Righto, switching back to the YouTube tab (Tab 2) for you.
+I'll type "Hey Olivia, I need your services." in the message box and send it.
 
-{"cap": "SwitchTab", "params": {"tabId": 2}}
+{"act": "a_id_92", "value": "Hey Olivia, I need your services.", "submit": true}
+
+---
+
+## USER (8 tokens)
+
+Hey Olivia, I need your services.
+
+---
+
+## ASSISTANT (20 tokens)
+
+Message sent: "Hey Olivia, I need your services."
+
+Anything else you want me to do?
+
+---
+
+## USER (1 tokens)
+
+perfect
+
+---
+
+## ASSISTANT (17 tokens)
+
+Good on ya, mate! Let me know if you need anything else.
+
+Cheers!
+
+---
+
+## USER (3 tokens)
+
+lets go home
+
+---
+
+## ASSISTANT (20 tokens)
+
+Alright, heading back to your Facebook home page now.
+
+{"act": "a_id_2"}
+
+---
+
+## USER (4 tokens)
+
+i have some messages
+
+---
+
+## ASSISTANT (42 tokens)
+
+Gotcha, wanna check your Messenger inbox? I see a couple of Messenger buttons with unread counts.
+
+I can click the one with 1 unread message for you.
+
+{"act": "a_id_8"}
 
 ---
 
 ## USER (2 tokens)
 
-retrieve transcript
+select unread
 
 ---
 
-## ASSISTANT (18 tokens)
+## ASSISTANT (27 tokens)
 
-Retrieving transcript for the Elon Musk video now.
+I'll click the "Unread" button in your Messenger to show just unread messages.
 
-{"cap": "RetrieveTranscript"}
-
----
-
-## USER (12,968 tokens)
-
-heres the transcript (<!-- signature: bz5Hjk40FD4:502:620b5a21886d38cd316fa866dfca9a588769cc1cc46135d3b2a617f5dc81afe2 -->
-# Elon Musk on DOGE, AI, & Are we in a Simulation? | KMP Ep.18
-
-**Video URL:** https://www.youtube.com/watch?v=bz5Hjk40FD4
-**Video ID:** bz5Hjk40FD4
-**Language:** en
-**Collected At:** 1765346553835
-**Segments:** 502
+{"act": "a_id_19"}
 
 ---
 
-- [0:00] I think the story of Doge from your perspective has never been told. Do you think you were successful? We're a little a little bit successful.
-- [0:06] We were some somewhat successful. Would you ever do Doge again? Um I mean, no. I don't think so. I think
-- [0:12] in instead of doing Doge, I I would have basically built, you know, worked on my
-- [0:18] companies essentially and not and the cars would they wouldn't have been running the cars. What's your biggest irrational fear?
-- [0:23] I I try not to have irrational fears. None. If I find an irrational fear, I
-- [0:28] squelch it if you had to start from scratch today with only $1,000. What would you do?
-- [0:34] Well, I did I did originally come to uh North America with like I don't know 2500 bucks Canadian, so I don't know,
-- [0:40] maybe two grand us. At this point, I have a lot of knowledge. A lot of things have to go wrong for that to be the case.
-- [0:46] It's like, am I just emerging from prison perhaps with a stipend?
-- [0:58] [Music] Hi everyone and welcome to this week's
-- [1:03] episode of the Katie Miller podcast. We are in Texas today joined by the one and only Elon Musk.
-- [1:10] Uh nice to see you again Katie. Nice to see you Elon. So I want to take us back. It's January 20th. You are in
-- [1:19] the Roosevelt room, if you remember this, getting sworn in and they hand you a computer and a phone.
-- [1:24] Right. Right. I want to go back to what happened next. I think the story of Doge from your
-- [1:29] perspective has never been told. What was your first thought on how Doge was going to proceed?
-- [1:35] Well, um I guess I couldn't believe I was there.
-- [1:41] Uh, for the most part it's like um it's all seemed extremely surreal at
-- [1:48] the time. you know, Doge was a madeup name um that had been made up, I don't know,
-- [1:54] two or three months before um and um based on internet suggestions
-- [2:01] and um I was going to call the Government Efficiency Commission and then and then
-- [2:07] um someone on the internet said, "No, it should be the Department of Government Efficiency, Dog."
-- [2:13] I'm like, "That sounds great." Um, so
-- [2:20] we just kind of made up an apartment. Do you think you were successful?
-- [2:25] We're a little a little bit successful. We were some somewhat successful. Um,
-- [2:33] I mean, we we we stopped a lot of funding for um that that that really
-- [2:40] just made no sense. That was just entirely wasteful. where like for
-- [2:46] example there was like probably 100 maybe $200 billion dollars worth of zombie payments per year uh
-- [2:53] which uh simply by um enforcing that there be a payment code
-- [3:03] and an explanation for the payment uh that the payment would not go out. So,
-- [3:10] we've made that change to the main treasury computer and bunch of other
-- [3:15] computers. Um, it's like it seems like insanely obvious. Um, but
-- [3:24] uh there are just call it I two or 3% of government payments that go out that uh
-- [3:30] really should not be going out. Um, and it's actually quite hard to stop. Um so
-- [3:39] um it's a it's a pretty rare individual that
-- [3:45] would um ask the government to stop sending them money.
-- [3:50] Would you ever do Doge again? Um do you mean would I repeat history or or would I
-- [3:57] two ways to think about it? One is if you could go back and start from scratch like it's January 20th all again. Would
-- [4:02] you go back and do it differently? And knowing what you know now, do you think there's ever a place to restart
-- [4:09] you? Not saying others in yourstead, you go back and restart doing Doge.
-- [4:16] I mean, no, I don't think so. Um, would I do I I think I probably
-- [4:24] I don't know. Um, would you do Doge again knowing what you know now?
-- [4:29] I mean the thing is like I think in instead of doing Doge I I would have basically built
-- [4:37] you know worked on my companies essentially. So and not and the cars would they wouldn't have been burning
-- [4:43] the cars. Um you gave up a lot to do. Uh yeah,
-- [4:50] like if you if you if you stop money going uh to
-- [4:55] uh going going for political corruption, they will they will lash out big time.
-- [5:02] Mhm. Um so they really want the money to keep flowing. Um,
-- [5:10] so if you stop it from flowing, there's like a very strong reaction to to
-- [5:17] stopping the money flowing. After you were in DC for a while, did you become disillusioned with how it
-- [5:22] operates? Well, I I wouldn't say I was super illusioned to begin with. Uh, it it I
-- [5:30] mean, I guess it's just like you really want the least amount done by government possible. The least amount
-- [5:37] I I I I guess maybe maybe like the the biggest thing is that I guess the biggest single thing is is that the
-- [5:45] there there are massive transfer payments going to um illegal immigrants
-- [5:53] um like massive essentially we're paying people to come here from somewhere else
-- [6:00] um in vast numbers including flying them in. So, like it's not like you need a
-- [6:06] border wall if you're flying them in. Um, then fasttracking them to
-- [6:12] citizenship and um making them beholden to to government
-- [6:18] payments um and uh and voting hard left. That's that's
-- [6:26] essentially it's like voter importation. If if if you if you create a gigantic
-- [6:32] money magnet to um you say if anyone
-- [6:37] comes here from anywhere else, we're going to pay you t tons of money, give you lots of free stuff. Um
-- [6:43] come come come to America and and get paid to do so. Um
-- [6:51] like you're going to get a lot of people taking up on that offer. Um and people say like this this this is fake. I'm
-- [6:57] like, uh, actually, well, let's look at, um, you know, Elon Omar, who was
-- [7:05] literally was voted into power, voted into Congress by, uh, you know, large
-- [7:12] group of people from Somalia, who are in Minnesota, which is really far from Somalia,
-- [7:18] or Mandani, who was voted as to be to be mayor.
-- [7:24] But if if but by a majority of people who are not um
-- [7:32] born in America. That's my understanding at least. Um so
-- [7:38] um and then then California say big time um situation.
-- [7:45] So uh I don't we just don't want to turn into a um
-- [7:53] you know communist hell hole basically. If you've said in the future that no
-- [7:58] one's going to need to worry about money or work because AI is going to take care of the rest, AI and robotics. What do
-- [8:05] you mean that people won't have to work in the future? Assuming the current trend of artificial intelligence and robotics continues,
-- [8:12] which seems likely, the um AI and robots will be able to do anything
-- [8:20] that that humans want to want them to do essentially. So hopefully not more than
-- [8:26] that, but AI and robotics will be able to
-- [8:31] provide us provide all the goods and services that anyone could possibly want. So
-- [8:37] but you wouldn't need to work like what would you do with your free time?
-- [8:44] People people will be able to do whatever they want with their free time. Um work will be optional.
-- [8:51] I I mean I just want to separate out from like what I wish would happen versus what I predict will happen because people get confused about that.
-- [8:56] They think that what I predict will happen is what I want it to happen. What I want what I predict to happen is not the same as what I want to happen.
-- [9:03] Um I if if I could I I would
-- [9:08] I would certainly slow down uh AI and robotics, but I I can't. It seems to be
-- [9:15] well it's it's it's advancing at a very rapid
-- [9:21] pace. Um whether I like it or not. Is AI what keeps you up at night?
-- [9:26] It used to be this point. I don't know. I I I wouldn't say there's there's
-- [9:33] nothing particularly keeping me up at night right now except that. But if you say what
-- [9:41] what where do I wake up in nightmares? Oh, AI. Yeah. Actually,
-- [9:46] I've had a lot of AI nightmares. Uh I I I had AI nightmares many days in a row.
-- [9:55] What am I supposed to do about it? What's your biggest irrational fear?
-- [10:00] Um I I I try not to have irrational fears. None. If I find an irrational fear, I squelch
-- [10:08] it. I I I don't believe fear is fear is the mind killer. So how about somebody
-- [10:15] who feels fear strongly? Well, on average, how many hours do you sleep a night? Six. You can tell based on my exposts.
-- [10:24] Yes, you can. People have actually mapped them so you it's very clear when I'm sleeping and
-- [10:29] when I'm not. Um, I tried having less than 6 hours sleep, but um, although I'm awake more
-- [10:36] hours per day, my cognitive function is reduced. So, my natural sleep, I
-- [10:43] actually timed it with the phone. They can get a phone app, but time it. It's like five 5 hours 56 minutes.
-- [10:50] That's what the phone said. What's an average day for you look like? Well, I have a lot of inbound
-- [10:56] communication. So, it's information triage. I try to
-- [11:02] segment the days so that there's not too much context switching because arguably
-- [11:08] fear is not the mind killer. Context switching is hard not to context switch if you've got
-- [11:14] an inbox full of stuff. Um, but you can think like if you had to
-- [11:20] context switch every 3 seconds or every 30 seconds or every 3
-- [11:25] minutes, the context switching cognitive penalty would be very high
-- [11:32] every 3 seconds. And you're talking about switching between say Tesla X, XAI,
-- [11:38] SpaceX personal, SpaceX personal and but even within Tesla and and SpaceX
-- [11:43] there are many different things. getting this sort of the stuff on X like random news things
-- [11:50] um you know people being burned alive and stuff like that you're like what the hell's going on in this country
-- [11:55] who's the funniest person you know in real life you know President Trump is very funny
-- [12:01] he's got a great sense of humor President Trump is very funny he's very funny he's like naturally funny was it's somewhat e effortless I
-- [12:09] mean um you know when he was had Ed Mumdani in the office and Uh
-- [12:15] they asked him if he saw thought the president was a fascist and the president said just say yes. It's easier that way.
-- [12:21] Yeah. Don't worry about it. Just say yes.
-- [12:28] Awesome. He's like you guys.
-- [12:34] What a what a how silly. Who do you look up to the most?
-- [12:40] The creator. What's your current position on God? Uh, God is the creator.
-- [12:47] You don't believe in God though, do you? Well, I believe there was this universe came for something.
-- [12:53] People have different labels. When's the last time you did something extremely ordinary like go to Target or
-- [12:59] CVS? I can't go to things where there's the general public
-- [13:04] because um I I im there there's an immediate can I
-- [13:12] have a selfie line that forms and and these days in particularly in light of
-- [13:17] Charlie Ko's murder there are serious um security issues.
-- [13:23] It's not that I don't want to. I simply can't. Has Charlie's murder changed how you do things or were you already locked
-- [13:30] down pretty well before that? It certainly reinforced the severity of the situation where
-- [13:37] life is on hardcore mode. You make one mistake and you're dead and it only takes one one mistake.
-- [13:44] What's one moment in your life that you could live again just to feel it? Well, I mean, obviously when my kids
-- [13:49] were born or um the first time SpaceX
-- [13:55] got to orbit or Tesla made an electric car work,
-- [14:00] you've had a big a lot of them. It's a lot of It's a lot of things.
-- [14:05] There's a lot coming down the pike like what starship
-- [14:11] um the the degree to which a starship is a revolutionary technology is not well
-- [14:16] understood in the world. Um it's the first time that there's been
-- [14:23] any rocket design where full and rapid reusability is possible or full
-- [14:28] reusability at all is possible. Um this this is the first design where a
-- [14:35] reusable rocket can um is one of the possible outcomes where success is in the set of possible
-- [14:41] outcomes. Are you talking about in V3 or V2? Well, we could have made V2
-- [14:48] um reusable, but the but we there were a
-- [14:53] lot of performance improvements for V3, so it made sense to go to V3.
-- [14:59] They're just there's like 10,000 different changes uh between V2 and B3,
-- [15:04] maybe more than 10,000 really. Um so
-- [15:09] um but Starship, if if there are historians in the future, I'll look back and at Starship
-- [15:16] and say it was one of the most profound things that ever happened. Now you can think of
-- [15:22] historic events as where would they fit on the
-- [15:27] in the evolutionary hall of fame. So you've got things like single cell life.
-- [15:33] Then you've got um you know multisellular life uh capturing a mitochondria
-- [15:42] capturing mitochondria so that you have a power cell in the plant in the cell. Good. We've got like a power plant in
-- [15:48] the cell. Um, you've got, you know, differentiation
-- [15:53] into plants and animals, life going from oceans to land.
-- [15:58] And then also on that scale, probably in the top 10 is life becoming multilanetary.
-- [16:05] There just aren't very many things that are in the top 10 of the evolution of
-- [16:11] life or where you could basically say you could evaluate any given
-- [16:17] uh civilization or any given life form as you know on on that
-- [16:24] on that scale. Um so life becoming multilanetary it's on
-- [16:29] the top 10. Um it needs to be sustainably multi multilanetary. So not just visiting
-- [16:36] um but actually multilanetary in the sense that if
-- [16:45] you have planetary redundancy so if one of the planets um if there were to be a
-- [16:50] catastrophe on one of the planets the other planet would survive. Are all of your companies starship is capable of doing that for
-- [16:57] the first time in history and no AI was used to create it. So the AI will appreciate that.
-- [17:03] Are all of your companies working towards that same goal to help us become multilanetary?
-- [17:10] Like does the AI exist to be able to help life on Mars or is that primarily for what is happening here currently?
-- [17:20] You know Tesla is mostly about making sure life on Earth is good
-- [17:25] and as NXAI is about that too because multilanetary means Earth's got to be
-- [17:31] good and you need another planet. Sometimes people think uh because they they have
-- [17:37] you know um legacy templates, mental templates, they think that going to Mars
-- [17:43] is an escape from Earth. Um like or that it would be some
-- [17:49] you know place where billionaires would go or something like that. Um but but actually Mars will be very dangerous and
-- [17:55] the moon base will be al also dangerous much more dangerous um and much less comfortable than Earth. Um, so the
-- [18:02] people that would go in the early days to make life multilanetary on Mars or the moon, they would have a much higher
-- [18:10] risk of death um than if then if they stayed on Earth. Um, and things would be cramped and
-- [18:16] uncomfortable. So that's that's the sales pitch for Mars. It's it's going to be
-- [18:22] uncomfortable. The food won't be as good as Earth. Uh, you might die.
-- [18:28] It's going to be a mass amount of hard work. And um it may not succeed. That's the
-- [18:34] sales pitch. Do you want to go? Same as when people came to America. Yeah. You didn't want to be in
-- [18:40] Jamestown. People went anyway. Yeah. Maybe if there had been social
-- [18:45] media back then they would have saying uh we're all dying. Here's videos of us
-- [18:51] dying would have probably put a damper on future voyages. But um yeah, they
-- [18:58] just whole bunch of people just disappeared. They don't know what happened to them. You talk a lot on X about wardrobe
-- [19:04] and how you wish current wardrobe would be differently. I just think like from a fashion
-- [19:09] standpoint, we should evolve. Um like my son Saxon said at one point, why does
-- [19:16] everything look like it's 2015? And I was like, damn, things do everything does look like it's 2015.
-- [19:23] He's like, if you took a picture from 2015 and said 2025, it looks exactly the same. There were
-- [19:29] stylistically things were the same as 2015. We have not we've not moved the needle in a
-- [19:35] decade. So what should it look like? Something new. You know, like the 60s
-- [19:41] had a definitive style. The 70s had a definitive style. The ' 80s had a definitive style. And then the ' 90s
-- [19:48] also had a different had a style. But then you start looking at the 2000s and
-- [19:53] the 2010s and it's like less and less every year. I think we should if our
-- [19:59] style I and and if you look at some of the older paintings
-- [20:05] um you know of past cabinet secretaries um some of them like they look cool like
-- [20:13] their their jackets are cooler than what we have right now you know they have sort of like a high collar and like a
-- [20:18] sort of I don't know what some sort of what what do you call those things ascot
-- [20:24] or something like that I mean it just looks cool like so But we we don't everything's like a very normal
-- [20:31] looking suit at this point. But like literally the same as 2015. I'm being
-- [20:36] generous because arguably the same as 2010. Yeah. So in 15 years and and I'm like from a
-- [20:42] fashion standpoint, I don't think we've moved since 2000
-- [20:47] in 25 years. If you showed someone a picture of this is a bunch of this is a bunch of dudes in 20 2000. This is a
-- [20:53] bunch of dudes in 2025. which year is which? So, I think we should I don't know, spice it up a
-- [21:01] little. What's a conspiracy theory you believe in? I mean, which which conspiracy theories
-- [21:06] haven't come true at this point. We've run out of conspiracy theories that because they will come true
-- [21:11] as far as I can tell. Yeah. Um I mean, I don't know of any aliens. People has
-- [21:17] asked me if there's there are aliens. I have seen no evidence of aliens. Um, no
-- [21:24] one on the SpaceX senior team has any
-- [21:30] evidence of aliens because I've asked team like, "Guys, am I missing something?" Has anyone on the team has anyone's
-- [21:38] seen any evidence of aliens? Does that include UFOs? That's just an unidentified blank object. So, so UFOs like it could be
-- [21:48] like some new weapons program or whatever. that's, you know, some hypersonic missile or something like
-- [21:54] that. That that would be technically a UFO, but it's it's just it's just
-- [21:59] basically some weapons prototype. That's not it's not like aliens.
-- [22:05] So, although Neil Armstrong, Neil A spelled backwards as alien.
-- [22:11] Coincidence? You believe we actually went to the moon
-- [22:16] though? Yes, we went to the moon a few times actually and played golf on the moon.
-- [22:22] Okay. We didn't just go to the moon. We actually got a little bored and started
-- [22:29] playing golf on the moon. But why didn't the flag move? There's like that conspiracy. That was the jump the truck moment
-- [22:35] about the flag. No, the playing golf on the moon. Okay. You know, it literally did.
-- [22:40] No, I understand that. Yeah. Yeah. Whacked a golf ball on the moon. Is there There's no gravity though,
-- [22:47] right? There is gravity 16. If it wasn't gravity, you would just float away.
-- [22:52] Okay. There's no atmosphere. Okay, fair. But there is one sixth gravity.
-- [22:58] What's the biggest misconception about you? I don't know.
-- [23:03] How would I know? Uh, what do you think? I think it's And I get asked this a lot
-- [23:10] when I do interviews about you. Me? Oh, got I got asked. Everyone always thinks you're a very difficult person to
-- [23:15] work for. Oh, which you're I think you're very kind. Thanks.
-- [23:20] Like people think which you're you are like a very demanding boss. I think that you are I've never heard you yell at any
-- [23:27] employee. Yeah. I don't yell. I think every employee who works at every single one of your companies is incredibly missiondriven, which is
-- [23:34] unlike any other workplace I've ever seen. Like Starbase is the most inspirational place you'll ever go to, right?
-- [23:40] Everyone is there to work on a singular goal. And so I think to me the biggest misconception about you is how every
-- [23:48] employee at all of your companies are fiercely loyal because it's all mission driven
-- [23:54] and you are a very good employer to work for and I think people assume you are not
-- [24:01] right. Well why would they think anyone would work at the companies? Yeah. Um,
-- [24:09] I mean talent I mean talented people can go work anywhere they want.
-- [24:14] So they're only going to work at one of my companies if they want to. And if
-- [24:21] they're mistreated in some way, they would they would leave and go work somewhere else. How'd you come up with the idea for
-- [24:27] Starbase? Well, I think we needed a
-- [24:33] something inspirational. I can we we kind of have a lot of star things, you know. So, we got Starlink,
-- [24:39] Starship. Well, where would Starship depart from Star Base?
-- [24:47] I mean, Star Base is is as you've mentioned, it's it's like it's I think
-- [24:52] it's probably the coolest place on Earth. I agree. Um, and it used to it it used to be a
-- [24:58] sand bar down by the Rio Grand. I It's only like three feet above sea level.
-- [25:05] Um, so we built a gigantic rocket factory and
-- [25:11] two giant launch towers uh down by the river literally with
-- [25:18] inside of the Rio Grand and on on on an actual sandbar kind of
-- [25:23] had to have like an inspirational name. And then we made it a city so it's an
-- [25:29] incorporated city like legally a city. Um, you don't you don't hear about new cities being formed that often.
-- [25:37] Um, the last time there was a company town, it was Disney World.
-- [25:42] Yeah. I think Ford had some kind of like company town situations, but um but
-- [25:49] yeah, Disney World is it's literally his name. Yeah. I'm Walt Disney. This is my world.
-- [25:56] Yeah. I've gone from land to world. Um, they got like incorporated as a city
-- [26:02] and got tax exemption which was like a whole was a was a big deal. Yeah.
-- [26:07] I've been to Disney World probably 10 times. Really? Yeah. Maybe more than maybe more than
-- [26:13] 10, but at least 10 times. Uh because uh Cape Canaveral is right by
-- [26:19] Disney World. This makes sense now. So when I'd have the kids, then I would um my older kids
-- [26:26] and I was we're trying to get the rocket launch from Cape Canaveral. Then um
-- [26:32] you know the thing they'd want to do is go to Disney World uh or Harry Potterland.
-- [26:38] What's your favorite ride? I'm sort of tempted to say Space Mountain, I suppose. Yeah, probably
-- [26:44] Space Mountain. I mean, I do think Space Mountain needs an upgrade. It's a little herky jerky. the it
-- [26:50] doesn't look quite as fuss sci-fi as it used to. You know, it's it's like it's like the day before yesterday's tomorrow,
-- [26:57] but just till yesterday. What's your favorite age to parent of your kids?
-- [27:02] Uh, generally kids are the most fun between five and 10. Do you think humanity is inherently good
-- [27:08] or is it just trying to be? The concept of good wouldn't exist without humanity. I think I do think
-- [27:14] humanity is on balance good. You know, I generally think like in
-- [27:20] increasing the amount of consciousness in the universe is a good thing.
-- [27:26] Trying to try to understand the nature of the universe, which you can only do by increasing
-- [27:32] the increasing conscious awareness. I mean, I have thought about like how how did we get here? Because if we did start
-- [27:39] out as a hydrogen gas cloud that that sort of condensed and then
-- [27:47] formed stars and then these stars exploded and then they recondensed, formed stars
-- [27:53] again and then exploded again and then eventually you get to us 13.8 billion
-- [27:59] years later. And one of the interesting questions to think about is how many times have your
-- [28:04] atoms been at the center of a star? I think it's like on average three or
-- [28:12] four times, something like that. Uh then how many times will your atoms be at the
-- [28:17] center of a star? Estimates vary, but it seems like we're roughly halfway.
-- [28:24] So your atoms likely to be at the center of the star maybe another four times or
-- [28:30] something like that. It's depends on what your predictions are for the future. In terms of existence as measured by the
-- [28:38] number of times your atoms will be at the center of a star, we seem to be roughly halfway.
-- [28:45] That really, you know, if you want to look at the big picture, that's the really big picture.
-- [28:52] What's one invention that's made us worse, not better? What's one adventure that's made us
-- [28:58] worse? Mhm. Invention. Maybe short form video
-- [29:06] seems to be rotting people's brains. What's one piece of technology you hope never gets invented?
-- [29:13] Hope that I hope never gets invented. Like yeah, like it's going to destroy us
-- [29:18] all or you think with the proper safeguards?
-- [29:24] Well, I mean obviously I hope like that people don't invent a virus that can kill all humans. It's
-- [29:31] like that's an obvious thing. Um I mean yeah generally I hope like
-- [29:36] inventions that destroy consciousness are not invented.
-- [29:42] I think the future's going to look very interesting. So I I it's I do have this theory about
-- [29:49] the the predicting the future which is that the most interesting outcome is the most likely. um which if simulation theory is
-- [29:56] accurate uh makes sense because if anyone is simulating a wide range of
-- [30:03] futures they're going to stop the simulation when it gets boring because this is what we do in our reality. So if
-- [30:11] if SpaceX is doing or Tesla doing simulations to understand how a car would work or robot or spaceship or
-- [30:20] something like that, we we run all these simulations in the computer. Um and the simulations
-- [30:26] that um we pay attention to are the ones that that are the most interesting. like the
-- [30:33] the simulation where everything goes right on the rocket we actually don't pay attention to because that's that's
-- [30:38] not a the everything goes right simulation is um is fine. So we we
-- [30:44] actually test the you know the when we simulate the the
-- [30:50] rocket flight we'll actually test all sorts of oddball situations but we don't
-- [30:56] test it we we don't have the simulation be totally wrong because I mean like if the rocket just explodes immediately
-- [31:02] that's not not also not interesting. So it's it's like you you need to find the envelope of possible flight paths where
-- [31:09] the rocket can make it to orbit and uh without exploding and then you you find
-- [31:16] those boundaries and then when you launch the actual rocket you try you make sure it stays within those boundaries. Or another way
-- [31:23] to think of it is like we could be an alien Netflix series
-- [31:29] and that that series is only going to get continued if our ratings are good.
-- [31:35] Are the ratings good? Yeah. Okay. But but you can think of it like from a Darwinian standpoint applied if if you
-- [31:41] apply Darwin to simulation theory then the only the most interesting simulations will continue. Therefore,
-- [31:48] the most interesting outcome is most likely because the uh it's either that or annihilation.
-- [31:53] So, really, we have one goal. Keep it interesting. Do you think social media has made people more honest or more performative?
-- [32:01] Well, social media makes people more performative. Um,
-- [32:07] by the same token, you you you get more real life video of of things that that are
-- [32:13] actually happening and and anything that is very interesting will sp will will go
-- [32:19] viral on the internet. Um, so so you have both. you've got more performative
-- [32:26] where people are doing anything they can to get a few more views on their Tik Tok video or whatever or their reels or
-- [32:34] maybe on their expost or something. Um and um so that's very performative,
-- [32:42] but then you also see real life videos that are that challenge the narrative um
-- [32:48] but are nonetheless real. Is there any ex accounts you're surprised when you changed it so people could see country
-- [32:54] of origin that wasn't in the United States that you thought was in the United States? I don't really think about it that much.
-- [33:00] I mean there's in a country of origin
-- [33:07] we have to be a little careful about this. You you can actually technically you just specify your region like you
-- [33:13] can say I'm in Asia or something like that which is quite big. it but but it does make it a little harder that if
-- [33:18] somebody is trying to pretend that they're say a member of the American public or
-- [33:24] in Europe or Africa wherever if if they're you know if everything about
-- [33:29] their account is from a different continent than they are pretending to be from it's uh gets a little harder to
-- [33:36] pretend. We don't want to dox people but we kind of think you're not really doxing
-- [33:43] someone if you say which continent they're from. Yeah, I think it's fair. Yeah. Okay. So, in every episode we've played
-- [33:49] would you rather. Okay. Would you rather save humanity from extinction extinction
-- [33:55] on Earth or guarantee its survival on Mars?
-- [34:01] Uh it's it's a false dichotomy. I I I think I'd say uh guarantee Earth Earth's
-- [34:07] much better than Mars to be clear. Um Mars, but Mars is just our best option if we want to become a multilanet
-- [34:13] species. This is really our our our only option. Um if you want to become a multilanet species, you got Mars which
-- [34:19] is very difficult but not impossible. Uh Earth is much better than Mars but you
-- [34:25] know we can't uh I think it was Silkovsky or I think he said uh you know
-- [34:30] Earth is the cradle of civilization but we can't stay in the cradle forever. Would you rather be a Marvel superhero
-- [34:37] or a Bond villain? I think it would depend on which Marvel superhero or which Bond villain. I
-- [34:43] suppose I'd rather be a Marvel superhero. They did. They did model Iron Man in the
-- [34:49] movies after me. Yes. So, you were in the Iron Man movie, right? Yes.
-- [34:55] That's pretty cool. Yeah. Ro Down Jr. and Favro met with me uh to and toured SpaceX and stuff. So,
-- [35:02] and in fact, Iron Man 2, a large part of the movie is filmed in SpaceX.
-- [35:08] Really? Yes. If you look at if you watch Iron Man 2, you'll see it's a SpaceX factory is the actual background.
-- [35:14] That's so cool. Yeah, it was cool. We had Scarlett Johansson doing martial arts in the
-- [35:20] lobby, actually. [Laughter]
-- [35:27] Yeah. And you expect me to believe this is all real? It's a simulation.
-- [35:32] Exactly. What are the odds? Yeah. I mean, if you were me
-- [35:38] No, I agree with you. Would you think this is real or a simulation? Your life is a simulation.
-- [35:43] Yeah. Your life gets to be the simulation. Yeah. And I'm like doing all the side quests and everything. Yeah. What's your best side quest?
-- [35:52] A doge. Probably. [Laughter]
-- [35:58] Okay. Would you rather launch a social network with no algorithm or a rocket with no manual override?
-- [36:05] Who came up with these questions? Just keep going. These are funny. Maybe not to you cuz they're too
-- [36:11] trivial. What do you mean? Like so that with an algorithm means that you basically you
-- [36:17] only see the people you follow. Like it's just a mess. Like it was Twitter before you bought
-- [36:23] it. Yeah. Yeah. Um there's the sort of people you follow and then there there's
-- [36:29] a recommendation algorithm. Um I think probably in December we'll
-- [36:34] finally have a half decent recommendation algorithm. It's a lot better recently. Yeah.
-- [36:42] So it really just trying to show people stuff they'd be interested in. Um, but
-- [36:47] there's an enormous amount of AI horsepower being applied to this where Grock per thing is reading all it's
-- [36:55] going to read all 100 million posts per day which is a Does that take up a lot of comput?
-- [37:00] Hopefully it doesn't destroy its mind or something. Yeah. Yeah, it does take a lot of compute.
-- [37:06] um like most most posts are um there's a lot of spam scam stuff so it just that
-- [37:13] can be easily discarded I suppose. Um but then you've got to take
-- [37:19] you know 100 million pieces of content match that to I don't know sometimes three or 400
-- [37:25] million people per day. So that's a lot of matching.
-- [37:31] My algorithm used to look a lot like other people's when you open their X account. Now mine is very unique comparatively to other people's.
-- [37:39] Um well we really are kind of the
-- [37:44] this is just the the beginning kind of thing. The what I
-- [37:50] mentioned like Grock reading everything and recommending any given thing to anyone should go live in December. So
-- [37:57] that the the acid test for this is are you seeing content like are you seeing
-- [38:03] content that you find really interesting from accounts you've never seen before?
-- [38:09] If if you if that's happening then the algorithm is working. Um like it should
-- [38:14] be possible for somebody to put to post content as a new user with no followers
-- [38:20] and if that content is is excellent it gets seen by a lot of people. So, can an
-- [38:26] account with a small number of followers or a new account
-- [38:31] if if the content is intrinsically excellent, can that content be seen by a lot of people?
-- [38:38] That's our goal. All right, last one. Would you rather invent time travel or teleportation?
-- [38:44] Actually, those things are almost the same thing in that you you
-- [38:52] can't break the speed of light without breaking reality. And you you know so if you could
-- [38:58] teleport somewhere instantly if you talking about teleportation faster than the speed of light
-- [39:04] presumably it would be um then then that that that would break our reality as
-- [39:10] would time travel. Um unless was there a very important conditional
-- [39:15] here? Unless we're a simulation.
-- [39:20] Time travel does not break a simulation. Is it like in Loki
-- [39:26] where you're on like the time and you just break a new one? Um the I think well
-- [39:33] people do tend to get wrapped up in knots with the time travel thing because they they try to simultaneously say something must be logically consistent
-- [39:40] but logically inconsistent. That's impossible. Um, but if you think of it like a video game, um, and say, okay,
-- [39:47] you've got various saved games and you can go back and restore a saved game
-- [39:53] from a prior start point. You still have your other saved games and there are
-- [39:58] many games going on in parallel. Um, they don't have to be consistent
-- [40:04] with each other. That's that's that's that's a that that is a
-- [40:10] it's a false assumption. If we're a simulation, um we might be somebody's video game
-- [40:17] or TV show or something like that. Like I said, we're just going to keep it interesting so they don't turn the
-- [40:24] computer off. [Laughter]
-- [40:29] What do you want? I'm just saying if that's true, keep it interesting or they're going to turn off the computer
-- [40:34] and they might Please don't delete us. Please don't delete us. Please don't
-- [40:40] delete us. Uh, we'll keep it interesting. I swear
-- [40:45] you keep it interesting. Yeah. So, if the most interesting outcome is
-- [40:51] the most likely, what do you think are the most interesting things that can occur? Now, most interesting is not what you want. It's just as viewed by a third
-- [40:58] party. Let's say you this was for argument sake um a an alien Netflix
-- [41:04] series and you were trying to maximize your viewership,
-- [41:10] you know, maximize your ratings. Um it's it's actually an interesting
-- [41:15] thought experiment. It's it's like it it's not actually not that interesting if everything just blows up. It's now
-- [41:21] it's over. That's not that interesting. It's not that interesting if there's a there's a
-- [41:28] calamity that wipes out all the humans. The show just ended.
-- [41:34] But I mean, fortunately and unfortunately uh if there is drama that like war or
-- [41:44] something like that, that that is interesting. You know, people will go to movies and watch, say, a World War I
-- [41:51] movie where people are getting blown up um from cannon shells and uh they're in
-- [41:57] the movie theater eating popcorn, drinking a soda. Um like you you wouldn't go to a movie
-- [42:04] where everything was just perfect and stayed that way. You'd leave you'd leave the theater. Good romance story, doesn't it?
-- [42:11] There's always a story arc. There's always an arc. Um, and it's it's
-- [42:17] generally not a linear arc. So, it's it's not going to be like things start here and just go straight up and to the
-- [42:23] right and end up in a good place for something like that. It's usually ups
-- [42:28] and downs. The classic sort of story arcs
-- [42:34] essentially, you know, act one, act two, act three.
-- [42:39] You have an initial rise in act two, full back in act initial rise in act one, full down in act two, um back in in
-- [42:48] act three with um you know happy ending if it's a comedy or a sad ending if it's
-- [42:53] a drama. If you look at President Trump's uh
-- [42:59] you know story, it's more interesting that he lost this the intermediate term
-- [43:07] and then won you know his second term
-- [43:12] after that. Just like the story arc initially up then down then resurgent resurgent
-- [43:19] again. If if you went with my
-- [43:26] theory that the most interesting outcome is the most likely, then that was the most likely outcome.
-- [43:32] It was inevitable. What are you watching on TV right now?
-- [43:38] I am irony man. Something like that. I'm paraphrasing.
-- [43:45] [Laughter] [Music] Uh, what am I watching actually? Right
-- [43:51] now I'm watching Teenage Mutant Ninja Turtles, the TV series Turtles in a Half Show, Total Power.
-- [43:58] Yeah. Uh, cuz uh, Little X wants to watch that. I I I'm watching things that the kids kids want to watch. Rewatched
-- [44:06] Dodgeball last night. It's a good movie. Yeah. [Laughter]
-- [44:13] If you can dodge a wrench, you can dodge a ball. If you can dodge a wrench, you can dodge
-- [44:18] a ball. What? [Laughter]
-- [44:31] Yeah. [Laughter]
-- [44:36] High motivation to dodge if somebody's loving reg. What song instantly puts you in a good
-- [44:42] mood?
-- [44:48] Uh, The Final Countdown by Europa.
-- [44:54] [Laughter] Heard that song a lot. Do you read the instructions or just wing it?
-- [45:00] What's the goal? Like if you're putting something together, do you read the instructions or do you wing it? If it's a simple thing, I'll wing it. If
-- [45:06] it's a complex thing, I'll look at the instructions. If you had to start from scratch today with only $1,000,
-- [45:14] what would you do? Well, I did I did originally come to
-- [45:21] uh North America with like I don't know 2500 bucks Canadian, so I don't know, maybe two grand us. Um, one bag of books
-- [45:29] and one bag of clothes in Montreal at age 17. So that is how I started out. Um,
-- [45:37] at this point I have a lot of knowledge. A lot of things would have to go wrong for that to be the case.
-- [45:44] It's like, am I just emerging from prison perhaps with a stipend?
-- [45:51] All my company's been confiscated. I mean, it would take Armageddon, which
-- [45:56] hopefully that doesn't happen. Um, like Ragnarok next level and I lost.
-- [46:02] Yeah. What the hell? Um, it's bad hand.
-- [46:07] I I mean it's impossible for me for someone to
-- [46:12] have that amount of know all the knowledge that I have and then be um
-- [46:18] dropped down to a low resource amount because the reality is that either something truly catastrophic has
-- [46:23] happened like civilization has melted um or I will be able to ask people to just
-- [46:29] give me money um and with the promise that I will have a high return which
-- [46:36] what I'm able to do right now. Yeah. Like if you give me a dollar, you will get back much more than a dollar.
-- [46:42] Yes. Um so this is it's it's somewhat of an impossible dichotomy because
-- [46:48] civilization would have had to have destroyed or something.
-- [46:53] Um in which case $1,000 is not going to solve your problems. you know, you can't
-- [46:59] do much with a if you're if you're wandering around radioactive
-- [47:06] craters, uh, and you're in like, you know,
-- [47:12] fallout or whatever, uh, then, uh, $1,000 is not going to
-- [47:18] solve anything. And if civil civilization hasn't melted, then
-- [47:23] probably just talk people into giving me money, which I've done before. [Music]
-- [47:30] If you weren't running your companies, what random job would you enjoy doing the most? I don't know if that's all that random,
-- [47:36] but I'd like probably write video games or something like that. I I did that at one point.
-- [47:44] I like solving problems, so I like building things.
-- [47:49] I built a lot of things. Like a lot.
-- [47:55] What do you eat in a typical day? Well, these days I start off with a
-- [48:01] breakfast of steak and eggs and coffee. And then dinner tends to vary. I usually
-- [48:08] don't have lunch. Um or if I do something very small. And then dinner,
-- [48:15] depending on whether it's social or not, um will vary in cuisine. I like a wide
-- [48:21] range of cuisine. What's your favorite food? Um, American food is my favorite food.
-- [48:27] Like pizza or a cheeseburger? Like Yeah, the cheeseburger is probably the
-- [48:34] If I had to say like there's only one thing you can ever have for the rest of time, which admittedly would be a bit
-- [48:40] monotonous, but it would probably be a cheeseburger. Um, because cheeseburgers are amazing.
-- [48:45] It's a genius invention. Um, I'll tell you a funny story about
-- [48:50] when um I was living in LA and I took my older boys out for lunch uh to Sugarfish,
-- [48:59] which is a very um kind of uptight sushi restaurant. Um, in fact, it's at at at
-- [49:07] the on the menu of of the restaurant, it says, "Do not ask for soy sauce."
-- [49:14] Uh because the chef has put the right amount of choy soy sauce and you can't have anymore. And if the chef doesn't
-- [49:21] think you chef soy sauce, you can't have soy sauce. That's what it says on the menu basically. Um so
-- [49:29] like extremely strict um sushi restaurant. And
-- [49:35] so the waiter is going around asking everyone what they want. And then it comes to Saxon and Saxon says, "I'll
-- [49:42] have a cheeseburger. And the waiter's like, takes a moment
-- [49:47] for the waiter to recover because no one's ever asked for a cheeseburger at this, you know, very strict sushi
-- [49:53] restaurant. Um, took him like a 30 seconds to realize he just been asked for a
-- [49:59] cheeseburger because you're not even allowed to ask for soy sauce. So, um, so
-- [50:05] then when he finally recovered, he said, "We don't have cheeseburgers." [Music]
-- [50:11] And Saxon Saxon goes at the top of his voice, "What?" Like, "What kind of
-- [50:16] restaurant doesn't have cheeseburgers?" I says, "Fine, I'll have a hamburger."
-- [50:23] I don't know what you got against dairy, but yeah, I don't have hamburgers either.
-- [50:29] Did he stay for the rest of the meal? Yeah, but he was nonplusted.
-- [50:35] I was like, I can't believe um this place doesn't have cheeseburgers. So So yeah, I mean I like I guess I like
-- [50:41] barbecue, which is good because I'm here in Austin. Um
-- [50:47] I mean if it's if it's if it's a hot cuisine, I like French food as well, but
-- [50:52] not every day in once in a while. If your friends described you in one emoji, what's the emoji?
-- [50:59] I guess the emoji I use the most, which is the laughing emoji.
-- [51:06] All right. And we close on this question every episode. If you could host a dinner party with three people, dead or
-- [51:12] alive, who's coming to dinner, and what are you eating?
-- [51:17] Maybe Shakespeare, Ben Franklin, Nicola Tesla.
-- [51:22] Um, I there's there's actually a lot of people I'd like to I would have liked to talk to and we'll we'll eat, I guess,
-- [51:28] whatever they'd like. Um,
-- [51:33] I think if if if you're going to if this is a once in a-lifetime thing, I think you'd want to have some
-- [51:40] epic, you know, 12 course meal or something like that at least.
-- [51:45] Yeah. But some Yeah. You want to go all out for that dinner? I think you're
-- [51:51] probably not going to serve cheeseburgers unless they want it. Yeah. Maybe one of the courses could be like a
-- [51:58] tiny cheeseburger. Those don't taste as good as the big ones, though. No, but they could.
-- [52:03] It's just they don't try. There's nothing. You could make a tiny cheeseburger taste just as good as a big cheeseburger
-- [52:09] if you try it. Have you ever had a tiny cheeseburger that actually tastes good? Rare, but yes.
-- [52:14] Okay. 1% of the time. Fair. But usually it's too much bread and it's dry. Correct. Yeah.
-- [52:20] And then like there's not enough meat in proportion to the bread. Yeah. Right. But could you make a tiny cheeseburger
-- [52:25] that's good? Of course. Like you're not breaking, you're not like get any Nobel Prize with this. You know,
-- [52:32] you can definitely make a tiny cheeseburger. It's like physically possible. I'm saying it's just rare.
-- [52:39] Thank you for doing this. You're welcome. Thanks for watching this week's episode of the Katie Miller podcast. We'll see
-- [52:45] you next week, Tuesday, 6 p.m.
-- [52:53] [Music]
-) lets go back to linked in
+## USER (7 tokens)
+
+ok lets open the bright tree one
 
 ---
 
-## ASSISTANT (25 tokens)
+## ASSISTANT (20 tokens)
 
-Heading back to LinkedIn for you now.
+Clicking on the Bright Tree Digital chat for you.
 
-{"cap": "SwitchTab", "params": {"tabId": 3}}
-
----
-
-## USER (13 tokens)
-
-so can we use the transcript to say something interesting with the post
+{"act": "a_id_33"}
 
 ---
 
-## ASSISTANT (52 tokens)
+## USER (2 tokens)
 
-Too right! We can grab a cool quote or insight from the transcript to post on LinkedIn. Something like Elon’s take on AI, or his thoughts on working less in the future. Want me to whip up a sharp LinkedIn post for you using the transcript?
+close messages
+
+---
+
+## ASSISTANT (15 tokens)
+
+Closing the Messenger window now.
+
+{"act": "a_id_8"}
+
+---
+
+## USER (2 tokens)
+
+close chats
+
+---
+
+## ASSISTANT (16 tokens)
+
+Closing the chat panel for you.
+
+{"act": "a_id_129"}
+
+---
+
+## USER (8 tokens)
+
+what notiications do i have
+
+---
+
+## ASSISTANT (35 tokens)
+
+You’ve got 18 unread notifications – probably some likes, comments, or whatever. Want me to open them up for you?
+
+{"act": "a_id_10"}
+
+---
+
+## USER (4 tokens)
+
+anything about bright tree
+
+---
+
+## ASSISTANT (46 tokens)
+
+Yep, there’s a notification about Bright Tree Digital getting 8 new views and a suggestion to spend ZAR350 more on ads for more reach. Want me to show that notification?
+
+{"act": "a_id_70"}
 
 ---
 
 ## USER (3 tokens)
 
-go for it
+close this add
 
 ---
 
-## ASSISTANT (174 tokens)
+## ASSISTANT (23 tokens)
 
-Here’s a punchy LinkedIn post idea from Elon’s transcript:
+I'll click the Close button to get rid of that ad notification.
 
-"Elon Musk reckons AI and robotics will soon handle all the heavy lifting, making work optional. Imagine a future where we get to spend our time doing what we love, not just what we must. The future’s not just about tech, it’s about freedom. #AI #FutureOfWork #Innovation"
-
-I’ll pop that in the LinkedIn post box and get it ready to share.
-
-{"act": "a_id_2", "value": "Elon Musk reckons AI and robotics will soon handle all the heavy lifting, making work optional. Imagine a future where we get to spend our time doing what we love, not just what we must. The future’s not just about tech, it’s about freedom. #AI #FutureOfWork #Innovation", "submit": false}
+{"act": "a_id_21"}
 
 ---
 
-## USER (62 tokens)
+## USER (2 tokens)
 
-Elon Musk reckons AI and robotics will soon handle all the heavy lifting, making work optional. Imagine a future where we get to spend our time doing what we love, not just what we must. The future’s not just about tech, it’s about freedom. #AI #FutureOfWork #Innovation
+open youtube
 
 ---
 
-## ASSISTANT (22 tokens)
+## ASSISTANT (29 tokens)
 
-Righto, that post is all set. Want me to hit the Post button and share it on LinkedIn?
+Opening YouTube in a new tab for you.
+
+{"cap": "OpenTab", "params": {"url": "https://www.youtube.com"}}
 
 ---
 
 ## USER (3 tokens)
 
-you hit it
+open Megyn
 
 ---
 
-## ASSISTANT (22 tokens)
+## ASSISTANT (21 tokens)
 
-Posting it now, mate. Let’s get that out there!
+Clicking on the Megyn Kelly video link for you.
 
-{"act": "a_id_7"}
+{"act": "a_id_40"}
 
 ---
 
@@ -1525,72 +518,16 @@ close this tab
 
 ---
 
-## ASSISTANT (25 tokens)
+## ASSISTANT (27 tokens)
 
-Closing the LinkedIn tab for you now.
-
-{"cap": "CloseTab", "params": {"tabId": 3}}
-
----
-
-## USER (4 tokens)
-
-close the youtube one
-
----
-
-## ASSISTANT (29 tokens)
-
-Closing the YouTube tab (Tab 2) for you.
+Closing the current tab with Megyn Kelly videos.
 
 {"cap": "CloseTab", "params": {"tabId": 2}}
 
 ---
 
-## USER (5 tokens)
-
-lets go look at gmail
-
----
-
-## ASSISTANT (26 tokens)
-
-Opening Gmail for you now.
-
-{"cap": "OpenTab", "params": {"url": "https://mail.google.com"}}
-
----
-
-## USER (12 tokens)
-
-what did olivia and miriam talk about open that mail
-
----
-
-## ASSISTANT (19 tokens)
-
-Opening the email from Olivia and Miriam now.
-
-{"act": "a_id_41"}
-
----
-
 ## USER (3 tokens)
 
-refresh the page
-
----
-
-## ASSISTANT (12 tokens)
-
-Refreshing the inbox page now.
-
-{"cap": "Refresh"}
-
----
-
-## USER (5 tokens)
-
-lets hit that first mail
+close this tab
 
 ---

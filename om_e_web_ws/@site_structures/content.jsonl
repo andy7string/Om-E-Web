@@ -1,35 +1,28 @@
 {
-  "timestamp": 1765346834.712001,
+  "timestamp": 1765357954.1642802,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138041058,
-      "url": "https://mail.google.com/mail/u/0/#inbox",
-      "title": "Inbox (5,256) - andreworsmond21175@gmail.com - Gmail",
-      "status": "loading"
+      "id": 1138041498,
+      "url": "https://www.facebook.com/ad_center/create/ad/?entry_point=ads_growth_page_user_activity_notification&page_id=2081098165457413&notif_id=1763876605043703&notif_t=page_user_activity&ref=notif",
+      "title": "Choose a goal | Facebook",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138041040,
-        "url": "http://127.0.0.1:8080/",
-        "title": "OM-E Web",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138041058,
-        "url": "https://mail.google.com/mail/u/0/#inbox",
-        "title": "Inbox (5,256) - andreworsmond21175@gmail.com - Gmail",
+        "id": 1138041498,
+        "url": "https://www.facebook.com/ad_center/create/ad/?entry_point=ads_growth_page_user_activity_notification&page_id=2081098165457413&notif_id=1763876605043703&notif_t=page_user_activity&ref=notif",
+        "title": "Choose a goal | Facebook",
         "active": true,
-        "status": "loading"
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 31427.484009583,
+    "last_tabs_update": 42551.527777916,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://mail.google.com/mail/u/0/#inbox",
-    "title": "Inbox (5,256) - andreworsmond21175@gmail.com - Gmail",
+    "url": "https://www.facebook.com/ad_center/create/ad/?entry_point=ads_growth_page_user_activity_notification&page_id=2081098165457413&notif_id=1763876605043703&notif_t=page_user_activity&ref=notif",
+    "title": "Choose a goal | Facebook",
     "is_active_tab": true
   },
   "content_structure": {},

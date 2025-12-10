@@ -138,6 +138,15 @@
         "maxWait": 5000
       },
       "_comment": "Uses MutationObserver to detect dropdown and click first option - event-driven, no delays"
+    },
+    "messengerChat": {
+      "description": "Facebook Messenger chat input (React/Lexical contenteditable)",
+      "container": "[aria-label='Message'], [aria-label*='Message' i][contenteditable='true'], [role='textbox'][aria-label*='Message' i]",
+      "placeholder": "[aria-label='Message'], [aria-label*='Message' i][contenteditable='true'], [role='textbox'][aria-label*='Message' i]",
+      "forceBubbles": true,
+      "forceSubmitSelector": true,
+      "submitSelector": "[aria-label='Press Enter to send'], [aria-label*='send' i], button[type='submit']",
+      "_comment": "React contenteditable ignores synthetic Enter - use submitSelector to click send button directly"
     }
   }
 }
