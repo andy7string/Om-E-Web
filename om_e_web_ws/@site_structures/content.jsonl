@@ -1,49 +1,35 @@
 {
-  "timestamp": 1765340132.2568982,
+  "timestamp": 1765346834.712001,
   "browser_state": {
-    "total_tabs": 4,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138040908,
-      "url": "https://www.youtube.com/watch?v=Cti1p7mlvcM",
-      "title": "(38) Scientists Just Broke Physics: The Wire That Defies Reality - YouTube",
-      "status": "complete"
+      "id": 1138041058,
+      "url": "https://mail.google.com/mail/u/0/#inbox",
+      "title": "Inbox (5,256) - andreworsmond21175@gmail.com - Gmail",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138040853,
-        "url": "https://www.google.com/search?q=cars&sca_esv=73e86a78892c9231&sxsrf=AE3TifN1RPaEacY7EXoZbVVIyFGi0VPovw%3A1765339655759&source=hp&ei=B_I4aZCuLOWsseMPu-i-oAM&iflsig=AOw8s4IAAAAAaTkAFym2MKtreje5rmSuoBGIGalagXJk",
-        "title": "cars - Google Search",
+        "id": 1138041040,
+        "url": "http://127.0.0.1:8080/",
+        "title": "OM-E Web",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138040905,
-        "url": "https://www.facebook.com/marketplace/item/1600640511292173/?ref=search&referral_code=null&referral_story_type=post&tracking=browse_serp%3A021dbd98-8193-4f9b-b39f-39bb70821ec6",
-        "title": "(17) Marketplace – Norco Fluid FS2 2021 | Facebook",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138040908,
-        "url": "https://www.youtube.com/watch?v=Cti1p7mlvcM",
-        "title": "(38) Scientists Just Broke Physics: The Wire That Defies Reality - YouTube",
+        "id": 1138041058,
+        "url": "https://mail.google.com/mail/u/0/#inbox",
+        "title": "Inbox (5,256) - andreworsmond21175@gmail.com - Gmail",
         "active": true,
-        "status": "complete"
-      },
-      {
-        "id": 1138040911,
-        "url": "chrome://extensions/",
-        "title": "Extensions",
-        "active": false,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 24453.081242916,
+    "last_tabs_update": 31427.484009583,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/watch?v=Cti1p7mlvcM",
-    "title": "(38) Scientists Just Broke Physics: The Wire That Defies Reality - YouTube",
+    "url": "https://mail.google.com/mail/u/0/#inbox",
+    "title": "Inbox (5,256) - andreworsmond21175@gmail.com - Gmail",
     "is_active_tab": true
   },
   "content_structure": {},
