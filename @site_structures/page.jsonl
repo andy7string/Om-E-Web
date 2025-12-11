@@ -1,28 +1,28 @@
 {
-  "timestamp": 1765451261.7684748,
+  "timestamp": 1765368261.5802932,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138042492,
-      "url": "https://mail.google.com/mail/u/0/?q=Olivia#drafts",
-      "title": "Drafts (4) - andreworsmond21175@gmail.com - Gmail",
-      "status": "complete"
+      "id": 1138041601,
+      "url": "https://www.youtube.com/",
+      "title": "(39) YouTube",
+      "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138042492,
-        "url": "https://mail.google.com/mail/u/0/?q=Olivia#drafts",
-        "title": "Drafts (4) - andreworsmond21175@gmail.com - Gmail",
+        "id": 1138041601,
+        "url": "https://www.youtube.com/",
+        "title": "(39) YouTube",
         "active": true,
-        "status": "complete"
+        "status": "loading"
       }
     ],
-    "last_tabs_update": 17141.624722291,
+    "last_tabs_update": 52844.795167166,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://mail.google.com/mail/u/0/?q=Olivia#drafts",
-    "title": "Drafts (4) - andreworsmond21175@gmail.com - Gmail",
+    "url": "https://www.youtube.com/",
+    "title": "(39) YouTube",
     "is_active_tab": true
   },
   "menu_structure": {

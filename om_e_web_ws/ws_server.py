@@ -126,7 +126,7 @@ def get_element_info(action_id: str) -> Optional[dict]:
     return ELEMENT_REGISTRY.get(action_id)
 
 
-def translate_tab_params(params: dict) -> tuple[dict, str]:
+def translate_tab_params(params: dict) -> tuple[dict, str | None]:
     """
     🔢 Translate display tab numbers (1-8) to real Chrome tab IDs.
 
@@ -909,6 +909,10 @@ VIDEO_HISTORY_JSONL = os.path.join(TRANSCRIPTS_DIR, "video_history.jsonl")
 
 # 🔄 Stored data for quick text.md regeneration on tab changes
 LAST_TEXT_MD_DATA = None  # Stores {title, url, page_text, capabilities, elements, iframes}
+
+# 🆕 In-memory storage for text.json resolution data
+# Used to look up element hints (label, type, tag, selectors) by action ID
+CURRENT_TEXT_JSON = {}
 
 SERVER_HEARTBEAT_INTERVAL = 20  # seconds
 
@@ -2422,10 +2426,16 @@ def update_tabs_in_text_md():
 
 def write_text_md():
     """
-    🔄 Write/regenerate text.md using stored page data + current tabs.
+    🔄 Write/regenerate text.md AND text.json using stored page data + current tabs.
     Called on intelligence_update ONLY (not on tab changes).
+
+    text.json contains resolution hints for each action ID:
+    - label: Display text for the element
+    - type: Element type (Button, Link, Input, etc.)
+    - tag: HTML tag name
+    - selectors: Array of CSS selectors for resolution
     """
-    global LAST_TEXT_MD_DATA, TAB_NUMBER_MAP
+    global LAST_TEXT_MD_DATA, TAB_NUMBER_MAP, CURRENT_TEXT_JSON
 
     if not LAST_TEXT_MD_DATA:
         return False
@@ -2433,7 +2443,38 @@ def write_text_md():
     try:
         data = LAST_TEXT_MD_DATA
         text_file_path = os.path.join("@site_structures", "text.md")
+        text_json_path = os.path.join("@site_structures", "text.json")
+        timestamp = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
 
+        # 🆕 Build text.json structure from ELEMENT_REGISTRY
+        text_json = {
+            "metadata": {
+                "url": data.get('url', ''),
+                "title": data.get('title', ''),
+                "timestamp": timestamp,
+                "element_count": len(ELEMENT_REGISTRY)
+            },
+            "elements": {}
+        }
+
+        # Populate elements from ELEMENT_REGISTRY (already has selectors from Phase 1)
+        for action_id, el_data in ELEMENT_REGISTRY.items():
+            text_json["elements"][action_id] = {
+                "label": el_data.get("label", ""),
+                "type": el_data.get("type", ""),
+                "tag": el_data.get("tag", ""),
+                "selectors": el_data.get("selectors", []),
+                "href": el_data.get("href")
+            }
+
+        # Write text.json
+        with open(text_json_path, 'w', encoding='utf-8') as f:
+            json.dump(text_json, f, indent=2, ensure_ascii=False)
+
+        # Store in memory for fast lookup during action execution
+        CURRENT_TEXT_JSON = text_json
+
+        # Write text.md (existing logic)
         with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
             # Frontmatter
             f.write(f"# {data['title']}\n\n")
@@ -2495,11 +2536,45 @@ def write_text_md():
                 f.write("\n\n---\n\n## Secure Iframe Elements\n\n")
                 f.write(f"*⏳ Loading {data['pending_iframes']} iframe(s)...*\n")
 
-        print("🔄 text.md regenerated")
+        print(f"🔄 text.md + text.json regenerated ({len(text_json['elements'])} elements)")
         return True
     except Exception as e:
-        print(f"⚠️ Error writing text.md: {e}")
+        print(f"⚠️ Error writing text.md/text.json: {e}")
+        import traceback
+        traceback.print_exc()
         return False
+
+
+def resolve_action_hints(action_id):
+    """
+    🆕 Look up resolution hints for an action ID from text.json (in memory).
+
+    @param action_id: e.g., "a_id_7"
+    @returns: {label, type, tag, selectors, href} or None
+    """
+    global CURRENT_TEXT_JSON
+
+    # Try in-memory first
+    if CURRENT_TEXT_JSON and CURRENT_TEXT_JSON.get("elements"):
+        hints = CURRENT_TEXT_JSON["elements"].get(action_id)
+        if hints:
+            return hints
+
+    # Fallback: load from file
+    try:
+        text_json_path = os.path.join(SITE_STRUCTURES_DIR, "text.json")
+        print(f"   📂 Loading text.json from: {text_json_path}")
+        with open(text_json_path, 'r', encoding='utf-8') as f:
+            CURRENT_TEXT_JSON = json.load(f)
+        hints = CURRENT_TEXT_JSON.get("elements", {}).get(action_id)
+        if hints:
+            print(f"   ✅ Found hints for {action_id}: {hints.get('label')}")
+        else:
+            print(f"   ⚠️ {action_id} not in text.json")
+        return hints
+    except Exception as e:
+        print(f"   ❌ Failed to load text.json: {e}")
+        return None
 
 
 def get_current_tabs_info():
@@ -4084,16 +4159,49 @@ async def handler(ws):
                             # 🎯 Populate ELEMENT_REGISTRY for action type resolution
                             global ELEMENT_REGISTRY
                             ELEMENT_REGISTRY = {}  # Clear on new page/update
+
+                            # Track selector quality stats
+                            selector_stats = {"with_selectors": 0, "total_selectors": 0, "by_type": {}}
+
                             for el in actionables:
                                 el_id = el.get("id")
                                 if el_id:
+                                    selectors = el.get("selectors", [])
                                     ELEMENT_REGISTRY[el_id] = {
                                         "type": el.get("type"),      # Link, Button, Input, Select
                                         "tag": el.get("tag"),        # a, button, input, select
                                         "label": el.get("label"),    # Display text
                                         "href": el.get("href"),      # For links
+                                        "selectors": selectors,      # 🆕 Robust selector array
                                     }
+
+                                    # Stats tracking
+                                    if selectors and len(selectors) > 0:
+                                        selector_stats["with_selectors"] += 1
+                                        selector_stats["total_selectors"] += len(selectors)
+                                        # Count by first selector type
+                                        first_sel = selectors[0] if selectors else ""
+                                        if "aria-label" in first_sel:
+                                            selector_stats["by_type"]["aria-label"] = selector_stats["by_type"].get("aria-label", 0) + 1
+                                        elif first_sel.startswith("#"):
+                                            selector_stats["by_type"]["id"] = selector_stats["by_type"].get("id", 0) + 1
+                                        elif "[name=" in first_sel:
+                                            selector_stats["by_type"]["name"] = selector_stats["by_type"].get("name", 0) + 1
+                                        elif "[placeholder=" in first_sel:
+                                            selector_stats["by_type"]["placeholder"] = selector_stats["by_type"].get("placeholder", 0) + 1
+                                        else:
+                                            selector_stats["by_type"]["other"] = selector_stats["by_type"].get("other", 0) + 1
+
                             print(f"🎯 Element registry updated: {len(ELEMENT_REGISTRY)} elements")
+                            print(f"📊 Selector quality: {selector_stats['with_selectors']}/{len(ELEMENT_REGISTRY)} have selectors, avg {selector_stats['total_selectors']/max(1,len(ELEMENT_REGISTRY)):.1f} per element")
+                            print(f"📊 Selector types: {selector_stats['by_type']}")
+
+                            # Log first 5 elements with their selectors for inspection
+                            print("🔍 Sample selectors (first 5):")
+                            for i, (el_id, el_data) in enumerate(list(ELEMENT_REGISTRY.items())[:5]):
+                                sels = el_data.get("selectors", [])
+                                label = el_data.get("label", "")[:30]
+                                print(f"   {el_id}: '{label}' → {sels[:3]}")
                         else:
                             page_text = intelligence_data.get("pageText", "")
                             print("⚠️ Semantic data not available, using plain text")
@@ -4416,20 +4524,42 @@ async def handler(ws):
                                             action_type = resolve_action_type(action_id, has_value=has_value)
                                             print(f"🎯 Element action: {action_id} → {action_type} (value={value}, submit={submit})")
 
-                                            instruction = {
-                                                "type": "execute_llm_action",
-                                                "data": {
-                                                    "actionId": action_id,
-                                                    "actionType": action_type,
-                                                    "params": {
-                                                        "value": value,
-                                                        "submit": submit
+                                            # 🆕 Look up hints from text.json for selector-based resolution
+                                            hints = resolve_action_hints(action_id)
+
+                                            if hints:
+                                                # Use hint-based execution (selector-based, survives re-renders)
+                                                instruction = {
+                                                    "type": "execute_action_with_hints",
+                                                    "data": {
+                                                        "actionId": action_id,
+                                                        "actionType": action_type,
+                                                        "params": {
+                                                            "value": value,
+                                                            "submit": submit
+                                                        },
+                                                        "hints": hints
                                                     }
                                                 }
-                                            }
+                                                print(f"🎯 Using hint-based execution: {hints.get('label')} ({len(hints.get('selectors', []))} selectors)")
+                                            else:
+                                                # Fallback to old method if no hints (shouldn't happen)
+                                                instruction = {
+                                                    "type": "execute_llm_action",
+                                                    "data": {
+                                                        "actionId": action_id,
+                                                        "actionType": action_type,
+                                                        "params": {
+                                                            "value": value,
+                                                            "submit": submit
+                                                        }
+                                                    }
+                                                }
+                                                print(f"⚠️ No hints found for {action_id}, using legacy execution")
+
                                             await EXTENSION_WS.send(json.dumps(instruction))
                                             cap_result = {"ok": True}
-                                            print(f"🤖 Sent execute_llm_action: {action_type} on {action_id}")
+                                            print(f"🤖 Sent {instruction['type']}: {action_type} on {action_id}")
 
                                             # Track in history
                                             add_action_to_history(f"Element:{action_type}", {"action_id": action_id, "value": value}, cap_result)
@@ -4992,16 +5122,35 @@ async def handler(ws):
                     
                     # Forward LLM instruction to extension for execution
                     if EXTENSION_WS and EXTENSION_WS != ws:
-                        instruction_msg = {
-                            "id": f"llm-{uuid.uuid4().hex[:8]}",
-                            "type": "execute_llm_action",
-                            "data": {
-                                "actionId": action_id,
-                                "actionType": action_type,
-                                "params": action_params
+                        # 🆕 Look up hints from text.json for selector-based resolution
+                        hints = resolve_action_hints(action_id)
+
+                        if hints:
+                            # Use hint-based execution (robust, survives re-renders)
+                            instruction_msg = {
+                                "id": f"llm-{uuid.uuid4().hex[:8]}",
+                                "type": "execute_action_with_hints",
+                                "data": {
+                                    "actionId": action_id,
+                                    "actionType": action_type,
+                                    "params": action_params,
+                                    "hints": hints
+                                }
                             }
-                        }
-                        
+                            print(f"🎯 Using hint-based execution: {hints.get('label')} ({len(hints.get('selectors', []))} selectors)")
+                        else:
+                            # Fallback to old method (DOM attribute lookup)
+                            instruction_msg = {
+                                "id": f"llm-{uuid.uuid4().hex[:8]}",
+                                "type": "execute_llm_action",
+                                "data": {
+                                    "actionId": action_id,
+                                    "actionType": action_type,
+                                    "params": action_params
+                                }
+                            }
+                            print(f"⚠️ No hints found, using legacy execution")
+
                         await EXTENSION_WS.send(json.dumps(instruction_msg))
                         print("✅ LLM instruction forwarded to extension")
                         
@@ -5451,7 +5600,7 @@ def resolve_capabilities_for_url(url: str) -> list:
         return []
 
 
-def is_site_config_capability(action: str, url: str = None) -> bool:
+def is_site_config_capability(action: str, url: str | None = None) -> bool:
     """
     🎯 Check if an action is a site config capability (needs DOM execution).
 

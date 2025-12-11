@@ -1010,6 +1010,15 @@ function handleServerMessage(messageData) {
             return;
         }
 
+        // 🆕 Handle hint-based action execution (selector-based, survives re-renders)
+        if (message.type === "execute_action_with_hints") {
+            console.log("[SW] 🎯 Processing hint-based action:", message.data);
+            handleExecuteActionWithHints(message, (response) => {
+                console.log("[SW] 🎯 Hint-based action response:", response);
+            });
+            return;
+        }
+
         // 🎯 PREMIUM: Handle capability execution messages
         if (message.type === "execute_capability") {
             console.log("[SW] 🎯 Processing capability execution:", message);
@@ -2647,6 +2656,69 @@ async function handleExecuteLLMAction(message, sendResponse) {
 
     } catch (error) {
         console.error("[SW] ❌ Error executing LLM action:", error);
+        actionInProgress = false;
+        sendResponse({ ok: false, error: error.message });
+    }
+}
+
+/**
+ * 🆕 Handle hint-based action execution (selector-based, survives re-renders)
+ *
+ * Uses CSS selectors from text.json to find elements instead of ephemeral DOM attributes.
+ * This pipeline is robust against page re-renders that clear data-ome-action-id.
+ *
+ * @param {Object} message - Message containing actionId, actionType, params, hints
+ * @param {Function} sendResponse - Callback for response
+ */
+async function handleExecuteActionWithHints(message, sendResponse) {
+    try {
+        const { actionId, actionType, params, hints } = message.data;
+        console.log("[SW] 🎯 Executing hint-based action:", actionId, hints?.label);
+
+        // Set action in progress flag to prevent content script refresh
+        actionInProgress = true;
+        console.log("[SW] 🔒 Hint-based action started - preventing content script refresh");
+
+        // Find the active tab
+        const activeTab = await findActiveTab();
+        if (!activeTab) {
+            actionInProgress = false;
+            sendResponse({ ok: false, error: "No active tab found" });
+            return;
+        }
+
+        // Forward to content script with hints
+        const actionMessage = {
+            type: "execute_action_with_hints",
+            data: {
+                actionId: actionId,
+                actionType: actionType,
+                params: params,
+                hints: hints
+            }
+        };
+
+        console.log("[SW] 📨 Sending execute_action_with_hints to content script");
+
+        const response = await chrome.tabs.sendMessage(activeTab.id, actionMessage);
+
+        if (response && response.ok) {
+            console.log("[SW] ✅ Hint-based action executed:", actionId);
+            sendResponse({ ok: true, result: response.result });
+
+            // Trigger post-action scan after delay
+            console.log("[SW] ⏳ Waiting 1 second before post-action scan...");
+            setTimeout(async () => {
+                await requestScan(activeTab.id, activeTab.url, 'post_action');
+            }, 1000);
+        } else {
+            console.error("[SW] ❌ Hint-based action failed:", response?.error);
+            actionInProgress = false;
+            sendResponse({ ok: false, error: response?.error || "Hint-based action failed" });
+        }
+
+    } catch (error) {
+        console.error("[SW] ❌ Error in hint-based action:", error);
         actionInProgress = false;
         sendResponse({ ok: false, error: error.message });
     }

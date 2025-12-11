@@ -2817,6 +2817,12 @@
             return false; // Don't handle this message in this listener
         }
 
+        // 🆕 HINT-BASED ACTION: Let the selector-based action listener handle these
+        // The hint-based listener at line ~11483 handles execute_action_with_hints
+        if (message.type === "execute_action_with_hints") {
+            return false; // Don't handle this message in this listener
+        }
+
         // 🎯 COMMAND EXECUTION SECTION - Handle all automation commands
         // Execute command asynchronously and send response
         // This allows for long-running operations without blocking the message handler
@@ -6568,17 +6574,17 @@
 
                         const actionId = `a_id_${counter++}`;
 
-                        // Write ID to DOM for later execution
-                        targetElement.setAttribute('data-ome-action-id', actionId);
+                        // 🚫 DISABLED: DOM attribute writing - now using selector-based resolution
+                        // targetElement.setAttribute('data-ome-action-id', actionId);
 
-                        // Store actionable metadata
+                        // Store actionable metadata with robust selector array
                         actionables.push({
                             id: actionId,
                             type: elementType,
                             label: label,
                             tag: targetElement.tagName.toLowerCase(),
                             href: targetElement.href || null,
-                            selector: this.generateSimpleSelector(targetElement)
+                            selectors: this.generateSimpleSelector(targetElement)
                         });
 
                         // Add element with action hint (Option B format: Type: label → {"act": "id", ...})
@@ -6668,30 +6674,115 @@
     };
 
     /**
-     * 🆕 Helper: Generate simple selector for element
+     * 🆕 Helper: Generate robust selector array for element
+     * Returns array of selectors ordered by specificity (most reliable first)
+     * @param {HTMLElement} element - Target element
+     * @returns {string[]} Array of CSS selectors
      */
     IntelligenceEngine.prototype.generateSimpleSelector = function (element) {
-        // Try ID first
-        if (element.id) {
-            return `#${element.id}`;
+        const selectors = [];
+        const tag = element.tagName.toLowerCase();
+
+        // Helper: escape special chars in CSS attribute values
+        const cssEscape = (str) => str.replace(/['"\\\n\r]/g, '\\$&');
+
+        // Helper: check if ID is generic/useless
+        const isGenericId = (id) => {
+            const generic = ['button', 'container', 'wrapper', 'content', 'main', 'root', 'app', 'div', 'span'];
+            return generic.includes(id.toLowerCase()) || id.length < 3 || /^[0-9]+$/.test(id);
+        };
+
+        // 1. aria-label (MOST STABLE - mirrors capability config pattern)
+        const ariaLabel = element.getAttribute('aria-label');
+        if (ariaLabel && ariaLabel.length < 100) {
+            selectors.push(`${tag}[aria-label='${cssEscape(ariaLabel)}']`);
+            selectors.push(`[aria-label='${cssEscape(ariaLabel)}']`);
         }
 
-        // Try data-ome-action-id
-        const actionId = element.getAttribute('data-ome-action-id');
-        if (actionId) {
-            return `[data-ome-action-id="${actionId}"]`;
+        // 2. Unique ID (skip generic ones)
+        if (element.id && !isGenericId(element.id)) {
+            selectors.push(`#${CSS.escape(element.id)}`);
         }
 
-        // Try class
-        if (element.className && typeof element.className === 'string') {
-            const firstClass = element.className.split(' ')[0];
-            if (firstClass) {
-                return `${element.tagName.toLowerCase()}.${firstClass}`;
+        // 3. name attribute (critical for form inputs)
+        const name = element.getAttribute('name');
+        if (name) {
+            selectors.push(`${tag}[name='${cssEscape(name)}']`);
+        }
+
+        // 4. placeholder (for inputs/textareas)
+        const placeholder = element.getAttribute('placeholder');
+        if (placeholder && placeholder.length < 80) {
+            selectors.push(`${tag}[placeholder='${cssEscape(placeholder)}']`);
+        }
+
+        // 5. role + aria-label combo (very specific)
+        const role = element.getAttribute('role');
+        if (role) {
+            if (ariaLabel) {
+                selectors.push(`[role='${role}'][aria-label='${cssEscape(ariaLabel)}']`);
+            }
+            // data-tooltip (common in Gmail, Google apps)
+            const tooltip = element.getAttribute('data-tooltip');
+            if (tooltip) {
+                selectors.push(`[role='${role}'][data-tooltip='${cssEscape(tooltip)}']`);
             }
         }
 
-        // Fallback to tag
-        return element.tagName.toLowerCase();
+        // 6. href for links (use pathname for stability)
+        if (tag === 'a' && element.href) {
+            try {
+                const url = new URL(element.href);
+                if (url.pathname && url.pathname !== '/' && url.pathname.length < 100) {
+                    selectors.push(`a[href*='${cssEscape(url.pathname)}']`);
+                }
+                // Hash links (common in SPAs)
+                if (url.hash && url.hash.length > 1) {
+                    selectors.push(`a[href*='${cssEscape(url.hash)}']`);
+                }
+            } catch (e) { /* invalid URL, skip */ }
+        }
+
+        // 7. data-* attributes (exclude our own, prefer short stable ones)
+        for (const attr of element.attributes) {
+            if (attr.name.startsWith('data-') &&
+                !attr.name.includes('ome') &&
+                !attr.name.includes('react') &&
+                !attr.name.includes('ng-') &&
+                attr.value.length > 0 &&
+                attr.value.length < 50) {
+                selectors.push(`[${attr.name}='${cssEscape(attr.value)}']`);
+                break; // Just first meaningful one
+            }
+        }
+
+        // 8. type attribute for inputs
+        const type = element.getAttribute('type');
+        if (type && ['text', 'email', 'password', 'search', 'tel', 'url', 'submit', 'checkbox', 'radio'].includes(type)) {
+            if (name) {
+                selectors.push(`input[type='${type}'][name='${cssEscape(name)}']`);
+            } else if (placeholder) {
+                selectors.push(`input[type='${type}'][placeholder='${cssEscape(placeholder)}']`);
+            }
+        }
+
+        // 9. Class combo as last resort (tag + first 2 meaningful classes)
+        if (element.className && typeof element.className === 'string') {
+            const classes = element.className.split(' ')
+                .filter(c => c && c.length > 2 && !c.match(/^(ng-|is-|has-|js-|_|active|hover|focus|disabled)/));
+            if (classes.length >= 2) {
+                selectors.push(`${tag}.${CSS.escape(classes[0])}.${CSS.escape(classes[1])}`);
+            } else if (classes.length === 1) {
+                selectors.push(`${tag}.${CSS.escape(classes[0])}`);
+            }
+        }
+
+        // 10. Fallback: tag only (useless but ensures we return something)
+        if (selectors.length === 0) {
+            selectors.push(tag);
+        }
+
+        return selectors;
     };
 
     /**
@@ -7113,8 +7204,8 @@
                                     href: actionable.href || null,
                                     'aria-label': domElement.getAttribute('aria-label') || null
                                 },
-                                selectors: actionable.selector ?
-                                    [`[data-ome-action-id="${actionable.id}"]`, actionable.selector] :
+                                selectors: actionable.selectors && actionable.selectors.length > 0 ?
+                                    [`[data-ome-action-id="${actionable.id}"]`, ...actionable.selectors] :
                                     [`[data-ome-action-id="${actionable.id}"]`]
                             });
                             // Also store DOM node reference
@@ -8428,19 +8519,52 @@
     /**
      * 🆕 NEW: Execute action on element by ID
      */
-    IntelligenceEngine.prototype.executeAction = function (actionId, action = null, params = {}) {
-        console.log("[Content] 🎯 executeAction called:", { actionId, action, params });
+    /**
+     * 🎯 EXECUTE ACTION - Core action executor
+     *
+     * Supports two modes:
+     * 1. SELECTOR-BASED (new): Pass options.element + options.hints from text.json
+     * 2. REGISTRY-BASED (legacy): Look up by actionId from Map (will be removed)
+     *
+     * @param {string} actionId - Action ID for logging/tracking
+     * @param {string} action - Action type: click, setValue, navigate, toggle
+     * @param {Object} params - {value, submit, ...}
+     * @param {Object} options - {element: DOM node, hints: {label, type, tag, href, selectors}}
+     */
+    IntelligenceEngine.prototype.executeAction = function (actionId, action = null, params = {}, options = {}) {
+        console.log("[Content] 🎯 executeAction called:", { actionId, action, params, selectorBased: !!options.element });
 
-        const actionableElement = this.getActionableElement(actionId);
-        if (!actionableElement) {
-            console.error("[Content] ❌ Element not found in actionableElements Map:", actionId);
+        let actionableElement;
+        let element;
 
-            return { success: false, error: "Element not found" };
+        // 🆕 SELECTOR-BASED: Element pre-resolved via selectors from text.json
+        if (options.element && options.hints) {
+            element = options.element;
+            const hints = options.hints;
+            // Build descriptor from hints (same shape as registry entries)
+            actionableElement = {
+                id: actionId,
+                tagName: hints.tag || element.tagName?.toLowerCase() || 'unknown',
+                actionType: hints.type || action || 'click',
+                textContent: hints.label || element.textContent?.trim()?.substring(0, 100) || '',
+                attributes: {
+                    href: hints.href || element.href || element.getAttribute('href') || null,
+                    'aria-label': element.getAttribute('aria-label') || hints.label || null
+                },
+                selectors: hints.selectors || []
+            };
+            console.log("[Content] ✅ Using selector-resolved element:", hints.label);
+        } else {
+            // LEGACY: Registry lookup (will be removed in cleanup)
+            actionableElement = this.getActionableElement(actionId);
+            if (!actionableElement) {
+                console.error("[Content] ❌ Element not found in actionableElements Map:", actionId);
+                return { success: false, error: "Element not found" };
+            }
+            console.log("[Content] ✅ Found actionable element in registry:", actionableElement);
         }
 
-        console.log("[Content] ✅ Found actionable element:", actionableElement);
-
-        // 🆕 NEW: Auto-detect action if not specified
+        // Auto-detect action if not specified
         if (!action) {
             action = actionableElement.actionType || 'click';
             console.log("[Content] 🔍 Auto-detected action:", action, "from actionType:", actionableElement.actionType);
@@ -8452,11 +8576,9 @@
                 action = 'setValue';
                 console.log("[Content] 🔁 Normalized action to 'setValue' for text entry");
             } else if (['button', 'press', 'menu', 'menuitem', 'tab'].includes(lowered)) {
-                // 🆕 NOTE: 'toggle' and 'select' are NOT normalized here - they have their own case handler
                 action = 'click';
                 console.log("[Content] 🔁 Normalized action to 'click' for interactive button-like element");
             } else if (lowered === 'select') {
-                // 🆕 Radio buttons use 'select' actionType but work same as toggle (element.checked)
                 action = 'toggle';
                 console.log("[Content] 🔁 Normalized 'select' to 'toggle' for radio button");
             } else if (['link'].includes(lowered) && actionableElement.attributes?.href) {
@@ -8466,37 +8588,22 @@
         }
 
         try {
-            const resolution = this.resolveActionableDomNode(actionId, actionableElement);
-            let element = resolution.node;
-
+            // 🆕 SELECTOR-BASED: Element should already be provided via options
+            // Legacy fallback for old code paths that don't pass element
             if (!element) {
-                console.error("[Content] ❌ Unable to resolve DOM element for:", actionId);
-                console.log("[Content] 🔍 Resolution attempt:", resolution);
-                return { success: false, error: "Element not found in DOM" };
+                console.error("[Content] ❌ No element provided - selector-based resolution required");
+                return { success: false, error: "No element provided" };
             }
 
-            // Ensure we keep the most recent node on record
-            this.storeActionableNode(actionId, element);
+            // Build selector string for logging (use first selector from hints if available)
+            const selector = (options.hints?.selectors?.[0]) || null;
 
-            const escapeIdentifier = (value) => {
-                if (window.CSS && typeof window.CSS.escape === 'function') {
-                    return window.CSS.escape(value);
-                }
-                return String(value).replace(/"/g, '\\"');
-            };
-
-            let selector = resolution.selector || null;
-            if (!selector && element.dataset?.omeActionId === actionId) {
-                selector = `[data-ome-action-id="${escapeIdentifier(actionId)}"]`;
-            }
-
-            console.log("[Content] 🔍 Resolved element via", resolution.strategy, "using selector:", selector || '(registry)');
-            console.log("[Content] ✅ Resolved DOM element:", element);
+            console.log("[Content] ✅ Using selector-resolved element");
             console.log("[Content] 🔍 Element properties:", {
                 tagName: element.tagName,
-                textContent: element.textContent?.trim(),
+                textContent: element.textContent?.trim()?.substring(0, 50),
                 href: element.href,
-                className: element.className,
+                className: element.className?.substring?.(0, 50),
                 id: element.id
             });
 
@@ -11269,8 +11376,117 @@
         });
     }
 
+    /**
+     * 🆕 HINT-BASED EXECUTOR: Resolve element using selectors from text.json hints
+     * Same pattern as capabilityPipelineExecutor but takes hints directly
+     * @param {Object} hints - {label, type, tag, selectors[]}
+     * @param {string} actionType - click, setValue, navigate
+     * @param {Object} params - {value, submit, etc}
+     * @returns {Promise<Object>} - {success, action, elementId, etc}
+     */
+    /**
+     * 🎯 HINT-BASED ACTION EXECUTOR
+     * Resolves element via selectors from text.json, then calls executeAction()
+     *
+     * @param {Object} hints - {label, type, tag, selectors[], href} from text.json
+     * @param {string} actionType - click, setValue, navigate, toggle
+     * @param {Object} params - {value, submit, ...}
+     * @param {string} actionId - Action ID for logging
+     */
+    async function executeWithHints(hints, actionType, params = {}, actionId = 'selector') {
+        const { label, type, tag, selectors = [] } = hints;
+
+        console.log(`[Content] 🎯 SELECTOR RESOLUTION: "${label}" (${type})`);
+        console.log(`[Content] Selectors to try:`, selectors);
+
+        let targetElement = null;
+
+        // Strategy 1: Try selectors in order
+        for (let i = 0; i < selectors.length; i++) {
+            const selector = selectors[i];
+            console.log(`[Content] 🔎 Trying selector ${i + 1}/${selectors.length}: ${selector}`);
+
+            try {
+                const elements = document.querySelectorAll(selector);
+                console.log(`[Content]   → Found ${elements.length} elements`);
+
+                if (elements.length === 1) {
+                    targetElement = elements[0];
+                    console.log(`[Content] ✅ Unique match: ${selector}`);
+                    break;
+                } else if (elements.length > 1 && label) {
+                    // Multiple matches - filter by label
+                    const match = Array.from(elements).find(el => {
+                        const elText = el.getAttribute('aria-label') || el.innerText?.trim() || '';
+                        return elText.includes(label) || label.includes(elText.substring(0, 30));
+                    });
+                    if (match) {
+                        targetElement = match;
+                        console.log(`[Content] ✅ Matched via selector + label filter`);
+                        break;
+                    }
+                }
+            } catch (e) {
+                console.log(`[Content]   ❌ Selector error: ${e.message}`);
+            }
+        }
+
+        // Strategy 2: Wait for element (lazy loading)
+        if (!targetElement && selectors.length > 0) {
+            console.log(`[Content] ⏳ Element not found, waiting for lazy load...`);
+            for (const selector of selectors.slice(0, 3)) {
+                try {
+                    targetElement = await waitForElement(selector, 3000);
+                    console.log(`[Content] ✅ Element appeared: ${selector}`);
+                    break;
+                } catch (e) {
+                    // Continue to next
+                }
+            }
+        }
+
+        if (!targetElement) {
+            throw new Error(`Element not found: "${label}" (tried ${selectors.length} selectors)`);
+        }
+
+        console.log(`[Content] ✅ Resolved element:`, {
+            tagName: targetElement.tagName,
+            ariaLabel: targetElement.getAttribute('aria-label'),
+            text: targetElement.innerText?.trim().substring(0, 50)
+        });
+
+        // 🎯 DELEGATE TO executeAction with resolved element + hints
+        if (!intelligenceEngine) {
+            throw new Error('Intelligence engine not available');
+        }
+
+        return intelligenceEngine.executeAction(actionId, actionType, params, {
+            element: targetElement,
+            hints: hints
+        });
+    }
+
     // 🎯 PREMIUM: Capability execution router
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        // 🆕 HINT-BASED ACTION (from text.json via server)
+        if (message.type === "execute_action_with_hints") {
+            const { actionId, actionType, params = {}, hints = {} } = message.data || {};
+
+            console.log(`[Content] 🎯 EXECUTE_ACTION_WITH_HINTS: ${actionId}`);
+
+            executeWithHints(hints, actionType, params, actionId)
+                .then(result => {
+                    console.log("[Content] ✅ Hint-based action succeeded:", result);
+                    sendResponse({ ok: true, result: { ...result, elementId: actionId } });
+                })
+                .catch(error => {
+                    console.error("[Content] ❌ Hint-based action failed:", error);
+                    sendResponse({ ok: false, error: error.message });
+                });
+
+            return true; // Keep channel open for async
+        }
+
         if (message.type === "execute_capability") {
             const action = message.action;
             const params = message.params || {};

@@ -1,0 +1,779 @@
+{
+  "metadata": {
+    "url": "https://mail.google.com/mail/u/0/?q=Olivia#drafts",
+    "title": "Drafts (4) - andreworsmond21175@gmail.com - Gmail",
+    "timestamp": "2025-12-11T11:07:41Z",
+    "element_count": 63
+  },
+  "elements": {
+    "a_id_0": {
+      "label": "Skip to content",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/mail/u/0/']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/"
+    },
+    "a_id_1": {
+      "label": "Using Gmail with screen readers",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/mail/u/0/']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/"
+    },
+    "a_id_2": {
+      "label": "Main menu",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Main menu']",
+        "[aria-label='Main menu']",
+        "[role='button'][aria-label='Main menu']",
+        "[data-ogmb='1']",
+        "div.gb_1c"
+      ],
+      "href": null
+    },
+    "a_id_3": {
+      "label": "Gmail",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Gmail']",
+        "[aria-label='Gmail']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#inbox']",
+        "a.gb_de.gb_Vc"
+      ],
+      "href": "https://mail.google.com/mail/u/0/#inbox"
+    },
+    "a_id_4": {
+      "label": "Search mail",
+      "type": "Input",
+      "tag": "input",
+      "selectors": [
+        "input[aria-label='Search mail']",
+        "[aria-label='Search mail']",
+        "input[name='q']",
+        "input[placeholder='Search mail']",
+        "input[type='text'][name='q']",
+        "input.gb_ze.aJh"
+      ],
+      "href": null
+    },
+    "a_id_5": {
+      "label": "Advanced search options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Advanced search options']",
+        "[aria-label='Advanced search options']",
+        "[role='button'][aria-label='Advanced search options']",
+        "[role='button'][data-tooltip='Show search options']",
+        "[data-tooltip='Show search options']",
+        "button.gb_Ue"
+      ],
+      "href": null
+    },
+    "a_id_6": {
+      "label": "Clear search",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Clear search']",
+        "[aria-label='Clear search']",
+        "button.gb_Re.IQO5Cf"
+      ],
+      "href": null
+    },
+    "a_id_7": {
+      "label": "Search mail",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Search mail']",
+        "[aria-label='Search mail']",
+        "[role='button'][aria-label='Search mail']",
+        "button.gb_Oe.gb_Pe"
+      ],
+      "href": null
+    },
+    "a_id_8": {
+      "label": "Status: Active",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Status: Active']",
+        "[aria-label='Status: Active']",
+        "[role='button'][aria-label='Status: Active']",
+        "div.lJradf.XQuz9d"
+      ],
+      "href": null
+    },
+    "a_id_9": {
+      "label": "Support",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Support']",
+        "[aria-label='Support']",
+        "#lZwQje",
+        "[role='button'][aria-label='Support']",
+        "a.gb_se.gb_h"
+      ],
+      "href": null
+    },
+    "a_id_10": {
+      "label": "Settings",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Settings']",
+        "[aria-label='Settings']",
+        "[role='button'][aria-label='Settings']"
+      ],
+      "href": null
+    },
+    "a_id_11": {
+      "label": "Try Gemini",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Try Gemini']",
+        "[aria-label='Try Gemini']",
+        "[data-idom-class='XyWBof']",
+        "button.VYBDae-JX-I.VYBDae-JX-I-ql-ay5-ays"
+      ],
+      "href": null
+    },
+    "a_id_12": {
+      "label": "Google apps",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Google apps']",
+        "[aria-label='Google apps']",
+        "[role='button'][aria-label='Google apps']",
+        "a[href*='/intl/en-GB/about/products']",
+        "a.gb_B"
+      ],
+      "href": "https://www.google.com.au/intl/en-GB/about/products?tab=mh"
+    },
+    "a_id_13": {
+      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "a[href*='/SignOutOptions']",
+        "a.gb_B.gb_0a"
+      ],
+      "href": "https://accounts.google.com/SignOutOptions?hl=en-GB&continue=https://mail.google.com/mail/&service=mail&ec=GBRAFw"
+    },
+    "a_id_14": {
+      "label": "Mail, 5265 unread messages",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Mail, 5265 unread messages']",
+        "[aria-label='Mail, 5265 unread messages']",
+        "[role='link'][aria-label='Mail, 5265 unread messages']"
+      ],
+      "href": null
+    },
+    "a_id_15": {
+      "label": "Chat, 0 unread messages",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Chat, 0 unread messages']",
+        "[aria-label='Chat, 0 unread messages']",
+        "[role='link'][aria-label='Chat, 0 unread messages']"
+      ],
+      "href": null
+    },
+    "a_id_16": {
+      "label": "Compose",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div.T-I.T-I-KE"
+      ],
+      "href": null
+    },
+    "a_id_17": {
+      "label": "Inbox 5265 unread",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Inbox 5265 unread']",
+        "[aria-label='Inbox 5265 unread']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#inbox']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#inbox"
+    },
+    "a_id_18": {
+      "label": "Starred",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Starred']",
+        "[aria-label='Starred']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#starred']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#starred"
+    },
+    "a_id_19": {
+      "label": "Snoozed",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Snoozed']",
+        "[aria-label='Snoozed']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#snoozed']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#snoozed"
+    },
+    "a_id_20": {
+      "label": "Sent",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Sent']",
+        "[aria-label='Sent']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#sent']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#sent"
+    },
+    "a_id_21": {
+      "label": "Drafts 4 unread",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Drafts 4 unread']",
+        "[aria-label='Drafts 4 unread']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#drafts']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#drafts"
+    },
+    "a_id_22": {
+      "label": "Purchases 107 unread has menu",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Purchases 107 unread has menu']",
+        "[aria-label='Purchases 107 unread has menu']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#category/purchases']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#category/purchases"
+    },
+    "a_id_23": {
+      "label": "More labels",
+      "type": "Button",
+      "tag": "span",
+      "selectors": [
+        "span[aria-label='More labels']",
+        "[aria-label='More labels']",
+        "#\\:lh",
+        "[role='button'][aria-label='More labels']",
+        "span.J-Ke.ah9"
+      ],
+      "href": null
+    },
+    "a_id_24": {
+      "label": "Create new label",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Create new label']",
+        "[aria-label='Create new label']",
+        "[role='button'][aria-label='Create new label']",
+        "[role='button'][data-tooltip='Create new label']",
+        "[data-tooltip='Create new label']",
+        "div.aAu.arN"
+      ],
+      "href": null
+    },
+    "a_id_25": {
+      "label": "[Gmail]Trash has menu",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='[Gmail]Trash has menu']",
+        "[aria-label='[Gmail]Trash has menu']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#label/%5BGmail%5DTrash']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#label/%5BGmail%5DTrash"
+    },
+    "a_id_26": {
+      "label": "George Bellas has menu",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='George Bellas has menu']",
+        "[aria-label='George Bellas has menu']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#label/George+Bellas']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#label/George+Bellas"
+    },
+    "a_id_27": {
+      "label": "Notes has menu",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Notes has menu']",
+        "[aria-label='Notes has menu']",
+        "a[href*='/mail/u/0/']",
+        "a[href*='#label/Notes']",
+        "a.J-Ke"
+      ],
+      "href": "https://mail.google.com/mail/u/0/?q=Olivia#label/Notes"
+    },
+    "a_id_28": {
+      "label": "Upgrade",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "[data-idom-class='M1LkOe EqiD4b']",
+        "button.FOBRw-I.FOBRw-I-ql-JX-O"
+      ],
+      "href": null
+    },
+    "a_id_29": {
+      "label": "Any time",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-default-label='Any time']",
+        "div.QGRmIf"
+      ],
+      "href": null
+    },
+    "a_id_30": {
+      "label": "Has attachment",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-type='LPGEfb']",
+        "div.QGRmIf"
+      ],
+      "href": null
+    },
+    "a_id_31": {
+      "label": "To",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-default-label='To']",
+        "div.aGg"
+      ],
+      "href": null
+    },
+    "a_id_32": {
+      "label": "Is unread",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-type='H7du2']",
+        "div.QGRmIf"
+      ],
+      "href": null
+    },
+    "a_id_33": {
+      "label": "Advanced search",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-type='RLrFpb']",
+        "div.QGRmIf"
+      ],
+      "href": null
+    },
+    "a_id_34": {
+      "label": "Select",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Select']",
+        "[aria-label='Select']",
+        "#\\:155",
+        "[role='button'][aria-label='Select']",
+        "[role='button'][data-tooltip='Select']",
+        "[data-tooltip='Select']",
+        "div.T-I.J-J5-Ji"
+      ],
+      "href": null
+    },
+    "a_id_35": {
+      "label": "Refresh",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Refresh']",
+        "[aria-label='Refresh']",
+        "[role='button'][aria-label='Refresh']",
+        "[role='button'][data-tooltip='Refresh']",
+        "[data-tooltip='Refresh']",
+        "div.T-I.J-J5-Ji"
+      ],
+      "href": null
+    },
+    "a_id_36": {
+      "label": "More email options",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='More email options']",
+        "[aria-label='More email options']",
+        "#\\:154",
+        "[role='button'][aria-label='More email options']",
+        "[role='button'][data-tooltip='More']",
+        "[data-tooltip='More']",
+        "div.T-I.J-J5-Ji"
+      ],
+      "href": null
+    },
+    "a_id_37": {
+      "label": "Show more messages",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Show more messages']",
+        "[aria-label='Show more messages']",
+        "#\\:13k",
+        "[role='button'][aria-label='Show more messages']",
+        "div.J-J5-Ji.amH"
+      ],
+      "href": null
+    },
+    "a_id_38": {
+      "label": "Newer",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Newer']",
+        "[aria-label='Newer']",
+        "#\\:13i",
+        "[role='button'][aria-label='Newer']",
+        "[role='button'][data-tooltip='Newer']",
+        "[data-tooltip='Newer']",
+        "div.T-I.J-J5-Ji"
+      ],
+      "href": null
+    },
+    "a_id_39": {
+      "label": "Older",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Older']",
+        "[aria-label='Older']",
+        "#\\:13h",
+        "[role='button'][aria-label='Older']",
+        "[role='button'][data-tooltip='Older']",
+        "[data-tooltip='Older']",
+        "div.T-I.J-J5-Ji"
+      ],
+      "href": null
+    },
+    "a_id_40": {
+      "label": "Input tools on/off (Ctrl-Shift-K)",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Input tools on/off (Ctrl-Shift-K)']",
+        "[aria-label='Input tools on/off (Ctrl-Shift-K)']",
+        "[role='button'][aria-label='Input tools on/off (Ctrl-Shift-K)']",
+        "[role='button'][data-tooltip='Input tools on/off (Ctrl-Shift-K)']",
+        "[data-tooltip='Input tools on/off (Ctrl-Shift-K)']",
+        "a.d-Na-JX-I.d-Na-M7-JX"
+      ],
+      "href": null
+    },
+    "a_id_41": {
+      "label": "Select input tool",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Select input tool']",
+        "[aria-label='Select input tool']",
+        "[role='button'][aria-label='Select input tool']",
+        "[role='button'][data-tooltip='Select input tool']",
+        "[data-tooltip='Select input tool']",
+        "a.d-Na-JX-I.d-Na-JG"
+      ],
+      "href": null
+    },
+    "a_id_42": {
+      "label": "Not starred",
+      "type": "Button",
+      "tag": "span",
+      "selectors": [
+        "span[aria-label='Not starred']",
+        "[aria-label='Not starred']",
+        "#\\:14y",
+        "[role='button'][aria-label='Not starred']",
+        "[role='button'][data-tooltip='Not starred']",
+        "[data-tooltip='Not starred']",
+        "span.aXw.T-KT"
+      ],
+      "href": null
+    },
+    "a_id_43": {
+      "label": "Inbox\nQuestions regarding piping in main living area by kitchen\n - \nHi Neal, Thank you for the message. We would be very grateful to go through the property with the developer, On Wed, 19 Nov 2025 at 11:02, Neal Kelly <Neal.Kelly@belleproperty.com> wrote: Good",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "div"
+      ],
+      "href": null
+    },
+    "a_id_44": {
+      "label": "9 more attachments",
+      "type": "Button",
+      "tag": "span",
+      "selectors": [
+        "span[aria-label='9 more attachments']",
+        "[aria-label='9 more attachments']",
+        "[role='button'][aria-label='9 more attachments']",
+        "span.brg"
+      ],
+      "href": null
+    },
+    "a_id_45": {
+      "label": "Not starred",
+      "type": "Button",
+      "tag": "span",
+      "selectors": [
+        "span[aria-label='Not starred']",
+        "[aria-label='Not starred']",
+        "#\\:14l",
+        "[role='button'][aria-label='Not starred']",
+        "[role='button'][data-tooltip='Not starred']",
+        "[data-tooltip='Not starred']",
+        "span.aXw.T-KT"
+      ],
+      "href": null
+    },
+    "a_id_46": {
+      "label": "(no subject)",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "div"
+      ],
+      "href": null
+    },
+    "a_id_47": {
+      "label": "Not starred",
+      "type": "Button",
+      "tag": "span",
+      "selectors": [
+        "span[aria-label='Not starred']",
+        "[aria-label='Not starred']",
+        "#\\:148",
+        "[role='button'][aria-label='Not starred']",
+        "[role='button'][data-tooltip='Not starred']",
+        "[data-tooltip='Not starred']",
+        "span.aXw.T-KT"
+      ],
+      "href": null
+    },
+    "a_id_48": {
+      "label": "Inbox\n转发: application resi home loan",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "div"
+      ],
+      "href": null
+    },
+    "a_id_49": {
+      "label": "19 more attachments",
+      "type": "Button",
+      "tag": "span",
+      "selectors": [
+        "span[aria-label='19 more attachments']",
+        "[aria-label='19 more attachments']",
+        "[role='button'][aria-label='19 more attachments']",
+        "span.brg"
+      ],
+      "href": null
+    },
+    "a_id_50": {
+      "label": "Not starred",
+      "type": "Button",
+      "tag": "span",
+      "selectors": [
+        "span[aria-label='Not starred']",
+        "[aria-label='Not starred']",
+        "#\\:13v",
+        "[role='button'][aria-label='Not starred']",
+        "[role='button'][data-tooltip='Not starred']",
+        "[data-tooltip='Not starred']",
+        "span.aXw.T-KT"
+      ],
+      "href": null
+    },
+    "a_id_51": {
+      "label": "(no subject)\n - \nsdf",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "div"
+      ],
+      "href": null
+    },
+    "a_id_52": {
+      "label": "80% of 15 GB used",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/u/0/settings/storage']",
+        "a.bcB"
+      ],
+      "href": "https://drive.google.com/u/0/settings/storage?hl=en-GB&utm_medium=web&utm_source=gmail&utm_campaign=storage_meter&utm_content=storage_high"
+    },
+    "a_id_53": {
+      "label": "Terms",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/intl/en-GB/policies/terms/']"
+      ],
+      "href": "https://www.google.com/intl/en-GB/policies/terms/"
+    },
+    "a_id_54": {
+      "label": "Privacy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/intl/en-GB/policies/privacy/']"
+      ],
+      "href": "https://www.google.com/intl/en-GB/policies/privacy/"
+    },
+    "a_id_55": {
+      "label": "Programme Policies",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/gmail/about/policy/']"
+      ],
+      "href": "https://www.google.com/gmail/about/policy/"
+    },
+    "a_id_56": {
+      "label": "Details",
+      "type": "Link",
+      "tag": "span",
+      "selectors": [
+        "#\\:mk",
+        "span.LJOhwe"
+      ],
+      "href": null
+    },
+    "a_id_57": {
+      "label": "Calendar",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Calendar']",
+        "[aria-label='Calendar']",
+        "#gsc-gab-6",
+        "[role='tab'][aria-label='Calendar']",
+        "[data-guest-app-id='6']",
+        "div.bse-bvF-I.aT5-aOt-I"
+      ],
+      "href": null
+    },
+    "a_id_58": {
+      "label": "Keep",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Keep']",
+        "[aria-label='Keep']",
+        "#gsc-gab-2",
+        "[role='tab'][aria-label='Keep']",
+        "[data-guest-app-id='2']",
+        "div.bse-bvF-I.aT5-aOt-I"
+      ],
+      "href": null
+    },
+    "a_id_59": {
+      "label": "Tasks",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Tasks']",
+        "[aria-label='Tasks']",
+        "#gsc-gab-4",
+        "[role='tab'][aria-label='Tasks']",
+        "[data-guest-app-id='4']",
+        "div.bse-bvF-I.aT5-aOt-I"
+      ],
+      "href": null
+    },
+    "a_id_60": {
+      "label": "Contacts",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Contacts']",
+        "[aria-label='Contacts']",
+        "#gsc-gab-9",
+        "[role='tab'][aria-label='Contacts']",
+        "[data-guest-app-id='9']",
+        "div.bse-bvF-I.aT5-aOt-I"
+      ],
+      "href": null
+    },
+    "a_id_61": {
+      "label": "Get add-ons",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Get add-ons']",
+        "[aria-label='Get add-ons']",
+        "#qJTzr",
+        "[role='tab'][aria-label='Get add-ons']",
+        "div.bse-bvF-I.aT5-aOt-I"
+      ],
+      "href": null
+    },
+    "a_id_62": {
+      "label": "Hide side panel",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Hide side panel']",
+        "[aria-label='Hide side panel']",
+        "[role='button'][aria-label='Hide side panel']",
+        "div.aT5-aOt-I.brC-dA-I"
+      ],
+      "href": null
+    }
+  }
+}
