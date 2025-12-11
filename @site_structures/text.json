@@ -1,0 +1,1103 @@
+{
+  "metadata": {
+    "url": "https://www.youtube.com/",
+    "title": "(39) YouTube",
+    "timestamp": "2025-12-10T12:04:21Z",
+    "element_count": 106
+  },
+  "elements": {
+    "a_id_0": {
+      "label": "Guide",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Guide']",
+        "[aria-label='Guide']",
+        "button.style-scope.yt-icon-button"
+      ],
+      "href": null
+    },
+    "a_id_1": {
+      "label": "YouTube Premium Home",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#logo",
+        "a.yt-simple-endpoint.style-scope"
+      ],
+      "href": "https://www.youtube.com/"
+    },
+    "a_id_2": {
+      "label": "Skip navigation",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Skip navigation']",
+        "[aria-label='Skip navigation']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
+      ],
+      "href": null
+    },
+    "a_id_3": {
+      "label": "Search",
+      "type": "Input",
+      "tag": "input",
+      "selectors": [
+        "input[name='search_query']",
+        "input[placeholder='Search']",
+        "input[type='text'][name='search_query']",
+        "input.ytSearchboxComponentInput.yt-searchbox-input"
+      ],
+      "href": null
+    },
+    "a_id_4": {
+      "label": "Search",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Search']",
+        "[aria-label='Search']",
+        "button.ytSearchboxComponentSearchButton.ytSearchboxComponentSearchButtonDark"
+      ],
+      "href": null
+    },
+    "a_id_5": {
+      "label": "Search with your voice",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Search with your voice']",
+        "[aria-label='Search with your voice']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+      ],
+      "href": null
+    },
+    "a_id_6": {
+      "label": "Create",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Create']",
+        "[aria-label='Create']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
+      ],
+      "href": null
+    },
+    "a_id_7": {
+      "label": "Notifications",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Notifications']",
+        "[aria-label='Notifications']",
+        "button.style-scope.yt-icon-button"
+      ],
+      "href": null
+    },
+    "a_id_8": {
+      "label": "Account menu",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Account menu']",
+        "[aria-label='Account menu']",
+        "#avatar-btn",
+        "button.style-scope.ytd-topbar-menu-button-renderer"
+      ],
+      "href": null
+    },
+    "a_id_9": {
+      "label": "Home",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Home']",
+        "[aria-label='Home']",
+        "#endpoint",
+        "a.yt-simple-endpoint.style-scope"
+      ],
+      "href": "https://www.youtube.com/"
+    },
+    "a_id_10": {
+      "label": "Shorts",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Shorts']",
+        "[aria-label='Shorts']",
+        "#endpoint",
+        "a[href*='/shorts/']",
+        "a.yt-simple-endpoint.style-scope"
+      ],
+      "href": "https://www.youtube.com/shorts/"
+    },
+    "a_id_11": {
+      "label": "Subscriptions",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Subscriptions']",
+        "[aria-label='Subscriptions']",
+        "#endpoint",
+        "a[href*='/feed/subscriptions']",
+        "a.yt-simple-endpoint.style-scope"
+      ],
+      "href": "https://www.youtube.com/feed/subscriptions"
+    },
+    "a_id_12": {
+      "label": "You",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='You']",
+        "[aria-label='You']",
+        "#endpoint",
+        "a[href*='/feed/you']",
+        "a.yt-simple-endpoint.style-scope"
+      ],
+      "href": "https://www.youtube.com/feed/you"
+    },
+    "a_id_13": {
+      "label": "All",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_14": {
+      "label": "Podcasts",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_15": {
+      "label": "Music",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_16": {
+      "label": "AI",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_17": {
+      "label": "News",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_18": {
+      "label": "Dumbbells",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_19": {
+      "label": "CrossFit",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_20": {
+      "label": "Mixes",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_21": {
+      "label": "Skills",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_22": {
+      "label": "Endurance",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_23": {
+      "label": "Calisthenics",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_24": {
+      "label": "Media theories",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_25": {
+      "label": "Music riffs",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_26": {
+      "label": "Strings",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_27": {
+      "label": "Live",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_28": {
+      "label": "Bass guitar",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_29": {
+      "label": "Blues music",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_30": {
+      "label": "Progressive Rock",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_31": {
+      "label": "Recently uploaded",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_32": {
+      "label": "Watched",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_33": {
+      "label": "New to you",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_34": {
+      "label": "Next",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Next']",
+        "[aria-label='Next']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+      ],
+      "href": null
+    },
+    "a_id_35": {
+      "label": "16:01",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=6aeN0zkcqJk"
+    },
+    "a_id_36": {
+      "label": "5 BRAND NEW Content Marketing Strategies for 2026 (BIGGEST Changes Yet!) 16 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='5 BRAND NEW Content Marketing Strategies for 2026 (BIGGEST Changes Yet!) 16 minutes']",
+        "[aria-label='5 BRAND NEW Content Marketing Strategies for 2026 (BIGGEST Changes Yet!) 16 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=6aeN0zkcqJk"
+    },
+    "a_id_37": {
+      "label": "Wes McDowell",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@WesMcDowellInc']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@WesMcDowellInc"
+    },
+    "a_id_38": {
+      "label": "24:52",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=nnsaVn8TL2w"
+    },
+    "a_id_39": {
+      "label": "AI CRASH Is Coming - Prof Steve Keen EXPOSES Looming Disaster 24 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='AI CRASH Is Coming - Prof Steve Keen EXPOSES Looming Disaster 24 minutes']",
+        "[aria-label='AI CRASH Is Coming - Prof Steve Keen EXPOSES Looming Disaster 24 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=nnsaVn8TL2w"
+    },
+    "a_id_40": {
+      "label": "Owen Jones",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@OwenJonesTalks']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@OwenJonesTalks"
+    },
+    "a_id_41": {
+      "label": "8:07",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=QXE5rEVlu20&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "a_id_42": {
+      "label": "Why Python is the language of AI: insights from Guido van Rossum (creator of Python) 8 minutes, 7 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=QXE5rEVlu20&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "a_id_43": {
+      "label": "GitHub",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@GitHub']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@GitHub"
+    },
+    "a_id_44": {
+      "label": "What Happened To Miley Cyrus Face? #shorts #mileycyrusedit",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/Ukq6w8z01Zw']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/Ukq6w8z01Zw"
+    },
+    "a_id_45": {
+      "label": "3 Year Transformation Completely Changed My Life 🤯 #fatloss #transformation",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/3X1XLd4F11E']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/3X1XLd4F11E"
+    },
+    "a_id_46": {
+      "label": "I Was Wrong About Full Range of Motion",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/xUGyYi57EiM']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/xUGyYi57EiM"
+    },
+    "a_id_47": {
+      "label": "Unleashing the rhythm within, watch Dytto dance like never before🤘😱 #youtubeshorts  #shortsvideo",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/RrueqSuh-Zw']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/RrueqSuh-Zw"
+    },
+    "a_id_48": {
+      "label": "Terry Crews insane body transformation 🔥",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/peMS5LeR4lU']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/peMS5LeR4lU"
+    },
+    "a_id_49": {
+      "label": "9:17",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=XZhjrgZzbcg"
+    },
+    "a_id_50": {
+      "label": "Tech Trends That Will Change British Lives in the Next Year 9 minutes, 17 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Tech Trends That Will Change British Lives in the Next Year 9 minutes, 17 seconds']",
+        "[aria-label='Tech Trends That Will Change British Lives in the Next Year 9 minutes, 17 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=XZhjrgZzbcg"
+    },
+    "a_id_51": {
+      "label": "CYAN TECH",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@cyantech-u4k']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@cyantech-u4k"
+    },
+    "a_id_52": {
+      "label": "Mix",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=9BGdaW5-RvY&list=RD9BGdaW5-RvY&start_radio=1"
+    },
+    "a_id_53": {
+      "label": "Mix - Foo Fighters drum cover - Sonnet South African drummer - Pretender",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=9BGdaW5-RvY&list=RD9BGdaW5-RvY&start_radio=1"
+    },
+    "a_id_54": {
+      "label": "16:25",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=2YnwGGr8-vg"
+    },
+    "a_id_55": {
+      "label": "Entrepreneurship Is WAY Easier Than a 9-5 (as a dev) 16 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Entrepreneurship Is WAY Easier Than a 9-5 (as a dev) 16 minutes']",
+        "[aria-label='Entrepreneurship Is WAY Easier Than a 9-5 (as a dev) 16 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=2YnwGGr8-vg"
+    },
+    "a_id_56": {
+      "label": "Bgo",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@bgoofficial']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@bgoofficial"
+    },
+    "a_id_57": {
+      "label": "Monaco rich ladies lifestyle 💲🔥👠 #monaco  #mindset #billionaire #luxury #lifestyle #shortvideo",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/STCb_JRyRoE']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/STCb_JRyRoE"
+    },
+    "a_id_58": {
+      "label": "100+ lbs Down in 1 Year 💥 She Became a QUEEN MACHINE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/WLKwKOEaGg0']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/WLKwKOEaGg0"
+    },
+    "a_id_59": {
+      "label": "This is Sergo, Better Known as The Guy With Bad Genetis (@testooboooster) #shorts",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/7rdL9BFwVaw']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/7rdL9BFwVaw"
+    },
+    "a_id_60": {
+      "label": "China's dangerous bed—no matter how much you jump on it, you won't get hurt! 😱#shorts #sciencefac...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/PBqik2att_w']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/PBqik2att_w"
+    },
+    "a_id_61": {
+      "label": "Why it gotta be like this?#golddigger #shorts #funny",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/aDwIqNoMqrU']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/aDwIqNoMqrU"
+    },
+    "a_id_62": {
+      "label": "8:22",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=r44ss9qM5hk&pp=ugUEEgJlbg%3D%3D"
+    },
+    "a_id_63": {
+      "label": "Avi Loeb Warns We Must Escape Earth ASAP for Humanity to Survive 8 minutes, 22 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Avi Loeb Warns We Must Escape Earth ASAP for Humanity to Survive 8 minutes, 22 seconds']",
+        "[aria-label='Avi Loeb Warns We Must Escape Earth ASAP for Humanity to Survive 8 minutes, 22 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=r44ss9qM5hk&pp=ugUEEgJlbg%3D%3D"
+    },
+    "a_id_64": {
+      "label": "Danny Jones Clips",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@DannyJonesClips']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@DannyJonesClips"
+    },
+    "a_id_65": {
+      "label": "20:28",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=tZDwgjQD0sQ"
+    },
+    "a_id_66": {
+      "label": "Shapeshifting Reptilians | DAVID ICKE 20 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Shapeshifting Reptilians | DAVID ICKE 20 minutes']",
+        "[aria-label='Shapeshifting Reptilians | DAVID ICKE 20 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=tZDwgjQD0sQ"
+    },
+    "a_id_67": {
+      "label": "Common Sense with Joey Barton",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@CommonSensewithJoeyBarton']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@CommonSensewithJoeyBarton"
+    },
+    "a_id_68": {
+      "label": "11:00",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=UcLDeH9PaI0&pp=ugUEEgJlbg%3D%3D"
+    },
+    "a_id_69": {
+      "label": "Mistral Devstral 2: NEW Agentic Coding LLM With Vision - Opensource + Powerful (Fully Tested) 11 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=UcLDeH9PaI0&pp=ugUEEgJlbg%3D%3D"
+    },
+    "a_id_70": {
+      "label": "WorldofAI",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@intheworldofai']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@intheworldofai"
+    },
+    "a_id_71": {
+      "label": "15:45",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=GgoSQde6xrM&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "a_id_72": {
+      "label": "New Nano Banana Pro and Gemini 3 Pro in N8N 15 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='New Nano Banana Pro and Gemini 3 Pro in N8N 15 minutes']",
+        "[aria-label='New Nano Banana Pro and Gemini 3 Pro in N8N 15 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=GgoSQde6xrM&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "a_id_73": {
+      "label": "Ignacy Majkowski",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@IgnacyMajkowski']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@IgnacyMajkowski"
+    },
+    "a_id_74": {
+      "label": "Dismiss",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Dismiss']",
+        "[aria-label='Dismiss']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+      ],
+      "href": null
+    },
+    "a_id_75": {
+      "label": "New to you",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "a_id_76": {
+      "label": "18:01",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=gf7GbOISg4o&pp=ugUEEgJlbg%3D%3D"
+    },
+    "a_id_77": {
+      "label": "Froning vs. Fraser—CrossFit Open Workout 15.1 Live Announcement 18 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Froning vs. Fraser—CrossFit Open Workout 15.1 Live Announcement 18 minutes']",
+        "[aria-label='Froning vs. Fraser—CrossFit Open Workout 15.1 Live Announcement 18 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=gf7GbOISg4o&pp=ugUEEgJlbg%3D%3D"
+    },
+    "a_id_78": {
+      "label": "CrossFit Games",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@CrossFitGamesTV']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@CrossFitGamesTV"
+    },
+    "a_id_79": {
+      "label": "18:30",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=PaUCJUy3Aes"
+    },
+    "a_id_80": {
+      "label": "Strange Sightings are Increasing in Frequency as Solar Activity SUPERCHARGES The Earth ⚡ 18 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Strange Sightings are Increasing in Frequency as Solar Activity SUPERCHARGES The Earth ⚡ 18 minutes']",
+        "[aria-label='Strange Sightings are Increasing in Frequency as Solar Activity SUPERCHARGES The Earth ⚡ 18 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=PaUCJUy3Aes"
+    },
+    "a_id_81": {
+      "label": "Stefan Burns",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@StefanBurns']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@StefanBurns"
+    },
+    "a_id_82": {
+      "label": "15:04",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=aL8h7FLXMAg&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "a_id_83": {
+      "label": "Mega-Dosing Creatine After 50?  An ER Doctor Explains 15 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Mega-Dosing Creatine After 50?  An ER Doctor Explains 15 minutes']",
+        "[aria-label='Mega-Dosing Creatine After 50?  An ER Doctor Explains 15 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=aL8h7FLXMAg&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "a_id_84": {
+      "label": "Richard Kelley M.D.",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@RichardKelleyMD']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@RichardKelleyMD"
+    },
+    "a_id_85": {
+      "label": "8:54",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=WZ7qcp4CUsU"
+    },
+    "a_id_86": {
+      "label": "Sebastian Bach - I Remember You (Skid Row) - 9/18/25 - The Big E - West Springfield, MA 8 minutes, 54 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=WZ7qcp4CUsU"
+    },
+    "a_id_87": {
+      "label": "Henry LaPierre",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@HenryLaPierre']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@HenryLaPierre"
+    },
+    "a_id_88": {
+      "label": "3:22",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=ixyPdvVLIZQ&list=RDixyPdvVLIZQ&start_radio=1&pp=oAcB"
+    },
+    "a_id_89": {
+      "label": "jAki丨2 Chords Are All You Need... 3 minutes, 22 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='jAki丨2 Chords Are All You Need... 3 minutes, 22 seconds']",
+        "[aria-label='jAki丨2 Chords Are All You Need... 3 minutes, 22 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=ixyPdvVLIZQ&list=RDixyPdvVLIZQ&start_radio=1&pp=oAcB"
+    },
+    "a_id_90": {
+      "label": "jAki",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@jAki_rT']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@jAki_rT"
+    },
+    "a_id_91": {
+      "label": "6:44",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=O1_37hEtx5o"
+    },
+    "a_id_92": {
+      "label": "Spintronics: The Next Big Thing In Tech 6 minutes, 44 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Spintronics: The Next Big Thing In Tech 6 minutes, 44 seconds']",
+        "[aria-label='Spintronics: The Next Big Thing In Tech 6 minutes, 44 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=O1_37hEtx5o"
+    },
+    "a_id_93": {
+      "label": "Sabine Hossenfelder",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@SabineHossenfelder']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@SabineHossenfelder"
+    },
+    "a_id_94": {
+      "label": "12:53",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=pljoUcBniPQ&pp=ugUEEgJlbg%3D%3D"
+    },
+    "a_id_95": {
+      "label": "DeepSeek V3.2 Just Broke SoTA Again… But How? 12 minutes, 53 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='DeepSeek V3.2 Just Broke SoTA Again… But How? 12 minutes, 53 seconds']",
+        "[aria-label='DeepSeek V3.2 Just Broke SoTA Again… But How? 12 minutes, 53 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=pljoUcBniPQ&pp=ugUEEgJlbg%3D%3D"
+    },
+    "a_id_96": {
+      "label": "bycloud",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@bycloudAI']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@bycloudAI"
+    },
+    "a_id_97": {
+      "label": "52:58",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=bz5Hjk40FD4&t=6s"
+    },
+    "a_id_98": {
+      "label": "Elon Musk on DOGE, AI, & Are we in a Simulation? | KMP Ep.18 52 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Elon Musk on DOGE, AI, & Are we in a Simulation? | KMP Ep.18 52 minutes']",
+        "[aria-label='Elon Musk on DOGE, AI, & Are we in a Simulation? | KMP Ep.18 52 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=bz5Hjk40FD4&t=6s"
+    },
+    "a_id_99": {
+      "label": "Katie Miller Pod",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@katiemillerpod']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@katiemillerpod"
+    },
+    "a_id_100": {
+      "label": "3:23",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=_1P49z7Q_n8&pp=0gcJCSgKAYcqIYzv"
+    },
+    "a_id_101": {
+      "label": "Unlocking Energetic Freedom 3 minutes, 23 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Unlocking Energetic Freedom 3 minutes, 23 seconds']",
+        "[aria-label='Unlocking Energetic Freedom 3 minutes, 23 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=_1P49z7Q_n8&pp=0gcJCSgKAYcqIYzv"
+    },
+    "a_id_102": {
+      "label": "K boges",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@Kboges']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@Kboges"
+    },
+    "a_id_103": {
+      "label": "11:22",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=juxojLBDZxg"
+    },
+    "a_id_104": {
+      "label": "Clone ANY YouTube Channel In Minutes With AI (NotebookLM Hack) 11 minutes, 22 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Clone ANY YouTube Channel In Minutes With AI (NotebookLM Hack) 11 minutes, 22 seconds']",
+        "[aria-label='Clone ANY YouTube Channel In Minutes With AI (NotebookLM Hack) 11 minutes, 22 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=juxojLBDZxg"
+    },
+    "a_id_105": {
+      "label": "Folu ilori | Ai Automations",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@Foluilori']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@Foluilori"
+    }
+  }
+}

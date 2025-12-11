@@ -1,0 +1,381 @@
+{
+  "chat_id": "you-there__20251211T075822",
+  "project_id": "default",
+  "created_at": "2025-12-11T07:58:22.369151Z",
+  "updated_at": "2025-12-11T08:16:32.633105Z",
+  "title": "you there",
+  "default_title": "you there",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(39) YouTube"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "you there",
+      "timestamp": "2025-12-11T07:58:22.369187Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Yeah mate, I’m here. What’s up?",
+      "timestamp": "2025-12-11T07:58:27.308167Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "go home",
+      "timestamp": "2025-12-11T07:58:31.976786Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Heading home now, mate. Cheers for hanging out! If you need me, just holler.\n\n{\"act\": \"a_id_10\"}",
+      "timestamp": "2025-12-11T07:58:33.552347Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_10): Success",
+      "timestamp": "2025-12-11T07:58:33.554213Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "lets check out networkchuck",
+      "timestamp": "2025-12-11T07:58:48.138354Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "Alright, let’s check out NetworkChuck’s video.\n\n{\"act\": \"a_id_36\"}",
+      "timestamp": "2025-12-11T07:58:49.936220Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_36): Success",
+      "timestamp": "2025-12-11T07:58:49.938061Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "search for claude ai",
+      "timestamp": "2025-12-11T07:59:04.183530Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Gotcha, typing \"claude ai\" in the search bar now.\n\n{\"act\": \"a_id_3\", \"value\": \"claude ai\", \"submit\": true}",
+      "timestamp": "2025-12-11T07:59:06.700080Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_3): Success",
+      "timestamp": "2025-12-11T07:59:06.703262Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "play that n8n video",
+      "timestamp": "2025-12-11T07:59:41.343730Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "Righto, playing the \"n8n + Claude Code is OVERPOWERED\" video now.\n\n{\"act\": \"a_id_37\"}",
+      "timestamp": "2025-12-11T07:59:42.522076Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_37): Success",
+      "timestamp": "2025-12-11T07:59:42.523511Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "retrieve transcript",
+      "timestamp": "2025-12-11T08:00:06.256705Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Fetching the transcript for this n8n + Claude Code video now.\n\n{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-11T08:00:07.326218Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "assistant",
+      "content": "✅ RetrieveTranscript: Success",
+      "timestamp": "2025-12-11T08:00:07.326874Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "user",
+      "content": "go to gmail",
+      "timestamp": "2025-12-11T08:01:29.654019Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "assistant",
+      "content": "I don’t see a Gmail link or button on this page. Want me to open Gmail in a new tab for you?\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://mail.google.com\"}}",
+      "timestamp": "2025-12-11T08:01:33.185009Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "user",
+      "content": "close the youtube tab",
+      "timestamp": "2025-12-11T08:01:43.219426Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "Closing the YouTube tab for you now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1}}",
+      "timestamp": "2025-12-11T08:01:45.936061Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "user",
+      "content": "open belle property mail",
+      "timestamp": "2025-12-11T08:01:55.955861Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "Found the Belle Property email in your inbox. Opening the \"Belle Property Norwood Weekly Update\" email for you.\n\n{\"act\": \"a_id_41\"}",
+      "timestamp": "2025-12-11T08:01:58.636613Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_41): Success",
+      "timestamp": "2025-12-11T08:01:58.639110Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "click the guide button",
+      "timestamp": "2025-12-11T08:11:58.301220Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Clicking the Guide button for you now.\n\n{\"act\": \"a_id_7\"}",
+      "timestamp": "2025-12-11T08:11:59.207828Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "assistant",
+      "content": "✅ click(a_id_7): Success",
+      "timestamp": "2025-12-11T08:11:59.209442Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "user",
+      "content": "search for apples",
+      "timestamp": "2025-12-11T08:12:09.203624Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "assistant",
+      "content": "Typing \"apples\" in the search bar now.\n\n{\"act\": \"a_id_10\", \"value\": \"apples\", \"submit\": true}",
+      "timestamp": "2025-12-11T08:12:10.471510Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_10): Success",
+      "timestamp": "2025-12-11T08:12:10.473313Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "go to facebook",
+      "timestamp": "2025-12-11T08:12:47.867033Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "No Facebook links here. Want me to open Facebook in a new tab for you?\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-11T08:12:49.238956Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "search facebook for kim",
+      "timestamp": "2025-12-11T08:12:59.365985Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Typing \"kim\" into the Facebook search bar now.\n\n{\"act\": \"a_id_1\", \"value\": \"kim\", \"submit\": true}",
+      "timestamp": "2025-12-11T08:13:00.466534Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_1): Success",
+      "timestamp": "2025-12-11T08:13:00.469373Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "user",
+      "content": "go to marketplace",
+      "timestamp": "2025-12-11T08:13:09.442692Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "assistant",
+      "content": "Heading to Marketplace now.\n\n{\"act\": \"a_id_4\"}",
+      "timestamp": "2025-12-11T08:13:10.259562Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_4): Success",
+      "timestamp": "2025-12-11T08:13:10.261966Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "user",
+      "content": "search marketplace for guitars",
+      "timestamp": "2025-12-11T08:13:22.300531Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "Searching Marketplace for \"guitars\" now.\n\n{\"act\": \"a_id_14\", \"value\": \"guitars\", \"submit\": true}",
+      "timestamp": "2025-12-11T08:13:23.593077Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_14): Success",
+      "timestamp": "2025-12-11T08:13:23.594901Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "user",
+      "content": "go to perplexity",
+      "timestamp": "2025-12-11T08:14:03.792224Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "assistant",
+      "content": "No Perplexity links here. Want me to open Perplexity in a new tab instead?\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.perplexity.ai\"}}",
+      "timestamp": "2025-12-11T08:14:05.286878Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "user",
+      "content": "ask perplexity if it like claude ai",
+      "timestamp": "2025-12-11T08:14:15.315901Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "assistant",
+      "content": "Sure thing, asking Perplexity if it’s like Claude AI.\n\n{\"act\": \"a_id_6\", \"value\": \"Are you like Claude AI?\", \"submit\": true}",
+      "timestamp": "2025-12-11T08:14:16.390085Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_6): Success",
+      "timestamp": "2025-12-11T08:14:16.391140Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "user",
+      "content": "Are you like Claude AI?",
+      "timestamp": "2025-12-11T08:14:16.406539Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "assistant",
+      "content": "Waiting for Perplexity to answer if it’s like Claude AI. Should be interesting to see what it says!",
+      "timestamp": "2025-12-11T08:14:17.371674Z"
+    },
+    {
+      "id": "m_0049",
+      "role": "user",
+      "content": "go to chatgbt",
+      "timestamp": "2025-12-11T08:14:31.359033Z"
+    },
+    {
+      "id": "m_0050",
+      "role": "assistant",
+      "content": "You mean ChatGPT? I can open that for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://chat.openai.com\"}}",
+      "timestamp": "2025-12-11T08:14:33.294577Z"
+    },
+    {
+      "id": "m_0051",
+      "role": "user",
+      "content": "ask chat gbt if it likes claude ai",
+      "timestamp": "2025-12-11T08:15:02.924112Z"
+    },
+    {
+      "id": "m_0052",
+      "role": "assistant",
+      "content": "Alright, asking ChatGPT if it likes Claude AI now.\n\n{\"act\": \"a_id_39\", \"value\": \"Do you like Claude AI?\", \"submit\": true}",
+      "timestamp": "2025-12-11T08:15:05.053089Z"
+    },
+    {
+      "id": "m_0053",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_39): Success",
+      "timestamp": "2025-12-11T08:15:05.061192Z"
+    },
+    {
+      "id": "m_0054",
+      "role": "user",
+      "content": "go back to youtube",
+      "timestamp": "2025-12-11T08:16:11.040163Z"
+    },
+    {
+      "id": "m_0055",
+      "role": "assistant",
+      "content": "Switching back to your YouTube tab.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 2}}",
+      "timestamp": "2025-12-11T08:16:12.840889Z"
+    },
+    {
+      "id": "m_0056",
+      "role": "user",
+      "content": "click that maing an apple",
+      "timestamp": "2025-12-11T08:16:22.884499Z"
+    },
+    {
+      "id": "m_0057",
+      "role": "assistant",
+      "content": "Clicking the \"Making an apple that tastes like anything\" video link now.\n\n{\"act\": \"a_id_38\"}",
+      "timestamp": "2025-12-11T08:16:24.731804Z"
+    },
+    {
+      "id": "m_0058",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_38): Success",
+      "timestamp": "2025-12-11T08:16:24.735927Z"
+    },
+    {
+      "id": "m_0059",
+      "role": "user",
+      "content": "pause",
+      "timestamp": "2025-12-11T08:16:31.821923Z"
+    },
+    {
+      "id": "m_0060",
+      "role": "assistant",
+      "content": "Pausing the video for you.\n\n{\"cap\": \"TogglePlayPause\"}",
+      "timestamp": "2025-12-11T08:16:32.629526Z"
+    },
+    {
+      "id": "m_0061",
+      "role": "assistant",
+      "content": "✅ TogglePlayPause: Success",
+      "timestamp": "2025-12-11T08:16:32.633105Z"
+    }
+  ]
+}

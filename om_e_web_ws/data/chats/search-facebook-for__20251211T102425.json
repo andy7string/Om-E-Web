@@ -1,0 +1,81 @@
+{
+  "chat_id": "search-facebook-for__20251211T102425",
+  "project_id": "default",
+  "created_at": "2025-12-11T10:24:25.655543Z",
+  "updated_at": "2025-12-11T10:25:26.338728Z",
+  "title": "search facebook for",
+  "default_title": "search facebook for",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.facebook.com/home.php",
+    "page_title": "Facebook"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "search facebook for olivia",
+      "timestamp": "2025-12-11T10:24:25.655572Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Searching Facebook for \"olivia\" now.\n{\"act\": \"a_id_1\", \"value\": \"olivia\", \"submit\": true}",
+      "timestamp": "2025-12-11T10:24:27.924254Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_1): Success",
+      "timestamp": "2025-12-11T10:24:27.925572Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "go to marketplace",
+      "timestamp": "2025-12-11T10:24:36.804565Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Heading over to Marketplace for you.\n{\"act\": \"a_id_4\"}",
+      "timestamp": "2025-12-11T10:24:38.837022Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_4): Success",
+      "timestamp": "2025-12-11T10:24:38.838344Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-11T10:25:06.916302Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Opening YouTube in a new tab for you.\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-11T10:25:08.404382Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "search for claude",
+      "timestamp": "2025-12-11T10:25:22.591009Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Typing \"claude\" into the YouTube search bar now.\n{\"act\": \"a_id_3\", \"value\": \"claude\", \"submit\": true}",
+      "timestamp": "2025-12-11T10:25:26.337920Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_3): Success",
+      "timestamp": "2025-12-11T10:25:26.338728Z"
+    }
+  ]
+}
