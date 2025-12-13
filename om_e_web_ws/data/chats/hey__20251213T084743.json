@@ -1,0 +1,249 @@
+{
+  "chat_id": "hey__20251213T084743",
+  "project_id": "default",
+  "created_at": "2025-12-13T08:47:43.055738Z",
+  "updated_at": "2025-12-13T08:51:06.142721Z",
+  "title": "hey",
+  "default_title": "hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey",
+      "timestamp": "2025-12-13T08:47:43.055767Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey mate! What’s cracking? Want me to look something up, poke around a site, or set up your model settings?",
+      "timestamp": "2025-12-13T08:47:47.378334Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "u good",
+      "timestamp": "2025-12-13T08:48:00.339326Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Too right — all good here. You good? Want me to do something on the site or just chat?",
+      "timestamp": "2025-12-13T08:48:05.858282Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "u fast",
+      "timestamp": "2025-12-13T08:48:13.547629Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Yep, I’m quick as a whip. What do you want me to smash out on the site first? Quick search, open a link, copy info, or tweak some settings? Tell me the goal and I’ll run with it.",
+      "timestamp": "2025-12-13T08:48:19.527801Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "u fast",
+      "timestamp": "2025-12-13T08:48:27.931641Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Cheers, mate! Gotta be quick to keep up with you. What’s next on the list?",
+      "timestamp": "2025-12-13T08:48:30.075390Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-12-13T08:48:39.858916Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "G’day again! What’s on your mind? Need a hand with something or just yabbering?",
+      "timestamp": "2025-12-13T08:48:40.875542Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "u fast",
+      "timestamp": "2025-12-13T08:48:44.908806Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Heck yeah, mate — lightning speed! What do you want me to do next?",
+      "timestamp": "2025-12-13T08:48:45.844034Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "go to google",
+      "timestamp": "2025-12-13T08:48:52.179889Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "On it, mate. Heading to Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-13T08:48:53.400910Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-13T08:49:03.404918Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "user",
+      "content": "lets check out the us article",
+      "timestamp": "2025-12-13T08:49:09.006822Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "assistant",
+      "content": "Righto, the US article is titled: \"The US isn’t attacking Venezuela because of drugs — it’s because of minerals\". Let me click that for you.\n\n{\"act\": \"Link:The US isn’t attacking Venezuela because of drugs — it’s because of minerals The United States' escalating military presence near Venezuela raises questions about the true motive. Are minerals, not drugs, driving the escalation? The Hill · 1d\"}",
+      "timestamp": "2025-12-13T08:49:11.240425Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "✅ click(Link:The US isn’t attacking Venezuela because of drugs — it’s because of minerals The United States' escalating military presence near Venezuela raises questions about the true motive. Are minerals, not drugs, driving the escalation? The Hill · 1d): Success",
+      "timestamp": "2025-12-13T08:49:11.249833Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "nice go to youtube",
+      "timestamp": "2025-12-13T08:49:19.867664Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Heading to YouTube now, mate.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-13T08:49:20.966307Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-13T08:49:30.970601Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "user",
+      "content": "can we search for any videos on that us stuff",
+      "timestamp": "2025-12-13T08:49:31.685643Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "Sure thing, mate. I’ll pop the search box on YouTube and type in “US Venezuela minerals” to find vids on that.\n\n{\"act\": \"Input: Search\", \"value\": \"US Venezuela minerals\", \"submit\": true}",
+      "timestamp": "2025-12-13T08:49:33.075578Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "✅ setValue(Input: Search): Success",
+      "timestamp": "2025-12-13T08:49:33.077295Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "nice click the first one",
+      "timestamp": "2025-12-13T08:49:41.492067Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Picking the first video on \"US Venezuela minerals\" now.\n\n{\"act\": \"Link:(46) US Venezuela minerals - YouTube\"}",
+      "timestamp": "2025-12-13T08:49:43.290032Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "assistant",
+      "content": "✅ click(Link:(46) US Venezuela minerals - YouTube): Success",
+      "timestamp": "2025-12-13T08:49:43.308684Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "user",
+      "content": "{\"act\": \"Link:Major escalation between the U.S. and Venezuela after U.S. seizes oil tanker 5 minutes, 29 seconds\"}",
+      "timestamp": "2025-12-13T08:50:18.095170Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "assistant",
+      "content": "Gotcha, clicking on that video about the major escalation and oil tanker seizure now.\n\n{\"act\": \"Link:Major escalation between the U.S. and Venezuela after U.S. seizes oil tanker 5 minutes, 29 seconds\"}",
+      "timestamp": "2025-12-13T08:50:19.757817Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "✅ click(Link:Major escalation between the U.S. and Venezuela after U.S. seizes oil tanker 5 minutes, 29 seconds): Success",
+      "timestamp": "2025-12-13T08:50:19.772410Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "search for claude ai",
+      "timestamp": "2025-12-13T08:50:34.908770Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Searching for \"claude ai\" now on YouTube.\n\n{\"act\": \"Input: Search\", \"value\": \"claude ai\", \"submit\": true}",
+      "timestamp": "2025-12-13T08:50:36.382726Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "assistant",
+      "content": "✅ setValue(Input: Search): Success",
+      "timestamp": "2025-12-13T08:50:36.386989Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "user",
+      "content": "lets see that claud ai video vs chatgbt",
+      "timestamp": "2025-12-13T08:50:49.536675Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "assistant",
+      "content": "Clicking the video titled \"Claude AI vs. ChatGPT 2 minutes, 7 seconds\" for you.\n\n{\"act\": \"Link:Claude AI vs. ChatGPT 2 minutes, 7 seconds\"}",
+      "timestamp": "2025-12-13T08:50:51.018747Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "✅ click(Link:Claude AI vs. ChatGPT 2 minutes, 7 seconds): Success",
+      "timestamp": "2025-12-13T08:50:51.026759Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "pause",
+      "timestamp": "2025-12-13T08:50:55.369946Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "Pausing the video for you now.\n\n{\"cap\": \"TogglePlayPause\"}",
+      "timestamp": "2025-12-13T08:50:56.138900Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "assistant",
+      "content": "❌ TogglePlayPause: Timeout waiting for TogglePlayPause",
+      "timestamp": "2025-12-13T08:51:06.142721Z"
+    }
+  ]
+}

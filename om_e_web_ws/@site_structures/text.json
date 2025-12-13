@@ -1,82 +1,1685 @@
 {
   "metadata": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
-    "timestamp": "2025-12-13T07:42:50Z",
-    "element_count": 7
+    "url": "https://thehill.com/opinion/international/5642398-venezuela-minerals-us-strategy/",
+    "title": "America isn’t attacking Venezuela because of drugs — it’s because of minerals ",
+    "timestamp": "2025-12-13T09:06:45Z",
+    "element_count": 173
   },
   "elements": {
-    "Button:TOGGLE HUD OVERLAY": {
-      "label": "TOGGLE HUD OVERLAY",
+    "Link:Skip to content": {
+      "label": "Skip to content",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/5642398-venezuela-minerals-us-strategy/']",
+        "a[href*='#content']",
+        "a.skip-link.screen-reader-text"
+      ],
+      "href": "https://thehill.com/opinion/international/5642398-venezuela-minerals-us-strategy/#content"
+    },
+    "Button:Toggle Menu": {
+      "label": "Toggle Menu",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#hudToggleBtn",
-        "button.hud-toggle-btn"
+        "button.site-header__toggle"
       ],
       "href": null
     },
-    "Input:WebSocket URL": {
-      "label": "WebSocket URL",
+    "Link:READ THE PAPER": {
+      "label": "READ THE PAPER",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/e-edition/']",
+        "[data-link-position='1']"
+      ],
+      "href": "https://thehill.com/e-edition/"
+    },
+    "Button:SIGN UP": {
+      "label": "SIGN UP",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/5642398-venezuela-minerals-us-strategy/']",
+        "a.lr-link-button.lr-signup-button-main"
+      ],
+      "href": "https://thehill.com/opinion/international/5642398-venezuela-minerals-us-strategy/#"
+    },
+    "Link:NEWSLETTERS": {
+      "label": "NEWSLETTERS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/join/7aa/signup']",
+        "[data-link-position='0']"
+      ],
+      "href": "https://nxslink.thehill.com/join/7aa/signup"
+    },
+    "Button:View your notifications and profile settings": {
+      "label": "View your notifications and profile settings",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='View your notifications and profile settings']",
+        "[aria-label='View your notifications and profile settings']",
+        "[data-vf-id='-1']",
+        "button.fake-bell.vf-button"
+      ],
+      "href": null
+    },
+    "Link:News": {
+      "label": "News",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/']",
+        "[data-link-position='0']"
+      ],
+      "href": "https://thehill.com/news/"
+    },
+    "Link:Policy": {
+      "label": "Policy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/']",
+        "[data-link-position='0']"
+      ],
+      "href": "https://thehill.com/policy/"
+    },
+    "Link:Business": {
+      "label": "Business",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/business/']",
+        "[data-link-position='0']"
+      ],
+      "href": "https://thehill.com/business/"
+    },
+    "Link:Health": {
+      "label": "Health",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/healthcare/']",
+        "[data-link-position='0']"
+      ],
+      "href": "https://thehill.com/policy/healthcare/"
+    },
+    "Link:Opinion": {
+      "label": "Opinion",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/']",
+        "[data-link-position='0']"
+      ],
+      "href": "https://thehill.com/opinion/"
+    },
+    "Link:Events": {
+      "label": "Events",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/events/']",
+        "[data-link-position='0']"
+      ],
+      "href": "https://thehill.com/events/"
+    },
+    "Link:Jobs": {
+      "label": "Jobs",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/en-US/nexstar']",
+        "[data-link-position='0']"
+      ],
+      "href": "https://nexstar.wd5.myworkdayjobs.com/en-US/nexstar?locations=bb4234a7e07a0146ae04113d704dd34d"
+    },
+    "Link:US-VENEZUELA": {
+      "label": "US-VENEZUELA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/administration/5643951-live-updates-trump-republicans-indiana-venezuela/']"
+      ],
+      "href": "https://thehill.com/homenews/administration/5643951-live-updates-trump-republicans-indiana-venezuela/"
+    },
+    "Link:GOP ELECTIONS": {
+      "label": "GOP ELECTIONS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/5645435-republicans-spooked-election-outcomes/']"
+      ],
+      "href": "https://thehill.com/homenews/campaign/5645435-republicans-spooked-election-outcomes/"
+    },
+    "Link:SUPREME COURT": {
+      "label": "SUPREME COURT",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/regulation/court-battles/5645133-supreme-court-second-amendment-challenges/']"
+      ],
+      "href": "https://thehill.com/regulation/court-battles/5645133-supreme-court-second-amendment-challenges/"
+    },
+    "Link:HEALTH CARE COSTS": {
+      "label": "HEALTH CARE COSTS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/senate/5645498-republicans-pressure-health-care-costs/']"
+      ],
+      "href": "https://thehill.com/homenews/senate/5645498-republicans-pressure-health-care-costs/"
+    },
+    "Link:CONTENT FROM GOOGLE CLOUD": {
+      "label": "CONTENT FROM GOOGLE CLOUD",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/sponsor-content/old-dominion-university-and-google-public-sector-launch-ai-incubator-to-advance/']"
+      ],
+      "href": "https://thehill.com/sponsor-content/old-dominion-university-and-google-public-sector-launch-ai-incubator-to-advance/?prx_t=RS8KAIu51AfuUPA&ntv_ui=ac664d47-c07d-4034-9c72-1424a16ba064&ntv_ht=PDEmaQA"
+    },
+    "Link:CONTENT FROM AARP": {
+      "label": "CONTENT FROM AARP",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/sponsor-content/it-is-time-to-address-the-cost-of-caregiving/']"
+      ],
+      "href": "https://thehill.com/sponsor-content/it-is-time-to-address-the-cost-of-caregiving/?prx_t=ujQKAiiZ2AfuUPA&ntv_ui=155de374-835d-416d-995e-8ab753e483b7&ntv_ht=z9k5aQA"
+    },
+    "Link:Walz addresses fraud scandal: Minnesota’s ‘generosity has been taken advantage of’": {
+      "label": "Walz addresses fraud scandal: Minnesota’s ‘generosity has been taken advantage of’",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/state-watch/5647309-minnesota-fraud-scandal-walz-address/']",
+        "[data-link-type='content-link']",
+        "a.list-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/state-watch/5647309-minnesota-fraud-scandal-walz-address/"
+    },
+    "Link:STATE WATCH": {
+      "label": "STATE WATCH",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/state-watch/']",
+        "a.color-light-gray-cat"
+      ],
+      "href": "https://thehill.com/homenews/state-watch/"
+    },
+    "Link:Maduro dances, sings to ‘Don’t Worry, Be Happy’ at rally as Trump escalates": {
+      "label": "Maduro dances, sings to ‘Don’t Worry, Be Happy’ at rally as Trump escalates",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/international/5647190-venezuela-maduro-rally-trump/']",
+        "[data-link-type='content-link']",
+        "a.list-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/policy/international/5647190-venezuela-maduro-rally-trump/"
+    },
+    "Link:INTERNATIONAL": {
+      "label": "INTERNATIONAL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/international/']",
+        "a.color-light-gray-cat"
+      ],
+      "href": "https://thehill.com/policy/international/"
+    },
+    "Link:Jasmine Crockett leads James Talarico in first poll post-announcement": {
+      "label": "Jasmine Crockett leads James Talarico in first poll post-announcement",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/5645888-jasmine-crockett-leads-james-talarico-in-first-poll-post-announcement/']",
+        "[data-link-type='content-link']",
+        "a.list-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/campaign/5645888-jasmine-crockett-leads-james-talarico-in-first-poll-post-announcement/"
+    },
+    "Link:CAMPAIGN": {
+      "label": "CAMPAIGN",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/']",
+        "a.color-light-gray-cat"
+      ],
+      "href": "https://thehill.com/homenews/campaign/"
+    },
+    "Link:Harris, Martin talk affordability at DNC meeting: ‘S— is too expensive’": {
+      "label": "Harris, Martin talk affordability at DNC meeting: ‘S— is too expensive’",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/5647234-harris-ken-martin-dnc-affordability/']",
+        "[data-link-type='content-link']",
+        "a.list-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/campaign/5647234-harris-ken-martin-dnc-affordability/"
+    },
+    "Link:CAMPAIGN#2": {
+      "label": "CAMPAIGN",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/']",
+        "a.color-light-gray-cat"
+      ],
+      "href": "https://thehill.com/homenews/campaign/"
+    },
+    "Link:DHS changing immigration enforcement tactics amid negative polling": {
+      "label": "DHS changing immigration enforcement tactics amid negative polling",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/national-security/5647146-immigration-enforcement-tactics-change/']",
+        "[data-link-type='content-link']",
+        "a.list-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/policy/national-security/5647146-immigration-enforcement-tactics-change/"
+    },
+    "Link:NATIONAL SECURITY": {
+      "label": "NATIONAL SECURITY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/national-security/']",
+        "a.color-light-gray-cat"
+      ],
+      "href": "https://thehill.com/policy/national-security/"
+    },
+    "Link:A demilitarized zone in Ukraine? Zelensky appears open": {
+      "label": "A demilitarized zone in Ukraine? Zelensky appears open",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-link-type='content-link']",
+        "a.list-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/newsletters/defense-national-security/5647189-a-demilitarized-zone-in-ukraine-zelensky-appears-open/"
+    },
+    "Link:DEFENSE & NATIONAL SECURITY": {
+      "label": "DEFENSE & NATIONAL SECURITY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/newsletters/defense-national-security/']",
+        "a.color-light-gray-cat"
+      ],
+      "href": "https://thehill.com/newsletters/defense-national-security/"
+    },
+    "Link:Wisconsin redistricting lawsuits may get ruling after 2026 elections": {
+      "label": "Wisconsin redistricting lawsuits may get ruling after 2026 elections",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/state-watch/5647059-wisconsin-redistricting-lawsuits-may-get-ruling-after-2026-elections/']",
+        "[data-link-type='content-link']",
+        "a.list-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/state-watch/5647059-wisconsin-redistricting-lawsuits-may-get-ruling-after-2026-elections/"
+    },
+    "Link:STATE WATCH#2": {
+      "label": "STATE WATCH",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/state-watch/']",
+        "a.color-light-gray-cat"
+      ],
+      "href": "https://thehill.com/homenews/state-watch/"
+    },
+    "Link:GOP unveils health bill without ACA subsidies": {
+      "label": "GOP unveils health bill without ACA subsidies",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/newsletters/health-care/5647134-gop-unveils-health-bill-without-aca-subsidies/']",
+        "[data-link-type='content-link']",
+        "a.list-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/newsletters/health-care/5647134-gop-unveils-health-bill-without-aca-subsidies/"
+    },
+    "Link:HEALTH CARE": {
+      "label": "HEALTH CARE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/newsletters/health-care/']",
+        "a.color-light-gray-cat"
+      ],
+      "href": "https://thehill.com/newsletters/health-care/"
+    },
+    "Link:VIEW ALL": {
+      "label": "VIEW ALL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news']",
+        "a.desktop-only.list-item__read-more"
+      ],
+      "href": "https://thehill.com/news"
+    },
+    "Link:OPINION": {
+      "label": "OPINION",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/']"
+      ],
+      "href": "https://thehill.com/opinion/"
+    },
+    "Link:INTERNATIONAL#2": {
+      "label": "INTERNATIONAL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/']"
+      ],
+      "href": "https://thehill.com/opinion/international/"
+    },
+    "Link:Pete Hegseth,": {
+      "label": "Pete Hegseth,",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/people/pete-hegseth/']",
+        "a.person-popover__link"
+      ],
+      "href": "https://thehill.com/people/pete-hegseth/"
+    },
+    "Link:publicly suggested": {
+      "label": "publicly suggested",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/article/military-strikes-boats-drugs-caribbean-hegseth-congress-93c513e28f38688f5582150c7675c072']"
+      ],
+      "href": "https://apnews.com/article/military-strikes-boats-drugs-caribbean-hegseth-congress-93c513e28f38688f5582150c7675c072"
+    },
+    "Link:not a significant source": {
+      "label": "not a significant source",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/article/2025/sep/22/Trump-Venezuela-boat-strikes-drugs-trafficking/']"
+      ],
+      "href": "https://www.politifact.com/article/2025/sep/22/Trump-Venezuela-boat-strikes-drugs-trafficking/"
+    },
+    "Link:recent agreement": {
+      "label": "recent agreement",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/analysis/what-know-about-signed-us-ukraine-minerals-deal']"
+      ],
+      "href": "https://www.csis.org/analysis/what-know-about-signed-us-ukraine-minerals-deal"
+    },
+    "Link:$1.36 trillion,": {
+      "label": "$1.36 trillion,",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/english/2019-06/09/c_138128877.htm']"
+      ],
+      "href": "http://www.xinhuanet.com/english/2019-06/09/c_138128877.htm"
+    },
+    "Link:history of intervening in resource-rich nations": {
+      "label": "history of intervening in resource-rich nations",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/us-westward-expansion/26024-us-interventions.html']"
+      ],
+      "href": "https://archive.globalpolicy.org/us-westward-expansion/26024-us-interventions.html"
+    },
+    "Link:bauxite, coltan, gold and rare-earth minerals": {
+      "label": "bauxite, coltan, gold and rare-earth minerals",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/infographics/subsoil-bonanza-venezuelas-natural-resources/']"
+      ],
+      "href": "https://venezuelanalysis.com/infographics/subsoil-bonanza-venezuelas-natural-resources/"
+    },
+    "Link:armed groups are strongest.": {
+      "label": "armed groups are strongest.",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
+      ],
+      "href": "https://www.theguardian.com/global-development/2025/nov/07/drug-trafficking-extortion-kidnapping-the-lawless-rush-for-rare-earth-minerals-in-venezuela"
+    },
+    "Link:devastating": {
+      "label": "devastating",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/latin-america-caribbean/andes/venezuela/b53-curse-gold-mining-and-violence-venezuelas-south']",
+        "a[href*='#:~:text=have%20been%20dire.-,The%20consequences%20of%20the%20mining%20boom%20have%20been%20dire.,to%20change%20the%20status%20quo.']"
+      ],
+      "href": "https://www.crisisgroup.org/latin-america-caribbean/andes/venezuela/b53-curse-gold-mining-and-violence-venezuelas-south#:~:text=have%20been%20dire.-,The%20consequences%20of%20the%20mining%20boom%20have%20been%20dire.,to%20change%20the%20status%20quo."
+    },
+    "Link:opposition won by a wide margin": {
+      "label": "opposition won by a wide margin",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/world/article/2024/aug/10/gonzalez-proof-win-venezuela-election-vote-tally-maduro']"
+      ],
+      "href": "https://www.theguardian.com/world/article/2024/aug/10/gonzalez-proof-win-venezuela-election-vote-tally-maduro"
+    },
+    "Button:ADD AS PREFERRED SOURCE ON GOOGLE": {
+      "label": "ADD AS PREFERRED SOURCE ON GOOGLE",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/preferences/source']",
+        "a.nexstar-google-preferred-sources-button"
+      ],
+      "href": "https://google.com/preferences/source?q=https://thehill.com"
+    },
+    "Link:DRUG BOATS": {
+      "label": "DRUG BOATS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/social-tags/drug-boats/']",
+        "a.tags__item.color-light-gray"
+      ],
+      "href": "https://thehill.com/social-tags/drug-boats/"
+    },
+    "Link:NICOLAS MADURO": {
+      "label": "NICOLAS MADURO",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/people/nicolas-maduro/']",
+        "a.tags__item.color-light-gray"
+      ],
+      "href": "https://thehill.com/people/nicolas-maduro/"
+    },
+    "Link:PETE HEGSETH": {
+      "label": "PETE HEGSETH",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/people/pete-hegseth/']",
+        "a.tags__item.color-light-gray"
+      ],
+      "href": "https://thehill.com/people/pete-hegseth/"
+    },
+    "Link:RARE EARTH MINERALS": {
+      "label": "RARE EARTH MINERALS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/social-tags/rare-earth-minerals/']",
+        "a.tags__item.color-light-gray"
+      ],
+      "href": "https://thehill.com/social-tags/rare-earth-minerals/"
+    },
+    "Link:UKRAINE": {
+      "label": "UKRAINE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/social-tags/ukraine/']",
+        "a.tags__item.color-light-gray"
+      ],
+      "href": "https://thehill.com/social-tags/ukraine/"
+    },
+    "Link:VENEZUELA": {
+      "label": "VENEZUELA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/social-tags/venezuela/']",
+        "a.tags__item.color-light-gray"
+      ],
+      "href": "https://thehill.com/social-tags/venezuela/"
+    },
+    "Link:VENEZUELAN BOAT STRIKES": {
+      "label": "VENEZUELAN BOAT STRIKES",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/social-tags/venezuelan-boat-strikes/']",
+        "a.tags__item.color-light-gray"
+      ],
+      "href": "https://thehill.com/social-tags/venezuelan-boat-strikes/"
+    },
+    "Link:WAR ON DRUGS": {
+      "label": "WAR ON DRUGS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/social-tags/war-on-drugs/']",
+        "a.tags__item.color-light-gray"
+      ],
+      "href": "https://thehill.com/social-tags/war-on-drugs/"
+    },
+    "Link:SEE ALL": {
+      "label": "SEE ALL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/']"
+      ],
+      "href": "https://thehill.com/opinion/international/"
+    },
+    "Link:INTERNATIONAL#3": {
+      "label": "INTERNATIONAL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/']",
+        "[data-link-type='category-link']",
+        "a.featured-cards__category-link.desktop-only"
+      ],
+      "href": "https://thehill.com/opinion/international/"
+    },
+    "Link:US pressure won’t spark a new Venezuelan exodus — Maduro staying in power will": {
+      "label": "US pressure won’t spark a new Venezuelan exodus — Maduro staying in power will",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/5645190-venezuela-collapse-migration-us/']",
+        "[data-link-position='1']"
+      ],
+      "href": "https://thehill.com/opinion/international/5645190-venezuela-collapse-migration-us/"
+    },
+    "Link:INTERNATIONAL#4": {
+      "label": "INTERNATIONAL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/']",
+        "[data-link-type='category-link']",
+        "a.featured-cards__category-link.desktop-only"
+      ],
+      "href": "https://thehill.com/opinion/international/"
+    },
+    "Link:Don’t dismiss the possibility of a peaceful transition in Venezuela": {
+      "label": "Don’t dismiss the possibility of a peaceful transition in Venezuela",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/5644945-venezuela-democratic-transition-potential/']",
+        "[data-link-position='2']"
+      ],
+      "href": "https://thehill.com/opinion/international/5644945-venezuela-democratic-transition-potential/"
+    },
+    "Link:INTERNATIONAL#5": {
+      "label": "INTERNATIONAL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/']",
+        "[data-link-type='category-link']",
+        "a.featured-cards__category-link.desktop-only"
+      ],
+      "href": "https://thehill.com/opinion/international/"
+    },
+    "Link:The US Abraham Accords strategy isn’t about Israel. It’s about China.": {
+      "label": "The US Abraham Accords strategy isn’t about Israel. It’s about China.",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/5644521-abraham-accords-us-china-strategy/']",
+        "[data-link-position='3']"
+      ],
+      "href": "https://thehill.com/opinion/international/5644521-abraham-accords-us-china-strategy/"
+    },
+    "Link:INTERNATIONAL#6": {
+      "label": "INTERNATIONAL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/']",
+        "[data-link-type='category-link']",
+        "a.featured-cards__category-link.desktop-only"
+      ],
+      "href": "https://thehill.com/opinion/international/"
+    },
+    "Link:In Syria, relief and reality collide one year after Assad’s fall": {
+      "label": "In Syria, relief and reality collide one year after Assad’s fall",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/5644821-in-syria-relief-and-reality-collide-one-year-after-assads-fall/']",
+        "[data-link-position='4']"
+      ],
+      "href": "https://thehill.com/opinion/international/5644821-in-syria-relief-and-reality-collide-one-year-after-assads-fall/"
+    },
+    "Link:SEE ALL HILL.TV": {
+      "label": "SEE ALL HILL.TV",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/hilltv']"
+      ],
+      "href": "https://thehill.com/hilltv"
+    },
+    "Link:SEE ALL VIDEO": {
+      "label": "SEE ALL VIDEO",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video']"
+      ],
+      "href": "https://thehill.com/video"
+    },
+    "Link:RISING": {
+      "label": "RISING",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/hilltv/rising/']",
+        "[data-link-type='category-link']",
+        "a.featured-cards__category-link.desktop-only"
+      ],
+      "href": "https://thehill.com/hilltv/rising/"
+    },
+    "Link:Rising: December 12, 2025": {
+      "label": "Rising: December 12, 2025",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/hilltv/rising/5646128-rising-december-12-2025/']",
+        "[data-link-type='content-link']"
+      ],
+      "href": "https://thehill.com/hilltv/rising/5646128-rising-december-12-2025/"
+    },
+    "Link:RISING#2": {
+      "label": "RISING",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/hilltv/rising/']",
+        "[data-link-type='category-link']",
+        "a.featured-cards__category-link.desktop-only"
+      ],
+      "href": "https://thehill.com/hilltv/rising/"
+    },
+    "Link:Rising: December 11, 2025": {
+      "label": "Rising: December 11, 2025",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/hilltv/rising/5644056-rising-december-11-2025/']",
+        "[data-link-type='content-link']"
+      ],
+      "href": "https://thehill.com/hilltv/rising/5644056-rising-december-11-2025/"
+    },
+    "Link:RISING#3": {
+      "label": "RISING",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/hilltv/rising/']",
+        "[data-link-type='category-link']",
+        "a.featured-cards__category-link.desktop-only"
+      ],
+      "href": "https://thehill.com/hilltv/rising/"
+    },
+    "Link:Rising: December 10, 2025": {
+      "label": "Rising: December 10, 2025",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/hilltv/rising/5642177-rising-december-10-2025/']",
+        "[data-link-type='content-link']"
+      ],
+      "href": "https://thehill.com/hilltv/rising/5642177-rising-december-10-2025/"
+    },
+    "Link:SEE ALL#2": {
+      "label": "SEE ALL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
+      ],
+      "href": "https://thehill.com/"
+    },
+    "Link:HOUSE": {
+      "label": "HOUSE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/house/']",
+        "[data-link-type='category-link']",
+        "a.featured-cards__category-link.desktop-only"
+      ],
+      "href": "https://thehill.com/homenews/house/"
+    },
+    "Link:House GOP unveils health care bill without ObamaCare subsidies extension": {
+      "label": "House GOP unveils health care bill without ObamaCare subsidies extension",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/house/5646973-house-gop-health-care-bill-obamacare/']",
+        "[data-link-position='1']"
+      ],
+      "href": "https://thehill.com/homenews/house/5646973-house-gop-health-care-bill-obamacare/"
+    },
+    "Link:EMILY BROOKS": {
+      "label": "EMILY BROOKS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/author/emily-brooks/']"
+      ],
+      "href": "https://thehill.com/author/emily-brooks/"
+    },
+    "Link:NATHANIEL WEIXEL": {
+      "label": "NATHANIEL WEIXEL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/author/nathaniel-weixel/']"
+      ],
+      "href": "https://thehill.com/author/nathaniel-weixel/"
+    },
+    "Link:The US isn’t attacking Venezuela because of drugs — it’s because of ...": {
+      "label": "The US isn’t attacking Venezuela because of drugs — it’s because of ...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/international/5642398-venezuela-minerals-us-strategy/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/opinion/international/5642398-venezuela-minerals-us-strategy/"
+    },
+    "Link:Carville: Crockett broke ‘first rule of politics’ with Senate campaign ...": {
+      "label": "Carville: Crockett broke ‘first rule of politics’ with Senate campaign ...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/5646776-jasmine-crockett-senate-bid-james-carville/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/campaign/5646776-jasmine-crockett-senate-bid-james-carville/"
+    },
+    "Link:House GOP unveils health care bill without ObamaCare subsidies extension#2": {
+      "label": "House GOP unveils health care bill without ObamaCare subsidies extension",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/house/5646973-house-gop-health-care-bill-obamacare/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/house/5646973-house-gop-health-care-bill-obamacare/"
+    },
+    "Link:Democrat: Latest Epstein photo cache shows ‘people engaged in sexual acts’": {
+      "label": "Democrat: Latest Epstein photo cache shows ‘people engaged in sexual acts’",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/house/5646987-epstein-photos-sexual-acts/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/house/5646987-epstein-photos-sexual-acts/"
+    },
+    "Link:New restrictions on what SNAP can buy in 2026: Here’s what to know": {
+      "label": "New restrictions on what SNAP can buy in 2026: Here’s what to know",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/nexstar_media_wire/5644721-new-restrictions-on-what-snap-can-buy-in-2026-heres-what-to-know/"
+    },
+    "Link:DHS changing immigration enforcement tactics amid negative polling#2": {
+      "label": "DHS changing immigration enforcement tactics amid negative polling",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/national-security/5647146-immigration-enforcement-tactics-change/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/policy/national-security/5647146-immigration-enforcement-tactics-change/"
+    },
+    "Link:DOJ seeks to boot Judge Boasberg from pursuing contempt hearings": {
+      "label": "DOJ seeks to boot Judge Boasberg from pursuing contempt hearings",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/regulation/court-battles/5646447-trump-boasberg-deportation-feud/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/regulation/court-battles/5646447-trump-boasberg-deportation-feud/"
+    },
+    "Link:Navy submits report on Kelly’s potential punishment over ‘illegal orders’ ...": {
+      "label": "Navy submits report on Kelly’s potential punishment over ‘illegal orders’ ...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/defense/5645071-kelly-democrats-video-illegal-orders/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/policy/defense/5645071-kelly-democrats-video-illegal-orders/"
+    },
+    "Link:GOP unveils health bill without ACA subsidies#2": {
+      "label": "GOP unveils health bill without ACA subsidies",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/newsletters/health-care/5647134-gop-unveils-health-bill-without-aca-subsidies/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/newsletters/health-care/5647134-gop-unveils-health-bill-without-aca-subsidies/"
+    },
+    "Link:Russia demands Trump administration provide reasoning for seizure of oil tanker": {
+      "label": "Russia demands Trump administration provide reasoning for seizure of oil tanker",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/international/5644572-lavrov-questions-us-venezuela-seizure/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/policy/international/5644572-lavrov-questions-us-venezuela-seizure/"
+    },
+    "Link:Republicans spooked by string of disappointing elections": {
+      "label": "Republicans spooked by string of disappointing elections",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/5645435-republicans-spooked-election-outcomes/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/campaign/5645435-republicans-spooked-election-outcomes/"
+    },
+    "Link:Supreme Court confronts gun rights pileup": {
+      "label": "Supreme Court confronts gun rights pileup",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/regulation/court-battles/5645133-supreme-court-second-amendment-challenges/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/regulation/court-battles/5645133-supreme-court-second-amendment-challenges/"
+    },
+    "Link:Indiana governor says he’ll help primary Republicans who defied Trump on ...": {
+      "label": "Indiana governor says he’ll help primary Republicans who defied Trump on ...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/5645998-braun-challenges-republican-lawmakers/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/campaign/5645998-braun-challenges-republican-lawmakers/"
+    },
+    "Link:California heavyweights Newsom, Harris face collision course over White House": {
+      "label": "California heavyweights Newsom, Harris face collision course over White House",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/5645031-newsom-harris-presidential-collision/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/homenews/campaign/5645031-newsom-harris-presidential-collision/"
+    },
+    "Link:Noem accused of misleading Congress about early hearing departure to canceled ...": {
+      "label": "Noem accused of misleading Congress about early hearing departure to canceled ...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/national-security/5644770-noem-dhs-thompson-fema/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/policy/national-security/5644770-noem-dhs-thompson-fema/"
+    },
+    "Link:Trump’s presidency is crumbling before our eyes": {
+      "label": "Trump’s presidency is crumbling before our eyes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/white-house/5640504-trump-white-house-dysfunction/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/opinion/white-house/5640504-trump-white-house-dysfunction/"
+    },
+    "Link:Former NATO commander: Venezuela oil tanker seizure ‘legal’ and ...": {
+      "label": "Former NATO commander: Venezuela oil tanker seizure ‘legal’ and ...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/international/5644447-venezuela-oil-tanker-coast-guard-nato/']",
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/policy/international/5644447-venezuela-oil-tanker-coast-guard-nato/"
+    },
+    "Link:The Marine Corps just had its 250th birthday — now let’s abolish it": {
+      "label": "The Marine Corps just had its 250th birthday — now let’s abolish it",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-link-type='content-link']",
+        "a.most-popular-item__link.color-dark-gray"
+      ],
+      "href": "https://thehill.com/opinion/national-security/5615654-the-marine-corps-just-had-its-250th-birthday-now-lets-abolish-it/"
+    },
+    "Link:Load more": {
+      "label": "Load more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a.load-more.desktop-only"
+      ],
+      "href": null
+    },
+    "Input:Your Email": {
+      "label": "Your Email",
       "type": "Input",
       "tag": "input",
       "selectors": [
-        "#wsUrl",
-        "input[placeholder='WebSocket URL']",
-        "input[type='text'][placeholder='WebSocket URL']"
+        "#edit-email",
+        "input[name='email']",
+        "input[placeholder='Your Email']",
+        "input[type='text'][name='email']",
+        "input.network-footer__newsletter__email-address"
       ],
       "href": null
     },
-    "Button:Save & Reconnect": {
-      "label": "Save & Reconnect",
+    "Button:Op": {
+      "label": "Op",
       "type": "Button",
-      "tag": "button",
+      "tag": "input",
       "selectors": [
-        "#saveBtn",
-        "button.primary"
+        "#edit-submit--2",
+        "input[name='op']",
+        "input[type='submit'][name='op']",
+        "input.network-footer__newsletter__submit"
       ],
       "href": null
     },
-    "Button:Kawaii": {
-      "label": "Kawaii",
+    "Link:News#2": {
+      "label": "News",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/']",
+        "a.title-1"
+      ],
+      "href": "https://thehill.com/homenews/"
+    },
+    "Link:2024 ELECTIONS": {
+      "label": "2024 ELECTIONS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/elections/']"
+      ],
+      "href": "https://thehill.com/elections/"
+    },
+    "Link:2024 ELECTION RESULTS": {
+      "label": "2024 ELECTION RESULTS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
+      ],
+      "href": "https://elections2024.thehill.com/"
+    },
+    "Link:2024 ELECTION FORECAST": {
+      "label": "2024 ELECTION FORECAST",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/forecast/2024/president/']"
+      ],
+      "href": "https://elections2024.thehill.com/forecast/2024/president/"
+    },
+    "Link:SENATE": {
+      "label": "SENATE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/senate/']"
+      ],
+      "href": "https://thehill.com/homenews/senate/"
+    },
+    "Link:HOUSE#2": {
+      "label": "HOUSE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/house/']"
+      ],
+      "href": "https://thehill.com/homenews/house/"
+    },
+    "Link:CAMPAIGN#3": {
+      "label": "CAMPAIGN",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/campaign/']"
+      ],
+      "href": "https://thehill.com/homenews/campaign/"
+    },
+    "Link:ADMINISTRATION": {
+      "label": "ADMINISTRATION",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/regulation/administration/']"
+      ],
+      "href": "https://thehill.com/regulation/administration/"
+    },
+    "Link:REGULATION": {
+      "label": "REGULATION",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/regulation/']"
+      ],
+      "href": "https://thehill.com/regulation/"
+    },
+    "Link:MEDIA": {
+      "label": "MEDIA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/media/']"
+      ],
+      "href": "https://thehill.com/homenews/media/"
+    },
+    "Link:BRIEFING ROOM": {
+      "label": "BRIEFING ROOM",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/blog-briefing-room/']"
+      ],
+      "href": "https://thehill.com/blogs/blog-briefing-room/"
+    },
+    "Link:LATINO": {
+      "label": "LATINO",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/latino/']"
+      ],
+      "href": "https://thehill.com/latino/"
+    },
+    "Link:12:30 REPORT": {
+      "label": "12:30 REPORT",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/1230-report/']"
+      ],
+      "href": "https://thehill.com/homenews/1230-report/"
+    },
+    "Link:CORONAVIRUS REPORT": {
+      "label": "CORONAVIRUS REPORT",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/homenews/coronavirus-report/']"
+      ],
+      "href": "https://thehill.com/homenews/coronavirus-report/"
+    },
+    "Link:FLOOR ACTION": {
+      "label": "FLOOR ACTION",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/floor-action/']"
+      ],
+      "href": "https://thehill.com/blogs/floor-action/"
+    },
+    "Link:IN THE KNOW": {
+      "label": "IN THE KNOW",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/in-the-know/']"
+      ],
+      "href": "https://thehill.com/blogs/in-the-know/"
+    },
+    "Link:MORE": {
+      "label": "MORE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/in-the-know/']"
+      ],
+      "href": "https://thehill.com/blogs/in-the-know/"
+    },
+    "Link:Policy#2": {
+      "label": "Policy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/']",
+        "a.title-2"
+      ],
+      "href": "https://thehill.com/policy/"
+    },
+    "Link:DEFENSE": {
+      "label": "DEFENSE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/defense/']"
+      ],
+      "href": "https://thehill.com/policy/defense/"
+    },
+    "Link:ENERGY & ENVIRONMENT": {
+      "label": "ENERGY & ENVIRONMENT",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/energy-environment/']"
+      ],
+      "href": "https://thehill.com/policy/energy-environment/"
+    },
+    "Link:HEALTH CARE#2": {
+      "label": "HEALTH CARE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/healthcare/']"
+      ],
+      "href": "https://thehill.com/policy/healthcare/"
+    },
+    "Link:TECHNOLOGY": {
+      "label": "TECHNOLOGY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/technology/']"
+      ],
+      "href": "https://thehill.com/policy/technology/"
+    },
+    "Link:INTERNATIONAL#7": {
+      "label": "INTERNATIONAL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/international/']"
+      ],
+      "href": "https://thehill.com/policy/international/"
+    },
+    "Link:TRANSPORTATION": {
+      "label": "TRANSPORTATION",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/transportation/']"
+      ],
+      "href": "https://thehill.com/policy/transportation/"
+    },
+    "Link:CYBERSECURITY": {
+      "label": "CYBERSECURITY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/cybersecurity/']"
+      ],
+      "href": "https://thehill.com/policy/cybersecurity/"
+    },
+    "Link:NATIONAL SECURITY#2": {
+      "label": "NATIONAL SECURITY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/national-security/']"
+      ],
+      "href": "https://thehill.com/policy/national-security/"
+    },
+    "Link:SUSTAINABILITY": {
+      "label": "SUSTAINABILITY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/equilibrium-sustainability/']"
+      ],
+      "href": "https://thehill.com/policy/equilibrium-sustainability/"
+    },
+    "Link:MORE#2": {
+      "label": "MORE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/policy/']"
+      ],
+      "href": "https://thehill.com/policy/"
+    },
+    "Link:Video": {
+      "label": "Video",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video']",
+        "a.title-3"
+      ],
+      "href": "https://thehill.com/video"
+    },
+    "Link:LATEST": {
+      "label": "LATEST",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/in-the-news/']"
+      ],
+      "href": "https://thehill.com/video-clips/in-the-news/"
+    },
+    "Link:DEFENSE#2": {
+      "label": "DEFENSE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/defense/']"
+      ],
+      "href": "https://thehill.com/video-clips/defense/"
+    },
+    "Link:ENERGY & ENVIRONMENT#2": {
+      "label": "ENERGY & ENVIRONMENT",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/energy-environment/']"
+      ],
+      "href": "https://thehill.com/video-clips/energy-environment/"
+    },
+    "Link:HEALTHCARE": {
+      "label": "HEALTHCARE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/healthcare/']"
+      ],
+      "href": "https://thehill.com/video-clips/healthcare/"
+    },
+    "Link:TECHNOLOGY#2": {
+      "label": "TECHNOLOGY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/technology/']"
+      ],
+      "href": "https://thehill.com/video-clips/technology/"
+    },
+    "Link:TRANSPORTATION#2": {
+      "label": "TRANSPORTATION",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/transportation/']"
+      ],
+      "href": "https://thehill.com/video-clips/transportation/"
+    },
+    "Link:INTERNATIONAL#8": {
+      "label": "INTERNATIONAL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/international/']"
+      ],
+      "href": "https://thehill.com/video-clips/international/"
+    },
+    "Link:CYBERSECURITY#2": {
+      "label": "CYBERSECURITY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/cybersecurity/']"
+      ],
+      "href": "https://thehill.com/video-clips/cybersecurity/"
+    },
+    "Link:NATIONAL SECURITY#3": {
+      "label": "NATIONAL SECURITY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/national-security/']"
+      ],
+      "href": "https://thehill.com/video-clips/national-security/"
+    },
+    "Link:SUNDAY SHOWS": {
+      "label": "SUNDAY SHOWS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/sunday-shows/']"
+      ],
+      "href": "https://thehill.com/video-clips/sunday-shows/"
+    },
+    "Link:EVENTS": {
+      "label": "EVENTS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/events/']"
+      ],
+      "href": "https://thehill.com/video-clips/events/"
+    },
+    "Link:MORE#3": {
+      "label": "MORE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/video-clips/']"
+      ],
+      "href": "https://thehill.com/video-clips/"
+    },
+    "Link:Opinion#2": {
+      "label": "Opinion",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/']",
+        "a.title-4"
+      ],
+      "href": "https://thehill.com/opinion/"
+    },
+    "Link:CONTRIBUTORS TO THE HILL": {
+      "label": "CONTRIBUTORS TO THE HILL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion']"
+      ],
+      "href": "https://thehill.com/opinion"
+    },
+    "Link:COLUMNISTS": {
+      "label": "COLUMNISTS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/columnists']"
+      ],
+      "href": "https://thehill.com/opinion/columnists"
+    },
+    "Link:CONGRESS BLOG": {
+      "label": "CONGRESS BLOG",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/congress-blog/']"
+      ],
+      "href": "https://thehill.com/opinion/congress-blog/"
+    },
+    "Link:MORE#4": {
+      "label": "MORE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/opinion/']"
+      ],
+      "href": "https://thehill.com/opinion/"
+    },
+    "Link:SITEMAP": {
+      "label": "SITEMAP",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/sitemap/']"
+      ],
+      "href": "https://thehill.com/sitemap/"
+    },
+    "Link:THE HILL APPS": {
+      "label": "THE HILL APPS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/hill-apps']"
+      ],
+      "href": "https://thehill.com/hill-apps"
+    },
+    "Link:PEOPLE": {
+      "label": "PEOPLE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/people']"
+      ],
+      "href": "https://thehill.com/people"
+    },
+    "Link:RSS": {
+      "label": "RSS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/resources/rss-feeds']"
+      ],
+      "href": "https://thehill.com/resources/rss-feeds"
+    },
+    "Link:PRINT EDITION": {
+      "label": "PRINT EDITION",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/access-the-hill-e-edition/']"
+      ],
+      "href": "https://thehill.com/access-the-hill-e-edition/"
+    },
+    "Link:GALLERIES": {
+      "label": "GALLERIES",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/media']"
+      ],
+      "href": "https://thehill.com/media"
+    },
+    "Link:THE HILL JOBS": {
+      "label": "THE HILL JOBS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/resources/classifieds/employer']"
+      ],
+      "href": "https://thehill.com/resources/classifieds/employer"
+    },
+    "Link:NATIONAL JOBS": {
+      "label": "NATIONAL JOBS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
+      ],
+      "href": "https://jobs.thehill.com/"
+    },
+    "Link:SUBMIT OPINION CONTENT": {
+      "label": "SUBMIT OPINION CONTENT",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/submitting-opinion-content']"
+      ],
+      "href": "https://thehill.com/submitting-opinion-content"
+    },
+    "Link:About Us": {
+      "label": "About Us",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/about-us/']",
+        "a.title-8"
+      ],
+      "href": "https://thehill.com/about-us/"
+    },
+    "Link:WORK FOR THE HILL": {
+      "label": "WORK FOR THE HILL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/en-US/nexstar']"
+      ],
+      "href": "https://nexstar.wd5.myworkdayjobs.com/en-US/nexstar?locations=bb4234a7e07a0146ae04113d704dd34d"
+    },
+    "Link:Visit our Facebook page": {
+      "label": "Visit our Facebook page",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/TheHill']"
+      ],
+      "href": "http://www.facebook.com/TheHill"
+    },
+    "Link:Visit our X profile": {
+      "label": "Visit our X profile",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/intent/follow']"
+      ],
+      "href": "https://twitter.com/intent/follow?screen_name=thehill"
+    },
+    "Link:Visit our LinkedIn profile": {
+      "label": "Visit our LinkedIn profile",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/company/the-hill']"
+      ],
+      "href": "https://www.linkedin.com/company/the-hill"
+    },
+    "Link:Visit our Haystack News .cls-1 { fill: none; } .cls-2 { fill: #fff; }": {
+      "label": "Visit our Haystack News\n\t\n\t\t\n\t\t\t.cls-1 {\n\t\t\t\tfill: none;\n\t\t\t}\n\n\t\t\t.cls-2 {\n\t\t\t\tfill: #fff;\n\t\t\t}",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/channel/thehill/']"
+      ],
+      "href": "https://www.haystack.tv/channel/thehill/"
+    },
+    "Link:Get the Android app from Google Play": {
+      "label": "Get the Android app from Google Play",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/store/apps/details']"
+      ],
+      "href": "https://play.google.com/store/apps/details?id=com.thehill.thehill"
+    },
+    "Link:Get the iOS app from App Store": {
+      "label": "Get the iOS app from App Store",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/us/app/the-hill/id360124019']"
+      ],
+      "href": "https://apps.apple.com/us/app/the-hill/id360124019"
+    },
+    "Link:PRIVACY POLICY": {
+      "label": "PRIVACY POLICY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/privacy-policy/']"
+      ],
+      "href": "https://www.nexstar.tv/privacy-policy/"
+    },
+    "Link:TERMS & CONDITIONS": {
+      "label": "TERMS & CONDITIONS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/terms-of-use/']"
+      ],
+      "href": "https://www.nexstar.tv/terms-of-use/"
+    },
+    "Link:CONTACT": {
+      "label": "CONTACT",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/contact']"
+      ],
+      "href": "https://thehill.com/contact"
+    },
+    "Link:ADVERTISE": {
+      "label": "ADVERTISE",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/contact/advertise']"
+      ],
+      "href": "https://thehill.com/contact/advertise"
+    },
+    "Button:SUBSCRIBE TO PUSH NOTIFICATIONS": {
+      "label": "SUBSCRIBE TO PUSH NOTIFICATIONS",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#orbKawaii",
-        "[data-theme='kawaii']",
-        "button.orb-btn"
+        "button.onesignal-reset.onesignal-customlink-subscribe"
       ],
       "href": null
     },
-    "Button:Om-E": {
-      "label": "Om-E",
-      "type": "Button",
-      "tag": "button",
+    "Link:NEWSNATION": {
+      "label": "NEWSNATION",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#orbRobot",
-        "[data-theme='robot']",
-        "button.orb-btn"
+        "a"
       ],
-      "href": null
+      "href": "https://www.newsnationnow.com/"
     },
-    "Button:Atom": {
-      "label": "Atom",
-      "type": "Button",
-      "tag": "button",
+    "Link:BESTREVIEWS": {
+      "label": "BESTREVIEWS",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#orbAtom",
-        "[data-theme='atom']",
-        "button.orb-btn"
+        "a"
       ],
-      "href": null
+      "href": "https://www.bestreviews.com/"
     },
-    "Button:Extension Settings": {
-      "label": "Extension Settings",
-      "type": "Button",
-      "tag": "button",
+    "Link:ADVERTISE WITH NEXSTAR": {
+      "label": "ADVERTISE WITH NEXSTAR",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#extPageBtn",
-        "button.ext-toggle-btn"
+        "a"
+      ],
+      "href": "http://nexstaradvertising.com/"
+    },
+    "Link:JOURNALISTIC INTEGRITY": {
+      "label": "JOURNALISTIC INTEGRITY",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/corporate-social-responsibility/journalistic-integrity/']"
+      ],
+      "href": "https://www.nexstar.tv/corporate-social-responsibility/journalistic-integrity/"
+    },
+    "Link:YOUR PRIVACY CHOICES": {
+      "label": "YOUR PRIVACY CHOICES",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
       ],
       "href": null
     }

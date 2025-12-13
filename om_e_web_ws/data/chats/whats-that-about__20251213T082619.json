@@ -1,0 +1,45 @@
+{
+  "chat_id": "whats-that-about__20251213T082619",
+  "project_id": "default",
+  "created_at": "2025-12-13T08:26:19.512622Z",
+  "updated_at": "2025-12-13T08:26:38.526903Z",
+  "title": "whats that about",
+  "default_title": "whats that about",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "whats that about rare earth",
+      "timestamp": "2025-12-13T08:26:19.512645Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "You mean the news about Australia's first rare earth processing facility under construction? It's about Australia trying to boost its own rare earth processing capabilities instead of relying on China, which currently dominates the market. Pretty important for local industry and supply chain security.\n\nWant me to open that article for you? \n\n{\"act\": \"Link:First Australian rare earth processing facility under construction The processing market is dominated by China, but Australia is building its capabilities in an attempt to boost the domestic industry. Australian Broadcasting Corporation · 1d\"}",
+      "timestamp": "2025-12-13T08:26:21.646838Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ click(Link:First Australian rare earth processing facility under construction The processing market is dominated by China, but Australia is building its capabilities in an attempt to boost the domestic industry. Australian Broadcasting Corporation · 1d): Success",
+      "timestamp": "2025-12-13T08:26:21.650956Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "what are they oing",
+      "timestamp": "2025-12-13T08:26:35.857007Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "The gist is: ANSTO (Australian Nuclear Science and Technology Organisation) is building a state-owned pilot plant in Sydney to process rare earths found in clay deposits. This will help Aussie rare earth miners avoid building their own costly pilot plants — saving them millions and speeding up development by about six months.\n\nAustralian Rare Earths (AR3) will be the first to use it for their Koppamurra mining project in South Australia. The plant is meant to be a shared facility for multiple companies to kickstart their projects without the usual hassle.\n\nBasically, it’s about getting a proper local setup to process rare earth minerals so Australia isn’t stuck relying on China’s dominance.\n\nWant me to dig up more details or check the timeline for when it’ll be ready?",
+      "timestamp": "2025-12-13T08:26:38.526903Z"
+    }
+  ]
+}

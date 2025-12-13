@@ -1,28 +1,42 @@
 {
-  "timestamp": 1765611770.816027,
+  "timestamp": 1765616805.594767,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 3,
     "active_tab": {
-      "id": 1138047248,
-      "url": "http://127.0.0.1:8080/",
-      "title": "OM-E Web",
-      "status": "loading"
+      "id": 1138047526,
+      "url": "https://www.youtube.com/watch?v=5Tfwo1cB340",
+      "title": "(46) Claude AI vs. ChatGPT - YouTube",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138047248,
+        "id": 1138047490,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138047523,
+        "url": "https://thehill.com/opinion/international/5642398-venezuela-minerals-us-strategy/",
+        "title": "America isn’t attacking Venezuela because of drugs — it’s because of minerals",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138047526,
+        "url": "https://www.youtube.com/watch?v=5Tfwo1cB340",
+        "title": "(46) Claude AI vs. ChatGPT - YouTube",
         "active": true,
-        "status": "loading"
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 25010.551814625,
+    "last_tabs_update": 29163.9567945,
     "extension_connected": true
   },
   "current_page": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
+    "url": "https://www.youtube.com/watch?v=5Tfwo1cB340",
+    "title": "(46) Claude AI vs. ChatGPT - YouTube",
     "is_active_tab": true
   },
   "content_structure": {},

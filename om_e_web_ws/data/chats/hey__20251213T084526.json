@@ -1,0 +1,27 @@
+{
+  "chat_id": "hey__20251213T084526",
+  "project_id": "default",
+  "created_at": "2025-12-13T08:45:26.989710Z",
+  "updated_at": "2025-12-13T08:45:39.147985Z",
+  "title": "hey",
+  "default_title": "hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey",
+      "timestamp": "2025-12-13T08:45:26.989745Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "user",
+      "content": "hey",
+      "timestamp": "2025-12-13T08:45:39.147985Z"
+    }
+  ]
+}
