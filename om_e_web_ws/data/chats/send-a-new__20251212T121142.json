@@ -1,0 +1,111 @@
+{
+  "chat_id": "send-a-new__20251212T121142",
+  "project_id": "default",
+  "created_at": "2025-12-12T12:11:42.950683Z",
+  "updated_at": "2025-12-12T12:21:53.010309Z",
+  "title": "send a new",
+  "default_title": "send a new",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.facebook.com/home.php",
+    "page_title": "Facebook"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "send a new message saying hi",
+      "timestamp": "2025-12-12T12:11:42.950715Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Righto — who should I send it to? I can send \"hi\" to the open chat with Olivia Orsmond (current conversation), or pick someone else. Tell me the name or say “send to Olivia” and I’ll do it.",
+      "timestamp": "2025-12-12T12:11:53.304381Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "olivia input message dude",
+      "timestamp": "2025-12-12T12:12:02.540352Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Too easy — sending \"dude\" to Olivia now.\n{\"act\": \"a_id_85\", \"value\": \"dude\", \"submit\": true}",
+      "timestamp": "2025-12-12T12:12:07.855925Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_85): Success",
+      "timestamp": "2025-12-12T12:12:07.857789Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "dude",
+      "timestamp": "2025-12-12T12:12:08.045073Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "You want me to send \"dude\" to Olivia again, or were you just saying it? Say \"send\" to confirm and I'll fire it off.",
+      "timestamp": "2025-12-12T12:12:13.476901Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "user",
+      "content": "lets go to youtube",
+      "timestamp": "2025-12-12T12:19:57.572675Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "On it, mate. Heading to YouTube now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-12T12:19:59.702099Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "search for ai news",
+      "timestamp": "2025-12-12T12:20:40.692738Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "Got it, searching YouTube for \"ai news\" now.\n\n{\"act\": \"a_id_10\", \"value\": \"ai news\", \"submit\": true}",
+      "timestamp": "2025-12-12T12:20:42.615029Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "✅ setValue(a_id_10): Success",
+      "timestamp": "2025-12-12T12:20:42.620369Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "go to facebook",
+      "timestamp": "2025-12-12T12:21:33.479239Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Switching you back to Facebook now.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1}}",
+      "timestamp": "2025-12-12T12:21:34.626727Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "can you get me in orb mode again",
+      "timestamp": "2025-12-12T12:21:51.251422Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "I'll minimize the chat HUD to orb mode for you.\n\n{\"cap\": \"MinimizeHUD\"}",
+      "timestamp": "2025-12-12T12:21:53.010309Z"
+    }
+  ]
+}

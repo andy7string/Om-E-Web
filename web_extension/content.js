@@ -7249,12 +7249,22 @@
             for (const [capabilityId, capability] of Object.entries(capabilities)) {
                 // Check if url_pattern is present and matches current URL
                 if (capability.url_pattern && currentUrl.includes(capability.url_pattern)) {
+                    // Optional: only expose capability if one of these selectors exists in DOM
+                    // (Used for Messenger where the URL can be facebook.com/home.php but the composer is an overlay.)
+                    if (Array.isArray(capability.requires_selectors) && capability.requires_selectors.length) {
+                        const ok = capability.requires_selectors.some(sel => {
+                            try { return !!document.querySelector(sel); } catch { return false; }
+                        });
+                        if (!ok) continue;
+                    }
+
                     matchingCapabilities.push({
                         id: capabilityId,
                         action: capability.action,
                         label: capability.label,
                         description: capability.description,
                         handler: capability.handler,
+                        params: capability.params || {},
                         framework: window.currentFramework
                     });
                     console.log(`[Content] 🎯 Capability matched: ${capabilityId} (${capability.action}) for ${window.currentFramework}`);
@@ -11220,11 +11230,122 @@
 
                 if (isContentEditable) {
                     // ProseMirror/Lexical/contenteditable handling
-                    targetElement.focus();
-                    targetElement.innerHTML = '<p><br></p>'; // Clear existing content
-                    document.execCommand('insertText', false, params.value);
-                    targetElement.dispatchEvent(new Event('input', { bubbles: true }));
-                    console.log(`[Content] ✅ Value set via execCommand for contenteditable`);
+                    // IMPORTANT: FB Messenger needs a very specific sequencing; keep it config-driven.
+                    const forceLexicalInput = !!capability.forceLexicalInput;
+
+                    if (!forceLexicalInput) {
+                        // Generic contenteditable: keep it simple and avoid Messenger-specific behaviour.
+                        try { targetElement.focus?.(); } catch { /* ignore */ }
+                        try {
+                            document.execCommand?.('selectAll', false);
+                            document.execCommand?.('delete', false);
+                            document.execCommand?.('insertText', false, String(params.value ?? ''));
+                        } catch { /* ignore */ }
+                        try { targetElement.dispatchEvent(new Event('input', { bubbles: true })); } catch { /* ignore */ }
+                        console.log(`[Content] ✅ Value set for contenteditable (generic)`);
+                    } else {
+                        // FB Messenger: Lexical-safe sequence (paste-to-replace → per-char beforeinput fallback)
+                    const waitFrames = (frames = 2) => new Promise((resolve) => {
+                        try {
+                            let i = 0;
+                            const step = () => {
+                                i += 1;
+                                if (i >= frames) return resolve();
+                                requestAnimationFrame(step);
+                            };
+                            requestAnimationFrame(step);
+                        } catch {
+                            resolve();
+                        }
+                    });
+
+                    const getEditorText = (el) => {
+                        try {
+                            // Lexical uses many spans; match on attribute presence (value may vary)
+                            const lexicalNodes = el.querySelectorAll?.('[data-lexical-text]');
+                            if (lexicalNodes && lexicalNodes.length) {
+                                const joined = Array.from(lexicalNodes).map(n => n.textContent || '').join('');
+                                if (joined) return joined.trim();
+                            }
+                        } catch { /* ignore */ }
+                        return (el.textContent || '').trim();
+                    };
+
+                    const ensureCaretEnd = (el) => {
+                        try { el.focus?.(); } catch { /* ignore */ }
+                        try {
+                            const sel = window.getSelection?.();
+                            if (!sel) return;
+                            const range = document.createRange();
+                            range.selectNodeContents(el);
+                            range.collapse(false);
+                            sel.removeAllRanges();
+                            sel.addRange(range);
+                        } catch { /* ignore */ }
+                    };
+
+                    const clickLikeUser = (el) => {
+                        try { el.scrollIntoView?.({ block: 'center', inline: 'nearest' }); } catch { /* ignore */ }
+                        try { el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true })); } catch { /* ignore */ }
+                        try {
+                            el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+                            el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+                            el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+                        } catch { /* ignore */ }
+                        try { el.click?.(); } catch { /* ignore */ }
+                    };
+
+                    const dispatchEnterKey = (el) => {
+                        try { el.focus?.(); } catch { /* ignore */ }
+                        const init = { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, cancelable: true };
+                        try { el.dispatchEvent(new KeyboardEvent('keydown', init)); } catch { /* ignore */ }
+                        try { el.dispatchEvent(new KeyboardEvent('keypress', init)); } catch { /* ignore */ }
+                        try { el.dispatchEvent(new KeyboardEvent('keyup', init)); } catch { /* ignore */ }
+                    };
+
+                    const setTextLexical = async (el, text) => {
+                        const t = String(text || '');
+                        const snippet = t.slice(0, Math.min(8, t.length));
+                        const before = getEditorText(el);
+                        if (snippet && before.includes(snippet)) return true; // avoid duplication
+
+                        clickLikeUser(el);
+                        ensureCaretEnd(el);
+
+                        // Primary: select-all + delete + paste (best at replace, not append)
+                        try {
+                            document.execCommand?.('selectAll', false);
+                            document.execCommand?.('delete', false);
+                            const dt = new DataTransfer();
+                            dt.setData('text/plain', t);
+                            const pasteEv = new ClipboardEvent('paste', { bubbles: true, cancelable: true, clipboardData: dt });
+                            el.dispatchEvent(pasteEv);
+                        } catch { /* ignore */ }
+
+                        await waitFrames(3);
+                        const afterPaste = getEditorText(el);
+                        if (snippet && afterPaste.includes(snippet)) return true;
+
+                        // Fallback: beforeinput per-character (closest to real typing)
+                        try {
+                            clickLikeUser(el);
+                            ensureCaretEnd(el);
+                            for (const ch of t) {
+                                el.dispatchEvent(new InputEvent('beforeinput', { bubbles: true, cancelable: true, inputType: 'insertText', data: ch }));
+                                el.dispatchEvent(new InputEvent('input', { bubbles: true, cancelable: false, inputType: 'insertText', data: ch }));
+                            }
+                        } catch { /* ignore */ }
+
+                        await waitFrames(3);
+                        const afterType = getEditorText(el);
+                        return snippet ? afterType.includes(snippet) : (afterType !== before);
+                    };
+
+                    // Type into the composer (deterministic, avoids duplicates)
+                    const ok = await setTextLexical(targetElement, params.value);
+                    if (!ok) throw new Error("Failed to set value in contenteditable (Lexical did not accept input)");
+                    console.log(`[Content] ✅ Value set in contenteditable (Lexical-safe)`);
+                    }
                 } else {
                     // Regular input/textarea
                     targetElement.value = params.value;
@@ -11232,57 +11353,138 @@
                     targetElement.dispatchEvent(new Event('change', { bubbles: true }));
                 }
 
-                if (params.submit) {
+                const shouldSubmit = (capability.autoSubmit === true) ? true : !!params.submit;
+                if (shouldSubmit) {
                     console.log(`[Content] 📤 Submitting form...`);
 
-                    // Wait for UI to update (React/framework state sync)
-                    await new Promise(r => setTimeout(r, 300));
+                    // Allow UI to update (React/framework state sync) without timers
+                    await new Promise(r => {
+                        try {
+                            requestAnimationFrame(() => requestAnimationFrame(r));
+                        } catch {
+                            r();
+                        }
+                    });
 
                     // Get submit method from capability config
                     // Options: 'enter' (press Enter), 'click' (click button), 'form' (form.submit())
                     // Default: 'enter' for backwards compatibility with search inputs
                     const submitMethod = capability.submitMethod || 'enter';
                     const submitSelector = capability.submitSelector;
+                    const allowSubmitKeywords = Array.isArray(capability.allowSubmitKeywords) ? capability.allowSubmitKeywords : [];
+                    const avoidSubmitKeywords = Array.isArray(capability.avoidSubmitKeywords) ? capability.avoidSubmitKeywords : [];
 
                     console.log(`[Content] 📤 Submit method: ${submitMethod}${submitSelector ? `, selector: ${submitSelector}` : ''}`);
 
-                    if (submitMethod === 'click') {
-                        // Method: Click button (for ChatGPT, etc.)
+                    // Enter key helper (needed for enter / enter_then_click modes)
+                    const dispatchEnterKey = (el) => {
+                        try { el.focus?.(); } catch { /* ignore */ }
+                        const init = {
+                            key: 'Enter',
+                            code: 'Enter',
+                            keyCode: 13,
+                            which: 13,
+                            bubbles: true,
+                            cancelable: true
+                        };
+                        try { el.dispatchEvent(new KeyboardEvent('keydown', init)); } catch { /* ignore */ }
+                        try { el.dispatchEvent(new KeyboardEvent('keypress', init)); } catch { /* ignore */ }
+                        try { el.dispatchEvent(new KeyboardEvent('keyup', init)); } catch { /* ignore */ }
+                    };
+
+                    const pickBestSubmitCandidate = (candidates, anchorEl) => {
+                        const norm = (s) => (s || '').toLowerCase();
+                        const hasAny = (text, arr) => arr.some(k => norm(text).includes(norm(k)));
+
+                        const filtered = candidates
+                            .filter(el => {
+                                const r = el.getBoundingClientRect?.();
+                                return r && r.width > 0 && r.height > 0;
+                            })
+                            .filter(el => {
+                                const aria = el.getAttribute?.('aria-label') || '';
+                                const t = aria || el.textContent || '';
+                                if (avoidSubmitKeywords.length && hasAny(t, avoidSubmitKeywords)) return false;
+                                if (allowSubmitKeywords.length && !hasAny(t, allowSubmitKeywords)) return false;
+                                return true;
+                            });
+
+                        const pool = filtered.length ? filtered : candidates;
+                        if (!pool.length) return null;
+
+                        // Prefer nearest to the input/composer (FB has lots of unrelated buttons)
+                        const rect = anchorEl.getBoundingClientRect?.();
+                        const cx = rect ? rect.left + rect.width / 2 : 0;
+                        const cy = rect ? rect.top + rect.height / 2 : 0;
+                        const dist = (el) => {
+                            const r = el.getBoundingClientRect?.();
+                            if (!r) return Number.POSITIVE_INFINITY;
+                            const ex = r.left + r.width / 2;
+                            const ey = r.top + r.height / 2;
+                            const dx = ex - cx, dy = ey - cy;
+                            return Math.sqrt(dx * dx + dy * dy);
+                        };
+                        return pool.slice().sort((a, b) => dist(a) - dist(b))[0];
+                    };
+
+                    const clickSubmit = () => {
                         let submitBtn = null;
 
                         if (submitSelector) {
-                            submitBtn = document.querySelector(submitSelector);
+                            // Match console script: dialog → region → closest div → document
+                            const scopeRoot = targetElement.closest?.("[role='dialog']") ||
+                                              targetElement.closest?.("[role='region']") ||
+                                              targetElement.closest?.("div") ||
+                                              document;
+                            const candidates = Array.from(scopeRoot.querySelectorAll(submitSelector));
+
+                            // Prefer exact "Press Enter to send" if present (Messenger-specific)
+                            const exact = candidates.filter(el => (el.getAttribute?.('aria-label') || '') === 'Press Enter to send');
+                            submitBtn = pickBestSubmitCandidate(exact.length ? exact : candidates, targetElement);
                             if (submitBtn) {
-                                console.log(`[Content] ✅ Found submit button via config: ${submitSelector}`);
+                                console.log(`[Content] ✅ Found submit button via config (scoped): ${submitSelector}`);
                             }
                         }
 
                         // Fallback selectors if config selector not found
                         if (!submitBtn) {
                             const fallbackSelectors = [
-                                'button[data-testid="send-button"]',
-                                '#composer-submit-button',
+                                "div[role='button'][aria-label='Send']",
+                                "div[role='button'][aria-label='Press Enter to send']",
                                 'button[type="submit"]',
-                                'button[aria-label*="Send" i]',
-                                'button[aria-label*="Submit" i]'
+                                'button[aria-label*="Send" i]'
                             ];
+                            const candidates = [];
                             for (const sel of fallbackSelectors) {
-                                submitBtn = document.querySelector(sel);
-                                if (submitBtn) {
-                                    console.log(`[Content] ✅ Found submit button via fallback: ${sel}`);
-                                    break;
-                                }
+                                candidates.push(...Array.from(document.querySelectorAll(sel)));
+                            }
+                            submitBtn = pickBestSubmitCandidate(candidates, targetElement);
+                            if (submitBtn) {
+                                console.log(`[Content] ✅ Found submit button via fallback`);
                             }
                         }
 
                         if (submitBtn) {
-                            submitBtn.click();
+                            // Click like a user but ensure we only fire ONE click
+                            // (We previously dispatched a synthetic click AND called .click(), causing double-send on Messenger.)
+                            try { submitBtn.scrollIntoView?.({ block: 'center', inline: 'nearest' }); } catch { /* ignore */ }
+                            try {
+                                submitBtn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+                                submitBtn.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+                            } catch { /* ignore */ }
+                            try { submitBtn.click(); } catch { /* ignore */ }
                             console.log(`[Content] 🖱️ Submit button clicked`);
-                        } else {
+                            return true;
+                        }
+
+                        return false;
+                    };
+
+                    if (submitMethod === 'click') {
+                        // Method: Click button (for ChatGPT, etc.)
+                        if (!clickSubmit()) {
                             console.log(`[Content] ⚠️ No submit button found, trying Enter key as fallback`);
-                            targetElement.dispatchEvent(new KeyboardEvent('keydown', {
-                                key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, cancelable: true
-                            }));
+                            dispatchEnterKey(targetElement);
                         }
 
                     } else if (submitMethod === 'form') {
@@ -11300,16 +11502,19 @@
 
                     } else {
                         // Method: 'enter' (default) - Press Enter key on input (for YouTube, Google, etc.)
-                        console.log(`[Content] ⌨️ Submitting via Enter key`);
-                        const enterEvent = new KeyboardEvent('keydown', {
-                            key: 'Enter',
-                            code: 'Enter',
-                            keyCode: 13,
-                            which: 13,
-                            bubbles: true,
-                            cancelable: true
-                        });
-                        targetElement.dispatchEvent(enterEvent);
+                        // Also supports "enter_then_click" for Messenger edge cases.
+                        if (submitMethod === 'enter_then_click') {
+                            // IMPORTANT (FB Messenger): Avoid double-send.
+                            // Prefer clicking the "Press Enter to send" button; only press Enter if no button found.
+                            const clicked = clickSubmit();
+                            if (!clicked) {
+                                console.log(`[Content] ⌨️ No send button found; falling back to Enter key`);
+                                dispatchEnterKey(targetElement);
+                            }
+                        } else {
+                            console.log(`[Content] ⌨️ Submitting via Enter key`);
+                            dispatchEnterKey(targetElement);
+                        }
                     }
                 }
             } else {

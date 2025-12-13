@@ -1,0 +1,195 @@
+{
+  "chat_id": "lets-go-to__20251212T105023",
+  "project_id": "default",
+  "created_at": "2025-12-12T10:50:23.996495Z",
+  "updated_at": "2025-12-12T10:53:13.107237Z",
+  "title": "lets go to",
+  "default_title": "lets go to",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.facebook.com/home.php",
+    "page_title": "Facebook"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "lets go to fitness lovers",
+      "timestamp": "2025-12-12T10:50:23.996545Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Righto — heading to Fitness Lovers now.\n{\"act\": \"Link:Fitness Lovers\"}",
+      "timestamp": "2025-12-12T10:50:27.615476Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ navigate(Link:Fitness Lovers): Success",
+      "timestamp": "2025-12-12T10:50:27.617238Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "lets learn more",
+      "timestamp": "2025-12-12T10:51:14.207576Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Sweet — I'll open the \"Learn more\" card for ya.\n{\"act\": \"Button:Learn more\"}",
+      "timestamp": "2025-12-12T10:51:18.795501Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "✅ click(Button:Learn more): Success",
+      "timestamp": "2025-12-12T10:51:18.802431Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "can we exit this",
+      "timestamp": "2025-12-12T10:51:31.569812Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Yep — happy to. Clicking the **Close** button now.\n{\"act\": \"Button:Close\"}",
+      "timestamp": "2025-12-12T10:51:38.534869Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "✅ click(Button:Close): Success",
+      "timestamp": "2025-12-12T10:51:38.536968Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "lets see the people",
+      "timestamp": "2025-12-12T10:51:47.688604Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "Nice — opening the **People** tab for ya.\n{\"act\": \"Button:People\"}",
+      "timestamp": "2025-12-12T10:51:50.618281Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "✅ click(Button:People): Success",
+      "timestamp": "2025-12-12T10:51:50.624938Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "scrolldown",
+      "timestamp": "2025-12-12T10:51:56.568708Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Righto — scrolling down for ya.\n{\"cap\": \"ScrollDown\"}",
+      "timestamp": "2025-12-12T10:51:59.231755Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "✅ ScrollDown: Success",
+      "timestamp": "2025-12-12T10:51:59.239039Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "user",
+      "content": "lets click on Tomi",
+      "timestamp": "2025-12-12T10:52:08.839017Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "assistant",
+      "content": "Gotcha — clicking **Tomi Bronski** (Link:Tomi Bronski) now.\n{\"act\": \"Link:Tomi Bronski\"}",
+      "timestamp": "2025-12-12T10:52:13.348563Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "✅ navigate(Link:Tomi Bronski): Success",
+      "timestamp": "2025-12-12T10:52:13.354951Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "lets go home",
+      "timestamp": "2025-12-12T10:52:21.631168Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Righto — heading to **Home** now.\n{\"act\": \"Link:Home\"}",
+      "timestamp": "2025-12-12T10:52:26.458037Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "✅ navigate(Link:Home): Success",
+      "timestamp": "2025-12-12T10:52:26.462158Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "user",
+      "content": "lets search for olivia",
+      "timestamp": "2025-12-12T10:52:35.847461Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "Righto — searching Facebook for Olivia now.\n{\"act\": \"Input:Search Facebook\", \"value\": \"Olivia\", \"submit\": true}",
+      "timestamp": "2025-12-12T10:52:41.613603Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "✅ setValue(Input:Search Facebook): Success",
+      "timestamp": "2025-12-12T10:52:41.615941Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "lets send her a new message",
+      "timestamp": "2025-12-12T10:52:48.496358Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Righto — opening a new message to Olivia now.\n{\"act\": \"Button:Message\"}",
+      "timestamp": "2025-12-12T10:52:54.050916Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "assistant",
+      "content": "✅ click(Button:Message): Success",
+      "timestamp": "2025-12-12T10:52:54.057727Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "user",
+      "content": "ok great now the message is hi from mr banana",
+      "timestamp": "2025-12-12T10:53:07.750944Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "assistant",
+      "content": "Sweet — typing and sending \"hi from mr banana\" now.\n{\"act\": \"Input:Message\", \"value\": \"hi from mr banana\", \"submit\": true}",
+      "timestamp": "2025-12-12T10:53:13.099319Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "✅ setValue(Input:Message): Success",
+      "timestamp": "2025-12-12T10:53:13.107237Z"
+    }
+  ]
+}

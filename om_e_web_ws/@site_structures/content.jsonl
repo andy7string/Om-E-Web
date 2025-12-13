@@ -1,28 +1,35 @@
 {
-  "timestamp": 1765451261.768988,
+  "timestamp": 1765590579.0657978,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 2,
     "active_tab": {
-      "id": 1138042492,
-      "url": "https://mail.google.com/mail/u/0/?q=Olivia#drafts",
-      "title": "Drafts (4) - andreworsmond21175@gmail.com - Gmail",
+      "id": 1138045954,
+      "url": "https://www.youtube.com/watch?v=2QpXab8z_Gw",
+      "title": "(46) If a Mini went full RTX 5090… This Is What It Looks Like - YouTube",
       "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138042492,
-        "url": "https://mail.google.com/mail/u/0/?q=Olivia#drafts",
-        "title": "Drafts (4) - andreworsmond21175@gmail.com - Gmail",
+        "id": 1138045949,
+        "url": "https://www.facebook.com/janice.c.wagner.2025",
+        "title": "Facebook",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138045954,
+        "url": "https://www.youtube.com/watch?v=2QpXab8z_Gw",
+        "title": "(46) If a Mini went full RTX 5090… This Is What It Looks Like - YouTube",
         "active": true,
         "status": "complete"
       }
     ],
-    "last_tabs_update": 17141.624722291,
+    "last_tabs_update": 3628.72626525,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://mail.google.com/mail/u/0/?q=Olivia#drafts",
-    "title": "Drafts (4) - andreworsmond21175@gmail.com - Gmail",
+    "url": "https://www.youtube.com/watch?v=2QpXab8z_Gw",
+    "title": "(46) If a Mini went full RTX 5090… This Is What It Looks Like - YouTube",
     "is_active_tab": true
   },
   "content_structure": {},

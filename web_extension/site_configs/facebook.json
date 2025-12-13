@@ -24,6 +24,17 @@
     "button[name='login']",
     "button[data-testid='royal-login-button']"
   ],
+  "exclude_text": [
+    "Press Enter to send"
+  ],
+  "exclude": [
+    "div[role='textbox'][contenteditable='true'][aria-label='Message'][data-lexical-editor='true']",
+    "div[role='textbox'][contenteditable='true'][aria-label='Message']",
+    "[role='textbox'][contenteditable='true'][aria-label='Message']",
+    "[data-lexical-editor='true'][role='textbox'][aria-label='Message']",
+    "div[role='button'][aria-label='Press Enter to send']",
+    "[role='button'][aria-label='Press Enter to send']"
+  ],
   "selectors": {
     "navigation": [
       "nav:not([hidden])",
@@ -90,6 +101,32 @@
         "[aria-label*='Message' i]",
         "div[role='button'][aria-label*='Message' i]"
       ]
+    },
+    "messengerSendMessage": {
+      "action": "MessengerSendMessage",
+      "label": "Send a Messenger message",
+      "description": "Type into the Messenger composer and send (FB Lexical editor edge case)",
+      "url_pattern": "facebook.com",
+      "requires_selectors": [
+        "div[role='textbox'][contenteditable='true'][aria-label='Message'][data-lexical-editor='true']",
+        "div[role='textbox'][contenteditable='true'][aria-label='Message']",
+        "[data-lexical-editor='true'][role='textbox'][aria-label='Message']"
+      ],
+      "params": {
+        "value": "string"
+      },
+      "autoSubmit": true,
+      "forceLexicalInput": true,
+      "selectors": [
+        "div[role='textbox'][contenteditable='true'][aria-label='Message']",
+        "div[contenteditable='true'][role='textbox'][aria-label='Message']",
+        "[data-lexical-editor='true'][role='textbox'][aria-label='Message']",
+        "[role='textbox'][contenteditable='true'][aria-label*='Message' i]"
+      ],
+      "submitMethod": "enter_then_click",
+      "submitSelector": "div[role='button'][aria-label='Press Enter to send'], [role='button'][aria-label='Press Enter to send'], div[role='button'][aria-label='Send'], [role='button'][aria-label='Send'], button[type='submit']",
+      "avoidSubmitKeywords": ["voice", "microphone", "mic", "call", "video", "camera"],
+      "allowSubmitKeywords": ["press enter to send", "send"]
     },
     "saveItem": {
       "action": "SaveItem",

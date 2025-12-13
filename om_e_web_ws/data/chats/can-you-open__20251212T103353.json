@@ -1,0 +1,219 @@
+{
+  "chat_id": "can-you-open__20251212T103353",
+  "project_id": "default",
+  "created_at": "2025-12-12T10:33:53.728432Z",
+  "updated_at": "2025-12-12T10:37:39.576346Z",
+  "title": "can you open",
+  "default_title": "can you open",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "can you open google",
+      "timestamp": "2025-12-12T10:33:53.728471Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Sweet as — opening Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-12T10:33:58.609220Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "please close the ome web tab",
+      "timestamp": "2025-12-12T10:34:08.628888Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Too right — closing the OM-E Web tab (Tab 1) now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1}}",
+      "timestamp": "2025-12-12T10:34:14.622317Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-12T10:34:24.630547Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Righto — opening YouTube for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-12T10:34:30.235605Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-12T10:34:40.314205Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Sweet as — opening Facebook now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-12T10:34:47.747764Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "go to marketplace",
+      "timestamp": "2025-12-12T10:34:57.782140Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Sweet — heading to Marketplace now.\n\n{\"act\": \"Link:Marketplace\"}",
+      "timestamp": "2025-12-12T10:35:01.058465Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "✅ navigate(Link:Marketplace): Success",
+      "timestamp": "2025-12-12T10:35:01.065188Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "user",
+      "content": "search market place for guitars",
+      "timestamp": "2025-12-12T10:35:11.436939Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "Sweet — searching Marketplace for \"guitars\".\n\n{\"act\": \"Input:Search Marketplace\", \"value\": \"guitars\", \"submit\": true}",
+      "timestamp": "2025-12-12T10:35:17.545606Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "✅ setValue(Input:Search Marketplace): Success",
+      "timestamp": "2025-12-12T10:35:17.547340Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "nice lets look at that valencia",
+      "timestamp": "2025-12-12T10:35:30.811868Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Which one, mate — the AU$120 \"Valencia Acoustic Guitar with cover\" or the AU$30 \"Valencia Guitar\"? Say which and I'll open it.",
+      "timestamp": "2025-12-12T10:35:35.257545Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "the one for 30",
+      "timestamp": "2025-12-12T10:35:44.966132Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Righto — opening the AU$30 Valencia guitar now.\n\n{\"act\": \"a_id_45\"}",
+      "timestamp": "2025-12-12T10:36:06.600796Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "assistant",
+      "content": "✅ navigate(a_id_45): Success",
+      "timestamp": "2025-12-12T10:36:06.610611Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "user",
+      "content": "can you see the pic scrolling to move to the next pic",
+      "timestamp": "2025-12-12T10:36:27.199476Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "Yep — clicking the **View next image** button now.\n\n{\"act\": \"Button:View next image\"}",
+      "timestamp": "2025-12-12T10:36:33.423416Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "✅ click(Button:View next image): Success",
+      "timestamp": "2025-12-12T10:36:33.424279Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "nice again",
+      "timestamp": "2025-12-12T10:36:40.084133Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Nice one, mate — stoked you like it. Want me to:\n- Message the seller (ask if it's available / organise pickup)?\n- Save the listing?\n- View the map / seller details?\n- Scroll through more pics?\n\nSay which and I’ll do it.",
+      "timestamp": "2025-12-12T10:36:43.841341Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "yes",
+      "timestamp": "2025-12-12T10:36:50.380122Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Sweet as — which one do you want me to do?\n\n1) Message the seller (ask if it's still available / organise pickup)  \n2) Save the listing  \n3) View map / seller details  \n4) Scroll through more pics  \n5) Do all of the above\n\nTell me the number (or mix and match) and I’ll get onto it.",
+      "timestamp": "2025-12-12T10:36:54.802916Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "lets see notifications",
+      "timestamp": "2025-12-12T10:37:09.317176Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Good on ya — opening your notifications now.\n\n{\"act\": \"Button:Notifications, 1 unread\"}",
+      "timestamp": "2025-12-12T10:37:13.359722Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "assistant",
+      "content": "✅ click(Button:Notifications, 1 unread): Success",
+      "timestamp": "2025-12-12T10:37:13.370853Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "user",
+      "content": "can we see my memories",
+      "timestamp": "2025-12-12T10:37:22.542315Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "assistant",
+      "content": "You mean your Facebook Memories, yeah? I can open that notification — the one that says “You have memories to look back on today.” Want me to open it now?",
+      "timestamp": "2025-12-12T10:37:29.128447Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "user",
+      "content": "yes",
+      "timestamp": "2025-12-12T10:37:32.815554Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "assistant",
+      "content": "Righto — opening the Memories notification now.\n\n{\"act\": \"Link:Unread\"}",
+      "timestamp": "2025-12-12T10:37:39.573010Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "✅ navigate(Link:Unread): Success",
+      "timestamp": "2025-12-12T10:37:39.576346Z"
+    }
+  ]
+}

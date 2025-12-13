@@ -1,0 +1,405 @@
+<!-- signature: 2QpXab8z_Gw:394:36657c596f4e791d69a066c9e96d683d4928f91a2cd47f19fb46aca83c0f3676 -->
+# If a Mini went full RTX 5090… This Is What It Looks Like
+
+**Video URL:** https://www.youtube.com/watch?v=2QpXab8z_Gw
+**Video ID:** 2QpXab8z_Gw
+**Language:** en
+**Collected At:** 1765590326080
+**Segments:** 394
+
+---
+
+- [0:00] We finally arrived. A personal device
+- [0:02] built specifically for local AI. Not a
+- [0:05] generic PC with AI bolted on, but a
+- [0:08] purpose-built beautiful machine that's
+- [0:10] supposed to be as comfortable on your
+- [0:12] desk as it is portable. I like the
+- [0:14] packaging.
+- [0:16] I'm excited about this one. This is
+- [0:17] called the Olaris 1. And you'll notice a
+- [0:20] striking resemblance to another piece of
+- [0:22] gear we already know. Let's see. The
+- [0:24] corner radius is a little bit off, but I
+- [0:26] like the form factor that it's a little
+- [0:28] bit stretched out. Pretty cool. What do
+- [0:30] we got in the back? Power button,
+- [0:32] Thunderbolt, HDMI, USB, and Ethernet.
+- [0:35] And we also get a power cable with an
+- [0:37] adapter. And it could sit on your desk
+- [0:40] or maybe you don't need it on your desk
+- [0:42] at all. Imagine you're somewhere else
+- [0:45] out and about and you have Wi-Fi to some
+- [0:48] cafe which is going at 5 GB per second
+- [0:51] and you want to use a new model that
+- [0:52] just dropped or that you've wanted to
+- [0:54] try out. But at 5 Gbit per second, you
+- [0:56] just don't know how long it's going to
+- [0:58] take. and how many cups of coffee you
+- [1:00] have to drink before it's downloaded.
+- [1:02] Probably a long time. And now you can
+- [1:05] download whatever model you want because
+- [1:06] it's going to be downloading onto your
+- [1:09] box back at the office instead of where
+- [1:11] you are at the coffee shop. I'll explain
+- [1:13] in a minute. Now, first a little bit
+- [1:14] about this thing. This packs the latest
+- [1:16] tech inside. We're talking Intel Core
+- [1:18] Ultra 9 275HX.
+- [1:21] Thunderbolt 5 is on board. Really good
+- [1:23] cooling, so it's nice and quiet. It
+- [1:26] basically has two fans like a Mac Mini
+- [1:28] has, but two of those and all that so
+- [1:30] that it can host an Nvidia RTX 5090 in
+- [1:33] there. Here we go. Let's turn this thing
+- [1:35] on.
+- [1:38] I should probably plug it in first. So,
+- [1:39] I plugged it up, turned it on, but wait
+- [1:41] a minute. Um, what's going on here? What
+- [1:43] is that? You don't use it like a mini PC
+- [1:46] with a keyboard, a mouse, and a monitor.
+- [1:48] This is a personal AI appliance. So, you
+- [1:51] actually use it from any computer that
+- [1:54] you want. I can use it from the
+- [1:56] computer. I can use it from my phone. I
+- [1:58] can use it from an iPad. And that's
+- [2:00] where it's unique. I haven't seen
+- [2:02] anything like this. And that's pretty
+- [2:03] exciting. Now, we know we want to get
+- [2:05] rid of cloud dependence for certain
+- [2:07] things, not for everything. But if you
+- [2:09] have privacy concerns, if you want to
+- [2:10] process your data locally, you own your
+- [2:13] data, or you have a client that you
+- [2:14] don't want to share their data. That's
+- [2:16] probably the biggest case for local AI.
+- [2:18] You get to keep everything. But you
+- [2:20] might have been watching this channel
+- [2:21] for a while. We do a lot of tests with
+- [2:23] AI machines, right? But how do you
+- [2:26] access these from other machines? You
+- [2:28] have to sit next to the computer and
+- [2:30] access these. This one kind of solves it
+- [2:32] partially. But to be able to access your
+- [2:33] AI tools from anywhere and I don't mean
+- [2:36] only on your network, I mean anywhere.
+- [2:38] You need to be able to configure your
+- [2:40] network, set up firewall rules or you
+- [2:43] can do something like tail scale, but
+- [2:45] still you need to be able to configure
+- [2:47] all those things. Olaris does everything
+- [2:49] for you and they're open sourced so you
+- [2:52] can look at all their software and all
+- [2:54] their code in a GitHub repository right
+- [2:56] here. Number five repository of the day,
+- [2:58] GitHub trending. This thing uses
+- [3:00] off-the-shelf and open- source
+- [3:02] technologies, stacks them together for
+- [3:04] you like Kubernetes to handle all the
+- [3:06] management and orchestration. And
+- [3:08] finally, you have your own personal UI
+- [3:10] with a secure ID connection and
+- [3:12] multiffactor authentication. So, you'll
+- [3:14] be able to get into your personal URL
+- [3:17] that's secured over a free HTTPS
+- [3:19] certificate that they install for you on
+- [3:21] the device. And if you connect to it
+- [3:23] with your phone, it actually comes with
+- [3:24] VPN support. So, total security built in
+- [3:28] from the ground up. Now, here's the
+- [3:30] desktop and you can go to the dashboard
+- [3:32] and you can take a look at the apps
+- [3:34] launcher, which looks pretty familiar to
+- [3:36] Mac OS users, I guess. Here is the
+- [3:39] dashboard. This shows you everything
+- [3:41] about your device. You can also access
+- [3:43] it through the app. Even if you're not
+- [3:44] on the same network as your machine,
+- [3:47] it's connected. It tells you what's
+- [3:49] using your GPU, CPU, memory, and so on.
+- [3:52] Another problem this thing solves is the
+- [3:53] setup process. Not only do you need to
+- [3:56] configure all what I mentioned before,
+- [3:58] but each time you want to do something
+- [4:00] new, like you want to do large language
+- [4:02] models for text generation, if you want
+- [4:04] to do image generation, video
+- [4:06] generation, music generation, you need
+- [4:08] to be able to learn all those stacks and
+- [4:10] go to each one of those repositories.
+- [4:12] Well, this kind of changes the game
+- [4:14] because all you need to do is go to the
+- [4:16] market and install an app that does all
+- [4:19] that for you. So, for example, if you
+- [4:20] want to do Olama, the old fashioned way
+- [4:22] would be to run this through a terminal.
+- [4:24] Now they have a UI as well, but here you
+- [4:26] can just say get and install. And now
+- [4:29] it's going to install Oola Lama. I can
+- [4:31] do this either from this machine or I
+- [4:33] can do it from my phone. I can install
+- [4:35] any of these apps from anywhere and use
+- [4:37] them from anywhere. So let's get into
+- [4:38] some of the typical things that this
+- [4:40] thing can do for AI. Just as a quick
+- [4:42] aside here, it's not only AI, it's
+- [4:45] basically a home server. So you can
+- [4:47] install things like Jellyfin, kind of
+- [4:49] like a personal Netflix, store your
+- [4:51] media on there because this thing comes
+- [4:53] with a two TBTE SSD and 96 GB of memory
+- [4:56] too by the way. So I've installed Olama.
+- [4:58] I'm also going to grab Open Web UI.
+- [5:00] While it's installing, look at all these
+- [5:02] apps that are available. N8N is
+- [5:04] available, Qbitrrent, Home Assistant,
+- [5:07] some of the ones that you might be
+- [5:08] familiar with if you're doing Home Lab
+- [5:10] and and there's developer tools too.
+- [5:12] Studio comprehensive developer tools for
+- [5:15] developing dot dot dot. Okay, it's it
+- [5:18] continues. But let me know in the
+- [5:20] comments down below if you want me to go
+- [5:21] through any of these other developer
+- [5:22] tools. There's also a developer tools
+- [5:24] section here because you can also
+- [5:25] develop applications for this platform.
+- [5:28] Pop open. All the terminal commands work
+- [5:30] as they normally would. Olama list. I
+- [5:33] don't have anything. Let's go with Olama
+- [5:35] pull gemma 3 latest. This is based on
+- [5:38] Ubuntu by the way. this OS that they
+- [5:41] have here and it's really fast and
+- [5:42] responsive and snappy. And look how that
+- [5:44] works. That works pretty much exactly
+- [5:46] the same way as Olama would work
+- [5:48] anywhere else. While it's going on, I'm
+- [5:50] going to get Comfy UI as well. And I'm
+- [5:52] going to pop open web UI. And it
+- [5:55] automatically detects that I already
+- [5:57] have Gemma installed on Olama. And it
+- [6:01] just automatically sets it up. I don't
+- [6:03] need to configure anything. Hello.
+- [6:06] This is literally the easiest setup I've
+- [6:08] ever seen for this work stack. Write a
+- [6:12] story.
+- [6:15] Look how fast that's going. This is
+- [6:17] using that 5090. That 5090 is the mobile
+- [6:19] version and it comes with 24 gigs of
+- [6:21] VRAM. We're talking about actual Nvidia
+- [6:24] 5090 here. So, it's going to be fast.
+- [6:26] You can run lots of models with that,
+- [6:28] but you won't be able to run larger
+- [6:30] models than that. Here's Quen Coder 30B,
+- [6:32] one of my favorite coding models. Open
+- [6:35] web UI automatically updates. Pop that
+- [6:38] open. And now I'm talking to my coder
+- [6:41] model. Write me some code. I don't have
+- [6:44] any real prompts right now. Sorry. But
+- [6:46] you get the idea. Whoa, look how fast
+- [6:48] that's going. This is the 30 billion
+- [6:50] parameter model. That is nice. Comfy UI.
+- [6:53] Install the app right through here. Open
+- [6:55] it up. And it's running. Now, normally
+- [6:58] with Comfy UI, you have to install
+- [7:00] packages depending on what workflow you
+- [7:02] want to do. So they provide this Comfy
+- [7:03] UI launcher where you can just install
+- [7:06] packages by clicking a couple buttons.
+- [7:07] So here's Quen FP4 package, one for
+- [7:11] Flux, one for context. Here's one 2.2
+- [7:14] text to video. Looks like I already got
+- [7:16] that one. Here's one image to video
+- [7:18] view. I don't have these, so I'm going
+- [7:19] to click on get all. And it just
+- [7:22] installs everything. A laptop sitting in
+- [7:24] a dark room lit only by a candle.
+- [7:28] And run. See how long that takes. Okay,
+- [7:31] now this is creating a 1024x1024
+- [7:34] image. Wow, that's done already. Okay, I
+- [7:37] only see a candle. I don't see a laptop
+- [7:40] on a bright
+- [7:43] desk. This is actually really fast. So,
+- [7:45] we can just do these over and over and
+- [7:47] over again. And this is using the flux
+- [7:49] workflow. There's a laptop. New kind of
+- [7:51] Apple product. It's a mic pad. Mic pad.
+- [7:54] Come get your mic pad over here. Let's
+- [7:57] try a video workflow. Got to take a
+- [7:59] picture of myself next to my sign. All
+- [8:01] right, it's doing it. Hopefully this
+- [8:04] works because this is a video generation
+- [8:06] model and those take a little bit
+- [8:07] longer. What? It created a 3D plot of my
+- [8:12] picture. I didn't know that's what I was
+- [8:14] getting. I thought I was doing a video
+- [8:15] model, but okay, that's cool. It's not
+- [8:19] exactly accurate, but still neat.
+- [8:25] All right, we've got ourselves a little
+- [8:27] video over here. Let's see what this is.
+- [8:30] It's 5 seconds long and it took like 5
+- [8:32] minutes to make.
+- [8:35] Wow.
+- [8:38] Wa.
+- [8:42] That is magic. I don't know what I'm
+- [8:44] saying. They should have audio, too.
+- [8:45] Speaking of audio, here's a tool called
+- [8:47] Aceep. It's a music generation model.
+- [8:50] This is going to be the first time I'm
+- [8:52] doing music generation locally. But the
+- [8:54] neat thing is it's downloading as fast
+- [8:55] as I can from my network here. Even
+- [8:57] though I still have 2 minutes left. I
+- [8:59] just want to get going with this thing,
+- [9:00] you know, and I'm downloading a lot of
+- [9:02] models, taking up all that valuable
+- [9:04] space from the two TBTE drive that's on
+- [9:06] there. The nice thing is I don't have to
+- [9:08] go hunting for these. I don't have to go
+- [9:10] to hugging face, find the right models,
+- [9:12] find out what they're called, match the
+- [9:14] names up, download them, then upload
+- [9:16] them to my tool. It pretty much happens
+- [9:18] automatically. If you do need to access
+- [9:21] things manually, you have access to all
+- [9:23] the files. There's a file manager right
+- [9:25] here. So, here's AI folder. Here is
+- [9:27] Comfy UI. That's the thing we were just
+- [9:29] using. I'm going to have the models
+- [9:31] folder. And here are all my Comfy UI
+- [9:33] models. I can just upload them here if I
+- [9:36] need to download them from here if I
+- [9:37] need to. It's just that everything here
+- [9:39] is managed for you automatically. But
+- [9:42] you can if you want to do things
+- [9:43] manually, too. 40 seconds left. It's
+- [9:46] amazing the kind of things we become
+- [9:48] impatient at, right? Considering this is
+- [9:51] downloading a 7 GBTE file over the
+- [9:55] internet in a couple of minutes, I
+- [9:57] should be thankful. I've got some lyrics
+- [9:58] here generated by AI. I got some tags
+- [10:01] here. The songs can be as long as 240
+- [10:04] seconds. All right, I'm not going to
+- [10:06] change anything else. Generate. How long
+- [10:08] does it take to generate a song?
+- [10:09] Somewhere between an image and a video,
+- [10:11] right? I would guess. There it is. Let's
+- [10:13] hear this. Lights blur like a progress
+- [10:16] bar. Midnight monor blow the avatar.
+- [10:20] Every prompt that I drop is the back end
+- [10:22] hard. Mobile in the reading dreams like
+- [10:25] cards. 4 a.m. and the fans still spin.
+- [10:28] Heat from the rack like a still
+- [10:31] so bad.
+- [10:32] What happened to drums? My tag literally
+- [10:34] was drum and bass as the second one. You
+- [10:36] get the idea. It's going to take some
+- [10:38] messing around with. But how easy was
+- [10:41] that? You know what they say about work.
+- [10:42] All work and no play makes Alex a dull
+- [10:45] boy. So, there's a little fun section
+- [10:48] here, too. By the way, you can think of
+- [10:49] this thing as not only your AI box, but
+- [10:51] it could do a lot of things as a server.
+- [10:54] It can even serve Windows. But under
+- [10:56] fun, there's Steam headless. Let me just
+- [10:58] go into full screen here, and I can spin
+- [11:00] around in a circle.
+- [11:02] It's running Doom, but there may be some
+- [11:04] issues here. I need to figure out how to
+- [11:06] move around. I am in a browser window
+- [11:09] after all. It's running on the box. I'm
+- [11:11] on my Mac. I'm sure we can figure it
+- [11:13] out. That is a 5090 in there after all.
+- [11:15] So, it's capable of running a game like
+- [11:18] Doom. Now, another pretty unique thing
+- [11:19] about this box is that it has GPU modes.
+- [11:22] So, there's a GPU there. You can share
+- [11:24] it however you like. Here are the
+- [11:26] options. App exclusive. So, that means
+- [11:28] once the app starts using the GPU, all
+- [11:30] the resources of that GPU are available
+- [11:32] only for that app. Memory slicing will
+- [11:34] divide up the GPU memory into different
+- [11:37] apps, whoever is calling it. And then
+- [11:38] time slicing is there's a lineup of apps
+- [11:41] and they all want the GPU and they each
+- [11:43] get it but they have to take turns. Now
+- [11:45] the Kickstarter page also lists all the
+- [11:48] specs pricing compared to some of the
+- [11:50] other competitors which is pretty cool.
+- [11:52] You get it right here. The Mac Studio M3
+- [11:55] Ultra M4 Max Minis Being GTR 9 Pro and
+- [11:59] the Nvidia DJX Spark are all listed
+- [12:02] here. what their memory capacity is,
+- [12:04] what GPUs they have inside, what CPUs,
+- [12:06] storage, and everything is compared,
+- [12:08] making this a pretty compelling package
+- [12:11] for what you're getting for the price.
+- [12:13] They even give you some LLM inference
+- [12:15] numbers here. So, there's that Quen 3 30
+- [12:18] billion parameter model that I like to
+- [12:20] use. And look at the tokens per second
+- [12:21] here. Now, I've tested the 5090 before
+- [12:23] on the channel, and yeah, it's quite a
+- [12:25] bit faster than everything else that
+- [12:27] I've tried because of that crazy memory
+- [12:29] bandwidth that's available on there to
+- [12:31] make things really, really fast. You can
+- [12:33] run VLM on it because that works with
+- [12:36] Nvidia GPUs, Olama, of course. And in
+- [12:39] all these examples, the Olaris 1
+- [12:42] actually beats everything else,
+- [12:43] including the DJX Spark, which is the
+- [12:46] other Nvidia product on this page with a
+- [12:48] slightly different architecture. still
+- [12:50] the black gold chip, but the memory in
+- [12:52] that is LPDDR5. Here the memory is much
+- [12:54] faster. It's GDDR7. Here's GPT OSS 20
+- [12:58] billion as an example. Olaris 1 using
+- [13:00] VLM or Olama is much faster than
+- [13:04] everything else. Finally, Gemma 312
+- [13:06] billion again. Now, they also show 120
+- [13:10] billion, which is to say that they're
+- [13:12] not only showing things that make it
+- [13:14] look good. It has 24 gigs of VRAM, which
+- [13:17] will be limiting in certain
+- [13:19] circumstances, like this big model here.
+- [13:21] The M3 Ultra Studio has a lot more
+- [13:23] memory. So does the GTR9 Pro, and so
+- [13:26] does the Nvidia DJX Spark. They all have
+- [13:29] over 96 GB of memory available for the
+- [13:32] GPU. So, they're going to be able to run
+- [13:33] that model no problem. Whereas the
+- [13:35] Olaris 1 will have to offload some of
+- [13:38] that model to the CPU processing to the
+- [13:40] system memory and therefore it's going
+- [13:42] to be a little bit slower, but it's
+- [13:43] still runs it. It's nice to see that
+- [13:45] kind of transparency here. If you want
+- [13:46] more information on the Kickstarter,
+- [13:48] I'll link to it down below. It's not a
+- [13:50] cheap little device at three grand, but
+- [13:52] you have to consider that it has all the
+- [13:55] latest and greatest mini PC options in
+- [13:58] there, including a 5090, which there's
+- [14:00] no mini PCs that have a 5090. You're
+- [14:02] going to need that 2 TB of storage also
+- [14:04] for all the models you're going to want
+- [14:06] to put on this thing. In the last few
+- [14:07] years, we've traded ownership for
+- [14:08] convenience, and some of those models
+- [14:10] that live in the cloud are pretty
+- [14:12] convenient, but we handed our data and
+- [14:14] AI workflows to a few giant cloud
+- [14:16] providers. Open source has really been
+- [14:18] flipping that script and Olis takes it a
+- [14:21] step further by giving us this open-
+- [14:23] source personal cloud that runs in your
+- [14:26] home. Your files, your models, and your
+- [14:28] AI agents will all stay on hardware you
+- [14:30] actually own. I hope they succeed in
+- [14:32] their Kickstarter. If you're interested,
+- [14:34] link down below. Thanks for watching and
+- [14:36] I'll see you in the next one.

@@ -887,6 +887,16 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"removed": provider}
         return {"error": "Failed to save config"}
 
+    elif action == "ReloadSiteConfigs":
+        # Reload cached site configs (used by is_site_config_capability / prompt capabilities)
+        global SITE_CONFIGS
+        SITE_CONFIGS = {}
+        try:
+            configs = get_all_site_configs()
+            return {"reloaded": True, "domains": len(configs)}
+        except Exception as e:
+            return {"reloaded": False, "error": str(e)}
+
     else:
         return {"error": f"Unknown internal capability: {action}"}
 
@@ -2291,6 +2301,7 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
                 parts.append("")
 
             # 🎯 PREMIUM: Capabilities (resolved dynamically from URL + site_configs.json)
+            # (llm_prompt.md is legacy; keep URL-based resolution here)
             capabilities = resolve_capabilities_for_url(page_url) if page_url else []
             if capabilities:
                 parts.append("### Capabilities")
@@ -2446,7 +2457,7 @@ def write_text_md():
         text_json_path = os.path.join("@site_structures", "text.json")
         timestamp = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
 
-        # 🆕 Build text.json structure from ELEMENT_REGISTRY
+        # 🆕 Build text.json structure for stable act refs (no a_id_* externally)
         text_json = {
             "metadata": {
                 "url": data.get('url', ''),
@@ -2457,9 +2468,24 @@ def write_text_md():
             "elements": {}
         }
 
-        # Populate elements from ELEMENT_REGISTRY (already has selectors from Phase 1)
+        # Stable refs: "Type:Label" with disambiguation suffix for duplicates ("#2", "#3", ...)
+        def _stable_act_ref(el: dict) -> str:
+            kind = (el.get("type") or "").strip() or "Element"
+            label = (el.get("label") or "").strip() or "Unnamed"
+            label = " ".join(label.split())
+            return f"{kind}:{label}"
+
+        stable_counts: dict[str, int] = {}
+        action_id_to_stable: dict[str, str] = {}
+
+        # Populate elements keyed by stable act ref (no a_id_* keys in text.json)
         for action_id, el_data in ELEMENT_REGISTRY.items():
-            text_json["elements"][action_id] = {
+            base = _stable_act_ref(el_data)
+            n = stable_counts.get(base, 0) + 1
+            stable_counts[base] = n
+            stable = base if n == 1 else f"{base}#{n}"
+            action_id_to_stable[action_id] = stable
+            text_json["elements"][stable] = {
                 "label": el_data.get("label", ""),
                 "type": el_data.get("type", ""),
                 "tag": el_data.get("tag", ""),
@@ -2473,6 +2499,22 @@ def write_text_md():
 
         # Store in memory for fast lookup during action execution
         CURRENT_TEXT_JSON = text_json
+
+        def _rewrite_page_text_ids(page_text: str) -> str:
+            # Replace {"act": "a_id_123"} with {"act": "Type:Label"}
+            # Keep any unknown IDs as-is (safe fallback).
+            try:
+                pattern = r'("act"\s*:\s*")(?P<id>a_id_[^"]+)(")'
+
+                def repl(m):
+                    aid = m.group("id")
+                    stable = action_id_to_stable.get(aid) or aid
+                    stable = stable.replace('"', '\\"')
+                    return f'{m.group(1)}{stable}{m.group(3)}'
+
+                return re.sub(pattern, repl, page_text)
+            except Exception:
+                return page_text
 
         # Write text.md (existing logic)
         with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
@@ -2509,14 +2551,26 @@ def write_text_md():
                     cap_name = cap['action']
                     params = cap.get('params', {})
                     if params:
-                        param_example = ", ".join([f'"{k}": ...' for k in params.keys()])
+                        def _param_placeholder(v):
+                            # If config provides type hints (string/boolean/number), render a concrete example
+                            if isinstance(v, str):
+                                t = v.strip().lower()
+                                if t == "string":
+                                    return '"..."'
+                                if t == "boolean":
+                                    return "true"
+                                if t == "number":
+                                    return "1"
+                            return "..."
+
+                        param_example = ", ".join([f'"{k}": {_param_placeholder(v)}' for k, v in params.items()])
                         f.write(f"- **{cap_name}** - {cap['label']} → `{{\"cap\": \"{cap_name}\", \"params\": {{{param_example}}}}}`\n")
                     else:
                         f.write(f"- **{cap_name}** - {cap['label']} → `{{\"cap\": \"{cap_name}\"}}`\n")
                 f.write("\n---\n\n")
 
             f.write("---\n\n")
-            f.write(data.get('page_text', ''))
+            f.write(_rewrite_page_text_ids(data.get('page_text', '')))
 
             # Iframe elements
             if data.get('iframe_elements'):
@@ -2547,18 +2601,38 @@ def write_text_md():
 
 def resolve_action_hints(action_id):
     """
-    🆕 Look up resolution hints for an action ID from text.json (in memory).
+    🆕 Look up resolution hints from text.json (in memory).
 
-    @param action_id: e.g., "a_id_7"
+    NOTE: text.json is keyed by stable refs ("Type:Label[#n]") so a_id_* is legacy only.
+    If given a_id_*, we try to map via ELEMENT_REGISTRY → stable base key.
+
+    @param action_id: stable act ref or legacy a_id_*
     @returns: {label, type, tag, selectors, href} or None
     """
     global CURRENT_TEXT_JSON
 
     # Try in-memory first
     if CURRENT_TEXT_JSON and CURRENT_TEXT_JSON.get("elements"):
-        hints = CURRENT_TEXT_JSON["elements"].get(action_id)
-        if hints:
-            return hints
+        # 1) Stable lookup
+        if isinstance(action_id, str):
+            hints = CURRENT_TEXT_JSON["elements"].get(action_id)
+            if hints:
+                return hints
+
+            # 2) Legacy lookup: a_id_* → stable base key
+            if action_id.startswith("a_id_"):
+                try:
+                    el = ELEMENT_REGISTRY.get(action_id) or {}
+                    base = f"{(el.get('type') or 'Element').strip()}:{' '.join((el.get('label') or 'Unnamed').split())}"
+                    # Find first matching stable key (or the exact base)
+                    elems = CURRENT_TEXT_JSON.get("elements", {})
+                    if base in elems:
+                        return elems.get(base)
+                    for k, v in elems.items():
+                        if isinstance(k, str) and k.startswith(base + "#"):
+                            return v
+                except Exception:
+                    pass
 
     # Fallback: load from file
     try:
@@ -2576,6 +2650,115 @@ def resolve_action_hints(action_id):
         print(f"   ❌ Failed to load text.json: {e}")
         return None
 
+
+def _parse_action_descriptor(act: str) -> tuple[str | None, str | None]:
+    """
+    Parse a stable element reference in the form "Type:Label".
+
+    @returns: (kind, label) or (None, None) if not parseable.
+    """
+    if not act or not isinstance(act, str):
+        return None, None
+    if act.startswith("a_id_"):
+        return None, None
+    if ":" not in act:
+        return None, None
+    kind, label = act.split(":", 1)
+    kind = kind.strip() or None
+    label = label.strip() or None
+    return kind, label
+
+
+def infer_action_type_from_act(act: str, has_value: bool) -> str:
+    """
+    Infer the action type if we only have a stable reference (Type:Label).
+    """
+    if has_value:
+        return "setValue"
+    kind, _label = _parse_action_descriptor(act)
+    if kind in ("Input", "Select"):
+        # No value means "focus" semantics, but our pipeline supports click generically
+        return "click"
+    if kind in ("Link", "Button"):
+        return "click"
+    return "click"
+
+
+def resolve_action_by_kind_and_label(kind: str, label: str, action_type: str | None = None) -> dict | None:
+    """
+    Resolve a stable "Type:Label" reference into the best hints from CURRENT_TEXT_JSON.
+
+    @param kind: e.g. "Input", "Button", "Link"
+    @param label: e.g. "Message"
+    @param action_type: optional hint (e.g. setValue) to improve tie-breaking
+    """
+    global CURRENT_TEXT_JSON
+    try:
+        if not CURRENT_TEXT_JSON or not CURRENT_TEXT_JSON.get("elements"):
+            # Load from disk as a fallback
+            text_json_path = os.path.join(SITE_STRUCTURES_DIR, "text.json")
+            with open(text_json_path, "r", encoding="utf-8") as f:
+                CURRENT_TEXT_JSON = json.load(f)
+
+        elements = CURRENT_TEXT_JSON.get("elements", {}) if CURRENT_TEXT_JSON else {}
+        if not elements:
+            return None
+
+        kind_norm = (kind or "").strip().lower()
+        label_norm = (label or "").strip().lower()
+
+        candidates: list[tuple[str, dict]] = []
+        for aid, hints in elements.items():
+            try:
+                if not isinstance(hints, dict):
+                    continue
+                if (hints.get("type", "") or "").strip().lower() != kind_norm:
+                    continue
+                if (hints.get("label", "") or "").strip().lower() != label_norm:
+                    continue
+                candidates.append((aid, hints))
+            except Exception:
+                continue
+
+        if not candidates:
+            return None
+
+        # Tie-break: for setValue prefer inputs/textboxes/contenteditable-like tags
+        def score(aid: str, h: dict) -> int:
+            s = 0
+            tag = (h.get("tag") or "").strip().lower()
+            selectors = h.get("selectors") or []
+            if isinstance(selectors, list):
+                s += min(len(selectors), 10)
+            if action_type == "setValue":
+                if h.get("type") in ("Input", "Select"):
+                    s += 50
+                if tag in ("input", "textarea", "div", "span"):
+                    s += 10
+            return s
+
+        best_aid, best = max(candidates, key=lambda t: score(t[0], t[1]))
+        # Include resolved a_id for debugging (not used by content script)
+        return {**best, "_resolved_action_id": best_aid}
+    except Exception as e:
+        print(f"   ❌ Failed to resolve by Type:Label: {e}")
+        return None
+
+
+def resolve_hints_for_act(act: str, action_type: str | None = None) -> dict | None:
+    """
+    Resolve hints for either:
+    - a_id_X (direct lookup), or
+    - Type:Label (search text.json for matching element).
+    """
+    if not act:
+        return None
+    if isinstance(act, str) and act.startswith("a_id_"):
+        return resolve_action_hints(act)
+    kind, label = _parse_action_descriptor(act)  # stable reference
+    if kind and label:
+        return resolve_action_by_kind_and_label(kind, label, action_type=action_type)
+    return None
 
 def get_current_tabs_info():
     """
@@ -3971,7 +4154,7 @@ def calculate_element_importance_score(element):
     # Cap score at 1.0
     return min(score, 1.0)
 
-async def handler(ws):
+async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
     """
     🔌 WebSocket connection handler for each client
     
@@ -4196,12 +4379,13 @@ async def handler(ws):
                             print(f"📊 Selector quality: {selector_stats['with_selectors']}/{len(ELEMENT_REGISTRY)} have selectors, avg {selector_stats['total_selectors']/max(1,len(ELEMENT_REGISTRY)):.1f} per element")
                             print(f"📊 Selector types: {selector_stats['by_type']}")
 
-                            # Log first 5 elements with their selectors for inspection
+                            # No more a_id_* in logs (stable-only)
                             print("🔍 Sample selectors (first 5):")
-                            for i, (el_id, el_data) in enumerate(list(ELEMENT_REGISTRY.items())[:5]):
+                            for _i, (_el_id, el_data) in enumerate(list(ELEMENT_REGISTRY.items())[:5]):
                                 sels = el_data.get("selectors", [])
-                                label = el_data.get("label", "")[:30]
-                                print(f"   {el_id}: '{label}' → {sels[:3]}")
+                                kind = (el_data.get("type") or "Element")
+                                label = (el_data.get("label") or "")[:30]
+                                print(f"   {kind}:{label} → {sels[:3]}")
                         else:
                             page_text = intelligence_data.get("pageText", "")
                             print("⚠️ Semantic data not available, using plain text")
@@ -4209,7 +4393,8 @@ async def handler(ws):
                         if page_text:
                             # 🔄 Store data for text.md regeneration (used when tabs change)
                             global LAST_TEXT_MD_DATA
-                            capabilities = resolve_capabilities_for_url(page_url) if page_url else []
+                            # Prefer capabilities computed by the extension (can be DOM-aware via requires_selectors)
+                            capabilities = intelligence_data.get('capabilities') or (resolve_capabilities_for_url(page_url) if page_url else [])
                             iframe_elements = [el for el in actionable_elements if el.get('isIframeElement')]
                             pending_iframe_count = intelligence_data.get('pendingIframeCount', 0)
 
@@ -4512,27 +4697,32 @@ async def handler(ws):
                                     call_type = call.get("type")  # "element" or "capability"
                                     cap_result = {"ok": False, "error": "Unknown action"}
 
-                                    # 🎯 ELEMENT ACTIONS: {"act": "a_id_X", "value": ..., "submit": ...}
+                                    # 🎯 ELEMENT ACTIONS: {"act": "Type:Label", "value": ..., "submit": ...}
                                     if call_type == "element" and EXTENSION_WS:
-                                        action_id = call.get("action_id")
+                                        act_ref = call.get("action_id")
                                         value = call.get("value")
                                         submit = call.get("submit", False)
 
-                                        if action_id:
-                                            # Auto-resolve action type from ELEMENT_REGISTRY
+                                        if act_ref:
                                             has_value = value is not None
-                                            action_type = resolve_action_type(action_id, has_value=has_value)
-                                            print(f"🎯 Element action: {action_id} → {action_type} (value={value}, submit={submit})")
 
-                                            # 🆕 Look up hints from text.json for selector-based resolution
-                                            hints = resolve_action_hints(action_id)
+                                            # Action type: if a_id_X, use registry; otherwise infer from Type:Label
+                                            if isinstance(act_ref, str) and act_ref.startswith("a_id_"):
+                                                action_type = resolve_action_type(act_ref, has_value=has_value)
+                                            else:
+                                                action_type = infer_action_type_from_act(str(act_ref), has_value=has_value)
+
+                                            print(f"🎯 Element action: {act_ref} → {action_type} (value={value}, submit={submit})")
+
+                                            # 🧭 Resolve hints (a_id_X OR Type:Label) → selectors
+                                            hints = resolve_hints_for_act(str(act_ref), action_type=action_type)
 
                                             if hints:
                                                 # Use hint-based execution (selector-based, survives re-renders)
                                                 instruction = {
                                                     "type": "execute_action_with_hints",
                                                     "data": {
-                                                        "actionId": action_id,
+                                                        "actionId": act_ref,
                                                         "actionType": action_type,
                                                         "params": {
                                                             "value": value,
@@ -4547,7 +4737,7 @@ async def handler(ws):
                                                 instruction = {
                                                     "type": "execute_llm_action",
                                                     "data": {
-                                                        "actionId": action_id,
+                                                        "actionId": act_ref,
                                                         "actionType": action_type,
                                                         "params": {
                                                             "value": value,
@@ -4555,17 +4745,17 @@ async def handler(ws):
                                                         }
                                                     }
                                                 }
-                                                print(f"⚠️ No hints found for {action_id}, using legacy execution")
+                                                print(f"⚠️ No hints found for {act_ref}, using legacy execution")
 
                                             await EXTENSION_WS.send(json.dumps(instruction))
                                             cap_result = {"ok": True}
-                                            print(f"🤖 Sent {instruction['type']}: {action_type} on {action_id}")
+                                            print(f"🤖 Sent {instruction['type']}: {action_type} on {act_ref}")
 
                                             # Track in history
-                                            add_action_to_history(f"Element:{action_type}", {"action_id": action_id, "value": value}, cap_result)
+                                            add_action_to_history(f"Element:{action_type}", {"action_id": act_ref, "value": value}, cap_result)
 
                                             # Format result for display
-                                            result_text = format_execution_result(f"{action_type}({action_id})", cap_result)
+                                            result_text = format_execution_result(f"{action_type}({act_ref})", cap_result)
                                             capability_results.append(result_text)
 
                                             # Save execution result to chat
@@ -4584,7 +4774,7 @@ async def handler(ws):
                                                             }
                                                         }))
                                         else:
-                                            cap_result = {"ok": False, "error": "Missing action_id"}
+                                            cap_result = {"ok": False, "error": "Missing act"}
                                         continue
 
                                     # 🔧 CAPABILITY ACTIONS: {"cap": "CapName", "params": {...}}
@@ -4669,13 +4859,25 @@ async def handler(ws):
 
                                         # 🎯 SITE CONFIG CAPABILITIES: Route to extension for DOM execution
                                         elif is_site_config_capability(cap_action) and EXTENSION_WS:
+                                            request_id = f"cap_{cap_action}_{int(time.time() * 1000)}"
+                                            fut = asyncio.get_event_loop().create_future()
+                                            PENDING[request_id] = fut
+
                                             await EXTENSION_WS.send(json.dumps({
                                                 "type": "execute_capability",
+                                                "id": request_id,
                                                 "action": cap_action,
                                                 "params": cap_params
                                             }))
-                                            cap_result = {"ok": True}
-                                            print(f"🎯 Sent site config capability {cap_action} to extension")
+                                            print(f"🎯 Sent site config capability {cap_action} to extension, waiting for response...")
+
+                                            try:
+                                                cap_result = await asyncio.wait_for(fut, timeout=10.0)
+                                                print(f"🎯 {cap_action} result: {cap_result}")
+                                            except asyncio.TimeoutError:
+                                                PENDING.pop(request_id, None)
+                                                cap_result = {"ok": False, "error": f"Timeout waiting for {cap_action}"}
+                                                print(f"⏰ {cap_action} timeout")
 
                                         # Internal capabilities (server-side only)
                                         else:
@@ -4687,15 +4889,14 @@ async def handler(ws):
                                         result_text = format_execution_result(cap_action, {"ok": cap_result.get("ok", False), "error": cap_result.get("error")})
                                         capability_results.append(result_text)
 
-                                        # Only push SUCCESS results to HUD (skip error messages)
-                                        # Errors still logged to console for debugging
-                                        if cap_result.get("ok", False) and CURRENT_CHAT_ID:
+                                        # Push results to HUD (include errors so debugging isn't blind)
+                                        if CURRENT_CHAT_ID:
                                             chat_dict = load_chat(CURRENT_CHAT_ID)
                                             if chat_dict:
                                                 exec_msg = append_assistant_message(chat_dict, result_text)
                                                 save_chat(chat_dict)
 
-                                                # Push success to HUD
+                                                # Push to HUD
                                                 if EXTENSION_WS:
                                                     await EXTENSION_WS.send(json.dumps({
                                                         "type": "hud_action",
@@ -5585,6 +5786,7 @@ def resolve_capabilities_for_url(url: str) -> list:
                         'label': capability.get('label'),
                         'description': capability.get('description'),
                         'handler': capability.get('handler'),
+                        'params': capability.get('params', {}),
                         'domain': matching_domain
                     })
 

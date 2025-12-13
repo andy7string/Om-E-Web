@@ -1,0 +1,255 @@
+{
+  "chat_id": "lets-send-a__20251213T014233",
+  "project_id": "default",
+  "created_at": "2025-12-13T01:42:33.895374Z",
+  "updated_at": "2025-12-13T01:50:09.336718Z",
+  "title": "lets send a",
+  "default_title": "lets send a",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.facebook.com/home.php",
+    "page_title": "Facebook"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "lets send a message to olivia to say hi",
+      "timestamp": "2025-12-13T01:42:33.895422Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Sending a quick \"Hi\" to Olivia now.\n\n{\"cap\": \"MessengerSendMessage\", \"params\": {\"value\": \"Hi Olivia!\"}}",
+      "timestamp": "2025-12-13T01:42:35.394856Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "❌ MessengerSendMessage: Timeout waiting for MessengerSendMessage",
+      "timestamp": "2025-12-13T01:42:45.403073Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "lets. say we just fixed out messaging",
+      "timestamp": "2025-12-13T01:42:47.182204Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Sweet as, I'll send that message to Olivia now.\n\n{\"cap\": \"MessengerSendMessage\", \"params\": {\"value\": \"Hey Olivia, we just fixed our messaging!\"}}",
+      "timestamp": "2025-12-13T01:42:48.495530Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "❌ MessengerSendMessage: Timeout waiting for MessengerSendMessage",
+      "timestamp": "2025-12-13T01:42:58.497750Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "lets tell her that you are really mr banana",
+      "timestamp": "2025-12-13T01:43:00.877520Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Alright, sending that cheeky message to Olivia now.\n\n{\"cap\": \"MessengerSendMessage\", \"params\": {\"value\": \"By the way, I'm really Mr Banana.\"}}",
+      "timestamp": "2025-12-13T01:43:02.366439Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "❌ MessengerSendMessage: Timeout waiting for MessengerSendMessage",
+      "timestamp": "2025-12-13T01:43:12.371006Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "and that you need a design",
+      "timestamp": "2025-12-13T01:43:12.387727Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "Got it, I'll send Olivia a message saying you need a design.\n\n{\"cap\": \"MessengerSendMessage\", \"params\": {\"value\": \"Hey Olivia, I need a design.\"}}",
+      "timestamp": "2025-12-13T01:43:13.807453Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "❌ MessengerSendMessage: Timeout waiting for MessengerSendMessage",
+      "timestamp": "2025-12-13T01:43:23.811140Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "lets seach facebook for janice",
+      "timestamp": "2025-12-13T01:43:25.671026Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Searching Facebook for Janice now.\n\n{\"act\": \"Input:Search Facebook\", \"value\": \"Janice\", \"submit\": true}",
+      "timestamp": "2025-12-13T01:43:26.613850Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "✅ setValue(Input:Search Facebook): Success",
+      "timestamp": "2025-12-13T01:43:26.618484Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "user",
+      "content": "lets close messenger",
+      "timestamp": "2025-12-13T01:43:39.387787Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "assistant",
+      "content": "Closing the Messenger chat window now.\n\n{\"act\": \"Button:Close chat\"}",
+      "timestamp": "2025-12-13T01:43:40.410169Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "✅ click(Button:Close chat): Success",
+      "timestamp": "2025-12-13T01:43:40.412176Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "lets send janice a message",
+      "timestamp": "2025-12-13T01:43:46.180475Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "I see a \"Message\" button for Janice here. Let me click that to open the message window.\n\n{\"act\": \"Button:Message\"}",
+      "timestamp": "2025-12-13T01:43:47.287452Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "✅ click(Button:Message): Success",
+      "timestamp": "2025-12-13T01:43:47.291238Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "user",
+      "content": "tell janice you are an ai that can control all browsers and bring ai to the web browsing experience and you are awesome",
+      "timestamp": "2025-12-13T01:44:12.869081Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "Sending Janice this message now: \"I'm an AI that can control all browsers and bring AI to your web browsing experience. Pretty awesome, right?\"\n\n{\"cap\": \"MessengerSendMessage\", \"params\": {\"value\": \"I'm an AI that can control all browsers and bring AI to your web browsing experience. Pretty awesome, right?\"}}",
+      "timestamp": "2025-12-13T01:44:14.420949Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "❌ MessengerSendMessage: Timeout waiting for MessengerSendMessage",
+      "timestamp": "2025-12-13T01:44:24.423351Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "lets go to youtube",
+      "timestamp": "2025-12-13T01:44:26.767200Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Opening YouTube for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-13T01:44:27.778147Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-13T01:44:37.781781Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "user",
+      "content": "lets look at that mini video",
+      "timestamp": "2025-12-13T01:45:13.790402Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "assistant",
+      "content": "Clicking the video titled \"If a Mini went full RTX 5090… This Is What It Looks Like 14 minutes, 41 seconds\" now.\n\n{\"act\": \"Link:If a Mini went full RTX 5090… This Is What It Looks Like 14 minutes, 41 seconds\"}",
+      "timestamp": "2025-12-13T01:45:15.180360Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "✅ click(Link:If a Mini went full RTX 5090… This Is What It Looks Like 14 minutes, 41 seconds): Success",
+      "timestamp": "2025-12-13T01:45:15.184747Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "retrieve the transcript",
+      "timestamp": "2025-12-13T01:45:24.453616Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Fetching the transcript for the video now.\n\n{\"cap\": \"RetrieveTranscript\"}",
+      "timestamp": "2025-12-13T01:45:25.377891Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "assistant",
+      "content": "❌ RetrieveTranscript: Timeout waiting for RetrieveTranscript",
+      "timestamp": "2025-12-13T01:45:35.380588Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "user",
+      "content": "what do you think of this thing will it run a 100b llm locally",
+      "timestamp": "2025-12-13T01:45:54.861606Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "assistant",
+      "content": "This Olaris 1 mini rig with an RTX 5090 and 96GB RAM is a beast for local AI, but 100B parameter LLMs are a tall order.\n\nThe RTX 5090 has 24GB VRAM, which is great, but 100B models usually need way more memory or clever sharding across multiple GPUs or machines. The CPU and system RAM help, but it’ll likely offload or slow down with models that big.\n\nSo, it can run some heavy-duty models locally, but full 100B parameter LLMs might be a stretch without extra setups or compromises.\n\nStill bloody impressive for a mini PC though!",
+      "timestamp": "2025-12-13T01:45:57.693987Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "user",
+      "content": "pause",
+      "timestamp": "2025-12-13T01:49:27.523784Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "assistant",
+      "content": "Pausing the video now.\n\n{\"cap\": \"TogglePlayPause\"}",
+      "timestamp": "2025-12-13T01:49:29.029039Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "❌ TogglePlayPause: Timeout waiting for TogglePlayPause",
+      "timestamp": "2025-12-13T01:49:39.032445Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "user",
+      "content": "how much is it",
+      "timestamp": "2025-12-13T01:50:07.318102Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "The Olaris 1 mini AI box costs about three grand AUD according to the video’s Kickstarter info.\n\nPretty steep, but you’re getting a 5090 GPU, 2TB storage, 96GB RAM, and a personal AI appliance that runs local models remotely.\n\nWorth it if you want serious local AI power without cloud BS.",
+      "timestamp": "2025-12-13T01:50:09.336718Z"
+    }
+  ]
+}

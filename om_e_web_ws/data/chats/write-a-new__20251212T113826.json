@@ -1,0 +1,33 @@
+{
+  "chat_id": "write-a-new__20251212T113826",
+  "project_id": "default",
+  "created_at": "2025-12-12T11:38:26.034282Z",
+  "updated_at": "2025-12-12T11:38:32.370513Z",
+  "title": "write a new",
+  "default_title": "write a new",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.facebook.com/home.php",
+    "page_title": "Facebook"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "write a new message to oliva saying banana",
+      "timestamp": "2025-12-12T11:38:26.034345Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Too easy — sending \"banana\" to Olivia now via Input: Message.\n{\"act\": \"Input:Message\", \"value\": \"banana\", \"submit\": true}",
+      "timestamp": "2025-12-12T11:38:32.367902Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ setValue(Input:Message): Success",
+      "timestamp": "2025-12-12T11:38:32.370513Z"
+    }
+  ]
+}

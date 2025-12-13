@@ -1,0 +1,27 @@
+{
+  "chat_id": "what-version-of__20251212T101332",
+  "project_id": "default",
+  "created_at": "2025-12-12T10:13:32.550435Z",
+  "updated_at": "2025-12-12T10:13:38.126005Z",
+  "title": "what version of",
+  "default_title": "what version of",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "what version of chatgbt are you",
+      "timestamp": "2025-12-12T10:13:32.550458Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Sweet — I'll check which model I'm running right now.\n\n{\"cap\":\"GetLLMConfig\"}",
+      "timestamp": "2025-12-12T10:13:38.126005Z"
+    }
+  ]
+}
