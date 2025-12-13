@@ -4521,6 +4521,17 @@
             }
             // Update orb chat panel visibility
             hudState.chatPanel?.classList.toggle('visible', hudState.chatVisible);
+            // 🎯 Focus HUD prompt input when opening
+            // Delay focus to allow CSS transition to complete
+            if (hudState.chatVisible) {
+                setTimeout(() => {
+                    const promptTextarea = hud.querySelector('.ome-hud-prompt-textarea');
+                    if (promptTextarea) {
+                        promptTextarea.focus();
+                        console.log('[HUD] 🎯 Direct focus on prompt textarea (delayed)');
+                    }
+                }, 100);
+            }
             // Persist to service worker
             try {
                 chrome.runtime.sendMessage({ type: 'set_orb_state', chatVisible: hudState.chatVisible });
