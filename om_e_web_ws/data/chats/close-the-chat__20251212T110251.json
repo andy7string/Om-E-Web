@@ -1,0 +1,33 @@
+{
+  "chat_id": "close-the-chat__20251212T110251",
+  "project_id": "default",
+  "created_at": "2025-12-12T11:02:51.593882Z",
+  "updated_at": "2025-12-12T11:02:55.920040Z",
+  "title": "close the chat",
+  "default_title": "close the chat",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.facebook.com/home.php",
+    "page_title": "Facebook"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "close the chat",
+      "timestamp": "2025-12-12T11:02:51.593915Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Too easy — closing the chat for ya.\n{\"act\": \"Button:Close chat\"}",
+      "timestamp": "2025-12-12T11:02:55.918713Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "✅ click(Button:Close chat): Success",
+      "timestamp": "2025-12-12T11:02:55.920040Z"
+    }
+  ]
+}
