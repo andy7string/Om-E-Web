@@ -1,501 +1,853 @@
 {
   "metadata": {
-    "url": "https://www.google.com/",
-    "title": "Google",
-    "timestamp": "2025-12-13T10:31:19Z",
-    "element_count": 44
+    "url": "https://science.nasa.gov/solar-system/comets/3i-atlas/",
+    "title": "Comet 3I/ATLAS - NASA Science",
+    "timestamp": "2025-12-13T11:01:28Z",
+    "element_count": 86
   },
   "elements": {
-    "Link:About": {
-      "label": "About",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a.MV3Tnb"
-      ],
-      "href": "https://about.google/?fg=1&utm_source=google-AU&utm_medium=referral&utm_campaign=hp-header"
-    },
-    "Link:Store": {
-      "label": "Store",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/AU']",
-        "a.MV3Tnb"
-      ],
-      "href": "https://store.google.com/AU?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-AU"
-    },
-    "Link:Gmail": {
-      "label": "Gmail",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Gmail ']",
-        "[aria-label='Gmail ']",
-        "a[href*='/mail/']",
-        "[data-pid='23']",
-        "a.gb_Z"
-      ],
-      "href": "https://mail.google.com/mail/?authuser=0&ogbl"
-    },
-    "Link:Search for Images": {
-      "label": "Search for Images",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Search for Images ']",
-        "[aria-label='Search for Images ']",
-        "a[href*='/imghp']",
-        "[data-pid='2']",
-        "a.gb_Z"
-      ],
-      "href": "https://www.google.com/imghp?hl=en&authuser=0&ogbl"
-    },
-    "Button:Google apps": {
-      "label": "Google apps",
-      "type": "Button",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Google apps']",
-        "[aria-label='Google apps']",
-        "[role='button'][aria-label='Google apps']",
-        "a[href*='/intl/en/about/products']",
-        "a.gb_B"
-      ],
-      "href": "https://www.google.com.au/intl/en/about/products"
-    },
-    "Button:Google Account: Andrew Orsmond (andreworsmond21175@gmail.com)": {
-      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
-      "type": "Button",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "a[href*='/SignOutOptions']",
-        "a.gb_B.gb_0a"
-      ],
-      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/&ec=futura_exp_og_si_72776762_e"
-    },
-    "Button:Upload files or images": {
-      "label": "Upload files or images",
+    "Button:Explore": {
+      "label": "Explore",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Upload files or images']",
-        "[aria-label='Upload files or images']",
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQ0J0RCBA']",
-        "button.sF3Vod"
+        "#global-navigation-trigger",
+        "button.usa-accordion__button.usa-nav__link"
       ],
       "href": null
     },
-    "Select:Search": {
+    "Input:Search": {
       "label": "Search",
-      "type": "Select",
-      "tag": "textarea",
-      "selectors": [
-        "textarea[aria-label='Search']",
-        "[aria-label='Search']",
-        "#APjFqb",
-        "textarea[name='q']",
-        "[role='combobox'][aria-label='Search']",
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQ39UDCBU']",
-        "textarea.gLFyf"
-      ],
-      "href": null
-    },
-    "Button:Search by voice": {
-      "label": "Search by voice",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search by voice']",
-        "[aria-label='Search by voice']",
-        "[role='button'][aria-label='Search by voice']",
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQvs8DCBc']",
-        "div.XDyW0e"
-      ],
-      "href": null
-    },
-    "Button:Search by image": {
-      "label": "Search by image",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search by image']",
-        "[aria-label='Search by image']",
-        "[role='button'][aria-label='Search by image']",
-        "[data-base-lens-url='https://lens.google.com']",
-        "div.nDcEnd"
-      ],
-      "href": null
-    },
-    "Button:AI Mode": {
-      "label": "AI Mode",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQteYPCBk']",
-        "button.plR5qb.Y5MKCd"
-      ],
-      "href": null
-    },
-    "Button:Google Search": {
-      "label": "Google Search",
-      "type": "Button",
+      "type": "Input",
       "tag": "input",
       "selectors": [
-        "input[aria-label='Google Search']",
-        "[aria-label='Google Search']",
-        "input[name='btnK']",
-        "[role='button'][aria-label='Google Search']",
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQ4dUDCCY']",
-        "input[type='submit'][name='btnK']",
-        "input.gNO89b"
+        "#search-field-en-small--desktop",
+        "input[name='search']",
+        "input[placeholder='Search']",
+        "input[type='search'][name='search']",
+        "input.hds-search-input.hds-search-input-dark"
       ],
       "href": null
     },
-    "Button:I'm Feeling Lucky": {
-      "label": "I'm Feeling Lucky",
-      "type": "Button",
-      "tag": "input",
-      "selectors": [
-        "input[aria-label='I\\'m Feeling Lucky']",
-        "[aria-label='I\\'m Feeling Lucky']",
-        "input[name='btnI']",
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQ19QECCc']",
-        "input[type='submit'][name='btnI']",
-        "input.RNmpXc"
-      ],
-      "href": null
-    },
-    "Link:Skip to Discover feed": {
-      "label": "Skip to Discover feed",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQ67oDCCk']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
-    "Link:Skip to sidebar": {
-      "label": "Skip to sidebar",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQ67oDCCo']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
-    "Link:Skip to footer": {
-      "label": "Skip to footer",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwie_aeGrrqRAxVWSGwGHVrlDGcQ67oDCCs']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
-    "Link:Accessibility help": {
-      "label": "Accessibility help",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/websearch/answer/181196']",
-        "a.JMWBtb"
-      ],
-      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
-    },
-    "Link:Accessibility feedback": {
-      "label": "Accessibility feedback",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-async-trigger='duf3-78']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/#"
-    },
-    "Link:1:26 Humanoid robots showcased at Silicon Valley summit Hundreds of robotics firms and investors gathered at the Humanoids Summit in Silicon Valley as generative AI breathes new life into robots that walk,... Associated Press YouTube · 12h": {
-      "label": "1:26\nHumanoid robots showcased at Silicon Valley summit\nHundreds of robotics firms and investors gathered at the Humanoids Summit in Silicon Valley as generative AI breathes new life into robots that walk,...\nAssociated Press\nYouTube\n · \n12h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "[data-hveid='CBgQAQ']"
-      ],
-      "href": "https://www.youtube.com/watch?v=sZ44HQ6FSlk"
-    },
-    "Button:More options": {
-      "label": "More options",
+    "Button:News & Events": {
+      "label": "News & Events",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQAw']",
-        "button.hiEo0c"
+        "button.usa-nav__link.heading-16"
       ],
       "href": null
     },
-    "Link:Oracle denies report on OpenAI data center delays Bloomberg News had earlier in the day reported that Oracle had pushed back the completion dates for some data centers it is developing for OpenAI to 2028,... Reuters · 15h": {
-      "label": "Oracle denies report on OpenAI data center delays\nBloomberg News had earlier in the day reported that Oracle had pushed back the completion dates for some data centers it is developing for OpenAI to 2028,...\nReuters\n · \n15h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CD8QAQ']"
-      ],
-      "href": "https://www.reuters.com/technology/oracle-pushes-back-several-data-centers-openai-2028-2027-bloomberg-news-reports-2025-12-12/"
-    },
-    "Button:More options#2": {
-      "label": "More options",
+    "Button:Multimedia": {
+      "label": "Multimedia",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQBQ']",
-        "button.hiEo0c"
+        "button.usa-nav__link.heading-16"
       ],
       "href": null
     },
-    "Link:BYD opens door for wagon comeback in Oz BYD has opened the door for a hybrid wagon renaissance in Australia, with a launch in the UK for its long-range hybrid Seal Touring. CarsGuide · 1d": {
-      "label": "BYD opens door for wagon comeback in Oz\nBYD has opened the door for a hybrid wagon renaissance in Australia, with a launch in the UK for its long-range hybrid Seal Touring.\nCarsGuide\n · \n1d",
+    "Link:NASA+": {
+      "label": "NASA+",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/car-news/byd-opens-door-for-wagon-comeback-in-oz-100396']",
-        "[data-hveid='CGYQAQ']"
+        "a.hds-nav__link-nasa-live.usa-nav__link-nasa-live"
       ],
-      "href": "https://www.carsguide.com.au/car-news/byd-opens-door-for-wagon-comeback-in-oz-100396"
+      "href": "https://plus.nasa.gov/"
     },
-    "Button:More options#3": {
-      "label": "More options",
+    "Link:…": {
+      "label": "…",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/']",
+        "a.usa-breadcrumb__link"
+      ],
+      "href": "https://science.nasa.gov/solar-system/"
+    },
+    "Link:Comets": {
+      "label": "Comets",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/']",
+        "a.usa-breadcrumb__link"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/"
+    },
+    "Link:Overview": {
+      "label": "Overview",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "a.usa-nav__link"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/"
+    },
+    "Link:Facts and FAQs": {
+      "label": "Facts and FAQs",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/3i-atlas-facts-and-faqs/']",
+        "a.usa-nav__link"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/3i-atlas-facts-and-faqs/"
+    },
+    "Link:Image Gallery": {
+      "label": "Image Gallery",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/']",
+        "a.usa-nav__link"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/"
+    },
+    "Link:Comets Home": {
+      "label": "Comets Home",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/']",
+        "a.usa-nav__link"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/"
+    },
+    "Link:Comets Resources": {
+      "label": "Comets Resources",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/resources/resource-packages/asteroid-and-comet-resources/']",
+        "a.usa-nav__link"
+      ],
+      "href": "https://science.nasa.gov/solar-system/resources/resource-packages/asteroid-and-comet-resources/"
+    },
+    "Button:See all the NASA 3I/ATLAS Images": {
+      "label": "See all the NASA 3I/ATLAS Images",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQBw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "Link:Rare earths company ticks off key production milestone Meteoric Resources has produced rare earths from its recently constructed pilot plant, with the company saying this was a key milestone for its Brazilian... The Motley Fool Australia · 3d": {
-      "label": "Rare earths company ticks off key production milestone\nMeteoric Resources has produced rare earths from its recently constructed pilot plant, with the company saying this was a key milestone for its Brazilian...\nThe Motley Fool Australia\n · \n3d",
-      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/2025/12/10/rare-earths-company-ticks-off-key-production-milestone/']",
-        "[data-hveid='CI0BEAE']"
+        "a[href*='/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/']",
+        "a.button-primary.button-primary"
       ],
-      "href": "https://www.fool.com.au/2025/12/10/rare-earths-company-ticks-off-key-production-milestone/"
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/"
     },
-    "Button:More options#4": {
-      "label": "More options",
+    "Button:Read More": {
+      "label": "Read More",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQCQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "Link:3:01 New data shows superannuation balances might have hit a recent snag | 9 News Australia For seven months straight, our superannuation balances have been climbing comfortably, making us all feel a little more positive about the future. 9 News Australia YouTube · 1d": {
-      "label": "3:01\nNew data shows superannuation balances might have hit a recent snag | 9 News Australia\nFor seven months straight, our superannuation balances have been climbing comfortably, making us all feel a little more positive about the future.\n9 News Australia\nYouTube\n · \n1d",
-      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/watch']",
-        "[data-hveid='CLMBEAE']"
+        "a[href*='/blogs/planetary-defense/2025/07/02/nasa-discovers-interstellar-comet-moving-through-solar-system/']",
+        "a.button-primary.button-primary-md"
       ],
-      "href": "https://www.youtube.com/watch?v=mlgyWx39Nwg"
+      "href": "https://science.nasa.gov/blogs/planetary-defense/2025/07/02/nasa-discovers-interstellar-comet-moving-through-solar-system/"
     },
-    "Button:More options#5": {
-      "label": "More options",
+    "Button:Read More#2": {
+      "label": "Read More",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQCw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "Link:Australia unveils rescue bid for Rio Tinto's Tomago aluminium smelter SYDNEY, Dec 12 (Reuters) - Prime Minister Anthony Albanese announced on Friday a rescue effort to keep open Australia's largest aluminium smelter,... Yahoo Finance · 1d": {
-      "label": "Australia unveils rescue bid for Rio Tinto's Tomago aluminium smelter\nSYDNEY, Dec 12 (Reuters) - Prime Minister Anthony Albanese announced on Friday a rescue effort to keep open Australia's largest aluminium smelter,...\nYahoo Finance\n · \n1d",
-      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/news/australia-unveils-rescue-bid-rio-042039998.html']",
-        "[data-hveid='CNoBEAE']"
+        "a[href*='/missions/hubble/as-nasa-missions-study-interstellar-comet-hubble-makes-size-estimate/']",
+        "a.button-primary.button-primary-md"
       ],
-      "href": "https://finance.yahoo.com/news/australia-unveils-rescue-bid-rio-042039998.html"
+      "href": "https://science.nasa.gov/missions/hubble/as-nasa-missions-study-interstellar-comet-hubble-makes-size-estimate/"
     },
-    "Button:More options#6": {
-      "label": "More options",
+    "Button:Read More#3": {
+      "label": "Read More",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQDQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "Link:Scientists Think a Volcanic Eruption May Have Kicked Off the ‘Black Death’ A volcanic explosion, somewhere in the tropics, may have increased European trade with central Asia—which brought fleas carrying the bubonic plague. Popular Mechanics · 15h": {
-      "label": "Scientists Think a Volcanic Eruption May Have Kicked Off the ‘Black Death’\nA volcanic explosion, somewhere in the tropics, may have increased European trade with central Asia—which brought fleas carrying the bubonic plague.\nPopular Mechanics\n · \n15h",
-      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/science/archaeology/a69646828/volcano-black-death/']",
-        "[data-hveid='CIECEAE']"
+        "a[href*='/blogs/3iatlas/2025/08/25/nasas-webb-space-telescope-observes-interstellar-comet/']",
+        "a.button-primary.button-primary-md"
       ],
-      "href": "https://www.popularmechanics.com/science/archaeology/a69646828/volcano-black-death/"
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/08/25/nasas-webb-space-telescope-observes-interstellar-comet/"
     },
-    "Button:More options#7": {
-      "label": "More options",
+    "Button:Read More#4": {
+      "label": "Read More",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQDw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "Link:US forces stormed cargo ship travelling from China to Iran: Report Incident in November latest reported instance of Trump administration's increasingly aggressive maritime tactics. Al Jazeera · 11h": {
-      "label": "US forces stormed cargo ship travelling from China to Iran: Report\nIncident in November latest reported instance of Trump administration's increasingly aggressive maritime tactics.\nAl Jazeera\n · \n11h",
-      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/news/2025/12/12/us-forces-stormed-cargo-ship-travelling-from-china-to-iran-report']",
-        "[data-hveid='CKgCEAE']"
+        "a[href*='/blogs/3iatlas/2025/08/25/nasas-new-spherex-mission-observes-interstellar-comet/']",
+        "a.button-primary.button-primary-md"
       ],
-      "href": "https://www.aljazeera.com/news/2025/12/12/us-forces-stormed-cargo-ship-travelling-from-china-to-iran-report"
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/08/25/nasas-new-spherex-mission-observes-interstellar-comet/"
     },
-    "Button:More options#8": {
-      "label": "More options",
+    "Button:Read More#5": {
+      "label": "Read More",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQEQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "Link:ESA sponsorship for the European Space Conference 2026 In the frame of ESA Academy's Engagement initiative, ESA is offering a limited number of sponsorships to tertiary education students from ESA Member State,... European Space Agency · 1d": {
-      "label": "ESA sponsorship for the European Space Conference 2026\nIn the frame of ESA Academy's Engagement initiative, ESA is offering a limited number of sponsorships to tertiary education students from ESA Member State,...\nEuropean Space Agency\n · \n1d",
-      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/Education/Engagement/ESA_sponsorship_for_the_European_Space_Conference_2026']",
-        "[data-hveid='CM8CEAE']"
+        "a[href*='/blogs/psyche/2025/12/03/nasas-psyche-mission-tracks-interstellar-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
       ],
-      "href": "https://www.esa.int/Education/Engagement/ESA_sponsorship_for_the_European_Space_Conference_2026"
+      "href": "https://science.nasa.gov/blogs/psyche/2025/12/03/nasas-psyche-mission-tracks-interstellar-comet-3i-atlas/"
     },
-    "Button:More options#9": {
-      "label": "More options",
+    "Button:Read More#6": {
+      "label": "Read More",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQEw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "Link:Venezuela seeks withdrawal from International Criminal Court’s Rome Statute The court has been investigating the government of President Nicolas Maduro for crimes against humanity since 2023. Al Jazeera · 1d": {
-      "label": "Venezuela seeks withdrawal from International Criminal Court’s Rome Statute\nThe court has been investigating the government of President Nicolas Maduro for crimes against humanity since 2023.\nAl Jazeera\n · \n1d",
-      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/news/2025/12/12/venezuela-seeks-withdrawal-from-international-criminal-courts-rome-statute']",
-        "[data-hveid='CPYCEAE']"
+        "a[href*='/blogs/3iatlas/2025/11/19/nasas-stereo-observes-interstellar-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
       ],
-      "href": "https://www.aljazeera.com/news/2025/12/12/venezuela-seeks-withdrawal-from-international-criminal-courts-rome-statute"
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/11/19/nasas-stereo-observes-interstellar-comet-3i-atlas/"
     },
-    "Button:More options#10": {
-      "label": "More options",
+    "Button:Read More#7": {
+      "label": "Read More",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwig-seHrrqRAxUAAAAAHQAAAAAQFQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "Link:Advertising": {
-      "label": "Advertising",
-      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/intl/en_au/ads/']",
-        "a.pHiOh"
+        "a[href*='/blogs/lucy/2025/11/19/nasas-lucy-spacecraft-snaps-photos-of-interstellar-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
       ],
-      "href": "https://www.google.com/intl/en_au/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1"
+      "href": "https://science.nasa.gov/blogs/lucy/2025/11/19/nasas-lucy-spacecraft-snaps-photos-of-interstellar-comet-3i-atlas/"
     },
-    "Link:Business": {
-      "label": "Business",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/services/']",
-        "a.pHiOh"
-      ],
-      "href": "https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1"
-    },
-    "Link:How Search works": {
-      "label": "How Search works",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search/howsearchworks/']",
-        "a.pHiOh"
-      ],
-      "href": "https://google.com/search/howsearchworks/?fg=1"
-    },
-    "Link:Privacy": {
-      "label": "Privacy",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/privacy']",
-        "a.pHiOh"
-      ],
-      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
-    },
-    "Link:Terms": {
-      "label": "Terms",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/terms']",
-        "a.pHiOh"
-      ],
-      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
-    },
-    "Button:Settings": {
-      "label": "Settings",
+    "Button:Read More#8": {
+      "label": "Read More",
       "type": "Button",
-      "tag": "div",
+      "tag": "a",
       "selectors": [
-        "div.CcNe6e"
+        "a[href*='/blogs/3iatlas/2025/11/19/nasas-punch-spies-interstellar-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
       ],
-      "href": null
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/11/19/nasas-punch-spies-interstellar-comet-3i-atlas/"
+    },
+    "Button:Read More#9": {
+      "label": "Read More",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://www.nasa.gov/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/"
+    },
+    "Button:Read More#10": {
+      "label": "Read More",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/3iatlas/2025/11/19/nasas-punch-spies-interstellar-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/11/19/nasas-punch-spies-interstellar-comet-3i-atlas/"
+    },
+    "Button:Read More#11": {
+      "label": "Read More",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://www.nasa.gov/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/"
+    },
+    "Button:Read More#12": {
+      "label": "Read More",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://www.nasa.gov/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/"
+    },
+    "Button:Read More#13": {
+      "label": "Read More",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://www.nasa.gov/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/"
+    },
+    "Button:Read More#14": {
+      "label": "Read More",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/3iatlas/2025/11/19/nasa-esas-soho-observes-interstellar-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/11/19/nasa-esas-soho-observes-interstellar-comet-3i-atlas/"
+    },
+    "Button:Read More#15": {
+      "label": "Read More",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/3iatlas/2025/12/04/nasas-hubble-space-telescope-revisits-interstellar-comet/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/12/04/nasas-hubble-space-telescope-revisits-interstellar-comet/"
+    },
+    "Link:News about Comet 3I/ATLAS": {
+      "label": "News about Comet 3I/ATLAS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "a[href*='#news']",
+        "a.display-flex.line-height-sm"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/#news"
+    },
+    "Link:Feature: Mars Spacecraft See Comet": {
+      "label": "Feature: Mars Spacecraft See Comet",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "a[href*='#mars']",
+        "a.display-flex.line-height-sm"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/#mars"
+    },
+    "Link:Overview, Discovery, and Observing": {
+      "label": "Overview, Discovery, and Observing",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "a[href*='#overview']",
+        "a.display-flex.line-height-sm"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/#overview"
+    },
+    "Link:Image Gallery#2": {
+      "label": "Image Gallery",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "a[href*='#multimedia']",
+        "a.display-flex.line-height-sm"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/#multimedia"
+    },
+    "Link:Follow Comet 3I/ATLAS's Journey": {
+      "label": "Follow Comet 3I/ATLAS's Journey",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "a[href*='#eyes']",
+        "a.display-flex.line-height-sm"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/#eyes"
+    },
+    "Link:Image: The First Sighting": {
+      "label": "Image: The First Sighting",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "a[href*='#firstsight']",
+        "a.display-flex.line-height-sm"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/#firstsight"
+    },
+    "Button:Lee sobre el cometa 3I/ATLAS en español aquí.": {
+      "label": "Lee sobre el cometa 3I/ATLAS en español aquí.",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Lee sobre el cometa 3I/ATLAS en español aquí.']",
+        "[aria-label='Lee sobre el cometa 3I/ATLAS en español aquí.']",
+        "a[href*='/sistema-solar/cometa-3i-atlas/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://ciencia.nasa.gov/sistema-solar/cometa-3i-atlas/"
+    },
+    "Link:NASA’s Hubble Space Telescope Revisits Interstellar Comet": {
+      "label": "NASA’s Hubble Space Telescope Revisits Interstellar Comet",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/3iatlas/2025/12/04/nasas-hubble-space-telescope-revisits-interstellar-comet/']",
+        "a.hds-content-item-heading"
+      ],
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/12/04/nasas-hubble-space-telescope-revisits-interstellar-comet/"
+    },
+    "Link:NASA’s Psyche Mission Tracks Interstellar Comet 3I/ATLAS": {
+      "label": "NASA’s Psyche Mission Tracks Interstellar Comet 3I/ATLAS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/psyche/2025/12/03/nasas-psyche-mission-tracks-interstellar-comet-3i-atlas/']",
+        "a.hds-content-item-heading"
+      ],
+      "href": "https://science.nasa.gov/blogs/psyche/2025/12/03/nasas-psyche-mission-tracks-interstellar-comet-3i-atlas/"
+    },
+    "Link:NASA’S STEREO Observes Interstellar Comet 3I/ATLAS": {
+      "label": "NASA’S STEREO Observes Interstellar Comet 3I/ATLAS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/3iatlas/2025/11/19/nasas-stereo-observes-interstellar-comet-3i-atlas/']",
+        "a.hds-content-item-heading"
+      ],
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/11/19/nasas-stereo-observes-interstellar-comet-3i-atlas/"
+    },
+    "Link:NASA/ESA’s SOHO Observes Interstellar Comet 3I/ATLAS": {
+      "label": "NASA/ESA’s SOHO Observes Interstellar Comet 3I/ATLAS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/3iatlas/2025/11/19/nasa-esas-soho-observes-interstellar-comet-3i-atlas/']",
+        "a.hds-content-item-heading"
+      ],
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/11/19/nasa-esas-soho-observes-interstellar-comet-3i-atlas/"
+    },
+    "Link:NASA’s PUNCH Spies Interstellar Comet 3I/ATLAS": {
+      "label": "NASA’s PUNCH Spies Interstellar Comet 3I/ATLAS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/3iatlas/2025/11/19/nasas-punch-spies-interstellar-comet-3i-atlas/']",
+        "a.hds-content-item-heading"
+      ],
+      "href": "https://science.nasa.gov/blogs/3iatlas/2025/11/19/nasas-punch-spies-interstellar-comet-3i-atlas/"
+    },
+    "Link:NASA’s Lucy Spacecraft Snaps Photos of Interstellar Comet 3I/ATLAS": {
+      "label": "NASA’s Lucy Spacecraft Snaps Photos of Interstellar Comet 3I/ATLAS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/lucy/2025/11/19/nasas-lucy-spacecraft-snaps-photos-of-interstellar-comet-3i-atlas/']",
+        "a.hds-content-item-heading"
+      ],
+      "href": "https://science.nasa.gov/blogs/lucy/2025/11/19/nasas-lucy-spacecraft-snaps-photos-of-interstellar-comet-3i-atlas/"
+    },
+    "Link:Goto Page 2": {
+      "label": "Goto Page 2",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Goto Page 2']",
+        "[aria-label='Goto Page 2']",
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "[data-page-number='2']",
+        "a.page-numbers"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/#"
+    },
+    "Link:Goto Next Page": {
+      "label": "Goto Next Page",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Goto Next Page']",
+        "[aria-label='Goto Next Page']",
+        "a[href*='/solar-system/comets/3i-atlas/']",
+        "[data-page-number='2']",
+        "a.next.page-numbers"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/#"
+    },
+    "Button:Read the Story": {
+      "label": "Read the Story",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://www.nasa.gov/solar-system/planets/mars/nasas-mars-spacecraft-capture-images-of-comet-3i-atlas/"
+    },
+    "Link:ATLAS": {
+      "label": "ATLAS",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
+      ],
+      "href": "https://atlas.fallingstar.com/"
+    },
+    "Button:Read more about NASA's discovery of comet 3I/ATLAS": {
+      "label": "Read more about NASA's discovery of comet 3I/ATLAS",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/blogs/planetary-defense/2025/07/02/nasa-discovers-interstellar-comet-moving-through-solar-system/']",
+        "a.button-primary.button-primary-sm"
+      ],
+      "href": "https://science.nasa.gov/blogs/planetary-defense/2025/07/02/nasa-discovers-interstellar-comet-moving-through-solar-system/"
+    },
+    "Button:Read more about the Hubble image": {
+      "label": "Read more about the Hubble image",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/missions/hubble/as-nasa-missions-study-interstellar-comet-hubble-makes-size-estimate/']",
+        "a.button-primary.button-primary-sm"
+      ],
+      "href": "https://science.nasa.gov/missions/hubble/as-nasa-missions-study-interstellar-comet-hubble-makes-size-estimate/"
+    },
+    "Button:Go to Gallery": {
+      "label": "Go to Gallery",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/']",
+        "a.button-primary.button-primary-md"
+      ],
+      "href": "https://science.nasa.gov/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/"
+    },
+    "Link:Eyes on the Solar System": {
+      "label": "Eyes on the Solar System",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/apps/solar-system/']",
+        "a[href*='#/c_2025_n1']"
+      ],
+      "href": "https://eyes.nasa.gov/apps/solar-system/#/c_2025_n1"
+    },
+    "Link:Asteroids, Comets & Meteors": {
+      "label": "Asteroids, Comets & Meteors",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/asteroids-comets-meteors/']",
+        "a.mobile\\:grid-col-12.tablet\\:grid-col-6"
+      ],
+      "href": "https://science.nasa.gov/asteroids-comets-meteors/"
+    },
+    "Link:Our Solar System": {
+      "label": "Our Solar System",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/overview/']",
+        "a.mobile\\:grid-col-12.tablet\\:grid-col-6"
+      ],
+      "href": "https://science.nasa.gov/solar-system/overview/"
+    },
+    "Link:Planetary Defense at NASA": {
+      "label": "Planetary Defense at NASA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/planetary-defense/']",
+        "a.mobile\\:grid-col-12.tablet\\:grid-col-6"
+      ],
+      "href": "https://science.nasa.gov/planetary-defense/"
+    },
+    "Link:Kuiper Belt": {
+      "label": "Kuiper Belt",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/kuiper-belt/']",
+        "a.mobile\\:grid-col-12.tablet\\:grid-col-6"
+      ],
+      "href": "https://science.nasa.gov/solar-system/kuiper-belt/"
+    },
+    "Link:About NASA's Mission": {
+      "label": "About NASA's Mission",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/about/']"
+      ],
+      "href": "https://www.nasa.gov/about/"
+    },
+    "Button:Join Us": {
+      "label": "Join Us",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/get-involved/']",
+        "a.button-primary.button-primary-sm"
+      ],
+      "href": "https://www.nasa.gov/get-involved/"
+    },
+    "Link:Home": {
+      "label": "Home",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
+      ],
+      "href": "https://www.nasa.gov/"
+    },
+    "Link:News & Events": {
+      "label": "News & Events",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/']"
+      ],
+      "href": "https://www.nasa.gov/news/"
+    },
+    "Link:Multimedia": {
+      "label": "Multimedia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/multimedia/']"
+      ],
+      "href": "https://www.nasa.gov/multimedia/"
+    },
+    "Link:NASA+#2": {
+      "label": "NASA+",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a.usa-nav__link-nasa-live"
+      ],
+      "href": "https://plus.nasa.gov/"
+    },
+    "Link:Missions": {
+      "label": "Missions",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/nasa-missions/']"
+      ],
+      "href": "https://www.nasa.gov/nasa-missions/"
+    },
+    "Link:Humans in Space": {
+      "label": "Humans in Space",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/humans-in-space/']"
+      ],
+      "href": "https://www.nasa.gov/humans-in-space/"
+    },
+    "Link:Earth": {
+      "label": "Earth",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/earth/']"
+      ],
+      "href": "https://science.nasa.gov/earth/"
+    },
+    "Link:The Solar System": {
+      "label": "The Solar System",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/solar-system/']"
+      ],
+      "href": "https://science.nasa.gov/solar-system/"
+    },
+    "Link:The Universe": {
+      "label": "The Universe",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/universe/']"
+      ],
+      "href": "https://science.nasa.gov/universe/"
+    },
+    "Link:Science": {
+      "label": "Science",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
+      ],
+      "href": "https://science.nasa.gov/"
+    },
+    "Link:Aeronautics": {
+      "label": "Aeronautics",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/aeronautics/']"
+      ],
+      "href": "https://www.nasa.gov/aeronautics/"
+    },
+    "Link:Technology": {
+      "label": "Technology",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/technology/']"
+      ],
+      "href": "https://www.nasa.gov/technology/"
+    },
+    "Link:Learning Resources": {
+      "label": "Learning Resources",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/learning-resources/']"
+      ],
+      "href": "https://www.nasa.gov/learning-resources/"
+    },
+    "Link:About NASA": {
+      "label": "About NASA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/about/']"
+      ],
+      "href": "https://www.nasa.gov/about/"
+    },
+    "Link:NASA en Español": {
+      "label": "NASA en Español",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/es/']"
+      ],
+      "href": "https://www.nasa.gov/es/"
+    },
+    "Link:NASA on Facebook": {
+      "label": "NASA on Facebook",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='NASA on Facebook']",
+        "[aria-label='NASA on Facebook']",
+        "a[href*='/NASA']"
+      ],
+      "href": "https://www.facebook.com/NASA"
+    },
+    "Link:NASA on Instagram": {
+      "label": "NASA on Instagram",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/nasa/']"
+      ],
+      "href": "https://www.instagram.com/nasa/"
+    },
+    "Link:NASA on X": {
+      "label": "NASA on X",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/NASA']"
+      ],
+      "href": "https://x.com/NASA"
+    },
+    "Link:NASA on YouTube": {
+      "label": "NASA on YouTube",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@NASA']"
+      ],
+      "href": "https://www.youtube.com/@NASA"
+    },
+    "Link:More NASA Social Accounts": {
+      "label": "More NASA Social Accounts",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/social-media/']"
+      ],
+      "href": "https://www.nasa.gov/social-media/"
+    },
+    "Link:NASA Newsletters": {
+      "label": "NASA Newsletters",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/nasa-newsletters/']"
+      ],
+      "href": "https://www.nasa.gov/nasa-newsletters/"
+    },
+    "Link:Sitemap": {
+      "label": "Sitemap",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/sitemap/']"
+      ],
+      "href": "https://www.nasa.gov/sitemap/"
+    },
+    "Link:For Media": {
+      "label": "For Media",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/nasa-media-contacts/']"
+      ],
+      "href": "https://www.nasa.gov/news/nasa-media-contacts/"
+    },
+    "Link:Privacy Policy": {
+      "label": "Privacy Policy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/nasa-web-privacy-policy-and-important-notices/']"
+      ],
+      "href": "https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/"
+    },
+    "Link:FOIA": {
+      "label": "FOIA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/foia/']"
+      ],
+      "href": "https://www.nasa.gov/foia/"
+    },
+    "Link:No FEAR Act": {
+      "label": "No FEAR Act",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/no-fear-act/']"
+      ],
+      "href": "https://www.nasa.gov/no-fear-act/"
+    },
+    "Link:Office of the IG": {
+      "label": "Office of the IG",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a"
+      ],
+      "href": "http://oig.nasa.gov/"
+    },
+    "Link:Budget & Annual Reports": {
+      "label": "Budget & Annual Reports",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/budgets-plans-and-reports/']"
+      ],
+      "href": "https://www.nasa.gov/budgets-plans-and-reports/"
+    },
+    "Link:Agency Financial Reports": {
+      "label": "Agency Financial Reports",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/organizations/budget-annual-reports/agency-financial-reports/']"
+      ],
+      "href": "https://www.nasa.gov/organizations/budget-annual-reports/agency-financial-reports/"
+    },
+    "Link:Contact NASA": {
+      "label": "Contact NASA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/contact-nasa/']"
+      ],
+      "href": "https://www.nasa.gov/contact-nasa/"
+    },
+    "Link:Accessibility": {
+      "label": "Accessibility",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/accessibility/']"
+      ],
+      "href": "https://www.nasa.gov/accessibility/"
     }
   }
 }

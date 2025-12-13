@@ -1,28 +1,42 @@
 {
-  "timestamp": 1765621879.909748,
+  "timestamp": 1765623688.1637602,
   "browser_state": {
-    "total_tabs": 1,
+    "total_tabs": 3,
     "active_tab": {
-      "id": 1138047714,
-      "url": "https://www.google.com/",
-      "title": "Google",
+      "id": 1138047868,
+      "url": "https://science.nasa.gov/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/",
+      "title": "Comet 3I/ATLAS Image Gallery",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138047714,
-        "url": "https://www.google.com/",
-        "title": "Google",
+        "id": 1138047854,
+        "url": "http://127.0.0.1:8080/",
+        "title": "OM-E Web",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138047865,
+        "url": "https://science.nasa.gov/solar-system/comets/3i-atlas/",
+        "title": "Comet 3I/ATLAS - NASA Science",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138047868,
+        "url": "https://science.nasa.gov/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/",
+        "title": "Comet 3I/ATLAS Image Gallery",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 35188.560072083,
+    "last_tabs_update": 36999.065716416,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/",
-    "title": "Google",
+    "url": "https://science.nasa.gov/solar-system/comets/3i-atlas/comet-3i-atlas-image-gallery/",
+    "title": "Comet 3I/ATLAS Image Gallery",
     "is_active_tab": true
   },
   "content_structure": {},
