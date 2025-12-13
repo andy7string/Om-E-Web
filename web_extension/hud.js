@@ -2996,7 +2996,6 @@
         const gearBtn = hudState.orb.querySelector('.ome-gear-btn');
         if (gearBtn) {
             let gearEngaged = false;
-            let justDisengaged = false;  // 🛡️ Prevent immediate re-engage
             let engageY = 0;
             let engageX = 0;
             let scrollAnimationId = null;
@@ -3049,13 +3048,17 @@
                 if (e.target === gearBtn || gearBtn.contains(e.target)) {
                     return;
                 }
+                // 🛡️ Consume this click entirely - don't let it trigger other elements
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                e.preventDefault();
                 disengageGear();
+                console.log('[HUD] ⚙️ Gear disengage - click consumed (theme handler)');
             }
 
             function disengageGear() {
                 if (!gearEngaged) return;
                 gearEngaged = false;
-                justDisengaged = true;  // 🛡️ Block re-engage on same click
                 currentOffset = 0;
                 gearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
                 document.removeEventListener('click', handleGearClick, true);
@@ -3082,19 +3085,11 @@
 
             gearBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // 🛡️ If we just disengaged, don't re-engage on this click
-                if (justDisengaged) {
-                    justDisengaged = false;
-                    console.log('[HUD] ⚙️ Gear click - blocked re-engage (theme handler)');
-                    return;
-                }
                 // Toggle: if engaged, disengage. If not, engage.
                 if (gearEngaged) {
                     disengageGear();
-                    console.log('[HUD] ⚙️ Gear click - disengaged (theme handler)');
                 } else {
                     engageGear(e);
-                    console.log('[HUD] ⚙️ Gear click - engaged (theme handler)');
                 }
             });
         }
@@ -3398,7 +3393,6 @@
         const gearBtn = orb.querySelector('.ome-gear-btn');
         if (gearBtn) {
             let gearEngaged = false;
-            let justDisengaged = false;  // 🛡️ Prevent immediate re-engage
             let engageY = 0;
             let engageX = 0;
             let scrollAnimationId = null;
@@ -3450,7 +3444,6 @@
             function disengageGear() {
                 if (!gearEngaged) return;
                 gearEngaged = false;
-                justDisengaged = true;  // 🛡️ Block re-engage on same click
                 currentOffset = 0;
                 gearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
                 if (scrollAnimationId) {
@@ -3467,7 +3460,12 @@
                 if (e.target === gearBtn || gearBtn.contains(e.target)) {
                     return;
                 }
+                // 🛡️ Consume this click entirely - don't let it trigger other elements
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                e.preventDefault();
                 disengageGear();
+                console.log('[HUD] ⚙️ Gear disengage - click consumed');
             }
 
             function handleGearMove(e) {
@@ -3485,19 +3483,11 @@
 
             gearBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // 🛡️ If we just disengaged, don't re-engage on this click
-                if (justDisengaged) {
-                    justDisengaged = false;
-                    console.log('[HUD] ⚙️ Gear click - blocked re-engage');
-                    return;
-                }
                 // Toggle: if engaged, disengage. If not, engage.
                 if (gearEngaged) {
                     disengageGear();
-                    console.log('[HUD] ⚙️ Gear click - disengaged');
                 } else {
                     engageGear(e);
-                    console.log('[HUD] ⚙️ Gear click - engaged');
                 }
             });
         }
@@ -4453,7 +4443,6 @@
         const hudGearBtn = hud.querySelector('.ome-hud-gear-btn');
         if (hudGearBtn && hudMessagesArea) {
             let gearEngaged = false;
-            let justDisengaged = false;  // 🛡️ Prevent immediate re-engage
             let engageY = 0;
             let engageX = 0;
             let scrollAnimationId = null;
@@ -4505,7 +4494,6 @@
             function disengageGear() {
                 if (!gearEngaged) return;
                 gearEngaged = false;
-                justDisengaged = true;  // 🛡️ Block re-engage on same click
                 currentOffset = 0;
                 hudGearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
                 if (scrollAnimationId) {
@@ -4522,7 +4510,12 @@
                 if (e.target === hudGearBtn || hudGearBtn.contains(e.target)) {
                     return;
                 }
+                // 🛡️ Consume this click entirely - don't let it trigger other elements
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                e.preventDefault();
                 disengageGear();
+                console.log('[HUD] ⚙️ HUD Gear disengage - click consumed');
             }
 
             function handleGearMove(e) {
@@ -4540,19 +4533,11 @@
 
             hudGearBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // 🛡️ If we just disengaged, don't re-engage on this click
-                if (justDisengaged) {
-                    justDisengaged = false;
-                    console.log('[HUD] ⚙️ Gear click - blocked re-engage');
-                    return;
-                }
                 // Toggle: if engaged, disengage. If not, engage.
                 if (gearEngaged) {
                     disengageGear();
-                    console.log('[HUD] ⚙️ Gear click - disengaged');
                 } else {
                     engageGear(e);
-                    console.log('[HUD] ⚙️ Gear click - engaged');
                 }
             });
         }
