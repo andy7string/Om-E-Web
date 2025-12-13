@@ -11,7 +11,7 @@
         return;
     }
 
-    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string, panelManuallyResized: boolean, panelTargetWidth: number|null, focusGuardCleanup: (() => void)|null, hudFocusGuardCleanup: (() => void)|null, userBlurRequested: boolean }} */
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string, panelManuallyResized: boolean, panelTargetWidth: number|null, focusGuardCleanup: (() => void)|null, hudFocusGuardCleanup: (() => void)|null, userBlurRequested: boolean, hudTextZoom: number }} */
     const hudState = {
         host: null,
         shadow: null,
@@ -29,7 +29,8 @@
         panelTargetWidth: null,        // 📐 Target width to restore on resize (user-set or optimal)
         focusGuardCleanup: null,       // 🎯 Active orb focus guard disposer
         hudFocusGuardCleanup: null,    // 🎯 Active HUD focus guard disposer
-        userBlurRequested: false       // 🎯 Tracks if user intentionally blurred input
+        userBlurRequested: false,      // 🎯 Tracks if user intentionally blurred input
+        hudTextZoom: 1                 // 🔍 HUD messages text zoom level (1 = 100%)
     };
 
     // 💬 Save chat input immediately (persists across navigation)
@@ -995,10 +996,12 @@
 
             /* 💬 Messages Content - inside scroll container */
             .ome-hud-messages-content {
+                --hud-text-zoom: 1;  /* 🔍 Text zoom level (controlled by zoom buttons) */
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
                 padding: 24px 12px;
+                font-size: calc(1rem * var(--hud-text-zoom));
             }
 
             /* 📐 Messages Spacers - mirror the orb-wrapper + scroll structure exactly */
@@ -1216,7 +1219,7 @@
             /* 💬 HUD Message Bubbles - left-aligned, user indented */
             .ome-hud-message {
                 padding: 12px 14px;
-                font-size: 15px;
+                font-size: 1em;  /* 🔍 Inherits from parent (scaled by --hud-text-zoom) */
                 line-height: 1.6;
                 word-wrap: break-word;
                 white-space: pre-wrap;
@@ -1240,7 +1243,7 @@
                 margin-left: 0;
                 background: rgba(220,38,38,0.2);
                 color: #fca5a5;
-                font-size: 13px;
+                font-size: 0.87em;  /* 🔍 Slightly smaller, still scales with zoom */
             }
             /* 💬 HUD Message Images */
             .ome-hud-message img {
@@ -1390,6 +1393,53 @@
             .ome-hud-prompt-btn:hover { opacity: 1; background: rgba(167,139,250,0.4); transform: scale(1.08); }
             .ome-hud-prompt-btn:active { transform: scale(0.95); }
             .ome-hud-prompt-btn.active { opacity: 1; background: rgba(167,139,250,0.5); border-color: #a5b4fc; color: #fff; }
+
+            /* 🔍 HUD Zoom Controls - text size for messages area (mirrors orb layout) */
+            .ome-hud-zoom {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 2px;
+                color: var(--text-color);
+            }
+            .ome-hud-zoom .ome-hud-ctrl-btn {
+                width: 28px;
+                height: 28px;
+                border: 3px solid currentColor;
+                border-radius: 50%;
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
+                opacity: 0.5;
+                font-size: 16px;
+                font-weight: 600;
+                color: currentColor;
+                line-height: 1;
+            }
+            .ome-hud-zoom .ome-hud-ctrl-btn:hover { background: rgba(var(--theme-color),0.15); opacity: 1; transform: scale(1.2); }
+            .ome-hud-zoom .ome-hud-ctrl-btn:active { transform: scale(0.9); }
+            .ome-hud-zoom-label {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 3px solid currentColor;
+                background: transparent;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: 700;
+                color: currentColor;
+                cursor: pointer;
+                opacity: 0.6;
+                transition: opacity 0.15s ease, transform 0.15s ease;
+                text-transform: none;
+            }
+            .ome-hud-zoom-label:hover { opacity: 1; transform: scale(1.08); }
+
             /* 🔮 HUD Orb Wrapper (for arrows) */
             .ome-hud-orb-wrapper {
                 position: relative;
@@ -3693,6 +3743,12 @@
                                 <div class="ome-hud-scan-arrow ome-hud-scan-arrow-nw"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
                             </div>
                             <button class="ome-hud-prompt-btn active" style="color: ${currentTheme.color}">HIDE PROMPT</button>
+                            <!-- 🔍 HUD Zoom Controls - text size for messages -->
+                            <div class="ome-hud-zoom">
+                                <button class="ome-hud-ctrl-btn ome-hud-zoom-in" title="Increase text size">+</button>
+                                <span class="ome-hud-zoom-label ome-hud-zoom-reset" title="Reset text size">T</span>
+                                <button class="ome-hud-ctrl-btn ome-hud-zoom-out" title="Decrease text size">−</button>
+                            </div>
                         </div>
 
                         <!-- 🎮 HUD Scroll Controls - gear stick for messages -->
@@ -4317,6 +4373,42 @@
             if (hudMessagesArea) {
                 hudMessagesArea.scrollTo({ top: hudMessagesArea.scrollHeight, behavior: 'smooth' });
             }
+        });
+
+        // 🔍 HUD Text Zoom - apply to messages content
+        const hudMessagesContent = hud.querySelector('.ome-hud-messages-content');
+        const ZOOM_STEP = 0.1;
+        const ZOOM_MIN = 0.6;
+        const ZOOM_MAX = 2.0;
+
+        /**
+         * 🔍 Apply text zoom to HUD messages
+         * @param {number} zoom - Zoom level (1 = 100%)
+         */
+        function applyHudTextZoom(zoom) {
+            hudState.hudTextZoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, zoom));
+            if (hudMessagesContent) {
+                hudMessagesContent.style.setProperty('--hud-text-zoom', String(hudState.hudTextZoom));
+            }
+            console.log(`[HUD] 🔍 Text zoom: ${Math.round(hudState.hudTextZoom * 100)}%`);
+        }
+
+        // 🔍 Zoom in button
+        hud.querySelector('.ome-hud-zoom-in')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            applyHudTextZoom(hudState.hudTextZoom + ZOOM_STEP);
+        });
+
+        // 🔍 Zoom out button
+        hud.querySelector('.ome-hud-zoom-out')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            applyHudTextZoom(hudState.hudTextZoom - ZOOM_STEP);
+        });
+
+        // 🔍 Zoom reset button
+        hud.querySelector('.ome-hud-zoom-reset')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            applyHudTextZoom(1);
         });
 
         // ⚙️ HUD Gear button - click to engage, vertical movement = scroll speed
