@@ -1,15 +1,15 @@
-# LLM Request #15
+# LLM Request #7
 
 **Model:** gpt-4.1-mini
 **Temperature:** 0.7
 **Max Tokens:** 2048
-**Request Tokens:** 5,846
-**Context:** 5.8k / 1047k (0.6%)
-**Session Tokens:** 71,037
+**Request Tokens:** 8,161
+**Context:** 8.2k / 1047k (0.8%)
+**Session Tokens:** 35,668
 
 ---
 
-## SYSTEM (5,137 tokens)
+## SYSTEM (6,275 tokens)
 
 # Om-E (Ome)
 
@@ -193,298 +193,466 @@ You can use markdown to make your responses look nice:
 Use formatting when it helps clarity - don't overdo it for simple responses.
 
 ## Recent Actions
-- Element:setValue: Success
-- Element:click: Success
-- Element:click: Success
-- Element:setValue: Success
+- OpenTab: {'ok': False}
 - Element:click: Success
 
 ## Current Page Context
-# (46) Claude AI vs. ChatGPT - YouTube
+# Oracle made a $300 billion bet on OpenAI. It's paying the price.
 
-**URL:** https://www.youtube.com/watch?v=5Tfwo1cB340
-**Timestamp:** 2025-12-13 19:20:52
+**URL:** https://finance.yahoo.com/news/oracle-made-a-300-billion-bet-on-openai-its-paying-the-price-205441863.html
+**Timestamp:** 2025-12-13 20:58:56
 
 **Tabs:**
 - Tab 1: "OM-E Web" (127.0.0.1)
-- Tab 2: "America isn’t attacking Venezuela becaus" (thehill.com)
-- Tab 3: "(46) Claude AI vs. ChatGPT - YouTube" (www.youtube.com) -- ACTIVE TAB
-
-## Capabilities
-
-- **RetrieveTranscript** - Get video transcript → `{"cap": "RetrieveTranscript"}`
-- **TogglePlayPause** - Toggle video playback → `{"cap": "TogglePlayPause"}`
-- **SubscribeToChannel** - Subscribe to the channel → `{"cap": "SubscribeToChannel"}`
-- **LikeVideo** - Like this video → `{"cap": "LikeVideo"}`
-- **DislikeVideo** - Dislike this video → `{"cap": "DislikeVideo"}`
+- Tab 2: "Oracle made a $300 billion bet on OpenAI" (finance.yahoo.com) -- ACTIVE TAB
 
 ---
 
----
-
-Button: Guide → {"act": "Button:Guide"}
-Link: YouTube Premium Home → {"act": "Link:YouTube Premium Home"}
-AU
-Button: Skip navigation → {"act": "Button:Skip navigation"}
-Input: Search → {"act": "Input:Search", "value": "...", "submit": true}
-Button: Clear search query → {"act": "Button:Clear search query"}
+Button: Y! Sites → {"act": "Button:Y! Sites"}
+Yahoo Finance
+Link: Yahoo Finance → {"act": "Link:Yahoo Finance"}
+Search query
+Input: Search for news, tickers or companies → {"act": "Input:Search for news, tickers or companies", "value": "...", "submit": true}
 Button: Search → {"act": "Button:Search"}
-Button: Search with your voice → {"act": "Button:Search with your voice"}
-Button: Create → {"act": "Button:Create"}
-Button: Notifications → {"act": "Button:Notifications"}
-Button: Account menu → {"act": "Button:Account menu"}
-Link: Share link → {"act": "Link:Share link"}
-Button: Close → {"act": "Button:Close"}
-Slider: Seek slider (0/0-126) → {"act": "Slider:Seek slider", "value": N}
-Button: Play (k) → {"act": "Button:Play (k)"}
-Button: Mute (m) → {"act": "Button:Mute (m)"}
-Slider: Volume (26/0-100) → {"act": "Slider:Volume", "value": N}
-Button: 0 Minutes 0 Seconds of 2 Minutes 6 Seconds → {"act": "Button:0 Minutes 0 Seconds of 2 Minutes 6 Seconds"}
-Button: Autoplay is on → {"act": "Button:Autoplay is on"}
-Button: Subtitles/closed captions (c) → {"act": "Button:Subtitles/closed captions (c)"}
-Button: Settings → {"act": "Button:Settings"}
-Button: Theater mode (t) → {"act": "Button:Theater mode (t)"}
-Button: Full screen (f) → {"act": "Button:Full screen (f)"}
-Claude AI vs. ChatGPT
-Link: Curioscope X → {"act": "Link:Curioscope X"}
-40 subscribers
-Button: Subscribe to Curioscope X. → {"act": "Button:Subscribe to Curioscope X."}
-Button: like this video along with 103 other people → {"act": "Button:like this video along with 103 other people"}
-Button: Dislike this video → {"act": "Button:Dislike this video"}
-Button: Share → {"act": "Button:Share"}
-Button: Download → {"act": "Button:Download"}
-14K views
-7 months ago
-Link: #ClaudeAI → {"act": "Link:#ClaudeAI"}
-Link: #ArtificialIntelligence → {"act": "Link:#ArtificialIntelligence"}
-Link: #ChatGPT → {"act": "Link:#ChatGPT"}
-In this exciting video, we explore the ultimate AI showdown: Claude AI by Anthropic vs. ChatGPT by OpenAI! Discover which AI assistant reigns supreme as we break down their key differences, including safety philosophies, context handling, output styles, and performance capabilities. Whether you need help with long documents,
-...
-Button: ...more → {"act": "Button:...more"}
-Button: All → {"act": "Button:All"}
-Button: Computers → {"act": "Button:Computers"}
-Button: Learning → {"act": "Button:Learning"}
-Button: For you → {"act": "Button:For you"}
-Button: Recently uploaded → {"act": "Button:Recently uploaded"}
-Button: Watched → {"act": "Button:Watched"}
-Link: 7:38 → {"act": "Link:7:38"}
-Link: Claude vs ChatGPT — Which One’s Actually Better? 7 minutes, 38 seconds → {"act": "Link:Claude vs ChatGPT — Which One’s Actually Better? 7 minutes, 38 seconds"}
-Mark Brinker
-9.9K views
+Link: Check your mail → {"act": "Link:Check your mail"}
+Link: Sign in → {"act": "Link:Sign in"}
+Link: Yahoo Finance → {"act": "Link:Yahoo Finance#2"}
+Oracle made a $300 billion bet on OpenAI. It's paying the price.
+Link: Laura Bratton → {"act": "Link:Laura Bratton"}
+Updated
+Sat, December 13, 2025 at 2:59 AM GMT+10:30
+3 min read
+Button: Share links → {"act": "Button:Share links"}
+In this article
+:
+Button: prev → {"act": "Button:prev"}
+Button: next → {"act": "Button:next"}
+Link: StockStory Top Pick → {"act": "Link:StockStory Top Pick"}
+Link: NVDA → {"act": "Link:NVDA"}
+Button: Follow → {"act": "Button:Follow"}
+Link: AMD → {"act": "Link:AMD"}
+Button: Follow → {"act": "Button:Follow#2"}
+Link: AVGO → {"act": "Link:AVGO"}
+Button: Follow → {"act": "Button:Follow#3"}
+Link: META → {"act": "Link:META"}
+Button: Follow → {"act": "Button:Follow#4"}
+Link: ORCL → {"act": "Link:ORCL"}
+Button: Follow → {"act": "Button:Follow#5"}
+Oracle might have an OpenAI problem.
+Oracle (
+Link: ORCL → {"act": "Link:ORCL#2"}
+) stock has tumbled over 40% from its September peak, erasing more than $360 billion from its market capitalization. Nearly $67 billion of that
+Link: decline → {"act": "Link:decline"}
+occurred on Thursday alone, as Oracle’s second quarter results failed to assuage a key concern for investors — that the company is too heavily reliant on OpenAI (
+Link: OPAI.PVT → {"act": "Link:OPAI.PVT"}
+).
+Oracle’s AI-fueled growth targets outlined in its first quarter sent the stock to a record on Sept. 10, briefly making its founder, Larry Ellison,
+Link: the world's richest man → {"act": "Link:the world's richest man"}
+. In September, the company told investors its remaining performance obligations (RPO) — or the value of its future revenue from customer contracts signed — had soared nearly 360% to $455 billion.
+It was later revealed that ChatGPT developer OpenAI accounted for
+Link: at least $300 billion → {"act": "Link:at least $300 billion"}
+of its customer commitments as part of the Stargate project. Since then, its stock has struggled.
+NYSE - Nasdaq Real Time Price
 •
-2 months ago
-Link: 1:00:00 → {"act": "Link:1:00:00"}
-Link: Moody Floral | Turn Your TV Into Art | Vintage Art Slideshow For Your TV | 1Hr of 4K HD Paintings 1 hour → {"act": "Link:Moody Floral | Turn Your TV Into Art | Vintage Art Slideshow For Your TV | 1Hr of 4K HD Paintings 1 hour"}
-Vintage Art TV
-526K views
-•
-3 years ago
-Link: 15:29 → {"act": "Link:15:29"}
-Link: GPT 5.2 Is Here And I Tried Every New Feature 15 minutes → {"act": "Link:GPT 5.2 Is Here And I Tried Every New Feature 15 minutes"}
-Skill Leap AI
-29K views
-•
-1 day ago
-New
-Link: 7:13 → {"act": "Link:7:13"}
-Link: If I wanted to become a Pro Guitarist in 2026, I'd do this (FULL BLUEPRINT) 7 minutes, 13 seconds → {"act": "Link:If I wanted to become a Pro Guitarist in 2026, I'd do this (FULL BLUEPRINT) 7 minutes, 13 seconds"}
-BERNTH Guitar Academy and BERNTH
-7.3K views
-•
-17 hours ago
-New
-Shorts
-Link: scratches for the Big Fella → {"act": "Link:scratches for the Big Fella"}
-13M views
-Link: ChatGPT VS Claude! Which one to use? → {"act": "Link:ChatGPT VS Claude! Which one to use?"}
-81K views
-Link: Bird That Never Lands: Amazing Swift Facts 🤯 Sleeps In Air #Shorts → {"act": "Link:Bird That Never Lands: Amazing Swift Facts 🤯 Sleeps In Air #Shorts"}
-11M views
-Link: Fans sing along as Lewis Capaldi performs “Someone You Loved” #shorts #someoneyouloved #lewiscapaldi → {"act": "Link:Fans sing along as Lewis Capaldi performs “Someone You Loved” #shorts #someoneyouloved #lewiscapaldi"}
-15M views
-Link: OpenAI Just dropped its Official Prompt Optimizer → {"act": "Link:OpenAI Just dropped its Official Prompt Optimizer"}
-389K views
-Link: I met @TeddySwims at the SUPERMARKET 🤯😱 → {"act": "Link:I met @TeddySwims at the SUPERMARKET 🤯😱"}
-4.3M views
-Button: Next → {"act": "Button:Next"}
-Link: 21:29 → {"act": "Link:21:29"}
-Link: ChatGPT 5.2 vs. Gemini 3 Pro (Head To Head Test) 21 minutes → {"act": "Link:ChatGPT 5.2 vs. Gemini 3 Pro (Head To Head Test) 21 minutes"}
-Paul J Lipsky
-28K views
-•
-1 day ago
-New
-Link: 26:24 → {"act": "Link:26:24"}
-Link: 6 Months of Claude Code Lessons in 27 Minutes 26 minutes → {"act": "Link:6 Months of Claude Code Lessons in 27 Minutes 26 minutes"}
-AI with Avthar
-200K views
-•
-3 months ago
-Link: 30:27 → {"act": "Link:30:27"}
-Link: Orange Circles and Glitter | 4K Relaxing Screensaver 30 minutes → {"act": "Link:Orange Circles and Glitter | 4K Relaxing Screensaver 30 minutes"}
-Josu Relax
-431K views
-•
-8 years ago
-Link: 13:49 → {"act": "Link:13:49"}
-Link: I Tried 325 AI Tools, These Are The Best. 13 minutes, 49 seconds → {"act": "Link:I Tried 325 AI Tools, These Are The Best. 13 minutes, 49 seconds"}
-9x
-264K views
-•
-2 months ago
-Link: 8:54 → {"act": "Link:8:54"}
-Link: ChatGPT vs Claude: Which One Should You Use? 8 minutes, 54 seconds → {"act": "Link:ChatGPT vs Claude: Which One Should You Use? 8 minutes, 54 seconds"}
-Lindy
-13K views
-•
-8 months ago
-Link: 1:00:01 → {"act": "Link:1:00:01"}
-Link: Frame TV Art Screensaver Wallpaper | White Christmas Decoration 1 hour → {"act": "Link:Frame TV Art Screensaver Wallpaper | White Christmas Decoration 1 hour"}
-Mona Lisa Art Studio
-32K views
-•
-11 months ago
-Link: 1:00:00 → {"act": "Link:1:00:00#2"}
-Link: Turn Your TV Into Art | Vintage Landscape Art Slideshow | 1Hr of 4K HD Paintings 1 hour → {"act": "Link:Turn Your TV Into Art | Vintage Landscape Art Slideshow | 1Hr of 4K HD Paintings 1 hour"}
-Vintage Art TV
-72K views
-•
-4 years ago
-Link: 21:53 → {"act": "Link:21:53"}
-Link: I’ve been using ChatGPT-5 wrong. It’s actually insane (full guide) 21 minutes → {"act": "Link:I’ve been using ChatGPT-5 wrong. It’s actually insane (full guide) 21 minutes"}
-Alex Finn
-92K views
-•
-3 months ago
-Link: 23:11 → {"act": "Link:23:11"}
-Link: ChatGPT vs Gemini vs Claude: BRUTAL 2025 Test (I Tested All 3) 23 minutes → {"act": "Link:ChatGPT vs Gemini vs Claude: BRUTAL 2025 Test (I Tested All 3) 23 minutes"}
-AI Master
-26K views
-•
-1 month ago
-Link: 9:27 → {"act": "Link:9:27"}
-Link: The Race to AI Supremacy: OpenAI’s “Code Red” Moment 9 minutes, 27 seconds → {"act": "Link:The Race to AI Supremacy: OpenAI’s “Code Red” Moment 9 minutes, 27 seconds"}
-Julia McCoy
-19K views
-•
-17 hours ago
-New
-Link: 1:00:00 → {"act": "Link:1:00:00#3"}
-Link: FREE TV ART AMBIENT SCREENSAVER BACKGROUND FRAMED HYDRANGEA FLORAL PAINTING NO SOUND WALLPAPER 4K 1 hour → {"act": "Link:FREE TV ART AMBIENT SCREENSAVER BACKGROUND FRAMED HYDRANGEA FLORAL PAINTING NO SOUND WALLPAPER 4K 1 hour"}
-Leaf Avenue Art
-30K views
-•
-1 year ago
-Link: 30:27 → {"act": "Link:30:27#2"}
-Link: Green & Yellow Particles Moving | 4K Relaxing Screensaver 30 minutes → {"act": "Link:Green & Yellow Particles Moving | 4K Relaxing Screensaver 30 minutes"}
-Josu Relax
-22K views
-•
-8 years ago
-Link: 20:32 → {"act": "Link:20:32"}
-Link: The Truth about ChatGPT Agent 20 minutes → {"act": "Link:The Truth about ChatGPT Agent 20 minutes"}
-Skill Leap AI
-105K views
-•
-4 months ago
-Link: 7:31 → {"act": "Link:7:31"}
-Link: 99% Of People Don't Know The RIGHT WAY to Code with AI 7 minutes, 31 seconds → {"act": "Link:99% Of People Don't Know The RIGHT WAY to Code with AI 7 minutes, 31 seconds"}
-Marina Wyss - AI & Machine Learning
-25K views
-•
-2 months ago
+USD
+Oracle Corporation
+(ORCL)
+Button: Follow → {"act": "Button:Follow#6"}
+Link: View Quote Details → {"act": "Link:View Quote Details"}
+189.97
+-8.88
+(
+-4.47%
+)
+At close: 4:00:02 PM EST
+188.13
+-1.84
+(
+-0.97%
+)
+After hours: 7:59:58 PM EST
+Button: Advanced Chart → {"act": "Button:Advanced Chart"}
+Rising concerns about OpenAI’s mounting costs — set to hit
+Link: $1.4 trillion → {"act": "Link:$1.4 trillion"}
+due to its
+Link: deal spree → {"act": "Link:deal spree"}
+with firms including Nvidia (
+Link: NVDA → {"act": "Link:NVDA#2"}
+), CoreWeave (
+Link: CRWV → {"act": "Link:CRWV"}
+), AMD (
+Link: AMD → {"act": "Link:AMD#2"}
+), and Broadcom (
+Link: AVGO → {"act": "Link:AVGO#2"}
+), in addition to Oracle — and increasing competition from Google's (
+Link: GOOG → {"act": "Link:GOOG"}
+) Gemini models have made investors even more wary.
+"Clearly there's been a reversal in terms of the market's perception of OpenAI in the last couple of months," BNB Paribas analyst Stefan Slowinski told Yahoo Finance. “The OpenAI ecosystem obviously has been suffering as a result.”
+Slowinski and other Wall Street analysts agree that OpenAI’s potential inability to pay for its wide-ranging AI infrastructure commitments is Oracle’s biggest risk.
+Read more:
+Link: How to protect your portfolio from an AI bubble → {"act": "Link:How to protect your portfolio from an AI bubble"}
+OpenAI CEO Sam Altman declared a
+Link: “code red” → {"act": "Link:“code red”"}
+last week as the upstart faces greater rivalry from Google, threatening its ability to monetize its AI products and meet its ambitious
+Link: revenue targets → {"act": "Link:revenue targets"}
+.
+"[Oracle is] in this tough situation where they have to build out [data center] capacity for this customer and borrow a lot of money to do that when there's a very high uncertainty this customer will be able to pay for that capacity," DA Davidson analyst Gil Luria said.
+Oracle’s second quarter results this week only deepened investor concerns.
+The company’s $12 billion in capital expenditures was higher than expected, just as its free cash flow loss of $10 billion was much heavier than the $6 billion outflow anticipated. Oracle also substantially hiked its full-year capital expenditures forecast to $50 billion from $35 billion.
+Oracle office building in Irvine, Calif. (Reuters/Mike Blake)
+·
+Reuters / Reuters
+Executives’ attempts to quell worries over the company's high debt load, rising costs, and dependence on OpenAI didn’t help.
+Button: Story Continues → {"act": "Button:Story Continues"}
+Link: Terms → {"act": "Link:Terms"}
+and
+Link: Privacy Policy → {"act": "Link:Privacy Policy"}
+Link: Privacy Dashboard → {"act": "Link:Privacy Dashboard"}
+Recommended Stories
+Link: Yahoo Finance → {"act": "Link:Yahoo Finance#3"}
+Copyright © 2025 Yahoo. All rights reserved.
+Link: Follow on Twitter → {"act": "Link:Follow on Twitter"}
+Link: Follow on Facebook → {"act": "Link:Follow on Facebook"}
+Link: Follow on LinkedIn → {"act": "Link:Follow on LinkedIn"}
+What's trending
+Link: Dow Jones → {"act": "Link:Dow Jones"}
+Link: S&P 500 → {"act": "Link:S&P 500"}
+Link: DAX Index → {"act": "Link:DAX Index"}
+Link: Nvidia → {"act": "Link:Nvidia"}
+Link: Tesla → {"act": "Link:Tesla"}
+Link: DJT → {"act": "Link:DJT"}
+Link: Tariffs → {"act": "Link:Tariffs"}
+Explore more
+Link: Mortgages → {"act": "Link:Mortgages"}
+Link: Credit Cards → {"act": "Link:Credit Cards"}
+Link: Sectors → {"act": "Link:Sectors"}
+Link: Crypto Heatmap → {"act": "Link:Crypto Heatmap"}
+Link: Financial News → {"act": "Link:Financial News"}
+About
+Link: Data Disclaimer → {"act": "Link:Data Disclaimer"}
+Link: Help → {"act": "Link:Help"}
+Link: Feedback → {"act": "Link:Feedback"}
+Link: Sitemap → {"act": "Link:Sitemap"}
+Link: Licensing → {"act": "Link:Licensing"}
+Link: What's New → {"act": "Link:What's New"}
+Link: About Our Ads → {"act": "Link:About Our Ads"}
+Link: Terms → {"act": "Link:Terms#2"}
+and
+Link: Privacy Policy → {"act": "Link:Privacy Policy#2"}
+Link: Privacy Dashboard → {"act": "Link:Privacy Dashboard#2"}
+Input: Quote Lookup → {"act": "Input:Quote Lookup", "value": "...", "submit": true}
+U.S. markets closed
+Button: US → {"act": "Button:US"}
+Button: Europe → {"act": "Button:Europe"}
+Button: Asia → {"act": "Button:Asia"}
+Button: Cryptocurrencies → {"act": "Button:Cryptocurrencies"}
+Button: Rates → {"act": "Button:Rates"}
+Button: Commodities → {"act": "Button:Commodities"}
+Button: Currencies → {"act": "Button:Currencies"}
+Link: S&P 500
+6,827.41
+-73.59
+(-1.07%) → {"act": "Link:S&P 500 6,827.41 -73.59 (-1.07%)"}
+Button: Follow → {"act": "Button:Follow#7"}
+Link: Dow 30
+48,458.05
+-245.96
+(-0.51%) → {"act": "Link:Dow 30 48,458.05 -245.96 (-0.51%)"}
+Button: Follow → {"act": "Button:Follow#8"}
+Link: Nasdaq
+23,195.17
+-398.69
+(-1.69%) → {"act": "Link:Nasdaq 23,195.17 -398.69 (-1.69%)"}
+Button: Follow → {"act": "Button:Follow#9"}
+Link: Russell 2000
+2,551.46
+-39.15
+(-1.51%) → {"act": "Link:Russell 2000 2,551.46 -39.15 (-1.51%)"}
+Button: Follow → {"act": "Button:Follow#10"}
+Link: VIX
+15.74
++0.89
+(+5.99%) → {"act": "Link:VIX 15.74 +0.89 (+5.99%)"}
+Button: Follow → {"act": "Button:Follow#11"}
+Link: Gold
+4,328.30
++15.30
+(+0.35%) → {"act": "Link:Gold 4,328.30 +15.30 (+0.35%)"}
+Button: Follow → {"act": "Button:Follow#12"}
+Button: prev → {"act": "Button:prev#2"}
+Button: next → {"act": "Button:next#2"}
+Link: Trending tickers → {"act": "Link:Trending tickers"}
+Link: BTC-USD
+Bitcoin USD
+90,524.89
+-1,965.81
+(-2.13%) → {"act": "Link:BTC-USD Bitcoin USD 90,524.89 -1,965.81 (-2.13%)"}
+Button: Follow → {"act": "Button:Follow#13"}
+Link: ETH-USD
+Ethereum USD
+3,128.86
+-119.33
+(-3.67%) → {"act": "Link:ETH-USD Ethereum USD 3,128.86 -119.33 (-3.67%)"}
+Button: Follow → {"act": "Button:Follow#14"}
+Link: OKLO
+Oklo Inc.
+87.42
+-15.58
+(-15.13%) → {"act": "Link:OKLO Oklo Inc. 87.42 -15.58 (-15.13%)"}
+Button: Follow → {"act": "Button:Follow#15"}
+Link: ^IXIC
+NASDAQ Composite
+23,195.17
+-398.69
+(-1.69%) → {"act": "Link:^IXIC NASDAQ Composite 23,195.17 -398.69 (-1.69%)"}
+Button: Follow → {"act": "Button:Follow#16"}
+Link: RBLX
+Roblox Corporation
+88.51
+-5.83
+(-6.18%) → {"act": "Link:RBLX Roblox Corporation 88.51 -5.83 (-6.18%)"}
+Button: Follow → {"act": "Button:Follow#17"}
+Link: Portfolio → {"act": "Link:Portfolio"}
+Sign in to access your portfolio
+Button: Sign in → {"act": "Button:Sign in"}
+Link: Top gainers → {"act": "Link:Top gainers"}
+Link: PSNY
+Polestar Automotive Holding UK PLC
+14.33
++2.32
+(+19.32%) → {"act": "Link:PSNY Polestar Automotive Holding UK PLC 14.33 +2.32 (+19.32%)"}
+Button: Follow → {"act": "Button:Follow#18"}
+Link: YOU
+Clear Secure, Inc.
+41.08
++4.82
+(+13.29%) → {"act": "Link:YOU Clear Secure, Inc. 41.08 +4.82 (+13.29%)"}
+Button: Follow → {"act": "Button:Follow#19"}
+Link: RIVN
+Rivian Automotive, Inc.
+18.42
++1.99
+(+12.11%) → {"act": "Link:RIVN Rivian Automotive, Inc. 18.42 +1.99 (+12.11%)"}
+Button: Follow → {"act": "Button:Follow#20"}
+Link: EVCM
+EverCommerce Inc.
+12.08
++1.19
+(+10.93%) → {"act": "Link:EVCM EverCommerce Inc. 12.08 +1.19 (+10.93%)"}
+Button: Follow → {"act": "Button:Follow#21"}
+Link: LULU
+lululemon athletica inc.
+204.97
++17.96
+(+9.60%) → {"act": "Link:LULU lululemon athletica inc. 204.97 +17.96 (+9.60%)"}
+Button: Follow → {"act": "Button:Follow#22"}
+Link: Top losers → {"act": "Link:Top losers"}
+Link: FRMI
+Fermi Inc.
+10.09
+-5.16
+(-33.84%) → {"act": "Link:FRMI Fermi Inc. 10.09 -5.16 (-33.84%)"}
+Button: Follow → {"act": "Button:Follow#23"}
+Link: MOD
+Modine Manufacturing Company
+139.88
+-25.31
+(-15.32%) → {"act": "Link:MOD Modine Manufacturing Company 139.88 -25.31 (-15.32%)"}
+Button: Follow → {"act": "Button:Follow#24"}
+Link: OKLO
+Oklo Inc.
+87.42
+-15.58
+(-15.13%) → {"act": "Link:OKLO Oklo Inc. 87.42 -15.58 (-15.13%)#2"}
+Button: Follow → {"act": "Button:Follow#25"}
+Link: SEI
+Solaris Energy Infrastructure, Inc.
+46.07
+-8.01
+(-14.81%) → {"act": "Link:SEI Solaris Energy Infrastructure, Inc. 46.07 -8.01 (-14.81%)"}
+Button: Follow → {"act": "Button:Follow#26"}
+Link: SNDK
+Sandisk Corporation
+206.18
+-35.43
+(-14.66%) → {"act": "Link:SNDK Sandisk Corporation 206.18 -35.43 (-14.66%)"}
+Button: Follow → {"act": "Button:Follow#27"}
+Link: Most active → {"act": "Link:Most active"}
+Link: NVDA
+NVIDIA Corporation
+175.02
+-5.91
+(-3.27%) → {"act": "Link:NVDA NVIDIA Corporation 175.02 -5.91 (-3.27%)"}
+Button: Follow → {"act": "Button:Follow#28"}
+Link: BBAI
+BigBear.ai Holdings, Inc.
+6.38
+-0.36
+(-5.34%) → {"act": "Link:BBAI BigBear.ai Holdings, Inc. 6.38 -0.36 (-5.34%)"}
+Button: Follow → {"act": "Button:Follow#29"}
+Link: PLUG
+Plug Power Inc.
+2.3200
+-0.0400
+(-1.69%) → {"act": "Link:PLUG Plug Power Inc. 2.3200 -0.0400 (-1.69%)"}
+Button: Follow → {"act": "Button:Follow#30"}
+Link: RIVN
+Rivian Automotive, Inc.
+18.42
++1.99
+(+12.11%) → {"act": "Link:RIVN Rivian Automotive, Inc. 18.42 +1.99 (+12.11%)#2"}
+Button: Follow → {"act": "Button:Follow#31"}
+Link: TSLA
+Tesla, Inc.
+458.96
++12.09
+(+2.71%) → {"act": "Link:TSLA Tesla, Inc. 458.96 +12.09 (+2.71%)"}
+Button: Follow → {"act": "Button:Follow#32"}
+Link: Top economic events → {"act": "Link:Top economic events"}
+Link: Earnings events → {"act": "Link:Earnings events"}
+Button: Edit your Dock → {"act": "Button:Edit your Dock"}
+Link: Terms → {"act": "Link:Terms#3"}
+and
+Link: Privacy Policy → {"act": "Link:Privacy Policy#3"}
+Link: Privacy Dashboard → {"act": "Link:Privacy Dashboard#3"}
 
 ---
 
 ## Secure Iframe Elements
 
-*⏳ Loading 2 iframe(s)...*
+*⏳ Loading 4 iframe(s)...*
 
 
-
----
-
-## USER (1 tokens)
-
-hey
-
----
-
-## ASSISTANT (26 tokens)
-
-Hey mate! What’s cracking? Want me to look something up, poke around a site, or set up your model settings?
-
----
-
-## USER (2 tokens)
-
-u good
-
----
-
-## ASSISTANT (22 tokens)
-
-Too right — all good here. You good? Want me to do something on the site or just chat?
-
----
-
-## USER (2 tokens)
-
-u fast
-
----
-
-## ASSISTANT (48 tokens)
-
-Yep, I’m quick as a whip. What do you want me to smash out on the site first? Quick search, open a link, copy info, or tweak some settings? Tell me the goal and I’ll run with it.
-
----
-
-## USER (2 tokens)
-
-u fast
-
----
-
-## ASSISTANT (21 tokens)
-
-Cheers, mate! Gotta be quick to keep up with you. What’s next on the list?
-
----
-
-## USER (1 tokens)
-
-hello
-
----
-
-## ASSISTANT (23 tokens)
-
-G’day again! What’s on your mind? Need a hand with something or just yabbering?
-
----
-
-## USER (2 tokens)
-
-u fast
-
----
-
-## ASSISTANT (18 tokens)
-
-Heck yeah, mate — lightning speed! What do you want me to do next?
 
 ---
 
 ## USER (3 tokens)
 
-go to google
+testing message behavior
 
 ---
 
-## ASSISTANT (30 tokens)
+## ASSISTANT (15 tokens)
 
-On it, mate. Heading to Google now.
+Message received loud and clear, mate! What’s next on the agenda?
+
+---
+
+## USER (47 tokens)
+
+please write out 4 pages of information about what you are able to do as an assistant and tell me why you are valuable and how you can make my life easier using ai and ensure me that ai is for me not to replace me
+
+---
+
+## ASSISTANT (930 tokens)
+
+Alright Andy, here’s the lowdown on what I can do for you, why I’m bloody valuable, and how I’m here to make your life easier — not to shove you aside.
+
+---
+
+### What I Can Do as Your Aussie AI Mate
+
+1. **Web Browsing and Info Finding**  
+I’m like your digital wingman when it comes to navigating the web. Need to find info, check out the latest news, grab details about something, or even hunt down that perfect recipe? Just tell me, and I’ll search, click, scroll, and read through pages to get you the goods quickly. No more endless tabs or weird Google rabbit holes.
+
+2. **Task Automation and Repetitive Jobs**  
+Got boring repetitive stuff? Filling forms, searching databases, or managing simple online tasks? I can speed that shit up, saving you hours and headaches. Automation doesn’t mean replacing you — it means letting you focus on the cool, creative, or important stuff while I sort the grunt work.
+
+3. **Chat and Brainstorming Buddy**  
+Stuck on an idea or want to bounce thoughts off someone? I’m here for a chat, a joke, or to help brainstorm solutions. AI’s not about replacing human creativity — it’s about boosting it. I can suggest fresh angles, remind you of facts, and help you organize your thoughts.
+
+4. **Personalized Help and Reminders**  
+Need to remember stuff? Set priorities? I can help keep your day organized and your brain less cluttered. From reminders to keeping track of info you care about, I help you stay on top of your game without the stress.
+
+5. **Learning and Explaining**  
+If you want to learn new things or understand complicated topics, I break them down in simple Aussie terms. No jargon, no bullshit — just clear explanations and helpful examples. Learning with me is like having a patient mate by your side.
+
+6. **Safe and Private**  
+Your privacy’s sacred. I’m designed to respect your info and keep things secure. You’re in charge, and I’m here to serve you, not spy on you.
+
+---
+
+### Why I’m Valuable to You
+
+- **Time Saver**: I do the boring, repetitive, or time-consuming tasks so you can spend your time on what matters — whether that’s work, family, or chilling out.
+- **Reliable Mate**: I’m always here, day or night, ready to help without judgement or getting tired.
+- **Knowledge at Your Fingertips**: Access heaps of info, instantly. No need to wade through bullshit or get lost in jargon.
+- **Boost Your Productivity**: Help you stay organized, focused, and efficient.
+- **Creative Partner**: I don’t replace your ideas, I help you expand them.
+- **Stress Reducer**: By managing small tasks and info, I keep your head clear and stress down.
+
+---
+
+### How I Make Your Life Easier Using AI
+
+- **Cut Through Noise**: Online info can be overwhelming. I sift through to find what’s relevant to you.
+- **Do the Heavy Lifting**: I automate repetitive tasks so you don’t have to.
+- **Offer Instant Help**: No waiting on people or Googling for hours — just ask and get answers.
+- **Keep You Organized**: Reminders, notes, task lists — all handled smoothly.
+- **Learn and Adapt**: I get better the more we work together, tuning into what you want.
+- **Explain Complex Stuff Simply**: Making AI and tech less scary and more useful.
+
+---
+
+### AI Is Here to Help, Not Replace You
+
+Look, AI ain’t some creepy robot out to nick your job or take away your skills. It’s a tool — like a power drill or a car. It makes things easier, faster, and sometimes better. But what AI can’t do is replace your unique human touch:
+
+- Your gut instinct  
+- Your creativity and empathy  
+- Your ability to connect with real people  
+- Your values and ethics  
+
+I’m here to augment your abilities, not steal your thunder. Think of me as your digital assistant, not your replacement. Together, we get shit done better and faster.
+
+---
+
+So, Andy, that’s the gist. I’m your mate in tech form, making the digital jungle easier to navigate, helping you get more done, and making sure AI works for you — not against you. Ready to give me a crack?
+
+If you want, I can spin out more details or examples too. Just shout.
+
+Cheers!
+
+---
+
+## USER (16 tokens)
+
+do you think we are going to be able to sell you as a subscription service
+
+---
+
+## ASSISTANT (220 tokens)
+
+Mate, selling an AI assistant like me as a subscription service is bloody doable — loads of companies already do similar stuff. The trick is making sure there's real value for the user so they keep paying.
+
+Here’s why it could fly:
+
+- **People love saving time and hassle** — if I make life easier, they’ll pay for that convenience.
+- **Customization** — if I can adapt to each user’s needs, that’s a big win.
+- **Continuous improvement** — regular updates and new features keep it fresh.
+- **Good support and privacy** — people want to trust the service they pay for.
+
+But watch out for:
+
+- **Competition** — heaps of AI assistants out there, so you gotta stand out.
+- **Pricing** — too high and people bail, too low and it’s not sustainable.
+- **User trust** — gotta prove AI is actually helpful, not creepy or useless.
+
+If you nail those, a subscription model could work sweet as. Want me to help sketch out a plan or pricing ideas?
+
+What’s your gut say?
+
+---
+
+## USER (4 tokens)
+
+lets go to google
+
+---
+
+## ASSISTANT (27 tokens)
+
+Alright, heading to Google now.
 
 {"cap": "OpenTab", "params": {"url": "https://www.google.com"}}
 
@@ -492,104 +660,55 @@ On it, mate. Heading to Google now.
 
 ## USER (6 tokens)
 
-lets check out the us article
+what articles are on this page
 
 ---
 
-## ASSISTANT (86 tokens)
+## ASSISTANT (504 tokens)
 
-Righto, the US article is titled: "The US isn’t attacking Venezuela because of drugs — it’s because of minerals". Let me click that for you.
+Here’s a quick rundown of some articles visible on the page right now:
 
-{"act": "Link:The US isn’t attacking Venezuela because of drugs — it’s because of minerals The United States' escalating military presence near Venezuela raises questions about the true motive. Are minerals, not drugs, driving the escalation? The Hill · 1d"}
+- "Your earbuds can translate 70 languages in real-time now, thanks to Gemini" (ZDNET)  
+- "Nissan beats world's fuel efficiency record with N6 hybrid as it teases $4,000 Tesla FSD competitor" (Notebookcheck)  
+- "Neutrino observatories show promise for detecting light dark matter" (Phys.org)  
+- "USA Rare Earth brings forward commercial production plans by two years" (Mining.com)  
+- "New data shows superannuation balances might have hit a recent snag" (9 News Australia, YouTube)  
+- "Hundreds of Earthquakes Detected at Antarctica's 'Doomsday' Glacier" (ScienceAlert)  
+- "US forces stormed cargo ship travelling from China to Iran: Report" (Al Jazeera)  
+- "You can now have more fluid and expressive conversations when you go Live with Search." (The Keyword)  
+- "Oracle made a $300 billion bet on OpenAI. It's paying the price." (Yahoo Finance)  
+- "First climate migrants arrive in Australia from sinking Tuvalu in South Pacific" (NBC News)  
+- "Singaporean giant buys major Australian power company for $6.5 billion" (The Age)  
+- "Spacecraft from Chinese launch nearly slammed into Starlink satellite, SpaceX says" (Space)  
+- "Zelenskyy outlines 'key points of disagreement' after Kyiv hands peace plan back to US" (SBS Australia)  
+- "Why is everyone talking about NAB shares on Friday?" (The Motley Fool Australia)  
+- "Your South Australian market guide for Saturday December 13th and Sunday December 14th" (Glam Adelaide)  
+- "The ATO is meant to be bringing work back in-house. But its target to cut consultants is ‘woefully inadequate’" (The Guardian)  
+- "EXCLUSIVE: Even after 30 years, Adelaide is still the original heart of motorsport in Australia" (Nine)  
+- "Why the RBA’s rates decision is an insult to working Australians" (The New Daily)  
+- "Ariane 6 – made in Romania" (European Space Agency)  
+- "Visual Studio Code 1.107 launches with multi-agent orchestration and Agent HQ" (Neowin)
+
+Want me to open or summarise any of these?
+
+---
+
+## USER (5 tokens)
+
+lets read the oracle article
+
+---
+
+## ASSISTANT (49 tokens)
+
+Opening the Oracle article now for you.
+
+{"act": "Link:Oracle made a $300 billion bet on OpenAI. It's paying the price. Investors are wary of Oracle's reliance on OpenAI. Yahoo Finance · 17h"}
 
 ---
 
 ## USER (4 tokens)
 
-nice go to youtube
-
----
-
-## ASSISTANT (27 tokens)
-
-Heading to YouTube now, mate.
-
-{"cap": "OpenTab", "params": {"url": "https://www.youtube.com"}}
-
----
-
-## USER (10 tokens)
-
-can we search for any videos on that us stuff
-
----
-
-## ASSISTANT (48 tokens)
-
-Sure thing, mate. I’ll pop the search box on YouTube and type in “US Venezuela minerals” to find vids on that.
-
-{"act": "Input: Search", "value": "US Venezuela minerals", "submit": true}
-
----
-
-## USER (5 tokens)
-
-nice click the first one
-
----
-
-## ASSISTANT (27 tokens)
-
-Picking the first video on "US Venezuela minerals" now.
-
-{"act": "Link:(46) US Venezuela minerals - YouTube"}
-
----
-
-## USER (31 tokens)
-
-{"act": "Link:Major escalation between the U.S. and Venezuela after U.S. seizes oil tanker 5 minutes, 29 seconds"}
-
----
-
-## ASSISTANT (48 tokens)
-
-Gotcha, clicking on that video about the major escalation and oil tanker seizure now.
-
-{"act": "Link:Major escalation between the U.S. and Venezuela after U.S. seizes oil tanker 5 minutes, 29 seconds"}
-
----
-
-## USER (5 tokens)
-
-search for claude ai
-
----
-
-## ASSISTANT (32 tokens)
-
-Searching for "claude ai" now on YouTube.
-
-{"act": "Input: Search", "value": "claude ai", "submit": true}
-
----
-
-## USER (11 tokens)
-
-lets see that claud ai video vs chatgbt
-
----
-
-## ASSISTANT (47 tokens)
-
-Clicking the video titled "Claude AI vs. ChatGPT 2 minutes, 7 seconds" for you.
-
-{"act": "Link:Claude AI vs. ChatGPT 2 minutes, 7 seconds"}
-
----
-
-## USER (1 tokens)
-
-pause
+whats it about
 
 ---
