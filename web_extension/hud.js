@@ -2465,7 +2465,6 @@
             .ome-confirm-delete-btn.yes {
                 background: rgba(255, 80, 80, 0.25);
                 border-color: rgba(255, 100, 100, 0.5);
-                animation: pulse-red 0.8s ease-in-out infinite;
             }
             .ome-confirm-delete-btn.yes svg {
                 stroke: #ff6b6b;
