@@ -4736,10 +4736,18 @@
         // 🙈 Check if prompt should be hidden/shown based on viewport + sidebar state
         checkHudPromptVisibility();
 
-        // Auto-scroll messages area to bottom
+        // 📜 Smart scroll: assistant responses show TOP, user messages show bottom
         const hudMessages = hudState.hud.querySelector('.ome-hud-messages-area');
-        if (hudMessages) {
-            hudMessages.scrollTop = hudMessages.scrollHeight;
+        const hudMessagesContent = hudState.hud.querySelector('.ome-hud-messages-content');
+        if (hudMessages && hudMessagesContent) {
+            const lastMessage = hudMessagesContent.lastElementChild;
+            if (lastMessage && lastMessage.classList.contains('assistant')) {
+                // Show START of assistant response (for reading long responses)
+                hudMessages.scrollTop = lastMessage.offsetTop;
+            } else {
+                // User message - show at bottom
+                hudMessages.scrollTop = hudMessages.scrollHeight;
+            }
         }
     }
 
@@ -6654,7 +6662,13 @@
                     renderMessageContent(msgEl, msg);
                     orbMessages.appendChild(msgEl);
                 });
-                orbMessages.scrollTop = orbMessages.scrollHeight;
+                // 📜 Smart scroll: assistant responses show TOP, user messages show bottom
+                const lastMessage = orbMessages.lastElementChild;
+                if (lastMessage && lastMessage.classList.contains('assistant')) {
+                    orbMessages.scrollTop = lastMessage.offsetTop;
+                } else {
+                    orbMessages.scrollTop = orbMessages.scrollHeight;
+                }
             }
         }
 
@@ -6670,9 +6684,16 @@
                     renderMessageContent(msgEl, msg);
                     hudMessagesContent.appendChild(msgEl);
                 });
-                // Scroll the messages area (scrollbar at far right)
+                // 📜 Smart scroll: assistant responses show TOP, user messages show bottom
                 if (hudMessagesArea) {
-                    hudMessagesArea.scrollTop = hudMessagesArea.scrollHeight;
+                    const lastMessage = hudMessagesContent.lastElementChild;
+                    if (lastMessage && lastMessage.classList.contains('assistant')) {
+                        // Show START of assistant response (for reading long responses)
+                        hudMessagesArea.scrollTop = lastMessage.offsetTop;
+                    } else {
+                        // User message - show at bottom
+                        hudMessagesArea.scrollTop = hudMessagesArea.scrollHeight;
+                    }
                 }
             }
         }

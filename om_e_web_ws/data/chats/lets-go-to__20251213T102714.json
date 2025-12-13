@@ -1,0 +1,75 @@
+{
+  "chat_id": "lets-go-to__20251213T102714",
+  "project_id": "default",
+  "created_at": "2025-12-13T10:27:14.657984Z",
+  "updated_at": "2025-12-13T10:29:09.094236Z",
+  "title": "lets go to",
+  "default_title": "lets go to",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "lets go to google",
+      "timestamp": "2025-12-13T10:27:14.658013Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Alright, heading to Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-13T10:27:16.012898Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-13T10:27:26.015356Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "what articles are on this page",
+      "timestamp": "2025-12-13T10:27:33.399794Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Here’s a quick rundown of some articles visible on the page right now:\n\n- \"Your earbuds can translate 70 languages in real-time now, thanks to Gemini\" (ZDNET)  \n- \"Nissan beats world's fuel efficiency record with N6 hybrid as it teases $4,000 Tesla FSD competitor\" (Notebookcheck)  \n- \"Neutrino observatories show promise for detecting light dark matter\" (Phys.org)  \n- \"USA Rare Earth brings forward commercial production plans by two years\" (Mining.com)  \n- \"New data shows superannuation balances might have hit a recent snag\" (9 News Australia, YouTube)  \n- \"Hundreds of Earthquakes Detected at Antarctica's 'Doomsday' Glacier\" (ScienceAlert)  \n- \"US forces stormed cargo ship travelling from China to Iran: Report\" (Al Jazeera)  \n- \"You can now have more fluid and expressive conversations when you go Live with Search.\" (The Keyword)  \n- \"Oracle made a $300 billion bet on OpenAI. It's paying the price.\" (Yahoo Finance)  \n- \"First climate migrants arrive in Australia from sinking Tuvalu in South Pacific\" (NBC News)  \n- \"Singaporean giant buys major Australian power company for $6.5 billion\" (The Age)  \n- \"Spacecraft from Chinese launch nearly slammed into Starlink satellite, SpaceX says\" (Space)  \n- \"Zelenskyy outlines 'key points of disagreement' after Kyiv hands peace plan back to US\" (SBS Australia)  \n- \"Why is everyone talking about NAB shares on Friday?\" (The Motley Fool Australia)  \n- \"Your South Australian market guide for Saturday December 13th and Sunday December 14th\" (Glam Adelaide)  \n- \"The ATO is meant to be bringing work back in-house. But its target to cut consultants is ‘woefully inadequate’\" (The Guardian)  \n- \"EXCLUSIVE: Even after 30 years, Adelaide is still the original heart of motorsport in Australia\" (Nine)  \n- \"Why the RBA’s rates decision is an insult to working Australians\" (The New Daily)  \n- \"Ariane 6 – made in Romania\" (European Space Agency)  \n- \"Visual Studio Code 1.107 launches with multi-agent orchestration and Agent HQ\" (Neowin)\n\nWant me to open or summarise any of these?",
+      "timestamp": "2025-12-13T10:27:48.520374Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "lets read the oracle article",
+      "timestamp": "2025-12-13T10:28:47.097806Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "Opening the Oracle article now for you.\n\n{\"act\": \"Link:Oracle made a $300 billion bet on OpenAI. It's paying the price. Investors are wary of Oracle's reliance on OpenAI. Yahoo Finance · 17h\"}",
+      "timestamp": "2025-12-13T10:28:48.582759Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "✅ click(Link:Oracle made a $300 billion bet on OpenAI. It's paying the price. Investors are wary of Oracle's reliance on OpenAI. Yahoo Finance · 17h): Success",
+      "timestamp": "2025-12-13T10:28:48.584973Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "whats it about",
+      "timestamp": "2025-12-13T10:29:06.071235Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "The Oracle article is about how Oracle made a massive $300 billion bet on OpenAI through their Stargate project, which boosted Oracle’s stock to record highs earlier this year. But now, things are turning sour — Oracle’s stock has dropped over 40% since September, wiping out more than $360 billion in market value.\n\nInvestors are worried because:\n\n- Oracle’s heavy reliance on OpenAI means big risks if OpenAI can’t pay for the infrastructure Oracle is building.\n- OpenAI’s mounting costs from deals with companies like Nvidia, AMD, Broadcom, and Oracle itself are huge — around $1.4 trillion.\n- Competition from Google’s Gemini AI models is heating up.\n- Oracle’s recent financial results showed higher-than-expected capital expenditures and cash flow losses.\n- The company’s increased debt and costs are also spooking investors.\n\nBasically, Oracle’s bet on OpenAI has put them in a tough spot financially, and the market’s confidence is shaken. The AI boom’s not all smooth sailing, mate.\n\nWant me to dig into any specific part or get more details?",
+      "timestamp": "2025-12-13T10:29:09.094236Z"
+    }
+  ]
+}
