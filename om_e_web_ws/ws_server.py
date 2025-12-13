@@ -2714,7 +2714,8 @@ def resolve_action_by_kind_and_label(kind: str, label: str, action_type: str | N
             return None
 
         kind_norm = (kind or "").strip().lower()
-        label_norm = (label or "").strip().lower()
+        # 🔧 Normalize whitespace: replace newlines/tabs/multiple spaces with single space
+        label_norm = re.sub(r'\s+', ' ', (label or "").strip().lower())
 
         candidates: list[tuple[str, dict]] = []
         for aid, hints in elements.items():
@@ -2723,7 +2724,9 @@ def resolve_action_by_kind_and_label(kind: str, label: str, action_type: str | N
                     continue
                 if (hints.get("type", "") or "").strip().lower() != kind_norm:
                     continue
-                if (hints.get("label", "") or "").strip().lower() != label_norm:
+                # 🔧 Normalize whitespace in hints label too (handles newlines in text.json)
+                hints_label_norm = re.sub(r'\s+', ' ', (hints.get("label", "") or "").strip().lower())
+                if hints_label_norm != label_norm:
                     continue
                 candidates.append((aid, hints))
             except Exception:

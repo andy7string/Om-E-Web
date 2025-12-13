@@ -1,0 +1,27 @@
+{
+  "chat_id": "i-see-we__20251213T073142",
+  "project_id": "default",
+  "created_at": "2025-12-13T07:31:42.908021Z",
+  "updated_at": "2025-12-13T07:31:48.820368Z",
+  "title": "i see we",
+  "default_title": "i see we",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "i see we have focus",
+      "timestamp": "2025-12-13T07:31:42.908046Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Nice — locked in. We’ve got focus on that 99‑second AI vid. What do you want next?\n\nOptions:\n- Watch it (resume/play)  \n- Get a quick transcript/summary and the top tips from it  \n- Turn it into a 5‑step practice plan so you can actually use the AI stuff  \n- Save/share the clip or open related deep‑dive vids\n\nWhich one, mate?",
+      "timestamp": "2025-12-13T07:31:48.820368Z"
+    }
+  ]
+}

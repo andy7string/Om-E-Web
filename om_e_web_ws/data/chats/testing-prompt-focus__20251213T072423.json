@@ -1,0 +1,27 @@
+{
+  "chat_id": "testing-prompt-focus__20251213T072423",
+  "project_id": "default",
+  "created_at": "2025-12-13T07:24:23.280236Z",
+  "updated_at": "2025-12-13T07:24:39.821112Z",
+  "title": "testing prompt focus",
+  "default_title": "testing prompt focus",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "testing prompt focus",
+      "timestamp": "2025-12-13T07:24:23.280264Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Nice. Let’s lock a tight prompt focus so we don’t wander.\n\nTwo crisp templates you can reuse:\n\n1) Head-to-head focus (pricing, capabilities, evidence)\n- Prompt:\nTask: Provide a concise head-to-head comparison of OpenAI GPT-5.2 vs Google Gemini 3 (including Gemini 3 Pro / Deep Think). For each model, cover:\n  - 1) Pricing: current public API/ChatGPT/Vertex AI prices, main cost drivers (Deep Think, 128k/1M context, tool/code runs, data egress, enterprise discounts), with 2 short example cost estimates (A) 50k-token summary, (B) 10-step agent with 2,000 tokens per step).\n  - 2) Capabilities: benchmark strengths (math, reasoning, multimodal, coding), ecosystem/integrations (Workspace, plugins, search grounding), and main limitations (hallucinations, latency, cost).\n  - 3) Evidence: list sources with URLs and dates.\nOutput: structured bullets with sections “Summary,” “Pricing,” “Capabilities,” “Evidence.” Keep it concise (about 400–600 words) and include assumptions.\n\n2) Practical cost-estimation focus\n- Prompt:\nTask: Estimate real-world costs for GPT-5.2 vs Gemini 3 Pro in a typical workflow. Assume:\n  - A 50,000-token document summarised.\n  - A 10-step agent run where each step uses 2,000 tokens in+out and runs in a high-compute/Deep Think mode.\n  - Context windows: 128k tokens where relevant.\n  - Tool usage and data egress as applicable.\nProvide: (a) price per 1,000 tokens for each model, (b) estimated total cost for A and B tasks, (c) any notable cost caveats (latency, throughput, enterprise discounts). Show your math and clearly state assumptions.\n\nIf you want, I can tailor either prompt to:\n- A) focus on a specific use case (e.g., coding, data analysis, content generation),\n- B) target particular sources (pricing pages + independent benchmarks),\n- C) or include a quick live demo style run.\n\nWhich prompt do you want to use, or tell me your exact goal and I’ll tailor it and run with receipts.",
+      "timestamp": "2025-12-13T07:24:39.821112Z"
+    }
+  ]
+}
