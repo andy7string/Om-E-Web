@@ -1,23 +1,23 @@
 {
-  "timestamp": 1765626033.347807,
+  "timestamp": 1765638546.832284,
   "browser_state": {
     "total_tabs": 1,
     "active_tab": {
-      "id": 1138047992,
+      "id": 1138048280,
       "url": "http://127.0.0.1:8080/",
       "title": "OM-E Web",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138047992,
+        "id": 1138048280,
         "url": "http://127.0.0.1:8080/",
         "title": "OM-E Web",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 39086.7736575,
+    "last_tabs_update": 51114.71662675,
     "extension_connected": true
   },
   "current_page": {

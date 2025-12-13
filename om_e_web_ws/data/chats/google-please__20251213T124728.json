@@ -1,0 +1,129 @@
+{
+  "chat_id": "google-please__20251213T124728",
+  "project_id": "default",
+  "created_at": "2025-12-13T12:47:28.252822Z",
+  "updated_at": "2025-12-13T12:49:48.976028Z",
+  "title": "google please",
+  "default_title": "google please",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "google please",
+      "timestamp": "2025-12-13T12:47:28.252850Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Righto, heading to Google for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-13T12:47:29.902885Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-13T12:47:39.906104Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "chatgbt please",
+      "timestamp": "2025-12-13T12:47:39.939359Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "You want me to open ChatGPT? I can open the OpenAI ChatGPT page for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://chat.openai.com\"}}",
+      "timestamp": "2025-12-13T12:47:41.285047Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "❌ OpenTab: Timeout waiting for OpenTab",
+      "timestamp": "2025-12-13T12:47:51.288898Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "can you go to my Ome autonomy project",
+      "timestamp": "2025-12-13T12:48:06.126124Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "user",
+      "content": "aaah",
+      "timestamp": "2025-12-13T12:48:09.162200Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "Everything alright, mate? What do you need help with?",
+      "timestamp": "2025-12-13T12:48:09.983022Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "go to my ome autonomy project",
+      "timestamp": "2025-12-13T12:48:23.903272Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "aaah ask chatgbt how we going to sell this thing that you are and describe yourself",
+      "timestamp": "2025-12-13T12:48:44.325957Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Alright, I'll ask ChatGPT how we can sell this AI thing I am and get it to describe me too.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tab\": 4}}",
+      "timestamp": "2025-12-13T12:48:45.333052Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "assistant",
+      "content": "❌ SwitchTab: Timeout waiting for SwitchTab",
+      "timestamp": "2025-12-13T12:48:55.341152Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "user",
+      "content": "you on the tab dude write the pormpt in ask anything",
+      "timestamp": "2025-12-13T12:49:09.927457Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "assistant",
+      "content": "Gotcha, I'll type the prompt into the \"Ask anything\" input on this tab for ChatGPT.\n\n{\"act\": \"Input:Ask anything\", \"value\": \"How can we sell this AI that you are? Also, describe yourself.\", \"submit\": true}",
+      "timestamp": "2025-12-13T12:49:11.505926Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "✅ setValue(Input:Ask anything): Success",
+      "timestamp": "2025-12-13T12:49:11.513163Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "tell it to read your automonmy project and also describe hwat you are and how you work",
+      "timestamp": "2025-12-13T12:49:47.390162Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Alright mate, I'll type this prompt for ChatGPT to read about my autonomy project and describe what I am and how I work.\n\n{\"act\": \"Input:Ask anything\", \"value\": \"Please read about my autonomy project and also describe what you are and how you work.\", \"submit\": true}",
+      "timestamp": "2025-12-13T12:49:48.967147Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "assistant",
+      "content": "✅ setValue(Input:Ask anything): Success",
+      "timestamp": "2025-12-13T12:49:48.976028Z"
+    }
+  ]
+}
