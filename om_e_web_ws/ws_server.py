@@ -887,6 +887,15 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"removed": provider}
         return {"error": "Failed to save config"}
 
+    elif action == "ReloadLLMConfig":
+        # Reload LLM config into the active agent (no server restart needed)
+        global LLM_AGENT
+        if LLM_AGENT:
+            LLM_AGENT.reload_config()
+            print("🤖 LLM agent config reloaded")
+            return {"reloaded": True}
+        return {"reloaded": False, "message": "No active agent to reload"}
+
     elif action == "ReloadSiteConfigs":
         # Reload cached site configs (used by is_site_config_capability / prompt capabilities)
         global SITE_CONFIGS

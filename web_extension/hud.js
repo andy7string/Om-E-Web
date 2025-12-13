@@ -2732,6 +2732,13 @@
                 border-color: rgba(var(--theme-color, 126,200,227), 0.45);
             }
 
+            /* Disabled inputs - clearly greyed out */
+            .ome-settings-group input:disabled {
+                opacity: 0.45;
+                cursor: not-allowed;
+                border-color: rgba(255, 255, 255, 0.12);
+            }
+
             .ome-settings-group select:focus,
             .ome-settings-group input:focus {
                 outline: none;
@@ -2742,6 +2749,17 @@
             .ome-settings-group input::placeholder {
                 color: rgba(255,255,255,0.25);
                 font-style: italic;
+            }
+
+            /* Model wrapper - stack select and custom input */
+            .ome-settings-model-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .ome-settings-model-custom {
+                margin-top: 0;
             }
 
             .ome-settings-row {
@@ -3587,7 +3605,12 @@
                             </div>
                             <div class="ome-settings-group">
                                 <label>Model</label>
-                                <input type="text" class="ome-settings-model" placeholder="gpt-4o-mini">
+                                <div class="ome-settings-model-wrapper">
+                                    <select class="ome-settings-model-select">
+                                        <option value="">Select a model...</option>
+                                    </select>
+                                    <input type="text" class="ome-settings-model-custom" placeholder="Custom model ID..." style="display: none;">
+                                </div>
                             </div>
                             <div class="ome-settings-group">
                                 <label>API Key</label>
@@ -3821,6 +3844,139 @@
         });
 
         /**
+         * 🎛️ Load llm_models.json (provider endpoints + model list) with caching.
+         * Used by HUD only for dropdown population and endpoint defaults.
+         * @returns {Promise<Record<string, {endpoint?: string, models?: Array<{id: string, name?: string, default?: boolean}>}>>}
+         */
+        let _llmModelsCache = null;
+        async function loadLLMModelsConfig() {
+            if (_llmModelsCache) return _llmModelsCache;
+            try {
+                const url = chrome.runtime.getURL('llm_models.json');
+                const response = await fetch(url);
+                _llmModelsCache = await response.json();
+                return _llmModelsCache;
+            } catch (err) {
+                console.error('[HUD] 🎛️ Error loading llm_models.json:', err);
+                _llmModelsCache = {};
+                return _llmModelsCache;
+            }
+        }
+
+        /**
+         * 🎛️ Get default endpoint for provider (from llm_models.json)
+         * @param {string} provider - Provider key (openai, anthropic, lm_studio)
+         * @returns {Promise<string>} Endpoint or empty string
+         */
+        async function getDefaultEndpointForProvider(provider) {
+            const data = await loadLLMModelsConfig();
+            return data?.[provider]?.endpoint || '';
+        }
+
+        /**
+         * 🎛️ Load models from llm_models.json for a provider
+         * @param {string} provider - Provider key (openai, anthropic, lm_studio)
+         * @returns {Promise<Array<{id: string, name?: string, default?: boolean}>>} Array of model objects
+         */
+        async function loadModelsForProvider(provider) {
+            const data = await loadLLMModelsConfig();
+            return data?.[provider]?.models || [];
+        }
+
+        /**
+         * 🎛️ Populate model select dropdown for current provider
+         * @param {string} provider - Provider key
+         * @param {string} [currentModel] - Current model to select
+         */
+        async function populateModelList(provider, currentModel = '') {
+            const modelSelect = hud.querySelector('.ome-settings-model-select');
+            const customInput = hud.querySelector('.ome-settings-model-custom');
+            if (!modelSelect) return;
+
+            // Clear and rebuild options
+            modelSelect.innerHTML = '';
+            const models = await loadModelsForProvider(provider);
+
+            // Add all models from config
+            for (const model of models) {
+                const option = document.createElement('option');
+                option.value = model.id;
+                option.textContent = `${model.name || model.id} (${model.id})`;
+                modelSelect.appendChild(option);
+            }
+
+            // Add "Other (Custom)" option at the end
+            const customOption = document.createElement('option');
+            customOption.value = '__custom__';
+            customOption.textContent = '— Other (Custom) —';
+            modelSelect.appendChild(customOption);
+
+            // Set current model or default
+            if (currentModel) {
+                // Check if current model is in the list
+                const existsInList = models.some(m => m.id === currentModel);
+                if (existsInList) {
+                    modelSelect.value = currentModel;
+                    if (customInput) customInput.style.display = 'none';
+                } else {
+                    // Custom model - show input
+                    modelSelect.value = '__custom__';
+                    if (customInput) {
+                        customInput.value = currentModel;
+                        customInput.style.display = 'block';
+                    }
+                }
+            } else {
+                // Set default model
+                const defaultModel = models.find(m => m.default);
+                if (defaultModel) {
+                    modelSelect.value = defaultModel.id;
+                }
+                if (customInput) customInput.style.display = 'none';
+            }
+
+            console.log(`[HUD] 🎛️ Loaded ${models.length} models for ${provider}`);
+        }
+
+        /**
+         * 🎛️ Get currently selected model (from select or custom input)
+         * @returns {string} Model ID
+         */
+        function getSelectedModel() {
+            const modelSelect = hud.querySelector('.ome-settings-model-select');
+            const customInput = hud.querySelector('.ome-settings-model-custom');
+            if (modelSelect?.value === '__custom__') {
+                return customInput?.value || '';
+            }
+            return modelSelect?.value || '';
+        }
+
+        /**
+         * 🎛️ Some models (notably GPT-5 / o-series) reject temperature.
+         * Keep the rule simple and string-based (works for dropdown + custom).
+         * @param {string} modelId
+         * @returns {boolean}
+         */
+        function modelSupportsTemperature(modelId) {
+            const id = (modelId || '').toLowerCase().trim();
+            if (!id) return true;
+            return !(id.includes('gpt-5') || id.includes('o3') || id.includes('o1'));
+        }
+
+        /**
+         * 🎛️ Enable/disable temperature input based on selected model.
+         * Keeps the value but prevents editing when unsupported.
+         */
+        function syncTemperatureAvailability() {
+            const tempInput = hud.querySelector('.ome-settings-temperature');
+            if (!tempInput) return;
+            const modelId = getSelectedModel();
+            const supported = modelSupportsTemperature(modelId);
+            tempInput.disabled = !supported;
+            tempInput.title = supported ? '' : 'This model does not support temperature.';
+        }
+
+        /**
          * 🎛️ Load current LLM config into settings panel
          */
         async function loadSettingsIntoPanel() {
@@ -3842,7 +3998,6 @@
                     // Update form fields
                     const providerSelect = hud.querySelector('.ome-settings-provider');
                     const endpointInput = hud.querySelector('.ome-settings-endpoint');
-                    const modelInput = hud.querySelector('.ome-settings-model');
                     const apikeyInput = hud.querySelector('.ome-settings-apikey');
                     const tempInput = hud.querySelector('.ome-settings-temperature');
                     const tokensInput = hud.querySelector('.ome-settings-max-tokens');
@@ -3859,11 +4014,16 @@
                         }
                     }
 
-                    if (endpointInput) endpointInput.value = provider.endpoint || '';
-                    if (modelInput) modelInput.value = provider.model || '';
+                    if (endpointInput) {
+                        endpointInput.value = provider.endpoint || await getDefaultEndpointForProvider(activeProvider) || '';
+                    }
                     if (apikeyInput) apikeyInput.value = provider.api_key || '';
                     if (tempInput) tempInput.value = settings.temperature ?? 0.7;
                     if (tokensInput) tokensInput.value = settings.max_tokens ?? 2048;
+
+                    // Populate model dropdown for this provider (pass current model)
+                    await populateModelList(activeProvider, provider.model || '');
+                    syncTemperatureAvailability();
 
                     console.log('[HUD] 🎛️ Settings loaded:', activeProvider);
                 }
@@ -3887,16 +4047,38 @@
                 if (response?.result?.config) {
                     const providerConfig = response.result.config.providers?.[provider] || {};
                     const endpointInput = hud.querySelector('.ome-settings-endpoint');
-                    const modelInput = hud.querySelector('.ome-settings-model');
                     const apikeyInput = hud.querySelector('.ome-settings-apikey');
 
-                    if (endpointInput) endpointInput.value = providerConfig.endpoint || '';
-                    if (modelInput) modelInput.value = providerConfig.model || '';
+                    if (endpointInput) {
+                        endpointInput.value = providerConfig.endpoint || await getDefaultEndpointForProvider(provider) || '';
+                    }
                     if (apikeyInput) apikeyInput.value = providerConfig.api_key || '';
+
+                    // Populate model dropdown for selected provider (with current model)
+                    await populateModelList(provider, providerConfig.model || '');
+                    syncTemperatureAvailability();
                 }
             } catch (err) {
                 console.error('[HUD] 🎛️ Error switching provider:', err);
             }
+        });
+
+        // Model select change - show/hide custom input
+        hud.querySelector('.ome-settings-model-select')?.addEventListener('change', (e) => {
+            const customInput = hud.querySelector('.ome-settings-model-custom');
+            if (!customInput) return;
+            const show = e.target.value === '__custom__';
+            customInput.style.display = show ? 'block' : 'none';
+            if (show) {
+                customInput.focus();
+                customInput.select?.();
+            }
+            syncTemperatureAvailability();
+        });
+
+        // Custom model typing should also update temperature availability
+        hud.querySelector('.ome-settings-model-custom')?.addEventListener('input', () => {
+            syncTemperatureAvailability();
         });
 
         // Save Settings button
@@ -3904,7 +4086,7 @@
             const statusEl = hud.querySelector('.ome-settings-status');
             const provider = hud.querySelector('.ome-settings-provider')?.value;
             const endpoint = hud.querySelector('.ome-settings-endpoint')?.value;
-            const model = hud.querySelector('.ome-settings-model')?.value;
+            const model = getSelectedModel();
             const apikey = hud.querySelector('.ome-settings-apikey')?.value;
             const temperature = parseFloat(hud.querySelector('.ome-settings-temperature')?.value || '0.7');
             const maxTokens = parseInt(hud.querySelector('.ome-settings-max-tokens')?.value || '2048');
@@ -3972,11 +4154,20 @@
                     }, resolve);
                 });
 
+                // Reload LLM config in the agent (no server restart needed)
+                await new Promise((resolve) => {
+                    chrome.runtime.sendMessage({
+                        type: 'execute_capability',
+                        action: 'ReloadLLMConfig',
+                        params: {}
+                    }, resolve);
+                });
+
                 if (statusEl) {
                     statusEl.textContent = '✓ Settings saved!';
                     setTimeout(() => { statusEl.textContent = ''; }, 2000);
                 }
-                console.log('[HUD] 🎛️ Settings saved successfully');
+                console.log('[HUD] 🎛️ Settings saved and LLM config reloaded');
 
             } catch (err) {
                 console.error('[HUD] 🎛️ Error saving settings:', err);

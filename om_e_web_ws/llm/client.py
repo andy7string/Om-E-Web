@@ -131,12 +131,18 @@ def log_request(endpoint: str, model: str, payload: dict, provider: str):
     context_pct = (total_tokens / (context_k * 1000)) * 100
 
     # Build readable format
+    max_tokens_value = payload.get("max_tokens")
+    if max_tokens_value is None:
+        max_tokens_value = payload.get("max_completion_tokens")
+    if max_tokens_value is None:
+        max_tokens_value = payload.get("max_output_tokens")
+
     lines = [
         f"# LLM Request #{_request_count}",
         f"",
         f"**Model:** {payload.get('model')}",
         f"**Temperature:** {payload.get('temperature')}",
-        f"**Max Tokens:** {payload.get('max_tokens')}",
+        f"**Max Tokens:** {max_tokens_value}",
         f"**Request Tokens:** {tokens.get('total', 0):,}",
         f"**Context:** {context_used_k:.1f}k / {context_k}k ({context_pct:.1f}%)",
         f"**Session Tokens:** {_total_tokens:,}",
@@ -280,12 +286,43 @@ class LLMClient:
         if api_key:
             headers["Authorization"] = f"Bearer {api_key}"
 
+        # GPT-5 series and o-series reasoning models use max_completion_tokens.
+        # Keep compatibility with OpenAI/OpenAI-compatible endpoints that reject max_tokens for these models.
+        uses_completion_tokens = any(x in model.lower() for x in ['gpt-5', 'o3', 'o1'])
+
+        # OpenAI GPT-5/o-series often require the Responses API schema.
+        # Keep this scoped to api.openai.com so OpenAI-compatible servers (LM Studio/Ollama) are unaffected.
+        endpoint_lower = (endpoint or "").lower()
+        is_official_openai = "api.openai.com" in endpoint_lower
+        is_responses_endpoint = endpoint_lower.rstrip("/").endswith("/v1/responses")
+        is_chat_completions_endpoint = endpoint_lower.rstrip("/").endswith("/v1/chat/completions")
+        use_responses_api = is_official_openai and (is_responses_endpoint or (uses_completion_tokens and is_chat_completions_endpoint))
+
+        if use_responses_api:
+            # If the user configured chat/completions, transparently switch to /v1/responses for GPT-5/o-series.
+            responses_endpoint = endpoint
+            if is_chat_completions_endpoint:
+                responses_endpoint = endpoint.rsplit("/v1/chat/completions", 1)[0] + "/v1/responses"
+            return await self._call_openai_responses(
+                endpoint=responses_endpoint,
+                model=model,
+                api_key=api_key,
+                system_prompt=system_prompt,
+                messages=messages,
+                temperature=temperature,
+                max_tokens=max_tokens
+            )
+
         payload = {
             "model": model,
             "messages": all_messages,
             "temperature": temperature,
-            "max_tokens": max_tokens
         }
+
+        if uses_completion_tokens:
+            payload["max_completion_tokens"] = max_tokens
+        else:
+            payload["max_tokens"] = max_tokens
 
         print(f"[LLM Client] Calling {endpoint} with model {model}")
 
@@ -296,10 +333,93 @@ class LLMClient:
         await self._throttle()
 
         response = await client.post(endpoint, headers=headers, json=payload)
-        response.raise_for_status()
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            # Print OpenAI error body for faster debugging (no secrets in body)
+            try:
+                print(f"[LLM Client] OpenAI error response: {response.text}")
+            except Exception:
+                pass
+            raise e
 
         data = response.json()
         return data["choices"][0]["message"]["content"]
+
+    async def _call_openai_responses(
+        self,
+        endpoint: str,
+        model: str,
+        api_key: Optional[str],
+        system_prompt: str,
+        messages: List[Dict[str, str]],
+        temperature: float,
+        max_tokens: int
+    ) -> str:
+        """
+        Call OpenAI Responses API (/v1/responses).
+
+        Uses:
+        - instructions: system prompt
+        - input: message list (user/assistant history)
+        - max_output_tokens: output token cap
+        """
+        client = self._get_client()
+
+        headers = {"Content-Type": "application/json"}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        # Some models (notably GPT-5) reject temperature on the Responses API.
+        model_lower = (model or "").lower()
+        supports_temperature = not any(x in model_lower for x in ["gpt-5", "o3", "o1"])
+
+        payload = {
+            "model": model,
+            "instructions": system_prompt,
+            "input": messages,
+            "max_output_tokens": max_tokens,
+        }
+
+        if supports_temperature:
+            payload["temperature"] = temperature
+
+        print(f"[LLM Client] Calling {endpoint} with model {model} (responses API)")
+        log_request(endpoint, model, payload, "OpenAI")
+
+        await self._throttle()
+
+        response = await client.post(endpoint, headers=headers, json=payload)
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            try:
+                print(f"[LLM Client] OpenAI error response: {response.text}")
+            except Exception:
+                pass
+            raise e
+
+        data = response.json()
+
+        # Prefer convenience field when present
+        if isinstance(data, dict) and isinstance(data.get("output_text"), str):
+            return data["output_text"]
+
+        # Fallback: try to extract text from output array
+        try:
+            output = data.get("output") or []
+            for item in output:
+                if isinstance(item, dict) and item.get("type") == "message":
+                    content = item.get("content") or []
+                    for c in content:
+                        if isinstance(c, dict) and c.get("type") in ("output_text", "text"):
+                            t = c.get("text")
+                            if isinstance(t, str) and t.strip():
+                                return t
+        except Exception:
+            pass
+
+        raise ValueError("Responses API: Could not extract output text")
 
     async def _call_anthropic(
         self,
