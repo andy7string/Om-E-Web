@@ -2996,6 +2996,7 @@
         const gearBtn = hudState.orb.querySelector('.ome-gear-btn');
         if (gearBtn) {
             let gearEngaged = false;
+            let justDisengaged = false;  // 🛡️ Prevent immediate re-engage
             let engageY = 0;
             let engageX = 0;
             let scrollAnimationId = null;
@@ -3043,13 +3044,18 @@
                 setTimeout(() => document.addEventListener('click', handleGearClick, true), 0);
             }
 
-            function handleGearClick() {
+            function handleGearClick(e) {
+                // If click is on the gear button itself, let the button handler handle it
+                if (e.target === gearBtn || gearBtn.contains(e.target)) {
+                    return;
+                }
                 disengageGear();
             }
 
             function disengageGear() {
                 if (!gearEngaged) return;
                 gearEngaged = false;
+                justDisengaged = true;  // 🛡️ Block re-engage on same click
                 currentOffset = 0;
                 gearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
                 document.removeEventListener('click', handleGearClick, true);
@@ -3058,6 +3064,7 @@
                     scrollAnimationId = null;
                 }
                 document.removeEventListener('mousemove', handleGearMove);
+                console.log('[HUD] ⚙️ Gear disengaged (theme handler)');
             }
 
             function handleGearMove(e) {
@@ -3075,7 +3082,20 @@
 
             gearBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                engageGear(e);
+                // 🛡️ If we just disengaged, don't re-engage on this click
+                if (justDisengaged) {
+                    justDisengaged = false;
+                    console.log('[HUD] ⚙️ Gear click - blocked re-engage (theme handler)');
+                    return;
+                }
+                // Toggle: if engaged, disengage. If not, engage.
+                if (gearEngaged) {
+                    disengageGear();
+                    console.log('[HUD] ⚙️ Gear click - disengaged (theme handler)');
+                } else {
+                    engageGear(e);
+                    console.log('[HUD] ⚙️ Gear click - engaged (theme handler)');
+                }
             });
         }
 
@@ -3378,6 +3398,7 @@
         const gearBtn = orb.querySelector('.ome-gear-btn');
         if (gearBtn) {
             let gearEngaged = false;
+            let justDisengaged = false;  // 🛡️ Prevent immediate re-engage
             let engageY = 0;
             let engageX = 0;
             let scrollAnimationId = null;
@@ -3429,6 +3450,7 @@
             function disengageGear() {
                 if (!gearEngaged) return;
                 gearEngaged = false;
+                justDisengaged = true;  // 🛡️ Block re-engage on same click
                 currentOffset = 0;
                 gearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
                 if (scrollAnimationId) {
@@ -3440,8 +3462,11 @@
                 console.log('[HUD] ⚙️ Gear disengaged');
             }
 
-            function handleGearClick() {
-                // Any click disengages (except the initial engage click handled by setTimeout)
+            function handleGearClick(e) {
+                // If click is on the gear button itself, let the button handler handle it
+                if (e.target === gearBtn || gearBtn.contains(e.target)) {
+                    return;
+                }
                 disengageGear();
             }
 
@@ -3460,7 +3485,20 @@
 
             gearBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                engageGear(e);
+                // 🛡️ If we just disengaged, don't re-engage on this click
+                if (justDisengaged) {
+                    justDisengaged = false;
+                    console.log('[HUD] ⚙️ Gear click - blocked re-engage');
+                    return;
+                }
+                // Toggle: if engaged, disengage. If not, engage.
+                if (gearEngaged) {
+                    disengageGear();
+                    console.log('[HUD] ⚙️ Gear click - disengaged');
+                } else {
+                    engageGear(e);
+                    console.log('[HUD] ⚙️ Gear click - engaged');
+                }
             });
         }
 
@@ -4415,6 +4453,7 @@
         const hudGearBtn = hud.querySelector('.ome-hud-gear-btn');
         if (hudGearBtn && hudMessagesArea) {
             let gearEngaged = false;
+            let justDisengaged = false;  // 🛡️ Prevent immediate re-engage
             let engageY = 0;
             let engageX = 0;
             let scrollAnimationId = null;
@@ -4466,6 +4505,7 @@
             function disengageGear() {
                 if (!gearEngaged) return;
                 gearEngaged = false;
+                justDisengaged = true;  // 🛡️ Block re-engage on same click
                 currentOffset = 0;
                 hudGearBtn.classList.remove('engaged', 'scrolling-up', 'scrolling-down');
                 if (scrollAnimationId) {
@@ -4477,7 +4517,11 @@
                 console.log('[HUD] ⚙️ HUD Gear disengaged');
             }
 
-            function handleGearClick() {
+            function handleGearClick(e) {
+                // If click is on the gear button itself, let the button handler handle it
+                if (e.target === hudGearBtn || hudGearBtn.contains(e.target)) {
+                    return;
+                }
                 disengageGear();
             }
 
@@ -4496,7 +4540,20 @@
 
             hudGearBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                engageGear(e);
+                // 🛡️ If we just disengaged, don't re-engage on this click
+                if (justDisengaged) {
+                    justDisengaged = false;
+                    console.log('[HUD] ⚙️ Gear click - blocked re-engage');
+                    return;
+                }
+                // Toggle: if engaged, disengage. If not, engage.
+                if (gearEngaged) {
+                    disengageGear();
+                    console.log('[HUD] ⚙️ Gear click - disengaged');
+                } else {
+                    engageGear(e);
+                    console.log('[HUD] ⚙️ Gear click - engaged');
+                }
             });
         }
 
