@@ -208,6 +208,12 @@
         "max_tokens": "Required - max tokens"
       }
     },
+    "ReloadLLMConfig": {
+      "action": "ReloadLLMConfig",
+      "label": "Reload LLM config (no restart)",
+      "description": "Reloads the server-side LLM agent config from disk so changes take effect immediately",
+      "params": {}
+    },
     "AddLLMProvider": {
       "action": "AddLLMProvider",
       "label": "Add new LLM provider",
