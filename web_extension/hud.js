@@ -11,7 +11,7 @@
         return;
     }
 
-    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string, panelManuallyResized: boolean, panelTargetWidth: number|null, focusGuardCleanup: (() => void)|null, userBlurRequested: boolean }} */
+    /** @type {{ host: HTMLElement|null, shadow: ShadowRoot|null, orb: HTMLElement|null, hud: HTMLElement|null, chatPanel: HTMLElement|null, sidebar: HTMLElement|null, visible: boolean, chatVisible: boolean, sidebarOpen: boolean, dragging: boolean, theme: string, panelManuallyResized: boolean, panelTargetWidth: number|null, focusGuardCleanup: (() => void)|null, hudFocusGuardCleanup: (() => void)|null, userBlurRequested: boolean }} */
     const hudState = {
         host: null,
         shadow: null,
@@ -5166,6 +5166,10 @@
             stopHUDPromptFocusGuard();
             // Sync orb chat input when closing HUD (in case HUD prompt was edited)
             syncOrbChatInput();
+            // 🎯 Activate orb focus guard when switching to orb view
+            if (hudState.chatVisible) {
+                focusOrbInputGuard(true);
+            }
         }
         console.log('[Content] 🎛️ HUD:', hudState.visible ? 'visible' : 'hidden');
     }
@@ -6468,8 +6472,13 @@
                     break;
 
                 case 'focus_orb_input':
+                    // Route to appropriate input based on which view is active
                     hudState.userBlurRequested = false;
-                    focusOrbInputGuard(true);
+                    if (hudState.visible) {
+                        focusHUDPromptGuard(true);
+                    } else {
+                        focusOrbInputGuard(true);
+                    }
                     break;
 
                 default:
@@ -6483,10 +6492,16 @@
     });
 
     // 🎯 FOCUS: Listen for custom event from content.js after scan completes
+    // Routes to appropriate input based on which view is active
     window.addEventListener('ome-focus-orb-input', () => {
         hudState.userBlurRequested = false;
-        focusOrbInputGuard(true);
-        console.log('[HUD] 🎯 Focus guard activated after scan');
+        if (hudState.visible) {
+            focusHUDPromptGuard(true);
+            console.log('[HUD] 🎯 Focus guard activated after scan (HUD view)');
+        } else {
+            focusOrbInputGuard(true);
+            console.log('[HUD] 🎯 Focus guard activated after scan (orb view)');
+        }
     });
 
     // ========================================================================
@@ -6665,8 +6680,12 @@
         // Check if HUD needs repositioning after content change
         checkAndRepositionHUD();
 
-        // 🎯 Refocus HUD prompt after rendering (keeps cursor in input after response)
-        focusHUDPrompt();
+        // 🎯 Refocus appropriate input after rendering (keeps cursor in input after response)
+        if (hudState.visible) {
+            focusHUDPromptGuard(true);
+        } else {
+            focusOrbInputGuard(true);
+        }
 
         console.log(`[Content] 💬 Rendered ${messages.length} messages to both UIs`);
     }

@@ -1,0 +1,75 @@
+{
+  "chat_id": "alright-toggle-hud__20251213T074146",
+  "project_id": "default",
+  "created_at": "2025-12-13T07:41:46.963039Z",
+  "updated_at": "2025-12-13T07:42:18.119789Z",
+  "title": "alright toggle hud",
+  "default_title": "alright toggle hud",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "alright toggle hud view",
+      "timestamp": "2025-12-13T07:41:46.963067Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Righto — toggling the HUD now.\n\n{\"cap\":\"ToggleHUD\"}",
+      "timestamp": "2025-12-13T07:41:51.391835Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "assistant",
+      "content": "❌ ToggleHUD: None",
+      "timestamp": "2025-12-13T07:41:51.392953Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "user",
+      "content": "nice again",
+      "timestamp": "2025-12-13T07:41:55.442555Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "assistant",
+      "content": "Too easy — toggle hero at your service. Want me to lock it visible, list chats, or stop torturing the HUD?",
+      "timestamp": "2025-12-13T07:42:00.809213Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "dp ot",
+      "timestamp": "2025-12-13T07:42:03.826495Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "Mate — not sure what “dp ot” means. You mean “do it” (toggle the HUD again) or “do not”? Or want me to do something else with the HUD (lock visible/minimise/list chats)?\n\nTell me which and I’ll do it.",
+      "timestamp": "2025-12-13T07:42:14.844818Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "user",
+      "content": "togglehudview",
+      "timestamp": "2025-12-13T07:42:14.861594Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "Righto — toggling the HUD view for ya.\n\n{\"cap\":\"ToggleHUD\"}",
+      "timestamp": "2025-12-13T07:42:18.118109Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "❌ ToggleHUD: None",
+      "timestamp": "2025-12-13T07:42:18.119789Z"
+    }
+  ]
+}
