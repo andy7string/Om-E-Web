@@ -1198,13 +1198,10 @@
             selectors.push(cssPath);
         }
 
-        if (window.intelligenceEngine &&
-            typeof window.intelligenceEngine.generateElementSelectors === 'function') {
+        // 🧹 REMOVED: generateElementSelectors call - function removed, selectors now generated during semantic extraction
+        if (false) { // DEAD CODE - kept for reference
             try {
-                const generated = window.intelligenceEngine.generateElementSelectors.call(
-                    window.intelligenceEngine,
-                    element
-                );
+                const generated = [];
                 if (Array.isArray(generated)) {
                     generated.forEach(sel => {
                         if (typeof sel === 'string' && sel.trim()) {
@@ -3089,10 +3086,11 @@
                 // These commands provide information about elements that can be interacted with
                 if (command === "getActionableElements") {
                     console.log("[Content] getActionableElements command - no params needed");
+                    const actionableElements = intelligenceEngine?.getActionableElementsSummary() || [];
                     const result = {
-                        actionableElements: intelligenceEngine?.getActionableElementsSummary() || [],
+                        actionableElements: actionableElements,
                         actionMapping: intelligenceEngine?.generateActionMapping() || {},
-                        totalElements: intelligenceEngine?.actionableElements.size || 0,
+                        totalElements: actionableElements.length,
                         timestamp: Date.now()
                     };
                     console.log("[Content] getActionableElements result:", result);
@@ -3138,12 +3136,12 @@
                 // Test the health and status of the intelligence system components
                 if (command === "testIntelligenceSystem") {
                     console.log("[Content] testIntelligenceSystem command - no params needed");
-
+                    const actionableSummary = intelligenceEngine?.getActionableElementsSummary() || [];
                     const result = {
                         changeAggregator: !!changeAggregator,
                         intelligenceEngine: !!intelligenceEngine,
                         pageContext: !!pageContext,
-                        actionableElementsCount: intelligenceEngine?.actionableElements.size || 0,
+                        actionableElementsCount: actionableSummary.length,
                         eventHistoryCount: intelligenceEngine?.eventHistory.length || 0,
                         timestamp: Date.now()
                     };
@@ -3673,28 +3671,39 @@
      * @returns {Element|null} - DOM node or null if not found
      */
     function resolveNodeFromActionId(actionId) {
-        const ae = window.intelligenceComponents?.intelligenceEngine?.getActionableElement?.(actionId);
-        if (!ae) return null;
+        // 🧹 REFACTORED: Use selector-based resolution (Map lookup removed)
 
-        const sels = Array.isArray(ae.selectors) ? ae.selectors : [];
-        for (const sel of sels) {
-            try {
-                const n = document.querySelector(sel);
-                if (n) {
-                    // Check if the element has dimensions
-                    const rect = n.getBoundingClientRect();
-                    if (rect.width > 0 && rect.height > 0) {
-                        return n; // Element is visible, return it
-                    } else {
-                        // Element has no dimensions, look for visible children or siblings
-                        const visibleElement = findVisibleElement(n);
-                        if (visibleElement) {
-                            return visibleElement; // Return the visible element
-                        }
-                    }
-                }
-            } catch (_) { /* ignore bad selector */ }
+        // Strategy 1: Direct data attribute lookup
+        const directNode = document.querySelector(`[data-ome-action-id="${actionId}"]`);
+        if (directNode) {
+            const rect = directNode.getBoundingClientRect();
+            if (rect.width > 0 && rect.height > 0) {
+                return directNode;
+            }
+            // Look for visible element within
+            const visibleElement = findVisibleElement(directNode);
+            if (visibleElement) return visibleElement;
         }
+
+        // Strategy 2: Try selectors from text.json hints (loaded via resolveActionIdViaTextJson)
+        const hints = window.intelligenceComponents?.intelligenceEngine?.getResolutionHintsForActionId?.(actionId);
+        if (hints?.selectors) {
+            const sels = Array.isArray(hints.selectors) ? hints.selectors : [];
+            for (const sel of sels) {
+                try {
+                    const n = document.querySelector(sel);
+                    if (n) {
+                        const rect = n.getBoundingClientRect();
+                        if (rect.width > 0 && rect.height > 0) {
+                            return n;
+                        }
+                        const visibleElement = findVisibleElement(n);
+                        if (visibleElement) return visibleElement;
+                    }
+                } catch (_) { /* ignore bad selector */ }
+            }
+        }
+
         return null;
     }
 
@@ -5854,20 +5863,16 @@
         };
         this.eventHistory = [];
         this.llmInsights = [];
-        this.actionableElements = new Map(); // 🆕 NEW: Map of actionable elements with IDs
-        this.actionableElementNodes = new Map(); // 🆕 NEW: Map of live DOM nodes keyed by actionId
-        this.contentElements = new Map(); // 🆕 NEW: Map of content elements with IDs
-        this.elementCounter = 0; // 🆕 NEW: Counter for generating unique IDs
-        this.initialScanCompleted = false; // 🆕 NEW: Track if initial scan is complete
-        this.youtubeRegisteredUrls = new Set(); // 🆕 Track YouTube video URLs we've already registered
-        this.lastTranscriptSignature = null; // 🆕 Track last harvested transcript snapshot
+        // 🧹 REMOVED: actionableElements, actionableElementNodes Maps - replaced by selector-based resolution
+        // 🧹 REMOVED: registeredElements WeakSet, elementToActionId WeakMap - no longer needed
+        this.contentElements = new Map(); // Map of content elements with IDs
+        this.elementCounter = 0; // Counter for generating unique IDs
+        this.initialScanCompleted = false; // Track if initial scan is complete
+        this.youtubeRegisteredUrls = new Set(); // Track YouTube video URLs we've already registered
+        this.lastTranscriptSignature = null; // Track last harvested transcript snapshot
 
         // 🔒 SCAN LOCK: Prevent concurrent registration during full scans
         this._scanInProgress = false; // Track if a full scan is currently running
-
-        // 🛡️ DUPLICATE PREVENTION: Track registered elements to prevent duplicate IDs
-        this.registeredElements = new WeakSet(); // DOM elements already registered (WeakSet for memory safety)
-        this.elementToActionId = new WeakMap(); // Reverse lookup: element → actionId
 
         console.log("[Content] 🧠 IntelligenceEngine initialized with page context:", {
             url: this.pageState.url,
@@ -5953,77 +5958,7 @@
         });
     };
 
-    IntelligenceEngine.prototype.registerInteractiveSubtree = function (rootNode) {
-        if (!rootNode || rootNode.nodeType !== Node.ELEMENT_NODE) {
-            return 0;
-        }
-
-        // 🔒 SCAN LOCK CHECK: Abort if full scan is in progress
-        // This prevents duplicate ID assignment when DOM mutations occur during a full scan
-        if (this._scanInProgress) {
-            console.log("[Content] 🔒 registerInteractiveSubtree blocked - full scan in progress", {
-                rootNode: rootNode.tagName,
-                reason: 'Scan lock active'
-            });
-            return 0;
-        }
-
-        const stack = [rootNode];
-        const visited = new Set();
-        let registered = 0;
-        let skippedDuplicates = 0;
-
-        while (stack.length > 0) {
-            const current = stack.pop();
-            if (!current || current.nodeType !== Node.ELEMENT_NODE) {
-                continue;
-            }
-            if (visited.has(current)) {
-                continue;
-            }
-            visited.add(current);
-
-            // 🛡️ DUPLICATE PREVENTION: Check if element already registered
-            // WeakSet check prevents same DOM element from getting multiple action IDs
-            if (this.registeredElements && this.registeredElements.has(current)) {
-                const existingActionId = this.elementToActionId ? this.elementToActionId.get(current) : null;
-                if (existingActionId) {
-                    skippedDuplicates += 1;
-                    // Element already registered, skip it
-                    continue;
-                }
-            }
-
-            const existingMarker = current.dataset?.omeActionId;
-            const wasTracked = existingMarker ? this.actionableElements.has(existingMarker) : false;
-
-            if (this.isInteractiveElement(current) && this.passesBasicQualityFilter(current)) {
-                const actionType = this.determineActionType(current);
-                const actionId = this.registerActionableElement(current, actionType);
-                if (actionId && (!existingMarker || !wasTracked)) {
-                    registered += 1;
-                }
-                // 🛡️ Tracking happens inside registerActionableElement - no need to duplicate here
-            }
-
-            const children = current.children;
-            if (children && children.length) {
-                for (let i = 0; i < children.length; i += 1) {
-                    stack.push(children[i]);
-                }
-            }
-        }
-
-        if (skippedDuplicates > 0) {
-            console.log("[Content] 🛡️ Prevented duplicate registrations:", {
-                skipped: skippedDuplicates,
-                registered: registered,
-                rootNode: rootNode.tagName
-            });
-        }
-
-        return registered;
-    };
+    // 🧹 REMOVED: registerInteractiveSubtree - obsolete Map-based registration (replaced by selector resolution)
 
     /**
      * 🆕 NEW: Determine if an element is interactive
@@ -6255,13 +6190,8 @@
             console.warn('[Content] ⚠️ Error cleaning old semantic IDs:', err);
         }
 
-        // 🧹 CRITICAL: Clear actionable element Maps before fresh extraction
-        // Without this, stale element references persist and cause navigate failures
-        const prevMapSize = this.actionableElements.size;
-        this.actionableElements.clear();
-        this.actionableElementNodes.clear();
+        // 🧹 REMOVED: Map clearing code - Maps replaced by selector-based resolution
         this.elementCounter = 0; // Reset counter for consistent IDs
-        console.log(`[Content] 🧹 Cleared actionableElements Map (was ${prevMapSize} entries), reset counter`);
 
         // Helper: Check if element is visible (same logic as innerText)
         // 🆕 Exception: Elements with aria-labelledby are kept even if hidden (accessible form controls)
@@ -7182,41 +7112,8 @@
             // actionMapping: this.generateActionMapping(),  // ❌ REMOVED: Not needed
             // contentElements: this.getContentElementsSummary(),  // ❌ REMOVED: Not needed
             // pageText: this.extractCleanPageText(),  // ❌ REMOVED: Redundant with semantic text
-            semanticPageData: (() => {
-                // 🔧 FIX: Extract semantic data AND repopulate actionableElements Map
-                const semanticData = this.extractSemanticTextWithIds();
-
-                // Repopulate Map from actionables array using DOM attributes
-                this.actionableElements.clear();
-                if (semanticData.actionables && Array.isArray(semanticData.actionables)) {
-                    for (const actionable of semanticData.actionables) {
-                        const domElement = document.querySelector(`[data-ome-action-id="${actionable.id}"]`);
-                        if (domElement) {
-                            // Store in format compatible with executeAction expectations
-                            this.actionableElements.set(actionable.id, {
-                                id: actionable.id,
-                                tagName: actionable.tag,
-                                actionType: actionable.type?.toLowerCase() === 'link' ? 'navigate' :
-                                           actionable.type?.toLowerCase() === 'input' ? 'setValue' :
-                                           actionable.type?.toLowerCase() === 'button' ? 'click' : 'click',
-                                textContent: actionable.label || '',
-                                attributes: {
-                                    href: actionable.href || null,
-                                    'aria-label': domElement.getAttribute('aria-label') || null
-                                },
-                                selectors: actionable.selectors && actionable.selectors.length > 0 ?
-                                    [`[data-ome-action-id="${actionable.id}"]`, ...actionable.selectors] :
-                                    [`[data-ome-action-id="${actionable.id}"]`]
-                            });
-                            // Also store DOM node reference
-                            this.actionableElementNodes.set(actionable.id, domElement);
-                        }
-                    }
-                    console.log(`[Content] ✅ Repopulated actionableElements Map: ${this.actionableElements.size} elements`);
-                }
-
-                return semanticData;
-            })(), // ✅ KEEP: This generates text.md AND populates Map!
+            // 🧹 REFACTORED: Map repopulation removed - selector-based resolution used instead
+            semanticPageData: this.extractSemanticTextWithIds(), // ✅ KEEP: Generates text.md
             // normalizedRecords: this.buildNormalizedPageRecords({ snapshot: true }),  // ❌ REMOVED: For llm_prompt.md which we don't use
             transcripts,  // ✅ KEEP: For YouTube transcripts
             capabilities  // ✅ KEEP: For site-specific capabilities
@@ -7319,7 +7216,7 @@
         // 🎯 FIXED: No CSP bypass needed for engine ready checks - only needed during actual scanning
 
         // Check if core components are initialized
-        if (!this.pageState || !this.actionableElements) {
+        if (!this.pageState) {
             console.log("[Content] ⚠️ Core components not initialized");
             return false;
         }
@@ -7389,7 +7286,7 @@
         }
 
         console.log("[Content] 🖼️ Frame Analysis:", frameInfo);
-        console.log("[Content] ✅ Engine ready - actionable elements available:", this.actionableElements.size);
+        console.log("[Content] ✅ Engine ready");
 
         if (!frameInfo.isMainFrame) {
             console.warn("[Content] ⚠️ Running in iframe - depth:", frameInfo.frameDepth);
@@ -7417,18 +7314,25 @@
 
     /**
      * 🆕 NEW: Get summary of actionable elements for LLM
+     * 🧹 REFACTORED: Now reads from semantic data extraction (not Map)
      */
     IntelligenceEngine.prototype.getActionableElementsSummary = function () {
-        const elements = this.getAllActionableElements();
+        // Extract fresh semantic data to get current actionables
+        const semanticData = this.extractSemanticTextWithIds();
+        const actionables = semanticData?.actionables || [];
 
-        return elements.map(element => ({
-            actionId: element.id,
-            actionType: element.actionType,
-            tagName: element.tagName,
-            textContent: element.textContent,
-            selectors: element.selectors,
-            attributes: element.attributes,
-            timestamp: element.timestamp
+        return actionables.map(actionable => ({
+            actionId: actionable.id,
+            actionType: actionable.type?.toLowerCase() === 'link' ? 'navigate' :
+                       actionable.type?.toLowerCase() === 'input' ? 'setValue' :
+                       actionable.type?.toLowerCase() === 'button' ? 'click' : 'click',
+            tagName: actionable.tag,
+            textContent: actionable.label || '',
+            selectors: actionable.selectors || [],
+            attributes: {
+                href: actionable.href || null
+            },
+            timestamp: Date.now()
         }));
     };
 
@@ -7451,13 +7355,14 @@
 
     /**
      * 🆕 NEW: Generate action mapping for LLM instructions
+     * 🧹 REFACTORED: Now uses getActionableElementsSummary (semantic data)
      */
     IntelligenceEngine.prototype.generateActionMapping = function () {
         const mapping = {};
-        const elements = this.getAllActionableElements();
+        const elements = this.getActionableElementsSummary();
 
         elements.forEach(element => {
-            mapping[element.id] = {
+            mapping[element.actionId] = {
                 action: element.actionType,
                 selectors: element.selectors,
                 description: `${element.tagName} element: ${element.textContent}`,
@@ -7748,112 +7653,8 @@
         }
     };
 
-    /**
-     * 🆕 NEW: Generate unique actionable identifier for an element
-     */
-    IntelligenceEngine.prototype.generateActionableId = function (element, actionType = 'general', reuseId = null) {
-        const tagName = element.tagName?.toLowerCase() || 'unknown';
-        const className = element.className || '';
-        const textContent = this.getCleanTextContent(element);
-
-        // 🚫 NO COUNTER BUMPING: Only reuse ID if it's from THIS scan (prevents inflation)
-        // If reuseId is provided, it means we already registered this element in THIS scan
-        // Otherwise, generate next sequential ID starting from current counter
-        let uniqueId = reuseId;
-        if (!uniqueId) {
-            uniqueId = `a_id_${this.elementCounter++}`;
-        }
-        // ❌ REMOVED: No Math.max logic that bumps counter based on old IDs
-        // This was causing counter inflation when old DOM markers were found
-
-        // Generate multiple selectors for reliability
-        const selectors = this.generateElementSelectors(element);
-
-        // 🆕 ENHANCED: Extract rich context for URL elements
-        const attributes = this.extractKeyAttributes(element);
-        const semantic = this.inferSemanticRole(element, actionType, attributes);
-        let urlContext = null;
-
-        // If this is a URL element, capture rich context
-        if (element.href || element.getAttribute('data-url') || element.getAttribute('data-href')) {
-            urlContext = {
-                url: element.href || element.getAttribute('data-url') || element.getAttribute('data-href'),
-                textContent: textContent,
-                title: element.getAttribute('title'),
-                ariaLabel: element.getAttribute('aria-label'),
-                altText: element.querySelector('img')?.getAttribute('alt'),
-                // Check if it's an image link
-                hasImage: !!element.querySelector('img'),
-                imageSrc: element.querySelector('img')?.getAttribute('src'),
-                // Check if it's a button-style link
-                isButton: element.classList.contains('btn') || element.classList.contains('button') || element.role === 'button'
-            };
-
-            // console.log(`[Content] 🔗 Rich URL context captured:`, urlContext);
-        }
-
-        return {
-            id: uniqueId,
-            tagName: tagName,
-            actionType: actionType,
-            selectors: selectors,
-            textContent: textContent,
-            className: className,
-            attributes: attributes,
-            urlContext: urlContext, // 🆕 NEW: Rich context for URL elements
-            semanticRole: semantic.role,
-            semanticConfidence: semantic.confidence,
-            semanticHints: semantic.hints,
-            timestamp: Date.now()
-        };
-    };
-
-    /**
-     * 🆕 NEW: Generate multiple selector strategies for an element
-     */
-    IntelligenceEngine.prototype.generateElementSelectors = function (element) {
-        const selectors = [];
-
-        try {
-            // Strategy 1: ID selector (most reliable)
-            if (element.id) {
-                selectors.push(`#${element.id}`);
-            }
-
-            // Strategy 2: Data attributes
-            const dataAttrs = Array.from(element.attributes)
-                .filter(attr => attr.name.startsWith('data-'))
-                .map(attr => `[${attr.name}="${attr.value}"]`);
-            selectors.push(...dataAttrs);
-
-            // Strategy 3: Class-based selector
-            if (element.className) {
-                const classes = (element.className && typeof element.className === 'string') ? element.className.split(' ').filter(c => c.trim()) : [];
-                if (classes.length > 0) {
-                    selectors.push(`.${classes[0]}`);
-                }
-            }
-
-            // Strategy 4: Tag + class combination
-            if (element.tagName && element.className) {
-                const firstClass = (element.className && typeof element.className === 'string') ? element.className.split(' ')[0] : '';
-                if (firstClass) {
-                    selectors.push(`${element.tagName.toLowerCase()}.${firstClass}`);
-                }
-            }
-
-            // Strategy 5: Position-based selector (fallback)
-            const positionSelector = this.generatePositionSelector(element);
-            if (positionSelector) {
-                selectors.push(positionSelector);
-            }
-
-        } catch (error) {
-            console.warn("[Content] Error generating selectors:", error.message);
-        }
-
-        return selectors;
-    };
+    // 🧹 REMOVED: generateActionableId, generateElementSelectors
+    // Replaced by simpler ID assignment in extractSemanticTextWithIds() and generateSimpleSelector()
 
     /**
      * 🆕 NEW: Generate position-based selector as fallback
@@ -7929,425 +7730,18 @@
 
         return attributes;
     };
-    /**
-     * 🆕 NEW: Register an element as actionable
-     */
-    IntelligenceEngine.prototype.registerActionableElement = function (element, actionType = 'general') {
-        let domElement = element;
+    // 🧹 REMOVED: registerActionableElement, storeActionableNode, getStoredActionableNode
+    // 🧹 REMOVED: _extractDescriptorLabel, _extractNodeLabel, _matchesActionDescriptor, resolveActionableDomNode
+    // These were part of the old Map-based resolution system, replaced by selector-based resolution in executeWithHints()
 
-        if (element && typeof element === 'object' && element.selector && !element.tagName) {
-            try {
-                domElement = document.querySelector(element.selector);
-                if (!domElement) {
-                    console.warn(`[Content] ⚠️ Could not resolve selector to DOM element: ${element.selector}`);
-                    return null;
-                }
-            } catch (e) {
-                console.warn(`[Content] ⚠️ Error resolving selector: ${element.selector}`, e.message);
-                return null;
-            }
-        }
-
-        if (!domElement || !domElement.tagName) {
-            return null;
-        }
-
-        // 🚫 NEVER READ OLD DOM MARKERS: Ignore data-ome-action-id from previous scans
-        // Only check our NEW instance's registry to prevent duplicates within THIS scan
-        // This ensures counter starts from 0 on every rescan (no ID inflation)
-
-        // Check if we already registered THIS element in THIS scan
-        const alreadyRegisteredId = this.elementToActionId.get(domElement);
-        const idToUse = alreadyRegisteredId || null;
-
-        const actionableId = this.generateActionableId(domElement, actionType, idToUse);
-
-        // If element already has this ID in registry, update the stored node reference
-        if (this.actionableElements.has(actionableId.id)) {
-            const existingDescriptor = this.actionableElements.get(actionableId.id);
-            // Update the stored node reference in case it changed
-            this.storeActionableNode(actionableId.id, domElement);
-            // Update the descriptor with latest info
-            const updatedDescriptor = {
-                ...existingDescriptor,
-                ...actionableId,
-                timestamp: Date.now()
-            };
-            this.actionableElements.set(actionableId.id, updatedDescriptor);
-        } else {
-            // New registration
-            this.actionableElements.set(actionableId.id, actionableId);
-        }
-
-        // 🚫 DISABLED: Old ID writing system (conflicts with semantic extraction)
-        // if (domElement.dataset) {
-        //     domElement.dataset.omeActionId = actionableId.id;
-        // }
-
-        this.storeActionableNode(actionableId.id, domElement);
-
-        // 🛡️ TRACK REGISTRATION: Add to duplicate prevention tracking
-        // This is the single source of truth - all registrations flow through here
-        if (this.registeredElements && !this.registeredElements.has(domElement)) {
-            this.registeredElements.add(domElement);
-        }
-        if (this.elementToActionId && !this.elementToActionId.has(domElement)) {
-            this.elementToActionId.set(domElement, actionableId.id);
-        }
-
-        if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
-            const existingIndex = this.pageState.interactiveElements.findIndex(item => item.id === actionableId.id);
-            const entry = {
-                ...actionableId,
-                element: domElement
-            };
-            if (existingIndex >= 0) {
-                this.pageState.interactiveElements[existingIndex] = entry;
-            } else {
-                this.pageState.interactiveElements.push(entry);
-            }
-        }
-
-        return actionableId.id;
-    };
-
-    IntelligenceEngine.prototype.storeActionableNode = function (actionId, node) {
-        if (!actionId || !node) {
-            return;
-        }
-
-        // 🚫 DISABLED: Old ID writing system (conflicts with semantic extraction)
-        // if (node.dataset) {
-        //     node.dataset.omeActionId = actionId;
-        // }
-
-        this.actionableElementNodes.set(actionId, node);
-    };
-    IntelligenceEngine.prototype.getStoredActionableNode = function (actionId) {
-        if (!this.actionableElementNodes.has(actionId)) {
-            return null;
-        }
-
-        const node = this.actionableElementNodes.get(actionId);
-        if (node && node.isConnected) {
-            return node;
-        }
-
-        this.actionableElementNodes.delete(actionId);
-        return null;
-    };
-    IntelligenceEngine.prototype._extractDescriptorLabel = function (descriptor) {
-        if (!descriptor) {
-            return '';
-        }
-
-        const candidates = [];
-        if (typeof descriptor.label === 'string') {
-            candidates.push(descriptor.label);
-        }
-        if (typeof descriptor.textContent === 'string') {
-            candidates.push(descriptor.textContent);
-        }
-        if (descriptor.attributes) {
-            const attrLabels = ['aria-label', 'title', 'label'];
-            attrLabels.forEach(attr => {
-                const value = descriptor.attributes[attr];
-                if (typeof value === 'string') {
-                    candidates.push(value);
-                }
-            });
-        }
-
-        const candidate = candidates.find(value => value && value.trim().length > 0);
-        return candidate ? candidate.trim().toLowerCase() : '';
-    };
-
-    IntelligenceEngine.prototype._extractNodeLabel = function (node) {
-        if (!node) {
-            return '';
-        }
-
-        const candidates = [];
-        if (node.getAttribute) {
-            ['aria-label', 'title', 'label'].forEach(attr => {
-                const value = node.getAttribute(attr);
-                if (value) {
-                    candidates.push(value);
-                }
-            });
-        }
-        if (node.textContent) {
-            candidates.push(node.textContent);
-        }
-
-        const candidate = candidates.find(value => value && value.trim().length > 0);
-        return candidate ? candidate.trim().toLowerCase() : '';
-    };
-
-    IntelligenceEngine.prototype._matchesActionDescriptor = function (node, actionId, descriptor) {
-        if (!node || !node.isConnected) {
-            return false;
-        }
-
-        const datasetId = node.dataset && node.dataset.omeActionId ? node.dataset.omeActionId : null;
-        const descriptorTag = descriptor?.tagName;
-        if (descriptorTag && node.tagName && descriptorTag.toLowerCase() !== node.tagName.toLowerCase()) {
-            if (!datasetId || datasetId !== actionId) {
-                return false;
-            }
-        }
-
-        if (datasetId && datasetId !== actionId) {
-            // Dataset already points to a different actionId - treat as mismatch
-            return false;
-        }
-
-        if (datasetId === actionId) {
-            return true;
-        }
-
-        const descriptorLabel = this._extractDescriptorLabel(descriptor);
-        if (!descriptorLabel) {
-            return true;
-        }
-
-        const nodeLabel = this._extractNodeLabel(node);
-        if (!nodeLabel) {
-            return true;
-        }
-
-        return nodeLabel.includes(descriptorLabel) || descriptorLabel.includes(nodeLabel);
-    };
-
-    IntelligenceEngine.prototype.resolveActionableDomNode = function (actionId, descriptor) {
-        const normalizeText = (value) => (value ? value.replace(/\s+/g, ' ').trim().toLowerCase() : '');
-        const extractReadableText = (value) => (value ? value.replace(/\s+/g, ' ').trim() : '');
-        const ensureStored = (node, selectorUsed = null) => {
-            if (!node) {
-                return null;
-            }
-
-            this.storeActionableNode(actionId, node);
-
-            if (descriptor && typeof descriptor === 'object') {
-                const existingSelectors = Array.isArray(descriptor.selectors) ? descriptor.selectors : [];
-                const selectorSet = new Set(existingSelectors);
-                if (selectorUsed) {
-                    selectorSet.add(selectorUsed);
-                }
-
-                const refreshedAttributes = this.extractKeyAttributes ? this.extractKeyAttributes(node) : {};
-                if (!descriptor.attributes) {
-                    descriptor.attributes = {};
-                }
-                Object.assign(descriptor.attributes, refreshedAttributes);
-
-                descriptor.selectors = Array.from(selectorSet);
-
-                const refreshedText = extractReadableText(node.textContent || '');
-                if (refreshedText) {
-                    descriptor.textContent = refreshedText.substring(0, 200);
-                }
-
-                const hrefValue = node.href || node.getAttribute && node.getAttribute('href');
-                if (hrefValue) {
-                    descriptor.urlContext = descriptor.urlContext || {};
-                    descriptor.urlContext.url = hrefValue;
-                    descriptor.urlContext.textContent = descriptor.textContent;
-                    const ariaValue = node.getAttribute && node.getAttribute('aria-label');
-                    if (ariaValue) {
-                        descriptor.urlContext.ariaLabel = ariaValue;
-                    }
-                    const titleValue = node.getAttribute && node.getAttribute('title');
-                    if (titleValue) {
-                        descriptor.urlContext.title = titleValue;
-                    }
-                }
-
-                descriptor.timestamp = Date.now();
-                this.actionableElements.set(actionId, descriptor);
-            }
-
-            return node;
-        };
-
-        const refreshAndReturn = (node, strategy, selectorUsed = null) => {
-            const stored = ensureStored(node, selectorUsed);
-            return {
-                node: stored,
-                strategy: stored ? strategy : 'not_found',
-                selector: selectorUsed
-            };
-        };
-
-        const storedNode = this.getStoredActionableNode(actionId);
-        if (storedNode && this._matchesActionDescriptor(storedNode, actionId, descriptor)) {
-            return refreshAndReturn(storedNode, 'registry');
-        }
-
-        const escapeIdentifier = (value) => {
-            if (window.CSS && typeof window.CSS.escape === 'function') {
-                return window.CSS.escape(value);
-            }
-            return String(value).replace(/"/g, '\\"');
-        };
-
-        const attrSelector = `[data-ome-action-id="${escapeIdentifier(actionId)}"]`;
-        let node = null;
-        try {
-            node = document.querySelector(attrSelector);
-        } catch (error) {
-            node = null;
-        }
-
-        if (node && this._matchesActionDescriptor(node, actionId, descriptor)) {
-            return refreshAndReturn(node, 'data-attribute', attrSelector);
-        }
-
-        const selectors = Array.isArray(descriptor?.selectors) ? descriptor.selectors.filter(sel => typeof sel === 'string' && sel.trim().length > 0) : [];
-        const prioritizedSelectors = [];
-        const preferred = pickBestSelector(selectors, descriptor);
-        if (preferred) {
-            prioritizedSelectors.push(preferred);
-        }
-        selectors.forEach(selector => {
-            if (!prioritizedSelectors.includes(selector)) {
-                prioritizedSelectors.push(selector);
-            }
-        });
-
-        for (const selector of prioritizedSelectors) {
-            let candidate = null;
-            try {
-                candidate = document.querySelector(selector);
-            } catch (error) {
-                candidate = null;
-            }
-
-            if (candidate && this._matchesActionDescriptor(candidate, actionId, descriptor)) {
-                return refreshAndReturn(candidate, 'selector', selector);
-            }
-        }
-
-        const normalizeHref = (value) => {
-            if (!value) return null;
-            try {
-                return new URL(value, window.location.href).href;
-            } catch (error) {
-                return value;
-            }
-        };
-
-        const hrefCandidates = new Set();
-        if (descriptor?.urlContext?.url) {
-            hrefCandidates.add(normalizeHref(descriptor.urlContext.url));
-        }
-        if (descriptor?.attributes?.href) {
-            hrefCandidates.add(normalizeHref(descriptor.attributes.href));
-        }
-
-        if (hrefCandidates.size > 0) {
-            const anchors = document.querySelectorAll('a[href]');
-            for (const anchor of anchors) {
-                const anchorHref = normalizeHref(anchor.getAttribute('href') || anchor.href);
-                if (anchorHref && hrefCandidates.has(anchorHref)) {
-                    return refreshAndReturn(anchor, 'href-match');
-                }
-            }
-        }
-
-        const descriptorLabel = descriptor ? this._extractDescriptorLabel(descriptor) : '';
-        if (descriptorLabel) {
-            const targets = document.querySelectorAll('a, button, [role="button"], [data-ome-action-id]');
-            for (const target of targets) {
-                const targetLabel = normalizeText(this._extractNodeLabel(target));
-                if (!targetLabel) continue;
-                if (targetLabel.includes(descriptorLabel) || descriptorLabel.includes(targetLabel)) {
-                    return refreshAndReturn(target, 'text-match');
-                }
-            }
-        }
-
-        return { node: null, strategy: 'not_found', selector: null };
-    };
-
-    /**
-     * 🆕 NEW: Get actionable element by ID
-     */
-    IntelligenceEngine.prototype.getActionableElement = function (actionId) {
-        // First, try the old system's Map
-        let element = this.actionableElements.get(actionId);
-
-        // If not found in Map, query DOM for semantic extraction IDs
-        if (!element) {
-            try {
-                // 🔍 Use querySelectorAll and find VISIBLE element (Google creates hidden tracking clones)
-                const candidates = document.querySelectorAll(`[data-ome-action-id="${actionId}"]`);
-                let domElement = null;
-
-                for (const candidate of candidates) {
-                    // Check if visible (not display:none, has dimensions, or is an <a> with href)
-                    const style = window.getComputedStyle(candidate);
-                    const isHidden = style.display === 'none' || style.visibility === 'hidden';
-                    const rect = candidate.getBoundingClientRect();
-                    const hasSize = rect.width > 0 || rect.height > 0;
-                    const isLink = candidate.tagName === 'A' && candidate.href;
-
-                    if (!isHidden && (hasSize || isLink)) {
-                        domElement = candidate;
-                        console.log("[Content] ✅ Found visible element via semantic ID:", actionId, candidate.tagName);
-                        break;
-                    }
-                }
-
-                // Fallback to first candidate if no visible one found
-                if (!domElement && candidates.length > 0) {
-                    domElement = candidates[0];
-                    console.log("[Content] ⚠️ No visible element found, using first candidate:", actionId);
-                }
-
-                if (domElement) {
-                    // Build a minimal descriptor from the DOM element
-                    element = {
-                        id: actionId,
-                        tagName: domElement.tagName.toLowerCase(),
-                        actionType: domElement.tagName.toLowerCase() === 'a' ? 'navigate' :
-                                   (domElement.tagName.toLowerCase() === 'input' ||
-                                    domElement.tagName.toLowerCase() === 'textarea') ? 'setValue' : 'click',
-                        textContent: domElement.innerText || domElement.textContent || '',
-                        attributes: {
-                            href: domElement.href || null,
-                            'aria-label': domElement.getAttribute('aria-label') || null
-                        },
-                        selectors: [`[data-ome-action-id="${actionId}"]`]
-                    };
-
-                    // Store it in the Map for future lookups
-                    this.actionableElements.set(actionId, element);
-
-                    // Also store the DOM node
-                    this.actionableElementNodes.set(actionId, domElement);
-                }
-            } catch (err) {
-                console.warn("[Content] ⚠️ Error querying DOM for semantic ID:", err);
-            }
-        }
-
-        return element;
-    };
+    // 🧹 REMOVED: getActionableElement, getAllActionableElements
+    // These relied on the old Map-based system, replaced by selector-based resolution
 
     /**
      * 🆕 NEW: Get content element by ID
      */
     IntelligenceEngine.prototype.getContentElement = function (contentId) {
         return this.contentElements.get(contentId);
-    };
-
-    /**
-     * 🆕 NEW: Get all actionable elements
-     */
-    IntelligenceEngine.prototype.getAllActionableElements = function () {
-        return Array.from(this.actionableElements.values());
     };
 
     /**
@@ -8383,7 +7777,8 @@
         const matchAll = Boolean(criteria.matchAll);
         const tagFilter = typeof criteria.tag === 'string' ? criteria.tag.toLowerCase() : null;
 
-        const all = this.getAllActionableElements();
+        // 🧹 REFACTORED: Use getActionableElementsSummary (semantic data)
+        const all = this.getActionableElementsSummary();
         const matches = [];
 
         all.forEach(item => {
@@ -8565,13 +7960,10 @@
             };
             console.log("[Content] ✅ Using selector-resolved element:", hints.label);
         } else {
-            // LEGACY: Registry lookup (will be removed in cleanup)
-            actionableElement = this.getActionableElement(actionId);
-            if (!actionableElement) {
-                console.error("[Content] ❌ Element not found in actionableElements Map:", actionId);
-                return { success: false, error: "Element not found" };
-            }
-            console.log("[Content] ✅ Found actionable element in registry:", actionableElement);
+            // 🧹 REMOVED: Legacy Map-based registry lookup
+            // Selector-based resolution should have found the element
+            console.error("[Content] ❌ Element not resolved via selector:", actionId);
+            return { success: false, error: "Element not found - selector resolution failed" };
         }
 
         // Auto-detect action if not specified
@@ -9876,8 +9268,9 @@
     IntelligenceEngine.prototype.schedulePostActionIntelligenceRefresh = function (actionId, actionType = 'unknown') {
         try {
             const isYoutube = window.location.hostname.includes('youtube.com') || window.currentFramework === 'youtube';
+            // 🧹 REFACTORED: Check actionId pattern instead of removed getActionableElement
             const isTranscriptAction = actionType === 'click' && (
-                actionId && this.getActionableElement(actionId)?.textContent?.toLowerCase().includes('transcript')
+                actionId && actionId.toLowerCase().includes('transcript')
             );
 
             // 🎯 FIXED: For transcript actions, wait for page to settle then scan (no polling)
@@ -9974,7 +9367,7 @@
             contentType: contentType,
             tagName: tagName,
             textContent: this.getCleanTextContent(element), // 🎯 FIX: Use clean text extraction
-            selectors: this.generateElementSelectors(element),
+            selectors: [], // 🧹 REMOVED: generateElementSelectors - selectors generated during semantic extraction
             attributes: this.extractKeyAttributes(element),
             timestamp: Date.now()
         };
@@ -10258,291 +9651,15 @@
         }
         return seconds;
     }
-    /**
-     * 🆕 NEW: Collect structured YouTube card link descriptors (console-style)
-     */
+    // 🧹 STUB: collectYoutubeCardDescriptors - Map-based registration removed, returns empty
+    // YouTube video links are now discovered via semantic extraction in extractSemanticTextWithIds()
     IntelligenceEngine.prototype.collectYoutubeCardDescriptors = function (existingDescriptors = [], roots = null) {
-        const isYoutube = window.location.hostname.includes('youtube.com');
-        if (!(isYoutube || window.currentFramework === 'youtube')) {
-            return [];
-        }
-
-        const extras = [];
-        const existingHrefs = new Set();
-
-        const addHref = (href) => {
-            if (href) existingHrefs.add(href);
-        };
-
-        existingDescriptors.forEach(desc => {
-            const url = (desc && desc.urlContext && desc.urlContext.url) || (desc && desc.attributes && desc.attributes.href);
-            addHref(url);
-        });
-
-        if (this.actionableElements) {
-            this.actionableElements.forEach(item => {
-                const url = (item && item.urlContext && item.urlContext.url) || (item && item.attributes && item.attributes.href);
-                addHref(url);
-            });
-        }
-
-        const normalize = (value) => (value ? value.replace(/\s+/g, ' ').trim() : '');
-
-        let sourceNodes = [];
-        if (Array.isArray(roots) && roots.length) {
-            sourceNodes = roots.filter(Boolean);
-        } else if (roots && typeof roots.length === 'number' && roots !== document && !roots.tagName) {
-            sourceNodes = Array.from(roots).filter(Boolean);
-        } else if (roots && roots.tagName) {
-            sourceNodes = [roots];
-        } else {
-            sourceNodes = Array.from(document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model, ytd-video-renderer'));
-        }
-
-        const selectors = [
-            'a#video-title[href*="watch"]',
-            'a#video-title',
-            'ytd-video-renderer a#video-title',
-            'ytd-video-renderer a.yt-simple-endpoint[href*="watch"]',
-            'a.yt-simple-endpoint.style-scope.ytd-video-renderer[href*="watch"]',
-            'a.yt-simple-endpoint[href*="watch"][id="video-title"]',
-            'a.yt-lockup-metadata-view-model__title[href*="watch"]',
-            'yt-lockup-view-model a.yt-lockup-metadata-view-model__title[href*="watch"]',
-            'a#video-title-link[href*="watch"]',
-            'a[href*="watch"][class*="metadata-view-model__title"]',
-            'a.shortsLockupViewModelHostEndpoint[href*="/shorts/"]',
-            'a.shortsLockupViewModelHostOutsideMetadataEndpoint[href*="/shorts/"]',
-            'a[href^="https://www.youtube.com/shorts/"]',
-            'a[href^="/shorts/"]'
-        ];
-
-        sourceNodes.forEach(card => {
-            if (!card) return;
-
-            let link = null;
-            for (const selector of selectors) {
-                link = card.querySelector(selector);
-                if (link) break;
-            }
-            if (!link) return;
-
-            const href = link.href;
-            if (!href || existingHrefs.has(href)) return;
-
-            if (href.startsWith('javascript:') || href === '#' || href === window.location.href + '#') {
-                return;
-            }
-
-            const text = normalize(link.textContent || link.innerText) || normalize(link.getAttribute('aria-label')) || normalize(link.getAttribute('title'));
-            if (!text) return;
-
-            let selectorsForLink = this.generateElementSelectors(link) || [];
-            selectorsForLink = selectorsForLink.filter(sel => typeof sel === 'string' && sel.length > 0);
-
-            if (!selectorsForLink.length) {
-                const fallbackSelector = this.generatePositionSelector(link);
-                if (fallbackSelector) {
-                    selectorsForLink.push(fallbackSelector);
-                }
-            }
-
-            if (!selectorsForLink.length) return;
-
-            const actionId = this.registerActionableElement(link, 'link');
-            if (!actionId) return;
-
-            const storedDescriptor = this.getActionableElement(actionId);
-            if (!storedDescriptor) return;
-
-            const combinedSelectors = Array.from(
-                new Set([...(storedDescriptor.selectors || []), ...selectorsForLink])
-            );
-
-            const attributes = { ...(storedDescriptor.attributes || {}) };
-            attributes.href = href;
-            const titleAttr = link.getAttribute('title');
-            if (titleAttr) {
-                attributes.title = titleAttr;
-            }
-            const ariaAttr = link.getAttribute('aria-label');
-            if (ariaAttr) {
-                attributes['aria-label'] = ariaAttr;
-            }
-
-            const normalizedText = text.substring(0, 240);
-            const baseUrlContext = storedDescriptor.urlContext || {};
-
-            const descriptor = {
-                ...storedDescriptor,
-                selectors: combinedSelectors,
-                attributes,
-                textContent: normalizedText,
-                urlContext: {
-                    ...baseUrlContext,
-                    url: href,
-                    textContent: normalizedText,
-                    title: titleAttr?.trim() || baseUrlContext.title || null,
-                    ariaLabel: ariaAttr?.trim() || baseUrlContext.ariaLabel || null
-                },
-                timestamp: Date.now()
-            };
-
-            this.actionableElements.set(actionId, descriptor);
-
-            if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
-                const existingIndex = this.pageState.interactiveElements.findIndex(item => item.id === actionId);
-                if (existingIndex >= 0) {
-                    const existingEntry = this.pageState.interactiveElements[existingIndex];
-                    this.pageState.interactiveElements[existingIndex] = {
-                        ...descriptor,
-                        element: existingEntry.element
-                    };
-                }
-            }
-
-            extras.push({ ...descriptor });
-            existingHrefs.add(href);
-            if (this.youtubeRegisteredUrls) {
-                this.youtubeRegisteredUrls.add(href);
-            }
-        });
-
-        return extras;
+        return [];
     };
-    /**
-     * 🆕 NEW: Collect additional anchor descriptors for normalized records
-     */
+    // 🧹 STUB: collectAdditionalAnchorDescriptors - Map-based registration removed, returns empty
+    // Anchor links are now discovered via semantic extraction in extractSemanticTextWithIds()
     IntelligenceEngine.prototype.collectAdditionalAnchorDescriptors = function (existingDescriptors = []) {
-        try {
-            const extras = [];
-            const existingHrefs = new Set();
-
-            existingDescriptors.forEach(desc => {
-                const url = (desc.urlContext && desc.urlContext.url) || (desc.attributes && desc.attributes.href);
-                if (url) existingHrefs.add(url);
-            });
-
-            if (this.actionableElements) {
-                this.actionableElements.forEach(item => {
-                    const url = (item && item.urlContext && item.urlContext.url) || (item && item.attributes && item.attributes.href);
-                    if (url) {
-                        existingHrefs.add(url);
-                    }
-                });
-            }
-
-            const anchors = document.querySelectorAll('a[href]');
-            anchors.forEach(anchor => {
-                const href = anchor.href;
-                if (!href || existingHrefs.has(href)) {
-                    return;
-                }
-
-                if (href.startsWith('javascript:') || href === '#' || href === window.location.href + '#') {
-                    return;
-                }
-
-                const text = anchor.innerText ? anchor.innerText.replace(/\s+/g, ' ').trim() : '';
-                const ariaLabel = anchor.getAttribute('aria-label')?.trim();
-                const titleAttr = anchor.getAttribute('title')?.trim();
-
-                if (!text && !ariaLabel && !titleAttr) {
-                    return;
-                }
-
-                // 🎯 SPECIAL CASE: Video-title links should bypass visibility checks if they have a label
-                const isVideoTitleLink = (
-                    anchor.id === 'video-title' ||
-                    anchor.classList.contains('yt-simple-endpoint') ||
-                    anchor.closest('ytd-video-renderer') !== null
-                ) && (text || ariaLabel || titleAttr);
-
-                const visibilityNode = anchor; // use anchor for visibility checks
-                if (!isVideoTitleLink && (!this.isElementVisible || !this.isElementVisible(visibilityNode))) {
-                    // Fallback: allow anchors that at least have text even if visibility helper unavailable
-                    if (!text) {
-                        return;
-                    }
-                }
-
-                let selectors = this.generateElementSelectors(anchor) || [];
-                selectors = selectors.filter(sel => typeof sel === 'string' && sel.length > 0);
-
-                if (!selectors.length) {
-                    const fallbackSelector = this.generatePositionSelector(anchor);
-                    if (fallbackSelector) {
-                        selectors.push(fallbackSelector);
-                    }
-                }
-
-                if (!selectors.length) {
-                    return;
-                }
-
-                const labelText = text || ariaLabel || titleAttr || href;
-
-                const actionId = this.registerActionableElement(anchor, 'link');
-                if (!actionId) {
-                    return;
-                }
-
-                const storedDescriptor = this.getActionableElement(actionId);
-                if (!storedDescriptor) {
-                    return;
-                }
-
-                const combinedSelectors = Array.from(
-                    new Set([...(storedDescriptor.selectors || []), ...selectors])
-                );
-
-                const attributes = { ...(storedDescriptor.attributes || {}) };
-                attributes.href = href;
-                if (titleAttr) {
-                    attributes.title = titleAttr;
-                }
-                if (ariaLabel) {
-                    attributes['aria-label'] = ariaLabel;
-                }
-
-                const normalizedText = labelText.substring(0, 240);
-                const baseUrlContext = storedDescriptor.urlContext || {};
-                const descriptor = {
-                    ...storedDescriptor,
-                    selectors: combinedSelectors,
-                    attributes,
-                    textContent: labelText.substring(0, 200),
-                    urlContext: {
-                        ...baseUrlContext,
-                        url: href,
-                        textContent: normalizedText,
-                        title: titleAttr?.trim() || baseUrlContext.title || null,
-                        ariaLabel: ariaLabel?.trim() || baseUrlContext.ariaLabel || null
-                    },
-                    timestamp: Date.now()
-                };
-
-                this.actionableElements.set(actionId, descriptor);
-
-                if (this.pageState && Array.isArray(this.pageState.interactiveElements)) {
-                    const existingIndex = this.pageState.interactiveElements.findIndex(item => item.id === actionId);
-                    if (existingIndex >= 0) {
-                        const existingEntry = this.pageState.interactiveElements[existingIndex];
-                        this.pageState.interactiveElements[existingIndex] = {
-                            ...descriptor,
-                            element: existingEntry.element
-                        };
-                    }
-                }
-
-                extras.push({ ...descriptor });
-                existingHrefs.add(href);
-            });
-
-            return extras;
-        } catch (error) {
-            console.warn('[Content] ⚠️ Failed to collect additional anchor descriptors:', error);
-            return [];
-        }
+        return [];
     };
 
     /**
@@ -10712,16 +9829,10 @@
                 return this.compareDomPaths(a.domPath, b.domPath);
             });
 
-            // Now register in DOM order to ensure a_id_0 = first DOM element
-            elementsToRegister.forEach(item => {
-                const actionId = this.registerActionableElement(item.element, item.actionType);
-                registeredCount++;
-
-                // Track URL count
-                if (item.url) {
-                    urlElementCount++;
-                }
-            });
+            // 🧹 REMOVED: registerActionableElement loop - elements now registered via semantic extraction
+            // Registration happens in extractSemanticTextWithIds() which assigns data-ome-action-id attributes
+            registeredCount = elementsToRegister.length;
+            urlElementCount = elementsToRegister.filter(item => item.url).length;
 
             if (window.currentFramework === 'youtube') {
                 const extraLinks = this.registerYoutubeLockupLinks(registeredUrls);
@@ -10742,22 +9853,13 @@
                 }
             });
 
-            // 🎯 NEW: Detailed breakdown of what actionable elements you actually have
-            const actionableBreakdown = {};
-            this.actionableElements.forEach((element, id) => {
-                const type = element.actionType || 'unknown';
-                actionableBreakdown[type] = (actionableBreakdown[type] || 0) + 1;
-            });
+            // 🧹 REMOVED: actionableBreakdown forEach - Map removed, selector-based resolution used
 
             // 🎯 CONCISE SUMMARY: Show essential scan results
             console.log(`[Content] 🎯 SCAN: ${registeredCount} actionable + ${this.contentElements.size} content + ${urlElementCount} URLs = ${allElements.length} total`);
-
-            // 🎯 NEW: Show exactly what actionable elements you got
-            console.log(`[Content] 🎯 ACTIONABLE BREAKDOWN:`, actionableBreakdown);
             console.log(`[Content] 🎯 CATEGORY BREAKDOWN:`, categoryBreakdown);
 
-            // Update page state
-            this.pageState.interactiveElements = this.getAllActionableElements();
+            // 🧹 REMOVED: pageState.interactiveElements assignment - getAllActionableElements removed
 
             // 🆕 NEW: Mark initial scan as complete
             this.initialScanCompleted = true;
@@ -10773,8 +9875,12 @@
             // 🎯 NEW: Send intelligence update AFTER filtering is complete (not during scan)
             scanTrace.log('sending intelligence update');
 
+            // Get summary for result
+            const actionableSummary = this.getActionableElementsSummary();
+            const actionableCount = actionableSummary.length;
+
             // ✅ ENSURE: Only send update if we have filtered results
-            if (this.actionableElements.size > 0 && this.queueIntelligenceUpdate) {
+            if (actionableCount > 0 && this.queueIntelligenceUpdate) {
                 this.queueIntelligenceUpdate('high', 'scan_complete');
                 scanTrace.log('intelligence update queued');
             } else {
@@ -10783,11 +9889,11 @@
 
             const result = {
                 success: true,
-                totalElements: this.actionableElements.size + this.contentElements.size,
-                actionableElements: this.getActionableElementsSummary(),
+                totalElements: actionableCount + this.contentElements.size,
+                actionableElements: actionableSummary,
                 contentElements: this.getContentElementsSummary(),
                 actionMapping: this.generateActionMapping(),
-                message: `Successfully registered ${this.actionableElements.size} actionable elements and ${this.contentElements.size} content elements`
+                message: `Successfully registered ${actionableCount} actionable elements and ${this.contentElements.size} content elements`
             };
 
             scanTrace.log('scan complete - releasing lock');
@@ -10873,11 +9979,9 @@
         // Log what's being destroyed BEFORE we destroy it
         if (intelligenceEngine) {
             console.log("[Content] ♻️ Destroying old IntelligenceEngine:", {
-                actionableElements: intelligenceEngine.actionableElements?.size || 0,
-                actionableElementNodes: intelligenceEngine.actionableElementNodes?.size || 0,
                 contentElements: intelligenceEngine.contentElements?.size || 0,
                 elementCounter: intelligenceEngine.elementCounter || 0,
-                message: "All Maps, node registry, and counter will be garbage collected"
+                message: "Engine state will be garbage collected"
             });
         } else {
             console.log("[Content] ♻️ No existing IntelligenceEngine to destroy");
@@ -10910,11 +10014,9 @@
 
         // 4. VERIFY: Log new instance state to confirm clean slate
         console.log("[Content] ✅ IntelligenceEngine recreated with clean state:", {
-            actionableElements: intelligenceEngine.actionableElements?.size || 0,
-            actionableElementNodes: intelligenceEngine.actionableElementNodes?.size || 0,
             contentElements: intelligenceEngine.contentElements?.size || 0,
             elementCounter: intelligenceEngine.elementCounter || 0,
-            message: "All registries empty, counter at 0"
+            message: "Engine reset, counter at 0"
         });
 
         return intelligenceEngine;
@@ -11742,36 +10844,12 @@
                     innerText: button.innerText
                 });
 
-                // Force-register this button if not already registered
-                if (intelligenceEngine) {
-                    // Check if already registered
-                    let existingId = null;
-                    for (const [id, element] of intelligenceEngine.actionableElements) {
-                        if (element === button) {
-                            existingId = id;
-                            break;
-                        }
-                    }
-
-                    if (existingId) {
-                        console.log("[Content] ✅ Button already registered:", existingId);
-                        sendResponse({ ok: true, actionId: existingId, alreadyRegistered: true });
-                    } else {
-                        // Force-register it now
-                        const actionId = intelligenceEngine.registerActionableElement(button, 'click');
-                        console.log("[Content] ✅ Force-registered transcript button:", actionId);
-
-                        // Trigger intelligence update to send new button to server
-                        if (intelligenceEngine.queueIntelligenceUpdate) {
-                            intelligenceEngine.queueIntelligenceUpdate('high', 'transcript_button_found');
-                        }
-
-                        sendResponse({ ok: true, actionId, newlyRegistered: true });
-                    }
-                } else {
-                    console.log("[Content] ⚠️ Intelligence engine not available");
-                    sendResponse({ ok: false, error: "Intelligence engine not available" });
-                }
+                // 🧹 REFACTORED: Return button found status (Map-based registration removed)
+                // The capability pipeline uses selector-based resolution instead
+                sendResponse({ ok: true, found: true, buttonDetails: {
+                    tagName: button.tagName,
+                    ariaLabel: button.getAttribute('aria-label')
+                }});
 
             } catch (error) {
                 console.error("[Content] ❌ Error hunting for transcript button:", error);
@@ -11781,68 +10859,7 @@
             return true; // Keep channel open for async response
         }
 
-        if (message.type === "execute_action") {
-            console.log("[Content] 🤖 Executing LLM action:", message);
-
-            try {
-                // Extract data from the message structure
-                let { actionId, actionType, params } = message.data || message;
-
-                // 🎯 FIX: Normalize action ID format (handle both a_id_ and a_i_ formats)
-                // Some LLMs or parsers may generate a_i_ instead of a_id_
-                if (actionId && typeof actionId === 'string') {
-                    const normalizedId = actionId.replace(/^a_i_/, 'a_id_');
-                    if (normalizedId !== actionId) {
-                        console.log(`[Content] 🔄 Normalized action ID: ${actionId} → ${normalizedId}`);
-                        actionId = normalizedId;
-                    }
-                }
-
-                // 🆕 ENHANCED: Add debugging information
-                console.log("[Content] 🔍 Debug info:", {
-                    actionId,
-                    actionType,
-                    params,
-                    intelligenceEngineAvailable: !!intelligenceEngine,
-                    actionableElementsCount: intelligenceEngine ? intelligenceEngine.actionableElements.size : 0,
-                    allActionableElements: intelligenceEngine ? Array.from(intelligenceEngine.actionableElements.keys()) : []
-                });
-
-                if (!intelligenceEngine) {
-                    sendResponse({ ok: false, error: "Intelligence engine not available" });
-                    return;
-                }
-
-                // 🆕 ENHANCED: Check if the element exists
-                const actionableElement = intelligenceEngine.getActionableElement(actionId);
-                if (!actionableElement) {
-                    console.error("[Content] ❌ Actionable element not found:", actionId);
-                    console.log("[Content] 🔍 Available elements:", Array.from(intelligenceEngine.actionableElements.keys()));
-                    sendResponse({ ok: false, error: `Actionable element not found: ${actionId}` });
-                    return;
-                }
-
-                console.log("[Content] ✅ Found actionable element:", actionableElement);
-
-                // Execute the action using the intelligence engine
-                const result = intelligenceEngine.executeAction(actionId, actionType, params);
-
-                if (result.success) {
-                    console.log("[Content] ✅ LLM action executed successfully:", actionId);
-                    console.log("[Content] 📊 Result details:", result);
-                    sendResponse({ ok: true, result: result });
-                } else {
-                    console.error("[Content] ❌ LLM action execution failed:", result.error);
-                    sendResponse({ ok: false, error: result.error });
-                }
-
-            } catch (error) {
-                console.error("[Content] ❌ Error executing LLM action:", error);
-                sendResponse({ ok: false, error: error.message });
-            }
-
-            return true; // Keep message channel open for async response
-        }
+        // 🧹 REMOVED: execute_action handler - replaced by execute_action_with_hints
     });
 
     /**
