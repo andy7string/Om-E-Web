@@ -27,8 +27,9 @@
         theme: 'robot',       // Current orb theme (default)
         panelManuallyResized: false,  // 📐 Track if user has resized panel
         panelTargetWidth: null,        // 📐 Target width to restore on resize (user-set or optimal)
-        focusGuardCleanup: null,       // 🎯 Active focus guard disposer
-        userBlurRequested: false       // 🎯 Tracks if user intentionally blurred orb input
+        focusGuardCleanup: null,       // 🎯 Active orb focus guard disposer
+        hudFocusGuardCleanup: null,    // 🎯 Active HUD focus guard disposer
+        userBlurRequested: false       // 🎯 Tracks if user intentionally blurred input
     };
 
     // 💬 Save chat input immediately (persists across navigation)
@@ -3159,6 +3160,10 @@
                         console.error('[Content] ❌ Orb chat send failed:', error);
                         addChatMessage('error', 'Failed to send message');
                     }
+
+                    // 🎯 Always refocus input after send (success or error)
+                    hudState.userBlurRequested = false;
+                    chatInput.focus();
                 };
 
                 chatSendBtn.addEventListener('click', handleOrbSend);
@@ -4285,6 +4290,9 @@
                 console.error('[Content] ❌ Chat send failed:', error);
                 addChatMessage('error', 'Failed to send message');
             }
+
+            // 🎯 Always refocus prompt textarea after send (success or error)
+            focusHUDPromptGuard(true);
         });
 
         // Enter to send (Shift+Enter for new line)
@@ -5151,7 +5159,11 @@
             updateHUDPromptVisibility();  // Sync prompt state from orb view
             // Sync chat input text from orb
             syncHUDPromptInput();
+            // 🎯 Focus prompt textarea when HUD opens (stop orb guard, start HUD guard)
+            focusHUDPromptGuard(true);
         } else {
+            // 🎯 Stop HUD focus guard when closing
+            stopHUDPromptFocusGuard();
             // Sync orb chat input when closing HUD (in case HUD prompt was edited)
             syncOrbChatInput();
         }
@@ -5176,6 +5188,80 @@
     }
 
     /**
+     * 🎯 Stop any active HUD prompt focus guard
+     */
+    function stopHUDPromptFocusGuard() {
+        if (hudState.hudFocusGuardCleanup) {
+            hudState.hudFocusGuardCleanup();
+            hudState.hudFocusGuardCleanup = null;
+        }
+    }
+
+    /**
+     * 🎯 Focus HUD prompt textarea with guard against focus-stealing
+     * Same pattern as focusOrbInputGuard but for HUD view
+     * @param {boolean} [force=false] - ignore user-requested blur once
+     */
+    function focusHUDPromptGuard(force = false) {
+        // Only run if HUD is visible
+        if (!hudState.hud || !hudState.visible || !hudState.chatVisible) return;
+        if (hudState.userBlurRequested && !force) return;
+
+        const promptTextarea = hudState.hud.querySelector('.ome-hud-prompt-textarea');
+        if (!promptTextarea) return;
+
+        // Stop orb focus guard - HUD has priority when visible
+        stopOrbInputFocusGuard();
+        stopHUDPromptFocusGuard();
+
+        const requestFocus = () => {
+            // Double-check HUD is still visible
+            if (!hudState.visible || !hudState.chatVisible || hudState.userBlurRequested) return;
+            if (promptTextarea.disabled || promptTextarea.getAttribute('aria-disabled') === 'true') return;
+            if (promptTextarea.offsetParent === null) return; // hidden
+            if (promptTextarea.tabIndex < 0) promptTextarea.tabIndex = 0;
+            promptTextarea.focus({ preventScroll: true });
+            const len = promptTextarea.value?.length || 0;
+            try {
+                promptTextarea.setSelectionRange(len, len);
+            } catch (e) {
+                console.warn('[HUD] Could not set selection on HUD prompt:', e);
+            }
+            console.log('[HUD] 🎯 Focused HUD prompt textarea');
+        };
+
+        const onPointerDown = (event) => {
+            // Check if click is outside HUD
+            const hud = hudState.hud;
+            if (hud && !hud.contains(event.target)) {
+                hudState.userBlurRequested = true;
+                stopHUDPromptFocusGuard();
+            }
+        };
+
+        const onFocusOut = () => {
+            if (hudState.userBlurRequested || !hudState.visible || !hudState.chatVisible) {
+                stopHUDPromptFocusGuard();
+                return;
+            }
+            // Re-focus after a short delay (let other handlers complete)
+            requestAnimationFrame(requestFocus);
+        };
+
+        hudState.userBlurRequested = false;
+        promptTextarea.addEventListener('focusout', onFocusOut);
+        document.addEventListener('pointerdown', onPointerDown, true);
+
+        hudState.hudFocusGuardCleanup = () => {
+            promptTextarea.removeEventListener('focusout', onFocusOut);
+            document.removeEventListener('pointerdown', onPointerDown, true);
+            hudState.hudFocusGuardCleanup = null;
+        };
+
+        requestFocus();
+    }
+
+    /**
      * 🎯 Stop any active orb input focus guard
      */
     function stopOrbInputFocusGuard() {
@@ -5190,6 +5276,9 @@
      * @param {boolean} [force=false] - ignore user-requested blur once
      */
     function focusOrbInputGuard(force = false) {
+        // 🛑 Skip if HUD is visible - HUD view has focus priority
+        if (hudState.visible) return;
+
         const chatPanel = hudState.chatPanel;
         if (!chatPanel || !hudState.chatVisible) return;
         if (hudState.userBlurRequested && !force) return;
@@ -5197,9 +5286,13 @@
         const input = chatPanel.querySelector('.ome-chat-input');
         if (!input) return;
 
+        // Stop HUD focus guard - orb has priority when HUD is hidden
+        stopHUDPromptFocusGuard();
         stopOrbInputFocusGuard();
 
         const requestFocus = () => {
+            // 🛑 Double-check HUD is still hidden
+            if (hudState.visible) return;
             if (!hudState.chatVisible || hudState.userBlurRequested) return;
             if (input.disabled || input.getAttribute('aria-disabled') === 'true') return;
             if (input.offsetParent === null) return; // hidden
@@ -5221,6 +5314,11 @@
         };
 
         const onFocusOut = () => {
+            // 🛑 Stop if HUD became visible
+            if (hudState.visible) {
+                stopOrbInputFocusGuard();
+                return;
+            }
             if (hudState.userBlurRequested || !hudState.chatVisible) {
                 stopOrbInputFocusGuard();
                 return;
@@ -6566,6 +6664,9 @@
 
         // Check if HUD needs repositioning after content change
         checkAndRepositionHUD();
+
+        // 🎯 Refocus HUD prompt after rendering (keeps cursor in input after response)
+        focusHUDPrompt();
 
         console.log(`[Content] 💬 Rendered ${messages.length} messages to both UIs`);
     }

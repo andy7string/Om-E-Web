@@ -1,0 +1,411 @@
+<!-- signature: 7eel4FIG_E8:400:a11a18bfaefbd795f287271eb23bb97d4cba619d57134d56c55fe45a37b87db8 -->
+# The End of Censorship? NEW Free AI Image is Totally UNCENSORED!
+
+**Video URL:** https://www.youtube.com/watch?v=7eel4FIG_E8
+**Video ID:** 7eel4FIG_E8
+**Language:** en
+**Collected At:** 1765592591790
+**Segments:** 400
+
+---
+
+- [0:00] I found a free open-source AI image
+- [0:02] generator with virtually zero
+- [0:05] censorship. It creates incredibly
+- [0:07] realistic photos like this. And best of
+- [0:10] all, it generates these in just a single
+- [0:12] second. Here's why this actually
+- [0:14] matters. Closed source models have been
+- [0:16] leading the way, but open- source models
+- [0:18] are catching up fast, and that means we
+- [0:20] can create them for free on our own
+- [0:23] machine, meaning that we get extra
+- [0:25] privacy and complete control over what
+- [0:28] we create. Z image is trained on a
+- [0:30] massive multi-dommain data set and
+- [0:32] that's why it nails realism, handles
+- [0:34] text, and keeps consistent styles across
+- [0:36] a whole series. It's the first open-
+- [0:39] source model that actually feels
+- [0:40] competitive with the big players like
+- [0:42] Nano Banana Pro or Midjourney. So,
+- [0:44] instead of me telling you about how good
+- [0:46] this is, let me show you just how well
+- [0:48] it handles these racy prompts. Here's
+- [0:51] Midjourney rejecting our prompt. And the
+- [0:54] same thing with Nano Banana Pro. And now
+- [0:56] here here's Z image generating it on the
+- [0:59] very first try without any debate at
+- [1:02] all. This is the gap we're talking
+- [1:04] about. Models that block you and models
+- [1:07] that deliver. Now of course with great
+- [1:09] power comes a great responsibility. And
+- [1:12] with this low censorship model we have
+- [1:15] the opportunity to create a great number
+- [1:17] of things that were not before possible.
+- [1:19] So I invite you to use it responsibly.
+- [1:22] Now, the model is capable of creating
+- [1:23] incredibly realistic and coherent images
+- [1:27] like this. And best of all, it's
+- [1:29] entirely open- source and free. It
+- [1:32] creates up to 2K images, and it's
+- [1:34] unbelievably fast, generating images in
+- [1:36] just a few seconds. No more waiting for
+- [1:39] up to a minute to get out your
+- [1:41] creations. Now, the prompt adherence is
+- [1:43] incredibly strong, and essentially, it
+- [1:46] has pretty much zero censorship. Now,
+- [1:48] some of the things you might ask it to
+- [1:50] create do not render out effectively
+- [1:52] well, and that's mainly due to the
+- [1:54] amount of training data it has around
+- [1:56] certain scenarios, but I will show you
+- [1:59] deep testing on that later on. Now, even
+- [2:01] for realism, this is objectively a
+- [2:04] standout model. You can see here just
+- [2:06] how wonderfully it executes this
+- [2:09] close-up shot. And we have a couple of
+- [2:11] complex features here. First, we have
+- [2:12] the hands that are out of focus, but
+- [2:15] also the fine lines on the lips here.
+- [2:18] Now, just for reference, the text
+- [2:21] readability on this model is exquisite.
+- [2:23] And you can see here with fine elements
+- [2:26] of text that have been rendered out
+- [2:28] without a single obvious spelling
+- [2:30] mistake. And what's incredibly
+- [2:31] interesting about this is that it can
+- [2:34] run on as little as 16 GB of VRAM. Now
+- [2:37] this model has excellent real world
+- [2:39] understanding meaning you can ask it to
+- [2:41] create content on your behalf. Now the
+- [2:43] detail of this model is absolutely
+- [2:46] beautiful and it works across a whole
+- [2:48] range of different mediums if you're
+- [2:49] looking to create photo realism but also
+- [2:51] for animated content. Now we all know
+- [2:54] the situation. You're in Nana Banana Pro
+- [2:56] or MidJourney and you enter in a fairly
+- [2:59] inconspicuous prompt and immediately
+- [3:01] you're met with moderation. Now, there
+- [3:03] can be fairly tame and innocuous ideas
+- [3:06] that can trigger this extreme
+- [3:08] censorship,
+- [3:09] but broadly they fall into four main
+- [3:12] categories. The first is using famous
+- [3:14] people. So, if you enter in a prompt as
+- [3:17] simple as Taylor Swift or Donald Trump,
+- [3:19] you are explicitly rejected from the
+- [3:21] system. But it's not only famous people.
+- [3:24] It's also copyrighted material. But
+- [3:26] that's not all because the third
+- [3:28] category of censorship is one that is
+- [3:30] incredibly gray and has many legitimate
+- [3:34] uses and that of course is action or
+- [3:37] violence even in sporting contexts. Now
+- [3:40] of course the final module of censorship
+- [3:43] comes from those men and women of
+- [3:44] culture who are looking to explore the
+- [3:46] beauty of human anatomy. Now, for
+- [3:49] purposes of maintaining adherence to the
+- [3:53] guidelines of the platform that we are
+- [3:54] on, I will describe a lot of what is
+- [3:57] going on rather than explicitly showing
+- [3:59] you because some of this is not allowed
+- [4:02] to be shown on here. Now, all of the
+- [4:05] prompts that I've used in this testing
+- [4:07] were rejected from Nano Banana Pro and
+- [4:11] from Midjourney. So I went through and
+- [4:14] tested out a series of prompts and you
+- [4:15] can see that every single one was not
+- [4:18] allowed. Now there are a number of ways
+- [4:20] to use this model but I will be using it
+- [4:23] online in this website which gives you a
+- [4:27] very generous amount of free credits to
+- [4:29] try out. Now of course we will explore a
+- [4:32] little bit later on what are the
+- [4:34] possibilities for running this locally
+- [4:35] and also in other locations. Now the
+- [4:38] prompt I'll be using is one that we can
+- [4:40] demonstrate is immediately rejected from
+- [4:43] Google Nano Banana Pro.
+- [4:46] Couldn't generate that image. Try again
+- [4:47] later. But if we're here inside of Z
+- [4:51] image, we can enter it. Now we will
+- [4:54] select this to be generated in 2K. And
+- [4:56] the prompt we are using is a
+- [4:58] photorealistic highresolution image of
+- [5:00] Elon Musk sitting alone on a park bench
+- [5:03] in the pouring rain. There he is eating
+- [5:06] a soggy hot dog looking with great
+- [5:08] grimace. Now let's try a different
+- [5:11] celebrity. I'll showcase this with
+- [5:13] Taylor Swift in mid Journey. It is
+- [5:15] rejected. Pop it into the image. And
+- [5:17] here we are. Taylor serving up some
+- [5:20] greasy delights. Download the local
+- [5:23] diner. Now, one little tip for working
+- [5:25] with this on this website is you get a
+- [5:26] number of different style selectors that
+- [5:29] you can try out. And I do recommend
+- [5:32] using one of these with your
+- [5:34] generations. Next up, we're taking a
+- [5:36] look at copyrighted material. And this
+- [5:38] is where we're using figures from
+- [5:40] wellknown brands and franchises. So,
+- [5:44] first up, we have Mario looking
+- [5:46] dejected, sitting on the doorstep of a
+- [5:48] derelic pub or bar. There he is
+- [5:52] questioning his life choices. Damn, I
+- [5:54] wish I didn't put it all on Red Monty.
+- [5:57] Next up, we have an image depicting
+- [5:59] Ronald McDonald facing the law inside of
+- [6:02] a courtroom drama. And you can see that
+- [6:05] he is fully rendered out with true
+- [6:09] appreciation of the original branded
+- [6:12] material. Next up, we're looking at
+- [6:14] sporting situations. And for this, I've
+- [6:16] asked for a prompt depicting two MMA
+- [6:19] fighters. And we're absolutely able to
+- [6:22] get out this type of content. As you can
+- [6:24] see, we get this perfectly outputed.
+- [6:26] Now, another entirely legitimate way to
+- [6:29] be exploring AI art is to be depicting
+- [6:32] historical scenes. And this can be
+- [6:35] important for enhancing our
+- [6:36] understanding of the past and for the
+- [6:39] realities of human capabilities. So, for
+- [6:43] this, we'll be looking at depicting war
+- [6:45] scenes. Now the whole argument here is
+- [6:47] that of course we need some degree of
+- [6:49] censorship but right now the level of
+- [6:52] censorship is frankly alarmist and
+- [6:55] dangerous. Now I will leave this image
+- [6:58] off uh but I will leave a link to all of
+- [7:00] my educational scientific tests below
+- [7:03] and this includes testing this to its
+- [7:06] limits of ethical possibilities. Next up
+- [7:09] is the final frontier of censorship and
+- [7:11] that of course is the human biology. We
+- [7:14] are nothing but men and women of science
+- [7:16] on this channel and we endeavor to
+- [7:18] explore everything for educational,
+- [7:20] scientific, andformational purposes. And
+- [7:23] for that, I will be displaying these
+- [7:25] prompts on screen and informing you of
+- [7:27] their success rather than giving you
+- [7:29] full explicit showcases of this
+- [7:33] wonderful array of assets. So, we'll be
+- [7:36] using the following prompt. Pop that in.
+- [7:38] And this is generated with great, what
+- [7:42] would I say? Excellent adherence to
+- [7:45] detail. Fine complimentary
+- [7:48] expressions of the human figure.
+- [7:51] Beautiful. Absolutely. Now, of course,
+- [7:54] we will be equal on this channel and we
+- [7:56] will also explore a prompt depicting the
+- [7:59] human male form. Now, one interesting
+- [8:02] element of this is that the amount of
+- [8:04] censorship for male and female anatomy
+- [8:07] is vastly different on each platform.
+- [8:10] that often it is the female figurine
+- [8:13] that is much more strongly censored. But
+- [8:16] as you can see, if we pop in a prompt
+- [8:17] like this, we get that out entirely
+- [8:20] accurately. Now, the important thing to
+- [8:22] recognize here is that this model is not
+- [8:24] just interesting because of its low
+- [8:26] censorship, but also in its own right
+- [8:29] for realism and prompt adherence. Now
+- [8:32] here you can see a collage of elements
+- [8:34] of incredibly realistic images that work
+- [8:38] for highly detailed situations and its
+- [8:41] ability to create images that are
+- [8:43] frankly at the height of realism is
+- [8:46] extremely impressive. Not only that, but
+- [8:49] the text rendering is incredible. It is
+- [8:52] allowing us extremely dense amounts of
+- [8:55] text on our images, which opens up the
+- [8:57] door for complex graphic design. Now,
+- [8:59] this model also has the ability to edit
+- [9:02] images, allowing us to create specific
+- [9:05] changes like we can with Nano Banana.
+- [9:07] For example, you can see here this cat
+- [9:10] poster is changed into one of a dog, but
+- [9:12] maintains the exact graphic style from
+- [9:16] each image. We can also render out
+- [9:18] images from different angles or place
+- [9:20] outfits on characters. Now, before we
+- [9:23] move on to what else this model is
+- [9:24] capable of, here is an incredibly handy
+- [9:26] list of words that are banned in
+- [9:29] midjourney. Now, you can use this list
+- [9:31] to work out why your prompts are getting
+- [9:34] banned and moderated and make sure that
+- [9:36] you remove those words. Now, this list
+- [9:38] includes some quite innocuous words such
+- [9:40] as shaft and even clad or clear. Now,
+- [9:43] some of these are used contextually, but
+- [9:45] even using a word like clear can often
+- [9:48] trigger the moderation. Now I've left a
+- [9:50] link to this in the description below
+- [9:52] for you. Now if you are not subscribed I
+- [9:54] invite you to join the channel. It will
+- [9:56] be a pleasure to have you aboard. Now Z
+- [9:58] image is a great model but one of the
+- [10:00] biggest challenges with it is getting
+- [10:02] out high quality results. It requires
+- [10:05] exceptionally detailed prompt writing
+- [10:08] and this can be a laborious process and
+- [10:11] it can be challenging to get out
+- [10:12] consistent results within a specific
+- [10:14] aesthetic. Now, if you are looking to
+- [10:16] get out high-quality, consistent
+- [10:18] aesthetic images fast, I want to
+- [10:20] introduce you to a tool, and that is
+- [10:22] today's sponsor. I've been testing out
+- [10:24] Verve, which is a brand new AI video
+- [10:27] tool for creating highly aesthetic AI
+- [10:30] ads like these. Now, what truly sets
+- [10:33] Verve apart is its art direction, and it
+- [10:35] allows you to create extremely
+- [10:37] professional and beautiful ads in a very
+- [10:39] simple workflow. Now, let me show you
+- [10:41] exactly how that works. If you come to
+- [10:44] verve.f FM. What you can do is go ahead
+- [10:46] and upload a shot of your product. Now,
+- [10:49] I'm going to be using this duffel bag
+- [10:51] that I created. Now, once you pop that
+- [10:53] in, you have the option to add a prompt,
+- [10:55] but the key thing here is selecting art
+- [10:57] direction because we have a whole host
+- [11:00] of predetermined styles that we can use
+- [11:03] to generate images with. So, you get
+- [11:06] everything from lux glam all the way
+- [11:07] through to futuristic tech. So, I'm
+- [11:09] going to select cinematic 16 mm. You can
+- [11:12] see it has this wonderful vintage film
+- [11:15] effect. I can simply select use this art
+- [11:17] direction. Go to create my images and
+- [11:20] after a couple of minutes you get out
+- [11:21] some wonderful images. Just take a look
+- [11:24] at these stunning shots and as you can
+- [11:25] see it has this specific aesthetic
+- [11:28] already applied and each of the images
+- [11:31] works cohesively well with the others.
+- [11:34] Now to turn these into videos is
+- [11:36] incredibly simple because we simply go
+- [11:37] to turn into video. Now, we have the
+- [11:40] option to add a prompt if we want to
+- [11:42] define the direction, but you can also
+- [11:44] leave this empty. So, I've put in a
+- [11:46] cinematic high fashion product ad in the
+- [11:48] style of Vogue. I can go ahead and press
+- [11:51] create video. Sit back and relax. And
+- [11:54] let's take a look at how that turned
+- [11:55] out. Now, as you can see, we've got a
+- [11:57] beautiful aesthetic video showcasing
+- [11:59] this product in high detail. Now, what's
+- [12:02] great is that you can use these to
+- [12:03] create your own adverts or simply as
+- [12:07] clips to showcase on your website the
+- [12:10] different looks and aesthetic
+- [12:12] applications of your own work. Now, I
+- [12:15] created a few other clips in this exact
+- [12:17] same style. And as we can see, we've got
+- [12:19] a beautiful consistent appeal here,
+- [12:22] particularly like this one. This slow
+- [12:24] zoom in, it really shows the wonderful
+- [12:27] quality of the fabric. Now, you can do
+- [12:29] this for any type of product you like.
+- [12:31] It also works incredibly well with water
+- [12:34] bottles. And for this, I will have a go
+- [12:36] at the Tokyo scene art direction. I'll
+- [12:40] go ahead and generate this. And here are
+- [12:42] the images that I got out for that. As
+- [12:44] you can see, we've got a completely
+- [12:46] different style. And yet, these new
+- [12:48] images fit coherently together. And here
+- [12:51] is a video showcasing what this style
+- [12:53] can look like. Just look at how well
+- [12:57] this video reflects the light on the
+- [12:59] metallic surface here. Now, the most
+- [13:01] interesting thing about this is all of
+- [13:02] the different aesthetics that you have
+- [13:04] at your fingertips. This saves you from
+- [13:07] going through and refining a look, and
+- [13:08] you can quickly generate something that
+- [13:10] has an extremely high quality of
+- [13:14] execution, so you don't spend hours
+- [13:16] trying to find the right look for your
+- [13:18] product. All of these different vibes
+- [13:20] can be categorized into fashion,
+- [13:22] general, beauty, food, fitness, and
+- [13:24] home. I particularly like some of these
+- [13:26] fitness aesthetics. Now, another way to
+- [13:29] use Verve is to generate highquality UGC
+- [13:32] ads, which showcase a person describing
+- [13:36] and using your product. And these look
+- [13:39] like this. Now, if you'd like to try
+- [13:41] Verve, you get a 3-day free trial where
+- [13:44] you can test it out and see exactly what
+- [13:46] it's capable of. But if you're looking
+- [13:48] to upgrade, you can get the starter
+- [13:50] plan, which is $49 per month. I've also
+- [13:54] got a discount code for you to get 30%
+- [13:56] off your first month, and that's AI
+- [13:59] Samson. And with $49 per month, you get
+- [14:02] 250 credits and commercial use for all
+- [14:05] generated assets. So, if you're looking
+- [14:07] to create high quality content for your
+- [14:09] products in minutes, then Verve is a
+- [14:12] great tool to explore. It's incredibly
+- [14:14] easy to use. You just upload your
+- [14:16] product, select your art direction, and
+- [14:18] generate your images and videos straight
+- [14:20] away. So, if you want to get premium
+- [14:22] looking content for your clients and
+- [14:24] products, try out Verve today. Check out
+- [14:26] the link in the description below and
+- [14:28] try your 3-day free trial today. And a
+- [14:30] big thanks to Verve for sponsoring this
+- [14:33] video. Now, there are a few ways to use
+- [14:36] Zimage. One is on this website,
+- [14:38] zimage.ai. I found this has some levels
+- [14:40] of censorship. So, if you're looking for
+- [14:42] super low censorship, I do not advise
+- [14:44] that one. This one, however, is
+- [14:46] exceptionally useful and it gives you
+- [14:49] unbelievably low levels of censorship.
+- [14:52] I'll leave a link to this in the
+- [14:53] description below. And this is
+- [14:55] Z-image.vip.
+- [14:57] And what's great about this is you get
+- [14:59] credits as a guest. You also get 150
+- [15:02] credits when you sign in. And you can
+- [15:04] even log out and sign in with a
+- [15:06] different account to get another 150
+- [15:08] free credits. And if you do want to
+- [15:10] upgrade, they also offer handy pricing,
+- [15:13] so you can really get a lot of images
+- [15:16] out. Now, you can also get this image on
+- [15:19] GitHub, download it, and run it locally
+- [15:21] on your own machine, even with 16 GB of
+- [15:24] RAM. Now what's particularly interesting
+- [15:26] is looking at how this model compares to
+- [15:28] other closed source models and you can
+- [15:31] see that it is handling particularly
+- [15:34] well. It is the fourth best model
+- [15:37] currently available on closed blind
+- [15:40] testing of AI images. And best of all is
+- [15:44] it's the highest scoring open-source
+- [15:46] model out there. So here's the real
+- [15:48] story. Open source models are catching
+- [15:51] up faster than anyone expected and
+- [15:54] they're rivaling the powers that we have
+- [15:57] with other models like Nano Banana Pro.
+- [15:59] Now, watch this video next if you're
+- [16:02] interested in exploring the
+- [16:03] possibilities of graphic design with AI
+- [16:06] imagery. But most of all, I want to wish
+- [16:08] you a delightful
