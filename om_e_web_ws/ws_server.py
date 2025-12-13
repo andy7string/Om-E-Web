@@ -4276,7 +4276,64 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
             if msg.get("type") == "pong":
                 print(f"💓 Pong received from {msg.get('source', 'client')}")
                 continue
-            
+
+            # ⚙️ GET LLM CONFIG - Return FULL LLM settings (all providers)
+            if msg.get("type") == "get_llm_config":
+                print("⚙️ Get LLM config request")
+                try:
+                    config = load_llm_config()
+                    # Mask API keys for security (show only last 4 chars)
+                    safe_config = json.loads(json.dumps(config))  # Deep copy
+                    for provider_key, provider in safe_config.get("providers", {}).items():
+                        api_key = provider.get("api_key")
+                        if api_key and not api_key.startswith("$") and len(api_key) > 8:
+                            provider["api_key"] = f"***{api_key[-4:]}"
+
+                    await ws.send(json.dumps({
+                        "type": "llm_config",
+                        "config": safe_config
+                    }))
+                except Exception as e:
+                    print(f"❌ Error getting LLM config: {e}")
+                continue
+
+            # ⚙️ SET LLM CONFIG - Update LLM settings
+            if msg.get("type") == "set_llm_config":
+                print("⚙️ Set LLM config request")
+                try:
+                    new_config = msg.get("config", {})
+
+                    # Load existing config and update
+                    config = load_llm_config()
+                    provider = new_config.get("provider", "lm_studio")
+
+                    # Ensure providers dict exists
+                    if "providers" not in config:
+                        config["providers"] = {}
+                    if provider not in config["providers"]:
+                        config["providers"][provider] = {}
+
+                    # Update provider config
+                    config["active_provider"] = provider
+                    config["providers"][provider]["endpoint"] = new_config.get("endpoint", "")
+                    config["providers"][provider]["default_model"] = new_config.get("model", "")
+                    if new_config.get("api_key"):
+                        config["providers"][provider]["api_key"] = new_config.get("api_key")
+
+                    # Update defaults
+                    if "defaults" not in config:
+                        config["defaults"] = {}
+                    config["defaults"]["temperature"] = new_config.get("temperature", 0.7)
+                    config["defaults"]["max_tokens"] = new_config.get("max_tokens", 2048)
+
+                    # Save config (LLM client reloads config on each request)
+                    if save_llm_config(config):
+                        print("✅ LLM config updated")
+
+                except Exception as e:
+                    print(f"❌ Error setting LLM config: {e}")
+                continue
+
             # 🎯 EXTENSION IDENTIFICATION: Mark clients sending bridge_status as extensions
             if msg.get("type") == "bridge_status":
                 EXTENSION_WS = ws
@@ -6617,6 +6674,109 @@ def generate_orb_page_html() -> str:
             stroke: var(--active-theme-color, #7ec8e3);
         }
 
+        .settings-btn.active {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* ⚙️ Settings Panel */
+        .settings-panel {
+            position: fixed;
+            bottom: 80px;
+            left: 24px;
+            width: 320px;
+            background: rgba(40,40,50,0.98);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 20px;
+            z-index: 200;
+            display: none;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        .settings-panel.visible {
+            display: block;
+            animation: settings-fade-in 0.2s ease;
+        }
+
+        @keyframes settings-fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .settings-panel h3 {
+            margin: 0 0 16px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--active-theme-color, #7ec8e3);
+        }
+
+        .settings-group {
+            margin-bottom: 14px;
+        }
+
+        .settings-group label {
+            display: block;
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .settings-group input,
+        .settings-group select {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: #e5e5e5;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .settings-group input:focus,
+        .settings-group select:focus {
+            outline: none;
+            border-color: var(--active-theme-color, #7ec8e3);
+        }
+
+        .settings-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .settings-row .settings-group {
+            flex: 1;
+        }
+
+        .settings-save {
+            width: 100%;
+            padding: 12px;
+            background: var(--active-theme-color, #7ec8e3);
+            border: none;
+            border-radius: 8px;
+            color: #212121;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .settings-save:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+
+        .settings-status {
+            margin-top: 10px;
+            font-size: 12px;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            min-height: 18px;
+        }
+
         /* 🌟 Background glow effect */
         .glow {
             position: fixed;
@@ -6663,6 +6823,43 @@ def generate_orb_page_html() -> str:
             <ellipse cx="26" cy="32" rx="3" ry="2" fill="rgba(255,255,255,0.5)"/>
         </svg>
     </button>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settings-panel">
+        <h3>LLM Settings</h3>
+        <div class="settings-group">
+            <label>Provider</label>
+            <select id="settings-provider">
+                <option value="lm_studio">LM Studio (Local)</option>
+                <option value="openai">OpenAI</option>
+                <option value="anthropic">Anthropic</option>
+            </select>
+        </div>
+        <div class="settings-group">
+            <label>Endpoint</label>
+            <input type="text" id="settings-endpoint" placeholder="http://localhost:1234/v1/chat/completions">
+        </div>
+        <div class="settings-group">
+            <label>Model</label>
+            <input type="text" id="settings-model" placeholder="Model ID">
+        </div>
+        <div class="settings-group">
+            <label>API Key</label>
+            <input type="password" id="settings-apikey" placeholder="sk-... or $ENV_VAR">
+        </div>
+        <div class="settings-row">
+            <div class="settings-group">
+                <label>Temperature</label>
+                <input type="number" id="settings-temperature" min="0" max="2" step="0.1" value="0.7">
+            </div>
+            <div class="settings-group">
+                <label>Max Tokens</label>
+                <input type="number" id="settings-max-tokens" min="1" max="128000" value="2048">
+            </div>
+        </div>
+        <button class="settings-save" id="settings-save">Save Settings</button>
+        <div class="settings-status" id="settings-status"></div>
+    </div>
 
     <script>
         // 🎨 Orb Theme SVGs
@@ -6857,9 +7054,88 @@ def generate_orb_page_html() -> str:
             applyTheme(themes[nextIndex]);
         });
 
-        // ⚙️ Settings button - navigate to dashboard
-        document.getElementById('settings-btn').addEventListener('click', () => {
-            window.location.href = '/dashboard';
+        // ⚙️ Settings Panel Logic
+        const settingsBtn = document.getElementById('settings-btn');
+        const settingsPanel = document.getElementById('settings-panel');
+        const settingsStatus = document.getElementById('settings-status');
+
+        // Toggle settings panel
+        settingsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = settingsPanel.classList.toggle('visible');
+            settingsBtn.classList.toggle('active', isVisible);
+            if (isVisible) loadSettings();
+        });
+
+        // Close panel when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!settingsPanel.contains(e.target) && e.target !== settingsBtn) {
+                settingsPanel.classList.remove('visible');
+                settingsBtn.classList.remove('active');
+            }
+        });
+
+        // Prevent panel clicks from closing it
+        settingsPanel.addEventListener('click', (e) => e.stopPropagation());
+
+        // WebSocket connection for settings
+        let ws = null;
+        function connectWS() {
+            ws = new WebSocket('ws://127.0.0.1:17892');
+            ws.onopen = () => console.log('⚙️ Settings WS connected');
+            ws.onclose = () => setTimeout(connectWS, 2000);
+            ws.onerror = () => ws.close();
+            ws.onmessage = (e) => {
+                try {
+                    const msg = JSON.parse(e.data);
+                    if (msg.type === 'llm_config') {
+                        applySettings(msg.config);
+                    }
+                } catch (err) {
+                    console.warn('WS parse error:', err);
+                }
+            };
+        }
+        connectWS();
+
+        // Load settings from server
+        function loadSettings() {
+            if (ws?.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'get_llm_config' }));
+            }
+        }
+
+        // Apply settings to form
+        function applySettings(config) {
+            if (!config) return;
+            document.getElementById('settings-provider').value = config.provider || 'lm_studio';
+            document.getElementById('settings-endpoint').value = config.endpoint || '';
+            document.getElementById('settings-model').value = config.model || '';
+            document.getElementById('settings-apikey').value = config.api_key || '';
+            document.getElementById('settings-temperature').value = config.temperature ?? 0.7;
+            document.getElementById('settings-max-tokens').value = config.max_tokens ?? 2048;
+        }
+
+        // Save settings
+        document.getElementById('settings-save').addEventListener('click', async () => {
+            const config = {
+                provider: document.getElementById('settings-provider').value,
+                endpoint: document.getElementById('settings-endpoint').value,
+                model: document.getElementById('settings-model').value,
+                api_key: document.getElementById('settings-apikey').value,
+                temperature: parseFloat(document.getElementById('settings-temperature').value),
+                max_tokens: parseInt(document.getElementById('settings-max-tokens').value)
+            };
+
+            settingsStatus.textContent = 'Saving...';
+
+            if (ws?.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'set_llm_config', config }));
+                settingsStatus.textContent = '✓ Settings saved!';
+                setTimeout(() => { settingsStatus.textContent = ''; }, 2000);
+            } else {
+                settingsStatus.textContent = '✗ Not connected';
+            }
         });
     </script>
 </body>
@@ -6903,6 +7179,532 @@ class OrbPageHandler(SimpleHTTPRequestHandler):
 
             # Replace popup.js with popup_web.js for web context
             html = html.replace('popup.js', 'popup_web.js')
+
+            # ⚙️ Inject LLM Settings Panel - EXACT COPY from hud.js
+            settings_injection = '''
+<style>
+    /* 🎛️ Settings Orb - spinning Chrome-style, same size as main orbs */
+    .ome-settings-orb-container {
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+    .ome-settings-orb-container:hover {
+        transform: scale(1.15);
+    }
+    .ome-settings-orb {
+        width: 42px;
+        height: 42px;
+        position: relative;
+        animation: ome-settings-spin 24s linear infinite;
+    }
+    .ome-settings-orb-container:hover .ome-settings-orb {
+        animation-duration: 6s;
+    }
+    .ome-settings-orb svg {
+        width: 100%;
+        height: 100%;
+    }
+    /* Chrome-style segments */
+    .ome-settings-orb .segment {
+        fill: none;
+        stroke-width: 5;
+        stroke-linecap: round;
+    }
+    .ome-settings-orb .seg1 { stroke: rgba(126,200,227, 0.9); }
+    .ome-settings-orb .seg2 { stroke: rgba(126,200,227, 0.6); }
+    .ome-settings-orb .seg3 { stroke: rgba(126,200,227, 0.3); }
+    .ome-settings-orb .center-dot {
+        fill: rgba(126,200,227, 1);
+    }
+    @keyframes ome-settings-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* Settings panel styles - matches new chat input styling */
+    .ome-settings-panel {
+        display: none;
+        position: fixed;
+        bottom: 74px;
+        left: 24px;
+        width: 280px;
+        background: rgb(32, 33, 36);
+        border: 1px solid rgba(126,200,227, 0.2);
+        border-radius: 10px;
+        padding: 14px;
+        z-index: 1001;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    .ome-settings-panel.open {
+        display: block;
+    }
+    /* Title - faded like "Unsaved" label */
+    .ome-settings-panel h3 {
+        margin: 0 0 14px 0;
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255,255,255,0.35);
+        letter-spacing: 0.3px;
+    }
+    .ome-settings-group {
+        margin-bottom: 14px;
+    }
+    /* Labels - faded gray, uppercase */
+    .ome-settings-group label {
+        display: block;
+        font-size: 10px;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
+    /* Throb animation for focused inputs */
+    @keyframes ome-settings-throb {
+        0%, 100% { border-color: rgba(126,200,227, 0.35); }
+        50% { border-color: rgba(126,200,227, 0.6); }
+    }
+    /* Inputs - match New Chat input style with theme border + theme text */
+    .ome-settings-group select,
+    .ome-settings-group input {
+        width: 100%;
+        padding: 10px 12px;
+        background: transparent;
+        border: 1px solid rgba(126,200,227, 0.3);
+        border-radius: 6px;
+        color: rgba(126,200,227, 0.9);
+        font-size: 13px;
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+    }
+    .ome-settings-group select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(126,200,227,0.5)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 14px;
+        padding-right: 34px;
+        cursor: pointer;
+    }
+    .ome-settings-group select option {
+        background: rgba(30, 30, 35, 0.98);
+        color: rgba(255,255,255,0.85);
+        padding: 8px;
+    }
+    .ome-settings-group select:hover,
+    .ome-settings-group input:hover {
+        border-color: rgba(126,200,227, 0.45);
+    }
+    .ome-settings-group select:focus,
+    .ome-settings-group input:focus {
+        outline: none;
+        border-color: rgba(126,200,227, 0.5);
+        animation: ome-settings-throb 1.5s ease-in-out infinite;
+    }
+    .ome-settings-group input::placeholder {
+        color: rgba(255,255,255,0.25);
+        font-style: italic;
+    }
+    /* Model wrapper - stack select and custom input */
+    .ome-settings-model-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .ome-settings-row {
+        display: flex;
+        gap: 10px;
+    }
+    .ome-settings-row .ome-settings-group {
+        flex: 1;
+    }
+    /* Save button - theme colored border like inputs */
+    .ome-settings-save {
+        width: 100%;
+        padding: 10px;
+        margin-top: 4px;
+        background: transparent;
+        border: 1px solid rgba(126,200,227, 0.3);
+        border-radius: 6px;
+        color: rgba(126,200,227, 0.7);
+        font-size: 13px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .ome-settings-save:hover {
+        border-color: rgba(126,200,227, 0.5);
+        color: rgba(126,200,227, 0.9);
+    }
+    .ome-settings-status {
+        margin-top: 10px;
+        font-size: 11px;
+        text-align: center;
+        color: rgba(100, 200, 100, 0.6);
+    }
+</style>
+
+<!-- Settings Orb (bottom left) - Chrome-style spinning -->
+<div class="ome-settings-orb-container" id="ome-settings-orb">
+    <div class="ome-settings-orb">
+        <svg viewBox="0 0 32 32">
+            <!-- Chrome-style spinning segments -->
+            <circle class="segment seg1" cx="16" cy="16" r="12" stroke-dasharray="19 57" stroke-dashoffset="0"/>
+            <circle class="segment seg2" cx="16" cy="16" r="12" stroke-dasharray="19 57" stroke-dashoffset="-25"/>
+            <circle class="segment seg3" cx="16" cy="16" r="12" stroke-dasharray="19 57" stroke-dashoffset="-50"/>
+            <!-- Center dot -->
+            <circle class="center-dot" cx="16" cy="16" r="4"/>
+        </svg>
+    </div>
+</div>
+
+<!-- Settings Panel -->
+<div class="ome-settings-panel" id="ome-settings-panel">
+    <h3>LLM Settings</h3>
+    <div class="ome-settings-group">
+        <label>Provider</label>
+        <select class="ome-settings-provider">
+            <option value="lm_studio">LM Studio (Local)</option>
+            <option value="openai">OpenAI</option>
+            <option value="anthropic">Anthropic</option>
+        </select>
+    </div>
+    <div class="ome-settings-group">
+        <label>Endpoint</label>
+        <input type="text" class="ome-settings-endpoint" placeholder="http://localhost:1234/v1/chat/completions">
+    </div>
+    <div class="ome-settings-group">
+        <label>Model</label>
+        <div class="ome-settings-model-wrapper">
+            <select class="ome-settings-model-select">
+                <option value="">Select a model...</option>
+            </select>
+            <input type="text" class="ome-settings-model-custom" placeholder="Custom model ID..." style="display: none;">
+        </div>
+    </div>
+    <div class="ome-settings-group">
+        <label>API Key</label>
+        <input type="password" class="ome-settings-apikey" placeholder="sk-... or $ENV_VAR">
+    </div>
+    <div class="ome-settings-row">
+        <div class="ome-settings-group">
+            <label>Temperature</label>
+            <input type="number" class="ome-settings-temperature" min="0" max="2" step="0.1" value="0.7">
+        </div>
+        <div class="ome-settings-group">
+            <label>Max Tokens</label>
+            <input type="number" class="ome-settings-max-tokens" min="1" max="128000" value="2048">
+        </div>
+    </div>
+    <button class="ome-settings-save">Save Settings</button>
+    <div class="ome-settings-status"></div>
+</div>
+
+<script>
+(function() {
+    // ⚙️ LLM Settings Panel - Uses SAME execute_capability actions as HUD
+    const settingsOrb = document.getElementById('ome-settings-orb');
+    const settingsPanel = document.getElementById('ome-settings-panel');
+    const settingsStatus = settingsPanel.querySelector('.ome-settings-status');
+
+    // 🎛️ Model config data (from llm_models.json)
+    const LLM_MODELS = {
+        "openai": {
+            "endpoint": "https://api.openai.com/v1/chat/completions",
+            "models": [
+                { "id": "gpt-5.2", "name": "GPT-5.2 (Flagship)", "default": true },
+                { "id": "gpt-5.1", "name": "GPT-5.1" },
+                { "id": "gpt-5", "name": "GPT-5" },
+                { "id": "gpt-5-mini", "name": "GPT-5 Mini" },
+                { "id": "gpt-5-nano", "name": "GPT-5 Nano" },
+                { "id": "gpt-4.1", "name": "GPT-4.1" },
+                { "id": "gpt-4.1-mini", "name": "GPT-4.1 Mini" },
+                { "id": "gpt-4.1-nano", "name": "GPT-4.1 Nano (Fastest)" },
+                { "id": "gpt-4o", "name": "GPT-4o" },
+                { "id": "o3", "name": "O3 (Reasoning)" }
+            ]
+        },
+        "anthropic": {
+            "endpoint": "https://api.anthropic.com/v1/messages",
+            "models": []
+        },
+        "lm_studio": {
+            "endpoint": "http://localhost:1234/v1/chat/completions",
+            "models": []
+        }
+    };
+
+    // Current full config from server
+    let currentConfig = null;
+
+    // Toggle settings panel
+    settingsOrb.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = settingsPanel.classList.toggle('open');
+        if (isOpen) loadSettingsIntoPanel();
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!settingsPanel.contains(e.target) && !settingsOrb.contains(e.target)) {
+            settingsPanel.classList.remove('open');
+        }
+    });
+
+    // Prevent panel clicks from closing it
+    settingsPanel.addEventListener('click', (e) => e.stopPropagation());
+
+    // WebSocket connection
+    let ws = null;
+    let pendingCallbacks = {};
+
+    function connectWS() {
+        ws = new WebSocket('ws://127.0.0.1:17892');
+        ws.onopen = () => console.log('⚙️ Settings WS connected');
+        ws.onclose = () => setTimeout(connectWS, 2000);
+        ws.onerror = () => ws.close();
+        ws.onmessage = (e) => {
+            try {
+                const msg = JSON.parse(e.data);
+                // Handle capability responses
+                if (msg.id && pendingCallbacks[msg.id]) {
+                    pendingCallbacks[msg.id](msg);
+                    delete pendingCallbacks[msg.id];
+                }
+            } catch (err) {
+                console.warn('WS parse error:', err);
+            }
+        };
+    }
+    connectWS();
+
+    // Send capability and wait for response (same pattern as HUD)
+    function sendCapability(action, params = {}) {
+        return new Promise((resolve) => {
+            if (ws?.readyState !== WebSocket.OPEN) {
+                resolve({ error: 'Not connected' });
+                return;
+            }
+            const id = `cap_${action}_${Date.now()}`;
+            pendingCallbacks[id] = resolve;
+            ws.send(JSON.stringify({
+                type: 'execute_capability',
+                id: id,
+                action: action,
+                params: params
+            }));
+            // Timeout after 5s
+            setTimeout(() => {
+                if (pendingCallbacks[id]) {
+                    delete pendingCallbacks[id];
+                    resolve({ error: 'Timeout' });
+                }
+            }, 5000);
+        });
+    }
+
+    // Get default endpoint for provider
+    function getDefaultEndpoint(provider) {
+        return LLM_MODELS[provider]?.endpoint || '';
+    }
+
+    // Get models for provider
+    function getModelsForProvider(provider) {
+        return LLM_MODELS[provider]?.models || [];
+    }
+
+    // Populate model dropdown for provider
+    function populateModelList(provider, currentModel = '') {
+        const modelSelect = settingsPanel.querySelector('.ome-settings-model-select');
+        const customInput = settingsPanel.querySelector('.ome-settings-model-custom');
+        if (!modelSelect) return;
+
+        modelSelect.innerHTML = '';
+        const models = getModelsForProvider(provider);
+
+        for (const model of models) {
+            const option = document.createElement('option');
+            option.value = model.id;
+            option.textContent = model.name ? `${model.name} (${model.id})` : model.id;
+            modelSelect.appendChild(option);
+        }
+
+        const customOption = document.createElement('option');
+        customOption.value = '__custom__';
+        customOption.textContent = '— Other (Custom) —';
+        modelSelect.appendChild(customOption);
+
+        if (currentModel) {
+            const existsInList = models.some(m => m.id === currentModel);
+            if (existsInList) {
+                modelSelect.value = currentModel;
+                if (customInput) customInput.style.display = 'none';
+            } else {
+                modelSelect.value = '__custom__';
+                if (customInput) {
+                    customInput.value = currentModel;
+                    customInput.style.display = 'block';
+                }
+            }
+        } else {
+            const defaultModel = models.find(m => m.default);
+            if (defaultModel) modelSelect.value = defaultModel.id;
+            if (customInput) customInput.style.display = 'none';
+        }
+
+        syncTemperatureAvailability();
+    }
+
+    function getSelectedModel() {
+        const modelSelect = settingsPanel.querySelector('.ome-settings-model-select');
+        const customInput = settingsPanel.querySelector('.ome-settings-model-custom');
+        if (modelSelect?.value === '__custom__') return customInput?.value || '';
+        return modelSelect?.value || '';
+    }
+
+    function modelSupportsTemperature(modelId) {
+        const id = (modelId || '').toLowerCase().trim();
+        if (!id) return true;
+        return !(id.includes('gpt-5') || id.includes('o3') || id.includes('o1'));
+    }
+
+    function syncTemperatureAvailability() {
+        const tempInput = settingsPanel.querySelector('.ome-settings-temperature');
+        if (!tempInput) return;
+        const modelId = getSelectedModel();
+        const supported = modelSupportsTemperature(modelId);
+        tempInput.disabled = !supported;
+        tempInput.title = supported ? '' : 'This model does not support temperature.';
+    }
+
+    // 🎛️ Load config using GetLLMConfig capability (SAME as HUD)
+    async function loadSettingsIntoPanel() {
+        const response = await sendCapability('GetLLMConfig', {});
+
+        if (response?.result?.config) {
+            const config = response.result.config;
+            currentConfig = config;
+            const activeProvider = config.active_provider;
+            const provider = config.providers?.[activeProvider] || {};
+            const settings = config.settings || {};
+
+            // Populate provider dropdown with all available providers
+            const providerSelect = settingsPanel.querySelector('.ome-settings-provider');
+            if (providerSelect) {
+                providerSelect.innerHTML = '';
+                for (const [key, prov] of Object.entries(config.providers || {})) {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = prov.name || key;
+                    if (key === activeProvider) option.selected = true;
+                    providerSelect.appendChild(option);
+                }
+            }
+
+            const endpointInput = settingsPanel.querySelector('.ome-settings-endpoint');
+            const apikeyInput = settingsPanel.querySelector('.ome-settings-apikey');
+            const tempInput = settingsPanel.querySelector('.ome-settings-temperature');
+            const tokensInput = settingsPanel.querySelector('.ome-settings-max-tokens');
+
+            if (endpointInput) endpointInput.value = provider.endpoint || getDefaultEndpoint(activeProvider) || '';
+            if (apikeyInput) apikeyInput.value = provider.api_key || '';
+            if (tempInput) tempInput.value = settings.temperature ?? 0.7;
+            if (tokensInput) tokensInput.value = settings.max_tokens ?? 2048;
+
+            populateModelList(activeProvider, provider.model || '');
+            console.log('⚙️ Settings loaded:', activeProvider);
+        }
+    }
+
+    // Provider dropdown change
+    settingsPanel.querySelector('.ome-settings-provider')?.addEventListener('change', async (e) => {
+        const provider = e.target.value;
+        if (!currentConfig) return;
+
+        const providerConfig = currentConfig.providers?.[provider] || {};
+        const endpointInput = settingsPanel.querySelector('.ome-settings-endpoint');
+        const apikeyInput = settingsPanel.querySelector('.ome-settings-apikey');
+
+        if (endpointInput) endpointInput.value = providerConfig.endpoint || getDefaultEndpoint(provider) || '';
+        if (apikeyInput) apikeyInput.value = providerConfig.api_key || '';
+
+        populateModelList(provider, providerConfig.model || '');
+    });
+
+    // Model select change
+    settingsPanel.querySelector('.ome-settings-model-select')?.addEventListener('change', (e) => {
+        const customInput = settingsPanel.querySelector('.ome-settings-model-custom');
+        if (!customInput) return;
+        const show = e.target.value === '__custom__';
+        customInput.style.display = show ? 'block' : 'none';
+        if (show) { customInput.focus(); customInput.select?.(); }
+        syncTemperatureAvailability();
+    });
+
+    settingsPanel.querySelector('.ome-settings-model-custom')?.addEventListener('input', () => {
+        syncTemperatureAvailability();
+    });
+
+    // 🎛️ Save using SAME capability calls as HUD
+    settingsPanel.querySelector('.ome-settings-save').addEventListener('click', async () => {
+        const provider = settingsPanel.querySelector('.ome-settings-provider')?.value;
+        const endpoint = settingsPanel.querySelector('.ome-settings-endpoint')?.value;
+        const model = getSelectedModel();
+        const apikey = settingsPanel.querySelector('.ome-settings-apikey')?.value;
+        const temperature = parseFloat(settingsPanel.querySelector('.ome-settings-temperature')?.value || '0.7');
+        const maxTokens = parseInt(settingsPanel.querySelector('.ome-settings-max-tokens')?.value || '2048');
+
+        settingsStatus.textContent = 'Saving...';
+
+        try {
+            // Set active provider
+            await sendCapability('SetLLMProvider', { provider });
+
+            // Set endpoint
+            if (endpoint) {
+                await sendCapability('SetLLMEndpoint', { provider, endpoint });
+            }
+
+            // Set model
+            if (model) {
+                await sendCapability('SetLLMModel', { provider, model });
+            }
+
+            // Set API key (only if not masked)
+            if (apikey && !apikey.startsWith('***')) {
+                await sendCapability('SetLLMAPIKey', { provider, api_key: apikey });
+            }
+
+            // Set temperature
+            await sendCapability('SetTemperature', { temperature });
+
+            // Set max tokens
+            await sendCapability('SetMaxTokens', { max_tokens: maxTokens });
+
+            // Reload config
+            await sendCapability('ReloadLLMConfig', {});
+
+            settingsStatus.textContent = '✓ Settings saved!';
+            setTimeout(() => { settingsStatus.textContent = ''; }, 2000);
+            console.log('⚙️ Settings saved and LLM config reloaded');
+
+        } catch (err) {
+            console.error('⚙️ Error saving settings:', err);
+            settingsStatus.textContent = '✗ Error saving';
+        }
+    });
+})();
+</script>
+'''
+            # Inject before </body>
+            html = html.replace('</body>', settings_injection + '</body>')
 
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
