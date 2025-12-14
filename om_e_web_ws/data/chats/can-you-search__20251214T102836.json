@@ -1,0 +1,27 @@
+{
+  "chat_id": "can-you-search__20251214T102836",
+  "project_id": "default",
+  "created_at": "2025-12-14T10:28:36.635951Z",
+  "updated_at": "2025-12-14T10:28:38.072955Z",
+  "title": "can you search",
+  "default_title": "can you search",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.linkedin.com/jobs/",
+    "page_title": "Jobs | LinkedIn"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "can you search for solutions architect",
+      "timestamp": "2025-12-14T10:28:36.635984Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "On it, mate. Searching for \"solutions architect\" now.\n\n{\"act\": \"Input:Describe the job you want\", \"value\": \"solutions architect\", \"submit\": true}",
+      "timestamp": "2025-12-14T10:28:38.072955Z"
+    }
+  ]
+}

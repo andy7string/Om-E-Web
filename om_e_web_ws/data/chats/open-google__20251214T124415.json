@@ -1,0 +1,39 @@
+{
+  "chat_id": "open-google__20251214T124415",
+  "project_id": "default",
+  "created_at": "2025-12-14T12:44:15.565690Z",
+  "updated_at": "2025-12-14T12:44:23.762427Z",
+  "title": "open google",
+  "default_title": "open google",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-14T12:44:15.565727Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening Google for you.\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T12:44:16.929111Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "search for cats",
+      "timestamp": "2025-12-14T12:44:22.376863Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Searching for cats now.\n{\"act\": 7, \"value\": \"cats\", \"submit\": true}",
+      "timestamp": "2025-12-14T12:44:23.762427Z"
+    }
+  ]
+}

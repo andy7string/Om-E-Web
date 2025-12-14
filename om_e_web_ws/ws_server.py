@@ -124,14 +124,16 @@ async def broadcast_to_web_dashboards(message: dict, exclude_ws=None):
         WEB_DASHBOARD_CLIENTS.discard(client)
 
 
-def get_element_info(action_id: str) -> Optional[dict]:
+def get_element_info(action_id: int | str) -> Optional[dict]:
     """
     Get element metadata from registry for action type resolution.
+
+    🧪 NUMERIC ID SYSTEM: Accepts int or str, converts to str for lookup.
 
     Returns: {"type": "Link|Button|Input|Select", "tag": "a|button|...", "label": "...", "href": "...", "iframe": bool}
     Or None if not found.
     """
-    return ELEMENT_REGISTRY.get(action_id)
+    return ELEMENT_REGISTRY.get(str(action_id))
 
 
 def translate_tab_params(params: dict) -> tuple[dict, str | None]:
@@ -2615,11 +2617,10 @@ def write_text_md():
     🔄 Write/regenerate text.md AND text.json using stored page data + current tabs.
     Called on intelligence_update ONLY (not on tab changes).
 
-    text.json contains resolution hints for each action ID:
-    - label: Display text for the element
-    - type: Element type (Button, Link, Input, etc.)
-    - tag: HTML tag name
-    - selectors: Array of CSS selectors for resolution
+    🧪 EXPERIMENT: Numeric ID system
+    - text.json keyed by "0", "1", "2"... for simple LLM output
+    - text.md shows [0] Type: Label format
+    - LLM outputs {"act": 0} or {"act": "0", "value": "..."}
     """
     global LAST_TEXT_MD_DATA, CURRENT_TEXT_JSON
 
@@ -2632,7 +2633,7 @@ def write_text_md():
         text_json_path = os.path.join("@site_structures", "text.json")
         timestamp = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
 
-        # 🆕 Build text.json structure for stable act refs (no a_id_* externally)
+        # 🧪 NUMERIC ID SYSTEM: Build text.json with "0", "1", "2"... keys
         text_json = {
             "metadata": {
                 "url": data.get('url', ''),
@@ -2643,30 +2644,21 @@ def write_text_md():
             "elements": {}
         }
 
-        # Stable refs: "Type:Label" with disambiguation suffix for duplicates ("#2", "#3", ...)
-        def _stable_act_ref(el: dict) -> str:
-            kind = (el.get("type") or "").strip() or "Element"
-            label = (el.get("label") or "").strip() or "Unnamed"
-            label = " ".join(label.split())
-            return f"{kind}:{label}"
+        # Map a_id_* to numeric index (0, 1, 2...)
+        action_id_to_index: dict[str, int] = {}
+        index = 0
 
-        stable_counts: dict[str, int] = {}
-        action_id_to_stable: dict[str, str] = {}
-
-        # Populate elements keyed by stable act ref (no a_id_* keys in text.json)
+        # Populate elements keyed by numeric index
         for action_id, el_data in ELEMENT_REGISTRY.items():
-            base = _stable_act_ref(el_data)
-            n = stable_counts.get(base, 0) + 1
-            stable_counts[base] = n
-            stable = base if n == 1 else f"{base}#{n}"
-            action_id_to_stable[action_id] = stable
-            text_json["elements"][stable] = {
+            action_id_to_index[action_id] = index
+            text_json["elements"][str(index)] = {
                 "label": el_data.get("label", ""),
                 "type": el_data.get("type", ""),
                 "tag": el_data.get("tag", ""),
                 "selectors": el_data.get("selectors", []),
                 "href": el_data.get("href")
             }
+            index += 1
 
         # Write text.json
         with open(text_json_path, 'w', encoding='utf-8') as f:
@@ -2675,19 +2667,42 @@ def write_text_md():
         # Store in memory for fast lookup during action execution
         CURRENT_TEXT_JSON = text_json
 
-        def _rewrite_page_text_ids(page_text: str) -> str:
-            # Replace {"act": "a_id_123"} with {"act": "Type:Label"}
-            # Keep any unknown IDs as-is (safe fallback).
+        def _rewrite_page_text_to_numeric_ids(page_text: str) -> str:
+            """
+            🧪 Convert page_text to show exact JSON format for each element type:
+              Link/Button: [0] Link: Gmail → {"act": 0}
+              Input/Select: [3] Input: Search → {"act": 3, "value": "...", "submit": true}
+            """
             try:
-                pattern = r'("act"\s*:\s*")(?P<id>a_id_[^"]+)(")'
+                lines = page_text.split('\n')
+                result_lines = []
 
-                def repl(m):
-                    aid = m.group("id")
-                    stable = action_id_to_stable.get(aid) or aid
-                    stable = stable.replace('"', '\\"')
-                    return f'{m.group(1)}{stable}{m.group(3)}'
+                for line in lines:
+                    # Match lines with → {"act": "a_id_XXX"...}
+                    match = re.search(r'^(.+?)\s*→\s*\{"act":\s*"(a_id_\d+)"', line)
+                    if match:
+                        label_part = match.group(1).strip()
+                        action_id = match.group(2)
+                        idx = action_id_to_index.get(action_id)
+                        if idx is not None:
+                            # Determine element type from label prefix
+                            el_type = label_part.split(':')[0].strip() if ':' in label_part else ''
 
-                return re.sub(pattern, repl, page_text)
+                            # Show exact JSON format based on element type
+                            if el_type in ('Input', 'Select'):
+                                # Input/Select needs value parameter
+                                result_lines.append(f'[{idx}] {label_part} → {{"act": {idx}, "value": "...", "submit": true}}')
+                            else:
+                                # Link/Button just needs the ID
+                                result_lines.append(f'[{idx}] {label_part} → {{"act": {idx}}}')
+                        else:
+                            # Keep original if no mapping
+                            result_lines.append(line)
+                    else:
+                        # Non-action lines pass through unchanged
+                        result_lines.append(line)
+
+                return '\n'.join(result_lines)
             except Exception:
                 return page_text
 
@@ -2760,22 +2775,39 @@ def write_text_md():
                 f.write("\n---\n\n")
 
             f.write("---\n\n")
-            f.write(_rewrite_page_text_ids(data.get('page_text', '')))
+            f.write(_rewrite_page_text_to_numeric_ids(data.get('page_text', '')))
 
-            # Iframe elements
+            # Iframe elements - 🧪 use numeric IDs continuing from main frame
             if data.get('iframe_elements'):
                 f.write("\n\n---\n\n## Secure Iframe Elements\n\n")
                 f.write("*These elements are inside secure cross-origin iframes:*\n\n")
+                iframe_index = index  # Continue from where main frame left off
                 for el in data['iframe_elements']:
-                    action_id = el.get('actionId', 'unknown')
                     tag = el.get('tag', 'input')
                     text = el.get('text') or el.get('label') or el.get('placeholder') or 'Unnamed'
-                    if tag == 'button':
-                        f.write(f"Button: {text} [iframe] → {{\"act\": \"{action_id}\"}}\n")
-                    elif tag == 'select':
-                        f.write(f"Select: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"option\"}}\n")
+                    el_type = 'Button' if tag == 'button' else ('Select' if tag == 'select' else 'Input')
+
+                    # Add to text.json
+                    text_json["elements"][str(iframe_index)] = {
+                        "label": text,
+                        "type": el_type,
+                        "tag": tag,
+                        "selectors": el.get('selectors', []),
+                        "iframe": True
+                    }
+
+                    # Write to text.md with numeric ID and exact JSON format
+                    if el_type in ('Input', 'Select'):
+                        f.write(f'[{iframe_index}] {el_type}: {text} [iframe] → {{"act": {iframe_index}, "value": "...", "submit": true}}\n')
                     else:
-                        f.write(f"Input: {text} [iframe] → {{\"act\": \"{action_id}\", \"value\": \"...\", \"submit\": true}}\n")
+                        f.write(f'[{iframe_index}] {el_type}: {text} [iframe] → {{"act": {iframe_index}}}\n')
+                    iframe_index += 1
+
+                # Re-write text.json with iframe elements included
+                with open(text_json_path, 'w', encoding='utf-8') as jf:
+                    json.dump(text_json, jf, indent=2, ensure_ascii=False)
+                CURRENT_TEXT_JSON = text_json
+
             elif data.get('pending_iframes', 0) > 0:
                 f.write("\n\n---\n\n## Secure Iframe Elements\n\n")
                 f.write(f"*⏳ Loading {data['pending_iframes']} iframe(s)...*\n")
@@ -2791,38 +2823,41 @@ def write_text_md():
 
 def resolve_action_hints(action_id):
     """
-    🆕 Look up resolution hints from text.json (in memory).
+    🧪 NUMERIC ID SYSTEM: Look up resolution hints from text.json (in memory).
 
-    NOTE: text.json is keyed by stable refs ("Type:Label[#n]") so a_id_* is legacy only.
-    If given a_id_*, we try to map via ELEMENT_REGISTRY → stable base key.
+    text.json is now keyed by numeric strings ("0", "1", "2"...).
+    Accepts: int (7), str ("7"), or legacy formats.
 
-    @param action_id: stable act ref or legacy a_id_*
+    @param action_id: numeric ID (int or str) or legacy a_id_*/Type:Label
     @returns: {label, type, tag, selectors, href} or None
     """
     global CURRENT_TEXT_JSON
 
+    # Normalize to string for lookup (text.json uses string keys)
+    lookup_key = str(action_id) if action_id is not None else None
+
     # Try in-memory first
     if CURRENT_TEXT_JSON and CURRENT_TEXT_JSON.get("elements"):
-        # 1) Stable lookup
-        if isinstance(action_id, str):
-            hints = CURRENT_TEXT_JSON["elements"].get(action_id)
+        # 1) Direct numeric lookup (primary path)
+        if lookup_key:
+            hints = CURRENT_TEXT_JSON["elements"].get(lookup_key)
             if hints:
+                print(f"   ✅ Resolved numeric ID {lookup_key}: {hints.get('label')} ({hints.get('type')})")
                 return hints
 
-            # 2) Legacy lookup: a_id_* → stable base key
-            if action_id.startswith("a_id_"):
-                try:
-                    el = ELEMENT_REGISTRY.get(action_id) or {}
-                    base = f"{(el.get('type') or 'Element').strip()}:{' '.join((el.get('label') or 'Unnamed').split())}"
-                    # Find first matching stable key (or the exact base)
-                    elems = CURRENT_TEXT_JSON.get("elements", {})
-                    if base in elems:
-                        return elems.get(base)
-                    for k, v in elems.items():
-                        if isinstance(k, str) and k.startswith(base + "#"):
-                            return v
-                except Exception:
-                    pass
+        # 2) Legacy lookup: a_id_* (fallback, shouldn't happen with new system)
+        if isinstance(action_id, str) and action_id.startswith("a_id_"):
+            try:
+                el = ELEMENT_REGISTRY.get(action_id) or {}
+                base = f"{(el.get('type') or 'Element').strip()}:{' '.join((el.get('label') or 'Unnamed').split())}"
+                elems = CURRENT_TEXT_JSON.get("elements", {})
+                if base in elems:
+                    return elems.get(base)
+                for k, v in elems.items():
+                    if isinstance(k, str) and k.startswith(base + "#"):
+                        return v
+            except Exception:
+                pass
 
     # Fallback: load from file
     try:
@@ -2830,11 +2865,11 @@ def resolve_action_hints(action_id):
         print(f"   📂 Loading text.json from: {text_json_path}")
         with open(text_json_path, 'r', encoding='utf-8') as f:
             CURRENT_TEXT_JSON = json.load(f)
-        hints = CURRENT_TEXT_JSON.get("elements", {}).get(action_id)
+        hints = CURRENT_TEXT_JSON.get("elements", {}).get(lookup_key)
         if hints:
-            print(f"   ✅ Found hints for {action_id}: {hints.get('label')}")
+            print(f"   ✅ Found hints for {lookup_key}: {hints.get('label')}")
         else:
-            print(f"   ⚠️ {action_id} not in text.json")
+            print(f"   ⚠️ {lookup_key} not in text.json")
         return hints
     except Exception as e:
         print(f"   ❌ Failed to load text.json: {e}")
@@ -2859,15 +2894,28 @@ def _parse_action_descriptor(act: str) -> tuple[str | None, str | None]:
     return kind, label
 
 
-def infer_action_type_from_act(act: str, has_value: bool) -> str:
+def infer_action_type_from_act(act, has_value: bool) -> str:
     """
-    Infer the action type if we only have a stable reference (Type:Label).
+    🧪 NUMERIC ID SYSTEM: Infer the action type from numeric ID or Type:Label.
+
+    For numeric IDs, looks up the type in text.json.
     """
     if has_value:
         return "setValue"
-    kind, _label = _parse_action_descriptor(act)
+
+    # Try to get type from text.json (numeric ID path)
+    hints = resolve_action_hints(act)
+    if hints:
+        kind = hints.get("type", "").strip()
+        if kind in ("Input", "Select"):
+            return "click"
+        if kind in ("Link", "Button"):
+            return "click"
+        return "click"
+
+    # Legacy: parse Type:Label format
+    kind, _label = _parse_action_descriptor(str(act) if act else "")
     if kind in ("Input", "Select"):
-        # No value means "focus" semantics, but our pipeline supports click generically
         return "click"
     if kind in ("Link", "Button"):
         return "click"
@@ -2938,19 +2986,27 @@ def resolve_action_by_kind_and_label(kind: str, label: str, action_type: str | N
         return None
 
 
-def resolve_hints_for_act(act: str, action_type: str | None = None) -> dict | None:
+def resolve_hints_for_act(act: int | str, action_type: str | None = None) -> dict | None:
     """
-    Resolve hints for either:
-    - a_id_X (direct lookup), or
-    - Type:Label (search text.json for matching element).
+    Resolve hints for:
+    - 🧪 Numeric IDs: 7, "7" (direct lookup in text.json)
+    - a_id_X (direct lookup)
+    - Type:Label (search text.json for matching element)
     """
-    if not act:
+    if act is None:
         return None
+
+    # 🧪 NUMERIC ID SYSTEM: route numeric IDs through resolve_action_hints
+    if isinstance(act, int) or (isinstance(act, str) and act.isdigit()):
+        return resolve_action_hints(act)
+
     if isinstance(act, str) and act.startswith("a_id_"):
         return resolve_action_hints(act)
+
     kind, label = _parse_action_descriptor(act)  # stable reference
     if kind and label:
         return resolve_action_by_kind_and_label(kind, label, action_type=action_type)
+
     return None
 
 def get_current_tabs_info():

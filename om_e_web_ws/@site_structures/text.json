@@ -1,664 +1,1045 @@
 {
   "metadata": {
-    "url": "https://x.com/home",
-    "title": "(1) Home / X",
-    "timestamp": "2025-12-14T06:16:27Z",
-    "element_count": 56
+    "url": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI",
+    "title": "dog domestication from wolves - Google Search",
+    "timestamp": "2025-12-14T13:04:43Z",
+    "element_count": 92
   },
   "elements": {
-    "Link:View keyboard shortcuts": {
-      "label": "View keyboard shortcuts",
+    "0": {
+      "label": "Skip to main content",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/i/keyboard_shortcuts']",
-        "a.css-146c3p1.r-bcqeeo"
-      ],
-      "href": "https://x.com/i/keyboard_shortcuts"
-    },
-    "Button:Skip to home timeline": {
-      "label": "Skip to home timeline",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Skip to home timeline']",
-        "[aria-label='Skip to home timeline']",
-        "[role='button'][aria-label='Skip to home timeline']",
-        "button.css-175oi2r.r-sdzlij"
+        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ67oDCAU']",
+        "a.gyPpGe"
       ],
       "href": null
     },
-    "Button:Skip to trending": {
-      "label": "Skip to trending",
-      "type": "Button",
-      "tag": "button",
+    "1": {
+      "label": "Accessibility help",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Skip to trending']",
-        "[aria-label='Skip to trending']",
-        "[role='button'][aria-label='Skip to trending']",
-        "button.css-175oi2r.r-sdzlij"
+        "a[href*='/websearch/answer/181196']",
+        "a.gyPpGe"
+      ],
+      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
+    },
+    "2": {
+      "label": "Accessibility feedback",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-async-trigger='duf3-78']",
+        "a.gyPpGe"
       ],
       "href": null
     },
-    "Link:X": {
-      "label": "X",
-      "type": "Link",
-      "tag": "a",
+    "3": {
+      "label": "Search",
+      "type": "Select",
+      "tag": "textarea",
       "selectors": [
-        "a[aria-label='X']",
-        "[aria-label='X']",
-        "[role='link'][aria-label='X']",
-        "a[href*='/home']",
-        "a.css-175oi2r.r-sdzlij"
-      ],
-      "href": "https://x.com/home"
-    },
-    "Link:Home": {
-      "label": "Home",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Home']",
-        "[aria-label='Home']",
-        "[role='link'][aria-label='Home']",
-        "a[href*='/home']",
-        "[data-testid='AppTabBar_Home_Link']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/home"
-    },
-    "Link:Search and explore": {
-      "label": "Search and explore",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Search and explore']",
-        "[aria-label='Search and explore']",
-        "[role='link'][aria-label='Search and explore']",
-        "a[href*='/explore']",
-        "[data-testid='AppTabBar_Explore_Link']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/explore"
-    },
-    "Link:Notifications (1 unread notification)": {
-      "label": "Notifications (1 unread notification)",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Notifications (1 unread notification)']",
-        "[aria-label='Notifications (1 unread notification)']",
-        "[role='link'][aria-label='Notifications (1 unread notification)']",
-        "a[href*='/notifications']",
-        "[data-testid='AppTabBar_Notifications_Link']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/notifications"
-    },
-    "Link:Connect": {
-      "label": "Connect",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Connect']",
-        "[aria-label='Connect']",
-        "[role='link'][aria-label='Connect']",
-        "a[href*='/i/connect_people']",
-        "[data-testid='AppTabBar_Connect_Link']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/i/connect_people"
-    },
-    "Link:Direct Messages": {
-      "label": "Direct Messages",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Direct Messages']",
-        "[aria-label='Direct Messages']",
-        "[role='link'][aria-label='Direct Messages']",
-        "a[href*='/i/chat']",
-        "[data-testid='AppTabBar_DirectMessage_Link']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/i/chat"
-    },
-    "Link:Grok": {
-      "label": "Grok",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Grok']",
-        "[aria-label='Grok']",
-        "[role='link'][aria-label='Grok']",
-        "a[href*='/i/grok']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/i/grok"
-    },
-    "Link:Lists": {
-      "label": "Lists",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Lists']",
-        "[aria-label='Lists']",
-        "[role='link'][aria-label='Lists']",
-        "a[href*='/orsmond_andrew/lists']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/orsmond_andrew/lists"
-    },
-    "Link:Bookmarks": {
-      "label": "Bookmarks",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Bookmarks']",
-        "[aria-label='Bookmarks']",
-        "[role='link'][aria-label='Bookmarks']",
-        "a[href*='/i/bookmarks']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/i/bookmarks"
-    },
-    "Link:Communities": {
-      "label": "Communities",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Communities']",
-        "[aria-label='Communities']",
-        "[role='link'][aria-label='Communities']",
-        "a[href*='/orsmond_andrew/communities']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/orsmond_andrew/communities"
-    },
-    "Link:Premium": {
-      "label": "Premium",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Premium']",
-        "[aria-label='Premium']",
-        "[role='link'][aria-label='Premium']",
-        "a[href*='/i/premium_sign_up']",
-        "[data-testid='premium-signup-tab']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/i/premium_sign_up"
-    },
-    "Link:Profile": {
-      "label": "Profile",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Profile']",
-        "[aria-label='Profile']",
-        "[role='link'][aria-label='Profile']",
-        "a[href*='/orsmond_andrew']",
-        "[data-testid='AppTabBar_Profile_Link']",
-        "a.css-175oi2r.r-6koalj"
-      ],
-      "href": "https://x.com/orsmond_andrew"
-    },
-    "Button:More menu items": {
-      "label": "More menu items",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More menu items']",
-        "[aria-label='More menu items']",
-        "[role='button'][aria-label='More menu items']",
-        "[data-testid='AppTabBar_More_Menu']",
-        "button.css-175oi2r.r-6koalj"
+        "textarea[aria-label='Search']",
+        "[aria-label='Search']",
+        "#APjFqb",
+        "textarea[name='q']",
+        "[role='combobox'][aria-label='Search']",
+        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ39UDCA0']",
+        "textarea.gLFyf"
       ],
       "href": null
     },
-    "Link:Post": {
-      "label": "Post",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Post']",
-        "[aria-label='Post']",
-        "[role='link'][aria-label='Post']",
-        "a[href*='/compose/post']",
-        "[data-testid='SideNav_NewTweet_Button']",
-        "a.css-175oi2r.r-sdzlij"
-      ],
-      "href": "https://x.com/compose/post"
-    },
-    "Button:Account menu": {
-      "label": "Account menu",
+    "4": {
+      "label": "Clear",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Account menu']",
-        "[aria-label='Account menu']",
-        "[role='button'][aria-label='Account menu']",
-        "[data-testid='SideNav_AccountSwitcher_Button']",
-        "button.css-175oi2r.r-1awozwy"
-      ],
-      "href": null
-    },
-    "Button:For you": {
-      "label": "For you",
-      "type": "Button",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/home']",
-        "a.css-175oi2r.r-1awozwy"
-      ],
-      "href": "https://x.com/home"
-    },
-    "Button:Following": {
-      "label": "Following",
-      "type": "Button",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/home']",
-        "a.css-175oi2r.r-1awozwy"
-      ],
-      "href": "https://x.com/home"
-    },
-    "Input:Post text": {
-      "label": "Post text",
-      "type": "Input",
       "tag": "div",
       "selectors": [
-        "div[aria-label='Post text']",
-        "[aria-label='Post text']",
-        "[role='textbox'][aria-label='Post text']",
-        "[data-testid='tweetTextarea_0']",
-        "div.notranslate.public-DraftEditor-content"
+        "div[aria-label='Clear']",
+        "[aria-label='Clear']",
+        "[role='button'][aria-label='Clear']",
+        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ05YFCA4']",
+        "div.M2vV3.vOY7J"
       ],
       "href": null
     },
-    "Button:Add photos or video": {
-      "label": "Add photos or video",
+    "5": {
+      "label": "Search by voice",
       "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Add photos or video']",
-        "[aria-label='Add photos or video']",
-        "[role='button'][aria-label='Add photos or video']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Button:Add a GIF": {
-      "label": "Add a GIF",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Add a GIF']",
-        "[aria-label='Add a GIF']",
-        "[role='button'][aria-label='Add a GIF']",
-        "[data-testid='gifSearchButton']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Button:Enhance your post with Grok": {
-      "label": "Enhance your post with Grok",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Enhance your post with Grok']",
-        "[aria-label='Enhance your post with Grok']",
-        "[role='button'][aria-label='Enhance your post with Grok']",
-        "[data-testid='grokImgGen']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Button:Add poll": {
-      "label": "Add poll",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Add poll']",
-        "[aria-label='Add poll']",
-        "[role='button'][aria-label='Add poll']",
-        "[data-testid='createPollButton']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Button:Add emoji": {
-      "label": "Add emoji",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Add emoji']",
-        "[aria-label='Add emoji']",
-        "[role='button'][aria-label='Add emoji']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Button:Schedule post": {
-      "label": "Schedule post",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Schedule post']",
-        "[aria-label='Schedule post']",
-        "[role='button'][aria-label='Schedule post']",
-        "[data-testid='scheduleOption']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Button:Tag location": {
-      "label": "Tag location",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Tag location']",
-        "[aria-label='Tag location']",
-        "[role='button'][aria-label='Tag location']",
-        "[data-testid='geoButton']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Button:Post": {
-      "label": "Post",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "[data-testid='tweetButtonInline']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Input:Search query": {
-      "label": "Search query",
-      "type": "Input",
-      "tag": "input",
-      "selectors": [
-        "input[aria-label='Search query']",
-        "[aria-label='Search query']",
-        "input[placeholder='Search']",
-        "[role='combobox'][aria-label='Search query']",
-        "[data-testid='SearchBox_Search_Input']",
-        "input[type='text'][placeholder='Search']",
-        "input.r-30o5oe.r-1dz5y72"
-      ],
-      "href": null
-    },
-    "Link:Subscribe": {
-      "label": "Subscribe",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/i/premium_sign_up']",
-        "a.css-175oi2r.r-sdzlij"
-      ],
-      "href": "https://x.com/i/premium_sign_up"
-    },
-    "Button:Close": {
-      "label": "Close",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Close']",
-        "[aria-label='Close']",
-        "[role='button'][aria-label='Close']",
-        "button.css-175oi2r.r-sdzlij"
-      ],
-      "href": null
-    },
-    "Link:Shooting at Brown University Kills Two Students, Wounds Nine 9 hours ago · News · 214.1K posts": {
-      "label": "Shooting at Brown University Kills Two Students, Wounds Nine\n9 hours ago · News · 214.1K posts",
-      "type": "Link",
       "tag": "div",
       "selectors": [
-        "div.css-175oi2r.r-6koalj"
+        "div[aria-label='Search by voice']",
+        "[aria-label='Search by voice']",
+        "[role='button'][aria-label='Search by voice']",
+        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQvs8DCA8']",
+        "div.XDyW0e"
       ],
       "href": null
     },
-    "Link:Attorney-General Rowland to Repay $21,000 Family Trip Expenses 6 hours ago · News · 2,406 posts": {
-      "label": "Attorney-General Rowland to Repay $21,000 Family Trip Expenses\n6 hours ago · News · 2,406 posts",
-      "type": "Link",
+    "6": {
+      "label": "Search by image",
+      "type": "Button",
       "tag": "div",
       "selectors": [
-        "div.css-175oi2r.r-6koalj"
+        "div[aria-label='Search by image']",
+        "[aria-label='Search by image']",
+        "[role='button'][aria-label='Search by image']",
+        "[data-base-lens-url='https://lens.google.com']",
+        "div.nDcEnd"
       ],
       "href": null
     },
-    "Link:Australia Passes Supermarket Price Gouging Ban Targeting Coles and Woolworths 5 hours ago · News · 3,215 posts": {
-      "label": "Australia Passes Supermarket Price Gouging Ban Targeting Coles and Woolworths\n5 hours ago · News · 3,215 posts",
-      "type": "Link",
-      "tag": "div",
-      "selectors": [
-        "div.css-175oi2r.r-6koalj"
-      ],
-      "href": null
-    },
-    "Link:Trending in Australia Tom Silvagni": {
-      "label": "Trending in Australia\nTom Silvagni",
-      "type": "Link",
-      "tag": "div",
-      "selectors": [
-        "[data-testid='trend']",
-        "div.css-175oi2r.r-6koalj"
-      ],
-      "href": null
-    },
-    "Link:News · Trending Candace 115K posts": {
-      "label": "News · Trending\nCandace\n115K posts",
-      "type": "Link",
-      "tag": "div",
-      "selectors": [
-        "[data-testid='trend']",
-        "div.css-175oi2r.r-6koalj"
-      ],
-      "href": null
-    },
-    "Link:Brown University · Trending Brown University 187K posts": {
-      "label": "Brown University · Trending\nBrown University\n187K posts",
-      "type": "Link",
-      "tag": "div",
-      "selectors": [
-        "[data-testid='trend']",
-        "div.css-175oi2r.r-6koalj"
-      ],
-      "href": null
-    },
-    "Link:Trending in Australia #wbbl": {
-      "label": "Trending in Australia\n#wbbl",
-      "type": "Link",
-      "tag": "div",
-      "selectors": [
-        "[data-testid='trend']",
-        "div.css-175oi2r.r-6koalj"
-      ],
-      "href": null
-    },
-    "Link:Show more": {
-      "label": "Show more",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/explore/tabs/for-you']",
-        "a.css-175oi2r.r-w7s2jr"
-      ],
-      "href": "https://x.com/explore/tabs/for-you"
-    },
-    "Link:Windows": {
-      "label": "Windows",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/Windows']",
-        "a.css-175oi2r.r-1wbh5a2"
-      ],
-      "href": "https://x.com/Windows"
-    },
-    "Link:@Windows": {
-      "label": "@Windows",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/Windows']",
-        "a.css-175oi2r.r-1wbh5a2"
-      ],
-      "href": "https://x.com/Windows"
-    },
-    "Button:Follow @Windows": {
-      "label": "Follow @Windows",
+    "7": {
+      "label": "Search",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Follow @Windows']",
-        "[aria-label='Follow @Windows']",
-        "[role='button'][aria-label='Follow @Windows']",
-        "[data-testid='15670515-follow']",
-        "button.css-175oi2r.r-sdzlij"
+        "button[aria-label='Search']",
+        "[aria-label='Search']",
+        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ4dUDCBE']",
+        "button.HZVG1b.Tg7LZd"
       ],
       "href": null
     },
-    "Link:SABPP": {
-      "label": "SABPP",
+    "8": {
+      "label": "Google apps",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Google apps']",
+        "[aria-label='Google apps']",
+        "[role='button'][aria-label='Google apps']",
+        "a[href*='/intl/en/about/products']",
+        "a.gb_B"
+      ],
+      "href": "https://www.google.com.au/intl/en/about/products?tab=wh"
+    },
+    "9": {
+      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "a[href*='/SignOutOptions']",
+        "a.gb_B.gb_0a"
+      ],
+      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/search%3Fq%3Ddog%2Bdomestication%2Bfrom%2Bwolves%26sca_esv%3D48308ae346848ecf%26sxsrf%3DAE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%253A1765717256160%26ei%3DCLU-abrCCZi1vr0P1am5oAI&ec=futura_srp_og_si_72236_p"
+    },
+    "10": {
+      "label": "AI Mode",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/SABPP1']",
-        "a.css-175oi2r.r-1wbh5a2"
+        "a[href*='/search']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ2J8OegQIDRAE']",
+        "a.XVMlrc.C6AK7c"
       ],
-      "href": "https://x.com/SABPP1"
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=50&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&aep=1&ntc=1&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ2J8OegQIDRAE"
     },
-    "Link:@SABPP1": {
-      "label": "@SABPP1",
+    "11": {
+      "label": "All",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/SABPP1']",
-        "a.css-175oi2r.r-1wbh5a2"
+        "[data-hveid='CA8QAQ']",
+        "a.C6AK7c"
       ],
-      "href": "https://x.com/SABPP1"
+      "href": null
     },
-    "Button:Follow @SABPP1": {
-      "label": "Follow @SABPP1",
+    "12": {
+      "label": "Images",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBgQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQtKgLegQIGBAB"
+    },
+    "13": {
+      "label": "Videos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBAQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQtKgLegQIEBAB"
+    },
+    "14": {
+      "label": "Shopping",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBEQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&ved=1t:220175&ictx=111"
+    },
+    "15": {
+      "label": "Short videos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBIQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQs6gLegQIEhAB"
+    },
+    "16": {
+      "label": "Forums",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-hveid='CBcQAQ']",
+        "a.C6AK7c"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=18&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQs6gLegQIFxAB"
+    },
+    "17": {
+      "label": "More",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ7p0OegQIDRAG']",
+        "div.mTpL7c"
+      ],
+      "href": null
+    },
+    "18": {
+      "label": "Tools",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "#hdtb-tls",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ2x96BAgNEAg']",
+        "div.mOKdDc"
+      ],
+      "href": null
+    },
+    "19": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.H4fljf"
+      ],
+      "href": null
+    },
+    "20": {
+      "label": "Canis lupus familiaris",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-wiz-uids='TyG0Kb_f']",
+        "a.GI370e"
+      ],
+      "href": "https://www.google.com/search?q=Canis+lupus+familiaris&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIARAE"
+    },
+    "21": {
+      "label": "Canis lupus",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-wiz-uids='TyG0Kb_g']",
+        "a.GI370e"
+      ],
+      "href": "https://www.google.com/search?q=Canis+lupus&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIARAF"
+    },
+    "22": {
+      "label": "View related links",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Follow @SABPP1']",
-        "[aria-label='Follow @SABPP1']",
-        "[role='button'][aria-label='Follow @SABPP1']",
-        "[data-testid='335280494-follow']",
-        "button.css-175oi2r.r-sdzlij"
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
       ],
       "href": null
     },
-    "Link:Daily Wire": {
-      "label": "Daily Wire",
+    "23": {
+      "label": "»Food«",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/realDailyWire']",
-        "a.css-175oi2r.r-1wbh5a2"
+        "a[href*='/search']",
+        "[data-wiz-uids='TyG0Kb_11']",
+        "a.GI370e"
       ],
-      "href": "https://x.com/realDailyWire"
+      "href": "https://www.google.com/search?q=%C2%BBFood%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIAxAC"
     },
-    "Link:@realDailyWire": {
-      "label": "@realDailyWire",
+    "24": {
+      "label": "»Natural Selection«",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/realDailyWire']",
-        "a.css-175oi2r.r-1wbh5a2"
+        "a[href*='/search']",
+        "[data-wiz-uids='TyG0Kb_15']",
+        "a.GI370e"
       ],
-      "href": "https://x.com/realDailyWire"
+      "href": "https://www.google.com/search?q=%C2%BBNatural+Selection%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIAxAE"
     },
-    "Button:Follow @realDailyWire": {
-      "label": "Follow @realDailyWire",
+    "25": {
+      "label": "»Early Companions«",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-wiz-uids='TyG0Kb_19']",
+        "a.GI370e"
+      ],
+      "href": "https://www.google.com/search?q=%C2%BBEarly+Companions%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIAxAG"
+    },
+    "26": {
+      "label": "View related links",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Follow @realDailyWire']",
-        "[aria-label='Follow @realDailyWire']",
-        "[role='button'][aria-label='Follow @realDailyWire']",
-        "[data-testid='4081106480-follow']",
-        "button.css-175oi2r.r-sdzlij"
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
       ],
       "href": null
     },
-    "Link:Show more#2": {
-      "label": "Show more",
+    "27": {
+      "label": "»Genetic«",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/i/connect_people']",
-        "a.css-175oi2r.r-w7s2jr"
+        "a[href*='/search']",
+        "[data-wiz-uids='TyG0Kb_1t']",
+        "a.GI370e"
       ],
-      "href": "https://x.com/i/connect_people?user_id=1611535412564230144"
+      "href": "https://www.google.com/search?q=%C2%BBGenetic%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&mstk=AUtExfCnEJAua6juQEj_OW779IPPGxbKZbZGFD4Y05PNpgOlCUzR5No_tMy1i4CKEsATxjjxGxwRrs3vxwVjoTLKtFYYzH_9ZSrm8FsbsUx-oxQbXdH3bJbq1LLGDRYtsNY933GjsdeFmegAEuiVj03zf87vfR81_OnTzr1nyot9n1UgMOwb1fnwyU94JkvVgKMw0ARoFMQ7k3QP-8ZXb0NAX1zoEo2Xbzrme4M5aMhqf0zDO7-6yWQweyCSwk0CJrW6mSnBBuqd9STfrC7qhTBTaWeTRgkUVyj_iEJ5qNDQB5SsxA&csui=3&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIBRAB"
     },
-    "Link:Terms of Service": {
-      "label": "Terms of Service",
+    "28": {
+      "label": "»Two Domestication Events?«",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/tos']",
-        "a.css-146c3p1.r-bcqeeo"
+        "a[href*='/search']",
+        "[data-wiz-uids='TyG0Kb_1x']",
+        "a.GI370e"
       ],
-      "href": "https://x.com/tos"
+      "href": "https://www.google.com/search?q=%C2%BBTwo+Domestication+Events%3F%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&mstk=AUtExfCnEJAua6juQEj_OW779IPPGxbKZbZGFD4Y05PNpgOlCUzR5No_tMy1i4CKEsATxjjxGxwRrs3vxwVjoTLKtFYYzH_9ZSrm8FsbsUx-oxQbXdH3bJbq1LLGDRYtsNY933GjsdeFmegAEuiVj03zf87vfR81_OnTzr1nyot9n1UgMOwb1fnwyU94JkvVgKMw0ARoFMQ7k3QP-8ZXb0NAX1zoEo2Xbzrme4M5aMhqf0zDO7-6yWQweyCSwk0CJrW6mSnBBuqd9STfrC7qhTBTaWeTRgkUVyj_iEJ5qNDQB5SsxA&csui=3&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIBRAD"
     },
-    "Link:Privacy Policy": {
-      "label": "Privacy Policy",
+    "29": {
+      "label": "View related links",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
+      ],
+      "href": null
+    },
+    "30": {
+      "label": "View related links",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='View related links']",
+        "[aria-label='View related links']",
+        "[data-amic='true']",
+        "button.rBl3me"
+      ],
+      "href": null
+    },
+    "31": {
+      "label": "Domestication of the dog - Wikipedia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Domestication of the dog - Wikipedia']",
+        "[aria-label='Domestication of the dog - Wikipedia']",
+        "a[href*='/wiki/Domestication_of_the_dog']",
+        "a[href*='#:~:text=The%20dog%20is%20a%20wolf,remains%20occurring%2036%2C000%20years%20ago.']",
+        "[data-ved='2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQqYcPegQICBAC']",
+        "a.NDNGvf"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Domestication_of_the_dog#:~:text=The%20dog%20is%20a%20wolf,remains%20occurring%2036%2C000%20years%20ago."
+    },
+    "32": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "#snui-atr-3bU-ae37ErjU1e8P3dmW2Qg_38",
+        "[role='button'][aria-label='About this result']",
+        "[data-wiz-uids='TyG0Kb_4y']",
+        "div.xXnAhe"
+      ],
+      "href": null
+    },
+    "33": {
+      "label": "From Wolves to Pugs and Great Danes – The History of Dog ...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='From Wolves to Pugs and Great Danes – The History of Dog ...']",
+        "[aria-label='From Wolves to Pugs and Great Danes – The History of Dog ...']",
+        "a[href*='/article/evolution-of-dogs']",
+        "a[href*='#:~:text=Most%20researchers%20who%20study%20canine,20%2C000%20and%2040%2C000%20years%20ago.']",
+        "[data-ved='2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQqYcPegQICBAG']",
+        "a.NDNGvf"
+      ],
+      "href": "https://www.morrisanimalfoundation.org/article/evolution-of-dogs#:~:text=Most%20researchers%20who%20study%20canine,20%2C000%20and%2040%2C000%20years%20ago."
+    },
+    "34": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "#snui-atr-3bU-ae37ErjU1e8P3dmW2Qg_42",
+        "[role='button'][aria-label='About this result']",
+        "[data-wiz-uids='TyG0Kb_54']",
+        "div.xXnAhe"
+      ],
+      "href": null
+    },
+    "35": {
+      "label": "Wolves to woofs: The story of our oldest companions",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Wolves to woofs: The story of our oldest companions']",
+        "[aria-label='Wolves to woofs: The story of our oldest companions']",
+        "a[href*='/discover/wolves-to-woofs-the-story-of-our-oldest-companions.html']",
+        "a[href*='#:~:text=Evidence%20suggests%20that%20around%2030%2C000,a%20long%20period%20of%20time.']",
+        "[data-ved='2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQqYcPegQICBAK']",
+        "a.NDNGvf"
+      ],
+      "href": "https://www.nhm.ac.uk/discover/wolves-to-woofs-the-story-of-our-oldest-companions.html#:~:text=Evidence%20suggests%20that%20around%2030%2C000,a%20long%20period%20of%20time."
+    },
+    "36": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "#snui-atr-3bU-ae37ErjU1e8P3dmW2Qg_46",
+        "[role='button'][aria-label='About this result']",
+        "[data-wiz-uids='TyG0Kb_5a']",
+        "div.xXnAhe"
+      ],
+      "href": null
+    },
+    "37": {
+      "label": "Show all related links",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Show all related links']",
+        "[aria-label='Show all related links']",
+        "[role='button'][aria-label='Show all related links']",
+        "[data-ved='2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQt6QPegQICBAN']",
+        "div.BjvG9b"
+      ],
+      "href": null
+    },
+    "38": {
+      "label": "Show more AI Overview",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Show more AI Overview']",
+        "[aria-label='Show more AI Overview']",
+        "[role='button'][aria-label='Show more AI Overview']",
+        "[data-hveid='CAIQAQ']",
+        "div.Jzkafd"
+      ],
+      "href": null
+    },
+    "39": {
+      "label": "Domestication of the dog\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Domestication_of_the...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Domestication_of_the_dog']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECCAQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Domestication_of_the_dog"
+    },
+    "40": {
+      "label": "How did wolves become dogs? Time, food, selective ...\n\nInternational Wolf Center\nhttps://wolf.org › Wolf Info › Facts vs Fiction",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECB8QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://wolf.org/wolf-info/factsvsfiction/how-did-wolves-become-dogs-time-food-and-selective-breeding-is-the-likely-answer/"
+    },
+    "41": {
+      "label": "How Wolf Became Dog\n\nScientific American\nhttps://www.scientificamerican.com › article › how-wolf-...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/article/how-wolf-became-dog/']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECCIQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.scientificamerican.com/article/how-wolf-became-dog/"
+    },
+    "42": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "43": {
+      "label": "Dog Evolution\nYouTube · California Science Center\n30 May 2020",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/watch?v=9Y5Fwp7i-0E"
+    },
+    "44": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "45": {
+      "label": "Dog Evolution by California Science Center on YouTube. Play on Google. 3:17",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Dog Evolution by California Science Center on YouTube. Play on Google. 3:17']",
+        "[aria-label='Dog Evolution by California Science Center on YouTube. Play on Google. 3:17']",
+        "[role='button'][aria-label='Dog Evolution by California Science Center on YouTube. Play on Google. 3:17']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQj_EHegQIExAD']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "46": {
+      "label": "Wolves became dogs through domestication, starting with wolves that were less fearful of humans and living closer to them.",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[role='button'][aria-label='Wolves became dogs through domestication, starting with wolves that were less fearful of humans and living closer to them.']",
+        "[data-hveid='CBMQCA']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "47": {
+      "label": "Evolution of Dogs | How Wolf Became Dog | Origins of the Dog ...\nYouTube · Primeval Old Man\n28 Feb 2023",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/watch?v=w-XAQNXqlAI"
+    },
+    "48": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "49": {
+      "label": "Evolution of Dogs | How Wolf Became Dog | Origins of the Dog ... by Primeval Old Man on YouTube. Play on Google. 6:15",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[role='button'][aria-label='Evolution of Dogs | How Wolf Became Dog | Origins of the Dog ... by Primeval Old Man on YouTube. Play on Google. 6:15']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQj_EHegQIFBAD']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "50": {
+      "label": "Here is what today's science says about the key drivers of dog domestication.",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Here is what today\\'s science says about the key drivers of dog domestication.']",
+        "[aria-label='Here is what today\\'s science says about the key drivers of dog domestication.']",
+        "[role='button'][aria-label='Here is what today\\'s science says about the key drivers of dog domestication.']",
+        "[data-hveid='CBQQBw']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "51": {
+      "label": "Bizarre Discoveries About Evolution of Dogs in the Last 50000 ...\nYouTube · Anton Petrov\n3 days ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.rIRoqf"
+      ],
+      "href": "https://www.youtube.com/watch?v=QFXqYRIOEJ4"
+    },
+    "52": {
+      "label": "About this result",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='About this result']",
+        "[aria-label='About this result']",
+        "[role='button'][aria-label='About this result']",
+        "div.iTPLzd.rNSxBe"
+      ],
+      "href": null
+    },
+    "53": {
+      "label": "Bizarre Discoveries About Evolution of Dogs in the Last 50000 ... by Anton Petrov on YouTube. Play on Google. 15:47",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[role='button'][aria-label='Bizarre Discoveries About Evolution of Dogs in the Last 50000 ... by Anton Petrov on YouTube. Play on Google. 15:47']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ-JQHegQIFRAD']",
+        "div.rIRoqf.hXY9cf"
+      ],
+      "href": null
+    },
+    "54": {
+      "label": "View all videos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='View all videos']",
+        "[aria-label='View all videos']",
+        "a[href*='/search']",
+        "a.jRKCUd"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&udm=7&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8ccDKAJ6BAgWEAQ"
+    },
+    "55": {
+      "label": "From Wolves to Pugs and Great Danes – The History of ...\n\nMorris Animal Foundation\nhttps://www.morrisanimalfoundation.org › article › evo...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/article/evolution-of-dogs']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECC8QAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.morrisanimalfoundation.org/article/evolution-of-dogs"
+    },
+    "56": {
+      "label": "Being a Dog: A Review of the Domestication Process - PMC\n\nNational Institutes of Health (NIH) | (.gov)\nhttps://pmc.ncbi.nlm.nih.gov › articles › PMC10218297",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/articles/PMC10218297/']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDAQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10218297/"
+    },
+    "57": {
+      "label": "Rapid evolution of prehistoric dogs from wolves by natural and ...\n\nRoyal Society\nhttps://royalsocietypublishing.org › rspb › article › Rapi...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/rspb/article/292/2040/20242646/104837/Rapid-evolution-of-prehistoric-dogs-from-wolves-by']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDIQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://royalsocietypublishing.org/rspb/article/292/2040/20242646/104837/Rapid-evolution-of-prehistoric-dogs-from-wolves-by"
+    },
+    "58": {
+      "label": "Wolves to woofs: The story of our oldest companions\n\nNatural History Museum\nhttps://www.nhm.ac.uk › discover › wolves-to-woofs-th...",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/discover/wolves-to-woofs-the-story-of-our-oldest-companions.html']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDQQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.nhm.ac.uk/discover/wolves-to-woofs-the-story-of-our-oldest-companions.html"
+    },
+    "59": {
+      "label": "How did domesticated wolves turn into so many completely ...\n\nReddit · r/evolution\n80+ comments · 1 year ago",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/r/evolution/comments/1dv8hdp/how_did_domesticated_wolves_turn_into_so_many/']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDMQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://www.reddit.com/r/evolution/comments/1dv8hdp/how_did_domesticated_wolves_turn_into_so_many/"
+    },
+    "60": {
+      "label": "83 answers",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/r/evolution/comments/1dv8hdp/how_did_domesticated_wolves_turn_into_so_many/lblrczn/']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ4-4CegQIMRAB']",
+        "a.Zv9Ied"
+      ],
+      "href": "https://www.reddit.com/r/evolution/comments/1dv8hdp/how_did_domesticated_wolves_turn_into_so_many/lblrczn/"
+    },
+    "61": {
+      "label": "Dog\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Dog",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Dog']",
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDoQAQ']",
+        "a.zReHs"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Dog"
+    },
+    "62": {
+      "label": "Domestication",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Domestication_of_the_dog']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Domestication_of_the_dog"
+    },
+    "63": {
+      "label": "Domestication of vertebrates",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Domestication_of_vertebrates']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Domestication_of_vertebrates"
+    },
+    "64": {
+      "label": "Dog breed",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Dog_breed']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Dog_breed"
+    },
+    "65": {
+      "label": "Dog communication",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/wiki/Dog_communication']",
+        "a.dM1Yyd"
+      ],
+      "href": "https://en.wikipedia.org/wiki/Dog_communication"
+    },
+    "66": {
+      "label": "Feedback",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-dccl='false']",
+        "div.mWcf0e.nKHyTc"
+      ],
+      "href": null
+    },
+    "67": {
+      "label": "Dog domestication from wolves reddit",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Dog+domestication+from+wolves+reddit&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhJEAE"
+    },
+    "68": {
+      "label": "Dog domestication from wolves video",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Dog+domestication+from+wolves+video&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhKEAE"
+    },
+    "69": {
+      "label": "What was the first dog on Earth",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=What+was+the+first+dog+on+Earth&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAg-EAE"
+    },
+    "70": {
+      "label": "Wolf to dog evolution chart",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Wolf+to+dog+evolution+chart&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAg_EAE"
+    },
+    "71": {
+      "label": "Are dogs descended from wolves or foxes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Are+dogs+descended+from+wolves+or+foxes&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhBEAE"
+    },
+    "72": {
+      "label": "Dog domestication timeline",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Dog+domestication+timeline&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhGEAE"
+    },
+    "73": {
+      "label": "What did the first dog look like",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=What+did+the+first+dog+look+like&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhHEAE"
+    },
+    "74": {
+      "label": "Earliest evidence of dog domestication",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "a.ngTNl.ggLgoc"
+      ],
+      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Earliest+evidence+of+dog+domestication&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhIEAE"
+    },
+    "75": {
+      "label": "Page 2",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 2']",
+        "[aria-label='Page 2']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=10&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAE"
+    },
+    "76": {
+      "label": "Page 3",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 3']",
+        "[aria-label='Page 3']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=20&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAG"
+    },
+    "77": {
+      "label": "Page 4",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 4']",
+        "[aria-label='Page 4']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=30&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAI"
+    },
+    "78": {
+      "label": "Page 5",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 5']",
+        "[aria-label='Page 5']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=40&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAK"
+    },
+    "79": {
+      "label": "Page 6",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 6']",
+        "[aria-label='Page 6']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=50&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAM"
+    },
+    "80": {
+      "label": "Page 7",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 7']",
+        "[aria-label='Page 7']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=60&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAO"
+    },
+    "81": {
+      "label": "Page 8",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 8']",
+        "[aria-label='Page 8']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=70&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAQ"
+    },
+    "82": {
+      "label": "Page 9",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 9']",
+        "[aria-label='Page 9']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=80&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAS"
+    },
+    "83": {
+      "label": "Page 10",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Page 10']",
+        "[aria-label='Page 10']",
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=90&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAU"
+    },
+    "84": {
+      "label": "Next",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#pnnext",
+        "a[href*='/search']",
+        "a.LLNLxf"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=10&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8NMDegQIDBAW"
+    },
+    "85": {
+      "label": "Try without personalisation",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg:1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&peek_pws=0"
+    },
+    "86": {
+      "label": "Teringie, South Australia - Based on your places (Home)",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/search']",
+        "[data-biw='1197']"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI#"
+    },
+    "87": {
+      "label": "Update location",
+      "type": "Button",
+      "tag": "div",
+      "selectors": [
+        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQpLkCegQICBAH']",
+        "div.VtPCGb"
+      ],
+      "href": null
+    },
+    "88": {
+      "label": "Help",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/websearch/']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://support.google.com/websearch/?p=ws_results_help&hl=en-AU&fg=1"
+    },
+    "89": {
+      "label": "Send feedback",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "#dk2qOd",
+        "a[href*='/search']",
+        "[data-bucket='websearch']",
+        "a.Fx4vi.wHYlTd"
+      ],
+      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI#"
+    },
+    "90": {
+      "label": "Privacy",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/privacy']",
-        "a.css-146c3p1.r-bcqeeo"
+        "a.Fx4vi.wHYlTd"
       ],
-      "href": "https://x.com/privacy"
+      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
     },
-    "Link:Cookie Policy": {
-      "label": "Cookie Policy",
+    "91": {
+      "label": "Terms",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/articles/20170514']",
-        "a.css-146c3p1.r-bcqeeo"
+        "a[href*='/terms']",
+        "a.Fx4vi.wHYlTd"
       ],
-      "href": "https://support.x.com/articles/20170514"
-    },
-    "Link:Accessibility": {
-      "label": "Accessibility",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/resources/accessibility']",
-        "a.css-146c3p1.r-bcqeeo"
-      ],
-      "href": "https://help.x.com/resources/accessibility"
-    },
-    "Link:Ads info": {
-      "label": "Ads info",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/en/help/troubleshooting/how-twitter-ads-work.html']",
-        "a.css-146c3p1.r-bcqeeo"
-      ],
-      "href": "https://business.x.com/en/help/troubleshooting/how-twitter-ads-work.html?ref=web-twc-ao-gbl-adsinfo&utm_source=twc&utm_medium=web&utm_campaign=ao&utm_content=adsinfo"
-    },
-    "Button:More": {
-      "label": "More",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More']",
-        "[aria-label='More']",
-        "[role='button'][aria-label='More']",
-        "button.css-175oi2r.r-1loqt21"
-      ],
-      "href": null
+      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
     }
   }
 }

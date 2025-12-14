@@ -1,0 +1,63 @@
+{
+  "chat_id": "they-say-you__20251214T062528",
+  "project_id": "default",
+  "created_at": "2025-12-14T06:25:28.406289Z",
+  "updated_at": "2025-12-14T06:26:02.478800Z",
+  "title": "they say you",
+  "default_title": "they say you",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "they say you the fastest model out there",
+      "timestamp": "2025-12-14T06:25:28.406317Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Haha, cheers mate! I do my best to keep up. Anything else I can help with?",
+      "timestamp": "2025-12-14T06:25:29.559343Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-14T06:25:33.846097Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Opening Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T06:25:34.763671Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "search for how many b does chatgbt nano have",
+      "timestamp": "2025-12-14T06:25:51.891928Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "I'll look up that info for you now.\n\n{\"cap\": \"Input:Search\", \"value\": \"how many b does chatgbt nano have\", \"submit\": true}",
+      "timestamp": "2025-12-14T06:25:52.868134Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "yes search google",
+      "timestamp": "2025-12-14T06:26:00.952316Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Done. Searching Google for you now.\n\n{\"cap\": \"Input:Search\", \"value\": \"how many b does chatgbt nano have\", \"submit\": true}",
+      "timestamp": "2025-12-14T06:26:02.478800Z"
+    }
+  ]
+}

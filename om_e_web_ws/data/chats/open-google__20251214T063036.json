@@ -1,0 +1,111 @@
+{
+  "chat_id": "open-google__20251214T063036",
+  "project_id": "default",
+  "created_at": "2025-12-14T06:30:36.286454Z",
+  "updated_at": "2025-12-14T06:32:22.117121Z",
+  "title": "open google",
+  "default_title": "open google",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-14T06:30:36.286490Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T06:30:37.479354Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "search google for how big chatgbt nano is",
+      "timestamp": "2025-12-14T06:30:53.583919Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "{\"act\": \"Select:Search\", \"value\": \"how big chatgbt nano is\", \"submit\": true}",
+      "timestamp": "2025-12-14T06:30:54.474814Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "open chatgbt",
+      "timestamp": "2025-12-14T06:31:04.772211Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://chat.openai.com\"}}",
+      "timestamp": "2025-12-14T06:31:05.691505Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "lets ask chatgbt how big the nano model is",
+      "timestamp": "2025-12-14T06:31:15.683041Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"Ask about ChatGPT Nano size\"}}",
+      "timestamp": "2025-12-14T06:31:16.538907Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "search facebook for olivia orsmond",
+      "timestamp": "2025-12-14T06:31:52.157686Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "{\"act\": \"Select:Search Facebook\", \"value\": \"olivia orsmond\", \"submit\": true}",
+      "timestamp": "2025-12-14T06:31:53.508177Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-12-14T06:32:07.823422Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "G’day! What can I do for ya?",
+      "timestamp": "2025-12-14T06:32:08.920252Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "go to the facebook tab",
+      "timestamp": "2025-12-14T06:32:15.092756Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 6}}",
+      "timestamp": "2025-12-14T06:32:16.088811Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-14T06:32:21.260018Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 6}}",
+      "timestamp": "2025-12-14T06:32:22.117121Z"
+    }
+  ]
+}

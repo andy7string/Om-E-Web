@@ -27,16 +27,16 @@ from typing import Any, Callable, Awaitable, Optional
 # Element Registry Resolver (set by ws_server.py to avoid circular imports)
 # -----------------------------------------------------------------------------
 
-_element_resolver: Optional[Callable[[str], Optional[dict]]] = None
+_element_resolver: Optional[Callable[[int | str], Optional[dict]]] = None
 
 
-def set_element_resolver(resolver: Callable[[str], Optional[dict]]):
+def set_element_resolver(resolver: Callable[[int | str], Optional[dict]]):
     """Set the element resolver function (called by ws_server.py at startup)."""
     global _element_resolver
     _element_resolver = resolver
 
 
-def resolve_action_type(action_id: str, has_value: bool = False) -> str:
+def resolve_action_type(action_id: int | str, has_value: bool = False) -> str:
     """
     Auto-resolve action type from element registry.
 
@@ -203,13 +203,18 @@ def validate_action(action: dict) -> tuple[bool, str]:
     if not (has_act or has_cap or has_msg):
         return False, "Action must have at least one of: act, cap, msg"
 
-    # Validate act format
+    # Validate act format - 🧪 NUMERIC ID SYSTEM: accept int, str numeric, or legacy a_id_*
     if has_act:
         act_id = action["act"]
-        if not isinstance(act_id, str):
-            return False, f"act must be string, got: {type(act_id).__name__}"
-        if not act_id.startswith("a_id_"):
-            return False, f"act must start with 'a_id_', got: {act_id}"
+        # Accept: int (7), str numeric ("7"), or legacy a_id_* format
+        if isinstance(act_id, int):
+            pass  # Valid numeric ID
+        elif isinstance(act_id, str):
+            # Valid if numeric string or legacy a_id_* format
+            if not (act_id.isdigit() or act_id.startswith("a_id_")):
+                return False, f"act must be numeric or 'a_id_*', got: {act_id}"
+        else:
+            return False, f"act must be int or string, got: {type(act_id).__name__}"
 
     # Validate cap format
     if has_cap:

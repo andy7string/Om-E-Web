@@ -1,0 +1,51 @@
+{
+  "chat_id": "go-to-linked__20251214T084832",
+  "project_id": "default",
+  "created_at": "2025-12-14T08:48:32.036589Z",
+  "updated_at": "2025-12-14T08:48:47.815393Z",
+  "title": "go to linked",
+  "default_title": "go to linked",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "go to linked in",
+      "timestamp": "2025-12-14T08:48:32.036639Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening LinkedIn for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.linkedin.com\"}}",
+      "timestamp": "2025-12-14T08:48:33.342558Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "jobs",
+      "timestamp": "2025-12-14T08:48:38.513321Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Clicking the Jobs link for you.\n\n{\"act\": \"Link:Jobs\"}",
+      "timestamp": "2025-12-14T08:48:39.687473Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "search for architect",
+      "timestamp": "2025-12-14T08:48:46.652378Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Typing \"architect\" in the job search box and submitting.\n\n{\"act\": \"Input:Describe the job you want\", \"value\": \"architect\", \"submit\": true}",
+      "timestamp": "2025-12-14T08:48:47.815393Z"
+    }
+  ]
+}

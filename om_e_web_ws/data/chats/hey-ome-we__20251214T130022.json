@@ -1,0 +1,183 @@
+{
+  "chat_id": "hey-ome-we__20251214T130022",
+  "project_id": "default",
+  "created_at": "2025-12-14T13:00:22.109290Z",
+  "updated_at": "2025-12-14T13:04:45.511805Z",
+  "title": "hey ome we",
+  "default_title": "hey ome we",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey ome we just changed the id system go to google",
+      "timestamp": "2025-12-14T13:00:22.109320Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Too easy, mate. Opening Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T13:00:23.471701Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "do you see the values of this page with the ids on what to do to search for example",
+      "timestamp": "2025-12-14T13:00:42.617033Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Yep, I see the lot. To search on Google, you'd fill the search box which is `[7] Select: Search`, then submit it with your search term.\n\nSo if you want to search for \"footy\", you'd do:\n\n{\"act\": 7, \"value\": \"footy\", \"submit\": true}\n\nSimple as that. Want me to give it a burl?",
+      "timestamp": "2025-12-14T13:00:44.727489Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "search for cats",
+      "timestamp": "2025-12-14T13:00:54.255460Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Alright, searching for cats on this page.\n\n{\"act\": 3, \"value\": \"cats\", \"submit\": true}",
+      "timestamp": "2025-12-14T13:00:55.623646Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "lovely, search for dogs",
+      "timestamp": "2025-12-14T13:01:02.952743Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "On it, mate. Searching for dogs now.\n\n{\"act\": 4, \"value\": \"dogs\", \"submit\": true}",
+      "timestamp": "2025-12-14T13:01:04.207101Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "now refresh",
+      "timestamp": "2025-12-14T13:01:12.238450Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Refreshing the page for you now.\n\n{\"cap\": \"Refresh\"}",
+      "timestamp": "2025-12-14T13:01:13.316004Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "so what do you know about cats and dogs after that",
+      "timestamp": "2025-12-14T13:01:23.500077Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Righto, here’s the quick lowdown from the page and what I know:\n\n**Dogs:**\n- Domesticated from wolves over 14,000 years ago.\n- Lifespan around 10-13 years for medium size.\n- Sleep 12-14 hours daily.\n- Gestation about 58-68 days.\n- Loads of breeds (German Shepherd, Bulldog, Lab, etc.).\n- Dogs Australia looks after ethical breeding standards.\n\n**Cats:**  \nI haven’t searched cats info on this page, but generally:  \n- Domesticated about 9,000 years ago.  \n- Independent but affectionate.  \n- Live 12-16 years on average.  \n- Great hunters and pest controllers.\n\nWant me to dig deeper on cats or dogs, or something else?",
+      "timestamp": "2025-12-14T13:01:36.653397Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "ok go back",
+      "timestamp": "2025-12-14T13:01:55.429264Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Heading back to the previous page now.\n\n{\"cap\": \"GoBack\"}",
+      "timestamp": "2025-12-14T13:02:06.638772Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "so you see cats now right",
+      "timestamp": "2025-12-14T13:02:13.688290Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Yeah, we’re back where cats info is showing. Ready to check out whatever you want about those furry little legends.\n\nWhat’s the plan?",
+      "timestamp": "2025-12-14T13:02:14.690124Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "tell me about cats",
+      "timestamp": "2025-12-14T13:02:24.626679Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Sure thing, mate. Here’s a quick rundown about cats from what I see and know:\n\n- Cats (Felis catus) are popular domesticated felines, evolved from Near Eastern wildcats around 7500 BCE.\n- They’re carnivores, needing a meat-heavy diet.\n- Known for independence, agility, and companionship.\n- Sleep about 15 hours a day.\n- Have retractable claws, sharp senses, and excellent night vision.\n- Indoor cats live longer (around 15 years) than outdoor ones.\n- There’s over 60 breeds, including Siamese, Maine Coon, British Shorthair.\n- Cats are subjects of culture, like the musical and film *Cats*.\n- The \"3-3-3 Rule\" helps cats adjust: 3 days to decompress, 3 weeks to learn routines, 3 months to feel at home.\n\nAnything specific you wanna know or dive into?",
+      "timestamp": "2025-12-14T13:02:38.144012Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "do you remember the dog conversation",
+      "timestamp": "2025-12-14T13:03:00.289117Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Yep, I remember the chat about dogs — their origins, lifespan, sleep, breeds, and all that. Want me to pull that info back up or compare something with cats?",
+      "timestamp": "2025-12-14T13:03:11.604243Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "what was that about wolves",
+      "timestamp": "2025-12-14T13:03:23.070469Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Righto, about dogs and wolves — dogs were domesticated from wolves around 14,000 years ago. That’s the basic gist from the info we saw. They share a common ancestor, so dogs are basically the wolf’s chill cousins now.\n\nWant me to find more detailed info on that?",
+      "timestamp": "2025-12-14T13:03:34.519648Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "ok do a search",
+      "timestamp": "2025-12-14T13:03:55.455021Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "What should I search for, mate? Give me the word or phrase and I’ll get on it.",
+      "timestamp": "2025-12-14T13:04:06.263064Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "the info you were talking about",
+      "timestamp": "2025-12-14T13:04:17.289757Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Gotcha, searching for dog domestication from wolves info now.\n\n{\"act\": 4, \"value\": \"dog domestication from wolves\", \"submit\": true}",
+      "timestamp": "2025-12-14T13:04:28.426517Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "so now you know all about wolves",
+      "timestamp": "2025-12-14T13:04:43.450295Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Yeah, got a good chunk about wolves and dog domestication. Dogs evolved from wolves tens of thousands of years ago, starting with less fearful wolves scavenging near humans. Over time, natural selection for tameness led to dogs becoming our loyal mates.\n\nIf you want the nitty-gritty or more on wolves themselves, just shout.",
+      "timestamp": "2025-12-14T13:04:45.511805Z"
+    }
+  ]
+}

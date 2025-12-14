@@ -1,0 +1,51 @@
+{
+  "chat_id": "search-for-olivia__20251214T105417",
+  "project_id": "default",
+  "created_at": "2025-12-14T10:54:17.948169Z",
+  "updated_at": "2025-12-14T10:54:41.695555Z",
+  "title": "search for olivia",
+  "default_title": "search for olivia",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.linkedin.com/jobs/",
+    "page_title": "Jobs | LinkedIn"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "search for olivia orsmond",
+      "timestamp": "2025-12-14T10:54:17.948195Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Searching for Olivia Orsmond again.\n{\"act\": \"Input:Search\", \"value\": \"Olivia Orsmond\", \"submit\": true}",
+      "timestamp": "2025-12-14T10:54:19.095997Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "search for olivia orsmond",
+      "timestamp": "2025-12-14T10:54:33.086586Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "I’m ready to search for Olivia Orsmond — just gotta find the right search input on this page first. \n\nCould you confirm if you want me to search for Olivia Orsmond in jobs, people, or somewhere else on LinkedIn? That way I can hit the right search box.",
+      "timestamp": "2025-12-14T10:54:34.620831Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "yes",
+      "timestamp": "2025-12-14T10:54:40.482672Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Alright, I’ll assume you want me to search for Olivia Orsmond in LinkedIn people search.\n\nLet me find the people search input and fire it up.\n\n{\"act\": \"Input:Search\", \"value\": \"Olivia Orsmond\", \"submit\": true}",
+      "timestamp": "2025-12-14T10:54:41.695555Z"
+    }
+  ]
+}
