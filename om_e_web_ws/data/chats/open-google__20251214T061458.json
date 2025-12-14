@@ -1,0 +1,231 @@
+{
+  "chat_id": "open-google__20251214T061458",
+  "project_id": "default",
+  "created_at": "2025-12-14T06:14:58.979731Z",
+  "updated_at": "2025-12-14T06:16:38.697771Z",
+  "title": "open google",
+  "default_title": "open google",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-14T06:14:58.979761Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T06:14:59.998804Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-14T06:15:04.772245Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Opening Facebook for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-14T06:15:05.549210Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-14T06:15:09.287273Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Opening YouTube now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-14T06:15:10.230629Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "close ome web",
+      "timestamp": "2025-12-14T06:15:15.316218Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Gotcha, closing the OM-E Web tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1}}",
+      "timestamp": "2025-12-14T06:15:16.187210Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "close facebook",
+      "timestamp": "2025-12-14T06:15:22.353221Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Closing Facebook tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 3}}",
+      "timestamp": "2025-12-14T06:15:23.403772Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-14T06:15:27.378362Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Opening Facebook for you again.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-14T06:15:28.168790Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-14T06:15:31.483706Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Google's already open in tab 2. Switching to it now.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 2}}",
+      "timestamp": "2025-12-14T06:15:32.598065Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "close facebook",
+      "timestamp": "2025-12-14T06:15:42.125454Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Closing Facebook tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 5}}",
+      "timestamp": "2025-12-14T06:15:43.527989Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "close youtube",
+      "timestamp": "2025-12-14T06:15:47.457443Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Closing YouTube tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 4}}",
+      "timestamp": "2025-12-14T06:15:48.642569Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-14T06:15:51.001840Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Opening YouTube again.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-14T06:15:52.136495Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-14T06:15:57.028030Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Opening Facebook for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-14T06:15:58.063198Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "close googe",
+      "timestamp": "2025-12-14T06:16:01.459177Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Looks like you meant to close Google. Closing Google tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 2}}",
+      "timestamp": "2025-12-14T06:16:02.422217Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "close youtube",
+      "timestamp": "2025-12-14T06:16:07.118477Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Closing YouTube tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 6}}",
+      "timestamp": "2025-12-14T06:16:07.885732Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-14T06:16:12.921879Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Opening Google for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T06:16:13.925461Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "open x",
+      "timestamp": "2025-12-14T06:16:17.818344Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Not sure what you mean by \"x.\" Could you give me a bit more detail, mate?",
+      "timestamp": "2025-12-14T06:16:18.617278Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "x bru the social",
+      "timestamp": "2025-12-14T06:16:24.051900Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Righto, opening X (formerly Twitter) for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://twitter.com\"}}",
+      "timestamp": "2025-12-14T06:16:24.965999Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "close facebook",
+      "timestamp": "2025-12-14T06:16:33.089653Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Closing Facebook tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 7}}",
+      "timestamp": "2025-12-14T06:16:33.940594Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "close google",
+      "timestamp": "2025-12-14T06:16:38.023791Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Closing Google tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 8}}",
+      "timestamp": "2025-12-14T06:16:38.697771Z"
+    }
+  ]
+}

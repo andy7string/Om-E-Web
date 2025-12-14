@@ -797,8 +797,11 @@ async function ensureContentScriptFresh(tabId) {
  * @param {boolean} forceRefresh - Whether to force refresh all internal state
  */
 async function sendTabsInfo(forceRefresh = false) {
+    const _start = Date.now();
     try {
         const tabs = await chrome.tabs.query({});
+        console.log(`[SW] 🕐 tabs.query took ${Date.now() - _start}ms`);
+
         const tabsInfo = tabs.map(tab => ({
             id: tab.id,
             url: tab.url,
@@ -812,10 +815,12 @@ async function sendTabsInfo(forceRefresh = false) {
         updateInternalTabState(tabsInfo, forceRefresh);
 
         // Send to server
+        const _t2 = Date.now();
         sendToServer({
             type: "tabs_info",
             tabs: tabsInfo
         });
+        console.log(`[SW] 🕐 sendToServer took ${Date.now() - _t2}ms, total: ${Date.now() - _start}ms`);
 
         console.log("[SW] Tabs info updated and sent to server");
 
@@ -1595,6 +1600,10 @@ async function handleSwitchTabCommand(message) {
         await chrome.tabs.update(parseInt(tabId), { active: true });
         console.log("[SW] 🗂️ Switched to tab:", tabId);
 
+        // 🚀 IMMEDIATE: Send tabs update to server right away (don't wait for onActivated event)
+        await sendActiveTabInfo();
+        await sendTabsInfo();
+
         // Get updated tabs for response
         const tabs = await chrome.tabs.query({});
         const tabsInfo = tabs.map(tab => ({
@@ -1622,6 +1631,7 @@ async function handleSwitchTabCommand(message) {
  * @param {Object} message - Command message with optional url in params
  */
 async function handleOpenTabCommand(message) {
+    const _start = Date.now();
     try {
         const { url } = message.params || {};
         console.log("[SW] 🗂️ Executing openTab command with params:", message.params);
@@ -1633,7 +1643,15 @@ async function handleOpenTabCommand(message) {
         }
 
         const newTab = await chrome.tabs.create(createOptions);
-        console.log("[SW] 🗂️ Opened new tab:", newTab.id, "url:", newTab.url || "new tab page");
+        console.log(`[SW] 🗂️ Opened new tab: ${newTab.id} in ${Date.now() - _start}ms`);
+
+        // 🚀 IMMEDIATE: Send tabs update to server right away (don't wait for onCreated event)
+        const _t1 = Date.now();
+        await sendActiveTabInfo();
+        console.log(`[SW] 🗂️ sendActiveTabInfo done in ${Date.now() - _t1}ms`);
+        const _t2 = Date.now();
+        await sendTabsInfo();
+        console.log(`[SW] 🗂️ sendTabsInfo done in ${Date.now() - _t2}ms`);
 
         // Get updated tabs for response
         const tabs = await chrome.tabs.query({});
@@ -1674,6 +1692,10 @@ async function handleCloseTabCommand(message) {
         // Close the specified tab
         await chrome.tabs.remove(parseInt(tabId));
         console.log("[SW] 🗂️ Closed tab:", tabId);
+
+        // 🚀 IMMEDIATE: Send tabs update to server right away (don't wait for onRemoved event)
+        await sendActiveTabInfo();
+        await sendTabsInfo();
 
         // Get updated tabs for response
         const tabs = await chrome.tabs.query({});

@@ -1,0 +1,39 @@
+{
+  "chat_id": "open-google__20251214T055800",
+  "project_id": "default",
+  "created_at": "2025-12-14T05:58:00.301414Z",
+  "updated_at": "2025-12-14T05:59:13.160531Z",
+  "title": "open google",
+  "default_title": "open google",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-14T05:58:00.301446Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening Google for you now.\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T05:58:01.378722Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "close google",
+      "timestamp": "2025-12-14T05:59:12.100601Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Closing the Google tab now.\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 2}}",
+      "timestamp": "2025-12-14T05:59:13.160531Z"
+    }
+  ]
+}

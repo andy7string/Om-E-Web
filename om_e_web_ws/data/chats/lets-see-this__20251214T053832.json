@@ -1,0 +1,39 @@
+{
+  "chat_id": "lets-see-this__20251214T053832",
+  "project_id": "default",
+  "created_at": "2025-12-14T05:38:32.454000Z",
+  "updated_at": "2025-12-14T05:38:42.624259Z",
+  "title": "lets see this",
+  "default_title": "lets see this",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.youtube.com/",
+    "page_title": "(46) YouTube"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "lets see this message from the councel reveals aliens message",
+      "timestamp": "2025-12-14T05:38:32.454036Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "You mean the video titled \"Army Radar Technician Reveals Alien Message - SFC Jeremy 'CJ' Weeks | DEBRIEFED ep. 66\" that popped up around 4 hours ago? I'll open it for you to check out the message. \n\n{\"act\": \"Link:Army Radar Technician Reveals Alien Message - SFC Jeremy \\\"CJ\\\" Weeks | DEBRIEFED ep. 66 4 hours, 2 minutes\"}",
+      "timestamp": "2025-12-14T05:38:34.280205Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "pause",
+      "timestamp": "2025-12-14T05:38:41.433495Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Pausing the video for you.\n\n{\"cap\": \"TogglePlayPause\"}",
+      "timestamp": "2025-12-14T05:38:42.624259Z"
+    }
+  ]
+}

@@ -1,82 +1,662 @@
 {
   "metadata": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
-    "timestamp": "2025-12-13T15:09:06Z",
-    "element_count": 7
+    "url": "https://x.com/home",
+    "title": "(1) Home / X",
+    "timestamp": "2025-12-14T06:16:27Z",
+    "element_count": 56
   },
   "elements": {
-    "Button:TOGGLE HUD OVERLAY": {
-      "label": "TOGGLE HUD OVERLAY",
+    "Link:View keyboard shortcuts": {
+      "label": "View keyboard shortcuts",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/i/keyboard_shortcuts']",
+        "a.css-146c3p1.r-bcqeeo"
+      ],
+      "href": "https://x.com/i/keyboard_shortcuts"
+    },
+    "Button:Skip to home timeline": {
+      "label": "Skip to home timeline",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#hudToggleBtn",
-        "button.hud-toggle-btn"
+        "button[aria-label='Skip to home timeline']",
+        "[aria-label='Skip to home timeline']",
+        "[role='button'][aria-label='Skip to home timeline']",
+        "button.css-175oi2r.r-sdzlij"
       ],
       "href": null
     },
-    "Input:WebSocket URL": {
-      "label": "WebSocket URL",
+    "Button:Skip to trending": {
+      "label": "Skip to trending",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Skip to trending']",
+        "[aria-label='Skip to trending']",
+        "[role='button'][aria-label='Skip to trending']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Link:X": {
+      "label": "X",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='X']",
+        "[aria-label='X']",
+        "[role='link'][aria-label='X']",
+        "a[href*='/home']",
+        "a.css-175oi2r.r-sdzlij"
+      ],
+      "href": "https://x.com/home"
+    },
+    "Link:Home": {
+      "label": "Home",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Home']",
+        "[aria-label='Home']",
+        "[role='link'][aria-label='Home']",
+        "a[href*='/home']",
+        "[data-testid='AppTabBar_Home_Link']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/home"
+    },
+    "Link:Search and explore": {
+      "label": "Search and explore",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Search and explore']",
+        "[aria-label='Search and explore']",
+        "[role='link'][aria-label='Search and explore']",
+        "a[href*='/explore']",
+        "[data-testid='AppTabBar_Explore_Link']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/explore"
+    },
+    "Link:Notifications (1 unread notification)": {
+      "label": "Notifications (1 unread notification)",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Notifications (1 unread notification)']",
+        "[aria-label='Notifications (1 unread notification)']",
+        "[role='link'][aria-label='Notifications (1 unread notification)']",
+        "a[href*='/notifications']",
+        "[data-testid='AppTabBar_Notifications_Link']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/notifications"
+    },
+    "Link:Connect": {
+      "label": "Connect",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Connect']",
+        "[aria-label='Connect']",
+        "[role='link'][aria-label='Connect']",
+        "a[href*='/i/connect_people']",
+        "[data-testid='AppTabBar_Connect_Link']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/i/connect_people"
+    },
+    "Link:Direct Messages": {
+      "label": "Direct Messages",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Direct Messages']",
+        "[aria-label='Direct Messages']",
+        "[role='link'][aria-label='Direct Messages']",
+        "a[href*='/i/chat']",
+        "[data-testid='AppTabBar_DirectMessage_Link']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/i/chat"
+    },
+    "Link:Grok": {
+      "label": "Grok",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Grok']",
+        "[aria-label='Grok']",
+        "[role='link'][aria-label='Grok']",
+        "a[href*='/i/grok']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/i/grok"
+    },
+    "Link:Lists": {
+      "label": "Lists",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Lists']",
+        "[aria-label='Lists']",
+        "[role='link'][aria-label='Lists']",
+        "a[href*='/orsmond_andrew/lists']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/orsmond_andrew/lists"
+    },
+    "Link:Bookmarks": {
+      "label": "Bookmarks",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Bookmarks']",
+        "[aria-label='Bookmarks']",
+        "[role='link'][aria-label='Bookmarks']",
+        "a[href*='/i/bookmarks']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/i/bookmarks"
+    },
+    "Link:Communities": {
+      "label": "Communities",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Communities']",
+        "[aria-label='Communities']",
+        "[role='link'][aria-label='Communities']",
+        "a[href*='/orsmond_andrew/communities']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/orsmond_andrew/communities"
+    },
+    "Link:Premium": {
+      "label": "Premium",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Premium']",
+        "[aria-label='Premium']",
+        "[role='link'][aria-label='Premium']",
+        "a[href*='/i/premium_sign_up']",
+        "[data-testid='premium-signup-tab']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/i/premium_sign_up"
+    },
+    "Link:Profile": {
+      "label": "Profile",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Profile']",
+        "[aria-label='Profile']",
+        "[role='link'][aria-label='Profile']",
+        "a[href*='/orsmond_andrew']",
+        "[data-testid='AppTabBar_Profile_Link']",
+        "a.css-175oi2r.r-6koalj"
+      ],
+      "href": "https://x.com/orsmond_andrew"
+    },
+    "Button:More menu items": {
+      "label": "More menu items",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More menu items']",
+        "[aria-label='More menu items']",
+        "[role='button'][aria-label='More menu items']",
+        "[data-testid='AppTabBar_More_Menu']",
+        "button.css-175oi2r.r-6koalj"
+      ],
+      "href": null
+    },
+    "Link:Post": {
+      "label": "Post",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Post']",
+        "[aria-label='Post']",
+        "[role='link'][aria-label='Post']",
+        "a[href*='/compose/post']",
+        "[data-testid='SideNav_NewTweet_Button']",
+        "a.css-175oi2r.r-sdzlij"
+      ],
+      "href": "https://x.com/compose/post"
+    },
+    "Button:Account menu": {
+      "label": "Account menu",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Account menu']",
+        "[aria-label='Account menu']",
+        "[role='button'][aria-label='Account menu']",
+        "[data-testid='SideNav_AccountSwitcher_Button']",
+        "button.css-175oi2r.r-1awozwy"
+      ],
+      "href": null
+    },
+    "Button:For you": {
+      "label": "For you",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/home']",
+        "a.css-175oi2r.r-1awozwy"
+      ],
+      "href": "https://x.com/home"
+    },
+    "Button:Following": {
+      "label": "Following",
+      "type": "Button",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/home']",
+        "a.css-175oi2r.r-1awozwy"
+      ],
+      "href": "https://x.com/home"
+    },
+    "Input:Post text": {
+      "label": "Post text",
+      "type": "Input",
+      "tag": "div",
+      "selectors": [
+        "div[aria-label='Post text']",
+        "[aria-label='Post text']",
+        "[role='textbox'][aria-label='Post text']",
+        "[data-testid='tweetTextarea_0']",
+        "div.notranslate.public-DraftEditor-content"
+      ],
+      "href": null
+    },
+    "Button:Add photos or video": {
+      "label": "Add photos or video",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Add photos or video']",
+        "[aria-label='Add photos or video']",
+        "[role='button'][aria-label='Add photos or video']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Button:Add a GIF": {
+      "label": "Add a GIF",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Add a GIF']",
+        "[aria-label='Add a GIF']",
+        "[role='button'][aria-label='Add a GIF']",
+        "[data-testid='gifSearchButton']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Button:Enhance your post with Grok": {
+      "label": "Enhance your post with Grok",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Enhance your post with Grok']",
+        "[aria-label='Enhance your post with Grok']",
+        "[role='button'][aria-label='Enhance your post with Grok']",
+        "[data-testid='grokImgGen']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Button:Add poll": {
+      "label": "Add poll",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Add poll']",
+        "[aria-label='Add poll']",
+        "[role='button'][aria-label='Add poll']",
+        "[data-testid='createPollButton']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Button:Add emoji": {
+      "label": "Add emoji",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Add emoji']",
+        "[aria-label='Add emoji']",
+        "[role='button'][aria-label='Add emoji']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Button:Schedule post": {
+      "label": "Schedule post",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Schedule post']",
+        "[aria-label='Schedule post']",
+        "[role='button'][aria-label='Schedule post']",
+        "[data-testid='scheduleOption']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Button:Tag location": {
+      "label": "Tag location",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Tag location']",
+        "[aria-label='Tag location']",
+        "[role='button'][aria-label='Tag location']",
+        "[data-testid='geoButton']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Button:Post": {
+      "label": "Post",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "[data-testid='tweetButtonInline']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Input:Search query": {
+      "label": "Search query",
       "type": "Input",
       "tag": "input",
       "selectors": [
-        "#wsUrl",
-        "input[placeholder='WebSocket URL']",
-        "input[type='text'][placeholder='WebSocket URL']"
+        "input[aria-label='Search query']",
+        "[aria-label='Search query']",
+        "input[placeholder='Search']",
+        "[role='combobox'][aria-label='Search query']",
+        "[data-testid='SearchBox_Search_Input']",
+        "input[type='text'][placeholder='Search']",
+        "input.r-30o5oe.r-1dz5y72"
       ],
       "href": null
     },
-    "Button:Save & Reconnect": {
-      "label": "Save & Reconnect",
+    "Link:Subscribe": {
+      "label": "Subscribe",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/i/premium_sign_up']",
+        "a.css-175oi2r.r-sdzlij"
+      ],
+      "href": "https://x.com/i/premium_sign_up"
+    },
+    "Button:Close": {
+      "label": "Close",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#saveBtn",
-        "button.primary"
+        "button[aria-label='Close']",
+        "[aria-label='Close']",
+        "[role='button'][aria-label='Close']",
+        "button.css-175oi2r.r-sdzlij"
       ],
       "href": null
     },
-    "Button:Kawaii": {
-      "label": "Kawaii",
-      "type": "Button",
-      "tag": "button",
+    "Link:Shooting at Brown University Kills Two Students, Wounds Nine 9 hours ago · News · 214.1K posts": {
+      "label": "Shooting at Brown University Kills Two Students, Wounds Nine\n9 hours ago · News · 214.1K posts",
+      "type": "Link",
+      "tag": "div",
       "selectors": [
-        "#orbKawaii",
-        "[data-theme='kawaii']",
-        "button.orb-btn"
+        "div.css-175oi2r.r-6koalj"
       ],
       "href": null
     },
-    "Button:Om-E": {
-      "label": "Om-E",
-      "type": "Button",
-      "tag": "button",
+    "Link:Attorney-General Rowland to Repay $21,000 Family Trip Expenses 6 hours ago · News · 2,406 posts": {
+      "label": "Attorney-General Rowland to Repay $21,000 Family Trip Expenses\n6 hours ago · News · 2,406 posts",
+      "type": "Link",
+      "tag": "div",
       "selectors": [
-        "#orbRobot",
-        "[data-theme='robot']",
-        "button.orb-btn"
+        "div.css-175oi2r.r-6koalj"
       ],
       "href": null
     },
-    "Button:Atom": {
-      "label": "Atom",
-      "type": "Button",
-      "tag": "button",
+    "Link:Australia Passes Supermarket Price Gouging Ban Targeting Coles and Woolworths 5 hours ago · News · 3,215 posts": {
+      "label": "Australia Passes Supermarket Price Gouging Ban Targeting Coles and Woolworths\n5 hours ago · News · 3,215 posts",
+      "type": "Link",
+      "tag": "div",
       "selectors": [
-        "#orbAtom",
-        "[data-theme='atom']",
-        "button.orb-btn"
+        "div.css-175oi2r.r-6koalj"
       ],
       "href": null
     },
-    "Button:Extension Settings": {
-      "label": "Extension Settings",
+    "Link:Trending in Australia Tom Silvagni": {
+      "label": "Trending in Australia\nTom Silvagni",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "[data-testid='trend']",
+        "div.css-175oi2r.r-6koalj"
+      ],
+      "href": null
+    },
+    "Link:News · Trending Candace 115K posts": {
+      "label": "News · Trending\nCandace\n115K posts",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "[data-testid='trend']",
+        "div.css-175oi2r.r-6koalj"
+      ],
+      "href": null
+    },
+    "Link:Brown University · Trending Brown University 187K posts": {
+      "label": "Brown University · Trending\nBrown University\n187K posts",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "[data-testid='trend']",
+        "div.css-175oi2r.r-6koalj"
+      ],
+      "href": null
+    },
+    "Link:Trending in Australia #wbbl": {
+      "label": "Trending in Australia\n#wbbl",
+      "type": "Link",
+      "tag": "div",
+      "selectors": [
+        "[data-testid='trend']",
+        "div.css-175oi2r.r-6koalj"
+      ],
+      "href": null
+    },
+    "Link:Show more": {
+      "label": "Show more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/explore/tabs/for-you']",
+        "a.css-175oi2r.r-w7s2jr"
+      ],
+      "href": "https://x.com/explore/tabs/for-you"
+    },
+    "Link:Windows": {
+      "label": "Windows",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/Windows']",
+        "a.css-175oi2r.r-1wbh5a2"
+      ],
+      "href": "https://x.com/Windows"
+    },
+    "Link:@Windows": {
+      "label": "@Windows",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/Windows']",
+        "a.css-175oi2r.r-1wbh5a2"
+      ],
+      "href": "https://x.com/Windows"
+    },
+    "Button:Follow @Windows": {
+      "label": "Follow @Windows",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#extPageBtn",
-        "button.ext-toggle-btn"
+        "button[aria-label='Follow @Windows']",
+        "[aria-label='Follow @Windows']",
+        "[role='button'][aria-label='Follow @Windows']",
+        "[data-testid='15670515-follow']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Link:SABPP": {
+      "label": "SABPP",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/SABPP1']",
+        "a.css-175oi2r.r-1wbh5a2"
+      ],
+      "href": "https://x.com/SABPP1"
+    },
+    "Link:@SABPP1": {
+      "label": "@SABPP1",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/SABPP1']",
+        "a.css-175oi2r.r-1wbh5a2"
+      ],
+      "href": "https://x.com/SABPP1"
+    },
+    "Button:Follow @SABPP1": {
+      "label": "Follow @SABPP1",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Follow @SABPP1']",
+        "[aria-label='Follow @SABPP1']",
+        "[role='button'][aria-label='Follow @SABPP1']",
+        "[data-testid='335280494-follow']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Link:Daily Wire": {
+      "label": "Daily Wire",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/realDailyWire']",
+        "a.css-175oi2r.r-1wbh5a2"
+      ],
+      "href": "https://x.com/realDailyWire"
+    },
+    "Link:@realDailyWire": {
+      "label": "@realDailyWire",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/realDailyWire']",
+        "a.css-175oi2r.r-1wbh5a2"
+      ],
+      "href": "https://x.com/realDailyWire"
+    },
+    "Button:Follow @realDailyWire": {
+      "label": "Follow @realDailyWire",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Follow @realDailyWire']",
+        "[aria-label='Follow @realDailyWire']",
+        "[role='button'][aria-label='Follow @realDailyWire']",
+        "[data-testid='4081106480-follow']",
+        "button.css-175oi2r.r-sdzlij"
+      ],
+      "href": null
+    },
+    "Link:Show more#2": {
+      "label": "Show more",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/i/connect_people']",
+        "a.css-175oi2r.r-w7s2jr"
+      ],
+      "href": "https://x.com/i/connect_people?user_id=1611535412564230144"
+    },
+    "Link:Terms of Service": {
+      "label": "Terms of Service",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/tos']",
+        "a.css-146c3p1.r-bcqeeo"
+      ],
+      "href": "https://x.com/tos"
+    },
+    "Link:Privacy Policy": {
+      "label": "Privacy Policy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/privacy']",
+        "a.css-146c3p1.r-bcqeeo"
+      ],
+      "href": "https://x.com/privacy"
+    },
+    "Link:Cookie Policy": {
+      "label": "Cookie Policy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/articles/20170514']",
+        "a.css-146c3p1.r-bcqeeo"
+      ],
+      "href": "https://support.x.com/articles/20170514"
+    },
+    "Link:Accessibility": {
+      "label": "Accessibility",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/resources/accessibility']",
+        "a.css-146c3p1.r-bcqeeo"
+      ],
+      "href": "https://help.x.com/resources/accessibility"
+    },
+    "Link:Ads info": {
+      "label": "Ads info",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/en/help/troubleshooting/how-twitter-ads-work.html']",
+        "a.css-146c3p1.r-bcqeeo"
+      ],
+      "href": "https://business.x.com/en/help/troubleshooting/how-twitter-ads-work.html?ref=web-twc-ao-gbl-adsinfo&utm_source=twc&utm_medium=web&utm_campaign=ao&utm_content=adsinfo"
+    },
+    "Button:More": {
+      "label": "More",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More']",
+        "[aria-label='More']",
+        "[role='button'][aria-label='More']",
+        "button.css-175oi2r.r-1loqt21"
       ],
       "href": null
     }

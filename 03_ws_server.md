@@ -2,69 +2,240 @@
 
 ## Overview
 
-The WebSocket server (`ws_server.py`) is the central hub of the Om_E_Web system, acting as a bridge between test clients, the Chrome extension, and the file system. It runs on port **17892** and manages:
+The WebSocket server (`ws_server.py`) is the central orchestration hub of the Om_E_Web system. Running on port **17892**, it acts as the message broker between the Chrome extension, web dashboards, test clients, and the LLM agent. The server manages page intelligence, chat history, capability execution, and artifact generation.
 
-- Full round-trip communication between test clients and the Chrome extension
-- Intelligence data processing and artifact generation
-- Real-time page state tracking
-- Capability execution routing
-- Transcript persistence and deduplication
+**Core Responsibilities:**
+- Full duplex communication between extension and external clients
+- Intelligence artifact generation (page.jsonl, content.jsonl, text.md)
+- Chat persistence and LLM conversation management
+- Transcript deduplication and storage
+- Capability routing (internal vs extension vs DOM-based)
+- Element registry for selector-based action resolution
+- Tab management and state synchronization
+
+---
 
 ## Architecture
 
-### Communication Pattern
+### Communication Topology
 
 ```
-Test Client → ws_server.py (port 17892) → Chrome Extension
-                    ↓
-            Artifact Files (@site_structures/)
-                    ↓
-Chrome Extension → ws_server.py → Test Client
+Chrome Extension ⟷ ws_server.py (port 17892) ⟷ Test Clients
+                        ↕
+                   Web Dashboard
+                        ↕
+                   LLM Agent
+                        ↓
+                 Artifact Files (@site_structures/)
+                 Chat Files (data/chats/)
 ```
 
-### Chat Pipeline Architecture (NEW)
+### Client Types
 
-```
-User types in HUD/orb (content.js)
-    ↓
-UI message to sw.js (ui_chat_user_message)
-    ↓
-Service worker sends to ws_server.py (chat_user_message)
-    ↓
-ws_server.py processes:
-  - Generate/load chat_id
-  - Append user message
-  - Save to ./chats/{chat_id}.json
-    ↓
-ws_server.py sends ack to sw.js (chat_append_ack)
-    ↓
-Service worker forwards to content.js (ui_chat_append_ack)
-    ↓
-Content.js updates HUD with chat_id
-```
+| Client Type | Identification | Role |
+|-------------|---------------|------|
+| **Extension** | First to connect OR sends `bridge_status` | Primary data source, DOM executor |
+| **Web Dashboard** | Sends `identify` with `client: "web_dashboard"` | Visual control interface |
+| **Test Client** | Default for all other connections | Automation scripts, debugging |
 
-**Key integration points:**
-- **content.js**: HUD rendering, user input capture, message display
-- **sw.js**: Message routing between content.js and ws_server.py
-- **ws_server.py**: Chat storage, message persistence, history retrieval
+---
 
-### Global State Variables
+## Global State Variables
+
+### Connection Management
 
 | Variable | Type | Purpose |
 |----------|------|---------|
 | `CLIENTS` | `set` | All connected WebSocket clients |
 | `EXTENSION_WS` | WebSocket | Reference to Chrome extension client |
-| `PENDING` | `dict` | Command ID → Future mapping for async response routing |
-| `COMMAND_CLIENTS` | `dict` | Command ID → Client mapping for response routing |
-| `CURRENT_TABS_INFO` | `list` | Latest tabs information from extension |
-| `LAST_TABS_UPDATE` | `float` | Timestamp of last tabs update |
-| `CURRENT_ACTIVE_TAB` | `dict` | Current active tab information |
-| `CURRENT_PAGE_DATA` | `dict` | Latest page intelligence data |
+| `WEB_DASHBOARD_CLIENTS` | `set` | Web dashboard clients for broadcast sync |
+
+### Response Routing
+
+| Variable | Type | Purpose |
+|----------|------|---------|
+| `PENDING` | `dict[str, Future]` | Command ID → Future mapping for internal server commands |
+| `COMMAND_CLIENTS` | `dict[str, WebSocket]` | Command ID → Client mapping for external client commands |
+
+### Page Intelligence State
+
+| Variable | Type | Purpose |
+|----------|------|---------|
+| `CURRENT_PAGE_DATA` | `dict` | Latest page.jsonl data with normalized records |
 | `LAST_PAGE_UPDATE` | `float` | Timestamp of last page update |
-| `CURRENT_CONTENT_DATA` | `dict` | Latest page content data |
+| `CURRENT_CONTENT_DATA` | `dict` | Latest content.jsonl data |
 | `LAST_CONTENT_UPDATE` | `float` | Timestamp of last content update |
 | `CURRENT_TRANSCRIPTS_INFO` | `list` | Current transcript references |
-| `SITE_CONFIGS` | `dict` | Loaded site configurations with capabilities |
+| `LAST_TEXT_MD_DATA` | `dict` | Cached text.md generation data for tab switches |
+| `CURRENT_TEXT_JSON` | `dict` | Action ID → element hints lookup (label, type, selectors) |
+
+### Browser State
+
+| Variable | Type | Purpose |
+|----------|------|---------|
+| `CURRENT_TABS_INFO` | `list` | Latest tabs_info from extension |
+| `LAST_TABS_UPDATE` | `float` | Timestamp of last tabs update |
+| `CURRENT_ACTIVE_TAB` | `dict` | Current active tab information |
+| `TAB_NUMBER_MAP` | `dict[int, int]` | Display tab numbers (1-8) → real Chrome tab IDs |
+
+### Element Registry
+
+| Variable | Type | Purpose |
+|----------|------|---------|
+| `ELEMENT_REGISTRY` | `dict` | Action ID → element metadata (`type`, `tag`, `label`, `href`, `selectors`, `iframe`) |
+
+**Purpose:** Enables selector-based action resolution that survives DOM re-renders. Populated from `semanticPageData.actionables` on each intelligence update.
+
+**Example Entry:**
+```python
+ELEMENT_REGISTRY["a_id_0"] = {
+    "type": "Link",
+    "tag": "a",
+    "label": "Sign In",
+    "href": "/login",
+    "selectors": ["[aria-label='Sign In']", "a.nav-link:nth-of-type(2)"],
+    "iframe": False
+}
+```
+
+### Chat & LLM State
+
+| Variable | Type | Purpose |
+|----------|------|---------|
+| `CURRENT_CHAT_ID` | `str` | Active chat ID (auto-created on first message) |
+| `CHAT_INDEX_CACHE` | `dict` | Chat ID → metadata (title, date, message count, project) |
+| `CHAT_INDEX_LOADED` | `bool` | Flag for initial cache load |
+| `LLM_AGENT` | `OmEAgent` | LLM conversation agent instance |
+
+### Configuration State
+
+| Variable | Type | Purpose |
+|----------|------|---------|
+| `SITE_CONFIGS` | `dict` | Domain → site config (capabilities, selectors) |
+| `INTERNAL_CAPABILITIES` | `dict` | Server-side capability action → config |
+| `CURRENT_ORB_THEME` | `str` | Current orb theme (synced across clients) |
+
+---
+
+## Message Types Reference
+
+### Incoming Messages (Client/Extension → Server)
+
+#### Heartbeat & Connection
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `ping` | Any | `{source: "client"}` | `pong` | Keep-alive, latency check |
+| `pong` | Any | `{source: "client"}` | None | Heartbeat response |
+| `bridge_status` | Extension | `{}` | None | Mark client as extension |
+| `identify` | Web Dashboard | `{client: "web_dashboard"}` | None | Mark as web dashboard client |
+
+#### Intelligence & Page Data
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `intelligence_update` | Extension | `{data: {...}, normalizedRecords: [...], semanticPageData: {...}, transcripts: [...]}` | None | **PRIMARY DATA PIPELINE** - triggers artifact generation |
+| `iframe_elements_update` | Extension | `{iframeElements: [...], iframeCount: N}` | None | Append iframe elements to text.md |
+| `tabs_info` | Extension | `{tabs: [...]}` | None | Store tab list, update text.md tabs section |
+| `active_tab_info` | Extension | `{activeTab: {...}}` | None | Store active tab details |
+
+#### Capability Execution
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `execute_capability` | Test Client | `{action: "CapName", params: {...}, id: "req_123"}` | `capability_result` | Execute capability (routes to internal/extension/DOM) |
+| `execute_scroll` | Test Client | `{direction: "down/up/..."}` | `{ok: true}` | Scroll viewport |
+
+#### DOM & Network Monitoring
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `dom_content_changed` | Extension | `{tabId, totalMutations, changeTypes}` | None | Track DOM mutations (logged only) |
+| `network_activity` | Extension | `{eventType, url, status, inflightRequests}` | None | Network monitoring, idle detection |
+
+#### Action Execution
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `llm_instruction` | Test Client | `{data: {actionId, actionType, params}}` | `{ok: true}` | Execute element action via action ID |
+| `extractPageText` | Test Client | `{}` | `{ok: true, result: {...}}` | Extract page text, save to markdown |
+
+#### Shortcut Normalization (Client Sugar)
+
+| Type | Source | Normalized To | Purpose |
+|------|--------|---------------|---------|
+| `exec_action` | Test Client | `llm_instruction` | Execute action by ID |
+| `set_value` | Test Client | `llm_instruction` with setValue | Set input value |
+| `click` | Test Client | `llm_instruction` with click | Click element |
+| `navigate_link` | Test Client | `llm_instruction` with navigate | Navigate link |
+| `navigate_url` | Test Client | `command: navigate` | Navigate to URL |
+
+#### Command Forwarding
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `command` with `id` | Test Client | `{id, command, params}` | `{id, ok, result}` | Generic command (internal or forwarded to extension) |
+
+**Internal commands** (handled server-side):
+- `getTabsInfo` → Returns `CURRENT_TABS_INFO`
+- `getPageData` → Returns `CURRENT_PAGE_DATA`
+- `getContentData` → Returns `CURRENT_CONTENT_DATA`
+- `getActiveTab` → Returns `CURRENT_ACTIVE_TAB`
+
+**Extension commands** (forwarded with tracking):
+- All others → Forwarded to extension, response routed back via `COMMAND_CLIENTS`
+
+#### LLM & Configuration
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `get_llm_config` | Web Dashboard | `{}` | `{type: "llm_config", config: {...}}` | Get LLM settings (API keys masked) |
+| `set_llm_config` | Web Dashboard | `{config: {...}}` | None | Update LLM settings |
+
+#### Web Dashboard Specific
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `getStatus` | Web Dashboard | `{_requestId: "..."}` | `{ok, result: {isConnected, totalTabs, ...}}` | Get extension status |
+| `get_orb_state` | Web Dashboard | `{_requestId: "..."}` | `{ok, theme: "..."}` | Get current orb theme |
+| `toggle_hud` | Web Dashboard | `{_requestId: "..."}` | `{ok, message: "..."}` | Toggle HUD overlay |
+| `set_orb_theme` | Web Dashboard | `{theme: "classic/robot/...", _requestId: "..."}` | `{ok, message: "..."}` | Set orb theme, broadcast to clients |
+| `get_orb_themes` | Web Dashboard | `{}` | Forwarded to extension | Get available themes |
+
+#### Test & Debug
+
+| Type | Source | Payload | Response | Purpose |
+|------|--------|---------|----------|---------|
+| `test_dispatch` | Test Client | `{action: {...}}` | Dispatch result | Test LLM dispatcher routing |
+
+#### Response Messages
+
+| Pattern | Source | Payload | Purpose |
+|---------|--------|---------|---------|
+| Message with `id`, `ok`, `error` | Extension | `{id, ok, result?, error?}` | Response routing (resolves `PENDING` future or routes via `COMMAND_CLIENTS`) |
+
+---
+
+### Outgoing Messages (Server → Client/Extension)
+
+| Type | Destination | Payload | Purpose |
+|------|-------------|---------|---------|
+| `pong` | Sender | `{type: "pong", source: "server", timestamp: ...}` | Heartbeat response |
+| `server_ping` | Extension | `{type: "ping", source: "server", timestamp: ...}` | Server heartbeat |
+| `llm_config` | Web Dashboard | `{type: "llm_config", config: {...}}` | LLM config response |
+| `youtube_find_transcript_button` | Extension | `{type: "youtube_find_transcript_button", url: "..."}` | Trigger transcript button hunt |
+| `execute_llm_action` | Extension | `{type: "execute_llm_action", id: "llm-...", data: {actionId, actionType, params}}` | Forward LLM instruction (legacy) |
+| `execute_action_with_hints` | Extension | `{type: "execute_action_with_hints", id: "llm-...", data: {actionId, actionType, params, hints}}` | Forward LLM instruction (selector-based) |
+| `execute_capability` | Extension | `{type: "execute_capability", id: "cap_...", action: "...", params: {...}}` | Forward capability request |
+| `scroll` command | Extension | `{command: "scroll", id: "scroll_...", params: {direction: "..."}}` | Scroll instruction |
+| `toggle_hud` | Extension | `{type: "toggle_hud", id: "hud_..."}` | Toggle HUD overlay |
+| `set_orb_theme` | Extension | `{type: "set_orb_theme", theme: "...", id: "theme_..."}` | Set orb theme |
+| `get_orb_themes` | Extension | `{type: "get_orb_themes", id: "themes_..."}` | Get available themes |
+| `hud_action` | Extension | `{type: "hud_action", action: {...}}` | Drive HUD UI (append message, load chat, etc.) |
+| `capability_result` | Test Client | `{type: "capability_result", action: "...", ok: bool, result?: {...}, error?: "...", id?: "..."}` | Capability execution result |
+| `hud_toggled` | Web Dashboard (broadcast) | `{type: "hud_toggled", visible: bool}` | Notify other dashboards of HUD toggle |
+| `orb_theme_changed` | Web Dashboard (broadcast) | `{type: "orb_theme_changed", theme: "..."}` | Notify other dashboards of theme change |
+| Response with `id`, `ok` | Test Client | `{id, ok, result?, error?}` | Command result (routed to original sender) |
 
 ---
 
@@ -75,153 +246,76 @@ Content.js updates HUD with chat_id
 #### `async def main()`
 **Purpose:** Entry point - starts WebSocket server and background tasks
 
-**What it does:**
-- Loads site configs via `start_site_config_polling()`
-- Starts WebSocket server on `127.0.0.1:17892`
-- Launches `extension_heartbeat_loop()` to monitor extension health
-- Configures WebSocket with 64 MiB max frame size
+**Actions:**
+1. Loads site configs via `start_site_config_polling()`
+2. Initializes LLM dispatcher via `init_llm_dispatcher()`
+3. Builds chat index cache via `_build_chat_index()`
+4. Starts HTTP server for orb page (port 8080) in background thread
+5. Starts WebSocket server on `127.0.0.1:17892`
+6. Launches `extension_heartbeat_loop()` to monitor extension health
+7. Configures WebSocket with 64 MiB max frame size
 
 **Called by:** `__main__`
+
+**Configuration:**
+- Port: 17892
+- Max message size: 64 MiB
+- Max queue: 128
+- Ping interval: 20s
+- Ping timeout: 20s
 
 ---
 
 #### `async def handler(ws)`
-**Purpose:** Main WebSocket connection handler for each client
+**Purpose:** Main WebSocket connection handler for each client - implements core message routing logic
 
-**What it does:**
-- Adds client to `CLIENTS` set
-- Identifies extension clients (first to connect or sending `bridge_status`)
-- Routes messages between clients based on type
-- Cleans up on disconnect
+**Lifecycle:**
+1. Add client to `CLIENTS` set
+2. Identify extension clients (first to connect or sending `bridge_status`)
+3. Listen for messages in async loop
+4. Route messages based on type
+5. Clean up on disconnect (remove from `CLIENTS`, clear `EXTENSION_WS` if extension, clean up `COMMAND_CLIENTS`)
 
-**Message routing logic:**
-1. Test client sends command → Routes to extension
-2. Extension sends response → Routes back to original test client
-3. Extension sends intelligence_update → Processes and saves artifacts
-4. Extension sends tabs_info → Stores in global state
+**Message Processing Flow:**
+```
+Receive raw message
+    ↓
+Parse JSON
+    ↓
+Shortcut normalization (exec_action → llm_instruction, etc.)
+    ↓
+Type-based routing:
+    - Heartbeat → respond with pong
+    - Extension identification → mark as EXTENSION_WS
+    - Intelligence update → artifact generation pipeline
+    - Capability execution → route to internal/extension/DOM handler
+    - Command forwarding → internal handling or extension forwarding
+    - Response routing → resolve PENDING future or route via COMMAND_CLIENTS
+    ↓
+Send response (if required)
+```
+
+**Error Handling:**
+- Per-message try-except blocks (logs errors, continues processing)
+- Disconnect cleanup in `finally` block
+- Never crashes on individual message failures
 
 **Called by:** websockets.serve() for each connection
 
 ---
 
-### Message Handling (Inside handler)
+### Heartbeat
 
-The handler processes these message types:
+#### `async def extension_heartbeat_loop()`
+**Purpose:** Periodically ping extension to detect silent disconnections
 
-#### 1. **Shortcut Normalization** (Client Sugar)
-Converts shorthand commands to standard message format:
-- `exec_action` → `llm_instruction`
-- `set_value` → `llm_instruction` with setValue
-- `click` → `llm_instruction` with click
-- `navigate_link` → `llm_instruction` with navigate
-- `navigate_url` → `command: navigate`
+**Actions:**
+1. Sleep for `SERVER_HEARTBEAT_INTERVAL` (20 seconds)
+2. Send `server_ping` to extension if connected
+3. Log failures
+4. Repeat forever
 
-#### 2. **Heartbeat Messages** (`ping`/`pong`)
-Keeps connections alive and monitors health
-
-#### 3. **Extension Identification** (`bridge_status`)
-Marks client as the extension (stores in `EXTENSION_WS`)
-
-#### 4. **Tab Information** (`tabs_info`)
-Stores tab data in `CURRENT_TABS_INFO` for external access
-
-#### 5. **Active Tab Information** (`active_tab_info`)
-Stores active tab details in `CURRENT_ACTIVE_TAB` and logs to terminal
-
-#### 6. **Intelligence Update** (`intelligence_update`)
-**Most important message type** - processes page intelligence:
-- Extracts actionable elements and page state
-- Saves transcripts via `save_transcripts()`
-- Generates `page.jsonl` via `save_intelligence_to_page_jsonl()`
-- Generates `content.jsonl` via `save_content_to_content_jsonl()`
-- Creates `text.md` from semantic page data
-- Triggers YouTube transcript button hunt if on video page
-
-#### 7. **Capability Execution** (`execute_capability`)
-Routes capability requests:
-- Scroll capabilities → Converts to scroll commands
-- Other capabilities → Forwards to extension with request ID
-- Stores request ID in `COMMAND_CLIENTS` for response routing
-
-#### 8. **Scroll Execution** (`execute_scroll`)
-Handles scroll requests by forwarding to extension
-
-#### 9. **DOM Change Notifications** (`dom_content_changed`)
-Tracks DOM mutations (stores context but doesn't persist to reduce noise)
-
-#### 10. **Network Activity** (`network_activity`)
-Monitors network requests and detects idle state
-
-#### 11. **Text Extraction** (`extractPageText`)
-Forwards text extraction requests to extension
-
-#### 12. **LLM Instructions** (`llm_instruction`)
-Processes LLM action requests and forwards to extension as `execute_llm_action`
-
-#### 13. **Command Forwarding** (`command` with `id`)
-Routes commands from test clients to extension:
-- **Internal commands** handled by server:
-  - `getTabsInfo` → Returns `CURRENT_TABS_INFO`
-  - `getPageData` → Returns `CURRENT_PAGE_DATA`
-  - `getContentData` → Returns `CURRENT_CONTENT_DATA`
-  - `getActiveTab` → Returns `CURRENT_ACTIVE_TAB`
-- **Extension commands** forwarded with client tracking
-
-#### 14. **Chat User Message** (`chat_user_message`) (NEW)
-**Most important new message type** - handles chat from HUD/orb:
-- Receives prompt from extension with page context
-- Generates chat_id if new chat (null chat_id)
-- Appends user message to chat via `append_user_message()`
-- Saves chat to `./chats/{chat_id}.json` via `save_chat()`
-- Sends `chat_append_ack` response with chat_id and message
-- Error handling: Sends `chat_error` if validation fails
-
-**Message format:**
-```json
-{
-  "type": "chat_user_message",
-  "chat_id": null,  // or existing chat_id
-  "data": {
-    "prompt": "User's message",
-    "page_url": "https://...",
-    "page_title": "Page Title"
-  }
-}
-```
-
-#### 15. **Get Chat History** (`get_chat_history`) (NEW)
-Retrieves full chat conversation from disk:
-- Loads chat via `load_chat(chat_id)`
-- Returns all messages, meta, and title
-- Sends empty response if chat_id is null
-- Sends error response if chat not found
-
-**Message format:**
-```json
-{
-  "type": "get_chat_history",
-  "chat_id": "check-youtube-comments__20251130T211523"
-}
-```
-
-**Response format:**
-```json
-{
-  "type": "chat_history",
-  "chat_id": "...",
-  "messages": [...],
-  "meta": {...},
-  "title": "Check YouTube comments",
-  "error": "Chat not found"  // only if error
-}
-```
-
-#### 16. **Response Handling** (messages with `id` and `ok`/`error`)
-Routes responses back to original client:
-1. Checks for text extraction response → Saves to markdown
-2. Checks for pending future in `PENDING` → Resolves future
-3. Checks for tracked client in `COMMAND_CLIENTS` → Routes to client
-4. Fallback: Broadcasts to any test client
+**Called by:** `main()` as background task
 
 ---
 
@@ -232,18 +326,32 @@ Routes responses back to original client:
 
 **Parameters:**
 - `intelligence_data`: Intelligence update from extension
-- `transcript_refs`: List of transcript file references
+- `transcript_refs`: List of transcript file references (optional)
 
-**What it does:**
-- Checks for `normalizedRecords` (preferred format)
-- Enriches meta record with browser state and transcript refs
-- Falls back to legacy consolidation if normalized records unavailable
-- Writes JSONL file with one record per line
-- Updates `CURRENT_PAGE_DATA` and `LAST_PAGE_UPDATE`
+**Processing Flow:**
+
+**Normalized Records Path (preferred):**
+1. Extract `normalizedRecords` from `intelligence_data`
+2. Enrich meta record with:
+   - Browser state (tabs, active tab, extension status)
+   - Current page info (URL, title, is_active_tab)
+   - Transcript references
+   - Page version
+3. Write JSONL file with one record per line (types: meta, section, text, action)
+4. Update `CURRENT_PAGE_DATA` and `LAST_PAGE_UPDATE`
+
+**Legacy Path (fallback):**
+1. Extract `actionableElements` from `intelligence_data`
+2. Consolidate via `consolidate_actionable_elements_to_menus()`
+3. Build page data with menu structure
+4. Write as single JSON object
+5. Update `CURRENT_PAGE_DATA` and `LAST_PAGE_UPDATE`
 
 **Writes to:** `@site_structures/page.jsonl`
 
 **Called by:** `handler()` on intelligence_update
+
+**Returns:** Filepath string or None
 
 ---
 
@@ -252,64 +360,78 @@ Routes responses back to original client:
 
 **Parameters:**
 - `intelligence_data`: Intelligence update from extension
-- `transcript_refs`: List of transcript file references
+- `transcript_refs`: List of transcript file references (optional)
 
-**What it does:**
-- Extracts `contentElements` from intelligence data
-- Consolidates via `consolidate_content_elements_to_structure()`
-- Enriches with browser state
-- Updates `CURRENT_CONTENT_DATA` and `LAST_CONTENT_UPDATE`
+**Processing Flow:**
+1. Extract `contentElements` from `intelligence_data`
+2. Consolidate via `consolidate_content_elements_to_structure()`
+3. Build content data with structure (headings, paragraphs, lists, images, tables)
+4. Enrich with browser state
+5. Write as single JSON object
+6. Update `CURRENT_CONTENT_DATA` and `LAST_CONTENT_UPDATE`
 
 **Writes to:** `@site_structures/content.jsonl`
 
 **Called by:** `handler()` on intelligence_update
 
+**Returns:** Filepath string or None
+
 ---
 
 #### `async def consolidate_actionable_elements_to_menus(actionable_elements)`
-**Purpose:** Legacy function - organizes actionable elements into menu structures
+**Purpose:** Organize raw actionable elements into menu structures (LEGACY)
 
-**What it does:**
-- Categorizes elements by type (navigation, toggle, action, content)
-- Builds main navigation structure
-- Returns consolidated menu structure with summary
+**Parameters:**
+- `actionable_elements`: List of raw actionable elements from extension
+
+**Processing:**
+1. Categorize by type (navigation, toggle, action, content)
+2. Build main navigation structure
+3. Add navigation items and toggle buttons
+
+**Returns:** Dict with `menus` and `summary`
 
 **Called by:** `save_intelligence_to_page_jsonl()` (legacy fallback)
-
-**Returns:** Dict with menus and summary
 
 ---
 
 #### `async def consolidate_content_elements_to_structure(content_elements)`
-**Purpose:** Organize content elements by type (headings, paragraphs, lists, etc.)
+**Purpose:** Organize raw content elements by type
 
-**What it does:**
-- Categorizes content by type (heading, paragraph, list, image, table)
-- Processes each category with metadata
-- Returns structured content with summary statistics
+**Parameters:**
+- `content_elements`: List of raw content elements from extension
+
+**Processing:**
+1. Categorize by type (heading, paragraph, list, image, table, other)
+2. Process each category with metadata
+3. Build content structure with typed arrays
+
+**Returns:** Dict with `content_structure` and `summary`
 
 **Called by:** `save_content_to_content_jsonl()`
-
-**Returns:** Dict with content_structure and summary
 
 ---
 
 ### Transcript Management
 
 #### `async def save_transcripts(transcripts, page_state=None)`
-**Purpose:** Persist transcript data to disk with deduplication
+**Purpose:** Persist transcript payloads (e.g., YouTube) to disk with deduplication
 
 **Parameters:**
-- `transcripts`: List of transcript payloads from extension
+- `transcripts`: List of transcript objects from extension
 - `page_state`: Optional page state for metadata
 
-**What it does:**
-- Loads existing transcript signatures from history
-- Generates signature for each transcript via `_build_transcript_signature()`
-- Skips duplicates based on signature match
-- Creates markdown file with frontmatter and timestamped segments
-- Appends entry to `video_history.jsonl`
-- Updates `CURRENT_TRANSCRIPTS_INFO`
+**Deduplication Strategy:**
+1. Load existing signatures via `_collect_existing_transcript_signatures()`
+2. For each transcript:
+   - Generate signature via `_build_transcript_signature()`
+   - Check if signature exists → skip if duplicate
+   - Generate slug from title via `slugify()`
+   - Create filename: `{date}__{slug}.md`
+   - Write markdown with HTML signature comment, frontmatter, timestamped segments
+   - Append entry to `video_history.jsonl`
+   - Add signature to known set
+3. Update `CURRENT_TRANSCRIPTS_INFO`
 
 **Writes to:**
 - `@site_structures/transcripts/{date}__{slug}.md`
@@ -324,22 +446,23 @@ Routes responses back to original client:
 #### `def _build_transcript_signature(video_id, segments)`
 **Purpose:** Create stable signature for transcript deduplication
 
-**What it does:**
-- Samples first 3 and last 3 segments
-- Combines video_id, segment count, and sample text
-- Generates SHA256 hash
+**Algorithm:**
+1. Sample first 3 and last 3 segments
+2. Combine video_id, segment count, and sample text
+3. Generate SHA256 hash
+4. Format: `"{video_id}:{count}:{hash}"`
 
-**Returns:** String like `"{video_id}:{count}:{hash}"`
+**Returns:** Signature string or None
 
 ---
 
 #### `def _collect_existing_transcript_signatures()`
 **Purpose:** Build lookup of known transcript signatures
 
-**What it does:**
-- Reads `video_history.jsonl`
-- Scans existing markdown files for embedded signatures
-- Falls back to generating signatures from file content
+**Sources:**
+1. Read `video_history.jsonl` for signature entries
+2. Scan existing markdown files for embedded signatures (HTML comment)
+3. Fallback: generate signatures from file content (legacy files)
 
 **Returns:** Dict mapping signature → video_id
 
@@ -347,6 +470,8 @@ Routes responses back to original client:
 
 #### `def _ensure_video_history_file()`
 **Purpose:** Ensure history file exists
+
+**Actions:** Create empty file if missing
 
 **Called by:** `_append_video_history_entry()`
 
@@ -365,20 +490,59 @@ Routes responses back to original client:
 **Parameters:**
 - `entry`: Dict with timestamp, video_id, title, segments, file, signature
 
+**Actions:** Append JSON line to `video_history.jsonl`
+
 ---
 
-### Text and Markdown Generation
+### Text.md Generation
+
+#### `def write_text_md()`
+**Purpose:** Write text.md from cached `LAST_TEXT_MD_DATA`
+
+**Data Source:** `LAST_TEXT_MD_DATA` (populated during intelligence_update)
+
+**Structure:**
+- Frontmatter (title, URL, timestamp)
+- Browser tabs info (formatted with display numbers)
+- Capabilities section (if any)
+- Semantic page text (or plain text fallback)
+- Secure iframe elements (placeholder or actual)
+
+**Writes to:** `@site_structures/text.md`
+
+**Called by:** `handler()` on intelligence_update, `update_tabs_in_text_md()`
+
+**Returns:** Boolean success status
+
+---
+
+#### `def update_tabs_in_text_md()`
+**Purpose:** Update tabs section only (preserve action IDs)
+
+**Uses:** `CURRENT_TABS_INFO`, `LAST_TEXT_MD_DATA`
+
+**Actions:**
+1. Read existing text.md
+2. Rebuild tabs section with current tab info
+3. Replace tabs section only (keep rest intact)
+4. Write updated file
+
+**Called by:** `handler()` on tabs_info, after tab actions (SwitchTab, CloseTab)
+
+**Returns:** None (logs success/failure)
+
+---
 
 #### `async def save_page_text_to_markdown(text_data)`
-**Purpose:** Save extracted page text to markdown file
+**Purpose:** Save extracted page text to markdown file (LEGACY)
 
 **Parameters:**
 - `text_data`: Text extraction result with markdown and statistics
 
-**What it does:**
-- Extracts URL and generates filename from hostname
-- Writes markdown content to file
-- Logs content statistics
+**Actions:**
+1. Extract URL and generate filename from hostname
+2. Write markdown content to file
+3. Log content statistics
 
 **Writes to:** `@site_structures/{hostname}_page_text.md`
 
@@ -387,6 +551,8 @@ Routes responses back to original client:
 **Returns:** File path or None
 
 ---
+
+### LLM Prompt Generator (LEGACY, mostly disabled)
 
 #### `def generate_llm_prompt(text_md_path, page_jsonl_path, out_path, max_actions=MAX_ACTIONS)`
 **Purpose:** Generate LLM-friendly prompt from page data (LEGACY - mostly disabled)
@@ -397,12 +563,19 @@ Routes responses back to original client:
 - `out_path`: Output path for llm_prompt.md
 - `max_actions`: Maximum actions to include
 
-**What it does:**
-- Reads page.jsonl and extracts action records
-- Applies SPA filtering (prunes stale elements based on pageVersion)
-- Smart categorizes actions (search, transcripts, emails, videos, etc.)
-- Resolves capabilities via `resolve_capabilities_for_url()`
-- Generates organized markdown with sections
+**Processing:**
+1. Read text.md for title and page text
+2. Read page.jsonl for action records
+3. Apply SPA filtering (prune stale elements based on pageVersion)
+4. Smart categorize actions:
+   - Search inputs (detect "search" in label/placeholder)
+   - Transcript actions (CRITICAL priority)
+   - Video links (/watch?v=)
+   - Channel links (/@, /channel/)
+   - Email rows (table rows with role="row")
+   - Footer links (about, terms, privacy)
+5. Resolve capabilities via `resolve_capabilities_for_url()`
+6. Generate organized markdown with sections
 
 **Called by:** Previously called on intelligence_update (now disabled)
 
@@ -413,16 +586,18 @@ Routes responses back to original client:
 #### `def _map_prompt_action_sentence(record)`
 **Purpose:** Convert action record to human-readable instruction
 
-**Parameters:**
-- `record`: Action record from page.jsonl
+**Filtering:**
+- Allows hidden elements if:
+  - Interactive table/list rows (generic pattern)
+  - Input/textarea elements (ChatGPT, Perplexity, Claude hidden inputs)
+  - Accessibility links with meaningful labels
+  - Video links (YouTube specific)
 
-**What it does:**
-- Filters hidden elements (except important ones like inputs, table rows)
-- Formats action instructions based on type:
-  - Input/textarea: `return (a_id_123,{yourValue}) to set value for 'label'`
-  - Links: `return (a_id_123) to navigate to 'label'`
-  - Buttons: `return (a_id_123) to click 'label'`
-  - Table rows: `return (a_id_123) to click 'Email: sender — subject'`
+**Formatting:**
+- Input/textarea: `return (a_id_123,{yourValue}) to set value for 'label'. Add submit:true to submit.`
+- Links: `return (a_id_123) to navigate to 'label'`
+- Buttons: `return (a_id_123) to click 'label'`
+- Table rows: `return (a_id_123) to click 'Email: sender — subject'`
 
 **Called by:** `generate_llm_prompt()`
 
@@ -433,7 +608,7 @@ Routes responses back to original client:
 #### `def _format_table_row_label(record)`
 **Purpose:** Extract meaningful labels from table rows (e.g., Gmail emails)
 
-**What it does:**
+**Parsing:**
 - Parses comma-separated text content
 - Identifies sender, subject, time, preview
 - Formats as readable label
@@ -444,37 +619,138 @@ Routes responses back to original client:
 
 ---
 
+### Element Action Resolution
+
+#### `def resolve_action_hints(action_id)`
+**Purpose:** Get element hints from `CURRENT_TEXT_JSON` for selector-based resolution
+
+**Parameters:**
+- `action_id`: The action ID to look up
+
+**Returns:** Dict with `label`, `type`, `tag`, `selectors`, or None
+
+**Called by:** `handler()` when executing LLM instructions
+
+**Data Source:** `CURRENT_TEXT_JSON` (loaded from text.json)
+
+---
+
+#### `def resolve_hints_for_act(act, action_type=None)`
+**Purpose:** Resolve hints for action descriptor (supports Type:Label format)
+
+**Parameters:**
+- `act`: Action descriptor (a_id_X or "Type:Label")
+- `action_type`: Optional action type override
+
+**Resolution:**
+1. If starts with `a_id_`: Look up in `ELEMENT_REGISTRY`
+2. Else: Parse as "Type:Label", resolve via `resolve_action_by_kind_and_label()`
+
+**Returns:** Dict with `label`, `type`, `tag`, `selectors`, or None
+
+**Called by:** `handler()` during LLMChat capability execution
+
+---
+
+#### `def resolve_action_by_kind_and_label(kind, label, action_type=None)`
+**Purpose:** Find element in registry by type and label (fuzzy matching)
+
+**Parameters:**
+- `kind`: Element type (Link, Button, Input, Select)
+- `label`: Element label (partial match)
+- `action_type`: Optional action type override
+
+**Matching:**
+- Case-insensitive
+- Partial label match (label in registry_label or vice versa)
+- Type match (case-insensitive)
+
+**Returns:** Dict with `label`, `type`, `tag`, `selectors`, or None
+
+---
+
+#### `def infer_action_type_from_act(act, has_value)`
+**Purpose:** Infer action type from Type:Label descriptor
+
+**Rules:**
+- Link → "navigate"
+- Button → "click"
+- Input/Textarea → "setValue" if has_value else "focus"
+- Select → "select" if has_value else "focus"
+
+**Returns:** Action type string
+
+---
+
+#### `def _parse_action_descriptor(act)`
+**Purpose:** Parse "Type:Label" descriptor into components
+
+**Format:** `"Type:Label"` → `(Type, Label)`
+
+**Returns:** Tuple of (type, label) or (None, None)
+
+---
+
 ### State Access Functions
 
 #### `def get_current_tabs_info()`
 **Purpose:** External access to latest tab information
 
-**Returns:** Dict with tabs, last_update, extension_connected, total_clients
+**Returns:** Dict with:
+```python
+{
+    "tabs": CURRENT_TABS_INFO,
+    "last_update": LAST_TABS_UPDATE,
+    "extension_connected": bool,
+    "total_clients": len(CLIENTS)
+}
+```
 
 ---
 
 #### `def get_current_page_data()`
 **Purpose:** External access to latest page intelligence
 
-**Returns:** Dict with page_data, last_update, extension_connected, totals
+**Returns:** Dict with:
+```python
+{
+    "page_data": CURRENT_PAGE_DATA,
+    "last_update": LAST_PAGE_UPDATE,
+    "extension_connected": bool,
+    "totals": {...}  # From meta record
+}
+```
 
 ---
 
 #### `def get_current_content_data()`
 **Purpose:** External access to latest page content
 
-**Returns:** Dict with content_data, last_update, totals
+**Returns:** Dict with:
+```python
+{
+    "content_data": CURRENT_CONTENT_DATA,
+    "last_update": LAST_CONTENT_UPDATE,
+    "totals": {...}
+}
+```
 
 ---
 
 #### `def get_current_active_tab()`
 **Purpose:** Get current active tab information
 
-**What it does:**
-- Returns `CURRENT_ACTIVE_TAB` if available (preferred)
-- Falls back to searching `CURRENT_TABS_INFO` for active tab
+**Fallback:** If `CURRENT_ACTIVE_TAB` not set, searches `CURRENT_TABS_INFO` for active tab
 
-**Returns:** Dict with active_tab details and metadata
+**Returns:** Dict with:
+```python
+{
+    "active_tab": {...},
+    "last_update": LAST_TABS_UPDATE,
+    "extension_connected": bool,
+    "total_tabs": N
+}
+```
 
 ---
 
@@ -488,31 +764,17 @@ Routes responses back to original client:
 - `params`: Optional parameters dict
 - `timeout`: Response timeout in seconds (default 8.0)
 
-**What it does:**
-- Waits for extension to be identified
-- Generates unique command ID
-- Creates future and stores in `PENDING`
-- Sends command to extension
-- Waits for response via future
-- Cleans up `PENDING` entry
+**Flow:**
+1. Wait for extension to be identified
+2. Generate unique command ID
+3. Create future and store in `PENDING`
+4. Send command to extension
+5. Wait for response via future (with timeout)
+6. Clean up `PENDING` entry
 
 **Used by:** Internal server operations (not test clients)
 
 **Returns:** Response message or raises RuntimeError on timeout
-
----
-
-### Heartbeat
-
-#### `async def extension_heartbeat_loop()`
-**Purpose:** Periodically ping extension to detect silent disconnections
-
-**What it does:**
-- Sleeps for `SERVER_HEARTBEAT_INTERVAL` (20 seconds)
-- Sends `server_ping` to extension if connected
-- Logs failures
-
-**Called by:** `main()` as background task
 
 ---
 
@@ -524,46 +786,119 @@ Routes responses back to original client:
 **Parameters:**
 - `url`: Current page URL
 
-**What it does:**
-- Loads site configs via `get_all_site_configs()`
-- Matches URL hostname to site config domain
-- Extracts capabilities that match URL pattern
-- Adds universal scroll capabilities
-- Returns list of capability dicts with action, label, description
+**Processing:**
+1. Load site configs via `get_all_site_configs()`
+2. Match URL hostname to site config domain
+3. Extract capabilities that match URL pattern
+4. Add universal scroll capabilities
+
+**Returns:** List of capability dicts with action, label, description
 
 **Called by:** `generate_llm_prompt()`, text.md generation in handler
 
+---
+
+#### `def get_capabilities_for_prompt_with_universal(url)`
+**Purpose:** Get all capabilities (site-specific + universal) for prompt
+
+**Parameters:**
+- `url`: Current page URL
+
 **Returns:** List of capability dicts
+
+**Called by:** text.md generation
+
+---
+
+#### `def is_site_config_capability(action, url=None)`
+**Purpose:** Check if action is a site config capability
+
+**Parameters:**
+- `action`: Capability action name
+- `url`: Optional URL for filtering (uses active tab if not provided)
+
+**Returns:** Boolean
+
+**Called by:** `handler()` during capability routing
 
 ---
 
 #### `def get_all_site_configs()`
 **Purpose:** Load site configurations from disk
 
-**What it does:**
-- Loads `site_configs.json` (index mapping domain → config file)
-- Loads individual config files for each domain
-- Caches in `SITE_CONFIGS` global
-
-**Called by:** `resolve_capabilities_for_url()`
+**Processing:**
+1. Load `site_configs.json` (index mapping domain → config file)
+2. Load individual config files for each domain
+3. Cache in `SITE_CONFIGS` global
 
 **Returns:** Dict mapping domain → config
 
+**Called by:** `resolve_capabilities_for_url()`
+
 ---
 
-### Chat Storage System (NEW)
+#### `def load_internal_capabilities()`
+**Purpose:** Load internal_capabilities.json for server-side capabilities
+
+**Returns:** Dict mapping action name → capability config
+
+**Called by:** `handler()` during capability routing
+
+---
+
+#### `def execute_internal_capability(action, params)`
+**Purpose:** Execute an internal (server-side) capability
+
+**Supported Capabilities:**
+
+**Chat Management:**
+- `GetChatList` → `list_chats(project_id?)`
+- `LoadChat` → `load_chat(chat_id)` with optional `tail` and `offset` for pagination
+- `CreateChat` → `create_new_chat()` and save
+- `AppendMessage` → `append_user_message()` or `append_assistant_message()` and save
+- `RenameChat` → Update title and save
+- `DeleteChat` → Remove file and index entry
+- `AppendUserMessage` → Convenience wrapper for AppendMessage
+- `AppendAssistantMessage` → Convenience wrapper for AppendMessage
+- `GetCurrentChat` → Return active chat
+- `GetFullHistory` → Return all messages (no truncation)
+- `SetCurrentChat` → Set `CURRENT_CHAT_ID`
+- `SearchChats` → Search by title or content
+
+**UI Control:**
+- `ShowHUD`, `HideHUD`, `ToggleHUD`
+- `ShowSidebar`, `HideSidebar`, `ToggleSidebar`
+- `ExpandOrb`, `CollapseOrb`
+
+**LLM Configuration:**
+- `GetLLMConfig` → Return config (mask API keys)
+- `SetLLMProvider` → Switch active provider
+- `SetLLMEndpoint` → Set endpoint URL
+- `SetLLMModel` → Set model name
+- `SetLLMAPIKey` → Set API key (masked in response)
+- `SetTemperature` → Set temperature (0.0-2.0)
+- `SetMaxTokens` → Set max tokens (1-128000)
+- `AddLLMProvider` → Add new provider
+- `RemoveLLMProvider` → Remove provider (can't remove active)
+- `ReloadLLMConfig` → Reload config into active agent
+- `ReloadSiteConfigs` → Reload cached site configs
+
+**Returns:** Result dict (may contain `_hud_action` for UI updates)
+
+**Called by:** `handler()` when capability is internal
+
+---
+
+### Chat Storage System
 
 #### `def ensure_chats_dir_exists()`
 **Purpose:** Create chats directory if it doesn't exist
 
-**What it does:**
-- Creates `./chats/` directory in om_e_web_ws/
-- Logs creation message
-- Returns absolute path to chats directory
-
-**Called by:** `get_chat_filepath()`
+**Directory:** `./data/chats/`
 
 **Returns:** String path to chats directory
+
+**Called by:** `get_chat_filepath()`
 
 ---
 
@@ -574,21 +909,21 @@ Routes responses back to original client:
 - `prompt`: User's initial message text
 - `now`: Current datetime (UTC)
 
-**What it does:**
-- Extracts first three words from prompt
-- Converts to lowercase slug (replaces non-alphanumeric with hyphens)
-- Collapses multiple hyphens, trims edges
-- Appends timestamp: YYYYMMDDTHHMMSS
-- Format: `<three-word-slug>__<timestamp>`
+**Algorithm:**
+1. Extract first three words from prompt
+2. Convert to lowercase slug (replace non-alphanumeric with hyphens)
+3. Collapse multiple hyphens, trim edges
+4. Append timestamp: YYYYMMDDTHHMMSS
+5. Format: `<three-word-slug>__<timestamp>`
 
 **Examples:**
 - "Check YouTube comments" → `check-youtube-comments__20251130T211523`
 - "What's this page about?" → `what-s-this__20251130T211523`
 - "" → `chat__20251130T211523`
 
-**Called by:** `handler()` when creating new chat
-
 **Returns:** String chat_id
+
+**Called by:** `handler()` when creating new chat, internal capabilities
 
 ---
 
@@ -598,13 +933,11 @@ Routes responses back to original client:
 **Parameters:**
 - `chat_id`: The chat identifier
 
-**What it does:**
-- Ensures chats directory exists
-- Constructs path: `./chats/{chat_id}.json`
-
-**Called by:** `load_chat()`, `save_chat()`
+**Format:** `./data/chats/{chat_id}.json`
 
 **Returns:** Absolute path string
+
+**Called by:** `load_chat()`, `save_chat()`
 
 ---
 
@@ -614,19 +947,13 @@ Routes responses back to original client:
 **Parameters:**
 - `chat_id`: The chat identifier
 
-**What it does:**
-- Gets filepath via `get_chat_filepath()`
-- Checks if file exists
-- Loads JSON from file
-- Logs success with message count
-
-**Error handling:**
+**Error Handling:**
 - Returns None if file doesn't exist
 - Returns None if JSON parsing fails
 
-**Called by:** `handler()` when appending to existing chat or retrieving history
-
 **Returns:** Dict with chat data or None
+
+**Called by:** `handler()`, internal capabilities
 
 ---
 
@@ -636,20 +963,13 @@ Routes responses back to original client:
 **Parameters:**
 - `chat_dict`: Chat data including chat_id, messages, meta
 
-**What it does:**
-- Validates chat_id exists
-- Gets filepath via `get_chat_filepath()`
-- Writes JSON with indent=2 for readability
-- Uses UTF-8 encoding
-- Logs success
+**Format:** JSON with indent=2 for readability
 
-**Error handling:**
-- Returns False if chat_id missing
-- Returns False if write fails
-
-**Called by:** `handler()` after appending messages
+**Side Effects:** Updates `CHAT_INDEX_CACHE` via `_update_chat_index()`
 
 **Returns:** Boolean success status
+
+**Called by:** `handler()`, internal capabilities
 
 ---
 
@@ -658,15 +978,10 @@ Routes responses back to original client:
 
 **Parameters:**
 - `chat_id`: Unique chat identifier
-- `prompt`: Initial user prompt
+- `prompt`: Initial user prompt (used for default title)
 - `meta`: Dict with page_url, page_title
 
-**What it does:**
-- Generates ISO timestamps for created_at, updated_at
-- Creates default title from first three words of prompt
-- Builds chat structure with meta and empty messages array
-
-**Chat structure:**
+**Chat Structure:**
 ```json
 {
   "chat_id": "check-youtube-comments__20251130T211523",
@@ -683,9 +998,9 @@ Routes responses back to original client:
 }
 ```
 
-**Called by:** `handler()` when creating new chat
-
 **Returns:** Dict with new chat structure
+
+**Called by:** `handler()`, internal capabilities
 
 ---
 
@@ -693,18 +1008,10 @@ Routes responses back to original client:
 **Purpose:** Append user message to chat (always to end)
 
 **Parameters:**
-- `chat_dict`: Chat dictionary to modify
+- `chat_dict`: Chat dictionary to modify (mutated in place)
 - `prompt`: User's message content
 
-**What it does:**
-- Generates sequential message ID: m_0001, m_0002, etc.
-- Creates ISO timestamp
-- Builds message object with role="user"
-- Appends to messages array (never inserts)
-- Updates chat's updated_at timestamp
-- Logs message append
-
-**Message structure:**
+**Message Structure:**
 ```json
 {
   "id": "m_0001",
@@ -714,9 +1021,14 @@ Routes responses back to original client:
 }
 ```
 
-**Called by:** `handler()` on chat_user_message
+**Side Effects:**
+- Appends to `messages` array
+- Updates `chat_dict["updated_at"]`
+- Generates sequential message ID (m_0001, m_0002, ...)
 
 **Returns:** The newly created message object
+
+**Called by:** `handler()`, internal capabilities
 
 ---
 
@@ -724,18 +1036,10 @@ Routes responses back to original client:
 **Purpose:** Append assistant (LLM) message to chat (always to end)
 
 **Parameters:**
-- `chat_dict`: Chat dictionary to modify
+- `chat_dict`: Chat dictionary to modify (mutated in place)
 - `content`: Assistant's response content
 
-**What it does:**
-- Generates sequential message ID: m_0001, m_0002, etc.
-- Creates ISO timestamp
-- Builds message object with role="assistant"
-- Appends to messages array (never inserts)
-- Updates chat's updated_at timestamp
-- Logs assistant message append
-
-**Message structure:**
+**Message Structure:**
 ```json
 {
   "id": "m_0002",
@@ -745,11 +1049,178 @@ Routes responses back to original client:
 }
 ```
 
-**Called by:** Currently not used (reserved for future LLM integration)
+**Side Effects:**
+- Appends to `messages` array
+- Updates `chat_dict["updated_at"]`
+- Generates sequential message ID
 
 **Returns:** The newly created message object
 
-**Note:** This function is defined but not yet integrated with an LLM. Future enhancement will call this after generating LLM responses.
+**Called by:** `handler()`, internal capabilities, LLMChat capability
+
+---
+
+#### `def list_chats(project_id=None)`
+**Purpose:** List all chats with optional project filter
+
+**Parameters:**
+- `project_id`: Optional project filter (None returns all, "default" returns unassigned)
+
+**Uses:** `CHAT_INDEX_CACHE` (in-memory cache)
+
+**Returns:** List of chat metadata dicts sorted by date (newest first)
+
+**Called by:** Internal capabilities
+
+---
+
+#### `def _build_chat_index()`
+**Purpose:** Build in-memory chat index cache on startup
+
+**Actions:**
+1. Scan `data/chats/` directory
+2. Load each .json file
+3. Extract metadata (chat_id, title, date, message_count, project_id)
+4. Build `CHAT_INDEX_CACHE` dict
+5. Set `CHAT_INDEX_LOADED = True`
+
+**Called by:** `main()` on startup
+
+---
+
+#### `def _update_chat_index(chat_id, chat_dict)`
+**Purpose:** Update single entry in chat index cache
+
+**Called by:** `save_chat()` after writing to disk
+
+---
+
+#### `def _remove_from_chat_index(chat_id)`
+**Purpose:** Remove entry from chat index cache
+
+**Called by:** Internal capability `DeleteChat`
+
+---
+
+### Tab Management
+
+#### `def translate_tab_params(params)`
+**Purpose:** Translate display tab numbers (1-8) to real Chrome tab IDs
+
+**Background:** LLM sees tabs as "Tab 1", "Tab 2", etc. but Chrome uses internal IDs. `TAB_NUMBER_MAP` tracks the mapping.
+
+**Parameters:**
+- `params`: Original params dict (may contain `tab` or `tabId`)
+
+**Logic:**
+- Checks both `tab` and `tabId` params
+- Only translates if value is 1-8 range (display numbers)
+- Larger values assumed to be real Chrome tab IDs (passed through)
+
+**Returns:** Tuple of `(translated_params, error_message)` - error is None on success
+
+**Called by:** `handler()` during capability routing (SwitchTab, CloseTab, etc.)
+
+---
+
+### LLM Configuration
+
+#### `def load_llm_config()`
+**Purpose:** Load LLM configuration from data/llm_config.json
+
+**Default Config:**
+```json
+{
+  "active_provider": "lm_studio",
+  "providers": {
+    "lm_studio": {
+      "name": "LM Studio",
+      "type": "openai_compatible",
+      "endpoint": "http://localhost:1234/v1/chat/completions",
+      "model": "local-model",
+      "api_key": null
+    }
+  },
+  "settings": {
+    "temperature": 0.7,
+    "max_tokens": 1024,
+    "timeout_seconds": 30
+  }
+}
+```
+
+**Returns:** Config dict
+
+**Called by:** `handler()`, internal capabilities
+
+---
+
+#### `def save_llm_config(config)`
+**Purpose:** Save LLM configuration to data/llm_config.json
+
+**Parameters:**
+- `config`: Config dict to save
+
+**Returns:** Boolean success status
+
+**Called by:** `handler()`, internal capabilities
+
+---
+
+### LLM Dispatcher
+
+#### `async def dispatch_llm_action(action)`
+**Purpose:** Route LLM actions through existing pipelines
+
+**Parameters:**
+- `action`: Action dict with type, parameters
+
+**Actions:**
+- Element actions → `send_element_action()`
+- Capability actions → `send_capability_action()`
+
+**Returns:** Result dict
+
+**Called by:** `handler()` on test_dispatch
+
+---
+
+#### `async def send_element_action(action_id, action_type, params, timeout=10.0)`
+**Purpose:** Send element action to extension with response tracking
+
+**Flow:**
+1. Generate unique request ID
+2. Create future and store in `PENDING`
+3. Send to extension
+4. Wait for response (with timeout)
+5. Clean up `PENDING` entry
+
+**Returns:** Result dict
+
+---
+
+#### `async def send_capability_action(action, params, timeout=10.0)`
+**Purpose:** Send capability action to extension with response tracking
+
+**Flow:**
+1. Generate unique request ID
+2. Create future and store in `PENDING`
+3. Send to extension
+4. Wait for response (with timeout)
+5. Clean up `PENDING` entry
+
+**Returns:** Result dict
+
+---
+
+#### `def init_llm_dispatcher()`
+**Purpose:** Initialize LLM dispatcher with element resolver
+
+**Actions:**
+- Set element resolver via `set_element_resolver(get_element_info)`
+- Load capabilities via `llm_load_capabilities()`
+
+**Called by:** `main()` on startup
 
 ---
 
@@ -758,81 +1229,85 @@ Routes responses back to original client:
 #### `def slugify(value)`
 **Purpose:** Create filesystem-friendly slug for filenames
 
-**Parameters:**
-- `value`: String to slugify
+**Rules:**
+- Lowercase
+- Replace non-alphanumeric with hyphens
+- Collapse multiple hyphens
+- Trim edges
 
-**Returns:** Lowercase string with hyphens instead of special characters
+**Returns:** Slug string
 
----
-
-#### `async def process_actionable_elements_for_llm(actionable_elements)`
-**Purpose:** Process actionable elements into LLM-friendly action mapping (DISABLED)
-
-**What it does:**
-- Creates mapping of action_id → metadata
-- Enriches with page context
-- Saves to `llm_actions.json`
-
-**Called by:** Previously called on intelligence_update (now disabled)
-
-**Returns:** Dict of LLM actions or None
+**Used by:** Transcript filename generation, chat ID generation
 
 ---
 
-#### `async def clear_llm_actions()`
+#### `async def process_actionable_elements_for_llm(actionable_elements)` (DISABLED)
+**Purpose:** Process actionable elements into LLM-friendly action mapping
+
+**Status:** Disabled (conflicts with semantic extraction)
+
+**Would Write to:** `@site_structures/llm_actions.json`
+
+---
+
+#### `async def clear_llm_actions()` (DISABLED)
 **Purpose:** Clear LLM actions when no elements available
 
-**What it does:**
-- Creates empty `llm_actions.json` with page context
-- Indicates no actions available
+**Status:** Disabled
 
-**Called by:** `process_actionable_elements_for_llm()`
-
-**Returns:** File path or None
+**Would Write to:** `@site_structures/llm_actions.json`
 
 ---
 
 #### `async def store_dom_change_context(dom_change_data)`
-**Purpose:** Store DOM change context for LLM (mostly disabled to reduce noise)
+**Purpose:** Store DOM change context for LLM consumption
 
-**Parameters:**
-- `dom_change_data`: DOM change notification from extension
+**Status:** Mostly disabled to reduce noise
 
-**What it does:**
-- Logs significant changes (>5 mutations)
-- Does NOT persist to file (too noisy)
-
-**Called by:** `handler()` on dom_content_changed
+**Actions:** Logs significant changes (>5 mutations only), does NOT persist to file
 
 ---
 
-### Site Map Processing (Legacy)
+### Web Dashboard Broadcast
 
-These functions handle the old site map generation flow (mostly disabled):
+#### `async def broadcast_to_web_dashboards(message, exclude_ws=None)`
+**Purpose:** Broadcast message to all connected web dashboard clients
 
-#### `def save_site_map_to_jsonl(site_map_data, suffix="")`
-**Purpose:** Save site map to JSONL file (DISABLED)
+**Parameters:**
+- `message`: Message dict to broadcast
+- `exclude_ws`: Optional WebSocket to exclude (the sender)
 
-#### `def process_clean_site_map(raw_file_path)`
-**Purpose:** Process raw site map file into LLM format (DISABLED)
+**Used For:** Sync state changes (theme, HUD, status) across all web UIs
 
-#### `def process_clean_site_map_data(raw_data)`
-**Purpose:** Process raw site map data directly (DISABLED)
+**Called by:** `handler()` when HUD toggled, theme changed
 
-#### `def siteStructuredLLMmethodinsidethefile(filepath)`
-**Purpose:** Post-processing optimization (DISABLED)
+---
 
-#### `def classify_element_enhanced(element_data)`
-**Purpose:** Enhanced element classification (DISABLED)
+### HTTP Server (Orb Page)
 
-#### `def deduplicate_elements(elements)`
-**Purpose:** Remove duplicate elements (DISABLED)
+#### `def start_http_server(port=8080)`
+**Purpose:** Start HTTP server for orb page in background thread
 
-#### `def filter_non_interactive_elements(elements)`
-**Purpose:** Filter non-interactive elements (DISABLED)
+**Actions:**
+- Generates orb HTML via `generate_orb_page_html()`
+- Serves on port 8080
+- Runs in daemon thread
 
-#### `def calculate_element_importance_score(element)`
-**Purpose:** Calculate element importance (DISABLED)
+**Called by:** `main()` on startup
+
+---
+
+#### `def generate_orb_page_html()`
+**Purpose:** Generate full HTML page for orb control interface
+
+**Features:**
+- Theme selection (classic, robot, glass, glow, matrix, gradient, pulse)
+- HUD toggle button
+- WebSocket connection to ws_server.py
+- Real-time theme sync
+- Extension status display
+
+**Returns:** HTML string
 
 ---
 
@@ -862,19 +1337,25 @@ On disconnect:
 ### 2. Standard Action Execution Flow
 
 ```
-Test Client: {"type": "llm_instruction", "data": {"actionId": "a_id_123", "actionType": "click"}}
+Test Client: {"type": "llm_instruction", "data": {"actionId": "a_id_0", "actionType": "click"}}
     ↓
 ws_server handler() receives message
     ↓
-Recognizes llm_instruction type
+Auto-resolve action type if not provided (using ELEMENT_REGISTRY)
     ↓
-Generates unique ID (llm-abc123)
+Look up hints via resolve_action_hints(action_id)
     ↓
-Forwards to EXTENSION_WS as execute_llm_action
+Found hints (selectors)?
+    ↓ Yes
+Generate unique ID (llm-abc123)
     ↓
-Extension executes action and sends response
+Forward to EXTENSION_WS as execute_action_with_hints
     ↓
-handler() receives response with id=llm-abc123
+Extension executes action using selectors (survives re-renders)
+    ↓
+Extension sends response with id=llm-abc123
+    ↓
+handler() receives response
     ↓
 Routes back to original client via COMMAND_CLIENTS
 ```
@@ -884,19 +1365,31 @@ Routes back to original client via COMMAND_CLIENTS
 ### 3. Capability Execution Flow
 
 ```
-Test Client: {"type": "execute_capability", "action": "RetrieveTranscript"}
+Test Client: {"type": "execute_capability", "action": "RetrieveTranscript", "params": {}}
     ↓
 ws_server handler() receives message
     ↓
-Recognizes execute_capability type
+Is it internal capability? (GetChatList, SetCurrentChat, etc.)
+    ↓ Yes
+execute_internal_capability()
     ↓
-Is it a scroll capability?
+Check for _hud_action in result
+    ↓ Yes
+Send hud_action to extension
+    ↓
+Send capability_result to client
+    ↓ No (extension/DOM capability)
+Is it scroll capability? (ScrollDown, ScrollUp, etc.)
+    ↓ Yes
+Convert to scroll command, send to extension
     ↓ No
-Generates unique request ID (cap_RetrieveTranscript_1234567890)
+Is it site config capability? (RetrieveTranscript, etc.)
+    ↓ Yes
+Generate unique request ID (cap_RetrieveTranscript_1234567890)
     ↓
-Stores client in COMMAND_CLIENTS[request_id]
+Store client in COMMAND_CLIENTS[request_id]
     ↓
-Forwards to EXTENSION_WS with request ID
+Forward to EXTENSION_WS with request ID
     ↓
 Extension executes capability and sends response with same ID
     ↓
@@ -916,17 +1409,23 @@ Extension: {"type": "intelligence_update", "data": {...}}
     ↓
 ws_server handler() receives message
     ↓
-Extracts intelligence_data
+Extract intelligence_data
     ↓
-Parallel processing:
-  1. save_transcripts() → @site_structures/transcripts/*.md
-  2. save_intelligence_to_page_jsonl() → @site_structures/page.jsonl
-  3. save_content_to_content_jsonl() → @site_structures/content.jsonl
-  4. Generate text.md with:
-     - Frontmatter (title, URL, timestamp)
-     - Browser tabs info
-     - Capabilities section
-     - Semantic page text
+PARALLEL PROCESSING:
+  ├─ save_transcripts() → @site_structures/transcripts/*.md, video_history.jsonl
+  ├─ save_intelligence_to_page_jsonl() → @site_structures/page.jsonl
+  ├─ save_content_to_content_jsonl() → @site_structures/content.jsonl
+  └─ Generate text.md:
+      - Extract semanticPageData
+      - Populate ELEMENT_REGISTRY from semanticPageData.actionables
+      - Resolve capabilities
+      - Store LAST_TEXT_MD_DATA
+      - Call write_text_md()
+          - Frontmatter (title, URL, timestamp)
+          - Browser tabs (formatted with display numbers)
+          - Capabilities
+          - Semantic page text
+          - Iframe elements (placeholder)
     ↓
 YouTube video page detected?
     ↓ Yes
@@ -942,9 +1441,11 @@ Extension: {"type": "tabs_info", "tabs": [...]}
     ↓
 ws_server handler() receives message
     ↓
-Stores in CURRENT_TABS_INFO global
+Store in CURRENT_TABS_INFO global
     ↓
-Updates LAST_TABS_UPDATE timestamp
+Update LAST_TABS_UPDATE timestamp
+    ↓
+Call update_tabs_in_text_md()
     ↓
 Logs to terminal
 ```
@@ -958,9 +1459,9 @@ Extension: {"type": "active_tab_info", "activeTab": {...}}
     ↓
 ws_server handler() receives message
     ↓
-Extracts activeTab details
+Extract activeTab details
     ↓
-Stores in CURRENT_ACTIVE_TAB global
+Store in CURRENT_ACTIVE_TAB global
     ↓
 Logs formatted info to terminal:
   "🎯 ACTIVE TAB: ID=X | URL=... | Title=... | Status=..."
@@ -1039,106 +1540,116 @@ Sends response directly to client (no extension involved)
 
 ---
 
-### 10. Chat Message Flow (NEW - HUD/Orb Integration)
+### 10. LLMChat Capability Flow (Conversational AI)
 
 ```
-User types in HUD/orb → content.js → sw.js → ws_server.py
-    ↓
-Extension: {"type": "chat_user_message", "chat_id": null, "data": {"prompt": "...", "page_url": "...", "page_title": "..."}}
+Client: {"type": "execute_capability", "action": "LLMChat", "params": {"message": "...", "clear_history": false}}
     ↓
 ws_server handler() receives message
     ↓
-chat_id is null? (new chat)
+Create or reset LLM_AGENT if needed
+    ↓
+Call LLM_AGENT.chat(message)
+    ↓
+LLM generates response text
+    ↓
+Save to chat history:
+  - Load chat via CURRENT_CHAT_ID
+  - append_assistant_message(chat_dict, response_text)
+  - save_chat(chat_dict)
+    ↓
+Push to HUD via extension:
+  - Send hud_action with type: "append_message"
+    ↓
+Parse response for capability calls:
+  - has_capability_calls(response_text)?
     ↓ Yes
-  1. Generate chat_id via generate_chat_id_from_prompt()
-     Format: <three-word-slug>__<timestamp>
-     Example: "check-youtube-comments__20251130T211523"
-  2. Create new chat dict via create_new_chat()
-     Structure: {chat_id, created_at, title, meta, messages: []}
-    ↓ No
-  1. Load existing chat via load_chat(chat_id)
-  2. If not found → Send chat_error response
+  - parse_capability_calls(response_text)
     ↓
-Append user message via append_user_message()
-  - Generate message ID: m_0001, m_0002, etc.
-  - Message: {id, role: "user", content, timestamp}
+For each capability call:
+  ├─ Element action? {"act": "a_id_0", "value": "...", "submit": true}
+  │   ├─ Resolve action type (click, setValue, navigate)
+  │   ├─ Resolve hints (selectors)
+  │   ├─ Send execute_action_with_hints to extension
+  │   └─ Track in history
+  │
+  ├─ Scroll capability? ScrollDown, ScrollUp, etc.
+  │   ├─ Convert to scroll command
+  │   └─ Send to extension
+  │
+  ├─ Zoom capability? ZoomIn, ZoomOut, ZoomReset
+  │   ├─ Send to extension
+  │   └─ Wait for response
+  │
+  ├─ Tab capability? SwitchTab, OpenTab, CloseTab
+  │   ├─ Translate tab number to real tab ID
+  │   ├─ Send to extension
+  │   ├─ Wait for response
+  │   ├─ Update CURRENT_TABS_INFO
+  │   └─ Regenerate text.md with new tabs
+  │
+  ├─ Nav capability? GoBack, GoForward, Refresh
+  │   └─ Send to extension
+  │
+  ├─ Site config capability? (RetrieveTranscript, etc.)
+  │   ├─ Send to extension
+  │   └─ Wait for response
+  │
+  └─ Internal capability? (GetChatList, LoadChat, etc.)
+      ├─ execute_internal_capability()
+      └─ Handle _hud_action if present
     ↓
-Save chat to disk via save_chat()
-  - File: ./chats/{chat_id}.json
-  - Format: JSON with indent=2
-    ↓
-Send acknowledgement to extension
-  Message: {"type": "chat_append_ack", "chat_id": "...", "message": {...}}
-    ↓
-Extension → content.js → HUD updates with chat_id
+Send capability_result to client with:
+  - response: LLM text
+  - history_length: conversation length
+  - chat_id: active chat
+  - message: saved message object
 ```
 
 ---
 
-### 11. Chat History Request Flow (NEW)
+### 11. Iframe Elements Update Flow (Progressive Loading)
 
 ```
-Extension requests chat history
-    ↓
-Extension → sw.js → ws_server.py
-  Message: {"type": "get_chat_history", "chat_id": "..."}
+Extension: {"type": "iframe_elements_update", "iframeElements": [...], "iframeCount": N}
     ↓
 ws_server handler() receives message
     ↓
-chat_id provided?
-    ↓ No
-  Send empty response: {"type": "chat_history", "chat_id": null, "messages": [], "meta": {}}
-    ↓ Yes
-Load chat via load_chat(chat_id)
+Read existing text.md
     ↓
-Chat found?
-    ↓ Yes
-  Send full chat: {"type": "chat_history", "chat_id": "...", "messages": [...], "meta": {...}, "title": "..."}
-    ↓ No
-  Send error: {"type": "chat_history", "chat_id": "...", "messages": [], "meta": {}, "error": "Chat not found"}
+Build iframe section:
+  - Formatted with JSON hints (iframe elements)
+  - Button: {label} [iframe] → {"act": "a_id_X"}
+  - Select: {label} [iframe] → {"act": "a_id_X", "value": "option"}
+  - Input: {label} [iframe] → {"act": "a_id_X", "value": "...", "submit": true}
     ↓
-Extension → content.js → HUD displays conversation
+Add to ELEMENT_REGISTRY:
+  - ELEMENT_REGISTRY[action_id] = {type, tag, label, href: None, iframe: True}
+    ↓
+Replace placeholder or append to end
+    ↓
+Write updated text.md
 ```
 
 ---
 
-## Message Types Reference
+### 12. Web Dashboard Sync Flow
 
-### Incoming Messages (Client/Extension → Server)
-
-| Type | Source | Purpose |
-|------|--------|---------|
-| `ping` | Any | Heartbeat check |
-| `pong` | Any | Heartbeat response |
-| `bridge_status` | Extension | Extension identification |
-| `tabs_info` | Extension | Tab list update |
-| `active_tab_info` | Extension | Active tab details |
-| `intelligence_update` | Extension | **Main data payload** - page intelligence |
-| `execute_capability` | Test Client | Request capability execution |
-| `execute_scroll` | Test Client | Request scroll action |
-| `dom_content_changed` | Extension | DOM mutation notification |
-| `network_activity` | Extension | Network request monitoring |
-| `extractPageText` | Test Client | Request text extraction |
-| `llm_instruction` | Test Client | LLM action execution request |
-| `command` with `id` | Test Client | Generic command (navigate, etc.) |
-| `chat_user_message` | Extension | User chat message from HUD/orb |
-| `get_chat_history` | Extension | Request full chat history |
-| Response with `id`, `ok` | Extension | Command/capability response |
-
-### Outgoing Messages (Server → Client/Extension)
-
-| Type | Destination | Purpose |
-|------|-------------|---------|
-| `pong` | Sender | Heartbeat response |
-| `server_ping` | Extension | Server heartbeat |
-| `youtube_find_transcript_button` | Extension | Trigger transcript button hunt |
-| `execute_llm_action` | Extension | Forward LLM instruction |
-| `execute_capability` | Extension | Forward capability request |
-| `scroll` command | Extension | Scroll instruction |
-| `chat_append_ack` | Extension | Acknowledge message appended to chat |
-| `chat_history` | Extension | Return full chat conversation |
-| `chat_error` | Extension | Chat operation error |
-| Response with `id`, `ok` | Test Client | Command result |
+```
+Web Dashboard: {"type": "set_orb_theme", "theme": "robot", "_requestId": "..."}
+    ↓
+ws_server handler() receives message
+    ↓
+Send set_orb_theme to extension
+    ↓
+Update CURRENT_ORB_THEME global
+    ↓
+Send response to sender with _requestId
+    ↓
+Broadcast to other web dashboards:
+  - Message: {"type": "orb_theme_changed", "theme": "robot"}
+  - Exclude: original sender
+```
 
 ---
 
@@ -1150,19 +1661,23 @@ Extension → content.js → HUD displays conversation
 |------|----------|---------|
 | `@site_structures/page.jsonl` | `save_intelligence_to_page_jsonl()` | Normalized page records (meta, sections, actions) |
 | `@site_structures/content.jsonl` | `save_content_to_content_jsonl()` | Content structure (headings, paragraphs, lists, etc.) |
-| `@site_structures/text.md` | `handler()` intelligence_update | Human-readable page text with frontmatter and capabilities |
+| `@site_structures/text.md` | `write_text_md()` | Human-readable page text with frontmatter, tabs, capabilities |
 | `@site_structures/transcripts/{date}__{slug}.md` | `save_transcripts()` | Individual transcript files with timestamped segments |
 | `@site_structures/transcripts/video_history.jsonl` | `_append_video_history_entry()` | Append-only transcript history log |
-| `chats/{chat_id}.json` | `save_chat()` | Chat conversation files (NEW) |
-| `@site_structures/llm_actions.json` | `process_actionable_elements_for_llm()` | LLM action mapping (DISABLED) |
+| `data/chats/{chat_id}.json` | `save_chat()` | Chat conversation files |
+| `data/llm_config.json` | `save_llm_config()` | LLM configuration (providers, settings) |
+| `@site_structures/text.json` | Generated by extension, used by server | Action hints (label, type, selectors) for resolution |
 | `@site_structures/{hostname}_page_text.md` | `save_page_text_to_markdown()` | Legacy text extraction (rarely used) |
+| `@site_structures/llm_actions.json` | `process_actionable_elements_for_llm()` | LLM action mapping (DISABLED) |
 | `@site_structures/llm_prompt.md` | `generate_llm_prompt()` | LLM-friendly prompt (DISABLED) |
 
-### Chat File Format (NEW)
+---
 
-Chat files are stored in `./chats/` directory with the format `{chat_id}.json`:
+### Chat File Format
 
-**File structure:**
+**Path:** `./data/chats/{chat_id}.json`
+
+**Structure:**
 ```json
 {
   "chat_id": "check-youtube-comments__20251130T211523",
@@ -1173,7 +1688,8 @@ Chat files are stored in `./chats/` directory with the format `{chat_id}.json`:
   "meta": {
     "source": "ome-web",
     "page_url": "https://youtube.com/watch?v=abc123",
-    "page_title": "Video Title"
+    "page_title": "Video Title",
+    "project_id": "project-name"  // Optional
   },
   "messages": [
     {
@@ -1192,12 +1708,63 @@ Chat files are stored in `./chats/` directory with the format `{chat_id}.json`:
 }
 ```
 
-**Key characteristics:**
-- Append-only: Messages are always added to end, never inserted
+**Characteristics:**
+- Append-only: Messages always added to end
 - Sequential IDs: m_0001, m_0002, m_0003, etc.
-- Two roles: "user" (from HUD/orb) and "assistant" (from LLM - not yet integrated)
+- Two roles: "user" (from HUD/orb) and "assistant" (from LLM)
 - Metadata: Captures page context where chat originated
 - Timestamps: ISO 8601 format with Z suffix (UTC)
+
+---
+
+### text.md Format
+
+**Path:** `@site_structures/text.md`
+
+**Structure:**
+```markdown
+---
+title: Page Title
+url: https://example.com/page
+last_updated: 2025-12-14T12:00:00.000Z
+---
+
+# Page Title
+
+## Browser Tabs
+
+Currently open tabs:
+1. **Tab 1**: Example Page (active) - https://example.com/page
+2. **Tab 2**: Another Page - https://example.com/other
+3. **Tab 3**: Third Page - https://example.com/third
+
+---
+
+## Available Capabilities
+
+- **RetrieveTranscript**: Get video transcript (on /watch?v= pages)
+- **ScrollDown**: Scroll down one viewport
+- **ScrollUp**: Scroll up one viewport
+... (universal scroll capabilities)
+
+---
+
+## Page Content
+
+[Semantic page text with tagged elements]
+
+Link: Sign In → {"act": "a_id_0"}
+Button: Subscribe → {"act": "a_id_1"}
+Input: Search → {"act": "a_id_2", "value": "query", "submit": true}
+
+---
+
+## Secure Iframe Elements
+
+*These elements are inside secure cross-origin iframes (e.g., payment forms):*
+
+Input: Card Number [iframe] → {"act": "a_id_99", "value": "...", "submit": true}
+```
 
 ---
 
@@ -1212,8 +1779,7 @@ Chat files are stored in `./chats/` directory with the format `{chat_id}.json`:
 | Ping timeout | `20s` | WebSocket ping timeout |
 | Heartbeat interval | `20s` | Server heartbeat to extension |
 | Default command timeout | `8.0s` | Response timeout for send_command() |
-| Max actions | `MAX_ACTIONS` | Max actions in llm_prompt.md |
-| Max footer links | `MAX_FOOTER_LINKS` | Max footer links in llm_prompt.md |
+| HTTP server port | `8080` | Orb control page |
 
 ---
 
@@ -1231,7 +1797,7 @@ This allows reconnection if the extension disconnects and reconnects.
 
 ### Response Routing System
 
-The server uses TWO mechanisms for routing responses:
+The server uses **TWO mechanisms** for routing responses:
 
 1. **PENDING dict** - For internal `send_command()` calls
    - Maps command ID → Future
@@ -1259,9 +1825,28 @@ This ensures the same transcript is never saved twice, even across restarts.
 
 ---
 
-### SPA Filtering (Page Version Tracking)
+### Element Registry Pattern
 
-The `generate_llm_prompt()` function implements SPA (Single Page Application) filtering:
+**Purpose:** Enable selector-based action resolution that survives DOM re-renders
+
+**Population:** From `semanticPageData.actionables` on each intelligence update
+
+**Usage:**
+1. LLM references element by action ID (e.g., `a_id_0`)
+2. Server looks up in `ELEMENT_REGISTRY`
+3. Server sends selectors to extension
+4. Extension re-queries DOM using selectors (not stale references)
+
+**Benefits:**
+- Survives SPAs that re-render
+- Works across page navigation (if selectors stable)
+- Provides type information for action resolution
+
+---
+
+### SPA Filtering (Page Version Tracking) - DISABLED
+
+The `generate_llm_prompt()` function implements SPA (Single Page Application) filtering (currently disabled):
 - Each page scan increments `pageVersion`
 - Each action ID embeds version: `a_id_{version}_{counter}`
 - Old elements (version < current) are pruned unless they match persistent selectors
@@ -1271,9 +1856,9 @@ This prevents stale action IDs from cluttering the LLM prompt after page updates
 
 ---
 
-### Smart Action Categorization
+### Smart Action Categorization - DISABLED
 
-The prompt generator uses pattern-based categorization (not domain-specific):
+The prompt generator uses pattern-based categorization (currently disabled):
 - **Search inputs:** Detects "search" in label/placeholder/aria-label
 - **Transcript actions:** Detects "transcript" in label/aria-label (CRITICAL priority)
 - **Video links:** Detects `/watch?v=` or `/watch/` in href
@@ -1307,9 +1892,9 @@ python om_e_web_ws/ws_server.py
 
 Expected output:
 ```
-WS listening on ws://127.0.0.1:17892
 🔌 Client connected! Total clients: 1
 🎯 Marked as extension client
+WS listening on ws://127.0.0.1:17892
 ```
 
 ---
@@ -1336,9 +1921,37 @@ asyncio.run(send_command())
 
 ---
 
-### Triggering Page Scan (Extension Sends Intelligence Update)
+### Executing Element Action (Shortcut)
 
-The extension automatically sends intelligence updates when pages load or change. The server processes them automatically.
+```python
+async def click_element():
+    async with websockets.connect("ws://127.0.0.1:17892") as ws:
+        msg = {
+            "type": "click",
+            "actionId": "a_id_0"
+        }
+        await ws.send(json.dumps(msg))
+        response = await ws.recv()
+        print(json.loads(response))
+```
+
+---
+
+### Executing Capability
+
+```python
+async def execute_capability():
+    async with websockets.connect("ws://127.0.0.1:17892") as ws:
+        msg = {
+            "type": "execute_capability",
+            "action": "GetChatList",
+            "params": {},
+            "id": "cap-123"
+        }
+        await ws.send(json.dumps(msg))
+        response = await ws.recv()
+        print(json.loads(response))
+```
 
 ---
 
@@ -1351,7 +1964,7 @@ The extension automatically sends intelligence updates when pages load or change
 
 2. **Verify tab information:**
    ```
-   Look for: "📊 Tab info updated and stored - N tabs available"
+   Look for: "📊 Tab info updated - N tabs"
    ```
 
 3. **Monitor intelligence updates:**
@@ -1368,13 +1981,25 @@ The extension automatically sends intelligence updates when pages load or change
 5. **Check file generation:**
    ```
    Look for: "🧠 Normalized records saved to @site_structures/page.jsonl"
-   Look for: "✅ Text content saved to: @site_structures/text.md"
+   Look for: "✅ Text content saved to text.md"
    ```
 
 6. **Monitor transcript saves:**
    ```
    Look for: "📝 Transcript saved: @site_structures/transcripts/*.md"
    Or: "⏭️ Skipping duplicate transcript for video ID: ..."
+   ```
+
+7. **Watch element registry:**
+   ```
+   Look for: "🎯 Element registry updated: N elements"
+   Look for: "📊 Selector quality: X/Y have selectors"
+   ```
+
+8. **Check capability routing:**
+   ```
+   Look for: "🔧 Routing internal capability: ..."
+   Look for: "🎯 Routing site config capability: ..."
    ```
 
 ---
@@ -1409,6 +2034,23 @@ The server maintains global state (`CURRENT_TABS_INFO`, `CURRENT_ACTIVE_TAB`, et
 
 ---
 
+### Why Element Registry?
+
+**Problem:** Action IDs (a_id_X) become stale when SPAs re-render DOM
+
+**Solution:** Store robust selectors in registry
+1. Extension sends selectors with each action in semanticPageData
+2. Server stores in `ELEMENT_REGISTRY`
+3. When executing action, server sends selectors to extension
+4. Extension re-queries DOM using selectors (fresh reference)
+
+**Benefits:**
+- Survives re-renders
+- Works across page navigation (if selectors stable)
+- Enables Type:Label format (resolve by type and label instead of ID)
+
+---
+
 ### Why Disable Site Map Processing?
 
 The site map generation (old approach) has been largely replaced by:
@@ -1420,64 +2062,56 @@ The old functions remain in code for reference but are disabled/commented out.
 
 ---
 
-## Future Enhancements
+## Redundant/Deprecated Functions
 
-Potential improvements to the server:
+### Disabled Functions
 
-1. **LLM Integration (NEXT PRIORITY)** - Direct Anthropic Claude API calls from server:
-   - On `chat_user_message`, generate LLM response
-   - Call `append_assistant_message()` with response
-   - Stream responses back to HUD in real-time
-   - Include page intelligence context in prompts
-2. **Session management** - Track multiple browser sessions
-3. **Persistent history** - Store all intelligence updates to database
-4. **REST API layer** - HTTP endpoints alongside WebSocket
-5. **Authentication** - Secure access control for production use
-6. **Metrics dashboard** - Web UI showing server stats
-7. **Replay mode** - Replay historical intelligence updates for testing
+| Function | Status | Reason |
+|----------|--------|--------|
+| `process_actionable_elements_for_llm()` | Disabled | Conflicts with semantic extraction |
+| `clear_llm_actions()` | Disabled | No longer needed |
+| `generate_llm_prompt()` | Mostly disabled | Replaced by text.md |
+| `save_site_map_to_jsonl()` | Disabled | Old approach |
+| `process_clean_site_map()` | Disabled | Old approach |
+| `process_clean_site_map_data()` | Disabled | Old approach |
+| `siteStructuredLLMmethodinsidethefile()` | Disabled | Old approach |
+| `classify_element_enhanced()` | Disabled | Old approach |
+| `deduplicate_elements()` | Disabled | Old approach |
+| `filter_non_interactive_elements()` | Disabled | Old approach |
+| `calculate_element_importance_score()` | Disabled | Old approach |
+| `store_dom_change_context()` | Mostly disabled | Too noisy (logs only) |
 
 ---
 
-## Chat System Notes (NEW)
+## Async Patterns
 
-### Current State
-The chat system is **partially implemented**:
-- ✅ Chat storage to disk (append-only JSON files)
-- ✅ Message persistence and retrieval
-- ✅ HUD/orb UI integration
-- ✅ Chat ID generation from prompts
-- ✅ Page context capture
-- ❌ **LLM integration NOT YET IMPLEMENTED**
+### Concurrent Processing
 
-### Missing: LLM Response Generation
-The `append_assistant_message()` function exists but is not yet called. To complete the chat pipeline:
+**Intelligence Update:**
+```python
+# PARALLEL: All three run concurrently
+transcript_refs = await save_transcripts(...)
+await save_intelligence_to_page_jsonl(...)
+await save_content_to_content_jsonl(...)
+```
 
-1. **Add Anthropic SDK:**
-   ```bash
-   pip install anthropic
-   ```
+### Future-based Response Tracking
 
-2. **Add LLM handler in ws_server.py:**
-   ```python
-   async def generate_llm_response(chat_dict, user_prompt, page_data):
-       # Build context from page intelligence
-       # Call Anthropic Claude API
-       # Return assistant response
-   ```
+**Internal Commands:**
+```python
+fut = asyncio.get_event_loop().create_future()
+PENDING[request_id] = fut
+await EXTENSION_WS.send(...)
+result = await asyncio.wait_for(fut, timeout=10.0)
+```
 
-3. **Integrate into chat_user_message handler:**
-   ```python
-   # After appending user message:
-   assistant_response = await generate_llm_response(chat_dict, prompt, CURRENT_PAGE_DATA)
-   append_assistant_message(chat_dict, assistant_response)
-   save_chat(chat_dict)
-   # Send updated chat to extension
-   ```
+### Background Tasks
 
-4. **Stream responses to HUD:**
-   - Use Anthropic streaming API
-   - Send incremental updates via WebSocket
-   - Update HUD in real-time
+**Heartbeat Loop:**
+```python
+# main()
+asyncio.create_task(extension_heartbeat_loop())
+```
 
 ---
 

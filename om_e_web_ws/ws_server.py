@@ -47,7 +47,7 @@ from llm.dispatcher import (
 
 # LLM Agent - conversational AI with history
 from llm.agent import OmEAgent
-from llm.executor import parse_capability_calls, has_capability_calls, format_execution_result
+from llm.executor import parse_capability_calls, has_capability_calls
 from llm.prompt import add_action_to_history
 
 
@@ -63,7 +63,15 @@ WEB_DASHBOARD_CLIENTS = set()      # Web dashboard clients (for broadcast sync)
 CURRENT_TABS_INFO = None           # Latest tabs_info from extension
 LAST_TABS_UPDATE = None            # Timestamp of last update
 CURRENT_ACTIVE_TAB = None          # Current active tab information
-TAB_NUMBER_MAP = {}                # Simple tab numbers (1,2,3) → real tabIds mapping
+TAB_NUMBER_MAP = {}                # DEPRECATED - use STABLE_TAB_REGISTRY instead
+
+# 🔢 STABLE TAB NUMBERING: Persistent registry for consistent tab numbers
+# Tabs keep their assigned number until closed - no more shifting!
+STABLE_TAB_REGISTRY = {
+    "tab_id_to_number": {},    # Chrome tab ID → stable display number
+    "number_to_tab_id": {},    # Stable display number → Chrome tab ID
+    "next_number": 1,          # Next number to assign to new tabs
+}
 
 # 🎯 PREMIUM: Site configs loaded from extension's site_configs.json
 SITE_CONFIGS = {}                  # Loaded site configurations with capabilities
@@ -128,13 +136,13 @@ def get_element_info(action_id: str) -> Optional[dict]:
 
 def translate_tab_params(params: dict) -> tuple[dict, str | None]:
     """
-    🔢 Translate display tab numbers (1-8) to real Chrome tab IDs.
+    🔢 Translate display tab numbers to real Chrome tab IDs.
 
     LLM sees tabs as "Tab 1", "Tab 2", etc. but Chrome uses internal IDs.
-    TAB_NUMBER_MAP tracks the mapping: {1: 123456789, 2: 987654321, ...}
+    Uses STABLE_TAB_REGISTRY for consistent mapping that survives tab closures.
 
-    Checks both "tab" and "tabId" params. Only translates if value is 1-8 range
-    (display numbers). Larger values assumed to be real Chrome tab IDs.
+    Checks both "tab" and "tabId" params. Only translates if value is in
+    small number range (1-50). Larger values assumed to be real Chrome tab IDs.
 
     @param params: Original params dict (may contain tab or tabId)
     @return: (translated_params, error_message) - error is None on success
@@ -149,29 +157,160 @@ def translate_tab_params(params: dict) -> tuple[dict, str | None]:
         tab_num = translated.pop("tab")
         try:
             tab_num = int(tab_num)
-            real_tab_id = TAB_NUMBER_MAP.get(tab_num)
+            real_tab_id = get_tab_id_from_number(tab_num)
             if real_tab_id:
                 translated["tabId"] = real_tab_id
                 print(f"🔢 Translated Tab {tab_num} → tabId {real_tab_id}")
             else:
-                return translated, f"Tab {tab_num} not found in TAB_NUMBER_MAP"
+                return translated, f"Tab {tab_num} not found in registry"
         except (ValueError, TypeError):
             return translated, f"Invalid tab number: {tab_num}"
 
     # Check "tabId" param (LLM typically uses this)
     elif "tabId" in translated:
         tab_num = translated.get("tabId")
-        # Only translate if it looks like a display number (1-8 range)
-        if isinstance(tab_num, int) and 1 <= tab_num <= 8:
-            real_tab_id = TAB_NUMBER_MAP.get(tab_num)
+        # Only translate if it looks like a display number (1-50 range)
+        # Real Chrome tab IDs are much larger (e.g., 1138048888)
+        if isinstance(tab_num, int) and 1 <= tab_num <= 50:
+            real_tab_id = get_tab_id_from_number(tab_num)
             if real_tab_id:
                 translated["tabId"] = real_tab_id
                 print(f"🔢 Translated tabId {tab_num} → real tabId {real_tab_id}")
             else:
-                return translated, f"Tab {tab_num} not found in TAB_NUMBER_MAP"
+                return translated, f"Tab {tab_num} not found in registry"
         # Else: assume it's already a real Chrome tab ID, pass through
 
     return translated, None
+
+
+# ============================================================================
+# 🔢 STABLE TAB REGISTRY FUNCTIONS
+# ============================================================================
+
+def register_tab(tab_id: int) -> int:
+    """
+    🔢 Register a new tab and assign it a stable number.
+    If already registered, returns existing number.
+
+    @param tab_id: Chrome's internal tab ID
+    @return: Stable display number (1, 2, 3, etc.)
+    """
+    global STABLE_TAB_REGISTRY
+
+    # Already registered? Return existing number
+    if tab_id in STABLE_TAB_REGISTRY["tab_id_to_number"]:
+        return STABLE_TAB_REGISTRY["tab_id_to_number"][tab_id]
+
+    # Assign next number
+    number = STABLE_TAB_REGISTRY["next_number"]
+    STABLE_TAB_REGISTRY["next_number"] += 1
+
+    # Store both directions
+    STABLE_TAB_REGISTRY["tab_id_to_number"][tab_id] = number
+    STABLE_TAB_REGISTRY["number_to_tab_id"][number] = tab_id
+
+    print(f"🔢 [REGISTRY] Registered tab {tab_id} as Tab {number}")
+    return number
+
+
+def unregister_tab(tab_id: int) -> int | None:
+    """
+    🔢 Unregister a closed tab.
+    The number is NOT immediately reused - prevents confusion.
+
+    @param tab_id: Chrome's internal tab ID
+    @return: The freed number, or None if tab wasn't registered
+    """
+    global STABLE_TAB_REGISTRY
+
+    number = STABLE_TAB_REGISTRY["tab_id_to_number"].pop(tab_id, None)
+    if number is not None:
+        STABLE_TAB_REGISTRY["number_to_tab_id"].pop(number, None)
+        print(f"🔢 [REGISTRY] Unregistered Tab {number} (tab_id {tab_id})")
+    return number
+
+
+def get_stable_tab_number(tab_id: int) -> int | None:
+    """
+    🔢 Get the stable display number for a Chrome tab ID.
+
+    @param tab_id: Chrome's internal tab ID
+    @return: Stable number (1, 2, 3, etc.) or None if not registered
+    """
+    return STABLE_TAB_REGISTRY["tab_id_to_number"].get(tab_id)
+
+
+def get_tab_id_from_number(number: int) -> int | None:
+    """
+    🔢 Get Chrome tab ID from stable display number.
+    Used by translate_tab_params() to resolve LLM tab references.
+
+    @param number: Stable display number (1, 2, 3, etc.)
+    @return: Chrome tab ID or None if not found
+    """
+    return STABLE_TAB_REGISTRY["number_to_tab_id"].get(number)
+
+
+def sync_tab_registry(tabs_info: list) -> dict:
+    """
+    🔢 Sync registry with current tabs from extension.
+    - Registers any new tabs (assigns next number)
+    - Unregisters any closed tabs
+
+    @param tabs_info: List of tab objects from extension
+    @return: Dict with sync stats {registered: N, unregistered: N}
+    """
+    if not tabs_info:
+        return {"registered": 0, "unregistered": 0}
+
+    current_tab_ids = {tab.get('id') for tab in tabs_info if tab.get('id')}
+    registered_tab_ids = set(STABLE_TAB_REGISTRY["tab_id_to_number"].keys())
+
+    stats = {"registered": 0, "unregistered": 0}
+
+    # Register new tabs
+    for tab in tabs_info:
+        tab_id = tab.get('id')
+        if tab_id and tab_id not in registered_tab_ids:
+            register_tab(tab_id)
+            stats["registered"] += 1
+
+    # Unregister closed tabs
+    for tab_id in registered_tab_ids - current_tab_ids:
+        unregister_tab(tab_id)
+        stats["unregistered"] += 1
+
+    return stats
+
+
+def get_tab_registry_state() -> dict:
+    """
+    🔢 Get current state of the tab registry for debugging.
+
+    @return: Dict with registry state
+    """
+    return {
+        "tab_count": len(STABLE_TAB_REGISTRY["tab_id_to_number"]),
+        "next_number": STABLE_TAB_REGISTRY["next_number"],
+        "mappings": {
+            num: tab_id
+            for num, tab_id in sorted(STABLE_TAB_REGISTRY["number_to_tab_id"].items())
+        }
+    }
+
+
+def update_tabs_from_response(tabs: list) -> None:
+    """
+    🚀 IMMEDIATE: Update CURRENT_TABS_INFO and text.md from capability response.
+    Called when a tab capability (OpenTab, CloseTab, etc.) returns with tabs data.
+
+    @param tabs: List of tab objects from capability response
+    """
+    global CURRENT_TABS_INFO
+    CURRENT_TABS_INFO = tabs
+    print(f"🚀 [IMMEDIATE] Updated tabs from capability response: {len(CURRENT_TABS_INFO)} tabs")
+    update_tabs_in_text_md()
+    print(f"🚀 [IMMEDIATE] text.md updated from capability response")
 
 
 def get_all_site_configs():
@@ -2386,28 +2525,45 @@ def generate_llm_prompt(text_md_path: str, page_jsonl_path: str, out_path: str, 
 
 def update_tabs_in_text_md():
     """
-    🗂️ Update ONLY the tabs section in text.md without touching page content.
+    🗂️ Update ONLY the tabs section in text.md using STABLE tab numbers.
     Called when tabs change (SwitchTab, CloseTab, OpenTab, tabs_info).
-    Preserves the current action IDs in the file.
+    Tab numbers persist across open/close - Tab 3 stays Tab 3 even if Tab 2 closes.
     """
-    global TAB_NUMBER_MAP
+    import time as _time
+    import re
 
     text_file_path = os.path.join("@site_structures", "text.md")
 
+    _start = _time.time()
+    print(f"🔍 [TAB-UPDATE] Entry: {len(CURRENT_TABS_INFO) if CURRENT_TABS_INFO else 0} tabs, file_exists={os.path.exists(text_file_path)}")
+
     if not os.path.exists(text_file_path) or not CURRENT_TABS_INFO:
+        print(f"🔍 [TAB-UPDATE] Early exit: file_exists={os.path.exists(text_file_path)}, tabs={bool(CURRENT_TABS_INFO)}")
         return False
 
     try:
+        # 🔢 SYNC REGISTRY: Register new tabs, unregister closed tabs
+        sync_stats = sync_tab_registry(CURRENT_TABS_INFO)
+        if sync_stats["registered"] > 0 or sync_stats["unregistered"] > 0:
+            print(f"🔢 [REGISTRY] Synced: +{sync_stats['registered']} new, -{sync_stats['unregistered']} closed")
+
         # Read existing file
         with open(text_file_path, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
 
-        # Build new tabs section
-        sorted_tabs = sorted(CURRENT_TABS_INFO, key=lambda t: t.get('id', 0))
-        TAB_NUMBER_MAP = {}
-        tabs_lines = ["**Tabs:**\n"]
-        for idx, tab in enumerate(sorted_tabs[:8], start=1):
+        # 🔢 Build tabs section using STABLE numbers from registry
+        tabs_with_numbers = []
+        for tab in CURRENT_TABS_INFO:
             tab_id = tab.get('id')
+            stable_num = get_stable_tab_number(tab_id)
+            if stable_num:
+                tabs_with_numbers.append((stable_num, tab))
+
+        # Sort by stable number for display
+        tabs_with_numbers.sort(key=lambda x: x[0])
+
+        tabs_lines = ["**Tabs:**\n"]
+        for stable_num, tab in tabs_with_numbers[:8]:
             tab_title = tab.get('title', 'Unknown')[:40]
             tab_url = tab.get('url', '')
             is_active = tab.get('active', False)
@@ -2415,18 +2571,20 @@ def update_tabs_in_text_md():
                 tab_domain = urlparse(tab_url).hostname or 'unknown'
             except Exception:
                 tab_domain = 'unknown'
-            TAB_NUMBER_MAP[idx] = tab_id
             active_marker = " -- ACTIVE TAB" if is_active else ""
-            tabs_lines.append(f"- Tab {idx}: \"{tab_title}\" ({tab_domain}){active_marker}\n")
-        if len(sorted_tabs) > 8:
-            tabs_lines.append(f"- (+{len(sorted_tabs) - 8} more tabs)\n")
+            tabs_lines.append(f"- Tab {stable_num}: \"{tab_title}\" ({tab_domain}){active_marker}\n")
+
+        if len(tabs_with_numbers) > 8:
+            tabs_lines.append(f"- (+{len(tabs_with_numbers) - 8} more tabs)\n")
         new_tabs_section = "".join(tabs_lines)
 
-        # Find and replace tabs section (between **Tabs:** and the next blank line or ---)
-        import re
-        # Pattern: **Tabs:** followed by lines starting with "- Tab" until blank line or ---
+        # Find and replace tabs section
         tabs_pattern = r'\*\*Tabs:\*\*\n(?:- Tab[^\n]*\n|[^\n]*more tabs[^\n]*\n)*'
-        if re.search(tabs_pattern, content):
+
+        regex_matched = bool(re.search(tabs_pattern, content))
+        print(f"🔍 [TAB-UPDATE] Regex match: {regex_matched}")
+
+        if regex_matched:
             content = re.sub(tabs_pattern, new_tabs_section, content)
         else:
             # No tabs section found, insert after timestamp line
@@ -2437,10 +2595,18 @@ def update_tabs_in_text_md():
         with open(text_file_path, 'w', encoding='utf-8', errors='ignore') as f:
             f.write(content)
 
-        print(f"🗂️ Tabs updated in text.md ({len(sorted_tabs)} tabs)")
+        _elapsed = (_time.time() - _start) * 1000
+        print(f"🗂️ Tabs updated in text.md ({len(tabs_with_numbers)} tabs) in {_elapsed:.1f}ms")
+
+        # 🔍 DEBUG: Show tab summary with stable numbers
+        for stable_num, tab in tabs_with_numbers[:4]:
+            print(f"   Tab {stable_num}: {tab.get('title', 'Unknown')[:30]}... (id:{tab.get('id')})")
+
         return True
     except Exception as e:
         print(f"⚠️ Failed to update tabs in text.md: {e}")
+        import traceback
+        traceback.print_exc()
         return False
 
 
@@ -2455,7 +2621,7 @@ def write_text_md():
     - tag: HTML tag name
     - selectors: Array of CSS selectors for resolution
     """
-    global LAST_TEXT_MD_DATA, TAB_NUMBER_MAP, CURRENT_TEXT_JSON
+    global LAST_TEXT_MD_DATA, CURRENT_TEXT_JSON
 
     if not LAST_TEXT_MD_DATA:
         return False
@@ -2532,13 +2698,27 @@ def write_text_md():
             f.write(f"**URL:** {data['url']}\n")
             f.write(f"**Timestamp:** {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}\n\n")
 
-            # 🗂️ TABS: Stable order by tabId
+            # 🗂️ TABS: Stable numbering via registry (numbers persist across tab open/close)
             if CURRENT_TABS_INFO:
-                sorted_tabs = sorted(CURRENT_TABS_INFO, key=lambda t: t.get('id', 0))
-                TAB_NUMBER_MAP = {}
-                f.write("**Tabs:**\n")
-                for idx, tab in enumerate(sorted_tabs[:8], start=1):
+                # Sync registry with current tabs (registers new, unregisters closed)
+                sync_tab_registry(CURRENT_TABS_INFO)
+
+                # Build tab list with stable numbers
+                tabs_with_numbers = []
+                for tab in CURRENT_TABS_INFO:
                     tab_id = tab.get('id')
+                    stable_num = get_stable_tab_number(tab_id)
+                    if stable_num is not None:
+                        tabs_with_numbers.append((stable_num, tab))
+
+                # Sort by stable number for consistent display order
+                tabs_with_numbers.sort(key=lambda x: x[0])
+
+                f.write("**Tabs:**\n")
+                displayed = 0
+                for stable_num, tab in tabs_with_numbers:
+                    if displayed >= 8:
+                        break
                     tab_title = tab.get('title', 'Unknown')[:40]
                     tab_url = tab.get('url', '')
                     is_active = tab.get('active', False)
@@ -2546,11 +2726,12 @@ def write_text_md():
                         tab_domain = urlparse(tab_url).hostname or 'unknown'
                     except Exception:
                         tab_domain = 'unknown'
-                    TAB_NUMBER_MAP[idx] = tab_id
                     active_marker = " -- ACTIVE TAB" if is_active else ""
-                    f.write(f"- Tab {idx}: \"{tab_title}\" ({tab_domain}){active_marker}\n")
-                if len(sorted_tabs) > 8:
-                    f.write(f"- (+{len(sorted_tabs) - 8} more tabs)\n")
+                    f.write(f"- Tab {stable_num}: \"{tab_title}\" ({tab_domain}){active_marker}\n")
+                    displayed += 1
+
+                if len(tabs_with_numbers) > 8:
+                    f.write(f"- (+{len(tabs_with_numbers) - 8} more tabs)\n")
                 f.write("\n")
 
             # Capabilities
@@ -4341,12 +4522,15 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
             
             # 📊 TAB INFORMATION STORAGE: Store latest tabs_info for external access
             if msg.get("type") == "tabs_info":
+                import time as _t
+                _recv_time = _t.time()
                 global CURRENT_TABS_INFO, LAST_TABS_UPDATE
                 CURRENT_TABS_INFO = msg.get("tabs", [])
                 LAST_TABS_UPDATE = asyncio.get_event_loop().time()
-                print(f"📊 Tab info updated - {len(CURRENT_TABS_INFO)} tabs")
+                print(f"📊 [{_recv_time:.3f}] Tab info RECEIVED - {len(CURRENT_TABS_INFO)} tabs")
                 # 🗂️ Update tabs section only (preserve action IDs)
                 update_tabs_in_text_md()
+                print(f"📊 [{_t.time():.3f}] Tab info WRITTEN to file (took {(_t.time()-_recv_time)*1000:.1f}ms)")
             
             # 🎯 ACTIVE TAB INFORMATION: Display active tab info in terminal
             if msg.get("type") == "active_tab_info":
@@ -4746,7 +4930,6 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 print("🤖 LLMChat: Pushed LLM response to HUD")
 
                             # Parse and execute any capability calls
-                            capability_results = []
                             if has_capability_calls(response_text):
                                 calls = parse_capability_calls(response_text)
                                 print(f"🤖 LLMChat: Found {len(calls)} capability calls")
@@ -4823,25 +5006,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                             # Track in history
                                             add_action_to_history(f"Element:{action_type}", {"action_id": act_ref, "value": value}, cap_result)
 
-                                            # Format result for display
-                                            result_text = format_execution_result(f"{action_type}({act_ref})", cap_result)
-                                            capability_results.append(result_text)
-
-                                            # Save execution result to chat
-                                            if CURRENT_CHAT_ID:
-                                                chat_dict = load_chat(CURRENT_CHAT_ID)
-                                                if chat_dict:
-                                                    exec_msg = append_assistant_message(chat_dict, result_text)
-                                                    save_chat(chat_dict)
-                                                    if EXTENSION_WS:
-                                                        await EXTENSION_WS.send(json.dumps({
-                                                            "type": "hud_action",
-                                                            "action": {
-                                                                "type": "append_message",
-                                                                "chat_id": CURRENT_CHAT_ID,
-                                                                "message": exec_msg
-                                                            }
-                                                        }))
+                                            # NOTE: Result display pipeline disabled - was showing inaccurate timeout messages
                                         else:
                                             cap_result = {"ok": False, "error": "Missing act"}
                                         continue
@@ -4874,7 +5039,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                             cap_result = {"ok": True}
                                             print(f"🤖 Sent {cap_action} to extension")
 
-                                        # Route tab actions to extension (with proper response waiting)
+                                        # Route tab actions to extension (FIRE-AND-FORGET - tabs_info updates immediately)
                                         elif cap_action in tab_actions and EXTENSION_WS:
                                             # 🔢 Translate simple tab number to real tabId
                                             translated_params, tab_error = translate_tab_params(cap_params)
@@ -4883,37 +5048,15 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                                 print(f"❌ {tab_error}")
                                                 continue
 
-                                            request_id = f"cap_{cap_action}_{int(time.time() * 1000)}"
-                                            fut = asyncio.get_event_loop().create_future()
-                                            PENDING[request_id] = fut
-
                                             await EXTENSION_WS.send(json.dumps({
                                                 "type": "execute_capability",
-                                                "id": request_id,
+                                                "id": f"cap_{cap_action}_{int(time.time() * 1000)}",
                                                 "action": cap_action,
                                                 "params": translated_params
                                             }))
-                                            print(f"🤖 Sent {cap_action} to extension, waiting for response...")
-
-                                            try:
-                                                cap_result = await asyncio.wait_for(fut, timeout=10.0)
-                                                print(f"🤖 {cap_action} result: {cap_result}")
-
-                                                # 🔄 Tab action succeeded - update tabs and regenerate text.md immediately
-                                                if cap_result.get("ok"):
-                                                    # Update tabs from the response (tabs is in result.tabs)
-                                                    result_data = cap_result.get("result", {})
-                                                    if result_data and "tabs" in result_data:
-                                                        CURRENT_TABS_INFO = result_data["tabs"]
-                                                        print(f"🔄 Updated CURRENT_TABS_INFO from response: {len(CURRENT_TABS_INFO)} tabs")
-                                                    # 🗂️ Update tabs section only (preserve action IDs)
-                                                    update_tabs_in_text_md()
-                                                    print(f"🗂️ Tabs updated after {cap_action}")
-
-                                            except asyncio.TimeoutError:
-                                                PENDING.pop(request_id, None)
-                                                cap_result = {"ok": False, "error": f"Timeout waiting for {cap_action}"}
-                                                print(f"⏰ {cap_action} timeout")
+                                            # 🚀 Don't wait for response - tabs_info message will update text.md immediately
+                                            cap_result = {"ok": True}
+                                            print(f"🤖 Sent {cap_action} to extension (fire-and-forget, tabs_info will update)")
 
                                         # 🧭 NAV CAPABILITIES: Route to service worker (uses chrome.tabs API)
                                         elif cap_action in nav_actions and EXTENSION_WS:
@@ -4954,27 +5097,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
 
                                         add_action_to_history(cap_action, cap_params, {"ok": cap_result.get("ok", False)})
 
-                                        # Format result for display
-                                        result_text = format_execution_result(cap_action, {"ok": cap_result.get("ok", False), "error": cap_result.get("error")})
-                                        capability_results.append(result_text)
-
-                                        # Push results to HUD (include errors so debugging isn't blind)
-                                        if CURRENT_CHAT_ID:
-                                            chat_dict = load_chat(CURRENT_CHAT_ID)
-                                            if chat_dict:
-                                                exec_msg = append_assistant_message(chat_dict, result_text)
-                                                save_chat(chat_dict)
-
-                                                # Push to HUD
-                                                if EXTENSION_WS:
-                                                    await EXTENSION_WS.send(json.dumps({
-                                                        "type": "hud_action",
-                                                        "action": {
-                                                            "type": "append_message",
-                                                            "chat_id": CURRENT_CHAT_ID,
-                                                            "message": exec_msg
-                                                        }
-                                                    }))
+                                        # NOTE: Result display pipeline disabled - was showing inaccurate timeout messages
 
                                         # Handle HUD actions from capability
                                         if "_hud_action" in cap_result and EXTENSION_WS:
@@ -4987,8 +5110,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 "response": response_text,
                                 "history_length": LLM_AGENT.get_history_length(),
                                 "chat_id": CURRENT_CHAT_ID,
-                                "message": new_message,
-                                "capability_results": capability_results
+                                "message": new_message
                             }
 
                             await ws.send(json.dumps({
@@ -5675,6 +5797,13 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                     if msg["id"] in COMMAND_CLIENTS:
                         target_client = COMMAND_CLIENTS.pop(msg["id"])
                         print(f"📤 Routing response {msg['id']} back to original client {id(target_client)}")
+
+                        # 🚀 IMMEDIATE TAB UPDATE: If this is a tab capability response, update text.md NOW
+                        if msg.get("ok") and msg["id"].startswith("cap_"):
+                            result_data = msg.get("result", {})
+                            if result_data and "tabs" in result_data:
+                                update_tabs_from_response(result_data["tabs"])
+
                         try:
                             await target_client.send(json.dumps(msg))
                             print("✅ Response routed back to original client")

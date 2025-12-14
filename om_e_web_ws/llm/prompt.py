@@ -239,7 +239,7 @@ Searching for cats...
    - If searching: find `Select:` or `Input:` with the search box label
    - If clicking: find `Link:` or `Button:` with the exact text you want
    - When in doubt, quote the label back: "Clicking **Gmail** (Link:Gmail)"
-5. **Tabs** - Use simple numbers: Tab 1, Tab 2. Example: `{"cap": "SwitchTab", "params": {"tab": 2}}`
+5. **Tabs** - ALWAYS use tab numbers from "Current Page Context" below, NOT from earlier in conversation. Tabs can change during a session. Example: `{"cap": "SwitchTab", "params": {"tab": 2}}`
 
 ## Formatting (Markdown)
 You can use markdown to make your responses look nice:
@@ -266,7 +266,9 @@ Use formatting when it helps clarity - don't overdo it for simple responses.
     # Page context
     if include_page_context:
         page_context = load_page_context()
-        prompt += f"""## Current Page Context
+        prompt += f"""## Current Page Context (LIVE - USE THESE TAB NUMBERS)
+**IMPORTANT: Tab numbers below are CURRENT. Ignore any tab numbers from earlier in this conversation.**
+
 {page_context}
 """
 

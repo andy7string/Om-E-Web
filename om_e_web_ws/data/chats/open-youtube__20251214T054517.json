@@ -1,0 +1,159 @@
+{
+  "chat_id": "open-youtube__20251214T054517",
+  "project_id": "default",
+  "created_at": "2025-12-14T05:45:17.970604Z",
+  "updated_at": "2025-12-14T05:50:49.304333Z",
+  "title": "open youtube",
+  "default_title": "open youtube",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-14T05:45:17.970634Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening YouTube for you, mate.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-14T05:45:19.079653Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-14T05:45:29.125911Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Opening Facebook now, mate.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-14T05:45:30.139000Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "open claude ai",
+      "timestamp": "2025-12-14T05:45:40.149528Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Can't see Claude AI here right now. Let me open it in a new tab for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://claude.ai\"}}",
+      "timestamp": "2025-12-14T05:45:41.390402Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "go to facebook",
+      "timestamp": "2025-12-14T05:45:51.472587Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Switching you to the Facebook tab.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tab\": 4}}",
+      "timestamp": "2025-12-14T05:45:52.322266Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "how many tabs do you have open",
+      "timestamp": "2025-12-14T05:46:02.555333Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Right now, you’ve got 4 tabs open:\n\n1. Google (Tab 2)\n2. YouTube (Tab 3)\n3. Facebook (Tab 4) - active\n4. Claude (Tab 5)",
+      "timestamp": "2025-12-14T05:46:03.932346Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "close youtube",
+      "timestamp": "2025-12-14T05:46:13.176036Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Closing the YouTube tab for you.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 3}}",
+      "timestamp": "2025-12-14T05:46:14.240136Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "open another google",
+      "timestamp": "2025-12-14T05:46:24.244099Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Opening another Google tab for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T05:46:25.696131Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "open x",
+      "timestamp": "2025-12-14T05:46:35.751487Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Which \"X\" do you mean, mate? Twitter rebranded as X, or something else? Let me know!",
+      "timestamp": "2025-12-14T05:46:36.652849Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "x bru yes the rebranded twitter",
+      "timestamp": "2025-12-14T05:47:01.543955Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Gotcha, opening the rebranded Twitter (X) for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.x.com\"}}",
+      "timestamp": "2025-12-14T05:47:02.912282Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "close facebook",
+      "timestamp": "2025-12-14T05:47:22.869101Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Closing the Facebook tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 4}}",
+      "timestamp": "2025-12-14T05:47:23.899903Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "close claude",
+      "timestamp": "2025-12-14T05:47:42.092277Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Closing the Claude AI tab for you.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 5}}",
+      "timestamp": "2025-12-14T05:47:43.155569Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "close gmail",
+      "timestamp": "2025-12-14T05:50:47.926956Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Your Gmail is Tab 10 and it's active. Closing it now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 10}}",
+      "timestamp": "2025-12-14T05:50:49.304333Z"
+    }
+  ]
+}
