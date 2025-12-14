@@ -40,15 +40,15 @@
       "description": "LinkedIn job search input",
       "container": "[componentkey='jobSearchBox']",
       "forceBubbles": true,
-      "forceSubmitSelector": true,
-      "submitSelector": "button[aria-label*='Search' i], button[type='submit'], form button"
+      "injectReactEnter": true,
+      "_comment": "React ignores synthetic Enter - inject page script to call React onKeyDown directly"
     },
     "globalSearch": {
       "description": "LinkedIn global search input",
       "container": "[data-testid='typeahead-input']",
       "forceBubbles": true,
-      "forceSubmitSelector": true,
-      "submitSelector": "button[aria-label*='Search' i], button[type='submit']"
+      "injectReactEnter": true,
+      "_comment": "React ignores synthetic Enter - inject page script to call React onKeyDown directly"
     }
   }
 }

@@ -1285,6 +1285,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             case 'execute_llm_action':
                 handleExecuteLLMAction(message, sendResponse);
                 break;
+
+            case 'execute_react_submit':
+                // ⚛️ Execute React onChange + onKeyDown in page's MAIN world (bypasses CSP)
+                handleExecuteReactSubmit(message, sender, sendResponse);
+                break;
+
             case 'execute_capability':
                 // Handle capability execution from content script (e.g., zoom controls)
                 // Must handle async properly to keep message channel open
@@ -2558,11 +2564,95 @@ async function handleIntelligenceUpdate(message, sender, sendResponse) {
 }
 
 /**
+ * ⚛️ EXECUTE REACT SUBMIT
+ *
+ * Executes React onChange + onKeyDown in the page's MAIN world using chrome.scripting.executeScript.
+ * This bypasses CSP restrictions that block inline script injection.
+ * Used for React inputs that ignore synthetic keyboard events from content scripts.
+ *
+ * @param {Object} message - Contains selector and value
+ * @param {Object} sender - Message sender info (contains tab)
+ * @param {Function} sendResponse - Response callback
+ */
+async function handleExecuteReactSubmit(message, sender, sendResponse) {
+    const { selector, value } = message;
+    const tabId = sender?.tab?.id;
+
+    if (!tabId) {
+        console.error('[SW] ⚛️ No tab ID for execute_react_submit');
+        sendResponse?.({ ok: false, error: 'No tab ID' });
+        return;
+    }
+
+    console.log(`[SW] ⚛️ Executing React submit in tab ${tabId}, selector: ${selector}`);
+
+    try {
+        // Execute in page's MAIN world - this bypasses CSP
+        await chrome.scripting.executeScript({
+            target: { tabId: tabId },
+            world: 'MAIN',
+            func: (sel, val) => {
+                const el = document.querySelector(sel);
+                if (!el) {
+                    console.warn('[OME-React] Element not found:', sel);
+                    return { ok: false, error: 'Element not found' };
+                }
+
+                const propsKey = Object.keys(el).find(k => k.startsWith('__reactProps'));
+                const props = propsKey ? el[propsKey] : null;
+
+                if (!props) {
+                    console.warn('[OME-React] No React props found');
+                    return { ok: false, error: 'No React props' };
+                }
+
+                // Step 1: Set value via React onChange
+                if (props.onChange) {
+                    console.log('[OME-React] Calling onChange with:', val);
+                    props.onChange({
+                        target: { value: val },
+                        currentTarget: el,
+                        preventDefault: () => {},
+                        stopPropagation: () => {},
+                        persist: () => {}
+                    });
+                }
+
+                // Step 2: Submit via React onKeyDown
+                if (props.onKeyDown) {
+                    console.log('[OME-React] Calling onKeyDown (Enter)');
+                    const mockEnter = {
+                        key: 'Enter', code: 'Enter', keyCode: 13, which: 13,
+                        target: el, currentTarget: el,
+                        bubbles: true, cancelable: true, defaultPrevented: false,
+                        preventDefault: function() { this.defaultPrevented = true; },
+                        stopPropagation: () => {}, persist: () => {},
+                        nativeEvent: new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }),
+                        type: 'keydown'
+                    };
+                    props.onKeyDown(mockEnter);
+                    console.log('[OME-React] onKeyDown called');
+                }
+
+                return { ok: true };
+            },
+            args: [selector, value]
+        });
+
+        console.log('[SW] ⚛️ React submit executed successfully');
+        sendResponse?.({ ok: true });
+    } catch (error) {
+        console.error('[SW] ⚛️ React submit failed:', error);
+        sendResponse?.({ ok: false, error: error.message });
+    }
+}
+
+/**
  * 🤖 Handle LLM action execution requests
- * 
+ *
  * This function receives LLM action requests from the server and executes
  * them on the appropriate page elements.
- * 
+ *
  * @param {Object} message - LLM action execution message
  * @param {Function} sendResponse - Response callback
  */

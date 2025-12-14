@@ -8598,6 +8598,34 @@
                                 break;
                             }
 
+                            // ⚛️ REACT SUBMIT: Use chrome.scripting.executeScript to bypass CSP
+                            // Content scripts can't access React props (isolated world)
+                            // Inline script injection blocked by CSP
+                            // Solution: Ask SW to use chrome.scripting.executeScript with world: 'MAIN'
+                            if (matchedInputPattern?.injectReactEnter && params?.submit) {
+                                console.log('[Content] ⚛️ injectReactEnter: requesting SW to execute React script');
+
+                                // Get a selector that can find this element
+                                const reactSelector = selector || `[data-testid="typeahead-input"]`;
+
+                                // Ask SW to execute script in page's main world (bypasses CSP)
+                                chrome.runtime.sendMessage({
+                                    type: 'execute_react_submit',
+                                    selector: reactSelector,
+                                    value: valueToSet
+                                });
+
+                                result = {
+                                    success: true,
+                                    action: 'setValue',
+                                    elementId: actionId,
+                                    value: valueToSet,
+                                    selector: selector,
+                                    mode: 'injectReactEnter'
+                                };
+                                break;
+                            }
+
                             // For search inputs with autocomplete, wait longer for dropdown to appear before submitting
                             const submitDelay = hasAutocomplete ? 300 : 100;
 
