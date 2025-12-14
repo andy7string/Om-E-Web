@@ -403,15 +403,16 @@
                 const isSignificant = mutationCount > 15 && (now - lastSignificantChangeTime) > 2000;
 
                 if (isSignificant) {
-                    console.log(`[Content] 🔄 Significant DOM change detected (${mutationCount} mutations), DOM quiet for 200ms, triggering scan`);
+                    console.log(`[Content] 🔄 Significant DOM change detected (${mutationCount} mutations), DOM quiet for 200ms`);
                     lastSignificantChangeTime = now;
 
-                    // Trigger scan via service worker
-                    chrome.runtime.sendMessage({
-                        type: 'request_scan',
-                        url: window.location.href,
-                        trigger: 'significant_dom_change'
-                    });
+                    // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+                    // chrome.runtime.sendMessage({
+                    //     type: 'request_scan',
+                    //     url: window.location.href,
+                    //     trigger: 'significant_dom_change'
+                    // });
+                    console.log(`[Content] 🧪 EXPERIMENT: Auto-scan on significant_dom_change DISABLED`);
                 }
 
                 // Reset counter
@@ -3122,14 +3123,14 @@
                 if (command === "scanAndRegisterElements") {
                     console.log("[Content] scanAndRegisterElements command - routing to SW");
 
-                    // 🔔 ROUTE TO SW: All scans go through service worker
-                    chrome.runtime.sendMessage({
-                        type: 'request_scan',
-                        url: window.location.href,
-                        trigger: 'content_manual_command'
-                    });
-                    console.log("[Content] 🔔 Scan requested via SW (content_manual_command)");
-                    return sendResponse({ success: true, message: 'Scan requested via SW' });
+                    // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+                    // chrome.runtime.sendMessage({
+                    //     type: 'request_scan',
+                    //     url: window.location.href,
+                    //     trigger: 'content_manual_command'
+                    // });
+                    console.log("[Content] 🧪 EXPERIMENT: Auto-scan on content_manual_command DISABLED");
+                    return sendResponse({ success: true, message: 'Scan disabled - experiment mode' });
                 }
 
                 // 🆕 NEW: Test intelligence system status
@@ -5949,13 +5950,13 @@
      * ♻️ DESTROY & RECREATE: Kills old engine, creates fresh instance, scans from 0
      */
     IntelligenceEngine.prototype.queueFullRescan = function (reason) {
-        // 🔔 ROUTE TO SW: All scans go through service worker
-        console.log(`[Content] 🔔 queueFullRescan(${reason}) - routing to SW`);
-        chrome.runtime.sendMessage({
-            type: 'request_scan',
-            url: window.location.href,
-            trigger: `content_rescan_${reason}`
-        });
+        // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+        console.log(`[Content] 🧪 EXPERIMENT: queueFullRescan(${reason}) DISABLED - scan on prompt submit only`);
+        // chrome.runtime.sendMessage({
+        //     type: 'request_scan',
+        //     url: window.location.href,
+        //     trigger: `content_rescan_${reason}`
+        // });
     };
 
     // 🧹 REMOVED: registerInteractiveSubtree - obsolete Map-based registration (replaced by selector resolution)
@@ -8565,12 +8566,13 @@
                                     .then((dropdownResult) => {
                                         if (dropdownResult.success) {
                                             console.log('[Content] ✅ Dropdown selection complete:', dropdownResult.clicked);
-                                            // Request rescan after navigation
-                                            chrome.runtime.sendMessage({
-                                                type: 'request_scan',
-                                                url: window.location.href,
-                                                trigger: 'autocomplete_selection'
-                                            });
+                                            // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+                                            // chrome.runtime.sendMessage({
+                                            //     type: 'request_scan',
+                                            //     url: window.location.href,
+                                            //     trigger: 'autocomplete_selection'
+                                            // });
+                                            console.log('[Content] 🧪 EXPERIMENT: Auto-scan on autocomplete_selection DISABLED');
                                         } else {
                                             console.log('[Content] ⚠️ Dropdown not found, falling back to Enter key');
                                             // Fallback: dispatch Enter key
@@ -8999,13 +9001,14 @@
                                                     if (btn && ((typeof isElementVisible === 'function') ? isElementVisible(btn) : true)) {
                                                         console.log(`[Content] ✅ Found submit button via inputPattern: ${sel}`);
                                                         btn.click();
-                                                        // Route scan request through service worker after submit
-                                                        console.log('[Content] 🔄 Requesting rescan via SW after inputPattern submit');
-                                                        chrome.runtime.sendMessage({
-                                                            type: 'request_scan',
-                                                            url: window.location.href,
-                                                            trigger: 'inputPattern_submit'
-                                                        });
+                                                        // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+                                                        // console.log('[Content] 🔄 Requesting rescan via SW after inputPattern submit');
+                                                        // chrome.runtime.sendMessage({
+                                                        //     type: 'request_scan',
+                                                        //     url: window.location.href,
+                                                        //     trigger: 'inputPattern_submit'
+                                                        // });
+                                                        console.log('[Content] 🧪 EXPERIMENT: Auto-scan on inputPattern_submit DISABLED');
                                                         return;
                                                     }
                                                 } catch (e) { /* selector failed, try next */ }

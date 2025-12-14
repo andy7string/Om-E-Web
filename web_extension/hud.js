@@ -3215,6 +3215,10 @@
                         const result = await sendChatMessage(text);
                         console.log('[Content] ✅ Orb chat message sent:', result);
 
+                        // 🧪 EXPERIMENT: Trigger scan before LLM submission
+                        console.log('[Content] 🧪 Scanning page before LLM...');
+                        await triggerScanAndWait();
+
                         // 2. Send to LLM for response (response comes via hud_action)
                         console.log('[Content] 🤖 Sending to LLM...');
                         await sendLLMChat(text);
@@ -4363,6 +4367,10 @@
                 // 1. Save user message to chat
                 const result = await sendChatMessage(text);
                 console.log('[Content] ✅ Chat message sent:', result);
+
+                // 🧪 EXPERIMENT: Trigger scan before LLM submission
+                console.log('[Content] 🧪 Scanning page before LLM...');
+                await triggerScanAndWait();
 
                 // 2. Send to LLM for response (response comes via hud_action)
                 console.log('[Content] 🤖 Sending to LLM...');
@@ -6929,6 +6937,41 @@
                     }
 
                     resolve(result);
+                }
+            );
+        });
+    }
+
+    /**
+     * 🧪 EXPERIMENT: Trigger page scan and wait for completion
+     * Called before sending to LLM to ensure fresh page intelligence
+     *
+     * @returns {Promise<Object>} - Scan result
+     */
+    function triggerScanAndWait() {
+        return new Promise((resolve) => {
+            console.log('[Content] 🧪 Triggering scan before LLM submission...');
+
+            chrome.runtime.sendMessage(
+                {
+                    type: 'request_scan_and_wait',
+                    url: window.location.href,
+                    trigger: 'prompt_submit'
+                },
+                (response) => {
+                    if (chrome.runtime.lastError) {
+                        console.warn('[Content] 🧪 Scan request error:', chrome.runtime.lastError.message);
+                        // Don't reject - still allow LLM chat even if scan fails
+                        resolve({ ok: false, error: chrome.runtime.lastError.message });
+                        return;
+                    }
+
+                    if (response?.timeout) {
+                        console.warn('[Content] 🧪 Scan timed out, proceeding anyway');
+                    } else {
+                        console.log('[Content] 🧪 Scan complete:', response?.message || 'success');
+                    }
+                    resolve(response || { ok: true });
                 }
             );
         });

@@ -86,6 +86,9 @@ let siteConfigs = {}; // Store site configs locally for immediate access
 // 🔧 INTERNAL CAPABILITIES: Pending callbacks for server-side capabilities
 let pendingCapabilityCallbacks = {};
 
+// 🧪 EXPERIMENT: Pending callbacks for scan-and-wait (prompt submit triggers scan)
+const pendingScanCallbacks = new Map(); // tabId -> sendResponse callback
+
 // 🛡️ Keep-alive configuration to prevent Chrome from suspending the service worker
 const KEEP_ALIVE_PORT_NAME = "ome_keep_alive";
 const KEEP_ALIVE_CHECK_INTERVAL_MS = 30 * 1000;
@@ -488,6 +491,14 @@ function handleScanComplete(message, sender) {
     // 🚀 PROGRESSIVE OUTPUT: Always send main frame data immediately
     // Don't block LLM waiting for iframes - send what we have now
     sendMainFrameIntelligence(tabId, intelligenceData, expectedIframeCount);
+
+    // 🧪 EXPERIMENT: Resolve pending scan-and-wait callback if exists
+    if (pendingScanCallbacks.has(tabId)) {
+        console.log(`[SW] 🧪 Resolving scan-and-wait callback for tab ${tabId}`);
+        const callback = pendingScanCallbacks.get(tabId);
+        pendingScanCallbacks.delete(tabId);
+        callback({ ok: true, message: 'Scan complete, intelligence sent to server' });
+    }
 
     if (expectedIframeCount > 0) {
         // Store for iframe merging when they arrive
@@ -1274,6 +1285,33 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 }
                 sendResponse({ ok: true });
                 break;
+
+            case 'request_scan_and_wait':
+                // 🧪 EXPERIMENT: Scan-and-wait for prompt submit - waits for scan_complete
+                if (sender.tab) {
+                    const tabId = sender.tab.id;
+                    console.log(`[SW] 🧪 request_scan_and_wait: starting scan for tab ${tabId}`);
+
+                    // Store callback to resolve when scan completes
+                    pendingScanCallbacks.set(tabId, sendResponse);
+
+                    // Trigger the scan
+                    requestScan(tabId, message.url, message.trigger || 'prompt_submit');
+
+                    // Set timeout to prevent hanging forever (10s max)
+                    setTimeout(() => {
+                        if (pendingScanCallbacks.has(tabId)) {
+                            console.warn(`[SW] 🧪 Scan-and-wait timeout for tab ${tabId}`);
+                            const cb = pendingScanCallbacks.get(tabId);
+                            pendingScanCallbacks.delete(tabId);
+                            cb({ ok: true, timeout: true, message: 'Scan timed out after 10s' });
+                        }
+                    }, 10000);
+
+                    return true; // Keep channel open for async response
+                }
+                sendResponse({ ok: false, error: 'No tab context' });
+                break;
             case 'get_site_config_for_domain':
                 // Handle async response properly
                 handleGetSiteConfigForDomain(message, sendResponse).catch(error => {
@@ -1849,12 +1887,13 @@ async function handleDOMCommand(message) {
             sendSuccessResponse(message.id, response || {});
 
             // 📜 POST-SCROLL SCAN: Trigger rescan after scroll completes
-            if (message.command === "scroll" && response && response.ok) {
-                console.log("[SW] 📜 Scroll complete, triggering post-scroll scan...");
-                setTimeout(() => {
-                    requestScan(activeTab.id, activeTab.url, 'post_scroll');
-                }, 300);
-            }
+            // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+            // if (message.command === "scroll" && response && response.ok) {
+            //     console.log("[SW] 📜 Scroll complete, triggering post-scroll scan...");
+            //     setTimeout(() => {
+            //         requestScan(activeTab.id, activeTab.url, 'post_scroll');
+            //     }, 300);
+            // }
         }
 
     } catch (error) {
@@ -2720,9 +2759,10 @@ async function handleExecuteLLMAction(message, sendResponse) {
                 if (successResult) {
                     console.log("[SW] ✅ Iframe action executed successfully:", actionId);
                     sendResponse({ ok: true, result: successResult.result });
-                    setTimeout(async () => {
-                        await requestScan(activeTab.id, activeTab.url, 'post_action');
-                    }, 1000);
+                    // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+                    // setTimeout(async () => {
+                    //     await requestScan(activeTab.id, activeTab.url, 'post_action');
+                    // }, 1000);
                     return;
                 }
 
@@ -2756,10 +2796,11 @@ async function handleExecuteLLMAction(message, sendResponse) {
             console.log("[SW] ✅ LLM action executed successfully:", actionId);
             sendResponse({ ok: true, result: response.result });
 
-            console.log("[SW] ⏳ Waiting 1 second before triggering post-action scan...");
-            setTimeout(async () => {
-                await requestScan(activeTab.id, activeTab.url, 'post_action');
-            }, 1000);
+            // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+            // console.log("[SW] ⏳ Waiting 1 second before triggering post-action scan...");
+            // setTimeout(async () => {
+            //     await requestScan(activeTab.id, activeTab.url, 'post_action');
+            // }, 1000);
         } else {
             console.error("[SW] ❌ LLM action execution failed:", response?.error);
             actionInProgress = false;
@@ -2818,11 +2859,11 @@ async function handleExecuteActionWithHints(message, sendResponse) {
             console.log("[SW] ✅ Hint-based action executed:", actionId);
             sendResponse({ ok: true, result: response.result });
 
-            // Trigger post-action scan after delay
-            console.log("[SW] ⏳ Waiting 1 second before post-action scan...");
-            setTimeout(async () => {
-                await requestScan(activeTab.id, activeTab.url, 'post_action');
-            }, 1000);
+            // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+            // console.log("[SW] ⏳ Waiting 1 second before post-action scan...");
+            // setTimeout(async () => {
+            //     await requestScan(activeTab.id, activeTab.url, 'post_action');
+            // }, 1000);
         } else {
             console.error("[SW] ❌ Hint-based action failed:", response?.error);
             actionInProgress = false;
@@ -3582,15 +3623,17 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
     await sendTabsInfo();
 
     // 🔄 TRIGGER SCAN: When switching to a tab, trigger fresh scan to update artifacts
-    try {
-        const tab = await chrome.tabs.get(activeInfo.tabId);
-        if (tab && tab.url && !tab.url.startsWith('chrome://')) {
-            console.log("[SW] 🔄 Triggering scan for newly activated tab:", tab.url);
-            await requestScan(activeInfo.tabId, tab.url, 'tab_switch');
-        }
-    } catch (error) {
-        console.log("[SW] Failed to trigger scan for activated tab:", error.message);
-    }
+    // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+    // try {
+    //     const tab = await chrome.tabs.get(activeInfo.tabId);
+    //     if (tab && tab.url && !tab.url.startsWith('chrome://')) {
+    //         console.log("[SW] 🔄 Triggering scan for newly activated tab:", tab.url);
+    //         await requestScan(activeInfo.tabId, tab.url, 'tab_switch');
+    //     }
+    // } catch (error) {
+    //     console.log("[SW] Failed to trigger scan for activated tab:", error.message);
+    // }
+    console.log("[SW] 🧪 EXPERIMENT: Auto-scan on tab switch DISABLED - scan on prompt submit only");
 });
 
 chrome.webNavigation.onBeforeNavigate.addListener((details) => {
@@ -3647,7 +3690,9 @@ chrome.webNavigation.onCompleted.addListener((details) => {
         tabState.set(details.tabId, state);
     }
 
-    requestScan(details.tabId, details.url, trigger);
+    // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+    // requestScan(details.tabId, details.url, trigger);
+    console.log(`[SW] 🧪 EXPERIMENT: Auto-scan on ${trigger} DISABLED - scan on prompt submit only`);
 }, { url: [{ schemes: ['http', 'https'] }] });
 
 // ============================================================================
@@ -3657,7 +3702,9 @@ chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
     if (details.frameId !== 0) {
         return;
     }
-    requestScan(details.tabId, details.url, "spa_navigation");
+    // 🧪 EXPERIMENT: Disabled automatic scan - scans now only on prompt submit
+    // requestScan(details.tabId, details.url, "spa_navigation");
+    console.log("[SW] 🧪 EXPERIMENT: Auto-scan on spa_navigation DISABLED - scan on prompt submit only");
 }, { url: [{ schemes: ['http', 'https'] }] });
 
 /**
