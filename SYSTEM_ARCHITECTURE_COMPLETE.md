@@ -121,7 +121,7 @@ See `/Users/andy7string/Projects/Om_E_Web/SYSTEM_ARCHITECTURE_COMPLETE.md` for d
 **Categories:**
 - Heartbeat & Connection (ping, pong, bridge_status, identify)
 - Intelligence & Data (intelligence_update, iframe_elements_update, tabs_info)
-- Action Execution (llm_instruction, execute_action, execute_action_with_hints)
+- Action Execution (llm_instruction, execute_action, execute_action_with_hints, execute_react_submit)
 - Capability Execution (execute_capability, capability_result)
 - Scan Control (start_scan, request_scan, scan_complete)
 - DOM & Network (dom_changed, network_activity)
@@ -198,6 +198,56 @@ Stores CSS selectors instead of element references. Re-queries DOM on execution.
 ### 5. Shadow DOM Isolation (HUD)
 All UI in closed Shadow DOM. Zero CSS conflicts with host pages.
 
+### 6. React Input Submit via chrome.scripting.executeScript
+
+**Problem:** React apps (LinkedIn, Facebook) ignore synthetic keyboard events from content scripts. The content script runs in an isolated JavaScript world and cannot access React's internal props (`__reactProps$xxx`) to call handlers directly. Additionally, CSP (Content Security Policy) blocks inline script injection.
+
+**Solution:** Use `chrome.scripting.executeScript` with `world: 'MAIN'` from the service worker. This privileged extension API:
+1. Bypasses CSP restrictions
+2. Executes code in the page's main JavaScript world (not isolated)
+3. Can access React's internal props and call handlers directly
+
+**Config-Driven:** Site configs use `injectReactEnter: true` flag in `inputPatterns`:
+```json
+"inputPatterns": {
+  "jobSearch": {
+    "container": "[componentkey='jobSearchBox']",
+    "injectReactEnter": true,
+    "_comment": "React ignores synthetic Enter - uses SW chrome.scripting"
+  }
+}
+```
+
+**Message Flow:**
+```
+Content Script (detects injectReactEnter)
+    ↓
+chrome.runtime.sendMessage({type: 'execute_react_submit', selector, value})
+    ↓
+Service Worker (handleExecuteReactSubmit)
+    ↓
+chrome.scripting.executeScript({world: 'MAIN', func: (sel, val) => {
+    const el = document.querySelector(sel);
+    const props = el[Object.keys(el).find(k => k.startsWith('__reactProps'))];
+    props.onChange({target: {value: val}, ...});  // Set value
+    props.onKeyDown(mockEnterEvent);              // Submit
+}})
+    ↓
+Page MAIN World (has access to React internals)
+    ↓
+React handlers execute → Form submits
+```
+
+**Key Files:**
+- `site_configs/linkedin.json` - Config with `injectReactEnter: true`
+- `content.js:8601-8627` - Detects flag, sends message to SW
+- `sw.js:2566-2648` - `handleExecuteReactSubmit()` function
+
+**Use Cases:**
+- LinkedIn job search input
+- LinkedIn global search (feed page)
+- Any React app where synthetic events don't work
+
 ---
 
 ## Known Issues & Technical Debt
@@ -255,12 +305,13 @@ All UI in closed Shadow DOM. Zero CSS conflicts with host pages.
 2. Capability not finding element → Check selectors, url_pattern, element exists
 3. Config changes not applying → Reload tab
 4. Action ID not found → IDs ephemeral, trigger new scan
-5. React input not updating → Dispatch input/change events
+5. React input not updating → Use `injectReactEnter: true` config (Pattern #6)
 6. Click not working → Use universalClick() with multiple strategies
 7. Concurrent scans → Scan lock prevents, check scanInProgress
 8. Iframe execution → Check window.top === window.self
 9. HUD not appearing → Check Shadow DOM host exists
 10. Chat not persisting → Check data/chats/ directory writable
+11. CSP blocking script injection → Use chrome.scripting.executeScript with world: 'MAIN' (Pattern #6)
 
 ---
 
