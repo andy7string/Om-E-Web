@@ -44,11 +44,11 @@
       "_comment": "React ignores synthetic Enter - inject page script to call React onKeyDown directly"
     },
     "globalSearch": {
-      "description": "LinkedIn global search input",
-      "container": "[data-testid='typeahead-input']",
+      "description": "LinkedIn global search input (all pages)",
+      "container": "[data-testid='typeahead-input'], [data-view-name='search-global-typeahead-input'], input[aria-label='Search']",
       "forceBubbles": true,
       "injectReactEnter": true,
-      "_comment": "React ignores synthetic Enter - inject page script to call React onKeyDown directly"
+      "_comment": "React ignores synthetic Enter - uses SW chrome.scripting.executeScript to call React props directly"
     }
   }
 }
