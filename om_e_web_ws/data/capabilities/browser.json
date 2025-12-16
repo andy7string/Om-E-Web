@@ -3,91 +3,69 @@
   "description": "Chrome browser control capabilities",
   "capabilities": {
     "ScrollDown": {
-      "category": "browser.scroll",
-      "label": "Scroll down one viewport",
-      "handler": "extension",
-      "route": "sw.scroll"
+      "label": "Scroll down the page",
+      "example": "{\"cap\": \"ScrollDown\"}",
+      "handler": "extension"
     },
     "ScrollUp": {
-      "category": "browser.scroll",
-      "label": "Scroll up one viewport",
-      "handler": "extension",
-      "route": "sw.scroll"
+      "label": "Scroll up the page",
+      "example": "{\"cap\": \"ScrollUp\"}",
+      "handler": "extension"
     },
     "ScrollTop": {
-      "category": "browser.scroll",
-      "label": "Go to page top",
-      "handler": "extension",
-      "route": "sw.scroll"
+      "label": "Go to top of page",
+      "example": "{\"cap\": \"ScrollTop\"}",
+      "handler": "extension"
     },
     "ScrollBottom": {
-      "category": "browser.scroll",
-      "label": "Go to page bottom",
-      "handler": "extension",
-      "route": "sw.scroll"
+      "label": "Go to bottom of page",
+      "example": "{\"cap\": \"ScrollBottom\"}",
+      "handler": "extension"
     },
     "ZoomIn": {
-      "category": "browser.zoom",
-      "label": "Zoom in 15%",
-      "handler": "extension",
-      "route": "sw.zoom"
+      "label": "Zoom in / make bigger",
+      "example": "{\"cap\": \"ZoomIn\"}",
+      "handler": "extension"
     },
     "ZoomOut": {
-      "category": "browser.zoom",
-      "label": "Zoom out 15%",
-      "handler": "extension",
-      "route": "sw.zoom"
+      "label": "Zoom out / make smaller",
+      "example": "{\"cap\": \"ZoomOut\"}",
+      "handler": "extension"
     },
     "ZoomReset": {
-      "category": "browser.zoom",
       "label": "Reset zoom to 100%",
-      "handler": "extension",
-      "route": "sw.zoom"
+      "example": "{\"cap\": \"ZoomReset\"}",
+      "handler": "extension"
     },
     "OpenTab": {
-      "category": "browser.tabs",
-      "label": "Open new browser tab",
-      "handler": "extension",
-      "route": "sw.tabs",
-      "params": {
-        "url": {"type": "string", "required": false, "description": "URL to open"}
-      }
+      "label": "Open new tab (optionally with URL)",
+      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://...\"}}",
+      "handler": "extension"
     },
     "CloseTab": {
-      "category": "browser.tabs",
       "label": "Close a browser tab",
-      "handler": "extension",
-      "route": "sw.tabs",
-      "params": {
-        "tabId": {"type": "number", "required": true}
-      }
+      "example": "{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 123}}",
+      "handler": "extension"
     },
     "SwitchTab": {
-      "category": "browser.tabs",
-      "label": "Switch to a tab",
-      "handler": "extension",
-      "route": "sw.tabs",
-      "params": {
-        "tabId": {"type": "number", "required": true}
-      }
+      "label": "Switch to another tab",
+      "example": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 123}}",
+      "handler": "extension"
     },
     "GoBack": {
-      "category": "browser.nav",
-      "label": "Go back in history",
-      "handler": "extension",
-      "route": "sw.nav"
+      "label": "Go back in browser history",
+      "example": "{\"cap\": \"GoBack\"}",
+      "handler": "extension"
     },
     "GoForward": {
-      "category": "browser.nav",
-      "label": "Go forward in history",
-      "handler": "extension",
-      "route": "sw.nav"
+      "label": "Go forward in browser history",
+      "example": "{\"cap\": \"GoForward\"}",
+      "handler": "extension"
     },
     "Refresh": {
-      "category": "browser.nav",
-      "label": "Refresh the page",
-      "handler": "extension",
-      "route": "sw.nav"
+      "label": "Refresh / reload the page",
+      "example": "{\"cap\": \"Refresh\"}",
+      "handler": "extension"
     }
   }
 }

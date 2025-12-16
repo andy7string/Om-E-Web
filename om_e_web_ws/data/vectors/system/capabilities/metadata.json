@@ -1,0 +1,350 @@
+{
+  "texts": [
+    "ScrollDown: Scroll down the page",
+    "ScrollUp: Scroll up the page",
+    "ScrollTop: Go to top of page",
+    "ScrollBottom: Go to bottom of page",
+    "ZoomIn: Zoom in / make bigger",
+    "ZoomOut: Zoom out / make smaller",
+    "ZoomReset: Reset zoom to 100%",
+    "OpenTab: Open new tab (optionally with URL)",
+    "CloseTab: Close a browser tab",
+    "SwitchTab: Switch to another tab",
+    "GoBack: Go back in browser history",
+    "GoForward: Go forward in browser history",
+    "Refresh: Refresh / reload the page",
+    "TypeInPrompt: Type text into the chat input",
+    "ClearPrompt: Clear the chat input field",
+    "SubmitPrompt: Submit / send the current message",
+    "DisplayMessage: Display a message in chat",
+    "ToggleHUD: Show or hide the HUD panel",
+    "MinimizeHUD: Minimize / hide / collapse the chat panel",
+    "MaximizeHUD: Maximize / expand / show the chat panel",
+    "SetTheme: Change the theme (robot, kawaii, atom)",
+    "ListThemes: List available themes",
+    "AppendUserMessage: Add a user message to chat history",
+    "AppendAssistantMessage: Add an assistant message to chat history",
+    "ListChats: List all saved conversations",
+    "CreateChat: Start a new conversation",
+    "LoadChat: Load / open a saved conversation",
+    "GetFullHistory: Get complete chat history for context",
+    "RenameChat: Rename a conversation",
+    "DeleteChat: Delete a conversation",
+    "GetCurrentChat: Get the current active chat ID",
+    "SetCurrentChat: Switch to a different conversation",
+    "SearchChats: Search conversations by content",
+    "GetLLMConfig: Get current LLM settings / what model am I using",
+    "SetLLMProvider: Switch LLM provider (openai, anthropic, lm_studio)",
+    "SetLLMEndpoint: Set LLM API endpoint URL",
+    "SetLLMModel: Change LLM model",
+    "SetLLMAPIKey: Set API key for a provider",
+    "SetTemperature: Adjust LLM temperature (0.0 to 2.0)",
+    "SetMaxTokens: Set maximum response tokens",
+    "AddLLMProvider: Add a new LLM provider",
+    "RemoveLLMProvider: Remove an LLM provider",
+    "ListCapabilities: List all available capabilities"
+  ],
+  "metadata": [
+    {
+      "name": "ScrollDown",
+      "group": "browser",
+      "label": "Scroll down the page",
+      "example": "{\"cap\": \"ScrollDown\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "ScrollUp",
+      "group": "browser",
+      "label": "Scroll up the page",
+      "example": "{\"cap\": \"ScrollUp\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "ScrollTop",
+      "group": "browser",
+      "label": "Go to top of page",
+      "example": "{\"cap\": \"ScrollTop\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "ScrollBottom",
+      "group": "browser",
+      "label": "Go to bottom of page",
+      "example": "{\"cap\": \"ScrollBottom\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "ZoomIn",
+      "group": "browser",
+      "label": "Zoom in / make bigger",
+      "example": "{\"cap\": \"ZoomIn\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "ZoomOut",
+      "group": "browser",
+      "label": "Zoom out / make smaller",
+      "example": "{\"cap\": \"ZoomOut\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "ZoomReset",
+      "group": "browser",
+      "label": "Reset zoom to 100%",
+      "example": "{\"cap\": \"ZoomReset\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "OpenTab",
+      "group": "browser",
+      "label": "Open new tab (optionally with URL)",
+      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://...\"}}",
+      "handler": "extension"
+    },
+    {
+      "name": "CloseTab",
+      "group": "browser",
+      "label": "Close a browser tab",
+      "example": "{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 123}}",
+      "handler": "extension"
+    },
+    {
+      "name": "SwitchTab",
+      "group": "browser",
+      "label": "Switch to another tab",
+      "example": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 123}}",
+      "handler": "extension"
+    },
+    {
+      "name": "GoBack",
+      "group": "browser",
+      "label": "Go back in browser history",
+      "example": "{\"cap\": \"GoBack\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "GoForward",
+      "group": "browser",
+      "label": "Go forward in browser history",
+      "example": "{\"cap\": \"GoForward\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "Refresh",
+      "group": "browser",
+      "label": "Refresh / reload the page",
+      "example": "{\"cap\": \"Refresh\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "TypeInPrompt",
+      "group": "hud",
+      "label": "Type text into the chat input",
+      "example": "{\"cap\": \"TypeInPrompt\", \"params\": {\"text\": \"...\"}}",
+      "handler": "extension"
+    },
+    {
+      "name": "ClearPrompt",
+      "group": "hud",
+      "label": "Clear the chat input field",
+      "example": "{\"cap\": \"ClearPrompt\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "SubmitPrompt",
+      "group": "hud",
+      "label": "Submit / send the current message",
+      "example": "{\"cap\": \"SubmitPrompt\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "DisplayMessage",
+      "group": "hud",
+      "label": "Display a message in chat",
+      "example": "{\"cap\": \"DisplayMessage\", \"params\": {\"content\": \"...\"}}",
+      "handler": "extension"
+    },
+    {
+      "name": "ToggleHUD",
+      "group": "hud",
+      "label": "Show or hide the HUD panel",
+      "example": "{\"cap\": \"ToggleHUD\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "MinimizeHUD",
+      "group": "hud",
+      "label": "Minimize / hide / collapse the chat panel",
+      "example": "{\"cap\": \"MinimizeHUD\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "MaximizeHUD",
+      "group": "hud",
+      "label": "Maximize / expand / show the chat panel",
+      "example": "{\"cap\": \"MaximizeHUD\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "SetTheme",
+      "group": "hud",
+      "label": "Change the theme (robot, kawaii, atom)",
+      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"robot\"}}",
+      "handler": "extension"
+    },
+    {
+      "name": "ListThemes",
+      "group": "hud",
+      "label": "List available themes",
+      "example": "{\"cap\": \"ListThemes\"}",
+      "handler": "extension"
+    },
+    {
+      "name": "AppendUserMessage",
+      "group": "chat",
+      "label": "Add a user message to chat history",
+      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "AppendAssistantMessage",
+      "group": "chat",
+      "label": "Add an assistant message to chat history",
+      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "ListChats",
+      "group": "chat",
+      "label": "List all saved conversations",
+      "example": "{\"cap\": \"ListChats\"}",
+      "handler": "server"
+    },
+    {
+      "name": "CreateChat",
+      "group": "chat",
+      "label": "Start a new conversation",
+      "example": "{\"cap\": \"CreateChat\"}",
+      "handler": "server"
+    },
+    {
+      "name": "LoadChat",
+      "group": "chat",
+      "label": "Load / open a saved conversation",
+      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat_id\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "GetFullHistory",
+      "group": "chat",
+      "label": "Get complete chat history for context",
+      "example": "{\"cap\": \"GetFullHistory\"}",
+      "handler": "server"
+    },
+    {
+      "name": "RenameChat",
+      "group": "chat",
+      "label": "Rename a conversation",
+      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": \"...\", \"title\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "DeleteChat",
+      "group": "chat",
+      "label": "Delete a conversation",
+      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat_id\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "GetCurrentChat",
+      "group": "chat",
+      "label": "Get the current active chat ID",
+      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "handler": "server"
+    },
+    {
+      "name": "SetCurrentChat",
+      "group": "chat",
+      "label": "Switch to a different conversation",
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat_id\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "SearchChats",
+      "group": "chat",
+      "label": "Search conversations by content",
+      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "GetLLMConfig",
+      "group": "config",
+      "label": "Get current LLM settings / what model am I using",
+      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "handler": "server"
+    },
+    {
+      "name": "SetLLMProvider",
+      "group": "config",
+      "label": "Switch LLM provider (openai, anthropic, lm_studio)",
+      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "SetLLMEndpoint",
+      "group": "config",
+      "label": "Set LLM API endpoint URL",
+      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"...\", \"endpoint\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "SetLLMModel",
+      "group": "config",
+      "label": "Change LLM model",
+      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "SetLLMAPIKey",
+      "group": "config",
+      "label": "Set API key for a provider",
+      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"...\", \"api_key\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "SetTemperature",
+      "group": "config",
+      "label": "Adjust LLM temperature (0.0 to 2.0)",
+      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "handler": "server"
+    },
+    {
+      "name": "SetMaxTokens",
+      "group": "config",
+      "label": "Set maximum response tokens",
+      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 1000}}",
+      "handler": "server"
+    },
+    {
+      "name": "AddLLMProvider",
+      "group": "config",
+      "label": "Add a new LLM provider",
+      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"...\", \"name\": \"...\", \"type\": \"...\", \"endpoint\": \"...\", \"model\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "RemoveLLMProvider",
+      "group": "config",
+      "label": "Remove an LLM provider",
+      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"...\"}}",
+      "handler": "server"
+    },
+    {
+      "name": "ListCapabilities",
+      "group": "config",
+      "label": "List all available capabilities",
+      "example": "{\"cap\": \"ListCapabilities\"}",
+      "handler": "server"
+    }
+  ]
+}

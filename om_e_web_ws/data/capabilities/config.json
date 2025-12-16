@@ -3,99 +3,54 @@
   "description": "LLM and system configuration capabilities",
   "capabilities": {
     "GetLLMConfig": {
-      "category": "config.llm",
-      "label": "Get current LLM configuration",
-      "handler": "server",
-      "route": "internal"
+      "label": "Get current LLM settings / what model am I using",
+      "example": "{\"cap\": \"GetLLMConfig\"}",
+      "handler": "server"
     },
     "SetLLMProvider": {
-      "category": "config.llm",
-      "label": "Switch LLM provider",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "provider": {"type": "string", "required": true, "description": "Provider key: openai, anthropic, lm_studio"}
-      }
+      "label": "Switch LLM provider (openai, anthropic, lm_studio)",
+      "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
+      "handler": "server"
     },
     "SetLLMEndpoint": {
-      "category": "config.llm",
-      "label": "Set LLM endpoint URL",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "provider": {"type": "string", "required": true, "description": "Provider to update"},
-        "endpoint": {"type": "string", "required": true, "description": "Full endpoint URL"}
-      }
+      "label": "Set LLM API endpoint URL",
+      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"...\", \"endpoint\": \"...\"}}",
+      "handler": "server"
     },
     "SetLLMModel": {
-      "category": "config.llm",
       "label": "Change LLM model",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "provider": {"type": "string", "required": false, "description": "Provider to update (default: active)"},
-        "model": {"type": "string", "required": true, "description": "Model name/ID"}
-      }
+      "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
+      "handler": "server"
     },
     "SetLLMAPIKey": {
-      "category": "config.llm",
-      "label": "Set API key for provider",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "provider": {"type": "string", "required": true, "description": "Provider to update"},
-        "api_key": {"type": "string", "required": true, "description": "API key (use $ENV_VAR for env reference)"}
-      }
+      "label": "Set API key for a provider",
+      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"...\", \"api_key\": \"...\"}}",
+      "handler": "server"
     },
     "SetTemperature": {
-      "category": "config.llm",
-      "label": "Adjust temperature",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "temperature": {"type": "number", "required": true, "description": "0.0 to 2.0"}
-      }
+      "label": "Adjust LLM temperature (0.0 to 2.0)",
+      "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
+      "handler": "server"
     },
     "SetMaxTokens": {
-      "category": "config.llm",
-      "label": "Set max tokens",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "max_tokens": {"type": "number", "required": true, "description": "Maximum response tokens"}
-      }
+      "label": "Set maximum response tokens",
+      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 1000}}",
+      "handler": "server"
     },
     "AddLLMProvider": {
-      "category": "config.llm",
       "label": "Add a new LLM provider",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "key": {"type": "string", "required": true, "description": "Unique provider key"},
-        "name": {"type": "string", "required": true, "description": "Display name"},
-        "type": {"type": "string", "required": true, "description": "openai, anthropic, or openai_compatible"},
-        "endpoint": {"type": "string", "required": true, "description": "API endpoint URL"},
-        "model": {"type": "string", "required": true, "description": "Default model"},
-        "api_key": {"type": "string", "required": false, "description": "API key or $ENV_VAR"}
-      }
+      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"...\", \"name\": \"...\", \"type\": \"...\", \"endpoint\": \"...\", \"model\": \"...\"}}",
+      "handler": "server"
     },
     "RemoveLLMProvider": {
-      "category": "config.llm",
       "label": "Remove an LLM provider",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "provider": {"type": "string", "required": true, "description": "Provider key to remove"}
-      }
+      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"...\"}}",
+      "handler": "server"
     },
     "ListCapabilities": {
-      "category": "config.capabilities",
-      "label": "List all capabilities",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "group": {"type": "string", "required": false, "description": "Filter by group"}
-      }
+      "label": "List all available capabilities",
+      "example": "{\"cap\": \"ListCapabilities\"}",
+      "handler": "server"
     }
   }
 }

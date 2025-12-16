@@ -3,69 +3,49 @@
   "description": "HUD interface control capabilities",
   "capabilities": {
     "TypeInPrompt": {
-      "category": "hud.input",
-      "label": "Type text into the HUD prompt field",
-      "handler": "extension",
-      "route": "content.hud",
-      "params": {
-        "text": {"type": "string", "required": true, "description": "Text to type into prompt"},
-        "append": {"type": "boolean", "required": false, "default": false, "description": "Append to existing text"}
-      }
+      "label": "Type text into the chat input",
+      "example": "{\"cap\": \"TypeInPrompt\", \"params\": {\"text\": \"...\"}}",
+      "handler": "extension"
     },
     "ClearPrompt": {
-      "category": "hud.input",
-      "label": "Clear the HUD prompt field",
-      "handler": "extension",
-      "route": "content.hud"
+      "label": "Clear the chat input field",
+      "example": "{\"cap\": \"ClearPrompt\"}",
+      "handler": "extension"
     },
     "SubmitPrompt": {
-      "category": "hud.input",
-      "label": "Submit the current prompt",
-      "handler": "extension",
-      "route": "content.hud"
+      "label": "Submit / send the current message",
+      "example": "{\"cap\": \"SubmitPrompt\"}",
+      "handler": "extension"
     },
     "DisplayMessage": {
-      "category": "hud.display",
-      "label": "Display a message in the HUD chat panel",
-      "handler": "extension",
-      "route": "content.hud",
-      "params": {
-        "content": {"type": "string", "required": true},
-        "role": {"type": "string", "required": false, "enum": ["user", "assistant", "system"], "default": "assistant"}
-      }
+      "label": "Display a message in chat",
+      "example": "{\"cap\": \"DisplayMessage\", \"params\": {\"content\": \"...\"}}",
+      "handler": "extension"
     },
     "ToggleHUD": {
-      "category": "hud.visibility",
-      "label": "Show or hide the HUD",
-      "handler": "extension",
-      "route": "content.hud"
+      "label": "Show or hide the HUD panel",
+      "example": "{\"cap\": \"ToggleHUD\"}",
+      "handler": "extension"
     },
     "MinimizeHUD": {
-      "category": "hud.visibility",
-      "label": "Minimize HUD to orb",
-      "handler": "extension",
-      "route": "content.hud"
+      "label": "Minimize / hide / collapse the chat panel",
+      "example": "{\"cap\": \"MinimizeHUD\"}",
+      "handler": "extension"
     },
     "MaximizeHUD": {
-      "category": "hud.visibility",
-      "label": "Expand HUD to full panel",
-      "handler": "extension",
-      "route": "content.hud"
+      "label": "Maximize / expand / show the chat panel",
+      "example": "{\"cap\": \"MaximizeHUD\"}",
+      "handler": "extension"
     },
     "SetTheme": {
-      "category": "hud.theme",
-      "label": "Change HUD theme",
-      "handler": "extension",
-      "route": "content.hud",
-      "params": {
-        "theme": {"type": "string", "required": true, "enum": ["robot", "kawaii", "atom"]}
-      }
+      "label": "Change the theme (robot, kawaii, atom)",
+      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"robot\"}}",
+      "handler": "extension"
     },
     "ListThemes": {
-      "category": "hud.theme",
       "label": "List available themes",
-      "handler": "extension",
-      "route": "content.hud"
+      "example": "{\"cap\": \"ListThemes\"}",
+      "handler": "extension"
     }
   }
 }

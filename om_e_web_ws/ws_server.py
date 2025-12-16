@@ -4962,7 +4962,11 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
 
                         try:
                             print("🤖 LLMChat: Sending message to agent")
-                            response_text = await LLM_AGENT.chat(message)
+                            response_text = await LLM_AGENT.chat(
+                                message,
+                                active_tab=CURRENT_ACTIVE_TAB,
+                                tabs=CURRENT_TABS_INFO
+                            )
 
                             # Save LLM response to chat history
                             new_message = None

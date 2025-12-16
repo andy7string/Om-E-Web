@@ -1,106 +1,61 @@
 {
   "group": "chat",
-  "description": "Chat management and messaging capabilities",
+  "description": "Chat management capabilities",
   "capabilities": {
     "AppendUserMessage": {
-      "category": "chat.message",
-      "label": "Append a user message to the chat",
-      "handler": "server",
-      "route": "internal",
-      "auto_create_chat": true,
-      "params": {
-        "content": {"type": "string", "required": true, "description": "User message content"}
-      }
+      "label": "Add a user message to chat history",
+      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"...\"}}",
+      "handler": "server"
     },
     "AppendAssistantMessage": {
-      "category": "chat.message",
-      "label": "Append an assistant message to the chat",
-      "handler": "server",
-      "route": "internal",
-      "auto_create_chat": true,
-      "params": {
-        "content": {"type": "string", "required": true, "description": "Assistant message content"}
-      }
+      "label": "Add an assistant message to chat history",
+      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"...\"}}",
+      "handler": "server"
     },
     "ListChats": {
-      "category": "chat.management",
-      "label": "List all saved chats",
-      "handler": "server",
-      "route": "internal"
+      "label": "List all saved conversations",
+      "example": "{\"cap\": \"ListChats\"}",
+      "handler": "server"
     },
     "CreateChat": {
-      "category": "chat.management",
-      "label": "Create new chat",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "title": {"type": "string", "required": false, "description": "Chat title (auto-generated if not provided)"}
-      }
+      "label": "Start a new conversation",
+      "example": "{\"cap\": \"CreateChat\"}",
+      "handler": "server"
     },
     "LoadChat": {
-      "category": "chat.management",
-      "label": "Load a chat by ID (recent messages by default)",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "chat_id": {"type": "string", "required": true},
-        "tail": {"type": "number", "required": false, "description": "Only return last N messages (default: 10, null for all)"},
-        "offset": {"type": "number", "required": false, "description": "Skip last N messages before tail (for pagination)"}
-      }
+      "label": "Load / open a saved conversation",
+      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat_id\": \"...\"}}",
+      "handler": "server"
     },
     "GetFullHistory": {
-      "category": "chat.context",
-      "label": "Get full chat history when more context is needed",
-      "description": "Use this when you need to recall earlier parts of the conversation to understand context",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "chat_id": {"type": "string", "required": false, "description": "Chat ID (uses current chat if not specified)"}
-      }
+      "label": "Get complete chat history for context",
+      "example": "{\"cap\": \"GetFullHistory\"}",
+      "handler": "server"
     },
     "RenameChat": {
-      "category": "chat.management",
-      "label": "Rename a chat",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "chat_id": {"type": "string", "required": true},
-        "title": {"type": "string", "required": true}
-      }
+      "label": "Rename a conversation",
+      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": \"...\", \"title\": \"...\"}}",
+      "handler": "server"
     },
     "DeleteChat": {
-      "category": "chat.management",
-      "label": "Delete a chat",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "chat_id": {"type": "string", "required": true}
-      }
+      "label": "Delete a conversation",
+      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat_id\": \"...\"}}",
+      "handler": "server"
     },
     "GetCurrentChat": {
-      "category": "chat.management",
-      "label": "Get the current active chat ID and info",
-      "handler": "server",
-      "route": "internal"
+      "label": "Get the current active chat ID",
+      "example": "{\"cap\": \"GetCurrentChat\"}",
+      "handler": "server"
     },
     "SetCurrentChat": {
-      "category": "chat.management",
-      "label": "Set the active chat",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "chat_id": {"type": "string", "required": true}
-      }
+      "label": "Switch to a different conversation",
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat_id\": \"...\"}}",
+      "handler": "server"
     },
     "SearchChats": {
-      "category": "chat.management",
-      "label": "Search chats by title or message content",
-      "handler": "server",
-      "route": "internal",
-      "params": {
-        "query": {"type": "string", "required": true, "description": "Search query (searches titles and message content)"},
-        "limit": {"type": "number", "required": false, "description": "Max results to return (default 20)"}
-      }
+      "label": "Search conversations by content",
+      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"...\"}}",
+      "handler": "server"
     }
   }
 }
