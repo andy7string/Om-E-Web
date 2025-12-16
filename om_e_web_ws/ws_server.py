@@ -50,6 +50,10 @@ from llm.agent import OmEAgent
 from llm.executor import parse_capability_calls, has_capability_calls
 from llm.prompt import add_action_to_history
 
+# RAG - eager load model and capabilities at startup
+from retrieval.vector_store import get_model
+from retrieval.query import get_capabilities_store
+
 
 
 # Global state for managing WebSocket connections and command routing
@@ -7972,6 +7976,12 @@ async def main():
 
     # 🤖 Initialize LLM Dispatcher
     init_llm_dispatcher()
+
+    # 🧠 RAG: Eager load embedding model and capabilities at startup
+    print("🧠 Pre-loading RAG model and capabilities...")
+    get_model()  # Load bge-base-en-v1.5 embedding model (~6s)
+    get_capabilities_store()  # Load capabilities from disk (fast)
+    print("🧠 RAG ready")
 
     # 🌐 Start HTTP server in background thread (port 8080)
     http_thread = threading.Thread(target=start_http_server, args=(8080,), daemon=True)

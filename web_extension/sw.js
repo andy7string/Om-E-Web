@@ -385,13 +385,20 @@ async function requestScan(tabId, url, trigger) {
     }
 
     // 🔒 DEDUPE: Same URL, already scanned (unless forced rescan)
-    // Force rescan for: post_action, significant_dom_change, page_refresh, tab_switch, post_scroll, inputPattern_submit
+    // Force rescan for these triggers - scan is fast (FAISS already loaded), always get fresh data
     // TODO: Move forcedTriggers to config
-    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh', 'tab_switch', 'post_scroll', 'inputPattern_submit'];
+    const forcedTriggers = ['post_action', 'significant_dom_change', 'page_refresh', 'tab_switch', 'post_scroll', 'inputPattern_submit', 'prompt_submit'];
     const shouldSkip = state.lastUrl === url && !state.scanInProgress && !forcedTriggers.includes(trigger);
 
     if (shouldSkip) {
         console.log(`[SW] ✅ Already scanned ${url}, skipping (trigger: ${trigger})`);
+        // 🧪 FIX: Resolve pending scan-and-wait callback immediately when skipping
+        if (pendingScanCallbacks.has(tabId)) {
+            console.log(`[SW] 🧪 Resolving scan-and-wait callback (scan skipped - already scanned)`);
+            const callback = pendingScanCallbacks.get(tabId);
+            pendingScanCallbacks.delete(tabId);
+            callback({ ok: true, skipped: true, message: 'Already scanned, using cached intelligence' });
+        }
         return;
     }
 
@@ -1290,10 +1297,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 // 🧪 EXPERIMENT: Scan-and-wait for prompt submit - waits for scan_complete
                 if (sender.tab) {
                     const tabId = sender.tab.id;
-                    console.log(`[SW] 🧪 request_scan_and_wait: starting scan for tab ${tabId}`);
+                    const scanStartTime = performance.now();
+                    console.log(`[SW] ⏱️ request_scan_and_wait: START for tab ${tabId}`);
 
-                    // Store callback to resolve when scan completes
-                    pendingScanCallbacks.set(tabId, sendResponse);
+                    // Store callback with timing wrapper
+                    pendingScanCallbacks.set(tabId, (response) => {
+                        const duration = Math.round(performance.now() - scanStartTime);
+                        console.log(`[SW] ⏱️ request_scan_and_wait: DONE in ${duration}ms (${response.skipped ? 'skipped' : response.timeout ? 'timeout' : 'scanned'})`);
+                        sendResponse({ ...response, duration_ms: duration });
+                    });
 
                     // Trigger the scan
                     requestScan(tabId, message.url, message.trigger || 'prompt_submit');
@@ -1301,7 +1313,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     // Set timeout to prevent hanging forever (10s max)
                     setTimeout(() => {
                         if (pendingScanCallbacks.has(tabId)) {
-                            console.warn(`[SW] 🧪 Scan-and-wait timeout for tab ${tabId}`);
+                            console.warn(`[SW] ⏱️ Scan-and-wait TIMEOUT for tab ${tabId}`);
                             const cb = pendingScanCallbacks.get(tabId);
                             pendingScanCallbacks.delete(tabId);
                             cb({ ok: true, timeout: true, message: 'Scan timed out after 10s' });

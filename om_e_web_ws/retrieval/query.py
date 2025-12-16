@@ -3,6 +3,7 @@ Query orchestrator - searches both stores and builds system prompt.
 """
 
 import os
+import time
 from datetime import datetime
 from typing import List, Dict, Optional
 from dataclasses import dataclass
@@ -32,11 +33,16 @@ def get_capabilities_store() -> CapabilitiesStore:
     """Get or create the capabilities store singleton."""
     global _capabilities_store
     if _capabilities_store is None:
+        t0 = time.time()
+        print(f"[RAG] ⚡ Creating capabilities store singleton (first call)")
         _capabilities_store = CapabilitiesStore()
         # Try to load from disk first
         if not _capabilities_store.load():
             # Not on disk, build fresh
             _capabilities_store.build()
+        print(f"[RAG] Capabilities store init: {(time.time()-t0)*1000:.0f}ms")
+    else:
+        print(f"[RAG] ✓ Reusing capabilities store singleton ({_capabilities_store.count()} items)")
     return _capabilities_store
 
 
@@ -44,9 +50,14 @@ def get_elements_store() -> ElementsStore:
     """Get or create the elements store singleton."""
     global _elements_store
     if _elements_store is None:
+        t0 = time.time()
+        print(f"[RAG] ⚡ Creating elements store singleton (first call)")
         _elements_store = ElementsStore()
         # Elements are ephemeral, always build fresh
         _elements_store.build()
+        print(f"[RAG] Elements store init: {(time.time()-t0)*1000:.0f}ms")
+    else:
+        print(f"[RAG] ✓ Reusing elements store singleton ({_elements_store.count()} items)")
     return _elements_store
 
 
@@ -86,12 +97,18 @@ def query(user_prompt: str, k_elements: int = 7, k_caps: int = 3) -> RetrievalRe
     Returns:
         RetrievalResult with matched elements and capabilities
     """
+    t0 = time.time()
     elements_store = get_elements_store()
+    t1 = time.time()
     caps_store = get_capabilities_store()
+    t2 = time.time()
 
     # Search both stores
     element_results = elements_store.search(user_prompt, k=k_elements, threshold=0.25)
+    t3 = time.time()
     cap_results = caps_store.search(user_prompt, k=k_caps, threshold=0.25)
+    t4 = time.time()
+    print(f"[RAG] query(): get_elem={t1-t0:.0f}ms get_caps={t2-t1:.0f}ms search_elem={t3-t2:.0f}ms search_caps={t4-t3:.0f}ms total={t4-t0:.0f}ms")
 
     # Convert to dicts with scores
     elements = [
@@ -160,11 +177,16 @@ def build_system_prompt(
     Returns:
         Complete system prompt with retrieved context
     """
+    t_start = time.time()
+
     # Load base prompt from file
     prompt = load_base_prompt()
+    t_prompt = time.time()
 
     # RAG query
     result = query(user_message)
+    t_rag = time.time()
+    print(f"[RAG] build_system_prompt(): load_prompt={t_prompt-t_start:.0f}ms rag_query={t_rag-t_prompt:.0f}ms")
 
     # Build context section
     prompt += "\n────────────────────────\n"

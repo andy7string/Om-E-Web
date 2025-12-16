@@ -5,23 +5,28 @@ Uses bge-base-en-v1.5 for embeddings (768 dims).
 
 import os
 import json
+import time
 import faiss
 import numpy as np
+from numpy import ndarray
 from sentence_transformers import SentenceTransformer
-from typing import List, Dict, Optional
+from typing import List, Optional, Any, cast
 from dataclasses import dataclass
 
 # Singleton model instance (loaded once, shared across stores)
 _model = None
+_model_load_time = None
 
 
 def get_model() -> SentenceTransformer:
     """Get or create the singleton embedding model."""
-    global _model
+    global _model, _model_load_time
     if _model is None:
-        print("[FAISS] Loading bge-base-en-v1.5 model...")
+        t0 = time.time()
+        print("[FAISS] ⚡ Loading bge-base-en-v1.5 model (first call)...")
         _model = SentenceTransformer('BAAI/bge-base-en-v1.5')
-        print("[FAISS] Model loaded")
+        _model_load_time = time.time() - t0
+        print(f"[FAISS] Model loaded in {_model_load_time*1000:.0f}ms")
     return _model
 
 
@@ -40,7 +45,7 @@ class VectorStore:
     Uses cosine similarity via normalized vectors + inner product.
     """
 
-    def __init__(self, store_name: str, base_path: str = None):
+    def __init__(self, store_name: str, base_path: Optional[str] = None):
         """
         Initialize a vector store.
 
@@ -70,17 +75,22 @@ class VectorStore:
         if not texts:
             return
 
+        t0 = time.time()
         model = get_model()
-        embeddings = model.encode(texts, normalize_embeddings=True)
+        t1 = time.time()
+        embeddings: ndarray = model.encode(texts, normalize_embeddings=True)  # type: ignore[assignment]
+        t2 = time.time()
 
         # Create or update index
         if self.index is None:
-            dim = embeddings.shape[1]
+            dim = int(embeddings.shape[1])
             self.index = faiss.IndexFlatIP(dim)  # Inner product = cosine with normalized vectors
 
-        self.index.add(embeddings.astype('float32'))
+        self.index.add(embeddings.astype('float32'))  # type: ignore[union-attr]
         self.texts.extend(texts)
         self.metadata.extend(metadata_list)
+        t3 = time.time()
+        print(f"[{self.store_name}] add(): model={t1-t0:.0f}ms encode={t2-t1:.0f}ms index={t3-t2:.0f}ms total={t3-t0:.0f}ms ({len(texts)} items)")
 
     def search(self, query: str, k: int = 5, threshold: float = 0.3) -> List[SearchResult]:
         """
@@ -97,12 +107,16 @@ class VectorStore:
         if self.index is None or self.index.ntotal == 0:
             return []
 
+        t0 = time.time()
         model = get_model()
-        query_embedding = model.encode([query], normalize_embeddings=True)
+        t1 = time.time()
+        query_embedding: ndarray = model.encode([query], normalize_embeddings=True)  # type: ignore[assignment]
+        t2 = time.time()
 
         # Search (limit k to available vectors)
         k = min(k, self.index.ntotal)
-        scores, indices = self.index.search(query_embedding.astype('float32'), k)
+        scores, indices = self.index.search(query_embedding.astype('float32'), k)  # type: ignore[union-attr]
+        t3 = time.time()
 
         results = []
         for score, idx in zip(scores[0], indices[0]):
@@ -112,6 +126,7 @@ class VectorStore:
                     metadata=self.metadata[idx],
                     score=float(score)
                 ))
+        print(f"[{self.store_name}] search(): model={t1-t0:.0f}ms encode={t2-t1:.0f}ms faiss={t3-t2:.0f}ms total={t3-t0:.0f}ms")
         return results
 
     def clear(self):
@@ -143,13 +158,18 @@ class VectorStore:
         meta_path = os.path.join(self.base_path, 'metadata.json')
 
         if not os.path.exists(index_path) or not os.path.exists(meta_path):
+            print(f"[{self.store_name}] load(): files not found, will build")
             return False
 
+        t0 = time.time()
         self.index = faiss.read_index(index_path)
+        t1 = time.time()
         with open(meta_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
             self.texts = data['texts']
             self.metadata = data['metadata']
+        t2 = time.time()
+        print(f"[{self.store_name}] load(): faiss={t1-t0:.0f}ms meta={t2-t1:.0f}ms total={t2-t0:.0f}ms ({len(self.texts)} items)")
         return True
 
     def count(self) -> int:

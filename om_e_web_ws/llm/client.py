@@ -324,15 +324,17 @@ class LLMClient:
         else:
             payload["max_tokens"] = max_tokens
 
-        print(f"[LLM Client] Calling {endpoint} with model {model}")
-
         # Log request to debug file
         log_request(endpoint, model, payload, "OpenAI")
 
         # Throttle to 1 request per second
         await self._throttle()
 
+        # Time the LLM request
+        t0 = time.time()
+        print(f"[LLM] → Calling {model}...")
         response = await client.post(endpoint, headers=headers, json=payload)
+        t1 = time.time()
         try:
             response.raise_for_status()
         except Exception as e:
@@ -344,7 +346,18 @@ class LLMClient:
             raise e
 
         data = response.json()
-        return data["choices"][0]["message"]["content"]
+        content = data["choices"][0]["message"]["content"]
+
+        # Count response tokens and log timing
+        try:
+            encoding = tiktoken.get_encoding("cl100k_base")
+            response_tokens = len(encoding.encode(content))
+            request_tokens = count_tokens(all_messages, model).get("total", 0)
+            print(f"[LLM] ← Response in {(t1-t0)*1000:.0f}ms | req={request_tokens} res={response_tokens} tokens")
+        except Exception:
+            print(f"[LLM] ← Response in {(t1-t0)*1000:.0f}ms")
+
+        return content
 
     async def _call_openai_responses(
         self,
@@ -384,12 +397,15 @@ class LLMClient:
         if supports_temperature:
             payload["temperature"] = temperature
 
-        print(f"[LLM Client] Calling {endpoint} with model {model} (responses API)")
         log_request(endpoint, model, payload, "OpenAI")
 
         await self._throttle()
 
+        # Time the LLM request
+        t0 = time.time()
+        print(f"[LLM] → Calling {model} (responses API)...")
         response = await client.post(endpoint, headers=headers, json=payload)
+        t1 = time.time()
         try:
             response.raise_for_status()
         except Exception as e:
@@ -400,26 +416,44 @@ class LLMClient:
             raise e
 
         data = response.json()
+        content = None
 
         # Prefer convenience field when present
         if isinstance(data, dict) and isinstance(data.get("output_text"), str):
-            return data["output_text"]
+            content = data["output_text"]
 
         # Fallback: try to extract text from output array
-        try:
-            output = data.get("output") or []
-            for item in output:
-                if isinstance(item, dict) and item.get("type") == "message":
-                    content = item.get("content") or []
-                    for c in content:
-                        if isinstance(c, dict) and c.get("type") in ("output_text", "text"):
-                            t = c.get("text")
-                            if isinstance(t, str) and t.strip():
-                                return t
-        except Exception:
-            pass
+        if content is None:
+            try:
+                output = data.get("output") or []
+                for item in output:
+                    if isinstance(item, dict) and item.get("type") == "message":
+                        item_content = item.get("content") or []
+                        for c in item_content:
+                            if isinstance(c, dict) and c.get("type") in ("output_text", "text"):
+                                t = c.get("text")
+                                if isinstance(t, str) and t.strip():
+                                    content = t
+                                    break
+                    if content:
+                        break
+            except Exception:
+                pass
 
-        raise ValueError("Responses API: Could not extract output text")
+        if content is None:
+            raise ValueError("Responses API: Could not extract output text")
+
+        # Count response tokens and log timing
+        try:
+            encoding = tiktoken.get_encoding("cl100k_base")
+            response_tokens = len(encoding.encode(content))
+            all_messages = [{"role": "system", "content": system_prompt}] + messages
+            request_tokens = count_tokens(all_messages, model).get("total", 0)
+            print(f"[LLM] ← Response in {(t1-t0)*1000:.0f}ms | req={request_tokens} res={response_tokens} tokens")
+        except Exception:
+            print(f"[LLM] ← Response in {(t1-t0)*1000:.0f}ms")
+
+        return content
 
     async def _call_anthropic(
         self,
@@ -449,19 +483,33 @@ class LLMClient:
             "max_tokens": max_tokens
         }
 
-        print(f"[LLM Client] Calling Anthropic with model {model}")
-
         # Log request to debug file
         log_request(endpoint, model, payload, "Anthropic")
 
         # Throttle to 1 request per second
         await self._throttle()
 
+        # Time the LLM request
+        t0 = time.time()
+        print(f"[LLM] → Calling {model}...")
         response = await client.post(endpoint, headers=headers, json=payload)
+        t1 = time.time()
         response.raise_for_status()
 
         data = response.json()
-        return data["content"][0]["text"]
+        content = data["content"][0]["text"]
+
+        # Count response tokens and log timing
+        try:
+            encoding = tiktoken.get_encoding("cl100k_base")
+            response_tokens = len(encoding.encode(content))
+            all_messages = [{"role": "system", "content": system_prompt}] + messages
+            request_tokens = count_tokens(all_messages, model).get("total", 0)
+            print(f"[LLM] ← Response in {(t1-t0)*1000:.0f}ms | req={request_tokens} res={response_tokens} tokens")
+        except Exception:
+            print(f"[LLM] ← Response in {(t1-t0)*1000:.0f}ms")
+
+        return content
 
 
 # Convenience function for quick one-off calls

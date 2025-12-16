@@ -3202,7 +3202,9 @@
                     const text = chatInput.value.trim();
                     if (!text) return;
 
-                    console.log('[Content] 📤 Orb chat sending:', text);
+                    // ⏱️ TIMING: Track full submit flow
+                    const t0 = performance.now();
+                    console.log(`[Content] ⏱️ SUBMIT START: "${text.substring(0, 30)}..."`);
 
                     // Clear input, reset size, and saved state
                     chatInput.value = '';
@@ -3212,17 +3214,21 @@
                     // Send through chat pipeline
                     try {
                         // 1. Save user message to chat
+                        const t1 = performance.now();
                         const result = await sendChatMessage(text);
-                        console.log('[Content] ✅ Orb chat message sent:', result);
+                        const t2 = performance.now();
+                        console.log(`[Content] ⏱️ AppendMessage: ${Math.round(t2 - t1)}ms`);
 
                         // 🧪 EXPERIMENT: Trigger scan before LLM submission
-                        console.log('[Content] 🧪 Scanning page before LLM...');
-                        await triggerScanAndWait();
+                        const scanResult = await triggerScanAndWait();
+                        const t3 = performance.now();
+                        console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t3 - t2)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
                         // 2. Send to LLM for response (response comes via hud_action)
-                        console.log('[Content] 🤖 Sending to LLM...');
                         await sendLLMChat(text);
-                        console.log('[Content] 🤖 LLM response received');
+                        const t4 = performance.now();
+                        console.log(`[Content] ⏱️ LLMChat: ${Math.round(t4 - t3)}ms`);
+                        console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t4 - t0)}ms`);
 
                     } catch (error) {
                         console.error('[Content] ❌ Orb chat send failed:', error);
@@ -4355,7 +4361,9 @@
             const text = promptTextarea?.value.trim();
             if (!text) return;
 
-            console.log('[Content] 📤 HUD Prompt sending:', text);
+            // ⏱️ TIMING: Track full submit flow
+            const t0 = performance.now();
+            console.log(`[Content] ⏱️ SUBMIT START: "${text.substring(0, 30)}..."`);
 
             // Clear textarea, reset size, and save empty state
             promptTextarea.value = '';
@@ -4365,17 +4373,21 @@
             // Send through chat pipeline
             try {
                 // 1. Save user message to chat
+                const t1 = performance.now();
                 const result = await sendChatMessage(text);
-                console.log('[Content] ✅ Chat message sent:', result);
+                const t2 = performance.now();
+                console.log(`[Content] ⏱️ AppendMessage: ${Math.round(t2 - t1)}ms`);
 
                 // 🧪 EXPERIMENT: Trigger scan before LLM submission
-                console.log('[Content] 🧪 Scanning page before LLM...');
-                await triggerScanAndWait();
+                const scanResult = await triggerScanAndWait();
+                const t3 = performance.now();
+                console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t3 - t2)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
                 // 2. Send to LLM for response (response comes via hud_action)
-                console.log('[Content] 🤖 Sending to LLM...');
                 await sendLLMChat(text);
-                console.log('[Content] 🤖 LLM response received');
+                const t4 = performance.now();
+                console.log(`[Content] ⏱️ LLMChat: ${Math.round(t4 - t3)}ms`);
+                console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t4 - t0)}ms`);
 
             } catch (error) {
                 console.error('[Content] ❌ Chat send failed:', error);

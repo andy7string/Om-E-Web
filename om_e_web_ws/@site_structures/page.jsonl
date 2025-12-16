@@ -1,35 +1,28 @@
 {
-  "timestamp": 1765922839.427649,
+  "timestamp": 1765926544.6752179,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 1,
     "active_tab": {
-      "id": 1138051381,
-      "url": "https://www.youtube.com/",
-      "title": "YouTube",
+      "id": 1138051440,
+      "url": "http://127.0.0.1:8080/",
+      "title": "OM-E Web",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138051364,
-        "url": "https://www.google.com/?zx=1765922332236&no_sw_cr=1",
-        "title": "Google",
-        "active": false,
-        "status": "complete"
-      },
-      {
-        "id": 1138051381,
-        "url": "https://www.youtube.com/",
-        "title": "YouTube",
+        "id": 1138051440,
+        "url": "http://127.0.0.1:8080/",
+        "title": "OM-E Web",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 6689.831155916,
+    "last_tabs_update": 10274.708174083,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/",
-    "title": "YouTube",
+    "url": "http://127.0.0.1:8080/",
+    "title": "OM-E Web",
     "is_active_tab": true
   },
   "menu_structure": {

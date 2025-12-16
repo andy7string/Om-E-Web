@@ -5,6 +5,7 @@ Rebuilds every time text.md is written (page elements are ephemeral).
 
 import os
 import re
+from typing import Optional
 from .vector_store import VectorStore
 
 TEXT_MD_PATH = os.path.join(os.path.dirname(__file__), '..', '@site_structures', 'text.md')
@@ -23,7 +24,7 @@ class ElementsStore(VectorStore):
     def __init__(self):
         super().__init__('page_elements')
 
-    def build(self, text_md_path: str = None):
+    def build(self, text_md_path: Optional[str] = None):
         """
         Build index from text.md.
 
@@ -74,7 +75,7 @@ class ElementsStore(VectorStore):
         else:
             print("[FAISS] No actionable elements found in text.md")
 
-    def get_element_by_id(self, element_id: int) -> dict:
+    def get_element_by_id(self, element_id: int) -> Optional[dict]:
         """Get element metadata by ID."""
         for meta in self.metadata:
             if meta['id'] == element_id:

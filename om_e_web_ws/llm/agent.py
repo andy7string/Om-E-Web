@@ -9,17 +9,16 @@ Usage:
     agent.clear_history()
 """
 
-from typing import List, Dict, Optional
-
-try:
-    from .client import LLMClient
-except ImportError:
-    from client import LLMClient
-
-# Import RAG prompt builder
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+from typing import List, Dict, Optional
+
+# Add parent dir to path for sibling package imports
+_parent_dir = os.path.dirname(os.path.dirname(__file__))
+if _parent_dir not in sys.path:
+    sys.path.insert(0, _parent_dir)
+
+from llm.client import LLMClient
 from retrieval.query import build_system_prompt
 
 
