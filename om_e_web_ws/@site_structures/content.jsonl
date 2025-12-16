@@ -1,35 +1,35 @@
 {
-  "timestamp": 1765717483.48487,
+  "timestamp": 1765922839.428285,
   "browser_state": {
     "total_tabs": 2,
     "active_tab": {
-      "id": 1138050146,
-      "url": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI",
-      "title": "dog domestication from wolves - Google Search",
+      "id": 1138051381,
+      "url": "https://www.youtube.com/",
+      "title": "YouTube",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138050140,
-        "url": "http://127.0.0.1:8080/",
-        "title": "OM-E Web",
+        "id": 1138051364,
+        "url": "https://www.google.com/?zx=1765922332236&no_sw_cr=1",
+        "title": "Google",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138050146,
-        "url": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI",
-        "title": "dog domestication from wolves - Google Search",
+        "id": 1138051381,
+        "url": "https://www.youtube.com/",
+        "title": "YouTube",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 56943.226786125,
+    "last_tabs_update": 6689.831155916,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI",
-    "title": "dog domestication from wolves - Google Search",
+    "url": "https://www.youtube.com/",
+    "title": "YouTube",
     "is_active_tab": true
   },
   "content_structure": {},

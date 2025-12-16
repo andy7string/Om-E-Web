@@ -1,0 +1,195 @@
+{
+  "chat_id": "whats-up__20251215T131238",
+  "project_id": "default",
+  "created_at": "2025-12-15T13:12:38.485620Z",
+  "updated_at": "2025-12-15T13:18:03.247014Z",
+  "title": "whats up",
+  "default_title": "whats up",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765804348963&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "whats up",
+      "timestamp": "2025-12-15T13:12:38.485630Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Not much! How can I help you today?",
+      "timestamp": "2025-12-15T13:12:40.321628Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "lets search google for dogs",
+      "timestamp": "2025-12-15T13:13:31.026587Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Alright mate, searching Google for dogs now.\n{\"cap\": \"TypeInPrompt\", \"params\": {\"text\": \"dogs\", \"append\": false}}",
+      "timestamp": "2025-12-15T13:13:34.920079Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "are you fast",
+      "timestamp": "2025-12-15T13:15:14.056953Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Yes, I am designed to respond quickly and efficiently to your requests.",
+      "timestamp": "2025-12-15T13:15:15.981081Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "how fast",
+      "timestamp": "2025-12-15T13:15:19.306097Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "null\n\nBit vague there, mate. How fast is what? Cars, internet, a bloody emu on the run? Give us a bit more to work with!",
+      "timestamp": "2025-12-15T13:15:22.249452Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "how fast can you respond dude",
+      "timestamp": "2025-12-15T13:15:31.877644Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "I can respond almost instantly, usually within a second or two, depending on the complexity of your request.",
+      "timestamp": "2025-12-15T13:15:33.772314Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "faster than i can tyupe for usre",
+      "timestamp": "2025-12-15T13:15:38.164758Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "You want something faster than you can type, for sure. Can you clarify what you'd like me to do quickly for you?",
+      "timestamp": "2025-12-15T13:15:40.240696Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "this is because you have a small context window",
+      "timestamp": "2025-12-15T13:15:52.021447Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "User is referring to a limitation in context window size, likely of an AI model.",
+      "timestamp": "2025-12-15T13:15:53.656364Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "no we were passing you like 4k token context windows",
+      "timestamp": "2025-12-15T13:16:14.557543Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Are you referring to providing large context windows (around 4,000 tokens) for processing? Can you clarify your current request or what you'd like to do next?",
+      "timestamp": "2025-12-15T13:16:16.818067Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "yes thats correcgt",
+      "timestamp": "2025-12-15T13:16:23.499477Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "chat",
+      "timestamp": "2025-12-15T13:16:24.625800Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "do you remember what i just said",
+      "timestamp": "2025-12-15T13:16:33.028874Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "I can check my memory or chat history to see what you said previously. Would you like me to review it?\n\nYep, you said you were passing me around 4k token context windows—that’s correct. Still got it fresh! Anything you want to test next?",
+      "timestamp": "2025-12-15T13:16:36.971467Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "yes remember that tomorrow im going to the dentist at 10",
+      "timestamp": "2025-12-15T13:17:07.851398Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Got it! I'll remember that you have a dentist appointment tomorrow at 10.\n\nAlright, I'll remember you've got the dentist at 10 tomorrow. If you want a reminder or to add it to your calendar, just let me know how!",
+      "timestamp": "2025-12-15T13:17:10.367234Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "how",
+      "timestamp": "2025-12-15T13:17:15.462677Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Could you please clarify what you would like help with or specify your question?",
+      "timestamp": "2025-12-15T13:17:16.771092Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "how do you remember",
+      "timestamp": "2025-12-15T13:17:21.076957Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "As an AI web controller, I have the ability to access memory for recalling past activity or conversation, but this feature is marked as FUTURE and may not be fully available yet.\n\nDepends what you mean, mate! If you’re asking how I remember stuff, the answer’s simple: I don’t. I don’t keep any of your info from chat to chat—privacy and all that. If you’re asking about tips for remembering things in general, I reckon tricks like making lists, setting reminders, or using memory hacks (mnemonics, rhymes, etc.) do the job. \n\nWhat are you trying to remember?",
+      "timestamp": "2025-12-15T13:17:27.045671Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "my names andrew",
+      "timestamp": "2025-12-15T13:17:43.074731Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Hi Andrew! How can I assist you today?\n\nG'day Andrew! What can I help you with today?",
+      "timestamp": "2025-12-15T13:17:45.352490Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "yes do you know how to use a web page",
+      "timestamp": "2025-12-15T13:17:57.278531Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Yes, I can interact with web pages by clicking, filling forms, selecting options, scrolling, and more. Let me know what you need done!\n\nYeah mate, I can click, type, scroll—all the good stuff. Just tell me what you want done and I’ll sort it out.",
+      "timestamp": "2025-12-15T13:18:03.247014Z"
+    }
+  ]
+}

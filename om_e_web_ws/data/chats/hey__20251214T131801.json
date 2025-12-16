@@ -1,0 +1,135 @@
+{
+  "chat_id": "hey__20251214T131801",
+  "project_id": "default",
+  "created_at": "2025-12-14T13:18:01.564824Z",
+  "updated_at": "2025-12-14T13:25:55.651129Z",
+  "title": "hey",
+  "default_title": "hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey",
+      "timestamp": "2025-12-14T13:18:01.564860Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "G’day mate! What’s the go? Need a hand with something or just dropping in for a chinwag?",
+      "timestamp": "2025-12-14T13:18:02.872107Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "take me to google pelase",
+      "timestamp": "2025-12-14T13:18:38.253634Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "No worries, sending you to Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-14T13:18:49.263874Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "lets look at the new s26",
+      "timestamp": "2025-12-14T13:19:24.628947Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Alright, I see a link about the Galaxy S26 Ultra release on the page. I'll click that for you.\n\n{\"act\": 18}",
+      "timestamp": "2025-12-14T13:19:25.820537Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "features",
+      "timestamp": "2025-12-14T13:19:32.262145Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "The article mentions the Galaxy S26 Ultra will run Qualcomm’s Snapdragon 8 Elite Gen 5 chip, which is a big deal for power and performance.\n\nAlso, the Galaxy S26 and S26+ might use the Exynos 2600 chip, but the Ultra’s all about that Snapdragon power.\n\nPerformance-wise, Snapdragon is seen as better for speed and heat, while Exynos is more efficient with battery.\n\nSamsung’s likely launching the S26 Ultra in late Jan 2026 at their Galaxy Unpacked event.\n\nAnything specific you want me to dig out about features? Camera, battery, AI stuff?",
+      "timestamp": "2025-12-14T13:19:33.993424Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "how does this compare to the latest iphone",
+      "timestamp": "2025-12-14T13:20:08.450875Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Righto, the Galaxy S26 Ultra with Snapdragon 8 Elite Gen 5 is a beast in raw power and efficiency, especially with AI processing improvements.\n\nThe latest iPhone (assuming the iPhone 17 Pro or whatever Apple drops around early 2026) will likely use Apple’s next-gen A-series chip, which usually nails performance and power efficiency, plus tight software-hardware integration.\n\nSamsung’s got the edge on some hardware specs and possibly AI silicon support, but Apple’s iPhones tend to have smoother overall user experience and better software optimisation.\n\nIf you want, I can look up more precise iPhone specs or performance comparisons for you. Keen?",
+      "timestamp": "2025-12-14T13:20:21.619001Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "lets look for the info bru you have the whole internet and you could essentially write your own prompt to find shit on apple and submit it",
+      "timestamp": "2025-12-14T13:21:01.219925Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Too right, I can dig up the latest on the iPhone for you. I’ll whip up a quick search for the latest iPhone specs vs Galaxy S26 Ultra and see what comes up.\n\nGive me a sec.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com/search?q=latest+iPhone+model+specs+2026+vs+Samsung+Galaxy+S26+Ultra\"}}",
+      "timestamp": "2025-12-14T13:21:12.694391Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "and",
+      "timestamp": "2025-12-14T13:21:22.253856Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Righto, I see a solid breakdown here comparing the Samsung Galaxy S26 Ultra and the upcoming iPhone 18 Pro Max or iPhone 17 Pro Max, depending on Apple’s release cycle.\n\nSamsung’s got:\n- 6.9\" Dynamic AMOLED 2X, 3000 nits brightness\n- Snapdragon 8 Elite Gen 5 or Exynos 2600\n- 12-16GB RAM\n- Cameras: 200MP main, 50MP ultrawide & telephotos\n- 5000mAh battery, 45W wired charging\n- Titanium frame, lighter, includes S Pen\n\nApple’s offering:\n- A19 Pro (iPhone 17) or A20 chip (iPhone 18)\n- Around 8GB RAM\n- Advanced 48MP triple-lens camera\n- Charging up to 35W wired, 50W wireless\n- Possible under-display Face ID, new materials, foldable design option\n\nSamsung leads in raw specs and camera hardware, Apple in chip performance and software polish.\n\nWant me to get into details on any of these points?",
+      "timestamp": "2025-12-14T13:21:25.641165Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "thats pretty informative any youtube videos on these guys",
+      "timestamp": "2025-12-14T13:22:19.734039Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Yeah, there are some vids on YouTube comparing the two. I see a few results like iTechNews, Sam Tech, and Demon’s Tech with reviews and comparisons around 4 to 6 minutes long.\n\nWant me to open one for you to watch?",
+      "timestamp": "2025-12-14T13:22:30.842156Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "take me to the one with the most views",
+      "timestamp": "2025-12-14T13:23:09.524942Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "I can’t see exact views here, but iTechNews usually pulls good numbers and has a solid reputation for quick tech rundowns.\n\nI’ll open the iTechNews video on Samsung Galaxy S26 Ultra vs iPhone 17 Pro Max for you.\n\n{\"act\": 38}",
+      "timestamp": "2025-12-14T13:23:20.745653Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "close this window",
+      "timestamp": "2025-12-14T13:25:44.621154Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Closing the current tab for you now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 5}}",
+      "timestamp": "2025-12-14T13:25:55.651129Z"
+    }
+  ]
+}

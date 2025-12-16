@@ -1,0 +1,189 @@
+{
+  "chat_id": "hey-dude__20251216T114603",
+  "project_id": "default",
+  "created_at": "2025-12-16T11:46:03.727431Z",
+  "updated_at": "2025-12-16T11:57:56.340199Z",
+  "title": "hey dude",
+  "default_title": "hey dude",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey dude",
+      "timestamp": "2025-12-16T11:46:03.727464Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "G’day mate! What’s up?",
+      "timestamp": "2025-12-16T11:46:04.843639Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "take me to google",
+      "timestamp": "2025-12-16T11:46:13.245313Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "On it, mate. Opening Google now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-16T11:46:15.055865Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "whats that prick of a pm up to",
+      "timestamp": "2025-12-16T11:47:47.663272Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Haha, which PM you mean, Andy? Albanese or someone else? I can check the latest news for you.",
+      "timestamp": "2025-12-16T11:47:50.012887Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "Andy fuck nut",
+      "timestamp": "2025-12-16T11:47:56.303710Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Righto, no worries. Let me see what the current news on Albanese is.\n\n{\"act\": 18}",
+      "timestamp": "2025-12-16T11:47:58.959002Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "whats this about",
+      "timestamp": "2025-12-16T11:48:10.158898Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "This story’s about Anthony Albanese visiting Ahmed al-Ahmed, the bloke who tackled the shooter at Bondi beach. Albanese called him “the best of our country” — said he was just a humble guy trying to get a coffee when shit hit the fan. Ahmed’s recovering in hospital after being shot, and the PM, plus other bigwigs, praised his heroism.  \n\nThe whole country seems pretty bloody proud of him, and there’s a GoFundMe that’s pulled in over $2 million to help out. Real Aussie hero stuff.  \n\nWant me to dig up more details or something else?",
+      "timestamp": "2025-12-16T11:48:13.782449Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "nice lets close this tab",
+      "timestamp": "2025-12-16T11:49:29.166274Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Closing this tab for you, mate.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 4}}",
+      "timestamp": "2025-12-16T11:49:40.366693Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "togglehud",
+      "timestamp": "2025-12-16T11:51:05.080638Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Toggling the HUD overlay now.\n\n{\"act\": 0}",
+      "timestamp": "2025-12-16T11:51:16.054027Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "ok why not submit a prompt for me",
+      "timestamp": "2025-12-16T11:51:31.870879Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Shoot me the prompt you want to submit, Andy. I’ll fire it off for you.",
+      "timestamp": "2025-12-16T11:51:42.901741Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "im a dick",
+      "timestamp": "2025-12-16T11:51:50.160735Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Alright, sending that prompt off. No worries, mate.\n\n{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"im a dick\"}}",
+      "timestamp": "2025-12-16T11:52:01.113008Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "im a dick",
+      "timestamp": "2025-12-16T11:52:01.114643Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "user",
+      "content": "can you change to kawaii",
+      "timestamp": "2025-12-16T11:53:32.602145Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "assistant",
+      "content": "Switching the orb style to Kawaii for you now.\n\n{\"act\": 3}",
+      "timestamp": "2025-12-16T11:53:43.616156Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "user",
+      "content": "nice lets toggle hud overlay",
+      "timestamp": "2025-12-16T11:53:57.472663Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "assistant",
+      "content": "Toggling the HUD overlay again, mate.\n\n{\"act\": 0}",
+      "timestamp": "2025-12-16T11:54:08.598980Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "user",
+      "content": "lets open youtube",
+      "timestamp": "2025-12-16T11:54:28.519209Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "assistant",
+      "content": "Opening YouTube for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-16T11:54:39.481063Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "user",
+      "content": "open a googel tab",
+      "timestamp": "2025-12-16T11:57:49.347684Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "assistant",
+      "content": "Opening Google tab for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.google.com\"}}",
+      "timestamp": "2025-12-16T11:57:50.592296Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "user",
+      "content": "close the youtube tab",
+      "timestamp": "2025-12-16T11:57:55.367456Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "assistant",
+      "content": "Closing the YouTube tab now.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 5}}",
+      "timestamp": "2025-12-16T11:57:56.340199Z"
+    }
+  ]
+}

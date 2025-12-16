@@ -1,0 +1,111 @@
+{
+  "chat_id": "could-you-give__20251214T133516",
+  "project_id": "default",
+  "created_at": "2025-12-14T13:35:16.635171Z",
+  "updated_at": "2025-12-14T13:39:49.090004Z",
+  "title": "could you give",
+  "default_title": "could you give",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "could you give me a few links to some news sites",
+      "timestamp": "2025-12-14T13:35:16.635186Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Too easy, mate! Here’s a quick list of some solid news sites you can check out:\n\n- ABC News Australia: https://www.abc.net.au/news\n- The Guardian Australia: https://www.theguardian.com/au\n- SBS News: https://www.sbs.com.au/news\n- News.com.au: https://www.news.com.au\n- The Sydney Morning Herald: https://www.smh.com.au\n\nIf you want more specific types of news, just shout. Otherwise, happy scrolling!",
+      "timestamp": "2025-12-14T13:35:18.957482Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "lets see, are these left wing or right wing orientated in your opinion on their viewpoints and perspectives",
+      "timestamp": "2025-12-14T13:35:56.800687Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Alright, here’s the gist of their usual vibes:\n\n- **ABC News Australia**: Fair dinkum public broadcaster, tries to be neutral but sometimes gets called a bit left-leaning by the right side. Overall pretty balanced but with a slight progressive tilt.\n\n- **The Guardian Australia**: Definitely leans left. They focus on social justice, environment, and progressive policies. Not shy about calling out conservatives.\n\n- **SBS News**: Similar to ABC, tends to be centrist with a multicultural, inclusive focus. Can lean slightly left on social issues but mostly balanced.\n\n- **News.com.au**: More commercial and mainstream, often leans right or conservative, especially on economic and political stories. Has a bit of tabloid flair.\n\n- **The Sydney Morning Herald**: Traditionally centrist but these days a bit more left-leaning, especially on social issues and climate. Pretty well respected for quality journalism.\n\nSo, the left-right scale is more of a spectrum. These outlets aren’t hardcore partisan but definitely have their little biases. Nothing too crazy though, if you want the full picture, best to cross-check a few. Cheers!",
+      "timestamp": "2025-12-14T13:36:10.056205Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "what happened in bondi",
+      "timestamp": "2025-12-14T13:37:33.190240Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Looks like there was a bloody serious incident at Bondi — a massacre that’s been declared a terror attack, with 12 people killed. It’s a grim, tragic event shaking the place up big time.\n\nYou want me to grab more details from the news? I can click through to the latest Bondi massacre coverage for you. Just say the word.",
+      "timestamp": "2025-12-14T13:37:34.691046Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "daily telegraph",
+      "timestamp": "2025-12-14T13:38:23.374085Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Good call, mate. The Daily Telegraph is known for its more conservative, right-leaning slant, especially in Sydney and NSW politics. It’s a bit more tabloid and sensationalist compared to the others but popular for local news and sports.\n\nWant me to open up the Daily Telegraph site for you? Or find the latest Bondi news there? Just let me know!",
+      "timestamp": "2025-12-14T13:38:35.486611Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "ues",
+      "timestamp": "2025-12-14T13:38:39.837624Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Opening the Daily Telegraph for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.dailytelegraph.com.au\"}}",
+      "timestamp": "2025-12-14T13:38:51.308853Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "dark mode",
+      "timestamp": "2025-12-14T13:38:59.203353Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "No worries, mate. The Daily Telegraph site doesn’t have a native dark mode toggle that I can see. You’ll probably need to use your browser’s dark mode or an extension to get the dark look on there.\n\nWant me to help you find a good dark mode extension or show how to force dark mode in your browser?",
+      "timestamp": "2025-12-14T13:39:01.475651Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "ok",
+      "timestamp": "2025-12-14T13:39:11.586018Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Alright, here’s the quick and dirty on dark mode for your browser:\n\n- If you’re using Chrome, just go to chrome://flags and enable “Force Dark Mode for Web Contents.” It’ll flip most sites to dark.\n- You can also grab extensions like “Dark Reader” which works a treat on almost any site, letting you toggle dark mode on and off easily.\n\nWant me to pull up the Dark Reader extension page for Chrome or Firefox? Or show you how to enable the Chrome flag?",
+      "timestamp": "2025-12-14T13:39:24.059163Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "ok",
+      "timestamp": "2025-12-14T13:39:37.204236Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "I’ll open the Dark Reader extension page for Chrome for you. That way you can install and toggle dark mode easily on sites like the Daily Telegraph.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://chrome.google.com/webstore/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh\"}}",
+      "timestamp": "2025-12-14T13:39:49.090004Z"
+    }
+  ]
+}

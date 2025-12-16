@@ -1,243 +1,211 @@
-# dog domestication from wolves - Google Search
+# YouTube
 
-**URL:** https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI
-**Timestamp:** 2025-12-14 23:34:43
+**URL:** https://www.youtube.com/
+**Timestamp:** 2025-12-17 08:37:19
 
 **Tabs:**
-- Tab 1: "OM-E Web" (127.0.0.1)
-- Tab 2: "dog domestication from wolves - Google S" (www.google.com) -- ACTIVE TAB
+- Tab 1: "Google" (www.google.com)
+- Tab 4: "(51) YouTube" (www.youtube.com) -- ACTIVE TAB
 
 ---
 
-<style>table,div,span,p{display:none}</style><meta content="0;url=/httpservice/retry/enablejs?sei=3LU-afTMO4mTvr0PyK_JmQw" http-equiv="refresh"><div style="display:block">Please click <a href="/httpservice/retry/enablejs?sei=3LU-afTMO4mTvr0PyK_JmQw">here</a> if you are not redirected within a few seconds.</div>
-Accessibility links
-[0] Link: Skip to main content → {"act": 0}
-[1] Link: Accessibility help → {"act": 1}
-[2] Link: Accessibility feedback → {"act": 2}
-[3] Select: Search (dog domestication from wolves) → {"act": 3, "value": "...", "submit": true}
-[4] Button: Clear → {"act": 4}
-[5] Button: Search by voice → {"act": 5}
-[6] Button: Search by image → {"act": 6}
-[7] Button: Search → {"act": 7}
-[8] Button: Google apps → {"act": 8}
-Button: Google Account: Andrew Orsmond
-[9] (andreworsmond21175@gmail.com) → {"act": 9}
-Filters and topics
-[10] Link: AI Mode → {"act": 10}
-[11] Link: All → {"act": 11}
-[12] Link: Images → {"act": 12}
-[13] Link: Videos → {"act": 13}
-[14] Link: Shopping → {"act": 14}
-[15] Link: Short videos → {"act": 15}
-[16] Link: Forums → {"act": 16}
-[17] Button: More → {"act": 17}
-[18] Button: Tools → {"act": 18}
-Search Results
-AI overview
-AI Overview
-[19] Button: About this result → {"act": 19}
-Dogs (
-[20] Link: Canis lupus familiaris → {"act": 20}
-) evolved from an extinct population of gray wolves (
-[21] Link: Canis lupus → {"act": 21}
-) over tens of thousands of years, diverging genetically between 20,000 and 40,000 years ago
-, with the process likely beginning as wolves scavenged human food waste and those less fearful of humans thrived, eventually leading to a mutual partnership through natural selection for tameness, rather than direct human control initially. This long process, starting with hunter-gatherers, transitioned wolves into the first domesticated animal, a bond cemented by archaeology showing shared burials, indicating deep companionship
-.
-[22] Button: View related links → {"act": 22}
-Key Stages & Theories:
-Divergence:
-Dogs split from their wolf ancestors between 20,000-40,000 years ago, well before agriculture.
-«
-[23] Link: »Food« → {"act": 23}
-»-Based Start:
-A leading theory suggests wolves were drawn to human camps for easy food from waste, creating a new niche for less fearful wolves.
-«
-[24] Link: »Natural Selection« → {"act": 24}
-» for Tameness:
-Wolves that were less aggressive and fearful of humans benefited from this food source, passing on those traits, leading to a gradual shift in behavior (social selection).
-«
-[25] Link: »Early Companions« → {"act": 25}
-»:
-The relationship evolved from utility (hunting/guarding) to companionship, seen in archaeological finds like the Bonn-Oberkassel dog buried with humans 14,000 years ago.
-[26] Button: View related links → {"act": 26}
-Evolution from Wolf to Dog:
-«
-[27] Link: »Genetic« → {"act": 27}
-» Changes:
-This gradual adaptation to humans, driven by environmental and social pressures, led to significant behavioral and physical differences from their wolf ancestors.
-«
-[28] Link: »Two Domestication Events?« → {"act": 28}
-»
-While some theories suggested separate origins in Asia and Europe, more recent studies lean towards a single, albeit complex, origin from a now-extinct wolf population.
-[29] Button: View related links → {"act": 29}
-In essence, dogs are wolves that adapted to live alongside humans, a relationship built on mutual benefit and evolving over millennia from scavenging to a deep, companionate bond.
-[30] Button: View related links → {"act": 30}
-[31] Link: Domestication of the dog - Wikipedia → {"act": 31}
-Domestication of the dog - Wikipedia
-The dog is a wolf-like canid. The genetic divergence between the dog's ancestor and modern wolves occurred between 20,000 and 40,0...
-Wikipedia
-[32] Button: About this result → {"act": 32}
-[33] Link: From Wolves to Pugs and Great Danes – The History of Dog ... → {"act": 33}
-From Wolves to Pugs and Great Danes – The History of Dog ...
-Most researchers who study canine genetics agree that dogs are really domesticated wolves – after all, their scientific name is Ca...
-Morris Animal Foundation
-[34] Button: About this result → {"act": 34}
-[35] Link: Wolves to woofs: The story of our oldest companions → {"act": 35}
-Wolves to woofs: The story of our oldest companions
-Evidence suggests that around 30,000 years ago, during the last ice age, a now-extinct population of grey wolves began the process...
-Natural History Museum
-[36] Button: About this result → {"act": 36}
-[37] Button: Show all related links → {"act": 37}
-[38] Button: Show more AI Overview → {"act": 38}
-Link: Domestication of the dog
-
-Wikipedia
-[39] https://en.wikipedia.org › wiki › Domestication_of_the... → {"act": 39}
-The domestication of the dog occurred
-due to variation among the common ancestor wolf population
-in the fight-or-flight response where the common ancestor with ...
-Link: How did wolves become dogs? Time, food, selective ...
-
-International Wolf Center
-[40] https://wolf.org › Wolf Info › Facts vs Fiction → {"act": 40}
-Dogs were the first domesticated animal
-. Wolves were conducive to domestication for several reasons, Mech and Janssens write, including their wide-ranging diet, ...
-Link: How Wolf Became Dog
-
-Scientific American
-[41] https://www.scientificamerican.com › article › how-wolf-... → {"act": 41}
-1 July 2015
-—
-Scientists are racing to solve the enduring mystery of
-how a large, dangerous carnivore evolved into our best friend
-.
-Videos
-[42] Button: About this result → {"act": 42}
-Link: Dog Evolution
-YouTube · California Science Center
-[43] 30 May 2020 → {"act": 43}
-[44] Button: About this result → {"act": 44}
-[45] Button: Dog Evolution by California Science Center on YouTube. Play on Google. 3:17 → {"act": 45}
-[46] Button: Wolves became dogs through domestication, starting with wolves that were less fearful of humans and living closer to them. → {"act": 46}
-Link: Evolution of Dogs | How Wolf Became Dog | Origins of the Dog ...
-YouTube · Primeval Old Man
-[47] 28 Feb 2023 → {"act": 47}
-[48] Button: About this result → {"act": 48}
-[49] Button: Evolution of Dogs | How Wolf Became Dog | Origins of the Dog ... by Primeval Old Man on YouTube. Play on Google. 6:15 → {"act": 49}
-[50] Button: Here is what today's science says about the key drivers of dog domestication. → {"act": 50}
-Link: Bizarre Discoveries About Evolution of Dogs in the Last 50000 ...
-YouTube · Anton Petrov
-[51] 3 days ago → {"act": 51}
-[52] Button: About this result → {"act": 52}
-[53] Button: Bizarre Discoveries About Evolution of Dogs in the Last 50000 ... by Anton Petrov on YouTube. Play on Google. 15:47 → {"act": 53}
-[54] Link: View all videos → {"act": 54}
-Link: From Wolves to Pugs and Great Danes – The History of ...
-
-Morris Animal Foundation
-[55] https://www.morrisanimalfoundation.org › article › evo... → {"act": 55}
-Most researchers who study canine genetics agree that
-dogs are really domesticated wolves
-– after all, their scientific name is Canis lupus familiaris. The ...
-Link: Being a Dog: A Review of the Domestication Process - PMC
-
-National Institutes of Health (NIH) | (.gov)
-[56] https://pmc.ncbi.nlm.nih.gov › articles › PMC10218297 → {"act": 56}
-by D Tancredi
-·
-2023
-·
-Cited by 31
-—
-The first
-domesticated
-taxa were
-dogs
-, which diverged from their main ancestor, the gray wolf (Canis lupus), between 32,000 and 11,000–16,000 years ago [11,12].
-Link: Rapid evolution of prehistoric dogs from wolves by natural and ...
-
-Royal Society
-[57] https://royalsocietypublishing.org › rspb › article › Rapi... → {"act": 57}
-by DC Elzinga
-·
-2025
-·
-Cited by 5
-—
-The proto-domestication hypothesis, as mentioned earlier, is that a sub-population of prehistoric dogs
-emerged from wolves
-during a 15 000 year ...
-Link: Wolves to woofs: The story of our oldest companions
-
-Natural History Museum
-[58] https://www.nhm.ac.uk › discover › wolves-to-woofs-th... → {"act": 58}
-Evidence suggests that
-around 30,000 years ago, during the last ice age
-, a now-extinct population of grey wolves began the process of domestication. Genetic ...
-Link: How did domesticated wolves turn into so many completely ...
-
-Reddit · r/evolution
-[59] 80+ comments · 1 year ago → {"act": 59}
-Domestic dogs descend directly from Grey Wolves
-(Canis Lupus). However, they descend from an extinct Late Pleistocene population of Grey Wolf.
-[60] Link: 83 answers → {"act": 60}
-·
-Top answer:
-Yes, it is a form of evolution, specifically artificial selection. Humans bred dogs for traits ...
-Link: Dog
-
-Wikipedia
-[61] https://en.wikipedia.org › wiki › Dog → {"act": 61}
-Also called the domestic dog, it was
-selectively bred from a population of wolves
-during the Late Pleistocene by hunter-gatherers.
-[62] Link: Domestication → {"act": 62}
-[63] Link: Domestication of vertebrates → {"act": 63}
-[64] Link: Dog breed → {"act": 64}
-[65] Link: Dog communication → {"act": 65}
-People also search for
-Cat
-Dog
-Wolf
-Horse
-Birds
-Rabbit
-[66] Button: Feedback → {"act": 66}
-[67] Link: Dog domestication from wolves reddit → {"act": 67}
-[68] Link: Dog domestication from wolves video → {"act": 68}
-[69] Link: What was the first dog on Earth → {"act": 69}
-[70] Link: Wolf to dog evolution chart → {"act": 70}
-[71] Link: Are dogs descended from wolves or foxes → {"act": 71}
-[72] Link: Dog domestication timeline → {"act": 72}
-[73] Link: What did the first dog look like → {"act": 73}
-[74] Link: Earliest evidence of dog domestication → {"act": 74}
-Page navigation
-1
-[75] Link: Page 2 → {"act": 75}
-[76] Link: Page 3 → {"act": 76}
-[77] Link: Page 4 → {"act": 77}
-[78] Link: Page 5 → {"act": 78}
-[79] Link: Page 6 → {"act": 79}
-[80] Link: Page 7 → {"act": 80}
-[81] Link: Page 8 → {"act": 81}
-[82] Link: Page 9 → {"act": 82}
-[83] Link: Page 10 → {"act": 83}
-[84] Link: Next → {"act": 84}
-Footer links
-Results are personalised
--
-[85] Link: Try without personalisation → {"act": 85}
-Australia
-[86] Button: Teringie, South Australia - Based on your places (Home) → {"act": 86}
--
-[87] Button: Update location → {"act": 87}
-[88] Link: Help → {"act": 88}
-[89] Link: Send feedback → {"act": 89}
-[90] Link: Privacy → {"act": 90}
-[91] Link: Terms → {"act": 91}
-AI overview is ready
-
----
-
-## Secure Iframe Elements
-
-*⏳ Loading 3 iframe(s)...*
+[0] Button: Guide → {"act": 0}
+[1] Link: YouTube Premium Home → {"act": 1}
+AU
+[2] Button: Skip navigation → {"act": 2}
+[3] Input: Search → {"act": 3, "value": "...", "submit": true}
+[4] Button: Search → {"act": 4}
+[5] Button: Search with your voice → {"act": 5}
+[6] Button: Create → {"act": 6}
+[7] Button: Notifications → {"act": 7}
+[8] Button: Account menu → {"act": 8}
+[9] Link: Home → {"act": 9}
+[10] Link: Shorts → {"act": 10}
+[11] Link: Subscriptions → {"act": 11}
+[12] Link: You → {"act": 12}
+[13] Button: All → {"act": 13}
+[14] Button: News → {"act": 14}
+[15] Button: Podcasts → {"act": 15}
+[16] Button: AI → {"act": 16}
+[17] Button: Astronomy → {"act": 17}
+[18] Button: Macintosh → {"act": 18}
+[19] Button: Music → {"act": 19}
+[20] Button: Gaming → {"act": 20}
+[21] Button: Mixes → {"act": 21}
+[22] Button: Strategies → {"act": 22}
+[23] Button: Live → {"act": 23}
+[24] Button: Dinosaurs → {"act": 24}
+[25] Button: Sci-fi films → {"act": 25}
+[26] Button: Industry → {"act": 26}
+[27] Button: Downtempo music → {"act": 27}
+[28] Button: Portable communication devices → {"act": 28}
+[29] Button: Guitar solos → {"act": 29}
+[30] Button: Bodybuilding → {"act": 30}
+[31] Button: Recently uploaded → {"act": 31}
+[32] Button: Watched → {"act": 32}
+[33] Button: New to you → {"act": 33}
+[34] Button: Next → {"act": 34}
+[35] Link: 7:56 → {"act": 35}
+[36] Link: How to Make $1,000 From An App You Can Build In 10 Minutes 7 minutes, 56 seconds → {"act": 36}
+[37] Link: Julia McCoy → {"act": 37}
+6.6K views
+•
+7 hours ago
+[38] Link: 11:57 → {"act": 38}
+[39] Link: JUST REVEALED: CONGRESSMAN SPEAKS 11 minutes, 57 seconds → {"act": 39}
+[40] Link: Cristina Gomez → {"act": 40}
+14K views
+•
+4 hours ago
+Shorts
+[41] Link: INVINCIBLE: Live Action - Teaser Trailer | Henry Cavill, Tom Holland | Concept → {"act": 41}
+514K views
+[42] Link: WHEN TO EAT BEFORE AND AFTER LIFTING → {"act": 42}
+26K views
+[43] Link: And just like that... she’s gone! 😅 → {"act": 43}
+145K views
+[44] Link: 17:10 → {"act": 44}
+[45] Link: What “Memory Bandwidth” Hides 17 minutes → {"act": 45}
+[46] Link: Alex Ziskind → {"act": 46}
+57K views
+•
+9 hours ago
+[47] Link: 9:53 → {"act": 47}
+[48] Link: Google’s Hidden AI “Riftrunner” SHOCKS Everyone — Is This Gemini 3? 9 minutes, 53 seconds → {"act": 48}
+[49] Link: NeoTech-Lens → {"act": 49}
+46 views
+•
+2 days ago
+Breaking news
+[50] Button: Not interested → {"act": 50}
+[51] Link: 3:58 → {"act": 51}
+[52] Link: Youngest Bondi victim's family speaks at vigil | Sunrise 3 minutes, 58 seconds → {"act": 52}
+[53] Link: Sunrise → {"act": 53}
+612 views
+•
+18 minutes ago
+[54] Link: 6:18 → {"act": 54}
+[55] Link: Locals band together to honour Bondi attack victims with minute of silence | 9 News Australia 6 minutes, 18 seconds → {"act": 55}
+[56] Link: 9 News Australia → {"act": 56}
+4.1K views
+•
+1 hour ago
+[57] Button: Show more → {"act": 57}
+[58] Link: Upcoming → {"act": 58}
+[59] Link: Did Japan Just Build AGI? (Nobody Saw This Coming) 8 minutes, 55 seconds → {"act": 59}
+[60] Link: Julia McCoy → {"act": 60}
+8 waiting
+•
+Premieres 12/18/25, 1:30 AM
+[61] Button: Notify me → {"act": 61}
+[62] Link: 17:23 → {"act": 62}
+[63] Link: Claude Code just Built me an AI Agent Team (Claude Code + Skills + MCP) 17 minutes → {"act": 63}
+[64] Link: Grace Leung → {"act": 64}
+5.7K views
+•
+9 hours ago
+Shorts
+[65] Link: This Woman's Stone Lifting Strength Is Absolutely Crazy #athletic #powerful → {"act": 65}
+1.3M views
+[66] Link: PORCH PIRATE BAIT INSANE KARMA 💥🤯📦 → {"act": 66}
+2.2M views
+[67] Link: Just did an AMAZING livestream on Quantum Healing Mysteries 🧬 → {"act": 67}
+2.6K views
+[68] Link: 2:02:07 → {"act": 68}
+[69] Link: GPT 5.2 Release, Corporate Collapse in 2026, and 1.1M Job Loss | EP #215 2 hours, 2 minutes → {"act": 69}
+[70] Link: Peter H. Diamandis → {"act": 70}
+177K views
+•
+3 days ago
+[71] Link: 10:05 → {"act": 71}
+[72] Link: Your Picking Problems Solved? 10 minutes, 5 seconds → {"act": 72}
+[73] Link: Rick Graham → {"act": 73}
+2.3K views
+•
+5 hours ago
+[74] Link: 12:42 → {"act": 74}
+[75] Link: AI Agent for Co-Living & Student Housing Operators 12 minutes, 42 seconds → {"act": 75}
+[76] Link: Pabbly → {"act": 76}
+26 views
+•
+2 days ago
+[77] Link: 21:36 → {"act": 77}
+[78] Link: The REAL Way To Make Money WITHOUT Risk 21 minutes → {"act": 78}
+[79] Link: The Diary Of A CEO Clips → {"act": 79}
+50K views
+•
+1 day ago
+[80] Link: 36:28 → {"act": 80}
+[81] Link: GPT-5.2 is a total monster 36 minutes → {"act": 81}
+[82] Link: AI Search → {"act": 82}
+49K views
+•
+18 hours ago
+[83] Link: 15:40 → {"act": 83}
+[84] Link: I Quit an AI Startup After 6 Months - Here's What I learned 15 minutes → {"act": 84}
+[85] Link: Brian Jenney → {"act": 85}
+57K views
+•
+22 hours ago
+[86] Link: 9:19 → {"act": 86}
+[87] Link: UAE Muslim Has RUTHLESS Message For Australian Islamists That’s Going Viral Now! 9 minutes, 19 seconds → {"act": 87}
+[88] Link: OtherBarak → {"act": 88}
+848K views
+•
+2 days ago
+[89] Link: 10:56 → {"act": 89}
+[90] Link: The Best Value Macbook Pro 10 minutes, 56 seconds → {"act": 90}
+[91] Link: Sam.Alexander.Reviews → {"act": 91}
+134K views
+•
+2 weeks ago
+[92] Link: 8:19 → {"act": 92}
+[93] Link: ‘Not surprised’: Farage blasts Australian authorities for inadequate response to extremism 8 minutes, 19 seconds → {"act": 93}
+[94] Link: Sky News Australia → {"act": 94}
+98K views
+•
+9 hours ago
+[95] Link: 18:23 → {"act": 95}
+[96] Link: 3I/ATLAS Appears to Have Changed Colors AGAIN as Earth's Closest Approach Countdown Begins 18 minutes → {"act": 96}
+[97] Link: Stefan Burns → {"act": 97}
+553K views
+•
+1 day ago
+[98] Link: 15:20 → {"act": 98}
+[99] Link: The 8 Trends I’m Betting My Entire Marketing Strategy On in 2026 15 minutes → {"act": 99}
+[100] Link: Neil Patel → {"act": 100}
+95K views
+•
+6 days ago
+[101] Link: 22:35 → {"act": 101}
+[102] Link: If You Don’t Learn These 7 Skills, AI Will Replace You in 2026 (for beginners) 22 minutes → {"act": 102}
+[103] Link: Silicon Valley Girl → {"act": 103}
+12K views
+•
+1 day ago
+[104] Link: 14:10 → {"act": 104}
+[105] Link: How AI is Changing Manufacturing 14 minutes, 10 seconds → {"act": 105}
+[106] Link: Future in the Making → {"act": 106}
+29K views
+•
+9 days ago
+[107] Link: 10:21 → {"act": 107}
+[108] Link: Quantum Breakthrough: World’s First 10,000-Qubit Processor Achieves 100x Scaling Leap 10 minutes, 21 seconds → {"act": 108}
+[109] Link: Julia McCoy → {"act": 109}
+12K views
+•
+5 hours ago
+[110] Link: 6:31 → {"act": 110}
+[111] Link: AMD Made Something INCREDIBLE! 6 minutes, 31 seconds → {"act": 111}
+[112] Link: Dave2D → {"act": 112}
+1.6M views
+•
+9 months ago
+[113] Link: 1:34:17 → {"act": 113}
+[114] Link: Collaboration channels → {"act": 114}
+[115] Link: 3I/ATLAS Is Upon Earth: In 3 Days, EVERYTHING CHANGES — Scientist & PSYCHIC REVEAL What’s Next 1 hour, 34 minutes → {"act": 115}
+Emilio Ortiz
+and Stefan Burns
+62K views
+•
+8 hours ago

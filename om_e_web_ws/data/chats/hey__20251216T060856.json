@@ -1,0 +1,147 @@
+{
+  "chat_id": "hey__20251216T060856",
+  "project_id": "default",
+  "created_at": "2025-12-16T06:08:56.306726Z",
+  "updated_at": "2025-12-16T06:11:43.079711Z",
+  "title": "hey",
+  "default_title": "hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765865309838&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey",
+      "timestamp": "2025-12-16T06:08:56.306740Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "timestamp": "2025-12-16T06:08:57.430537Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "what page are we on",
+      "timestamp": "2025-12-16T06:09:14.735480Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "We are currently on the Google homepage.",
+      "timestamp": "2025-12-16T06:09:15.877379Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "can you see the articles on this page",
+      "timestamp": "2025-12-16T06:09:29.401564Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "I do not see any articles on the current Google homepage. It mainly shows the search bar and navigation elements.\n\nNope, I don’t see any articles on this Google homepage — just the usual search stuff and some links like Terms and Business.\n\nAnything else you want me to look for?",
+      "timestamp": "2025-12-16T06:09:32.561323Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "yea national cabinet article",
+      "timestamp": "2025-12-16T06:09:49.238970Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Which article you after? Something recent on National Cabinet or a specific topic like COVID rules, economy, or whatever? Give us a bit more to go on.",
+      "timestamp": "2025-12-16T06:09:51.068082Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "on the page query your element vector",
+      "timestamp": "2025-12-16T06:10:05.862287Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Mate, I can't run vector searches or query my element vector directly on this page. But if you want me to find or click something specific here on Google, just say the word.\n\nWhat exactly are you after?",
+      "timestamp": "2025-12-16T06:10:07.722618Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "open youtube in a new tab",
+      "timestamp": "2025-12-16T06:10:45.143480Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Opening YouTube for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-16T06:10:47.677772Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "close the google tab",
+      "timestamp": "2025-12-16T06:10:54.455889Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Gotcha, closing the Google tab now.\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1}}",
+      "timestamp": "2025-12-16T06:10:57.075435Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-16T06:11:11.171834Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "I can't open Facebook directly but I can help you navigate or search on YouTube or other stuff here. Want me to open facebook.com in a new tab instead?",
+      "timestamp": "2025-12-16T06:11:13.381517Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "open facebook in a new tab",
+      "timestamp": "2025-12-16T06:11:20.519772Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Opening Facebook in a new tab for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-16T06:11:22.819394Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "close youtube",
+      "timestamp": "2025-12-16T06:11:27.588117Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Closing that YouTube tab for ya.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 2}}",
+      "timestamp": "2025-12-16T06:11:29.365539Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "lets see whats down there",
+      "timestamp": "2025-12-16T06:11:40.063640Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Alright, scrolling down for ya.\n\n{\"cap\": \"ScrollDown\"}",
+      "timestamp": "2025-12-16T06:11:43.079711Z"
+    }
+  ]
+}

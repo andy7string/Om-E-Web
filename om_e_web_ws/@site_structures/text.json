@@ -1,1045 +1,1210 @@
 {
   "metadata": {
-    "url": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI",
-    "title": "dog domestication from wolves - Google Search",
-    "timestamp": "2025-12-14T13:04:43Z",
-    "element_count": 92
+    "url": "https://www.youtube.com/",
+    "title": "YouTube",
+    "timestamp": "2025-12-16T22:07:19Z",
+    "element_count": 116
   },
   "elements": {
     "0": {
-      "label": "Skip to main content",
-      "type": "Link",
-      "tag": "a",
+      "label": "Guide",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ67oDCAU']",
-        "a.gyPpGe"
+        "button[aria-label='Guide']",
+        "[aria-label='Guide']",
+        "button.style-scope.yt-icon-button"
       ],
       "href": null
     },
     "1": {
-      "label": "Accessibility help",
+      "label": "YouTube Premium Home",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/websearch/answer/181196']",
-        "a.gyPpGe"
+        "#logo",
+        "a.yt-simple-endpoint.style-scope"
       ],
-      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
+      "href": "https://www.youtube.com/"
     },
     "2": {
-      "label": "Accessibility feedback",
-      "type": "Link",
-      "tag": "a",
+      "label": "Skip navigation",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "[data-async-trigger='duf3-78']",
-        "a.gyPpGe"
+        "button[aria-label='Skip navigation']",
+        "[aria-label='Skip navigation']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
       ],
       "href": null
     },
     "3": {
       "label": "Search",
-      "type": "Select",
-      "tag": "textarea",
+      "type": "Input",
+      "tag": "input",
       "selectors": [
-        "textarea[aria-label='Search']",
-        "[aria-label='Search']",
-        "#APjFqb",
-        "textarea[name='q']",
-        "[role='combobox'][aria-label='Search']",
-        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ39UDCA0']",
-        "textarea.gLFyf"
+        "input[name='search_query']",
+        "input[placeholder='Search']",
+        "input[type='text'][name='search_query']",
+        "input.ytSearchboxComponentInput.yt-searchbox-input"
       ],
       "href": null
     },
     "4": {
-      "label": "Clear",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Clear']",
-        "[aria-label='Clear']",
-        "[role='button'][aria-label='Clear']",
-        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ05YFCA4']",
-        "div.M2vV3.vOY7J"
-      ],
-      "href": null
-    },
-    "5": {
-      "label": "Search by voice",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search by voice']",
-        "[aria-label='Search by voice']",
-        "[role='button'][aria-label='Search by voice']",
-        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQvs8DCA8']",
-        "div.XDyW0e"
-      ],
-      "href": null
-    },
-    "6": {
-      "label": "Search by image",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search by image']",
-        "[aria-label='Search by image']",
-        "[role='button'][aria-label='Search by image']",
-        "[data-base-lens-url='https://lens.google.com']",
-        "div.nDcEnd"
-      ],
-      "href": null
-    },
-    "7": {
       "label": "Search",
       "type": "Button",
       "tag": "button",
       "selectors": [
         "button[aria-label='Search']",
         "[aria-label='Search']",
-        "[data-ved='0ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ4dUDCBE']",
-        "button.HZVG1b.Tg7LZd"
+        "button.ytSearchboxComponentSearchButton.ytSearchboxComponentSearchButtonDark"
+      ],
+      "href": null
+    },
+    "5": {
+      "label": "Search with your voice",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Search with your voice']",
+        "[aria-label='Search with your voice']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+      ],
+      "href": null
+    },
+    "6": {
+      "label": "Create",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Create']",
+        "[aria-label='Create']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
+      ],
+      "href": null
+    },
+    "7": {
+      "label": "Notifications",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Notifications']",
+        "[aria-label='Notifications']",
+        "button.style-scope.yt-icon-button"
       ],
       "href": null
     },
     "8": {
-      "label": "Google apps",
+      "label": "Account menu",
       "type": "Button",
-      "tag": "a",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Google apps']",
-        "[aria-label='Google apps']",
-        "[role='button'][aria-label='Google apps']",
-        "a[href*='/intl/en/about/products']",
-        "a.gb_B"
-      ],
-      "href": "https://www.google.com.au/intl/en/about/products?tab=wh"
-    },
-    "9": {
-      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
-      "type": "Button",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "a[href*='/SignOutOptions']",
-        "a.gb_B.gb_0a"
-      ],
-      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/search%3Fq%3Ddog%2Bdomestication%2Bfrom%2Bwolves%26sca_esv%3D48308ae346848ecf%26sxsrf%3DAE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%253A1765717256160%26ei%3DCLU-abrCCZi1vr0P1am5oAI&ec=futura_srp_og_si_72236_p"
-    },
-    "10": {
-      "label": "AI Mode",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ2J8OegQIDRAE']",
-        "a.XVMlrc.C6AK7c"
-      ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=50&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&aep=1&ntc=1&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ2J8OegQIDRAE"
-    },
-    "11": {
-      "label": "All",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CA8QAQ']",
-        "a.C6AK7c"
+        "button[aria-label='Account menu']",
+        "[aria-label='Account menu']",
+        "#avatar-btn",
+        "button.style-scope.ytd-topbar-menu-button-renderer"
       ],
       "href": null
     },
-    "12": {
-      "label": "Images",
+    "9": {
+      "label": "Home",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "[data-hveid='CBgQAQ']",
-        "a.C6AK7c"
+        "a[aria-label='Home']",
+        "[aria-label='Home']",
+        "#endpoint",
+        "a.yt-simple-endpoint.style-scope"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQtKgLegQIGBAB"
+      "href": "https://www.youtube.com/"
+    },
+    "10": {
+      "label": "Shorts",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Shorts']",
+        "[aria-label='Shorts']",
+        "#endpoint",
+        "a[href*='/shorts/']",
+        "a.yt-simple-endpoint.style-scope"
+      ],
+      "href": "https://www.youtube.com/shorts/"
+    },
+    "11": {
+      "label": "Subscriptions",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Subscriptions']",
+        "[aria-label='Subscriptions']",
+        "#endpoint",
+        "a[href*='/feed/subscriptions']",
+        "a.yt-simple-endpoint.style-scope"
+      ],
+      "href": "https://www.youtube.com/feed/subscriptions"
+    },
+    "12": {
+      "label": "You",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='You']",
+        "[aria-label='You']",
+        "#endpoint",
+        "a[href*='/feed/you']",
+        "a.yt-simple-endpoint.style-scope"
+      ],
+      "href": "https://www.youtube.com/feed/you"
     },
     "13": {
-      "label": "Videos",
-      "type": "Link",
-      "tag": "a",
+      "label": "All",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/search']",
-        "[data-hveid='CBAQAQ']",
-        "a.C6AK7c"
+        "button.ytChipShapeButtonReset"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=7&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQtKgLegQIEBAB"
+      "href": null
     },
     "14": {
-      "label": "Shopping",
-      "type": "Link",
-      "tag": "a",
+      "label": "News",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/search']",
-        "[data-hveid='CBEQAQ']",
-        "a.C6AK7c"
+        "button.ytChipShapeButtonReset"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=28&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&ved=1t:220175&ictx=111"
+      "href": null
     },
     "15": {
-      "label": "Short videos",
-      "type": "Link",
-      "tag": "a",
+      "label": "Podcasts",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/search']",
-        "[data-hveid='CBIQAQ']",
-        "a.C6AK7c"
+        "button.ytChipShapeButtonReset"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=39&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQs6gLegQIEhAB"
+      "href": null
     },
     "16": {
-      "label": "Forums",
-      "type": "Link",
-      "tag": "a",
+      "label": "AI",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/search']",
-        "[data-hveid='CBcQAQ']",
-        "a.C6AK7c"
+        "button.ytChipShapeButtonReset"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&udm=18&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeiAkWG4OlBE2zyCTMjPbGmMU8EWskMk2JSE__efdUJ3xRFvZ0M2vJLB0hUMk5HOE2OjlycQYRp9vQECfaBtuI77VBixuZT8Ikq7knPIraxtLcXUn-925YP4AZPohtCshEMzz_HYh-s2jy_GenEFZtSggFj5UruF1QvDnKbUPJW54S8V0hw&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQs6gLegQIFxAB"
+      "href": null
     },
     "17": {
-      "label": "More",
+      "label": "Astronomy",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ7p0OegQIDRAG']",
-        "div.mTpL7c"
+        "button.ytChipShapeButtonReset"
       ],
       "href": null
     },
     "18": {
-      "label": "Tools",
+      "label": "Macintosh",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "#hdtb-tls",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ2x96BAgNEAg']",
-        "div.mOKdDc"
+        "button.ytChipShapeButtonReset"
       ],
       "href": null
     },
     "19": {
-      "label": "About this result",
+      "label": "Music",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.H4fljf"
+        "button.ytChipShapeButtonReset"
       ],
       "href": null
     },
     "20": {
-      "label": "Canis lupus familiaris",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-wiz-uids='TyG0Kb_f']",
-        "a.GI370e"
-      ],
-      "href": "https://www.google.com/search?q=Canis+lupus+familiaris&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIARAE"
-    },
-    "21": {
-      "label": "Canis lupus",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-wiz-uids='TyG0Kb_g']",
-        "a.GI370e"
-      ],
-      "href": "https://www.google.com/search?q=Canis+lupus&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIARAF"
-    },
-    "22": {
-      "label": "View related links",
+      "label": "Gaming",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='View related links']",
-        "[aria-label='View related links']",
-        "[data-amic='true']",
-        "button.rBl3me"
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "21": {
+      "label": "Mixes",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "22": {
+      "label": "Strategies",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
       ],
       "href": null
     },
     "23": {
-      "label": "»Food«",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-wiz-uids='TyG0Kb_11']",
-        "a.GI370e"
-      ],
-      "href": "https://www.google.com/search?q=%C2%BBFood%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIAxAC"
-    },
-    "24": {
-      "label": "»Natural Selection«",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-wiz-uids='TyG0Kb_15']",
-        "a.GI370e"
-      ],
-      "href": "https://www.google.com/search?q=%C2%BBNatural+Selection%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIAxAE"
-    },
-    "25": {
-      "label": "»Early Companions«",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-wiz-uids='TyG0Kb_19']",
-        "a.GI370e"
-      ],
-      "href": "https://www.google.com/search?q=%C2%BBEarly+Companions%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIAxAG"
-    },
-    "26": {
-      "label": "View related links",
+      "label": "Live",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='View related links']",
-        "[aria-label='View related links']",
-        "[data-amic='true']",
-        "button.rBl3me"
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "24": {
+      "label": "Dinosaurs",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "25": {
+      "label": "Sci-fi films",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "26": {
+      "label": "Industry",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
       ],
       "href": null
     },
     "27": {
-      "label": "»Genetic«",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-wiz-uids='TyG0Kb_1t']",
-        "a.GI370e"
-      ],
-      "href": "https://www.google.com/search?q=%C2%BBGenetic%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&mstk=AUtExfCnEJAua6juQEj_OW779IPPGxbKZbZGFD4Y05PNpgOlCUzR5No_tMy1i4CKEsATxjjxGxwRrs3vxwVjoTLKtFYYzH_9ZSrm8FsbsUx-oxQbXdH3bJbq1LLGDRYtsNY933GjsdeFmegAEuiVj03zf87vfR81_OnTzr1nyot9n1UgMOwb1fnwyU94JkvVgKMw0ARoFMQ7k3QP-8ZXb0NAX1zoEo2Xbzrme4M5aMhqf0zDO7-6yWQweyCSwk0CJrW6mSnBBuqd9STfrC7qhTBTaWeTRgkUVyj_iEJ5qNDQB5SsxA&csui=3&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIBRAB"
-    },
-    "28": {
-      "label": "»Two Domestication Events?«",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search']",
-        "[data-wiz-uids='TyG0Kb_1x']",
-        "a.GI370e"
-      ],
-      "href": "https://www.google.com/search?q=%C2%BBTwo+Domestication+Events%3F%C2%AB&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&mstk=AUtExfCnEJAua6juQEj_OW779IPPGxbKZbZGFD4Y05PNpgOlCUzR5No_tMy1i4CKEsATxjjxGxwRrs3vxwVjoTLKtFYYzH_9ZSrm8FsbsUx-oxQbXdH3bJbq1LLGDRYtsNY933GjsdeFmegAEuiVj03zf87vfR81_OnTzr1nyot9n1UgMOwb1fnwyU94JkvVgKMw0ARoFMQ7k3QP-8ZXb0NAX1zoEo2Xbzrme4M5aMhqf0zDO7-6yWQweyCSwk0CJrW6mSnBBuqd9STfrC7qhTBTaWeTRgkUVyj_iEJ5qNDQB5SsxA&csui=3&ved=2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQgK4QegQIBRAD"
-    },
-    "29": {
-      "label": "View related links",
+      "label": "Downtempo music",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='View related links']",
-        "[aria-label='View related links']",
-        "[data-amic='true']",
-        "button.rBl3me"
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "28": {
+      "label": "Portable communication devices",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "29": {
+      "label": "Guitar solos",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
       ],
       "href": null
     },
     "30": {
-      "label": "View related links",
+      "label": "Bodybuilding",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='View related links']",
-        "[aria-label='View related links']",
-        "[data-amic='true']",
-        "button.rBl3me"
+        "button.ytChipShapeButtonReset"
       ],
       "href": null
     },
     "31": {
-      "label": "Domestication of the dog - Wikipedia",
-      "type": "Link",
-      "tag": "a",
+      "label": "Recently uploaded",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Domestication of the dog - Wikipedia']",
-        "[aria-label='Domestication of the dog - Wikipedia']",
-        "a[href*='/wiki/Domestication_of_the_dog']",
-        "a[href*='#:~:text=The%20dog%20is%20a%20wolf,remains%20occurring%2036%2C000%20years%20ago.']",
-        "[data-ved='2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQqYcPegQICBAC']",
-        "a.NDNGvf"
+        "button.ytChipShapeButtonReset"
       ],
-      "href": "https://en.wikipedia.org/wiki/Domestication_of_the_dog#:~:text=The%20dog%20is%20a%20wolf,remains%20occurring%2036%2C000%20years%20ago."
+      "href": null
     },
     "32": {
-      "label": "About this result",
+      "label": "Watched",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "#snui-atr-3bU-ae37ErjU1e8P3dmW2Qg_38",
-        "[role='button'][aria-label='About this result']",
-        "[data-wiz-uids='TyG0Kb_4y']",
-        "div.xXnAhe"
+        "button.ytChipShapeButtonReset"
       ],
       "href": null
     },
     "33": {
-      "label": "From Wolves to Pugs and Great Danes – The History of Dog ...",
-      "type": "Link",
-      "tag": "a",
+      "label": "New to you",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='From Wolves to Pugs and Great Danes – The History of Dog ...']",
-        "[aria-label='From Wolves to Pugs and Great Danes – The History of Dog ...']",
-        "a[href*='/article/evolution-of-dogs']",
-        "a[href*='#:~:text=Most%20researchers%20who%20study%20canine,20%2C000%20and%2040%2C000%20years%20ago.']",
-        "[data-ved='2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQqYcPegQICBAG']",
-        "a.NDNGvf"
+        "button.ytChipShapeButtonReset"
       ],
-      "href": "https://www.morrisanimalfoundation.org/article/evolution-of-dogs#:~:text=Most%20researchers%20who%20study%20canine,20%2C000%20and%2040%2C000%20years%20ago."
+      "href": null
     },
     "34": {
-      "label": "About this result",
+      "label": "Next",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "#snui-atr-3bU-ae37ErjU1e8P3dmW2Qg_42",
-        "[role='button'][aria-label='About this result']",
-        "[data-wiz-uids='TyG0Kb_54']",
-        "div.xXnAhe"
+        "button[aria-label='Next']",
+        "[aria-label='Next']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
       ],
       "href": null
     },
     "35": {
-      "label": "Wolves to woofs: The story of our oldest companions",
+      "label": "7:56",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Wolves to woofs: The story of our oldest companions']",
-        "[aria-label='Wolves to woofs: The story of our oldest companions']",
-        "a[href*='/discover/wolves-to-woofs-the-story-of-our-oldest-companions.html']",
-        "a[href*='#:~:text=Evidence%20suggests%20that%20around%2030%2C000,a%20long%20period%20of%20time.']",
-        "[data-ved='2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQqYcPegQICBAK']",
-        "a.NDNGvf"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.nhm.ac.uk/discover/wolves-to-woofs-the-story-of-our-oldest-companions.html#:~:text=Evidence%20suggests%20that%20around%2030%2C000,a%20long%20period%20of%20time."
+      "href": "https://www.youtube.com/watch?v=7Dj1yLy6Cuo&pp=ugUHEgVlbi1VUw%3D%3D"
     },
     "36": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
+      "label": "How to Make $1,000 From An App You Can Build In 10 Minutes 7 minutes, 56 seconds",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "#snui-atr-3bU-ae37ErjU1e8P3dmW2Qg_46",
-        "[role='button'][aria-label='About this result']",
-        "[data-wiz-uids='TyG0Kb_5a']",
-        "div.xXnAhe"
+        "a[aria-label='How to Make $1,000 From An App You Can Build In 10 Minutes 7 minutes, 56 seconds']",
+        "[aria-label='How to Make $1,000 From An App You Can Build In 10 Minutes 7 minutes, 56 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": null
+      "href": "https://www.youtube.com/watch?v=7Dj1yLy6Cuo&pp=ugUHEgVlbi1VUw%3D%3D"
     },
     "37": {
-      "label": "Show all related links",
-      "type": "Button",
-      "tag": "div",
+      "label": "Julia McCoy",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='Show all related links']",
-        "[aria-label='Show all related links']",
-        "[role='button'][aria-label='Show all related links']",
-        "[data-ved='2ahUKEwit3qCUkr2RAxU4avUHHd2sJYsQt6QPegQICBAN']",
-        "div.BjvG9b"
+        "a[href*='/@JuliaMcCoy']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": null
+      "href": "https://www.youtube.com/@JuliaMcCoy"
     },
     "38": {
-      "label": "Show more AI Overview",
-      "type": "Button",
-      "tag": "div",
+      "label": "11:57",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='Show more AI Overview']",
-        "[aria-label='Show more AI Overview']",
-        "[role='button'][aria-label='Show more AI Overview']",
-        "[data-hveid='CAIQAQ']",
-        "div.Jzkafd"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": null
+      "href": "https://www.youtube.com/watch?v=aK1jT5ojR98&pp=ugUHEgVlbi1VUw%3D%3D"
     },
     "39": {
-      "label": "Domestication of the dog\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Domestication_of_the...",
+      "label": "JUST REVEALED: CONGRESSMAN SPEAKS 11 minutes, 57 seconds",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/wiki/Domestication_of_the_dog']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECCAQAQ']",
-        "a.zReHs"
+        "a[aria-label='JUST REVEALED: CONGRESSMAN SPEAKS 11 minutes, 57 seconds']",
+        "[aria-label='JUST REVEALED: CONGRESSMAN SPEAKS 11 minutes, 57 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://en.wikipedia.org/wiki/Domestication_of_the_dog"
+      "href": "https://www.youtube.com/watch?v=aK1jT5ojR98&pp=ugUHEgVlbi1VUw%3D%3D"
     },
     "40": {
-      "label": "How did wolves become dogs? Time, food, selective ...\n\nInternational Wolf Center\nhttps://wolf.org › Wolf Info › Facts vs Fiction",
+      "label": "Cristina Gomez",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECB8QAQ']",
-        "a.zReHs"
+        "a[href*='/@CristinaG']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://wolf.org/wolf-info/factsvsfiction/how-did-wolves-become-dogs-time-food-and-selective-breeding-is-the-likely-answer/"
+      "href": "https://www.youtube.com/@CristinaG"
     },
     "41": {
-      "label": "How Wolf Became Dog\n\nScientific American\nhttps://www.scientificamerican.com › article › how-wolf-...",
+      "label": "INVINCIBLE: Live Action - Teaser Trailer | Henry Cavill, Tom Holland | Concept",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/article/how-wolf-became-dog/']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECCIQAQ']",
-        "a.zReHs"
+        "a[href*='/shorts/I9AZoBSXa2w']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
       ],
-      "href": "https://www.scientificamerican.com/article/how-wolf-became-dog/"
+      "href": "https://www.youtube.com/shorts/I9AZoBSXa2w"
     },
     "42": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
+      "label": "WHEN TO EAT BEFORE AND AFTER LIFTING",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.iTPLzd.rNSxBe"
+        "a[href*='/shorts/LndNJwizDhY']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
       ],
-      "href": null
+      "href": "https://www.youtube.com/shorts/LndNJwizDhY"
     },
     "43": {
-      "label": "Dog Evolution\nYouTube · California Science Center\n30 May 2020",
+      "label": "And just like that… she’s gone! 😅",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/watch']",
-        "a.rIRoqf"
+        "a[href*='/shorts/Oe9cRYOmB0s']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
       ],
-      "href": "https://www.youtube.com/watch?v=9Y5Fwp7i-0E"
+      "href": "https://www.youtube.com/shorts/Oe9cRYOmB0s"
     },
     "44": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.iTPLzd.rNSxBe"
-      ],
-      "href": null
-    },
-    "45": {
-      "label": "Dog Evolution by California Science Center on YouTube. Play on Google. 3:17",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Dog Evolution by California Science Center on YouTube. Play on Google. 3:17']",
-        "[aria-label='Dog Evolution by California Science Center on YouTube. Play on Google. 3:17']",
-        "[role='button'][aria-label='Dog Evolution by California Science Center on YouTube. Play on Google. 3:17']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQj_EHegQIExAD']",
-        "div.rIRoqf.hXY9cf"
-      ],
-      "href": null
-    },
-    "46": {
-      "label": "Wolves became dogs through domestication, starting with wolves that were less fearful of humans and living closer to them.",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "[role='button'][aria-label='Wolves became dogs through domestication, starting with wolves that were less fearful of humans and living closer to them.']",
-        "[data-hveid='CBMQCA']",
-        "div.rIRoqf.hXY9cf"
-      ],
-      "href": null
-    },
-    "47": {
-      "label": "Evolution of Dogs | How Wolf Became Dog | Origins of the Dog ...\nYouTube · Primeval Old Man\n28 Feb 2023",
+      "label": "17:10",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/watch']",
-        "a.rIRoqf"
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.youtube.com/watch?v=w-XAQNXqlAI"
+      "href": "https://www.youtube.com/watch?v=PhJnZnQuuT0"
+    },
+    "45": {
+      "label": "What “Memory Bandwidth” Hides 17 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='What “Memory Bandwidth” Hides 17 minutes']",
+        "[aria-label='What “Memory Bandwidth” Hides 17 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=PhJnZnQuuT0"
+    },
+    "46": {
+      "label": "Alex Ziskind",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@AZisk']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@AZisk"
+    },
+    "47": {
+      "label": "9:53",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=nnEA-kwyvzM"
     },
     "48": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
+      "label": "Google’s Hidden AI “Riftrunner” SHOCKS Everyone — Is This Gemini 3? 9 minutes, 53 seconds",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.iTPLzd.rNSxBe"
+        "a[aria-label='Google’s Hidden AI “Riftrunner” SHOCKS Everyone — Is This Gemini 3? 9 minutes, 53 seconds']",
+        "[aria-label='Google’s Hidden AI “Riftrunner” SHOCKS Everyone — Is This Gemini 3? 9 minutes, 53 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": null
+      "href": "https://www.youtube.com/watch?v=nnEA-kwyvzM"
     },
     "49": {
-      "label": "Evolution of Dogs | How Wolf Became Dog | Origins of the Dog ... by Primeval Old Man on YouTube. Play on Google. 6:15",
-      "type": "Button",
-      "tag": "div",
+      "label": "NeoTech-Lens",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "[role='button'][aria-label='Evolution of Dogs | How Wolf Became Dog | Origins of the Dog ... by Primeval Old Man on YouTube. Play on Google. 6:15']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQj_EHegQIFBAD']",
-        "div.rIRoqf.hXY9cf"
+        "a[href*='/@NeoTech-Lens']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": null
+      "href": "https://www.youtube.com/@NeoTech-Lens"
     },
     "50": {
-      "label": "Here is what today's science says about the key drivers of dog domestication.",
+      "label": "Not interested",
       "type": "Button",
-      "tag": "div",
+      "tag": "button",
       "selectors": [
-        "div[aria-label='Here is what today\\'s science says about the key drivers of dog domestication.']",
-        "[aria-label='Here is what today\\'s science says about the key drivers of dog domestication.']",
-        "[role='button'][aria-label='Here is what today\\'s science says about the key drivers of dog domestication.']",
-        "[data-hveid='CBQQBw']",
-        "div.rIRoqf.hXY9cf"
+        "button[aria-label='Not interested']",
+        "[aria-label='Not interested']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
       ],
       "href": null
     },
     "51": {
-      "label": "Bizarre Discoveries About Evolution of Dogs in the Last 50000 ...\nYouTube · Anton Petrov\n3 days ago",
+      "label": "3:58",
       "type": "Link",
       "tag": "a",
       "selectors": [
         "a[href*='/watch']",
-        "a.rIRoqf"
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.youtube.com/watch?v=QFXqYRIOEJ4"
+      "href": "https://www.youtube.com/watch?v=2UL2gHp0CTs"
     },
     "52": {
-      "label": "About this result",
-      "type": "Button",
-      "tag": "div",
+      "label": "Youngest Bondi victim's family speaks at vigil | Sunrise 3 minutes, 58 seconds",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "div[aria-label='About this result']",
-        "[aria-label='About this result']",
-        "[role='button'][aria-label='About this result']",
-        "div.iTPLzd.rNSxBe"
+        "a[aria-label='Youngest Bondi victim\\'s family speaks at vigil | Sunrise 3 minutes, 58 seconds']",
+        "[aria-label='Youngest Bondi victim\\'s family speaks at vigil | Sunrise 3 minutes, 58 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": null
+      "href": "https://www.youtube.com/watch?v=2UL2gHp0CTs"
     },
     "53": {
-      "label": "Bizarre Discoveries About Evolution of Dogs in the Last 50000 ... by Anton Petrov on YouTube. Play on Google. 15:47",
-      "type": "Button",
-      "tag": "div",
+      "label": "Sunrise",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "[role='button'][aria-label='Bizarre Discoveries About Evolution of Dogs in the Last 50000 ... by Anton Petrov on YouTube. Play on Google. 15:47']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ-JQHegQIFRAD']",
-        "div.rIRoqf.hXY9cf"
+        "a[href*='/@sunrise']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": null
+      "href": "https://www.youtube.com/@sunrise"
     },
     "54": {
-      "label": "View all videos",
+      "label": "6:18",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='View all videos']",
-        "[aria-label='View all videos']",
-        "a[href*='/search']",
-        "a.jRKCUd"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&udm=7&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=dog+domestication+from+wolves&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8ccDKAJ6BAgWEAQ"
+      "href": "https://www.youtube.com/watch?v=T9W9R1SzOMg"
     },
     "55": {
-      "label": "From Wolves to Pugs and Great Danes – The History of ...\n\nMorris Animal Foundation\nhttps://www.morrisanimalfoundation.org › article › evo...",
+      "label": "Locals band together to honour Bondi attack victims with minute of silence | 9 News Australia 6 minutes, 18 seconds",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/article/evolution-of-dogs']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECC8QAQ']",
-        "a.zReHs"
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://www.morrisanimalfoundation.org/article/evolution-of-dogs"
+      "href": "https://www.youtube.com/watch?v=T9W9R1SzOMg"
     },
     "56": {
-      "label": "Being a Dog: A Review of the Domestication Process - PMC\n\nNational Institutes of Health (NIH) | (.gov)\nhttps://pmc.ncbi.nlm.nih.gov › articles › PMC10218297",
+      "label": "9 News Australia",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/articles/PMC10218297/']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDAQAQ']",
-        "a.zReHs"
+        "a[href*='/@9NewsAUS']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10218297/"
+      "href": "https://www.youtube.com/@9NewsAUS"
     },
     "57": {
-      "label": "Rapid evolution of prehistoric dogs from wolves by natural and ...\n\nRoyal Society\nhttps://royalsocietypublishing.org › rspb › article › Rapi...",
-      "type": "Link",
-      "tag": "a",
+      "label": "Show more",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/rspb/article/292/2040/20242646/104837/Rapid-evolution-of-prehistoric-dogs-from-wolves-by']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDIQAQ']",
-        "a.zReHs"
+        "button[aria-label='Show more']",
+        "[aria-label='Show more']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--outline"
       ],
-      "href": "https://royalsocietypublishing.org/rspb/article/292/2040/20242646/104837/Rapid-evolution-of-prehistoric-dogs-from-wolves-by"
+      "href": null
     },
     "58": {
-      "label": "Wolves to woofs: The story of our oldest companions\n\nNatural History Museum\nhttps://www.nhm.ac.uk › discover › wolves-to-woofs-th...",
+      "label": "Upcoming",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/discover/wolves-to-woofs-the-story-of-our-oldest-companions.html']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDQQAQ']",
-        "a.zReHs"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.nhm.ac.uk/discover/wolves-to-woofs-the-story-of-our-oldest-companions.html"
+      "href": "https://www.youtube.com/watch?v=zrr3KQrQ-WA&pp=ugUHEgVlbi1VUw%3D%3D"
     },
     "59": {
-      "label": "How did domesticated wolves turn into so many completely ...\n\nReddit · r/evolution\n80+ comments · 1 year ago",
+      "label": "Did Japan Just Build AGI? (Nobody Saw This Coming) 8 minutes, 55 seconds",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/r/evolution/comments/1dv8hdp/how_did_domesticated_wolves_turn_into_so_many/']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDMQAQ']",
-        "a.zReHs"
+        "a[aria-label='Did Japan Just Build AGI? (Nobody Saw This Coming) 8 minutes, 55 seconds']",
+        "[aria-label='Did Japan Just Build AGI? (Nobody Saw This Coming) 8 minutes, 55 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://www.reddit.com/r/evolution/comments/1dv8hdp/how_did_domesticated_wolves_turn_into_so_many/"
+      "href": "https://www.youtube.com/watch?v=zrr3KQrQ-WA&pp=ugUHEgVlbi1VUw%3D%3D"
     },
     "60": {
-      "label": "83 answers",
+      "label": "Julia McCoy",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/r/evolution/comments/1dv8hdp/how_did_domesticated_wolves_turn_into_so_many/lblrczn/']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ4-4CegQIMRAB']",
-        "a.Zv9Ied"
+        "a[href*='/@JuliaMcCoy']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://www.reddit.com/r/evolution/comments/1dv8hdp/how_did_domesticated_wolves_turn_into_so_many/lblrczn/"
+      "href": "https://www.youtube.com/@JuliaMcCoy"
     },
     "61": {
-      "label": "Dog\n\nWikipedia\nhttps://en.wikipedia.org › wiki › Dog",
-      "type": "Link",
-      "tag": "a",
+      "label": "Notify me",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[href*='/wiki/Dog']",
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQFnoECDoQAQ']",
-        "a.zReHs"
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
       ],
-      "href": "https://en.wikipedia.org/wiki/Dog"
+      "href": null
     },
     "62": {
-      "label": "Domestication",
+      "label": "17:23",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/wiki/Domestication_of_the_dog']",
-        "a.dM1Yyd"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://en.wikipedia.org/wiki/Domestication_of_the_dog"
+      "href": "https://www.youtube.com/watch?v=0J2_YGuNrDo&pp=ugUEEgJlbtIHCQk8CgGHKiGM7w%3D%3D"
     },
     "63": {
-      "label": "Domestication of vertebrates",
+      "label": "Claude Code just Built me an AI Agent Team (Claude Code + Skills + MCP) 17 minutes",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/wiki/Domestication_of_vertebrates']",
-        "a.dM1Yyd"
+        "a[aria-label='Claude Code just Built me an AI Agent Team (Claude Code + Skills + MCP) 17 minutes']",
+        "[aria-label='Claude Code just Built me an AI Agent Team (Claude Code + Skills + MCP) 17 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://en.wikipedia.org/wiki/Domestication_of_vertebrates"
+      "href": "https://www.youtube.com/watch?v=0J2_YGuNrDo&pp=ugUEEgJlbtIHCQk8CgGHKiGM7w%3D%3D"
     },
     "64": {
-      "label": "Dog breed",
+      "label": "Grace Leung",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/wiki/Dog_breed']",
-        "a.dM1Yyd"
+        "a[href*='/@graceleungyl']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://en.wikipedia.org/wiki/Dog_breed"
+      "href": "https://www.youtube.com/@graceleungyl"
     },
     "65": {
-      "label": "Dog communication",
+      "label": "This Woman's Stone Lifting Strength Is Absolutely Crazy #athletic #powerful",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/wiki/Dog_communication']",
-        "a.dM1Yyd"
+        "a[href*='/shorts/bF7Y7DYAqHU']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
       ],
-      "href": "https://en.wikipedia.org/wiki/Dog_communication"
+      "href": "https://www.youtube.com/shorts/bF7Y7DYAqHU"
     },
     "66": {
-      "label": "Feedback",
-      "type": "Button",
-      "tag": "div",
+      "label": "PORCH PIRATE BAIT INSANE KARMA 💥🤯📦",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "[data-dccl='false']",
-        "div.mWcf0e.nKHyTc"
+        "a[href*='/shorts/BoqjM5jbEqI']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
       ],
-      "href": null
+      "href": "https://www.youtube.com/shorts/BoqjM5jbEqI"
     },
     "67": {
-      "label": "Dog domestication from wolves reddit",
+      "label": "Just did an AMAZING livestream on Quantum Healing Mysteries 🧬",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/shorts/gzqKRAmHQs4']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Dog+domestication+from+wolves+reddit&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhJEAE"
+      "href": "https://www.youtube.com/shorts/gzqKRAmHQs4"
     },
     "68": {
-      "label": "Dog domestication from wolves video",
+      "label": "2:02:07",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Dog+domestication+from+wolves+video&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhKEAE"
+      "href": "https://www.youtube.com/watch?v=z6U-jqHzBqY&pp=0gcJCTwKAYcqIYzv"
     },
     "69": {
-      "label": "What was the first dog on Earth",
+      "label": "GPT 5.2 Release, Corporate Collapse in 2026, and 1.1M Job Loss | EP #215 2 hours, 2 minutes",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[aria-label='GPT 5.2 Release, Corporate Collapse in 2026, and 1.1M Job Loss | EP #215 2 hours, 2 minutes']",
+        "[aria-label='GPT 5.2 Release, Corporate Collapse in 2026, and 1.1M Job Loss | EP #215 2 hours, 2 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=What+was+the+first+dog+on+Earth&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAg-EAE"
+      "href": "https://www.youtube.com/watch?v=z6U-jqHzBqY&pp=0gcJCTwKAYcqIYzv"
     },
     "70": {
-      "label": "Wolf to dog evolution chart",
+      "label": "Peter H. Diamandis",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/@peterdiamandis']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Wolf+to+dog+evolution+chart&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAg_EAE"
+      "href": "https://www.youtube.com/@peterdiamandis"
     },
     "71": {
-      "label": "Are dogs descended from wolves or foxes",
+      "label": "10:05",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Are+dogs+descended+from+wolves+or+foxes&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhBEAE"
+      "href": "https://www.youtube.com/watch?v=8b8Fcfm7Z1M"
     },
     "72": {
-      "label": "Dog domestication timeline",
+      "label": "Your Picking Problems Solved? 10 minutes, 5 seconds",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[aria-label='Your Picking Problems Solved? 10 minutes, 5 seconds']",
+        "[aria-label='Your Picking Problems Solved? 10 minutes, 5 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Dog+domestication+timeline&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhGEAE"
+      "href": "https://www.youtube.com/watch?v=8b8Fcfm7Z1M"
     },
     "73": {
-      "label": "What did the first dog look like",
+      "label": "Rick Graham",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/@RickGraham']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=What+did+the+first+dog+look+like&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhHEAE"
+      "href": "https://www.youtube.com/@RickGraham"
     },
     "74": {
-      "label": "Earliest evidence of dog domestication",
+      "label": "12:42",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "a.ngTNl.ggLgoc"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.google.com/search?sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&q=Earliest+evidence+of+dog+domestication&sa=X&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ1QJ6BAhIEAE"
+      "href": "https://www.youtube.com/watch?v=d1exW60pB-c&pp=0gcJCTwKAYcqIYzv"
     },
     "75": {
-      "label": "Page 2",
+      "label": "AI Agent for Co-Living & Student Housing Operators 12 minutes, 42 seconds",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 2']",
-        "[aria-label='Page 2']",
-        "a[href*='/search']"
+        "a[aria-label='AI Agent for Co-Living & Student Housing Operators 12 minutes, 42 seconds']",
+        "[aria-label='AI Agent for Co-Living & Student Housing Operators 12 minutes, 42 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=10&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAE"
+      "href": "https://www.youtube.com/watch?v=d1exW60pB-c&pp=0gcJCTwKAYcqIYzv"
     },
     "76": {
-      "label": "Page 3",
+      "label": "Pabbly",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 3']",
-        "[aria-label='Page 3']",
-        "a[href*='/search']"
+        "a[href*='/@Pabbly']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=20&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAG"
+      "href": "https://www.youtube.com/@Pabbly"
     },
     "77": {
-      "label": "Page 4",
+      "label": "21:36",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 4']",
-        "[aria-label='Page 4']",
-        "a[href*='/search']"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=30&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAI"
+      "href": "https://www.youtube.com/watch?v=RxNotRLKTJw"
     },
     "78": {
-      "label": "Page 5",
+      "label": "The REAL Way To Make Money WITHOUT Risk 21 minutes",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 5']",
-        "[aria-label='Page 5']",
-        "a[href*='/search']"
+        "a[aria-label='The REAL Way To Make Money WITHOUT Risk 21 minutes']",
+        "[aria-label='The REAL Way To Make Money WITHOUT Risk 21 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=40&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAK"
+      "href": "https://www.youtube.com/watch?v=RxNotRLKTJw"
     },
     "79": {
-      "label": "Page 6",
+      "label": "The Diary Of A CEO Clips",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 6']",
-        "[aria-label='Page 6']",
-        "a[href*='/search']"
+        "a[href*='/@TheDiaryOfACEOClips']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=50&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAM"
+      "href": "https://www.youtube.com/@TheDiaryOfACEOClips"
     },
     "80": {
-      "label": "Page 7",
+      "label": "36:28",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 7']",
-        "[aria-label='Page 7']",
-        "a[href*='/search']"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=60&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAO"
+      "href": "https://www.youtube.com/watch?v=jnTSGk0gi5c"
     },
     "81": {
-      "label": "Page 8",
+      "label": "GPT-5.2 is a total monster 36 minutes",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 8']",
-        "[aria-label='Page 8']",
-        "a[href*='/search']"
+        "a[aria-label='GPT-5.2 is a total monster 36 minutes']",
+        "[aria-label='GPT-5.2 is a total monster 36 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=70&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAQ"
+      "href": "https://www.youtube.com/watch?v=jnTSGk0gi5c"
     },
     "82": {
-      "label": "Page 9",
+      "label": "AI Search",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 9']",
-        "[aria-label='Page 9']",
-        "a[href*='/search']"
+        "a[href*='/@theAIsearch']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=80&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAS"
+      "href": "https://www.youtube.com/@theAIsearch"
     },
     "83": {
-      "label": "Page 10",
+      "label": "15:40",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Page 10']",
-        "[aria-label='Page 10']",
-        "a[href*='/search']"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=90&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8tMDegQIDBAU"
+      "href": "https://www.youtube.com/watch?v=oOvl_htqhy8&pp=ugUEEgJlbg%3D%3D"
     },
     "84": {
-      "label": "Next",
+      "label": "I Quit an AI Startup After 6 Months - Here's What I learned 15 minutes",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "#pnnext",
-        "a[href*='/search']",
-        "a.LLNLxf"
+        "a[aria-label='I Quit an AI Startup After 6 Months - Here\\'s What I learned 15 minutes']",
+        "[aria-label='I Quit an AI Startup After 6 Months - Here\\'s What I learned 15 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifNUjDAu_CEFoRHxTO33Duj42oT9SA:1765717468980&ei=3LU-afTMO4mTvr0PyK_JmQw&start=10&sa=N&sstk=Af77f_crSPUwdcPprc2uPgMHtUUubH7hlNx9jZ5XiuR0DOKxNncGkQOVIDmDP60TowwxQbvDUcOLDkwzgRd4951IRKwHiH4v93CBBQ&ved=2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQ8NMDegQIDBAW"
+      "href": "https://www.youtube.com/watch?v=oOvl_htqhy8&pp=ugUEEgJlbg%3D%3D"
     },
     "85": {
-      "label": "Try without personalisation",
+      "label": "Brian Jenney",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']"
+        "a[href*='/@brianjenney']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg:1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI&peek_pws=0"
+      "href": "https://www.youtube.com/@brianjenney"
     },
     "86": {
-      "label": "Teringie, South Australia - Based on your places (Home)",
-      "type": "Button",
+      "label": "9:19",
+      "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/search']",
-        "[data-biw='1197']"
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
       ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI#"
+      "href": "https://www.youtube.com/watch?v=BtXGYyQ6LBQ"
     },
     "87": {
-      "label": "Update location",
-      "type": "Button",
-      "tag": "div",
+      "label": "UAE Muslim Has RUTHLESS Message For Australian Islamists That’s Going Viral Now! 9 minutes, 19 seconds",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "[data-ved='2ahUKEwj0qoyUkr2RAxWJia8BHchXMsMQpLkCegQICBAH']",
-        "div.VtPCGb"
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=BtXGYyQ6LBQ"
+    },
+    "88": {
+      "label": "OtherBarak",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@OtherBarak']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@OtherBarak"
+    },
+    "89": {
+      "label": "10:56",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=qsTbjOl49Go&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "90": {
+      "label": "The Best Value Macbook Pro 10 minutes, 56 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='The Best Value Macbook Pro 10 minutes, 56 seconds']",
+        "[aria-label='The Best Value Macbook Pro 10 minutes, 56 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=qsTbjOl49Go&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "91": {
+      "label": "Sam.Alexander.Reviews",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@sam.alexander.reviews']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@sam.alexander.reviews"
+    },
+    "92": {
+      "label": "8:19",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=BLkMbOLct00"
+    },
+    "93": {
+      "label": "‘Not surprised’: Farage blasts Australian authorities for inadequate response to extremism 8 minutes, 19 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=BLkMbOLct00"
+    },
+    "94": {
+      "label": "Sky News Australia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@SkyNewsAustralia']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@SkyNewsAustralia"
+    },
+    "95": {
+      "label": "18:23",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=Uer_Pdev3go"
+    },
+    "96": {
+      "label": "3I/ATLAS Appears to Have Changed Colors AGAIN as Earth's Closest Approach Countdown Begins 18 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=Uer_Pdev3go"
+    },
+    "97": {
+      "label": "Stefan Burns",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@StefanBurns']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@StefanBurns"
+    },
+    "98": {
+      "label": "15:20",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=hXPALnu3Y6I&pp=ugUEEgJlbg%3D%3D"
+    },
+    "99": {
+      "label": "The 8 Trends I’m Betting My Entire Marketing Strategy On in 2026 15 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='The 8 Trends I’m Betting My Entire Marketing Strategy On in 2026 15 minutes']",
+        "[aria-label='The 8 Trends I’m Betting My Entire Marketing Strategy On in 2026 15 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=hXPALnu3Y6I&pp=ugUEEgJlbg%3D%3D"
+    },
+    "100": {
+      "label": "Neil Patel",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@neilpatel']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@neilpatel"
+    },
+    "101": {
+      "label": "22:35",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=9pfbGnuMNhk"
+    },
+    "102": {
+      "label": "If You Don’t Learn These 7 Skills, AI Will Replace You in 2026 (for beginners) 22 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='If You Don’t Learn These 7 Skills, AI Will Replace You in 2026 (for beginners) 22 minutes']",
+        "[aria-label='If You Don’t Learn These 7 Skills, AI Will Replace You in 2026 (for beginners) 22 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=9pfbGnuMNhk"
+    },
+    "103": {
+      "label": "Silicon Valley Girl",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@SiliconValleyGirl']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@SiliconValleyGirl"
+    },
+    "104": {
+      "label": "14:10",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=eggdmbRh7c0&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "105": {
+      "label": "How AI is Changing Manufacturing 14 minutes, 10 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='How AI is Changing Manufacturing 14 minutes, 10 seconds']",
+        "[aria-label='How AI is Changing Manufacturing 14 minutes, 10 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=eggdmbRh7c0&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "106": {
+      "label": "Future in the Making",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@FutureintheMaking']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@FutureintheMaking"
+    },
+    "107": {
+      "label": "10:21",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=S5CUugSnoww&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "108": {
+      "label": "Quantum Breakthrough: World’s First 10,000-Qubit Processor Achieves 100x Scaling Leap 10 minutes, 21 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=S5CUugSnoww&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "109": {
+      "label": "Julia McCoy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@JuliaMcCoy']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@JuliaMcCoy"
+    },
+    "110": {
+      "label": "6:31",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=IVbm2a6lVBo&pp=ugUEEgJlbg%3D%3D"
+    },
+    "111": {
+      "label": "AMD Made Something INCREDIBLE! 6 minutes, 31 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='AMD Made Something INCREDIBLE! 6 minutes, 31 seconds']",
+        "[aria-label='AMD Made Something INCREDIBLE! 6 minutes, 31 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=IVbm2a6lVBo&pp=ugUEEgJlbg%3D%3D"
+    },
+    "112": {
+      "label": "Dave2D",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@Dave2D']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@Dave2D"
+    },
+    "113": {
+      "label": "1:34:17",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=2BSXoEUmKR4"
+    },
+    "114": {
+      "label": "Collaboration channels",
+      "type": "Link",
+      "tag": "yt-avatar-stack-view-model",
+      "selectors": [
+        "yt-avatar-stack-view-model[aria-label='Collaboration channels']",
+        "[aria-label='Collaboration channels']",
+        "[role='link'][aria-label='Collaboration channels']",
+        "yt-avatar-stack-view-model.yt-avatar-stack-view-model.yt-avatar-stack-view-model--tappable"
       ],
       "href": null
     },
-    "88": {
-      "label": "Help",
+    "115": {
+      "label": "3I/ATLAS Is Upon Earth: In 3 Days, EVERYTHING CHANGES — Scientist & PSYCHIC REVEAL What’s Next 1 hour, 34 minutes",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/websearch/']",
-        "a.Fx4vi.wHYlTd"
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
       ],
-      "href": "https://support.google.com/websearch/?p=ws_results_help&hl=en-AU&fg=1"
-    },
-    "89": {
-      "label": "Send feedback",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "#dk2qOd",
-        "a[href*='/search']",
-        "[data-bucket='websearch']",
-        "a.Fx4vi.wHYlTd"
-      ],
-      "href": "https://www.google.com/search?q=dog+domestication+from+wolves&sca_esv=48308ae346848ecf&sxsrf=AE3TifOHTHq9DmflEaJb-M2WKhHcJN-3Dg%3A1765717256160&ei=CLU-abrCCZi1vr0P1am5oAI#"
-    },
-    "90": {
-      "label": "Privacy",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/privacy']",
-        "a.Fx4vi.wHYlTd"
-      ],
-      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
-    },
-    "91": {
-      "label": "Terms",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/terms']",
-        "a.Fx4vi.wHYlTd"
-      ],
-      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
+      "href": "https://www.youtube.com/watch?v=2BSXoEUmKR4"
     }
   }
 }
