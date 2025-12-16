@@ -113,3 +113,4 @@ celerybeat.pid
 .mypy_cache/
 .dmypy.json
 dmypy.json
+om_e_web_ws/data/llm_config.json
