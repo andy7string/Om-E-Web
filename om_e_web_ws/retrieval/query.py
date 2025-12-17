@@ -9,6 +9,7 @@ from typing import List, Dict, Optional
 from dataclasses import dataclass
 from .capabilities_store import CapabilitiesStore
 from .elements_store import ElementsStore
+from .chat_memory_store import ChatMemoryStore
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -27,6 +28,7 @@ class RetrievalResult:
 # Singleton stores (initialized once, reused)
 _capabilities_store: Optional[CapabilitiesStore] = None
 _elements_store: Optional[ElementsStore] = None
+_chat_memory_store: Optional[ChatMemoryStore] = None
 
 
 def get_capabilities_store() -> CapabilitiesStore:
@@ -83,6 +85,50 @@ def rebuild_capabilities_store():
         _capabilities_store = CapabilitiesStore()
     _capabilities_store.build()
     return _capabilities_store.count()
+
+
+def get_chat_memory_store() -> ChatMemoryStore:
+    """Get or create the chat memory store singleton."""
+    global _chat_memory_store
+    if _chat_memory_store is None:
+        t0 = time.time()
+        print(f"[RAG] ⚡ Creating chat memory store singleton (first call)")
+        _chat_memory_store = ChatMemoryStore()
+        # Try to load from disk first
+        if not _chat_memory_store.load():
+            # Not on disk, build fresh
+            _chat_memory_store.build()
+        print(f"[RAG] Chat memory store init: {(time.time()-t0)*1000:.0f}ms")
+    else:
+        print(f"[RAG] ✓ Reusing chat memory store singleton ({_chat_memory_store.count()} items)")
+    return _chat_memory_store
+
+
+def rebuild_chat_memory_store():
+    """
+    Rebuild the chat memory store from all chat files.
+    Called on server startup or when chats change significantly.
+    """
+    global _chat_memory_store
+    if _chat_memory_store is None:
+        _chat_memory_store = ChatMemoryStore()
+    _chat_memory_store.build()
+    return _chat_memory_store.count()
+
+
+def query_chat_memory(search_query: str, k: int = 5) -> List[dict]:
+    """
+    Search chat history for relevant past conversations.
+
+    Args:
+        search_query: What to search for ("last saturday", "that chat about HUD")
+        k: Number of results
+
+    Returns:
+        List of relevant messages with context
+    """
+    store = get_chat_memory_store()
+    return store.search_memory(search_query, k=k)
 
 
 def query(user_prompt: str, k_elements: int = 7, k_caps: int = 10) -> RetrievalResult:

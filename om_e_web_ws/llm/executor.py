@@ -274,3 +274,41 @@ def parse_findcommand(response: str) -> Optional[Dict]:
                     pass
 
     return None
+
+
+def parse_findmemory(response: str) -> Optional[Dict]:
+    """
+    Check if LLM response contains a findMemory request.
+
+    When the user asks about past conversations or events,
+    LLM outputs: {"message": "...", "findMemory": "search query"}
+
+    Returns:
+        {message, findMemory} dict if found, None otherwise
+    """
+    # Look for JSON with findMemory key
+    for line in response.split('\n'):
+        line = line.strip()
+        if line.startswith('{') and 'findMemory' in line:
+            try:
+                data = json.loads(line)
+                if "findMemory" in data:
+                    print(f"🧠 FINDMEM: Found findMemory: {data}")
+                    return data
+            except json.JSONDecodeError:
+                pass
+
+    # Also check for inline JSON with findMemory
+    if '"findMemory"' in response:
+        for match in re.finditer(r'\{', response):
+            json_str = _extract_balanced_json(response, match.start())
+            if json_str and '"findMemory"' in json_str:
+                try:
+                    data = json.loads(json_str)
+                    if "findMemory" in data:
+                        print(f"🧠 FINDMEM: Found findMemory (balanced): {data}")
+                        return data
+                except json.JSONDecodeError:
+                    pass
+
+    return None

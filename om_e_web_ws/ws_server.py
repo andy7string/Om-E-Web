@@ -47,12 +47,12 @@ from llm.dispatcher import (
 
 # LLM Agent - conversational AI with history
 from llm.agent import OmEAgent
-from llm.executor import parse_capability_calls, has_capability_calls, parse_findcommand
+from llm.executor import parse_capability_calls, has_capability_calls, parse_findcommand, parse_findmemory
 from llm.prompt import add_action_to_history, set_search_context, clear_search_context
 
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
-from retrieval.query import rebuild_capabilities_store, query as rag_query
+from retrieval.query import rebuild_capabilities_store, rebuild_chat_memory_store, query as rag_query, query_chat_memory
 
 
 
@@ -5111,6 +5111,37 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                     response_text = f"{user_message}\n\n(I couldn't find a capability to do this action.)"
                                     print(f"🔍 FINDCMD: No capabilities found for '{search_query}'")
 
+                            # 🧠 TWO-PASS: Check if LLM needs to recall past conversations
+                            findmem = parse_findmemory(response_text)
+                            if findmem:
+                                search_query = findmem.get("findMemory", "")
+                                user_message = findmem.get("message", "")
+                                print(f"🧠 FINDMEM: Triggered with query '{search_query}'")
+
+                                # Search chat memory
+                                memory_results = query_chat_memory(search_query, k=5)
+
+                                if memory_results:
+                                    print(f"🧠 FINDMEM: Found {len(memory_results)} relevant memories")
+
+                                    # Format memory context for LLM
+                                    memory_context = "**Relevant past conversations:**\n"
+                                    for mem in memory_results:
+                                        role = "You" if mem['role'] == 'assistant' else "User"
+                                        memory_context += f"- [{mem['date']}] {mem['chat_title']}: {role} said: \"{mem['content'][:150]}...\"\n"
+
+                                    # Pass 2: Re-query LLM with memory context
+                                    response_text = await LLM_AGENT.chat(
+                                        f"{memory_context}\n\nBased on this history, answer: {user_message}",
+                                        active_tab=CURRENT_ACTIVE_TAB,
+                                        tabs=tabs_with_numbers,
+                                        hud_state=hud_state
+                                    )
+                                    print(f"🧠 FINDMEM: Pass 2 response: {response_text[:200]}...")
+                                else:
+                                    response_text = f"{user_message}\n\n(I couldn't find any relevant past conversations about that.)"
+                                    print(f"🧠 FINDMEM: No memories found for '{search_query}'")
+
                             # Save LLM response to chat history
                             new_message = None
                             if CURRENT_CHAT_ID:
@@ -8124,9 +8155,10 @@ async def main():
     init_llm_dispatcher()
 
     # 🧠 RAG: Eager load embedding model and rebuild capabilities at startup
-    print("🧠 Pre-loading RAG model and rebuilding capabilities...")
+    print("🧠 Pre-loading RAG model and rebuilding stores...")
     get_model()  # Load bge-base-en-v1.5 embedding model (~6s)
     rebuild_capabilities_store()  # Always rebuild from internal_capabilities.json
+    rebuild_chat_memory_store()  # Index all chat messages for memory queries
     print("🧠 RAG ready")
 
     # 🌐 Start HTTP server in background thread (port 8080)

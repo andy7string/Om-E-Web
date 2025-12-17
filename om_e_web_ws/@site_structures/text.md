@@ -1,10 +1,11 @@
 # OM-E Web
 
 **URL:** http://127.0.0.1:8080/
-**Timestamp:** 2025-12-17 23:31:09
+**Timestamp:** 2025-12-18 00:24:57
 
 **Tabs:**
-- Tab 1: "OM-E Web" (127.0.0.1) -- ACTIVE TAB
+- Tab 1: "Extensions" (extensions)
+- Tab 2: "OM-E Web" (127.0.0.1) -- ACTIVE TAB
 
 ---
 
@@ -17,9 +18,9 @@ Status
 Connection
 Connected
 Active Tabs
-1
+2
 Content Scripts
-0/1
+0/2
 Cache Status
 All fresh
 DOM Changes

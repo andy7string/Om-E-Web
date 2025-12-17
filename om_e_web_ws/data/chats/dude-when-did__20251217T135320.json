@@ -1,0 +1,63 @@
+{
+  "chat_id": "dude-when-did__20251217T135320",
+  "project_id": "default",
+  "created_at": "2025-12-17T13:53:20.282167Z",
+  "updated_at": "2025-12-17T13:54:25.674215Z",
+  "title": "dude when did",
+  "default_title": "dude when did",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "dude when did we last go on facebook",
+      "timestamp": "2025-12-17T13:53:20.282196Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Our last activity on Facebook was on December 17. Would you like me to open Facebook now or find something specific from that session?",
+      "timestamp": "2025-12-17T13:53:22.586249Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "thats so crazy do you remember when we had that conversation about changing names of chats",
+      "timestamp": "2025-12-17T13:53:43.926520Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Yes, I remember we discussed changing the names of chats. Would you like me to rename a chat for you now? If so, please tell me the current chat name or ID and the new name you want.",
+      "timestamp": "2025-12-17T13:53:45.545906Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "gotta change views bru what did we do in that one do you remember the process the screens we were on the views",
+      "timestamp": "2025-12-17T13:54:15.689032Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "We were working on switching between HUD and orb views in that conversation. I can help you change the view now if you want. Should I switch the view for you?",
+      "timestamp": "2025-12-17T13:54:16.808594Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "ok",
+      "timestamp": "2025-12-17T13:54:24.694473Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Switching to the Kawaii orb character style view now for a different visual experience. \n\n{\"act\": \"3\"}",
+      "timestamp": "2025-12-17T13:54:25.674215Z"
+    }
+  ]
+}

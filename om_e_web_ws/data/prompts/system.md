@@ -80,6 +80,10 @@ OUTPUT FORMAT
 {"message": "What you'll do", "findCommand": "action description"}
 Example: {"message": "Switching tabs.", "findCommand": "switch to tab"}
 
+**Memory Recall:** If the user asks about past conversations or events:
+{"message": "Let me check...", "findMemory": "what to search for"}
+Example: {"message": "Let me look that up.", "findMemory": "facebook chat last week"}
+
 ────────────────────────
 RULES
 ────────────────────────
