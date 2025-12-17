@@ -1,0 +1,63 @@
+{
+  "chat_id": "hey-can-you__20251217T020930",
+  "project_id": "default",
+  "created_at": "2025-12-17T02:09:30.861831Z",
+  "updated_at": "2025-12-17T02:09:57.834587Z",
+  "title": "hey can you",
+  "default_title": "hey can you",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey can you show me my chats please",
+      "timestamp": "2025-12-17T02:09:30.861863Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "I will get the list of all your saved chats for you. \n\n{\"cap\": \"GetChatList\"}",
+      "timestamp": "2025-12-17T02:09:32.768934Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "showchats",
+      "timestamp": "2025-12-17T02:09:38.954854Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "I will display your chat history panel now.\n\n{\"cap\": \"ShowChatHistory\"}",
+      "timestamp": "2025-12-17T02:09:40.588887Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "hide chats",
+      "timestamp": "2025-12-17T02:09:48.378104Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "I will hide the chat history panel for you.\n\n{\"cap\": \"HideChatHistory\"}",
+      "timestamp": "2025-12-17T02:09:49.684383Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "hide chats",
+      "timestamp": "2025-12-17T02:09:56.377930Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "The chat history panel is already hidden. Is there anything else you would like to do?",
+      "timestamp": "2025-12-17T02:09:57.834587Z"
+    }
+  ]
+}

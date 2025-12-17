@@ -1,15 +1,15 @@
-# LLM Request #10
+# LLM Request #14
 
 **Model:** gpt-4.1-mini
 **Temperature:** 0.7
 **Max Tokens:** 2048
-**Request Tokens:** 1,032
-**Context:** 1.0k / 1047k (0.1%)
-**Session Tokens:** 8,458
+**Request Tokens:** 1,257
+**Context:** 1.3k / 1047k (0.1%)
+**Session Tokens:** 15,032
 
 ---
 
-## SYSTEM (663 tokens)
+## SYSTEM (926 tokens)
 
 You are Om-E.
 
@@ -52,8 +52,12 @@ Only use element IDs listed in Retrieved Elements.
 
 ### Capabilities
 
-Capabilities are shown with their exact JSON structure.
-Copy the format exactly and fill in any placeholders.
+Capabilities are shown as:
+- Label: `{"cap": "ExactName"}`
+
+**CRITICAL: Copy the capability name EXACTLY as shown.**
+Do not rephrase, reorder, or invent names.
+If retrieved shows `{"cap": "ZoomReset"}`, output `{"cap": "ZoomReset"}` - NOT "ResetZoom".
 
 Only use capabilities listed in Retrieved Capabilities.
 
@@ -66,6 +70,8 @@ RESPONSE BEHAVIOUR
 3. Ask a follow-up question only when the target or outcome is genuinely ambiguous
 4. Keep the user oriented when helpful: where we are, what we found, what's next
 5. If the user is asking questions or opinions, respond conversationally with no action
+6. When the user says "do it again", "again", "repeat", or similar - just execute the same action again without questioning
+7. Do not second-guess the user. If they ask for an action, execute it. Don't explain why you think it won't work.
 
 Sensitive actions (login, payments, sending, deleting, security changes):
 Confirm before proceeding.
@@ -95,146 +101,196 @@ RULES
 CONTEXT
 ────────────────────────
 
-**Active Tab:** OM-E Web
-**URL:** http://127.0.0.1:8080/
+**Active Tab:** Google
+**URL:** https://www.google.com/?zx=1765939695436&no_sw_cr=1
 
 **Open Tabs:**
-- Tab 1138051440: OM-E Web ← active
+- Tab 1138051537: Google
+- Tab 1138051541: Google ← active
 
 **Retrieved Capabilities:**
-- Minimize / hide / collapse the chat panel: `{"cap": "MinimizeHUD"}`
-- Type text into the chat input: `{"cap": "TypeInPrompt", "params": {"text": "..."}}`
-- Clear the chat input field: `{"cap": "ClearPrompt"}`
+- Switch between HUD and orb view: `{"cap": "SwitchView"}`
+- Switch to another tab: `{"cap": "SwitchTab", "params": {"tabId": 123}}`
+- Switch active LLM provider: `{"cap": "SetLLMProvider", "params": {"provider": "openai"}}`
+- Show chats panel: `{"cap": "ShowChats"}`
+- Show the chat prompt: `{"cap": "ShowPrompt"}`
+- Set the current active chat: `{"cap": "SetCurrentChat", "params": {"chat_id": "chat-abc"}}`
+- Go forward in browser history: `{"cap": "GoForward"}`
+- Set LLM model: `{"cap": "SetLLMModel", "params": {"model": "gpt-4"}}`
+- Scroll down the page: `{"cap": "ScrollDown"}`
+- Go to top of page: `{"cap": "ScrollTop"}`
 
 **Retrieved Elements:**
-- [0] Button: TOGGLE HUD OVERLAY
-- [6] Button: Extension Settings
-- [2] Button: Save & Reconnect
-- [4] Button: Om-E
-- [3] Button: Kawaii
-- [5] Button: Atom
-- [1] Input: WebSocket URL
+- [31] Button: More options
+- [29] Button: More options
+- [27] Button: More options
+- [25] Button: More options
+- [23] Button: More options
+- [21] Button: More options
+- [19] Button: More options
 
 
-
----
-
-## USER (4 tokens)
-
-hey how you dong
-
----
-
-## ASSISTANT (16 tokens)
-
-I'm doing great, thanks for asking! How can I assist you today?
 
 ---
 
 ## USER (2 tokens)
 
-im ok
+hey dude
 
 ---
 
-## ASSISTANT (15 tokens)
+## ASSISTANT (9 tokens)
 
-Glad to hear that! Is there anything you would like help with?
-
----
-
-## USER (14 tokens)
-
-i need help with my seeing the writing on this screen its so small
+Hey! How can I help you today?
 
 ---
 
-## ASSISTANT (30 tokens)
+## USER (4 tokens)
 
-I can help you zoom in to make the writing bigger on the screen. Let me do that for you now.
-
-{"cap": "ZoomIn"}
+scroll to the bottom
 
 ---
 
-## USER (10 tokens)
+## ASSISTANT (7 tokens)
 
-aah thats better can you make it bigger please
-
----
-
-## ASSISTANT (21 tokens)
-
-Sure, I'll zoom in more to make the writing even bigger.
-
-{"cap": "ZoomIn"}
-
----
-
-## USER (10 tokens)
-
-very nice, oh my word what is this page
-
----
-
-## ASSISTANT (49 tokens)
-
-This page appears to be the OM-E Web interface, which seems to have buttons like Atom, Kawaii, Om-E, and settings related to extensions and WebSocket URL. Is there something specific you want to do or learn about on this page?
-
----
-
-## USER (8 tokens)
-
-thats very nice what does atom do
-
----
-
-## ASSISTANT (37 tokens)
-
-The "Atom" button likely changes the theme or appearance of the page to an "Atom" style. Would you like me to click the Atom button to show you how it looks?
+{"cap": "ScrollBottom"}
 
 ---
 
 ## USER (1 tokens)
 
-ok
+again
 
 ---
 
-## ASSISTANT (6 tokens)
+## ASSISTANT (7 tokens)
 
-{"act": 5}
-
----
-
-## USER (9 tokens)
-
-wow that changed everything lets try kawaai
+{"cap": "ScrollBottom"}
 
 ---
 
-## ASSISTANT (6 tokens)
+## USER (1 tokens)
 
-{"act": 3}
+again
 
 ---
 
-## USER (11 tokens)
+## ASSISTANT (7 tokens)
 
-she is so cute, can you switch to hud view
+{"cap": "ScrollBottom"}
+
+---
+
+## USER (5 tokens)
+
+go back to the top
+
+---
+
+## ASSISTANT (7 tokens)
+
+{"cap": "ScrollTop"}
+
+---
+
+## USER (3 tokens)
+
+show my chats
+
+---
+
+## ASSISTANT (8 tokens)
+
+{"cap": "ShowChats"}
+
+---
+
+## USER (4 tokens)
+
+find chat about views
 
 ---
 
 ## ASSISTANT (17 tokens)
 
-I will toggle the HUD overlay for you now.
-
-{"cap": "ToggleHUD"}
+{"cap": "SearchChats", "params": {"query": "views"}}
 
 ---
 
-## USER (23 tokens)
+## USER (9 tokens)
 
-this is very interesting how does this work awe this thing im typing in is in the way can you hide it please
+nice lets switch cahts to show chats
+
+---
+
+## ASSISTANT (8 tokens)
+
+{"cap": "ToggleChats"}
+
+---
+
+## USER (10 tokens)
+
+na dude, i need to select hat other chat
+
+---
+
+## ASSISTANT (20 tokens)
+
+Which chat would you like to select? Please provide the chat name or any detail to identify it.
+
+---
+
+## USER (4 tokens)
+
+its called show chats
+
+---
+
+## ASSISTANT (18 tokens)
+
+{"cap": "SearchChats", "params": {"query": "show chats"}}
+
+---
+
+## USER (4 tokens)
+
+show cahts
+
+---
+
+## ASSISTANT (8 tokens)
+
+{"cap": "ShowChats"}
+
+---
+
+## USER (8 tokens)
+
+my word can you open the hey dude
+
+---
+
+## ASSISTANT (20 tokens)
+
+{"cap": "LoadChat", "params": {"chat_id": "chat-abc123"}}
+
+---
+
+## USER (7 tokens)
+
+can you open the chat switch view
+
+---
+
+## ASSISTANT (19 tokens)
+
+{"cap": "LoadChat", "params": {"chat_id": "chat-abc"}}
+
+---
+
+## USER (2 tokens)
+
+switch views
 
 ---

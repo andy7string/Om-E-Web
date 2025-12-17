@@ -52,7 +52,7 @@ from llm.prompt import add_action_to_history
 
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
-from retrieval.query import get_capabilities_store
+from retrieval.query import rebuild_capabilities_store
 
 
 
@@ -393,7 +393,7 @@ def load_internal_capabilities() -> dict:
         return INTERNAL_CAPABILITIES
 
     try:
-        config_path = os.path.join("..", "web_extension", "internal_capabilities.json")
+        config_path = os.path.join(os.path.dirname(__file__), "data", "capabilities", "internal_capabilities.json")
 
         if not os.path.exists(config_path):
             print(f"⚠️ Internal capabilities not found at: {config_path}")
@@ -837,29 +837,23 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         }
 
     # 🎛️ UI CONTROL CAPABILITIES
-    elif action == "ShowHUD":
-        return {"_hud_action": {"type": "show_hud"}}
-
-    elif action == "HideHUD":
-        return {"_hud_action": {"type": "hide_hud"}}
-
-    elif action == "ToggleHUD":
+    elif action == "SwitchView":
         return {"_hud_action": {"type": "toggle_hud"}}
 
-    elif action == "ShowSidebar":
+    elif action == "ShowChats":
         return {"_hud_action": {"type": "show_sidebar"}}
 
-    elif action == "HideSidebar":
+    elif action == "HideChats":
         return {"_hud_action": {"type": "hide_sidebar"}}
 
-    elif action == "ToggleSidebar":
+    elif action == "ToggleChats":
         return {"_hud_action": {"type": "toggle_sidebar"}}
 
-    elif action == "ExpandOrb":
-        return {"_hud_action": {"type": "expand_orb"}}
+    elif action == "ShowPrompt":
+        return {"_hud_action": {"type": "show_prompt"}}
 
-    elif action == "CollapseOrb":
-        return {"_hud_action": {"type": "collapse_orb"}}
+    elif action == "HidePrompt":
+        return {"_hud_action": {"type": "hide_prompt"}}
 
     # ═══════════════════════════════════════════════════════════════════════════
     # 🤖 LLM CONFIG CAPABILITIES
@@ -5004,7 +4998,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                     'ScrollLeft': 'left', 'ScrollRight': 'right',
                                     'ScrollTop': 'top', 'ScrollBottom': 'bottom'
                                 }
-                                zoom_actions = ['ZoomIn', 'ZoomOut', 'ZoomReset']
+                                zoom_actions = ['ZoomIn', 'ZoomOut', 'ZoomReset', 'ResetZoom']  # ResetZoom alias
                                 tab_actions = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL']
                                 nav_actions = ['GoBack', 'GoForward', 'Refresh']
                                 # DOM actions (click, setValue, focus, hover) handled via element registry
@@ -7977,10 +7971,10 @@ async def main():
     # 🤖 Initialize LLM Dispatcher
     init_llm_dispatcher()
 
-    # 🧠 RAG: Eager load embedding model and capabilities at startup
-    print("🧠 Pre-loading RAG model and capabilities...")
+    # 🧠 RAG: Eager load embedding model and rebuild capabilities at startup
+    print("🧠 Pre-loading RAG model and rebuilding capabilities...")
     get_model()  # Load bge-base-en-v1.5 embedding model (~6s)
-    get_capabilities_store()  # Load capabilities from disk (fast)
+    rebuild_capabilities_store()  # Always rebuild from internal_capabilities.json
     print("🧠 RAG ready")
 
     # 🌐 Start HTTP server in background thread (port 8080)

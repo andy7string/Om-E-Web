@@ -12,8 +12,8 @@ from datetime import datetime
 # Path to text.md
 TEXT_MD_PATH = os.path.join(os.path.dirname(__file__), "..", "@site_structures", "text.md")
 
-# Path to capabilities
-CAPABILITIES_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "capabilities")
+# Path to capabilities (single source of truth)
+CAPABILITIES_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "capabilities", "internal_capabilities.json")
 
 # Action history (in-memory, last N actions)
 ACTION_HISTORY: List[Dict] = []
@@ -21,36 +21,19 @@ MAX_HISTORY = 10
 
 
 def load_capabilities() -> Dict[str, dict]:
-    """Load all capabilities from data/capabilities/*.json"""
-    all_caps = {}
-
+    """Load all capabilities from internal_capabilities.json (single source of truth)"""
     try:
-        # Load index to get file list
-        index_path = os.path.join(CAPABILITIES_DIR, "_index.json")
-        if os.path.exists(index_path):
-            with open(index_path, 'r', encoding='utf-8') as f:
-                index = json.load(f)
-                files = index.get("files", [])
-        else:
-            # Fallback: load all json files
-            files = [f for f in os.listdir(CAPABILITIES_DIR) if f.endswith('.json') and f != '_index.json']
+        if not os.path.exists(CAPABILITIES_FILE):
+            print(f"[Prompt] Capabilities file not found: {CAPABILITIES_FILE}")
+            return {}
 
-        # Load each capability file
-        for filename in files:
-            filepath = os.path.join(CAPABILITIES_DIR, filename)
-            if os.path.exists(filepath):
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    group = data.get("group", filename.replace(".json", ""))
-                    caps = data.get("capabilities", {})
-                    all_caps[group] = {
-                        "description": data.get("description", ""),
-                        "capabilities": caps
-                    }
+        with open(CAPABILITIES_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        return data.get("capabilities", {})
     except Exception as e:
         print(f"[Prompt] Error loading capabilities: {e}")
-
-    return all_caps
+        return {}
 
 
 def format_capabilities_for_prompt() -> str:
@@ -61,42 +44,19 @@ def format_capabilities_for_prompt() -> str:
 
     lines = []
 
-    for group, data in caps.items():
-        desc = data.get("description", "")
-        capabilities = data.get("capabilities", {})
+    for cap_name, cap_info in caps.items():
+        label = cap_info.get("label", cap_name)
+        params = cap_info.get("params", {})
 
-        if not capabilities:
-            continue
+        # Build example JSON
+        if params:
+            param_examples = {k: "..." for k in params.keys()}
+            example = f'{{"cap": "{cap_name}", "params": {json.dumps(param_examples)}}}'
+        else:
+            example = f'{{"cap": "{cap_name}"}}'
 
-        lines.append(f"### {group.title()} {f'- {desc}' if desc else ''}")
-        lines.append("")
-
-        for cap_name, cap_info in capabilities.items():
-            label = cap_info.get("label", cap_name)
-            params = cap_info.get("params", {})
-
-            # Build example JSON
-            if params:
-                param_examples = {}
-                for pname, pinfo in params.items():
-                    if isinstance(pinfo, dict):
-                        ptype = pinfo.get("type", "string")
-                        if ptype == "number":
-                            param_examples[pname] = 1
-                        elif ptype == "boolean":
-                            param_examples[pname] = True
-                        else:
-                            param_examples[pname] = "..."
-                    else:
-                        param_examples[pname] = "..."
-                example = f'{{"cap": "{cap_name}", "params": {json.dumps(param_examples)}}}'
-            else:
-                example = f'{{"cap": "{cap_name}"}}'
-
-            lines.append(f"- **{cap_name}** - {label}")
-            lines.append(f"  `{example}`")
-
-        lines.append("")
+        lines.append(f"- **{cap_name}** - {label}")
+        lines.append(f"  `{example}`")
 
     return "\n".join(lines)
 

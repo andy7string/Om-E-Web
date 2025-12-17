@@ -1,0 +1,99 @@
+{
+  "chat_id": "switch-views__20251217T022844",
+  "project_id": "default",
+  "created_at": "2025-12-17T02:28:44.931697Z",
+  "updated_at": "2025-12-17T02:29:30.017297Z",
+  "title": "switch views",
+  "default_title": "switch views",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "switch views",
+      "timestamp": "2025-12-17T02:28:44.931726Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T02:28:46.126869Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "go to browser mode",
+      "timestamp": "2025-12-17T02:28:51.858239Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "There is no direct element or capability explicitly labeled \"browser mode\" here. Could you please clarify or specify which button or view you want to switch to? For example, \"Atom,\" \"Om-E,\" or \"Kawaii\"?",
+      "timestamp": "2025-12-17T02:28:53.702518Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "browser view",
+      "timestamp": "2025-12-17T02:28:58.955705Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Could you please confirm if you want to switch to the \"Om-E\" view, as it might represent the browser view here? If so, I will click the corresponding button.",
+      "timestamp": "2025-12-17T02:29:00.799742Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "ok",
+      "timestamp": "2025-12-17T02:29:11.630841Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "{\"act\": 4}",
+      "timestamp": "2025-12-17T02:29:12.461954Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "switch view",
+      "timestamp": "2025-12-17T02:29:19.031021Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T02:29:20.130641Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "switch view",
+      "timestamp": "2025-12-17T02:29:22.760067Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T02:29:23.621378Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "go to browser view",
+      "timestamp": "2025-12-17T02:29:29.248924Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "{\"act\": 4}",
+      "timestamp": "2025-12-17T02:29:30.017297Z"
+    }
+  ]
+}

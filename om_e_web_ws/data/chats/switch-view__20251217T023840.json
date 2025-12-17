@@ -1,0 +1,129 @@
+{
+  "chat_id": "switch-view__20251217T023840",
+  "project_id": "default",
+  "created_at": "2025-12-17T02:38:40.872930Z",
+  "updated_at": "2025-12-17T02:40:53.779874Z",
+  "title": "switch view",
+  "default_title": "switch view",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "switch view",
+      "timestamp": "2025-12-17T02:38:40.872963Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T02:38:42.197407Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "show me my chats",
+      "timestamp": "2025-12-17T02:38:45.370231Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-17T02:38:46.570103Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "nice search for hey",
+      "timestamp": "2025-12-17T02:38:52.176100Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"hey\"}}",
+      "timestamp": "2025-12-17T02:38:53.036721Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "good close those chats",
+      "timestamp": "2025-12-17T02:38:59.833027Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "I see the capability to delete a chat with a specific chat_id, but I need to know which chats you want to close or delete. Could you please specify which chats to close?",
+      "timestamp": "2025-12-17T02:39:01.503890Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "close chats dude",
+      "timestamp": "2025-12-17T02:39:05.208782Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Could you please confirm if you want to delete the chats or just hide the chats panel?",
+      "timestamp": "2025-12-17T02:39:06.365690Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "why would you delete a chat dude, i just want you to close them",
+      "timestamp": "2025-12-17T02:39:55.887231Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "I will hide the chats panel to close the view of your chats. \n\n{\"cap\": \"HideChats\"}",
+      "timestamp": "2025-12-17T02:39:57.207488Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "open chats",
+      "timestamp": "2025-12-17T02:40:03.047318Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-17T02:40:04.530239Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "close chats",
+      "timestamp": "2025-12-17T02:40:06.991367Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "{\"cap\": \"HideChats\"}",
+      "timestamp": "2025-12-17T02:40:07.972698Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "append a message asking what message to append",
+      "timestamp": "2025-12-17T02:40:52.301677Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"What message would you like me to append?\"}}",
+      "timestamp": "2025-12-17T02:40:53.779248Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "What message would you like me to append?",
+      "timestamp": "2025-12-17T02:40:53.779874Z"
+    }
+  ]
+}

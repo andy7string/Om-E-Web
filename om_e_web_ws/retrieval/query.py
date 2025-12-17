@@ -85,7 +85,7 @@ def rebuild_capabilities_store():
     return _capabilities_store.count()
 
 
-def query(user_prompt: str, k_elements: int = 7, k_caps: int = 3) -> RetrievalResult:
+def query(user_prompt: str, k_elements: int = 7, k_caps: int = 10) -> RetrievalResult:
     """
     Query both stores and return relevant context.
 

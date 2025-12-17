@@ -1,350 +1,720 @@
 {
   "texts": [
-    "ScrollDown: Scroll down the page",
-    "ScrollUp: Scroll up the page",
-    "ScrollTop: Go to top of page",
-    "ScrollBottom: Go to bottom of page",
-    "ZoomIn: Zoom in / make bigger",
-    "ZoomOut: Zoom out / make smaller",
-    "ZoomReset: Reset zoom to 100%",
-    "OpenTab: Open new tab (optionally with URL)",
-    "CloseTab: Close a browser tab",
-    "SwitchTab: Switch to another tab",
-    "GoBack: Go back in browser history",
-    "GoForward: Go forward in browser history",
-    "Refresh: Refresh / reload the page",
-    "TypeInPrompt: Type text into the chat input",
-    "ClearPrompt: Clear the chat input field",
-    "SubmitPrompt: Submit / send the current message",
-    "DisplayMessage: Display a message in chat",
-    "ToggleHUD: Show or hide the HUD panel",
-    "MinimizeHUD: Minimize / hide / collapse the chat panel",
-    "MaximizeHUD: Maximize / expand / show the chat panel",
-    "SetTheme: Change the theme (robot, kawaii, atom)",
-    "ListThemes: List available themes",
-    "AppendUserMessage: Add a user message to chat history",
-    "AppendAssistantMessage: Add an assistant message to chat history",
-    "ListChats: List all saved conversations",
-    "CreateChat: Start a new conversation",
-    "LoadChat: Load / open a saved conversation",
-    "GetFullHistory: Get complete chat history for context",
-    "RenameChat: Rename a conversation",
-    "DeleteChat: Delete a conversation",
-    "GetCurrentChat: Get the current active chat ID",
-    "SetCurrentChat: Switch to a different conversation",
-    "SearchChats: Search conversations by content",
-    "GetLLMConfig: Get current LLM settings / what model am I using",
-    "SetLLMProvider: Switch LLM provider (openai, anthropic, lm_studio)",
-    "SetLLMEndpoint: Set LLM API endpoint URL",
-    "SetLLMModel: Change LLM model",
-    "SetLLMAPIKey: Set API key for a provider",
-    "SetTemperature: Adjust LLM temperature (0.0 to 2.0)",
-    "SetMaxTokens: Set maximum response tokens",
-    "AddLLMProvider: Add a new LLM provider",
-    "RemoveLLMProvider: Remove an LLM provider",
-    "ListCapabilities: List all available capabilities"
+    "ScrollDown: Scroll down the page. Scrolls the page down by one viewport height. page down, move down, scroll lower, go down",
+    "ScrollUp: Scroll up the page. Scrolls the page up by one viewport height. page up, move up, scroll higher, go up",
+    "ScrollTop: Go to top of page. Scrolls to the very top of the page. top of page, beginning, start of page, scroll to top",
+    "ScrollBottom: Go to bottom of page. Scrolls to the very bottom of the page. end of page, bottom, scroll to bottom, page end",
+    "ZoomIn: Zoom in / make bigger. Increases browser zoom by 15%. make bigger, enlarge, magnify, increase size",
+    "ZoomOut: Zoom out / make smaller. Decreases browser zoom by 15%. make smaller, shrink, reduce size, decrease zoom",
+    "ZoomReset: Reset zoom to 100%. Resets browser zoom to default 100%. normal zoom, default zoom, 100%, original size",
+    "OpenTab: Open new tab. Opens a new browser tab, optionally with a URL. new tab, open website, go to url, navigate to, open page, take me to",
+    "CloseTab: Close a browser tab. Closes a browser tab by its tab ID. close this tab, close tab, shut tab, close window",
+    "SwitchTab: Switch to another tab. Switches to a different browser tab by its tab ID. go to tab, change tab, switch to tab, activate tab",
+    "GoBack: Go back in browser history. Navigates back in the current tab's history. back, previous page, go back, back button",
+    "GoForward: Go forward in browser history. Navigates forward in the current tab's history. forward, next page, go forward, forward button",
+    "Refresh: Refresh / reload the page. Reloads the current page. reload, refresh page, reload page, update page",
+    "SwitchView: Switch between HUD and orb view. Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view. toggle hud, switch to hud, switch to orb, change view, fullscreen mode, orb mode, chat view, chat mode, full chat, open chat view, browser mode, browser view, switch to browser, change to browser, exit hud, close hud, go to browser, nav mode, navigation mode, floating mode, mini mode, compact mode",
+    "ShowPrompt: Show the chat prompt. Shows the chat input area - intelligently handles orb or HUD view. show chat, open prompt, show input, expand chat, open chat panel, show chat box",
+    "HidePrompt: Hide the chat prompt. Hides the chat input area - intelligently handles orb or HUD view. hide chat, close prompt, hide input, collapse chat, close chat panel, minimize chat",
+    "ShowChats: Show chats panel. Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.. show chats, show my chats, show me my chats, see my chats, view chats, view my chats, my chats, where are my chats, open chats, show conversations, show past chats",
+    "HideChats: Hide chats panel. Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.. hide chats, close chats, hide my chats, close conversations, close those chats, close the chats, hide the chats, close chat panel, close sidebar, hide sidebar, close the sidebar",
+    "ToggleChats: Toggle chats panel. Opens or closes the chats panel. toggle chats, chats on off",
+    "GetChatList: Get chat list data (internal). Returns JSON array of chats with id, title, date_short, message_count. Internal/programmatic use - for UI display use ShowChats instead.. get chat list, fetch chats, retrieve chat list, chat list data",
+    "LoadChat: Load a chat by ID. Returns full chat content including all messages. open chat, load conversation, get chat, retrieve chat",
+    "CreateChat: Create a new chat. Creates a new chat file and returns the chat_id. new chat, start conversation, new conversation, fresh chat",
+    "AppendMessage: Append a message to a chat. Appends a user or assistant message to a chat. Creates chat if chat_id is null.. add message, save message, append to chat",
+    "AppendUserMessage: Append a user message to current chat. Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.. add user message, save my message, record user input",
+    "AppendAssistantMessage: Append an assistant message to current chat. Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.. add assistant message, save response, record assistant reply",
+    "RenameChat: Rename a chat. Updates the title of an existing chat. rename conversation, change chat title, update chat name",
+    "DeleteChat: Delete a chat. Permanently deletes a chat file. remove chat, delete conversation, erase chat",
+    "GetCurrentChat: Get the current active chat. Returns the current chat ID and chat data. current chat, active chat, which chat, what chat am i in",
+    "SetCurrentChat: Set the current active chat. Sets which chat is the current active chat. switch chat, change to chat, activate chat, make current",
+    "SearchChats: Search chats by title or content. Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.. find chat, search conversations, look for chat, find in history, search for that, find that chat, which chat, search chats, find the one about, that one about, look for the chat",
+    "GetLLMConfig: Get LLM configuration. Returns current LLM config including providers and settings. show config, what model, current settings, llm settings, which ai",
+    "SetLLMProvider: Switch active LLM provider. Changes which provider is used for LLM calls. change provider, switch to openai, switch to anthropic, use different ai",
+    "SetLLMEndpoint: Set LLM endpoint URL. Updates the API endpoint for a provider. change endpoint, set api url, update endpoint",
+    "SetLLMModel: Set LLM model. Changes the model for a provider. change model, switch model, use gpt4, use claude, different model",
+    "SetLLMAPIKey: Set API key. Sets the API key for a provider. set key, update api key, change api key",
+    "SetTemperature: Set temperature. Adjusts LLM temperature (0.0-2.0). change temperature, more creative, less creative, randomness",
+    "SetMaxTokens: Set max tokens. Sets maximum response tokens. response length, max length, longer responses, shorter responses",
+    "ReloadLLMConfig: Reload LLM config. Reloads the server-side LLM agent config from disk. refresh config, reload settings, apply config changes",
+    "AddLLMProvider: Add new LLM provider. Adds a new provider configuration. new provider, add ai provider, configure new llm",
+    "RemoveLLMProvider: Remove LLM provider. Removes a provider from config. delete provider, remove ai provider, uninstall provider",
+    "LLMChat: Send message to LLM. Send a chat message to the configured LLM and get a response. chat with ai, ask llm, send to ai, get ai response"
   ],
   "metadata": [
     {
       "name": "ScrollDown",
       "group": "browser",
       "label": "Scroll down the page",
+      "description": "Scrolls the page down by one viewport height",
       "example": "{\"cap\": \"ScrollDown\"}",
-      "handler": "extension"
+      "synonyms": [
+        "page down",
+        "move down",
+        "scroll lower",
+        "go down"
+      ],
+      "params": {}
     },
     {
       "name": "ScrollUp",
       "group": "browser",
       "label": "Scroll up the page",
+      "description": "Scrolls the page up by one viewport height",
       "example": "{\"cap\": \"ScrollUp\"}",
-      "handler": "extension"
+      "synonyms": [
+        "page up",
+        "move up",
+        "scroll higher",
+        "go up"
+      ],
+      "params": {}
     },
     {
       "name": "ScrollTop",
       "group": "browser",
       "label": "Go to top of page",
+      "description": "Scrolls to the very top of the page",
       "example": "{\"cap\": \"ScrollTop\"}",
-      "handler": "extension"
+      "synonyms": [
+        "top of page",
+        "beginning",
+        "start of page",
+        "scroll to top"
+      ],
+      "params": {}
     },
     {
       "name": "ScrollBottom",
       "group": "browser",
       "label": "Go to bottom of page",
+      "description": "Scrolls to the very bottom of the page",
       "example": "{\"cap\": \"ScrollBottom\"}",
-      "handler": "extension"
+      "synonyms": [
+        "end of page",
+        "bottom",
+        "scroll to bottom",
+        "page end"
+      ],
+      "params": {}
     },
     {
       "name": "ZoomIn",
       "group": "browser",
       "label": "Zoom in / make bigger",
+      "description": "Increases browser zoom by 15%",
       "example": "{\"cap\": \"ZoomIn\"}",
-      "handler": "extension"
+      "synonyms": [
+        "make bigger",
+        "enlarge",
+        "magnify",
+        "increase size"
+      ],
+      "params": {}
     },
     {
       "name": "ZoomOut",
       "group": "browser",
       "label": "Zoom out / make smaller",
+      "description": "Decreases browser zoom by 15%",
       "example": "{\"cap\": \"ZoomOut\"}",
-      "handler": "extension"
+      "synonyms": [
+        "make smaller",
+        "shrink",
+        "reduce size",
+        "decrease zoom"
+      ],
+      "params": {}
     },
     {
       "name": "ZoomReset",
       "group": "browser",
       "label": "Reset zoom to 100%",
+      "description": "Resets browser zoom to default 100%",
       "example": "{\"cap\": \"ZoomReset\"}",
-      "handler": "extension"
+      "synonyms": [
+        "normal zoom",
+        "default zoom",
+        "100%",
+        "original size"
+      ],
+      "params": {}
     },
     {
       "name": "OpenTab",
       "group": "browser",
-      "label": "Open new tab (optionally with URL)",
-      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://...\"}}",
-      "handler": "extension"
+      "label": "Open new tab",
+      "description": "Opens a new browser tab, optionally with a URL",
+      "example": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "synonyms": [
+        "new tab",
+        "open website",
+        "go to url",
+        "navigate to",
+        "open page",
+        "take me to"
+      ],
+      "params": {
+        "url": "Optional - URL to open in the new tab"
+      }
     },
     {
       "name": "CloseTab",
       "group": "browser",
       "label": "Close a browser tab",
+      "description": "Closes a browser tab by its tab ID",
       "example": "{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 123}}",
-      "handler": "extension"
+      "synonyms": [
+        "close this tab",
+        "close tab",
+        "shut tab",
+        "close window"
+      ],
+      "params": {
+        "tabId": "Required - the tab ID to close"
+      }
     },
     {
       "name": "SwitchTab",
       "group": "browser",
       "label": "Switch to another tab",
+      "description": "Switches to a different browser tab by its tab ID",
       "example": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 123}}",
-      "handler": "extension"
+      "synonyms": [
+        "go to tab",
+        "change tab",
+        "switch to tab",
+        "activate tab"
+      ],
+      "params": {
+        "tabId": "Required - the tab ID to switch to"
+      }
     },
     {
       "name": "GoBack",
       "group": "browser",
       "label": "Go back in browser history",
+      "description": "Navigates back in the current tab's history",
       "example": "{\"cap\": \"GoBack\"}",
-      "handler": "extension"
+      "synonyms": [
+        "back",
+        "previous page",
+        "go back",
+        "back button"
+      ],
+      "params": {}
     },
     {
       "name": "GoForward",
       "group": "browser",
       "label": "Go forward in browser history",
+      "description": "Navigates forward in the current tab's history",
       "example": "{\"cap\": \"GoForward\"}",
-      "handler": "extension"
+      "synonyms": [
+        "forward",
+        "next page",
+        "go forward",
+        "forward button"
+      ],
+      "params": {}
     },
     {
       "name": "Refresh",
       "group": "browser",
       "label": "Refresh / reload the page",
+      "description": "Reloads the current page",
       "example": "{\"cap\": \"Refresh\"}",
-      "handler": "extension"
+      "synonyms": [
+        "reload",
+        "refresh page",
+        "reload page",
+        "update page"
+      ],
+      "params": {}
     },
     {
-      "name": "TypeInPrompt",
+      "name": "SwitchView",
       "group": "hud",
-      "label": "Type text into the chat input",
-      "example": "{\"cap\": \"TypeInPrompt\", \"params\": {\"text\": \"...\"}}",
-      "handler": "extension"
+      "label": "Switch between HUD and orb view",
+      "description": "Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view",
+      "example": "{\"cap\": \"SwitchView\"}",
+      "synonyms": [
+        "toggle hud",
+        "switch to hud",
+        "switch to orb",
+        "change view",
+        "fullscreen mode",
+        "orb mode",
+        "chat view",
+        "chat mode",
+        "full chat",
+        "open chat view",
+        "browser mode",
+        "browser view",
+        "switch to browser",
+        "change to browser",
+        "exit hud",
+        "close hud",
+        "go to browser",
+        "nav mode",
+        "navigation mode",
+        "floating mode",
+        "mini mode",
+        "compact mode"
+      ],
+      "params": {}
     },
     {
-      "name": "ClearPrompt",
+      "name": "ShowPrompt",
       "group": "hud",
-      "label": "Clear the chat input field",
-      "example": "{\"cap\": \"ClearPrompt\"}",
-      "handler": "extension"
+      "label": "Show the chat prompt",
+      "description": "Shows the chat input area - intelligently handles orb or HUD view",
+      "example": "{\"cap\": \"ShowPrompt\"}",
+      "synonyms": [
+        "show chat",
+        "open prompt",
+        "show input",
+        "expand chat",
+        "open chat panel",
+        "show chat box"
+      ],
+      "params": {}
     },
     {
-      "name": "SubmitPrompt",
+      "name": "HidePrompt",
       "group": "hud",
-      "label": "Submit / send the current message",
-      "example": "{\"cap\": \"SubmitPrompt\"}",
-      "handler": "extension"
+      "label": "Hide the chat prompt",
+      "description": "Hides the chat input area - intelligently handles orb or HUD view",
+      "example": "{\"cap\": \"HidePrompt\"}",
+      "synonyms": [
+        "hide chat",
+        "close prompt",
+        "hide input",
+        "collapse chat",
+        "close chat panel",
+        "minimize chat"
+      ],
+      "params": {}
     },
     {
-      "name": "DisplayMessage",
+      "name": "ShowChats",
       "group": "hud",
-      "label": "Display a message in chat",
-      "example": "{\"cap\": \"DisplayMessage\", \"params\": {\"content\": \"...\"}}",
-      "handler": "extension"
+      "label": "Show chats panel",
+      "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
+      "example": "{\"cap\": \"ShowChats\"}",
+      "synonyms": [
+        "show chats",
+        "show my chats",
+        "show me my chats",
+        "see my chats",
+        "view chats",
+        "view my chats",
+        "my chats",
+        "where are my chats",
+        "open chats",
+        "show conversations",
+        "show past chats"
+      ],
+      "params": {}
     },
     {
-      "name": "ToggleHUD",
+      "name": "HideChats",
       "group": "hud",
-      "label": "Show or hide the HUD panel",
-      "example": "{\"cap\": \"ToggleHUD\"}",
-      "handler": "extension"
+      "label": "Hide chats panel",
+      "description": "Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.",
+      "example": "{\"cap\": \"HideChats\"}",
+      "synonyms": [
+        "hide chats",
+        "close chats",
+        "hide my chats",
+        "close conversations",
+        "close those chats",
+        "close the chats",
+        "hide the chats",
+        "close chat panel",
+        "close sidebar",
+        "hide sidebar",
+        "close the sidebar"
+      ],
+      "params": {}
     },
     {
-      "name": "MinimizeHUD",
+      "name": "ToggleChats",
       "group": "hud",
-      "label": "Minimize / hide / collapse the chat panel",
-      "example": "{\"cap\": \"MinimizeHUD\"}",
-      "handler": "extension"
+      "label": "Toggle chats panel",
+      "description": "Opens or closes the chats panel",
+      "example": "{\"cap\": \"ToggleChats\"}",
+      "synonyms": [
+        "toggle chats",
+        "chats on off"
+      ],
+      "params": {}
     },
     {
-      "name": "MaximizeHUD",
-      "group": "hud",
-      "label": "Maximize / expand / show the chat panel",
-      "example": "{\"cap\": \"MaximizeHUD\"}",
-      "handler": "extension"
-    },
-    {
-      "name": "SetTheme",
-      "group": "hud",
-      "label": "Change the theme (robot, kawaii, atom)",
-      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"robot\"}}",
-      "handler": "extension"
-    },
-    {
-      "name": "ListThemes",
-      "group": "hud",
-      "label": "List available themes",
-      "example": "{\"cap\": \"ListThemes\"}",
-      "handler": "extension"
-    },
-    {
-      "name": "AppendUserMessage",
+      "name": "GetChatList",
       "group": "chat",
-      "label": "Add a user message to chat history",
-      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"...\"}}",
-      "handler": "server"
-    },
-    {
-      "name": "AppendAssistantMessage",
-      "group": "chat",
-      "label": "Add an assistant message to chat history",
-      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"...\"}}",
-      "handler": "server"
-    },
-    {
-      "name": "ListChats",
-      "group": "chat",
-      "label": "List all saved conversations",
-      "example": "{\"cap\": \"ListChats\"}",
-      "handler": "server"
-    },
-    {
-      "name": "CreateChat",
-      "group": "chat",
-      "label": "Start a new conversation",
-      "example": "{\"cap\": \"CreateChat\"}",
-      "handler": "server"
+      "label": "Get chat list data (internal)",
+      "description": "Returns JSON array of chats with id, title, date_short, message_count. Internal/programmatic use - for UI display use ShowChats instead.",
+      "example": "{\"cap\": \"GetChatList\"}",
+      "synonyms": [
+        "get chat list",
+        "fetch chats",
+        "retrieve chat list",
+        "chat list data"
+      ],
+      "params": {
+        "project_id": "Optional - filter by project (use 'default' for unassigned)"
+      }
     },
     {
       "name": "LoadChat",
       "group": "chat",
-      "label": "Load / open a saved conversation",
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat_id\": \"...\"}}",
-      "handler": "server"
+      "label": "Load a chat by ID",
+      "description": "Returns full chat content including all messages",
+      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat_id\": \"chat-abc123\"}}",
+      "synonyms": [
+        "open chat",
+        "load conversation",
+        "get chat",
+        "retrieve chat"
+      ],
+      "params": {
+        "chat_id": "Required - the chat ID to load"
+      }
     },
     {
-      "name": "GetFullHistory",
+      "name": "CreateChat",
       "group": "chat",
-      "label": "Get complete chat history for context",
-      "example": "{\"cap\": \"GetFullHistory\"}",
-      "handler": "server"
+      "label": "Create a new chat",
+      "description": "Creates a new chat file and returns the chat_id",
+      "example": "{\"cap\": \"CreateChat\", \"params\": {\"title\": \"My Chat\"}}",
+      "synonyms": [
+        "new chat",
+        "start conversation",
+        "new conversation",
+        "fresh chat"
+      ],
+      "params": {
+        "title": "Optional - title for the chat",
+        "page_url": "Optional - page URL for metadata",
+        "page_title": "Optional - page title for metadata"
+      }
+    },
+    {
+      "name": "AppendMessage",
+      "group": "chat",
+      "label": "Append a message to a chat",
+      "description": "Appends a user or assistant message to a chat. Creates chat if chat_id is null.",
+      "example": "{\"cap\": \"AppendMessage\", \"params\": {\"chat_id\": \"chat-abc\", \"role\": \"user\", \"content\": \"Hello\"}}",
+      "synonyms": [
+        "add message",
+        "save message",
+        "append to chat"
+      ],
+      "params": {
+        "chat_id": "Chat ID (null to create new chat)",
+        "role": "Message role: user or assistant",
+        "content": "Message content",
+        "title": "Optional - title for new chat",
+        "page_url": "Optional - page URL for new chat metadata",
+        "page_title": "Optional - page title for new chat metadata"
+      }
+    },
+    {
+      "name": "AppendUserMessage",
+      "group": "chat",
+      "label": "Append a user message to current chat",
+      "description": "Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.",
+      "example": "{\"cap\": \"AppendUserMessage\", \"params\": {\"content\": \"Hello there\"}}",
+      "synonyms": [
+        "add user message",
+        "save my message",
+        "record user input"
+      ],
+      "params": {
+        "content": "Required - message content",
+        "page_url": "Optional - page URL for new chat metadata",
+        "page_title": "Optional - page title for new chat metadata"
+      }
+    },
+    {
+      "name": "AppendAssistantMessage",
+      "group": "chat",
+      "label": "Append an assistant message to current chat",
+      "description": "Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.",
+      "example": "{\"cap\": \"AppendAssistantMessage\", \"params\": {\"content\": \"Hi, how can I help?\"}}",
+      "synonyms": [
+        "add assistant message",
+        "save response",
+        "record assistant reply"
+      ],
+      "params": {
+        "content": "Required - message content"
+      }
     },
     {
       "name": "RenameChat",
       "group": "chat",
-      "label": "Rename a conversation",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": \"...\", \"title\": \"...\"}}",
-      "handler": "server"
+      "label": "Rename a chat",
+      "description": "Updates the title of an existing chat",
+      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": \"chat-abc\", \"title\": \"New Title\"}}",
+      "synonyms": [
+        "rename conversation",
+        "change chat title",
+        "update chat name"
+      ],
+      "params": {
+        "chat_id": "Required - the chat ID to rename",
+        "title": "Required - the new title"
+      }
     },
     {
       "name": "DeleteChat",
       "group": "chat",
-      "label": "Delete a conversation",
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat_id\": \"...\"}}",
-      "handler": "server"
+      "label": "Delete a chat",
+      "description": "Permanently deletes a chat file",
+      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat_id\": \"chat-abc\"}}",
+      "synonyms": [
+        "remove chat",
+        "delete conversation",
+        "erase chat"
+      ],
+      "params": {
+        "chat_id": "Required - the chat ID to delete"
+      }
     },
     {
       "name": "GetCurrentChat",
       "group": "chat",
-      "label": "Get the current active chat ID",
+      "label": "Get the current active chat",
+      "description": "Returns the current chat ID and chat data",
       "example": "{\"cap\": \"GetCurrentChat\"}",
-      "handler": "server"
+      "synonyms": [
+        "current chat",
+        "active chat",
+        "which chat",
+        "what chat am i in"
+      ],
+      "params": {}
     },
     {
       "name": "SetCurrentChat",
       "group": "chat",
-      "label": "Switch to a different conversation",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat_id\": \"...\"}}",
-      "handler": "server"
+      "label": "Set the current active chat",
+      "description": "Sets which chat is the current active chat",
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat_id\": \"chat-abc\"}}",
+      "synonyms": [
+        "switch chat",
+        "change to chat",
+        "activate chat",
+        "make current"
+      ],
+      "params": {
+        "chat_id": "Required - the chat ID to make current"
+      }
     },
     {
       "name": "SearchChats",
       "group": "chat",
-      "label": "Search conversations by content",
-      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"...\"}}",
-      "handler": "server"
+      "label": "Search chats by title or content",
+      "description": "Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.",
+      "example": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"dude\"}}",
+      "synonyms": [
+        "find chat",
+        "search conversations",
+        "look for chat",
+        "find in history",
+        "search for that",
+        "find that chat",
+        "which chat",
+        "search chats",
+        "find the one about",
+        "that one about",
+        "look for the chat"
+      ],
+      "params": {
+        "query": "Required - search query string (extract from user request)"
+      }
     },
     {
       "name": "GetLLMConfig",
       "group": "config",
-      "label": "Get current LLM settings / what model am I using",
+      "label": "Get LLM configuration",
+      "description": "Returns current LLM config including providers and settings",
       "example": "{\"cap\": \"GetLLMConfig\"}",
-      "handler": "server"
+      "synonyms": [
+        "show config",
+        "what model",
+        "current settings",
+        "llm settings",
+        "which ai"
+      ],
+      "params": {}
     },
     {
       "name": "SetLLMProvider",
       "group": "config",
-      "label": "Switch LLM provider (openai, anthropic, lm_studio)",
+      "label": "Switch active LLM provider",
+      "description": "Changes which provider is used for LLM calls",
       "example": "{\"cap\": \"SetLLMProvider\", \"params\": {\"provider\": \"openai\"}}",
-      "handler": "server"
+      "synonyms": [
+        "change provider",
+        "switch to openai",
+        "switch to anthropic",
+        "use different ai"
+      ],
+      "params": {
+        "provider": "Required - provider key (openai, anthropic, lm_studio)"
+      }
     },
     {
       "name": "SetLLMEndpoint",
       "group": "config",
-      "label": "Set LLM API endpoint URL",
-      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"...\", \"endpoint\": \"...\"}}",
-      "handler": "server"
+      "label": "Set LLM endpoint URL",
+      "description": "Updates the API endpoint for a provider",
+      "example": "{\"cap\": \"SetLLMEndpoint\", \"params\": {\"provider\": \"openai\", \"endpoint\": \"https://api.openai.com/v1\"}}",
+      "synonyms": [
+        "change endpoint",
+        "set api url",
+        "update endpoint"
+      ],
+      "params": {
+        "provider": "Required - provider to update",
+        "endpoint": "Required - full endpoint URL"
+      }
     },
     {
       "name": "SetLLMModel",
       "group": "config",
-      "label": "Change LLM model",
+      "label": "Set LLM model",
+      "description": "Changes the model for a provider",
       "example": "{\"cap\": \"SetLLMModel\", \"params\": {\"model\": \"gpt-4\"}}",
-      "handler": "server"
+      "synonyms": [
+        "change model",
+        "switch model",
+        "use gpt4",
+        "use claude",
+        "different model"
+      ],
+      "params": {
+        "provider": "Optional - provider to update (default: active)",
+        "model": "Required - model name/ID"
+      }
     },
     {
       "name": "SetLLMAPIKey",
       "group": "config",
-      "label": "Set API key for a provider",
-      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"...\", \"api_key\": \"...\"}}",
-      "handler": "server"
+      "label": "Set API key",
+      "description": "Sets the API key for a provider",
+      "example": "{\"cap\": \"SetLLMAPIKey\", \"params\": {\"provider\": \"openai\", \"api_key\": \"sk-...\"}}",
+      "synonyms": [
+        "set key",
+        "update api key",
+        "change api key"
+      ],
+      "params": {
+        "provider": "Required - provider to update",
+        "api_key": "Required - API key or $ENV_VAR reference"
+      }
     },
     {
       "name": "SetTemperature",
       "group": "config",
-      "label": "Adjust LLM temperature (0.0 to 2.0)",
+      "label": "Set temperature",
+      "description": "Adjusts LLM temperature (0.0-2.0)",
       "example": "{\"cap\": \"SetTemperature\", \"params\": {\"temperature\": 0.7}}",
-      "handler": "server"
+      "synonyms": [
+        "change temperature",
+        "more creative",
+        "less creative",
+        "randomness"
+      ],
+      "params": {
+        "temperature": "Required - temperature value"
+      }
     },
     {
       "name": "SetMaxTokens",
       "group": "config",
-      "label": "Set maximum response tokens",
-      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 1000}}",
-      "handler": "server"
+      "label": "Set max tokens",
+      "description": "Sets maximum response tokens",
+      "example": "{\"cap\": \"SetMaxTokens\", \"params\": {\"max_tokens\": 2000}}",
+      "synonyms": [
+        "response length",
+        "max length",
+        "longer responses",
+        "shorter responses"
+      ],
+      "params": {
+        "max_tokens": "Required - max tokens"
+      }
+    },
+    {
+      "name": "ReloadLLMConfig",
+      "group": "config",
+      "label": "Reload LLM config",
+      "description": "Reloads the server-side LLM agent config from disk",
+      "example": "{\"cap\": \"ReloadLLMConfig\"}",
+      "synonyms": [
+        "refresh config",
+        "reload settings",
+        "apply config changes"
+      ],
+      "params": {}
     },
     {
       "name": "AddLLMProvider",
       "group": "config",
-      "label": "Add a new LLM provider",
-      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"...\", \"name\": \"...\", \"type\": \"...\", \"endpoint\": \"...\", \"model\": \"...\"}}",
-      "handler": "server"
+      "label": "Add new LLM provider",
+      "description": "Adds a new provider configuration",
+      "example": "{\"cap\": \"AddLLMProvider\", \"params\": {\"key\": \"custom\", \"name\": \"Custom LLM\", \"type\": \"openai_compatible\", \"endpoint\": \"http://localhost:1234\", \"model\": \"local-model\"}}",
+      "synonyms": [
+        "new provider",
+        "add ai provider",
+        "configure new llm"
+      ],
+      "params": {
+        "key": "Required - unique provider key",
+        "name": "Required - display name",
+        "type": "Required - openai, anthropic, or openai_compatible",
+        "endpoint": "Required - API endpoint URL",
+        "model": "Required - default model",
+        "api_key": "Optional - API key or $ENV_VAR"
+      }
     },
     {
       "name": "RemoveLLMProvider",
       "group": "config",
-      "label": "Remove an LLM provider",
-      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"...\"}}",
-      "handler": "server"
+      "label": "Remove LLM provider",
+      "description": "Removes a provider from config",
+      "example": "{\"cap\": \"RemoveLLMProvider\", \"params\": {\"provider\": \"custom\"}}",
+      "synonyms": [
+        "delete provider",
+        "remove ai provider",
+        "uninstall provider"
+      ],
+      "params": {
+        "provider": "Required - provider key to remove"
+      }
     },
     {
-      "name": "ListCapabilities",
+      "name": "LLMChat",
       "group": "config",
-      "label": "List all available capabilities",
-      "example": "{\"cap\": \"ListCapabilities\"}",
-      "handler": "server"
+      "label": "Send message to LLM",
+      "description": "Send a chat message to the configured LLM and get a response",
+      "example": "{\"cap\": \"LLMChat\", \"params\": {\"message\": \"What is the weather?\"}}",
+      "synonyms": [
+        "chat with ai",
+        "ask llm",
+        "send to ai",
+        "get ai response"
+      ],
+      "params": {
+        "message": "Required - the message to send",
+        "chat_id": "Optional - chat ID to associate response with",
+        "clear_history": "Optional - reset agent conversation history"
+      }
     }
   ]
 }

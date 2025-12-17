@@ -2905,7 +2905,7 @@ async function handleExecuteCapability(message) {
 
         // 🗂️ SMART DISPATCHER: Check if this is a browser-level capability
         const tabCapabilities = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL'];
-        const zoomCapabilities = ['ZoomIn', 'ZoomOut', 'ZoomReset'];
+        const zoomCapabilities = ['ZoomIn', 'ZoomOut', 'ZoomReset', 'ResetZoom'];  // ResetZoom alias
 
         if (tabCapabilities.includes(action)) {
             // Route to service worker handlers (browser-level operations)
@@ -3142,7 +3142,7 @@ async function handleExecuteCapabilityFromContent(message, sendResponse) {
     console.log("[SW] 🎮 Capability from content script:", action);
 
     try {
-        const zoomCapabilities = ['ZoomIn', 'ZoomOut', 'ZoomReset'];
+        const zoomCapabilities = ['ZoomIn', 'ZoomOut', 'ZoomReset', 'ResetZoom'];  // ResetZoom alias
 
         if (zoomCapabilities.includes(action)) {
             // Handle zoom directly (no requestId needed for internal calls)
@@ -3213,6 +3213,7 @@ async function handleZoomCapabilityDirect(action) {
             newZoom = Math.max(oldZoom - ZOOM_INCREMENT, 0.25);
             break;
         case 'ZoomReset':
+        case 'ResetZoom':  // alias
             newZoom = 1.0;
             break;
         default:
@@ -3276,6 +3277,7 @@ async function handleZoomCapability(action, params, requestId) {
                 newZoom = Math.max(currentZoom - ZOOM_INCREMENT, 0.25); // Min 25%
                 break;
             case 'ZoomReset':
+            case 'ResetZoom':  // alias
                 newZoom = 1.0; // 100%
                 break;
             default:

@@ -77,50 +77,32 @@ def resolve_action_type(action_id: int | str, has_value: bool = False) -> str:
 
 
 # -----------------------------------------------------------------------------
-# Capability Loading
+# Capability Loading (single source of truth: internal_capabilities.json)
 # -----------------------------------------------------------------------------
 
-CAPABILITIES_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "capabilities")
+CAPABILITIES_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "capabilities", "internal_capabilities.json")
 
 
 def load_capabilities() -> dict:
     """
-    Load all capabilities from data/capabilities/*.json files.
+    Load all capabilities from internal_capabilities.json (single source of truth).
 
     Returns:
         dict mapping capability names to their definitions
     """
-    all_caps = {}
+    if not os.path.exists(CAPABILITIES_FILE):
+        print(f"⚠️ Capabilities file not found: {CAPABILITIES_FILE}")
+        return {}
 
-    if not os.path.exists(CAPABILITIES_DIR):
-        print(f"⚠️ Capabilities directory not found: {CAPABILITIES_DIR}")
-        return all_caps
-
-    # Load index to find files
-    index_path = os.path.join(CAPABILITIES_DIR, "_index.json")
-    if os.path.exists(index_path):
-        with open(index_path, 'r') as f:
-            index = json.load(f)
-            files = index.get("files", [])
-    else:
-        # Fallback: load all .json files
-        files = [f for f in os.listdir(CAPABILITIES_DIR) if f.endswith('.json') and f != '_index.json']
-
-    for filename in files:
-        filepath = os.path.join(CAPABILITIES_DIR, filename)
-        if os.path.exists(filepath):
-            try:
-                with open(filepath, 'r') as f:
-                    data = json.load(f)
-                    caps = data.get("capabilities", {})
-                    for name, definition in caps.items():
-                        definition["_group"] = data.get("group", "unknown")
-                        all_caps[name] = definition
-            except (json.JSONDecodeError, IOError) as e:
-                print(f"⚠️ Error loading {filename}: {e}")
-
-    print(f"📋 Loaded {len(all_caps)} capabilities from {len(files)} files")
-    return all_caps
+    try:
+        with open(CAPABILITIES_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            caps = data.get("capabilities", {})
+            print(f"📋 Loaded {len(caps)} capabilities from internal_capabilities.json")
+            return caps
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"⚠️ Error loading capabilities: {e}")
+        return {}
 
 
 # Cache capabilities on first load

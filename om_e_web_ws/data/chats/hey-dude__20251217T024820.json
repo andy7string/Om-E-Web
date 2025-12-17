@@ -1,0 +1,183 @@
+{
+  "chat_id": "hey-dude__20251217T024820",
+  "project_id": "default",
+  "created_at": "2025-12-17T02:48:20.509411Z",
+  "updated_at": "2025-12-17T02:50:26.338928Z",
+  "title": "hey dude",
+  "default_title": "hey dude",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765939695436&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey dude",
+      "timestamp": "2025-12-17T02:48:20.509445Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey! How can I help you today?",
+      "timestamp": "2025-12-17T02:48:21.744410Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "scroll to the bottom",
+      "timestamp": "2025-12-17T02:48:26.686952Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollBottom\"}",
+      "timestamp": "2025-12-17T02:48:27.451646Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-17T02:48:30.381573Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollBottom\"}",
+      "timestamp": "2025-12-17T02:48:31.271859Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-17T02:48:34.232287Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollBottom\"}",
+      "timestamp": "2025-12-17T02:48:35.028827Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "go back to the top",
+      "timestamp": "2025-12-17T02:48:44.541163Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollTop\"}",
+      "timestamp": "2025-12-17T02:48:45.616200Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "show my chats",
+      "timestamp": "2025-12-17T02:48:54.354680Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-17T02:48:55.835439Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "find chat about views",
+      "timestamp": "2025-12-17T02:49:02.291735Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"views\"}}",
+      "timestamp": "2025-12-17T02:49:03.188365Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "nice lets switch cahts to show chats",
+      "timestamp": "2025-12-17T02:49:14.737454Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "{\"cap\": \"ToggleChats\"}",
+      "timestamp": "2025-12-17T02:49:15.675269Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "na dude, i need to select hat other chat",
+      "timestamp": "2025-12-17T02:49:26.897924Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Which chat would you like to select? Please provide the chat name or any detail to identify it.",
+      "timestamp": "2025-12-17T02:49:27.930414Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "its called show chats",
+      "timestamp": "2025-12-17T02:49:35.725477Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "{\"cap\": \"SearchChats\", \"params\": {\"query\": \"show chats\"}}",
+      "timestamp": "2025-12-17T02:49:36.739980Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "show cahts",
+      "timestamp": "2025-12-17T02:49:42.079811Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-17T02:49:43.053245Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "my word can you open the hey dude",
+      "timestamp": "2025-12-17T02:49:57.104117Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "{\"cap\": \"LoadChat\", \"params\": {\"chat_id\": \"chat-abc123\"}}",
+      "timestamp": "2025-12-17T02:49:58.046102Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "can you open the chat switch view",
+      "timestamp": "2025-12-17T02:50:13.125821Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "{\"cap\": \"LoadChat\", \"params\": {\"chat_id\": \"chat-abc\"}}",
+      "timestamp": "2025-12-17T02:50:14.240731Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "switch views",
+      "timestamp": "2025-12-17T02:50:25.473846Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T02:50:26.338928Z"
+    }
+  ]
+}

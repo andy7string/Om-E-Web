@@ -1,0 +1,123 @@
+{
+  "chat_id": "bru-can-you__20251217T013624",
+  "project_id": "default",
+  "created_at": "2025-12-17T01:36:24.317463Z",
+  "updated_at": "2025-12-17T01:43:34.953891Z",
+  "title": "bru can you",
+  "default_title": "bru can you",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "bru can you reset the view here its so small",
+      "timestamp": "2025-12-17T01:36:24.317511Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "{\"cap\": \"ZoomReset\"}",
+      "timestamp": "2025-12-17T01:36:25.610387Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "lets open google",
+      "timestamp": "2025-12-17T01:36:32.860947Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "timestamp": "2025-12-17T01:36:33.972703Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "wow close it",
+      "timestamp": "2025-12-17T01:36:37.842069Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1138051493}}",
+      "timestamp": "2025-12-17T01:36:38.849248Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "nice close this prompt",
+      "timestamp": "2025-12-17T01:36:44.753192Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "{\"cap\": \"HidePrompt\"}",
+      "timestamp": "2025-12-17T01:36:45.551284Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "switch to chat view",
+      "timestamp": "2025-12-17T01:36:53.458045Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T01:36:54.279072Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "nice open chats",
+      "timestamp": "2025-12-17T01:36:57.956194Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "{\"cap\": \"ShowChatHistory\"}",
+      "timestamp": "2025-12-17T01:36:58.775811Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "close chats",
+      "timestamp": "2025-12-17T01:37:03.387488Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "{\"cap\": \"HideChatHistory\"}",
+      "timestamp": "2025-12-17T01:37:04.148522Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "hide chats",
+      "timestamp": "2025-12-17T01:43:08.476211Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "{\"cap\": \"HideChatHistory\"}",
+      "timestamp": "2025-12-17T01:43:09.366165Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "can you hide my chat history",
+      "timestamp": "2025-12-17T01:43:33.970966Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "{\"cap\": \"HideChatHistory\"}",
+      "timestamp": "2025-12-17T01:43:34.953891Z"
+    }
+  ]
+}

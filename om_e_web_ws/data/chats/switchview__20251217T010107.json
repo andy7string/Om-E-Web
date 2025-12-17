@@ -1,0 +1,327 @@
+{
+  "chat_id": "switchview__20251217T010107",
+  "project_id": "default",
+  "created_at": "2025-12-17T01:01:07.883974Z",
+  "updated_at": "2025-12-17T01:05:49.113035Z",
+  "title": "switchview",
+  "default_title": "switchview",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "switchview",
+      "timestamp": "2025-12-17T01:01:07.884009Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T01:01:09.476041Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "aah nice can you go back to the previous view please",
+      "timestamp": "2025-12-17T01:01:24.099192Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "{\"cap\": \"GoBack\"}",
+      "timestamp": "2025-12-17T01:01:25.925717Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "switch view again",
+      "timestamp": "2025-12-17T01:01:43.337700Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T01:01:44.356461Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "lets check out the other view",
+      "timestamp": "2025-12-17T01:02:03.722933Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T01:02:05.352195Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "hide this prompt",
+      "timestamp": "2025-12-17T01:02:12.269358Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "{\"cap\": \"HidePrompt\"}",
+      "timestamp": "2025-12-17T01:02:13.339909Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "hide this thing i am typing in",
+      "timestamp": "2025-12-17T01:02:28.564357Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "{\"cap\": \"HideChatHistory\"}",
+      "timestamp": "2025-12-17T01:02:30.122770Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "hide this input",
+      "timestamp": "2025-12-17T01:02:39.987216Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "{\"cap\": \"HidePrompt\"}",
+      "timestamp": "2025-12-17T01:02:40.986793Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-17T01:03:05.866402Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://youtube.com\"}}",
+      "timestamp": "2025-12-17T01:03:07.738802Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "switch back to the otehr tab",
+      "timestamp": "2025-12-17T01:03:23.902803Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1138051467}}",
+      "timestamp": "2025-12-17T01:03:25.018296Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "go to youtube",
+      "timestamp": "2025-12-17T01:03:30.986741Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1138051472}}",
+      "timestamp": "2025-12-17T01:03:32.371659Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "go to ome",
+      "timestamp": "2025-12-17T01:03:37.860881Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1138051467}}",
+      "timestamp": "2025-12-17T01:03:39.545474Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "hud view",
+      "timestamp": "2025-12-17T01:03:49.362881Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T01:03:50.716145Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "orb view",
+      "timestamp": "2025-12-17T01:04:06.417262Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-17T01:04:07.599351Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "go back to youtube",
+      "timestamp": "2025-12-17T01:04:15.876615Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1138051472}}",
+      "timestamp": "2025-12-17T01:04:17.009354Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "scroll down",
+      "timestamp": "2025-12-17T01:04:20.181840Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollDown\"}",
+      "timestamp": "2025-12-17T01:04:21.005109Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "scroll down",
+      "timestamp": "2025-12-17T01:04:24.146521Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollDown\"}",
+      "timestamp": "2025-12-17T01:04:25.710545Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "scroll to that chick down there",
+      "timestamp": "2025-12-17T01:04:33.312720Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Could you please clarify or provide more details about the specific video or content you want me to scroll to on YouTube?",
+      "timestamp": "2025-12-17T01:04:35.438621Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "the one with the girl holding the sign",
+      "timestamp": "2025-12-17T01:04:48.688067Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "I don't have enough details to identify that video precisely. Could you please describe more or specify if it's a video title or channel name?",
+      "timestamp": "2025-12-17T01:04:50.080868Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "scroll to bottom",
+      "timestamp": "2025-12-17T01:04:55.576852Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollBottom\"}",
+      "timestamp": "2025-12-17T01:04:56.445861Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "user",
+      "content": "scroll to top",
+      "timestamp": "2025-12-17T01:05:01.863814Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "{\"cap\": \"ScrollTop\"}",
+      "timestamp": "2025-12-17T01:05:02.675503Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "user",
+      "content": "can you make this screen easier to read",
+      "timestamp": "2025-12-17T01:05:15.042437Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "assistant",
+      "content": "I can try to zoom in or out for better readability. Would you like me to zoom in to make things larger or zoom out to see more content at once?",
+      "timestamp": "2025-12-17T01:05:16.497413Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "user",
+      "content": "ok zoom in a bit",
+      "timestamp": "2025-12-17T01:05:23.951711Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "assistant",
+      "content": "{\"cap\": \"ZoomIn\"}",
+      "timestamp": "2025-12-17T01:05:24.894967Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "user",
+      "content": "more",
+      "timestamp": "2025-12-17T01:05:26.639435Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "assistant",
+      "content": "{\"cap\": \"ZoomIn\"}",
+      "timestamp": "2025-12-17T01:05:27.557635Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "user",
+      "content": "more",
+      "timestamp": "2025-12-17T01:05:28.857520Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "assistant",
+      "content": "{\"cap\": \"ZoomIn\"}",
+      "timestamp": "2025-12-17T01:05:29.706601Z"
+    },
+    {
+      "id": "m_0049",
+      "role": "user",
+      "content": "ooh can you go back to how ti looked before",
+      "timestamp": "2025-12-17T01:05:39.522203Z"
+    },
+    {
+      "id": "m_0050",
+      "role": "assistant",
+      "content": "{\"cap\": \"ResetZoom\"}",
+      "timestamp": "2025-12-17T01:05:40.459513Z"
+    },
+    {
+      "id": "m_0051",
+      "role": "user",
+      "content": "yes resetzoom",
+      "timestamp": "2025-12-17T01:05:47.897063Z"
+    },
+    {
+      "id": "m_0052",
+      "role": "assistant",
+      "content": "{\"cap\": \"ResetZoom\"}",
+      "timestamp": "2025-12-17T01:05:49.113035Z"
+    }
+  ]
+}

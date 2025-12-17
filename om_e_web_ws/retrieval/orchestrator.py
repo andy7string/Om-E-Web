@@ -199,7 +199,7 @@ def parse_intent_response(raw: str) -> IntentResult:
         )
 
 
-def retrieve_context(intent: IntentResult, k_elements: int = 5, k_caps: int = 3) -> RetrievalContext:
+def retrieve_context(intent: IntentResult, k_elements: int = 5, k_caps: int = 10) -> RetrievalContext:
     """Retrieve relevant context from vector stores based on intent."""
     elements = []
     capabilities = []

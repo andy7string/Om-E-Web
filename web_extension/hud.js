@@ -3662,7 +3662,7 @@
                         <div class="ome-sidebar-new-chat-placeholder"></div>
                         <div class="ome-sidebar-search"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><span class="text">Search Chats</span></div>
                         <div class="ome-sidebar-search-box"></div>
-                        <div class="ome-sidebar-label expanded"><span class="arrow arrow-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span><span class="label-text-collapsed">Your Chats</span><span class="label-text-expanded">Hide Chats</span><span class="arrow arrow-right"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span></div>
+                        <div class="ome-sidebar-label expanded"><span class="arrow arrow-left"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span><span class="label-text-collapsed">Show Chats</span><span class="label-text-expanded">Hide Chats</span><span class="arrow arrow-right"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></span></div>
                         <div class="ome-sidebar-chat-list">
                             <div class="ome-sidebar-empty">No chats yet</div>
                         </div>
@@ -3908,7 +3908,7 @@
             }
         });
 
-        // 📚 Your Chats label toggle handler
+        // 📚 Show Chats label toggle handler
         hud.querySelector('.ome-sidebar-label')?.addEventListener('click', (e) => {
             e.stopPropagation();
             const label = e.currentTarget;
@@ -5920,7 +5920,7 @@
             renameNewChat();
         });
 
-        // Insert into placeholder container (above Your Chats)
+        // Insert into placeholder container (above Show Chats)
         placeholderContainer.appendChild(placeholder);
     }
 
@@ -6607,50 +6607,56 @@
                     break;
 
                 // 🎛️ UI CONTROL ACTIONS
-                case 'show_hud':
-                    if (!hudState.visible) toggleHUD();
-                    break;
-
-                case 'hide_hud':
-                    if (hudState.visible) toggleHUD();
-                    break;
-
                 case 'toggle_hud':
                     toggleHUD();
                     break;
 
                 case 'show_sidebar':
-                    if (!hudState.sidebarVisible) toggleSidebar(true);
+                    // 📚 Smart show - if in orb view, switch to HUD first
+                    if (!hudState.visible) {
+                        toggleHUD();  // Switch to HUD view
+                    }
+                    // Now open sidebar if not already open
+                    if (!hudState.sidebarOpen) toggleSidebar(true);
                     break;
 
                 case 'hide_sidebar':
-                    if (hudState.sidebarVisible) toggleSidebar(false);
+                    if (hudState.sidebarOpen) toggleSidebar(false);
                     break;
 
                 case 'toggle_sidebar':
                     toggleSidebar();
                     break;
 
-                case 'expand_orb':
-                    if (hudState.chatPanel && !hudState.chatPanel.classList.contains('visible')) {
-                        hudState.chatPanel.classList.add('visible');
-                    }
-                    break;
-
-                case 'collapse_orb':
-                    if (hudState.chatPanel && hudState.chatPanel.classList.contains('visible')) {
-                        hudState.chatPanel.classList.remove('visible');
-                    }
-                    break;
-
-                case 'focus_orb_input':
-                    // Route to appropriate input based on which view is active
-                    hudState.userBlurRequested = false;
+                case 'show_prompt':
+                    // Smart show - checks if in HUD or orb view
                     if (hudState.visible) {
+                        // In HUD view - HUD is already showing the prompt, just focus it
                         focusHUDPromptGuard(true);
                     } else {
+                        // In orb view - expand the chat panel
+                        if (hudState.chatPanel && !hudState.chatPanel.classList.contains('visible')) {
+                            hudState.chatPanel.classList.add('visible');
+                            hudState.chatVisible = true;
+                        }
                         focusOrbInputGuard(true);
                     }
+                    console.log('[Content] 🎛️ ShowPrompt executed (HUD visible:', hudState.visible, ')');
+                    break;
+
+                case 'hide_prompt':
+                    // Smart hide - checks if in HUD or orb view
+                    if (hudState.visible) {
+                        // In HUD view - close the whole HUD
+                        toggleHUD();
+                    } else {
+                        // In orb view - collapse the chat panel
+                        if (hudState.chatPanel && hudState.chatPanel.classList.contains('visible')) {
+                            hudState.chatPanel.classList.remove('visible');
+                            hudState.chatVisible = false;
+                        }
+                    }
+                    console.log('[Content] 🎛️ HidePrompt executed (HUD visible:', hudState.visible, ')');
                     break;
 
                 default:
