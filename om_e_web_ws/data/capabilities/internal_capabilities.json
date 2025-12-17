@@ -128,8 +128,17 @@
       "action": "SwitchView",
       "label": "Switch between HUD and orb view",
       "description": "Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view",
-      "synonyms": ["toggle hud", "switch to hud", "switch to orb", "change view", "fullscreen mode", "orb mode", "chat view", "chat mode", "full chat", "open chat view", "browser mode", "browser view", "switch to browser", "change to browser", "exit hud", "close hud", "go to browser", "nav mode", "navigation mode", "floating mode", "mini mode", "compact mode"],
+      "synonyms": ["switch to hud", "switch to orb", "change view", "fullscreen mode", "orb mode", "chat view", "chat mode", "full chat", "open chat view", "browser mode", "browser view", "switch to browser", "change to browser", "exit hud", "close hud", "go to browser", "nav mode", "navigation mode", "floating mode", "mini mode", "compact mode"],
       "example": "{\"cap\": \"SwitchView\"}",
+      "params": {}
+    },
+    "ToggleHUD": {
+      "group": "hud",
+      "action": "ToggleHUD",
+      "label": "Toggle HUD on/off",
+      "description": "Toggles the HUD overlay between visible and hidden. Same as SwitchView.",
+      "synonyms": ["toggle hud", "show hud", "hide hud", "hud on", "hud off", "toggle overlay", "toggle interface"],
+      "example": "{\"cap\": \"ToggleHUD\"}",
       "params": {}
     },
     "ShowPrompt": {

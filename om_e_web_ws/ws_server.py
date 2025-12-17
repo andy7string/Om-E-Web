@@ -891,7 +891,7 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         }
 
     # 🎛️ UI CONTROL CAPABILITIES
-    elif action == "SwitchView":
+    elif action == "SwitchView" or action == "ToggleHUD":
         # Clear search context on view switch
         clear_search_context()
         return {"_hud_action": {"type": "toggle_hud"}}
