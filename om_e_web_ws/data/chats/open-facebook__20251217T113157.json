@@ -1,0 +1,171 @@
+{
+  "chat_id": "open-facebook__20251217T113157",
+  "project_id": "default",
+  "created_at": "2025-12-17T11:31:57.063529Z",
+  "updated_at": "2025-12-17T12:24:25.488831Z",
+  "title": "open facebook",
+  "default_title": "open facebook",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765971113024&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-17T11:31:57.063571Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "I will open a new tab and navigate to Facebook for you. \n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-17T11:31:59.252844Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-17T11:32:02.132022Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "I will open a new tab and navigate to YouTube for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-17T11:32:04.533855Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-17T11:32:10.286503Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 3}}",
+      "timestamp": "2025-12-17T11:32:12.845764Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "can you open a new tab of facebook i want two",
+      "timestamp": "2025-12-17T11:32:29.974376Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "I will open a new tab with Facebook for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-17T11:32:32.081886Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "close facebook",
+      "timestamp": "2025-12-17T11:32:40.333378Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "I will close the currently active Facebook tab for you.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 5}}",
+      "timestamp": "2025-12-17T11:32:41.506921Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-17T11:32:45.364719Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 3}}",
+      "timestamp": "2025-12-17T11:32:47.303185Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "go to google",
+      "timestamp": "2025-12-17T11:32:53.138245Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "I will switch to the open Google tab for you.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 2}}",
+      "timestamp": "2025-12-17T11:32:54.248438Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "openfacebook",
+      "timestamp": "2025-12-17T11:32:58.682298Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "I will open a new tab with Facebook for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-17T11:32:59.572056Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "close facebook",
+      "timestamp": "2025-12-17T11:33:05.875231Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "I will close the active Facebook tab for you.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 6}}",
+      "timestamp": "2025-12-17T11:33:06.962441Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "go to facebook",
+      "timestamp": "2025-12-17T11:33:14.455872Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Switching to the already open Facebook tab for you.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 3}}",
+      "timestamp": "2025-12-17T11:33:15.753754Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-17T11:33:19.461804Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "You already have YouTube open in tab 4. I will switch to that tab for you.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 4}}",
+      "timestamp": "2025-12-17T11:33:20.396395Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "this is amazing keep it up",
+      "timestamp": "2025-12-17T12:24:12.693316Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Thank you! Let me know what you want to do next or if you want me to keep navigating through chats.",
+      "timestamp": "2025-12-17T12:24:13.853611Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "next chat ma man two more and you done",
+      "timestamp": "2025-12-17T12:24:24.288713Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Loading the next chat titled \"open facebook\" now.\n\n{\"cap\": \"LoadChat\", \"params\": {\"chat\": 7}}",
+      "timestamp": "2025-12-17T12:24:25.488831Z"
+    }
+  ]
+}

@@ -313,12 +313,12 @@
     "SetCurrentChat": {
       "group": "chat",
       "action": "SetCurrentChat",
-      "label": "Set the current active chat",
-      "description": "Sets which chat is the current active chat",
-      "synonyms": ["switch chat", "change to chat", "activate chat", "make current"],
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat_id\": \"chat-abc\"}}",
+      "label": "Switch to a chat by name or ID",
+      "description": "Switches to a chat. Accepts chat_id OR chat title (fuzzy match). If multiple chats match, returns numbered list for user to choose from.",
+      "synonyms": ["switch chat", "change to chat", "activate chat", "make current", "go to chat", "open chat", "load chat"],
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat_id\": \"hud\"}}",
       "params": {
-        "chat_id": "Required - the chat ID to make current"
+        "chat_id": "Required - chat ID or chat title (supports fuzzy matching)"
       }
     },
     "SearchChats": {

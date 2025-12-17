@@ -1,0 +1,39 @@
+{
+  "chat_id": "hud__20251217T125411",
+  "project_id": "default",
+  "created_at": "2025-12-17T12:54:11.745440Z",
+  "updated_at": "2025-12-17T12:54:26.112460Z",
+  "title": "hud",
+  "default_title": "hud",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hud",
+      "timestamp": "2025-12-17T12:54:11.745456Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Toggling the HUD overlay for you now.\n\n{\"act\": \"0\"}",
+      "timestamp": "2025-12-17T12:54:12.784598Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "can you create a new chat for me called grasshopper",
+      "timestamp": "2025-12-17T12:54:25.182422Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Creating a new chat titled \"grasshopper\" for you now.\n\n{\"cap\": \"CreateChat\", \"params\": {\"title\": \"grasshopper\"}}",
+      "timestamp": "2025-12-17T12:54:26.112460Z"
+    }
+  ]
+}

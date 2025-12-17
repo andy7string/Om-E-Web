@@ -1,718 +1,82 @@
 {
   "metadata": {
-    "url": "https://www.google.com/?zx=1765959606912&no_sw_cr=1",
-    "title": "Google",
-    "timestamp": "2025-12-17T08:21:24Z",
-    "element_count": 64
+    "url": "http://127.0.0.1:8080/",
+    "title": "OM-E Web",
+    "timestamp": "2025-12-17T13:01:09Z",
+    "element_count": 7
   },
   "elements": {
     "0": {
-      "label": "About",
-      "type": "Link",
-      "tag": "a",
+      "label": "TOGGLE HUD OVERLAY",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a.MV3Tnb"
+        "#hudToggleBtn",
+        "button.hud-toggle-btn"
       ],
-      "href": "https://about.google/?fg=1&utm_source=google-AU&utm_medium=referral&utm_campaign=hp-header"
+      "href": null
     },
     "1": {
-      "label": "Store",
-      "type": "Link",
-      "tag": "a",
+      "label": "WebSocket URL",
+      "type": "Input",
+      "tag": "input",
       "selectors": [
-        "a[href*='/AU']",
-        "a.MV3Tnb"
+        "#wsUrl",
+        "input[placeholder='WebSocket URL']",
+        "input[type='text'][placeholder='WebSocket URL']"
       ],
-      "href": "https://store.google.com/AU?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-AU"
+      "href": null
     },
     "2": {
-      "label": "Gmail",
-      "type": "Link",
-      "tag": "a",
+      "label": "Save & Reconnect",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Gmail ']",
-        "[aria-label='Gmail ']",
-        "a[href*='/mail/']",
-        "[data-pid='23']",
-        "a.gb_Z"
+        "#saveBtn",
+        "button.primary"
       ],
-      "href": "https://mail.google.com/mail/?authuser=0&ogbl"
+      "href": null
     },
     "3": {
-      "label": "Search for Images",
-      "type": "Link",
-      "tag": "a",
+      "label": "Kawaii",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Search for Images ']",
-        "[aria-label='Search for Images ']",
-        "a[href*='/imghp']",
-        "[data-pid='2']",
-        "a.gb_Z"
+        "#orbKawaii",
+        "[data-theme='kawaii']",
+        "button.orb-btn"
       ],
-      "href": "https://www.google.com/imghp?hl=en&authuser=0&ogbl"
+      "href": null
     },
     "4": {
-      "label": "Google apps",
+      "label": "Om-E",
       "type": "Button",
-      "tag": "a",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Google apps']",
-        "[aria-label='Google apps']",
-        "[role='button'][aria-label='Google apps']",
-        "a[href*='/intl/en/about/products']",
-        "a.gb_B"
+        "#orbRobot",
+        "[data-theme='robot']",
+        "button.orb-btn"
       ],
-      "href": "https://www.google.com.au/intl/en/about/products"
+      "href": null
     },
     "5": {
-      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
+      "label": "Atom",
       "type": "Button",
-      "tag": "a",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
-        "a[href*='/SignOutOptions']",
-        "a.gb_B.gb_0a"
+        "#orbAtom",
+        "[data-theme='atom']",
+        "button.orb-btn"
       ],
-      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/&ec=futura_exp_og_si_72776762_e"
+      "href": null
     },
     "6": {
-      "label": "Upload files or images",
+      "label": "Extension Settings",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Upload files or images']",
-        "[aria-label='Upload files or images']",
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ0J0RCA8']",
-        "button.sF3Vod"
-      ],
-      "href": null
-    },
-    "7": {
-      "label": "Search",
-      "type": "Select",
-      "tag": "textarea",
-      "selectors": [
-        "textarea[aria-label='Search']",
-        "[aria-label='Search']",
-        "#APjFqb",
-        "textarea[name='q']",
-        "[role='combobox'][aria-label='Search']",
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ39UDCBQ']",
-        "textarea.gLFyf"
-      ],
-      "href": null
-    },
-    "8": {
-      "label": "Search by voice",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search by voice']",
-        "[aria-label='Search by voice']",
-        "[role='button'][aria-label='Search by voice']",
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQvs8DCBY']",
-        "div.XDyW0e"
-      ],
-      "href": null
-    },
-    "9": {
-      "label": "Search by image",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div[aria-label='Search by image']",
-        "[aria-label='Search by image']",
-        "[role='button'][aria-label='Search by image']",
-        "[data-base-lens-url='https://lens.google.com']",
-        "div.nDcEnd"
-      ],
-      "href": null
-    },
-    "10": {
-      "label": "AI Mode",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQteYPCBg']",
-        "button.plR5qb.Y5MKCd"
-      ],
-      "href": null
-    },
-    "11": {
-      "label": "Google Search",
-      "type": "Button",
-      "tag": "input",
-      "selectors": [
-        "input[aria-label='Google Search']",
-        "[aria-label='Google Search']",
-        "input[name='btnK']",
-        "[role='button'][aria-label='Google Search']",
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ4dUDCCU']",
-        "input[type='submit'][name='btnK']",
-        "input.gNO89b"
-      ],
-      "href": null
-    },
-    "12": {
-      "label": "I'm Feeling Lucky",
-      "type": "Button",
-      "tag": "input",
-      "selectors": [
-        "input[aria-label='I\\'m Feeling Lucky']",
-        "[aria-label='I\\'m Feeling Lucky']",
-        "input[name='btnI']",
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ19QECCY']",
-        "input[type='submit'][name='btnI']",
-        "input.RNmpXc"
-      ],
-      "href": null
-    },
-    "13": {
-      "label": "Skip to Discover feed",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ67oDCCg']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/?zx=1765959606912&no_sw_cr=1#"
-    },
-    "14": {
-      "label": "Skip to sidebar",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ67oDCCk']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/?zx=1765959606912&no_sw_cr=1#"
-    },
-    "15": {
-      "label": "Skip to footer",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ67oDCCo']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/?zx=1765959606912&no_sw_cr=1#"
-    },
-    "16": {
-      "label": "Accessibility help",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/websearch/answer/181196']",
-        "a.JMWBtb"
-      ],
-      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
-    },
-    "17": {
-      "label": "Accessibility feedback",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-async-trigger='duf3-78']",
-        "a.JMWBtb"
-      ],
-      "href": "https://www.google.com/?zx=1765959606912&no_sw_cr=1#"
-    },
-    "18": {
-      "label": "Bondi Beach gunman Naveed Akram regains consciousness — as it happened\nBondi Beach will remain a crime scene, with security around Sydney's eastern suburbs bolstered.\nAustralian Broadcasting Corporation\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/2025-12-16/bondi-beach-shooting-terrorist-attack-december-16/106147374']",
-        "[data-hveid='CBcQAQ']"
-      ],
-      "href": "https://www.abc.net.au/news/2025-12-16/bondi-beach-shooting-terrorist-attack-december-16/106147374"
-    },
-    "19": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQAw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "20": {
-      "label": "Australian Dollar weakens as US Dollar advances on mixed Fed outlook\nThe Australian Dollar (AUD) declines against the US Dollar (USD) on Wednesday, extending its losses for the fifth consecutive day.\nFXStreet\n · \n5h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/australian-dollar-extends-losses-as-usd-stays-firm-amid-fading-fed-rate-cut-bets-202512170220']",
-        "[data-hveid='CDwQAQ']"
-      ],
-      "href": "https://www.fxstreet.com/news/australian-dollar-extends-losses-as-usd-stays-firm-amid-fading-fed-rate-cut-bets-202512170220"
-    },
-    "21": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQBQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "22": {
-      "label": "GWM unveils Ora 5 EV for around $20,000, could be headed to Australia\nGWM unveils a new EV, the Ora 5 pure electric SUV, with a starting price that would convert to around $A20,000, and which could be headed to Australia.\nThe Driven\n · \n5h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/2025/12/17/gwm-unveils-ora-5-ev-for-under-22000/']",
-        "[data-hveid='CGMQAQ']"
-      ],
-      "href": "https://thedriven.io/2025/12/17/gwm-unveils-ora-5-ev-for-under-22000/"
-    },
-    "23": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQBw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "24": {
-      "label": "Apple Music is coming to ChatGPT, OpenAI announces\nSoon, you'll be able to ask ChatGPT to quickly create Apple Music playlists, among other things. Here's why.\n9to5Mac\n · \n12h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/2025/12/16/apple-music-is-coming-to-chatgpt-openai-announces/']",
-        "[data-hveid='CIoBEAE']"
-      ],
-      "href": "https://9to5mac.com/2025/12/16/apple-music-is-coming-to-chatgpt-openai-announces/"
-    },
-    "25": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQCQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "26": {
-      "label": "Australia’s Consumer Confidence Slumps After RBA Turns Hawkish\nAustralia's consumer confidence slumped in December as the Reserve Bank indicated that its brief easing cycle has come to an end and there's the potential...\nBloomberg.com\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/articles/2025-12-15/australia-s-consumer-confidence-slumps-after-rba-turns-hawkish']",
-        "[data-hveid='CLEBEAE']"
-      ],
-      "href": "https://www.bloomberg.com/news/articles/2025-12-15/australia-s-consumer-confidence-slumps-after-rba-turns-hawkish"
-    },
-    "27": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQCw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "28": {
-      "label": "Motion through quantum space–time is traced by ‘q-desics’\nSubtle quantum effects could be observed in how particles traverse cosmological distances.\nPhysics World\n · \n15h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/a/motion-through-quantum-space-time-is-traced-by-q-desics/']",
-        "[data-hveid='CNgBEAE']"
-      ],
-      "href": "https://physicsworld.com/a/motion-through-quantum-space-time-is-traced-by-q-desics/"
-    },
-    "29": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQDQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "30": {
-      "label": "🚨: NASA’s MAVEN Spacecraft lost contact with Earth after Close-Encounter with 3I/ATLAS raising new questions as the interstellar approaches Earth\nforallcurious\nX\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/forallcurious/status/2000738842928697681']",
-        "[data-hveid='COkBEAE']"
-      ],
-      "href": "https://x.com/forallcurious/status/2000738842928697681"
-    },
-    "31": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQDw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "32": {
-      "label": "LG Quietly Installs Microsoft Copilot on Its Smart TVs—And You Can't Delete It\nMicrosoft Copilot app is now appearing on LG TVs after a recent software update, and some say it's another example of the tech industry forcing AI on...\nPCMag\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/lg-quietly-installs-microsoft-copilot-on-its-smart-tvs-and-you-cant-delete']",
-        "[data-hveid='CJACEAE']"
-      ],
-      "href": "https://www.pcmag.com/news/lg-quietly-installs-microsoft-copilot-on-its-smart-tvs-and-you-cant-delete"
-    },
-    "33": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQEQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "34": {
-      "label": "18:29\nScientists in Germany Built a Teleporter\nBRIGHT SIDE\nYouTube\n · \n13h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "[data-hveid='CLYCEAE']"
-      ],
-      "href": "https://www.youtube.com/watch?v=2C8QOTl7f4E"
-    },
-    "35": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQEw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "36": {
-      "label": "“Every time I go to plug in, it feels like Christmas. I knew it was going to be useful. I just didn’t realize how useful”: Steve Vai on the first mini amp he found that could truly punch above its weight\nMany would argue it is the ultimate practice amp. Vai would be one of them – indeed he loved it so much he put his name on it.\nGuitar World\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/gear/amps/steve-vai-on-his-signature-positive-grid-spark-mini']",
-        "[data-hveid='CN0CEAE']"
-      ],
-      "href": "https://www.guitarworld.com/gear/amps/steve-vai-on-his-signature-positive-grid-spark-mini"
-    },
-    "37": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQFQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "38": {
-      "label": "0:56\nChatGPT Images\nWe're releasing a new version of ChatGPT Images⁠, powered by our new flagship image generation model. Now, whether you're creating something from scratch or...\nOpenAI\nYouTube\n · \n14h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "[data-hveid='CBYQAQ']"
-      ],
-      "href": "https://www.youtube.com/watch?v=DPBtd57p5Mg"
-    },
-    "39": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQFw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "40": {
-      "label": "0:12\nClaude will now automatically suggest your next prompt. After a task finishes, Claude will occasionally show a followup suggestion in ghost text. Press Enter to send it or Tab to prefill your next prompt.\nClaude\nX\n · \n12h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/claudeai/status/2001010062769434785']",
-        "[data-hveid='CDgQAQ']"
-      ],
-      "href": "https://x.com/claudeai/status/2001010062769434785"
-    },
-    "41": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQGQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "42": {
-      "label": "Property experts reveal $3000 a week passive income strategy\nReal estate investment experts have laid out a roadmap showing how ordinary households can build $3000 a week in passive income through property.\nReal Estate\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/property-experts-reveal-3000-a-week-passive-income-strategy/']",
-        "[data-hveid='CF0QAQ']"
-      ],
-      "href": "https://www.realestate.com.au/news/property-experts-reveal-3000-a-week-passive-income-strategy/"
-    },
-    "43": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQGw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "44": {
-      "label": "Samsung flagships are no longer seen as proper high-end phones: can the Galaxy S26 Ultra succeed?\nA clear majority of you say Samsung's flagships are no longer a \"good choice\".\nPhoneArena\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/news/samsung-flagships-are-no-longer-seen-as-proper-high-end-phones_id176626']",
-        "[data-hveid='CIQBEAE']"
-      ],
-      "href": "https://www.phonearena.com/news/samsung-flagships-are-no-longer-seen-as-proper-high-end-phones_id176626"
-    },
-    "45": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQHQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "46": {
-      "label": "OpenAI plays musical chips, WTI off lows as US blockades VE Oil, JP good data continues\nAsia Market Update: OpenAI plays musical chips; WTI off lows as US blockades VE oil; JP good data continues; Asia FX Vol as EQ's mainly flat.\nFXStreet\n · \n2h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CKsBEAE']"
-      ],
-      "href": "https://www.fxstreet.com/analysis/openai-plays-musical-chips-wti-off-lows-as-us-blockades-ve-oil-jp-good-data-continues-202512170539"
-    },
-    "47": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQHw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "48": {
-      "label": "How are dark matter and antimatter different?\nNormal matter – which makes up everything we see and touch – isn't the only type of matter present in the universe.\nThe Conversation\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/how-are-dark-matter-and-antimatter-different-270362']",
-        "[data-hveid='CNABEAE']"
-      ],
-      "href": "https://theconversation.com/how-are-dark-matter-and-antimatter-different-270362"
-    },
-    "49": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQIQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "50": {
-      "label": "The ‘one chatbot per child’ model for AI in classrooms conflicts with what research shows: Learning is a social process\nAI tutors are often held up as an ideal, but prioritizing individualized teaching can detract from the benefits of learning in social environments.\nThe Conversation\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "[data-hveid='CPUBEAE']"
-      ],
-      "href": "https://theconversation.com/the-one-chatbot-per-child-model-for-ai-in-classrooms-conflicts-with-what-research-shows-learning-is-a-social-process-269885"
-    },
-    "51": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQIw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "52": {
-      "label": "Supercars news: Australia’s largest Toyota dealership to back BJR\nBrad Jones Racing's first year as a Toyota team will be backed by the Japanese marque's largest dealership in Australia. - Australia's #1 motorsport news...\nSpeedcafe.com\n · \n1d",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/supercars-news-2025-brad-jones-racing-sci-fleet-toyota-deal-agreement-sponsorship-details-2026/']",
-        "[data-hveid='CJ4CEAE']"
-      ],
-      "href": "https://speedcafe.com/supercars-news-2025-brad-jones-racing-sci-fleet-toyota-deal-agreement-sponsorship-details-2026/"
-    },
-    "53": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQJQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "54": {
-      "label": "NASA’s Webb Observes Exoplanet Whose Composition Defies Explanation\nScientists using NASA's James Webb Space Telescope have observed a rare type of exoplanet, or planet outside our solar system, whose atmospheric composition...\nNASA Science (.gov)\n · \n17h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/missions/webb/nasas-webb-observes-exoplanet-whose-composition-defies-explanation/']",
-        "[data-hveid='CMcCEAE']"
-      ],
-      "href": "https://science.nasa.gov/missions/webb/nasas-webb-observes-exoplanet-whose-composition-defies-explanation/"
-    },
-    "55": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQJw']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "56": {
-      "label": "Electricity generation costs would be a third lower with 82% renewable grid, CSIRO says\nModelling suggests main electricity market could run almost entirely on renewables without increase in generation cost by 2050.\nThe Guardian\n · \n11h",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/australia-news/2025/dec/16/electricity-generation-costs-third-lower-82-renewable-grid']",
-        "[data-hveid='CO4CEAE']"
-      ],
-      "href": "https://www.theguardian.com/australia-news/2025/dec/16/electricity-generation-costs-third-lower-82-renewable-grid"
-    },
-    "57": {
-      "label": "More options",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='More options']",
-        "[aria-label='More options']",
-        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQKQ']",
-        "button.hiEo0c"
-      ],
-      "href": null
-    },
-    "58": {
-      "label": "Advertising",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/intl/en_au/ads/']",
-        "a.pHiOh"
-      ],
-      "href": "https://www.google.com/intl/en_au/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1"
-    },
-    "59": {
-      "label": "Business",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/services/']",
-        "a.pHiOh"
-      ],
-      "href": "https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1"
-    },
-    "60": {
-      "label": "How Search works",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/search/howsearchworks/']",
-        "a.pHiOh"
-      ],
-      "href": "https://google.com/search/howsearchworks/?fg=1"
-    },
-    "61": {
-      "label": "Privacy",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/privacy']",
-        "a.pHiOh"
-      ],
-      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
-    },
-    "62": {
-      "label": "Terms",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/terms']",
-        "a.pHiOh"
-      ],
-      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
-    },
-    "63": {
-      "label": "Settings",
-      "type": "Button",
-      "tag": "div",
-      "selectors": [
-        "div.CcNe6e"
+        "#extPageBtn",
+        "button.ext-toggle-btn"
       ],
       "href": null
     }

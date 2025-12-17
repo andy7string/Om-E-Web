@@ -824,13 +824,48 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         }
 
     elif action == "SetCurrentChat":
-        # Set the active chat
+        # Set the active chat - supports chat_id, exact title, or fuzzy title lookup
         chat_id = params.get("chat_id")
         if not chat_id:
             return {"error": "Missing chat_id parameter"}
 
-        # Verify chat exists
+        # Try exact chat_id match first
         chat_dict = load_chat(chat_id)
+
+        # If not found, try title lookup (fuzzy matching)
+        if chat_dict is None:
+            search_term = chat_id.lower().strip()
+            all_chats = list_chats()
+            matches = []
+
+            for chat_info in all_chats:
+                title = chat_info.get("title", "").lower().strip()
+                # Exact match takes priority
+                if title == search_term:
+                    matches = [chat_info]
+                    break
+                # Fuzzy: title contains search term or search term contains title
+                if search_term in title or title in search_term:
+                    matches.append(chat_info)
+
+            if len(matches) == 1:
+                # Single match - load it
+                chat_id = matches[0]["chat_id"]
+                chat_dict = load_chat(chat_id)
+                print(f"💬 Found chat by title: '{search_term}' -> {chat_id}")
+            elif len(matches) > 1:
+                # Multiple matches - return list for user to choose
+                print(f"💬 Multiple matches for '{search_term}': {len(matches)}")
+                choices = []
+                for i, m in enumerate(matches[:5], 1):  # Limit to 5
+                    choices.append(f"{i}. {m['title']}")
+                return {
+                    "multiple_matches": True,
+                    "message": f"Found {len(matches)} chats matching '{chat_id}':",
+                    "choices": choices,
+                    "matches": [{"number": i+1, "chat_id": m["chat_id"], "title": m["title"]} for i, m in enumerate(matches[:5])]
+                }
+
         if chat_dict is None:
             return {"error": f"Chat not found: {chat_id}"}
 
