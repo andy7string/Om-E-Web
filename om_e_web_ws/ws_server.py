@@ -5025,11 +5025,19 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                             print("🤖 Created new LLM agent")
 
                         try:
+                            # Add stable tab numbers for LLM display
+                            tabs_with_numbers = []
+                            if CURRENT_TABS_INFO:
+                                for tab in CURRENT_TABS_INFO:
+                                    tab_copy = tab.copy()
+                                    tab_copy['number'] = get_stable_tab_number(tab.get('id')) or '?'
+                                    tabs_with_numbers.append(tab_copy)
+
                             print("🤖 LLMChat: Sending message to agent")
                             response_text = await LLM_AGENT.chat(
                                 message,
                                 active_tab=CURRENT_ACTIVE_TAB,
-                                tabs=CURRENT_TABS_INFO,
+                                tabs=tabs_with_numbers,
                                 hud_state=hud_state
                             )
 

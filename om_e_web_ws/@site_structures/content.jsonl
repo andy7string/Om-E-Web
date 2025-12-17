@@ -1,42 +1,42 @@
 {
-  "timestamp": 1765953346.242271,
+  "timestamp": 1765959684.3147469,
   "browser_state": {
     "total_tabs": 3,
     "active_tab": {
-      "id": 1138051613,
-      "url": "https://www.youtube.com/",
-      "title": "YouTube",
-      "status": "loading"
+      "id": 1138051654,
+      "url": "https://www.google.com/?zx=1765959606912&no_sw_cr=1",
+      "title": "Google",
+      "status": "complete"
     },
     "all_tabs": [
       {
-        "id": 1138051580,
+        "id": 1138051634,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138051609,
-        "url": "http://127.0.0.1:8080/",
-        "title": "OM-E Web",
-        "active": false,
+        "id": 1138051654,
+        "url": "https://www.google.com/?zx=1765959606912&no_sw_cr=1",
+        "title": "Google",
+        "active": true,
         "status": "complete"
       },
       {
-        "id": 1138051613,
-        "url": "https://www.youtube.com/",
-        "title": "YouTube",
-        "active": true,
-        "status": "loading"
+        "id": 1138051658,
+        "url": "https://www.facebook.com/",
+        "title": "(1) Facebook",
+        "active": false,
+        "status": "complete"
       }
     ],
-    "last_tabs_update": 37195.896935958,
+    "last_tabs_update": 43521.498275916,
     "extension_connected": true
   },
   "current_page": {
-    "url": "https://www.youtube.com/",
-    "title": "YouTube",
+    "url": "https://www.google.com/?zx=1765959606912&no_sw_cr=1",
+    "title": "Google",
     "is_active_tab": true
   },
   "content_structure": {},

@@ -7039,10 +7039,10 @@
                 clear_history: clearHistory
             };
 
-            // 📚 Include visible chats if sidebar open AND chat list expanded
+            // 📚 Include visible chats ONLY when in HUD view with sidebar open and chat list expanded
             const chatListEl = hudState.hud?.querySelector('.ome-sidebar-chat-list');
             const chatListExpanded = chatListEl && !chatListEl.classList.contains('collapsed');
-            if (hudState.sidebarOpen && chatListExpanded && hudState.visibleChats.length > 0) {
+            if (hudState.visible && hudState.sidebarOpen && chatListExpanded && hudState.visibleChats.length > 0) {
                 params.hud_state = {
                     sidebar_open: true,
                     visible_chats: hudState.visibleChats

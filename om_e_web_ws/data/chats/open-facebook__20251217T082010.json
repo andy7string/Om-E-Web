@@ -1,0 +1,147 @@
+{
+  "chat_id": "open-facebook__20251217T082010",
+  "project_id": "default",
+  "created_at": "2025-12-17T08:20:10.861683Z",
+  "updated_at": "2025-12-17T08:21:25.404366Z",
+  "title": "open facebook",
+  "default_title": "open facebook",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "https://www.google.com/?zx=1765959606912&no_sw_cr=1",
+    "page_title": "Google"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-17T08:20:10.861712Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening Facebook in a new tab for you. \n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
+      "timestamp": "2025-12-17T08:20:12.384186Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-17T08:20:18.897193Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Opening YouTube in a new tab for you.\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
+      "timestamp": "2025-12-17T08:20:20.108889Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "list your open tabs",
+      "timestamp": "2025-12-17T08:20:26.465971Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Here are your open tabs:\n1. Extensions\n2. Google\n3. Facebook (1)\n4. YouTube (51) - active",
+      "timestamp": "2025-12-17T08:20:28.755613Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "which one is active",
+      "timestamp": "2025-12-17T08:20:32.152158Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "The active tab is YouTube (51).",
+      "timestamp": "2025-12-17T08:20:32.792794Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "close youtube",
+      "timestamp": "2025-12-17T08:20:36.402737Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Closing the YouTube tab for you.\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 4}}",
+      "timestamp": "2025-12-17T08:20:37.314009Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "which tab is active now",
+      "timestamp": "2025-12-17T08:20:45.944336Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "The active tab is Facebook (1).",
+      "timestamp": "2025-12-17T08:20:46.732535Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "scroll dowwn",
+      "timestamp": "2025-12-17T08:20:56.504104Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Scrolling down the Facebook page for you.\n{\"cap\": \"ScrollDown\"}",
+      "timestamp": "2025-12-17T08:20:57.627736Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "scroll up",
+      "timestamp": "2025-12-17T08:21:01.524167Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Scrolling up the Facebook page for you.\n{\"cap\": \"ScrollUp\"}",
+      "timestamp": "2025-12-17T08:21:02.243529Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "switch to google",
+      "timestamp": "2025-12-17T08:21:08.898675Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Switching to the Google tab for you.\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 2}}",
+      "timestamp": "2025-12-17T08:21:09.897175Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "shutdown facebook",
+      "timestamp": "2025-12-17T08:21:17.209206Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Could you please confirm if you want to close the Facebook tab?",
+      "timestamp": "2025-12-17T08:21:17.964667Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "yes",
+      "timestamp": "2025-12-17T08:21:24.284074Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Closing the Facebook tab for you.\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 3}}",
+      "timestamp": "2025-12-17T08:21:25.404366Z"
+    }
+  ]
+}

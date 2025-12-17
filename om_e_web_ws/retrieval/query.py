@@ -192,7 +192,7 @@ def build_system_prompt(
 
     # Build context section
     prompt += "\n────────────────────────\n"
-    prompt += "CONTEXT\n"
+    prompt += "CONTEXT (SOURCE OF TRUTH)\n"
     prompt += "────────────────────────\n\n"
 
     # Active tab
@@ -200,20 +200,19 @@ def build_system_prompt(
         prompt += f"**Active Tab:** {active_tab.get('title', 'Unknown')}\n"
         prompt += f"**URL:** {active_tab.get('url', 'Unknown')}\n\n"
 
-    # Open tabs
+    # Open tabs (use stable numbers from registry)
     if tabs:
         prompt += "**Open Tabs:**\n"
         for tab in tabs:
             marker = " ← active" if tab.get('active') else ""
-            prompt += f"- Tab {tab.get('id', '?')}: {tab.get('title', 'Unknown')}{marker}\n"
+            prompt += f"- Tab {tab.get('number', '?')}: {tab.get('title', 'Unknown')}{marker}\n"
         prompt += "\n"
 
     # 📚 Visible chats (if sidebar open with chat list expanded)
     if hud_state and hud_state.get('visible_chats'):
         visible_chats = hud_state['visible_chats']
         count = len(visible_chats)
-        prompt += f"**CHAT COUNT: {count}** (THIS IS CURRENT - ignore what you said earlier in conversation)\n"
-        prompt += "Visible Chats:\n"
+        prompt += f"**Visible Chats ({count}):**\n"
         for i, chat in enumerate(visible_chats, 1):
             title = chat.get('title', 'Untitled')
             msg_count = chat.get('message_count', 0)

@@ -1,0 +1,195 @@
+{
+  "chat_id": "open-youtube__20251217T080910",
+  "project_id": "default",
+  "created_at": "2025-12-17T08:09:10.000727Z",
+  "updated_at": "2025-12-17T08:11:21.107789Z",
+  "title": "open youtube",
+  "default_title": "open youtube",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-17T08:09:10.000764Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Opening YouTube in a new tab.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://youtube.com\"}}",
+      "timestamp": "2025-12-17T08:09:11.485002Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-17T08:09:16.057623Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Opening Facebook in a new tab.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://facebook.com\"}}",
+      "timestamp": "2025-12-17T08:09:16.845283Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-17T08:09:21.031274Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Opening Google in a new tab.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "timestamp": "2025-12-17T08:09:23.137607Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "list my tabs",
+      "timestamp": "2025-12-17T08:09:25.806836Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Here are your open tabs:\n\n1. Extensions\n2. OM-E Web\n3. YouTube\n4. Facebook\n5. Google (active)\n\nLet me know if you want to switch to or close any of these tabs.",
+      "timestamp": "2025-12-17T08:09:27.194506Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "close ome",
+      "timestamp": "2025-12-17T08:09:31.771141Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Closing the OM-E Web tab.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1138051637}}",
+      "timestamp": "2025-12-17T08:09:32.799902Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "whats the current tab",
+      "timestamp": "2025-12-17T08:09:39.017794Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Your current tab is Google.",
+      "timestamp": "2025-12-17T08:09:39.884033Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "switch to youtube",
+      "timestamp": "2025-12-17T08:09:44.739115Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Switching to the YouTube tab.\n\n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1138051641}}",
+      "timestamp": "2025-12-17T08:09:45.634411Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "whats the current tab",
+      "timestamp": "2025-12-17T08:09:49.841044Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Your current tab is YouTube.",
+      "timestamp": "2025-12-17T08:09:50.689854Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "what tab am i on",
+      "timestamp": "2025-12-17T08:09:59.899534Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "You are currently on the YouTube tab.",
+      "timestamp": "2025-12-17T08:10:01.468334Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "list your tabs",
+      "timestamp": "2025-12-17T08:10:06.539393Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Here are your open tabs:\n\n1. Extensions\n2. YouTube (current)\n3. Facebook\n4. Google\n\nLet me know if you want to switch to or close any of these tabs.",
+      "timestamp": "2025-12-17T08:10:07.894746Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "which one is the active",
+      "timestamp": "2025-12-17T08:10:13.714724Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "The active tab is YouTube.",
+      "timestamp": "2025-12-17T08:10:14.495264Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "look at your tabs",
+      "timestamp": "2025-12-17T08:10:19.748933Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Here are the open tabs I see:\n\n1. Extensions\n2. YouTube (current)\n3. Facebook\n4. Google\n\nThe current active tab is YouTube.",
+      "timestamp": "2025-12-17T08:10:20.832923Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "dude list my tabs",
+      "timestamp": "2025-12-17T08:11:08.411109Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Here are your open tabs:\n\n1. Extensions\n2. (51) YouTube\n3. (1) Facebook\n4. Google (active)\n\nLet me know if you want to switch to or close any of these tabs.",
+      "timestamp": "2025-12-17T08:11:09.792298Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "which one is active",
+      "timestamp": "2025-12-17T08:11:13.466451Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "The active tab is Google.",
+      "timestamp": "2025-12-17T08:11:14.143637Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "really close google",
+      "timestamp": "2025-12-17T08:11:19.997575Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Closing the Google tab.\n\n{\"cap\": \"CloseTab\", \"params\": {\"tabId\": 1138051647}}",
+      "timestamp": "2025-12-17T08:11:21.107789Z"
+    }
+  ]
+}

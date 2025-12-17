@@ -1,1089 +1,720 @@
 {
   "metadata": {
-    "url": "https://www.youtube.com/",
-    "title": "YouTube",
-    "timestamp": "2025-12-17T06:35:46Z",
-    "element_count": 105
+    "url": "https://www.google.com/?zx=1765959606912&no_sw_cr=1",
+    "title": "Google",
+    "timestamp": "2025-12-17T08:21:24Z",
+    "element_count": 64
   },
   "elements": {
     "0": {
-      "label": "Guide",
-      "type": "Button",
-      "tag": "button",
-      "selectors": [
-        "button[aria-label='Guide']",
-        "[aria-label='Guide']",
-        "button.style-scope.yt-icon-button"
-      ],
-      "href": null
-    },
-    "1": {
-      "label": "YouTube Premium Home",
+      "label": "About",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='YouTube Premium Home']",
-        "[aria-label='YouTube Premium Home']",
-        "#logo",
-        "a.yt-simple-endpoint.style-scope"
+        "a.MV3Tnb"
       ],
-      "href": "https://www.youtube.com/?bp=wgUCEAE%3D"
+      "href": "https://about.google/?fg=1&utm_source=google-AU&utm_medium=referral&utm_campaign=hp-header"
+    },
+    "1": {
+      "label": "Store",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/AU']",
+        "a.MV3Tnb"
+      ],
+      "href": "https://store.google.com/AU?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-AU"
     },
     "2": {
-      "label": "Skip navigation",
-      "type": "Button",
-      "tag": "button",
+      "label": "Gmail",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Skip navigation']",
-        "[aria-label='Skip navigation']",
-        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
+        "a[aria-label='Gmail ']",
+        "[aria-label='Gmail ']",
+        "a[href*='/mail/']",
+        "[data-pid='23']",
+        "a.gb_Z"
       ],
-      "href": null
+      "href": "https://mail.google.com/mail/?authuser=0&ogbl"
     },
     "3": {
-      "label": "Search",
-      "type": "Input",
-      "tag": "input",
+      "label": "Search for Images",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "input[name='search_query']",
-        "input[placeholder='Search']",
-        "input[type='text'][name='search_query']",
-        "input.ytSearchboxComponentInput.yt-searchbox-input"
+        "a[aria-label='Search for Images ']",
+        "[aria-label='Search for Images ']",
+        "a[href*='/imghp']",
+        "[data-pid='2']",
+        "a.gb_Z"
       ],
-      "href": null
+      "href": "https://www.google.com/imghp?hl=en&authuser=0&ogbl"
     },
     "4": {
-      "label": "Search",
+      "label": "Google apps",
       "type": "Button",
-      "tag": "button",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Search']",
-        "[aria-label='Search']",
-        "button.ytSearchboxComponentSearchButton.ytSearchboxComponentSearchButtonDark"
+        "a[aria-label='Google apps']",
+        "[aria-label='Google apps']",
+        "[role='button'][aria-label='Google apps']",
+        "a[href*='/intl/en/about/products']",
+        "a.gb_B"
       ],
-      "href": null
+      "href": "https://www.google.com.au/intl/en/about/products"
     },
     "5": {
-      "label": "Search with your voice",
+      "label": "Google Account: Andrew Orsmond  \n(andreworsmond21175@gmail.com)",
       "type": "Button",
-      "tag": "button",
+      "tag": "a",
       "selectors": [
-        "button[aria-label='Search with your voice']",
-        "[aria-label='Search with your voice']",
-        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+        "a[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "[role='button'][aria-label='Google Account: Andrew Orsmond  \\\n(andreworsmond21175@gmail.com)']",
+        "a[href*='/SignOutOptions']",
+        "a.gb_B.gb_0a"
       ],
-      "href": null
+      "href": "https://accounts.google.com/SignOutOptions?hl=en&continue=https://www.google.com/&ec=futura_exp_og_si_72776762_e"
     },
     "6": {
-      "label": "Create",
+      "label": "Upload files or images",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Create']",
-        "[aria-label='Create']",
-        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
+        "button[aria-label='Upload files or images']",
+        "[aria-label='Upload files or images']",
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ0J0RCA8']",
+        "button.sF3Vod"
       ],
       "href": null
     },
     "7": {
-      "label": "Notifications",
-      "type": "Button",
-      "tag": "button",
+      "label": "Search",
+      "type": "Select",
+      "tag": "textarea",
       "selectors": [
-        "button[aria-label='Notifications']",
-        "[aria-label='Notifications']",
-        "button.style-scope.yt-icon-button"
+        "textarea[aria-label='Search']",
+        "[aria-label='Search']",
+        "#APjFqb",
+        "textarea[name='q']",
+        "[role='combobox'][aria-label='Search']",
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ39UDCBQ']",
+        "textarea.gLFyf"
       ],
       "href": null
     },
     "8": {
-      "label": "Account menu",
+      "label": "Search by voice",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button[aria-label='Account menu']",
-        "[aria-label='Account menu']",
-        "#avatar-btn",
-        "button.style-scope.ytd-topbar-menu-button-renderer"
+        "div[aria-label='Search by voice']",
+        "[aria-label='Search by voice']",
+        "[role='button'][aria-label='Search by voice']",
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQvs8DCBY']",
+        "div.XDyW0e"
       ],
       "href": null
     },
     "9": {
-      "label": "All",
+      "label": "Search by image",
       "type": "Button",
-      "tag": "button",
+      "tag": "div",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "div[aria-label='Search by image']",
+        "[aria-label='Search by image']",
+        "[role='button'][aria-label='Search by image']",
+        "[data-base-lens-url='https://lens.google.com']",
+        "div.nDcEnd"
       ],
       "href": null
     },
     "10": {
-      "label": "Podcasts",
+      "label": "AI Mode",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQteYPCBg']",
+        "button.plR5qb.Y5MKCd"
       ],
       "href": null
     },
     "11": {
-      "label": "Music",
+      "label": "Google Search",
       "type": "Button",
-      "tag": "button",
+      "tag": "input",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "input[aria-label='Google Search']",
+        "[aria-label='Google Search']",
+        "input[name='btnK']",
+        "[role='button'][aria-label='Google Search']",
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ4dUDCCU']",
+        "input[type='submit'][name='btnK']",
+        "input.gNO89b"
       ],
       "href": null
     },
     "12": {
-      "label": "News",
+      "label": "I'm Feeling Lucky",
       "type": "Button",
-      "tag": "button",
+      "tag": "input",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "input[aria-label='I\\'m Feeling Lucky']",
+        "[aria-label='I\\'m Feeling Lucky']",
+        "input[name='btnI']",
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ19QECCY']",
+        "input[type='submit'][name='btnI']",
+        "input.RNmpXc"
       ],
       "href": null
     },
     "13": {
-      "label": "AI",
-      "type": "Button",
-      "tag": "button",
+      "label": "Skip to Discover feed",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ67oDCCg']",
+        "a.JMWBtb"
       ],
-      "href": null
+      "href": "https://www.google.com/?zx=1765959606912&no_sw_cr=1#"
     },
     "14": {
-      "label": "Mixes",
-      "type": "Button",
-      "tag": "button",
+      "label": "Skip to sidebar",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ67oDCCk']",
+        "a.JMWBtb"
       ],
-      "href": null
+      "href": "https://www.google.com/?zx=1765959606912&no_sw_cr=1#"
     },
     "15": {
-      "label": "Live",
-      "type": "Button",
-      "tag": "button",
+      "label": "Skip to footer",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "[data-ved='0ahUKEwiSgaaYmMSRAxVDUGwGHWtZKggQ67oDCCo']",
+        "a.JMWBtb"
       ],
-      "href": null
+      "href": "https://www.google.com/?zx=1765959606912&no_sw_cr=1#"
     },
     "16": {
-      "label": "Computer Hardware",
-      "type": "Button",
-      "tag": "button",
+      "label": "Accessibility help",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "a[href*='/websearch/answer/181196']",
+        "a.JMWBtb"
       ],
-      "href": null
+      "href": "https://support.google.com/websearch/answer/181196?hl=en-AU"
     },
     "17": {
-      "label": "Strings",
-      "type": "Button",
-      "tag": "button",
+      "label": "Accessibility feedback",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "[data-async-trigger='duf3-78']",
+        "a.JMWBtb"
       ],
-      "href": null
+      "href": "https://www.google.com/?zx=1765959606912&no_sw_cr=1#"
     },
     "18": {
-      "label": "Bass guitar",
-      "type": "Button",
-      "tag": "button",
+      "label": "Bondi Beach gunman Naveed Akram regains consciousness — as it happened\nBondi Beach will remain a crime scene, with security around Sydney's eastern suburbs bolstered.\nAustralian Broadcasting Corporation\n · \n1d",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "a[href*='/news/2025-12-16/bondi-beach-shooting-terrorist-attack-december-16/106147374']",
+        "[data-hveid='CBcQAQ']"
       ],
-      "href": null
+      "href": "https://www.abc.net.au/news/2025-12-16/bondi-beach-shooting-terrorist-attack-december-16/106147374"
     },
     "19": {
-      "label": "Dinosaurs",
+      "label": "More options",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQAw']",
+        "button.hiEo0c"
       ],
       "href": null
     },
     "20": {
-      "label": "Hard Rock",
-      "type": "Button",
-      "tag": "button",
+      "label": "Australian Dollar weakens as US Dollar advances on mixed Fed outlook\nThe Australian Dollar (AUD) declines against the US Dollar (USD) on Wednesday, extending its losses for the fifth consecutive day.\nFXStreet\n · \n5h",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "a[href*='/news/australian-dollar-extends-losses-as-usd-stays-firm-amid-fading-fed-rate-cut-bets-202512170220']",
+        "[data-hveid='CDwQAQ']"
       ],
-      "href": null
+      "href": "https://www.fxstreet.com/news/australian-dollar-extends-losses-as-usd-stays-firm-amid-fading-fed-rate-cut-bets-202512170220"
     },
     "21": {
-      "label": "Christmas Music",
+      "label": "More options",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQBQ']",
+        "button.hiEo0c"
       ],
       "href": null
     },
     "22": {
-      "label": "Animated films",
-      "type": "Button",
-      "tag": "button",
+      "label": "GWM unveils Ora 5 EV for around $20,000, could be headed to Australia\nGWM unveils a new EV, the Ora 5 pure electric SUV, with a starting price that would convert to around $A20,000, and which could be headed to Australia.\nThe Driven\n · \n5h",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "a[href*='/2025/12/17/gwm-unveils-ora-5-ev-for-under-22000/']",
+        "[data-hveid='CGMQAQ']"
       ],
-      "href": null
+      "href": "https://thedriven.io/2025/12/17/gwm-unveils-ora-5-ev-for-under-22000/"
     },
     "23": {
-      "label": "Sales",
+      "label": "More options",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQBw']",
+        "button.hiEo0c"
       ],
       "href": null
     },
     "24": {
-      "label": "Bodybuilding",
-      "type": "Button",
-      "tag": "button",
+      "label": "Apple Music is coming to ChatGPT, OpenAI announces\nSoon, you'll be able to ask ChatGPT to quickly create Apple Music playlists, among other things. Here's why.\n9to5Mac\n · \n12h",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "a[href*='/2025/12/16/apple-music-is-coming-to-chatgpt-openai-announces/']",
+        "[data-hveid='CIoBEAE']"
       ],
-      "href": null
+      "href": "https://9to5mac.com/2025/12/16/apple-music-is-coming-to-chatgpt-openai-announces/"
     },
     "25": {
-      "label": "Cars",
+      "label": "More options",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQCQ']",
+        "button.hiEo0c"
       ],
       "href": null
     },
     "26": {
-      "label": "Recently uploaded",
-      "type": "Button",
-      "tag": "button",
+      "label": "Australia’s Consumer Confidence Slumps After RBA Turns Hawkish\nAustralia's consumer confidence slumped in December as the Reserve Bank indicated that its brief easing cycle has come to an end and there's the potential...\nBloomberg.com\n · \n1d",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "a[href*='/news/articles/2025-12-15/australia-s-consumer-confidence-slumps-after-rba-turns-hawkish']",
+        "[data-hveid='CLEBEAE']"
       ],
-      "href": null
+      "href": "https://www.bloomberg.com/news/articles/2025-12-15/australia-s-consumer-confidence-slumps-after-rba-turns-hawkish"
     },
     "27": {
-      "label": "Watched",
+      "label": "More options",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQCw']",
+        "button.hiEo0c"
       ],
       "href": null
     },
     "28": {
-      "label": "New to you",
-      "type": "Button",
-      "tag": "button",
+      "label": "Motion through quantum space–time is traced by ‘q-desics’\nSubtle quantum effects could be observed in how particles traverse cosmological distances.\nPhysics World\n · \n15h",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "button.ytChipShapeButtonReset"
+        "a[href*='/a/motion-through-quantum-space-time-is-traced-by-q-desics/']",
+        "[data-hveid='CNgBEAE']"
       ],
-      "href": null
+      "href": "https://physicsworld.com/a/motion-through-quantum-space-time-is-traced-by-q-desics/"
     },
     "29": {
-      "label": "Next",
+      "label": "More options",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Next']",
-        "[aria-label='Next']",
-        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQDQ']",
+        "button.hiEo0c"
       ],
       "href": null
     },
     "30": {
-      "label": "5:52",
+      "label": "🚨: NASA’s MAVEN Spacecraft lost contact with Earth after Close-Encounter with 3I/ATLAS raising new questions as the interstellar approaches Earth\nforallcurious\nX\n · \n1d",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
+        "a[href*='/forallcurious/status/2000738842928697681']",
+        "[data-hveid='COkBEAE']"
       ],
-      "href": "https://www.youtube.com/watch?v=4ZsYz9pGjQs&pp=0gcJCTwKAYcqIYzv"
+      "href": "https://x.com/forallcurious/status/2000738842928697681"
     },
     "31": {
-      "label": "Calls for Anthony Albanese to ‘resign’ amid Bondi terrorist incident 5 minutes, 52 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Calls for Anthony Albanese to ‘resign’ amid Bondi terrorist incident 5 minutes, 52 seconds']",
-        "[aria-label='Calls for Anthony Albanese to ‘resign’ amid Bondi terrorist incident 5 minutes, 52 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=4ZsYz9pGjQs&pp=0gcJCTwKAYcqIYzv"
-    },
-    "32": {
-      "label": "Sky News Australia",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@SkyNewsAustralia']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@SkyNewsAustralia"
-    },
-    "33": {
-      "label": "4:21",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=OsLMfc004Io&list=RDOsLMfc004Io&start_radio=1&pp=oAcB"
-    },
-    "34": {
-      "label": "AVE MARIA - (EPIC VERSION) Tommy Johansson 4 minutes, 21 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='AVE MARIA - (EPIC VERSION) Tommy Johansson 4 minutes, 21 seconds']",
-        "[aria-label='AVE MARIA - (EPIC VERSION) Tommy Johansson 4 minutes, 21 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=OsLMfc004Io&list=RDOsLMfc004Io&start_radio=1&pp=oAcB"
-    },
-    "35": {
-      "label": "Tommy Johansson",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/channel/UCOOPJ4JWcKERf9KgARnuzeA']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/channel/UCOOPJ4JWcKERf9KgARnuzeA"
-    },
-    "36": {
-      "label": "22:52",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=dM5T0Oj9-90&pp=0gcJCTwKAYcqIYzv"
-    },
-    "37": {
-      "label": "Launch a $1M AI Business Solo — No Employees, No Investment, No Code 22 minutes",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Launch a $1M AI Business Solo — No Employees, No Investment, No Code 22 minutes']",
-        "[aria-label='Launch a $1M AI Business Solo — No Employees, No Investment, No Code 22 minutes']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=dM5T0Oj9-90&pp=0gcJCTwKAYcqIYzv"
-    },
-    "38": {
-      "label": "Silicon Valley Girl",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@SiliconValleyGirl']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@SiliconValleyGirl"
-    },
-    "39": {
-      "label": "Asking mom of 3 👧🏻 how she stays so fit. #miami #fitmom #workout #interview #fitness",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/2DKv6Jq3Z40']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/2DKv6Jq3Z40"
-    },
-    "40": {
-      "label": "Who else is obsessed with this dance????",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/9nwWi6pktw4']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/9nwWi6pktw4"
-    },
-    "41": {
-      "label": "Presentándole mi novio a mis papás.",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/SB04dVX9BpM']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/SB04dVX9BpM"
-    },
-    "42": {
-      "label": "best day of the week 🤭 #mealprep #mealprepideas #asmr #gymmotivation",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/Q2aXpmEIZSQ']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/Q2aXpmEIZSQ"
-    },
-    "43": {
-      "label": "The most Brutall 👑Hell Angels President Necati Arabacı⚪️❗️",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/AWAv4JdmopU']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/AWAv4JdmopU"
-    },
-    "44": {
-      "label": "58:23",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=iTNi5qhHxCs"
-    },
-    "45": {
-      "label": "Ruuh Ruuh   روح روح – Arabic Sufi Techno House Mix 58 minutes",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Ruuh Ruuh   روح روح – Arabic Sufi Techno House Mix 58 minutes']",
-        "[aria-label='Ruuh Ruuh   روح روح – Arabic Sufi Techno House Mix 58 minutes']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=iTNi5qhHxCs"
-    },
-    "46": {
-      "label": "Arabian Bassline",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@ArabianBassline-n2v']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@ArabianBassline-n2v"
-    },
-    "47": {
-      "label": "9:26",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=pxeShNkNzAM&pp=ugUEEgJlbg%3D%3D"
-    },
-    "48": {
-      "label": "EXPOSING the ELITE'S UNTHINKABLE Sadistic Rituals – Anneke Lucas 9 minutes, 26 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='EXPOSING the ELITE\\'S UNTHINKABLE Sadistic Rituals – Anneke Lucas 9 minutes, 26 seconds']",
-        "[aria-label='EXPOSING the ELITE\\'S UNTHINKABLE Sadistic Rituals – Anneke Lucas 9 minutes, 26 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=pxeShNkNzAM&pp=ugUEEgJlbg%3D%3D"
-    },
-    "49": {
-      "label": "heretics. clips",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@hereticsclips']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@hereticsclips"
-    },
-    "50": {
-      "label": "10:43",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=nzioqnCWa5k&pp=ugUEEgJlbg%3D%3D"
-    },
-    "51": {
-      "label": "How to become a $300,000 AI Engineer 10 minutes, 43 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='How to become a $300,000 AI Engineer 10 minutes, 43 seconds']",
-        "[aria-label='How to become a $300,000 AI Engineer 10 minutes, 43 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=nzioqnCWa5k&pp=ugUEEgJlbg%3D%3D"
-    },
-    "52": {
-      "label": "Sahil & Sarra",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@sahilandsarra']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@sahilandsarra"
-    },
-    "53": {
-      "label": "Not interested",
+      "label": "More options",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Not interested']",
-        "[aria-label='Not interested']",
-        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQDw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "32": {
+      "label": "LG Quietly Installs Microsoft Copilot on Its Smart TVs—And You Can't Delete It\nMicrosoft Copilot app is now appearing on LG TVs after a recent software update, and some say it's another example of the tech industry forcing AI on...\nPCMag\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/lg-quietly-installs-microsoft-copilot-on-its-smart-tvs-and-you-cant-delete']",
+        "[data-hveid='CJACEAE']"
+      ],
+      "href": "https://www.pcmag.com/news/lg-quietly-installs-microsoft-copilot-on-its-smart-tvs-and-you-cant-delete"
+    },
+    "33": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQEQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "34": {
+      "label": "18:29\nScientists in Germany Built a Teleporter\nBRIGHT SIDE\nYouTube\n · \n13h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-hveid='CLYCEAE']"
+      ],
+      "href": "https://www.youtube.com/watch?v=2C8QOTl7f4E"
+    },
+    "35": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQEw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "36": {
+      "label": "“Every time I go to plug in, it feels like Christmas. I knew it was going to be useful. I just didn’t realize how useful”: Steve Vai on the first mini amp he found that could truly punch above its weight\nMany would argue it is the ultimate practice amp. Vai would be one of them – indeed he loved it so much he put his name on it.\nGuitar World\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/gear/amps/steve-vai-on-his-signature-positive-grid-spark-mini']",
+        "[data-hveid='CN0CEAE']"
+      ],
+      "href": "https://www.guitarworld.com/gear/amps/steve-vai-on-his-signature-positive-grid-spark-mini"
+    },
+    "37": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQFQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "38": {
+      "label": "0:56\nChatGPT Images\nWe're releasing a new version of ChatGPT Images⁠, powered by our new flagship image generation model. Now, whether you're creating something from scratch or...\nOpenAI\nYouTube\n · \n14h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "[data-hveid='CBYQAQ']"
+      ],
+      "href": "https://www.youtube.com/watch?v=DPBtd57p5Mg"
+    },
+    "39": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQFw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "40": {
+      "label": "0:12\nClaude will now automatically suggest your next prompt. After a task finishes, Claude will occasionally show a followup suggestion in ghost text. Press Enter to send it or Tab to prefill your next prompt.\nClaude\nX\n · \n12h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/claudeai/status/2001010062769434785']",
+        "[data-hveid='CDgQAQ']"
+      ],
+      "href": "https://x.com/claudeai/status/2001010062769434785"
+    },
+    "41": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQGQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "42": {
+      "label": "Property experts reveal $3000 a week passive income strategy\nReal estate investment experts have laid out a roadmap showing how ordinary households can build $3000 a week in passive income through property.\nReal Estate\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/property-experts-reveal-3000-a-week-passive-income-strategy/']",
+        "[data-hveid='CF0QAQ']"
+      ],
+      "href": "https://www.realestate.com.au/news/property-experts-reveal-3000-a-week-passive-income-strategy/"
+    },
+    "43": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQGw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "44": {
+      "label": "Samsung flagships are no longer seen as proper high-end phones: can the Galaxy S26 Ultra succeed?\nA clear majority of you say Samsung's flagships are no longer a \"good choice\".\nPhoneArena\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/news/samsung-flagships-are-no-longer-seen-as-proper-high-end-phones_id176626']",
+        "[data-hveid='CIQBEAE']"
+      ],
+      "href": "https://www.phonearena.com/news/samsung-flagships-are-no-longer-seen-as-proper-high-end-phones_id176626"
+    },
+    "45": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQHQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "46": {
+      "label": "OpenAI plays musical chips, WTI off lows as US blockades VE Oil, JP good data continues\nAsia Market Update: OpenAI plays musical chips; WTI off lows as US blockades VE oil; JP good data continues; Asia FX Vol as EQ's mainly flat.\nFXStreet\n · \n2h",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CKsBEAE']"
+      ],
+      "href": "https://www.fxstreet.com/analysis/openai-plays-musical-chips-wti-off-lows-as-us-blockades-ve-oil-jp-good-data-continues-202512170539"
+    },
+    "47": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQHw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "48": {
+      "label": "How are dark matter and antimatter different?\nNormal matter – which makes up everything we see and touch – isn't the only type of matter present in the universe.\nThe Conversation\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/how-are-dark-matter-and-antimatter-different-270362']",
+        "[data-hveid='CNABEAE']"
+      ],
+      "href": "https://theconversation.com/how-are-dark-matter-and-antimatter-different-270362"
+    },
+    "49": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQIQ']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "50": {
+      "label": "The ‘one chatbot per child’ model for AI in classrooms conflicts with what research shows: Learning is a social process\nAI tutors are often held up as an ideal, but prioritizing individualized teaching can detract from the benefits of learning in social environments.\nThe Conversation\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "[data-hveid='CPUBEAE']"
+      ],
+      "href": "https://theconversation.com/the-one-chatbot-per-child-model-for-ai-in-classrooms-conflicts-with-what-research-shows-learning-is-a-social-process-269885"
+    },
+    "51": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQIw']",
+        "button.hiEo0c"
+      ],
+      "href": null
+    },
+    "52": {
+      "label": "Supercars news: Australia’s largest Toyota dealership to back BJR\nBrad Jones Racing's first year as a Toyota team will be backed by the Japanese marque's largest dealership in Australia. - Australia's #1 motorsport news...\nSpeedcafe.com\n · \n1d",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/supercars-news-2025-brad-jones-racing-sci-fleet-toyota-deal-agreement-sponsorship-details-2026/']",
+        "[data-hveid='CJ4CEAE']"
+      ],
+      "href": "https://speedcafe.com/supercars-news-2025-brad-jones-racing-sci-fleet-toyota-deal-agreement-sponsorship-details-2026/"
+    },
+    "53": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQJQ']",
+        "button.hiEo0c"
       ],
       "href": null
     },
     "54": {
-      "label": "8:17",
+      "label": "NASA’s Webb Observes Exoplanet Whose Composition Defies Explanation\nScientists using NASA's James Webb Space Telescope have observed a rare type of exoplanet, or planet outside our solar system, whose atmospheric composition...\nNASA Science (.gov)\n · \n17h",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
+        "a[href*='/missions/webb/nasas-webb-observes-exoplanet-whose-composition-defies-explanation/']",
+        "[data-hveid='CMcCEAE']"
       ],
-      "href": "https://www.youtube.com/watch?v=P3GxJYV-g0k"
+      "href": "https://science.nasa.gov/missions/webb/nasas-webb-observes-exoplanet-whose-composition-defies-explanation/"
     },
     "55": {
-      "label": "First funerals held for Bondi victims; Second police officer identified | 9 News Australia 8 minutes, 17 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=P3GxJYV-g0k"
-    },
-    "56": {
-      "label": "9 News Australia",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@9NewsAUS']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@9NewsAUS"
-    },
-    "57": {
-      "label": "23:19",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=PPVkyzg5x9M&pp=0gcJCTwKAYcqIYzv"
-    },
-    "58": {
-      "label": "Josh Frydenberg urges PM Anthony Albanese to take tougher action after Bondi massacre | 7NEWS 23 minutes",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=PPVkyzg5x9M&pp=0gcJCTwKAYcqIYzv"
-    },
-    "59": {
-      "label": "7NEWS Australia",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@7news']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@7news"
-    },
-    "60": {
-      "label": "5:55",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=8WXHmri0isw"
-    },
-    "61": {
-      "label": "'You must fix it': Frydenberg says Australia 'has been radicalised' under Albanese's watch 5 minutes, 55 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=8WXHmri0isw"
-    },
-    "62": {
-      "label": "Sky News Australia",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@SkyNewsAustralia']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@SkyNewsAustralia"
-    },
-    "63": {
-      "label": "Show more",
+      "label": "More options",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "button[aria-label='Show more']",
-        "[aria-label='Show more']",
-        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--outline"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQJw']",
+        "button.hiEo0c"
       ],
       "href": null
     },
-    "64": {
-      "label": "21:50",
+    "56": {
+      "label": "Electricity generation costs would be a third lower with 82% renewable grid, CSIRO says\nModelling suggests main electricity market could run almost entirely on renewables without increase in generation cost by 2050.\nThe Guardian\n · \n11h",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
+        "a[href*='/australia-news/2025/dec/16/electricity-generation-costs-third-lower-82-renewable-grid']",
+        "[data-hveid='CO4CEAE']"
       ],
-      "href": "https://www.youtube.com/watch?v=0K5a1ql3Oc0"
+      "href": "https://www.theguardian.com/australia-news/2025/dec/16/electricity-generation-costs-third-lower-82-renewable-grid"
     },
-    "65": {
-      "label": "Multi-Millionaire Reveals BEST Way To 10x Your Income 21 minutes",
-      "type": "Link",
-      "tag": "a",
+    "57": {
+      "label": "More options",
+      "type": "Button",
+      "tag": "button",
       "selectors": [
-        "a[aria-label='Multi-Millionaire Reveals BEST Way To 10x Your Income 21 minutes']",
-        "[aria-label='Multi-Millionaire Reveals BEST Way To 10x Your Income 21 minutes']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
+        "button[aria-label='More options']",
+        "[aria-label='More options']",
+        "[data-ved='0CAAQu6gCahcKEwjY5auZmMSRAxUAAAAAHQAAAAAQKQ']",
+        "button.hiEo0c"
       ],
-      "href": "https://www.youtube.com/watch?v=0K5a1ql3Oc0"
+      "href": null
     },
-    "66": {
-      "label": "The Diary Of A CEO Clips",
+    "58": {
+      "label": "Advertising",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/@TheDiaryOfACEOClips']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+        "a[href*='/intl/en_au/ads/']",
+        "a.pHiOh"
       ],
-      "href": "https://www.youtube.com/@TheDiaryOfACEOClips"
+      "href": "https://www.google.com/intl/en_au/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1"
     },
-    "67": {
-      "label": "5:27",
+    "59": {
+      "label": "Business",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
+        "a[href*='/services/']",
+        "a.pHiOh"
       ],
-      "href": "https://www.youtube.com/watch?v=Lff3tOj85Wo&list=RDLff3tOj85Wo&start_radio=1&pp=oAcB"
+      "href": "https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1"
     },
-    "68": {
-      "label": "Digital Silk (Top Retro Deep House Music) 5 minutes, 27 seconds",
+    "60": {
+      "label": "How Search works",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[aria-label='Digital Silk (Top Retro Deep House Music) 5 minutes, 27 seconds']",
-        "[aria-label='Digital Silk (Top Retro Deep House Music) 5 minutes, 27 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
+        "a[href*='/search/howsearchworks/']",
+        "a.pHiOh"
       ],
-      "href": "https://www.youtube.com/watch?v=Lff3tOj85Wo&list=RDLff3tOj85Wo&start_radio=1&pp=oAcB"
+      "href": "https://google.com/search/howsearchworks/?fg=1"
     },
-    "69": {
-      "label": "Erazmus - Topic",
+    "61": {
+      "label": "Privacy",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/channel/UCGfMmMhCw1x3I3OnscgFYpg']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+        "a[href*='/privacy']",
+        "a.pHiOh"
       ],
-      "href": "https://www.youtube.com/channel/UCGfMmMhCw1x3I3OnscgFYpg"
+      "href": "https://policies.google.com/privacy?hl=en-AU&fg=1"
     },
-    "70": {
-      "label": "2:06:06",
+    "62": {
+      "label": "Terms",
       "type": "Link",
       "tag": "a",
       "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
+        "a[href*='/terms']",
+        "a.pHiOh"
       ],
-      "href": "https://www.youtube.com/watch?v=bfMJsxse6P8&list=RDbfMJsxse6P8&start_radio=1&pp=oAcB"
+      "href": "https://policies.google.com/terms?hl=en-AU&fg=1"
     },
-    "71": {
-      "label": "Metallica - Brisbane, Australia 2025 - Full Show - Multicam - SBD 2 hours, 6 minutes",
-      "type": "Link",
-      "tag": "a",
+    "63": {
+      "label": "Settings",
+      "type": "Button",
+      "tag": "div",
       "selectors": [
-        "a[aria-label='Metallica - Brisbane, Australia 2025 - Full Show - Multicam - SBD 2 hours, 6 minutes']",
-        "[aria-label='Metallica - Brisbane, Australia 2025 - Full Show - Multicam - SBD 2 hours, 6 minutes']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
+        "div.CcNe6e"
       ],
-      "href": "https://www.youtube.com/watch?v=bfMJsxse6P8&list=RDbfMJsxse6P8&start_radio=1&pp=oAcB"
-    },
-    "72": {
-      "label": "Jakeflix",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@thejakeflix']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@thejakeflix"
-    },
-    "73": {
-      "label": "my guy Lefty’s hilarious",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/t_Fas8DxqRQ']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/t_Fas8DxqRQ"
-    },
-    "74": {
-      "label": "Unbelievably Firm, Rounded, and Perfect Glutes 🍑🥰",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/L8Xn02WT7bA']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/L8Xn02WT7bA"
-    },
-    "75": {
-      "label": "Joe Rogan Reacts to WILD Candace Owens Interview",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/zsjcLEsJfZ0']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/zsjcLEsJfZ0"
-    },
-    "76": {
-      "label": "💃 Perfect Way To Make A Body Impression😘💃#silicone #casting #body #craft",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/Hl2mHh8iFRk']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/Hl2mHh8iFRk"
-    },
-    "77": {
-      "label": "Tesla Optimus 2.5's HANDS Are INSANE! (Fremont Factory Tour) by Grok Ai #tesla #teslaoptimus #ai",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/shorts/_4KsnDHh6S0']",
-        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
-      ],
-      "href": "https://www.youtube.com/shorts/_4KsnDHh6S0"
-    },
-    "78": {
-      "label": "10:18",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=nlGZZA_alsY&pp=ugUHEgVlbi1HQg%3D%3D"
-    },
-    "79": {
-      "label": "How I stay lean eating as much as I want 10 minutes, 18 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='How I stay lean eating as much as I want 10 minutes, 18 seconds']",
-        "[aria-label='How I stay lean eating as much as I want 10 minutes, 18 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=nlGZZA_alsY&pp=ugUHEgVlbi1HQg%3D%3D"
-    },
-    "80": {
-      "label": "jackhwoods",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@jackhwoods']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@jackhwoods"
-    },
-    "81": {
-      "label": "9:02",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=v4j1_qHLq9s&pp=ugUEEgJlbtIHCQk8CgGHKiGM7w%3D%3D"
-    },
-    "82": {
-      "label": "OpenCode Desktop: BEST AI Coding Agent Ever + FULLY FREE! BYE Gemini CLI & ClaudeCode! (Opensource) 9 minutes, 2 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=v4j1_qHLq9s&pp=ugUEEgJlbtIHCQk8CgGHKiGM7w%3D%3D"
-    },
-    "83": {
-      "label": "WorldofAI",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@intheworldofai']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@intheworldofai"
-    },
-    "84": {
-      "label": "6:33",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=BlfeDPMLQ8I"
-    },
-    "85": {
-      "label": "Can Warp Drives Be Engineered? This Former NASA Researcher Thinks So 6 minutes, 33 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Can Warp Drives Be Engineered? This Former NASA Researcher Thinks So 6 minutes, 33 seconds']",
-        "[aria-label='Can Warp Drives Be Engineered? This Former NASA Researcher Thinks So 6 minutes, 33 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=BlfeDPMLQ8I"
-    },
-    "86": {
-      "label": "Sabine Hossenfelder",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@SabineHossenfelder']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@SabineHossenfelder"
-    },
-    "87": {
-      "label": "28:21",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=KNzX0vx_-K4"
-    },
-    "88": {
-      "label": "Australia’s Immigration Has Taken a Dark Turn & the World Needs to Know | Erin Molan 28 minutes",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Australia’s Immigration Has Taken a Dark Turn & the World Needs to Know | Erin Molan 28 minutes']",
-        "[aria-label='Australia’s Immigration Has Taken a Dark Turn & the World Needs to Know | Erin Molan 28 minutes']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=KNzX0vx_-K4"
-    },
-    "89": {
-      "label": "The Rubin Report",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@RubinReport']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@RubinReport"
-    },
-    "90": {
-      "label": "15:20",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=hXPALnu3Y6I&pp=ugUEEgJlbg%3D%3D"
-    },
-    "91": {
-      "label": "The 8 Trends I’m Betting My Entire Marketing Strategy On in 2026 15 minutes",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='The 8 Trends I’m Betting My Entire Marketing Strategy On in 2026 15 minutes']",
-        "[aria-label='The 8 Trends I’m Betting My Entire Marketing Strategy On in 2026 15 minutes']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=hXPALnu3Y6I&pp=ugUEEgJlbg%3D%3D"
-    },
-    "92": {
-      "label": "Neil Patel",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@neilpatel']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@neilpatel"
-    },
-    "93": {
-      "label": "4:50",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=uJzktMAZCXE&pp=ugUHEgVlbi1HQg%3D%3D"
-    },
-    "94": {
-      "label": "The Korean Method to Calm Meltdowns in 60 Seconds | Dr. Arif Khan 4 minutes, 50 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='The Korean Method to Calm Meltdowns in 60 Seconds | Dr. Arif Khan 4 minutes, 50 seconds']",
-        "[aria-label='The Korean Method to Calm Meltdowns in 60 Seconds | Dr. Arif Khan 4 minutes, 50 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=uJzktMAZCXE&pp=ugUHEgVlbi1HQg%3D%3D"
-    },
-    "95": {
-      "label": "Dr Arif Khan - Second Opinion",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@SecondOpinionShow']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@SecondOpinionShow"
-    },
-    "96": {
-      "label": "16:41",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=z6IOVYemF20&pp=ugUEEgJlbg%3D%3D"
-    },
-    "97": {
-      "label": "The device you've been waiting for! 16 minutes",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='The device you\\'ve been waiting for! 16 minutes']",
-        "[aria-label='The device you\\'ve been waiting for! 16 minutes']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=z6IOVYemF20&pp=ugUEEgJlbg%3D%3D"
-    },
-    "98": {
-      "label": "andy kirby",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@andykirby']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@andykirby"
-    },
-    "99": {
-      "label": "4:04",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=5h8KeoupfRg&pp=ugUEEgJlbg%3D%3D"
-    },
-    "100": {
-      "label": "Operation Tactical Hypertrophy—Nutrition (Tom Speaks) 4 minutes, 4 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Operation Tactical Hypertrophy—Nutrition (Tom Speaks) 4 minutes, 4 seconds']",
-        "[aria-label='Operation Tactical Hypertrophy—Nutrition (Tom Speaks) 4 minutes, 4 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=5h8KeoupfRg&pp=ugUEEgJlbg%3D%3D"
-    },
-    "101": {
-      "label": "Josh Bryant",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@jailhousestrong']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@jailhousestrong"
-    },
-    "102": {
-      "label": "4:53",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/watch']",
-        "a.yt-lockup-view-model__content-image"
-      ],
-      "href": "https://www.youtube.com/watch?v=4SoFay-rU8U&list=RD4SoFay-rU8U&start_radio=1&pp=oAcB"
-    },
-    "103": {
-      "label": "Guitar Cover | Still Loving You (Scorpions ) | Diễm Hương & Thanh Điền Guitar 4 minutes, 53 seconds",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[aria-label='Guitar Cover | Still Loving You (Scorpions ) | Diễm Hương & Thanh Điền Guitar 4 minutes, 53 seconds']",
-        "[aria-label='Guitar Cover | Still Loving You (Scorpions ) | Diễm Hương & Thanh Điền Guitar 4 minutes, 53 seconds']",
-        "a[href*='/watch']",
-        "a.yt-lockup-metadata-view-model__title"
-      ],
-      "href": "https://www.youtube.com/watch?v=4SoFay-rU8U&list=RD4SoFay-rU8U&start_radio=1&pp=oAcB"
-    },
-    "104": {
-      "label": "Âm Nhạc Giải Trí",
-      "type": "Link",
-      "tag": "a",
-      "selectors": [
-        "a[href*='/@amnhacgiaitri4653']",
-        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
-      ],
-      "href": "https://www.youtube.com/@amnhacgiaitri4653"
+      "href": null
     }
   }
 }
