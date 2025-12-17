@@ -37,6 +37,10 @@ class CapabilitiesStore(VectorStore):
         capabilities = data.get('capabilities', {})
 
         for cap_name, cap_info in capabilities.items():
+            # Skip internal capabilities (not exposed to LLM)
+            if cap_info.get('internal', False):
+                continue
+
             label = cap_info.get('label', cap_name)
             description = cap_info.get('description', label)
             synonyms = cap_info.get('synonyms', [])

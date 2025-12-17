@@ -155,7 +155,7 @@
       "action": "ShowChats",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "synonyms": ["show chats", "show my chats", "show me my chats", "see my chats", "view chats", "view my chats", "my chats", "where are my chats", "open chats", "show conversations", "show past chats", "where are the conversations", "my conversations", "where are conversations", "past conversations", "conversation history", "chat history", "show history"],
+      "synonyms": ["show chats", "show my chats", "show me my chats", "see my chats", "view chats", "view my chats", "my chats", "where are my chats", "open chats", "show conversations", "show past chats", "where are the conversations", "my conversations", "where are conversations", "past conversations", "conversation history", "chat history", "show history", "list chats", "list my chats", "get my chats", "what chats do I have"],
       "example": "{\"cap\": \"ShowChats\"}",
       "params": {}
     },
@@ -178,6 +178,7 @@
       "params": {}
     },
     "GetChatList": {
+      "internal": true,
       "group": "chat",
       "action": "GetChatList",
       "label": "Get chat list data (internal)",
