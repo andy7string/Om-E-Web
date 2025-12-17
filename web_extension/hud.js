@@ -6687,6 +6687,14 @@
                     console.log('[Content] 🎛️ HidePrompt executed (HUD visible:', hudState.visible, ')');
                     break;
 
+                case 'set_theme':
+                    // 🎨 Change HUD/orb theme
+                    if (action.theme) {
+                        setOrbTheme(action.theme);
+                        console.log('[Content] 🎨 SetTheme executed:', action.theme);
+                    }
+                    break;
+
                 default:
                     console.warn('[Content] 🎛️ Unknown hud_action type:', action?.type);
             }

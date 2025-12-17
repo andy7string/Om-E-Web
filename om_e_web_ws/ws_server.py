@@ -913,6 +913,10 @@ def execute_internal_capability(action: str, params: dict) -> dict:
     elif action == "HidePrompt":
         return {"_hud_action": {"type": "hide_prompt"}}
 
+    elif action == "SetTheme":
+        theme = params.get("theme", "classic")
+        return {"_hud_action": {"type": "set_theme", "theme": theme}}
+
     # ═══════════════════════════════════════════════════════════════════════════
     # 🤖 LLM CONFIG CAPABILITIES
     # ═══════════════════════════════════════════════════════════════════════════

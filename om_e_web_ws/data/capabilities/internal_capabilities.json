@@ -141,6 +141,22 @@
       "example": "{\"cap\": \"ToggleHUD\"}",
       "params": {}
     },
+    "SetTheme": {
+      "group": "hud",
+      "action": "SetTheme",
+      "label": "Change orb character style",
+      "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
+      "synonyms": [
+        "set theme", "change theme", "switch theme", "change orb", "orb style", "change character", "switch persona",
+        "robot", "om-e", "ome", "purple robot", "goggles", "cyan eyes", "mechanical", "robot guy", "robot head", "default orb",
+        "kawaii", "cute cat", "white cat", "fluffy cat", "bunny", "white bunny", "cherry head", "pink cheeks", "blue eyes", "sparkly eyes", "anime", "cute mode", "adorable",
+        "atom", "atomic", "nucleus", "electrons", "green rings", "orbital", "science", "green atom", "purple core", "electron orbits"
+      ],
+      "example": "{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "params": {
+        "theme": "Required - robot (purple Om-E with goggles), kawaii (white fluffy cat with cherry), or atom (green orbital rings)"
+      }
+    },
     "ShowPrompt": {
       "group": "hud",
       "action": "ShowPrompt",
