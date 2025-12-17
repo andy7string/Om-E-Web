@@ -1,0 +1,75 @@
+{
+  "chat_id": "hey__20251217T063435",
+  "project_id": "default",
+  "created_at": "2025-12-17T06:34:35.494264Z",
+  "updated_at": "2025-12-17T06:35:16.324031Z",
+  "title": "hey",
+  "default_title": "hey",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "hey",
+      "timestamp": "2025-12-17T06:34:35.494302Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Hey! How can I help you today?",
+      "timestamp": "2025-12-17T06:34:37.502731Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "got to cahts",
+      "timestamp": "2025-12-17T06:34:42.140495Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Opening the chats panel.\n\n{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-17T06:34:43.199693Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "nice dude lets ope how many chat",
+      "timestamp": "2025-12-17T06:34:53.942931Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "You currently have 5 chats. Would you like to open a specific one? If so, just tell me the number (1-5) or the title!",
+      "timestamp": "2025-12-17T06:34:56.618767Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "list htem",
+      "timestamp": "2025-12-17T06:35:03.324459Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Here are your current chats:\n\n1. \"hey\" (4 msgs)\n2. \"nice did you\" (26 msgs)\n3. \"where are the\" (8 msgs)\n4. \"how many chats\" (12 msgs)\n5. \"show my chats\" (30 msgs)\n\nLet me know if you'd like to open any of these!",
+      "timestamp": "2025-12-17T06:35:05.148349Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "open number 5",
+      "timestamp": "2025-12-17T06:35:12.895826Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Opening chat number 5 (\"show my chats\") for you.\n\n{\"cap\": \"LoadChat\", \"params\": {\"chat\": 5}}",
+      "timestamp": "2025-12-17T06:35:16.324031Z"
+    }
+  ]
+}

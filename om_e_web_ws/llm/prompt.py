@@ -19,6 +19,9 @@ CAPABILITIES_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "capab
 ACTION_HISTORY: List[Dict] = []
 MAX_HISTORY = 10
 
+# Search context - persists until explicitly cleared
+SEARCH_CONTEXT: Optional[Dict] = None  # {query, results, timestamp}
+
 
 def load_capabilities() -> Dict[str, dict]:
     """Load all capabilities from internal_capabilities.json (single source of truth)"""
@@ -91,6 +94,17 @@ def _summarize_result(result: dict) -> str:
     """Create brief summary of action result"""
     if result.get("error"):
         return f"Error: {result['error']}"
+
+    # SearchChats - include results so LLM can reference chat_ids
+    if "results" in result and "query" in result:
+        search_results = result.get("results", [])
+        if not search_results:
+            return f"No chats found for '{result['query']}'"
+        summaries = []
+        for r in search_results[:5]:  # Limit to 5
+            summaries.append(f"{r.get('title', 'Untitled')} (id: {r.get('chat_id', '?')})")
+        return f"Found {len(search_results)}: " + ", ".join(summaries)
+
     if result.get("ok"):
         return "Success"
     return str(result)[:100]
@@ -111,6 +125,45 @@ def clear_action_history():
     """Clear action history (e.g., on new chat)"""
     global ACTION_HISTORY
     ACTION_HISTORY = []
+
+
+def set_search_context(query: str, results: List[Dict]):
+    """Set search results context - persists until cleared"""
+    global SEARCH_CONTEXT
+    SEARCH_CONTEXT = {
+        "query": query,
+        "results": results,
+        "timestamp": datetime.now().isoformat()
+    }
+    print(f"[Prompt] 🔍 Search context set: '{query}' with {len(results)} results")
+
+
+def clear_search_context():
+    """Clear search context"""
+    global SEARCH_CONTEXT
+    if SEARCH_CONTEXT:
+        print(f"[Prompt] 🔍 Search context cleared")
+    SEARCH_CONTEXT = None
+
+
+def get_search_context_text() -> Optional[str]:
+    """Format search context for prompt - returns None if no active search"""
+    if not SEARCH_CONTEXT or not SEARCH_CONTEXT.get("results"):
+        return None
+
+    query = SEARCH_CONTEXT["query"]
+    results = SEARCH_CONTEXT["results"]
+
+    lines = [f"**Active Search:** \"{query}\" - {len(results)} result(s)"]
+    for i, r in enumerate(results[:10], 1):  # Limit to 10
+        chat_id = r.get("chat_id", "?")
+        title = r.get("title", "Untitled")
+        msg_count = r.get("message_count", 0)
+        lines.append(f"  {i}. \"{title}\" (chat_id: `{chat_id}`, {msg_count} msgs)")
+
+    lines.append("")
+    lines.append("Use LoadChat with the chat_id to open one, or DeleteChat to delete.")
+    return "\n".join(lines)
 
 
 def build_system_prompt(include_page_context: bool = True) -> str:
@@ -216,6 +269,14 @@ You can use markdown to make your responses look nice:
 - Blockquotes with `> quote`
 
 Use formatting when it helps clarity - don't overdo it for simple responses.
+
+"""
+
+    # Search context (if active)
+    search_context = get_search_context_text()
+    if search_context:
+        prompt += f"""## Search Results
+{search_context}
 
 """
 

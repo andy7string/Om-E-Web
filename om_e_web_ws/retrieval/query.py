@@ -163,6 +163,7 @@ def build_system_prompt(
     user_message: str,
     active_tab: Optional[Dict] = None,
     tabs: Optional[List[Dict]] = None,
+    hud_state: Optional[Dict] = None,
     write_debug: bool = True
 ) -> str:
     """
@@ -172,6 +173,7 @@ def build_system_prompt(
         user_message: User's input text (for RAG query)
         active_tab: Current tab info {url, title}
         tabs: List of open tabs [{id, title, url, active}]
+        hud_state: HUD state {sidebar_open, visible_chats} for context
         write_debug: Write prompt to llm_debug.md
 
     Returns:
@@ -205,6 +207,20 @@ def build_system_prompt(
             marker = " ← active" if tab.get('active') else ""
             prompt += f"- Tab {tab.get('id', '?')}: {tab.get('title', 'Unknown')}{marker}\n"
         prompt += "\n"
+
+    # 📚 Visible chats (if sidebar open with chat list expanded)
+    if hud_state and hud_state.get('visible_chats'):
+        visible_chats = hud_state['visible_chats']
+        count = len(visible_chats)
+        prompt += f"**CHAT COUNT: {count}** (THIS IS CURRENT - ignore what you said earlier in conversation)\n"
+        prompt += "Visible Chats:\n"
+        for i, chat in enumerate(visible_chats, 1):
+            title = chat.get('title', 'Untitled')
+            msg_count = chat.get('message_count', 0)
+            prompt += f"  {i}. \"{title}\" ({msg_count} msgs)\n"
+        prompt += f"\nUse the NUMBER (1-{count}) to reference chats:\n"
+        prompt += "- `{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}`\n"
+        prompt += "- `{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}`\n\n"
 
     # Retrieved capabilities
     if result.capabilities:

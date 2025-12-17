@@ -48,7 +48,7 @@ from llm.dispatcher import (
 # LLM Agent - conversational AI with history
 from llm.agent import OmEAgent
 from llm.executor import parse_capability_calls, has_capability_calls
-from llm.prompt import add_action_to_history
+from llm.prompt import add_action_to_history, set_search_context, clear_search_context
 
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
@@ -90,6 +90,29 @@ CHAT_INDEX_LOADED = False          # Flag to track initial load
 
 # 🤖 LLM Agent instance for chat conversations
 LLM_AGENT = None                   # OmEAgent instance (created on first chat)
+
+# 📚 Visible chats context - for resolving chat numbers to chat_ids
+# Set by LLMChat when hud_state includes visible_chats
+VISIBLE_CHATS = []                 # [{chat_id, title, message_count}, ...]
+
+
+def resolve_chat_number(chat_num: int) -> str | None:
+    """
+    📚 Resolve chat number (1-indexed) to actual chat_id.
+
+    When LLM outputs {"cap": "DeleteChat", "params": {"chat": 3}},
+    this looks up VISIBLE_CHATS[2] to get the actual chat_id.
+
+    Returns None if number is out of range.
+    """
+    if not VISIBLE_CHATS:
+        return None
+    # Convert 1-indexed to 0-indexed
+    idx = chat_num - 1
+    if 0 <= idx < len(VISIBLE_CHATS):
+        return VISIBLE_CHATS[idx].get("chat_id")
+    return None
+
 
 # 🎯 Element Registry - maps action IDs to element metadata for auto-resolution
 # Populated from semanticPageData.actionables on each intelligence update
@@ -487,16 +510,25 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         return {"chats": chats}
 
     elif action == "LoadChat":
-        # Load chat content by ID
+        # Load chat content by ID or number
         # Optional params:
+        #   chat: int - chat number from visible list (1-indexed)
+        #   chat_id: str - direct chat ID (fallback)
         #   tail: int - only return last N messages (default: all)
         #   offset: int - skip last N messages before tail (for pagination)
+        chat_num = params.get("chat")
         chat_id = params.get("chat_id")
         tail = params.get("tail")  # None = all messages
         offset = params.get("offset", 0)  # For "load more" pagination
 
+        # 📚 Resolve chat number to chat_id if provided
+        if chat_num is not None:
+            chat_id = resolve_chat_number(chat_num)
+            if not chat_id:
+                return {"error": f"Invalid chat number: {chat_num}"}
+
         if not chat_id:
-            return {"error": "Missing chat_id parameter"}
+            return {"error": "Missing chat or chat_id parameter"}
         chat = load_chat(chat_id)
         if chat is None:
             return {"error": f"Chat not found: {chat_id}"}
@@ -528,6 +560,9 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             chat_response = chat
             chat_response["_truncated"] = False
             chat_response["_total_messages"] = total_messages
+
+        # Clear search context - user has selected a chat from search results
+        clear_search_context()
 
         return {
             "chat": chat_response,
@@ -606,14 +641,22 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"error": "Failed to save chat"}
 
     elif action == "RenameChat":
-        # Rename an existing chat
+        # Rename an existing chat by ID or number
+        chat_num = params.get("chat")
         chat_id = params.get("chat_id")
         new_title = params.get("title")
+
+        # 📚 Resolve chat number to chat_id if provided
+        if chat_num is not None:
+            chat_id = resolve_chat_number(chat_num)
+            if not chat_id:
+                return {"error": f"Invalid chat number: {chat_num}"}
+
         print(f"📝 RenameChat: chat_id={chat_id}, new_title={new_title}")
 
         if not chat_id:
             print("❌ RenameChat: Missing chat_id")
-            return {"error": "Missing chat_id parameter"}
+            return {"error": "Missing chat or chat_id parameter"}
         if not new_title:
             print("❌ RenameChat: Missing title")
             return {"error": "Missing title parameter"}
@@ -640,11 +683,18 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"error": "Failed to save chat"}
 
     elif action == "DeleteChat":
-        # Delete a chat file
+        # Delete a chat file by ID or number
+        chat_num = params.get("chat")
         chat_id = params.get("chat_id")
 
+        # 📚 Resolve chat number to chat_id if provided
+        if chat_num is not None:
+            chat_id = resolve_chat_number(chat_num)
+            if not chat_id:
+                return {"error": f"Invalid chat number: {chat_num}"}
+
         if not chat_id:
-            return {"error": "Missing chat_id parameter"}
+            return {"error": "Missing chat or chat_id parameter"}
 
         filepath = get_chat_filepath(chat_id)
         if not os.path.exists(filepath):
@@ -829,6 +879,10 @@ def execute_internal_capability(action: str, params: dict) -> dict:
                 break
 
         print(f"🔍 SearchChats: '{query}' found {len(results)} results")
+
+        # Set search context so LLM can reference results in follow-up
+        set_search_context(query, results)
+
         return {
             "query": query,
             "results": results,
@@ -838,12 +892,16 @@ def execute_internal_capability(action: str, params: dict) -> dict:
 
     # 🎛️ UI CONTROL CAPABILITIES
     elif action == "SwitchView":
+        # Clear search context on view switch
+        clear_search_context()
         return {"_hud_action": {"type": "toggle_hud"}}
 
     elif action == "ShowChats":
         return {"_hud_action": {"type": "show_sidebar"}}
 
     elif action == "HideChats":
+        # Clear search context when hiding chats panel
+        clear_search_context()
         return {"_hud_action": {"type": "hide_sidebar"}}
 
     elif action == "ToggleChats":
@@ -4935,11 +4993,19 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
 
                     # 🤖 LLM CHAT: Special async handler for LLM conversations
                     if action == "LLMChat":
-                        global LLM_AGENT, CURRENT_CHAT_ID
+                        global LLM_AGENT, CURRENT_CHAT_ID, VISIBLE_CHATS
                         message = params.get("message", "")
                         # chat_id from params is reserved for future use
                         _ = params.get("chat_id")
                         clear_history = params.get("clear_history", False)
+                        hud_state = params.get("hud_state")  # 📚 {sidebar_open, visible_chats}
+
+                        # 📚 Store visible chats for number → chat_id resolution
+                        if hud_state and hud_state.get("visible_chats"):
+                            VISIBLE_CHATS = hud_state["visible_chats"]
+                            print(f"📚 Stored {len(VISIBLE_CHATS)} visible chats for reference")
+                        else:
+                            VISIBLE_CHATS = []
 
                         if not message:
                             await ws.send(json.dumps({
@@ -4963,7 +5029,8 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                             response_text = await LLM_AGENT.chat(
                                 message,
                                 active_tab=CURRENT_ACTIVE_TAB,
-                                tabs=CURRENT_TABS_INFO
+                                tabs=CURRENT_TABS_INFO,
+                                hud_state=hud_state
                             )
 
                             # Save LLM response to chat history
@@ -4988,6 +5055,7 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 print("🤖 LLMChat: Pushed LLM response to HUD")
 
                             # Parse and execute any capability calls
+                            capability_results = []  # Track results for user feedback
                             if has_capability_calls(response_text):
                                 calls = parse_capability_calls(response_text)
                                 print(f"🤖 LLMChat: Found {len(calls)} capability calls")
@@ -5153,9 +5221,14 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         else:
                                             cap_result = execute_internal_capability(cap_action, cap_params)
 
-                                        add_action_to_history(cap_action, cap_params, {"ok": cap_result.get("ok", False)})
+                                        add_action_to_history(cap_action, cap_params, cap_result)
 
-                                        # NOTE: Result display pipeline disabled - was showing inaccurate timeout messages
+                                        # Track result for user feedback (especially errors)
+                                        capability_results.append({
+                                            "action": cap_action,
+                                            "params": cap_params,
+                                            "result": cap_result
+                                        })
 
                                         # Handle HUD actions from capability
                                         if "_hud_action" in cap_result and EXTENSION_WS:
@@ -5168,7 +5241,8 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 "response": response_text,
                                 "history_length": LLM_AGENT.get_history_length(),
                                 "chat_id": CURRENT_CHAT_ID,
-                                "message": new_message
+                                "message": new_message,
+                                "capability_results": capability_results  # For user feedback
                             }
 
                             await ws.send(json.dumps({

@@ -38,7 +38,8 @@ class OmEAgent:
         self,
         message: str,
         active_tab: Optional[Dict] = None,
-        tabs: Optional[List[Dict]] = None
+        tabs: Optional[List[Dict]] = None,
+        hud_state: Optional[Dict] = None
     ) -> str:
         """
         Send a message and get a response.
@@ -49,6 +50,7 @@ class OmEAgent:
             message: User's message
             active_tab: Current tab info {url, title}
             tabs: List of open tabs [{id, title, url, active}]
+            hud_state: HUD state {sidebar_open, visible_chats} for context
 
         Returns:
             Assistant's response
@@ -62,6 +64,7 @@ class OmEAgent:
                 user_message=message,
                 active_tab=active_tab,
                 tabs=tabs,
+                hud_state=hud_state,
                 write_debug=True
             )
 

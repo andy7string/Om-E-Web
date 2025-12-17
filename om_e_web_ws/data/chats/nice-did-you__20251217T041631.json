@@ -1,0 +1,171 @@
+{
+  "chat_id": "nice-did-you__20251217T041631",
+  "project_id": "default",
+  "created_at": "2025-12-17T04:16:31.270740Z",
+  "updated_at": "2025-12-17T04:21:33.048947Z",
+  "title": "nice did you",
+  "default_title": "nice did you",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "nice did you see that trick, how many do we have now",
+      "timestamp": "2025-12-17T04:16:31.270767Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "You now have 6 chats.",
+      "timestamp": "2025-12-17T04:16:32.083933Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "aaah you so stupid dude read your prompt from start to finish",
+      "timestamp": "2025-12-17T04:16:49.620414Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Here’s what I see in the current context:\n\nYou have 7 chats (this is shown under \"CHAT COUNT: 7\"). Even after deleting one, the context still says 7. This means the live data is showing 7 chats right now.\n\nLet me know if you want me to try deleting another chat or if you want more details!",
+      "timestamp": "2025-12-17T04:16:52.139854Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "exactly , so lets delete the last one",
+      "timestamp": "2025-12-17T04:17:04.259655Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Deleting the last (7th) chat now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 7}}",
+      "timestamp": "2025-12-17T04:17:05.599193Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "nicd you didnt ask for confiramtion that time, should we delte show chats",
+      "timestamp": "2025-12-17T04:17:23.075484Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Would you like me to delete the chat titled \"show chats\"? Please confirm before I proceed.",
+      "timestamp": "2025-12-17T04:17:24.269397Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "yes",
+      "timestamp": "2025-12-17T04:17:29.308120Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Deleting the chat titled \"show chats\" now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 5}}",
+      "timestamp": "2025-12-17T04:17:30.417831Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-17T04:17:32.435607Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Deleting the chat titled \"show chats\" again.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 5}}",
+      "timestamp": "2025-12-17T04:17:33.287839Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "again",
+      "timestamp": "2025-12-17T04:17:38.944010Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Deleting the chat titled \"show chats\" again.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 5}}",
+      "timestamp": "2025-12-17T04:17:40.235942Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-12-17T04:17:51.515965Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Hello! How can I assist you next?",
+      "timestamp": "2025-12-17T04:17:52.834590Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "detelet again",
+      "timestamp": "2025-12-17T04:17:57.683404Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Deleting the chat titled \"show chats\" again.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 5}}",
+      "timestamp": "2025-12-17T04:17:59.088214Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "can you open google please",
+      "timestamp": "2025-12-17T04:19:38.162896Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Opening Google in a new tab now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "timestamp": "2025-12-17T04:19:39.399077Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "nice what does google do",
+      "timestamp": "2025-12-17T04:19:46.743222Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Google is a popular search engine that allows you to find information, websites, images, news, and much more on the internet. You can enter keywords or questions, and Google will show you the most relevant results from across the web. It also offers additional services like maps, email (Gmail), cloud storage (Google Drive), and more. If you want to try searching for something, just let me know!",
+      "timestamp": "2025-12-17T04:19:50.132285Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "aah go fuck yourself now open youtube",
+      "timestamp": "2025-12-17T04:20:01.550545Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Opening YouTube for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://youtube.com\"}}",
+      "timestamp": "2025-12-17T04:20:34.327467Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "can you switch to chat 2",
+      "timestamp": "2025-12-17T04:21:07.862267Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Switching to chat 2 now.\n\n{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
+      "timestamp": "2025-12-17T04:21:33.048947Z"
+    }
+  ]
+}

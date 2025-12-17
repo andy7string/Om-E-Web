@@ -1,0 +1,63 @@
+{
+  "chat_id": "where-are-the__20251217T040807",
+  "project_id": "default",
+  "created_at": "2025-12-17T04:08:07.796998Z",
+  "updated_at": "2025-12-17T04:22:44.913457Z",
+  "title": "where are the",
+  "default_title": "where are the",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "where are the conversations",
+      "timestamp": "2025-12-17T04:08:07.797028Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "I don’t see the chats panel open on this page. Would you like me to show the chats panel now?",
+      "timestamp": "2025-12-17T04:08:10.248393Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "yes please",
+      "timestamp": "2025-12-17T04:08:19.592582Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "{\"cap\": \"ShowPrompt\"}",
+      "timestamp": "2025-12-17T04:08:20.689028Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "show chats",
+      "timestamp": "2025-12-17T04:21:53.254543Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "hey",
+      "timestamp": "2025-12-17T04:22:29.725532Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "Hey! How can I help you?",
+      "timestamp": "2025-12-17T04:22:39.119935Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "user",
+      "content": "go to chats",
+      "timestamp": "2025-12-17T04:22:44.913457Z"
+    }
+  ]
+}

@@ -30,7 +30,8 @@
         focusGuardCleanup: null,       // 🎯 Active orb focus guard disposer
         hudFocusGuardCleanup: null,    // 🎯 Active HUD focus guard disposer
         userBlurRequested: false,      // 🎯 Tracks if user intentionally blurred input
-        hudTextZoom: 1                 // 🔍 HUD messages text zoom level (1 = 100%)
+        hudTextZoom: 1,                // 🔍 HUD messages text zoom level (1 = 100%)
+        visibleChats: []               // 📚 Currently visible chats in sidebar (for LLM context)
     };
 
     // 💬 Save chat input immediately (persists across navigation)
@@ -3225,10 +3226,20 @@
                         console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t3 - t2)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
                         // 2. Send to LLM for response (response comes via hud_action)
-                        await sendLLMChat(text);
+                        const llmResult = await sendLLMChat(text);
                         const t4 = performance.now();
                         console.log(`[Content] ⏱️ LLMChat: ${Math.round(t4 - t3)}ms`);
                         console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t4 - t0)}ms`);
+
+                        // 🚨 Check for capability execution errors
+                        if (llmResult?.capability_results?.length) {
+                            for (const capRes of llmResult.capability_results) {
+                                if (capRes.result?.error) {
+                                    console.error('[Content] ❌ Capability error:', capRes.action, capRes.result.error);
+                                    addChatMessage('error', `${capRes.action} failed: ${capRes.result.error}`);
+                                }
+                            }
+                        }
 
                     } catch (error) {
                         console.error('[Content] ❌ Orb chat send failed:', error);
@@ -4384,10 +4395,20 @@
                 console.log(`[Content] ⏱️ ScanAndWait: ${Math.round(t3 - t2)}ms (${scanResult?.skipped ? 'skipped' : scanResult?.timeout ? 'timeout' : 'scanned'})`);
 
                 // 2. Send to LLM for response (response comes via hud_action)
-                await sendLLMChat(text);
+                const llmResult = await sendLLMChat(text);
                 const t4 = performance.now();
                 console.log(`[Content] ⏱️ LLMChat: ${Math.round(t4 - t3)}ms`);
                 console.log(`[Content] ⏱️ SUBMIT TOTAL: ${Math.round(t4 - t0)}ms`);
+
+                // 🚨 Check for capability execution errors
+                if (llmResult?.capability_results?.length) {
+                    for (const capRes of llmResult.capability_results) {
+                        if (capRes.result?.error) {
+                            console.error('[Content] ❌ Capability error:', capRes.action, capRes.result.error);
+                            addChatMessage('error', `${capRes.action} failed: ${capRes.result.error}`);
+                        }
+                    }
+                }
 
             } catch (error) {
                 console.error('[Content] ❌ Chat send failed:', error);
@@ -5680,6 +5701,13 @@
     function renderSidebarChats(chats) {
         const chatList = hudState.sidebar?.querySelector('.ome-sidebar-chat-list');
         if (!chatList) return;
+
+        // 📚 Store visible chats for LLM context
+        hudState.visibleChats = chats.map(c => ({
+            chat_id: c.chat_id,
+            title: c.title,
+            message_count: c.message_count
+        }));
 
         // Clear chat list but preserve collapsed state
         const wasCollapsed = chatList.classList.contains('collapsed');
@@ -7010,6 +7038,17 @@
                 chat_id: chatState.currentChatId || null,
                 clear_history: clearHistory
             };
+
+            // 📚 Include visible chats if sidebar open AND chat list expanded
+            const chatListEl = hudState.hud?.querySelector('.ome-sidebar-chat-list');
+            const chatListExpanded = chatListEl && !chatListEl.classList.contains('collapsed');
+            if (hudState.sidebarOpen && chatListExpanded && hudState.visibleChats.length > 0) {
+                params.hud_state = {
+                    sidebar_open: true,
+                    visible_chats: hudState.visibleChats
+                };
+                console.log('[Content] 📚 Including', hudState.visibleChats.length, 'visible chats in LLM context');
+            }
 
             console.log('[Content] 🤖 Sending via LLMChat capability:', params);
 

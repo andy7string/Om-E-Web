@@ -136,8 +136,8 @@
       "group": "hud",
       "action": "ShowPrompt",
       "label": "Show the chat prompt",
-      "description": "Shows the chat input area - intelligently handles orb or HUD view",
-      "synonyms": ["show chat", "open prompt", "show input", "expand chat", "open chat panel", "show chat box"],
+      "description": "Shows the text input area for typing messages",
+      "synonyms": ["open prompt", "show input", "show the prompt", "open input", "show text field", "show input field", "show message box"],
       "example": "{\"cap\": \"ShowPrompt\"}",
       "params": {}
     },
@@ -145,8 +145,8 @@
       "group": "hud",
       "action": "HidePrompt",
       "label": "Hide the chat prompt",
-      "description": "Hides the chat input area - intelligently handles orb or HUD view",
-      "synonyms": ["hide chat", "close prompt", "hide input", "collapse chat", "close chat panel", "minimize chat"],
+      "description": "Hides the text input area for typing messages",
+      "synonyms": ["close prompt", "hide input", "hide the prompt", "close input", "hide text field", "hide input field", "hide message box"],
       "example": "{\"cap\": \"HidePrompt\"}",
       "params": {}
     },
@@ -155,7 +155,7 @@
       "action": "ShowChats",
       "label": "Show chats panel",
       "description": "Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.",
-      "synonyms": ["show chats", "show my chats", "show me my chats", "see my chats", "view chats", "view my chats", "my chats", "where are my chats", "open chats", "show conversations", "show past chats"],
+      "synonyms": ["show chats", "show my chats", "show me my chats", "see my chats", "view chats", "view my chats", "my chats", "where are my chats", "open chats", "show conversations", "show past chats", "where are the conversations", "my conversations", "where are conversations", "past conversations", "conversation history", "chat history", "show history"],
       "example": "{\"cap\": \"ShowChats\"}",
       "params": {}
     },

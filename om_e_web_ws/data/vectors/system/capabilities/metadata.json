@@ -14,9 +14,9 @@
     "GoForward: Go forward in browser history. Navigates forward in the current tab's history. forward, next page, go forward, forward button",
     "Refresh: Refresh / reload the page. Reloads the current page. reload, refresh page, reload page, update page",
     "SwitchView: Switch between HUD and orb view. Switches between fullscreen HUD mode and floating orb mode. Use for: switch to browser, change to orb, exit HUD, go to browser view. toggle hud, switch to hud, switch to orb, change view, fullscreen mode, orb mode, chat view, chat mode, full chat, open chat view, browser mode, browser view, switch to browser, change to browser, exit hud, close hud, go to browser, nav mode, navigation mode, floating mode, mini mode, compact mode",
-    "ShowPrompt: Show the chat prompt. Shows the chat input area - intelligently handles orb or HUD view. show chat, open prompt, show input, expand chat, open chat panel, show chat box",
-    "HidePrompt: Hide the chat prompt. Hides the chat input area - intelligently handles orb or HUD view. hide chat, close prompt, hide input, collapse chat, close chat panel, minimize chat",
-    "ShowChats: Show chats panel. Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.. show chats, show my chats, show me my chats, see my chats, view chats, view my chats, my chats, where are my chats, open chats, show conversations, show past chats",
+    "ShowPrompt: Show the chat prompt. Shows the text input area for typing messages. open prompt, show input, show the prompt, open input, show text field, show input field, show message box",
+    "HidePrompt: Hide the chat prompt. Hides the text input area for typing messages. close prompt, hide input, hide the prompt, close input, hide text field, hide input field, hide message box",
+    "ShowChats: Show chats panel. Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.. show chats, show my chats, show me my chats, see my chats, view chats, view my chats, my chats, where are my chats, open chats, show conversations, show past chats, where are the conversations, my conversations, where are conversations, past conversations, conversation history, chat history, show history",
     "HideChats: Hide chats panel. Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.. hide chats, close chats, hide my chats, close conversations, close those chats, close the chats, hide the chats, close chat panel, close sidebar, hide sidebar, close the sidebar",
     "ToggleChats: Toggle chats panel. Opens or closes the chats panel. toggle chats, chats on off",
     "GetChatList: Get chat list data (internal). Returns JSON array of chats with id, title, date_short, message_count. Internal/programmatic use - for UI display use ShowChats instead.. get chat list, fetch chats, retrieve chat list, chat list data",
@@ -269,15 +269,16 @@
       "name": "ShowPrompt",
       "group": "hud",
       "label": "Show the chat prompt",
-      "description": "Shows the chat input area - intelligently handles orb or HUD view",
+      "description": "Shows the text input area for typing messages",
       "example": "{\"cap\": \"ShowPrompt\"}",
       "synonyms": [
-        "show chat",
         "open prompt",
         "show input",
-        "expand chat",
-        "open chat panel",
-        "show chat box"
+        "show the prompt",
+        "open input",
+        "show text field",
+        "show input field",
+        "show message box"
       ],
       "params": {}
     },
@@ -285,15 +286,16 @@
       "name": "HidePrompt",
       "group": "hud",
       "label": "Hide the chat prompt",
-      "description": "Hides the chat input area - intelligently handles orb or HUD view",
+      "description": "Hides the text input area for typing messages",
       "example": "{\"cap\": \"HidePrompt\"}",
       "synonyms": [
-        "hide chat",
         "close prompt",
         "hide input",
-        "collapse chat",
-        "close chat panel",
-        "minimize chat"
+        "hide the prompt",
+        "close input",
+        "hide text field",
+        "hide input field",
+        "hide message box"
       ],
       "params": {}
     },
@@ -314,7 +316,14 @@
         "where are my chats",
         "open chats",
         "show conversations",
-        "show past chats"
+        "show past chats",
+        "where are the conversations",
+        "my conversations",
+        "where are conversations",
+        "past conversations",
+        "conversation history",
+        "chat history",
+        "show history"
       ],
       "params": {}
     },
