@@ -190,23 +190,27 @@ def build_system_prompt(
     t_rag = time.time()
     print(f"[RAG] build_system_prompt(): load_prompt={t_prompt-t_start:.0f}ms rag_query={t_rag-t_prompt:.0f}ms")
 
-    # Build context section
+    # Retrieved capabilities
     prompt += "\n────────────────────────\n"
-    prompt += "CONTEXT (SOURCE OF TRUTH)\n"
+    prompt += "RETRIEVED\n"
     prompt += "────────────────────────\n\n"
 
-    # Active tab
-    if active_tab:
-        prompt += f"**Active Tab:** {active_tab.get('title', 'Unknown')}\n"
-        prompt += f"**URL:** {active_tab.get('url', 'Unknown')}\n\n"
-
-    # Open tabs (use stable numbers from registry)
-    if tabs:
-        prompt += "**Open Tabs:**\n"
-        for tab in tabs:
-            marker = " ← active" if tab.get('active') else ""
-            prompt += f"- Tab {tab.get('number', '?')}: {tab.get('title', 'Unknown')}{marker}\n"
+    if result.capabilities:
+        prompt += "**Capabilities:**\n"
+        for cap in result.capabilities:
+            prompt += f"- {cap['label']}: `{cap['example']}`\n"
         prompt += "\n"
+    else:
+        prompt += "**Capabilities:** None matched\n\n"
+
+    # Retrieved elements
+    if result.elements:
+        prompt += "**Elements:**\n"
+        for el in result.elements:
+            prompt += f"- [{el['id']}] {el['type']}: {el['label']}\n"
+        prompt += "\n"
+    else:
+        prompt += "**Elements:** None matched\n\n"
 
     # 📚 Visible chats (if sidebar open with chat list expanded)
     if hud_state and hud_state.get('visible_chats'):
@@ -221,23 +225,8 @@ def build_system_prompt(
         prompt += "- `{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}`\n"
         prompt += "- `{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}`\n\n"
 
-    # Retrieved capabilities
-    if result.capabilities:
-        prompt += "**Retrieved Capabilities:**\n"
-        for cap in result.capabilities:
-            prompt += f"- {cap['label']}: `{cap['example']}`\n"
-        prompt += "\n"
-    else:
-        prompt += "**Retrieved Capabilities:** None matched\n\n"
-
-    # Retrieved elements
-    if result.elements:
-        prompt += "**Retrieved Elements:**\n"
-        for el in result.elements:
-            prompt += f"- [{el['id']}] {el['type']}: {el['label']}\n"
-        prompt += "\n"
-    else:
-        prompt += "**Retrieved Elements:** None matched\n\n"
+    # NOTE: Live tab state is now appended to the last user message in agent.py
+    # This ensures it's at the absolute end, after conversation history
 
     # Write to debug file
     if write_debug:

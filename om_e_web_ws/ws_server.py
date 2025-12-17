@@ -47,12 +47,12 @@ from llm.dispatcher import (
 
 # LLM Agent - conversational AI with history
 from llm.agent import OmEAgent
-from llm.executor import parse_capability_calls, has_capability_calls
+from llm.executor import parse_capability_calls, has_capability_calls, parse_findcommand
 from llm.prompt import add_action_to_history, set_search_context, clear_search_context
 
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
-from retrieval.query import rebuild_capabilities_store
+from retrieval.query import rebuild_capabilities_store, query as rag_query
 
 
 
@@ -5040,6 +5040,37 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 tabs=tabs_with_numbers,
                                 hud_state=hud_state
                             )
+
+                            # 🔍 TWO-PASS: Check if LLM needs a capability it doesn't have
+                            findcmd = parse_findcommand(response_text)
+                            if findcmd:
+                                search_query = findcmd.get("findCommand", "")
+                                user_message = findcmd.get("message", "")
+                                print(f"🔍 FINDCMD: Triggered with query '{search_query}'")
+
+                                # RAG lookup for the requested capability
+                                rag_result = rag_query(search_query, k_elements=5, k_caps=5)
+
+                                if rag_result.capabilities:
+                                    print(f"🔍 FINDCMD: Pass 2 with {len(rag_result.capabilities)} capabilities")
+
+                                    # Pass 2: Re-query LLM with pre-retrieved context (skips RAG)
+                                    rag_context = {
+                                        "capabilities": rag_result.capabilities,
+                                        "elements": rag_result.elements
+                                    }
+                                    response_text = await LLM_AGENT.chat(
+                                        f"Execute: {user_message}",
+                                        active_tab=CURRENT_ACTIVE_TAB,
+                                        tabs=tabs_with_numbers,
+                                        hud_state=hud_state,
+                                        rag_context=rag_context
+                                    )
+                                    print(f"🔍 FINDCMD: Pass 2 response: {response_text[:200]}...")
+                                else:
+                                    # No capability found - append error to message
+                                    response_text = f"{user_message}\n\n(I couldn't find a capability to do this action.)"
+                                    print(f"🔍 FINDCMD: No capabilities found for '{search_query}'")
 
                             # Save LLM response to chat history
                             new_message = None

@@ -235,3 +235,42 @@ def format_execution_result(action: str, result: Dict) -> str:
     else:
         error = result.get("error", "Unknown error")
         return f"❌ {action}: {error}"
+
+
+def parse_findcommand(response: str) -> Optional[Dict]:
+    """
+    Check if LLM response contains a findCommand request.
+
+    When the LLM understands intent but doesn't have the right capability,
+    it outputs: {"message": "...", "findCommand": "action description"}
+
+    Returns:
+        {message, findCommand} dict if found, None otherwise
+    """
+    # Look for JSON with findCommand key
+    for line in response.split('\n'):
+        line = line.strip()
+        if line.startswith('{') and 'findCommand' in line:
+            try:
+                data = json.loads(line)
+                if "findCommand" in data:
+                    print(f"🔍 FINDCMD: Found findCommand: {data}")
+                    return data
+            except json.JSONDecodeError:
+                pass
+
+    # Also check for inline JSON with findCommand
+    if '"findCommand"' in response:
+        # Use balanced extraction
+        for match in re.finditer(r'\{', response):
+            json_str = _extract_balanced_json(response, match.start())
+            if json_str and '"findCommand"' in json_str:
+                try:
+                    data = json.loads(json_str)
+                    if "findCommand" in data:
+                        print(f"🔍 FINDCMD: Found findCommand (balanced): {data}")
+                        return data
+                except json.JSONDecodeError:
+                    pass
+
+    return None

@@ -39,7 +39,8 @@ class OmEAgent:
         message: str,
         active_tab: Optional[Dict] = None,
         tabs: Optional[List[Dict]] = None,
-        hud_state: Optional[Dict] = None
+        hud_state: Optional[Dict] = None,
+        rag_context: Optional[Dict] = None
     ) -> str:
         """
         Send a message and get a response.
@@ -51,6 +52,8 @@ class OmEAgent:
             active_tab: Current tab info {url, title}
             tabs: List of open tabs [{id, title, url, active}]
             hud_state: HUD state {sidebar_open, visible_chats} for context
+            rag_context: Pre-retrieved RAG results (skips RAG query if provided)
+                         {capabilities: [...], elements: [...]}
 
         Returns:
             Assistant's response
@@ -59,19 +62,50 @@ class OmEAgent:
         self.history.append({"role": "user", "content": message})
 
         try:
-            # Build RAG-based system prompt
-            system_prompt = build_system_prompt(
-                user_message=message,
-                active_tab=active_tab,
-                tabs=tabs,
-                hud_state=hud_state,
-                write_debug=True
-            )
+            # If rag_context provided, build minimal prompt (skip RAG query)
+            if rag_context:
+                system_prompt = "You are Om-E. Execute the requested action using ONLY the capabilities below.\n\n"
+                if rag_context.get("capabilities"):
+                    system_prompt += "**Available Capabilities:**\n"
+                    for cap in rag_context["capabilities"]:
+                        system_prompt += f"- {cap['label']}: `{cap['example']}`\n"
+                system_prompt += "\nOutput the JSON command on its own line. Use ONLY capabilities listed above."
+                print(f"🔍 FINDCMD: Using pre-retrieved RAG context ({len(rag_context.get('capabilities', []))} caps)")
+            else:
+                # Build RAG-based system prompt (without live state - that goes at the end)
+                system_prompt = build_system_prompt(
+                    user_message=message,
+                    active_tab=None,  # Don't include in system prompt
+                    tabs=None,        # Don't include in system prompt
+                    hud_state=hud_state,
+                    write_debug=True
+                )
+
+            # Build live state suffix (appended to last user message for recency)
+            live_state = "\n\n---\n**LIVE STATE (USE THIS, NOT EARLIER CONVERSATION):**\n"
+            if active_tab:
+                live_state += f"Active Tab: {active_tab.get('title', 'Unknown')}\n"
+                live_state += f"URL: {active_tab.get('url', 'Unknown')}\n"
+            if tabs:
+                live_state += "Open Tabs:\n"
+                for tab in tabs:
+                    marker = " ← active" if tab.get('active') else ""
+                    live_state += f"- Tab {tab.get('number', '?')}: {tab.get('title', 'Unknown')}{marker}\n"
+
+            # Create messages with live state appended to last user message
+            messages_with_context = self.history.copy()
+            if messages_with_context:
+                last_msg = messages_with_context[-1]
+                if last_msg.get("role") == "user":
+                    messages_with_context[-1] = {
+                        "role": "user",
+                        "content": last_msg["content"] + live_state
+                    }
 
             # Get response from LLM
             response = await self._client.chat(
                 system_prompt=system_prompt,
-                messages=self.history
+                messages=messages_with_context
             )
 
             # Add assistant response to history
