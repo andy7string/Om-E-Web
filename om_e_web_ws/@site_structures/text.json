@@ -1,84 +1,1115 @@
 {
   "metadata": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
-    "timestamp": "2025-12-17T13:54:57Z",
-    "element_count": 7
+    "url": "https://www.youtube.com/",
+    "title": "YouTube",
+    "timestamp": "2025-12-18T13:38:32Z",
+    "element_count": 107
   },
   "elements": {
     "0": {
-      "label": "TOGGLE HUD OVERLAY",
+      "label": "Guide",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#hudToggleBtn",
-        "button.hud-toggle-btn"
+        "button[aria-label='Guide']",
+        "[aria-label='Guide']",
+        "button.style-scope.yt-icon-button"
       ],
       "href": null
     },
     "1": {
-      "label": "WebSocket URL",
-      "type": "Input",
-      "tag": "input",
+      "label": "YouTube Premium Home",
+      "type": "Link",
+      "tag": "a",
       "selectors": [
-        "#wsUrl",
-        "input[placeholder='WebSocket URL']",
-        "input[type='text'][placeholder='WebSocket URL']"
+        "#logo",
+        "a.yt-simple-endpoint.style-scope"
       ],
-      "href": null
+      "href": "https://www.youtube.com/"
     },
     "2": {
-      "label": "Save & Reconnect",
+      "label": "Skip navigation",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#saveBtn",
-        "button.primary"
+        "button[aria-label='Skip navigation']",
+        "[aria-label='Skip navigation']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
       ],
       "href": null
     },
     "3": {
-      "label": "Kawaii",
-      "type": "Button",
-      "tag": "button",
+      "label": "Search",
+      "type": "Input",
+      "tag": "input",
       "selectors": [
-        "#orbKawaii",
-        "[data-theme='kawaii']",
-        "button.orb-btn"
+        "input[name='search_query']",
+        "input[placeholder='Search']",
+        "input[type='text'][name='search_query']",
+        "input.ytSearchboxComponentInput.yt-searchbox-input"
       ],
       "href": null
     },
     "4": {
-      "label": "Om-E",
+      "label": "Search",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#orbRobot",
-        "[data-theme='robot']",
-        "button.orb-btn"
+        "button[aria-label='Search']",
+        "[aria-label='Search']",
+        "button.ytSearchboxComponentSearchButton.ytSearchboxComponentSearchButtonDark"
       ],
       "href": null
     },
     "5": {
-      "label": "Atom",
+      "label": "Search with your voice",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#orbAtom",
-        "[data-theme='atom']",
-        "button.orb-btn"
+        "button[aria-label='Search with your voice']",
+        "[aria-label='Search with your voice']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
       ],
       "href": null
     },
     "6": {
-      "label": "Extension Settings",
+      "label": "Create",
       "type": "Button",
       "tag": "button",
       "selectors": [
-        "#extPageBtn",
-        "button.ext-toggle-btn"
+        "button[aria-label='Create']",
+        "[aria-label='Create']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal"
       ],
       "href": null
+    },
+    "7": {
+      "label": "Notifications",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Notifications']",
+        "[aria-label='Notifications']",
+        "button.style-scope.yt-icon-button"
+      ],
+      "href": null
+    },
+    "8": {
+      "label": "Account menu",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Account menu']",
+        "[aria-label='Account menu']",
+        "#avatar-btn",
+        "button.style-scope.ytd-topbar-menu-button-renderer"
+      ],
+      "href": null
+    },
+    "9": {
+      "label": "All",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "10": {
+      "label": "Music",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "11": {
+      "label": "Podcasts",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "12": {
+      "label": "Mixing consoles",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "13": {
+      "label": "Squats",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "14": {
+      "label": "AI",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "15": {
+      "label": "News",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "16": {
+      "label": "Mixes",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "17": {
+      "label": "Rhythms",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "18": {
+      "label": "Live",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "19": {
+      "label": "Hard Rock",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "20": {
+      "label": "Recently uploaded",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "21": {
+      "label": "Watched",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "22": {
+      "label": "New to you",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button.ytChipShapeButtonReset"
+      ],
+      "href": null
+    },
+    "23": {
+      "label": "Next",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Next']",
+        "[aria-label='Next']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+      ],
+      "href": null
+    },
+    "24": {
+      "label": "1:01:48",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=WC-iBaKL59Q&list=RDWC-iBaKL59Q&start_radio=1&pp=oAcB"
+    },
+    "25": {
+      "label": "DeepMe - Live @ Los Padres National Forest, USA  / Melodic Techno & Progressive House 4K Dj Mix 1 hour, 1 minute",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=WC-iBaKL59Q&list=RDWC-iBaKL59Q&start_radio=1&pp=oAcB"
+    },
+    "26": {
+      "label": "DeepMe",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@DeepMeMusic']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@DeepMeMusic"
+    },
+    "27": {
+      "label": "38:07",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=sNvuH-iTi4c&t=23s&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "28": {
+      "label": "AI Agents in 38 Minutes - Complete Course from Beginner to Pro 38 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='AI Agents in 38 Minutes - Complete Course from Beginner to Pro 38 minutes']",
+        "[aria-label='AI Agents in 38 Minutes - Complete Course from Beginner to Pro 38 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=sNvuH-iTi4c&t=23s&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "29": {
+      "label": "Marina Wyss - AI & Machine Learning",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@MarinaWyssAI']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@MarinaWyssAI"
+    },
+    "30": {
+      "label": "25:45",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=OfRtDSpNTW8&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "31": {
+      "label": "Dr. Mike Takes On Ronnie Coleman’s Back & Biceps Workout 25 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Dr. Mike Takes On Ronnie Coleman’s Back & Biceps Workout 25 minutes']",
+        "[aria-label='Dr. Mike Takes On Ronnie Coleman’s Back & Biceps Workout 25 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=OfRtDSpNTW8&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "32": {
+      "label": "Renaissance Periodization",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@RenaissancePeriodization']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@RenaissancePeriodization"
+    },
+    "33": {
+      "label": "Miss Monique in Mykonos",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/W-uoRrgFJDo']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/W-uoRrgFJDo"
+    },
+    "34": {
+      "label": "I Was Going Until Failure And This Happened… #gym #fitness #legpress",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/zhGhxYUv4yQ']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/zhGhxYUv4yQ"
+    },
+    "35": {
+      "label": "No filters, no scripts, just rhythm ✨🖤 #trendingnow #dance #dancerlife #love #poland #russia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/WkcZXit_mvU']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/WkcZXit_mvU"
+    },
+    "36": {
+      "label": "Ayo listen up — I’m late I heard @ironculturenj was having a GRAND OPENING shoutout to @nick_walker",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/BurOkuanWl4']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/BurOkuanWl4"
+    },
+    "37": {
+      "label": "GraphRAG (you probably don't need it)",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/sUrG3oGKNqg']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/sUrG3oGKNqg"
+    },
+    "38": {
+      "label": "9:28",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=6NpartVxFHc&pp=0gcJCTwKAYcqIYzv"
+    },
+    "39": {
+      "label": "Coding with Gemini 3.0 Flash Is INSANE! 9 minutes, 28 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Coding with Gemini 3.0 Flash Is INSANE! 9 minutes, 28 seconds']",
+        "[aria-label='Coding with Gemini 3.0 Flash Is INSANE! 9 minutes, 28 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=6NpartVxFHc&pp=0gcJCTwKAYcqIYzv"
+    },
+    "40": {
+      "label": "Aero",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@theaerogr']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@theaerogr"
+    },
+    "41": {
+      "label": "34:52",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=nxBHvP043Nw&pp=kggVc3ZpLWFjcS15Y20tcGdwLXctdjNh"
+    },
+    "42": {
+      "label": "Fine Tuning a DistilBERT Model for Text Classification | Language Models with Hugging Face Ep. 7 34 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=nxBHvP043Nw&pp=kggVc3ZpLWFjcS15Y20tcGdwLXctdjNh"
+    },
+    "43": {
+      "label": "Kody Simpson",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@KodySimpson']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@KodySimpson"
+    },
+    "44": {
+      "label": "16:22",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=CEvIs9y1uog&pp=ugUEEgJlbg%3D%3D"
+    },
+    "45": {
+      "label": "Don't Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic 16 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Don\\'t Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic 16 minutes']",
+        "[aria-label='Don\\'t Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic 16 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=CEvIs9y1uog&pp=ugUEEgJlbg%3D%3D"
+    },
+    "46": {
+      "label": "AI Engineer",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@aiDotEngineer']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@aiDotEngineer"
+    },
+    "47": {
+      "label": "Not interested",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Not interested']",
+        "[aria-label='Not interested']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--text"
+      ],
+      "href": null
+    },
+    "48": {
+      "label": "3:18",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=xhv5-jAnZhg&pp=0gcJCTwKAYcqIYzv"
+    },
+    "49": {
+      "label": "‘No words’: Heartbreaking funeral held for 10-year-old Matilda 3 minutes, 18 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='‘No words’: Heartbreaking funeral held for 10-year-old Matilda 3 minutes, 18 seconds']",
+        "[aria-label='‘No words’: Heartbreaking funeral held for 10-year-old Matilda 3 minutes, 18 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=xhv5-jAnZhg&pp=0gcJCTwKAYcqIYzv"
+    },
+    "50": {
+      "label": "Sky News Australia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@SkyNewsAustralia']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@SkyNewsAustralia"
+    },
+    "51": {
+      "label": "3:21",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=7r9YOpnUtlo&pp=0gcJCTwKAYcqIYzv"
+    },
+    "52": {
+      "label": "Heartbroken mourners gather for the funeral of the youngest victim of the mass shooting 3 minutes, 21 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=7r9YOpnUtlo&pp=0gcJCTwKAYcqIYzv"
+    },
+    "53": {
+      "label": "SBS News",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@SBSNews']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@SBSNews"
+    },
+    "54": {
+      "label": "5:24",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=dDF7OmTeJkw"
+    },
+    "55": {
+      "label": "Public return to Bondi Beach as crime scene lifted | 9 News Australia 5 minutes, 24 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Public return to Bondi Beach as crime scene lifted | 9 News Australia 5 minutes, 24 seconds']",
+        "[aria-label='Public return to Bondi Beach as crime scene lifted | 9 News Australia 5 minutes, 24 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=dDF7OmTeJkw"
+    },
+    "56": {
+      "label": "9 News Australia",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@9NewsAUS']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@9NewsAUS"
+    },
+    "57": {
+      "label": "Show more",
+      "type": "Button",
+      "tag": "button",
+      "selectors": [
+        "button[aria-label='Show more']",
+        "[aria-label='Show more']",
+        "button.yt-spec-button-shape-next.yt-spec-button-shape-next--outline"
+      ],
+      "href": null
+    },
+    "58": {
+      "label": "5:22",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=kvJElTaR5kM&list=RDkvJElTaR5kM&start_radio=1&pp=oAcB"
+    },
+    "59": {
+      "label": "Critical Acclaim 【Avenged Sevenfold】 Cover by A-YEON 5 minutes, 22 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Critical Acclaim 【Avenged Sevenfold】 Cover by A-YEON 5 minutes, 22 seconds']",
+        "[aria-label='Critical Acclaim 【Avenged Sevenfold】 Cover by A-YEON 5 minutes, 22 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=kvJElTaR5kM&list=RDkvJElTaR5kM&start_radio=1&pp=oAcB"
+    },
+    "60": {
+      "label": "A-YEON",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@AYEON']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@AYEON"
+    },
+    "61": {
+      "label": "Mix",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=ymcm-ILxHZo&list=RDymcm-ILxHZo&start_radio=1"
+    },
+    "62": {
+      "label": "Mix - Syncatto - Golden Hour - Guitar Play-through",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=ymcm-ILxHZo&list=RDymcm-ILxHZo&start_radio=1"
+    },
+    "63": {
+      "label": "1:11:46",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=riZAVELEHpk&list=RDriZAVELEHpk&start_radio=1&pp=oAcB"
+    },
+    "64": {
+      "label": "Xenia Dia (Diamond)- Live @ Ocean Vibes, Koh Phangan / Melodic Techno & Progressive House DJ Mix 1 hour, 11 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=riZAVELEHpk&list=RDriZAVELEHpk&start_radio=1&pp=oAcB"
+    },
+    "65": {
+      "label": "XENIA DIA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@XeniaDiaDj']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@XeniaDiaDj"
+    },
+    "66": {
+      "label": "INCREDIBLE! China Creates the Most Human-Like Robot Ever Seen!",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/cONe_UR7hhk']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/cONe_UR7hhk"
+    },
+    "67": {
+      "label": "Oh sometimes.. ✨  #dj #music #afrohouse #afrohouseremix #giadabrince",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/4yi_m4s6Hp0']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/4yi_m4s6Hp0"
+    },
+    "68": {
+      "label": "Devon Larratt Confirms He Will Continue His Fasting Beyond 7 Days!💯 #armwrestling #devonlarratt #fy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/cGtuHEloM-Y']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/cGtuHEloM-Y"
+    },
+    "69": {
+      "label": "BULKING MADE ME LOSE IT ALL",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/6R3WjkFmxxU']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/6R3WjkFmxxU"
+    },
+    "70": {
+      "label": "Escalator prank #prank #escalator #couple #funnytiktok #love",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/shorts/4vIjbUljBQY']",
+        "a.shortsLockupViewModelHostEndpoint.shortsLockupViewModelHostOutsideMetadataEndpoint"
+      ],
+      "href": "https://www.youtube.com/shorts/4vIjbUljBQY"
+    },
+    "71": {
+      "label": "4:05",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=RMUNm88Phws"
+    },
+    "72": {
+      "label": "USA Just Won the AI Race – Thanks to Gemini 3 4 minutes, 5 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='USA Just Won the AI Race – Thanks to Gemini 3 4 minutes, 5 seconds']",
+        "[aria-label='USA Just Won the AI Race – Thanks to Gemini 3 4 minutes, 5 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=RMUNm88Phws"
+    },
+    "73": {
+      "label": "USA Vibes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@USAVibes-15006']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@USAVibes-15006"
+    },
+    "74": {
+      "label": "19:28",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=s9nt8xaXFdg"
+    },
+    "75": {
+      "label": "AI Coding on steroids! Auto Claude (Free & Opensource) 19 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='AI Coding on steroids! Auto Claude (Free & Opensource) 19 minutes']",
+        "[aria-label='AI Coding on steroids! Auto Claude (Free & Opensource) 19 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=s9nt8xaXFdg"
+    },
+    "76": {
+      "label": "André Mikalsen",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@AndreMikalsen']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@AndreMikalsen"
+    },
+    "77": {
+      "label": "11:13",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=X1GIITL-dz8&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "78": {
+      "label": "THE 100's WORKOUT | DLB Back Day 11 minutes, 13 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='THE 100\\'s WORKOUT | DLB Back Day 11 minutes, 13 seconds']",
+        "[aria-label='THE 100\\'s WORKOUT | DLB Back Day 11 minutes, 13 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=X1GIITL-dz8&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "79": {
+      "label": "DanaLinnBailey",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@DanaLinnBailey']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@DanaLinnBailey"
+    },
+    "80": {
+      "label": "41:08",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=6vG_amAshTk"
+    },
+    "81": {
+      "label": "Knowledge Graph or Vector Database… Which is Better? 41 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Knowledge Graph or Vector Database… Which is Better? 41 minutes']",
+        "[aria-label='Knowledge Graph or Vector Database… Which is Better? 41 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=6vG_amAshTk"
+    },
+    "82": {
+      "label": "Adam Lucek",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@AdamLucek']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@AdamLucek"
+    },
+    "83": {
+      "label": "8:55",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=zrr3KQrQ-WA&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "84": {
+      "label": "Did Japan Just Build AGI? (Nobody Saw This Coming) 8 minutes, 55 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Did Japan Just Build AGI? (Nobody Saw This Coming) 8 minutes, 55 seconds']",
+        "[aria-label='Did Japan Just Build AGI? (Nobody Saw This Coming) 8 minutes, 55 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=zrr3KQrQ-WA&pp=ugUHEgVlbi1VUw%3D%3D"
+    },
+    "85": {
+      "label": "Julia McCoy",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@JuliaMcCoy']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@JuliaMcCoy"
+    },
+    "86": {
+      "label": "1:52:13",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=bA-WmidVSGo"
+    },
+    "87": {
+      "label": "the n8n killer? AGENTIC WORKFLOWS: Full Beginner's Guide 1 hour, 52 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='the n8n killer? AGENTIC WORKFLOWS: Full Beginner\\'s Guide 1 hour, 52 minutes']",
+        "[aria-label='the n8n killer? AGENTIC WORKFLOWS: Full Beginner\\'s Guide 1 hour, 52 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=bA-WmidVSGo"
+    },
+    "88": {
+      "label": "Nick Saraev",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@nicksaraev']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@nicksaraev"
+    },
+    "89": {
+      "label": "9:49",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=OvcCYqWgT64"
+    },
+    "90": {
+      "label": "HOW TO GET A GLUTE SHELF IN 90 DAYS | *upper glute activation + more!* 9 minutes, 49 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='HOW TO GET A GLUTE SHELF IN 90 DAYS | *upper glute activation + more!* 9 minutes, 49 seconds']",
+        "[aria-label='HOW TO GET A GLUTE SHELF IN 90 DAYS | *upper glute activation + more!* 9 minutes, 49 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=OvcCYqWgT64"
+    },
+    "91": {
+      "label": "Elisi Wolf",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@elisiwolff']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@elisiwolff"
+    },
+    "92": {
+      "label": "2:10",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=C377U2p-kfg"
+    },
+    "93": {
+      "label": "Marco Sfogli - Shifting Sands (Full Performance) 2 minutes, 10 seconds",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Marco Sfogli - Shifting Sands (Full Performance) 2 minutes, 10 seconds']",
+        "[aria-label='Marco Sfogli - Shifting Sands (Full Performance) 2 minutes, 10 seconds']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=C377U2p-kfg"
+    },
+    "94": {
+      "label": "JTC Guitar",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@JTCGuitar']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@JTCGuitar"
+    },
+    "95": {
+      "label": "39:46",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=jLwvqm-fJ3w"
+    },
+    "96": {
+      "label": "Your Thoughts Are Creating Parallel Universes - Billy Carson 39 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Your Thoughts Are Creating Parallel Universes - Billy Carson 39 minutes']",
+        "[aria-label='Your Thoughts Are Creating Parallel Universes - Billy Carson 39 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=jLwvqm-fJ3w"
+    },
+    "97": {
+      "label": "4biddenknowledge Podcast Network",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/channel/UCTiJFF8uRmAJwdkAXsTH8Jw']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/channel/UCTiJFF8uRmAJwdkAXsTH8Jw"
+    },
+    "98": {
+      "label": "1:57:49",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=8J8_Jab64Hw"
+    },
+    "99": {
+      "label": "KOROLOVA @ ULTRA MUSIC FESTIVAL JAPAN 2025 1 hour, 57 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='KOROLOVA @ ULTRA MUSIC FESTIVAL JAPAN 2025 1 hour, 57 minutes']",
+        "[aria-label='KOROLOVA @ ULTRA MUSIC FESTIVAL JAPAN 2025 1 hour, 57 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=8J8_Jab64Hw"
+    },
+    "100": {
+      "label": "KOROLOVA",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/channel/UC0VG86SRO2X47HU20nQtDeA']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/channel/UC0VG86SRO2X47HU20nQtDeA"
+    },
+    "101": {
+      "label": "23:06",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=hPoNH4DUd4k&pp=0gcJCTwKAYcqIYzv"
+    },
+    "102": {
+      "label": "Shredded at 72: The Simple Routine Behind His Insane Strength 23 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[aria-label='Shredded at 72: The Simple Routine Behind His Insane Strength 23 minutes']",
+        "[aria-label='Shredded at 72: The Simple Routine Behind His Insane Strength 23 minutes']",
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=hPoNH4DUd4k&pp=0gcJCTwKAYcqIYzv"
+    },
+    "103": {
+      "label": "Sierra Clark",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@sierra-clark']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@sierra-clark"
+    },
+    "104": {
+      "label": "1:39:50",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-view-model__content-image"
+      ],
+      "href": "https://www.youtube.com/watch?v=jr2rcC1lNyM"
+    },
+    "105": {
+      "label": "Peptides Cut Mortality In HALF! Why Doctors Are Hiding This Longevity Secret l Ep #394 1 hour, 39 minutes",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/watch']",
+        "a.yt-lockup-metadata-view-model__title"
+      ],
+      "href": "https://www.youtube.com/watch?v=jr2rcC1lNyM"
+    },
+    "106": {
+      "label": "Nathalie Niddam",
+      "type": "Link",
+      "tag": "a",
+      "selectors": [
+        "a[href*='/@nathalieniddam9630']",
+        "a.yt-core-attributed-string__link.yt-core-attributed-string__link--call-to-action-color"
+      ],
+      "href": "https://www.youtube.com/@nathalieniddam9630"
     }
   }
 }

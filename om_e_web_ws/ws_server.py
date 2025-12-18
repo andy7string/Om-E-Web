@@ -957,7 +957,14 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         return {"_hud_action": {"type": "hide_prompt"}}
 
     elif action == "SetTheme":
-        theme = params.get("theme", "classic")
+        theme = params.get("theme", "robot").lower()
+        # Map common names to actual theme values
+        theme_map = {
+            "om-e": "robot", "ome": "robot", "robot": "robot", "purple": "robot", "default": "robot",
+            "kawaii": "kawaii", "cat": "kawaii", "cute": "kawaii", "bunny": "kawaii",
+            "atom": "atom", "atomic": "atom", "science": "atom", "nucleus": "atom",
+        }
+        theme = theme_map.get(theme, theme)
         return {"_hud_action": {"type": "set_theme", "theme": theme}}
 
     # ═══════════════════════════════════════════════════════════════════════════

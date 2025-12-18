@@ -14,6 +14,69 @@ from .vector_store import VectorStore
 
 CHATS_DIR = os.path.join(os.path.dirname(__file__), '..', 'data', 'chats')
 
+# Navigation/procedural patterns to filter out of semantic memory
+NAV_PATTERNS = [
+    'opening', 'closing', 'switching to', 'navigating to',
+    'switched to', 'opened', 'closed', 'loading', 'loaded',
+    'scrolling', 'scrolled', 'zooming', 'zoomed',
+    'toggling', 'toggled', 'showing', 'hiding',
+    'renaming', 'renamed', 'deleting', 'deleted',
+    'tab for you', 'chat for you', 'panel for you',
+]
+
+# Om-E failure/limitation messages - outdated info that pollutes memory
+FAILURE_PATTERNS = [
+    "can't show", "can't open", "can't do", "can't perform",
+    "isn't available", "not available", "isn't currently available",
+    "capability isn't", "capability is not",
+    "i can't", "i cannot", "unable to",
+    "don't have access", "no capability",
+]
+
+
+def is_substantive_content(content: str) -> bool:
+    """
+    Check if message content is substantive (worth indexing for semantic search).
+
+    Filters out:
+    - Capability JSON responses
+    - Navigation/procedural messages
+    - Very short messages
+
+    Returns True if content should be indexed.
+    """
+    content_lower = content.lower().strip()
+
+    # Skip empty or very short
+    if len(content) < 15:
+        return False
+
+    # Skip capability JSON (actions, not knowledge)
+    if content.strip().startswith('{') and ('"cap"' in content or '"act"' in content):
+        return False
+
+    # Skip messages that are ONLY capability JSON (may have text before)
+    lines = content.strip().split('\n')
+    if len(lines) <= 2:
+        last_line = lines[-1].strip()
+        if last_line.startswith('{') and ('"cap"' in last_line or '"act"' in last_line):
+            # Check if the non-JSON part is just procedural
+            non_json = '\n'.join(lines[:-1]).lower()
+            if any(p in non_json for p in NAV_PATTERNS):
+                return False
+
+    # Skip pure navigation messages
+    if any(p in content_lower for p in NAV_PATTERNS):
+        # But allow if there's substantial other content (>50 words)
+        if len(content.split()) < 50:
+            return False
+
+    # Skip Om-E failure/limitation messages (outdated info)
+    if any(p in content_lower for p in FAILURE_PATTERNS):
+        return False
+
+    return True
+
 
 class ChatMemoryStore(VectorStore):
     """
@@ -69,12 +132,8 @@ class ChatMemoryStore(VectorStore):
                     msg_id = msg.get('id', '')
                     timestamp = msg.get('timestamp', '')
 
-                    # Skip empty or very short messages
-                    if len(content) < 5:
-                        continue
-
-                    # Skip capability JSON responses (just actions, no semantic value)
-                    if content.startswith('{') and '"cap"' in content:
+                    # Filter out nav/capability noise
+                    if not is_substantive_content(content):
                         continue
 
                     # Build semantic text for embedding
@@ -118,10 +177,8 @@ class ChatMemoryStore(VectorStore):
         msg_id = message.get('id', '')
         timestamp = message.get('timestamp', '')
 
-        # Skip empty or action-only messages
-        if len(content) < 5:
-            return
-        if content.startswith('{') and '"cap"' in content:
+        # Filter out nav/capability noise
+        if not is_substantive_content(content):
             return
 
         # Get date from timestamp

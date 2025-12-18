@@ -1,0 +1,99 @@
+{
+  "chat_id": "show-conversations__20251218T103133",
+  "project_id": "default",
+  "created_at": "2025-12-18T10:31:33.162144Z",
+  "updated_at": "2025-12-18T10:33:24.298425Z",
+  "title": "show conversations",
+  "default_title": "show conversations",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "show conversations",
+      "timestamp": "2025-12-18T10:31:33.162176Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "It seems like I can't directly show conversations right now. Would you like me to display the chats panel instead?",
+      "timestamp": "2025-12-18T10:31:35.641309Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "show chats",
+      "timestamp": "2025-12-18T10:31:39.352045Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "I'll display the chats panel for you now.\n\n{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-18T10:31:41.171864Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "nice can you delete the hey can we chat with two messages",
+      "timestamp": "2025-12-18T10:32:21.818423Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "I'll delete the \"hey can we\" chat with 2 messages now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 6}}",
+      "timestamp": "2025-12-18T10:32:23.162663Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "where are my",
+      "timestamp": "2025-12-18T10:32:32.855665Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "You have 14 chats available. Would you like me to list the chat titles for you?",
+      "timestamp": "2025-12-18T10:32:35.465784Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "ok",
+      "timestamp": "2025-12-18T10:32:40.247591Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Here are your chat titles:\n\n1. \"show conversations\" (6 msgs)\n2. \"show chats\" (12 msgs)\n3. \"show me my\" (4 msgs)\n4. \"do you ever\" (22 msgs)\n5. \"switched on\" (78 msgs)\n6. \"where are my\" (4 msgs)\n7. \"what is the\" (16 msgs)\n8. \"mother fuckers\" (24 msgs)\n9. \"close ma poes\" (8 msgs)\n10. \"dude when did\" (8 msgs)\n11. \"show me chats\" (6 msgs)\n12. \"open facebook\" (26 msgs)\n13. \"open youtube\" (34 msgs)\n14. \"nice did you\" (26 msgs)\n\nIf you need to take any action on a specific chat, just let me know!",
+      "timestamp": "2025-12-18T10:32:44.864463Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "delete 3",
+      "timestamp": "2025-12-18T10:33:06.271610Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "I'll delete the \"show me my\" chat with 4 messages now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}",
+      "timestamp": "2025-12-18T10:33:07.486392Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "rename 13 to something meaningful",
+      "timestamp": "2025-12-18T10:33:22.791936Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "I'll rename the \"open youtube\" chat to \"YouTube Conversations\" now.\n\n{\"cap\": \"RenameChat\", \"params\": {\"chat\": 13, \"title\": \"YouTube Conversations\"}}",
+      "timestamp": "2025-12-18T10:33:24.298425Z"
+    }
+  ]
+}

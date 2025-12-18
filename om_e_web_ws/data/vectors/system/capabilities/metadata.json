@@ -21,15 +21,15 @@
     "ShowChats: Show chats panel. Opens the chats sidebar to display saved conversations. If in orb view, switches to HUD first then opens sidebar. Use when user wants to SEE their chats.. show chats, show my chats, show me my chats, see my chats, view chats, view my chats, my chats, where are my chats, open chats, show conversations, show past chats, where are the conversations, my conversations, where are conversations, past conversations, conversation history, chat history, show history, list chats, list my chats, get my chats, what chats do I have",
     "HideChats: Hide chats panel. Closes the chats sidebar UI panel. Does NOT delete chats - just hides the panel from view.. hide chats, close chats, hide my chats, close conversations, close those chats, close the chats, hide the chats, close chat panel, close sidebar, hide sidebar, close the sidebar",
     "ToggleChats: Toggle chats panel. Opens or closes the chats panel. toggle chats, chats on off",
-    "LoadChat: Load a chat by ID. Returns full chat content including all messages. open chat, load conversation, get chat, retrieve chat",
+    "LoadChat: Load a chat. Returns full chat content including all messages. Use the chat NUMBER from visible chats list.. open chat, load conversation, get chat, retrieve chat",
     "CreateChat: Create a new chat. Creates a new chat file and returns the chat_id. new chat, start conversation, new conversation, fresh chat",
     "AppendMessage: Append a message to a chat. Appends a user or assistant message to a chat. Creates chat if chat_id is null.. add message, save message, append to chat",
     "AppendUserMessage: Append a user message to current chat. Appends a user message. Uses CURRENT_CHAT_ID or creates new chat.. add user message, save my message, record user input",
     "AppendAssistantMessage: Append an assistant message to current chat. Appends an assistant message. Uses CURRENT_CHAT_ID or creates new chat.. add assistant message, save response, record assistant reply",
-    "RenameChat: Rename a chat. Updates the title of an existing chat. rename conversation, change chat title, update chat name",
-    "DeleteChat: Delete a chat. Permanently deletes a chat file. remove chat, delete conversation, erase chat",
+    "RenameChat: Rename a chat. Updates the title of an existing chat. Use the chat NUMBER from visible chats list.. rename conversation, change chat title, update chat name",
+    "DeleteChat: Delete a chat. Permanently deletes a chat. Use the chat NUMBER from visible chats list.. remove chat, delete conversation, erase chat",
     "GetCurrentChat: Get the current active chat. Returns the current chat ID and chat data. current chat, active chat, which chat, what chat am i in",
-    "SetCurrentChat: Switch to a chat by name or ID. Switches to a chat. Accepts chat_id OR chat title (fuzzy match). If multiple chats match, returns numbered list for user to choose from.. switch chat, change to chat, activate chat, make current, go to chat, open chat, load chat",
+    "SetCurrentChat: Switch to a chat. Switches to a chat. Use the chat NUMBER from visible chats list.. switch chat, change to chat, activate chat, make current, go to chat, open chat, load chat",
     "SearchChats: Search chats by title or content. Searches all chats for a keyword or phrase. Extract the key search term from the user's request and search. Don't ask for clarification - just search with what they gave you.. find chat, search conversations, look for chat, find in history, search for that, find that chat, which chat, search chats, find the one about, that one about, look for the chat",
     "GetLLMConfig: Get LLM configuration. Returns current LLM config including providers and settings. show config, what model, current settings, llm settings, which ai",
     "SetLLMProvider: Switch active LLM provider. Changes which provider is used for LLM calls. change provider, switch to openai, switch to anthropic, use different ai",
@@ -436,9 +436,9 @@
     {
       "name": "LoadChat",
       "group": "chat",
-      "label": "Load a chat by ID",
-      "description": "Returns full chat content including all messages",
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat_id\": \"chat-abc123\"}}",
+      "label": "Load a chat",
+      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
+      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "synonyms": [
         "open chat",
         "load conversation",
@@ -446,7 +446,7 @@
         "retrieve chat"
       ],
       "params": {
-        "chat_id": "Required - the chat ID to load"
+        "chat": "Required - the chat NUMBER from visible chats list"
       }
     },
     {
@@ -523,15 +523,15 @@
       "name": "RenameChat",
       "group": "chat",
       "label": "Rename a chat",
-      "description": "Updates the title of an existing chat",
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": \"chat-abc\", \"title\": \"New Title\"}}",
+      "description": "Updates the title of an existing chat. Use the chat NUMBER from visible chats list.",
+      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat\": 1, \"title\": \"New Title\"}}",
       "synonyms": [
         "rename conversation",
         "change chat title",
         "update chat name"
       ],
       "params": {
-        "chat_id": "Required - the chat ID to rename",
+        "chat": "Required - the chat NUMBER from visible chats list",
         "title": "Required - the new title"
       }
     },
@@ -539,15 +539,15 @@
       "name": "DeleteChat",
       "group": "chat",
       "label": "Delete a chat",
-      "description": "Permanently deletes a chat file",
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat_id\": \"chat-abc\"}}",
+      "description": "Permanently deletes a chat. Use the chat NUMBER from visible chats list.",
+      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}",
       "synonyms": [
         "remove chat",
         "delete conversation",
         "erase chat"
       ],
       "params": {
-        "chat_id": "Required - the chat ID to delete"
+        "chat": "Required - the chat NUMBER from visible chats list"
       }
     },
     {
@@ -567,9 +567,9 @@
     {
       "name": "SetCurrentChat",
       "group": "chat",
-      "label": "Switch to a chat by name or ID",
-      "description": "Switches to a chat. Accepts chat_id OR chat title (fuzzy match). If multiple chats match, returns numbered list for user to choose from.",
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat_id\": \"hud\"}}",
+      "label": "Switch to a chat",
+      "description": "Switches to a chat. Use the chat NUMBER from visible chats list.",
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 5}}",
       "synonyms": [
         "switch chat",
         "change to chat",
@@ -580,7 +580,7 @@
         "load chat"
       ],
       "params": {
-        "chat_id": "Required - chat ID or chat title (supports fuzzy matching)"
+        "chat": "Required - the chat NUMBER from visible chats list"
       }
     },
     {

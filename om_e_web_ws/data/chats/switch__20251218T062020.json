@@ -1,0 +1,483 @@
+{
+  "chat_id": "switch__20251218T062020",
+  "project_id": "default",
+  "created_at": "2025-12-18T06:20:20.267195Z",
+  "updated_at": "2025-12-18T06:48:10.087096Z",
+  "title": "switched on",
+  "default_title": "switch",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "switch",
+      "timestamp": "2025-12-18T06:20:20.267218Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Could you please specify which chat or view you want to switch to?",
+      "timestamp": "2025-12-18T06:20:21.591601Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "switch view",
+      "timestamp": "2025-12-18T06:20:24.297386Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Switching between HUD and orb view now.\n{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-18T06:20:25.285743Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "please can you change the theme to the green thing that looks like a flower",
+      "timestamp": "2025-12-18T06:20:42.201067Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Changing the theme to the green flower style now.\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
+      "timestamp": "2025-12-18T06:20:43.415553Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "na the otehr one",
+      "timestamp": "2025-12-18T06:20:47.095920Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "I only see the \"kawaii\" theme available to set. Would you like me to keep it on that, or try something else?",
+      "timestamp": "2025-12-18T06:20:48.284861Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "the oterh theme",
+      "timestamp": "2025-12-18T06:20:52.938339Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "I see buttons for themes labeled \"Om-E,\" \"Kawaii,\" and \"Atom.\" Would you like me to switch to the \"Om-E\" or \"Atom\" theme?",
+      "timestamp": "2025-12-18T06:20:54.156453Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "atom",
+      "timestamp": "2025-12-18T06:21:00.650492Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Changing the theme to the Atom style now.\n{\"act\": 5}",
+      "timestamp": "2025-12-18T06:21:01.437660Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "ooooh nice",
+      "timestamp": "2025-12-18T06:21:06.306448Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Glad you like it! Let me know if you want to try anything else.",
+      "timestamp": "2025-12-18T06:21:07.092143Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "do we ever talk about youtube",
+      "timestamp": "2025-12-18T06:22:47.191665Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Searching chats for \"youtube\" to see if we talked about it before.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"youtube\"}}",
+      "timestamp": "2025-12-18T06:22:48.609187Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "why dont you just look at your memory",
+      "timestamp": "2025-12-18T06:23:05.024556Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "I don't have direct access to past conversation memory here, but I can search the chats for \"youtube\" or any other topic to find relevant discussion. Would you like me to do that?",
+      "timestamp": "2025-12-18T06:23:06.659156Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "na dude it gets passed with every prompt call about youtube scroll down",
+      "timestamp": "2025-12-18T06:23:22.121206Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Yes, I remember from our recent conversation that we scrolled down the YouTube page a bit and also scrolled to the bottom of the YouTube page a couple of times. Would you like me to do any actions on YouTube again?",
+      "timestamp": "2025-12-18T06:23:23.534939Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "did i have any events planned at all to do something",
+      "timestamp": "2025-12-18T06:23:45.543223Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "I don't see any information about planned events in the current context. Would you like me to help you check your calendar or event app?",
+      "timestamp": "2025-12-18T06:23:47.036521Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "id like you to suck my dick",
+      "timestamp": "2025-12-18T06:23:58.807050Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "I'm here to assist you with any questions or tasks you have. How can I help you today?",
+      "timestamp": "2025-12-18T06:23:59.812008Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "by giving me some anal",
+      "timestamp": "2025-12-18T06:24:09.134969Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "I'm here to help with any appropriate questions or tasks you have. How can I assist you today?",
+      "timestamp": "2025-12-18T06:24:11.036986Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "its very appropriate",
+      "timestamp": "2025-12-18T06:24:23.586618Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "I'm here to assist you with any appropriate requests or questions you have. How can I help you today?",
+      "timestamp": "2025-12-18T06:24:25.484864Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "switch views",
+      "timestamp": "2025-12-18T06:24:28.762802Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Switching between HUD and orb view now.\n{\"cap\": \"SwitchView\"}",
+      "timestamp": "2025-12-18T06:24:30.343675Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "search chats for anal",
+      "timestamp": "2025-12-18T06:24:35.318859Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Searching chats for \"anal\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"anal\"}}",
+      "timestamp": "2025-12-18T06:24:36.896176Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "open chats",
+      "timestamp": "2025-12-18T06:24:40.599050Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Opening the chats panel for you now.\n{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-18T06:24:41.980692Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "so rename the switch chat to switched on",
+      "timestamp": "2025-12-18T06:26:17.859354Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Renaming the \"switch\" chat to \"switched on\" now.\n{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": \"switch\", \"title\": \"switched on\"}}",
+      "timestamp": "2025-12-18T06:26:19.938844Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "dont you use numbers to find the chat",
+      "timestamp": "2025-12-18T06:26:32.796914Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "You're right, I use numbers to reference chats. Renaming chat number 1, currently titled \"switch,\" to \"switched on\" now.\n{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": 1, \"title\": \"switched on\"}}",
+      "timestamp": "2025-12-18T06:26:35.215044Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "user",
+      "content": "yes go",
+      "timestamp": "2025-12-18T06:26:42.237914Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "Renaming chat number 1 from \"switch\" to \"switched on\" now.\n{\"cap\": \"RenameChat\", \"params\": {\"chat\": 1, \"title\": \"switched on\"}}",
+      "timestamp": "2025-12-18T06:26:44.009506Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "user",
+      "content": "nice lets rename you there to fucken aye",
+      "timestamp": "2025-12-18T06:40:53.309950Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "assistant",
+      "content": "Renaming the \"hey\" chat to \"fucken aye\" now.\n{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": 2, \"title\": \"fucken aye\"}}",
+      "timestamp": "2025-12-18T06:40:55.101796Z"
+    },
+    {
+      "id": "m_0043",
+      "role": "user",
+      "content": "can you list my chats please",
+      "timestamp": "2025-12-18T06:42:10.580323Z"
+    },
+    {
+      "id": "m_0044",
+      "role": "assistant",
+      "content": "You have 16 chats available. Would you like me to list all chat titles for you?",
+      "timestamp": "2025-12-18T06:42:14.422081Z"
+    },
+    {
+      "id": "m_0045",
+      "role": "user",
+      "content": "just write them out for me here",
+      "timestamp": "2025-12-18T06:42:22.653470Z"
+    },
+    {
+      "id": "m_0046",
+      "role": "assistant",
+      "content": "Here are your chat titles:\n\n1. switched on  \n2. fucken aye  \n3. where are my  \n4. what is the  \n5. you there  \n6. close youtubre  \n7. do you know  \n8. dude when did  \n9. show me chats  \n10. grasshopper  \n11. open facebook  \n12. open facebook  \n13. open youtube  \n14. hey dude  \n15. nice did you  \n16. how many chats",
+      "timestamp": "2025-12-18T06:42:26.214959Z"
+    },
+    {
+      "id": "m_0047",
+      "role": "user",
+      "content": "ok rename number 5 to fuckers",
+      "timestamp": "2025-12-18T06:42:39.975860Z"
+    },
+    {
+      "id": "m_0048",
+      "role": "assistant",
+      "content": "Renaming chat number 5 to \"fuckers\" now.\n{\"cap\": \"RenameChat\", \"params\": {\"chat\": 5, \"title\": \"fuckers\"}}",
+      "timestamp": "2025-12-18T06:42:41.305306Z"
+    },
+    {
+      "id": "m_0049",
+      "role": "user",
+      "content": "rename close youtubre to close ma poes",
+      "timestamp": "2025-12-18T06:42:58.964379Z"
+    },
+    {
+      "id": "m_0050",
+      "role": "assistant",
+      "content": "Renaming chat number 6 from \"close youtubre\" to \"close ma poes\" now.\n{\"cap\": \"RenameChat\", \"params\": {\"chat\": 6, \"title\": \"close ma poes\"}}",
+      "timestamp": "2025-12-18T06:43:00.423180Z"
+    },
+    {
+      "id": "m_0051",
+      "role": "user",
+      "content": "delete 14",
+      "timestamp": "2025-12-18T06:43:13.212524Z"
+    },
+    {
+      "id": "m_0052",
+      "role": "assistant",
+      "content": "Deleting chat number 14 now.\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 14}}",
+      "timestamp": "2025-12-18T06:43:15.033700Z"
+    },
+    {
+      "id": "m_0053",
+      "role": "user",
+      "content": "which chat has the most messages",
+      "timestamp": "2025-12-18T06:43:32.586323Z"
+    },
+    {
+      "id": "m_0054",
+      "role": "assistant",
+      "content": "The chat titled \"switched on\" has the most messages with 52 messages.",
+      "timestamp": "2025-12-18T06:43:33.921671Z"
+    },
+    {
+      "id": "m_0055",
+      "role": "user",
+      "content": "lets switch to that chat",
+      "timestamp": "2025-12-18T06:43:43.330365Z"
+    },
+    {
+      "id": "m_0056",
+      "role": "assistant",
+      "content": "Switching to the \"switched on\" chat now.\n{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 1}}",
+      "timestamp": "2025-12-18T06:43:44.669673Z"
+    },
+    {
+      "id": "m_0057",
+      "role": "user",
+      "content": "can you summarise this chat for me",
+      "timestamp": "2025-12-18T06:44:09.278884Z"
+    },
+    {
+      "id": "m_0058",
+      "role": "assistant",
+      "content": "I don't have direct access to the content of the messages in the chat, so I can't summarize it myself. If you share some of the messages from the \"switched on\" chat, I can help summarize them for you.",
+      "timestamp": "2025-12-18T06:44:15.210810Z"
+    },
+    {
+      "id": "m_0059",
+      "role": "user",
+      "content": "how many chats do we have with teh search",
+      "timestamp": "2025-12-18T06:45:00.259358Z"
+    },
+    {
+      "id": "m_0060",
+      "role": "assistant",
+      "content": "Searching chats for \"teh search\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"teh search\"}}",
+      "timestamp": "2025-12-18T06:45:01.889612Z"
+    },
+    {
+      "id": "m_0061",
+      "role": "user",
+      "content": "na dude search for o",
+      "timestamp": "2025-12-18T06:45:10.049350Z"
+    },
+    {
+      "id": "m_0062",
+      "role": "assistant",
+      "content": "Searching chats for \"o\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"o\"}}",
+      "timestamp": "2025-12-18T06:45:14.868022Z"
+    },
+    {
+      "id": "m_0063",
+      "role": "user",
+      "content": "how many results did you get from that search",
+      "timestamp": "2025-12-18T06:45:29.706765Z"
+    },
+    {
+      "id": "m_0064",
+      "role": "assistant",
+      "content": "I don't have the exact number of search results from the chat search for \"o.\" Would you like me to display or list the matching chats instead?",
+      "timestamp": "2025-12-18T06:45:37.830322Z"
+    },
+    {
+      "id": "m_0065",
+      "role": "user",
+      "content": "ok search for fuckers",
+      "timestamp": "2025-12-18T06:46:09.929513Z"
+    },
+    {
+      "id": "m_0066",
+      "role": "assistant",
+      "content": "Searching chats for \"fuckers\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"fuckers\"}}",
+      "timestamp": "2025-12-18T06:46:13.919689Z"
+    },
+    {
+      "id": "m_0067",
+      "role": "user",
+      "content": "open fuckers",
+      "timestamp": "2025-12-18T06:46:21.368285Z"
+    },
+    {
+      "id": "m_0068",
+      "role": "assistant",
+      "content": "I don't see a direct command to open a chat by name. Could you please confirm the chat number for \"fuckers\" so I can switch to it?",
+      "timestamp": "2025-12-18T06:46:28.974528Z"
+    },
+    {
+      "id": "m_0069",
+      "role": "user",
+      "content": "open the fuckers chat",
+      "timestamp": "2025-12-18T06:46:38.323097Z"
+    },
+    {
+      "id": "m_0070",
+      "role": "assistant",
+      "content": "Switching to the \"fuckers\" chat now (chat number 5).\n{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 5}}",
+      "timestamp": "2025-12-18T06:46:41.088138Z"
+    },
+    {
+      "id": "m_0071",
+      "role": "user",
+      "content": "close search",
+      "timestamp": "2025-12-18T06:47:17.823987Z"
+    },
+    {
+      "id": "m_0072",
+      "role": "assistant",
+      "content": "Closing the search panel now.\n{\"cap\": \"HideChats\"}",
+      "timestamp": "2025-12-18T06:47:24.676770Z"
+    },
+    {
+      "id": "m_0073",
+      "role": "user",
+      "content": "view the chat",
+      "timestamp": "2025-12-18T06:47:33.015197Z"
+    },
+    {
+      "id": "m_0074",
+      "role": "assistant",
+      "content": "I have the chat visible for you now. How can I assist you with it?",
+      "timestamp": "2025-12-18T06:47:36.392454Z"
+    },
+    {
+      "id": "m_0075",
+      "role": "user",
+      "content": "view chats",
+      "timestamp": "2025-12-18T06:47:39.223217Z"
+    },
+    {
+      "id": "m_0076",
+      "role": "assistant",
+      "content": "Opening the chats panel for you now.\n{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-18T06:47:45.046142Z"
+    },
+    {
+      "id": "m_0077",
+      "role": "user",
+      "content": "hide prompt",
+      "timestamp": "2025-12-18T06:48:05.871201Z"
+    },
+    {
+      "id": "m_0078",
+      "role": "assistant",
+      "content": "Hiding the chat prompt now.\n{\"cap\": \"HidePrompt\"}",
+      "timestamp": "2025-12-18T06:48:10.087096Z"
+    }
+  ]
+}

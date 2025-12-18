@@ -217,12 +217,12 @@
     "LoadChat": {
       "group": "chat",
       "action": "LoadChat",
-      "label": "Load a chat by ID",
-      "description": "Returns full chat content including all messages",
+      "label": "Load a chat",
+      "description": "Returns full chat content including all messages. Use the chat NUMBER from visible chats list.",
       "synonyms": ["open chat", "load conversation", "get chat", "retrieve chat"],
-      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat_id\": \"chat-abc123\"}}",
+      "example": "{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}",
       "params": {
-        "chat_id": "Required - the chat ID to load"
+        "chat": "Required - the chat NUMBER from visible chats list"
       }
     },
     "CreateChat": {
@@ -282,11 +282,11 @@
       "group": "chat",
       "action": "RenameChat",
       "label": "Rename a chat",
-      "description": "Updates the title of an existing chat",
+      "description": "Updates the title of an existing chat. Use the chat NUMBER from visible chats list.",
       "synonyms": ["rename conversation", "change chat title", "update chat name"],
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat_id\": \"chat-abc\", \"title\": \"New Title\"}}",
+      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat\": 1, \"title\": \"New Title\"}}",
       "params": {
-        "chat_id": "Required - the chat ID to rename",
+        "chat": "Required - the chat NUMBER from visible chats list",
         "title": "Required - the new title"
       }
     },
@@ -294,11 +294,11 @@
       "group": "chat",
       "action": "DeleteChat",
       "label": "Delete a chat",
-      "description": "Permanently deletes a chat file",
+      "description": "Permanently deletes a chat. Use the chat NUMBER from visible chats list.",
       "synonyms": ["remove chat", "delete conversation", "erase chat"],
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat_id\": \"chat-abc\"}}",
+      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}",
       "params": {
-        "chat_id": "Required - the chat ID to delete"
+        "chat": "Required - the chat NUMBER from visible chats list"
       }
     },
     "GetCurrentChat": {
@@ -313,12 +313,12 @@
     "SetCurrentChat": {
       "group": "chat",
       "action": "SetCurrentChat",
-      "label": "Switch to a chat by name or ID",
-      "description": "Switches to a chat. Accepts chat_id OR chat title (fuzzy match). If multiple chats match, returns numbered list for user to choose from.",
+      "label": "Switch to a chat",
+      "description": "Switches to a chat. Use the chat NUMBER from visible chats list.",
       "synonyms": ["switch chat", "change to chat", "activate chat", "make current", "go to chat", "open chat", "load chat"],
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat_id\": \"hud\"}}",
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 5}}",
       "params": {
-        "chat_id": "Required - chat ID or chat title (supports fuzzy matching)"
+        "chat": "Required - the chat NUMBER from visible chats list"
       }
     },
     "SearchChats": {

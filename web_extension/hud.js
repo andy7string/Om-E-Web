@@ -2522,7 +2522,6 @@
             }
             .ome-confirm-delete-btn.yes:hover {
                 background: rgba(255, 80, 80, 0.4);
-                box-shadow: 0 0 10px rgba(255, 100, 100, 0.5);
             }
             .ome-confirm-delete-btn.no {
                 background: rgba(var(--theme-color, 126,200,227), 0.15);
@@ -2533,7 +2532,6 @@
             }
             .ome-confirm-delete-btn.no:hover {
                 background: rgba(var(--theme-color, 126,200,227), 0.3);
-                box-shadow: 0 0 10px rgba(var(--theme-color, 126,200,227), 0.4);
             }
             @keyframes pulse-red {
                 0%, 100% { box-shadow: 0 0 6px rgba(255, 100, 100, 0.3); }
@@ -2578,7 +2576,6 @@
             }
             .ome-confirm-edit-btn.yes:hover {
                 background: rgba(100, 200, 100, 0.4);
-                box-shadow: 0 0 10px rgba(100, 200, 100, 0.5);
             }
             .ome-confirm-edit-btn.no {
                 background: rgba(200, 150, 100, 0.15);
@@ -2589,7 +2586,6 @@
             }
             .ome-confirm-edit-btn.no:hover {
                 background: rgba(200, 150, 100, 0.3);
-                box-shadow: 0 0 10px rgba(200, 150, 100, 0.4);
             }
 
             /* 📚 Dropdown menu (legacy - keeping for reference) */

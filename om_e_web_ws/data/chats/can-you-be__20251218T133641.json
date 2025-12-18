@@ -1,0 +1,81 @@
+{
+  "chat_id": "can-you-be__20251218T133641",
+  "project_id": "default",
+  "created_at": "2025-12-18T13:36:41.593679Z",
+  "updated_at": "2025-12-18T13:38:28.986601Z",
+  "title": "can you be",
+  "default_title": "can you be",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "can you be an atom",
+      "timestamp": "2025-12-18T13:36:41.593714Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Changing the theme to the Atom style now.  \n{\"act\": 5}",
+      "timestamp": "2025-12-18T13:36:53.694274Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "wow can you be a cat",
+      "timestamp": "2025-12-18T13:37:10.880707Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "It seems I can only switch between the Kawaii and Atom themes. There's no cat theme available. If you'd like to switch to Kawaii or Atom, just let me know!",
+      "timestamp": "2025-12-18T13:37:14.078403Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "Kawaii",
+      "timestamp": "2025-12-18T13:37:24.089426Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "user",
+      "content": "can you open google",
+      "timestamp": "2025-12-18T13:37:55.504926Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "assistant",
+      "content": "I'll open Google for you now.  \n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "timestamp": "2025-12-18T13:38:03.655183Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "user",
+      "content": "youtube",
+      "timestamp": "2025-12-18T13:38:16.741387Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "assistant",
+      "content": "I'll switch to the YouTube tab for you now.  \n{\"cap\": \"SwitchTab\", \"params\": {\"tabId\": 1}}",
+      "timestamp": "2025-12-18T13:38:18.829129Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "user",
+      "content": "na dude open youtubre",
+      "timestamp": "2025-12-18T13:38:27.169221Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "assistant",
+      "content": "I'll open YouTube for you now.  \n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://youtube.com\"}}",
+      "timestamp": "2025-12-18T13:38:28.986601Z"
+    }
+  ]
+}

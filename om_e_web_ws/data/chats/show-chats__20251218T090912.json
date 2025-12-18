@@ -1,0 +1,87 @@
+{
+  "chat_id": "show-chats__20251218T090912",
+  "project_id": "default",
+  "created_at": "2025-12-18T09:09:12.338258Z",
+  "updated_at": "2025-12-18T09:11:37.966776Z",
+  "title": "show chats",
+  "default_title": "show chats",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "show chats",
+      "timestamp": "2025-12-18T09:09:12.338299Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "I'll show the chats panel for you now.\n\n{\"cap\": \"ShowChats\"}",
+      "timestamp": "2025-12-18T09:09:14.400052Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "switch to fuckers",
+      "timestamp": "2025-12-18T09:09:23.010553Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Switching to the \"fuckers\" chat now.\n\n{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 8}}",
+      "timestamp": "2025-12-18T09:09:25.046355Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-18T09:11:13.497738Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "I'll open Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
+      "timestamp": "2025-12-18T09:11:14.984476Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "open facebook",
+      "timestamp": "2025-12-18T09:11:18.738593Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "I'll open Facebook for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://facebook.com\"}}",
+      "timestamp": "2025-12-18T09:11:20.758349Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "go to chatgbt",
+      "timestamp": "2025-12-18T09:11:29.007350Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "I'll switch to the ChatGPT tab now.\n\n{\"cap\": \"SwitchToTab\", \"params\": {\"tab\": 1}}",
+      "timestamp": "2025-12-18T09:11:30.345486Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "go to ome",
+      "timestamp": "2025-12-18T09:11:36.563400Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "I'll switch to the OM-E Web tab now.\n\n{\"cap\": \"SwitchToTab\", \"params\": {\"tab\": 3}}",
+      "timestamp": "2025-12-18T09:11:37.966776Z"
+    }
+  ]
+}

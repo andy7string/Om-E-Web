@@ -1,35 +1,49 @@
 {
-  "timestamp": 1765979697.057879,
+  "timestamp": 1766065112.5395572,
   "browser_state": {
-    "total_tabs": 2,
+    "total_tabs": 4,
     "active_tab": {
-      "id": 1138051899,
-      "url": "http://127.0.0.1:8080/",
-      "title": "OM-E Web",
+      "id": 1138052481,
+      "url": "https://www.youtube.com/",
+      "title": "YouTube",
       "status": "loading"
     },
     "all_tabs": [
       {
-        "id": 1138051897,
+        "id": 1138052472,
+        "url": "http://127.0.0.1:8080/",
+        "title": "OM-E Web",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138052477,
         "url": "chrome://extensions/",
         "title": "Extensions",
         "active": false,
         "status": "complete"
       },
       {
-        "id": 1138051899,
-        "url": "http://127.0.0.1:8080/",
-        "title": "OM-E Web",
+        "id": 1138052478,
+        "url": "https://www.google.com/",
+        "title": "Google",
+        "active": false,
+        "status": "complete"
+      },
+      {
+        "id": 1138052481,
+        "url": "https://www.youtube.com/",
+        "title": "YouTube",
         "active": true,
         "status": "loading"
       }
     ],
-    "last_tabs_update": 63439.670419375,
+    "last_tabs_update": 30209.515642916,
     "extension_connected": true
   },
   "current_page": {
-    "url": "http://127.0.0.1:8080/",
-    "title": "OM-E Web",
+    "url": "https://www.youtube.com/",
+    "title": "YouTube",
     "is_active_tab": true
   },
   "content_structure": {},

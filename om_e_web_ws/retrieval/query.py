@@ -241,8 +241,10 @@ def build_system_prompt(
     memory_store = get_chat_memory_store()
     memory_results = memory_store.search_memory(user_message, k=5, threshold=0.45)
     # Filter out messages from current chat (avoid circular context)
+    pre_filter = len(memory_results)
     if current_chat_id:
         memory_results = [m for m in memory_results if m.get('chat_id') != current_chat_id]
+    print(f"[Memory] current_chat_id={current_chat_id!r}, filtered {pre_filter} → {len(memory_results)}")
     # Limit to top 3 after filtering
     memory_results = memory_results[:3]
     t_mem = time.time()
@@ -286,14 +288,24 @@ def build_system_prompt(
     if hud_state and hud_state.get('visible_chats'):
         visible_chats = hud_state['visible_chats']
         count = len(visible_chats)
+        current_num = None
         prompt += f"**Visible Chats ({count}):**\n"
         for i, chat in enumerate(visible_chats, 1):
             title = chat.get('title', 'Untitled')
             msg_count = chat.get('message_count', 0)
-            prompt += f"  {i}. \"{title}\" ({msg_count} msgs)\n"
+            # Mark the current chat
+            if current_chat_id and chat.get('chat_id') == current_chat_id:
+                prompt += f"  {i}. \"{title}\" ({msg_count} msgs) ← CURRENT\n"
+                current_num = i
+            else:
+                prompt += f"  {i}. \"{title}\" ({msg_count} msgs)\n"
         prompt += f"\nUse the NUMBER (1-{count}) to reference chats:\n"
         prompt += "- `{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}`\n"
         prompt += "- `{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 13}}`\n"
+        if current_num:
+            prompt += f"- `{{\"cap\": \"RenameChat\", \"params\": {{\"chat\": {current_num}, \"title\": \"New Name\"}}}}` (current chat)\n"
+        else:
+            prompt += "- `{\"cap\": \"RenameChat\", \"params\": {\"chat\": 1, \"title\": \"New Name\"}}`\n"
         prompt += "- `{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}`\n\n"
 
     # NOTE: Live tab state is now appended to the last user message in agent.py
