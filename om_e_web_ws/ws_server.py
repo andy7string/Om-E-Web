@@ -824,10 +824,18 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         }
 
     elif action == "SetCurrentChat":
-        # Set the active chat - supports chat_id, exact title, or fuzzy title lookup
+        # Set the active chat - supports chat number, chat_id, or fuzzy title lookup
+        chat_num = params.get("chat")  # Number from visible list (1-indexed)
         chat_id = params.get("chat_id")
+
+        # Resolve chat number to chat_id if provided
+        if chat_num is not None:
+            chat_id = resolve_chat_number(chat_num)
+            if not chat_id:
+                return {"error": f"Invalid chat number: {chat_num}"}
+
         if not chat_id:
-            return {"error": "Missing chat_id parameter"}
+            return {"error": "Missing chat or chat_id parameter"}
 
         # Try exact chat_id match first
         chat_dict = load_chat(chat_id)
@@ -5077,7 +5085,8 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 message,
                                 active_tab=CURRENT_ACTIVE_TAB,
                                 tabs=tabs_with_numbers,
-                                hud_state=hud_state
+                                hud_state=hud_state,
+                                current_chat_id=CURRENT_CHAT_ID
                             )
 
                             # 🔍 TWO-PASS: Check if LLM needs a capability it doesn't have
@@ -5103,7 +5112,8 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         active_tab=CURRENT_ACTIVE_TAB,
                                         tabs=tabs_with_numbers,
                                         hud_state=hud_state,
-                                        rag_context=rag_context
+                                        rag_context=rag_context,
+                                        current_chat_id=CURRENT_CHAT_ID
                                     )
                                     print(f"🔍 FINDCMD: Pass 2 response: {response_text[:200]}...")
                                 else:
@@ -5135,7 +5145,8 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                         f"{memory_context}\n\nBased on this history, answer: {user_message}",
                                         active_tab=CURRENT_ACTIVE_TAB,
                                         tabs=tabs_with_numbers,
-                                        hud_state=hud_state
+                                        hud_state=hud_state,
+                                        current_chat_id=CURRENT_CHAT_ID
                                     )
                                     print(f"🧠 FINDMEM: Pass 2 response: {response_text[:200]}...")
                                 else:

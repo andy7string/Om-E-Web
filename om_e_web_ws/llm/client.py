@@ -98,8 +98,16 @@ def log_request(endpoint: str, model: str, payload: dict, provider: str):
     global _request_count, _total_tokens
     _request_count += 1
 
-    # Count tokens
+    # Count tokens - handle both standard (messages) and Responses API (instructions + input) formats
     messages = payload.get("messages", [])
+
+    # For Responses API (o3, o1, gpt-5): convert instructions + input to messages format for logging
+    if not messages and "instructions" in payload:
+        messages = [{"role": "system", "content": payload.get("instructions", "")}]
+        input_msgs = payload.get("input", [])
+        if isinstance(input_msgs, list):
+            messages.extend(input_msgs)
+
     tokens = count_tokens(messages, model)
     _total_tokens += tokens.get("total", 0)
 
@@ -152,7 +160,7 @@ def log_request(endpoint: str, model: str, payload: dict, provider: str):
     ]
 
     # Format each message
-    for i, msg in enumerate(messages):
+    for msg in messages:
         role = msg.get("role", "unknown").upper()
         content = msg.get("content", "")
         token_count = len(tiktoken.get_encoding("cl100k_base").encode(content))
@@ -164,10 +172,10 @@ def log_request(endpoint: str, model: str, payload: dict, provider: str):
         lines.append("---")
         lines.append("")
 
-    # Write formatted output
+    # Append to debug output (don't overwrite - query.py writes the full system prompt first)
     try:
-        with open(DEBUG_LOG_PATH, 'w', encoding='utf-8') as f:
-            f.write("\n".join(lines))
+        with open(DEBUG_LOG_PATH, 'a', encoding='utf-8') as f:
+            f.write("\n\n" + "\n".join(lines))
 
         print(f"[LLM Client] Request #{_request_count} | {tokens.get('total', 0):,} tokens | Session: {_total_tokens:,}")
     except Exception as e:

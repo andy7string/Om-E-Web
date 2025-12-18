@@ -210,7 +210,8 @@ def build_system_prompt(
     active_tab: Optional[Dict] = None,
     tabs: Optional[List[Dict]] = None,
     hud_state: Optional[Dict] = None,
-    write_debug: bool = True
+    write_debug: bool = True,
+    current_chat_id: Optional[str] = None
 ) -> str:
     """
     Build system prompt with RAG-retrieved context.
@@ -221,6 +222,7 @@ def build_system_prompt(
         tabs: List of open tabs [{id, title, url, active}]
         hud_state: HUD state {sidebar_open, visible_chats} for context
         write_debug: Write prompt to llm_debug.md
+        current_chat_id: Current chat ID (to exclude from memory search)
 
     Returns:
         Complete system prompt with retrieved context
@@ -231,10 +233,21 @@ def build_system_prompt(
     prompt = load_base_prompt()
     t_prompt = time.time()
 
-    # RAG query
+    # RAG query (elements + capabilities)
     result = query(user_message)
     t_rag = time.time()
-    print(f"[RAG] build_system_prompt(): load_prompt={t_prompt-t_start:.0f}ms rag_query={t_rag-t_prompt:.0f}ms")
+
+    # Proactive memory retrieval - search past conversations for relevant context
+    memory_store = get_chat_memory_store()
+    memory_results = memory_store.search_memory(user_message, k=5, threshold=0.45)
+    # Filter out messages from current chat (avoid circular context)
+    if current_chat_id:
+        memory_results = [m for m in memory_results if m.get('chat_id') != current_chat_id]
+    # Limit to top 3 after filtering
+    memory_results = memory_results[:3]
+    t_mem = time.time()
+
+    print(f"[RAG] build_system_prompt(): load_prompt={t_prompt-t_start:.0f}ms rag_query={t_rag-t_prompt:.0f}ms memory={t_mem-t_rag:.0f}ms (found {len(memory_results)} memories)")
 
     # Retrieved capabilities
     prompt += "\n────────────────────────\n"
@@ -258,6 +271,17 @@ def build_system_prompt(
     else:
         prompt += "**Elements:** None matched\n\n"
 
+    # Proactive memory context (relevant past conversations)
+    if memory_results:
+        prompt += "**Memory (past conversations):**\n"
+        for mem in memory_results:
+            role_label = "User" if mem['role'] == 'user' else "Om-E"
+            content = mem['content'][:150]  # Truncate long messages
+            if len(mem['content']) > 150:
+                content += "..."
+            prompt += f"- [{mem['date']}] \"{mem['chat_title']}\": {role_label}: {content}\n"
+        prompt += "\n"
+
     # 📚 Visible chats (if sidebar open with chat list expanded)
     if hud_state and hud_state.get('visible_chats'):
         visible_chats = hud_state['visible_chats']
@@ -269,6 +293,7 @@ def build_system_prompt(
             prompt += f"  {i}. \"{title}\" ({msg_count} msgs)\n"
         prompt += f"\nUse the NUMBER (1-{count}) to reference chats:\n"
         prompt += "- `{\"cap\": \"LoadChat\", \"params\": {\"chat\": 2}}`\n"
+        prompt += "- `{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 13}}`\n"
         prompt += "- `{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}`\n\n"
 
     # NOTE: Live tab state is now appended to the last user message in agent.py
@@ -276,16 +301,17 @@ def build_system_prompt(
 
     # Write to debug file
     if write_debug:
-        _write_debug(prompt, user_message, result)
+        _write_debug(prompt, user_message, result, memory_results)
 
     return prompt
 
 
-def _write_debug(prompt: str, user_message: str, result: RetrievalResult):
+def _write_debug(prompt: str, user_message: str, result: RetrievalResult, memory_results: Optional[List[dict]] = None):
     """Write prompt to llm_debug.md for monitoring."""
     try:
         tokens = estimate_tokens(prompt)
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        memory_count = len(memory_results) if memory_results else 0
 
         debug = f"""# RAG System Prompt Debug
 
@@ -296,6 +322,7 @@ def _write_debug(prompt: str, user_message: str, result: RetrievalResult):
 **Retrieved:**
 - Capabilities: {len(result.capabilities)}
 - Elements: {len(result.elements)}
+- Memories: {memory_count}
 - Ambiguous: {result.is_ambiguous}
 
 ---

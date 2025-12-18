@@ -40,12 +40,13 @@ class OmEAgent:
         active_tab: Optional[Dict] = None,
         tabs: Optional[List[Dict]] = None,
         hud_state: Optional[Dict] = None,
-        rag_context: Optional[Dict] = None
+        rag_context: Optional[Dict] = None,
+        current_chat_id: Optional[str] = None
     ) -> str:
         """
         Send a message and get a response.
 
-        Uses RAG to build prompt with relevant capabilities and elements.
+        Uses RAG to build prompt with relevant capabilities, elements, and memory.
 
         Args:
             message: User's message
@@ -54,6 +55,7 @@ class OmEAgent:
             hud_state: HUD state {sidebar_open, visible_chats} for context
             rag_context: Pre-retrieved RAG results (skips RAG query if provided)
                          {capabilities: [...], elements: [...]}
+            current_chat_id: Current chat ID (to exclude from memory search)
 
         Returns:
             Assistant's response
@@ -73,12 +75,14 @@ class OmEAgent:
                 print(f"🔍 FINDCMD: Using pre-retrieved RAG context ({len(rag_context.get('capabilities', []))} caps)")
             else:
                 # Build RAG-based system prompt (without live state - that goes at the end)
+                # Includes proactive memory retrieval for context from past conversations
                 system_prompt = build_system_prompt(
                     user_message=message,
                     active_tab=None,  # Don't include in system prompt
                     tabs=None,        # Don't include in system prompt
                     hud_state=hud_state,
-                    write_debug=True
+                    write_debug=True,
+                    current_chat_id=current_chat_id
                 )
 
             # Build live state suffix (appended to last user message for recency)
