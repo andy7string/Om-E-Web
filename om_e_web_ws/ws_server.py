@@ -49,6 +49,7 @@ from llm.dispatcher import (
 from llm.agent import OmEAgent
 from llm.executor import parse_capability_calls, has_capability_calls, parse_findcommand, parse_findmemory
 from llm.prompt import add_action_to_history, set_search_context, clear_search_context
+from llm.ingestion import preprocess_message
 
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
@@ -5070,6 +5071,29 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                 "id": request_id
                             }))
                             continue
+
+                        # 🧹 INGESTION: Dedup and handle large payloads
+                        ingestion_result = await preprocess_message(
+                            chat_id=CURRENT_CHAT_ID or "default",
+                            content=message
+                        )
+
+                        if ingestion_result.get("is_dup"):
+                            print(f"🧹 Ingestion: Duplicate message ignored")
+                            await ws.send(json.dumps({
+                                "type": "capability_result",
+                                "action": action,
+                                "ok": True,
+                                "result": {"ignored": True, "reason": "duplicate"},
+                                "id": request_id
+                            }))
+                            continue
+
+                        if ingestion_result.get("is_large"):
+                            print(f"🧹 Ingestion: Large payload detected, using summary")
+                            print(f"   Summary: {ingestion_result.get('summary', '')[:100]}...")
+                            # Use summary reference instead of raw content
+                            message = ingestion_result.get("content", message)
 
                         # Create or reset agent if needed
                         if LLM_AGENT is None or clear_history:

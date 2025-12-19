@@ -69,26 +69,56 @@ class TurnState(str, Enum):
 
 
 # ============================================================
-# Decision Engine Output (Role B)
+# Decision Engine Output (Role B) - Executor
 # ============================================================
 
 class DecisionType(str, Enum):
-    """Decision types for Role B output."""
+    """Decision types for Executor output."""
     CAP = "cap"           # Execute a capability
     ACT = "act"           # Execute an element action
-    ASK_USER = "ask_user" # Need clarification
+    OPTIONS = "options"   # Multiple valid options - present to user
     CANNOT = "cannot"     # Can't do it (triggers escalation offer)
     NOOP = "noop"         # Already done / no action needed
 
 
+class ExecutorOption(BaseModel):
+    """
+    A single option in an OPTIONS response.
+
+    Types:
+    - cap: Execute a capability (target = capability name)
+    - act: Execute element action (target = element ID)
+    - custom: User writes custom instruction (no target)
+    - cancel: Cancel the operation (no target)
+    """
+    type: Literal["cap", "act", "custom", "cancel"]
+    target: Optional[str] = None  # Required for cap/act, None for custom/cancel
+    label: str = Field(..., min_length=1, max_length=100)  # Human-readable description
+
+    @field_validator('target')
+    @classmethod
+    def target_required_for_actions(cls, v, info):
+        option_type = info.data.get('type')
+        if option_type in ["cap", "act"] and v is None:
+            raise ValueError('target required for cap/act options')
+        return v
+
+
 class DecisionEngineOutput(BaseModel):
-    """Decision Engine response."""
+    """
+    Executor response - deterministic action selection.
+
+    Decision types:
+    - cap/act: Single clear decision with target
+    - options: Multiple valid options for user to choose
+    - cannot: No matching option found
+    - noop: Action already completed
+    """
     decision: DecisionType
-    target: Optional[Union[str, int]] = None  # cap name or element ID
+    target: Optional[Union[str, int]] = None  # cap name or element ID (for cap/act)
     value: Optional[str] = None  # for setValue actions
-    question: Optional[str] = None  # for ask_user
-    choices: Optional[List[str]] = None  # suggested choices for ask_user
-    reason: Optional[str] = None  # Optional - server can inject explanations
+    options: Optional[List[ExecutorOption]] = None  # for OPTIONS decision
+    reason: Optional[str] = None  # for cannot/noop explanations
 
     @field_validator('target')
     @classmethod
@@ -99,17 +129,29 @@ class DecisionEngineOutput(BaseModel):
                 raise ValueError('target required for cap/act decisions')
         return v
 
-    @field_validator('question')
+    @field_validator('options')
     @classmethod
-    def question_required_for_ask_user(cls, v, info):
-        if info.data.get('decision') == DecisionType.ASK_USER:
-            if not v:
-                raise ValueError('question required for ask_user decision')
+    def options_required_for_options_decision(cls, v, info):
+        if info.data.get('decision') == DecisionType.OPTIONS:
+            if not v or len(v) < 2:
+                raise ValueError('options decision requires at least 2 options')
+            # Verify custom and cancel are present
+            types = [opt.type for opt in v]
+            if 'custom' not in types:
+                raise ValueError('options must include a custom option')
+            if 'cancel' not in types:
+                raise ValueError('options must include a cancel option')
         return v
 
 
 def validate_decision_engine_output(data: dict) -> DecisionEngineOutput:
-    """Validate and parse Decision Engine output."""
+    """Validate and parse Executor output."""
+    # Convert options dicts to ExecutorOption objects if present
+    if data.get('options'):
+        data['options'] = [
+            ExecutorOption(**opt) if isinstance(opt, dict) else opt
+            for opt in data['options']
+        ]
     return DecisionEngineOutput(**data)
 
 
@@ -230,3 +272,59 @@ class DecisionContext(BaseModel):
 
     class Config:
         extra = "forbid"  # Reject unknown fields
+
+
+# ============================================================
+# Token Budget (Hard Limits)
+# ============================================================
+
+class TokenBudget:
+    """
+    Hard token limits per role. NEVER exceed.
+
+    NOTE: Totals include 10% buffer for safety margin.
+    Realistic Role B is ~550-700t, not 150t as initially estimated.
+    """
+
+    # Role A: Chat Persona
+    CHAT_SYSTEM = 450       # System prompt with examples
+    CHAT_HISTORY = 600      # Rolling summary + last N messages
+    CHAT_MESSAGE = 200      # Current user message
+    CHAT_ENV = 100          # Tab info, minimal context
+    CHAT_TOTAL = 1450       # HARD CAP (includes 10% buffer)
+
+    # Role B: Decision Engine
+    DECISION_SYSTEM = 450   # System prompt with examples
+    DECISION_CONTEXT = 550  # Intent + active_tab + options ONLY
+    DECISION_TOTAL = 1100   # HARD CAP (includes 10% buffer)
+
+    # Full Page Fallback (consent-gated)
+    FULL_PAGE_TOTAL = 8000  # Some pages are dense
+
+
+def estimate_tokens(text: str) -> int:
+    """
+    Rough token estimate (4 chars per token).
+
+    Good enough for budget enforcement. Real tokenization
+    would add latency with no meaningful accuracy gain.
+    """
+    return len(text) // 4
+
+
+def truncate_to_budget(content: str, budget: int) -> str:
+    """
+    Truncate content to fit token budget.
+
+    Args:
+        content: Text to truncate
+        budget: Max tokens allowed
+
+    Returns:
+        Truncated text with "..." if truncated
+    """
+    current = estimate_tokens(content)
+    if current <= budget:
+        return content
+    # Truncate to ~budget tokens (budget * 4 chars)
+    return content[:budget * 4] + "..."
