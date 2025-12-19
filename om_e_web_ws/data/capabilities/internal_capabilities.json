@@ -150,6 +150,11 @@
       "description": "Changes the orb persona/character. Three styles: robot (Om-E - purple robot with goggles and cyan eyes), kawaii (white fluffy cat with cherry on head and blue sparkly eyes), atom (green orbital rings around purple nucleus). Use theme param: robot, kawaii, or atom.",
       "synonyms": [
         "set theme", "change theme", "switch theme", "change orb", "orb style", "change character", "switch persona",
+        "change to kawaii", "switch to kawaii", "be kawaii", "become kawaii",
+        "change to robot", "switch to robot", "be robot", "become robot",
+        "change to atom", "switch to atom", "be atom", "become atom",
+        "change to ome", "switch to ome", "be ome", "become ome",
+        "change to om-e", "switch to om-e", "be om-e",
         "robot", "om-e", "ome", "purple robot", "goggles", "cyan eyes", "mechanical", "robot guy", "robot head", "default orb",
         "kawaii", "cute cat", "white cat", "fluffy cat", "bunny", "white bunny", "cherry head", "pink cheeks", "blue eyes", "sparkly eyes", "anime", "cute mode", "adorable",
         "atom", "atomic", "nucleus", "electrons", "green rings", "orbital", "science", "green atom", "purple core", "electron orbits"

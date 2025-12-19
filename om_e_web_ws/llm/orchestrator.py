@@ -13,6 +13,7 @@ Server is the source of truth. LLM roles never see full dumps.
 """
 import json
 import logging
+import re
 import time
 from typing import Optional, Dict, List
 from dataclasses import dataclass
@@ -24,7 +25,6 @@ from .contracts import (
     validate_decision_engine_output,
     ChatPersonaOutput,
     ChatPersonaReply,
-    ChatPersonaHandoff,
     DecisionEngineOutput,
     DecisionType,
     TurnState,
@@ -246,6 +246,34 @@ class PersonaOrchestrator:
                 await log_turn_metrics(metrics)
                 return result
 
+        # 🎨 THEME SHORTCUT: Catch short theme phrases that Role A might miss
+        theme_intent = self._detect_theme_shortcut(user_message)
+        if theme_intent:
+            # Skip Role A, go directly to RAG + Role B with the theme intent
+            logger.debug(f"[Orchestrator] Theme shortcut detected: {theme_intent}")
+            self.state.transition_to(TurnState.TURN_HANDOFF_PENDING)
+            self.state.last_intent = theme_intent
+            self.state.pending_original_text = user_message
+
+            t0 = time.time()
+            raw_options = await self._query_capabilities(theme_intent)
+            metrics.rag_ms = (time.time() - t0) * 1000
+            if raw_options:
+                metrics.top_score = raw_options[0].get("score", 0)
+
+            shaped_options = shape_options(theme_intent, raw_options, max_options=MAX_CAPABILITY_OPTIONS)
+
+            t0 = time.time()
+            decision_output = await self._call_decision_engine(theme_intent, shaped_options, active_tab, tabs)
+            metrics.decision_engine_ms = (time.time() - t0) * 1000
+            metrics.decision_type = decision_output.decision.value
+            metrics.handoff = True
+
+            result = await self._apply_confidence_gating(decision_output, theme_intent, shaped_options)
+            metrics.total_ms = (time.time() - turn_start) * 1000
+            await log_turn_metrics(metrics)
+            return result
+
         # STEP 1: Call Chat Persona (Role A)
         t0 = time.time()
         persona_output = await self._call_chat_persona(
@@ -415,6 +443,43 @@ USER MESSAGE
             return parsed.netloc or "unknown"
         except:
             return "unknown"
+
+    def _detect_theme_shortcut(self, message: str) -> Optional[str]:
+        """
+        🎨 Detect short theme phrases that Role A might miss.
+        Returns normalized intent string if detected, None otherwise.
+        """
+        msg_lower = message.lower().strip()
+
+        # Theme name mapping (user phrase → theme param)
+        THEME_MAP = {
+            "ome": "robot",
+            "om-e": "robot",
+            "robot": "robot",
+            "kawaii": "kawaii",
+            "atom": "atom",
+            "minimal": "minimal",
+            "ghost": "ghost",
+            "bunny": "bunny",
+        }
+
+        # Patterns: "be X", "become X", "change to X", "switch to X"
+        patterns = [
+            r"^be\s+(\w+)$",           # "be ome", "be kawaii"
+            r"^become\s+(\w+)$",       # "become atom"
+            r"^change\s+to\s+(\w+)$",  # "change to kawaii"
+            r"^switch\s+to\s+(\w+)$",  # "switch to atom"
+        ]
+
+        for pattern in patterns:
+            match = re.match(pattern, msg_lower)
+            if match:
+                theme_word = match.group(1)
+                if theme_word in THEME_MAP:
+                    theme_param = THEME_MAP[theme_word]
+                    return f"change theme to '{theme_param}'"
+
+        return None
 
     def _get_rolling_history(
         self,
