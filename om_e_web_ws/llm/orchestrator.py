@@ -66,6 +66,7 @@ LOW_CONFIDENCE_THRESHOLD = 0.40  # Offer full page fallback
 # Prompt file paths
 PROMPTS_DIR = Path(__file__).parent.parent / "data" / "prompts"
 CHATS_DIR = Path(__file__).parent.parent / "data" / "chats"
+ORB_PROFILES_PATH = Path(__file__).parent.parent / "data" / "orb_profiles.json"
 
 # ============================================================
 # Data Classes
@@ -81,8 +82,10 @@ class OrchestratorState:
     current_turn_state: TurnState = TurnState.TURN_CHAT_ONLY
     last_intent: Optional[str] = None
     pending_intent: Optional[str] = None  # For escalation flow
+    pending_original_text: Optional[str] = None  # Original user text for param extraction
     pending_critical_action: Optional[DecisionEngineOutput] = None
     pending_critical_context: Optional[Dict] = None
+    pending_options: Optional[List[Dict]] = None  # Options presented to user
 
     def transition_to(self, new_state: TurnState) -> None:
         """Explicit state transition with logging."""
@@ -97,12 +100,18 @@ class OrchestratorState:
         """Check if waiting for user to confirm critical action."""
         return self.current_turn_state == TurnState.TURN_AWAITING_CONFIRM
 
+    def is_awaiting_option_selection(self) -> bool:
+        """Check if waiting for user to select from options."""
+        return self.pending_options is not None and len(self.pending_options) > 0
+
     def reset_turn(self) -> None:
         """Reset state for a new turn."""
         self.current_turn_state = TurnState.TURN_CHAT_ONLY
         self.pending_intent = None
+        self.pending_original_text = None
         self.pending_critical_action = None
         self.pending_critical_context = None
+        self.pending_options = None
 
 
 @dataclass
@@ -138,9 +147,11 @@ class PersonaOrchestrator:
         self.state = OrchestratorState()
         self._prompt_cache: Dict[str, str] = {}
         self._cap_store = None  # Lazy loaded
+        self._orb_profiles: Dict = {}  # Orb personality profiles
 
         # Load prompt templates
         self._load_prompts()
+        self._load_orb_profiles()
 
     def _load_prompts(self):
         """Load prompt templates from files."""
@@ -155,6 +166,19 @@ class PersonaOrchestrator:
             else:
                 logger.warning(f"Prompt file not found: {path}")
                 self._prompt_cache[role] = ""
+
+    def _load_orb_profiles(self):
+        """Load orb personality profiles from JSON."""
+        try:
+            if ORB_PROFILES_PATH.exists():
+                with open(ORB_PROFILES_PATH) as f:
+                    data = json.load(f)
+                    self._orb_profiles = data.get("profiles", {})
+                    logger.info(f"Loaded {len(self._orb_profiles)} orb profiles")
+            else:
+                logger.warning(f"Orb profiles not found: {ORB_PROFILES_PATH}")
+        except Exception as e:
+            logger.warning(f"Failed to load orb profiles: {e}")
 
     def _get_cap_store(self):
         """Lazy load capabilities store."""
@@ -175,6 +199,7 @@ class PersonaOrchestrator:
         chat_id: Optional[str] = None,
         active_tab: Optional[Dict] = None,
         tabs: Optional[List[Dict]] = None,
+        orb_theme: Optional[str] = None,
     ) -> OrchestratorResult:
         """
         Process user message through the two-role architecture.
@@ -184,6 +209,7 @@ class PersonaOrchestrator:
             chat_id: Current chat ID (for loading history from JSON)
             active_tab: Current active tab {url, title}
             tabs: List of open tabs [{id, url, title}, ...]
+            orb_theme: Current orb theme for personality injection
 
         Returns:
             OrchestratorResult with response and action details
@@ -212,10 +238,18 @@ class PersonaOrchestrator:
             await log_turn_metrics(metrics)
             return result
 
+        # Check if user is selecting from presented options
+        if self.state.is_awaiting_option_selection():
+            result = await self._handle_option_selection(user_message)
+            if result is not None:  # None means not a selection, continue normal flow
+                metrics.total_ms = (time.time() - turn_start) * 1000
+                await log_turn_metrics(metrics)
+                return result
+
         # STEP 1: Call Chat Persona (Role A)
         t0 = time.time()
         persona_output = await self._call_chat_persona(
-            user_message, active_tab, tabs, chat_id
+            user_message, active_tab, tabs, chat_id, orb_theme
         )
         metrics.chat_persona_ms = (time.time() - t0) * 1000
 
@@ -236,6 +270,7 @@ class PersonaOrchestrator:
         self.state.transition_to(TurnState.TURN_HANDOFF_PENDING)
         intent = persona_output.intent
         self.state.last_intent = intent
+        self.state.pending_original_text = persona_output.original_text  # Store for param extraction
 
         t0 = time.time()
         raw_options = await self._query_capabilities(intent)
@@ -271,6 +306,7 @@ class PersonaOrchestrator:
         active_tab: Optional[Dict],
         tabs: Optional[List[Dict]],
         chat_id: Optional[str] = None,
+        orb_theme: Optional[str] = None,
     ) -> ChatPersonaOutput:
         """
         Call Chat Persona role with rolling history.
@@ -286,6 +322,18 @@ class PersonaOrchestrator:
 
         # Build messages
         system_prompt = self._prompt_cache.get("chat_persona", "")
+
+        # Inject orb personality if available
+        if orb_theme and orb_theme in self._orb_profiles:
+            profile = self._orb_profiles[orb_theme]
+            personality_inject = f"""
+YOUR PERSONALITY
+You are {profile.get('name', 'Orb')}. {profile.get('personality', '')}
+Tone: {profile.get('tone', 'helpful')}
+Example phrases: {', '.join(profile.get('example_phrases', []))}
+Use this personality in your conversational replies, but stay concise.
+"""
+            system_prompt = system_prompt + "\n" + personality_inject
 
         messages = []
         # Add rolling history
@@ -596,7 +644,11 @@ USER MESSAGE
     ) -> OrchestratorResult:
         """Handle CAP decision - execute capability."""
         target = str(decision.target) if decision.target else "Unknown"
-        params = decision.params or {}
+        params = dict(decision.params) if decision.params else {}
+
+        # Inject original_text for server-side param extraction (e.g. fuzzy chat name)
+        if self.state.pending_original_text:
+            params["original_text"] = self.state.pending_original_text
 
         # Check risk level
         risk = get_capability_risk(target)
@@ -663,6 +715,7 @@ USER MESSAGE
             })
 
         self.state.pending_intent = intent  # Save for follow-up handling
+        self.state.pending_options = options_data  # Save for option selection
         return OrchestratorResult(
             response_text="\n".join(option_lines),
             turn_state=TurnState.TURN_CHAT_ONLY,  # Awaiting user selection
@@ -765,6 +818,79 @@ USER MESSAGE
                 response_text="OK, let me know if you'd like to try a different approach.",
                 turn_state=TurnState.TURN_COMPLETED
             )
+
+    async def _handle_option_selection(
+        self,
+        user_message: str
+    ) -> Optional[OrchestratorResult]:
+        """
+        Handle user selecting from presented options.
+        Returns None if message is not an option selection (continue normal flow).
+        """
+        msg = user_message.strip()
+        options = self.state.pending_options or []
+
+        # Check if message is a number (option selection)
+        try:
+            selection = int(msg)
+            if 1 <= selection <= len(options):
+                selected = options[selection - 1]
+                opt_type = selected.get("type", "")
+                opt_target = selected.get("target", "")
+
+                # Clear pending options
+                self.state.pending_options = None
+
+                if opt_type == "cancel":
+                    self.state.reset_turn()
+                    return OrchestratorResult(
+                        response_text="Cancelled.",
+                        turn_state=TurnState.TURN_COMPLETED,
+                        action_executed=False
+                    )
+
+                if opt_type == "custom":
+                    self.state.reset_turn()
+                    return OrchestratorResult(
+                        response_text="What would you like to do instead?",
+                        turn_state=TurnState.TURN_CHAT_ONLY,
+                        action_executed=False
+                    )
+
+                if opt_type == "cap" and opt_target:
+                    # Execute the selected capability
+                    # Build params - for chat operations, use current chat
+                    params = {}
+                    if opt_target in ["DeleteChat", "RenameChat"] and self.state.current_chat_id:
+                        params["chat_id"] = self.state.current_chat_id
+
+                    decision = DecisionEngineOutput(
+                        decision=DecisionType.CAP,
+                        target=opt_target,
+                        params=params
+                    )
+                    return await self._handle_cap_decision(decision, self.state.pending_intent or "")
+
+                # Unknown type - clear and continue
+                self.state.reset_turn()
+                return None
+        except ValueError:
+            pass
+
+        # Not a number - check if cancel words
+        msg_lower = msg.lower()
+        if msg_lower in ["cancel", "nevermind", "no", "stop"]:
+            self.state.pending_options = None
+            self.state.reset_turn()
+            return OrchestratorResult(
+                response_text="Cancelled.",
+                turn_state=TurnState.TURN_COMPLETED,
+                action_executed=False
+            )
+
+        # Not an option selection - clear options and continue normal flow
+        self.state.pending_options = None
+        return None
 
     # --------------------------------------------------------
     # Utilities

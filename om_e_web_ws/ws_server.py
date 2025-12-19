@@ -644,16 +644,62 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"error": "Failed to save chat"}
 
     elif action == "RenameChat":
-        # Rename an existing chat by ID or number
+        # Rename an existing chat by ID, number, or name (fuzzy)
         chat_num = params.get("chat")
         chat_id = params.get("chat_id")
+        chat_name = params.get("name")
         new_title = params.get("title")
+        original_text = params.get("original_text", "")
+
+        # 🔍 Parse source chat name from original text if not provided
+        # Pattern: "rename (the)? (chat)? SOURCE_NAME to NEW_TITLE"
+        if not chat_name and not chat_num and new_title and original_text:
+            import re
+            # Match: "rename the chat X to Y" or "rename X to Y"
+            pattern = r'rename\s+(?:the\s+)?(?:chat\s+)?(.+?)\s+to\s+(.+?)$'
+            match = re.search(pattern, original_text.lower().strip(), re.IGNORECASE)
+            if match:
+                source_part = match.group(1).strip()
+                # Don't use if source looks like just "it" or "this" (means current chat)
+                if source_part not in ("it", "this", "this chat"):
+                    chat_name = source_part
+                    print(f"📝 RenameChat: Parsed source name '{chat_name}' from original text")
 
         # 📚 Resolve chat number to chat_id if provided
         if chat_num is not None:
             chat_id = resolve_chat_number(chat_num)
             if not chat_id:
                 return {"error": f"Invalid chat number: {chat_num}"}
+
+        # Use name for fuzzy lookup if no chat_id yet
+        if not chat_id and chat_name:
+            search_term = chat_name.lower().strip()
+            all_chats = list_chats()
+            matches = []
+            for chat_info in all_chats:
+                title = chat_info.get("title", "").lower().strip()
+                if title == search_term:
+                    matches = [chat_info]
+                    break
+                if search_term in title or title in search_term:
+                    matches.append(chat_info)
+
+            if len(matches) == 1:
+                chat_id = matches[0]["chat_id"]
+                print(f"📝 RenameChat: Found by name '{search_term}' -> {chat_id}")
+            elif len(matches) > 1:
+                choices = [f"{i+1}. {m['title']}" for i, m in enumerate(matches[:5])]
+                return {
+                    "multiple_matches": True,
+                    "message": f"Found {len(matches)} chats matching '{chat_name}'. Which one to rename?",
+                    "choices": choices,
+                    "matches": [{"number": i+1, "chat_id": m["chat_id"], "title": m["title"]} for i, m in enumerate(matches[:5])]
+                }
+
+        # Default to current chat if no chat specified
+        if not chat_id and CURRENT_CHAT_ID:
+            chat_id = CURRENT_CHAT_ID
+            print(f"📝 RenameChat: Using current chat {chat_id}")
 
         print(f"📝 RenameChat: chat_id={chat_id}, new_title={new_title}")
 
@@ -686,9 +732,25 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             return {"error": "Failed to save chat"}
 
     elif action == "DeleteChat":
-        # Delete a chat file by ID or number
+        # Delete a chat file by ID, number, or name (fuzzy)
         chat_num = params.get("chat")
         chat_id = params.get("chat_id")
+        chat_name = params.get("name")
+        original_text = params.get("original_text", "")
+
+        # 🔍 Parse chat name from original text if not provided
+        # Pattern: "delete (the)? (chat)? CHAT_NAME (chat)?"
+        if not chat_name and not chat_num and original_text:
+            import re
+            # Match: "delete the my project chat" or "delete chat called X"
+            pattern = r'delete\s+(?:the\s+)?(?:chat\s+)?(.+?)(?:\s+chat)?$'
+            match = re.search(pattern, original_text.lower().strip(), re.IGNORECASE)
+            if match:
+                name_part = match.group(1).strip()
+                # Don't use if it looks like "it" or "this" (means current chat)
+                if name_part not in ("it", "this", "this chat", "current", "current chat"):
+                    chat_name = name_part
+                    print(f"🗑️ DeleteChat: Parsed name '{chat_name}' from original text")
 
         # 📚 Resolve chat number to chat_id if provided
         if chat_num is not None:
@@ -696,8 +758,38 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             if not chat_id:
                 return {"error": f"Invalid chat number: {chat_num}"}
 
+        # Use name for fuzzy lookup if no chat_id yet
+        if not chat_id and chat_name:
+            search_term = chat_name.lower().strip()
+            all_chats = list_chats()
+            matches = []
+            for chat_info in all_chats:
+                title = chat_info.get("title", "").lower().strip()
+                if title == search_term:
+                    matches = [chat_info]
+                    break
+                if search_term in title or title in search_term:
+                    matches.append(chat_info)
+
+            if len(matches) == 1:
+                chat_id = matches[0]["chat_id"]
+                print(f"🗑️ DeleteChat: Found by name '{search_term}' -> {chat_id}")
+            elif len(matches) > 1:
+                choices = [f"{i+1}. {m['title']}" for i, m in enumerate(matches[:5])]
+                return {
+                    "multiple_matches": True,
+                    "message": f"Found {len(matches)} chats matching '{chat_name}':",
+                    "choices": choices,
+                    "matches": [{"number": i+1, "chat_id": m["chat_id"], "title": m["title"]} for i, m in enumerate(matches[:5])]
+                }
+
+        # Default to current chat if no chat specified
+        if not chat_id and CURRENT_CHAT_ID:
+            chat_id = CURRENT_CHAT_ID
+            print(f"🗑️ DeleteChat: Using current chat {chat_id}")
+
         if not chat_id:
-            return {"error": "Missing chat or chat_id parameter"}
+            return {"error": "Missing chat, chat_id, or name parameter"}
 
         filepath = get_chat_filepath(chat_id)
         if not os.path.exists(filepath):
@@ -827,9 +919,24 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         }
 
     elif action == "SetCurrentChat":
-        # Set the active chat - supports chat number, chat_id, or fuzzy title lookup
+        # Set the active chat - supports chat number, chat_id, name, or fuzzy title lookup
         chat_num = params.get("chat")  # Number from visible list (1-indexed)
         chat_id = params.get("chat_id")
+        chat_name = params.get("name")  # Fuzzy title lookup
+        original_text = params.get("original_text", "")
+
+        # 🔍 Parse chat name from original text if not provided
+        # Patterns: "open the X chat", "switch to X chat", "go to the X chat"
+        if not chat_name and not chat_num and original_text:
+            import re
+            # Match patterns like "open the my project chat" or "switch to close the side chat"
+            pattern = r'(?:open|switch to|go to|load)\s+(?:the\s+)?(.+?)\s+chat$'
+            match = re.search(pattern, original_text.lower().strip(), re.IGNORECASE)
+            if match:
+                name_part = match.group(1).strip()
+                if name_part not in ("this", "current", "a", "that"):
+                    chat_name = name_part
+                    print(f"💬 SetCurrentChat: Parsed name '{chat_name}' from original text")
 
         # Resolve chat number to chat_id if provided
         if chat_num is not None:
@@ -837,8 +944,12 @@ def execute_internal_capability(action: str, params: dict) -> dict:
             if not chat_id:
                 return {"error": f"Invalid chat number: {chat_num}"}
 
+        # Use name for fuzzy lookup if no chat_id yet
+        if not chat_id and chat_name:
+            chat_id = chat_name  # Will trigger fuzzy matching below
+
         if not chat_id:
-            return {"error": "Missing chat or chat_id parameter"}
+            return {"error": "Missing chat, chat_id, or name parameter"}
 
         # Try exact chat_id match first
         chat_dict = load_chat(chat_id)
@@ -5113,7 +5224,8 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                                     user_message=message,
                                     chat_id=CURRENT_CHAT_ID,
                                     active_tab=CURRENT_ACTIVE_TAB,
-                                    tabs=CURRENT_TABS_INFO
+                                    tabs=CURRENT_TABS_INFO,
+                                    orb_theme=CURRENT_ORB_THEME
                                 )
 
                                 response_text = orch_result.response_text

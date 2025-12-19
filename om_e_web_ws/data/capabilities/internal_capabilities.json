@@ -282,11 +282,12 @@
       "group": "chat",
       "action": "RenameChat",
       "label": "Rename a chat",
-      "description": "Updates the title of an existing chat. Use the chat NUMBER from visible chats list.",
-      "synonyms": ["rename conversation", "change chat title", "update chat name"],
-      "example": "{\"cap\": \"RenameChat\", \"params\": {\"chat\": 1, \"title\": \"New Title\"}}",
+      "description": "Updates the title of a chat by number, name, or current. Say 'rename X chat to Y' or 'rename it to Y'.",
+      "synonyms": ["rename conversation", "change chat title", "update chat name", "rename it", "rename this chat"],
+      "example": "{\"cap\": \"RenameChat\", \"params\": {\"title\": \"My New Title\"}}",
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list",
+        "chat": "Optional - chat NUMBER (omit for current chat)",
+        "name": "Optional - existing chat title for fuzzy matching",
         "title": "Required - the new title"
       }
     },
@@ -294,11 +295,12 @@
       "group": "chat",
       "action": "DeleteChat",
       "label": "Delete a chat",
-      "description": "Permanently deletes a chat. Use the chat NUMBER from visible chats list.",
-      "synonyms": ["remove chat", "delete conversation", "erase chat"],
-      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}",
+      "description": "Permanently deletes a chat by number, name, or current. Say 'delete the X chat' for name.",
+      "synonyms": ["remove chat", "delete conversation", "erase chat", "delete it", "delete this chat"],
+      "example": "{\"cap\": \"DeleteChat\", \"params\": {\"name\": \"my project\"}}",
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - chat NUMBER (omit for current chat)",
+        "name": "Optional - chat title for fuzzy matching"
       }
     },
     "GetCurrentChat": {
@@ -314,11 +316,12 @@
       "group": "chat",
       "action": "SetCurrentChat",
       "label": "Switch to a chat",
-      "description": "Switches to a chat. Use the chat NUMBER from visible chats list.",
-      "synonyms": ["switch chat", "change to chat", "activate chat", "make current", "go to chat", "open chat", "load chat"],
-      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 5}}",
+      "description": "Switches to a chat by number OR name. Use number if visible, name for fuzzy match.",
+      "synonyms": ["switch chat", "change to chat", "activate chat", "make current", "go to chat", "open chat", "load chat", "open the chat", "switch to chat"],
+      "example": "{\"cap\": \"SetCurrentChat\", \"params\": {\"name\": \"switch view\"}}",
       "params": {
-        "chat": "Required - the chat NUMBER from visible chats list"
+        "chat": "Optional - the chat NUMBER from visible chats list",
+        "name": "Optional - chat title for fuzzy matching (e.g. 'switch view', 'my project')"
       }
     },
     "SearchChats": {
