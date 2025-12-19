@@ -11,6 +11,8 @@ Usage:
 
 import sys
 import os
+import json
+from pathlib import Path
 from typing import List, Dict, Optional
 
 # Add parent dir to path for sibling package imports
@@ -20,6 +22,34 @@ if _parent_dir not in sys.path:
 
 from llm.client import LLMClient
 from retrieval.query import build_system_prompt
+
+# 🧪 TWO-ROLE MODE: Enable to test Role A (Chat Persona) before full orchestrator
+TWO_ROLE_MODE = True  # Set False to revert to original behavior
+
+# Path to chat prompt
+CHAT_PROMPT_PATH = Path(__file__).parent.parent / "data" / "prompts" / "chat_prompt.md"
+
+
+def _load_chat_prompt() -> str:
+    """Load chat_prompt.md content."""
+    with open(CHAT_PROMPT_PATH, 'r', encoding='utf-8') as f:
+        return f.read()
+
+
+def _build_environment_context(active_tab: Optional[Dict], tabs: Optional[List[Dict]]) -> str:
+    """Build environment context for Role A prompt."""
+    lines = []
+    if active_tab:
+        lines.append(f"**URL:** {active_tab.get('url', 'Unknown')}")
+        lines.append(f"**Title:** {active_tab.get('title', 'Unknown')}")
+    if tabs:
+        lines.append("")
+        lines.append("**Tabs:**")
+        for tab in tabs[:5]:  # Max 5 tabs
+            marker = " -- ACTIVE TAB" if tab.get('active') else ""
+            title = tab.get('title', 'Untitled')[:40]
+            lines.append(f"- Tab {tab.get('number', '?')}: \"{title}\"{marker}")
+    return "\n".join(lines) if lines else "No tab info"
 
 
 class OmEAgent:
@@ -33,6 +63,7 @@ class OmEAgent:
         """Initialize agent."""
         self.history: List[Dict[str, str]] = []
         self._client = LLMClient()
+        self._chat_prompt_cache: Optional[str] = None
 
     async def chat(
         self,
@@ -60,6 +91,115 @@ class OmEAgent:
         Returns:
             Assistant's response
         """
+        # 🧪 TWO-ROLE MODE: Test Role A (Chat Persona) classification
+        if TWO_ROLE_MODE and not rag_context:
+            return await self._chat_two_role(
+                message, active_tab, tabs, hud_state, current_chat_id
+            )
+
+        # Original single-role behavior
+        return await self._chat_single_role(
+            message, active_tab, tabs, hud_state, rag_context, current_chat_id
+        )
+
+    async def _chat_two_role(
+        self,
+        message: str,
+        active_tab: Optional[Dict],
+        tabs: Optional[List[Dict]],
+        hud_state: Optional[Dict],
+        current_chat_id: Optional[str]
+    ) -> str:
+        """
+        🧪 Two-role mode: Role A classifies, then falls back to existing system if handoff.
+        """
+        # Load chat prompt (cached)
+        if not self._chat_prompt_cache:
+            self._chat_prompt_cache = _load_chat_prompt()
+
+        # Build environment context
+        env_context = _build_environment_context(active_tab, tabs)
+
+        # Inject environment into prompt
+        system_prompt = self._chat_prompt_cache.replace(
+            "ENVIRONMENT (injected at runtime)\nYou will be given the current URL, page title, and open tabs.\nUse this only to interpret references like \"here\", \"this page\", or \"that tab\".",
+            f"ENVIRONMENT\n{env_context}"
+        )
+
+        # Add user message to history
+        self.history.append({"role": "user", "content": message})
+
+        try:
+            # Build messages with recent history (last 6 messages for context)
+            # This lets Role A understand follow-ups like "list them"
+            recent_history = self.history[-6:].copy()  # Last 6 messages including current
+
+            # Append JSON reminder to current message to prevent format drift
+            # (History may contain plain text replies which can confuse the model)
+            if recent_history and recent_history[-1].get("role") == "user":
+                recent_history[-1] = {
+                    "role": "user",
+                    "content": recent_history[-1]["content"] + "\n\n(Respond with JSON only)"
+                }
+
+            print(f"🧪 TWO-ROLE: Calling Role A with {len(recent_history)} messages (latest: {message[:50]}...)")
+
+            # Call Role A (Chat Persona)
+            response = await self._client.chat(
+                system_prompt=system_prompt,
+                messages=recent_history,
+                temperature=0.1,
+                max_tokens=500
+            )
+
+            # Parse JSON response
+            try:
+                data = json.loads(response.strip())
+            except json.JSONDecodeError as e:
+                print(f"🧪 TWO-ROLE: Role A returned invalid JSON: {e}")
+                print(f"🧪 TWO-ROLE: Raw response: {response[:200]}")
+                # Fall back to returning raw response
+                self.history.append({"role": "assistant", "content": response})
+                return response
+
+            # Handle handoff=false (conversational reply)
+            if not data.get("handoff"):
+                reply = data.get("reply", "I'm not sure how to respond.")
+                print(f"🧪 TWO-ROLE: Role A replied (no handoff): {reply[:50]}...")
+                self.history.append({"role": "assistant", "content": reply})
+                return reply
+
+            # Handle handoff=true (action request)
+            intent = data.get("intent", message)
+            original_text = data.get("original_text", message)
+            print(f"🧪 TWO-ROLE: Role A handed off intent: {intent}")
+
+            # Remove the user message we added (will be re-added by single-role)
+            self.history.pop()
+
+            # Call existing system with normalized intent
+            # This gives us full RAG + capability execution
+            return await self._chat_single_role(
+                intent,  # Use normalized intent instead of original message
+                active_tab, tabs, hud_state, None, current_chat_id
+            )
+
+        except Exception as e:
+            # Remove failed user message from history
+            if self.history and self.history[-1].get("content") == message:
+                self.history.pop()
+            raise e
+
+    async def _chat_single_role(
+        self,
+        message: str,
+        active_tab: Optional[Dict],
+        tabs: Optional[List[Dict]],
+        hud_state: Optional[Dict],
+        rag_context: Optional[Dict],
+        current_chat_id: Optional[str]
+    ) -> str:
+        """Original single-role chat behavior."""
         # Add user message to history
         self.history.append({"role": "user", "content": message})
 
