@@ -1,204 +1,167 @@
-# YouTube
+# Google
 
-**URL:** https://www.youtube.com/
-**Timestamp:** 2025-12-19 00:08:32
+**URL:** https://www.google.com/
+**Timestamp:** 2025-12-19 15:09:32
 
 **Tabs:**
 - Tab 1: "OM-E Web" (127.0.0.1)
-- Tab 2: "Extensions" (extensions) -- ACTIVE TAB
-- Tab 3: "Google" (www.google.com)
-- Tab 4: "(1) YouTube" (www.youtube.com)
+- Tab 2: "Google" (www.google.com) -- ACTIVE TAB
 
 ---
 
-[0] Button: Guide → {"act": 0}
-[1] Link: YouTube Premium Home → {"act": 1}
-AU
-[2] Button: Skip navigation → {"act": 2}
-[3] Input: Search → {"act": 3, "value": "...", "submit": true}
-[4] Button: Search → {"act": 4}
-[5] Button: Search with your voice → {"act": 5}
-[6] Button: Create → {"act": 6}
-[7] Button: Notifications → {"act": 7}
-[8] Button: Account menu → {"act": 8}
-[9] Button: All → {"act": 9}
-[10] Button: Music → {"act": 10}
-[11] Button: Podcasts → {"act": 11}
-[12] Button: Mixing consoles → {"act": 12}
-[13] Button: Squats → {"act": 13}
-[14] Button: AI → {"act": 14}
-[15] Button: News → {"act": 15}
-[16] Button: Mixes → {"act": 16}
-[17] Button: Rhythms → {"act": 17}
-[18] Button: Live → {"act": 18}
-[19] Button: Hard Rock → {"act": 19}
-[20] Button: Recently uploaded → {"act": 20}
-[21] Button: Watched → {"act": 21}
-[22] Button: New to you → {"act": 22}
-[23] Button: Next → {"act": 23}
-[24] Link: 1:01:48 → {"act": 24}
-[25] Link: DeepMe - Live @ Los Padres National Forest, USA / Melodic Techno & Progressive House 4K Dj Mix 1 hour, 1 minute → {"act": 25}
-[26] Link: DeepMe → {"act": 26}
-1.9M views
-•
-2 years ago
-[27] Link: 38:07 → {"act": 27}
-[28] Link: AI Agents in 38 Minutes - Complete Course from Beginner to Pro 38 minutes → {"act": 28}
-[29] Link: Marina Wyss - AI & Machine Learning → {"act": 29}
-38K views
-•
-8 days ago
-[30] Link: 25:45 → {"act": 30}
-[31] Link: Dr. Mike Takes On Ronnie Coleman’s Back & Biceps Workout 25 minutes → {"act": 31}
-[32] Link: Renaissance Periodization → {"act": 32}
-108K views
-•
-2 days ago
-Shorts
-[33] Link: Miss Monique in Mykonos → {"act": 33}
-1.3M views
-[34] Link: I Was Going Until Failure And This Happened... #gym #fitness #legpress → {"act": 34}
-92M views
-[35] Link: No filters, no scripts, just rhythm ✨🖤 #trendingnow #dance #dancerlife #love #poland #russia → {"act": 35}
-931K views
-[36] Link: Ayo listen up — I’m late I heard @ironculturenj was having a GRAND OPENING shoutout to @nick_walker → {"act": 36}
-2.7M views
-[37] Link: GraphRAG (you probably don't need it) → {"act": 37}
-11K views
-[38] Link: 9:28 → {"act": 38}
-[39] Link: Coding with Gemini 3.0 Flash Is INSANE! 9 minutes, 28 seconds → {"act": 39}
-[40] Link: Aero → {"act": 40}
-17 views
-•
-14 hours ago
-[41] Link: 34:52 → {"act": 41}
-[42] Link: Fine Tuning a DistilBERT Model for Text Classification | Language Models with Hugging Face Ep. 7 34 minutes → {"act": 42}
-[43] Link: Kody Simpson → {"act": 43}
-5 months ago
-YouTube featured
-Members only
-[44] Link: 16:22 → {"act": 44}
-[45] Link: Don't Build Agents, Build Skills Instead – Barry Zhang & Mahesh Murag, Anthropic 16 minutes → {"act": 45}
-[46] Link: AI Engineer → {"act": 46}
-245K views
-•
-9 days ago
-Breaking news
-[47] Button: Not interested → {"act": 47}
-[48] Link: 3:18 → {"act": 48}
-[49] Link: ‘No words’: Heartbreaking funeral held for 10-year-old Matilda 3 minutes, 18 seconds → {"act": 49}
-[50] Link: Sky News Australia → {"act": 50}
-26K views
-•
-4 hours ago
-[51] Link: 3:21 → {"act": 51}
-[52] Link: Heartbroken mourners gather for the funeral of the youngest victim of the mass shooting 3 minutes, 21 seconds → {"act": 52}
-[53] Link: SBS News → {"act": 53}
-38K views
-•
-4 hours ago
-[54] Link: 5:24 → {"act": 54}
-[55] Link: Public return to Bondi Beach as crime scene lifted | 9 News Australia 5 minutes, 24 seconds → {"act": 55}
-[56] Link: 9 News Australia → {"act": 56}
-51K views
-•
-6 hours ago
-[57] Button: Show more → {"act": 57}
-[58] Link: 5:22 → {"act": 58}
-[59] Link: Critical Acclaim 【Avenged Sevenfold】 Cover by A-YEON 5 minutes, 22 seconds → {"act": 59}
-[60] Link: A-YEON → {"act": 60}
-92M views
-•
-4 years ago
-[61] Link: Mix → {"act": 61}
-[62] Link: Mix - Syncatto - Golden Hour - Guitar Play-through → {"act": 62}
-Syncatto, Clayton King, Chris Martin, and more
-[63] Link: 1:11:46 → {"act": 63}
-[64] Link: Xenia Dia (Diamond)- Live @ Ocean Vibes, Koh Phangan / Melodic Techno & Progressive House DJ Mix 1 hour, 11 minutes → {"act": 64}
-[65] Link: XENIA DIA → {"act": 65}
-2.1M views
-•
-1 year ago
-Shorts
-[66] Link: INCREDIBLE! China Creates the Most Human-Like Robot Ever Seen! → {"act": 66}
-263K views
-[67] Link: Oh sometimes.. ✨ #dj #music #afrohouse #afrohouseremix #giadabrince → {"act": 67}
-26K views
-[68] Link: Devon Larratt Confirms He Will Continue His Fasting Beyond 7 Days!💯 #armwrestling #devonlarratt #fy → {"act": 68}
-3.2M views
-[69] Link: BULKING MADE ME LOSE IT ALL → {"act": 69}
-1.3M views
-[70] Link: Escalator prank #prank #escalator #couple #funnytiktok #love → {"act": 70}
-1.6M views
-[71] Link: 4:05 → {"act": 71}
-[72] Link: USA Just Won the AI Race – Thanks to Gemini 3 4 minutes, 5 seconds → {"act": 72}
-[73] Link: USA Vibes → {"act": 73}
-33 views
-•
-2 days ago
-[74] Link: 19:28 → {"act": 74}
-[75] Link: AI Coding on steroids! Auto Claude (Free & Opensource) 19 minutes → {"act": 75}
-[76] Link: André Mikalsen → {"act": 76}
-460 views
-•
-22 hours ago
-[77] Link: 11:13 → {"act": 77}
-[78] Link: THE 100's WORKOUT | DLB Back Day 11 minutes, 13 seconds → {"act": 78}
-[79] Link: DanaLinnBailey → {"act": 79}
-29K views
-•
-8 days ago
-[80] Link: 41:08 → {"act": 80}
-[81] Link: Knowledge Graph or Vector Database... Which is Better? 41 minutes → {"act": 81}
-[82] Link: Adam Lucek → {"act": 82}
-92K views
-•
-11 months ago
-[83] Link: 8:55 → {"act": 83}
-[84] Link: Did Japan Just Build AGI? (Nobody Saw This Coming) 8 minutes, 55 seconds → {"act": 84}
-[85] Link: Julia McCoy → {"act": 85}
-80K views
-•
-22 hours ago
-[86] Link: 1:52:13 → {"act": 86}
-[87] Link: the n8n killer? AGENTIC WORKFLOWS: Full Beginner's Guide 1 hour, 52 minutes → {"act": 87}
-[88] Link: Nick Saraev → {"act": 88}
-84K views
-•
-3 weeks ago
-[89] Link: 9:49 → {"act": 89}
-[90] Link: HOW TO GET A GLUTE SHELF IN 90 DAYS | *upper glute activation + more!* 9 minutes, 49 seconds → {"act": 90}
-[91] Link: Elisi Wolf → {"act": 91}
-453K views
-•
-1 year ago
-[92] Link: 2:10 → {"act": 92}
-[93] Link: Marco Sfogli - Shifting Sands (Full Performance) 2 minutes, 10 seconds → {"act": 93}
-[94] Link: JTC Guitar → {"act": 94}
-14K views
-•
-5 days ago
-[95] Link: 39:46 → {"act": 95}
-[96] Link: Your Thoughts Are Creating Parallel Universes - Billy Carson 39 minutes → {"act": 96}
-[97] Link: 4biddenknowledge Podcast Network → {"act": 97}
-10K views
-•
-Streamed 11 hours ago
-[98] Link: 1:57:49 → {"act": 98}
-[99] Link: KOROLOVA @ ULTRA MUSIC FESTIVAL JAPAN 2025 1 hour, 57 minutes → {"act": 99}
-[100] Link: KOROLOVA → {"act": 100}
-638K views
-•
-2 months ago
-[101] Link: 23:06 → {"act": 101}
-[102] Link: Shredded at 72: The Simple Routine Behind His Insane Strength 23 minutes → {"act": 102}
-[103] Link: Sierra Clark → {"act": 103}
-260K views
-•
-3 days ago
-[104] Link: 1:39:50 → {"act": 104}
-[105] Link: Peptides Cut Mortality In HALF! Why Doctors Are Hiding This Longevity Secret l Ep #394 1 hour, 39 minutes → {"act": 105}
-[106] Link: Nathalie Niddam → {"act": 106}
-71K views
-•
-9 days ago
+Google Search homepage
+[0] Link: About → {"act": 0}
+[1] Link: Store → {"act": 1}
+[2] Link: Gmail → {"act": 2}
+[3] Link: Search for Images → {"act": 3}
+[4] Button: Google apps → {"act": 4}
+Button: Google Account: Andrew Orsmond
+[5] (andreworsmond21175@gmail.com) → {"act": 5}
+[6] Button: Upload files or images → {"act": 6}
+[7] Select: Search → {"act": 7, "value": "...", "submit": true}
+[8] Button: Search by voice → {"act": 8}
+[9] Button: Search by image → {"act": 9}
+[10] Button: AI Mode → {"act": 10}
+[11] Button: Google Search → {"act": 11}
+[12] Button: I'm Feeling Lucky → {"act": 12}
+Accessibility links
+[13] Link: Skip to Discover feed → {"act": 13}
+[14] Link: Skip to sidebar → {"act": 14}
+[15] Link: Skip to footer → {"act": 15}
+[16] Link: Accessibility help → {"act": 16}
+[17] Link: Accessibility feedback → {"act": 17}
+Discover
+Link: Google Maps just got its biggest upgrade in years, and it changes how you navigate (for the better)
+Goodbye walls of text. Hello, rich visual guides that help you decide faster.
+ZDNET
+·
+[18] 1d → {"act": 18}
+[19] Button: More options → {"act": 19}
+Link: OpenAI Discussed Funding at $750 Billion Value, Report Says
+OpenAI has held funding talks with investors to raise tens of billions of dollars at a valuation of $750 billion, according to a report in the Information.
+Bloomberg.com
+·
+[20] 1d → {"act": 20}
+[21] Button: More options → {"act": 21}
+Link: Australian dollar holds firm as US job losses mount
+Overnight we saw the release of both the October and November US jobs reports which at first glance looked nominal but in reality show a worsening...
+MacroBusiness
+·
+[22] 2d → {"act": 22}
+[23] Button: More options → {"act": 23}
+Link: 2026 Cupra Terramar review
+It's the base model, but this is no basic car. The new Cupra Terramar S isn't cheap, but it's a class above some mid-size SUV rivals.
+CarExpert
+·
+[24] 15h → {"act": 24}
+[25] Button: More options → {"act": 25}
+Link: Corporate Travel Management won’t say how much cash it has left
+Corporate Travel Management still cannot say when it will be able to publish its 2025 financial accounts as it continues to work through an accounting mess...
+AFR
+·
+[26] 3h → {"act": 26}
+[27] Button: More options → {"act": 27}
+Link: Man charged over counterfeit money and driving offences
+19 Dec 2025 11:50am. A Whyalla man is facing multiple charges after being found by Port Pirie Police with counterfeit money and stolen number plates.
+SAPOL - Home
+·
+[28] 3h → {"act": 28}
+[29] Button: More options → {"act": 29}
+Link: Humanoid Robots For War And Work: Startup Plans To Build 50,000 By End Of 2027
+Silicon Valley startup Foundation isn't shy about employing its humanoid robots in the defense industry. And yes, the CEO is planning for Phantom to hold a...
+Forbes
+·
+[30] 2d → {"act": 30}
+[31] Button: More options → {"act": 31}
+Link: Samsung Galaxy S26 Ultra – Redefining Flagship Power with 400MP Camera, Snapdragon 8 Gen 4 Chip, and Next-Gen AI Experience
+Samsung has officially lifted the curtain on its most ambitious smartphone yet, the Galaxy S26 Ultra, a device built to redefine what flagship power truly...
+holisticbody.co.in
+·
+[32] 2h → {"act": 32}
+[33] Button: More options → {"act": 33}
+Link: 0:43
+Gemini 3 Flash | Master Any Subject in a Flash
+Google
+YouTube
+·
+[34] 1d → {"act": 34}
+[35] Button: More options → {"act": 35}
+Link: Don't Blink: How I Chased the Soon-to-Vanish 3I/ATLAS Comet With a Smart Telescope
+I've taken incredible photos of this interstellar comet for more than a month using two tiny iPad-connected scopes in my windowsill. You can catch it too,...
+PCMag
+·
+[36] 11h → {"act": 36}
+[37] Button: More options → {"act": 37}
+Link: Australia’s property hotspots for 2026 named in expert housing guide
+They're the suburbs offering buyers better bang for their buck and the prospect of more equity gains over 2026. A new LJ Hooker report has revealed the...
+Real Estate
+·
+[38] 1d → {"act": 38}
+[39] Button: More options → {"act": 39}
+Link: Billionaire entrepreneur Jared Isaacman is confirmed as new NASA chief
+Billionaire entrepreneur Jared Isaacman was confirmed by the Senate on Wednesday to be the new head of NASA, marking the end of a dramatic saga that began...
+NBC News
+·
+[40] 1d → {"act": 40}
+[41] Button: More options → {"act": 41}
+Link: South Koreans hunt for old LG air-conditioners after logos turn out to be pure gold
+SEOUL – An old LG air-conditioner from more than two decades ago is suddenly the hottest commodity in South Korea right now, after a viral video showed that...
+The Straits Times
+·
+[42] 1d → {"act": 42}
+[43] Button: More options → {"act": 43}
+Link: Germany awards $1.9 billion SAR satellite deal to Rheinmetall-Iceye venture
+WASHINGTON — A joint venture between Germany's Rheinmetall and Finnish synthetic aperture radar satellite maker Iceye has secured its first major contract,...
+SpaceNews
+·
+[44] 7h → {"act": 44}
+[45] Button: More options → {"act": 45}
+Link: You can now buy groceries in ChatGPT
+OpenAI's chatbot will now allow you to buy groceries via Instacart right in the app.
+Mashable
+·
+[46] 1w → {"act": 46}
+[47] Button: More options → {"act": 47}
+Link: Trump signs order to reclassify marijuana, ease research restrictions
+The order calls on the US attorney general to expedite federal reclassification, creating fewer barriers for studies.
+Al Jazeera
+·
+[48] 7h → {"act": 48}
+[49] Button: More options → {"act": 49}
+Link: Copilot code review preview features now supported in GitHub Enterprise Cloud with data residency
+GitHub Enterprise Cloud with data residency now supports Copilot code review preview features, providing you an opportunity to try the latest agentic code...
+The GitHub Blog
+·
+[50] 13h → {"act": 50}
+[51] Button: More options → {"act": 51}
+Link: VIDEO: Wednesday finance with Alan Kohler
+The global oil pr.ice has fallen to its lowest level since 2021. Business, Economics and Finance · Stock Market · Oil and Gas. More ABC News video...
+Australian Broadcasting Corporation
+·
+[52] 1d → {"act": 52}
+[53] Button: More options → {"act": 53}
+Link: ANZ shareholders reject executive pay plan for second year in a row
+More than 32% of shareholder votes oppose executive pay report at heated Sydney AGM, after a year when bank was fined $240m by the financial regulator.
+The Guardian
+·
+[54] 1d → {"act": 54}
+[55] Button: More options → {"act": 55}
+Link: Westpac pushes back on RBA hike calls, sees rates on hold through 2026
+The note challenges market pricing of renewed tightening and supports a flatter front-end rates profile, with downside risks to AUD if labour-market easing...
+investingLive
+·
+[56] 2d → {"act": 56}
+[57] Button: More options → {"act": 57}
+Australia
+[58] Link: Advertising → {"act": 58}
+[59] Link: Business → {"act": 59}
+[60] Link: How Search works → {"act": 60}
+[61] Link: Privacy → {"act": 61}
+[62] Link: Terms → {"act": 62}
+[63] Button: Settings → {"act": 63}
+
+---
+
+## Secure Iframe Elements
+
+*⏳ Loading 2 iframe(s)...*

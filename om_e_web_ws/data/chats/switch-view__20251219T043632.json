@@ -1,0 +1,267 @@
+{
+  "chat_id": "switch-view__20251219T043632",
+  "project_id": "default",
+  "created_at": "2025-12-19T04:36:32.034546Z",
+  "updated_at": "2025-12-19T04:39:35.097078Z",
+  "title": "switch view",
+  "default_title": "switch view",
+  "meta": {
+    "source": "ome-web",
+    "page_url": "http://127.0.0.1:8080/",
+    "page_title": "OM-E Web"
+  },
+  "messages": [
+    {
+      "id": "m_0001",
+      "role": "user",
+      "content": "switch view",
+      "timestamp": "2025-12-19T04:36:32.034599Z"
+    },
+    {
+      "id": "m_0002",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-19T04:36:35.184004Z"
+    },
+    {
+      "id": "m_0003",
+      "role": "user",
+      "content": "nice do it again",
+      "timestamp": "2025-12-19T04:36:41.400553Z"
+    },
+    {
+      "id": "m_0004",
+      "role": "assistant",
+      "content": "Which would you like?\n\n1. Switch to a different browser tab\n2. Switch between fullscreen HUD mode and floating\n3. Toggle the HUD overlay\n4. Describe what view you want to switch to\n5. Cancel",
+      "timestamp": "2025-12-19T04:36:44.772955Z"
+    },
+    {
+      "id": "m_0005",
+      "role": "user",
+      "content": "switch view",
+      "timestamp": "2025-12-19T04:36:51.512820Z"
+    },
+    {
+      "id": "m_0006",
+      "role": "assistant",
+      "content": "Which would you like?\n\n1. Switch to a different browser tab\n2. Switch between fullscreen HUD mode and floating mode\n3. Toggle the HUD overlay\n4. Specify which view or tab to switch to\n5. Cancel",
+      "timestamp": "2025-12-19T04:36:55.184519Z"
+    },
+    {
+      "id": "m_0007",
+      "role": "user",
+      "content": "2",
+      "timestamp": "2025-12-19T04:37:02.880393Z"
+    },
+    {
+      "id": "m_0008",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-19T04:37:05.543823Z"
+    },
+    {
+      "id": "m_0009",
+      "role": "user",
+      "content": "nice do it again",
+      "timestamp": "2025-12-19T04:37:10.446164Z"
+    },
+    {
+      "id": "m_0010",
+      "role": "assistant",
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-19T04:37:13.112974Z"
+    },
+    {
+      "id": "m_0011",
+      "role": "user",
+      "content": "so much fun open my chats",
+      "timestamp": "2025-12-19T04:37:24.382550Z"
+    },
+    {
+      "id": "m_0012",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-19T04:37:27.033833Z"
+    },
+    {
+      "id": "m_0013",
+      "role": "user",
+      "content": "close my chats",
+      "timestamp": "2025-12-19T04:37:30.830932Z"
+    },
+    {
+      "id": "m_0014",
+      "role": "assistant",
+      "content": "Executing HideChats...",
+      "timestamp": "2025-12-19T04:37:34.434152Z"
+    },
+    {
+      "id": "m_0015",
+      "role": "user",
+      "content": "open google",
+      "timestamp": "2025-12-19T04:37:37.309772Z"
+    },
+    {
+      "id": "m_0016",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T04:37:39.566785Z"
+    },
+    {
+      "id": "m_0017",
+      "role": "user",
+      "content": "open youtube",
+      "timestamp": "2025-12-19T04:37:43.417630Z"
+    },
+    {
+      "id": "m_0018",
+      "role": "assistant",
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T04:37:45.635915Z"
+    },
+    {
+      "id": "m_0019",
+      "role": "user",
+      "content": "scroll to the bottom",
+      "timestamp": "2025-12-19T04:37:53.431367Z"
+    },
+    {
+      "id": "m_0020",
+      "role": "assistant",
+      "content": "Executing ScrollBottom...",
+      "timestamp": "2025-12-19T04:37:56.227398Z"
+    },
+    {
+      "id": "m_0021",
+      "role": "user",
+      "content": "more",
+      "timestamp": "2025-12-19T04:37:58.983465Z"
+    },
+    {
+      "id": "m_0022",
+      "role": "assistant",
+      "content": "Executing ScrollDown...",
+      "timestamp": "2025-12-19T04:38:01.184063Z"
+    },
+    {
+      "id": "m_0023",
+      "role": "user",
+      "content": "more",
+      "timestamp": "2025-12-19T04:38:02.927430Z"
+    },
+    {
+      "id": "m_0024",
+      "role": "assistant",
+      "content": "Executing ScrollDown...",
+      "timestamp": "2025-12-19T04:38:04.917839Z"
+    },
+    {
+      "id": "m_0025",
+      "role": "user",
+      "content": "scroll to the top",
+      "timestamp": "2025-12-19T04:38:09.416247Z"
+    },
+    {
+      "id": "m_0026",
+      "role": "assistant",
+      "content": "Executing ScrollTop...",
+      "timestamp": "2025-12-19T04:38:11.472971Z"
+    },
+    {
+      "id": "m_0027",
+      "role": "user",
+      "content": "close youtube",
+      "timestamp": "2025-12-19T04:38:17.511829Z"
+    },
+    {
+      "id": "m_0028",
+      "role": "assistant",
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-19T04:38:19.954518Z"
+    },
+    {
+      "id": "m_0029",
+      "role": "user",
+      "content": "nice hud view please",
+      "timestamp": "2025-12-19T04:38:28.985455Z"
+    },
+    {
+      "id": "m_0030",
+      "role": "assistant",
+      "content": "Executing ToggleHUD...",
+      "timestamp": "2025-12-19T04:38:31.053948Z"
+    },
+    {
+      "id": "m_0031",
+      "role": "user",
+      "content": "show me my conversations",
+      "timestamp": "2025-12-19T04:38:36.863662Z"
+    },
+    {
+      "id": "m_0032",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-19T04:38:38.949993Z"
+    },
+    {
+      "id": "m_0033",
+      "role": "user",
+      "content": "search for view",
+      "timestamp": "2025-12-19T04:38:44.246751Z"
+    },
+    {
+      "id": "m_0034",
+      "role": "assistant",
+      "content": "Executing SearchChats...",
+      "timestamp": "2025-12-19T04:38:46.461104Z"
+    },
+    {
+      "id": "m_0035",
+      "role": "user",
+      "content": "close the search",
+      "timestamp": "2025-12-19T04:38:50.375706Z"
+    },
+    {
+      "id": "m_0036",
+      "role": "assistant",
+      "content": "Which would you like?\n\n1. Close current tab\n2. Hide chats sidebar\n3. Describe what you want\n4. Cancel",
+      "timestamp": "2025-12-19T04:38:53.111569Z"
+    },
+    {
+      "id": "m_0037",
+      "role": "user",
+      "content": "3 cancel that search",
+      "timestamp": "2025-12-19T04:39:06.263024Z"
+    },
+    {
+      "id": "m_0038",
+      "role": "assistant",
+      "content": "Which would you like?\n\n1. Close current tab\n2. Hide the text input area\n3. Specify what you want to cancel\n4. Cancel",
+      "timestamp": "2025-12-19T04:39:10.040698Z"
+    },
+    {
+      "id": "m_0039",
+      "role": "user",
+      "content": "mmm how many messages does switch view have",
+      "timestamp": "2025-12-19T04:39:21.054480Z"
+    },
+    {
+      "id": "m_0040",
+      "role": "assistant",
+      "content": "I'm not able to check the number of messages related to 'switch view'. You might want to check the relevant chat or conversation history directly.",
+      "timestamp": "2025-12-19T04:39:23.743545Z"
+    },
+    {
+      "id": "m_0041",
+      "role": "user",
+      "content": "list my chats",
+      "timestamp": "2025-12-19T04:39:32.896409Z"
+    },
+    {
+      "id": "m_0042",
+      "role": "assistant",
+      "content": "Executing ShowChats...",
+      "timestamp": "2025-12-19T04:39:35.097078Z"
+    }
+  ]
+}

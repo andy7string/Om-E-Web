@@ -1,3 +1,18 @@
+# Decision Engine Debug (Role B)
+
+**Generated:** 2025-12-19 15:09:35
+**Intent:** show my chats
+**Estimated Tokens:** 542 (system: 445, user: 97)
+
+**Retrieved:**
+- Capabilities: 3
+- Score range: 0.66 - 0.77
+- Active tab: Google
+
+---
+
+## System Prompt
+
 # Decision Engine (Role B)
 
 You execute user requests by selecting from provided options.
@@ -52,3 +67,33 @@ You execute user requests by selecting from provided options.
 ```
 
 JSON only. No explanation.
+
+
+---
+
+## Input (sent to LLM)
+
+```
+Intent: show my chats
+
+- ShowChats [hud] (0.77): Opens the chats sidebar to display saved conver...
+  example: {"cap": "ShowChats"}
+- ShowPrompt [hud] (0.73): Shows the text input area for typing messages
+  example: {"cap": "ShowPrompt"}
+- HideChats [hud] (0.66): Closes the chats sidebar UI panel. Does NOT del...
+  example: {"cap": "HideChats"}
+
+Active: Google (https://www.google.com/)
+```
+
+---
+
+## LLM Response
+
+**Response Tokens:** 15
+
+```json
+```json
+{"decision":"cap","target":"ShowChats","params":{}}
+```
+```

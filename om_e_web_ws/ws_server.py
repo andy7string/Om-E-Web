@@ -45,15 +45,14 @@ from llm.dispatcher import (
     resolve_action_type,
 )
 
-# LLM Agent - conversational AI with history
-from llm.agent import OmEAgent
-from llm.executor import parse_capability_calls, has_capability_calls, parse_findcommand, parse_findmemory
+# LLM Orchestrator - two-role LLM architecture (Role A + Role B)
 from llm.prompt import add_action_to_history, set_search_context, clear_search_context
 from llm.ingestion import preprocess_message
+from llm.orchestrator import PersonaOrchestrator
 
 # RAG - eager load model and capabilities at startup
 from retrieval.vector_store import get_model
-from retrieval.query import rebuild_capabilities_store, rebuild_chat_memory_store, query as rag_query, query_chat_memory
+from retrieval.query import rebuild_capabilities_store, rebuild_chat_memory_store
 
 
 
@@ -89,8 +88,11 @@ CURRENT_CHAT_ID = None             # Active chat ID (auto-created on first messa
 CHAT_INDEX_CACHE = {}              # Populated on startup, updated on save/delete
 CHAT_INDEX_LOADED = False          # Flag to track initial load
 
-# 🤖 LLM Agent instance for chat conversations
-LLM_AGENT = None                   # OmEAgent instance (created on first chat)
+# 🎭 Persona Orchestrator - Two-role LLM architecture (Role A + Role B)
+# Role A: Chat Persona (intent extraction, conversational responses)
+# Role B: Decision Engine (capability selection, action execution)
+USE_ORCHESTRATOR = True            # Always use orchestrator (legacy agent removed)
+PERSONA_ORCHESTRATOR = None        # PersonaOrchestrator instance (created on first chat)
 
 # 📚 Visible chats context - for resolving chat numbers to chat_ids
 # Set by LLMChat when hud_state includes visible_chats
@@ -1140,13 +1142,14 @@ def execute_internal_capability(action: str, params: dict) -> dict:
         return {"error": "Failed to save config"}
 
     elif action == "ReloadLLMConfig":
-        # Reload LLM config into the active agent (no server restart needed)
-        global LLM_AGENT
-        if LLM_AGENT:
-            LLM_AGENT.reload_config()
-            print("🤖 LLM agent config reloaded")
-            return {"reloaded": True}
-        return {"reloaded": False, "message": "No active agent to reload"}
+        # Reload LLM config - the orchestrator will use fresh config on next request
+        global PERSONA_ORCHESTRATOR
+        if PERSONA_ORCHESTRATOR:
+            # Close current orchestrator so next request creates fresh instance
+            PERSONA_ORCHESTRATOR = None
+            print("🎭 Orchestrator reset - next request will use new config")
+            return {"reloaded": True, "message": "Orchestrator will reload on next request"}
+        return {"reloaded": True, "message": "No active orchestrator to reload"}
 
     elif action == "ReloadSiteConfigs":
         # Reload cached site configs (used by is_site_config_capability / prompt capabilities)
@@ -5095,325 +5098,208 @@ async def handler(ws):  # pyright: ignore[reportGeneralTypeIssues]
                             # Use summary reference instead of raw content
                             message = ingestion_result.get("content", message)
 
-                        # Create or reset agent if needed
-                        if LLM_AGENT is None or clear_history:
-                            if LLM_AGENT:
-                                await LLM_AGENT.close()
-                            LLM_AGENT = OmEAgent()
-                            print("🤖 Created new LLM agent")
+                        # 🎭 ORCHESTRATOR: Two-role LLM architecture (Role A + Role B)
+                        if USE_ORCHESTRATOR:
+                            global PERSONA_ORCHESTRATOR
 
-                        try:
-                            # Add stable tab numbers for LLM display
-                            tabs_with_numbers = []
-                            if CURRENT_TABS_INFO:
-                                for tab in CURRENT_TABS_INFO:
-                                    tab_copy = tab.copy()
-                                    tab_copy['number'] = get_stable_tab_number(tab.get('id')) or '?'
-                                    tabs_with_numbers.append(tab_copy)
+                            # Create orchestrator if needed
+                            if PERSONA_ORCHESTRATOR is None:
+                                PERSONA_ORCHESTRATOR = PersonaOrchestrator()
+                                print("🎭 Created new PersonaOrchestrator")
 
-                            print("🤖 LLMChat: Sending message to agent")
-                            response_text = await LLM_AGENT.chat(
-                                message,
-                                active_tab=CURRENT_ACTIVE_TAB,
-                                tabs=tabs_with_numbers,
-                                hud_state=hud_state,
-                                current_chat_id=CURRENT_CHAT_ID
-                            )
+                            try:
+                                print("🎭 Orchestrator: Processing message...")
+                                orch_result = await PERSONA_ORCHESTRATOR.process_message(
+                                    user_message=message,
+                                    chat_id=CURRENT_CHAT_ID,
+                                    active_tab=CURRENT_ACTIVE_TAB,
+                                    tabs=CURRENT_TABS_INFO
+                                )
 
-                            # 🔍 TWO-PASS: Check if LLM needs a capability it doesn't have
-                            findcmd = parse_findcommand(response_text)
-                            if findcmd:
-                                search_query = findcmd.get("findCommand", "")
-                                user_message = findcmd.get("message", "")
-                                print(f"🔍 FINDCMD: Triggered with query '{search_query}'")
+                                response_text = orch_result.response_text
+                                capability_results = []
 
-                                # RAG lookup for the requested capability
-                                rag_result = rag_query(search_query, k_elements=5, k_caps=5)
+                                # Save response to chat history
+                                new_message = None
+                                if CURRENT_CHAT_ID:
+                                    chat_dict = load_chat(CURRENT_CHAT_ID)
+                                    if chat_dict:
+                                        new_message = append_assistant_message(chat_dict, response_text)
+                                        save_chat(chat_dict)
+                                        print(f"🎭 Orchestrator: Saved to chat {CURRENT_CHAT_ID}")
 
-                                if rag_result.capabilities:
-                                    print(f"🔍 FINDCMD: Pass 2 with {len(rag_result.capabilities)} capabilities")
+                                # Push response to HUD
+                                if new_message and EXTENSION_WS:
+                                    await EXTENSION_WS.send(json.dumps({
+                                        "type": "hud_action",
+                                        "action": {
+                                            "type": "append_message",
+                                            "chat_id": CURRENT_CHAT_ID,
+                                            "message": new_message
+                                        }
+                                    }))
+                                    print("🎭 Orchestrator: Pushed response to HUD")
 
-                                    # Pass 2: Re-query LLM with pre-retrieved context (skips RAG)
-                                    rag_context = {
-                                        "capabilities": rag_result.capabilities,
-                                        "elements": rag_result.elements
+                                # Execute action if orchestrator says so
+                                if orch_result.action_executed and orch_result.action_type == "cap":
+                                    cap_action = orch_result.action_target
+                                    # Use params from orchestrator (LLM-extracted), fallback to value
+                                    cap_params = orch_result.action_params or {}
+                                    if not cap_params and orch_result.action_value:
+                                        cap_params["value"] = orch_result.action_value
+
+                                    print(f"🎭 Orchestrator: Executing capability {cap_action}")
+
+                                    # Use existing capability routing
+                                    scroll_actions = {
+                                        'ScrollDown': 'down', 'ScrollUp': 'up',
+                                        'ScrollLeft': 'left', 'ScrollRight': 'right',
+                                        'ScrollTop': 'top', 'ScrollBottom': 'bottom'
                                     }
-                                    response_text = await LLM_AGENT.chat(
-                                        f"Execute: {user_message}",
-                                        active_tab=CURRENT_ACTIVE_TAB,
-                                        tabs=tabs_with_numbers,
-                                        hud_state=hud_state,
-                                        rag_context=rag_context,
-                                        current_chat_id=CURRENT_CHAT_ID
-                                    )
-                                    print(f"🔍 FINDCMD: Pass 2 response: {response_text[:200]}...")
-                                else:
-                                    # No capability found - append error to message
-                                    response_text = f"{user_message}\n\n(I couldn't find a capability to do this action.)"
-                                    print(f"🔍 FINDCMD: No capabilities found for '{search_query}'")
+                                    zoom_actions = ['ZoomIn', 'ZoomOut', 'ZoomReset', 'ResetZoom']
+                                    tab_actions = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL']
+                                    nav_actions = ['GoBack', 'GoForward', 'Refresh']
 
-                            # 🧠 TWO-PASS: Check if LLM needs to recall past conversations
-                            findmem = parse_findmemory(response_text)
-                            if findmem:
-                                search_query = findmem.get("findMemory", "")
-                                user_message = findmem.get("message", "")
-                                print(f"🧠 FINDMEM: Triggered with query '{search_query}'")
+                                    cap_result = {"ok": False, "error": "Unknown capability"}
 
-                                # Search chat memory
-                                memory_results = query_chat_memory(search_query, k=5)
+                                    if cap_action in scroll_actions and EXTENSION_WS:
+                                        direction = scroll_actions[cap_action]
+                                        await EXTENSION_WS.send(json.dumps({
+                                            "command": "scroll",
+                                            "id": f"scroll_{int(time.time() * 1000)}",
+                                            "params": {"direction": direction}
+                                        }))
+                                        cap_result = {"ok": True}
+                                        print(f"🎭 Sent scroll {direction}")
 
-                                if memory_results:
-                                    print(f"🧠 FINDMEM: Found {len(memory_results)} relevant memories")
+                                    elif cap_action in zoom_actions and EXTENSION_WS:
+                                        await EXTENSION_WS.send(json.dumps({
+                                            "type": "execute_capability",
+                                            "action": cap_action,
+                                            "params": cap_params
+                                        }))
+                                        cap_result = {"ok": True}
+                                        print(f"🎭 Sent {cap_action}")
 
-                                    # Format memory context for LLM
-                                    memory_context = "**Relevant past conversations:**\n"
-                                    for mem in memory_results:
-                                        role = "You" if mem['role'] == 'assistant' else "User"
-                                        memory_context += f"- [{mem['date']}] {mem['chat_title']}: {role} said: \"{mem['content'][:150]}...\"\n"
-
-                                    # Pass 2: Re-query LLM with memory context
-                                    response_text = await LLM_AGENT.chat(
-                                        f"{memory_context}\n\nBased on this history, answer: {user_message}",
-                                        active_tab=CURRENT_ACTIVE_TAB,
-                                        tabs=tabs_with_numbers,
-                                        hud_state=hud_state,
-                                        current_chat_id=CURRENT_CHAT_ID
-                                    )
-                                    print(f"🧠 FINDMEM: Pass 2 response: {response_text[:200]}...")
-                                else:
-                                    response_text = f"{user_message}\n\n(I couldn't find any relevant past conversations about that.)"
-                                    print(f"🧠 FINDMEM: No memories found for '{search_query}'")
-
-                            # Save LLM response to chat history
-                            new_message = None
-                            if CURRENT_CHAT_ID:
-                                chat_dict = load_chat(CURRENT_CHAT_ID)
-                                if chat_dict:
-                                    new_message = append_assistant_message(chat_dict, response_text)
-                                    save_chat(chat_dict)
-                                    print(f"🤖 LLMChat: Saved to chat {CURRENT_CHAT_ID}")
-
-                            # Push LLM response to HUD
-                            if new_message and EXTENSION_WS:
-                                await EXTENSION_WS.send(json.dumps({
-                                    "type": "hud_action",
-                                    "action": {
-                                        "type": "append_message",
-                                        "chat_id": CURRENT_CHAT_ID,
-                                        "message": new_message
-                                    }
-                                }))
-                                print("🤖 LLMChat: Pushed LLM response to HUD")
-
-                            # Parse and execute any capability calls
-                            capability_results = []  # Track results for user feedback
-                            if has_capability_calls(response_text):
-                                calls = parse_capability_calls(response_text)
-                                print(f"🤖 LLMChat: Found {len(calls)} capability calls")
-
-                                # Browser capabilities that route to extension
-                                scroll_actions = {
-                                    'ScrollDown': 'down', 'ScrollUp': 'up',
-                                    'ScrollLeft': 'left', 'ScrollRight': 'right',
-                                    'ScrollTop': 'top', 'ScrollBottom': 'bottom'
-                                }
-                                zoom_actions = ['ZoomIn', 'ZoomOut', 'ZoomReset', 'ResetZoom']  # ResetZoom alias
-                                tab_actions = ['SwitchTab', 'OpenTab', 'CloseTab', 'UpdateTabURL']
-                                nav_actions = ['GoBack', 'GoForward', 'Refresh']
-                                # DOM actions (click, setValue, focus, hover) handled via element registry
-
-                                for call in calls:
-                                    call_type = call.get("type")  # "element" or "capability"
-                                    cap_result = {"ok": False, "error": "Unknown action"}
-
-                                    # 🎯 ELEMENT ACTIONS: {"act": "Type:Label", "value": ..., "submit": ...}
-                                    if call_type == "element" and EXTENSION_WS:
-                                        act_ref = call.get("action_id")
-                                        value = call.get("value")
-                                        submit = call.get("submit", False)
-
-                                        if act_ref:
-                                            has_value = value is not None
-
-                                            # Action type: if a_id_X, use registry; otherwise infer from Type:Label
-                                            if isinstance(act_ref, str) and act_ref.startswith("a_id_"):
-                                                action_type = resolve_action_type(act_ref, has_value=has_value)
-                                            else:
-                                                action_type = infer_action_type_from_act(str(act_ref), has_value=has_value)
-
-                                            print(f"🎯 Element action: {act_ref} → {action_type} (value={value}, submit={submit})")
-
-                                            # 🧭 Resolve hints (a_id_X OR Type:Label) → selectors
-                                            hints = resolve_hints_for_act(str(act_ref), action_type=action_type)
-
-                                            if hints:
-                                                # Use hint-based execution (selector-based, survives re-renders)
-                                                instruction = {
-                                                    "type": "execute_action_with_hints",
-                                                    "data": {
-                                                        "actionId": act_ref,
-                                                        "actionType": action_type,
-                                                        "params": {
-                                                            "value": value,
-                                                            "submit": submit
-                                                        },
-                                                        "hints": hints
-                                                    }
-                                                }
-                                                print(f"🎯 Using hint-based execution: {hints.get('label')} ({len(hints.get('selectors', []))} selectors)")
-                                            else:
-                                                # Fallback to old method if no hints (shouldn't happen)
-                                                instruction = {
-                                                    "type": "execute_llm_action",
-                                                    "data": {
-                                                        "actionId": act_ref,
-                                                        "actionType": action_type,
-                                                        "params": {
-                                                            "value": value,
-                                                            "submit": submit
-                                                        }
-                                                    }
-                                                }
-                                                print(f"⚠️ No hints found for {act_ref}, using legacy execution")
-
-                                            await EXTENSION_WS.send(json.dumps(instruction))
-                                            cap_result = {"ok": True}
-                                            print(f"🤖 Sent {instruction['type']}: {action_type} on {act_ref}")
-
-                                            # Track in history
-                                            add_action_to_history(f"Element:{action_type}", {"action_id": act_ref, "value": value}, cap_result)
-
-                                            # NOTE: Result display pipeline disabled - was showing inaccurate timeout messages
+                                    elif cap_action in tab_actions and EXTENSION_WS:
+                                        translated_params, tab_error = translate_tab_params(cap_params)
+                                        if tab_error:
+                                            cap_result = {"ok": False, "error": tab_error}
                                         else:
-                                            cap_result = {"ok": False, "error": "Missing act"}
-                                        continue
-
-                                    # 🔧 CAPABILITY ACTIONS: {"cap": "CapName", "params": {...}}
-                                    cap_action = call.get("action")
-                                    cap_params = call.get("params", {})
-
-                                    if cap_action:
-                                        print(f"🤖 Executing capability: {cap_action}")
-
-                                        # Route scroll to extension
-                                        if cap_action in scroll_actions and EXTENSION_WS:
-                                            direction = scroll_actions[cap_action]
-                                            await EXTENSION_WS.send(json.dumps({
-                                                "command": "scroll",
-                                                "id": f"scroll_{int(time.time() * 1000)}",
-                                                "params": {"direction": direction}
-                                            }))
-                                            cap_result = {"ok": True}
-                                            print(f"🤖 Sent scroll {direction} to extension")
-
-                                        # Route zoom to extension
-                                        elif cap_action in zoom_actions and EXTENSION_WS:
-                                            await EXTENSION_WS.send(json.dumps({
-                                                "type": "execute_capability",
-                                                "action": cap_action,
-                                                "params": cap_params
-                                            }))
-                                            cap_result = {"ok": True}
-                                            print(f"🤖 Sent {cap_action} to extension")
-
-                                        # Route tab actions to extension (FIRE-AND-FORGET - tabs_info updates immediately)
-                                        elif cap_action in tab_actions and EXTENSION_WS:
-                                            # 🔢 Translate simple tab number to real tabId
-                                            translated_params, tab_error = translate_tab_params(cap_params)
-                                            if tab_error:
-                                                cap_result = {"ok": False, "error": tab_error}
-                                                print(f"❌ {tab_error}")
-                                                continue
-
                                             await EXTENSION_WS.send(json.dumps({
                                                 "type": "execute_capability",
                                                 "id": f"cap_{cap_action}_{int(time.time() * 1000)}",
                                                 "action": cap_action,
                                                 "params": translated_params
                                             }))
-                                            # 🚀 Don't wait for response - tabs_info message will update text.md immediately
                                             cap_result = {"ok": True}
-                                            print(f"🤖 Sent {cap_action} to extension (fire-and-forget, tabs_info will update)")
+                                            print(f"🎭 Sent {cap_action}")
 
-                                        # 🧭 NAV CAPABILITIES: Route to service worker (uses chrome.tabs API)
-                                        elif cap_action in nav_actions and EXTENSION_WS:
-                                            await EXTENSION_WS.send(json.dumps({
-                                                "type": "execute_capability",
-                                                "id": f"nav_{int(time.time() * 1000)}",
-                                                "action": cap_action,
-                                                "params": cap_params or {}
-                                            }))
-                                            cap_result = {"ok": True}
-                                            print(f"🧭 Sent nav capability {cap_action} to extension")
-
-                                        # 🎯 SITE CONFIG CAPABILITIES: Route to extension for DOM execution
-                                        elif is_site_config_capability(cap_action) and EXTENSION_WS:
-                                            request_id = f"cap_{cap_action}_{int(time.time() * 1000)}"
-                                            fut = asyncio.get_event_loop().create_future()
-                                            PENDING[request_id] = fut
-
-                                            await EXTENSION_WS.send(json.dumps({
-                                                "type": "execute_capability",
-                                                "id": request_id,
-                                                "action": cap_action,
-                                                "params": cap_params
-                                            }))
-                                            print(f"🎯 Sent site config capability {cap_action} to extension, waiting for response...")
-
-                                            try:
-                                                cap_result = await asyncio.wait_for(fut, timeout=10.0)
-                                                print(f"🎯 {cap_action} result: {cap_result}")
-                                            except asyncio.TimeoutError:
-                                                PENDING.pop(request_id, None)
-                                                cap_result = {"ok": False, "error": f"Timeout waiting for {cap_action}"}
-                                                print(f"⏰ {cap_action} timeout")
-
-                                        # Internal capabilities (server-side only)
-                                        else:
-                                            cap_result = execute_internal_capability(cap_action, cap_params)
-
-                                        add_action_to_history(cap_action, cap_params, cap_result)
-
-                                        # Track result for user feedback (especially errors)
-                                        capability_results.append({
+                                    elif cap_action in nav_actions and EXTENSION_WS:
+                                        await EXTENSION_WS.send(json.dumps({
+                                            "type": "execute_capability",
+                                            "id": f"nav_{int(time.time() * 1000)}",
                                             "action": cap_action,
-                                            "params": cap_params,
-                                            "result": cap_result
-                                        })
+                                            "params": cap_params
+                                        }))
+                                        cap_result = {"ok": True}
+                                        print(f"🎭 Sent nav {cap_action}")
 
-                                        # Handle HUD actions from capability
-                                        if "_hud_action" in cap_result and EXTENSION_WS:
-                                            await EXTENSION_WS.send(json.dumps({
+                                    elif is_site_config_capability(cap_action) and EXTENSION_WS:
+                                        await EXTENSION_WS.send(json.dumps({
+                                            "type": "execute_capability",
+                                            "id": f"cap_{cap_action}_{int(time.time() * 1000)}",
+                                            "action": cap_action,
+                                            "params": cap_params
+                                        }))
+                                        cap_result = {"ok": True}
+                                        print(f"🎭 Sent site capability {cap_action}")
+
+                                    else:
+                                        # Internal capability
+                                        cap_result = execute_internal_capability(cap_action, cap_params)
+
+                                        # Push HUD action to extension if capability wants to drive UI
+                                        hud_action = cap_result.get("_hud_action") if isinstance(cap_result, dict) else None
+                                        if hud_action and EXTENSION_WS:
+                                            hud_msg = {
                                                 "type": "hud_action",
-                                                "action": cap_result["_hud_action"]
-                                            }))
+                                                "action": hud_action
+                                            }
+                                            await EXTENSION_WS.send(json.dumps(hud_msg))
+                                            print(f"🎛️ Pushed hud_action: {hud_action.get('type')}")
 
-                            result = {
-                                "response": response_text,
-                                "history_length": LLM_AGENT.get_history_length(),
-                                "chat_id": CURRENT_CHAT_ID,
-                                "message": new_message,
-                                "capability_results": capability_results  # For user feedback
-                            }
+                                    add_action_to_history(cap_action, cap_params, cap_result)
+                                    capability_results.append({
+                                        "action": cap_action,
+                                        "params": cap_params,
+                                        "result": cap_result
+                                    })
 
-                            await ws.send(json.dumps({
-                                "type": "capability_result",
-                                "action": action,
-                                "ok": True,
-                                "result": result,
-                                "id": request_id
-                            }))
+                                # Handle element actions
+                                elif orch_result.action_executed and orch_result.action_type == "act":
+                                    act_ref = orch_result.action_target
+                                    value = orch_result.action_value
+                                    print(f"🎭 Orchestrator: Element action on {act_ref}")
 
-                        except Exception as e:
-                            print(f"🤖 LLMChat error: {e}")
-                            await ws.send(json.dumps({
-                                "type": "capability_result",
-                                "action": action,
-                                "ok": False,
-                                "error": str(e),
-                                "id": request_id
-                            }))
-                        continue
+                                    if EXTENSION_WS and act_ref:
+                                        has_value = value is not None
+                                        action_type = resolve_action_type(act_ref, has_value=has_value)
+                                        hints = resolve_hints_for_act(str(act_ref), action_type=action_type)
+
+                                        if hints:
+                                            instruction = {
+                                                "type": "execute_action_with_hints",
+                                                "data": {
+                                                    "actionId": act_ref,
+                                                    "actionType": action_type,
+                                                    "params": {"value": value},
+                                                    "hints": hints
+                                                }
+                                            }
+                                        else:
+                                            instruction = {
+                                                "type": "execute_llm_action",
+                                                "data": {
+                                                    "actionId": act_ref,
+                                                    "actionType": action_type,
+                                                    "params": {"value": value}
+                                                }
+                                            }
+                                        await EXTENSION_WS.send(json.dumps(instruction))
+                                        add_action_to_history(f"Element:{action_type}", {"action_id": act_ref, "value": value}, {"ok": True})
+
+                                result = {
+                                    "response": response_text,
+                                    "chat_id": CURRENT_CHAT_ID,
+                                    "message": new_message,
+                                    "capability_results": capability_results,
+                                    "action_type": orch_result.action_type,
+                                    "action_target": orch_result.action_target,
+                                    "turn_state": orch_result.turn_state.value
+                                }
+
+                                await ws.send(json.dumps({
+                                    "type": "capability_result",
+                                    "action": action,
+                                    "ok": True,
+                                    "result": result,
+                                    "id": request_id
+                                }))
+                                continue  # Done with orchestrator path
+
+                            except Exception as e:
+                                print(f"🎭 Orchestrator error: {e}")
+                                import traceback
+                                traceback.print_exc()
+                                await ws.send(json.dumps({
+                                    "type": "capability_result",
+                                    "action": action,
+                                    "ok": False,
+                                    "error": f"Orchestrator error: {str(e)}",
+                                    "id": request_id
+                                }))
+                                continue
 
                     # 🔧 INTERNAL CAPABILITIES: Handle server-side capabilities directly
                     internal_caps = load_internal_capabilities()

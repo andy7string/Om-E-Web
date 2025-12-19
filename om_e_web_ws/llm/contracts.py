@@ -116,7 +116,8 @@ class DecisionEngineOutput(BaseModel):
     """
     decision: DecisionType
     target: Optional[Union[str, int]] = None  # cap name or element ID (for cap/act)
-    value: Optional[str] = None  # for setValue actions
+    value: Optional[str] = None  # for setValue actions (legacy)
+    params: Optional[Dict] = None  # capability params (e.g. {"url": "https://youtube.com"})
     options: Optional[List[ExecutorOption]] = None  # for OPTIONS decision
     reason: Optional[str] = None  # for cannot/noop explanations
 

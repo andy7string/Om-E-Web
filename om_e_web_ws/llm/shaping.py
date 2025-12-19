@@ -33,8 +33,10 @@ class CapabilityOption:
     """
     name: str           # e.g., "ScrollDown"
     description: str    # e.g., "Scroll the page down"
-    example: str        # e.g., "scroll down"
+    example: str        # e.g., '{"cap": "ScrollDown", "params": {...}}'
     score: float        # Similarity score from RAG (0.0-1.0)
+    group: str = ""     # e.g., "browser", "hud", "chat"
+    params: Optional[Dict] = None  # e.g., {"url": "Required - the URL to open"}
     action_type: str = ""  # Categorized type (scroll, navigate, click, etc.)
 
 
@@ -77,6 +79,8 @@ def shape_options(
             description=opt.get("description", "")[:100],
             example=opt.get("example", ""),
             score=opt.get("score", 0.5),
+            group=opt.get("group", ""),
+            params=opt.get("params", {}),
             action_type=categorize_action(opt.get("label", opt.get("name", "")))
         )
         options.append(cap)
@@ -109,7 +113,9 @@ def shape_options(
             "label": opt.name,
             "description": opt.description,
             "example": opt.example,
-            "score": opt.score
+            "score": opt.score,
+            "group": opt.group,
+            "params": opt.params or {}
         }
         for opt in diverse
     ]

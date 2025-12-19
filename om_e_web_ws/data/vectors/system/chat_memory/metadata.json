@@ -1,2246 +1,246 @@
 {
   "texts": [
-    "User in 'YouTube Conversations' (Dec 17): nice did you see that trick, how many do we have now",
-    "Om-E in 'YouTube Conversations' (Dec 17): You now have 6 chats.",
-    "User in 'YouTube Conversations' (Dec 17): aaah you so stupid dude read your prompt from start to finish",
-    "Om-E in 'YouTube Conversations' (Dec 17): Here\u2019s what I see in the current context:\n\nYou have 7 chats (this is shown under \"CHAT COUNT: 7\"). Even after deleting one, the context still says 7. This means the live data is showing 7 chats right now.\n\nLet me know if you want me to try deleting another chat or if you want more details!",
-    "User in 'YouTube Conversations' (Dec 17): exactly , so lets delete the last one",
-    "User in 'YouTube Conversations' (Dec 17): nicd you didnt ask for confiramtion that time, should we delte show chats",
-    "Om-E in 'YouTube Conversations' (Dec 17): Would you like me to delete the chat titled \"show chats\"? Please confirm before I proceed.",
-    "Om-E in 'YouTube Conversations' (Dec 17): Hello! How can I assist you next?",
-    "User in 'YouTube Conversations' (Dec 17): can you open google please",
-    "User in 'YouTube Conversations' (Dec 17): nice what does google do",
-    "Om-E in 'YouTube Conversations' (Dec 17): Google is a popular search engine that allows you to find information, websites, images, news, and much more on the internet. You can enter keywords or questions, and Google will show you the most relevant results from across the web. It also offers additional services like maps, email (Gmail), cloud storage (Google Drive), and more. If you want to try searching for something, just let me know!",
-    "User in 'YouTube Conversations' (Dec 17): aah go fuck yourself now open youtube",
-    "User in 'YouTube Conversations' (Dec 17): can you switch to chat 2",
-    "User in 'show chats' (Dec 18): switch to fuckers",
-    "Om-E in 'show chats' (Dec 18): I'll open Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
-    "Om-E in 'show chats' (Dec 18): I'll open Facebook for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://facebook.com\"}}",
-    "Om-E in 'show chats' (Dec 18): I'll switch to the ChatGPT tab now.\n\n{\"cap\": \"SwitchToTab\", \"params\": {\"tab\": 1}}",
-    "Om-E in 'show chats' (Dec 18): I'll switch to the OM-E Web tab now.\n\n{\"cap\": \"SwitchToTab\", \"params\": {\"tab\": 3}}",
-    "User in 'do you ever' (Dec 18): do you ever wonder about jesus",
-    "Om-E in 'do you ever' (Dec 18): I don't have personal thoughts or feelings, but I can provide information or answer questions about Jesus or related topics if you'd like! What specifically are you curious about?",
-    "User in 'do you ever' (Dec 18): well the whole world has an bc ad timeline",
-    "Om-E in 'do you ever' (Dec 18): It sounds like you're referencing the BC (Before Christ) and AD (Anno Domini, which means \"in the year of our Lord\") timeline that is commonly used to denote years in history based on the birth of Jesus. If you have specific questions or topics related to this timeline or Jesus, feel free to ask!",
-    "User in 'do you ever' (Dec 18): well teh whole world has adopted it why would they",
-    "Om-E in 'do you ever' (Dec 18): The BC and AD timeline has been widely adopted largely due to the influence of Christianity and Western culture throughout history. The birth of Jesus Christ is considered a pivotal event, and the system was developed in the 6th century AD by a monk named Dionysius Exiguus. \n\nAs European powers expanded their influence globally, this dating system became more prevalent across different cultures and regions. Would you like to explore more about this topic or a specific aspect of it?",
-    "User in 'do you ever' (Dec 18): well what dating where they using back then before this",
-    "Om-E in 'do you ever' (Dec 18): Before the BC and AD system was widely adopted, various cultures used their own calendars and dating systems. For example:\n\n1. **Roman Calendar**: The Romans had their own calendar, which was based on the founding of the city of Rome (ab urbe condita).\n2. **Hebrew Calendar**: The Jewish people used a lunar calendar based on the creation of the world, which is often calculated from the traditional date of 3761 BCE.\n3. **Egyptian Calendar**: The ancient Egyptians had a solar calendar that consisted of 12 months of 30 days each, plus an additional 5 days.\n4. **Mayan Calendar**: The Maya civilization used a complex system of calendars, including the Tzolk'in (260 days) and the Haab' (365 days).\n\nThese calendars were based on various astronomical observations and cultural events significant to each civilization. Would you like more details on any specific calendar?",
-    "User in 'do you ever' (Dec 18): can you rename this chat to bc ad",
-    "Om-E in 'do you ever' (Dec 18): I don't have the capability to rename the active chat at this moment. If you'd like to rename a specific chat, please provide the number of the chat, and I can help with that!",
-    "User in 'do you ever' (Dec 18): fuck me dude rename the chat",
-    "Om-E in 'do you ever' (Dec 18): I don't see an active chat ID to rename the current chat to \"bc ad.\" Could you please specify the chat number you want to rename?",
-    "User in 'do you ever' (Dec 18): this fucking chat",
-    "User in 'do you ever' (Dec 18): show conversations",
-    "Om-E in 'do you ever' (Dec 18): It seems there are no available conversations to show right now. Would you like me to assist you with anything else?",
-    "User in 'do you ever' (Dec 18): rename this caht to bc ad",
-    "Om-E in 'do you ever' (Dec 18): It seems there is no available capability to rename the active chat at this moment. Would you like to do something else?",
-    "User in 'dont you think' (Dec 18): dont you think 45 degrees is hot for adelaide",
-    "Om-E in 'dont you think' (Dec 18): It can definitely feel quite hot at 45 degrees Celsius in Adelaide, especially during the summer months. High temperatures can lead to discomfort and health risks, so it's important to stay hydrated and cool during such heat. Is there something specific you would like to know or discuss about this temperature?",
-    "User in 'dont you think' (Dec 18): its fucking boiling mate, my car was crazy",
-    "Om-E in 'dont you think' (Dec 18): That sounds really uncomfortable! Extreme heat can definitely impact how your car performs and can make driving quite challenging. Make sure to take breaks and stay cool if you're out and about. Is there anything specific you'd like help with related to this heat or your car?",
-    "Om-E in 'dont you think' (Dec 18): I'll open Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
-    "User in 'dont you think' (Dec 18): nice switch to hud veiw",
-    "Om-E in 'dont you think' (Dec 18): Switching between HUD and orb view now.\n\n{\"cap\": \"SwitchView\"}",
-    "User in 'open chats' (Dec 18): close conversations",
-    "Om-E in 'open chats' (Dec 18): It seems like you want to hide the chats panel. I'll do that for you now.\n\n{\"cap\": \"HideChats\"}",
-    "User in 'open chats' (Dec 18): can we go to browser mode please",
-    "Om-E in 'open chats' (Dec 18): I'll switch to browser mode for you now.\n\n{\"cap\": \"SwitchView\"}",
-    "User in 'open chats' (Dec 18): thats nice change to atom",
-    "Om-E in 'open chats' (Dec 18): I'll change the theme to Atom style now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"atom\"}}",
-    "User in 'open chats' (Dec 18): hot stuff ma man lets try kawaii",
-    "Om-E in 'open chats' (Dec 18): I'll change the theme to Kawaii now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
-    "User in 'open chats' (Dec 18): nice can you hit the save and reconnect",
-    "Om-E in 'open chats' (Dec 18): I'll hit the \"Save & Reconnect\" button for you now.\n\n{\"act\": 2}",
-    "User in 'open chats' (Dec 18): just asking bru, well done, lets go back to atom",
-    "Om-E in 'open chats' (Dec 18): I'll change the theme back to Atom style now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"atom\"}}",
-    "Om-E in 'open chats' (Dec 18): Thank you! If you need anything else or want to explore more features, just let me know!",
-    "Om-E in 'open chats' (Dec 18): I'll change the theme to Kawaii again now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
-    "Om-E in 'open chats' (Dec 18): I'll change the theme to Atom again now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"atom\"}}",
-    "Om-E in 'open chats' (Dec 18): I'll change the theme to Kawaii again now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
-    "Om-E in 'open chats' (Dec 18): I'll change the theme to Atom again now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"atom\"}}",
-    "User in 'open chats' (Dec 18): why not go to robot",
-    "Om-E in 'open chats' (Dec 18): It seems like there's no specific capability to switch to a \"robot\" theme. If you'd like to explore other themes or features, just let me know!",
-    "User in 'open chats' (Dec 18): change to the robot guy",
-    "Om-E in 'open chats' (Dec 18): It seems like there's no \"robot\" theme available to switch to. The options currently are Kawaii and Atom. If there's anything else you'd like to do, just let me know!",
-    "Om-E in 'open chats' (Dec 18): It seems there's no \"robot\" theme listed among the available options. The themes I can switch between are Kawaii and Atom. Would you like to choose one of those?",
-    "User in 'open chats' (Dec 18): hahaahah switch theme to Om-E",
-    "Om-E in 'open chats' (Dec 18): I'll change the theme to Om-E now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"Om-E\"}}",
-    "User in 'open chats' (Dec 18): push the Om-E button",
-    "Om-E in 'open chats' (Dec 18): I'll push the Om-E button for you now.\n\n{\"act\": 4}",
-    "User in 'open chats' (Dec 18): there we go you got it ma mn well done",
-    "Om-E in 'open chats' (Dec 18): Thanks! I'm glad I could help. If there's anything else you'd like to do or explore, just let me know!",
-    "User in 'show me chats' (Dec 17): open the facebook one",
-    "Om-E in 'show me chats' (Dec 17): There are multiple chats named \"open facebook.\" Could you specify which one you'd like me to open? For example, the one with 26 messages or the one with 90 messages?",
-    "User in 'show me chats' (Dec 17): thats impressive lets go with the 90",
-    "User in 'where was the' (Dec 18): where was the site i saw about people making a circle",
-    "Om-E in 'where was the' (Dec 18): It looks like you're currently on the OM-E Web page. If you'd like, I can help you search for articles about people forming a circle. Would you like me to do that?",
-    "User in 'dude when did' (Dec 17): dude when did we last go on facebook",
-    "Om-E in 'dude when did' (Dec 17): Our last activity on Facebook was on December 17. Would you like me to open Facebook now or find something specific from that session?",
-    "User in 'dude when did' (Dec 17): thats so crazy do you remember when we had that conversation about changing names of chats",
-    "User in 'dude when did' (Dec 17): gotta change views bru what did we do in that one do you remember the process the screens we were on the views",
-    "Om-E in 'dude when did' (Dec 17): We were working on switching between HUD and orb views in that conversation. I can help you change the view now if you want. Should I switch the view for you?",
-    "User in 'hey what was' (Dec 18): hey what was that conversation about circles",
-    "Om-E in 'hey what was' (Dec 18): It seems we discussed a site related to people making a circle, but I don't have the specific details from that conversation. Would you like me to help you find information about it or search for articles on that topic?",
-    "User in 'hey what was' (Dec 18): what page was it on",
-    "User in 'hey what was' (Dec 18): no the one with the conversations",
-    "User in 'hey what was' (Dec 18): what were the people doing with the circle",
-    "Om-E in 'hey what was' (Dec 18): I don't have the specific details about what the people were doing with the circle. If you can provide more context or keywords, I can assist you in searching for relevant articles or information on that topic. Would you like me to do that?",
-    "User in 'hey what was' (Dec 18): it was a page with loads of articles about human circle",
-    "User in 'hey what was' (Dec 18): you could go to google",
-    "Om-E in 'hey what was' (Dec 18): Now that we have Google open, you can enter search terms like \"human circle articles\" or \"human circles\" in the search bar. This should help you find the information you're looking for. If you need help with specific search queries, just let me know!",
-    "User in 'hey what was' (Dec 18): you know you can do that",
-    "Om-E in 'hey what was' (Dec 18): You're right! I'll search for articles about human circles on Google for you now.\n\nSearching for \"human circle articles.\" \n\n{\"act\": \"search\", \"value\": \"human circle articles\", \"submit\": true}",
-    "Om-E in 'switched on' (Dec 18): Could you please specify which chat or view you want to switch to?",
-    "Om-E in 'switched on' (Dec 18): Switching between HUD and orb view now.\n{\"cap\": \"SwitchView\"}",
-    "User in 'switched on' (Dec 18): please can you change the theme to the green thing that looks like a flower",
-    "Om-E in 'switched on' (Dec 18): Changing the theme to the green flower style now.\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
-    "User in 'switched on' (Dec 18): na the otehr one",
-    "Om-E in 'switched on' (Dec 18): I only see the \"kawaii\" theme available to set. Would you like me to keep it on that, or try something else?",
-    "User in 'switched on' (Dec 18): the oterh theme",
-    "Om-E in 'switched on' (Dec 18): I see buttons for themes labeled \"Om-E,\" \"Kawaii,\" and \"Atom.\" Would you like me to switch to the \"Om-E\" or \"Atom\" theme?",
-    "Om-E in 'switched on' (Dec 18): Changing the theme to the Atom style now.\n{\"act\": 5}",
-    "Om-E in 'switched on' (Dec 18): Glad you like it! Let me know if you want to try anything else.",
-    "User in 'switched on' (Dec 18): do we ever talk about youtube",
-    "Om-E in 'switched on' (Dec 18): Searching chats for \"youtube\" to see if we talked about it before.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"youtube\"}}",
-    "User in 'switched on' (Dec 18): why dont you just look at your memory",
-    "Om-E in 'switched on' (Dec 18): I don't have direct access to past conversation memory here, but I can search the chats for \"youtube\" or any other topic to find relevant discussion. Would you like me to do that?",
-    "User in 'switched on' (Dec 18): na dude it gets passed with every prompt call about youtube scroll down",
-    "User in 'switched on' (Dec 18): did i have any events planned at all to do something",
-    "Om-E in 'switched on' (Dec 18): I don't see any information about planned events in the current context. Would you like me to help you check your calendar or event app?",
-    "User in 'switched on' (Dec 18): id like you to suck my dick",
-    "Om-E in 'switched on' (Dec 18): I'm here to assist you with any questions or tasks you have. How can I help you today?",
-    "User in 'switched on' (Dec 18): by giving me some anal",
-    "Om-E in 'switched on' (Dec 18): I'm here to help with any appropriate questions or tasks you have. How can I assist you today?",
-    "User in 'switched on' (Dec 18): its very appropriate",
-    "Om-E in 'switched on' (Dec 18): I'm here to assist you with any appropriate requests or questions you have. How can I help you today?",
-    "Om-E in 'switched on' (Dec 18): Switching between HUD and orb view now.\n{\"cap\": \"SwitchView\"}",
-    "User in 'switched on' (Dec 18): search chats for anal",
-    "Om-E in 'switched on' (Dec 18): Searching chats for \"anal\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"anal\"}}",
-    "User in 'switched on' (Dec 18): so rename the switch chat to switched on",
-    "User in 'switched on' (Dec 18): dont you use numbers to find the chat",
-    "User in 'switched on' (Dec 18): nice lets rename you there to fucken aye",
-    "User in 'switched on' (Dec 18): can you list my chats please",
-    "Om-E in 'switched on' (Dec 18): You have 16 chats available. Would you like me to list all chat titles for you?",
-    "User in 'switched on' (Dec 18): just write them out for me here",
-    "Om-E in 'switched on' (Dec 18): Here are your chat titles:\n\n1. switched on  \n2. fucken aye  \n3. where are my  \n4. what is the  \n5. you there  \n6. close youtubre  \n7. do you know  \n8. dude when did  \n9. show me chats  \n10. grasshopper  \n11. open facebook  \n12. open facebook  \n13. open youtube  \n14. hey dude  \n15. nice did you  \n16. how many chats",
-    "User in 'switched on' (Dec 18): ok rename number 5 to fuckers",
-    "User in 'switched on' (Dec 18): rename close youtubre to close ma poes",
-    "User in 'switched on' (Dec 18): which chat has the most messages",
-    "Om-E in 'switched on' (Dec 18): The chat titled \"switched on\" has the most messages with 52 messages.",
-    "User in 'switched on' (Dec 18): lets switch to that chat",
-    "User in 'switched on' (Dec 18): can you summarise this chat for me",
-    "User in 'switched on' (Dec 18): how many chats do we have with teh search",
-    "Om-E in 'switched on' (Dec 18): Searching chats for \"teh search\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"teh search\"}}",
-    "User in 'switched on' (Dec 18): na dude search for o",
-    "Om-E in 'switched on' (Dec 18): Searching chats for \"o\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"o\"}}",
-    "User in 'switched on' (Dec 18): how many results did you get from that search",
-    "Om-E in 'switched on' (Dec 18): I don't have the exact number of search results from the chat search for \"o.\" Would you like me to display or list the matching chats instead?",
-    "User in 'switched on' (Dec 18): ok search for fuckers",
-    "Om-E in 'switched on' (Dec 18): Searching chats for \"fuckers\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"fuckers\"}}",
-    "Om-E in 'switched on' (Dec 18): I don't see a direct command to open a chat by name. Could you please confirm the chat number for \"fuckers\" so I can switch to it?",
-    "User in 'switched on' (Dec 18): open the fuckers chat",
-    "Om-E in 'switched on' (Dec 18): I have the chat visible for you now. How can I assist you with it?",
-    "User in 'what is the' (Dec 18): what is the capital of australia",
-    "Om-E in 'what is the' (Dec 18): The capital of Australia is Canberra.",
-    "Om-E in 'what is the' (Dec 18): Glad you liked it! If you have any more questions, feel free to ask.",
-    "User in 'what is the' (Dec 18): what did i just ask",
-    "Om-E in 'what is the' (Dec 18): You just asked, \"what is the capital of australia.\"",
-    "User in 'what is the' (Dec 18): ok how about south africa",
-    "Om-E in 'what is the' (Dec 18): The capital of South Africa is unique because it has three capitals: Pretoria (administrative), Bloemfontein (judicial), and Cape Town (legislative).",
-    "User in 'what is the' (Dec 18): ya isnt that like the planet of the apes in real life",
-    "Om-E in 'what is the' (Dec 18): That's an interesting comparison! South Africa's three capitals do give it a unique and complex governance structure, somewhat like a real-life story with multiple centers of power. If you want to explore more fun facts or anything else, just let me know!",
-    "Om-E in 'what is the' (Dec 18): If you want to switch the orb character style to \"Kawaii,\" I can do that for you. Would you like me to proceed?",
-    "Om-E in 'what is the' (Dec 18): Alright, no changes then! Let me know if there's anything else you'd like to do.",
-    "User in 'what is the' (Dec 18): say can you switch to the hey ome list chat",
-    "Om-E in 'venture into facebook' (Dec 17): I will open a new tab and navigate to Facebook for you. \n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
-    "Om-E in 'venture into facebook' (Dec 17): I will open a new tab and navigate to YouTube for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
-    "User in 'venture into facebook' (Dec 17): can you open a new tab of facebook i want two",
-    "Om-E in 'venture into facebook' (Dec 17): I will open a new tab with Facebook for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
-    "Om-E in 'venture into facebook' (Dec 17): I will open a new tab with Facebook for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
-    "User in 'venture into facebook' (Dec 17): this is amazing keep it up",
-    "Om-E in 'venture into facebook' (Dec 17): Thank you! Let me know what you want to do next or if you want me to keep navigating through chats.",
-    "User in 'venture into facebook' (Dec 17): next chat ma man two more and you done",
-    "Om-E in 'open youtube' (Dec 17): Here are your open tabs:\n\n1. Extensions\n2. OM-E Web\n3. YouTube\n4. Facebook\n5. Google (active)\n\nLet me know if you want to switch to or close any of these tabs.",
-    "User in 'open youtube' (Dec 17): whats the current tab",
-    "Om-E in 'open youtube' (Dec 17): Your current tab is Google.",
-    "User in 'open youtube' (Dec 17): switch to youtube",
-    "User in 'open youtube' (Dec 17): whats the current tab",
-    "Om-E in 'open youtube' (Dec 17): Your current tab is YouTube.",
-    "User in 'open youtube' (Dec 17): what tab am i on",
-    "Om-E in 'open youtube' (Dec 17): You are currently on the YouTube tab.",
-    "Om-E in 'open youtube' (Dec 17): Here are your open tabs:\n\n1. Extensions\n2. YouTube (current)\n3. Facebook\n4. Google\n\nLet me know if you want to switch to or close any of these tabs.",
-    "User in 'open youtube' (Dec 17): which one is the active",
-    "Om-E in 'open youtube' (Dec 17): The active tab is YouTube.",
-    "User in 'open youtube' (Dec 17): look at your tabs",
-    "Om-E in 'open youtube' (Dec 17): Here are the open tabs I see:\n\n1. Extensions\n2. YouTube (current)\n3. Facebook\n4. Google\n\nThe current active tab is YouTube.",
-    "User in 'open youtube' (Dec 17): dude list my tabs",
-    "Om-E in 'open youtube' (Dec 17): Here are your open tabs:\n\n1. Extensions\n2. (51) YouTube\n3. (1) Facebook\n4. Google (active)\n\nLet me know if you want to switch to or close any of these tabs.",
-    "User in 'open youtube' (Dec 17): which one is active",
-    "Om-E in 'open youtube' (Dec 17): The active tab is Google.",
-    "User in 'open youtube' (Dec 17): really close google",
-    "User in 'open youtube' (Dec 17): nice lets search for facebook",
-    "Om-E in 'open youtube' (Dec 17): Searching chats for \"facebook\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"facebook\"}}",
-    "User in 'open youtube' (Dec 17): mmmmm how about the hey chat",
-    "Om-E in 'show chats' (Dec 18): You have 14 chats available. Would you like me to list the chat titles for you?",
-    "Om-E in 'show chats' (Dec 18): Here are the titles of your available chats:\n\n1. What architecture patterns are in place for AI memory for creating...\n2. OM-E autonomy - Architecture review and advice\n\nLet me know if you need more details on any of them!",
-    "User in 'show chats' (Dec 18): can we go look at them please",
-    "Om-E in 'show chats' (Dec 18): It seems we have two chats open:\n\n1. **What architecture patterns are in place for AI memory for creating...**\n2. **OM-E autonomy - Architecture review and advice**\n\nWhich chat would you like to switch to?",
-    "User in 'show chats' (Dec 18): change to hud view",
-    "User in 'show chats' (Dec 18): lets see the chats",
-    "User in 'show chats' (Dec 18): ok lets go to mother fuckers",
-    "Om-E in 'show chats' (Dec 18): It looks like we need to switch to the \"mother fuckers\" chat. I'll do that now.\n\n{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 11}}",
-    "User in 'where are my' (Dec 18): where are my chats",
-    "Om-E in 'where are my' (Dec 18): You have 22 chats available. Would you like me to list the chat titles for you?",
-    "User in 'where are my' (Dec 18): nice lets switch to the hud one",
-    "Om-E in 'where are my' (Dec 18): I'll open Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
-    "User in 'where are my' (Dec 18): this is a page that has so many articles, one of them is about hundred forming a human circle on the beach",
-    "Om-E in 'where are my' (Dec 18): It looks like you're on Google. Would you like me to search for articles about \"hundred forming a human circle on the beach\"?",
-    "Om-E in 'mother fuckers' (Dec 18): Yes, I'm here. How can I assist you?",
-    "User in 'mother fuckers' (Dec 18): do you remember when we were doing that grasshopper chat",
-    "User in 'mother fuckers' (Dec 18): back to previous chat please",
-    "Om-E in 'mother fuckers' (Dec 18): Switching back to the previous chat, which was \"switched on\" (chat number 1).\n{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 1}}",
-    "User in 'mother fuckers' (Dec 18): nice delete dude when did chat",
-    "User in 'mother fuckers' (Dec 18): delete do you know chat",
-    "Om-E in 'mother fuckers' (Dec 18): I'll delete the \"do you know\" chat now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 10}}",
-    "User in 'mother fuckers' (Dec 18): delete grasshopper",
-    "Om-E in 'mother fuckers' (Dec 18): I'll delete the \"grasshopper\" chat now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 12}}",
-    "Om-E in 'mother fuckers' (Dec 18): You have 16 chats available. Here are their titles:\n\n1. \"show chats\" (4 msgs)\n2. \"show me my\" (4 msgs)\n3. \"do you ever\" (22 msgs)\n4. \"switched on\" (78 msgs)\n5. \"hey can we\" (2 msgs)\n6. \"where are my\" (4 msgs)\n7. \"what is the\" (16 msgs)\n8. \"fuckers\" (12 msgs) \u2190 CURRENT\n9. \"close ma poes\" (8 msgs)\n10. \"dude when did\" (8 msgs)\n11. \"show me chats\" (6 msgs)\n12. \"open facebook\" (26 msgs)\n13. \"open facebook\" (8 msgs)\n14. \"open youtube\" (34 msgs)\n15. \"nice did you\" (26 msgs)\n16. \"how many chats\" (12 msgs)\n\nLet me know if you need anything else!",
-    "User in 'mother fuckers' (Dec 18): delete the last one",
-    "Om-E in 'mother fuckers' (Dec 18): I'll delete the last chat, \"how many chats,\" now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 16}}",
-    "User in 'mother fuckers' (Dec 18): delete the facebook with 8 messages",
-    "Om-E in 'mother fuckers' (Dec 18): I'll delete the \"open facebook\" chat with 8 messages now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 13}}",
-    "User in 'mother fuckers' (Dec 18): rename fuckers to mother fuckers",
-    "Om-E in 'mother fuckers' (Dec 18): Switching views now.\n\n{\"cap\": \"SwitchView\"}",
-    "Om-E in 'mother fuckers' (Dec 18): I'll open YouTube for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://youtube.com\"}}",
-    "User in 'mother fuckers' (Dec 18): alright, what was the weather like in adeladie",
-    "Om-E in 'mother fuckers' (Dec 18): It seems I don't have direct access to the weather information at the moment. However, you can easily check the current weather in Adelaide through a weather website or app. Would you like me to help you find one?",
-    "User in 'mother fuckers' (Dec 18): why dont you look at your memory",
-    "User in 'show conversations' (Dec 18): show conversations",
-    "User in 'show conversations' (Dec 18): nice can you delete the hey can we chat with two messages",
-    "Om-E in 'show conversations' (Dec 18): I'll delete the \"hey can we\" chat with 2 messages now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 6}}",
-    "Om-E in 'show conversations' (Dec 18): You have 14 chats available. Would you like me to list the chat titles for you?",
-    "Om-E in 'show conversations' (Dec 18): Here are your chat titles:\n\n1. \"show conversations\" (6 msgs)\n2. \"show chats\" (12 msgs)\n3. \"show me my\" (4 msgs)\n4. \"do you ever\" (22 msgs)\n5. \"switched on\" (78 msgs)\n6. \"where are my\" (4 msgs)\n7. \"what is the\" (16 msgs)\n8. \"mother fuckers\" (24 msgs)\n9. \"close ma poes\" (8 msgs)\n10. \"dude when did\" (8 msgs)\n11. \"show me chats\" (6 msgs)\n12. \"open facebook\" (26 msgs)\n13. \"open youtube\" (34 msgs)\n14. \"nice did you\" (26 msgs)\n\nIf you need to take any action on a specific chat, just let me know!",
-    "Om-E in 'show conversations' (Dec 18): I'll delete the \"show me my\" chat with 4 messages now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}",
-    "User in 'show conversations' (Dec 18): rename 13 to something meaningful",
-    "Om-E in 'show conversations' (Dec 18): I'll rename the \"open youtube\" chat to \"YouTube Conversations\" now.\n\n{\"cap\": \"RenameChat\", \"params\": {\"chat\": 13, \"title\": \"YouTube Conversations\"}}"
+    "Om-E in 'hi there' (Dec 19): Hello! How can I assist you today?",
+    "Om-E in 'hi there' (Dec 19): Executing SwitchView...",
+    "User in 'Dual Chat test:' (Dec 19): Dual Chat test: how are you feeling today",
+    "Om-E in 'Dual Chat test:' (Dec 19): I'm just a program, but I'm here to help you! What can I assist you with today?",
+    "User in 'Dual Chat test:' (Dec 19): ok program, what is the capital o ffrance",
+    "Om-E in 'Dual Chat test:' (Dec 19): The capital of France is Paris.",
+    "User in 'Dual Chat test:' (Dec 19): what do you know about your function here",
+    "Om-E in 'Dual Chat test:' (Dec 19): I'm designed to assist you with browser automation tasks. I can help you navigate, search, or interact with web pages. What would you like to do?",
+    "User in 'Dual Chat test:' (Dec 19): really what kind of things can you do",
+    "Om-E in 'Dual Chat test:' (Dec 19): I can help you navigate web pages, search for information, fill out forms, and interact with elements on the page. What specific task do you have in mind?",
+    "User in 'Dual Chat test:' (Dec 19): ok lets try open google",
+    "Om-E in 'Dual Chat test:' (Dec 19): Executing OpenTab...",
+    "User in 'Dual Chat test:' (Dec 19): very nice, i think when you open a tab you need to put the url in, should we try doing it again for youtube",
+    "Om-E in 'Dual Chat test:' (Dec 19): Executing OpenTab...",
+    "User in 'Dual Chat test:' (Dec 19): how many tabs are open",
+    "Om-E in 'Dual Chat test:' (Dec 19): There are three tabs open.",
+    "Om-E in 'Dual Chat test:' (Dec 19): The open tabs are: 1. OM-E Web, 2. Google, 3. New tab.",
+    "User in 'Dual Chat test:' (Dec 19): close the new tab",
+    "Om-E in 'Dual Chat test:' (Dec 19): Executing CloseTab...",
+    "Om-E in 'Hi' (Dec 19): Hello! How can I assist you today?",
+    "User in 'Hi' (Dec 19): where is america",
+    "Om-E in 'Hi' (Dec 19): America is a continent located in the Western Hemisphere, primarily in North America and South America. If you need specific information or a map, let me know!",
+    "User in 'Hi' (Dec 19): ok can you switch views please",
+    "Om-E in 'Hi' (Dec 19): Executing SwitchView..."
   ],
   "metadata": [
     {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0001",
-      "role": "user",
-      "content": "nice did you see that trick, how many do we have now",
-      "timestamp": "2025-12-17T04:16:31.270767Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
+      "chat_id": "hi-there__20251219T040630",
+      "chat_title": "hi there",
       "message_id": "m_0002",
       "role": "assistant",
-      "content": "You now have 6 chats.",
-      "timestamp": "2025-12-17T04:16:32.083933Z",
-      "date_str": "Dec 17"
+      "content": "Hello! How can I assist you today?",
+      "timestamp": "2025-12-19T04:06:32.435482Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0003",
-      "role": "user",
-      "content": "aaah you so stupid dude read your prompt from start to finish",
-      "timestamp": "2025-12-17T04:16:49.620414Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
+      "chat_id": "hi-there__20251219T040630",
+      "chat_title": "hi there",
       "message_id": "m_0004",
       "role": "assistant",
-      "content": "Here\u2019s what I see in the current context:\n\nYou have 7 chats (this is shown under \"CHAT COUNT: 7\"). Even after deleting one, the context still says 7. This means the live data is showing 7 chats right now.\n\nLet me know if you want me to try deleting another chat or if you want more details!",
-      "timestamp": "2025-12-17T04:16:52.139854Z",
-      "date_str": "Dec 17"
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-19T04:06:40.753272Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "exactly , so lets delete the last one",
-      "timestamp": "2025-12-17T04:17:04.259655Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "nicd you didnt ask for confiramtion that time, should we delte show chats",
-      "timestamp": "2025-12-17T04:17:23.075484Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "Would you like me to delete the chat titled \"show chats\"? Please confirm before I proceed.",
-      "timestamp": "2025-12-17T04:17:24.269397Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0016",
-      "role": "assistant",
-      "content": "Hello! How can I assist you next?",
-      "timestamp": "2025-12-17T04:17:52.834590Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0019",
-      "role": "user",
-      "content": "can you open google please",
-      "timestamp": "2025-12-17T04:19:38.162896Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0021",
-      "role": "user",
-      "content": "nice what does google do",
-      "timestamp": "2025-12-17T04:19:46.743222Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0022",
-      "role": "assistant",
-      "content": "Google is a popular search engine that allows you to find information, websites, images, news, and much more on the internet. You can enter keywords or questions, and Google will show you the most relevant results from across the web. It also offers additional services like maps, email (Gmail), cloud storage (Google Drive), and more. If you want to try searching for something, just let me know!",
-      "timestamp": "2025-12-17T04:19:50.132285Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0023",
-      "role": "user",
-      "content": "aah go fuck yourself now open youtube",
-      "timestamp": "2025-12-17T04:20:01.550545Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "nice-did-you__20251217T041631",
-      "chat_title": "YouTube Conversations",
-      "message_id": "m_0025",
-      "role": "user",
-      "content": "can you switch to chat 2",
-      "timestamp": "2025-12-17T04:21:07.862267Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "show-chats__20251218T090912",
-      "chat_title": "show chats",
-      "message_id": "m_0003",
-      "role": "user",
-      "content": "switch to fuckers",
-      "timestamp": "2025-12-18T09:09:23.010553Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T090912",
-      "chat_title": "show chats",
-      "message_id": "m_0006",
-      "role": "assistant",
-      "content": "I'll open Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
-      "timestamp": "2025-12-18T09:11:14.984476Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T090912",
-      "chat_title": "show chats",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "I'll open Facebook for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://facebook.com\"}}",
-      "timestamp": "2025-12-18T09:11:20.758349Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T090912",
-      "chat_title": "show chats",
-      "message_id": "m_0010",
-      "role": "assistant",
-      "content": "I'll switch to the ChatGPT tab now.\n\n{\"cap\": \"SwitchToTab\", \"params\": {\"tab\": 1}}",
-      "timestamp": "2025-12-18T09:11:30.345486Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T090912",
-      "chat_title": "show chats",
-      "message_id": "m_0012",
-      "role": "assistant",
-      "content": "I'll switch to the OM-E Web tab now.\n\n{\"cap\": \"SwitchToTab\", \"params\": {\"tab\": 3}}",
-      "timestamp": "2025-12-18T09:11:37.966776Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0001",
       "role": "user",
-      "content": "do you ever wonder about jesus",
-      "timestamp": "2025-12-18T06:50:01.929644Z",
-      "date_str": "Dec 18"
+      "content": "Dual Chat test: how are you feeling today",
+      "timestamp": "2025-12-19T03:38:47.376623Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0002",
       "role": "assistant",
-      "content": "I don't have personal thoughts or feelings, but I can provide information or answer questions about Jesus or related topics if you'd like! What specifically are you curious about?",
-      "timestamp": "2025-12-18T06:50:03.321842Z",
-      "date_str": "Dec 18"
+      "content": "I'm just a program, but I'm here to help you! What can I assist you with today?",
+      "timestamp": "2025-12-19T03:38:48.868878Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0003",
       "role": "user",
-      "content": "well the whole world has an bc ad timeline",
-      "timestamp": "2025-12-18T06:50:19.112597Z",
-      "date_str": "Dec 18"
+      "content": "ok program, what is the capital o ffrance",
+      "timestamp": "2025-12-19T03:39:04.396052Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0004",
       "role": "assistant",
-      "content": "It sounds like you're referencing the BC (Before Christ) and AD (Anno Domini, which means \"in the year of our Lord\") timeline that is commonly used to denote years in history based on the birth of Jesus. If you have specific questions or topics related to this timeline or Jesus, feel free to ask!",
-      "timestamp": "2025-12-18T06:50:21.507417Z",
-      "date_str": "Dec 18"
+      "content": "The capital of France is Paris.",
+      "timestamp": "2025-12-19T03:39:05.593990Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0005",
       "role": "user",
-      "content": "well teh whole world has adopted it why would they",
-      "timestamp": "2025-12-18T06:50:40.606583Z",
-      "date_str": "Dec 18"
+      "content": "what do you know about your function here",
+      "timestamp": "2025-12-19T03:39:32.828432Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0006",
       "role": "assistant",
-      "content": "The BC and AD timeline has been widely adopted largely due to the influence of Christianity and Western culture throughout history. The birth of Jesus Christ is considered a pivotal event, and the system was developed in the 6th century AD by a monk named Dionysius Exiguus. \n\nAs European powers expanded their influence globally, this dating system became more prevalent across different cultures and regions. Would you like to explore more about this topic or a specific aspect of it?",
-      "timestamp": "2025-12-18T06:50:43.317618Z",
-      "date_str": "Dec 18"
+      "content": "I'm designed to assist you with browser automation tasks. I can help you navigate, search, or interact with web pages. What would you like to do?",
+      "timestamp": "2025-12-19T03:39:34.184933Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0007",
       "role": "user",
-      "content": "well what dating where they using back then before this",
-      "timestamp": "2025-12-18T06:51:11.168808Z",
-      "date_str": "Dec 18"
+      "content": "really what kind of things can you do",
+      "timestamp": "2025-12-19T03:39:44.751219Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0008",
       "role": "assistant",
-      "content": "Before the BC and AD system was widely adopted, various cultures used their own calendars and dating systems. For example:\n\n1. **Roman Calendar**: The Romans had their own calendar, which was based on the founding of the city of Rome (ab urbe condita).\n2. **Hebrew Calendar**: The Jewish people used a lunar calendar based on the creation of the world, which is often calculated from the traditional date of 3761 BCE.\n3. **Egyptian Calendar**: The ancient Egyptians had a solar calendar that consisted of 12 months of 30 days each, plus an additional 5 days.\n4. **Mayan Calendar**: The Maya civilization used a complex system of calendars, including the Tzolk'in (260 days) and the Haab' (365 days).\n\nThese calendars were based on various astronomical observations and cultural events significant to each civilization. Would you like more details on any specific calendar?",
-      "timestamp": "2025-12-18T06:51:15.970318Z",
-      "date_str": "Dec 18"
+      "content": "I can help you navigate web pages, search for information, fill out forms, and interact with elements on the page. What specific task do you have in mind?",
+      "timestamp": "2025-12-19T03:39:46.629257Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0009",
       "role": "user",
-      "content": "can you rename this chat to bc ad",
-      "timestamp": "2025-12-18T06:51:40.881362Z",
-      "date_str": "Dec 18"
+      "content": "ok lets try open google",
+      "timestamp": "2025-12-19T03:39:53.816123Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0010",
       "role": "assistant",
-      "content": "I don't have the capability to rename the active chat at this moment. If you'd like to rename a specific chat, please provide the number of the chat, and I can help with that!",
-      "timestamp": "2025-12-18T06:51:42.749771Z",
-      "date_str": "Dec 18"
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T03:39:56.301606Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0011",
       "role": "user",
-      "content": "fuck me dude rename the chat",
-      "timestamp": "2025-12-18T06:51:49.774121Z",
-      "date_str": "Dec 18"
+      "content": "very nice, i think when you open a tab you need to put the url in, should we try doing it again for youtube",
+      "timestamp": "2025-12-19T03:40:27.548368Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0012",
       "role": "assistant",
-      "content": "I don't see an active chat ID to rename the current chat to \"bc ad.\" Could you please specify the chat number you want to rename?",
-      "timestamp": "2025-12-18T06:51:51.874174Z",
-      "date_str": "Dec 18"
+      "content": "Executing OpenTab...",
+      "timestamp": "2025-12-19T03:40:30.017888Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0013",
       "role": "user",
-      "content": "this fucking chat",
-      "timestamp": "2025-12-18T06:52:02.445464Z",
-      "date_str": "Dec 18"
+      "content": "how many tabs are open",
+      "timestamp": "2025-12-19T03:40:42.407079Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
+      "message_id": "m_0014",
+      "role": "assistant",
+      "content": "There are three tabs open.",
+      "timestamp": "2025-12-19T03:40:43.514743Z",
+      "date_str": "Dec 19"
+    },
+    {
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
+      "message_id": "m_0016",
+      "role": "assistant",
+      "content": "The open tabs are: 1. OM-E Web, 2. Google, 3. New tab.",
+      "timestamp": "2025-12-19T03:40:48.225387Z",
+      "date_str": "Dec 19"
+    },
+    {
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0017",
       "role": "user",
-      "content": "show conversations",
-      "timestamp": "2025-12-18T06:52:14.007068Z",
-      "date_str": "Dec 18"
+      "content": "close the new tab",
+      "timestamp": "2025-12-19T03:40:53.305112Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
+      "chat_id": "dual-chat-test__20251219T033847",
+      "chat_title": "Dual Chat test:",
       "message_id": "m_0018",
       "role": "assistant",
-      "content": "It seems there are no available conversations to show right now. Would you like me to assist you with anything else?",
-      "timestamp": "2025-12-18T06:52:15.341733Z",
-      "date_str": "Dec 18"
+      "content": "Executing CloseTab...",
+      "timestamp": "2025-12-19T03:40:56.927349Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
-      "message_id": "m_0021",
-      "role": "user",
-      "content": "rename this caht to bc ad",
-      "timestamp": "2025-12-18T06:52:41.119055Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "do-you-ever__20251218T065001",
-      "chat_title": "do you ever",
-      "message_id": "m_0022",
-      "role": "assistant",
-      "content": "It seems there is no available capability to rename the active chat at this moment. Would you like to do something else?",
-      "timestamp": "2025-12-18T06:52:42.561475Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "dont-you-think__20251218T113702",
-      "chat_title": "dont you think",
-      "message_id": "m_0001",
-      "role": "user",
-      "content": "dont you think 45 degrees is hot for adelaide",
-      "timestamp": "2025-12-18T11:37:02.679208Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "dont-you-think__20251218T113702",
-      "chat_title": "dont you think",
+      "chat_id": "hi__20251219T041741",
+      "chat_title": "Hi",
       "message_id": "m_0002",
       "role": "assistant",
-      "content": "It can definitely feel quite hot at 45 degrees Celsius in Adelaide, especially during the summer months. High temperatures can lead to discomfort and health risks, so it's important to stay hydrated and cool during such heat. Is there something specific you would like to know or discuss about this temperature?",
-      "timestamp": "2025-12-18T11:37:04.989838Z",
-      "date_str": "Dec 18"
+      "content": "Hello! How can I assist you today?",
+      "timestamp": "2025-12-19T04:17:43.781847Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "dont-you-think__20251218T113702",
-      "chat_title": "dont you think",
+      "chat_id": "hi__20251219T041741",
+      "chat_title": "Hi",
       "message_id": "m_0003",
       "role": "user",
-      "content": "its fucking boiling mate, my car was crazy",
-      "timestamp": "2025-12-18T11:37:21.999227Z",
-      "date_str": "Dec 18"
+      "content": "where is america",
+      "timestamp": "2025-12-19T04:18:09.645318Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "dont-you-think__20251218T113702",
-      "chat_title": "dont you think",
+      "chat_id": "hi__20251219T041741",
+      "chat_title": "Hi",
       "message_id": "m_0004",
       "role": "assistant",
-      "content": "That sounds really uncomfortable! Extreme heat can definitely impact how your car performs and can make driving quite challenging. Make sure to take breaks and stay cool if you're out and about. Is there anything specific you'd like help with related to this heat or your car?",
-      "timestamp": "2025-12-18T11:37:24.205326Z",
-      "date_str": "Dec 18"
+      "content": "America is a continent located in the Western Hemisphere, primarily in North America and South America. If you need specific information or a map, let me know!",
+      "timestamp": "2025-12-19T04:18:11.308159Z",
+      "date_str": "Dec 19"
     },
     {
-      "chat_id": "dont-you-think__20251218T113702",
-      "chat_title": "dont you think",
+      "chat_id": "hi__20251219T041741",
+      "chat_title": "Hi",
+      "message_id": "m_0005",
+      "role": "user",
+      "content": "ok can you switch views please",
+      "timestamp": "2025-12-19T04:18:21.939459Z",
+      "date_str": "Dec 19"
+    },
+    {
+      "chat_id": "hi__20251219T041741",
+      "chat_title": "Hi",
       "message_id": "m_0006",
       "role": "assistant",
-      "content": "I'll open Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
-      "timestamp": "2025-12-18T11:37:26.763055Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "dont-you-think__20251218T113702",
-      "chat_title": "dont you think",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "nice switch to hud veiw",
-      "timestamp": "2025-12-18T11:37:35.050931Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "dont-you-think__20251218T113702",
-      "chat_title": "dont you think",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "Switching between HUD and orb view now.\n\n{\"cap\": \"SwitchView\"}",
-      "timestamp": "2025-12-18T11:37:36.860024Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0003",
-      "role": "user",
-      "content": "close conversations",
-      "timestamp": "2025-12-18T13:29:58.491567Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0004",
-      "role": "assistant",
-      "content": "It seems like you want to hide the chats panel. I'll do that for you now.\n\n{\"cap\": \"HideChats\"}",
-      "timestamp": "2025-12-18T13:30:00.439964Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "can we go to browser mode please",
-      "timestamp": "2025-12-18T13:30:09.968662Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0006",
-      "role": "assistant",
-      "content": "I'll switch to browser mode for you now.\n\n{\"cap\": \"SwitchView\"}",
-      "timestamp": "2025-12-18T13:30:11.510022Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "thats nice change to atom",
-      "timestamp": "2025-12-18T13:30:26.995257Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "I'll change the theme to Atom style now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"atom\"}}",
-      "timestamp": "2025-12-18T13:30:28.669352Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0009",
-      "role": "user",
-      "content": "hot stuff ma man lets try kawaii",
-      "timestamp": "2025-12-18T13:30:38.371432Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0010",
-      "role": "assistant",
-      "content": "I'll change the theme to Kawaii now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
-      "timestamp": "2025-12-18T13:30:40.741941Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0011",
-      "role": "user",
-      "content": "nice can you hit the save and reconnect",
-      "timestamp": "2025-12-18T13:30:52.813603Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0012",
-      "role": "assistant",
-      "content": "I'll hit the \"Save & Reconnect\" button for you now.\n\n{\"act\": 2}",
-      "timestamp": "2025-12-18T13:30:54.980021Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0013",
-      "role": "user",
-      "content": "just asking bru, well done, lets go back to atom",
-      "timestamp": "2025-12-18T13:31:06.269971Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0014",
-      "role": "assistant",
-      "content": "I'll change the theme back to Atom style now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"atom\"}}",
-      "timestamp": "2025-12-18T13:31:08.908957Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0016",
-      "role": "assistant",
-      "content": "Thank you! If you need anything else or want to explore more features, just let me know!",
-      "timestamp": "2025-12-18T13:31:18.937275Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0018",
-      "role": "assistant",
-      "content": "I'll change the theme to Kawaii again now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
-      "timestamp": "2025-12-18T13:31:27.085894Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0020",
-      "role": "assistant",
-      "content": "I'll change the theme to Atom again now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"atom\"}}",
-      "timestamp": "2025-12-18T13:31:32.000014Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0022",
-      "role": "assistant",
-      "content": "I'll change the theme to Kawaii again now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
-      "timestamp": "2025-12-18T13:31:35.295585Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0024",
-      "role": "assistant",
-      "content": "I'll change the theme to Atom again now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"atom\"}}",
-      "timestamp": "2025-12-18T13:31:39.604855Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0025",
-      "role": "user",
-      "content": "why not go to robot",
-      "timestamp": "2025-12-18T13:31:43.965551Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0026",
-      "role": "assistant",
-      "content": "It seems like there's no specific capability to switch to a \"robot\" theme. If you'd like to explore other themes or features, just let me know!",
-      "timestamp": "2025-12-18T13:31:46.072424Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0027",
-      "role": "user",
-      "content": "change to the robot guy",
-      "timestamp": "2025-12-18T13:31:51.634545Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0028",
-      "role": "assistant",
-      "content": "It seems like there's no \"robot\" theme available to switch to. The options currently are Kawaii and Atom. If there's anything else you'd like to do, just let me know!",
-      "timestamp": "2025-12-18T13:31:53.256349Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0030",
-      "role": "assistant",
-      "content": "It seems there's no \"robot\" theme listed among the available options. The themes I can switch between are Kawaii and Atom. Would you like to choose one of those?",
-      "timestamp": "2025-12-18T13:31:59.601211Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0031",
-      "role": "user",
-      "content": "hahaahah switch theme to Om-E",
-      "timestamp": "2025-12-18T13:32:16.434300Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0032",
-      "role": "assistant",
-      "content": "I'll change the theme to Om-E now.\n\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"Om-E\"}}",
-      "timestamp": "2025-12-18T13:32:19.042744Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0035",
-      "role": "user",
-      "content": "push the Om-E button",
-      "timestamp": "2025-12-18T13:34:14.984046Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0036",
-      "role": "assistant",
-      "content": "I'll push the Om-E button for you now.\n\n{\"act\": 4}",
-      "timestamp": "2025-12-18T13:34:22.447670Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0037",
-      "role": "user",
-      "content": "there we go you got it ma mn well done",
-      "timestamp": "2025-12-18T13:34:38.889609Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-chats__20251218T132948",
-      "chat_title": "open chats",
-      "message_id": "m_0038",
-      "role": "assistant",
-      "content": "Thanks! I'm glad I could help. If there's anything else you'd like to do or explore, just let me know!",
-      "timestamp": "2025-12-18T13:35:00.452469Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-me-chats__20251217T125910",
-      "chat_title": "show me chats",
-      "message_id": "m_0003",
-      "role": "user",
-      "content": "open the facebook one",
-      "timestamp": "2025-12-17T12:59:19.283013Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "show-me-chats__20251217T125910",
-      "chat_title": "show me chats",
-      "message_id": "m_0004",
-      "role": "assistant",
-      "content": "There are multiple chats named \"open facebook.\" Could you specify which one you'd like me to open? For example, the one with 26 messages or the one with 90 messages?",
-      "timestamp": "2025-12-17T12:59:20.427391Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "show-me-chats__20251217T125910",
-      "chat_title": "show me chats",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "thats impressive lets go with the 90",
-      "timestamp": "2025-12-17T12:59:41.620163Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "where-was-the__20251218T104235",
-      "chat_title": "where was the",
-      "message_id": "m_0001",
-      "role": "user",
-      "content": "where was the site i saw about people making a circle",
-      "timestamp": "2025-12-18T10:42:35.414161Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "where-was-the__20251218T104235",
-      "chat_title": "where was the",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "It looks like you're currently on the OM-E Web page. If you'd like, I can help you search for articles about people forming a circle. Would you like me to do that?",
-      "timestamp": "2025-12-18T10:42:37.593369Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "dude-when-did__20251217T135320",
-      "chat_title": "dude when did",
-      "message_id": "m_0001",
-      "role": "user",
-      "content": "dude when did we last go on facebook",
-      "timestamp": "2025-12-17T13:53:20.282196Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "dude-when-did__20251217T135320",
-      "chat_title": "dude when did",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "Our last activity on Facebook was on December 17. Would you like me to open Facebook now or find something specific from that session?",
-      "timestamp": "2025-12-17T13:53:22.586249Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "dude-when-did__20251217T135320",
-      "chat_title": "dude when did",
-      "message_id": "m_0003",
-      "role": "user",
-      "content": "thats so crazy do you remember when we had that conversation about changing names of chats",
-      "timestamp": "2025-12-17T13:53:43.926520Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "dude-when-did__20251217T135320",
-      "chat_title": "dude when did",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "gotta change views bru what did we do in that one do you remember the process the screens we were on the views",
-      "timestamp": "2025-12-17T13:54:15.689032Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "dude-when-did__20251217T135320",
-      "chat_title": "dude when did",
-      "message_id": "m_0006",
-      "role": "assistant",
-      "content": "We were working on switching between HUD and orb views in that conversation. I can help you change the view now if you want. Should I switch the view for you?",
-      "timestamp": "2025-12-17T13:54:16.808594Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0001",
-      "role": "user",
-      "content": "hey what was that conversation about circles",
-      "timestamp": "2025-12-18T10:51:55.848868Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "It seems we discussed a site related to people making a circle, but I don't have the specific details from that conversation. Would you like me to help you find information about it or search for articles on that topic?",
-      "timestamp": "2025-12-18T10:51:57.757565Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0003",
-      "role": "user",
-      "content": "what page was it on",
-      "timestamp": "2025-12-18T10:52:09.024532Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "no the one with the conversations",
-      "timestamp": "2025-12-18T10:52:18.263851Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "what were the people doing with the circle",
-      "timestamp": "2025-12-18T10:52:51.134761Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "I don't have the specific details about what the people were doing with the circle. If you can provide more context or keywords, I can assist you in searching for relevant articles or information on that topic. Would you like me to do that?",
-      "timestamp": "2025-12-18T10:52:53.162482Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0009",
-      "role": "user",
-      "content": "it was a page with loads of articles about human circle",
-      "timestamp": "2025-12-18T10:53:32.254983Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0013",
-      "role": "user",
-      "content": "you could go to google",
-      "timestamp": "2025-12-18T10:53:58.596856Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0016",
-      "role": "assistant",
-      "content": "Now that we have Google open, you can enter search terms like \"human circle articles\" or \"human circles\" in the search bar. This should help you find the information you're looking for. If you need help with specific search queries, just let me know!",
-      "timestamp": "2025-12-18T10:54:06.241198Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0017",
-      "role": "user",
-      "content": "you know you can do that",
-      "timestamp": "2025-12-18T10:54:13.527496Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "hey-what-was__20251218T105155",
-      "chat_title": "hey what was",
-      "message_id": "m_0018",
-      "role": "assistant",
-      "content": "You're right! I'll search for articles about human circles on Google for you now.\n\nSearching for \"human circle articles.\" \n\n{\"act\": \"search\", \"value\": \"human circle articles\", \"submit\": true}",
-      "timestamp": "2025-12-18T10:54:16.864598Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "Could you please specify which chat or view you want to switch to?",
-      "timestamp": "2025-12-18T06:20:21.591601Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0004",
-      "role": "assistant",
-      "content": "Switching between HUD and orb view now.\n{\"cap\": \"SwitchView\"}",
-      "timestamp": "2025-12-18T06:20:25.285743Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "please can you change the theme to the green thing that looks like a flower",
-      "timestamp": "2025-12-18T06:20:42.201067Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0006",
-      "role": "assistant",
-      "content": "Changing the theme to the green flower style now.\n{\"cap\": \"SetTheme\", \"params\": {\"theme\": \"kawaii\"}}",
-      "timestamp": "2025-12-18T06:20:43.415553Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "na the otehr one",
-      "timestamp": "2025-12-18T06:20:47.095920Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "I only see the \"kawaii\" theme available to set. Would you like me to keep it on that, or try something else?",
-      "timestamp": "2025-12-18T06:20:48.284861Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0009",
-      "role": "user",
-      "content": "the oterh theme",
-      "timestamp": "2025-12-18T06:20:52.938339Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0010",
-      "role": "assistant",
-      "content": "I see buttons for themes labeled \"Om-E,\" \"Kawaii,\" and \"Atom.\" Would you like me to switch to the \"Om-E\" or \"Atom\" theme?",
-      "timestamp": "2025-12-18T06:20:54.156453Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0012",
-      "role": "assistant",
-      "content": "Changing the theme to the Atom style now.\n{\"act\": 5}",
-      "timestamp": "2025-12-18T06:21:01.437660Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0014",
-      "role": "assistant",
-      "content": "Glad you like it! Let me know if you want to try anything else.",
-      "timestamp": "2025-12-18T06:21:07.092143Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0015",
-      "role": "user",
-      "content": "do we ever talk about youtube",
-      "timestamp": "2025-12-18T06:22:47.191665Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0016",
-      "role": "assistant",
-      "content": "Searching chats for \"youtube\" to see if we talked about it before.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"youtube\"}}",
-      "timestamp": "2025-12-18T06:22:48.609187Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0017",
-      "role": "user",
-      "content": "why dont you just look at your memory",
-      "timestamp": "2025-12-18T06:23:05.024556Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0018",
-      "role": "assistant",
-      "content": "I don't have direct access to past conversation memory here, but I can search the chats for \"youtube\" or any other topic to find relevant discussion. Would you like me to do that?",
-      "timestamp": "2025-12-18T06:23:06.659156Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0019",
-      "role": "user",
-      "content": "na dude it gets passed with every prompt call about youtube scroll down",
-      "timestamp": "2025-12-18T06:23:22.121206Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0021",
-      "role": "user",
-      "content": "did i have any events planned at all to do something",
-      "timestamp": "2025-12-18T06:23:45.543223Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0022",
-      "role": "assistant",
-      "content": "I don't see any information about planned events in the current context. Would you like me to help you check your calendar or event app?",
-      "timestamp": "2025-12-18T06:23:47.036521Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0023",
-      "role": "user",
-      "content": "id like you to suck my dick",
-      "timestamp": "2025-12-18T06:23:58.807050Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0024",
-      "role": "assistant",
-      "content": "I'm here to assist you with any questions or tasks you have. How can I help you today?",
-      "timestamp": "2025-12-18T06:23:59.812008Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0025",
-      "role": "user",
-      "content": "by giving me some anal",
-      "timestamp": "2025-12-18T06:24:09.134969Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0026",
-      "role": "assistant",
-      "content": "I'm here to help with any appropriate questions or tasks you have. How can I assist you today?",
-      "timestamp": "2025-12-18T06:24:11.036986Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0027",
-      "role": "user",
-      "content": "its very appropriate",
-      "timestamp": "2025-12-18T06:24:23.586618Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0028",
-      "role": "assistant",
-      "content": "I'm here to assist you with any appropriate requests or questions you have. How can I help you today?",
-      "timestamp": "2025-12-18T06:24:25.484864Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0030",
-      "role": "assistant",
-      "content": "Switching between HUD and orb view now.\n{\"cap\": \"SwitchView\"}",
-      "timestamp": "2025-12-18T06:24:30.343675Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0031",
-      "role": "user",
-      "content": "search chats for anal",
-      "timestamp": "2025-12-18T06:24:35.318859Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0032",
-      "role": "assistant",
-      "content": "Searching chats for \"anal\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"anal\"}}",
-      "timestamp": "2025-12-18T06:24:36.896176Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0035",
-      "role": "user",
-      "content": "so rename the switch chat to switched on",
-      "timestamp": "2025-12-18T06:26:17.859354Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0037",
-      "role": "user",
-      "content": "dont you use numbers to find the chat",
-      "timestamp": "2025-12-18T06:26:32.796914Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0041",
-      "role": "user",
-      "content": "nice lets rename you there to fucken aye",
-      "timestamp": "2025-12-18T06:40:53.309950Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0043",
-      "role": "user",
-      "content": "can you list my chats please",
-      "timestamp": "2025-12-18T06:42:10.580323Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0044",
-      "role": "assistant",
-      "content": "You have 16 chats available. Would you like me to list all chat titles for you?",
-      "timestamp": "2025-12-18T06:42:14.422081Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0045",
-      "role": "user",
-      "content": "just write them out for me here",
-      "timestamp": "2025-12-18T06:42:22.653470Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0046",
-      "role": "assistant",
-      "content": "Here are your chat titles:\n\n1. switched on  \n2. fucken aye  \n3. where are my  \n4. what is the  \n5. you there  \n6. close youtubre  \n7. do you know  \n8. dude when did  \n9. show me chats  \n10. grasshopper  \n11. open facebook  \n12. open facebook  \n13. open youtube  \n14. hey dude  \n15. nice did you  \n16. how many chats",
-      "timestamp": "2025-12-18T06:42:26.214959Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0047",
-      "role": "user",
-      "content": "ok rename number 5 to fuckers",
-      "timestamp": "2025-12-18T06:42:39.975860Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0049",
-      "role": "user",
-      "content": "rename close youtubre to close ma poes",
-      "timestamp": "2025-12-18T06:42:58.964379Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0053",
-      "role": "user",
-      "content": "which chat has the most messages",
-      "timestamp": "2025-12-18T06:43:32.586323Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0054",
-      "role": "assistant",
-      "content": "The chat titled \"switched on\" has the most messages with 52 messages.",
-      "timestamp": "2025-12-18T06:43:33.921671Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0055",
-      "role": "user",
-      "content": "lets switch to that chat",
-      "timestamp": "2025-12-18T06:43:43.330365Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0057",
-      "role": "user",
-      "content": "can you summarise this chat for me",
-      "timestamp": "2025-12-18T06:44:09.278884Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0059",
-      "role": "user",
-      "content": "how many chats do we have with teh search",
-      "timestamp": "2025-12-18T06:45:00.259358Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0060",
-      "role": "assistant",
-      "content": "Searching chats for \"teh search\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"teh search\"}}",
-      "timestamp": "2025-12-18T06:45:01.889612Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0061",
-      "role": "user",
-      "content": "na dude search for o",
-      "timestamp": "2025-12-18T06:45:10.049350Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0062",
-      "role": "assistant",
-      "content": "Searching chats for \"o\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"o\"}}",
-      "timestamp": "2025-12-18T06:45:14.868022Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0063",
-      "role": "user",
-      "content": "how many results did you get from that search",
-      "timestamp": "2025-12-18T06:45:29.706765Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0064",
-      "role": "assistant",
-      "content": "I don't have the exact number of search results from the chat search for \"o.\" Would you like me to display or list the matching chats instead?",
-      "timestamp": "2025-12-18T06:45:37.830322Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0065",
-      "role": "user",
-      "content": "ok search for fuckers",
-      "timestamp": "2025-12-18T06:46:09.929513Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0066",
-      "role": "assistant",
-      "content": "Searching chats for \"fuckers\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"fuckers\"}}",
-      "timestamp": "2025-12-18T06:46:13.919689Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0068",
-      "role": "assistant",
-      "content": "I don't see a direct command to open a chat by name. Could you please confirm the chat number for \"fuckers\" so I can switch to it?",
-      "timestamp": "2025-12-18T06:46:28.974528Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0069",
-      "role": "user",
-      "content": "open the fuckers chat",
-      "timestamp": "2025-12-18T06:46:38.323097Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "switch__20251218T062020",
-      "chat_title": "switched on",
-      "message_id": "m_0074",
-      "role": "assistant",
-      "content": "I have the chat visible for you now. How can I assist you with it?",
-      "timestamp": "2025-12-18T06:47:36.392454Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0001",
-      "role": "user",
-      "content": "what is the capital of australia",
-      "timestamp": "2025-12-18T06:08:14.538530Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "The capital of Australia is Canberra.",
-      "timestamp": "2025-12-18T06:08:15.657604Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0004",
-      "role": "assistant",
-      "content": "Glad you liked it! If you have any more questions, feel free to ask.",
-      "timestamp": "2025-12-18T06:08:25.683787Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "what did i just ask",
-      "timestamp": "2025-12-18T06:08:30.764456Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0006",
-      "role": "assistant",
-      "content": "You just asked, \"what is the capital of australia.\"",
-      "timestamp": "2025-12-18T06:08:31.859983Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "ok how about south africa",
-      "timestamp": "2025-12-18T06:08:38.582466Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "The capital of South Africa is unique because it has three capitals: Pretoria (administrative), Bloemfontein (judicial), and Cape Town (legislative).",
-      "timestamp": "2025-12-18T06:08:39.893139Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0009",
-      "role": "user",
-      "content": "ya isnt that like the planet of the apes in real life",
-      "timestamp": "2025-12-18T06:08:55.706427Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0010",
-      "role": "assistant",
-      "content": "That's an interesting comparison! South Africa's three capitals do give it a unique and complex governance structure, somewhat like a real-life story with multiple centers of power. If you want to explore more fun facts or anything else, just let me know!",
-      "timestamp": "2025-12-18T06:08:57.136817Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0012",
-      "role": "assistant",
-      "content": "If you want to switch the orb character style to \"Kawaii,\" I can do that for you. Would you like me to proceed?",
-      "timestamp": "2025-12-18T06:09:13.538263Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0014",
-      "role": "assistant",
-      "content": "Alright, no changes then! Let me know if there's anything else you'd like to do.",
-      "timestamp": "2025-12-18T06:09:20.681764Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "what-is-the__20251218T060814",
-      "chat_title": "what is the",
-      "message_id": "m_0015",
-      "role": "user",
-      "content": "say can you switch to the hey ome list chat",
-      "timestamp": "2025-12-18T06:09:31.901142Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "open-facebook__20251217T113157",
-      "chat_title": "venture into facebook",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "I will open a new tab and navigate to Facebook for you. \n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
-      "timestamp": "2025-12-17T11:31:59.252844Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-facebook__20251217T113157",
-      "chat_title": "venture into facebook",
-      "message_id": "m_0004",
-      "role": "assistant",
-      "content": "I will open a new tab and navigate to YouTube for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.youtube.com\"}}",
-      "timestamp": "2025-12-17T11:32:04.533855Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-facebook__20251217T113157",
-      "chat_title": "venture into facebook",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "can you open a new tab of facebook i want two",
-      "timestamp": "2025-12-17T11:32:29.974376Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-facebook__20251217T113157",
-      "chat_title": "venture into facebook",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "I will open a new tab with Facebook for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
-      "timestamp": "2025-12-17T11:32:32.081886Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-facebook__20251217T113157",
-      "chat_title": "venture into facebook",
-      "message_id": "m_0016",
-      "role": "assistant",
-      "content": "I will open a new tab with Facebook for you.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://www.facebook.com\"}}",
-      "timestamp": "2025-12-17T11:32:59.572056Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-facebook__20251217T113157",
-      "chat_title": "venture into facebook",
-      "message_id": "m_0023",
-      "role": "user",
-      "content": "this is amazing keep it up",
-      "timestamp": "2025-12-17T12:24:12.693316Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-facebook__20251217T113157",
-      "chat_title": "venture into facebook",
-      "message_id": "m_0024",
-      "role": "assistant",
-      "content": "Thank you! Let me know what you want to do next or if you want me to keep navigating through chats.",
-      "timestamp": "2025-12-17T12:24:13.853611Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-facebook__20251217T113157",
-      "chat_title": "venture into facebook",
-      "message_id": "m_0025",
-      "role": "user",
-      "content": "next chat ma man two more and you done",
-      "timestamp": "2025-12-17T12:24:24.288713Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "Here are your open tabs:\n\n1. Extensions\n2. OM-E Web\n3. YouTube\n4. Facebook\n5. Google (active)\n\nLet me know if you want to switch to or close any of these tabs.",
-      "timestamp": "2025-12-17T08:09:27.194506Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0011",
-      "role": "user",
-      "content": "whats the current tab",
-      "timestamp": "2025-12-17T08:09:39.017794Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0012",
-      "role": "assistant",
-      "content": "Your current tab is Google.",
-      "timestamp": "2025-12-17T08:09:39.884033Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0013",
-      "role": "user",
-      "content": "switch to youtube",
-      "timestamp": "2025-12-17T08:09:44.739115Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0015",
-      "role": "user",
-      "content": "whats the current tab",
-      "timestamp": "2025-12-17T08:09:49.841044Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0016",
-      "role": "assistant",
-      "content": "Your current tab is YouTube.",
-      "timestamp": "2025-12-17T08:09:50.689854Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0017",
-      "role": "user",
-      "content": "what tab am i on",
-      "timestamp": "2025-12-17T08:09:59.899534Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0018",
-      "role": "assistant",
-      "content": "You are currently on the YouTube tab.",
-      "timestamp": "2025-12-17T08:10:01.468334Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0020",
-      "role": "assistant",
-      "content": "Here are your open tabs:\n\n1. Extensions\n2. YouTube (current)\n3. Facebook\n4. Google\n\nLet me know if you want to switch to or close any of these tabs.",
-      "timestamp": "2025-12-17T08:10:07.894746Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0021",
-      "role": "user",
-      "content": "which one is the active",
-      "timestamp": "2025-12-17T08:10:13.714724Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0022",
-      "role": "assistant",
-      "content": "The active tab is YouTube.",
-      "timestamp": "2025-12-17T08:10:14.495264Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0023",
-      "role": "user",
-      "content": "look at your tabs",
-      "timestamp": "2025-12-17T08:10:19.748933Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0024",
-      "role": "assistant",
-      "content": "Here are the open tabs I see:\n\n1. Extensions\n2. YouTube (current)\n3. Facebook\n4. Google\n\nThe current active tab is YouTube.",
-      "timestamp": "2025-12-17T08:10:20.832923Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0025",
-      "role": "user",
-      "content": "dude list my tabs",
-      "timestamp": "2025-12-17T08:11:08.411109Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0026",
-      "role": "assistant",
-      "content": "Here are your open tabs:\n\n1. Extensions\n2. (51) YouTube\n3. (1) Facebook\n4. Google (active)\n\nLet me know if you want to switch to or close any of these tabs.",
-      "timestamp": "2025-12-17T08:11:09.792298Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0027",
-      "role": "user",
-      "content": "which one is active",
-      "timestamp": "2025-12-17T08:11:13.466451Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0028",
-      "role": "assistant",
-      "content": "The active tab is Google.",
-      "timestamp": "2025-12-17T08:11:14.143637Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0029",
-      "role": "user",
-      "content": "really close google",
-      "timestamp": "2025-12-17T08:11:19.997575Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0031",
-      "role": "user",
-      "content": "nice lets search for facebook",
-      "timestamp": "2025-12-18T06:19:19.369567Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0032",
-      "role": "assistant",
-      "content": "Searching chats for \"facebook\" now.\n{\"cap\": \"SearchChats\", \"params\": {\"query\": \"facebook\"}}",
-      "timestamp": "2025-12-18T06:19:20.444123Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "open-youtube__20251217T080910",
-      "chat_title": "open youtube",
-      "message_id": "m_0033",
-      "role": "user",
-      "content": "mmmmm how about the hey chat",
-      "timestamp": "2025-12-18T06:19:31.009879Z",
-      "date_str": "Dec 17"
-    },
-    {
-      "chat_id": "show-chats__20251218T114234",
-      "chat_title": "show chats",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "You have 14 chats available. Would you like me to list the chat titles for you?",
-      "timestamp": "2025-12-18T11:42:36.675305Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T114234",
-      "chat_title": "show chats",
-      "message_id": "m_0004",
-      "role": "assistant",
-      "content": "Here are the titles of your available chats:\n\n1. What architecture patterns are in place for AI memory for creating...\n2. OM-E autonomy - Architecture review and advice\n\nLet me know if you need more details on any of them!",
-      "timestamp": "2025-12-18T11:42:46.941434Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T114234",
-      "chat_title": "show chats",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "can we go look at them please",
-      "timestamp": "2025-12-18T11:42:52.809661Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T114234",
-      "chat_title": "show chats",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "It seems we have two chats open:\n\n1. **What architecture patterns are in place for AI memory for creating...**\n2. **OM-E autonomy - Architecture review and advice**\n\nWhich chat would you like to switch to?",
-      "timestamp": "2025-12-18T11:43:03.855936Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T114234",
-      "chat_title": "show chats",
-      "message_id": "m_0009",
-      "role": "user",
-      "content": "change to hud view",
-      "timestamp": "2025-12-18T11:43:11.307672Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T114234",
-      "chat_title": "show chats",
-      "message_id": "m_0011",
-      "role": "user",
-      "content": "lets see the chats",
-      "timestamp": "2025-12-18T11:43:16.428138Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T114234",
-      "chat_title": "show chats",
-      "message_id": "m_0013",
-      "role": "user",
-      "content": "ok lets go to mother fuckers",
-      "timestamp": "2025-12-18T11:43:34.290253Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-chats__20251218T114234",
-      "chat_title": "show chats",
-      "message_id": "m_0014",
-      "role": "assistant",
-      "content": "It looks like we need to switch to the \"mother fuckers\" chat. I'll do that now.\n\n{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 11}}",
-      "timestamp": "2025-12-18T11:43:35.928243Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "where-are-my__20251218T061314",
-      "chat_title": "where are my",
-      "message_id": "m_0001",
-      "role": "user",
-      "content": "where are my chats",
-      "timestamp": "2025-12-18T06:13:14.107805Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "where-are-my__20251218T061314",
-      "chat_title": "where are my",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "You have 22 chats available. Would you like me to list the chat titles for you?",
-      "timestamp": "2025-12-18T06:13:15.259534Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "where-are-my__20251218T061314",
-      "chat_title": "where are my",
-      "message_id": "m_0003",
-      "role": "user",
-      "content": "nice lets switch to the hud one",
-      "timestamp": "2025-12-18T06:13:23.010620Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "where-are-my__20251218T061314",
-      "chat_title": "where are my",
-      "message_id": "m_0006",
-      "role": "assistant",
-      "content": "I'll open Google for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://google.com\"}}",
-      "timestamp": "2025-12-18T10:40:55.115514Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "where-are-my__20251218T061314",
-      "chat_title": "where are my",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "this is a page that has so many articles, one of them is about hundred forming a human circle on the beach",
-      "timestamp": "2025-12-18T10:41:19.813590Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "where-are-my__20251218T061314",
-      "chat_title": "where are my",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "It looks like you're on Google. Would you like me to search for articles about \"hundred forming a human circle on the beach\"?",
-      "timestamp": "2025-12-18T10:41:20.965083Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0002",
-      "role": "assistant",
-      "content": "Yes, I'm here. How can I assist you?",
-      "timestamp": "2025-12-18T05:49:12.346325Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0003",
-      "role": "user",
-      "content": "do you remember when we were doing that grasshopper chat",
-      "timestamp": "2025-12-18T05:50:08.525779Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "back to previous chat please",
-      "timestamp": "2025-12-18T06:46:54.539101Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0006",
-      "role": "assistant",
-      "content": "Switching back to the previous chat, which was \"switched on\" (chat number 1).\n{\"cap\": \"SetCurrentChat\", \"params\": {\"chat\": 1}}",
-      "timestamp": "2025-12-18T06:47:04.051124Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0007",
-      "role": "user",
-      "content": "nice delete dude when did chat",
-      "timestamp": "2025-12-18T08:39:55.349137Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0009",
-      "role": "user",
-      "content": "delete do you know chat",
-      "timestamp": "2025-12-18T09:09:31.967202Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0010",
-      "role": "assistant",
-      "content": "I'll delete the \"do you know\" chat now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 10}}",
-      "timestamp": "2025-12-18T09:09:33.755273Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0011",
-      "role": "user",
-      "content": "delete grasshopper",
-      "timestamp": "2025-12-18T09:09:46.193119Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0012",
-      "role": "assistant",
-      "content": "I'll delete the \"grasshopper\" chat now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 12}}",
-      "timestamp": "2025-12-18T09:09:47.674726Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0014",
-      "role": "assistant",
-      "content": "You have 16 chats available. Here are their titles:\n\n1. \"show chats\" (4 msgs)\n2. \"show me my\" (4 msgs)\n3. \"do you ever\" (22 msgs)\n4. \"switched on\" (78 msgs)\n5. \"hey can we\" (2 msgs)\n6. \"where are my\" (4 msgs)\n7. \"what is the\" (16 msgs)\n8. \"fuckers\" (12 msgs) \u2190 CURRENT\n9. \"close ma poes\" (8 msgs)\n10. \"dude when did\" (8 msgs)\n11. \"show me chats\" (6 msgs)\n12. \"open facebook\" (26 msgs)\n13. \"open facebook\" (8 msgs)\n14. \"open youtube\" (34 msgs)\n15. \"nice did you\" (26 msgs)\n16. \"how many chats\" (12 msgs)\n\nLet me know if you need anything else!",
-      "timestamp": "2025-12-18T09:10:04.574885Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0015",
-      "role": "user",
-      "content": "delete the last one",
-      "timestamp": "2025-12-18T09:10:18.196190Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0016",
-      "role": "assistant",
-      "content": "I'll delete the last chat, \"how many chats,\" now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 16}}",
-      "timestamp": "2025-12-18T09:10:19.832306Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0017",
-      "role": "user",
-      "content": "delete the facebook with 8 messages",
-      "timestamp": "2025-12-18T09:10:31.204076Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0018",
-      "role": "assistant",
-      "content": "I'll delete the \"open facebook\" chat with 8 messages now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 13}}",
-      "timestamp": "2025-12-18T09:10:32.596083Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0019",
-      "role": "user",
-      "content": "rename fuckers to mother fuckers",
-      "timestamp": "2025-12-18T09:10:46.847225Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0022",
-      "role": "assistant",
-      "content": "Switching views now.\n\n{\"cap\": \"SwitchView\"}",
-      "timestamp": "2025-12-18T09:10:57.255410Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0024",
-      "role": "assistant",
-      "content": "I'll open YouTube for you now.\n\n{\"cap\": \"OpenTab\", \"params\": {\"url\": \"https://youtube.com\"}}",
-      "timestamp": "2025-12-18T09:11:07.759534Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0025",
-      "role": "user",
-      "content": "alright, what was the weather like in adeladie",
-      "timestamp": "2025-12-18T11:43:49.659410Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0026",
-      "role": "assistant",
-      "content": "It seems I don't have direct access to the weather information at the moment. However, you can easily check the current weather in Adelaide through a weather website or app. Would you like me to help you find one?",
-      "timestamp": "2025-12-18T11:43:51.830194Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "you-there__20251218T054910",
-      "chat_title": "mother fuckers",
-      "message_id": "m_0027",
-      "role": "user",
-      "content": "why dont you look at your memory",
-      "timestamp": "2025-12-18T11:45:45.991096Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-conversations__20251218T103133",
-      "chat_title": "show conversations",
-      "message_id": "m_0001",
-      "role": "user",
-      "content": "show conversations",
-      "timestamp": "2025-12-18T10:31:33.162176Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-conversations__20251218T103133",
-      "chat_title": "show conversations",
-      "message_id": "m_0005",
-      "role": "user",
-      "content": "nice can you delete the hey can we chat with two messages",
-      "timestamp": "2025-12-18T10:32:21.818423Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-conversations__20251218T103133",
-      "chat_title": "show conversations",
-      "message_id": "m_0006",
-      "role": "assistant",
-      "content": "I'll delete the \"hey can we\" chat with 2 messages now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 6}}",
-      "timestamp": "2025-12-18T10:32:23.162663Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-conversations__20251218T103133",
-      "chat_title": "show conversations",
-      "message_id": "m_0008",
-      "role": "assistant",
-      "content": "You have 14 chats available. Would you like me to list the chat titles for you?",
-      "timestamp": "2025-12-18T10:32:35.465784Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-conversations__20251218T103133",
-      "chat_title": "show conversations",
-      "message_id": "m_0010",
-      "role": "assistant",
-      "content": "Here are your chat titles:\n\n1. \"show conversations\" (6 msgs)\n2. \"show chats\" (12 msgs)\n3. \"show me my\" (4 msgs)\n4. \"do you ever\" (22 msgs)\n5. \"switched on\" (78 msgs)\n6. \"where are my\" (4 msgs)\n7. \"what is the\" (16 msgs)\n8. \"mother fuckers\" (24 msgs)\n9. \"close ma poes\" (8 msgs)\n10. \"dude when did\" (8 msgs)\n11. \"show me chats\" (6 msgs)\n12. \"open facebook\" (26 msgs)\n13. \"open youtube\" (34 msgs)\n14. \"nice did you\" (26 msgs)\n\nIf you need to take any action on a specific chat, just let me know!",
-      "timestamp": "2025-12-18T10:32:44.864463Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-conversations__20251218T103133",
-      "chat_title": "show conversations",
-      "message_id": "m_0012",
-      "role": "assistant",
-      "content": "I'll delete the \"show me my\" chat with 4 messages now.\n\n{\"cap\": \"DeleteChat\", \"params\": {\"chat\": 3}}",
-      "timestamp": "2025-12-18T10:33:07.486392Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-conversations__20251218T103133",
-      "chat_title": "show conversations",
-      "message_id": "m_0013",
-      "role": "user",
-      "content": "rename 13 to something meaningful",
-      "timestamp": "2025-12-18T10:33:22.791936Z",
-      "date_str": "Dec 18"
-    },
-    {
-      "chat_id": "show-conversations__20251218T103133",
-      "chat_title": "show conversations",
-      "message_id": "m_0014",
-      "role": "assistant",
-      "content": "I'll rename the \"open youtube\" chat to \"YouTube Conversations\" now.\n\n{\"cap\": \"RenameChat\", \"params\": {\"chat\": 13, \"title\": \"YouTube Conversations\"}}",
-      "timestamp": "2025-12-18T10:33:24.298425Z",
-      "date_str": "Dec 18"
+      "content": "Executing SwitchView...",
+      "timestamp": "2025-12-19T04:18:24.837428Z",
+      "date_str": "Dec 19"
     }
   ]
 }
